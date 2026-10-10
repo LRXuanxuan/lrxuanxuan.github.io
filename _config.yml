@@ -212,6 +212,7 @@ exclude:
   - _tabs/categories.md
   - _tabs/tags.md
   - _tabs/archives.md
+  - _tabs/about.md
 
 jekyll-archives:
   enabled: [categories, tags]
