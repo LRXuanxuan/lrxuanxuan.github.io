@@ -8,42 +8,42 @@ Flower已在阅读笔记中，但原推荐表尚无记录；按用户指定资�
 
 历史值、公式、样式、超链接、批注、行列尺寸、冻结窗格及合并区域对照通过。新增行继承末行格式，略读/精读为☐、备注留空。正式文件已重开，无公式错误。
 
+## 2026-10-02（20篇）
+
 <span id="paper-e10348decd7f0866"></span>
 
 [对应论文条目](/papers/items/e10348decd7f0866/)
 
+- 第222行：Can Channel Knowledge Map Help to Predict Instantaneous MIMO Channel State Information?
 <span id="paper-f1900748d3249be6"></span>
 
 [对应论文条目](/papers/items/f1900748d3249be6/)
 
+- 第223行：Ambient Diffusion: Learning Clean Distributions from Corrupted Data
 <span id="paper-b02fa6815cfbc54e"></span>
 
 [对应论文条目](/papers/items/b02fa6815cfbc54e/)
 
+- 第224行：Solving General Noisy Inverse Problem via Posterior Sampling: A Policy Gradient Viewpoint
 <span id="paper-b9e4ec1984babd3a"></span>
 
 [对应论文条目](/papers/items/b9e4ec1984babd3a/)
 
+- 第225行：A Tutorial on Environment-Aware Communications via Channel Knowledge Map for 6G
 <span id="paper-a726dc223fa71900"></span>
 
 [对应论文条目](/papers/items/a726dc223fa71900/)
 
+- 第226行：Learning Radio Environments by Differentiable Ray Tracing
 <span id="paper-60e0b265df0ae795"></span>
 
 [对应论文条目](/papers/items/60e0b265df0ae795/)
 
+- 第227行：Channel Charting in Real-World Coordinates with Distributed MIMO
 <span id="paper-3338a24ceb5e8eb5"></span>
 
 [对应论文条目](/papers/items/3338a24ceb5e8eb5/)
 
-## 2026-10-02（20篇）
-
-- 第222行：Can Channel Knowledge Map Help to Predict Instantaneous MIMO Channel State Information?
-- 第223行：Ambient Diffusion: Learning Clean Distributions from Corrupted Data
-- 第224行：Solving General Noisy Inverse Problem via Posterior Sampling: A Policy Gradient Viewpoint
-- 第225行：A Tutorial on Environment-Aware Communications via Channel Knowledge Map for 6G
-- 第226行：Learning Radio Environments by Differentiable Ray Tracing
-- 第227行：Channel Charting in Real-World Coordinates with Distributed MIMO
 - 第228行：Provably Convergent Plug-and-Play Quasi-Newton Methods
 <span id="paper-09661b8958d1b02a"></span>
 
@@ -111,42 +111,42 @@ Flower已在阅读笔记中，但原推荐表尚无记录；按用户指定资�
 
 - 第241行：On the Guidance of Flow Matching
 
+## 2026-10-03（20篇）
+
 <span id="paper-9a4a8633e5db0f4d"></span>
 
 [对应论文条目](/papers/items/9a4a8633e5db0f4d/)
 
+- 第242行：On the Asymptotic Mean Square Error Optimality of Diffusion Models
 <span id="paper-48bed439be9231b8"></span>
 
 [对应论文条目](/papers/items/48bed439be9231b8/)
 
+- 第243行：SITCOM: Step-wise Triple-Consistent Diffusion Sampling For Inverse Problems
 <span id="paper-392a857d5f3f7b79"></span>
 
 [对应论文条目](/papers/items/392a857d5f3f7b79/)
 
+- 第244行：Equivariant Bootstrapping for Uncertainty Quantification in Imaging Inverse Problems
 <span id="paper-aea64912f5bf7b50"></span>
 
 [对应论文条目](/papers/items/aea64912f5bf7b50/)
 
+- 第245行：Task-Driven Uncertainty Quantification in Inverse Problems via Conformal Prediction
 <span id="paper-95e5fd12e73da284"></span>
 
 [对应论文条目](/papers/items/95e5fd12e73da284/)
 
+- 第246行：Solving Inverse Problems via Diffusion Optimal Control
 <span id="paper-1e18e06c70407123"></span>
 
 [对应论文条目](/papers/items/1e18e06c70407123/)
 
+- 第247行：DMPlug: A Plug-in Method for Solving Inverse Problems with Diffusion Models
 <span id="paper-94038d4349873018"></span>
 
 [对应论文条目](/papers/items/94038d4349873018/)
 
-## 2026-10-03（20篇）
-
-- 第242行：On the Asymptotic Mean Square Error Optimality of Diffusion Models
-- 第243行：SITCOM: Step-wise Triple-Consistent Diffusion Sampling For Inverse Problems
-- 第244行：Equivariant Bootstrapping for Uncertainty Quantification in Imaging Inverse Problems
-- 第245行：Task-Driven Uncertainty Quantification in Inverse Problems via Conformal Prediction
-- 第246行：Solving Inverse Problems via Diffusion Optimal Control
-- 第247行：DMPlug: A Plug-in Method for Solving Inverse Problems with Diffusion Models
 - 第248行：A Variational Perspective on Solving Inverse Problems with Diffusion Models
 <span id="paper-656199bdc705e407"></span>
 
@@ -214,47 +214,47 @@ Flower已在阅读笔记中，但原推荐表尚无记录；按用户指定资�
 
 - 第261行：Physics-Informed Generative Modeling of Wireless Channels
 
+## 2026-10-04（20篇）
+
 <span id="paper-5856c0521ef7a0c4"></span>
 
 [对应论文条目](/papers/items/5856c0521ef7a0c4/)
 
+- 第262行：System-Embedded Diffusion Bridge Models
 <span id="paper-685f885dafcb782a"></span>
 
 [对应论文条目](/papers/items/685f885dafcb782a/)
 
+- 第263行：Flow Priors for Linear Inverse Problems via Iterative Corrupted Trajectory Matching
 <span id="paper-208eab9d15bedea0"></span>
 
 [对应论文条目](/papers/items/208eab9d15bedea0/)
 
+- 第264行：Equivariant Splitting: Self-Supervised Learning from Incomplete Data
 <span id="paper-c4f5e47ab1c99e1f"></span>
 
 [对应论文条目](/papers/items/c4f5e47ab1c99e1f/)
 
+- 第265行：How Much Is a Noisy Image Worth? Data Scaling Laws for Ambient Diffusion
 <span id="paper-6ffe4ab7aea24bbc"></span>
 
 [对应论文条目](/papers/items/6ffe4ab7aea24bbc/)
 
+- 第266行：Learning Diffusion Priors from Observations by Expectation Maximization
 <span id="paper-9b1a38cae9b994ed"></span>
 
 [对应论文条目](/papers/items/9b1a38cae9b994ed/)
 
+- 第267行：Equivariant Plug-and-Play Image Reconstruction
 <span id="paper-b35ad01081ff8480"></span>
 
 [对应论文条目](/papers/items/b35ad01081ff8480/)
 
+- 第268行：Bayesian Experimental Design via Contrastive Diffusions
 <span id="paper-50d12cc7ed367df8"></span>
 
 [对应论文条目](/papers/items/50d12cc7ed367df8/)
 
-## 2026-10-04（20篇）
-
-- 第262行：System-Embedded Diffusion Bridge Models
-- 第263行：Flow Priors for Linear Inverse Problems via Iterative Corrupted Trajectory Matching
-- 第264行：Equivariant Splitting: Self-Supervised Learning from Incomplete Data
-- 第265行：How Much Is a Noisy Image Worth? Data Scaling Laws for Ambient Diffusion
-- 第266行：Learning Diffusion Priors from Observations by Expectation Maximization
-- 第267行：Equivariant Plug-and-Play Image Reconstruction
-- 第268行：Bayesian Experimental Design via Contrastive Diffusions
 - 第269行：Robust A-Optimal Experimental Design for Bayesian Inverse Problems
 <span id="paper-e29accba464cb416"></span>
 
@@ -317,42 +317,42 @@ Flower已在阅读笔记中，但原推荐表尚无记录；按用户指定资�
 
 - 第281行：NeWRF: A Deep Learning Framework for Wireless Radiation Field Reconstruction and Channel Prediction
 
+## 2026-10-05（20篇）
+
 <span id="paper-e2bd35371f8c7a83"></span>
 
 [对应论文条目](/papers/items/e2bd35371f8c7a83/)
 
+- 第282行：ArrayDPS: Unsupervised Blind Speech Separation with a Diffusion Prior
 <span id="paper-b269b52f0eef9fb8"></span>
 
 [对应论文条目](/papers/items/b269b52f0eef9fb8/)
 
+- 第283行：Block Coordinate Plug-and-Play Methods for Blind Inverse Problems
 <span id="paper-8d6aa431435d5cb5"></span>
 
 [对应论文条目](/papers/items/8d6aa431435d5cb5/)
 
+- 第284行：Blind Image Restoration via Fast Diffusion Inversion
 <span id="paper-b63c4db5bb3e4f6d"></span>
 
 [对应论文条目](/papers/items/b63c4db5bb3e4f6d/)
 
+- 第285行：Sensing With Communication Signals: From Information Theory to Signal Processing
 <span id="paper-bf9c99bd8d106ad5"></span>
 
 [对应论文条目](/papers/items/bf9c99bd8d106ad5/)
 
+- 第286行：Near-Field Positioning and Attitude Sensing Based on Electromagnetic Propagation Modeling
 <span id="paper-1acaad49a2353e5b"></span>
 
 [对应论文条目](/papers/items/1acaad49a2353e5b/)
 
+- 第287行：Near-Field 3D Localization via MIMO Radar: Cramér-Rao Bound Analysis and Estimator Design
 <span id="paper-d3b2f278ad439789"></span>
 
 [对应论文条目](/papers/items/d3b2f278ad439789/)
 
-## 2026-10-05（20篇）
-
-- 第282行：ArrayDPS: Unsupervised Blind Speech Separation with a Diffusion Prior
-- 第283行：Block Coordinate Plug-and-Play Methods for Blind Inverse Problems
-- 第284行：Blind Image Restoration via Fast Diffusion Inversion
-- 第285行：Sensing With Communication Signals: From Information Theory to Signal Processing
-- 第286行：Near-Field Positioning and Attitude Sensing Based on Electromagnetic Propagation Modeling
-- 第287行：Near-Field 3D Localization via MIMO Radar: Cramér-Rao Bound Analysis and Estimator Design
 - 第288行：Performance Analysis of Near-Field Sensing in Wideband MIMO Systems
 <span id="paper-1742760d5d60390b"></span>
 
