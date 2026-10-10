@@ -193,481 +193,481 @@ TWC正式卷页与Oulu机构库互证，提供物理结构、导频预算、解�
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-05 · Non-Asymptotic Uncertainty Quantification in High-Dimensional Learning
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-05 · Looks Too Good To Be True: An Information-Theoretic Analysis of Hallucinations in Generative Restoration Models
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-05 · Practical and Asymptotically Exact Conditional Sampling in Diffusion Models
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-05 · Flow Map Matching with Stochastic Interpolants: A Mathematical Framework for Consistency Models
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-05 · Functional Flow Matching
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-05 · Simulation-Free Schrödinger Bridges via Score and Flow Matching
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-05 · DiffusionPDE: Generative PDE-Solving Under Partial Observation
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-05 · A Mixture-Based Framework for Guiding Diffusion Models
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-05 · Sampling from the Random Linear Model via Stochastic Localization Up to the AMP Threshold
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-05 · A Radio Map Approach for Reduced Pilot CSI Tracking in Massive MIMO Networks
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-05 · Channel Estimation for Quantized Systems based on Conditionally Gaussian Latent Models
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-05 · Cramér-Rao Bounds for Near-Field Sensing with Extremely Large-Scale MIMO
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-05 · Performance Analysis of Near-Field Sensing in Wideband MIMO Systems
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-05 · Near-Field 3D Localization via MIMO Radar: Cramér-Rao Bound Analysis and Estimator Design
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-05 · Near-Field Positioning and Attitude Sensing Based on Electromagnetic Propagation Modeling
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-05 · Sensing With Communication Signals: From Information Theory to Signal Processing
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-05 · Blind Image Restoration via Fast Diffusion Inversion
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-05 · Block Coordinate Plug-and-Play Methods for Blind Inverse Problems
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-05 · ArrayDPS: Unsupervised Blind Speech Separation with a Diffusion Prior
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-04 · NeWRF: A Deep Learning Framework for Wireless Radiation Field Reconstruction and Channel Prediction
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-04 · A Recovery Theory for Diffusion Priors: Deterministic Analysis of the Implicit Prior Algorithm
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-04 · A Unified Framework for Learning with Nonlinear Model Classes from Arbitrary Linear Samples
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-04 · Weakly Convex Regularisers for Inverse Problems: Convergence of Critical Points and Primal-Dual Optimisation
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-04 · Learning Pseudo-Contractive Denoisers for Inverse Problems
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-04 · Radio Frequency Ray Tracing with Neural Object Representation for Enhanced RF Modeling
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-04 · Generalizable Radio-Frequency Radiance Fields for Spatial Spectrum Synthesis
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-04 · GeRaF: Neural Geometry Reconstruction from Radio Frequency Signals
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-04 · Theoretical Analysis of the Radio Map Estimation Problem
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-04 · Learning Weakly Convex Regularizers for Convergent Image-Reconstruction Algorithms
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-04 · Consistent Diffusion Meets Tweedie: Training Exact Ambient Diffusion Models with Noisy Data
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-04 · PASOA - PArticle baSed Bayesian Optimal Adaptive Design
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-04 · Robust A-Optimal Experimental Design for Bayesian Inverse Problems
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-04 · Bayesian Experimental Design via Contrastive Diffusions
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-04 · Equivariant Plug-and-Play Image Reconstruction
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-04 · Learning Diffusion Priors from Observations by Expectation Maximization
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-04 · How Much Is a Noisy Image Worth? Data Scaling Laws for Ambient Diffusion
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-04 · Equivariant Splitting: Self-Supervised Learning from Incomplete Data
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-04 · Flow Priors for Linear Inverse Problems via Iterative Corrupted Trajectory Matching
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-04 · System-Embedded Diffusion Bridge Models
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-03 · Physics-Informed Generative Modeling of Wireless Channels
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-03 · Convergent Regularization in Inverse Problems and Linear Plug-and-Play Denoisers
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-03 · Plug-and-Play Posterior Sampling under Mismatched Measurement and Prior Models
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-03 · Dual Ascent Diffusion for Inverse Problems
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-03 · GSNR: Graph Smooth Null-Space Representation for Inverse Problems
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-03 · Joint Channel Estimation and Data Detection in Massive MIMO Systems Based on Diffusion Models
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-03 · Point Cloud Environment-Based Channel Knowledge Map Construction
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-03 · Quantized Radio Map Estimation Using Tensor and Deep Generative Models
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-03 · Radio Map Estimation via Latent Domain Plug-and-Play Denoising
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-03 · Downlink MIMO Channel Estimation from Bits: Recoverability and Algorithm
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-03 · Provable Preconditioned Plug-and-Play Approach for Compressed Sensing MRI Reconstruction
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-03 · Principled Probabilistic Imaging using Diffusion Models as Plug-and-Play Priors
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-03 · Provably Robust Score-Based Diffusion Posterior Sampling for Plug-and-Play Image Reconstruction
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-03 · A Variational Perspective on Solving Inverse Problems with Diffusion Models
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-03 · DMPlug: A Plug-in Method for Solving Inverse Problems with Diffusion Models
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-03 · Solving Inverse Problems via Diffusion Optimal Control
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-03 · Task-Driven Uncertainty Quantification in Inverse Problems via Conformal Prediction
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-03 · Equivariant Bootstrapping for Uncertainty Quantification in Imaging Inverse Problems
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-03 · SITCOM: Step-wise Triple-Consistent Diffusion Sampling For Inverse Problems
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-03 · On the Asymptotic Mean Square Error Optimality of Diffusion Models
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-02 · On the Guidance of Flow Matching
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-02 · D-Flow: Differentiating through Flows for Controlled Generation
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-02 · Flower: A Flow-Matching Solver for Inverse Problems
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-02 · Improving Diffusion Models for Inverse Problems Using Optimal Posterior Covariance
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-02 · Latent Refinement via Flow Matching for Training-free Linear Inverse Problem Solving
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-02 · Stochastic Interpolants: A Unifying Framework for Flows and Diffusions
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-02 · Tweedie Moment Projected Diffusions for Inverse Problems
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-02 · Solving Inverse Problems with FLAIR
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-02 · Improving Diffusion Inverse Problem Solving with Decoupled Noise Annealing
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-02 · Fast Samplers for Inverse Problems in Iterative Refinement Models
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-02 · Diffusion Posterior Sampling is Computationally Intractable
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-02 · DEALing with Image Reconstruction: Deep Attentive Least Squares
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-02 · Whitened Score Diffusion: A Structured Prior for Imaging Inverse Problems
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-02 · Provably Convergent Plug-and-Play Quasi-Newton Methods
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-02 · Channel Charting in Real-World Coordinates with Distributed MIMO
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-02 · Learning Radio Environments by Differentiable Ray Tracing
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-02 · A Tutorial on Environment-Aware Communications via Channel Knowledge Map for 6G
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-02 · Solving General Noisy Inverse Problem via Posterior Sampling: A Policy Gradient Viewpoint
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-02 · Ambient Diffusion: Learning Clean Distributions from Corrupted Data
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-10-02 · Can Channel Knowledge Map Help to Predict Instantaneous MIMO Channel State Information?
 
 用户已有日推PDF补录，纳入同一阅读记录表；不计作10月8日新增推荐。
 
-该日尚无本地日报文件
+[阅读日报](/papers/reports/2026-10-08-supplement/)
 
 ### 2026-09-29 · Diffusion as a Training Curriculum for Timestep-Free Iterative Reasoning
 
