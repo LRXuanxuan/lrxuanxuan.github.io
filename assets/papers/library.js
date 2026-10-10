@@ -6,7 +6,7 @@
   const $ = id => document.getElementById(id);
   const make = (tag, text, cls) => { const el = document.createElement(tag); if (text !== undefined) el.textContent = text; if (cls) el.className = cls; return el; };
   const safe = url => typeof url === 'string' && (/^https?:\/\//i.test(url) || /^\/(?!\/)/.test(url));
-  const anchor = (text, url) => { if (!safe(url)) return null; const a = make('a', text); a.href = url; if (/^https?:/.test(url)) {a.target='_blank';a.rel='noopener noreferrer';} return a; };
+  const anchor = (text, url) => { if (!safe(url)) return null; const a = make('a', text); a.href = url.replace(/^http:\/\/jmlr\.org\//,'https://jmlr.org/'); if (/^https?:/.test(url)) {a.target='_blank';a.rel='noopener noreferrer';} return a; };
   let data, view = 'papers', limit = 20;
   const query = new URLSearchParams(location.search); $('pl-query').value=query.get('q')||'';
   function appendLink(parent, text, url) { const a=anchor(text,url); if (a) parent.append(a); }
@@ -32,7 +32,7 @@
   function render() {
     const q=$('pl-query').value.trim().toLowerCase(), day=$('pl-date').value, status=$('pl-status').value, code=$('pl-code').checked;
     const source=view==='papers'?data.papers:data[view];
-    const result=source.filter(p=>(!query.get('paper')||view!=='papers'||p.id===query.get('paper'))&&(!day||p.date===day)&&(!q||JSON.stringify(p).toLowerCase().includes(q))&&(view!=='papers'||((!status||p.status===status)&&(!code||p.github.length))));
+    const result=source.filter(p=>(!query.get('paper')||view!=='papers'||p.id===query.get('paper'))&&(!day||p.date===day)&&(!q||p.title.toLowerCase().includes(q))&&(view!=='papers'||((!status||p.status===status)&&(!code||p.github.length))));
     $('pl-count').textContent=`${view==='papers'?'论文记录':view==='reports'?'日报':'译文'} ${result.length} ${view==='papers'?'条':'份'} · 默认按日期由新到旧`;
     const dest=$('pl-results');dest.replaceChildren();
     for (const p of result.slice(0,limit)) {
