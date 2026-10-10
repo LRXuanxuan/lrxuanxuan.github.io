@@ -107,20 +107,7 @@
       "pdf_sources": [
         "https://arxiv.org/pdf/2506.01043"
       ],
-      "hosted_pdfs": [
-        {
-          "date": "2026-10-10",
-          "title": "A Group-Wise Narrow Beam Design for Uplink Channel Estimation in Hybrid Beamforming Systems",
-          "authors": "Zhou, Yufan; Xiao, Yongbo; Liu, An",
-          "site_path": "assets/papers/pdf/2026-10-10/2506.01043.pdf",
-          "source_url": "https://arxiv.org/pdf/2506.01043",
-          "evidence_url": "https://arxiv.org/abs/2506.01043",
-          "license_url": "https://creativecommons.org/licenses/by/4.0/",
-          "redistribution_allowed": true,
-          "sha256": "58c03885dbec915d898971639d5bb89dfcdf5ceba6166ea8ec004b7d45563ee0",
-          "checked_at": "2026-10-10"
-        }
-      ],
+      "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "暂无全文译稿"
     },
@@ -214,20 +201,7 @@
       "pdf_sources": [
         "https://arxiv.org/pdf/2606.18734"
       ],
-      "hosted_pdfs": [
-        {
-          "date": "2026-10-10",
-          "title": "Point-Cloud-Assistant Localized Statistical Channel Prediction by Tangent Gaussian Splatting",
-          "authors": "Xue, Ye; Wang, Yiheng; Shao, Xinhua; Yan, Qi; Zhang, Shutao; Chang, Tsung-Hui",
-          "site_path": "assets/papers/pdf/2026-10-10/2606.18734.pdf",
-          "source_url": "https://arxiv.org/pdf/2606.18734",
-          "evidence_url": "https://arxiv.org/abs/2606.18734",
-          "license_url": "https://creativecommons.org/licenses/by/4.0/",
-          "redistribution_allowed": true,
-          "sha256": "41c40665ef6586b436107125f7f4ec990962ed33fdf25ca9f54cb65067b0852c",
-          "checked_at": "2026-10-10"
-        }
-      ],
+      "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "暂无全文译稿"
     },
@@ -270,20 +244,7 @@
       "pdf_sources": [
         "https://arxiv.org/pdf/2609.33834"
       ],
-      "hosted_pdfs": [
-        {
-          "date": "2026-10-10",
-          "title": "CLIMB-flow: Coupled Linear Inverse posterior sampling via Multiscale-Based flow",
-          "authors": "Yu, Zeqiu; Yuan, Ruizhi; Jacob, Mathews",
-          "site_path": "assets/papers/pdf/2026-10-10/2609.33834.pdf",
-          "source_url": "https://arxiv.org/pdf/2609.33834",
-          "evidence_url": "https://arxiv.org/abs/2609.33834",
-          "license_url": "https://creativecommons.org/licenses/by/4.0/",
-          "redistribution_allowed": true,
-          "sha256": "0ada384381b117d01b4218f10aeab44e7fa8cb676e4b5ec200e05b54a3b9fee6",
-          "checked_at": "2026-10-10"
-        }
-      ],
+      "hosted_pdfs": [],
       "status": "在投",
       "translation_status": "暂无全文译稿"
     },
@@ -326,20 +287,7 @@
       "pdf_sources": [
         "https://arxiv.org/pdf/2610.09281"
       ],
-      "hosted_pdfs": [
-        {
-          "date": "2026-10-10",
-          "title": "Twist Flow for Inverse Problems",
-          "authors": "Zeng, Shiqin; Deng, Zijun; Herrmann, Felix J.",
-          "site_path": "assets/papers/pdf/2026-10-10/2610.09281.pdf",
-          "source_url": "https://arxiv.org/pdf/2610.09281",
-          "evidence_url": "https://arxiv.org/abs/2610.09281",
-          "license_url": "https://creativecommons.org/licenses/by/4.0/",
-          "redistribution_allowed": true,
-          "sha256": "4b976be6330c0e705a19bf1ae576efd650da7257f2b5ffca05a1a810e7fb6114",
-          "checked_at": "2026-10-10"
-        }
-      ],
+      "hosted_pdfs": [],
       "status": "预印本/状态未确认",
       "translation_status": "暂无全文译稿"
     },
@@ -1654,7 +1602,9 @@
         "https://arxiv.org/abs/2406.07507"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://arxiv.org/abs/2406.07507"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -1694,7 +1644,9 @@
         "https://proceedings.mlr.press/v238/kerrigan24a.html"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://proceedings.mlr.press/v238/kerrigan24a.html"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -1735,7 +1687,9 @@
         "https://proceedings.mlr.press/v238/tong24a.html"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://proceedings.mlr.press/v238/tong24a.html"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -1813,7 +1767,9 @@
         "https://proceedings.mlr.press/v267/janati25a.html"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://proceedings.mlr.press/v267/janati25a.html"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -1853,7 +1809,9 @@
         "https://proceedings.mlr.press/v258/cui25c.html"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://proceedings.mlr.press/v258/cui25c.html"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -1893,7 +1851,9 @@
         "https://arxiv.org/abs/2410.05803"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://arxiv.org/abs/2410.05803"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -1933,7 +1893,9 @@
         "https://arxiv.org/abs/2309.04014"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://arxiv.org/abs/2309.04014"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -1973,7 +1935,9 @@
         "https://arxiv.org/abs/2303.05736"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://arxiv.org/abs/2303.05736"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -2013,7 +1977,9 @@
         "https://arxiv.org/abs/2404.05076"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://arxiv.org/abs/2404.05076"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -2053,7 +2019,9 @@
         "https://arxiv.org/abs/2308.16130"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://arxiv.org/abs/2308.16130"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -2093,7 +2061,9 @@
         "https://arxiv.org/abs/2310.17327"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://arxiv.org/abs/2310.17327"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -2133,7 +2103,9 @@
         "https://arxiv.org/abs/2502.10819"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://arxiv.org/abs/2502.10819"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -2251,7 +2223,9 @@
         "https://proceedings.mlr.press/v267/xu25f.html"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://proceedings.mlr.press/v267/xu25f.html"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -2291,7 +2265,9 @@
         "https://proceedings.mlr.press/v235/lu24j.html"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://proceedings.mlr.press/v235/lu24j.html"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -2331,7 +2307,9 @@
         "https://proceedings.mlr.press/v300/leong26a.html"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://proceedings.mlr.press/v300/leong26a.html"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -2371,7 +2349,9 @@
         "https://proceedings.mlr.press/v235/adcock24a.html"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://proceedings.mlr.press/v235/adcock24a.html"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -2411,7 +2391,9 @@
         "https://proceedings.mlr.press/v235/shumaylov24a.html"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://proceedings.mlr.press/v235/shumaylov24a.html"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -2451,7 +2433,9 @@
         "https://proceedings.mlr.press/v235/wei24b.html"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://proceedings.mlr.press/v235/wei24b.html"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -2491,7 +2475,9 @@
         "https://openaccess.thecvf.com/content/CVPR2025/html/Chen_Radio_Frequency_Ray_Tracing_with_Neural_Object_Representation_for_Enhanced_CVPR_2025_paper.html"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://openaccess.thecvf.com/content/CVPR2025/html/Chen_Radio_Frequency_Ray_Tracing_with_Neural_Object_Representation_for_Enhanced_CVPR_2025_paper.html"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -2531,7 +2517,9 @@
         "https://openaccess.thecvf.com/content/CVPR2026/html/Yang_Generalizable_Radio-Frequency_Radiance_Fields_for_Spatial_Spectrum_Synthesis_CVPR_2026_paper.html"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://openaccess.thecvf.com/content/CVPR2026/html/Yang_Generalizable_Radio-Frequency_Radiance_Fields_for_Spatial_Spectrum_Synthesis_CVPR_2026_paper.html"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -2572,7 +2560,9 @@
         "https://arxiv.org/abs/2605.29097"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://arxiv.org/abs/2605.29097"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -2612,7 +2602,9 @@
         "https://arxiv.org/abs/2310.15106"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://arxiv.org/abs/2310.15106"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -2652,7 +2644,9 @@
         "https://arxiv.org/abs/2308.10542"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://arxiv.org/abs/2308.10542"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -2692,7 +2686,9 @@
         "https://proceedings.mlr.press/v235/daras24a.html"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://proceedings.mlr.press/v235/daras24a.html"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -2732,7 +2728,9 @@
         "https://proceedings.mlr.press/v235/iollo24a.html"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://proceedings.mlr.press/v235/iollo24a.html"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -2772,7 +2770,9 @@
         "https://arxiv.org/abs/2305.03855"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://arxiv.org/abs/2305.03855"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -2850,7 +2850,9 @@
         "https://openaccess.thecvf.com/content/CVPR2024/html/Terris_Equivariant_Plug-and-Play_Image_Reconstruction_CVPR_2024_paper.html"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://openaccess.thecvf.com/content/CVPR2024/html/Terris_Equivariant_Plug-and-Play_Image_Reconstruction_CVPR_2024_paper.html"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -3082,7 +3084,9 @@
         "https://proceedings.mlr.press/v267/bock25a.html"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://proceedings.mlr.press/v267/bock25a.html"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -3122,7 +3126,9 @@
         "https://arxiv.org/abs/2307.09441"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://arxiv.org/abs/2307.09441"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -3200,7 +3206,9 @@
         "https://openaccess.thecvf.com/content/CVPR2026/html/Kim_Dual_Ascent_Diffusion_for_Inverse_Problems_CVPR_2026_paper.html"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://openaccess.thecvf.com/content/CVPR2026/html/Kim_Dual_Ascent_Diffusion_for_Inverse_Problems_CVPR_2026_paper.html"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -3240,7 +3248,9 @@
         "https://openaccess.thecvf.com/content/CVPR2026/html/Gualdron-Hurtado_GSNR_Graph_Smooth_Null-Space_Representation_for_Inverse_Problems_CVPR_2026_paper.html"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://openaccess.thecvf.com/content/CVPR2026/html/Gualdron-Hurtado_GSNR_Graph_Smooth_Null-Space_Representation_for_Inverse_Problems_CVPR_2026_paper.html"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -3280,7 +3290,9 @@
         "https://arxiv.org/abs/2311.10311"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://arxiv.org/abs/2311.10311"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -3320,7 +3332,9 @@
         "https://arxiv.org/abs/2506.21112"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://arxiv.org/abs/2506.21112"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -3360,7 +3374,9 @@
         "https://arxiv.org/abs/2303.01770"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://arxiv.org/abs/2303.01770"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -3400,7 +3416,9 @@
         "https://arxiv.org/abs/2501.13472"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://arxiv.org/abs/2501.13472"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -3440,7 +3458,9 @@
         "https://arxiv.org/abs/2411.16043"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://arxiv.org/abs/2411.16043"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -3480,7 +3500,9 @@
         "https://arxiv.org/abs/2405.03854"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://arxiv.org/abs/2405.03854"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -3596,7 +3618,9 @@
         "https://arxiv.org/abs/2305.04391"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://arxiv.org/abs/2305.04391"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -3637,7 +3661,9 @@
         "https://arxiv.org/abs/2405.16749"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://arxiv.org/abs/2405.16749"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -3716,7 +3742,9 @@
         "https://arxiv.org/abs/2405.18527"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://arxiv.org/abs/2405.18527"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -3756,7 +3784,9 @@
         "https://proceedings.mlr.press/v238/pereyra24a.html"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://proceedings.mlr.press/v238/pereyra24a.html"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -3796,7 +3826,9 @@
         "https://proceedings.mlr.press/v267/alkhouri25b.html"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://proceedings.mlr.press/v267/alkhouri25b.html"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -3836,7 +3868,9 @@
         "https://proceedings.mlr.press/v258/fesl25a.html"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://proceedings.mlr.press/v258/fesl25a.html"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -3877,7 +3911,9 @@
         "https://proceedings.mlr.press/v267/feng25s.html"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://proceedings.mlr.press/v267/feng25s.html"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -3917,7 +3953,9 @@
         "https://proceedings.mlr.press/v235/ben-hamu24a.html"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://proceedings.mlr.press/v235/ben-hamu24a.html"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -3958,7 +3996,9 @@
         "https://arxiv.org/abs/2509.26287"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://arxiv.org/abs/2509.26287"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -3998,7 +4038,9 @@
         "https://proceedings.mlr.press/v235/peng24h.html"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://proceedings.mlr.press/v235/peng24h.html"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -4077,7 +4119,9 @@
         "http://jmlr.org/papers/v26/23-1605.html"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "http://jmlr.org/papers/v26/23-1605.html"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -4117,7 +4161,9 @@
         "https://arxiv.org/abs/2310.06721"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://arxiv.org/abs/2310.06721"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -4197,7 +4243,9 @@
         "https://openaccess.thecvf.com/content/CVPR2025/html/Zhang_Improving_Diffusion_Inverse_Problem_Solving_with_Decoupled_Noise_Annealing_CVPR_2025_paper.html"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://openaccess.thecvf.com/content/CVPR2025/html/Zhang_Improving_Diffusion_Inverse_Problem_Solving_with_Decoupled_Noise_Annealing_CVPR_2025_paper.html"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -4277,7 +4325,9 @@
         "https://proceedings.mlr.press/v235/gupta24a.html"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://proceedings.mlr.press/v235/gupta24a.html"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -4318,7 +4368,9 @@
         "https://proceedings.mlr.press/v267/pourya25a.html"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://proceedings.mlr.press/v267/pourya25a.html"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -4396,7 +4448,9 @@
         "https://arxiv.org/abs/2303.07271"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://arxiv.org/abs/2303.07271"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -4436,7 +4490,9 @@
         "https://arxiv.org/abs/2406.13722"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://arxiv.org/abs/2406.13722"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -4476,7 +4532,9 @@
         "https://arxiv.org/abs/2311.18558"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://arxiv.org/abs/2311.18558"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -4516,7 +4574,9 @@
         "https://arxiv.org/abs/2309.07460"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://arxiv.org/abs/2309.07460"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -4556,7 +4616,9 @@
         "https://proceedings.mlr.press/v238/tang24b.html"
       ],
       "github": [],
-      "pdf_sources": [],
+      "pdf_sources": [
+        "https://proceedings.mlr.press/v238/tang24b.html"
+      ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "暂无全文译稿"
@@ -14044,54 +14106,6 @@
       "download": "/assets/papers/translations/2026-07-11-203f202a.md"
     }
   ],
-  "assets": [
-    {
-      "date": "2026-10-10",
-      "title": "Twist Flow for Inverse Problems",
-      "authors": "Zeng, Shiqin; Deng, Zijun; Herrmann, Felix J.",
-      "site_path": "assets/papers/pdf/2026-10-10/2610.09281.pdf",
-      "source_url": "https://arxiv.org/pdf/2610.09281",
-      "evidence_url": "https://arxiv.org/abs/2610.09281",
-      "license_url": "https://creativecommons.org/licenses/by/4.0/",
-      "redistribution_allowed": true,
-      "sha256": "4b976be6330c0e705a19bf1ae576efd650da7257f2b5ffca05a1a810e7fb6114",
-      "checked_at": "2026-10-10"
-    },
-    {
-      "date": "2026-10-10",
-      "title": "CLIMB-flow: Coupled Linear Inverse posterior sampling via Multiscale-Based flow",
-      "authors": "Yu, Zeqiu; Yuan, Ruizhi; Jacob, Mathews",
-      "site_path": "assets/papers/pdf/2026-10-10/2609.33834.pdf",
-      "source_url": "https://arxiv.org/pdf/2609.33834",
-      "evidence_url": "https://arxiv.org/abs/2609.33834",
-      "license_url": "https://creativecommons.org/licenses/by/4.0/",
-      "redistribution_allowed": true,
-      "sha256": "0ada384381b117d01b4218f10aeab44e7fa8cb676e4b5ec200e05b54a3b9fee6",
-      "checked_at": "2026-10-10"
-    },
-    {
-      "date": "2026-10-10",
-      "title": "Point-Cloud-Assistant Localized Statistical Channel Prediction by Tangent Gaussian Splatting",
-      "authors": "Xue, Ye; Wang, Yiheng; Shao, Xinhua; Yan, Qi; Zhang, Shutao; Chang, Tsung-Hui",
-      "site_path": "assets/papers/pdf/2026-10-10/2606.18734.pdf",
-      "source_url": "https://arxiv.org/pdf/2606.18734",
-      "evidence_url": "https://arxiv.org/abs/2606.18734",
-      "license_url": "https://creativecommons.org/licenses/by/4.0/",
-      "redistribution_allowed": true,
-      "sha256": "41c40665ef6586b436107125f7f4ec990962ed33fdf25ca9f54cb65067b0852c",
-      "checked_at": "2026-10-10"
-    },
-    {
-      "date": "2026-10-10",
-      "title": "A Group-Wise Narrow Beam Design for Uplink Channel Estimation in Hybrid Beamforming Systems",
-      "authors": "Zhou, Yufan; Xiao, Yongbo; Liu, An",
-      "site_path": "assets/papers/pdf/2026-10-10/2506.01043.pdf",
-      "source_url": "https://arxiv.org/pdf/2506.01043",
-      "evidence_url": "https://arxiv.org/abs/2506.01043",
-      "license_url": "https://creativecommons.org/licenses/by/4.0/",
-      "redistribution_allowed": true,
-      "sha256": "58c03885dbec915d898971639d5bb89dfcdf5ceba6166ea8ec004b7d45563ee0",
-      "checked_at": "2026-10-10"
-    }
-  ]
+  "assets": [],
+  "pdf_mode": "links_only"
 }
