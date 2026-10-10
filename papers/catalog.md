@@ -9,6 +9,36 @@ toc: true
 {% raw %}
 [← 搜索与筛选](/papers/)
 
+### 2026-10-11 · [You May Use the Same Channel Knowledge Map for Environment-Aware NLoS Sensing and Communication](/papers/items/c993009e70191dfd/)
+
+第二篇TWC兼顾系统用途，给研究链路CKM→后验修正→ISAC的末端提供具体模型与边界。
+
+[本篇日报](/papers/items/c993009e70191dfd/#paper-report)
+
+### 2026-10-11 · [Near-Field MIMO Channel Acquisition: Geometry-Aided Feedback and Transmission Design](/papers/items/7fadb829367915b8/)
+
+TCOM正式2026卷页、机构库版本与许可均可核验，可纠正只报NFE而忽略测量与反馈预算的比较。
+
+[本篇日报](/papers/items/7fadb829367915b8/#paper-report)
+
+### 2026-10-11 · [CSI-Tuples-Based 3-D Channel Fingerprints Construction Assisted by Multimodal Learning](/papers/items/d07df267b870c505/)
+
+TWC正式卷页与arXiv journal-ref一致；提供环境/测量融合的可拆分模块，同时明确输入缺口和时间开销。
+
+[本篇日报](/papers/items/d07df267b870c505/#paper-report)
+
+### 2026-10-11 · [Improving Function Space Flow Matching with Kernel Optimal Transport](/papers/items/184784faa64269bc/)
+
+这是可独立归因的先验训练改造，能与当前KAP-Flow求解器形成同先验/同预算的受控实验。
+
+[本篇日报](/papers/items/184784faa64269bc/#paper-report)
+
+### 2026-10-11 · [PosteriorBench: From Point Estimates to Posterior Matching in Evaluating Generative Inverse Solvers](/papers/items/19047863e7f37f7d/)
+
+当前M=1/2/4/8/16端点平均和耗时比较需要区分均值更准、样本更多与后验校准；本篇给出可接入的评估代码。
+
+[本篇日报](/papers/items/19047863e7f37f7d/#paper-report)
+
 ### 2026-10-10 · [A Group-Wise Narrow Beam Design for Uplink Channel Estimation in Hybrid Beamforming Systems](/papers/items/b05ee57ebc6710ed/)
 
 近期TWC正式卷页论文与当前pilot-null增益审计直接相接，让观测设计和先验恢复收益可分别归因。
