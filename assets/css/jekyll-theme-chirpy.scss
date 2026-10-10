@@ -1,0 +1,178 @@
+---
+---
+
+@use 'abstracts/variables' with (
+  $theme: '{{ site.theme_mode }}'
+);
+
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+/*
+ * Ruixuan's Corner — soft ice-blue light and deep ocean-blue dark themes.
+ * This extends Chirpy 7.6's semantic color variables without changing
+ * the built-in system / light / dark mode switch.
+ */
+
+@mixin ruixuan-light {
+  color-scheme: light;
+
+  --main-bg: #f2f8ff;
+  --main-border-color: #dce8f4;
+  --text-color: #2a4056;
+  --text-muted-color: #59718a;
+  --text-muted-highlight-color: #425f7b;
+  --heading-color: #193451;
+  --label-color: #45637e;
+  --link-color: #1d5f9b;
+  --link-underline-color: #bdd3e9;
+  --blockquote-border-color: #cbddef;
+  --blockquote-text-color: #607993;
+
+  --sidebar-bg: #e6f1fc;
+  --sidebar-border-color: #d1e3f4;
+  --site-title-color: #284969;
+  --site-subtitle-color: #567793;
+  --sidebar-muted-color: #58738e;
+  --sidebar-active-color: #163c63;
+  --sidebar-hover-bg: #d3e7fa;
+  --sidebar-btn-bg: #f7fbff;
+  --sidebar-btn-color: #527796;
+  --avatar-border-color: #d7e8f8;
+
+  --topbar-bg: rgb(242 248 255 / 83%);
+  --topbar-text-color: #395877;
+  --search-border-color: #d4e4f2;
+  --search-icon-color: #6684a2;
+  --input-focus-border-color: #7eadd5;
+
+  --card-bg: #fbfdff;
+  --card-hover-bg: #e7f2ff;
+  --card-shadow: 0 2px 8px rgb(42 83 132 / 8%),
+    0 0 0 1px rgb(101 150 193 / 9%);
+  --card-header-bg: #edf5fe;
+  --button-bg: #f7fbff;
+  --btn-border-color: #d4e3f1;
+  --btn-backtotop-border-color: #ccdfef;
+  --menu-bg: #f8fbff;
+  --menu-border-color: #d7e6f4;
+  --menu-active-color: #1c4e7d;
+  --menu-highlight-bg: #e5f1fd;
+
+  --post-list-text-color: #506a85;
+  --toc-highlight: #1f609a;
+  --tb-odd-bg: #edf5fd;
+  --tb-even-bg: #fbfdff;
+  --tb-border-color: #d8e5f1;
+  --footnote-target-bg: #e0f1ff;
+  --tag-border: #c7daeb;
+  --search-tag-bg: #e9f4ff;
+
+  --language-border-color: #d2e2ef;
+  --highlight-bg-color: #eaf3fc;
+  --highlighter-rouge-color: #365a7a;
+  --inline-code-bg: rgb(53 110 168 / 9%);
+  --code-color: #264b70;
+  --kbd-bg-color: #e8f2fd;
+}
+
+@mixin ruixuan-dark {
+  color-scheme: dark;
+
+  --main-bg: #0b1c30;
+  --main-border-color: #213c58;
+  --text-color: #c7d8e8;
+  --text-muted-color: #9bafc5;
+  --text-muted-highlight-color: #bacfe3;
+  --heading-color: #ecf4ff;
+  --label-color: #b2c9dd;
+  --link-color: #92c3ff;
+  --link-underline-color: #406489;
+  --blockquote-border-color: #395672;
+  --blockquote-text-color: #a5bcd1;
+
+  --sidebar-bg: #0e2742;
+  --sidebar-border-color: #234260;
+  --site-title-color: #d5e7fa;
+  --site-subtitle-color: #a3bed8;
+  --sidebar-muted-color: #a4bdd5;
+  --sidebar-active-color: #eff7ff;
+  --sidebar-hover-bg: #1a3c5d;
+  --sidebar-btn-bg: #163651;
+  --sidebar-btn-color: #accbe8;
+  --avatar-border-color: #44698b;
+
+  --topbar-bg: rgb(11 28 48 / 84%);
+  --topbar-text-color: #d0e0f0;
+  --search-border-color: #2a4a69;
+  --search-icon-color: #91abc5;
+  --input-focus-border-color: #699fd1;
+
+  --card-bg: #122a44;
+  --card-hover-bg: #1a3c5e;
+  --card-header-bg: #193650;
+  --card-shadow: 0 5px 16px rgb(1 9 20 / 25%),
+    0 0 0 1px rgb(88 135 180 / 13%);
+  --button-bg: #15324e;
+  --btn-border-color: #2d4c69;
+  --btn-backtotop-border-color: #2e4a64;
+  --menu-bg: #142e48;
+  --menu-border-color: #2d4a66;
+  --menu-active-color: #e3f1ff;
+  --menu-highlight-bg: #204360;
+
+  --post-list-text-color: #b1c5d8;
+  --toc-highlight: #95caff;
+  --tb-odd-bg: #122a44;
+  --tb-even-bg: #0e243c;
+  --tb-border-color: #28445f;
+  --footnote-target-bg: #244b70;
+  --tag-border: #3c5f80;
+  --search-tag-bg: #173650;
+
+  --language-border-color: #2e4b65;
+  --highlight-bg-color: #0a182a;
+  --highlighter-rouge-color: #b6d8f4;
+  --inline-code-bg: rgb(128 180 239 / 11%);
+  --code-color: #c7e2ff;
+  --code-header-text-color: #a5bed3;
+  --code-header-muted-color: #294761;
+  --kbd-bg-color: #183953;
+  --filepath-text-color: #d5e7fb;
+}
+
+:root[data-bs-theme='light'] {
+  @include ruixuan-light;
+}
+
+:root[data-bs-theme='dark'] {
+  @include ruixuan-dark;
+}
+
+/* Paint correctly before Chirpy applies a persisted user preference. */
+@media (prefers-color-scheme: light) {
+  :root:not([data-bs-theme]) {
+    @include ruixuan-light;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-bs-theme]) {
+    @include ruixuan-dark;
+  }
+}
+
+/* Match code-block backgrounds without modifying Rouge token colors. */
+:root[data-bs-theme='light'] .highlight,
+:root[data-bs-theme='light'] .highlight .w {
+  background-color: var(--highlight-bg-color);
+}
+
+:root[data-bs-theme='dark'] .highlight,
+:root[data-bs-theme='dark'] .highlight .w {
+  background-color: var(--highlight-bg-color);
+}
