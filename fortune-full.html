@@ -76,7 +76,7 @@ function adjacent(id,face){if(face===4){if(id===36)return 70;if(id===0)return 35
 function pick(){const used=new Set(),all=Array.from({length:81},(_,i)=>i);
  if(mode==='one'||mode==='three'){return spread[mode].map(()=>sample(all,used));}
  // 照原 Excel 的分组公式，第一组为司辰，后五组按性相序列抽取。
- return spread[mode].map((_,i)=>{const choices=i===0?Array.from({length:35},(_,k)=>k+2):Array.from({length:9},(_,k)=>36+5*k+(i-1));return sample(choices,used);});
+ return spread[mode].map((_,i)=>{const choices=i===0?Array.from({length:35},(_,k)=>k+(mode==='ritual'?1:2)):Array.from({length:9},(_,k)=>36+5*k+(i-1));return sample(choices,used);});
 }
 function cardText(c){const d=deck[c.id],o=orientation[c.face-1];const relation=adjacent(c.id,c.face);return `${d.name}（${o[0]}）：${o[1]}\n${d.description}`+(relation!==null&&deck[relation]?`\n转向关联：${deck[relation].name}——${deck[relation].description}`:'');}
 function renderCard(c,label,index){const d=deck[c.id],o=orientation[c.face-1],box=el('article','fm-card');box.style.animationDelay=`${Math.min(index,8)*.07}s`;
@@ -89,7 +89,7 @@ function renderCard(c,label,index){const d=deck[c.id],o=orientation[c.face-1],bo
 }
 function render(){const out=$('#fm-output'),cards=$('#fm-results');cards.replaceChildren();const all=drawn.concat(extras);all.forEach((c,i)=>cards.append(renderCard(c, i<drawn.length?spread[mode][i] : (i===drawn.length?'逸法之时与影中自我':'补充抽牌'),i)));$('#fm-display-question').textContent=currentQuestion?`所问：${currentQuestion}`:'未输入问题，守夜人仍会为你翻牌。';$('#fm-count').textContent=`本次抽出 ${all.length} 张牌`;
  $('#fm-extra').hidden=extras.length===0;$('#fm-add').disabled=all.length>=81;out.hidden=false;}
-function draw(){if(!deck.length){$('#fm-error').textContent='牌库尚未加载，请稍后再试。';$('#fm-error').hidden=false;return;}currentQuestion=$('#fm-question').value.trim();drawn=pick();extras=[];if((mode==='one'||mode==='three'||mode==='season')&&drawn.some(x=>specials.has(x.id))){const used=new Set(drawn.map(x=>x.id)),all=Array.from({length:81},(_,i)=>i);extras.push(sample(all,used));}
+function draw(){if(!deck.length){$('#fm-error').textContent='牌库尚未加载，请稍后再试。';$('#fm-error').hidden=false;return;}currentQuestion=$('#fm-question').value.trim();drawn=pick();extras=[];if((mode==='one'||mode==='three')&&drawn.some(x=>specials.has(x.id))){const used=new Set(drawn.map(x=>x.id)),all=Array.from({length:81},(_,i)=>i);extras.push(sample(all,used));}
  $('#fm-error').hidden=true;render();$('#fm-output').scrollIntoView({behavior:'smooth',block:'start'});}
 function setMode(next){mode=next;root.querySelectorAll('[data-mode]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.mode===next)));$('#fm-mode-hint').textContent={one:'随机抽取一张牌，四种朝向等概率。',three:'三张互不重复的牌；命中特殊司辰时额外抽取一张。',season:'对应“谁在看你、燃料、知识、两个人与影响”的六张四季牌。',ritual:'对应“司辰、器具、秘传、信徒、角色、影响”的六张牌阵。'}[next];}
 root.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.mode)));
