@@ -9,9 +9,11 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=4b9fd6c01ae6ebf0)
 
-[本篇日报说明](/papers/reports/2026-07-20/#paper-4b9fd6c01ae6ebf0)
+[本篇日报说明](/papers/items/4b9fd6c01ae6ebf0/#paper-report)
 
 **推荐日期：** 2026-07-20 · **发表状态：** 历史记录未明确
+
+<span id="paper-report"></span>
 
 ## 本篇推荐与证据
 

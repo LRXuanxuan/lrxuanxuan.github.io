@@ -9,9 +9,11 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=afeda7eb730cc0b0)
 
-[本篇日报说明](/papers/reports/2026-10-08/#paper-afeda7eb730cc0b0)
+[本篇日报说明](/papers/items/afeda7eb730cc0b0/#paper-report)
 
 **推荐日期：** 2026-10-08 · **发表状态：** 在投
+
+<span id="paper-report"></span>
 
 ## 本篇推荐与证据
 

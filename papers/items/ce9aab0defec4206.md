@@ -9,9 +9,11 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=ce9aab0defec4206)
 
-[本篇日报说明](/papers/reports/2026-10-08/#paper-ce9aab0defec4206)
+[本篇日报说明](/papers/items/ce9aab0defec4206/#paper-report)
 
 **推荐日期：** 2026-10-08 · **发表状态：** 正式发表
+
+<span id="paper-report"></span>
 
 ## 本篇推荐与证据
 

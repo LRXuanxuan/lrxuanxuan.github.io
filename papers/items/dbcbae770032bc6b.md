@@ -9,9 +9,11 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=dbcbae770032bc6b)
 
-[本篇日报说明](/papers/reports/2026-07-15/#paper-dbcbae770032bc6b) · [摘要与引言 / 历史译文说明](/papers/translations/2026-07-15-1663571a/#paper-dbcbae770032bc6b)
+[本篇日报说明](/papers/items/dbcbae770032bc6b/#paper-report) · [摘要与引言 / 历史译文说明](/papers/translations/2026-07-15-1663571a/#paper-dbcbae770032bc6b)
 
 **推荐日期：** 2026-07-15 · **发表状态：** 历史记录未明确
+
+<span id="paper-report"></span>
 
 ## 本篇推荐与证据
 

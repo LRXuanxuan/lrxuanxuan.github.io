@@ -18,7 +18,7 @@
     for (const a of p.hosted_pdfs) appendLink(links,'下载 PDF','/'+a.site_path);
     p.pdf_sources.forEach((u,i)=>appendLink(links,p.hosted_pdfs.length?'原始 PDF 来源':(i?'PDF 来源 '+(i+1):'PDF / 原文'),u));
     p.github.forEach((u,i)=>appendLink(links,i?'GitHub '+(i+1):'GitHub 仓库',u));
-    if (p.report_entry_url) appendLink(links,'本篇日报与证据',p.report_entry_url);
+    if (p.report_entry_url) appendLink(links,'本篇日报与证据',p.paper_report_url);
     p.translations.forEach(t=>appendLink(links,t.scope==='全文中英文对照'?'本篇全文对照':'本篇历史译文',t.url));c.append(links);
     if(!p.github.length)c.append(make('small',p.fields['代码/数据状态']||'未记录公开代码状态','pl-meta'));
     const d=make('details');d.append(make('summary','展开方法、结果、证据及表格全部字段'));
