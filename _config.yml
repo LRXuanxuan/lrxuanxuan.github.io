@@ -208,6 +208,10 @@ exclude:
   - purgecss.js
   - "*.config.js"
   - "package*.json"
+  # Temporarily hide the unused default navigation sections (source files retained).
+  - _tabs/categories.md
+  - _tabs/tags.md
+  - _tabs/archives.md
 
 jekyll-archives:
   enabled: [categories, tags]
