@@ -45,19 +45,6 @@ jobs:
           ruby-version: 3.4
           bundler-cache: true
 
-      - name: Prepare A5 PDF dependencies
-        uses: actions/setup-python@v6
-        with:
-          python-version: "3.12"
-
-      - name: Generate mobile-friendly A5 PDF
-        run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq fonts-arphic-gbsn00lp
-          python -m pip install -q reportlab
-          python tools/build_clarke_lewis_pdf.py
-          test -s assets/pdf/clarke-lewis-a5.pdf
-
       - name: Build site
         run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
         env:
