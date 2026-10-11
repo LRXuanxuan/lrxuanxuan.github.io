@@ -239,3 +239,11 @@
 .rc-home .rc-sign-heading time { color: var(--text-muted-color); font-variant-numeric: tabular-nums; letter-spacing: 0; }
 .rc-home .rc-daily-sign blockquote { border-left: 2px solid var(--link-color); padding: .15rem 0 .15rem 1rem; margin: .75rem 0; color: var(--heading-color); font-size: 1.02rem; line-height: 1.95; white-space: pre-line; overflow-wrap: anywhere; }
 .rc-home .rc-sign-source { text-align: right; color: var(--text-muted-color); font-size: .82rem; line-height: 1.8; margin: .6rem 0 0; }
+
+.rc-home .rc-sign-actions { display:flex; flex-wrap:wrap; align-items:center; gap:.65rem; margin-top:1rem; }
+.rc-home .rc-sign-actions button { font:inherit; font-size:.8rem; color:var(--heading-color); background:var(--main-bg); border:1px solid var(--btn-border-color); border-radius:999px; padding:.35rem .85rem; cursor:pointer; }
+.rc-home .rc-sign-actions button:hover { border-color:var(--link-color); color:var(--link-color); }
+.rc-home .rc-sign-actions button:focus-visible { outline:2px solid var(--link-color); outline-offset:3px; }
+.rc-home .rc-sign-actions button:disabled { opacity:.6; cursor:wait; }
+.rc-home .rc-sign-actions [hidden] { display:none; }
+.rc-home [data-sign-status], .rc-home .rc-sign-note { color:var(--text-muted-color); font-size:.75rem; line-height:1.6; }
