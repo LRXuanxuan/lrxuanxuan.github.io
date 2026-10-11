@@ -1,8 +1,37 @@
 /* Local personal draws and shared daily signatures remain separate. */
 (() => {
-  const key = 'rc-sign-archive-v1';
+  // v2 starts a clean redraw archive after the 2026-10 semantic retagging.
+  const key = 'rc-sign-archive-v2';
+  const legacyKey = 'rc-sign-archive-v1';
+  const resetMarker = 'rc-sign-aspects-reviewed-v1';
   let memory = [];
   const fields = ['text','book','author','chapter','readerLink','aspect'];
+  // This executes in either home or archive, on the first visit after deployment.
+  // Keep historical daily entries, discard old personal redraws and old draw-order state.
+  function retireOldDraws() {
+    try {
+      if (localStorage.getItem(resetMarker) === 'done') return;
+      let legacy = [];
+      try { legacy = JSON.parse(localStorage.getItem(legacyKey) || '[]'); } catch (_) {}
+      let preserved = [];
+      if (Array.isArray(legacy)) preserved = legacy.filter(row => row && row.kind === 'daily' && typeof row.text === 'string' && typeof row.book === 'string' && row.date);
+      let current = [];
+      try { current = JSON.parse(localStorage.getItem(key) || '[]'); } catch (_) {}
+      if (!Array.isArray(current)) current = [];
+      const ids = new Set(current.map(row => [row.date,row.kind,row.id || row.text,row.book].join('\\u0001')));
+      for (const row of preserved) {
+        const id = [row.date,row.kind,row.id || row.text,row.book].join('\\u0001');
+        if (!ids.has(id)) { current.push(row); ids.add(id); }
+      }
+      localStorage.setItem(key,JSON.stringify(current));
+      localStorage.removeItem(legacyKey);
+      localStorage.removeItem('rc-sign-drawn-v1');
+      localStorage.removeItem('rc-sign-drawn-v2');
+      localStorage.removeItem('rc-sign-recent-authors-v1');
+      localStorage.setItem(resetMarker,'done');
+    } catch (_) { /* Browsers with disabled storage still function in memory. */ }
+  }
+  retireOldDraws();
   function dateNow() {
     const parts = new Intl.DateTimeFormat('en-CA', {timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());
     const get = name => parts.find(part=>part.type===name).value;
