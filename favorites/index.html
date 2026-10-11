@@ -29,12 +29,8 @@ toc: false
       {% for book in site.data.favorites.books %}
       <li class="fm-item">
         <span class="fm-rank" aria-label="第 {{ forloop.index }} 名">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
-        <div class="fm-art fm-art-book" aria-hidden="true" style="--fm-cover-bg: {{ book.color }}; --fm-cover-ink: {{ book.ink }};">
-          <span class="fm-art-mark"><i class="fas fa-book"></i></span>
-          <span class="fm-art-name">{{ book.title }}</span>
-        </div>
         <div class="fm-info">
-          <h3>{{ book.title }}</h3>
+          <h3><a href="{{ book.link }}" target="_blank" rel="noopener noreferrer" title="在豆瓣查看作品：{{ book.title | escape }}">{{ book.title }} <i class="fas fa-arrow-up-right-from-square fm-external" aria-hidden="true"></i></a></h3>
           <p class="fm-byline"><span>{{ book.creator }}</span>{% if book.year %}<span class="fm-year"> · {{ book.year }}</span>{% endif %}</p>
         </div>
       </li>
@@ -54,12 +50,8 @@ toc: false
       {% for album in site.data.favorites.albums %}
       <li class="fm-item">
         <span class="fm-rank" aria-label="第 {{ forloop.index }} 名">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
-        <div class="fm-art fm-art-album" aria-hidden="true" style="--fm-cover-bg: {{ album.color }}; --fm-cover-ink: {{ album.ink }};">
-          <span class="fm-art-mark"><i class="fas fa-compact-disc"></i></span>
-          <span class="fm-art-name">{{ album.title }}</span>
-        </div>
         <div class="fm-info">
-          <h3>{{ album.title }}</h3>
+          <h3><a href="{{ album.link }}" target="_blank" rel="noopener noreferrer" title="在豆瓣查看唱片：{{ album.title | escape }}">{{ album.title }} <i class="fas fa-arrow-up-right-from-square fm-external" aria-hidden="true"></i></a></h3>
           <p class="fm-byline"><span>{{ album.creator }}</span>{% if album.year %}<span class="fm-year"> · {{ album.year }}</span>{% endif %}</p>
         </div>
       </li>
