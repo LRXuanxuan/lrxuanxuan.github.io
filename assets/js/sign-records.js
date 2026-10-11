@@ -4,6 +4,7 @@
   const key = 'rc-sign-archive-v2';
   const legacyKey = 'rc-sign-archive-v1';
   const resetMarker = 'rc-sign-aspects-reviewed-v1';
+  const bibliographyMarker = 'rc-sign-bibliography-clean-v1';
   let memory = [];
   const fields = ['text','book','author','chapter','readerLink','aspect'];
   // This executes in either home or archive, on the first visit after deployment.
@@ -51,33 +52,62 @@
     memory=rows;
     try { localStorage.setItem(key,JSON.stringify(rows)); return true; } catch (_) { return false; }
   }
-  function identity(row) { return [row.date||'',row.kind,row.id||row.text,row.book].join('\u0001'); }
+  function identity(row) { return [row.date||'',row.kind,row.id||row.text].join('\u0001'); }
   function add(quote, kind='redraw', date=dateNow(), timestamp=new Date().toISOString()) {
     const row={id:quote.id||quote.text,date,kind,timestamp};
     for(const field of fields) row[field]=String(quote[field]||'');
     if(!row.text||!row.book||kind==='legacy'||!date) return false;
     const rows=read().slice();
-    if(!rows.some(item=>identity(item)===identity(row))) rows.push(row);
+    const existing=rows.findIndex(item=>identity(item)===identity(row));
+    if(existing<0) rows.push(row);
+    else rows[existing]={...rows[existing],...row,timestamp:rows[existing].timestamp||row.timestamp};
     return save(rows);
   }
   async function migrate(poolUrl) {
-    // Only retained old default-daily entries need relabeling; old redraws were deleted.
-    if (!poolUrl || !read().some(row => row.kind==='daily' && !row.aspect)) return;
+    // Upgrade previously saved local signatures to the cleaned bibliography once.
+    // Keep the original draw dates, kind, timestamps and storage identifiers.
+    if (!poolUrl) return;
+    const existing=read();
+    let alreadyClean=false;
+    try { alreadyClean=localStorage.getItem(bibliographyMarker)==='done'; } catch (_) {}
+    const missingAspect=existing.some(row=>row.kind==='daily'&&!row.aspect);
+    if(alreadyClean&&!missingAspect) return;
+    if(!existing.length||(existing.length===1&&existing[0].kind==='daily'&&
+       existing[0].date===dateNow()&&!missingAspect)) {
+      try { localStorage.setItem(bibliographyMarker,'done'); } catch (_) {}
+      return;
+    }
     const response=await fetch(poolUrl,{cache:'no-cache'});
-    if(!response.ok) throw new Error('daily-aspect-pool');
+    if(!response.ok) throw new Error('bibliography-pool');
     const payload=await response.json();
-    if(!Array.isArray(payload.quotes)) throw new Error('daily-aspect-format');
-    const byId=new Map(payload.quotes.map(row=>[row.id,row.aspect]));
-    const byContent=new Map(payload.quotes.map(row=>[row.book+'\\u0001'+row.text,row.aspect]));
+    if(!Array.isArray(payload.quotes)) throw new Error('bibliography-format');
+    const byId=new Map(),byExact=new Map(),byText=new Map();
+    for(const quote of payload.quotes) {
+      if(quote.id) byId.set(quote.id,quote);
+      byExact.set(quote.book+'\u0001'+quote.text,quote);
+      const same=byText.get(quote.text)||[];
+      same.push(quote);byText.set(quote.text,same);
+    }
     let dirty=false;
     const revised=read().map(row=>{
-      if(row.kind!=='daily'||row.aspect) return row;
-      const aspect=byId.get(row.id)||byContent.get(row.book+'\\u0001'+row.text);
-      if(!aspect) return row;
-      dirty=true;
-      return {...row,aspect};
+      const candidates=byText.get(row.text)||[];
+      const source=byId.get(row.id)||byExact.get(row.book+'\u0001'+row.text)||
+        (candidates.length===1?candidates[0]:null);
+      if(!source) return row;
+      const updated={...row};
+      for(const field of ['book','author','chapter','aspect']) {
+        if(typeof source[field]==='string'&&updated[field]!==source[field]){
+          updated[field]=source[field];dirty=true;
+        }
+      }
+      return updated;
     });
-    if(dirty) save(revised);
+    if(dirty) {
+      const unique=new Map();
+      for(const row of revised) unique.set([row.date,row.kind,row.text].join('\u0001'),row);
+      save([...unique.values()]);
+    }
+    try { localStorage.setItem(bibliographyMarker,'done'); } catch (_) {}
   }
   function authorKey(quote) {
     const value=`${quote.author||''} ${quote.book||''}`.replace(/\[[^\]]*\]|【[^】]*】|（[^）]*）|\([^)]*\)/g,'').trim();
