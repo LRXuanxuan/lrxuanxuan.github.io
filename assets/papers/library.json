@@ -4,13 +4,13 @@
   "source_sha256": "3068fe58ddff7a47347e7d48d95eea08cdb590576877196b3d4aacc8caaf2c42",
   "translation_progress": {
     "target": 315,
-    "completed": 2,
-    "public_full_text": 0,
-    "local_only": 2,
+    "completed": 5,
+    "public_full_text": 2,
+    "local_only": 3,
     "status_counts": {
       "access_blocked": 1,
-      "complete": 2,
-      "pending": 312
+      "complete": 5,
+      "pending": 309
     },
     "model": "gpt-6-luna",
     "reasoning_effort": "medium",
@@ -162,11 +162,17 @@
       },
       "hyperlinks": {},
       "report_url": "/papers/reports/2026-10-11/",
-      "report_section": "### 04. Near-Field MIMO Channel Acquisition: Geometry-Aided Feedback and Transmission Design\n\n**作者：** Eslami, Shima; Gouda, Bikshapathi; Tölli, Antti。\n\n**年份 / venue / 状态：** 2026 / IEEE Transactions on Communications / 正式发表。核验日期2026-10-11。\n\n正式卷页：74:1083-1098；IEEE页面触发robot验证，采用[Crossref注册元数据](https://api.crossref.org/works/10.1109/TCOMM.2025.3631554) 与作者arXiv/机构资料交叉核验，首发月份未精确确认，不推断。\n\n**阅读版本：** 机构库2025-11-11较新16页作者稿；arXiv初稿2025-05-07仅作身份别名；实际PDF 16页，全文提取，重点方法/结果对应页1,2,3,4,5,6,7,8,9,10,11,12,13,14。\n\n**问题：** 多用户近场MIMO的完整CSI获取与反馈开销大；距离网格又增加搜索复杂度，且纯LoS重建在NLoS下存在偏差。\n\n**方法与独立机制：** 用两个AoD和相对阵列旋转表征LoS几何，第二AoD替代细距离网格。BS用固定且与用户数无关的少数选中阵元广播导频，UE估计/量化几何参数并反馈；BS重建LoS矩阵初始化预编码，再以双向OTA训练吸收噪声、量化与NLoS误差，并做两阶段流数分配。\n\n**已核实实验与结果：** 改读机构库2025-11-11较新16页作者稿，未把旧13页版本当最终稿。第1–2页将少导频写为4–6并研究非均匀选阵元。Table I为BS64阵元/UE8阵元/8用户、BS孔径2m、波长0.03m、距离4.5–8.5m。第13页表II的均匀阵列四导频方案未量化Rmin=9.6 bps/Hz、6bit阵元间距量化后1.6、8bit后8.1，清楚展示几何元数据精度的重要性。\n\n**局限与不可外推范围：** 主数值设置共面、已知阵列间距且LoS显著；少导频不是任意富散射信道的无先验恢复保证。除导频外还有角度/间距反馈、ML网格搜索和OTA轮次成本；作者指出≥4选阵元的解析选取规则仍待研究。近场与当前用户远场/历史统计设定不同，迁移先作系统基线。\n\n**迁移类型：** 理论启发或基线\n\n**相对阅读笔记位置：** 应用/基线：把信道误差进一步转为导频、反馈和下游最小用户速率的系统指标。\n\n**与既有阅读差异：** 不同于近场神经网络直接回归H，它用几何可辨识性、设计导频与反馈，再做OTA修正。相对当前KAP-Flow的固定导频，增加观测设计与阵列误差这个独立维度。\n\n**课题接口：** 独立小规模LoS/LoS+反射仿真，以4/6/8/16选阵元导频和6/8/10bit几何量化为变量；比较等总导频能量与计反馈位数后的端到端开销。不要与先验核配对实验混在同一分支。\n\n**推荐理由：** TCOM正式2026卷页、机构库版本与许可均可核验，可纠正只报NFE而忽略测量与反馈预算的比较。\n\n**身份与一手入口：** [arXiv 2505.04305](https://arxiv.org/abs/2505.04305) · [DOI 10.1109/TCOMM.2025.3631554](https://doi.org/10.1109/TCOMM.2025.3631554) · [正式来源/状态证据](https://ieeexplore.ieee.org/document/11240118) · [官方/作者PDF](https://oulurepo.oulu.fi/bitstream/10024/59187/1/nbnfioulu-202511136713.pdf)。\n\n**代码状态：** 未发现公开代码。作者arXiv、机构库和正文无项目/作者代码链接；网页GitHub精确标题查询无对应。GitHub API精确检索遇403限流，已保留错误，结论限于已完成的公开检索。\n\n**本地PDF：** [打开原文](https://oulurepo.oulu.fi/bitstream/10024/59187/1/nbnfioulu-202511136713.pdf)。\n\n**翻译：** pending，已立即入队，交由独立pdf自动化gpt-6-luna / medium处理；预期译文路径（本地资料：paper.md）当前不是已完成文件。主任务不生成整篇翻译。\n\n**许可与网页：** [实际原文许可](https://creativecommons.org/licenses/by/4.0/)；允许带署名及改动说明公开完成译文。网站全部PDF仅保留官方原文链接，不上传任何PDF。",
+      "report_section": "### 04. Near-Field MIMO Channel Acquisition: Geometry-Aided Feedback and Transmission Design\n\n**作者：** Eslami, Shima; Gouda, Bikshapathi; Tölli, Antti。\n\n**年份 / venue / 状态：** 2026 / IEEE Transactions on Communications / 正式发表。核验日期2026-10-11。\n\n正式卷页：74:1083-1098；IEEE页面触发robot验证，采用[Crossref注册元数据](https://api.crossref.org/works/10.1109/TCOMM.2025.3631554) 与作者arXiv/机构资料交叉核验，首发月份未精确确认，不推断。\n\n**阅读版本：** 机构库2025-11-11较新16页作者稿；arXiv初稿2025-05-07仅作身份别名；实际PDF 16页，全文提取，重点方法/结果对应页1,2,3,4,5,6,7,8,9,10,11,12,13,14。\n\n**问题：** 多用户近场MIMO的完整CSI获取与反馈开销大；距离网格又增加搜索复杂度，且纯LoS重建在NLoS下存在偏差。\n\n**方法与独立机制：** 用两个AoD和相对阵列旋转表征LoS几何，第二AoD替代细距离网格。BS用固定且与用户数无关的少数选中阵元广播导频，UE估计/量化几何参数并反馈；BS重建LoS矩阵初始化预编码，再以双向OTA训练吸收噪声、量化与NLoS误差，并做两阶段流数分配。\n\n**已核实实验与结果：** 改读机构库2025-11-11较新16页作者稿，未把旧13页版本当最终稿。第1–2页将少导频写为4–6并研究非均匀选阵元。Table I为BS64阵元/UE8阵元/8用户、BS孔径2m、波长0.03m、距离4.5–8.5m。第13页表II的均匀阵列四导频方案未量化Rmin=9.6 bps/Hz、6bit阵元间距量化后1.6、8bit后8.1，清楚展示几何元数据精度的重要性。\n\n**局限与不可外推范围：** 主数值设置共面、已知阵列间距且LoS显著；少导频不是任意富散射信道的无先验恢复保证。除导频外还有角度/间距反馈、ML网格搜索和OTA轮次成本；作者指出≥4选阵元的解析选取规则仍待研究。近场与当前用户远场/历史统计设定不同，迁移先作系统基线。\n\n**迁移类型：** 理论启发或基线\n\n**相对阅读笔记位置：** 应用/基线：把信道误差进一步转为导频、反馈和下游最小用户速率的系统指标。\n\n**与既有阅读差异：** 不同于近场神经网络直接回归H，它用几何可辨识性、设计导频与反馈，再做OTA修正。相对当前KAP-Flow的固定导频，增加观测设计与阵列误差这个独立维度。\n\n**课题接口：** 独立小规模LoS/LoS+反射仿真，以4/6/8/16选阵元导频和6/8/10bit几何量化为变量；比较等总导频能量与计反馈位数后的端到端开销。不要与先验核配对实验混在同一分支。\n\n**推荐理由：** TCOM正式2026卷页、机构库版本与许可均可核验，可纠正只报NFE而忽略测量与反馈预算的比较。\n\n**身份与一手入口：** [arXiv 2505.04305](https://arxiv.org/abs/2505.04305) · [DOI 10.1109/TCOMM.2025.3631554](https://doi.org/10.1109/TCOMM.2025.3631554) · [正式来源/状态证据](https://ieeexplore.ieee.org/document/11240118) · [官方/作者PDF](https://oulurepo.oulu.fi/bitstream/10024/59187/1/nbnfioulu-202511136713.pdf)。\n\n**代码状态：** 未发现公开代码。作者arXiv、机构库和正文无项目/作者代码链接；网页GitHub精确标题查询无对应。GitHub API精确检索遇403限流，已保留错误，结论限于已完成的公开检索。\n\n**本地PDF：** [打开原文](https://oulurepo.oulu.fi/bitstream/10024/59187/1/nbnfioulu-202511136713.pdf)。\n\n**翻译：** pending，已立即入队，交由独立pdf自动化gpt-6-luna / medium处理；[预期译文路径](/papers/translations/2026-10-11-878faa0dd39bfe89819e1f2f/)当前不是已完成文件。主任务不生成整篇翻译。\n\n**许可与网页：** [实际原文许可](https://creativecommons.org/licenses/by/4.0/)；允许带署名及改动说明公开完成译文。网站全部PDF仅保留官方原文链接，不上传任何PDF。",
       "report_entry_url": "/papers/reports/2026-10-11/#paper-7fadb829367915b8",
       "paper_url": "/papers/items/7fadb829367915b8/",
       "paper_report_url": "/papers/items/7fadb829367915b8/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-11-878faa0dd39bfe89819e1f2f/#paper-7fadb829367915b8",
+          "scope": "全文中英文对照",
+          "title": "Near-Field MIMO Channel Acquisition: Geometry-Aided Feedback and Transmission Design"
+        }
+      ],
       "links": [
         "https://ieeexplore.ieee.org/document/11240118",
         "https://oulurepo.oulu.fi/bitstream/10024/59187/1/nbnfioulu-202511136713.pdf",
@@ -181,10 +187,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/7fadb829367915b8/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-11-878faa0dd39bfe89819e1f2f/#paper-7fadb829367915b8",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "d07df267b870c505",
@@ -264,11 +270,17 @@
       },
       "hyperlinks": {},
       "report_url": "/papers/reports/2026-10-11/",
-      "report_section": "### 02. Improving Function Space Flow Matching with Kernel Optimal Transport\n\n**作者：** Xu, Fred; Markovich, Thomas; Barancikova, Barbora; Sun, Yizhou。\n\n**年份 / venue / 状态：** 2026 / NeurIPS 2026 / 已接受待刊（会议官方名单确认）。核验日期2026-10-11。\n\n[会议官方2026名单](https://neurips.cc/Downloads/2026) 列出精确标题；截至核验日按已接受待刊描述，不把上传当正式proceedings发表。\n\n**阅读版本：** Submission history From: Fred Xu [ view email ] [v1] Tue, 29 Sep 2026 17:20:54 UTC (10,628 KB)；实际PDF 43页，全文提取，重点方法/结果对应页2,3,4,5,6,7,8,9,10。\n\n**问题：** 独立配对高斯噪声与函数样本会把共同大尺度结构和个体残差都压进速度回归；扁平L2代价忽略路径/函数结构。\n\n**方法与独立机制：** 保持FFM的神经算子骨干与概率路径，用核诱导代价cκ(f,g)=κ(f,f)+κ(g,g)−2κ(f,g)求熵正则最优传输，再从minibatch计划采样端点对。提供RBF、Sobolev-RBF和signature核，以及GP/白噪声基分布；理论分析核代价适定性、核代价失配/熵偏差/覆盖误差及离散化不变性。\n\n**已核实实验与结果：** 全文第8页表2/3：Gene Expression的MMD×10³由17.8±3.4到7.11±2.0，SWD由0.106±0.006到0.087±0.006，10个共享种子。第9页湍流表4：kFFM MMD×10³=1.48±0.6，CFM-OT(L2)=1.47±1.0，二者在误差内持平，不能写成核方法普遍胜过L2 OT。论文在最大训练分辨率报告5–7%额外训练开销，该数字非本课题实测。\n\n**局限与不可外推范围：** 理论不保证路径更直或更少NFE，生成质量增益仍是经验结果。某些NS/Heston比较同时更换基分布，不能将全部收益归于核配对；signature核内存随路径长度增长。函数空间正则性在湍流条件弱；当前用户训练单时频切片，不宜直接宣称已经实现连续函数空间信道生成。\n\n**迁移类型：** 可改造工具\n\n**相对阅读笔记位置：** 深化：在保持接收机不变时，单独研究训练端点配对与结构代价。\n\n**与既有阅读差异：** 与此前低NFE求解器或测试时PnP校正不同，它改训练噪声—数据耦合；相对递归Flow和普通OT-CFM，增加明确的函数几何成本及失配分析。不是通用diffusion迁移，也不声称条件层已创新。\n\n**课题接口：** 最小版仅在同位置/同条件小组内更改噪声与H的配对，保持条件token、数据、基噪声、网络、训练步数、推理求解器完全相同。不能将不同r,e,M条件下的样本无约束全局重配，破坏条件边缘。进阶版再测试真实角度—时延或频率连续网格的Sobolev代价。\n\n**推荐理由：** 这是可独立归因的先验训练改造，能与当前KAP-Flow求解器形成同先验/同预算的受控实验。\n\n**身份与一手入口：** [arXiv 2609.38049](https://arxiv.org/abs/2609.38049) · [正式来源/状态证据](https://neurips.cc/Downloads/2026) · [官方/作者PDF](https://arxiv.org/pdf/2609.38049)。\n\n**代码状态：** 完整开源实现。[作者仓库](https://github.com/heraclixus/KFFM)。全文第2页脚注给出作者仓库；125个文件含optimal_transport.py核与log-domain Sinkhorn、functional_fm_ot.py端点计划采样训练、FNO模型、数据脚本、配置、指标及测试。已查看核心实现；数据不随仓库分发，需按README来源取得或模拟，未运行。代码MIT，论文CC BY 4.0。\n\n**本地PDF：** [打开原文](https://arxiv.org/pdf/2609.38049)。\n\n**翻译：** pending，已立即入队，交由独立pdf自动化gpt-6-luna / medium处理；预期译文路径（本地资料：paper.md）当前不是已完成文件。主任务不生成整篇翻译。\n\n**许可与网页：** [实际原文许可](https://creativecommons.org/licenses/by/4.0/)；允许带署名及改动说明公开完成译文。网站全部PDF仅保留官方原文链接，不上传任何PDF。",
+      "report_section": "### 02. Improving Function Space Flow Matching with Kernel Optimal Transport\n\n**作者：** Xu, Fred; Markovich, Thomas; Barancikova, Barbora; Sun, Yizhou。\n\n**年份 / venue / 状态：** 2026 / NeurIPS 2026 / 已接受待刊（会议官方名单确认）。核验日期2026-10-11。\n\n[会议官方2026名单](https://neurips.cc/Downloads/2026) 列出精确标题；截至核验日按已接受待刊描述，不把上传当正式proceedings发表。\n\n**阅读版本：** Submission history From: Fred Xu [ view email ] [v1] Tue, 29 Sep 2026 17:20:54 UTC (10,628 KB)；实际PDF 43页，全文提取，重点方法/结果对应页2,3,4,5,6,7,8,9,10。\n\n**问题：** 独立配对高斯噪声与函数样本会把共同大尺度结构和个体残差都压进速度回归；扁平L2代价忽略路径/函数结构。\n\n**方法与独立机制：** 保持FFM的神经算子骨干与概率路径，用核诱导代价cκ(f,g)=κ(f,f)+κ(g,g)−2κ(f,g)求熵正则最优传输，再从minibatch计划采样端点对。提供RBF、Sobolev-RBF和signature核，以及GP/白噪声基分布；理论分析核代价适定性、核代价失配/熵偏差/覆盖误差及离散化不变性。\n\n**已核实实验与结果：** 全文第8页表2/3：Gene Expression的MMD×10³由17.8±3.4到7.11±2.0，SWD由0.106±0.006到0.087±0.006，10个共享种子。第9页湍流表4：kFFM MMD×10³=1.48±0.6，CFM-OT(L2)=1.47±1.0，二者在误差内持平，不能写成核方法普遍胜过L2 OT。论文在最大训练分辨率报告5–7%额外训练开销，该数字非本课题实测。\n\n**局限与不可外推范围：** 理论不保证路径更直或更少NFE，生成质量增益仍是经验结果。某些NS/Heston比较同时更换基分布，不能将全部收益归于核配对；signature核内存随路径长度增长。函数空间正则性在湍流条件弱；当前用户训练单时频切片，不宜直接宣称已经实现连续函数空间信道生成。\n\n**迁移类型：** 可改造工具\n\n**相对阅读笔记位置：** 深化：在保持接收机不变时，单独研究训练端点配对与结构代价。\n\n**与既有阅读差异：** 与此前低NFE求解器或测试时PnP校正不同，它改训练噪声—数据耦合；相对递归Flow和普通OT-CFM，增加明确的函数几何成本及失配分析。不是通用diffusion迁移，也不声称条件层已创新。\n\n**课题接口：** 最小版仅在同位置/同条件小组内更改噪声与H的配对，保持条件token、数据、基噪声、网络、训练步数、推理求解器完全相同。不能将不同r,e,M条件下的样本无约束全局重配，破坏条件边缘。进阶版再测试真实角度—时延或频率连续网格的Sobolev代价。\n\n**推荐理由：** 这是可独立归因的先验训练改造，能与当前KAP-Flow求解器形成同先验/同预算的受控实验。\n\n**身份与一手入口：** [arXiv 2609.38049](https://arxiv.org/abs/2609.38049) · [正式来源/状态证据](https://neurips.cc/Downloads/2026) · [官方/作者PDF](https://arxiv.org/pdf/2609.38049)。\n\n**代码状态：** 完整开源实现。[作者仓库](https://github.com/heraclixus/KFFM)。全文第2页脚注给出作者仓库；125个文件含optimal_transport.py核与log-domain Sinkhorn、functional_fm_ot.py端点计划采样训练、FNO模型、数据脚本、配置、指标及测试。已查看核心实现；数据不随仓库分发，需按README来源取得或模拟，未运行。代码MIT，论文CC BY 4.0。\n\n**本地PDF：** [打开原文](https://arxiv.org/pdf/2609.38049)。\n\n**翻译：** pending，已立即入队，交由独立pdf自动化gpt-6-luna / medium处理；[预期译文路径](/papers/translations/2026-10-11-6ff624640482a6791a44bbf8/)当前不是已完成文件。主任务不生成整篇翻译。\n\n**许可与网页：** [实际原文许可](https://creativecommons.org/licenses/by/4.0/)；允许带署名及改动说明公开完成译文。网站全部PDF仅保留官方原文链接，不上传任何PDF。",
       "report_entry_url": "/papers/reports/2026-10-11/#paper-184784faa64269bc",
       "paper_url": "/papers/items/184784faa64269bc/",
       "paper_report_url": "/papers/items/184784faa64269bc/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-11-6ff624640482a6791a44bbf8/#paper-184784faa64269bc",
+          "scope": "全文中英文对照",
+          "title": "Improving Function Space Flow Matching with Kernel Optimal Transport"
+        }
+      ],
       "links": [
         "https://neurips.cc/Downloads/2026",
         "https://arxiv.org/pdf/2609.38049",
@@ -284,10 +296,10 @@
       ],
       "hosted_pdfs": [],
       "status": "已接受待刊",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/184784faa64269bc/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-11-6ff624640482a6791a44bbf8/#paper-184784faa64269bc",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "19047863e7f37f7d",
@@ -336,10 +348,10 @@
       ],
       "hosted_pdfs": [],
       "status": "已接受待刊",
-      "translation_status": "pending",
+      "translation_status": "complete",
       "full_translation_public": false,
       "full_translation_url": "/papers/items/19047863e7f37f7d/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_label": "全文翻译（仅本地）"
     },
     {
       "id": "b05ee57ebc6710ed",
@@ -15591,6 +15603,28 @@
     }
   ],
   "translations": [
+    {
+      "date": "2026-10-11",
+      "url": "/papers/translations/2026-10-11-878faa0dd39bfe89819e1f2f/",
+      "slug": "2026-10-11-878faa0dd39bfe89819e1f2f",
+      "source_file": "paper.md",
+      "scope": "全文中英文对照",
+      "title": "Near-Field MIMO Channel Acquisition: Geometry-Aided Feedback and Transmission Design",
+      "paper_id": "10.1109/tcomm.2025.3631554",
+      "license_url": "",
+      "download": "/assets/papers/translations/2026-10-11-878faa0dd39bfe89819e1f2f.md"
+    },
+    {
+      "date": "2026-10-11",
+      "url": "/papers/translations/2026-10-11-6ff624640482a6791a44bbf8/",
+      "slug": "2026-10-11-6ff624640482a6791a44bbf8",
+      "source_file": "paper.md",
+      "scope": "全文中英文对照",
+      "title": "Improving Function Space Flow Matching with Kernel Optimal Transport",
+      "paper_id": "2609.38049",
+      "license_url": "",
+      "download": "/assets/papers/translations/2026-10-11-6ff624640482a6791a44bbf8.md"
+    },
     {
       "date": "2026-07-15",
       "url": "/papers/translations/2026-07-15-bd02b443/",
