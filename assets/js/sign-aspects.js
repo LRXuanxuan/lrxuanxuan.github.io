@@ -105,7 +105,7 @@
     }
     if(quote?.theme==='scenery') { scores.nectar+=1.2; scores.sky+=1.2; scores.moon+=.55; scores.rose+=.6; }
     if(quote?.theme==='inspiration') { scores.heart+=1.3; scores.edge+=.8; scores.rose+=.7; }
-    if(quote?.theme==='reflection') scores.lantern+=.65;
+    if(quote?.theme==='reflection') scores.lantern+=.25;
     // Affective and paired-concept evidence (not an author's name or source).
     if(/心(脏|跳|灵)|永远(不|地)?(保护|守护|活着)|活下去/.test(text)) scores.heart+=2;
     if(/死(亡|去|者)|回忆|怀念/.test(text) && /寂静|怀念|失去|永远|从未|无法|悲|痛|沉默|孤独/.test(text)) scores.winter+=1.8;
@@ -118,11 +118,19 @@
     if(/突破|挣脱|解放|打破|冲破/.test(text) && /限制|牢笼|枷锁|世界|旧|自由/.test(text)) scores.knock+=2;
     if(/创造|工业|技术|机器|发明/.test(text) && /世界|未来|改变|文明|人类|伟大/.test(text)) scores.forge+=1.8;
     if(/原始|远古|先祖/.test(text) && /生物|地球|沉睡|历史|力量|血脉/.test(text)) scores.scale+=1.7;
-    let winner='lantern', best=-1;
+    // Explicit insight, rational inquiry and the cruelty of knowledge still belong to Lantern.
+    // Otherwise, when another principle is meaningfully supported, break near-ties away from Lantern.
+    const explicitLantern =
+      /理性|真理|真相|洞见|启迪|逻辑|证明|求知|认知|知识|揭示|科学的发现|智慧的代价|思辨/.test(text) &&
+      /理解|认识|发现|追求|质疑|怀疑|事实|自由|代价|痛苦|疯狂|推论|理智|思想|真理|理性|科学|洞察/.test(text);
+    const nonLantern = Object.entries(scores).filter(([key,value]) => key!=='lantern' && value>=1.7);
+    let winner='heart', best=-1;
     for(const [key] of definitions) {
-      if(scores[key]>best) { winner=key;best=scores[key]; }
+      let score=scores[key];
+      if(key==='lantern' && !explicitLantern && nonLantern.length) score-=1.3;
+      if(score>best) { winner=key;best=score; }
     }
-    return best<1.7?'lantern':winner;
+    return best<1.7?'heart':winner;
   }
   function get(quote) {
     const key=quote?.aspect;
