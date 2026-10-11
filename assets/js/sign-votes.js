@@ -3,6 +3,19 @@
   'use strict';
   const storageKey = 'rc-sign-votes-v1';
   let fallback = {};
+  let storageUnavailable = false;
+  function identity(quote) {
+    if (quote?.id) return String(quote.id);
+    // Text-derived fallback makes server-rendered daily quotes work without
+    // downloading the entire quote pool or needing a server-side quote ID.
+    let a=2166136261,b=0x9e3779b9;
+    for (const letter of String(quote?.text||'')) {
+      const n=letter.charCodeAt(0);
+      a=Math.imul(a^n,16777619);
+      b=Math.imul(b^(n>>>8),2246822519);
+    }
+    return 'text:'+(a>>>0).toString(16)+(b>>>0).toString(16);
+  }
   function clean(row) {
     if (!row || typeof row !== 'object' || !['like','dislike'].includes(row.vote)) return null;
     const id = String(row.id || '').trim();
@@ -18,6 +31,7 @@
     };
   }
   function read() {
+    if (storageUnavailable) return {...fallback};
     try {
       const value=localStorage.getItem(storageKey);
       if (!value) { fallback={}; return {}; }
@@ -35,18 +49,25 @@
   function write(value) {
     fallback={...value};
     try { localStorage.setItem(storageKey,JSON.stringify(value)); return true; }
-    catch (_) { return false; }
+    catch (_) { storageUnavailable=true; return false; }
+  }
+  function prior(store,quote) {
+    const id=identity(quote);
+    const direct=store[id];
+    if (direct) return direct;
+    // Only unique full-text matches (the pool currently has no duplicate texts).
+    return Object.values(store).find(item=>item.text===quote?.text)||null;
   }
   function get(quote) {
-    if (!quote?.id) return null;
-    return read()[String(quote.id)]?.vote || null;
+    if (!quote?.text) return null;
+    return prior(read(),quote)?.vote||null;
   }
   function vote(quote,kind) {
-    if (!quote?.id || !['like','dislike'].includes(kind)) return {ok:false,vote:null};
-    const store=read(),id=String(quote.id);
-    const next=store[id]?.vote===kind?null:kind;
+    if (!quote?.text || !['like','dislike'].includes(kind)) return {ok:false,vote:null};
+    const store=read(),id=identity(quote),previous=prior(store,quote);
+    const next=previous?.vote===kind?null:kind;
+    if (previous) delete store[previous.id];
     if (next) store[id]=clean({...quote,id,vote:next,updatedAt:new Date().toISOString()});
-    else delete store[id];
     return {ok:write(store),vote:next};
   }
   function entries() {
