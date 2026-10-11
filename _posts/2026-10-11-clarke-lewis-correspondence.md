@@ -364,55 +364,55 @@ comments: false
 
 ## 注释与出处
 
-以下为**编校注**，不属于克拉克或刘易斯的信件正文。重点解释书中涉及的小说、人物、科学史和科幻出版史。凡涉及原书转录错误的地方，已区分可核实事实与无法确定的字句。
+注释涉及书中提到的作品、人物、科学史与科幻出版背景。
 
 [^perelandra]: **《皮尔兰德拉》（*Perelandra*，1943）**：刘易斯“太空三部曲”第二部，故事发生于想象中的金星；主人公兰塞姆试图防止这个尚未经历堕落的世界重演伊甸园中的诱惑。系列另两部为《沉寂的星球》（*Out of the Silent Planet*，1938）和《那可憎的力量》（*That Hideous Strength*，1945）。[资料：刘易斯官方网站](https://www.cslewis.com/us/about-cs-lewis/)、[《科幻百科全书》](https://sf-encyclopedia.com/entry/lewis_c_s)。
 
 [^screwtape]: **《地狱来鸿》（*The Screwtape Letters*，1942）**：刘易斯的书信体讽刺作品，设定为一位资深恶魔写信指导年轻恶魔如何诱惑人类。克拉克虽然不认同基督教传统，仍赞赏这部作品对人性的观察。[资料：刘易斯官方网站](https://www.cslewis.com/us/about-cs-lewis/)。
 
-[^weston]: **韦斯顿（Professor Edward Rolles Weston）与兰塞姆（Elwin Ransom）**：前者是刘易斯“太空三部曲”前两部中的物理学家和主要反派，拥有真正的航天技术能力，却将人类物种的扩张与延续置于其他生命和道德价值之上；在《皮尔兰德拉》中进一步充当神学意义的诱惑者。后者则是语言学家、故事的主人公和韦斯顿的对立面。另有与韦斯顿合作、出于经济利益行动的德文（Dick Devine）。**克拉克所抗议的是刘易斯笔下的这种人物与真实航天探索者之间的暗示性关联**，并非所有对航天伦理的质疑。[资料：《科幻百科全书》](https://sf-encyclopedia.com/entry/lewis_c_s)。
+[^weston]: **韦斯顿（Professor Edward Rolles Weston）与兰塞姆（Elwin Ransom）**：韦斯顿是刘易斯“太空三部曲”前两部中的物理学家和主要反派。他掌握了星际航行技术，却主张为了人类物种的扩张与延续可以牺牲其他生命；在《皮尔兰德拉》中更成为诱惑异星生命的邪恶力量。兰塞姆是语言学家与故事主角，与韦斯顿对立。德文（Dick Devine）则是韦斯顿的合作者，主要受利益驱使。[资料：《科幻百科全书》](https://sf-encyclopedia.com/entry/lewis_c_s)。
 
 [^bis]: **英国星际学会（British Interplanetary Society，BIS）**：成立于 1933 年的英国航天研究与推广团体。克拉克曾任学会主席（1946—1947、1950—1953），在这组信里既是科幻作家，也是实际的航天倡导者。[资料：《科幻百科全书》克拉克条](https://sf-encyclopedia.com/entry/clarke_arthur_c)。
 
 [^lebensraum]: **“生存空间”（*Lebensraum*）**：德语政治术语，特别因纳粹德国以扩张领土为由的侵略意识形态而臭名昭著。克拉克在 1943 年的信中借用它，强调真正的航天研究者并不希望将这种殖民扩张逻辑搬到宇宙。
 
-[^swift]: **乔纳森·斯威夫特（Jonathan Swift，1667—1745）**：英国及爱尔兰作家，《格列佛游记》（*Gulliver's Travels*）作者。克拉克提到斯威夫特，是因为他擅长以辛辣讽刺书写人性的虚伪和卑劣；这里并非声称斯威夫特讨论过现代航天。
+[^swift]: **乔纳森·斯威夫特（Jonathan Swift，1667—1745）**：作家、讽刺文学名家，代表作《格列佛游记》（*Gulliver's Travels*）。克拉克用他的名字指代一种对人性极为尖锐的悲观讽刺。
 
-[^starmaker]: **奥拉夫·斯特普尔顿《造星主》（Olaf Stapledon, *Star Maker*，1937）**：以漫长的宇宙尺度构想意识、生命、文明和共同体的演化。克拉克在此把它作为航天理想的象征，而刘易斯却对其中有关超越人类与宗教的观念抱有戒心。需要区别：斯特普尔顿的“造星主”并不简单等同于传统基督教的人格神。[资料：《科幻百科全书》](https://sf-encyclopedia.com/entry/stapledon_olaf)。
+[^starmaker]: **奥拉夫·斯特普尔顿《造星主》（Olaf Stapledon, *Star Maker*，1937）**：小说以浩瀚的时空尺度构想生命、意识、文明及宇宙共同体的演化。“造星主”是一种高度抽象的宇宙性存在，与传统基督教人格神的形象颇不相同。克拉克把这部小说作为航天理想的象征，刘易斯则对其思想取向深感不安。[资料：《科幻百科全书》](https://sf-encyclopedia.com/entry/stapledon_olaf)。
 
-[^haldane]: **J. B. S. 霍尔丹（J. B. S. Haldane，1892—1964）**：英国遗传学家、生物学家及科学思想作家。刘易斯原信提及的书名在本书转录中形似“Rosetta Worlds”，无法据此确证；有充分外部文献表明，他对霍尔丹《可能的世界》（*Possible Worlds and Other Essays*，1927）中的《最后的审判》（*The Last Judgement*）确有批评。此处不把不清楚的英文转录当作确切书名。[霍尔丹作品原文](https://jbshaldane.org/books/1927-Possible-Worlds/index.html)。
+[^haldane]: **J. B. S. 霍尔丹（J. B. S. Haldane，1892—1964）**：英国遗传学家、生物学家和科学思想作家。刘易斯信中涉及他的著作，原书转录的书名辨认困难。霍尔丹《可能的世界》（*Possible Worlds and Other Essays*，1927）收录了《最后的审判》（*The Last Judgement*）等有关科学与人类未来的文章。[霍尔丹作品原文](https://jbshaldane.org/books/1927-Possible-Worlds/index.html)。
 
-[^waddington]: **C. H. 沃丁顿《科学与伦理学》（C. H. Waddington, *Science and Ethics*，1942）**：沃丁顿是英国发育生物学家，试图从科学与社会思想的联系探讨伦理问题。该书源于 1941 年发表于《自然》的论文和随后的讨论，讨论参与者包括霍尔丹等人。**不要与霍尔丹自己于 1928 年出版的同名《科学与伦理学》混淆。**[《自然》1943 年书评](https://www.nature.com/articles/151657d0)。
+[^waddington]: **C. H. 沃丁顿《科学与伦理学》（C. H. Waddington, *Science and Ethics*，1942）**：沃丁顿是英国发育生物学家，曾探索如何将科学与社会思想联系起来讨论伦理问题。此书源于 1941 年发表于《自然》的文章及后续讨论；霍尔丹也曾于 1928 年出版同名著作。[《自然》1943 年书评](https://www.nature.com/articles/151657d0)。
 
-[^prelude]: **《太空序曲》（*Prelude to Space*，1951）**：克拉克早期以人类筹备首次载人登月为背景的科幻长篇，着重描写技术和组织上的实施过程。不同版本的出版时间有所差别，信件中提及的是预定在英国发行的版本。[资料：克拉克作品年表](https://www.sfadb.com/Arthur_C_Clarke_Chronology)。
+[^prelude]: **《太空序曲》（*Prelude to Space*，1951）**：克拉克的早期长篇，以人类筹备首次载人登月为背景，着重描写航天技术、工程组织与公众对于太空时代的期待。[资料：克拉克作品年表](https://www.sfadb.com/Arthur_C_Clarke_Chronology)。
 
-[^childhood]: **《童年的终结》（*Childhood's End*，1953）**：克拉克以外星“监督者”降临地球以及人类文明的转变为中心的长篇，兼具宏大文明观与宗教意象。刘易斯对这部作品评价较高，但他最初完整的评论信**没有收入本书**，因此无法从本页还原其全部意见。[资料：《科幻百科全书》](https://sf-encyclopedia.com/entry/clarke_arthur_c)。
+[^childhood]: **《童年的终结》（*Childhood's End*，1953）**：克拉克的长篇代表作，描写外星“监督者”降临地球，促成人类社会与文明形态的根本变化。书中融汇了文明演化、超越性与宗教意象；刘易斯读后给予了很高评价。[资料：《科幻百科全书》](https://sf-encyclopedia.com/entry/clarke_arthur_c)。
 
 [^joy]: **乔伊·戴维德曼·格雷沙姆（Joy Davidman Gresham，1915—1960）**：美国作家，后来成为刘易斯的妻子，同时也是克拉克在英国科幻文坛的熟人。她曾帮助两人转递作品和书信；克拉克在本书前言中还回忆过这段交往。
 
-[^melville]: **赫尔曼·梅尔维尔（Herman Melville，1819—1891）**：美国作家，以《白鲸》（*Moby-Dick*，1851）闻名。《比利·巴德》（*Billy Budd, Sailor*）是其身后出版的中篇。克拉克称《童年的终结》中某个黎明意象呼应《比利·巴德》，并承认梅尔维尔影响过自己的创作；这段自述是文学渊源的一手史料，而非编者的推测。
+[^melville]: **赫尔曼·梅尔维尔（Herman Melville，1819—1891）**：美国作家，《白鲸》（*Moby-Dick*，1851）作者。《比利·巴德》（*Billy Budd, Sailor*）是其身后出版的中篇。克拉克在信中提到《童年的终结》中的黎明意象呼应了《比利·巴德》，并坦言自己深受梅尔维尔影响。
 
 [^jupiterfive]: **《木星五号》（*Jupiter Five*，1953）**：克拉克发表于 1953 年 5 月号《If》杂志的中篇科幻。探险者在所谓“木星五号”附近发现远古爬虫类文明的遗迹。刘易斯认为，这种文明背景比围绕它展开的常规冒险情节更值得细写；克拉克则坦言，小说最初是围绕一个天体力学构想编排的。[克拉克作品书目与刊期](https://www.press.uillinois.edu/books/?id=p083594)。
 
-[^kenzie]: **马克·克利夫顿《肯齐报告》（Mark Clifton, *The Kenzie Report*）**：发表于 **1953 年 5 月号《If》** 的短篇科幻，涉及蚂蚁行为及研究者对异常现象的解释。与《木星五号》《她知道他会来》《飞行之环》**同属一期杂志**，所以刘易斯是在针对手边整期刊物作比较，而不是随意罗列不同时代的名作。[原文：Project Gutenberg](https://www.gutenberg.org/ebooks/32131)。
+[^kenzie]: **马克·克利夫顿《肯齐报告》（Mark Clifton, *The Kenzie Report*）**：发表于 **1953 年 5 月号《If》** 的短篇科幻，涉及蚂蚁行为及研究者对异常现象的解释。这篇作品与《木星五号》《她知道他会来》《飞行之环》**刊于同一期杂志**。刘易斯在旅途中读完这期杂志，便写信逐篇评论。[原文：Project Gutenberg](https://www.gutenberg.org/ebooks/32131)。
 
-[^neville]: **克里斯·内维尔《她知道他会来》（Kris Neville, *She Knew He Was Coming*）**：同刊于 1953 年 5 月号《If》，故事写火星环境中的一名女子及其期待。刘易斯批评的是“仅将旧式情节搬到火星”，不是认为科幻必须拒绝情感描写。[原文：Project Gutenberg](https://www.gutenberg.org/ebooks/33934)。
+[^neville]: **克里斯·内维尔《她知道他会来》（Kris Neville, *She Knew He Was Coming*）**：发表于 1953 年 5 月号《If》。故事发生在火星，带有感伤的爱情与性交易题材。刘易斯认为火星环境没有真正进入作品的主题和结构。[原文：Project Gutenberg](https://www.gutenberg.org/ebooks/33934)。
 
 [^stockham]: **理查德·斯托克汉姆《飞行之环》（Richard Stockham, *Circle of Flight*）**：亦发表于 1953 年 5 月号《If》。刘易斯认为它虽然执行得不够好，但情节比较能利用其科幻环境；克拉克则不满意结尾借助巧合的方式。[原文：Project Gutenberg](https://www.gutenberg.org/ebooks/32885)。
 
 [^walk]: **《黑暗中漫步》（*A Walk in the Dark*，1950）**：克拉克发表于 1950 年 8 月号 *Thrilling Wonder Stories* 的短篇。故事中，一名男子在黑暗的外星环境里行进，无法确定自己是否独处。克拉克引用经纪人“改成发生在非洲也一样”的退稿意见，回应刘易斯对外星背景可替代性的批评。[初刊目录：伊利诺伊大学出版社](https://www.press.uillinois.edu/books/?id=p083594)。
 
-[^gernsback]: **雨果·根斯巴克（Hugo Gernsback，1884—1967）与“给科学裹糖衣”**：1926 年 4 月他创办《惊奇故事》（*Amazing Stories*），创刊社论《一种新型杂志》（*A New Sort of Magazine*）把 *scientifiction* 概括为**引人入胜的故事、科学事实与预见性想象的结合**；又主张科幻能让读者不知不觉地获得科学知识。1926 年 7 月社论《小说与事实》（*Fiction versus Facts*）更提出理想作品约为 **75% 文学、25% 科学**。所以他并非主张文学毫无价值；克拉克嘲讽的，是把传授科学知识当成小说需要辩护的理由。雨果奖（Hugo Awards）亦以他命名。[1926 年创刊社论原文](https://manifold.umn.edu/read/the-perversity-of-things-hugo-gernsback-on-media-tinkering-and-scientifiction/section/33eb407d-e039-4269-81df-6480de7fbfd3) · [1926 年 7 月社论原文](https://manifold.umn.edu/read/the-perversity-of-things-hugo-gernsback-on-media-tinkering-and-scientifiction/section/f006a58b-1cb7-4471-a0f3-7f118982ec05) · [《科幻百科全书》](https://sf-encyclopedia.com/entry/gernsback_hugo)。
+[^gernsback]: **雨果·根斯巴克（Hugo Gernsback，1884—1967）与“给科学裹糖衣”**：1926 年 4 月，他创办科幻杂志《惊奇故事》（*Amazing Stories*），在创刊社论《一种新型杂志》（*A New Sort of Magazine*）中提倡把**引人入胜的故事、科学事实与预见性想象**结合起来，让读者在阅读中自然获得科学知识。同年 7 月的《小说与事实》（*Fiction versus Facts*）又提出理想科幻作品应有约 **75% 的文学与 25% 的科学**。克拉克在这里调侃的正是这种科学教育使命。科幻界的雨果奖（Hugo Awards）亦以根斯巴克命名。[1926 年创刊社论原文](https://manifold.umn.edu/read/the-perversity-of-things-hugo-gernsback-on-media-tinkering-and-scientifiction/section/33eb407d-e039-4269-81df-6480de7fbfd3) · [1926 年 7 月社论原文](https://manifold.umn.edu/read/the-perversity-of-things-hugo-gernsback-on-media-tinkering-and-scientifiction/section/f006a58b-1cb7-4471-a0f3-7f118982ec05) · [《科幻百科全书》](https://sf-encyclopedia.com/entry/gernsback_hugo)。
 
-[^keller]: **大卫·H. 凯勒（David H. Keller）**：美国早期科幻作家，兼有医学工作背景。克拉克是在凭记忆谈论一部以蚂蚁文明为题材的旧作，并且明确表示自己**不确信题名和年代**；因此这里保留其说法，不把《征服者》及“1929 年《奇妙故事》”当作已经核定的书目记录。
+[^keller]: **大卫·H. 凯勒（David H. Keller）**：美国早期科幻作家，也曾从事医疗工作。克拉克回忆起他的一部描写蚂蚁文明的旧作，印象极深，但对题名《征服者》以及约 1929 年的发表时间都记得不太确定。
 
-[^magazines]: **三种科幻杂志**：*Astounding* 是后来 *Analog Science Fiction and Fact* 的前身，以严格的科学推想和类型文学发展史闻名；*Galaxy Science Fiction* 于 1950 年创刊，较重视社会与人文题材；*The Magazine of Fantasy and Science Fiction* 创刊于 1949 年，以文学性与奇幻、科幻并举著称。克拉克所说的“最有文学素养”，是他在 1954 年的个人评价，不是客观排名。
+[^magazines]: **三种科幻杂志**：*Astounding* 后来发展为 *Analog Science Fiction and Fact*，在美国科幻黄金时代具有重要地位；*Galaxy Science Fiction* 创刊于 1950 年，以社会与人文题材见长；*The Magazine of Fantasy and Science Fiction* 创刊于 1949 年，尤其重视文学风格。克拉克对最后一种杂志的文学品质评价很高。
 
 [^fifthcolumn]: **“第五纵队”（fifth column）**：原本指在某一组织或阵营内部暗中协助外部势力的人。克拉克在这里自嘲：把科幻写给主流杂志，相当于让科幻从内部进入原本不愿接纳它的文学市场。
 
-[^jailers]: **“逃避现实”与“狱卒”**：刘易斯是在反击“幻想文学不过是逃避现实”的批评。他引述了朋友的警句；这种“囚徒逃离牢狱／狱卒最害怕逃亡”的比喻，也见于托尔金论述幻想文学的文章 *On Fairy-Stories*。不过本书刘易斯信件该处转录较乱，**不可直接断言信中完整原句出自哪一版本**。[参阅：托尔金《论仙境故事》相关论述](https://en.wikipedia.org/wiki/On_Fairy-Stories)。
+[^jailers]: **“逃避现实”与“狱卒”**：刘易斯反驳了幻想文学只是一种“逃避现实”的批评。把厌恶逃跑的人比作狱卒的警句，与托尔金在《论仙境故事》（*On Fairy-Stories*）中关于逃离牢狱的著名比喻相呼应。[托尔金《论仙境故事》](https://en.wikipedia.org/wiki/On_Fairy-Stories)。
 
-[^tolkienlast]: **“Tolkein，或者 Tolkien”**：克拉克在 2003 年这封写给已故刘易斯的短札里，故意把 J. R. R. 托尔金的姓氏写成两种拼法，并装作不知道他后来怎么样了。这是对这位《霍比特人》《魔戒》作者的玩笑，不能按字面理解。
+[^tolkienlast]: **“Tolkein，或者 Tolkien”**：2003 年，克拉克写信给早已去世的刘易斯，故意拿托尔金的名字开玩笑，还佯装不知道这位《霍比特人》《魔戒》作者后来的成就。
 
 ---
 
