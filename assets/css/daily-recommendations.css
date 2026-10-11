@@ -1,5 +1,5 @@
 /* Lightweight daily trio and personal archive: text, borders, no external assets. */
-.rc-rec-widget{border:1px solid var(--main-border-color);border-radius:11px;background:var(--card-bg);padding:.9rem .85rem;box-shadow:var(--card-shadow)}
+.rc-rec-widget{margin-top:1.2rem;border:1px solid var(--main-border-color);border-radius:11px;background:var(--card-bg);padding:.9rem .85rem;box-shadow:var(--card-shadow)}
 .rc-rec-widget h2{font-size:1.03rem;color:var(--heading-color);margin:0 0 .25rem}
 .rc-rec-intro,.rc-rec-help{font-size:.73rem;color:var(--text-muted-color);line-height:1.65;margin:.25rem 0 .65rem}
 .rc-rec-date{font-variant-numeric:tabular-nums}
