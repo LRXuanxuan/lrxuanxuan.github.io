@@ -9,10 +9,18 @@
   const source = root.querySelector('.rc-sign-source');
   const initialText = text.textContent;
   const initialSource = source.cloneNode(true);
+  const records = globalThis.RCSignRecords;
+  const recentKey = 'rc-sign-recent-authors-v1';
+  const initialQuote = {text:initialText,book:root.dataset.book||'',author:root.dataset.author||'',chapter:root.dataset.chapter||'',readerLink:root.dataset.readerLink||''};
+  if (records) {
+    records.add(initialQuote,'daily',root.dataset.date);
+    records.migrate(root.dataset.pool).catch(()=>{});
+  }
   const storageKey = 'rc-sign-drawn-v2';
   let seen = new Set();
   let poolPromise;
   let draws = 0;
+  let recentAuthors = [];
   try { seen = new Set(JSON.parse(localStorage.getItem(storageKey) || '[]')); } catch (_) { /* In-memory fallback. */ }
   function uniform() {
     if (globalThis.crypto?.getRandomValues) {
@@ -35,8 +43,16 @@
     return poolPromise;
   }
   function pick(available) {
+    const authorKey = quote => records ? records.authorKey(quote) : quote.author;
+    try { recentAuthors=JSON.parse(localStorage.getItem(recentKey)||'[]'); } catch (_) {}
+    if (!Array.isArray(recentAuthors)) recentAuthors=[];
+    const initialAuthor=authorKey(initialQuote);
+    const last=recentAuthors.slice(-3);
+    let eligible=available.filter(quote=>!last.includes(authorKey(quote)) && authorKey(quote)!==initialAuthor);
+    if(!eligible.length) eligible=available.filter(quote=>authorKey(quote)!==last[last.length-1]);
+    if(!eligible.length) eligible=available;
     const groups = new Map();
-    for (const quote of available) {
+    for (const quote of eligible) {
       if (!groups.has(quote.book)) groups.set(quote.book, {weight:Number(quote.weight)||1, quotes:[]});
       groups.get(quote.book).quotes.push(quote);
     }
@@ -78,11 +94,15 @@
       }
       const quote = pick(available);
       render(quote);
+      recentAuthors.push(records ? records.authorKey(quote) : quote.author);
+      recentAuthors=recentAuthors.slice(-6);
+      try { localStorage.setItem(recentKey,JSON.stringify(recentAuthors)); } catch (_) {}
+      const persisted=records ? records.add(quote) : true;
       seen.add(quote.id);
       try { localStorage.setItem(storageKey,JSON.stringify([...seen])); } catch (_) { /* Remain usable. */ }
       draws += 1;
       reset.hidden = false;
-      status.textContent = `重抽第 ${draws} 次 · ${pool.length} 段候选喵`;
+      status.textContent = `重抽第 ${draws} 次 · ${pool.length} 段候选喵${persisted ? '' : ' · 签册暂存于本页'}`;
     } catch (_) {
       status.textContent = '暂时没有抽到，稍后再试喵。';
     } finally { button.disabled = false; }
