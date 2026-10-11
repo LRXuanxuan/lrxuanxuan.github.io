@@ -4,7 +4,7 @@
   const key = 'rc-sign-archive-v2';
   const legacyKey = 'rc-sign-archive-v1';
   const resetMarker = 'rc-sign-aspects-reviewed-v1';
-  const bibliographyMarker = 'rc-sign-bibliography-clean-v1';
+  const bibliographyMarker = 'rc-sign-typography-clean-v1';
   let memory = [];
   const fields = ['text','book','author','chapter','readerLink','aspect'];
   // This executes in either home or archive, on the first visit after deployment.
@@ -95,7 +95,7 @@
         (candidates.length===1?candidates[0]:null);
       if(!source) return row;
       const updated={...row};
-      for(const field of ['book','author','chapter','aspect']) {
+      for(const field of ['text','book','author','chapter','aspect']) {
         if(typeof source[field]==='string'&&updated[field]!==source[field]){
           updated[field]=source[field];dirty=true;
         }
