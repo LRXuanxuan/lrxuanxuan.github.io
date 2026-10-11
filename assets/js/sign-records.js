@@ -63,7 +63,7 @@
   async function migrate(poolUrl) {
     // Only retained old default-daily entries need relabeling; old redraws were deleted.
     if (!poolUrl || !read().some(row => row.kind==='daily' && !row.aspect)) return;
-    const response=await fetch(poolUrl,{cache:'force-cache'});
+    const response=await fetch(poolUrl,{cache:'no-cache'});
     if(!response.ok) throw new Error('daily-aspect-pool');
     const payload=await response.json();
     if(!Array.isArray(payload.quotes)) throw new Error('daily-aspect-format');
