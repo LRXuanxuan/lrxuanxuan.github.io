@@ -1,0 +1,17 @@
+# Recent uploads shown on the custom homepage.
+# Keep newer entries here when publishing new sections, books, or notes.
+# Entries are automatically sorted by the date field, newest first.
+- date: "2026-10-10T18:25:54+08:00"
+  title: "论文库：前沿文献与阅读资料"
+  description: "整理通信、信号处理与生成模型论文，附研究日报及译文。"
+  url: "/papers/"
+
+- date: "2026-10-10T18:18:57+08:00"
+  title: "科幻文学中文译本书架"
+  description: "八部 EPUB 译本，附 LLM 翻译来源及整理说明。"
+  url: "/translations/"
+
+- date: "2026-10-10T18:11:43+08:00"
+  title: "照明之咪摇奖机"
+  description: "从电子表格搬到网页的抽牌小玩意。"
+  url: "/fortune/"
