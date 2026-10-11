@@ -19,7 +19,8 @@
     p.pdf_sources.forEach((u,i)=>appendLink(links,p.hosted_pdfs.length?'原始 PDF 来源':(i?'PDF 来源 '+(i+1):'PDF / 原文'),u));
     p.github.forEach((u,i)=>appendLink(links,i?'GitHub '+(i+1):'GitHub 仓库',u));
     if (p.report_entry_url) appendLink(links,'本篇日报与证据',p.paper_report_url);
-    p.translations.forEach(t=>appendLink(links,t.scope==='全文中英文对照'?'本篇全文对照':'本篇历史译文',t.url));c.append(links);
+    appendLink(links,p.full_translation_label||'全文翻译（待补齐）',p.full_translation_url||p.paper_url+'#paper-translation');
+    p.translations.filter(t=>t.scope!=='全文中英文对照').forEach(t=>appendLink(links,'本篇历史译文',t.url));c.append(links);
     if(!p.github.length)c.append(make('small',p.fields['代码/数据状态']||'未记录公开代码状态','pl-meta'));
     const d=make('details');d.append(make('summary','展开方法、结果、证据及表格全部字段'));
     const dl=make('dl');Object.entries(p.fields).forEach(([k,v])=>{dl.append(make('dt',k));const dd=make('dd',v||'—');const url=p.hyperlinks[k];if(url){dd.append(document.createTextNode(' '));appendLink(dd,'打开链接',url);}dl.append(dd);});
@@ -45,7 +46,8 @@
   }
   fetch(root.dataset.source,{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(json=>{
     data=json;const stats=$('pl-stats');stats.replaceChildren();
-    [[data.total,'推荐记录'],[Object.keys(data.dates).length,'推荐日期'],[data.reports.length,'每日报告'],[data.translations.length,'译文文档']].forEach(([n,label])=>{const s=make('div',undefined,'pl-stat');s.append(make('strong',String(n)),make('span',label));stats.append(s);});
+    const progress=data.translation_progress;
+    [[data.total,'推荐记录'],[Object.keys(data.dates).length,'推荐日期'],[data.reports.length,'每日报告'],[progress?`${progress.completed}/${progress.target}`:'0','全文验收通过'],[progress?.public_full_text||0,'可公开全文译文']].forEach(([n,label])=>{const s=make('div',undefined,'pl-stat');s.append(make('strong',String(n)),make('span',label));stats.append(s);});
     Object.entries(data.dates).forEach(([date,n])=>{const o=make('option',date+' · '+n+'篇');o.value=date;$('pl-date').append(o);});
     [...new Set(data.papers.map(p=>p.status))].sort().forEach(s=>{const o=make('option',s);o.value=s;$('pl-status').append(o);});
     if(query.get('date'))$('pl-date').value=query.get('date');

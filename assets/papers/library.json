@@ -1,7 +1,23 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "source": "每日论文推荐.xlsx",
   "source_sha256": "3068fe58ddff7a47347e7d48d95eea08cdb590576877196b3d4aacc8caaf2c42",
+  "translation_progress": {
+    "target": 315,
+    "completed": 2,
+    "public_full_text": 0,
+    "local_only": 2,
+    "status_counts": {
+      "access_blocked": 1,
+      "complete": 2,
+      "pending": 312
+    },
+    "model": "gpt-6-luna",
+    "reasoning_effort": "medium",
+    "figures_required": false,
+    "tables_required": true,
+    "algorithms_required": true
+  },
   "sheets": [
     {
       "name": "每日论文推荐",
@@ -114,7 +130,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/c993009e70191dfd/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "7fadb829367915b8",
@@ -162,7 +181,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "superseded"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/7fadb829367915b8/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "d07df267b870c505",
@@ -210,7 +232,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/d07df267b870c505/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "184784faa64269bc",
@@ -259,7 +284,10 @@
       ],
       "hosted_pdfs": [],
       "status": "已接受待刊",
-      "translation_status": "pending"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/184784faa64269bc/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "19047863e7f37f7d",
@@ -308,7 +336,10 @@
       ],
       "hosted_pdfs": [],
       "status": "已接受待刊",
-      "translation_status": "pending"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/19047863e7f37f7d/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "b05ee57ebc6710ed",
@@ -356,7 +387,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/b05ee57ebc6710ed/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "4b346a8bd1ffac3c",
@@ -407,7 +441,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/4b346a8bd1ffac3c/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "f20ef02970b5dae8",
@@ -458,7 +495,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/f20ef02970b5dae8/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "e7dcb19b8767dc77",
@@ -503,7 +543,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/e7dcb19b8767dc77/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "6e957d5655dac99c",
@@ -548,7 +591,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/6e957d5655dac99c/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "10f0ab8efa0053a7",
@@ -592,7 +638,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/10f0ab8efa0053a7/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "35a0a3cc7dd34973",
@@ -640,7 +689,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/35a0a3cc7dd34973/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "f21a0dbb22c712a9",
@@ -688,7 +740,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/f21a0dbb22c712a9/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "b22d53d1cb740209",
@@ -736,7 +791,10 @@
       ],
       "hosted_pdfs": [],
       "status": "已接受待刊",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/b22d53d1cb740209/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "3d73885958ebba6e",
@@ -780,7 +838,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/3d73885958ebba6e/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "e8bdd417cfd6310c",
@@ -827,7 +888,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/e8bdd417cfd6310c/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "bc7e2cee19a2d09c",
@@ -872,7 +936,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/bc7e2cee19a2d09c/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "38cc50b840720a0c",
@@ -920,7 +987,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/38cc50b840720a0c/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "fa792f0d4a8db9aa",
@@ -967,7 +1037,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/fa792f0d4a8db9aa/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "e2d993c9ad616fd4",
@@ -1016,7 +1089,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/e2d993c9ad616fd4/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "1b6e3b6fd6c0db06",
@@ -1064,7 +1140,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/1b6e3b6fd6c0db06/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "2b5b5693450fd2ff",
@@ -1114,7 +1193,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/2b5b5693450fd2ff/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "ce9aab0defec4206",
@@ -1161,7 +1243,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/ce9aab0defec4206/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "6e625af6ef2508e0",
@@ -1208,7 +1293,10 @@
       ],
       "hosted_pdfs": [],
       "status": "Early Access",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/6e625af6ef2508e0/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "2ecf8672a0c05fba",
@@ -1252,7 +1340,10 @@
       ],
       "hosted_pdfs": [],
       "status": "已接受待刊",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/2ecf8672a0c05fba/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "afeda7eb730cc0b0",
@@ -1296,7 +1387,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/afeda7eb730cc0b0/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "affccac6e46a2de7",
@@ -1340,7 +1434,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/affccac6e46a2de7/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "87aadaefe922670d",
@@ -1384,7 +1481,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/87aadaefe922670d/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "a9958f412dc97b7a",
@@ -1428,7 +1528,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/a9958f412dc97b7a/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "2fd7c6f4df7bed7e",
@@ -1472,7 +1575,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/2fd7c6f4df7bed7e/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "b0be94b7c9394c6c",
@@ -1516,7 +1622,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/b0be94b7c9394c6c/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "8200a045c27a78d5",
@@ -1560,7 +1669,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/8200a045c27a78d5/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "8af7f5b90a118edb",
@@ -1604,7 +1716,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/8af7f5b90a118edb/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "647afc788713a6de",
@@ -1651,7 +1766,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/647afc788713a6de/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "37453168222f4582",
@@ -1695,7 +1813,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/37453168222f4582/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "07d1b455463c9f2c",
@@ -1736,7 +1857,10 @@
       "pdf_sources": [],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/07d1b455463c9f2c/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "53d36ad02cf82b3d",
@@ -1775,7 +1899,10 @@
       "pdf_sources": [],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/53d36ad02cf82b3d/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "56dea3a0c21f4696",
@@ -1814,7 +1941,10 @@
       "pdf_sources": [],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/56dea3a0c21f4696/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "bb7d33856362d71f",
@@ -1853,7 +1983,10 @@
       "pdf_sources": [],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/bb7d33856362d71f/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "2cc0b60c30c5b2c6",
@@ -1896,7 +2029,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/2cc0b60c30c5b2c6/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "f601866dada17e23",
@@ -1939,7 +2075,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/f601866dada17e23/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "a8a573f89919c91b",
@@ -1983,7 +2122,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/a8a573f89919c91b/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "ba460c43d2ee064a",
@@ -2022,7 +2164,10 @@
       "pdf_sources": [],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/ba460c43d2ee064a/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "732fa01f3da53907",
@@ -2065,7 +2210,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/732fa01f3da53907/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "f33fa845f96f1172",
@@ -2108,7 +2256,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/f33fa845f96f1172/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "6aa6d5402e27413d",
@@ -2151,7 +2302,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/6aa6d5402e27413d/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "333a12fc9310706e",
@@ -2194,7 +2348,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/333a12fc9310706e/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "1742760d5d60390b",
@@ -2237,7 +2394,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/1742760d5d60390b/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "d3b2f278ad439789",
@@ -2280,7 +2440,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/d3b2f278ad439789/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "1acaad49a2353e5b",
@@ -2323,7 +2486,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/1acaad49a2353e5b/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "bf9c99bd8d106ad5",
@@ -2366,7 +2532,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/bf9c99bd8d106ad5/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "b63c4db5bb3e4f6d",
@@ -2409,7 +2578,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/b63c4db5bb3e4f6d/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "8d6aa431435d5cb5",
@@ -2450,7 +2622,10 @@
       "pdf_sources": [],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/8d6aa431435d5cb5/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "b269b52f0eef9fb8",
@@ -2489,7 +2664,10 @@
       "pdf_sources": [],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/b269b52f0eef9fb8/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "e2bd35371f8c7a83",
@@ -2532,7 +2710,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/e2bd35371f8c7a83/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "4d4867c85afa9c3b",
@@ -2575,7 +2756,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/4d4867c85afa9c3b/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "d14425c3fc709923",
@@ -2618,7 +2802,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/d14425c3fc709923/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "1184b95fa54fc1af",
@@ -2661,7 +2848,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/1184b95fa54fc1af/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "80e14dd18ce98ca8",
@@ -2704,7 +2894,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/80e14dd18ce98ca8/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "f1ae61570d1d13c1",
@@ -2747,7 +2940,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/f1ae61570d1d13c1/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "26bf1ba438bad665",
@@ -2790,7 +2986,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/26bf1ba438bad665/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "6cecae8cc71b3be3",
@@ -2833,7 +3032,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/6cecae8cc71b3be3/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "fdb8bece62f0fa86",
@@ -2877,7 +3079,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/fdb8bece62f0fa86/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "dca1fee097b5038f",
@@ -2920,7 +3125,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/dca1fee097b5038f/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "8bb134d0351d4de5",
@@ -2963,7 +3171,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/8bb134d0351d4de5/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "8b3c7e5483f2036c",
@@ -3006,7 +3217,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/8b3c7e5483f2036c/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "e29accba464cb416",
@@ -3049,7 +3263,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/e29accba464cb416/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "50d12cc7ed367df8",
@@ -3092,7 +3309,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/50d12cc7ed367df8/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "b35ad01081ff8480",
@@ -3131,7 +3351,10 @@
       "pdf_sources": [],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/b35ad01081ff8480/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "9b1a38cae9b994ed",
@@ -3174,7 +3397,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/9b1a38cae9b994ed/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "6ffe4ab7aea24bbc",
@@ -3213,7 +3439,10 @@
       "pdf_sources": [],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/6ffe4ab7aea24bbc/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "c4f5e47ab1c99e1f",
@@ -3252,7 +3481,10 @@
       "pdf_sources": [],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/c4f5e47ab1c99e1f/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "208eab9d15bedea0",
@@ -3291,7 +3523,10 @@
       "pdf_sources": [],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/208eab9d15bedea0/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "685f885dafcb782a",
@@ -3332,7 +3567,10 @@
       "pdf_sources": [],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/685f885dafcb782a/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "5856c0521ef7a0c4",
@@ -3371,7 +3609,10 @@
       "pdf_sources": [],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/5856c0521ef7a0c4/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "fc5dc727273618c9",
@@ -3414,7 +3655,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/fc5dc727273618c9/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "994df95bbaf1d51b",
@@ -3457,7 +3701,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/994df95bbaf1d51b/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "b8628866bf029cba",
@@ -3496,7 +3743,10 @@
       "pdf_sources": [],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/b8628866bf029cba/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "566d3c2e91637469",
@@ -3539,7 +3789,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/566d3c2e91637469/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "a44f41c0717082cc",
@@ -3582,7 +3835,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/a44f41c0717082cc/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "a6fc510f0b68458b",
@@ -3625,7 +3881,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/a6fc510f0b68458b/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "9af23c016d0e8af8",
@@ -3668,7 +3927,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/9af23c016d0e8af8/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "e0ae0669ed8263c5",
@@ -3711,7 +3973,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/e0ae0669ed8263c5/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "1cbafcaa542d5384",
@@ -3754,7 +4019,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/1cbafcaa542d5384/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "18c3efcfd8721025",
@@ -3797,7 +4065,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/18c3efcfd8721025/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "6f8346f29fa83d16",
@@ -3840,7 +4111,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/6f8346f29fa83d16/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "f282c3fff422b44d",
@@ -3879,7 +4153,10 @@
       "pdf_sources": [],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/f282c3fff422b44d/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "656199bdc705e407",
@@ -3918,7 +4195,10 @@
       "pdf_sources": [],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/656199bdc705e407/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "94038d4349873018",
@@ -3961,7 +4241,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/94038d4349873018/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "1e18e06c70407123",
@@ -4005,7 +4288,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/1e18e06c70407123/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "95e5fd12e73da284",
@@ -4044,7 +4330,10 @@
       "pdf_sources": [],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/95e5fd12e73da284/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "aea64912f5bf7b50",
@@ -4088,7 +4377,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/aea64912f5bf7b50/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "392a857d5f3f7b79",
@@ -4131,7 +4423,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/392a857d5f3f7b79/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "48bed439be9231b8",
@@ -4174,7 +4469,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/48bed439be9231b8/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "9a4a8633e5db0f4d",
@@ -4217,7 +4515,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/9a4a8633e5db0f4d/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "165fd9cea1997a67",
@@ -4261,7 +4562,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/165fd9cea1997a67/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "710381cf0e7cea4e",
@@ -4304,7 +4608,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/710381cf0e7cea4e/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "9c04c0f75cd53707",
@@ -4348,7 +4655,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/9c04c0f75cd53707/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "e6909d8d2040fa26",
@@ -4391,7 +4701,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/e6909d8d2040fa26/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "1a42f1c028fa33a9",
@@ -4430,7 +4743,10 @@
       "pdf_sources": [],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/1a42f1c028fa33a9/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "ea7ce0a26b236a34",
@@ -4474,7 +4790,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/ea7ce0a26b236a34/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "c872dfd2607afd8a",
@@ -4517,7 +4836,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/c872dfd2607afd8a/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "9d095caa2a3f42e6",
@@ -4558,7 +4880,10 @@
       "pdf_sources": [],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/9d095caa2a3f42e6/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "1c41d4564d50ff2f",
@@ -4601,7 +4926,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/1c41d4564d50ff2f/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "32ccc6fa84c6338f",
@@ -4642,7 +4970,10 @@
       "pdf_sources": [],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/32ccc6fa84c6338f/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "e716c63541806b11",
@@ -4685,7 +5016,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/e716c63541806b11/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "d4f5b524236abb36",
@@ -4729,7 +5063,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/d4f5b524236abb36/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "09661b8958d1b02a",
@@ -4768,7 +5105,10 @@
       "pdf_sources": [],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/09661b8958d1b02a/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "3338a24ceb5e8eb5",
@@ -4811,7 +5151,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/3338a24ceb5e8eb5/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "60e0b265df0ae795",
@@ -4854,7 +5197,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/60e0b265df0ae795/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "a726dc223fa71900",
@@ -4897,7 +5243,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/a726dc223fa71900/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "b9e4ec1984babd3a",
@@ -4940,7 +5289,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/b9e4ec1984babd3a/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "b02fa6815cfbc54e",
@@ -4983,7 +5335,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/b02fa6815cfbc54e/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "f1900748d3249be6",
@@ -5022,7 +5377,10 @@
       "pdf_sources": [],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/f1900748d3249be6/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "e10348decd7f0866",
@@ -5061,7 +5419,10 @@
       "pdf_sources": [],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/e10348decd7f0866/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "2f675ea365589cfc",
@@ -5105,7 +5466,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/2f675ea365589cfc/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "3d24bd6e709db6ae",
@@ -5152,7 +5516,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/3d24bd6e709db6ae/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "72c955ad657d80c7",
@@ -5196,7 +5563,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/72c955ad657d80c7/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "58bc2566350d5896",
@@ -5240,7 +5610,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/58bc2566350d5896/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "5a3ee963c993424b",
@@ -5287,7 +5660,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/5a3ee963c993424b/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "b37cb7101a38a73d",
@@ -5334,7 +5710,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/b37cb7101a38a73d/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "811140ad2372f3e3",
@@ -5381,7 +5760,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/811140ad2372f3e3/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "d5bac04a09255471",
@@ -5425,7 +5807,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/d5bac04a09255471/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "1befed8a0e0a9866",
@@ -5469,7 +5854,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/1befed8a0e0a9866/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "83918f571f3cd874",
@@ -5513,7 +5901,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/83918f571f3cd874/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "c6e694730f4aaecf",
@@ -5557,7 +5948,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/c6e694730f4aaecf/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "2c23b61880dd31f8",
@@ -5605,7 +5999,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/2c23b61880dd31f8/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "387267fdb644e620",
@@ -5651,7 +6048,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/387267fdb644e620/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "9e83716622f16a90",
@@ -5698,7 +6098,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/9e83716622f16a90/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "1f795c2b723534e5",
@@ -5745,7 +6148,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/1f795c2b723534e5/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "c23c736745789ed9",
@@ -5792,7 +6198,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/c23c736745789ed9/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "cb776d0adb3a7f72",
@@ -5840,7 +6249,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/cb776d0adb3a7f72/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "4386e2c4091d2f81",
@@ -5884,7 +6296,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/4386e2c4091d2f81/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "10bdf31e2836e5c0",
@@ -5931,7 +6346,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/10bdf31e2836e5c0/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "3aef3ac592639816",
@@ -5975,7 +6393,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/3aef3ac592639816/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "43a2ec2929ad10c6",
@@ -6023,7 +6444,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/43a2ec2929ad10c6/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "549bb4536e7ed9b4",
@@ -6069,7 +6493,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/549bb4536e7ed9b4/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "ef838835a9f80220",
@@ -6116,7 +6543,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/ef838835a9f80220/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "91124ea5f492b97f",
@@ -6163,7 +6593,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/91124ea5f492b97f/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "e5775beab126d062",
@@ -6207,7 +6640,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/e5775beab126d062/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "e28725de96ec4c98",
@@ -6251,7 +6687,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/e28725de96ec4c98/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "26682e24112600d7",
@@ -6295,7 +6734,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/26682e24112600d7/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "e20b58b971f0cfd7",
@@ -6339,7 +6781,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/e20b58b971f0cfd7/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "db25f5994cd60640",
@@ -6386,7 +6831,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/db25f5994cd60640/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "89d24cfddcc38e37",
@@ -6433,7 +6881,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/89d24cfddcc38e37/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "113248064348a34c",
@@ -6477,7 +6928,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/113248064348a34c/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "b4efda7fab668f1f",
@@ -6521,7 +6975,10 @@
       ],
       "hosted_pdfs": [],
       "status": "已接受待刊",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/b4efda7fab668f1f/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "743e257366f3c1bd",
@@ -6565,7 +7022,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/743e257366f3c1bd/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "1e048eb88aa75232",
@@ -6609,7 +7069,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/1e048eb88aa75232/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "f136370903798d3a",
@@ -6653,7 +7116,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/f136370903798d3a/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "ef9e4c178d98a69d",
@@ -6698,7 +7164,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/ef9e4c178d98a69d/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "635364ae01804c27",
@@ -6742,7 +7211,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/635364ae01804c27/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "166d97b2b5641eca",
@@ -6789,7 +7261,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/166d97b2b5641eca/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "5c26f8d42567cb74",
@@ -6833,7 +7308,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/5c26f8d42567cb74/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "d0cd106d63eebdd2",
@@ -6877,7 +7355,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/d0cd106d63eebdd2/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "1d0789282f8fd393",
@@ -6926,7 +7407,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/1d0789282f8fd393/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "55e9194128966702",
@@ -6973,7 +7457,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/55e9194128966702/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "612370cfe0599939",
@@ -7020,7 +7507,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/612370cfe0599939/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "51fc42f3aed64097",
@@ -7067,7 +7557,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/51fc42f3aed64097/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "c4f5057561653bf8",
@@ -7111,7 +7604,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/c4f5057561653bf8/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "b05fb1daabe5bcda",
@@ -7155,7 +7651,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/b05fb1daabe5bcda/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "3c36e9afe33d8029",
@@ -7200,7 +7699,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/3c36e9afe33d8029/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "d006ba66a14e17d2",
@@ -7248,7 +7750,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/d006ba66a14e17d2/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "55165e9384241c56",
@@ -7292,7 +7797,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/55165e9384241c56/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "c430c3db39ff0393",
@@ -7336,7 +7844,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/c430c3db39ff0393/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "c42f97ea436c96ec",
@@ -7380,7 +7891,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/c42f97ea436c96ec/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "9b709aa7ec4e41b4",
@@ -7424,7 +7938,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/9b709aa7ec4e41b4/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "4cc6953f005fade6",
@@ -7468,7 +7985,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/4cc6953f005fade6/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "27133f41db1533c8",
@@ -7512,7 +8032,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/27133f41db1533c8/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "203aec474c6df667",
@@ -7559,7 +8082,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/203aec474c6df667/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "d6b9d9ec4bd44c49",
@@ -7603,7 +8129,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/d6b9d9ec4bd44c49/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "23374adc12c265ee",
@@ -7650,7 +8179,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/23374adc12c265ee/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "0529c0e21a47a2f4",
@@ -7694,7 +8226,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/0529c0e21a47a2f4/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "7f473bb5126bc0a3",
@@ -7738,7 +8273,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/7f473bb5126bc0a3/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "fc3db27e4c1cac09",
@@ -7782,7 +8320,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/fc3db27e4c1cac09/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "0fe35eceae21f61b",
@@ -7829,7 +8370,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/0fe35eceae21f61b/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "aec5e22f4f692b2d",
@@ -7876,7 +8420,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/aec5e22f4f692b2d/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "b530cc5c4dada900",
@@ -7927,7 +8474,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/b530cc5c4dada900/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "5ba390d284788f27",
@@ -7971,7 +8521,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/5ba390d284788f27/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "a578962c1b06d133",
@@ -8019,7 +8572,10 @@
       ],
       "hosted_pdfs": [],
       "status": "Early Access",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/a578962c1b06d133/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "636923cdb596f349",
@@ -8063,7 +8619,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/636923cdb596f349/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "6cb8208e4ef11739",
@@ -8107,7 +8666,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/6cb8208e4ef11739/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "6a310edf70bd8668",
@@ -8157,7 +8719,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/6a310edf70bd8668/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "421cfd8b602b8e9f",
@@ -8201,7 +8766,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/421cfd8b602b8e9f/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "7defd44fabc63f0c",
@@ -8245,7 +8813,10 @@
       ],
       "hosted_pdfs": [],
       "status": "已接受待刊",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/7defd44fabc63f0c/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "20630c11ee8f0cdb",
@@ -8289,7 +8860,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/20630c11ee8f0cdb/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "6cd22d3b2ff792a9",
@@ -8333,7 +8907,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/6cd22d3b2ff792a9/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "f729f51b05c314a8",
@@ -8377,7 +8954,10 @@
       ],
       "hosted_pdfs": [],
       "status": "已接受待刊",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/f729f51b05c314a8/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "5cb79678d14fac5d",
@@ -8421,7 +9001,10 @@
       ],
       "hosted_pdfs": [],
       "status": "Early Access",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/5cb79678d14fac5d/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "586490520ad90813",
@@ -8466,7 +9049,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/586490520ad90813/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "aadfcbdb260a3740",
@@ -8510,7 +9096,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/aadfcbdb260a3740/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "49a4c172f1b741d0",
@@ -8554,7 +9143,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/49a4c172f1b741d0/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "0cf361caf5265c1b",
@@ -8598,7 +9190,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/0cf361caf5265c1b/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "3d7947797d2d62c9",
@@ -8642,7 +9237,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/3d7947797d2d62c9/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "90e5f2836d6cbfa3",
@@ -8689,7 +9287,10 @@
       ],
       "hosted_pdfs": [],
       "status": "已接受待刊",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/90e5f2836d6cbfa3/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "4d5da75c47c1bce9",
@@ -8733,7 +9334,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/4d5da75c47c1bce9/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "58d2f204b53b9219",
@@ -8778,7 +9382,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/58d2f204b53b9219/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "f0bfaf2f0a67536d",
@@ -8822,7 +9429,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/f0bfaf2f0a67536d/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "0405b09fb4f146f6",
@@ -8867,7 +9477,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/0405b09fb4f146f6/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "a288be10790c6d1b",
@@ -8911,7 +9524,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/a288be10790c6d1b/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "513389bafd3f710a",
@@ -8956,7 +9572,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/513389bafd3f710a/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "ced0378c092d0990",
@@ -9001,7 +9620,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/ced0378c092d0990/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "c492f49d2a1959dc",
@@ -9046,7 +9668,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/c492f49d2a1959dc/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "c010f548cb2bbc18",
@@ -9091,7 +9716,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/c010f548cb2bbc18/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "afb5b3e241095390",
@@ -9136,7 +9764,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/afb5b3e241095390/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "8fbe6b9650945281",
@@ -9181,7 +9812,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/8fbe6b9650945281/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "3b08e5da92d95b3b",
@@ -9229,7 +9863,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/3b08e5da92d95b3b/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "d3356c685e57e5cc",
@@ -9274,7 +9911,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/d3356c685e57e5cc/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "4a83ca67c5c2a663",
@@ -9318,7 +9958,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/4a83ca67c5c2a663/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "8cf9dc565c9d7241",
@@ -9363,7 +10006,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/8cf9dc565c9d7241/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "44e4938426086ed1",
@@ -9410,7 +10056,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/44e4938426086ed1/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "b0c122a090867595",
@@ -9457,7 +10106,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/b0c122a090867595/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "4b9e56a579c0e989",
@@ -9502,7 +10154,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/4b9e56a579c0e989/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "a0b27791ab412699",
@@ -9546,7 +10201,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/a0b27791ab412699/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "90965c3b3b928369",
@@ -9590,7 +10248,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/90965c3b3b928369/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "6edd1b2a90906cae",
@@ -9634,7 +10295,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/6edd1b2a90906cae/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "b346889959b048d7",
@@ -9681,7 +10345,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/b346889959b048d7/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "5cdd2cbc4dcb1cfc",
@@ -9728,7 +10395,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/5cdd2cbc4dcb1cfc/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "09a99087c61f409b",
@@ -9772,7 +10442,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/09a99087c61f409b/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "2243864212b3ecd1",
@@ -9816,7 +10489,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/2243864212b3ecd1/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "fdd244da160081c6",
@@ -9860,7 +10536,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/fdd244da160081c6/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "ab1455deae68f37f",
@@ -9907,7 +10586,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/ab1455deae68f37f/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "4e41c9dfc2647d39",
@@ -9951,7 +10633,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/4e41c9dfc2647d39/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "214927ad0ff3fd23",
@@ -9995,7 +10680,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/214927ad0ff3fd23/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "e3c20b8cdc120a52",
@@ -10039,7 +10727,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/e3c20b8cdc120a52/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "67d6ba71d51870c4",
@@ -10083,7 +10774,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/67d6ba71d51870c4/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "2b25f06314f93a0f",
@@ -10127,7 +10821,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/2b25f06314f93a0f/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "80e9a2d71a6acd36",
@@ -10171,7 +10868,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/80e9a2d71a6acd36/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "2558d2736320f228",
@@ -10215,7 +10915,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/2558d2736320f228/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "2e0d5029e130cc29",
@@ -10259,7 +10962,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/2e0d5029e130cc29/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "874ff950767bb3f7",
@@ -10303,7 +11009,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/874ff950767bb3f7/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "88a5eaf3ebd0b345",
@@ -10347,7 +11056,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/88a5eaf3ebd0b345/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "e1c6629139b1f577",
@@ -10391,7 +11103,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/e1c6629139b1f577/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "47ac7ad81f5c0fb6",
@@ -10435,7 +11150,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/47ac7ad81f5c0fb6/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "749bfdb8ab82b176",
@@ -10479,7 +11197,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/749bfdb8ab82b176/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "836f81307350ca11",
@@ -10530,7 +11251,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/836f81307350ca11/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "50a1b62e5cb84f9d",
@@ -10575,7 +11299,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/50a1b62e5cb84f9d/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "af0bb2a5b7abec0d",
@@ -10620,7 +11347,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/af0bb2a5b7abec0d/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "f01eb39a8eaa1174",
@@ -10669,7 +11399,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/f01eb39a8eaa1174/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "26e33f30c7c0a4e8",
@@ -10714,7 +11447,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/26e33f30c7c0a4e8/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "e759ecd4245bde17",
@@ -10761,7 +11497,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/e759ecd4245bde17/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "7e60d1f6e3cbae1c",
@@ -10808,7 +11547,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/7e60d1f6e3cbae1c/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "86311056e017da7f",
@@ -10855,7 +11597,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/86311056e017da7f/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "d1075d0eb3ab3dc2",
@@ -10905,7 +11650,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/d1075d0eb3ab3dc2/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "d3442bacafe52a2b",
@@ -10955,7 +11703,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/d3442bacafe52a2b/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "d8effe0b3f2aab1c",
@@ -11005,7 +11756,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/d8effe0b3f2aab1c/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "d9ca76042f184c5d",
@@ -11056,7 +11810,10 @@
       ],
       "hosted_pdfs": [],
       "status": "Early Access",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/d9ca76042f184c5d/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "95dd05815795e6b8",
@@ -11106,7 +11863,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/95dd05815795e6b8/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "674f3b86957ddd5b",
@@ -11155,7 +11915,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/674f3b86957ddd5b/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "9d08056a7c4f84a1",
@@ -11204,7 +11967,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/9d08056a7c4f84a1/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "ec34c5578ca54efc",
@@ -11251,7 +12017,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/ec34c5578ca54efc/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "0773a40eaa0e9ccf",
@@ -11301,7 +12070,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/0773a40eaa0e9ccf/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "3d745a62f2b3bff9",
@@ -11348,7 +12120,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/3d745a62f2b3bff9/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "975d3d4bbafd780a",
@@ -11395,7 +12170,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/975d3d4bbafd780a/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "862e9c5ddbe4c938",
@@ -11442,7 +12220,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/862e9c5ddbe4c938/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "65907205876c1561",
@@ -11488,7 +12269,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/65907205876c1561/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "5cc0d0d751befc62",
@@ -11534,7 +12318,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/5cc0d0d751befc62/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "2e094f4029e01a73",
@@ -11581,7 +12368,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/2e094f4029e01a73/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "ad7c6f680aefcbc8",
@@ -11627,7 +12417,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/ad7c6f680aefcbc8/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "2b09701c969754d7",
@@ -11673,7 +12466,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/2b09701c969754d7/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "d4bb92afbe7b5735",
@@ -11717,7 +12513,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/d4bb92afbe7b5735/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "737df6ee69503784",
@@ -11761,7 +12560,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/737df6ee69503784/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "bcea00b2a45ac1ba",
@@ -11806,7 +12608,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/bcea00b2a45ac1ba/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "99dbc765a81ed6d7",
@@ -11850,7 +12655,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/99dbc765a81ed6d7/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "21e48ed8b0eeb35f",
@@ -11894,7 +12702,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/21e48ed8b0eeb35f/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "71fab5c33128602e",
@@ -11938,7 +12749,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/71fab5c33128602e/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "baba21ee71e8e702",
@@ -11985,7 +12799,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/baba21ee71e8e702/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "aac2a31efae5e8db",
@@ -12029,7 +12846,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/aac2a31efae5e8db/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "4b9fd6c01ae6ebf0",
@@ -12073,7 +12893,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/4b9fd6c01ae6ebf0/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "f8ef368c6d1a3838",
@@ -12117,7 +12940,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/f8ef368c6d1a3838/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "32e207630c528217",
@@ -12163,7 +12989,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/32e207630c528217/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "31c110a6940bc6b1",
@@ -12213,7 +13042,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/31c110a6940bc6b1/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "57c195ba073ff3c0",
@@ -12262,7 +13094,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/57c195ba073ff3c0/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "cb17d9f06c30b360",
@@ -12308,7 +13143,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/cb17d9f06c30b360/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "89d34bfc695d61c7",
@@ -12357,7 +13195,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/89d34bfc695d61c7/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "fa28f9a68f6d526c",
@@ -12404,7 +13245,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/fa28f9a68f6d526c/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "0f3c634423a1a511",
@@ -12453,7 +13297,10 @@
       ],
       "hosted_pdfs": [],
       "status": "Early Access",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/0f3c634423a1a511/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "c68671443d485071",
@@ -12497,7 +13344,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/c68671443d485071/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "918fe4810faa75ef",
@@ -12541,7 +13391,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/918fe4810faa75ef/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "47073e0c82d5f79a",
@@ -12585,7 +13438,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/47073e0c82d5f79a/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "2880ca956315b835",
@@ -12630,7 +13486,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/2880ca956315b835/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "d569fea7ff83377d",
@@ -12677,7 +13536,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/d569fea7ff83377d/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "4eab0ef637bf5aa1",
@@ -12725,7 +13587,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/4eab0ef637bf5aa1/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "21ed3da21f9a0e8b",
@@ -12770,7 +13635,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/21ed3da21f9a0e8b/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "463058a587f7308b",
@@ -12818,7 +13686,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/463058a587f7308b/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "d431cfb51608ba7f",
@@ -12865,7 +13736,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/d431cfb51608ba7f/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "4b51c57a6007081b",
@@ -12909,7 +13783,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/4b51c57a6007081b/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "7f07ae93a51d317e",
@@ -12954,7 +13831,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/7f07ae93a51d317e/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "32099465209a8e56",
@@ -13000,7 +13880,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/32099465209a8e56/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "7bc74209552df7d1",
@@ -13046,7 +13929,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/7bc74209552df7d1/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "0605e8989459d625",
@@ -13096,7 +13982,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/0605e8989459d625/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "dbcbae770032bc6b",
@@ -13149,7 +14038,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/dbcbae770032bc6b/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "be550448b3019c06",
@@ -13199,7 +14091,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/be550448b3019c06/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "6c9be78fade3f7c5",
@@ -13253,7 +14148,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/6c9be78fade3f7c5/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "2fbb99f8064d2cac",
@@ -13306,7 +14204,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/2fbb99f8064d2cac/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "42e0a54e090c908a",
@@ -13359,7 +14260,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/42e0a54e090c908a/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "6b638f43b2d620e3",
@@ -13409,7 +14313,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/6b638f43b2d620e3/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "d2fa950c5119942e",
@@ -13459,7 +14366,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/d2fa950c5119942e/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "508f6c6afa48a7ac",
@@ -13512,7 +14422,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/508f6c6afa48a7ac/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "689f91be99b4f4d9",
@@ -13565,7 +14478,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/689f91be99b4f4d9/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "0fc78db1af2a7f50",
@@ -13619,7 +14535,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/0fc78db1af2a7f50/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "229ae03639ae10f4",
@@ -13671,7 +14590,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/229ae03639ae10f4/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "41c4d8bf1e16c7f1",
@@ -13721,7 +14643,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/41c4d8bf1e16c7f1/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "5e1c6c0befe96626",
@@ -13772,7 +14697,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/5e1c6c0befe96626/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "aa0d19ee3c4d5e07",
@@ -13822,7 +14750,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/aa0d19ee3c4d5e07/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "dc124267e48719cb",
@@ -13867,7 +14798,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/dc124267e48719cb/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "9fbabb9ea67e23ff",
@@ -13911,7 +14845,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/9fbabb9ea67e23ff/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "870d5593d1b05f78",
@@ -13955,7 +14892,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/870d5593d1b05f78/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "db2cce36b933a85f",
@@ -13999,7 +14939,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/db2cce36b933a85f/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "f25af54ef5c30a81",
@@ -14043,7 +14986,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/f25af54ef5c30a81/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "d7eb6567cc13c90c",
@@ -14092,7 +15038,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/d7eb6567cc13c90c/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "5d5e2b7c6db5302c",
@@ -14144,7 +15093,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/5d5e2b7c6db5302c/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "9fffd291409b55ec",
@@ -14193,7 +15145,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending"
+      "translation_status": "complete",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/9fffd291409b55ec/#paper-translation",
+      "full_translation_label": "全文翻译（仅本地）"
     },
     {
       "id": "ec5a13f567ec08dc",
@@ -14242,7 +15197,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "complete"
+      "translation_status": "complete",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/ec5a13f567ec08dc/#paper-translation",
+      "full_translation_label": "全文翻译（仅本地）"
     },
     {
       "id": "f997fa4fb49f2a25",
@@ -14291,7 +15249,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "暂无全文译稿"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/f997fa4fb49f2a25/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     }
   ],
   "reports": [

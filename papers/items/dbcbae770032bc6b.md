@@ -9,9 +9,17 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=dbcbae770032bc6b)
 
-[本篇日报说明](/papers/items/dbcbae770032bc6b/#paper-report) · [摘要与引言 / 历史译文说明](/papers/translations/2026-07-15-1663571a/#paper-dbcbae770032bc6b)
+[本篇日报说明](/papers/items/dbcbae770032bc6b/#paper-report) · [全文翻译（待补齐）](/papers/items/dbcbae770032bc6b/#paper-translation) · [摘要与引言 / 历史译文说明](/papers/translations/2026-07-15-1663571a/#paper-dbcbae770032bc6b)
 
 **推荐日期：** 2026-07-15 · **发表状态：** 历史记录未明确
+
+<span id="paper-translation"></span>
+
+## 本篇全文翻译
+
+本篇已列入全文翻译清单，尚未完成。完成并允许公开后，此入口将直达本篇全文译稿。
+
+已有部分译文（不计全文完成）：[历史译文](/papers/translations/2026-07-15-1663571a/#paper-dbcbae770032bc6b)
 
 <span id="paper-report"></span>
 
