@@ -1,6 +1,21 @@
 /* Lightweight daily trio and personal archive: text, borders, no external assets. */
-.rc-rec-widget{margin-top:1.2rem;border:1px solid var(--main-border-color);border-radius:11px;background:var(--card-bg);padding:.9rem .85rem;box-shadow:var(--card-shadow)}
-.rc-rec-widget h2{font-size:1.03rem;color:var(--heading-color);margin:0 0 .25rem}
+/* This homepage uses the full main column; other pages keep Chirpy's native panel. */
+#main-wrapper:has(.rc-home) #panel-wrapper{display:none!important}
+#main-wrapper:has(.rc-home) main[aria-label="Main Content"],
+#main-wrapper:has(.rc-home) #tail-wrapper{flex:0 0 100%;width:100%;max-width:100%}
+
+/* Three balanced, text-only recommendations beneath "这里有什么". */
+.rc-home .rc-rec-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.9rem;align-items:stretch}
+.rc-home .rc-rec-list .rc-rec-entry{display:flex;flex-direction:column;min-width:0;padding:1.2rem;background:var(--card-bg);border:1px solid var(--main-border-color);border-radius:13px;box-shadow:var(--card-shadow)}
+.rc-home .rc-rec-entry .rc-rec-kind{margin:0 0 .6rem}
+.rc-home .rc-rec-entry .rc-rec-title{font-size:1rem;line-height:1.6}
+.rc-home .rc-rec-entry .rc-rec-creator{font-size:.8rem}
+.rc-home .rc-rec-entry .rc-rec-tags{margin:.65rem 0}
+.rc-home .rc-rec-entry .rc-rec-note{font-size:.85rem;line-height:1.75;flex-grow:1;margin:.35rem 0 1rem}
+.rc-home .rc-rec-footer{margin-top:.85rem;border-top:0;justify-content:flex-start}
+.rc-home .rc-rec-footer a{font-size:.82rem}
+@media(max-width:1100px){.rc-home .rc-rec-list{grid-template-columns:1fr}}
+
 .rc-rec-intro,.rc-rec-help{font-size:.73rem;color:var(--text-muted-color);line-height:1.65;margin:.25rem 0 .65rem}
 .rc-rec-date{font-variant-numeric:tabular-nums}
 .rc-rec-entry{padding:.74rem 0;border-top:1px solid var(--main-border-color)}
@@ -30,10 +45,5 @@
 .rc-rec-day .rc-rec-title{font-size:.86rem}
 .rc-rec-day .rc-rec-note{font-size:.75rem}
 .rc-rec-empty{font-size:.82rem;color:var(--text-muted-color)}
-@media(max-width:1199px){
-  #panel-wrapper:has(.rc-rec-widget){display:block!important;flex:0 0 100%;max-width:100%;padding:0 1rem!important;margin:0 auto 1.25rem}
-  #panel-wrapper:has(.rc-rec-widget)>.access{display:none}
-  #panel-wrapper:has(.rc-rec-widget) .rc-rec-widget{max-width:46rem;margin:0 auto 1rem}
-}
 @media(max-width:720px){.rc-rec-day .rc-rec-items{grid-template-columns:1fr;gap:.1rem}.rc-rec-day .rc-rec-entry{border-left:0;border-top:1px solid var(--main-border-color);padding:.65rem 0}}
 @media(prefers-reduced-motion:reduce){.rc-rec-actions button,.rc-rec-tool{transition:none}}
