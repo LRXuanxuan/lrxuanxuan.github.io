@@ -9,12 +9,12 @@
   let daily=[];
   try { daily=JSON.parse(document.getElementById('rc-daily-archive-data').textContent||'[]'); } catch (_) {}
   if(!Array.isArray(daily)) daily=[];
-  const validDate=value=>value===null||/^\d{4}-\d{2}-\d{2}$/.test(value||'');
+  const validDate=value=>/^\d{4}-\d{2}-\d{2}$/.test(value||'');
   function all() {
     const combined=[...daily.map(q=>({...q,kind:'daily'})),...records.read()];
     const seen=new Set();
     return combined.filter(row=>{
-      if(!row||!row.text||!row.book||!['daily','redraw','legacy'].includes(row.kind)||!validDate(row.date)) return false;
+      if(!row||!row.text||!row.book||!['daily','redraw'].includes(row.kind)||!validDate(row.date)) return false;
       const identity=[row.date,row.kind,row.text,row.book].join('\u0001');
       if(seen.has(identity)) return false;
       seen.add(identity);return true;
@@ -58,8 +58,9 @@
       if(file.size>10*1024*1024)throw Error('size');
       const data=JSON.parse(await file.text());
       if(data.version!==1||!Array.isArray(data.records)||data.records.length>20000)throw Error('format');
+      data.records=data.records.filter(row=>!row||row.kind!=='legacy');
       // Validate the entire import before any writes.
-      if(data.records.some(row=>!row||typeof row.text!=='string'||!row.text||row.text.length>2000||typeof row.book!=='string'||!row.book||!validDate(row.date)||!['daily','redraw','legacy'].includes(row.kind)))throw Error('record');
+      if(data.records.some(row=>!row||typeof row.text!=='string'||!row.text||row.text.length>2000||typeof row.book!=='string'||!row.book||!validDate(row.date)||!['daily','redraw'].includes(row.kind)))throw Error('record');
       let persisted=true;
       for(const row of data.records) persisted=records.add(row,row.kind,row.date,row.timestamp||null)&&persisted;
       render();status.textContent=persisted?'导入完成，重复的签已自动合并喵。':'已导入本页；浏览器未允许保存，请导出备份喵。';
