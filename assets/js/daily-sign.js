@@ -10,8 +10,15 @@
   const initialText = text.textContent;
   const initialSource = source.cloneNode(true);
   const records = globalThis.RCSignRecords;
+  const aspects = globalThis.RCSignAspects;
+  const aspectSlot = root.querySelector('[data-sign-aspect]');
+  const showAspect = quote => {
+    if (!aspects || !aspectSlot) return;
+    aspectSlot.replaceChildren(aspects.badge(quote));
+  };
   const recentKey = 'rc-sign-recent-authors-v1';
-  const initialQuote = {text:initialText,book:root.dataset.book||'',author:root.dataset.author||'',chapter:root.dataset.chapter||'',readerLink:root.dataset.readerLink||''};
+  const initialQuote = {text:initialText,book:root.dataset.book||'',author:root.dataset.author||'',chapter:root.dataset.chapter||'',readerLink:root.dataset.readerLink||'',aspect:root.dataset.aspect||''};
+  showAspect(initialQuote);
   if (records) {
     records.add(initialQuote,'daily',root.dataset.date);
     records.migrate(root.dataset.pool).catch(()=>{});
@@ -71,6 +78,7 @@
   }
   function render(quote) {
     text.textContent = quote.text;
+    showAspect(quote);
     source.replaceChildren(document.createTextNode(`—— ${quote.author}《${quote.book}》`));
     if (/^https:\/\/weread\.qq\.com\//.test(quote.readerLink || '')) {
       const link = document.createElement('a');
@@ -113,6 +121,7 @@
   });
   reset.addEventListener('click', () => {
     text.textContent = initialText;
+    showAspect(initialQuote);
     source.replaceChildren(...[...initialSource.childNodes].map(node => node.cloneNode(true)));
     reset.hidden = true;
     status.textContent = '已回到今日日签喵。';
