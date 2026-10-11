@@ -5,8 +5,11 @@ layout: default
 <link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/sign-aspects.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/sign-votes.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/daily-recommendations.css' | relative_url }}">
 
 <div class="rc-home">
+  <div class="rc-home-grid">
+  <div class="rc-home-main">
   <section class="rc-hero" aria-labelledby="rc-home-title">
     <p class="rc-eyebrow">WELCOME TO MY LITTLE CORNER</p>
     <h1 id="rc-home-title">{{ site.title }}</h1>
@@ -66,6 +69,8 @@ layout: default
     </div>
   </section>
 
+  </div>
+  <aside class="rc-home-panel" aria-label="每日推荐与近期上传">
   <section class="rc-section rc-recent" aria-labelledby="rc-recent-heading">
     <div class="rc-section-heading">
       <h2 id="rc-recent-heading">近期上传</h2>
@@ -87,9 +92,22 @@ layout: default
       {% endfor %}
     </ul>
   </section>
+  <section class="rc-rec-widget" data-rc-recommendations data-pool="{{ '/assets/data/daily-recommendations.json' | relative_url }}" aria-labelledby="rc-rec-heading">
+    <h2 id="rc-rec-heading">每日推荐 · 一曲一书一影</h2>
+    <p class="rc-rec-intro"><time data-rec-date class="rc-rec-date"></time> · 今天也来一点精神食粮喵。</p>
+    <div data-rec-list aria-live="polite"><p class="rc-rec-help">正在翻找今天的三份推荐…</p></div>
+    <div class="rc-rec-footer">
+      <a href="{{ '/playthings/#rc-rec-archive-heading' | relative_url }}">翻阅往日推荐 ↗</a>
+      <span class="rc-rec-message" data-rec-status role="status" aria-live="polite"></span>
+    </div>
+    <noscript><p class="rc-rec-help">启用 JavaScript 后可查看每日推荐并记录喜好。</p></noscript>
+  </section>
+  </aside>
+  </div>
 </div>
 
 <script src="{{ '/assets/js/sign-records.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/js/sign-aspects.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/js/sign-votes.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/js/daily-sign.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/daily-recommendations.js' | relative_url }}" defer></script>
