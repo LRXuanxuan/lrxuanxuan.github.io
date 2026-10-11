@@ -3,8 +3,6 @@ title: "从纳尼亚到太空漫游：克拉克与刘易斯往来书信"
 slug: clarke-lewis-correspondence
 permalink: /posts/clarke-lewis-correspondence/
 date: 2026-10-11 17:41:00 +0800
-categories: [个人译作]
-tags: [科幻, 克拉克, 刘易斯, 书信]
 description: "阿瑟·C. 克拉克与 C. S. 刘易斯 1943—1954 年书信的中文译文，附克拉克 2003 年的最后短札。"
 toc: true
 comments: false
