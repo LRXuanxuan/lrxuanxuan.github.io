@@ -1,6 +1,7 @@
 (() => {
   const root=document.querySelector('.rc-sign-archive');
   const records=globalThis.RCSignRecords;
+  const aspects=globalThis.RCSignAspects;
   if(!root||!records) return;
   const list=root.querySelector('[data-archive-local]');
   const staticDaily=root.querySelector('[data-archive-daily]');
@@ -38,6 +39,13 @@
         const text=document.createElement('blockquote');text.textContent=quote.text;
         const source=document.createElement('p');source.textContent=`—— ${quote.author||''}《${quote.book}》`;
         if(/^https:\/\/weread\.qq\.com\//.test(quote.readerLink||'')) {const a=document.createElement('a');a.href=quote.readerLink;a.target='_blank';a.rel='noopener noreferrer';a.textContent=' ↗';a.setAttribute('aria-label','在微信读书中打开本书');source.append(a);}
+        if (aspects) {
+          const aspect=aspects.get(quote);
+          article.style.setProperty('--rc-aspect-color',aspect.color);
+          const tag=aspects.badge(quote,true);
+          tag.classList.add('rc-archive-aspect');
+          kind.append(tag);
+        }
         article.append(kind,text,source);section.append(article);
       }
       list.append(section);
