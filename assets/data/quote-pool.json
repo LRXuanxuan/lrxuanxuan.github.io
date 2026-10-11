@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "count": 1060,
   "quotes": [
     {
@@ -48,7 +48,7 @@
       "weight": 1.6,
       "quoteWeight": 1.25,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "rose"
     },
     {
       "id": "8a5f32e9abda7a34ae0d581a9bbfe7d6eed89df60e26bf0194160406a3f7c6ec",
@@ -60,7 +60,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "heart"
+      "aspect": "lantern"
     },
     {
       "id": "28f0ef64088de50c122192d3fe173d3fb811f8d940fc45a6e9b34cc47a485755",
@@ -72,7 +72,7 @@
       "weight": 1.6,
       "quoteWeight": 1.25,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "sky"
     },
     {
       "id": "186d45f434fc6df214e040c89e1237c445211a8ac078798ce314b420d29a04c7",
@@ -84,7 +84,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "rose"
+      "aspect": "winter"
     },
     {
       "id": "2abac21981e7f8bf6df38bb6203b77ac2bd8b31a5989cbe80c99ba448d922fb2",
@@ -96,7 +96,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "7bdb7a0faf5412655951c010beac9b0389943e98d2873e5a473269e710e980a3",
@@ -108,7 +108,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "rose"
     },
     {
       "id": "b6185686762088da9d501268e1282f87103f72b84b47062c200e2bc31dcc93a0",
@@ -120,7 +120,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "ec3476c925a9b7523311c565cd1679b43271e9816e4babeea1f1f9d63b90b910",
@@ -156,7 +156,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "heart"
     },
     {
       "id": "87d8afcde1dcde2ce3989621ad42bdabca1bb3cab244321f249ec46f74525d7a",
@@ -240,7 +240,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "sky"
     },
     {
       "id": "038766f699327d38bbc68105e987c12c11b073311100b6488bf67572e46eea16",
@@ -252,7 +252,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "forge"
+      "aspect": "scale"
     },
     {
       "id": "6eacd2818d14f63781de7885e6d315f842b981a83a53ea66a85fe3f0c69fd2e4",
@@ -264,7 +264,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "rose"
     },
     {
       "id": "3910e75a24047684cea89911b801595a9642750e89a3d86ce45a9e51b24ddbe6",
@@ -276,7 +276,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "sky"
     },
     {
       "id": "86a4816fb6c012631b9858a2f30915a20e1610bdaa12c4eb0d45170c509291e8",
@@ -312,7 +312,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "7df5b3959251c6d4baab360059f229e7c564848694d676095d864c0b23e3e202",
@@ -336,7 +336,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "edge"
+      "aspect": "histories"
     },
     {
       "id": "78047f7e7640e22d5805bcf718031869b1b1204e1b9d3a3151558dd68a9158a4",
@@ -360,7 +360,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "moth"
+      "aspect": "lantern"
     },
     {
       "id": "f6a556f00395c31e3d3add703562c26360a8a864918de3681248ccd146ff687c",
@@ -372,7 +372,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "0cc7faf4f6c06aed7ff2921c00016e389b1292b007b5a4c85278145e1803ed45",
@@ -396,7 +396,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "46c20ffb13cdd85e384a7ba343add01484fa1fc8a34aa765521c15c77ae0d3e0",
@@ -408,7 +408,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "31fc745b99771a4e5514cb1235b74437b70c00bacf991df2c0854d22999573fc",
@@ -420,7 +420,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "histories"
+      "aspect": "winter"
     },
     {
       "id": "30509b6b03ec8cbf5116273fb0125ca21576d41af717c177b17dc728a4fee006",
@@ -468,7 +468,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "ce299d9f52aefad5c3a5caead24a0101c7fafa1d7fdf4e3b865e4561c5d537f3",
@@ -480,7 +480,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "874e25790968c8d9e66b5f84e3c695bb1de6b4eb40bab3fa73519e9cc7ed1fc5",
@@ -516,7 +516,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "forge"
+      "aspect": "knock"
     },
     {
       "id": "2f6f1a7fe2d5fbaca2bcd5da3287ac53e9fb33b1fa2a25bd61914dd1fe79b4a7",
@@ -540,7 +540,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "knock"
     },
     {
       "id": "00f18539e0a47a90cbf4ae220c56d12a41fdff5e9045c078d5f073909f58d23c",
@@ -588,7 +588,7 @@
       "weight": 1.85,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "heart"
+      "aspect": "grail"
     },
     {
       "id": "5b53f67a12ebd59e4855b903d974f0193e35a602fa61942526ae8315aad29cd2",
@@ -612,7 +612,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "edge"
+      "aspect": "histories"
     },
     {
       "id": "d1d9dfe50ea9afa8d52ae6f38cefeebc26691194c15df34665bbac52b22b7cdf",
@@ -624,7 +624,7 @@
       "weight": 1.35,
       "quoteWeight": 1.25,
       "theme": "reflection",
-      "aspect": "nectar"
+      "aspect": "winter"
     },
     {
       "id": "769719af3bc8df81b41bfcedb356795e23a33ee54ed2307162cf669f4e41de5e",
@@ -636,7 +636,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "2cc6eb3ed4b785753f9c36202db33a7ab149afd7d059594266665b44f39d8598",
@@ -660,7 +660,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "6ba66ebee94be6bf18a54e933d84159d4afe67aefba284386760da7b7797016f",
@@ -696,7 +696,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "1006559e4b8b24b79a4291832060814a5b87f1f25a5815bfcc3cf3b8a0535291",
@@ -732,7 +732,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "moth"
+      "aspect": "sky"
     },
     {
       "id": "775499c0692205705f878dd26a5016df67dfc1c457d9ddef0ede4d99c4fc4f3f",
@@ -744,7 +744,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "sky"
+      "aspect": "heart"
     },
     {
       "id": "aca30da3f74f2ad6b4b9fb336b1ef5a12a0ea29cf72c63add72a6ef7fd67bb68",
@@ -756,7 +756,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "d910949d4d562b9ef04e8de55c475da78095ff234c4ca8d1aef3cb8e536e321c",
@@ -768,7 +768,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "sky"
+      "aspect": "winter"
     },
     {
       "id": "1d1848656e51f98e6d4e36cec2ac6511e7fe2334634898704cd3ebf02b79391c",
@@ -816,7 +816,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "27eb5aa417d560091575c309615eef67682682356eddac46ec47899844374297",
@@ -864,7 +864,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "sky"
+      "aspect": "winter"
     },
     {
       "id": "71e74976389b27a75857c44d8e2d5789e157d9f62fa138beb918807198812c98",
@@ -876,7 +876,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "9a878ec2228831a2568e48ba94f6b737a00a4e2562a27e248da8db8de3429606",
@@ -912,7 +912,7 @@
       "weight": 1,
       "quoteWeight": 1.25,
       "theme": "reflection",
-      "aspect": "sky"
+      "aspect": "rose"
     },
     {
       "id": "57899543852836a61a4a81435d9ac92d11a700d62d8b5c94fbde042279f47d5d",
@@ -924,7 +924,7 @@
       "weight": 1.85,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "37f7ca1a26a3da020617f6d5060bddcd3d51e067919df094baf64faa8d3e9d5b",
@@ -936,7 +936,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "9c4dec68294ac3a140bb4fa1a5ad4bbbb868c100963da3c8005ea9eb5d3719cc",
@@ -960,7 +960,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "9b497bfa7d403afa0e929c5a578f026a35e4ba597b8210367dd7258e26c2b327",
@@ -984,7 +984,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "heart"
+      "aspect": "lantern"
     },
     {
       "id": "90c218b1d066c3d045fdb6fbad40eb11e7ab25540a97d242f9ccc1c10bc5ab3d",
@@ -996,7 +996,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "f987a1e90d38e3fe537f48d8482459b09348ede46e2fc8bdd877838fd52f8bb2",
@@ -1008,7 +1008,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "b9060d94d6d14b855dc2c556a9df1f609282eb5049fe0a6cd98b04fbf41bd356",
@@ -1020,7 +1020,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "knock"
     },
     {
       "id": "410e4a85d5e46b259a4933336a962c60d3bd646ab5df8cc3f901b9218c832665",
@@ -1080,7 +1080,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "sky"
+      "aspect": "winter"
     },
     {
       "id": "a6c6907cb734a607294a7dea470b07f7af8ab446d608b0c7e25aeafd725265aa",
@@ -1092,7 +1092,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "heart"
+      "aspect": "grail"
     },
     {
       "id": "e2acc91dd684341d07564d9999c07e7f87b72571d5521159e9e1bbcdf92b6188",
@@ -1104,7 +1104,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "5ed7eac0ca85eb3c78928f7b9f6a3c4f439b08f6d2ab80968ad1fdb914cc0b3e",
@@ -1140,7 +1140,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "d6ea61e53829ceaf6be48450d483a853a5cc16bba8466dfed2a3f828c63d1e75",
@@ -1152,7 +1152,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "1ae2cfc76a804f8f32de4c78791b8b7b00323e6434e008650389f092dce427d5",
@@ -1164,7 +1164,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "sky"
+      "aspect": "heart"
     },
     {
       "id": "082e8e7b1a178a499990a01b2d07912c1005486b7201a322cede27fbabba0c19",
@@ -1176,7 +1176,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "be8efab020f477c1566dd09b391d5914fb7361810fec8bceb5c61ea3f697e172",
@@ -1212,7 +1212,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "f67406e7a7f6f9c3bbe0114bcc2856a909e752c8412d9d16a408c945bc698e31",
@@ -1224,7 +1224,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "heart"
     },
     {
       "id": "381be330ea8ef0e622a11c03b46281e9b0b4a7be9ca1342ad868a5f923fc6668",
@@ -1236,7 +1236,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "knock"
     },
     {
       "id": "74bb037fade7397ac231f53c55002326be0d2b33b5706b3261ffd962188003b1",
@@ -1248,7 +1248,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "12b1e07ce39798c1a99c923b3ebaace76e4ac4350a4aaad2c6d240a90f5c1ed1",
@@ -1272,7 +1272,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "edge"
+      "aspect": "heart"
     },
     {
       "id": "d3a76d9d59a3844a098479af50d1eefbb34e76c51d3c3cff4f91f07cc4ea808b",
@@ -1284,7 +1284,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "edge"
+      "aspect": "lantern"
     },
     {
       "id": "d416eb09de1c2279b8ff90ebe6b1af8a6ecbabbbf153c84c698cf938c8aa8aac",
@@ -1308,7 +1308,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "sky"
+      "aspect": "rose"
     },
     {
       "id": "fc7d8da9e70b5451caaa11a24820ccfbef1fa843c096e32863a1c7b521799692",
@@ -1320,7 +1320,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "rose"
+      "aspect": "grail"
     },
     {
       "id": "f8775e3d3f50bcce33b22c3b6b58aea57ed95fc03ccac28b0780b1fceeb5eaea",
@@ -1332,7 +1332,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "knock"
+      "aspect": "edge"
     },
     {
       "id": "dadfbeff2e0eb65adba55e709fca1bfeb4b3b9d9c96305df377c33c3a0ed2de3",
@@ -1452,7 +1452,7 @@
       "weight": 1.35,
       "quoteWeight": 1.25,
       "theme": "reflection",
-      "aspect": "rose"
+      "aspect": "histories"
     },
     {
       "id": "1777d9a57182c432293559c917d5bd99ea52dcfe8db33a82d48cf602ea54e570",
@@ -1488,7 +1488,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "30770683cd748f0f53c61888f3e922ff973876de53b87c5c0deadc22e51333d0",
@@ -1500,7 +1500,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "1127549763e80401ec467877274f77467dc13535881be83c7a1c70ce31426f28",
@@ -1524,7 +1524,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "e8560a3de4400031086fba66ba54a94fa11d80a3bb626f3efb749537f8986026",
@@ -1548,7 +1548,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "03dbf5f134507d5db998b203bf0cd91642daaefb1ec38cfeabacca1e56ac1752",
@@ -1572,7 +1572,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "forge"
     },
     {
       "id": "39166b69c93a43266eb86f2d20859a49692bf254008063d7cd88f5415a0516b1",
@@ -1608,7 +1608,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "e13297be7474e0003d3dce79d132b35a4223e3251dcd3209fdfce146146f7f64",
@@ -1680,7 +1680,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "heart"
     },
     {
       "id": "ef466e4b3a73e6f3dbc6f499e9de080d9e57770d8378085d38ad195e1b7abce7",
@@ -1692,7 +1692,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "histories"
+      "aspect": "knock"
     },
     {
       "id": "e36fc09fa45efb6448fd27b87b5d3b896ac197898ae314d3201a7a4e04294d42",
@@ -1704,7 +1704,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "histories"
+      "aspect": "forge"
     },
     {
       "id": "01dbebcfb5629915858ba85408a8e8681fff17e84266d834391a4a20a12e7dae",
@@ -1728,7 +1728,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "histories"
+      "aspect": "rose"
     },
     {
       "id": "0e9745b0f113bfd345967789c5b5038b7de12cbd55526c581382ecd8990a006a",
@@ -1752,7 +1752,7 @@
       "weight": 1.85,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "grail"
     },
     {
       "id": "2549eb9b9209329dce15fb30c69ea0e24c26e7428d102511b89c2a486818faa9",
@@ -1776,7 +1776,7 @@
       "weight": 1.85,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "winter"
+      "aspect": "lantern"
     },
     {
       "id": "43f64c34ac38505e4d6f051422126d8b4fa01118fb0c1b00e2b641d873649142",
@@ -1800,7 +1800,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "nectar"
     },
     {
       "id": "f2f7fddeb2b770af0d3e42bec5a173caec577c30d59f774117d322d6afc5549e",
@@ -1812,7 +1812,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "heart"
+      "aspect": "winter"
     },
     {
       "id": "b133f3dc6637d40aa6a54feced7ff091e4d64d670de70278eeed78f3258a25da",
@@ -1824,7 +1824,7 @@
       "weight": 1.35,
       "quoteWeight": 1.25,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "2b04b0b3d6b2c8b1ee67e672148f0dbd6c2eb30516d46d0123041957ed4c9a95",
@@ -1836,7 +1836,7 @@
       "weight": 1.6,
       "quoteWeight": 1.25,
       "theme": "reflection",
-      "aspect": "sky"
+      "aspect": "rose"
     },
     {
       "id": "d2675a3736e2d23f044b90579dbd190d52010a2c6c2112c45b2b89d411796636",
@@ -1860,7 +1860,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "heart"
     },
     {
       "id": "3367e19e74502e07ead4898de5862bb2dd482471e5ef5f2f2a07490f96b02b55",
@@ -1872,7 +1872,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "winter"
+      "aspect": "heart"
     },
     {
       "id": "e67e0b9a48a22cab7cad088e5e350f53d5074e803585ae63cc0662d8d9afce8d",
@@ -1896,7 +1896,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "grail"
     },
     {
       "id": "8678a2a656244db377ca2035ade47570f3ce72782ddcaf72be2ec39a961ee289",
@@ -1908,7 +1908,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "grail"
     },
     {
       "id": "624bb143dd11e3aabf386935997e7e2eba723cd50f8d028f0151dc84d21506fc",
@@ -1920,7 +1920,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "lantern"
     },
     {
       "id": "4bf810b56c6ed15e7ac495d2c88fdce0fc22fd64dd51ab8919f0cd70130ecbf7",
@@ -1932,7 +1932,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "1bbda72918361635419d342a1c0d0bca2b8f311fec887a5f7b3a5f85ee83f7dd",
@@ -1944,7 +1944,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "d65d4186b04f620cd107567e485be8209c47832ab01078f65b080113a2679d18",
@@ -1956,7 +1956,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "91cb4664a08603294052272244a4c9daff75a2756126dcbd9be7b5a1403d334a",
@@ -1968,7 +1968,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "8d18e4496aa9e34af963e68b04c6a185bec8539cd0a286f316a2cb747f14972c",
@@ -1980,7 +1980,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "edge"
+      "aspect": "lantern"
     },
     {
       "id": "008a812ebcae9e48ef60679dc08736a8cfcbf2eac4de086f955c8f0b8e4ab4f2",
@@ -2004,7 +2004,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "rose"
     },
     {
       "id": "5d9672ca2d32c85ed0d6e05af69b1816fb05f11daff2c1aa6a0b4af8e954d873",
@@ -2016,7 +2016,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "f00be9c4ac56c42b07d70c9d372e9cb9c973cd141351643c74b29d6af283f4ed",
@@ -2028,7 +2028,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "histories"
+      "aspect": "lantern"
     },
     {
       "id": "42f31a15bd7f2fe06c688b608180e95a87572fbbfa36479000258bf77f8860ce",
@@ -2040,7 +2040,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "f8d55bcf94349fed65f65628e368cf66af3fba94ddf4f0b190ea0cc2de2310c8",
@@ -2052,7 +2052,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "histories"
+      "aspect": "lantern"
     },
     {
       "id": "afe2ca6d40b79af8ff8ec4e6ac661be70aba5ed6b961249a02716b668b87be02",
@@ -2064,7 +2064,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "nectar"
     },
     {
       "id": "0f7591ec9750f57031350cd78b24e7167bb8d7fba0deed7e3fe261d1aceadab6",
@@ -2076,7 +2076,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "nectar"
+      "aspect": "sky"
     },
     {
       "id": "8631fdd123120a0b15a38f27a05ae044000edf5b1e1ff083ab43d5faa2fb8698",
@@ -2088,7 +2088,7 @@
       "weight": 1.6,
       "quoteWeight": 1.25,
       "theme": "reflection",
-      "aspect": "sky"
+      "aspect": "forge"
     },
     {
       "id": "4b170b9829cc213e9d7d95286d8838ec090727ae923b70311263d92bb8ea52b4",
@@ -2100,7 +2100,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "moth"
+      "aspect": "sky"
     },
     {
       "id": "c4dfeb34aa3b3944f3782135261520e72ee1266dcb5228820e2bb3cbe239e0a0",
@@ -2112,7 +2112,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "edge"
+      "aspect": "moth"
     },
     {
       "id": "0f19bf616cbb0b13d0e587b912f2ad5fe8fcbcf8b10d5806542995aac7a17275",
@@ -2124,7 +2124,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "f8f11dd891e54d2ec7615b216aab5c9627e9b21f1e441f19d2943ea6aba9fd5d",
@@ -2136,7 +2136,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "heart"
+      "aspect": "grail"
     },
     {
       "id": "157aa227397be4b7c0ccf28f26c3dc2161417de470a6c5ae57ddbdb4dc1a4033",
@@ -2148,7 +2148,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "nectar"
+      "aspect": "grail"
     },
     {
       "id": "1dbfb961efb487845f3800951bccf5847d9c38c38d3830170bc139d9c14cf97f",
@@ -2160,7 +2160,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "lantern"
     },
     {
       "id": "f77d7b157946e87f84795287377b6656e6781fa3b5b152ecdeb737626637558c",
@@ -2172,7 +2172,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "grail"
     },
     {
       "id": "ff6de2cc5b531bc998af15e81d1f3abec20893e93592b1b21598f6c1438079d9",
@@ -2184,7 +2184,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "ccd5b544ec48de07b0e5af831c89bf2c0e41b4da30c20672b9f1121321f8cbf2",
@@ -2196,7 +2196,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "forge"
+      "aspect": "rose"
     },
     {
       "id": "cbaba1250210928e8ef2df806a0e2e284c9a9894556582b699571af1f2ce6316",
@@ -2208,7 +2208,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "rose"
+      "aspect": "histories"
     },
     {
       "id": "40901d034d6038044d40cb63aed5df007c376cfd63a8c00faef3c3aee68f473d",
@@ -2220,7 +2220,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "edge"
+      "aspect": "forge"
     },
     {
       "id": "9ea84bfd7ac1e663fc1db12858570989714993f82e4115f5ab75d736c19777ae",
@@ -2244,7 +2244,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "9c6e3e90066e0230d2ab12adc19338c674e58807db22b8bcdcf3ebfd21aac976",
@@ -2256,7 +2256,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "histories"
+      "aspect": "knock"
     },
     {
       "id": "5171df3861e433b2f5917d91016acc52af46fe39233241a538adaf54995c691e",
@@ -2268,7 +2268,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "knock"
+      "aspect": "heart"
     },
     {
       "id": "690169b6756d44b6d6fc8490968743cbfc7ca497633ff4810d309a7c23f296f1",
@@ -2280,7 +2280,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "3c9b1efa09087f24f3e027c0639cd8e5034cd0c804d873f57f1254952ca69f18",
@@ -2292,7 +2292,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "heart"
+      "aspect": "forge"
     },
     {
       "id": "b81a745a5b870418e90756fe800fe3f2c339d35acf19d31dd4580a98ca518a12",
@@ -2304,7 +2304,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "cb2aeec88a4cde190719ee460faa915573058e47076d54d5e6470880aecede33",
@@ -2316,7 +2316,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "nectar"
+      "aspect": "grail"
     },
     {
       "id": "506f29fd652aed41dbd332da0a7da41017c213d73c15ebf656505a40b61731de",
@@ -2328,7 +2328,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "heart"
     },
     {
       "id": "0491b8e249bdbd23bc0a97519784e1dee1e57a4d6ea27574a2a51c191809105f",
@@ -2340,7 +2340,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "bc6981ea10e5976fd50eb9ad76b171b90a42f1bca07269758eaf09a33f89f027",
@@ -2352,7 +2352,7 @@
       "weight": 1.85,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "edge"
+      "aspect": "heart"
     },
     {
       "id": "13d7e1f99f2d0f3134aeb10506d9bba9aa00f91750bf59774db898812c740b95",
@@ -2364,7 +2364,7 @@
       "weight": 1.85,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "95392c13605de59ba7cceba1c64d19ecf49c79b0597f8a9f37b5c6edde6bc84c",
@@ -2376,7 +2376,7 @@
       "weight": 1.85,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "32dde1fd590e0317ea54f556ef613ddf210d98898ff4b5c16adf213389a9db31",
@@ -2424,7 +2424,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "f45e8bf4e1b03fdd638b0a1b6a94fcb0c79f596697a2c49e53ef6a1547eda2bf",
@@ -2448,7 +2448,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "35dd0a40978af0b7b06c11583e23bca143756499639b15f3ab74820b7ec02d1d",
@@ -2460,7 +2460,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "histories"
+      "aspect": "knock"
     },
     {
       "id": "3b922b5c9aadff10e2a0ca9471413329bee6a8b3db88a01d6ed9187c51864f7d",
@@ -2472,7 +2472,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "bdf15969ff76ec26532236ae1498433aba316b2b3fa2746cb024fab56a05a400",
@@ -2484,7 +2484,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "111726d0105560cecc9c7269b1c203489950d9165376fe011f1defc1ddc849d3",
@@ -2496,7 +2496,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "scale"
+      "aspect": "histories"
     },
     {
       "id": "bdf19298a2bdf79ed3ea237916f1bb44f116e7c76b9ebb61fa31854317b0d71b",
@@ -2508,7 +2508,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "a7863f785c9bf111d7a99543c2ab0cdfcf44a569219e10074050fe1b88cf30ad",
@@ -2520,7 +2520,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "grail"
     },
     {
       "id": "f51ccc4cbc19d521c378f57ccd4c077dba5b9ab1644a4182303db7700142627a",
@@ -2544,7 +2544,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "knock"
     },
     {
       "id": "68830e1a860d6479ca318c6aac2292e606f1e33268d510d8582d8ddf8888aefb",
@@ -2604,7 +2604,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "forge"
+      "aspect": "rose"
     },
     {
       "id": "f6f5928359f17f5dbf89afca15f7af656cfe09de90d803cd810446a7f31ede8c",
@@ -2616,7 +2616,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "rose"
     },
     {
       "id": "fe42333a5120084add265e78f643638446ee985bee358c186c429ff6d3073507",
@@ -2628,7 +2628,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "moon"
+      "aspect": "lantern"
     },
     {
       "id": "a89d0284142a70dd190d20a84ee26184be052418cf72e33eca48074013b682e6",
@@ -2640,7 +2640,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "heart"
+      "aspect": "moth"
     },
     {
       "id": "4511e33fb497cd7396bb21aed5f0d787a53da7d0b442bf2a3fc54cd4c6394a39",
@@ -2652,7 +2652,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "heart"
+      "aspect": "winter"
     },
     {
       "id": "af2bc3dd57eb72c44aec5b9c1c444950b95c20a781721f7318add18d35e7fa9b",
@@ -2664,7 +2664,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "heart"
+      "aspect": "edge"
     },
     {
       "id": "4546867275aa07948dc0a09ef06dbdb55000bb41ada7ded0bf9ffbcbb0f26e76",
@@ -2688,7 +2688,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "49e77e76a005045ab14ff4e3f3aefb5ced986fe7aead2bd905559adac6e3194b",
@@ -2700,7 +2700,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "winter"
     },
     {
       "id": "7f1dda01b9c9d277c28fbc658e307536cfd004790389de613754ad5214ad6635",
@@ -2736,7 +2736,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "heart"
+      "aspect": "knock"
     },
     {
       "id": "1d57d9aec3b3d4aa488bba05c6a97f5499d1a55cbabcc6a2d4ce0dee21737218",
@@ -2760,7 +2760,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "winter"
+      "aspect": "heart"
     },
     {
       "id": "c953e79a6c95f3c6743e51cbc1396b4396662456b393f7b97b09bfc347aa8ba4",
@@ -2772,7 +2772,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "knock"
     },
     {
       "id": "3ce42e11a9843b681f35f1df3dedf4eddeebaa8892d76d8865c7a5cdf822e430",
@@ -2820,7 +2820,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "sky"
+      "aspect": "heart"
     },
     {
       "id": "ada67321c2756605cbc8380c1e95823e8d0217019761821fc179ccb0776d4a21",
@@ -2832,7 +2832,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "knock"
+      "aspect": "edge"
     },
     {
       "id": "3c5b64a2cdf9ca2df60a14e4ac0039fd1c54d8c5a3c3c932247f6c9e60f522d8",
@@ -2868,7 +2868,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "9ac72b318f2493f6f7136df96abf615f542f36d5987afc13db7625fbfad9f6e8",
@@ -2880,7 +2880,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "ac94cb2c72e444ec914e1bcc79706ee406717871789b4a8db1f0863d79793231",
@@ -2892,7 +2892,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "histories"
+      "aspect": "heart"
     },
     {
       "id": "41a8052fa0d4a7db52d8c8dbf5b9412c74da5a7d1b7a9402dc54f2d6ae31dae0",
@@ -2916,7 +2916,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "rose"
+      "aspect": "heart"
     },
     {
       "id": "e0e84e15d763e62e641901e0c3585082314be6272d10a657e1152064b69742e5",
@@ -2928,7 +2928,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "873c5b2c2f691338a314cbbd348a27851ebfa8dfeb4bdf7161bb692af85f10d1",
@@ -2940,7 +2940,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "nectar"
+      "aspect": "lantern"
     },
     {
       "id": "760084b678cb8b93c1854f2bacd378ef1eb5583dfbf8524dba2e116626bef51b",
@@ -2952,7 +2952,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "grail"
     },
     {
       "id": "9df98e17423427ff2ab09b52f0e841fd964d6d9366c50017b91ac6ccf8682d59",
@@ -2988,7 +2988,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "sky"
+      "aspect": "grail"
     },
     {
       "id": "82b7e2ace7c4f29adcfddf47ff792a3c84142200a5d9344b57d2d579b2c58d89",
@@ -3000,7 +3000,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "139996e197b6835bced9be333efc41e67b7e877f4b15cb486284f8ce14f6aafa",
@@ -3012,7 +3012,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "71855b500340401ef080b2c5d6a48a5b6da4f5a595bd2939b336758f3921413f",
@@ -3024,7 +3024,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "edge"
     },
     {
       "id": "f20dce90e1521d21c25d09b1e42901110d0dfa5cf5d889d5c9953e9a93b423fe",
@@ -3036,7 +3036,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "heart"
+      "aspect": "edge"
     },
     {
       "id": "411fa0a1a169a32fb0442c7a0f6f7629fc860e0be47057f49fc49da889926abb",
@@ -3048,7 +3048,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "3d3492740fd45f3ad2bf2bcb4675c7c2546edb65c0e71a17ef031ff993675e05",
@@ -3060,7 +3060,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "edge"
+      "aspect": "lantern"
     },
     {
       "id": "5fc774fd125720cc51fd7189750d99eacd0e9813151963f88d20d3601ecce776",
@@ -3072,7 +3072,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "moon"
+      "aspect": "grail"
     },
     {
       "id": "2c62573a6efebe5f4862417546335b5b9111397691a3a152fa51f876eeb78689",
@@ -3096,7 +3096,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "heart"
+      "aspect": "winter"
     },
     {
       "id": "14975d323d307d6d95d129bb35aa50add20453cdc11cefe5789262f3a24d7c15",
@@ -3108,7 +3108,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "edge"
+      "aspect": "grail"
     },
     {
       "id": "12cf093edd7fa8ecb1e90f1dcbdf7a51ab60b280d0c200d4c825cf50453e195d",
@@ -3168,7 +3168,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "heart"
+      "aspect": "grail"
     },
     {
       "id": "69b07fcb7e97c6539c0c6653aad1c2457942ffd82840c7252926947daec579f4",
@@ -3192,7 +3192,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "rose"
+      "aspect": "lantern"
     },
     {
       "id": "5edb2aa7eb2db98b75b48717e91e46959b35356cc5232eb31d7d48b24e9b75fd",
@@ -3216,7 +3216,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "c5c8fe9a43fb98f82fa2649a20dd07bab7f8d81380b3fa2193c9ecf00e3c17b8",
@@ -3240,7 +3240,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "c79b320f0d763a7c1a1544d0beda3450d600b81d226beed5c2034e5ba6d51ca8",
@@ -3252,7 +3252,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "heart"
     },
     {
       "id": "68fcb8aecbc6bc071570fc16ffab8d7963e12b011544ec0c357b7358b3e3f567",
@@ -3264,7 +3264,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "rose"
+      "aspect": "winter"
     },
     {
       "id": "e75da625d79f4e5bb14032b0f055a95f9c3cbd1f9648b9684d7367ffef1eb160",
@@ -3288,7 +3288,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "sky"
     },
     {
       "id": "1f3cc430d61c0790c46ce42ee98dfea1c9b9f96ad0aefd6b23a95aa95f06c925",
@@ -3300,7 +3300,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "4acd07d2183b58f43a306fde2a346fa3dcac99d7ae6691fd1ee09591ea3eed22",
@@ -3312,7 +3312,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "sky"
+      "aspect": "heart"
     },
     {
       "id": "81c679a942bd493c517784caa18b5a4af27ab600bea67c5e8fbb8629a2710c2e",
@@ -3324,7 +3324,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "481e675035949aa3b0afbc406420d59f049ae6f3291640b5a131cf9ac8bcc0e3",
@@ -3336,7 +3336,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "rose"
     },
     {
       "id": "eab5418983b5ef8c3d120e47fd6f5b784bd225afe27c704c0121a88e58a8e8fe",
@@ -3348,7 +3348,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "rose"
     },
     {
       "id": "507f2f321cfa7d845b6e314ca20668e286eb161845a36c00ed8c6ce53c996120",
@@ -3360,7 +3360,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "rose"
+      "aspect": "grail"
     },
     {
       "id": "25f1f470154c06b241aa612febee41cfd11e119f10aa2d0ab0b2d8b5f7958d68",
@@ -3372,7 +3372,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "sky"
+      "aspect": "winter"
     },
     {
       "id": "ddfdfc0488ec97eb73509a6f1bfd96b6e80f2264613a57821d2d3fcee95e0f97",
@@ -3408,7 +3408,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "nectar"
+      "aspect": "winter"
     },
     {
       "id": "069c152b840e40745a6c4a81365b6baf591fe8ed1bb5046e50af08645de43da0",
@@ -3420,7 +3420,7 @@
       "weight": 1.85,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "histories"
+      "aspect": "lantern"
     },
     {
       "id": "ec6c3ae9a7905a884664234cdfeec1a43791923021989146314a8daf928c549d",
@@ -3432,7 +3432,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "histories"
+      "aspect": "heart"
     },
     {
       "id": "84ac2235d879733c95af4f70c00347b41d82c93fa532c23b5175d88a6872dc60",
@@ -3480,7 +3480,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "knock"
     },
     {
       "id": "5d9125e9b9c7f4d3e2dd133fdcbca5f2474526888d774549212710e8459d9af8",
@@ -3492,7 +3492,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "histories"
+      "aspect": "heart"
     },
     {
       "id": "5c09fc5b9811a1c5f508bd9a042f767bc4ba8c556498482fda205c13bf6f7a00",
@@ -3504,7 +3504,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "cab68e4343b95fd069ca526f5e8c9ed70bb504fc13742ef715cf9451fa38605c",
@@ -3516,7 +3516,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "dc265adfb55b892fc0353a61f7ff5eb62ad6a3f33c038322bacea9e5ce497bc9",
@@ -3528,7 +3528,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "ee5ac951512d4a38c74437412942263e33608e5fd5611e68f5b0a1cf930f46ba",
@@ -3540,7 +3540,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "histories"
+      "aspect": "sky"
     },
     {
       "id": "f30a383910b230617053fd6a8be15faddea357526550ae1446dd3db8dcb93eba",
@@ -3576,7 +3576,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "histories"
+      "aspect": "edge"
     },
     {
       "id": "f5ccec337e5ffc9a01cdd0dc1a510bf1f96e6b014dac4147f97984a73a17a7f2",
@@ -3588,7 +3588,7 @@
       "weight": 1.6,
       "quoteWeight": 1.25,
       "theme": "reflection",
-      "aspect": "winter"
+      "aspect": "rose"
     },
     {
       "id": "f6bd8d0e70091e67deeafbe82db7c7aa7344391b3589385d860c7eff2df7de27",
@@ -3600,7 +3600,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "winter"
+      "aspect": "edge"
     },
     {
       "id": "7c8fc95c9189fec2d39cb86b1e22aa39499fad5e9d2e3fa4f45b25320d7bbf3f",
@@ -3612,7 +3612,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "529ec7b2da3814daa025db84a3bbd99c6907913aeeb76d81689fac9c92efa26b",
@@ -3624,7 +3624,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "histories"
+      "aspect": "scale"
     },
     {
       "id": "a45e608367145d15c4e66628678c05d4c4f913e8d695f43992a28a8d602b8f4e",
@@ -3636,7 +3636,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "histories"
+      "aspect": "scale"
     },
     {
       "id": "86da5d976bfb3f5e554c09fef5f16914656651bc3ea708e4f98e701e4fc26aff",
@@ -3648,7 +3648,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "heart"
+      "aspect": "rose"
     },
     {
       "id": "bea607e60dd746ab800dd7f46915b713c3af9cc7f225ea1c3710b5956dac228e",
@@ -3660,7 +3660,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "rose"
+      "aspect": "winter"
     },
     {
       "id": "16a96e6cfaeb1fc986060d3901cd423fcd974a1cbdd2eee2387df32d9feff2aa",
@@ -3684,7 +3684,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "8dd82268670e11e8ec08a092c84962e38aeff2492a4d8bc5301c24dfb27aaceb",
@@ -3696,7 +3696,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "forge"
+      "aspect": "winter"
     },
     {
       "id": "578e0f222a0a88eb73b030a96ebedd1d2a52cd0fd1f2cf6f3451d06557eefc38",
@@ -3732,7 +3732,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "sky"
+      "aspect": "heart"
     },
     {
       "id": "07eb30f8244d26bbce160116ba9f522fc71c47f1565b176f12e08b7f45e93ffb",
@@ -3744,7 +3744,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "56463245ed64135a08f4e208909cb23c9bfa02acab973e0600d82d7991858c3d",
@@ -3756,7 +3756,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "sky"
+      "aspect": "edge"
     },
     {
       "id": "249d136d3c429268cb019f8592c3262aa684bb072a1f8676d5afc722803d831f",
@@ -3768,7 +3768,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "nectar"
     },
     {
       "id": "2616ef497274cfd4706dcd8ab96e06e940583e37567a12004b5d1b7ad012d218",
@@ -3780,7 +3780,7 @@
       "weight": 1.6,
       "quoteWeight": 1.25,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "rose"
     },
     {
       "id": "8ae966cd15ad835f039598c494c5bc2a9e53b6bdd3f4f5ed779cc9b5f8ccfc55",
@@ -3792,7 +3792,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "forge"
+      "aspect": "edge"
     },
     {
       "id": "57723c1e67d581ebcb99415bc4ca032ddc3e7bc624b4a42803829f1c090cb5aa",
@@ -3804,7 +3804,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "heart"
+      "aspect": "lantern"
     },
     {
       "id": "1c0c43f70d1d89f8c01dd2a399a2033c4c0ecd991f3c51d5db8b1fa6ed1f0b96",
@@ -3816,7 +3816,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "sky"
     },
     {
       "id": "1c9a32058ab419db6f084033eb3a3ecd4de4536268c0fc05fd1439645c6c0440",
@@ -3828,7 +3828,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "533ba737f620e54615998737e2b5cd5746c28eb421cf86704899ef4a841e04ff",
@@ -3852,7 +3852,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "moon"
+      "aspect": "histories"
     },
     {
       "id": "2ea7355c0948a16944edc1be0cd643869afaa2dcd693bec555acf4b1b7177dab",
@@ -3888,7 +3888,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "heart"
+      "aspect": "moon"
     },
     {
       "id": "9e502a1e907b8ea595d48cc9e07fc2b74b165c9ad191b023f0acd038a8640064",
@@ -3912,7 +3912,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "683e724294c3f22c702da627e681421ce1b553fe831532ed82cd7d6ea63dbbd3",
@@ -3924,7 +3924,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "831062365060e30f92067cdcc0cb0bfbdae42da6e9cea269c09983ff24cd60bf",
@@ -3936,7 +3936,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "d05e0292d78de48a524bb62f0a666097f788e8ecf922f55d73965a103db6d9b4",
@@ -3948,7 +3948,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "edge"
+      "aspect": "heart"
     },
     {
       "id": "6699720e03c1c3f5dff7839cb8309eec6983156fc228401a8fe97c2363e1af85",
@@ -3972,7 +3972,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "c727a6399c4939494c92e2417d6102c74ab115fef3f909af02818dc2e4041a7a",
@@ -3996,7 +3996,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "72c2ccb283ea0ca581adaa4fd81baf4137267d171534593945a636939e8c3274",
@@ -4020,7 +4020,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "ed71e5b0abb8a02a459154d4286a684e4dfd9c144d7c1bd9799eaf2a0044b907",
@@ -4044,7 +4044,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "3a0c468960982a6c7842f103a0bda39e7a4eb881c064ae6aa14a66cfd2d3812c",
@@ -4068,7 +4068,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "winter"
+      "aspect": "heart"
     },
     {
       "id": "ec8fad0ae07a75d60f7931852703c795f257952a7133276d69b471b2abf159d8",
@@ -4080,7 +4080,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moon"
     },
     {
       "id": "9f182a4bdc3ce17558a0c2647544d5321691fc03c96352d324ca346321fcd2d1",
@@ -4092,7 +4092,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "c9dcd1ebfe2d4dedd49eac6881212a407a8018c9f8780cc6ef2db1d0e77a2c43",
@@ -4104,7 +4104,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "4408729203a2db36334c318728a0ab4671771ac65d1212ada68efc99b389157d",
@@ -4116,7 +4116,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "c9305ad3404a7fc22a669ee03a257fac570187353646693ec9d235440b0041b4",
@@ -4128,7 +4128,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "histories"
+      "aspect": "forge"
     },
     {
       "id": "1848b61c9256cb382f7dd67572a619eba9a898271e650c989b26b04be28e0fb6",
@@ -4140,7 +4140,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "rose"
     },
     {
       "id": "9ca3ff2cd70ebb091bb9529d74a5336e75ba7818ed9fe8bbeffa0008838d6461",
@@ -4164,7 +4164,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "grail"
     },
     {
       "id": "34e8eb124210b8285f73740d14e7b770ae9accb7026fbb6939d545569180c5b1",
@@ -4188,7 +4188,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "42ade2b1552d726bc31d7b681746ceea2b3cc085679380a49a1c0cbb247456d1",
@@ -4224,7 +4224,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "257b99f6ffe5d16c7a57df78114f9d355855ed58215e8ff671cbd631f9f757fa",
@@ -4236,7 +4236,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "702d0e72baaee3de48f66548c5bfb66d9666ec61c7792c2c51d23e54995ac9bf",
@@ -4248,7 +4248,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "7ef405a3b11b1f36a84741f197aa22aaf573cd49cb1afe7b4778c41b05baf9fc",
@@ -4260,7 +4260,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "sky"
+      "aspect": "edge"
     },
     {
       "id": "467cb9719f38bed7e13de5d39c6662b3b125be41d8194c7d5766dffcdf220bf2",
@@ -4284,7 +4284,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "sky"
+      "aspect": "nectar"
     },
     {
       "id": "bdd196f31c40c8f4425c3db62ff55a690aa90adb65ff536d847821ac001def3a",
@@ -4296,7 +4296,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "rose"
     },
     {
       "id": "b14745fef411fdeb0d49ef225af3e0f8f4bee905ddf06895affb77b77f1fa7f4",
@@ -4308,7 +4308,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "sky"
     },
     {
       "id": "6ca93695d750e3b067f36fb8e1e5056184cf50a76155d5400dcc5686fbcc41cc",
@@ -4320,7 +4320,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "aa27aae45d8de3c5a9e7b1ae63407a38ee677adc941f71164f445f8cd523a34d",
@@ -4380,7 +4380,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "moth"
+      "aspect": "edge"
     },
     {
       "id": "8dc55155b9e6feaa44e29e763113e8f55f4801ee0bc40125450a7c852a21786e",
@@ -4428,7 +4428,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "2516f463bb83ff7c55a27236e676aa85cf4f6ef4481fc3ffad49640d84d71839",
@@ -4440,7 +4440,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "4b1ef1c05eb81bb2b0633969916629baa3b0e5bdefb71017202b39c1fc53d9bd",
@@ -4452,7 +4452,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "knock"
     },
     {
       "id": "852b41185c774408faed7a5ed56e810c85ff53f712dcf640277c16650a153521",
@@ -4464,7 +4464,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "lantern"
     },
     {
       "id": "73d889e9c4c2ab44850b343ce14e12a22833021a8ebaaf29a3f9ece2a66390d9",
@@ -4476,7 +4476,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "d39831f04d3c575432291d7616763450c4beab393990f374f7a436464fda8146",
@@ -4488,7 +4488,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "9727d43d33b756ca66ab337e5b5c8f528d8df613eac1f320885fe9878f529f97",
@@ -4512,7 +4512,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "heart"
+      "aspect": "edge"
     },
     {
       "id": "b12d29f84515a4667c28ab63e1724a14612ea7dc56b958b6807781b506f48946",
@@ -4524,7 +4524,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "da327353168b2601797765d547f9e38c7395791a71eac0446b08e3cfc8fcfb2c",
@@ -4548,7 +4548,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "histories"
+      "aspect": "lantern"
     },
     {
       "id": "1a0277e092848de52a2bf25b9ffbf29d6282ee61f3619d9504b0f2bd2375eb6e",
@@ -4560,7 +4560,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "sky"
     },
     {
       "id": "2d6adbbc435386d49477661d212a1f0eb57e62f71a484cc0afcef95327e6cc86",
@@ -4572,7 +4572,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "91564b7510ec7e4660c1b4d7d8899394d613c2b6a6920c78ebe2afed5d7ce8c2",
@@ -4584,7 +4584,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "rose"
+      "aspect": "moth"
     },
     {
       "id": "9273b251b1ced165bbfe01a82af6823750049d766a59b0dbbbf754b0d2d12cd2",
@@ -4644,7 +4644,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "rose"
     },
     {
       "id": "5f24686e190143567463554e7bb60abef42d38fab3a02891a5fb7229cc70eb24",
@@ -4668,7 +4668,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "a50b8742eb02e75646743cd6de1867334edcfb040aea7e44f13820a766e4c9f3",
@@ -4692,7 +4692,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "edge"
+      "aspect": "histories"
     },
     {
       "id": "8ea01a0d2a11f4f9328bec4a4ea8c3e9e1c07ab44f8af7064244e50b5b9eb541",
@@ -4716,7 +4716,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "edge"
+      "aspect": "moth"
     },
     {
       "id": "0f2e24275de734b5f5b3bf66663cb638126cf86f7bb9a82fc9f79094d1f7b337",
@@ -4728,7 +4728,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "moon"
+      "aspect": "heart"
     },
     {
       "id": "775209ce400ed336df04ccf301ff7903c3d7d85e4723e86c756489787fd43e03",
@@ -4740,7 +4740,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "rose"
     },
     {
       "id": "13b82600dfcef825a4a142a2a540ab420b2111a3639ec98559f7f7c98c919b48",
@@ -4752,7 +4752,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "histories"
+      "aspect": "edge"
     },
     {
       "id": "859732e81447ee4353cd3156cd2746b1c93dc0903f04832a6bb39a7c9dee6b99",
@@ -4764,7 +4764,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "619b085dae3745e5f467541c3fbd71aa0b780f033cc99e3acc45b6230c199ae1",
@@ -4776,7 +4776,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "066b63c3f89cbe9144b6647b2781334a253761e9a0622b1b53ab3cbb08980572",
@@ -4788,7 +4788,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "5c88b22de886bb9a72b23862c91a8a13f680ea09fca0891b594c110997e8e9fc",
@@ -4824,7 +4824,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "rose"
     },
     {
       "id": "1c49a9c848866b96f30890c133f7e6b427467ef1bdc413a537c26cb56b0c60db",
@@ -4848,7 +4848,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "sky"
+      "aspect": "lantern"
     },
     {
       "id": "6ce29a776e9553e35ddbeb28f7c14d0df5fb805292c5a900ad41d38f67103ab2",
@@ -4872,7 +4872,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "edge"
+      "aspect": "histories"
     },
     {
       "id": "4ac155e2efca516fa8eee7ec7a63ecfd71714fbb4e6807b2c3e2798b5d4f2214",
@@ -4884,7 +4884,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "grail"
     },
     {
       "id": "743b32f31a77f0d97d3d5dd04fa552dbe1d480eb3402c47bb2a36374a3bf7e41",
@@ -4908,7 +4908,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "moon"
+      "aspect": "knock"
     },
     {
       "id": "26072568b3f7559879b0688d6f92b73a2a3f8cf47e8f33605963958bb875bfd3",
@@ -4920,7 +4920,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "d74bca52a08e9dfb2b6bd930158e493801bc2908f9d5f12d6d904adca218882a",
@@ -4932,7 +4932,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "af3e53ddc6d56f1c7d0bf3ed135a79ca1712d4ec1c970ea91e7e4be518a53d8d",
@@ -4956,7 +4956,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "nectar"
     },
     {
       "id": "1defd59ca8636df59fe7ef9e93d7a965a88ed6f140c17699f72ccdfc20d64dc4",
@@ -4968,7 +4968,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "heart"
+      "aspect": "grail"
     },
     {
       "id": "0ab179b58431b0eaa9d588dca61c1f0a008ddf93364187b456662f89b4848670",
@@ -4992,7 +4992,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "grail"
     },
     {
       "id": "e041577e9499cde5feaab61e70d11b28b2f79eb2ec956f33c2580fbc40049702",
@@ -5004,7 +5004,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "heart"
     },
     {
       "id": "d66c2e46990464398b596e0e2545b55ecace2b95afeb6b81107b8a554cdd8113",
@@ -5016,7 +5016,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "246990a7e7efe9bc19ac7822723ab572d324c384120fcefa67d880914402ef42",
@@ -5028,7 +5028,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "rose"
     },
     {
       "id": "21873f8a9ea860d6256bf263decedc6ed70b78241654a8a20c9c09739021ea36",
@@ -5040,7 +5040,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "nectar"
     },
     {
       "id": "5289e1f71b729084744b4540780c899b9e71add1e3ab1ecfc0c152857f5f796e",
@@ -5076,7 +5076,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "histories"
+      "aspect": "winter"
     },
     {
       "id": "7a3c63ca3df3cc5b5046e88a4b0bc74f7e9d6665ff3fc83d64746076c4ccd9e8",
@@ -5088,7 +5088,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "d171e42a11d2ef8e4ca954306d4601f51565f545fde8d5d3ed7446582733ff22",
@@ -5100,7 +5100,7 @@
       "weight": 1.85,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "b5824c2f3afbe9737d24f606fd61467846927f0580951d6f124f8bcf300718b3",
@@ -5112,7 +5112,7 @@
       "weight": 1.85,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "c3a4dd3408e6772ef2e46abb4ccd118cfc1898d9a6b3c06f5956b383daf76a60",
@@ -5124,7 +5124,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "sky"
     },
     {
       "id": "dc3dd889f8a624ce03a0da2a2847f1cb16190782c565f92b950ab922950c1ed2",
@@ -5136,7 +5136,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "scale"
+      "aspect": "lantern"
     },
     {
       "id": "f38dbffa6cda9a946202a01f42c50cf46bd73086d1ab52652d2ec4a7afea56ac",
@@ -5148,7 +5148,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "knock"
+      "aspect": "heart"
     },
     {
       "id": "758a52ccd1a05846a9f0b1f86bb586ab2e2afb4b1a04dd3e784981a345d6f0bf",
@@ -5160,7 +5160,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "edge"
+      "aspect": "lantern"
     },
     {
       "id": "7147a7c3b3e467f2aca6293fd641491cd441d44d63be36b3990f4041c735088f",
@@ -5196,7 +5196,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "edge"
+      "aspect": "heart"
     },
     {
       "id": "a748e4af9c838f6729f29ed2eb25498cccdd4dfddec347ca43cdd50378b459ba",
@@ -5208,7 +5208,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "knock"
+      "aspect": "edge"
     },
     {
       "id": "b474cb28336faefa3b4dac0a278d62cbc1b23466ac71d29003c07701a73ca31e",
@@ -5220,7 +5220,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "70874a02f16623666eb05f603f77a1869b9563870adad0a38b1327d68787eb84",
@@ -5232,7 +5232,7 @@
       "weight": 1.85,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "0c9a0ebbb56c392b410e163d8365497aac6a7b1e05698d2844b0364bd8618974",
@@ -5256,7 +5256,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "edge"
+      "aspect": "forge"
     },
     {
       "id": "fb4c4d247e5d730a58178ea622d704c518897d7f0a0e8838428e0f7e238c201b",
@@ -5280,7 +5280,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "heart"
+      "aspect": "moth"
     },
     {
       "id": "08fafe32ac198a5d9f64eba0d440dadceb37cb98086d57c855cd48ac1c5e4f33",
@@ -5304,7 +5304,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "8d5272115a8b0143ae7535eec59225d1f23a9773e43348e60ab79da402f28c63",
@@ -5316,7 +5316,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "histories"
+      "aspect": "sky"
     },
     {
       "id": "df3f2f96bea93e1d9deb79aba45b6e35f1e16ed571fcb0add993e1d0b53c984f",
@@ -5328,7 +5328,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "rose"
+      "aspect": "histories"
     },
     {
       "id": "428311a76e8fd08d791aab819b632817ed7117ee782aea6b897ed1c93cfd8f07",
@@ -5364,7 +5364,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "7e8ff189d0cfa84f91010f108cdc0ff878f57160bbc26dc63a83a7af6ad1264e",
@@ -5376,7 +5376,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "forge"
+      "aspect": "histories"
     },
     {
       "id": "005956ddd861aa26123d3fc4e33b91e682c92e9b88f8cd8c20589cf2b497bed6",
@@ -5388,7 +5388,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "knock"
+      "aspect": "lantern"
     },
     {
       "id": "f25fb9e55be170219d1ab3cd12fd56ec295845afca30bb39ea05f997c0a36c7f",
@@ -5412,7 +5412,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "a9136be73b8245a2984154be884331a54ce36fbb88418ce59d8d1b5047c6da5a",
@@ -5424,7 +5424,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "39d5c8fc7a149c3961a5a858a95f815c67b007d1a9cfbf9c5df595f6bbed2a92",
@@ -5448,7 +5448,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "33cbf251d0e3c40ddfd996b5897d1e4dcd48a914ff52d777c685aeae27d1a4af",
@@ -5484,7 +5484,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "nectar"
     },
     {
       "id": "43274406ab383daf749e226354eafc08f9f956e0abcccf18317d21c4aa97a6b8",
@@ -5496,7 +5496,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "forge"
+      "aspect": "histories"
     },
     {
       "id": "d001962a793dd55b95bd3d2c4dbca8307127118b8c48a690d784cb455310ce94",
@@ -5532,7 +5532,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "knock"
     },
     {
       "id": "77b2d3334ec944f93443f7730b9d7d955ca3707a9fbe03589972c869a55ca3b8",
@@ -5544,7 +5544,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "f08dcd8da91b448d026bdfb58e21aafa4d7c005c4d56b71d43ef5c04c16ff5c6",
@@ -5568,7 +5568,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "forge"
+      "aspect": "grail"
     },
     {
       "id": "4d46e43f8906df5b567f5cb891cc06ef4f498352d7567893370a2a2237bafe39",
@@ -5580,7 +5580,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "scale"
+      "aspect": "lantern"
     },
     {
       "id": "09de66c279fe8bfc2c810e0594fed88c81d753ceeeb89477b8de4f3dbf45a9df",
@@ -5592,7 +5592,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "edge"
     },
     {
       "id": "62c14af3cf1aed696d95c8054e43f859e4481d481b2a7e374a77c060aebc169a",
@@ -5604,7 +5604,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "23d79100c290fbef32a89b605a147d8dfdb9d83ebe6756cb2f09605d88d98126",
@@ -5616,7 +5616,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "forge"
+      "aspect": "moon"
     },
     {
       "id": "7d98cbbbd5673222cbb81d34a34870687eac1384015aa9e66ca25e4626b469f4",
@@ -5628,7 +5628,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "histories"
+      "aspect": "forge"
     },
     {
       "id": "fcf0e7c421815e36d38284b9dc20cd895b9ae8c08c113f7aa68d8f2533368f93",
@@ -5664,7 +5664,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "0ae4d97b35eedbd2a549be5ec2936333ac6eeb3861dda2246cf4c30afa3f6bdc",
@@ -5688,7 +5688,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "c52339cc9ea33d6f20e5c19a83ddce27293fdcf39c43f9cec77da30d5d5765a9",
@@ -5724,7 +5724,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "5f22f114728981fbdf88e363bfe60d9e6291f9d92b7276b9f9f57030f2b6f3ee",
@@ -5736,7 +5736,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "d78421475146502cdaee534fa681597f5db024eeeea393083cccbcf60eaa12e3",
@@ -5748,7 +5748,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "ae8f0fb3996434da5d8cf47a41f622da9c18753634a253fae4534959d3390a80",
@@ -5760,7 +5760,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "rose"
+      "aspect": "nectar"
     },
     {
       "id": "39eb4f9a72e2a1031e41682000eac6a7985be568ef946622696de9cefd221f18",
@@ -5784,7 +5784,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "grail"
     },
     {
       "id": "6e68095f8befe42bbc72622961f670bcbd783be586e39b3ed706c1f1c13e220a",
@@ -5796,7 +5796,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "9dc4c123eb574f3ea55576e496c190f19c78f001f3348bb6b788b8ff369842d2",
@@ -5820,7 +5820,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "460c2eeceda3ac627e9a740b9f5200c2a908d47670a93229b7f3de768d6ff73f",
@@ -5832,7 +5832,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "heart"
+      "aspect": "winter"
     },
     {
       "id": "fe9aa676bad89ebea208a0b85566234bc2c82ffb7de146057fc4e93fc97fd7d6",
@@ -5856,7 +5856,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "7f0835bad29fae95e3b03734c2b006649d579ae0db7aba82cb8bdd0f82c890fc",
@@ -5868,7 +5868,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "grail"
     },
     {
       "id": "7685bf2e93bc484ba9a2bd52b2537398c11c9574d03ebd8956dbdc5f455e314e",
@@ -5880,7 +5880,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "heart"
+      "aspect": "knock"
     },
     {
       "id": "fbc3ea01eaa78322a962d306c8d901de2c88f6f1663b93c639db2b40007768b6",
@@ -5892,7 +5892,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "2945c5449ad7bc266a23fe814127100adbc4e7ff8b53c750dd6c76d600567570",
@@ -5904,7 +5904,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "aacdac3dd2666ba7f09695c8d8670265d0ccc5e5038c81d827161855f9eacb7c",
@@ -5916,7 +5916,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "forge"
+      "aspect": "knock"
     },
     {
       "id": "5875a96822cf55d279c5f14cfbc593ebea874b04e2bcd9ba80de5367dbabd1e2",
@@ -5928,7 +5928,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "moth"
+      "aspect": "grail"
     },
     {
       "id": "23ba54dcb1b8a74631fa7d17424d95b013c558c04cb4fa9a05c4c462399a6859",
@@ -5952,7 +5952,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "forge"
+      "aspect": "grail"
     },
     {
       "id": "3c2bd992bd8e7f70560fcce505f75c5198321d975586b7d65402fe778608830a",
@@ -5976,7 +5976,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "rose"
     },
     {
       "id": "7635987d95f629ba5cd2f49064ca8dd1e87397b79e6442457cd8cc5d13567abc",
@@ -5988,7 +5988,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "bec871edbdc9c39284c7cd15968bb0e894fe3783c2a63b16dbf230367f10b2f0",
@@ -6000,7 +6000,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "winter"
     },
     {
       "id": "e449bfa5843dcab9ca71b79e80adf36096a61bb5a06750806758534ea976705a",
@@ -6036,7 +6036,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "histories"
     },
     {
       "id": "a973bc1cc1ebc6f74950d19f11505b3249f9cf7147a27b470123d3cb13ee8f4e",
@@ -6048,7 +6048,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "rose"
+      "aspect": "nectar"
     },
     {
       "id": "65d7bbce50d070c2aa45e2552d8f2b12d76b015d8b8fef8723acf744ca14cb96",
@@ -6072,7 +6072,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "41be74cc1beae7221e9e722ee2f771c7f2bfb7fa0d198bc9ad9086d6022d8ea5",
@@ -6084,7 +6084,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "grail"
     },
     {
       "id": "3fc9d7ddb9215bd8c427680b4eb738113377bcdfc05e6c7df3878dc740d17bd7",
@@ -6096,7 +6096,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "5c1defd7b68074f17c070708759bd0c5371c98daf15aa47d347416b68318f0cc",
@@ -6108,7 +6108,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "b859807a48bd51e1af6d0bfc3171bf6a59375d584b4250895efe6e4284f2aadd",
@@ -6120,7 +6120,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "7acdf99134a410aec59395f211e40b3afb235cf2e9074a6da52d4ba34353fd7c",
@@ -6144,7 +6144,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "bbd4fdfd1c7320e239e6a32c174cc5480a13c4cb638789a6e31af90d893729c5",
@@ -6156,7 +6156,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "histories"
+      "aspect": "heart"
     },
     {
       "id": "7128ae7ed4ac5fcf64e32b3511744b3378786606dfe4926d6db007243ae19846",
@@ -6168,7 +6168,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "8cdddc32c1489ea83c7031857068a1c12f72f6a59e364c11fcf33a66c534fb26",
@@ -6180,7 +6180,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "knock"
     },
     {
       "id": "91b7bb9a46911f6ae4b021085e0558882f9c71b93d580d5bf9dd6ee2015f49b1",
@@ -6192,7 +6192,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "grail"
     },
     {
       "id": "f227d0ffed42fabf3ddf3159c79411b685914a137d260a68e26dcdf9a365f59d",
@@ -6204,7 +6204,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moon"
     },
     {
       "id": "a54cb7a708a296baf0a119ff4040c8d201ceacee650c209da1178d9777628ca0",
@@ -6228,7 +6228,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "grail"
     },
     {
       "id": "ca127d4301806421866797e31cd59cce898bd56eb3d220cfd8981239c3203c1b",
@@ -6240,7 +6240,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "winter"
     },
     {
       "id": "697bba3adc909d1bfe42b91e235e15dd5af89cb9468ff268029575da106b5082",
@@ -6252,7 +6252,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "82cd771b087b13883186e2ad6e8f41b9ee1affbdd7914b368ce7a429778dabe4",
@@ -6264,7 +6264,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "e126bac83719081575cd81d69f38391c8e916977720449cd2ccecb418ee35fec",
@@ -6276,7 +6276,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moon"
     },
     {
       "id": "999303eef04f902135e1b4987e70471d95060cea0a50d8b7a09d1af3396dbcf6",
@@ -6288,7 +6288,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "knock"
     },
     {
       "id": "7a28764e2451b874e0d942e003ebb51c43ee89c37604195b9d0f6442f6f701ae",
@@ -6300,7 +6300,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "90de5cbb4ae2961fcb14808a4e0675d908a3ebb7715c6d8f4aceab702dcb6dae",
@@ -6312,7 +6312,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "fa7aa2f53d803a0aeeb8cb5868b9be75c741804a13ddb7a714b9302610a2bde0",
@@ -6348,7 +6348,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "edge"
+      "aspect": "histories"
     },
     {
       "id": "7281432ed36ecb1b97ba2f04b298082467873e59d1a52816b89af4ce341a8b7b",
@@ -6360,7 +6360,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "afcae9eb742004034d0335c114f1aee367ac8dc86fdeb374198d41bd4ea08ba5",
@@ -6372,7 +6372,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "64432507930e91f4e9d2ee9d7400ed42cc52c5921c0143edb6c2b88a83d4099d",
@@ -6432,7 +6432,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moon"
     },
     {
       "id": "611b3b72b84e742b3dc0d7b5639a063f41cf60d339c4d3b5cc8b387c2c02975d",
@@ -6444,7 +6444,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "6468946720d27380f49efb4d0798a8950d5e46773ca822dc9916fef4ca27c7d9",
@@ -6480,7 +6480,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "0ccf31d1727e1094b636aa7d18a7d9d25deafea03c399b0c8b029f6290a7d427",
@@ -6492,7 +6492,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "e9089f7a0b75d69af432d45fc2ea08bc5fa3d317d14ba438be41789b8db61833",
@@ -6504,7 +6504,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "bf3b34e9a3bc3823c989f2544a62b2669dfea7936460a9b45d9250dff7ae5de0",
@@ -6516,7 +6516,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "heart"
+      "aspect": "moth"
     },
     {
       "id": "8f53f8c146a5b7903ce0ae4ef3a55c8584e25583cab0139f8ddd70a5a09eb662",
@@ -6528,7 +6528,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "forge"
     },
     {
       "id": "b242003593fdb16e10c0787923ab5d961681130113da8f24d4a62a68b07cbb03",
@@ -6540,7 +6540,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "sky"
+      "aspect": "lantern"
     },
     {
       "id": "bcbc1d880d5db5349d226335990d39749940f89db431c32e98e982c9ebb4c350",
@@ -6552,7 +6552,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "winter"
     },
     {
       "id": "323503f188a2ded4347ef923fbfd31aa4890a5612ad8fbab06b8c0300da77d4d",
@@ -6564,7 +6564,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "lantern"
     },
     {
       "id": "f5a30f2bd5ef65e0e46c73c7cde7cdf8ec4b1639e6df61fcbd2d7c6c0d35db62",
@@ -6576,7 +6576,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "heart"
+      "aspect": "edge"
     },
     {
       "id": "20322ea55120c235abfb0759630f1a8ce4f0f2578a158de90fbb22f6e339eb02",
@@ -6600,7 +6600,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "539269da074cabf7cf955bea0ef41fda49d5233feec2f9f5acc2eb7caf47f2bc",
@@ -6624,7 +6624,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "1c0c5bff988a059fe5d71aa4be2701b8fdd28489311e06c6a7117e1daa2834f4",
@@ -6636,7 +6636,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "histories"
+      "aspect": "rose"
     },
     {
       "id": "35ba18250f25311c413bfa11a9ce4e8f34ec7dd2ea1a3fe231ed843ef7d1fc8b",
@@ -6648,7 +6648,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "grail"
     },
     {
       "id": "79399b35fb5a58d27b18ff3f278ff7934c921e0659bef0effef75e7d5d2afb85",
@@ -6660,7 +6660,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "rose"
     },
     {
       "id": "a20b4b3e4c57ce77e9a0bbc050ba566de0318d705d16299d69dd395b13bc7848",
@@ -6684,7 +6684,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "histories"
+      "aspect": "edge"
     },
     {
       "id": "8ac674538a411e60598a1f6bf3f11752cb91e5383ac381f71c1e38f6461f6736",
@@ -6696,7 +6696,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "e23d6dc279c59329d3492e8c80a4d043fbc9bd67cea5ff250b1774d53409f557",
@@ -6744,7 +6744,7 @@
       "weight": 1.85,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moon"
     },
     {
       "id": "11e617ea80b5bf51051f306b5ad9fd91d2e50c4bc21f8fb89a5bdce1fffdf7f7",
@@ -6768,7 +6768,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "ecb54c1592e7757bd76add44fd3b0c676446fc44f58a6751d0f6695db466f631",
@@ -6780,7 +6780,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "03889c3cd75c5ba234b66ed43758ebefbd0ab7f6a0cb4880f424c51f3d50fb57",
@@ -6792,7 +6792,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "moon"
+      "aspect": "histories"
     },
     {
       "id": "9a615c01f349ed0b4a06ff4cdcb805a651ac1b165a8f180a5af2d21a9eaa015f",
@@ -6804,7 +6804,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "6fe6b47367224c0bd0ba8f3335c142250f57c459210dadf6aa68846eebc3e9a7",
@@ -6828,7 +6828,7 @@
       "weight": 1.85,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "rose"
     },
     {
       "id": "f88c9532cacdb94ce3e32196c6e342d8a1e96e4edc82ff33c35b26f87447fa1b",
@@ -6840,7 +6840,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "histories"
+      "aspect": "nectar"
     },
     {
       "id": "8a9237517b077a43ebdc121ea54e61f4ccb6c3b90d8c7046e0a3adf43bba8fcf",
@@ -6852,7 +6852,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "forge"
+      "aspect": "moth"
     },
     {
       "id": "8bb270db11ca12cc7fd145bb83c07d7fca9ee984b7c43587db5357bf27388c10",
@@ -6864,7 +6864,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "winter"
     },
     {
       "id": "c57af3f5296cd3132b4f7fa4194a9ab383fee5f42639dbbf0256d4f7539d232a",
@@ -6876,7 +6876,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "cbaf7edf56c5d5f7cef67cdf421c58a8ad13d9b6214773e7f1168d4c21d5ab34",
@@ -6900,7 +6900,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "5c9902c6c14e862771a9377203dd4fdeed55b414e54719db55c1db9961e020f4",
@@ -6912,7 +6912,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "sky"
     },
     {
       "id": "347d8bd17550249269f049b3ba92ff4a112ae0173b402c1eb4efb3da8daa058a",
@@ -6924,7 +6924,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "42241afa3d9e75a247f86fc20e941e1cd688b1e9db52be8e443a374c2dbe9e8c",
@@ -6936,7 +6936,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "b636b59db7466d045f1964c4ec82a91d5eaeb32c3e40793bae000350291e96ef",
@@ -6960,7 +6960,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "94d50b80a77acd7594aceb100136745ab753717a28731d67ab2707d4ed39b055",
@@ -6972,7 +6972,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "cd543f3ed5e32df8214041efd92cd05ec44f5e795a4cfd921184ed08b607cef0",
@@ -6984,7 +6984,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "100884e52c29d22112a437bc00218c75ff94d51287a18404428fd74b864d795c",
@@ -6996,7 +6996,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "1f45ef5fb96664dcb8530a80e89e8bf3e4805e81c6be73785664ef66ab7fbe49",
@@ -7008,7 +7008,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moon"
     },
     {
       "id": "8ddcebb1e5d00be039b06b1e38bcbd8be6b72241e009ff3332db0cee2543935d",
@@ -7020,7 +7020,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "b4abb591729db6f885c18b63ac608f58b438454525345ff38ba6e887d295895f",
@@ -7032,7 +7032,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "moth"
     },
     {
       "id": "f176a6049f3987b8ad690c2a171d0c31d7638286d37c33042a93012811f6ac39",
@@ -7044,7 +7044,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "4ad85214fc6e58d41393790465936fee4cd2976aaeedc2d1dd9f47e413f59a00",
@@ -7068,7 +7068,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "1d27ac0dcd91666fdb8b556e904a051a7fdf914878226048a1d740c9caffe9e2",
@@ -7080,7 +7080,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "heart"
+      "aspect": "sky"
     },
     {
       "id": "175456e327b7e7c0ae036fa194385a3b88d6c57de121055b70692fb265426636",
@@ -7092,7 +7092,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "forge"
+      "aspect": "lantern"
     },
     {
       "id": "4f615eba3e6615528b12d0705f7c8679657d606224d236f144b0a8491782f896",
@@ -7104,7 +7104,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "grail"
     },
     {
       "id": "f79e7d929fbb6762cb1e070c67605a9572a12cbd265623be8000082a80f5ee1d",
@@ -7116,7 +7116,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "e505981df24e03ffd1d778f02018ea2ecd38cc246452a71ddc488980ed556546",
@@ -7128,7 +7128,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "rose"
     },
     {
       "id": "35552cc877b6c5e070ed6f3ba4021137f3115722c7f2aa3a68d5268a0260c22e",
@@ -7140,7 +7140,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "grail"
     },
     {
       "id": "2cb213b9a67f1e1a9119da0db153c031840aaadcaed5f88775032144fca49df7",
@@ -7152,7 +7152,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "rose"
     },
     {
       "id": "ec93d6fa48a244a40acc5a5a7b0ae4e0ec6153b8530fc5eab81daa7c744c6904",
@@ -7164,7 +7164,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "b107e27575fb6eb0e8086654106a6c9401ca3e8957d96e3751ab0d7077b9502a",
@@ -7176,7 +7176,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "knock"
+      "aspect": "sky"
     },
     {
       "id": "c3c373124f273a35bb77ca501950b8f3f9a09efeab4c87b32ec234f8db2d0b0e",
@@ -7188,7 +7188,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "0877fd2bf035d8dcf4a94a3af4503f69b491e1d869e9a0501c8f65d3117fe6da",
@@ -7200,7 +7200,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "5cbfc27b14cd06f720ff64b178bdeb24aa530bbf741503555955fedc0e55bd0d",
@@ -7212,7 +7212,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "moon"
+      "aspect": "scale"
     },
     {
       "id": "f2258e7fe9cb4fd73f9caac91014d378e6ddfe5e6b43d85d7f5598d121b89948",
@@ -7236,7 +7236,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moon"
     },
     {
       "id": "dbb1cd73efc2dcf5868a85948d1c86a7f6642c451ed1a68c46ad47fa08d158ff",
@@ -7248,7 +7248,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "grail"
     },
     {
       "id": "0456b66496c7205baae1c0c301396e5a1dc8aa1a101b6ffde37536fcb2fd5e15",
@@ -7260,7 +7260,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "winter"
     },
     {
       "id": "4c7786f628d8073ac216b3bc79cd206fe7801f393d0bb34acf66691517ff1175",
@@ -7272,7 +7272,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "scale"
+      "aspect": "histories"
     },
     {
       "id": "e0211a2d193de3ee27208240aa7c816d8a5d43edd9c8e2b7cba18ff0cf823620",
@@ -7284,7 +7284,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "1ebb28fb1a815241b12c2a5acbe7997101a797a227295fa551fb59084f792a82",
@@ -7296,7 +7296,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "heart"
+      "aspect": "winter"
     },
     {
       "id": "c0dd01cf951127dda74aec3dcd0327ad6612a1bacb91c11505370539706f6697",
@@ -7320,7 +7320,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "sky"
+      "aspect": "heart"
     },
     {
       "id": "1eae9e10aec62efde2ab702ce5a566788e787356d6f22360b95d0bf3fc0a1223",
@@ -7332,7 +7332,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "67abaeb041d0f532fa85bfb651070fac3bf481455939a696e8dcddcd8dafc4f9",
@@ -7344,7 +7344,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "knock"
     },
     {
       "id": "4db7baaf8dc1bc8fa353f59e326001418b12ca4a98714072186531d713ac6a5a",
@@ -7356,7 +7356,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "4850b2ce0c4340c4a3a4caaed7c92ebb040b871d95372a7255f2ff06f9fa5606",
@@ -7380,7 +7380,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "4d326373101016bc0a2c4b3dd3f07ef9b3ccb2a4f726e7b8105ab371b87bc9d7",
@@ -7392,7 +7392,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "453a5e637cb09b5cad84aaa45a8895af039e8c82c911c5fbdd75ee342b7ebb64",
@@ -7404,7 +7404,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "moth"
+      "aspect": "heart"
     },
     {
       "id": "86dcc8c1321669868ffd04a19dd082509c049613d7481139d01396350f81190e",
@@ -7440,7 +7440,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "scale"
+      "aspect": "nectar"
     },
     {
       "id": "7648203c568427e35cf1abbe8afb9703641ba4950d7dc6c3e11a354998b354cf",
@@ -7452,7 +7452,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "8afa93eac45d5dd746a1b365b558b52ecf09c79cdcdd41e42faef9578424d0ec",
@@ -7476,7 +7476,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "0e09f8099971fe5017301515dd46d2f2e73f812ea4eda74203cedb7d70df0ca3",
@@ -7488,7 +7488,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "f0a9d5af4e41be88b01cf8aac83a197f2114fc024b46aa5c51f6d2a867cde880",
@@ -7512,7 +7512,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "a523269487a64ff1137a8906938c4f390fcdf03c15d59cf41500421a96e1863e",
@@ -7536,7 +7536,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "rose"
+      "aspect": "winter"
     },
     {
       "id": "9fffbea99a7ef4a3004eee402ae18e6b5e78c571b6ecb509a37b2220736aac05",
@@ -7548,7 +7548,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "80d67a00fe064553b37073d3b3e7d291e8ab430228057e990a196d5811bcdc33",
@@ -7560,7 +7560,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moon"
     },
     {
       "id": "960b0fc940f4574c720a425cc8bf6710a416c753ec8a8d0c98e119d266de8d1b",
@@ -7572,7 +7572,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "edge"
+      "aspect": "lantern"
     },
     {
       "id": "6e629119fdd326d8909011c2f4e7f8db6f0b3485150c2d0cc5082f90b9c22959",
@@ -7584,7 +7584,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "forge"
+      "aspect": "edge"
     },
     {
       "id": "0f6f5c4ca07b2764ec8a6c62eccdf79414ad1a2605699b82de3fcdac69468f61",
@@ -7596,7 +7596,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "rose"
+      "aspect": "edge"
     },
     {
       "id": "22dc444eb764a55c63a4d56ff76de170c7dbec9815d74bcf26b258780ddf4137",
@@ -7608,7 +7608,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "54b8fff163f6bb378ffa656891e0dda3f2724fbe9c79407cd2d98ecc63ead7ab",
@@ -7632,7 +7632,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "edge"
+      "aspect": "histories"
     },
     {
       "id": "1d9c00c75527ea8ee2a1f0a385857036ec4b7491bcc083263e432abb8d9b08ce",
@@ -7680,7 +7680,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "d2fce7c54851e758d50d3fbb282d3ec19622e382a789a2aded4dcf8b97e87654",
@@ -7704,7 +7704,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "6f5758b14f83dee7f62db9e4f7e9d0ff3d0d28e6e47c7a5940cb8a8d6b2c6c67",
@@ -7728,7 +7728,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "c08a19875a2f4dbcedb4c8b5a035cc6bc50d19f3ac7332ec9db9e1ae60b0d6df",
@@ -7740,7 +7740,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "ef92460aa4386d735a502d6fe07967e91d5640cc4ae7da9d83c16105d6a32a33",
@@ -7764,7 +7764,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "69f0eb95a7d3ae1a20ff08bb9dcd5dccaa43009345415e092a5c0fad0ad839d2",
@@ -7788,7 +7788,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "knock"
     },
     {
       "id": "c25d387e96d1eb966d8df5afd9ab1cd3f0226862c9873194528181c82b574442",
@@ -7824,7 +7824,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "9d56580ca2f9600832a5d0e37bf2e42f73da4106215809669cb49b2b3f22b0e6",
@@ -7836,7 +7836,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "winter"
     },
     {
       "id": "c9960c141746a4e2c7e0f4461a0596e762171ddcd6af6cdc1814414e230e38e3",
@@ -7860,7 +7860,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "histories"
+      "aspect": "edge"
     },
     {
       "id": "be0be38da504c7e1fd51f2e204e44efe5888d002920b30cc2d610463ea2d94c9",
@@ -7872,7 +7872,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moon"
     },
     {
       "id": "50d9308819032342bfa1909536b34f103079f3338de3ccfeaaa4886e2dabb6a0",
@@ -7884,7 +7884,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "grail"
     },
     {
       "id": "374895c0ecec6adad4a46b3d023271778af1f137845470aaee432a39720384f7",
@@ -7896,7 +7896,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "28ecc6d66fb6f716a994933fb50ce8da5999093085837c8f4aced6e900866b77",
@@ -7908,7 +7908,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "grail"
     },
     {
       "id": "a409078b515b08b0e999f08e78466e3f761662307d99eb2c067e993b33c18cc8",
@@ -7920,7 +7920,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "fa406de54ac86d7adc127c9f8ecf1708613c22e018260ae2febeb581a0b9ef7d",
@@ -7944,7 +7944,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "sky"
     },
     {
       "id": "b592eb37e1e72f7a42b5048ae1be497208619f08393b664369a1ea18970f8d2e",
@@ -7980,7 +7980,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "654f9a07c4d47aad909992a8155e6ce90ae6622de43a4d02ad9b9054fa53f904",
@@ -7992,7 +7992,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "nectar"
+      "aspect": "forge"
     },
     {
       "id": "5dd2516b074ca5d9ef2e5fbb87c2e6be0cced7aef642b16e4c692f3178649de0",
@@ -8004,7 +8004,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "sky"
     },
     {
       "id": "c5cd6a6b304ae24c858b42c17fb700ac155dadba663fbed6a121d45bea81b2bd",
@@ -8016,7 +8016,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "moon"
+      "aspect": "nectar"
     },
     {
       "id": "19389fa334ea245171d09189044d2686be1e7f56b8621053691a9f22087c27ae",
@@ -8028,7 +8028,7 @@
       "weight": 1.85,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "72f8641c3c2801c9d73b05180288f5b0950f243d3e94dd3a2787ace67119e35a",
@@ -8040,7 +8040,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "7fb1e0356d15492a5f61a77460ccd20a793e9c75af0aa0d757713f58dbe58e7c",
@@ -8064,7 +8064,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "c86a76a2e01eefcb926fe2d2b2101cfce406390c1430d45be3a5e42b5c255df4",
@@ -8076,7 +8076,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "sky"
     },
     {
       "id": "f203ad09c8944a8f308090f3319f720c617ec0d281fffde6631536b0c12ed513",
@@ -8088,7 +8088,7 @@
       "weight": 1.6,
       "quoteWeight": 1.25,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "sky"
     },
     {
       "id": "c2318caf18d7638844f0d79fdaca48a4b398a3dbd66ce00a0d710413d5c21ad3",
@@ -8100,7 +8100,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "98f2c2ae622fcf8c512f38a687c11e22aee86435959ddd9f9d244619ff2df919",
@@ -8124,7 +8124,7 @@
       "weight": 1.85,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "cba7dc004644da28ea6a1a6eb173ad6d50237317fd7a6caa1097a9d9b96af6fa",
@@ -8136,7 +8136,7 @@
       "weight": 1.85,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "sky"
     },
     {
       "id": "2329f1e2e0b6b075fc50f267ed6973b301a053445dc93d84ee7d19de4ffd8686",
@@ -8148,7 +8148,7 @@
       "weight": 1.85,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "8695421073eea70761bda40a0d4d73153ef85c74a83405859c46e8286b1364e9",
@@ -8160,7 +8160,7 @@
       "weight": 1.85,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "nectar"
     },
     {
       "id": "b9e1cfa83de1ba6931a0aac5fea0adeaba7620be3e31dbc508461a61be63c9a5",
@@ -8172,7 +8172,7 @@
       "weight": 1.85,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "49c6b72c367140f30c491b441ba14b836eb8f97af576c663764fed3d163de8d1",
@@ -8184,7 +8184,7 @@
       "weight": 1.85,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "forge"
+      "aspect": "lantern"
     },
     {
       "id": "6d286592a1a2e496fd47bf29c5ffff58dab27714933328fc42d0d420913ab074",
@@ -8196,7 +8196,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "83f2b7706d9dfc2d1414b089fee63ea1b9248811352a36ad71dc7d8162c140e2",
@@ -8208,7 +8208,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "rose"
     },
     {
       "id": "24166dc3bc2b4da2ac47c3f8628da4cda6dc9a024ce7813b3c5bf0ebaac6698e",
@@ -8232,7 +8232,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "knock"
     },
     {
       "id": "07f7d350acddf1f598a51171614840da5345a56c5a50de7e9d8c2ed64129146c",
@@ -8256,7 +8256,7 @@
       "weight": 1.85,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "973974bc98e8291332d67a8be5d8ffc55b3f0a89fedba170cc7e705d30da7fe7",
@@ -8268,7 +8268,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "7ec85693a0aa6272c8a04fdf42cf8f46450ed6850a541f226dfe3d988bc58602",
@@ -8280,7 +8280,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "a363f92a80dee1e0affaa42ead99e8bcd8d52c7fae9a61f9d082030a8a79e8a0",
@@ -8304,7 +8304,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "8c06aa9363635da45828f79d448d78e47cd618b5db9292871e19efa390dbd988",
@@ -8328,7 +8328,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "2950f08d1cd82c009d3f5b55c8af42a8a5da25a8eb3846851a4e1b50b7249a41",
@@ -8340,7 +8340,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "rose"
     },
     {
       "id": "793d6f050ad13a19994bf5051af24f2e8cea7b4158c946d7d32dc164598768cd",
@@ -8352,7 +8352,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "361613357237d68ef9d7d782aacb14bb54fe1728b3c27e69e0865554a9c25e42",
@@ -8364,7 +8364,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "forge"
+      "aspect": "heart"
     },
     {
       "id": "ab61987bb2e3f551c2bdb1fd5efdf7b34a3a41c36225663dcb07f339c4898934",
@@ -8376,7 +8376,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "knock"
     },
     {
       "id": "4c5c1e558d1d9b97abfcc3da38757b750c8b6e8a47d0a760b586f1854f78c5d4",
@@ -8388,7 +8388,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "75a301a22beedc792f8f5bb473fdb0484c5d04c008d3b7df0535e5bec540c1a8",
@@ -8412,7 +8412,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "heart"
+      "aspect": "edge"
     },
     {
       "id": "9fda14c071f31e214678ce94fd2daaf2003a582caa753ce866e2f1bc84345d4d",
@@ -8424,7 +8424,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "8c3388117a2a69ad7856deb2519636df0192e8eff2573326cbd1504ee1aff250",
@@ -8436,7 +8436,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "05efe042790daae32c2bb249896f8662666207778ab569f0179e6bd90c18c3c2",
@@ -8460,7 +8460,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "43d0b20476bdca3b5d7110245e872ac57c2e5a9727a7c0c05d893a5843c91d0f",
@@ -8472,7 +8472,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "0373104c389a7d9e404cf7d7818c9b386811e2a3a6c3a1b8449e90d1be87a6ae",
@@ -8496,7 +8496,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "heart"
+      "aspect": "lantern"
     },
     {
       "id": "1c8858130f6d33833eae6dc4ebf8935c272794612a8868ec42a0605ae331012e",
@@ -8520,7 +8520,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "d8ad5db7428a2e754eb43a61ef7763e7f4cb5d1a15447f8db1d6e73122566ac9",
@@ -8544,7 +8544,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "8549c0795f39ae2b10241a2cfcb445975f0178a5a476392b87f38f4306416e8b",
@@ -8556,7 +8556,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "2cb00b3d94ca6af6632ff59a585af14148ed0dd83119e1ac96191fc15ef1582e",
@@ -8580,7 +8580,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "cea2f4d2035cd3adde041fe10b53a971c103efad1fbbc57675e2d6aaac40a9b3",
@@ -8592,7 +8592,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "edge"
+      "aspect": "histories"
     },
     {
       "id": "4e041dcbafbd86e6d01c340f7d938bebbdc83e9a2428186e686a662ab14f9da7",
@@ -8604,7 +8604,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "knock"
     },
     {
       "id": "c34054abf8cd252b7c2bfaaa023193a5e554360f5299a7034c06049b243ffb38",
@@ -8616,7 +8616,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "5216688827f74ff10fe04a9f3266f814db4d207fb93719d3bbc65d6944149b5a",
@@ -8628,7 +8628,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "sky"
     },
     {
       "id": "9ecb9d5d3f0774c7738dcbaec4f248807d169a244c659ce19ad9f16a16fb38c6",
@@ -8652,7 +8652,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "forge"
+      "aspect": "lantern"
     },
     {
       "id": "b77729a1ea46218d7d2910916a4bbe79baab3dbd2f5fca39a21fb502d35b09d5",
@@ -8688,7 +8688,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "scale"
     },
     {
       "id": "c08f1f7d9412d78f3cb087911713df08770b34fc0a15c43bd721b8cea69866af",
@@ -8700,7 +8700,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "sky"
     },
     {
       "id": "b83c3ac505cc5a49299d4b9a1d636bfbfb9e9e7264fbdab2177543776094b1a3",
@@ -8712,7 +8712,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "e3b862c182884ded927f1cdf36a3c98d10130665c9360ec7e0cdb2597cee8635",
@@ -8724,7 +8724,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "rose"
     },
     {
       "id": "e0c03785dcdab0e2b79d5e59c4cd80f6ebc102295cf28120c045107d8d8526be",
@@ -8736,7 +8736,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moon"
     },
     {
       "id": "522a556ca6e851c841202e0c96683cf975c2d959b606208f6f364e4777507203",
@@ -8748,7 +8748,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "grail"
     },
     {
       "id": "686f2d7916e651684fa07ec140627519e61b4de9b3b2c6164afa11a136172d2c",
@@ -8760,7 +8760,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "moth"
+      "aspect": "edge"
     },
     {
       "id": "66a1a76819c88ac380917383488fe1af4ea9bc934a458506b703b2340cd0f4a0",
@@ -8784,7 +8784,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "b25bc968287eddacbb5a896421911476d83c62b57fc2f7db9f0abf2c5ee70493",
@@ -8796,7 +8796,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "66afa517258900484c740cb7d298a21c859bfa8666f701636c67a367711db39d",
@@ -8808,7 +8808,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "86e64f7ba7ea50eab1fb68b4cd349de9b084ef8ef2da18b436cd1680ed943749",
@@ -8820,7 +8820,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "rose"
+      "aspect": "lantern"
     },
     {
       "id": "1d9c9b22b64ea1ef1f4b988a870988a520433e340a6758b067d436452be5088d",
@@ -8832,7 +8832,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "grail"
     },
     {
       "id": "efad7bbed7800d65123574cd7e4944ce255f8d860bebe5917dbe685159276267",
@@ -8844,7 +8844,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "dd6be0fad0961083b7c116a1a1049877edce7a885a7178da8def1beca0c80ee0",
@@ -8868,7 +8868,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "d4148ba2a083da93cbd8577df0d985322a89ec57b3c4f9f1b673ac894d96e52c",
@@ -8904,7 +8904,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "winter"
+      "aspect": "histories"
     },
     {
       "id": "d98a9a16d14710700fc1a6b7f2c9525b7772876505b4dbf8fa2ab466c56af2bf",
@@ -8928,7 +8928,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "rose"
+      "aspect": "winter"
     },
     {
       "id": "1c21b3f01a35bae670e56e2dcb0cf6f2479fdc14d5fcbe514db5c8cad0fac1bd",
@@ -8940,7 +8940,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "7d88732d5cf011ec98bc84590475d1a073336f613efda6204edf87ae1576e131",
@@ -8976,7 +8976,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "histories"
+      "aspect": "edge"
     },
     {
       "id": "5c8a6cf27c7ea20c1a535d6d615def6c28594e5060375f7c3e97995df1d7635e",
@@ -8988,7 +8988,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "1395677d14434576914a12dd0e5f43ed576b288974e7e521179be4ff52f1695e",
@@ -9000,7 +9000,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "00f9341972f3a2ad179a33f483f55da8f4fbae62c75b1662647aa9f591d1fe44",
@@ -9024,7 +9024,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "9e1245cbcb011b8e11f79bb9b6db7765cb208844c5b6df03ea4269d5af137229",
@@ -9036,7 +9036,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "6e7e4675b7108bf3b3aab2246c197b71727bdcc5c6b0e08ed3f6386b1bce50d3",
@@ -9048,7 +9048,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "grail"
     },
     {
       "id": "a78d2548edabe69d00cbd0759830f89b3f84b2338cbc44a8b1c819f435022814",
@@ -9060,7 +9060,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "forge"
+      "aspect": "scale"
     },
     {
       "id": "afd3bf784d1586389b2f4356a8f2f19770a4c5d2aea413892d7f97a9c74781c7",
@@ -9072,7 +9072,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "0873394d8f1ac3b3f41e3d56f8dfa4bd1cd4e365e21bfddaf55e656213400263",
@@ -9084,7 +9084,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "739baf49a726cf68f10949cb621ee08efb2a2e686c99c81e43fb601ebf386f1b",
@@ -9096,7 +9096,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "a7ad23effcf5738e9e94e689d547aa18d4a6ba28b4285d8491c8a52b3deced05",
@@ -9108,7 +9108,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "e2accd77480c653b2a54426658a758b496e53fef02681b9270247a06ff4f4fc0",
@@ -9120,7 +9120,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "9892c4e45cb1a03ba5cad3efd811db022951cd29db206af47fa586f06e3f1289",
@@ -9132,7 +9132,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "7433fc13ac31427123423e66ebafd26eeefc438dab582f466affb08532ef4b65",
@@ -9144,7 +9144,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "d97a29a03f74b4abd150897744fe386c6acf5324e2cbe800ae3205339e2386bc",
@@ -9156,7 +9156,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "07580a52ddb989aef2c3c5abf2e4cd2d131a3cc5ddd20c0704e2e12a3d5693be",
@@ -9168,7 +9168,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "sky"
     },
     {
       "id": "39b04cb6d68beee995518e902ef15cb7296e8435a6fef9e0b58856bce176440b",
@@ -9180,7 +9180,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "609499f19f2857e6371716eeb8c20aca141fa428a05a200d1105e38519173da2",
@@ -9192,7 +9192,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "nectar"
+      "aspect": "edge"
     },
     {
       "id": "c82364ae674f0db947e842dd27d330401c5ba1e6f8ef0629ef6c3dc421d91498",
@@ -9216,7 +9216,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "histories"
+      "aspect": "winter"
     },
     {
       "id": "cbc20dca7503d0cd8fc09072c3803d097b9f4d0c292cdb674788a91b92349901",
@@ -9240,7 +9240,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "heart"
     },
     {
       "id": "f92fe33d884927805c1a43c06d6c38ae8917ab84588485785485532d681ace59",
@@ -9252,7 +9252,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "bd60969d6635d078b895122b8a09c1b06e6efd0358af0a057475361a9cd6fb90",
@@ -9276,7 +9276,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "scale"
     },
     {
       "id": "7d9f1748c8d5a0fd73634df1557e4366c736ea27a06f6d2a75bcfa71baf4eaa9",
@@ -9300,7 +9300,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "grail"
     },
     {
       "id": "67eee2bcd77de42117ddda8149f1fe4e7af3d7788abda4197941dd5555a867ad",
@@ -9312,7 +9312,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "knock"
     },
     {
       "id": "b497c340cafeaefbe4db34df146f0e7ffde20f34b50009e2a7e1591a80f56fbe",
@@ -9324,7 +9324,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "sky"
+      "aspect": "lantern"
     },
     {
       "id": "6b73fe74fc033fffa46e250ebc7ac5a3bc488e5bca8309045a4dd666d9535c0d",
@@ -9336,7 +9336,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "moon"
     },
     {
       "id": "708f2685aff4193c44148dbc406c60bd8fd4979fb8fca1ea5facdd9c9388156b",
@@ -9348,7 +9348,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "nectar"
+      "aspect": "winter"
     },
     {
       "id": "d927082efe234ba30efddd30a4bffadab24b24a9bdc4eaf4cd99d404890b80d8",
@@ -9360,7 +9360,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "336d9b7409da58e2d1391512d4e910950a0513e8581b7816c33b926eb9a5db7a",
@@ -9372,7 +9372,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "dacf22bcf16272bd925de855d4c615828e60977ad45cd9fe844db164d98069c6",
@@ -9384,7 +9384,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "0fcd3c9870fd03c5ea49dfb69c7778b1b3e8d27c823d7db53810fa0fb6da837b",
@@ -9396,7 +9396,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moon"
     },
     {
       "id": "27058ebef611279932a889f4109db95377f324942dd569e9fa7fc89ecbc00494",
@@ -9408,7 +9408,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "grail"
     },
     {
       "id": "1189d275a19b6e66e8df60d9687073d5e46fac489ee9de0cdc9cb22f398bbb87",
@@ -9432,7 +9432,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "moth"
+      "aspect": "moon"
     },
     {
       "id": "f799c67c7871ee85dc88394ca7c6168f59156cc1d77005d989b0fccbbcd8ee48",
@@ -9456,7 +9456,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "rose"
     },
     {
       "id": "370ba9bd80f6269733f840abfb97db96fb70006daac75edd02b26954fb0a4d67",
@@ -9480,7 +9480,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "nectar"
+      "aspect": "histories"
     },
     {
       "id": "b031f68b1a4fdd86e83577bd39dee1d208ba5b6343f0e55149fb56dd498092e5",
@@ -9492,7 +9492,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "778c47a2e8e0bbf043deb8aa85985f534d29eb4fe828b1149103f71824a205cc",
@@ -9504,7 +9504,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "d58a8f9c999045710444ac77bb806cc393006aae231ae666f9d59c0faeff9290",
@@ -9516,7 +9516,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "80d9d5da23d761fe145bf53c44ee36afc7174ff8395ede48ad57f251054e13f5",
@@ -9528,7 +9528,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "32b174749df2a2f4b69e9fd4e0b8502a3b3d7805da2c1d359b236902fb08d00f",
@@ -9564,7 +9564,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "0bb245ab421d4bad8afd50c0b05a096e9683cccfef43810adc781927a567578a",
@@ -9588,7 +9588,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "a59bced93543d14e297b43d46cfdbcb58dbcc53ddee2b565275ec2d0f5718976",
@@ -9648,7 +9648,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "058bf4f639f73a286518e4b65041d11e0cc55e6906f009f582a3cd9b8944dc1b",
@@ -9660,7 +9660,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "grail"
     },
     {
       "id": "1903add3552a4b21f7b7be83e869ce75289c0cf21c5fd1698fc926b111388921",
@@ -9672,7 +9672,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "f79064b6dda28fa4e705e8de393eb467eb95c15a986191238aa1badf3ae5f652",
@@ -9696,7 +9696,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "scale"
     },
     {
       "id": "0f17a7f9e5ccdaced349bc8046de468ea9f8e857faed064774bddf9c9e19df19",
@@ -9708,7 +9708,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "1c9fb6f8040d98ed92a9ae66ce4adc975adffa4d5bcbddc4ed192448f9403543",
@@ -9720,7 +9720,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "grail"
     },
     {
       "id": "4736e2f32f6679e6f0eb8710ecef4842097ab28479dccd62d4e3be126e0d6bcf",
@@ -9732,7 +9732,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "59b07766b4a59501311c4a0e0841246a6b371bedc02d53db04ba8e51f925c39a",
@@ -9744,7 +9744,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "knock"
     },
     {
       "id": "f32819d326d9fc2f76f922630d874af686e0caf9c43c575568ce0957f830f7ac",
@@ -9756,7 +9756,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moon"
     },
     {
       "id": "6ccf299aaaddd9779fbda9c66e8f9e851f0d14a2dfb8a965e113389c926524a1",
@@ -9768,7 +9768,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "34e1c7129e6f3c5196c9790cf10ca12af9652c3e6611e01f4cadaa24e3ee60d2",
@@ -9780,7 +9780,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "1c85a1e933b0ad53b97eefb0b3695253e928c2b5e7020e1fc62ffe66d72e007d",
@@ -9792,7 +9792,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "c5e99d801ba3f0626b0ee4881ae310b1f299ddd5d02876e5b477cb44bedd00e3",
@@ -9804,7 +9804,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "68b652ffc685bbfe3fae488b98773ee2ff9384cd1a2ed9d75fc168a39e5d03d1",
@@ -9816,7 +9816,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "44881f26dcceef985a2ef4dbd213b13c32428dc706e1ad3da12e26e9713a5338",
@@ -9840,7 +9840,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "f012ead794e1f254698851fb7b1255ba5603dc2c406e19079697ce3720c52495",
@@ -9852,7 +9852,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "29066dc79dd168c3ec508d6e96c8508f2d33ce531a6bb17fc1d2ef75860073e0",
@@ -9864,7 +9864,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "edge"
     },
     {
       "id": "9a72eee9d667389b18f0f35b0b52227f87a9354f25eb38bbee5a4d7c7d7a7d7b",
@@ -9888,7 +9888,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "8b3ec1146d9e2e2d89e8a3ebbcb7b41c6acc92f78c0b8c5fec142910a3e47705",
@@ -9900,7 +9900,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "df78dab02d9ecd756e7c22f43436cf62c2157916de02d9660a63d2fa9640a968",
@@ -9936,7 +9936,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "heart"
+      "aspect": "forge"
     },
     {
       "id": "60b8ce621ddea42e475a184fecf5051e104713e69ed62a2baa94f22e047c74a5",
@@ -9960,7 +9960,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "edge"
+      "aspect": "histories"
     },
     {
       "id": "1c423e6014397b7b500334e7ac67d81499676a733ab148f8ae7fa93f54ad831f",
@@ -9972,7 +9972,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "c72ec93cebfc8ba76ddde2111241e7b5870a1935ec5429a56b7cd43d2d96609a",
@@ -9996,7 +9996,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moon"
     },
     {
       "id": "686f207cef9e7c9c170d1e4f346b275102e64f138a9869b3ac7cad30ae0e4c39",
@@ -10020,7 +10020,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "grail"
     },
     {
       "id": "705cd6d7d16b3406ed71ba3aeb6c1826f7a398c96494da92f956b1c86d4a360f",
@@ -10032,7 +10032,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "moth"
+      "aspect": "nectar"
     },
     {
       "id": "79d418010e86a2084f1bb1c639cf4edad032ed2ef188f9b8a6a4864cf17271b9",
@@ -10044,7 +10044,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "a7a805744ba56699ca6cad4dae72e60407c1be82a585c58e73869fe27fd47b4a",
@@ -10056,7 +10056,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "5babf05dfc7d646670709ee49f0d63f0abe025a01706ec5af8550f09bc6210dc",
@@ -10068,7 +10068,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "nectar"
+      "aspect": "forge"
     },
     {
       "id": "eca1e04dec94bfd83a78f30269ccbbf46025c3967ac91adbdf5de0aeb87e3526",
@@ -10080,7 +10080,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "a0aaf8efbafc795904633702a9665b45ad32f475fa498c8bca04ff5b6ff2e4d5",
@@ -10092,7 +10092,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "sky"
+      "aspect": "heart"
     },
     {
       "id": "45b5b75831764de41db549bb6e26564dd70c7859311711cf85ba07979c110253",
@@ -10104,7 +10104,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "91399a43d8f68e22c0db456a0693ad29054719a1b1dcd081d0c800514221dc72",
@@ -10116,7 +10116,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "78e4cc8f79d0765ca5c13c0ff9b53be79c0bb3dfa6a4793b15a789bab39a958e",
@@ -10140,7 +10140,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "182f910e3ddde1fa0b078094c28680e80be69f3f36689ed0052417260f1cac51",
@@ -10152,7 +10152,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "8067774d838bf686c9bf97f4a6198c5f9e52e287150c61a6c22ad8396634fddb",
@@ -10164,7 +10164,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "edge"
     },
     {
       "id": "040ff815ddcabd055896bac461cac553dc956d0b889d522613675c5ffad69761",
@@ -10176,7 +10176,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "20bf2b704bbe573e22172857983e161e9ab5b5e148c1dea256456d1525d10136",
@@ -10200,7 +10200,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "histories"
+      "aspect": "edge"
     },
     {
       "id": "c731450457983d65c366d27759a9a28c78625b2b1d37405c9e987505c01a9c74",
@@ -10212,7 +10212,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "128144be2818d7a2dde347891681d4f95e3f21bb8b1afaaead96a505cb811b4a",
@@ -10224,7 +10224,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "ea17bea3527e9577194fe962e65f03b32f3c7baaead49749d324de935a3b35da",
@@ -10236,7 +10236,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "211ada30d33e92ec1dcbea235acb44f767f3db52bc6424c7b43ee929d59ec6be",
@@ -10248,7 +10248,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "26fea616969762bba69f983bc0b2ee410cdab3e447974de4ed9440d4527cd98d",
@@ -10260,7 +10260,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "histories"
+      "aspect": "moth"
     },
     {
       "id": "3f91ad948ec8ed347ddea5e581ce6b7952dac58cabc9832a2b8d9ec0fb90475a",
@@ -10296,7 +10296,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "d2f9653412ce49501d78004c7b877075a9769b737db8712669e7610ca0cd6a94",
@@ -10308,7 +10308,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "68ef4f274042600b63794b47a4c996c4720862f61d7ab0f8e3fc96fda689543f",
@@ -10320,7 +10320,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "nectar"
     },
     {
       "id": "82507750ca44520db89e6bc328b49edf96bf42cc186a4f8189101e0c9fd4a363",
@@ -10344,7 +10344,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "46e44c14b42697280e1f8ddfd404723f3a39e6d55dc6099b6e825e008a381448",
@@ -10356,7 +10356,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "forge"
     },
     {
       "id": "b0a9b30efd3c2ee828d040f212602b48c637a8aceda38c7766f55462ce88e5c0",
@@ -10380,7 +10380,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moon"
     },
     {
       "id": "d6d3f9dd11ac125f266f309f19ca05aa4837286678d98f9b6e50abdd42931ce7",
@@ -10392,7 +10392,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "ace16abfe72233aba84e09603e194d51183671d3aaa4e792c7fc80d547c868a9",
@@ -10404,7 +10404,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "a442dd16438d61d638cb26fbf190ffd4eea85bf7da77956680edebbb2ade1b53",
@@ -10416,7 +10416,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "23aebe6a384b389293123c977bf30a7642799de956df34e852aca93d3165d397",
@@ -10428,7 +10428,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "edge"
+      "aspect": "winter"
     },
     {
       "id": "2f13ec943d8d0f842ae15d373021ca4b707b692dedfd7539d4bfd127a5381cfa",
@@ -10440,7 +10440,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "moon"
+      "aspect": "sky"
     },
     {
       "id": "c2d9d401662497cbe77a6d31ba493fda9e85d0613d59d2515bf0b193a2274b61",
@@ -10476,7 +10476,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "scale"
     },
     {
       "id": "4cf6789b07efd6c5863ce69864c679501356540305112e4d2e1f21a076048f98",
@@ -10500,7 +10500,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "8fe1426e0c5924c4b18d746a338702f36000582cc446b93048a4a39bbde32332",
@@ -10512,7 +10512,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "d8c59f3c6ef6f82077e418d210a225eaa4163798fcf0bb3207f0291120dde082",
@@ -10524,7 +10524,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "e9548a187d9553da8335ff7be37cbeae6f6e4cc7f715301b3b56c9682330b5c6",
@@ -10536,7 +10536,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "winter"
+      "aspect": "edge"
     },
     {
       "id": "bfe134ea6d879bf34895cd8ced2699f55e18597a19a1f04de169b922e6350ec9",
@@ -10548,7 +10548,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "d4b8930bd6825fab1afa5b90443616a44ccef3f7466f863a839a2a1923438e8d",
@@ -10560,7 +10560,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "d488b5346ff5ce0c08f7cabbbe910e3270b245b9ccba275984c7e3e189fa2e2c",
@@ -10572,7 +10572,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "7eb5c2e87b623f1aa92191d9ce5835777e44ae2b96a2e621ad8821e5a4a2ffaa",
@@ -10584,7 +10584,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "045ea182d784ed799be02efcac847913ca9cc9132409ef55f111ff0e2a4d4b70",
@@ -10608,7 +10608,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "55facecc2ada8f48310b3868e141e8aa31de2fe62bb088dbcc16f9dbe649277e",
@@ -10620,7 +10620,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "71ce49888fed17faff1aae3756b37bb5fc8313ca3c9061110b898ab9e405e02a",
@@ -10632,7 +10632,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "ea89344310b4354b2edfc4b14633ff43f0c26faabb01b35f6f049689c4000946",
@@ -10644,7 +10644,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "winter"
+      "aspect": "heart"
     },
     {
       "id": "d4a81b8016b93f03db503a6e87088517f6fd534162bf43870eef5712c3c3fbc8",
@@ -10656,7 +10656,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "d0a46526fdb274b1963ebe33dc8e2ee73a7af55b3262ceb9b482741772853f8f",
@@ -10668,7 +10668,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "677b22fd3a4c6be907f496d6e3a36758e57c5b285d3d7378415dfbaf9278eaf1",
@@ -10680,7 +10680,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "f780a868b86725d517bce36a0b3051856c483b94cd923ee5dd09e1adacafcef7",
@@ -10692,7 +10692,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "4b4547dcfa0bf027979253450c6da2f0b2873a198b15eefbbcbc7e27f8c4a63c",
@@ -10704,7 +10704,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "80551c9669419ca557a3235e0f91d80779a3b25c3e5d0d7c17133942aaa0dd40",
@@ -10728,7 +10728,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "sky"
     },
     {
       "id": "30b5a08fd52c32ac0ce0194f871f0f01bfe12fa8201d98c3804fbaaf9e0048f8",
@@ -10740,7 +10740,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "9c7b98c91cbafe23dc6d2bda15f91c977c611c88bad982e81b01d49ac1d02cb0",
@@ -10752,7 +10752,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "73838dcfe6ec438c3069528b2ea2b0608c4ef79d25e6f8a83388ea1dd8ef4bab",
@@ -10776,7 +10776,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "nectar"
     },
     {
       "id": "6030e13c993dfdd889cd58855b462ecff062a78c29336412514a1f51f6ece49f",
@@ -10788,7 +10788,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "700add51fefa45e7b043fcad49d5725fc914e24139a49cb6f3004989b54f95bb",
@@ -10800,7 +10800,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "fc65b1ce2c863f9ff20312094b115c6fcadbaa9202bf53e84d26f7365f29bd28",
@@ -10812,7 +10812,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "2798e128ad652c82c62b18b19c418d81315313201914d776a66cc92c923710f4",
@@ -10824,7 +10824,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "167918ce65e91e66571075215fcedd738026ccb11e81dba36171ed671dd440fe",
@@ -10836,7 +10836,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "forge"
+      "aspect": "edge"
     },
     {
       "id": "ad3c3defc487f3fb55f19d78ed79c936f1ad7fbf12146abc7a57d1761de0534a",
@@ -10848,7 +10848,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "edge"
+      "aspect": "histories"
     },
     {
       "id": "02b2aaa974b682c6c5fd9065fd97803a41585cff56a47ab9fdb08150d1e3ce10",
@@ -10860,7 +10860,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "6489f15d8cc0897f2d51725b0f6f550a7006ee76a5e1525e77126d8005c2a839",
@@ -10872,7 +10872,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "knock"
     },
     {
       "id": "c4925604c9f2006019452854348e3264adba914bc3faf11bbb1c7d85e206fa6b",
@@ -10884,7 +10884,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "edge"
+      "aspect": "knock"
     },
     {
       "id": "81a217a4e41b2c1a9a2c6db6f23e3e3263a24fb50f05524217b7fc7a0e82416e",
@@ -10896,7 +10896,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "f6e1ee7d52cd34da2c83624d5598b3807fffce298c2170fe989c66467fc80c65",
@@ -10908,7 +10908,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "knock"
+      "aspect": "edge"
     },
     {
       "id": "06586884c8d04fdfb5d38ed1a04d7ca4c153bd771691f3bc03556dd9be01844e",
@@ -10932,7 +10932,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "584835697de224dcbb66ff7c6861e6b0e63573c208f0ecf522271cf8fae8e033",
@@ -10956,7 +10956,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "4554793c75599b0fdff1006a9d25933fd969b119b89f517e024f9e0c72dd30f5",
@@ -10968,7 +10968,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "grail"
     },
     {
       "id": "dd9e9365d8720114f3cbff6725378f39ba732a1d9c4701a2ca8db4f099d1b7b1",
@@ -11004,7 +11004,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "6ec88bdf4fdb33566b39ade5c4a82a7ba0080d61ed86845258446fcce2eb689e",
@@ -11016,7 +11016,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "sky"
+      "aspect": "winter"
     },
     {
       "id": "3ebe019d2ad0d18d990dc964f7dc766e537f03f0d3ad8cb1c05a63536e1a9faa",
@@ -11028,7 +11028,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "45cceda8907d16f1d86f93d94b17341248589ae7237626f8a59dbfbed280d866",
@@ -11040,7 +11040,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "winter"
+      "aspect": "heart"
     },
     {
       "id": "7648af1548e014a172106ddd9c97ff7e1f5f507b77dca57f4d74181a0188aecf",
@@ -11052,7 +11052,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "a4681b2df766cc769666717f25a967adcc4286ea57c4cb5e6f454bdb6b88d7d8",
@@ -11076,7 +11076,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moon"
     },
     {
       "id": "0480c06f77769d4e3638eb31917e809953a2c194749790f5a5a8cb55f11d7516",
@@ -11088,7 +11088,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "winter"
     },
     {
       "id": "4333fb477222ff70b9e5622f4b958618e1cf1f0b60ea8dfa3e7d8660df2513ca",
@@ -11100,7 +11100,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "heart"
+      "aspect": "grail"
     },
     {
       "id": "1537b1944365b89eb27c5a61296eb8a4bcf8902527b7f1b43765fad42fd5f9be",
@@ -11112,7 +11112,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "knock"
+      "aspect": "moth"
     },
     {
       "id": "9cb610c9056baa5aec45d064529269a2be2a189fd1b221d574a348290bb827a4",
@@ -11148,7 +11148,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "ea6e99e033e3fb94526206ebec6bfb2357cf710dc59c5fa6882af5516ffa6b48",
@@ -11160,7 +11160,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "edge"
+      "aspect": "grail"
     },
     {
       "id": "de75c6270cc0a0583f9fa958879c42270dd203d3b5237fbd035976799e649107",
@@ -11172,7 +11172,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "0ed3c979f90e9431e04c2496e539973986a776974eb987af8a310d42eb521d85",
@@ -11184,7 +11184,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "687b81b014713900086035fd6aff3cf214713a3fbc38269b6e97642a9023ca7e",
@@ -11196,7 +11196,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "sky"
+      "aspect": "grail"
     },
     {
       "id": "090dd2398a5dadefe80db8a6a0f2d5941c87bab4e36d08207eb8e41ffbfd1d6b",
@@ -11208,7 +11208,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "1e51795a0defa097e9159988fe7159e7014f4045bb54851140c613d46b774b94",
@@ -11232,7 +11232,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "edge"
+      "aspect": "heart"
     },
     {
       "id": "4b272fbaafae5b44478742c8afefde69a54c75e60f3fe98cc276a8ce74d761de",
@@ -11244,7 +11244,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "b58041e71221e6eacb647f42a7efc2699bebc34511ad209c4ce47dc138c45bd3",
@@ -11280,7 +11280,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "81af633790b18685d23901be710fcf6ee14ee934c05949a2bd2b555b2d39fd95",
@@ -11304,7 +11304,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "rose"
     },
     {
       "id": "cc3f98949dc83a07a0a7ef0a7a4c12b196e95043f2dddf28bc01963dcc6450f8",
@@ -11328,7 +11328,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "forge"
+      "aspect": "edge"
     },
     {
       "id": "a0c31c7c9816b2ef7ccab3470f0eafd780b8dc77c3867f33eb58859a4211d11f",
@@ -11352,7 +11352,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "7842491286ce2bf75876dbe79b0542d02ab7c332e51271f4bc3fef97bb51373f",
@@ -11364,7 +11364,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moon"
     },
     {
       "id": "7acf6261aa0c938f0b30105898c7f73ab6b55411dd8ff53db707eee30cc555ae",
@@ -11376,7 +11376,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "sky"
     },
     {
       "id": "686c82599d77b80fb696342e02fc95db65274df96fe5508e8c6efced12a956df",
@@ -11388,7 +11388,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "4936712d94966c22f4a154355451157158cf61894b13576bb675c41bc7a2d935",
@@ -11400,7 +11400,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "f9ccc4471476ab91e22c49f9c547324caf49ac4ffef42fe07ad4c3888251421a",
@@ -11424,7 +11424,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "forge"
+      "aspect": "heart"
     },
     {
       "id": "9972c890dc3da929047e6a6c71701201a2fa77eec5a70dae907dff3e1f8d8788",
@@ -11448,7 +11448,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "da78ca0c6c2b5a91dd009f80fd8418ceb816ce7a0eed56f850eede0ded2f9a6a",
@@ -11460,7 +11460,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "grail"
     },
     {
       "id": "94aa3107243a2d30ebd73dfa504165d61ddd3d44d45798676f96114d40473d10",
@@ -11472,7 +11472,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "grail"
     },
     {
       "id": "2ee3221b58b0139f6aeca57b1d45c86effbfd13dafe6d348da51738783b4329e",
@@ -11484,7 +11484,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "sky"
+      "aspect": "lantern"
     },
     {
       "id": "0f15fd421093f1a6a4efbc56f3275e33091538b96ce2752304c7fe05c2421c13",
@@ -11496,7 +11496,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "histories"
+      "aspect": "forge"
     },
     {
       "id": "e2908c8dc05e731b20f5cb7816fdb027eeaf627114b8fb3ae645d83b448821ee",
@@ -11520,7 +11520,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "c2ac9f8f85d1a6394c4a187d765c699a039e949baad8a1d1b641491c7ab3e883",
@@ -11544,7 +11544,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "a172adaa5af5eebdab2a8b0b7a86e59f6fcef3fceb8bbc848383a34e9cbf3459",
@@ -11556,7 +11556,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "edge"
+      "aspect": "histories"
     },
     {
       "id": "24f782b5f1238e9a238e811b4b8489929a8c3ce31dd501fb809bb191e6c9d2b8",
@@ -11568,7 +11568,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "histories"
     },
     {
       "id": "be47ca5ce284b52ee95f6733b5564a8e8262f9f7836ac6fcbe0894ffb1b030b6",
@@ -11580,7 +11580,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "rose"
     },
     {
       "id": "5b5b2273d0f912d4fffd8b42701c39d9bd9697134d5cfc6e4b2a71980732fb5f",
@@ -11616,7 +11616,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "rose"
     },
     {
       "id": "2a13c55922bf64d7cddd04892ed2057cb5a5e045984d3ef4a62b77b06ad006e9",
@@ -11628,7 +11628,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "ab8a44441227cd945d327092b0f0a4771c93547525f7fd148a1653917db3278c",
@@ -11640,7 +11640,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "forge"
+      "aspect": "rose"
     },
     {
       "id": "80f75a3d4d11684d864630d505948ba0fd6b6b5b7e6138ef11f4fa660868fb0d",
@@ -11652,7 +11652,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "4114c6139d767c80cbab237c1f2a770a154cf3d77b1ee8486880efe9134a6cd3",
@@ -11664,7 +11664,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "knock"
     },
     {
       "id": "e5dd479924c7074bf11a39cd8d24cbd49ff3143baa523d031460416a51b626d1",
@@ -11676,7 +11676,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "f2cbee1d0c04e07be4ec915bc93c91af0e3f0a3fb60d34cff65e364a5fb73e0d",
@@ -11724,7 +11724,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "96fa191c8c23b675685146cb88f178ffbf3f0746bf5529f5ed0ba1c1267f1593",
@@ -11736,7 +11736,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "22df9608ba6b11ebb8276328b0c3c61a1b00511edc4365c4ec6f13481aed8116",
@@ -11760,7 +11760,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "fc625cd3e53020503bd8593c4e087e522e51e608bba64001b6d07b3445eb282d",
@@ -11784,7 +11784,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "5ffb55922f58bb45376983965f6ec6c5054fabbfb04697f1cdefe824870cd75c",
@@ -11844,7 +11844,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "moth"
     },
     {
       "id": "30a50cd6d27ac3ffa59d5d494f50082d1dc055e8f8321116db31d704db0ef5e5",
@@ -11868,7 +11868,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "grail"
+      "aspect": "edge"
     },
     {
       "id": "1cd3c784253f0e272988639ba1d312602305540b18efdcbd2af869e5a2683568",
@@ -11880,7 +11880,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "knock"
     },
     {
       "id": "a4ce726d31321a4ab52aec018b4d55b6208497d59a20988f2449c267c2fdcd1b",
@@ -11892,7 +11892,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "rose"
     },
     {
       "id": "2f5171fe757216396c7205d82cff77978f583a3bf93b3d4cfbf19011228f9b0c",
@@ -11904,7 +11904,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "edge"
     },
     {
       "id": "8eddd8176860dfd88e6f3d05a999c8360baff2347408d41386572deb2ad036ad",
@@ -11916,7 +11916,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "9b2ee691865bd9d3c47451524af00b7806f48a963f29ef28998a43357aed5feb",
@@ -11952,7 +11952,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "a1be33d6e5e026f8cc18d5a2f133692b569f6a02c8925806447a4017836cd5a0",
@@ -11964,7 +11964,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "34d93538ed4de64f5322d44e78f2942ff6494a0cabd86a6a6c5a405b3a1ac373",
@@ -11976,7 +11976,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "1216f0ad2cf51473b3ed338b3134157a31d7b9cdd95e6feca9323d3b5cd6ead2",
@@ -11988,7 +11988,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "f92c47072ad372314c264fd8a3379f08278ce67312e79abeb717dc18fd221b3e",
@@ -12036,7 +12036,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "scenery",
-      "aspect": "sky"
+      "aspect": "rose"
     },
     {
       "id": "ab2ff23597f0e4cc5509cdab509de822cd35dd2dbcf1afa955c783b7b9776e6d",
@@ -12084,7 +12084,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "scenery",
-      "aspect": "nectar"
+      "aspect": "scale"
     },
     {
       "id": "e3615537e13d3518feeabcc35b19d4c3f56d55f5bb9399a7ec68d952975fe058",
@@ -12096,7 +12096,7 @@
       "weight": 1.35,
       "quoteWeight": 1.25,
       "theme": "scenery",
-      "aspect": "sky"
+      "aspect": "moon"
     },
     {
       "id": "2931a783e8067495767be0ae2cb8d50991ee5641a5c687c407eb622084b34561",
@@ -12108,7 +12108,7 @@
       "weight": 1.35,
       "quoteWeight": 1.25,
       "theme": "scenery",
-      "aspect": "sky"
+      "aspect": "winter"
     },
     {
       "id": "714e5ab74c2b07363bf192b4222fa8396c17f96f9a5805ab3a89c6124ee57601",
@@ -12120,7 +12120,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "scenery",
-      "aspect": "sky"
+      "aspect": "scale"
     },
     {
       "id": "28b8cb3ff052879104ec497df2f408e3aa46516fffd3ee0ed030a0da548238d7",
@@ -12156,7 +12156,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "scenery",
-      "aspect": "lantern"
+      "aspect": "moon"
     },
     {
       "id": "1b264f52720439de4e1ee8047077b2d709be73b700aaf8f90f748ed7948bb537",
@@ -12180,7 +12180,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "scenery",
-      "aspect": "lantern"
+      "aspect": "winter"
     },
     {
       "id": "183d6cab854c83621887e8ccf95be7b31c3e426c7d7020adafdb859ea73756bd",
@@ -12204,7 +12204,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "scenery",
-      "aspect": "nectar"
+      "aspect": "winter"
     },
     {
       "id": "118f4af43478cbf1bd39fa65277bff30367014a92bf2bb9b3f368809633bfc32",
@@ -12216,7 +12216,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "scenery",
-      "aspect": "sky"
+      "aspect": "rose"
     },
     {
       "id": "e50a662a1c92858fa577e32c8ae07183e24b3fc4c6b453e0debbfdf237c77a61",
@@ -12228,7 +12228,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "scenery",
-      "aspect": "moon"
+      "aspect": "sky"
     },
     {
       "id": "5672ddba90b37ecaff7387c78c0ff26e33cfc6e5c2d3810dc93be04742e8b75d",
@@ -12240,7 +12240,7 @@
       "weight": 1.35,
       "quoteWeight": 1.25,
       "theme": "scenery",
-      "aspect": "rose"
+      "aspect": "sky"
     },
     {
       "id": "5c75e0f018341ddb64bc7f64598783b629ca071d2040106c4300b3f82a017747",
@@ -12264,7 +12264,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "scenery",
-      "aspect": "sky"
+      "aspect": "winter"
     },
     {
       "id": "d9b95410d8bc81b236183b906ec3d44c170ce40f582e9bfd50937690c8aff413",
@@ -12276,7 +12276,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "scenery",
-      "aspect": "sky"
+      "aspect": "lantern"
     },
     {
       "id": "7da4f1a64f75b5044afcc7fbd51d38179893de2adfa9ce98d59ffab10cc9894c",
@@ -12288,7 +12288,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "scenery",
-      "aspect": "lantern"
+      "aspect": "moon"
     },
     {
       "id": "b266af713eaa8cf573d7994ff29ad637fad032146f1f62696892ed83ed6c7705",
@@ -12300,7 +12300,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "scenery",
-      "aspect": "lantern"
+      "aspect": "nectar"
     },
     {
       "id": "098d2de1dd2bcda2b34dc6cf30304c10717c396855f2d89416756a2922c54598",
@@ -12312,7 +12312,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "scenery",
-      "aspect": "lantern"
+      "aspect": "nectar"
     },
     {
       "id": "4f598f0498f748c5c250de1f67b1784d9d61d27e41809d949dedd7cac10a8340",
@@ -12348,7 +12348,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "scenery",
-      "aspect": "sky"
+      "aspect": "nectar"
     },
     {
       "id": "d5567dacccb1be3da032a7f871bb3250cc9351102408f27d180858dd8d49b30c",
@@ -12384,7 +12384,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "scenery",
-      "aspect": "sky"
+      "aspect": "nectar"
     },
     {
       "id": "bdd9691386b25b0575e6eb89b0ce3127b1df631586866d8f6d543f22c33124db",
@@ -12408,7 +12408,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "scenery",
-      "aspect": "sky"
+      "aspect": "rose"
     },
     {
       "id": "f0cc941cdd70694cdee4ff1486d31c12d23707433cc3198c1ee6f54dd58818db",
@@ -12420,7 +12420,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "scenery",
-      "aspect": "sky"
+      "aspect": "rose"
     },
     {
       "id": "9d936b7abe33d525fa664acf59b44e1d828488d005c1e7053c7583a6485122e3",
@@ -12444,7 +12444,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "inspiration",
-      "aspect": "rose"
+      "aspect": "edge"
     },
     {
       "id": "a5b0a3028eb516663c97e499dd7383197d7a9d4fd54ae5e57073383e0fcb1013",
@@ -12456,7 +12456,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "inspiration",
-      "aspect": "heart"
+      "aspect": "edge"
     },
     {
       "id": "a473107c77d9aec5a903270cae6e87421c9d6de43cdffa090e3de9a65fd7aa90",
@@ -12468,7 +12468,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "inspiration",
-      "aspect": "edge"
+      "aspect": "heart"
     },
     {
       "id": "22cb4e72f75e2e107b97ca70ba19fec0cf4e8e7082e322b2f2341263537adb69",
@@ -12492,7 +12492,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "inspiration",
-      "aspect": "moon"
+      "aspect": "heart"
     },
     {
       "id": "f79f68ec4f1a34cbf8ce843b57d686b77e740d2fd8067b741b28f1653ce187e4",
@@ -12504,7 +12504,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "inspiration",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "7b2824b0c2d8802599c345fb15a2792384f6033aff10f1d45ec2ebd12180d701",
@@ -12528,7 +12528,7 @@
       "weight": 1.6,
       "quoteWeight": 1.25,
       "theme": "inspiration",
-      "aspect": "moon"
+      "aspect": "rose"
     },
     {
       "id": "e49249b8eab5b991b705af1359ded9fef8f0ae6600cbe44b0dd6b43959121d82",
@@ -12540,7 +12540,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "inspiration",
-      "aspect": "rose"
+      "aspect": "forge"
     },
     {
       "id": "df3091cd47d8d0a6e7fd22a965de9b2dd4301522aa6b1a0e25e8d9747f249afc",
@@ -12552,7 +12552,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "inspiration",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "d074ee12606e5a0adc5ef1625e8a67c746f2bd188f09ebb2aa60ffbe008aec46",
@@ -12564,7 +12564,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "inspiration",
-      "aspect": "lantern"
+      "aspect": "rose"
     },
     {
       "id": "9b249019c9d8cef19233daef13d26712590f3644826c5505934491cfdac1d991",
@@ -12576,7 +12576,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "inspiration",
-      "aspect": "edge"
+      "aspect": "rose"
     },
     {
       "id": "e284a4e7dfb804e70fc875a93f4e5f86568dcac0316d25a3f2a298734ff70591",
@@ -12600,7 +12600,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "inspiration",
-      "aspect": "lantern"
+      "aspect": "forge"
     },
     {
       "id": "f2885f559244c0bd5187d691aee04030239e4873121aa1738c9d936c11cf2124",
@@ -12624,7 +12624,7 @@
       "weight": 1.6,
       "quoteWeight": 1,
       "theme": "inspiration",
-      "aspect": "edge"
+      "aspect": "heart"
     },
     {
       "id": "863e10d2d7f59d2932badf6e2ef729c2a3644cad9c9d6f3012b6bc3c4f924862",
@@ -12636,7 +12636,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "inspiration",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "671701b31b542b48d8fae6496c4e844965637ab7023e3ef8aef3f9cf2cfd26a9",
@@ -12684,7 +12684,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "inspiration",
-      "aspect": "lantern"
+      "aspect": "heart"
     },
     {
       "id": "0092d206842c8fe4dce6ff95d9a439841c993d9d260a62a3644882b179b116bd",
@@ -12696,7 +12696,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "inspiration",
-      "aspect": "rose"
+      "aspect": "lantern"
     },
     {
       "id": "fe02d98b8f36a7f4d07a8a5c74d06631060da92d3d21bf1a3ff8d31434fce952",
@@ -12720,7 +12720,7 @@
       "weight": 1.35,
       "quoteWeight": 1,
       "theme": "inspiration",
-      "aspect": "lantern"
+      "aspect": "winter"
     }
   ]
 }
