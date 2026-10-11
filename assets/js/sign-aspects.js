@@ -134,6 +134,8 @@
     tag.className='rc-aspect-tag'+(compact?' rc-aspect-tag--compact':'');
     tag.style.setProperty('--rc-aspect-color',aspect.color);
     tag.style.setProperty('--rc-aspect-position',String(-aspect.index*40)+'px');
+    tag.style.setProperty('--rc-aspect-position-compact',String(-aspect.index*28)+'px');
+    tag.style.setProperty('--rc-aspect-position-mobile',String(-aspect.index*32)+'px');
     tag.title=aspect.name+' · '+aspect.meaning;
     tag.setAttribute('aria-label','准则：'+aspect.name+'；'+aspect.meaning);
     const icon=document.createElement('span');
