@@ -30,5 +30,10 @@
 .rc-rec-day .rc-rec-title{font-size:.86rem}
 .rc-rec-day .rc-rec-note{font-size:.75rem}
 .rc-rec-empty{font-size:.82rem;color:var(--text-muted-color)}
+@media(max-width:1199px){
+  #panel-wrapper:has(.rc-rec-widget){display:block!important;flex:0 0 100%;max-width:100%;padding:0 1rem!important;margin:0 auto 1.25rem}
+  #panel-wrapper:has(.rc-rec-widget)>.access{display:none}
+  #panel-wrapper:has(.rc-rec-widget) .rc-rec-widget{max-width:46rem;margin:0 auto 1rem}
+}
 @media(max-width:720px){.rc-rec-day .rc-rec-items{grid-template-columns:1fr;gap:.1rem}.rc-rec-day .rc-rec-entry{border-left:0;border-top:1px solid var(--main-border-color);padding:.65rem 0}}
 @media(prefers-reduced-motion:reduce){.rc-rec-actions button,.rc-rec-tool{transition:none}}
