@@ -16,7 +16,7 @@
     const seen=new Set();
     return combined.filter(row=>{
       if(!row||!row.text||!row.book||!['daily','redraw'].includes(row.kind)||!validDate(row.date)) return false;
-      const identity=[row.date,row.kind,row.text,row.book].join('\u0001');
+      const identity=[row.date,row.kind,row.text].join('\u0001');
       if(seen.has(identity)) return false;
       seen.add(identity);return true;
     });
