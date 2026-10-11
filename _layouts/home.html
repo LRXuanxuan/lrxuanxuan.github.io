@@ -4,6 +4,7 @@ layout: default
 
 <link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/sign-aspects.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/sign-votes.css' | relative_url }}">
 
 <div class="rc-home">
   <section class="rc-hero" aria-labelledby="rc-home-title">
@@ -11,13 +12,20 @@ layout: default
     <h1 id="rc-home-title">{{ site.title }}</h1>
     <p class="rc-tagline">{{ site.tagline }}</p>
     {% assign sign = site.data.daily_sign %}
-    <section class="rc-daily-sign" data-date="{{ sign.date | escape }}" data-book="{{ sign.book | escape }}" data-author="{{ sign.author | escape }}" data-chapter="{{ sign.chapter | escape }}" data-reader-link="{{ sign.readerLink | escape }}" data-pool="{{ '/assets/data/quote-pool.json' | relative_url }}" data-aspect="{{ sign.aspect | default: 'lantern' | escape }}" aria-labelledby="rc-sign-title">
+    <section class="rc-daily-sign" data-date="{{ sign.date | escape }}" data-sign-id="{{ sign.id | escape }}" data-book="{{ sign.book | escape }}" data-author="{{ sign.author | escape }}" data-chapter="{{ sign.chapter | escape }}" data-reader-link="{{ sign.readerLink | escape }}" data-pool="{{ '/assets/data/quote-pool.json' | relative_url }}" data-aspect="{{ sign.aspect | default: 'lantern' | escape }}" aria-labelledby="rc-sign-title">
       <div class="rc-sign-heading"><span id="rc-sign-title">日签</span> <time datetime="{{ sign.date }}">{{ sign.date | date: '%Y.%m.%d' }}</time></div>
       <div class="rc-sign-quote-line">
         <blockquote>{{ sign.text | escape }}</blockquote>
         <span data-sign-aspect class="rc-sign-aspect" aria-label="日签准则"></span>
       </div>
       <p class="rc-sign-source">—— {{ sign.author | escape }}《{{ sign.book | escape }}》{% if sign.readerLink != empty %} <a href="{{ sign.readerLink | escape }}" target="_blank" rel="noopener noreferrer" aria-label="在微信读书中打开本书">↗</a>{% endif %}</p>
+      <div class="rc-sign-vote-row" aria-label="给这句日签留下私人评价">
+        <div class="rc-sign-votes" role="group" aria-label="日签喜欢或不喜欢">
+          <button type="button" data-sign-like aria-label="喜欢这句日签" aria-pressed="false"><span aria-hidden="true" class="rc-vote-icon">♡</span> 贴贴</button>
+          <button type="button" data-sign-dislike aria-label="不喜欢这句日签" aria-pressed="false"><span aria-hidden="true" class="rc-vote-icon">🐾</span> 不戳</button>
+        </div>
+        <span class="rc-vote-hint" data-vote-status role="status" aria-live="polite"></span>
+      </div>
       <div class="rc-sign-actions">
         <button type="button" data-sign-draw hidden>重抽喵 <span aria-hidden="true">↻</span></button>
         <button type="button" data-sign-reset hidden>回到今日日签</button>
@@ -83,4 +91,5 @@ layout: default
 
 <script src="{{ '/assets/js/sign-records.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/js/sign-aspects.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/sign-votes.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/js/daily-sign.js' | relative_url }}" defer></script>
