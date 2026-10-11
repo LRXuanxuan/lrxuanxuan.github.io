@@ -1,18 +1,4 @@
 /* Lightweight daily trio and personal archive: text, borders, no external assets. */
-.rc-home-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,255px);gap:1.35rem;align-items:start}
-.rc-home-main,.rc-home-panel{min-width:0}
-.rc-home-panel{display:flex;flex-direction:column;gap:1.35rem}
-.rc-home-panel .rc-section{margin:0}
-.rc-home-panel .rc-section-heading{margin-bottom:.65rem}
-.rc-home-panel .rc-section-heading h2{font-size:1.03rem;margin:0}
-.rc-home-panel .rc-section-heading p{font-size:.76rem}
-.rc-home-panel .rc-update-list{border-radius:10px}
-.rc-home-panel .rc-update-list a{display:block;padding:.68rem .78rem}
-.rc-home-panel .rc-update-list time{display:block;margin-bottom:.2rem;font-size:.7rem}
-.rc-home-panel .rc-update-body{display:block}
-.rc-home-panel .rc-update-body strong{display:block;font-size:.82rem;line-height:1.5}
-.rc-home-panel .rc-update-body>span{display:block;font-size:.73rem;line-height:1.5;margin-top:.18rem}
-.rc-home-panel .rc-update-arrow{display:none}
 .rc-rec-widget{border:1px solid var(--main-border-color);border-radius:11px;background:var(--card-bg);padding:.9rem .85rem;box-shadow:var(--card-shadow)}
 .rc-rec-widget h2{font-size:1.03rem;color:var(--heading-color);margin:0 0 .25rem}
 .rc-rec-intro,.rc-rec-help{font-size:.73rem;color:var(--text-muted-color);line-height:1.65;margin:.25rem 0 .65rem}
@@ -44,6 +30,5 @@
 .rc-rec-day .rc-rec-title{font-size:.86rem}
 .rc-rec-day .rc-rec-note{font-size:.75rem}
 .rc-rec-empty{font-size:.82rem;color:var(--text-muted-color)}
-@media(max-width:1199px){.rc-home-grid{grid-template-columns:minmax(0,1fr)}.rc-home-panel{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.rc-home-panel .rc-section{margin:0}}
-@media(max-width:720px){.rc-home-panel{grid-template-columns:1fr}.rc-rec-day .rc-rec-items{grid-template-columns:1fr;gap:.1rem}.rc-rec-day .rc-rec-entry{border-left:0;border-top:1px solid var(--main-border-color);padding:.65rem 0}}
+@media(max-width:720px){.rc-rec-day .rc-rec-items{grid-template-columns:1fr;gap:.1rem}.rc-rec-day .rc-rec-entry{border-left:0;border-top:1px solid var(--main-border-color);padding:.65rem 0}}
 @media(prefers-reduced-motion:reduce){.rc-rec-actions button,.rc-rec-tool{transition:none}}
