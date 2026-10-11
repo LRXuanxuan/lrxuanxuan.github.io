@@ -1,0 +1,89 @@
+---
+layout: page
+title: "书籍与音乐 Top 10"
+permalink: /favorites/
+toc: false
+---
+
+<link rel="stylesheet" href="{{ '/assets/css/favorites.css' | relative_url }}">
+
+<div class="fm-favorites">
+  <header class="fm-heading">
+    <p class="fm-eyebrow">A LITTLE PERSONAL CANON</p>
+    <h2>我喜欢的书与唱片</h2>
+    <p>不是权威榜单，只是私心收藏的十个位置。榜单顺序按整理时的偏好保留，与分数高低无关。</p>
+    <nav class="fm-nav" aria-label="切换书籍与音乐榜单">
+      <a href="#books"><i class="fas fa-book-open" aria-hidden="true"></i> 书籍 Top 10</a>
+      <a href="#albums"><i class="fas fa-music" aria-hidden="true"></i> 音乐 Top 10</a>
+    </nav>
+  </header>
+
+  <section id="books" class="fm-section" aria-labelledby="fm-books-title">
+    <div class="fm-section-title">
+      <div>
+        <p class="fm-category">THE BOOKSHELF</p>
+        <h2 id="fm-books-title">书籍 · Top 10</h2>
+      </div>
+      <span class="fm-count">10 / 10</span>
+    </div>
+    <ol class="fm-list">
+      {% for book in site.data.favorites.books %}
+      <li class="fm-item">
+        <span class="fm-rank" aria-label="第 {{ forloop.index }} 名">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+        <div class="fm-art fm-art-book" aria-hidden="true" style="--fm-cover-bg: {{ book.color }}; --fm-cover-ink: {{ book.ink }};">
+          <span class="fm-art-mark"><i class="fas fa-book"></i></span>
+          <span class="fm-art-name">{{ book.title }}</span>
+        </div>
+        <div class="fm-info">
+          <h3>{{ book.title }}</h3>
+          <p class="fm-creator">{{ book.creator }}</p>
+          <p class="fm-edition">{{ book.edition }}</p>
+        </div>
+        <div class="fm-score">
+          {% if book.score %}
+          <span class="fm-star" aria-label="截图评分">★</span>
+          <span>{{ book.score }}</span>
+          {% else %}
+          <span class="fm-no-score">—</span>
+          {% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+
+  <section id="albums" class="fm-section" aria-labelledby="fm-albums-title">
+    <div class="fm-section-title">
+      <div>
+        <p class="fm-category">THE RECORD SHELF</p>
+        <h2 id="fm-albums-title">音乐 · Top 10</h2>
+      </div>
+      <span class="fm-count">9 / 10 已录入</span>
+    </div>
+    <ol class="fm-list">
+      {% for album in site.data.favorites.albums %}
+      <li class="fm-item{% if album.pending %} fm-item-pending{% endif %}">
+        <span class="fm-rank" aria-label="第 {{ forloop.index }} 名">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+        <div class="fm-art fm-art-album" aria-hidden="true" style="--fm-cover-bg: {{ album.color }}; --fm-cover-ink: {{ album.ink }};">
+          <span class="fm-art-mark"><i class="fas fa-compact-disc"></i></span>
+          <span class="fm-art-name">{% if album.pending %}…{% else %}{{ album.title }}{% endif %}</span>
+        </div>
+        <div class="fm-info">
+          <h3>{{ album.title }}</h3>
+          <p class="fm-creator">{{ album.creator }}</p>
+          <p class="fm-edition">{{ album.edition }}</p>
+        </div>
+        <div class="fm-score">
+          {% if album.score %}
+          <span class="fm-star" aria-label="截图评分">★</span>
+          <span>{{ album.score }}</span>
+          {% else %}
+          <span class="fm-no-score">—</span>
+          {% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+  <p class="fm-note">注：榜单中的数字取自所提供截图的参考评分，并非个人评分；示意色块并非原版封面。第十张唱片未出现在截图中，暂留空位。</p>
+</div>
