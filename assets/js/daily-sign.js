@@ -57,13 +57,17 @@
       groups.get(quote.book).quotes.push(quote);
     }
     const books = [...groups.values()];
+    const quoteWeight = quote => Number(quote.quoteWeight) > 0 ? Number(quote.quoteWeight) : 1;
+    for (const book of books) book.weight *= book.quotes.reduce((sum,q)=>sum+quoteWeight(q),0)/book.quotes.length;
     let ticket = uniform() * books.reduce((sum, book) => sum + book.weight, 0);
     let selected = books[books.length - 1];
     for (const book of books) {
       ticket -= book.weight;
       if (ticket < 0) { selected = book; break; }
     }
-    return selected.quotes[Math.floor(uniform()*selected.quotes.length)];
+    let quoteTicket=uniform()*selected.quotes.reduce((sum,q)=>sum+quoteWeight(q),0);
+    for (const quote of selected.quotes) { quoteTicket-=quoteWeight(quote); if(quoteTicket<0) return quote; }
+    return selected.quotes[selected.quotes.length-1];
   }
   function render(quote) {
     text.textContent = quote.text;
