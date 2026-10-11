@@ -10,6 +10,12 @@
   const initialText = text.textContent;
   const initialSource = source.cloneNode(true);
   const records = globalThis.RCSignRecords;
+  const votes = globalThis.RCSignVotes;
+  const voteStatus = root.querySelector('[data-vote-status]');
+  const voteButtons = {
+    like:root.querySelector('[data-sign-like]'),
+    dislike:root.querySelector('[data-sign-dislike]')
+  };
   const aspects = globalThis.RCSignAspects;
   const aspectSlot = root.querySelector('[data-sign-aspect]');
   const showAspect = quote => {
@@ -17,8 +23,30 @@
     aspectSlot.replaceChildren(aspects.badge(quote));
   };
   const recentKey = 'rc-sign-recent-authors-v1';
-  const initialQuote = {text:initialText,book:root.dataset.book||'',author:root.dataset.author||'',chapter:root.dataset.chapter||'',readerLink:root.dataset.readerLink||'',aspect:root.dataset.aspect||''};
+  const initialQuote = {id:root.dataset.signId||'',text:initialText,book:root.dataset.book||'',author:root.dataset.author||'',chapter:root.dataset.chapter||'',readerLink:root.dataset.readerLink||'',aspect:root.dataset.aspect||''};
+  let currentQuote=initialQuote;
+  function showVotes(quote) {
+    const active=votes?.get(quote);
+    for(const [kind,button] of Object.entries(voteButtons)) {
+      if(!button) continue;
+      button.setAttribute('aria-pressed',String(active===kind));
+      button.title=active===kind?'再点一下可撤销':'只在你的浏览器保存';
+    }
+  }
+  for(const [kind,button] of Object.entries(voteButtons)) {
+    button?.addEventListener('click',()=>{
+      if(!votes) return;
+      const result=votes.vote(currentQuote,kind);
+      showVotes(currentQuote);
+      voteStatus.textContent=!result.ok?'仅在此页面暂存，请检查浏览器存储设置':
+        result.vote==='like'?'收到这份喜欢啦 ♡':result.vote==='dislike'?'记下这次不喜欢啦 🐾':'已悄悄撤销评价';
+    });
+  }
+  if(votes) window.addEventListener('storage',event=>{
+    if(event.key===votes.storageKey) showVotes(currentQuote);
+  });
   showAspect(initialQuote);
+  showVotes(initialQuote);
   if (records) {
     records.add(initialQuote,'daily',root.dataset.date);
     records.migrate(root.dataset.pool).catch(()=>{});
@@ -77,7 +105,10 @@
     return selected.quotes[selected.quotes.length-1];
   }
   function render(quote) {
+    currentQuote=quote;
     text.textContent = quote.text;
+    showVotes(quote);
+    voteStatus.textContent='';
     showAspect(quote);
     source.replaceChildren(document.createTextNode(`—— ${quote.author}《${quote.book}》`));
     if (/^https:\/\/weread\.qq\.com\//.test(quote.readerLink || '')) {
@@ -120,6 +151,9 @@
     } finally { button.disabled = false; }
   });
   reset.addEventListener('click', () => {
+    currentQuote=initialQuote;
+    showVotes(initialQuote);
+    voteStatus.textContent='';
     text.textContent = initialText;
     showAspect(initialQuote);
     source.replaceChildren(...[...initialSource.childNodes].map(node => node.cloneNode(true)));
