@@ -83,8 +83,8 @@ def main() -> None:
     today = datetime.now(ZoneInfo("Asia/Shanghai")).date()
     pool = json.loads(POOL.read_text(encoding="utf-8"))["quotes"]
     history = json.loads(HISTORY.read_text(encoding="utf-8"))
-    if len(pool) != 1060 or not all(q.get("id") for q in pool):
-        raise ValueError("Unexpected or incomplete sign pool")
+    if not pool or not all(q.get("id") for q in pool):
+        raise ValueError("Missing or incomplete sign pool")
     if not isinstance(history, list):
         raise ValueError("Malformed daily sign history")
     known = {row["date"] for row in history}
