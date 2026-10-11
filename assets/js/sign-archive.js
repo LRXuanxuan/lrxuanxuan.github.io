@@ -26,7 +26,7 @@
         button.title=picked===kind?'再点一次可撤销':'只在本机保存';
       }
     };
-    for(const [kind,caption,label] of [['like','♡ 贴贴','喜欢这句日签'],['dislike','🐾 不戳','不喜欢这句日签']]) {
+    for(const [kind,caption,label] of [['like','♡ 贴贴','喜欢这句日签'],['dislike','🐾 踩踩','不喜欢这句日签']]) {
       const button=document.createElement('button');
       button.type='button';button.textContent=caption;
       button.setAttribute('aria-label',label);
@@ -57,7 +57,7 @@
   function render() {
     const mode=filter.value;
     const rows=all().filter(row=>mode==='all'||(mode==='redraw'?row.kind!=='daily':row.kind==='daily'));
-    rows.sort((a,b)=>String(b.date||'').localeCompare(String(a.date||''))||String(a.timestamp||'').localeCompare(String(b.timestamp||'')));
+    rows.sort((a,b)=>String(b.date||'').localeCompare(String(a.date||''))||String(b.timestamp||'').localeCompare(String(a.timestamp||'')));
     list.replaceChildren();
     staticDaily.hidden=true;
     const groups=new Map();
