@@ -1,7 +1,5 @@
 ---
 layout: default
-panel_includes:
-  - daily-recommendations
 ---
 
 <link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url }}">
@@ -67,6 +65,24 @@ panel_includes:
         <p>收藏每日推荐、日签、照明之咪摇奖机，以及偶尔冒出来的小实验。</p>
       </a>
     </div>
+  </section>
+
+
+  <section class="rc-section rc-rec-section" data-rc-recommendations
+           data-pool="{{ '/assets/data/daily-recommendations.json' | relative_url }}"
+           aria-labelledby="rc-rec-heading">
+    <div class="rc-section-heading">
+      <h2 id="rc-rec-heading">每日推荐 · 一曲一书一影</h2>
+      <p><time class="rc-rec-date" data-rec-date></time> · 每天一首歌、一本书、一部电影。</p>
+    </div>
+    <div class="rc-rec-list" data-rec-list aria-live="polite">
+      <p class="rc-rec-help">正在翻找今天的三份推荐…</p>
+    </div>
+    <div class="rc-rec-footer">
+      <a href="{{ '/playthings/#rc-rec-archive-heading' | relative_url }}">翻阅往日推荐 ↗</a>
+      <span class="rc-rec-message" data-rec-status role="status" aria-live="polite"></span>
+    </div>
+    <noscript><p class="rc-rec-help">启用 JavaScript 后可查看每日推荐并记录喜好。</p></noscript>
   </section>
 
   <section class="rc-section rc-recent" aria-labelledby="rc-recent-heading">
