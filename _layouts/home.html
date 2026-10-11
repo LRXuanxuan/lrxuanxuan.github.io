@@ -9,7 +9,12 @@ layout: default
     <p class="rc-eyebrow">WELCOME TO MY LITTLE CORNER</p>
     <h1 id="rc-home-title">{{ site.title }}</h1>
     <p class="rc-tagline">{{ site.tagline }}</p>
-    <p class="rc-intro">这里记录一些正在研究的问题、喜欢的科幻作品，以及偶尔心血来潮制作的小玩意。科研归科研，摸鱼归摸鱼；都可以在这里留下一点痕迹。</p>
+    {% assign sign = site.data.daily_sign %}
+    <section class="rc-daily-sign" aria-labelledby="rc-sign-title">
+      <div class="rc-sign-heading"><span id="rc-sign-title">日签</span> <time datetime="{{ sign.date }}">{{ sign.date | date: '%Y.%m.%d' }}</time></div>
+      <blockquote>{{ sign.text | escape }}</blockquote>
+      <p class="rc-sign-source">—— {{ sign.author | escape }}《{{ sign.book | escape }}》{% if sign.readerLink != empty %} <a href="{{ sign.readerLink | escape }}" target="_blank" rel="noopener noreferrer" aria-label="在微信读书中打开本书">↗</a>{% endif %}</p>
+    </section>
     <nav class="rc-quicklinks" aria-label="快速访问">
       <a href="{{ '/papers/' | relative_url }}"><i class="fas fa-book-open" aria-hidden="true"></i> 论文库 <span aria-hidden="true">↗</span></a>
       <a href="{{ '/translations/' | relative_url }}"><i class="fas fa-book-reader" aria-hidden="true"></i> 文学译本 <span aria-hidden="true">↗</span></a>
