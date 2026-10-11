@@ -2,7 +2,7 @@
 (() => {
   const key = 'rc-sign-archive-v1';
   let memory = [];
-  const fields = ['text','book','author','chapter','readerLink'];
+  const fields = ['text','book','author','chapter','readerLink','aspect'];
   function dateNow() {
     const parts = new Intl.DateTimeFormat('en-CA', {timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());
     const get = name => parts.find(part=>part.type===name).value;
