@@ -80,8 +80,8 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  min-height: 120px;
-  padding: 1.05rem 1.15rem;
+  min-height: 76px;
+  padding: .95rem 1.15rem;
 }
 .fm-favorites .fm-item + .fm-item { border-top: 1px solid var(--main-border-color); }
 .fm-favorites .fm-rank {
@@ -91,53 +91,6 @@
   text-align: center;
   font-weight: 750;
   font-variant-numeric: tabular-nums;
-}
-.fm-favorites .fm-art {
-  box-sizing: border-box;
-  flex: 0 0 79px;
-  width: 79px;
-  height: 102px;
-  background: var(--fm-cover-bg);
-  color: var(--fm-cover-ink);
-  border-radius: 3px;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 14%);
-  padding: .55rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
-  position: relative;
-}
-.fm-favorites .fm-art::before {
-  content: '';
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 5px;
-  background: rgb(0 0 0 / 9%);
-}
-.fm-favorites .fm-art-album {
-  height: 79px;
-  border-radius: 4px;
-}
-.fm-favorites .fm-art-album::before {
-  inset: 0 auto auto 0;
-  width: 100%;
-  height: 3px;
-}
-.fm-favorites .fm-art-mark { align-self: flex-end; font-size: .7rem; opacity: .7; }
-.fm-favorites .fm-art-name {
-  font-size: .68rem;
-  font-weight: 800;
-  line-height: 1.35;
-  word-break: break-word;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.fm-favorites .fm-art-album .fm-art-name {
-  font-size: .59rem;
-  -webkit-line-clamp: 3;
 }
 .fm-favorites .fm-info {
   flex: 1;
@@ -151,6 +104,26 @@
   margin: 0 0 .45rem;
   overflow-wrap: anywhere;
 }
+.fm-favorites .fm-info h3 a {
+  color: var(--heading-color);
+  text-decoration: none;
+}
+.fm-favorites .fm-info h3 a:hover {
+  color: var(--link-color);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.fm-favorites .fm-info h3 a:focus-visible {
+  outline: 3px solid var(--link-color);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+.fm-favorites .fm-external {
+  color: var(--text-muted-color);
+  font-size: .66em;
+  margin-left: .15rem;
+}
+.fm-favorites .fm-info h3 a:hover .fm-external { color: var(--link-color); }
 .fm-favorites .fm-byline {
   margin: 0;
   color: var(--text-muted-color);
@@ -169,11 +142,7 @@
 }
 @media (max-width: 650px) {
   .fm-favorites .fm-heading { padding: 1.25rem; }
-  .fm-favorites .fm-item { gap: .7rem; padding: .85rem .65rem; min-height: 94px; }
-  .fm-favorites .fm-art { flex-basis: 57px; width: 57px; height: 77px; padding: .4rem; }
-  .fm-favorites .fm-art-album { height: 57px; }
-  .fm-favorites .fm-art-name { font-size: .56rem; }
-  .fm-favorites .fm-art-album .fm-art-name { font-size: .48rem; }
+  .fm-favorites .fm-item { gap: .7rem; padding: .9rem .85rem; min-height: 72px; }
   .fm-favorites .fm-rank { flex-basis: 1.3rem; font-size: .85rem; }
   .fm-favorites .fm-byline { font-size: .8rem; }
 }
