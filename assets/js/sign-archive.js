@@ -57,8 +57,26 @@
   }
   function render() {
     const mode=filter.value;
-    const rows=all().filter(row=>mode==='all'||(mode==='redraw'?row.kind!=='daily':row.kind==='daily'));
-    rows.sort((a,b)=>String(b.date||'').localeCompare(String(a.date||''))||String(b.timestamp||'').localeCompare(String(a.timestamp||'')));
+    // Sort by Beijing calendar date first, then the actual redraw timestamp.
+    // Older imports may have no timestamp; fall back to reverse archive insertion
+    // order so the latest saved redraw still appears above earlier ones.
+    // The daily default belongs to 00:00, not the time its page was opened.
+    const rows=all()
+      .map((row,index)=>({row,index}))
+      .filter(({row})=>mode==='all'||(mode==='redraw'?row.kind==='redraw':row.kind==='daily'))
+      .sort((a,b)=>{
+        const byDay=b.row.date.localeCompare(a.row.date);
+        if(byDay) return byDay;
+        if(a.row.kind!==b.row.kind) return a.row.kind==='redraw'?-1:1;
+        const aTime=Date.parse(a.row.timestamp||'');
+        const bTime=Date.parse(b.row.timestamp||'');
+        if(Number.isFinite(aTime)&&Number.isFinite(bTime)&&aTime!==bTime)
+          return bTime-aTime;
+        if(Number.isFinite(aTime)!==Number.isFinite(bTime))
+          return Number.isFinite(bTime)?1:-1;
+        return b.index-a.index;
+      })
+      .map(({row})=>row);
     list.replaceChildren();
     staticDaily.hidden=true;
     const groups=new Map();
