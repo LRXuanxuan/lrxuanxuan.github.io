@@ -10,10 +10,17 @@ layout: default
     <h1 id="rc-home-title">{{ site.title }}</h1>
     <p class="rc-tagline">{{ site.tagline }}</p>
     {% assign sign = site.data.daily_sign %}
-    <section class="rc-daily-sign" aria-labelledby="rc-sign-title">
+    <section class="rc-daily-sign" data-pool="{{ '/assets/data/quote-pool.json' | relative_url }}" aria-labelledby="rc-sign-title">
       <div class="rc-sign-heading"><span id="rc-sign-title">日签</span> <time datetime="{{ sign.date }}">{{ sign.date | date: '%Y.%m.%d' }}</time></div>
       <blockquote>{{ sign.text | escape }}</blockquote>
       <p class="rc-sign-source">—— {{ sign.author | escape }}《{{ sign.book | escape }}》{% if sign.readerLink != empty %} <a href="{{ sign.readerLink | escape }}" target="_blank" rel="noopener noreferrer" aria-label="在微信读书中打开本书">↗</a>{% endif %}</p>
+      <div class="rc-sign-actions">
+        <button type="button" data-sign-draw hidden>重抽喵 <span aria-hidden="true">↻</span></button>
+        <button type="button" data-sign-reset hidden>回到今日日签</button>
+        <button type="button" data-sign-clear hidden>清空重抽记录</button>
+        <span data-sign-status role="status" aria-live="polite"></span>
+      </div>
+      <noscript><p class="rc-sign-note">启用 JavaScript 后可以重新抽签喵。</p></noscript>
     </section>
     <nav class="rc-quicklinks" aria-label="快速访问">
       <a href="{{ '/papers/' | relative_url }}"><i class="fas fa-book-open" aria-hidden="true"></i> 论文库 <span aria-hidden="true">↗</span></a>
@@ -73,3 +80,5 @@ layout: default
     </ul>
   </section>
 </div>
+
+<script src="{{ '/assets/js/daily-sign.js' | relative_url }}" defer></script>
