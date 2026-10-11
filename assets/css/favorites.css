@@ -1,4 +1,4 @@
-/* Lightweight personal book and album lists. No external fonts or media. */
+/* Lightweight personal book, album and game lists. No external fonts or media. */
 .fm-favorites { max-width: 860px; color: var(--text-color); }
 .fm-favorites .fm-heading {
   padding: 1.65rem 1.5rem;
@@ -124,6 +124,12 @@
   margin-left: .15rem;
 }
 .fm-favorites .fm-info h3 a:hover .fm-external { color: var(--link-color); }
+.fm-favorites .fm-localized {
+  color: var(--label-color);
+  font-size: .9rem;
+  line-height: 1.55;
+  margin: -.1rem 0 .25rem;
+}
 .fm-favorites .fm-byline {
   margin: 0;
   color: var(--text-muted-color);
