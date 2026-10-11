@@ -4,7 +4,7 @@ icon: fas fa-book-open
 order: 2
 ---
 
-这里收录我整理的文学中文译本，其中 **8 部作品提供 EPUB**，另有可直接在网页阅读的序言及书信译稿。书目按作者和内容归类。
+这里收录我整理的文学中文译本，其中 **8 部作品提供 EPUB**，另有可直接在网页阅读的威尔斯专题、序言及书信译稿。书目按作者和内容归类。
 
 > **关于翻译与署名**：这些中文译文由大型语言模型（LLM）生成，并非由我独立翻译。我主要负责收集和整理，不以人工译者自居。LLM 译文难免可能存在误译、漏译或表达不当，阅读时请以原文为准。此说明仅用于交代译文来源，并不代表原作或译文已获得公开传播许可。
 
@@ -46,6 +46,29 @@ order: 2
 
 ---
 
+## H. G. 威尔斯（H. G. Wells）
+
+本专题汇集威尔斯的小说观、未来观、政治论述及影评，并收录其他作家为其作品撰写的导读、后记和相关书信。**全部采用网页博文形式阅读，不提供 EPUB 下载。**
+
+### 威尔斯本人
+
+- [《Boon》第四章：论艺术、文学与亨利·詹姆斯](/posts/wells-boon-chapter-four/) · *Boon*, Chapter IV（1915）
+- [《当代小说》](/posts/wells-the-contemporary-novel/) · *The Contemporary Novel*（1912）
+- [《未来的发现》](/posts/wells-the-discovery-of-the-future/) · *The Discovery of the Future*（1902）
+- [《七部著名小说》序言](/posts/wells-seven-famous-novels-preface/) · *Preface to Seven Famous Novels*（1934）
+- [《大西洋版总序》](/posts/wells-atlantic-edition-introduction/) · *A General Introduction to the Atlantic Edition*（1924）
+- [威尔斯评《大都会》：1927 年影评](/posts/wells-metropolis-review/) · *Mr. Wells Reviews a “Current” Film*（1927）
+- [《公开密谋：世界革命蓝图》（全书）](/posts/wells-the-open-conspiracy/) · *The Open Conspiracy*（1928）
+
+### 他人论威尔斯及相关书信
+
+- [亨利·詹姆斯致威尔斯：1905 年的赞美信](/posts/wells-henry-james-letter-1905/) · Henry James（1905）
+- [阿瑟·克拉克：《威尔斯与科幻小说》导读](/posts/wells-clarke-sf-introduction/) · Arthur C. Clarke（1962）
+- [艾萨克·阿西莫夫：《世界大战》后记](/posts/wells-asimov-war-of-worlds-afterword/) · Isaac Asimov
+
+以上为 LLM 译稿，其中署名亨利·詹姆斯、克拉克和阿西莫夫的文章均非威尔斯本人所写。尚未完成的《自传实验》不在本专题中。
+
+---
 ## 科幻史料与书信（网页阅读）
 
 ### 《从纳尼亚到太空漫游：阿瑟·克拉克与 C. S. 刘易斯的思想之争》
