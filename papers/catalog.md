@@ -9,6 +9,41 @@ toc: true
 {% raw %}
 [← 搜索与筛选](/papers/)
 
+### 2026-10-12 · [Digital Twin-Assisted Spatio-Temporal Diffusion Transformer for Channel Estimation in Low-Altitude ISAC Systems](/papers/items/d85362be1aed96a2/)
+
+给高速移动主线提供任务定义和系统约束，提醒区分估计与预测。
+未来需有连续时间戳、轨迹与同条件导频序列才可复现实验；当前快照数据不能被改称时序数据集。
+
+[本篇日报](/papers/items/d85362be1aed96a2/#paper-report)
+
+### 2026-10-12 · [BeamCKM: A Framework of Channel Knowledge Map Construction for Multi-Antenna Systems](/papers/items/5bc3cd8a05b4024c/)
+
+公开核心训练代码可检查，且缺失条件/错误轮廓对照与当前CKM失配可靠性相匹配。
+可借用数据组织、masked多波束条件编码和环境扰动对照；恢复复CSI仍应保留导频物理一致性。
+
+[本篇日报](/papers/items/5bc3cd8a05b4024c/#paper-report)
+
+### 2026-10-12 · [6D Channel Knowledge Map Construction via Bidirectional Wireless Gaussian Splatting](/papers/items/60f8712943d94c3d/)
+
+提供物理连续环境条件，能与生成后验求解器分开做归因。
+可先在一个有坐标城市构造低阶双向几何特征，作为p(H|r,e,M)的条件token；现有Sheet2无城市同时具备坐标和完整AoA/AoD监督，先单模态训练/缺失mask，不直接复制全监督6D实验。
+
+[本篇日报](/papers/items/60f8712943d94c3d/#paper-report)
+
+### 2026-10-12 · [Iterating Consistency Models: Stability, Error Bounds and Noise Schedules](/papers/items/03c3642f12989295/)
+
+直接对应当前等NFE不等耗时、迭代预算和可靠性缺口。
+固定先验和导频，比较1/2/4/8次调用与递减/恒定噪声调度，记录导频残差、零空间误差与局部secant比；这些是诊断，不是定理验证。
+
+[本篇日报](/papers/items/03c3642f12989295/#paper-report)
+
+### 2026-10-12 · [SNaP: One-Step Posterior Sampling for Noisy Inverse Problems](/papers/items/cd1fd1c4e35890df/)
+
+当前导频子空间/零空间和M多样本实验可直接检验其核心机制。
+将HP=Y写成复线性算子A= Pᵀ⊗I，在实虚堆叠后构造源；CKM预测可作为非零中心，不能把尚未推导的条件源当作原论文结论。
+
+[本篇日报](/papers/items/cd1fd1c4e35890df/#paper-report)
+
 ### 2026-10-11 · [You May Use the Same Channel Knowledge Map for Environment-Aware NLoS Sensing and Communication](/papers/items/c993009e70191dfd/)
 
 第二篇TWC兼顾系统用途，给研究链路CKM→后验修正→ISAC的末端提供具体模型与边界。
