@@ -6,7 +6,7 @@ permalink: /fortune/
 ---
 
 <div class="fortune-page">
-  <p class="fortune-intro">问卜可随意，解读须谨慎。81 张牌、四种朝向，以及单抽、三抽、四季与仪式牌阵。所有抽牌均在浏览器本地完成。</p>
+  <p class="fortune-intro">问卜可随意，解读须谨慎。81 张牌、四种朝向，以及单抽、三抽、四季与仪式牌阵。</p>
   <p><a href="{{ '/fortune-full.html' | relative_url }}" target="_blank" rel="noopener noreferrer">在独立页面中打开完整版 ↗</a></p>
   <iframe id="fortune-embed" title="照明之咪摇奖机完整版" src="{{ '/fortune-full.html' | relative_url }}" loading="eager" scrolling="no"></iframe>
 </div>
