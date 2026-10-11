@@ -7,9 +7,10 @@
   const status = root.querySelector('[data-sign-status]');
   const text = root.querySelector('blockquote');
   const source = root.querySelector('.rc-sign-source');
-  const initialText = text.textContent;
-  const initialSource = source.cloneNode(true);
+  let initialText = text.textContent;
+  let initialSource = source.cloneNode(true);
   const records = globalThis.RCSignRecords;
+  const calendar = globalThis.RCSignCalendar;
   const votes = globalThis.RCSignVotes;
   const voteStatus = root.querySelector('[data-vote-status]');
   const voteButtons = {
@@ -23,7 +24,7 @@
     aspectSlot.replaceChildren(aspects.badge(quote));
   };
   const recentKey = 'rc-sign-recent-authors-v1';
-  const initialQuote = {id:root.dataset.signId||'',text:initialText,book:root.dataset.book||'',author:root.dataset.author||'',chapter:root.dataset.chapter||'',readerLink:root.dataset.readerLink||'',aspect:root.dataset.aspect||''};
+  let initialQuote = {id:root.dataset.signId||'',text:initialText,book:root.dataset.book||'',author:root.dataset.author||'',chapter:root.dataset.chapter||'',readerLink:root.dataset.readerLink||'',aspect:root.dataset.aspect||''};
   let currentQuote=initialQuote;
   function showVotes(quote) {
     const active=votes?.get(quote);
@@ -167,4 +168,48 @@
     status.textContent = '重抽记录已清空，可以再抽啦。';
   });
   button.hidden = false;
+
+  // The static HTML is an accessible fallback. The live sign follows Beijing
+  // midnight even if GitHub Actions is delayed or the page remains open.
+  if (calendar) {
+    let refreshing=null;
+    let nextTimer=null;
+    const clock=root.querySelector('.rc-sign-heading time');
+    function refreshDay() {
+      const today=calendar.day();
+      if(today===root.dataset.date) return Promise.resolve();
+      if(refreshing) return refreshing;
+      refreshing=load().then(pool=>{
+        // In the unlikely event that midnight passes during the fetch, don't
+        // install a sign for the wrong day.
+        if(calendar.day()!==today) return;
+        const chosen=calendar.choose(pool,today);
+        root.dataset.date=today;
+        root.dataset.signId=chosen.id||'';
+        if(clock){clock.dateTime=today;clock.textContent=today.replace(/-/g,'.');}
+        initialQuote={...chosen};
+        initialText=chosen.text;
+        render(chosen);
+        initialSource=source.cloneNode(true);
+        reset.hidden=true;
+        if(records)records.add(chosen,'daily',today);
+        status.textContent='';
+      }).catch(()=>{
+        status.textContent='正在等候今日日签更新，可稍后再试喵。';
+      }).finally(()=>{refreshing=null;});
+      return refreshing;
+    }
+    function scheduleNext() {
+      if(nextTimer!==null)clearTimeout(nextTimer);
+      const waiting=calendar.day()===root.dataset.date;
+      nextTimer=setTimeout(()=>{
+        refreshDay().finally(scheduleNext);
+      },waiting?calendar.nextMidnightDelay():60000);
+    }
+    refreshDay().finally(scheduleNext);
+    document.addEventListener('visibilitychange',()=>{
+      if(!document.hidden)refreshDay().finally(scheduleNext);
+    });
+    window.addEventListener('focus',()=>refreshDay().finally(scheduleNext));
+  }
 })();
