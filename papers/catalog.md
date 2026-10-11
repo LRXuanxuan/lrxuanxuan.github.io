@@ -1873,29 +1873,29 @@ TWC近期论文且核心算法代码可审计，适合建立强通信系统基�
 
 与你 CKM 视频项目中的低空 ISAC 网络规划章节完全贴合，可作为 CKM 从链路级扩展到网络规划级的代表论文。
 
-本篇日报尚待补齐
+[本篇日报](/papers/items/d7eb6567cc13c90c/#paper-report)
 
 ### 2026-07-11 · [Recursive Flow: A Generative Framework for MIMO Channel Estimation](/papers/items/5d5e2b7c6db5302c/)
 
 直接对应你正在研究的 SRF/GMFlow 代码，可用于比较 CKM 先验如何接入 flow-based channel estimation 的闭式/投影更新。
 
-本篇日报尚待补齐
+[本篇日报](/papers/items/5d5e2b7c6db5302c/#paper-report)
 
 ### 2026-07-11 · [AI-based Environment-Aware XL-MIMO Channel Estimation with Location-Specific Prior Knowledge Enabled by CKM](/papers/items/9fffd291409b55ec/)
 
 与你之前讨论的 CKM-aware SRF 思路高度接近：把位置相关先验显式接入信道估计，而不是只训练无条件生成先验。
 
-本篇日报尚待补齐
+[本篇日报](/papers/items/9fffd291409b55ec/#paper-report)
 
 ### 2026-07-11 · [Data-Model Co-Driven Continuous Channel Map Construction: A Perceptive Foundation for Embodied Intelligent Agents in 6G Networks](/papers/items/ec5a13f567ec08dc/)
 
 可为你考虑的“WCM/CKM 先验 + SRF/GMFlow + 在线更新”提供更像地图世界模型的构建路线。
 
-本篇日报尚待补齐
+[本篇日报](/papers/items/ec5a13f567ec08dc/#paper-report)
 
 ### 2026-07-11 · [Wireless Channel Map Enabled Instantaneous Channel State Information Acquisition in High-Mobility Scenarios](/papers/items/f997fa4fb49f2a25/)
 
 与你的 WCM 东南论文讲义和 64x16 高机动数据生成器最直接相关，可作为主线论文继续深挖公式、数据结构和实验复现。
 
-本篇日报尚待补齐
+[本篇日报](/papers/items/f997fa4fb49f2a25/#paper-report)
 {% endraw %}
