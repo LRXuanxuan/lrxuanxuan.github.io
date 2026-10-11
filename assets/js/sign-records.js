@@ -14,7 +14,7 @@
       let legacy = [];
       try { legacy = JSON.parse(localStorage.getItem(legacyKey) || '[]'); } catch (_) {}
       let preserved = [];
-      if (Array.isArray(legacy)) preserved = legacy.filter(row => row && row.kind === 'daily' && typeof row.text === 'string' && typeof row.book === 'string' && row.date);
+      if (Array.isArray(legacy)) preserved = legacy.filter(row => row && row.kind === 'daily' && typeof row.text === 'string' && typeof row.book === 'string' && row.date).map(row => ({...row,aspect:''}));
       let current = [];
       try { current = JSON.parse(localStorage.getItem(key) || '[]'); } catch (_) {}
       if (!Array.isArray(current)) current = [];
@@ -61,8 +61,23 @@
     return save(rows);
   }
   async function migrate(poolUrl) {
-    // Unknown-date legacy signatures were removed at the user's request.
-    read();
+    // Only retained old default-daily entries need relabeling; old redraws were deleted.
+    if (!poolUrl || !read().some(row => row.kind==='daily' && !row.aspect)) return;
+    const response=await fetch(poolUrl,{cache:'force-cache'});
+    if(!response.ok) throw new Error('daily-aspect-pool');
+    const payload=await response.json();
+    if(!Array.isArray(payload.quotes)) throw new Error('daily-aspect-format');
+    const byId=new Map(payload.quotes.map(row=>[row.id,row.aspect]));
+    const byContent=new Map(payload.quotes.map(row=>[row.book+'\\u0001'+row.text,row.aspect]));
+    let dirty=false;
+    const revised=read().map(row=>{
+      if(row.kind!=='daily'||row.aspect) return row;
+      const aspect=byId.get(row.id)||byContent.get(row.book+'\\u0001'+row.text);
+      if(!aspect) return row;
+      dirty=true;
+      return {...row,aspect};
+    });
+    if(dirty) save(revised);
   }
   function authorKey(quote) {
     const value=`${quote.author||''} ${quote.book||''}`.replace(/\[[^\]]*\]|【[^】]*】|（[^）]*）|\([^)]*\)/g,'').trim();
