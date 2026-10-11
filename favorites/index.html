@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "书籍与音乐 Top 10"
+title: "书籍、音乐与游戏 Top 10"
 permalink: /favorites/
 toc: false
 ---
@@ -10,10 +10,11 @@ toc: false
 <div class="fm-favorites">
   <header class="fm-heading">
     <p class="fm-eyebrow">A LITTLE PERSONAL CANON</p>
-    <h2>我喜欢的书与唱片</h2>
+    <h2>我喜欢的书、唱片与游戏</h2>
     <nav class="fm-nav" aria-label="切换书籍与音乐榜单">
       <a href="#books"><i class="fas fa-book-open" aria-hidden="true"></i> 书籍 Top 10</a>
       <a href="#albums"><i class="fas fa-music" aria-hidden="true"></i> 音乐 Top 10</a>
+      <a href="#games"><i class="fas fa-gamepad" aria-hidden="true"></i> 游戏 Top 10</a>
     </nav>
   </header>
 
@@ -53,6 +54,28 @@ toc: false
         <div class="fm-info">
           <h3><a href="{{ album.link }}" target="_blank" rel="noopener noreferrer" title="在豆瓣查看唱片：{{ album.title | escape }}">{{ album.title }} <i class="fas fa-arrow-up-right-from-square fm-external" aria-hidden="true"></i></a></h3>
           <p class="fm-byline"><span>{{ album.creator }}</span>{% if album.year %}<span class="fm-year"> · {{ album.year }}</span>{% endif %}</p>
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+
+  <section id="games" class="fm-section" aria-labelledby="fm-games-title">
+    <div class="fm-section-title">
+      <div>
+        <p class="fm-category">THE GAME SHELF</p>
+        <h2 id="fm-games-title">游戏 · Top 10</h2>
+      </div>
+      <time class="fm-count" datetime="2026-10-11">更新于 2026-10-11</time>
+    </div>
+    <ol class="fm-list">
+      {% for game in site.data.favorites.games %}
+      <li class="fm-item">
+        <span class="fm-rank" aria-label="第 {{ forloop.index }} 名">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+        <div class="fm-info">
+          <h3><a href="{{ game.link }}" target="_blank" rel="noopener noreferrer" title="查看官方游戏页面：{{ game.title | escape }}">{{ game.title }} <i class="fas fa-arrow-up-right-from-square fm-external" aria-hidden="true"></i></a></h3>
+          {% if game.zh %}<p class="fm-localized">{{ game.zh }}</p>{% elsif game.alias %}<p class="fm-localized">{{ game.alias }}</p>{% endif %}
+          <p class="fm-byline"><span>{{ game.creator }}</span><span class="fm-year"> · {{ game.year }}</span></p>
         </div>
       </li>
       {% endfor %}
