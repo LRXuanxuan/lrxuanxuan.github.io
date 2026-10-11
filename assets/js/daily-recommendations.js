@@ -71,7 +71,8 @@
     if (!choices.length) {
       // A finite curated pool eventually cycles, but not within the last 14 days.
       const recent = new Set(previous.slice(-14));
-      choices = all.filter(item => !recent.has(item.id));
+      choices = all.filter(item => !recent.has(item.id) && state.votes[item.id] !== 'seen');
+      if (!choices.length) choices = all.filter(item => !recent.has(item.id));
       if (!choices.length) choices = all;
     }
     const opinions = allItems().filter(item => ['like', 'meh', 'dislike'].includes(state.votes[item.id]));
