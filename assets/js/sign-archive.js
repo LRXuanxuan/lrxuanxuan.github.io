@@ -3,6 +3,7 @@
   const records=globalThis.RCSignRecords;
   const aspects=globalThis.RCSignAspects;
   const votes=globalThis.RCSignVotes;
+  const calendar=globalThis.RCSignCalendar;
   if(!root||!records) return;
   const list=root.querySelector('[data-archive-local]');
   const staticDaily=root.querySelector('[data-archive-daily]');
@@ -134,4 +135,47 @@
   window.addEventListener('storage',event=>{if(event.key===records.key||event.key===votes?.storageKey)render();});
   render();
   records.migrate(root.dataset.pool).then(render).catch(()=>{status.textContent='旧签暂未加载，请稍后刷新；已有签册仍保留。';});
+
+  // GitHub's nightly job normally publishes the official archive. When the
+  // queue is delayed, derive missing dates locally so the archive still shows
+  // the new Beijing date immediately. Published rows always take precedence.
+  if(calendar) {
+    let updating=null,dayTimer=null;
+    async function addMissingDays() {
+      if(updating)return updating;
+      const today=calendar.day();
+      const existing=new Set(daily.map(row=>row.date));
+      const missing=[];
+      const start=Date.parse('2026-10-12T00:00:00Z');
+      const end=Date.parse(today+'T00:00:00Z');
+      for(let point=start;point<=end&&missing.length<7305;point+=86400000) {
+        const date=new Date(point).toISOString().slice(0,10);
+        if(!existing.has(date))missing.push(date);
+      }
+      if(!missing.length)return;
+      updating=fetch(root.dataset.pool,{cache:'no-cache'})
+        .then(response=>{if(!response.ok)throw Error('sign-pool');return response.json();})
+        .then(data=>{
+          if(!Array.isArray(data.quotes)||!data.quotes.length)throw Error('sign-pool');
+          for(const date of missing) {
+            if(date>calendar.day()||daily.some(row=>row.date===date))continue;
+            const q=calendar.choose(data.quotes,date);
+            daily.push({...q,date});
+          }
+          render();
+        }).catch(()=>{
+          status.textContent='正式日签归档稍有延迟，稍后刷新即可。';
+        }).finally(()=>{updating=null;});
+      return updating;
+    }
+    function schedule() {
+      if(dayTimer!==null)clearTimeout(dayTimer);
+      dayTimer=setTimeout(()=>addMissingDays().finally(schedule),
+        calendar.nextMidnightDelay());
+    }
+    addMissingDays().finally(schedule);
+    document.addEventListener('visibilitychange',()=>{
+      if(!document.hidden)addMissingDays().finally(schedule);
+    });
+  }
 })();
