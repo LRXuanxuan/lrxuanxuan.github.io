@@ -1,0 +1,201 @@
+/* Lightweight personal book and album lists. No external fonts or media. */
+.fm-favorites { max-width: 860px; color: var(--text-color); }
+.fm-favorites .fm-heading {
+  padding: 1.65rem 1.5rem;
+  border: 1px solid var(--main-border-color);
+  border-radius: 15px;
+  background: linear-gradient(112deg, rgb(82 149 212 / 10%), transparent 65%), var(--card-bg);
+}
+.fm-favorites .fm-eyebrow,
+.fm-favorites .fm-category {
+  color: var(--link-color);
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  font-size: .7rem;
+  font-weight: 750;
+  margin: 0 0 .65rem;
+}
+.fm-favorites .fm-heading h2 {
+  color: var(--heading-color);
+  font-size: clamp(1.6rem, 4vw, 2rem);
+  margin: 0 0 .6rem;
+  line-height: 1.3;
+}
+.fm-favorites .fm-heading > p:not(.fm-eyebrow) {
+  color: var(--text-muted-color);
+  font-size: .92rem;
+  line-height: 1.8;
+  margin: 0;
+}
+.fm-favorites .fm-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem;
+  margin-top: 1.3rem;
+}
+.fm-favorites .fm-nav a {
+  border: 1px solid var(--btn-border-color);
+  border-radius: 8px;
+  background: var(--main-bg);
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .55rem .8rem;
+  color: var(--heading-color);
+  font-size: .87rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+.fm-favorites .fm-nav a:hover { border-color: var(--link-color); color: var(--link-color); }
+.fm-favorites .fm-section { margin-top: 2.75rem; scroll-margin-top: 5.5rem; }
+.fm-favorites .fm-section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: .75rem;
+  margin-bottom: 1rem;
+}
+.fm-favorites .fm-category { margin-bottom: .4rem; }
+.fm-favorites .fm-section-title h2 {
+  color: var(--heading-color);
+  font-size: 1.35rem;
+  margin: 0;
+  font-weight: 750;
+}
+.fm-favorites .fm-count {
+  color: var(--text-muted-color);
+  font-size: .82rem;
+  white-space: nowrap;
+}
+.fm-favorites .fm-list {
+  padding: 0;
+  margin: 0;
+  border: 1px solid var(--main-border-color);
+  border-radius: 14px;
+  background: var(--card-bg);
+  overflow: hidden;
+  list-style: none;
+}
+.fm-favorites .fm-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 120px;
+  padding: 1.05rem 1.15rem;
+}
+.fm-favorites .fm-item + .fm-item { border-top: 1px solid var(--main-border-color); }
+.fm-favorites .fm-rank {
+  flex: 0 0 1.7rem;
+  font-size: 1.05rem;
+  color: var(--text-muted-color);
+  text-align: center;
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+}
+.fm-favorites .fm-art {
+  box-sizing: border-box;
+  flex: 0 0 79px;
+  width: 79px;
+  height: 102px;
+  background: var(--fm-cover-bg);
+  color: var(--fm-cover-ink);
+  border-radius: 3px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 14%);
+  padding: .55rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+}
+.fm-favorites .fm-art::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 5px;
+  background: rgb(0 0 0 / 9%);
+}
+.fm-favorites .fm-art-album {
+  height: 79px;
+  border-radius: 4px;
+}
+.fm-favorites .fm-art-album::before {
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 3px;
+}
+.fm-favorites .fm-art-mark { align-self: flex-end; font-size: .7rem; opacity: .7; }
+.fm-favorites .fm-art-name {
+  font-size: .68rem;
+  font-weight: 800;
+  line-height: 1.35;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.fm-favorites .fm-art-album .fm-art-name {
+  font-size: .59rem;
+  -webkit-line-clamp: 3;
+}
+.fm-favorites .fm-info {
+  flex: 1;
+  min-width: 0;
+}
+.fm-favorites .fm-info h3 {
+  color: var(--heading-color);
+  font-size: clamp(.95rem, 2vw, 1.1rem);
+  line-height: 1.45;
+  font-weight: 725;
+  margin: 0 0 .45rem;
+  overflow-wrap: anywhere;
+}
+.fm-favorites .fm-creator {
+  color: var(--text-color);
+  font-size: .88rem;
+  line-height: 1.5;
+  margin: 0 0 .25rem;
+}
+.fm-favorites .fm-edition {
+  color: var(--text-muted-color);
+  font-size: .78rem;
+  line-height: 1.5;
+  margin: 0;
+}
+.fm-favorites .fm-score {
+  flex: 0 0 3.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: .3rem;
+  color: var(--text-muted-color);
+  font-size: .95rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.fm-favorites .fm-star { color: #e5a72d; font-size: 1.16rem; }
+.fm-favorites .fm-no-score { color: var(--text-muted-color); }
+.fm-favorites .fm-item-pending { opacity: .7; }
+.fm-favorites .fm-note {
+  margin: 1.4rem 0 1.5rem;
+  color: var(--text-muted-color);
+  line-height: 1.8;
+  font-size: .78rem;
+}
+@media (max-width: 650px) {
+  .fm-favorites .fm-heading { padding: 1.25rem; }
+  .fm-favorites .fm-item { gap: .7rem; padding: .85rem .65rem; min-height: 94px; }
+  .fm-favorites .fm-art { flex-basis: 57px; width: 57px; height: 77px; padding: .4rem; }
+  .fm-favorites .fm-art-album { height: 57px; }
+  .fm-favorites .fm-art-name { font-size: .56rem; }
+  .fm-favorites .fm-art-album .fm-art-name { font-size: .48rem; }
+  .fm-favorites .fm-rank { flex-basis: 1.3rem; font-size: .85rem; }
+  .fm-favorites .fm-score { flex-basis: 3.2rem; font-size: .8rem; gap: .2rem; }
+  .fm-favorites .fm-star { font-size: .9rem; }
+  .fm-favorites .fm-edition { font-size: .7rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fm-favorites .fm-nav a { transition: none; }
+}
