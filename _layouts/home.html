@@ -1,0 +1,70 @@
+---
+layout: default
+---
+
+<link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url }}">
+
+<div class="rc-home">
+  <section class="rc-hero" aria-labelledby="rc-home-title">
+    <p class="rc-eyebrow">WELCOME TO MY LITTLE CORNER</p>
+    <h1 id="rc-home-title">{{ site.title }}</h1>
+    <p class="rc-tagline">{{ site.tagline }}</p>
+    <p class="rc-intro">这里记录一些正在研究的问题、喜欢的科幻作品，以及偶尔心血来潮制作的小玩意。科研归科研，摸鱼归摸鱼；都可以在这里留下一点痕迹。</p>
+    <nav class="rc-quicklinks" aria-label="快速访问">
+      <a href="{{ '/papers/' | relative_url }}"><i class="fas fa-book-open" aria-hidden="true"></i> 论文库 <span aria-hidden="true">↗</span></a>
+      <a href="{{ '/translations/' | relative_url }}"><i class="fas fa-book-reader" aria-hidden="true"></i> 文学译本 <span aria-hidden="true">↗</span></a>
+      <a href="{{ '/fortune/' | relative_url }}"><i class="fas fa-moon" aria-hidden="true"></i> 摇奖机 <span aria-hidden="true">↗</span></a>
+    </nav>
+  </section>
+
+  <section class="rc-section" aria-labelledby="rc-sections-heading">
+    <div class="rc-section-heading">
+      <h2 id="rc-sections-heading">这里有什么？</h2>
+      <p>几种不大相干的兴趣，凑成一个小小的私人角落。</p>
+    </div>
+    <div class="rc-card-grid">
+      <a class="rc-card" href="{{ '/papers/' | relative_url }}">
+        <span class="rc-card-icon" aria-hidden="true"><i class="fas fa-satellite-dish"></i></span>
+        <h3>科研与论文 <i class="fas fa-arrow-up-right-from-square rc-arrow" aria-hidden="true"></i></h3>
+        <p>无线通信、信号处理、生成模型；每日论文记录与阅读资料。</p>
+      </a>
+      <a class="rc-card" href="{{ '/translations/' | relative_url }}">
+        <span class="rc-card-icon" aria-hidden="true"><i class="fas fa-book-open"></i></span>
+        <h3>科幻与翻译 <i class="fas fa-arrow-up-right-from-square rc-arrow" aria-hidden="true"></i></h3>
+        <p>斯特普尔顿、谢克里，以及由 LLM 翻译、整理成册的中文译本。</p>
+      </a>
+      <div class="rc-card rc-card-pending">
+        <span class="rc-card-icon" aria-hidden="true"><i class="fas fa-film"></i></span>
+        <h3>阅读与观影 <span class="rc-soon">陆续更新</span></h3>
+        <p>书评、电影闲谈，以及一些不太正经的考据与碎碎念。</p>
+      </div>
+      <a class="rc-card" href="{{ '/fortune/' | relative_url }}">
+        <span class="rc-card-icon" aria-hidden="true"><i class="fas fa-dice"></i></span>
+        <h3>奇怪的小玩意 <i class="fas fa-arrow-up-right-from-square rc-arrow" aria-hidden="true"></i></h3>
+        <p>照明之咪摇奖机，以及以后可能出现的实验性网页。</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="rc-section rc-recent" aria-labelledby="rc-recent-heading">
+    <div class="rc-section-heading">
+      <h2 id="rc-recent-heading">近期上传</h2>
+      <p>按更新日期排列，记录最近放进博客的内容。</p>
+    </div>
+    {% assign recent_uploads = site.data.home_updates | sort: 'date' | reverse %}
+    <ul class="rc-update-list">
+      {% for upload in recent_uploads limit: 3 %}
+      <li>
+        <a href="{{ upload.url | relative_url }}">
+          <time datetime="{{ upload.date }}">{{ upload.date | date: '%Y.%m.%d' }}</time>
+          <span class="rc-update-body">
+            <strong>{{ upload.title }}</strong>
+            <span>{{ upload.description }}</span>
+          </span>
+          <i class="fas fa-arrow-right rc-update-arrow" aria-hidden="true"></i>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+</div>
