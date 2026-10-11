@@ -11,7 +11,7 @@ toc: false
   <header class="fm-heading">
     <p class="fm-eyebrow">A LITTLE PERSONAL CANON</p>
     <h2>我喜欢的书与唱片</h2>
-    <p>不是权威榜单，只是私心收藏的十个位置。榜单顺序按整理时的偏好保留，与分数高低无关。</p>
+    <p>不是权威榜单，只是私心收藏的十个位置。顺序就是个人偏好，不设评分；只记录作者或音乐人，以及作品最初问世的年份。</p>
     <nav class="fm-nav" aria-label="切换书籍与音乐榜单">
       <a href="#books"><i class="fas fa-book-open" aria-hidden="true"></i> 书籍 Top 10</a>
       <a href="#albums"><i class="fas fa-music" aria-hidden="true"></i> 音乐 Top 10</a>
@@ -36,16 +36,7 @@ toc: false
         </div>
         <div class="fm-info">
           <h3>{{ book.title }}</h3>
-          <p class="fm-creator">{{ book.creator }}</p>
-          <p class="fm-edition">{{ book.edition }}</p>
-        </div>
-        <div class="fm-score">
-          {% if book.score %}
-          <span class="fm-star" aria-label="截图评分">★</span>
-          <span>{{ book.score }}</span>
-          {% else %}
-          <span class="fm-no-score">—</span>
-          {% endif %}
+          <p class="fm-byline"><span>{{ book.creator }}</span>{% if book.year %}<span class="fm-year"> · {{ book.year }}</span>{% endif %}</p>
         </div>
       </li>
       {% endfor %}
@@ -58,32 +49,23 @@ toc: false
         <p class="fm-category">THE RECORD SHELF</p>
         <h2 id="fm-albums-title">音乐 · Top 10</h2>
       </div>
-      <span class="fm-count">9 / 10 已录入</span>
+      <span class="fm-count">10 / 10</span>
     </div>
     <ol class="fm-list">
       {% for album in site.data.favorites.albums %}
-      <li class="fm-item{% if album.pending %} fm-item-pending{% endif %}">
+      <li class="fm-item">
         <span class="fm-rank" aria-label="第 {{ forloop.index }} 名">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
         <div class="fm-art fm-art-album" aria-hidden="true" style="--fm-cover-bg: {{ album.color }}; --fm-cover-ink: {{ album.ink }};">
           <span class="fm-art-mark"><i class="fas fa-compact-disc"></i></span>
-          <span class="fm-art-name">{% if album.pending %}…{% else %}{{ album.title }}{% endif %}</span>
+          <span class="fm-art-name">{{ album.title }}</span>
         </div>
         <div class="fm-info">
           <h3>{{ album.title }}</h3>
-          <p class="fm-creator">{{ album.creator }}</p>
-          <p class="fm-edition">{{ album.edition }}</p>
-        </div>
-        <div class="fm-score">
-          {% if album.score %}
-          <span class="fm-star" aria-label="截图评分">★</span>
-          <span>{{ album.score }}</span>
-          {% else %}
-          <span class="fm-no-score">—</span>
-          {% endif %}
+          <p class="fm-byline"><span>{{ album.creator }}</span>{% if album.year %}<span class="fm-year"> · {{ album.year }}</span>{% endif %}</p>
         </div>
       </li>
       {% endfor %}
     </ol>
   </section>
-  <p class="fm-note">注：榜单中的数字取自所提供截图的参考评分，并非个人评分；示意色块并非原版封面。第十张唱片未出现在截图中，暂留空位。</p>
+  <p class="fm-note">注：年份以作品最早公开发表或发行时间为准（《伽利略传》采用 1943 年首演年份），不对应截图中的再版年份；古代著作不列年份。彩色色块是轻量化示意，并非原版封面。</p>
 </div>
