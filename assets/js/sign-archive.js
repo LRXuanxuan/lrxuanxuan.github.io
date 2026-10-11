@@ -2,11 +2,44 @@
   const root=document.querySelector('.rc-sign-archive');
   const records=globalThis.RCSignRecords;
   const aspects=globalThis.RCSignAspects;
+  const votes=globalThis.RCSignVotes;
   if(!root||!records) return;
   const list=root.querySelector('[data-archive-local]');
   const staticDaily=root.querySelector('[data-archive-daily]');
   const status=root.querySelector('[data-archive-status]');
   const filter=root.querySelector('[data-archive-filter]');
+  const voteTotal=root.querySelector('[data-votes-total]');
+  function updateVoteSummary() {
+    if(!votes||!voteTotal) return;
+    const summary=votes.totals();
+    voteTotal.textContent=`私人评价：♡ 喜欢 ${summary.like} 条 · 🐾 不喜欢 ${summary.dislike} 条（仅存在此浏览器）`;
+  }
+  function voteControls(quote) {
+    const group=document.createElement('div');
+    group.className='rc-sign-votes';group.setAttribute('role','group');
+    group.setAttribute('aria-label','这条签文的私人评价');
+    const buttons={};
+    const refresh=()=>{
+      const picked=votes.get(quote);
+      for(const [kind,button] of Object.entries(buttons)){
+        button.setAttribute('aria-pressed',String(picked===kind));
+        button.title=picked===kind?'再点一次可撤销':'只在本机保存';
+      }
+    };
+    for(const [kind,caption,label] of [['like','♡ 贴贴','喜欢这句日签'],['dislike','🐾 不戳','不喜欢这句日签']]) {
+      const button=document.createElement('button');
+      button.type='button';button.textContent=caption;
+      button.setAttribute('aria-label',label);
+      button.dataset[kind==='like'?'signLike':'signDislike']='';
+      button.addEventListener('click',()=>{
+        const response=votes.vote(quote,kind);
+        refresh();updateVoteSummary();
+        if(!response.ok) status.textContent='评价暂存在本页，浏览器没有允许持久保存。';
+      });
+      buttons[kind]=button;group.append(button);
+    }
+    refresh();return group;
+  }
   let daily=[];
   try { daily=JSON.parse(document.getElementById('rc-daily-archive-data').textContent||'[]'); } catch (_) {}
   if(!Array.isArray(daily)) daily=[];
@@ -46,15 +79,38 @@
           tag.classList.add('rc-archive-aspect');
           kind.append(tag);
         }
-        article.append(kind,text,source);section.append(article);
+        article.append(kind,text,source);
+        if(votes) article.append(voteControls(quote));
+        section.append(article);
       }
       list.append(section);
     }
     if(!rows.length) {const p=document.createElement('p');p.textContent='还没有这一类签，回首页抽一句喵。';list.append(p);}
     status.textContent=`签册共 ${all().length} 段 · 当前显示 ${rows.length} 段`;
+    updateVoteSummary();
   }
   filter.addEventListener('change',render);
   root.querySelector('[data-archive-import-button]').addEventListener('click',()=>root.querySelector('[data-archive-import]').click());
+  root.querySelector('[data-votes-export]').addEventListener('click',()=>{
+    if(!votes)return;
+    const exportFile=new Blob([JSON.stringify(votes.exportData(),null,2)],{type:'application/json;charset=utf-8'});
+    const url=URL.createObjectURL(exportFile);
+    const link=document.createElement('a');link.href=url;
+    link.download=`日签私人评价-${records.dateNow()}.json`;
+    link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+    status.textContent='已准备好评价文件，记得留作备份喵。';
+  });
+  root.querySelector('[data-votes-import-button]').addEventListener('click',()=>root.querySelector('[data-votes-import]').click());
+  root.querySelector('[data-votes-import]').addEventListener('change',async event=>{
+    const file=event.target.files[0];if(!file)return;
+    try {
+      if(file.size>3*1024*1024)throw Error('size');
+      const result=votes.importData(JSON.parse(await file.text()));
+      render();
+      status.textContent=result.ok?`已恢复 ${result.imported} 条评价喵。`:'导入结果只能暂存在本页，请检查浏览器存储。';
+    } catch (_) {status.textContent='评价文件格式不符合要求，未导入。';}
+    event.target.value='';
+  });
   root.querySelector('[data-archive-export]').addEventListener('click',()=>{
     const data={version:1,exportedAt:new Date().toISOString(),records:all()};
     const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json;charset=utf-8'}));
@@ -75,7 +131,7 @@
     } catch (_) {status.textContent='没有导入成功，请选择导出的签册 JSON 文件。';}
     event.target.value='';
   });
-  window.addEventListener('storage',event=>{if(event.key===records.key)render();});
+  window.addEventListener('storage',event=>{if(event.key===records.key||event.key===votes?.storageKey)render();});
   render();
   records.migrate(root.dataset.pool).then(render).catch(()=>{status.textContent='旧签暂未加载，请稍后刷新；已有签册仍保留。';});
 })();
