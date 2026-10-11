@@ -9,7 +9,13 @@
     return `${get('year')}-${get('month')}-${get('day')}`;
   }
   function read() {
-    try { const data=JSON.parse(localStorage.getItem(key)||'[]'); if(Array.isArray(data)) memory=data.filter(row=>row&&typeof row.text==='string'&&typeof row.book==='string'); } catch (_) {}
+    try {
+      const data=JSON.parse(localStorage.getItem(key)||'[]');
+      if(Array.isArray(data)) {
+        memory=data.filter(row=>row&&typeof row.text==='string'&&typeof row.book==='string'&&row.kind!=='legacy'&&row.date);
+        if(memory.length!==data.length)save(memory);
+      }
+    } catch (_) {}
     return memory;
   }
   function save(rows) {
@@ -20,22 +26,14 @@
   function add(quote, kind='redraw', date=dateNow(), timestamp=new Date().toISOString()) {
     const row={id:quote.id||quote.text,date,kind,timestamp};
     for(const field of fields) row[field]=String(quote[field]||'');
-    if(!row.text||!row.book) return false;
+    if(!row.text||!row.book||kind==='legacy'||!date) return false;
     const rows=read().slice();
     if(!rows.some(item=>identity(item)===identity(row))) rows.push(row);
     return save(rows);
   }
   async function migrate(poolUrl) {
-    let legacy=[];
-    try { legacy=JSON.parse(localStorage.getItem('rc-sign-drawn-v2')||'[]'); } catch (_) {}
-    if(!Array.isArray(legacy)||!legacy.length) return;
-    const known=new Set(read().map(row=>row.id));
-    const missing=legacy.filter(id=>!known.has(id));
-    if(!missing.length) return;
-    const response=await fetch(poolUrl,{cache:'no-cache'});
-    if(!response.ok) throw Error('migration');
-    const data=await response.json();
-    for(const quote of data.quotes||[]) if(missing.includes(quote.id)&&!read().some(row=>row.id===quote.id)) add(quote,'legacy',null,null);
+    // Unknown-date legacy signatures were removed at the user's request.
+    read();
   }
   function authorKey(quote) {
     const value=`${quote.author||''} ${quote.book||''}`.replace(/\[[^\]]*\]|【[^】]*】|（[^）]*）|\([^)]*\)/g,'').trim();
