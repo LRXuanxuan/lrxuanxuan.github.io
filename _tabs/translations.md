@@ -55,6 +55,10 @@ order: 2
 - [编者导言与克拉克亲笔前言（中文译稿）](/posts/clarke-lewis-prefaces/)
 - [克拉克与刘易斯往来书信（1943—1954；附 2003 年短札）](/posts/clarke-lewis-correspondence/)
 
+**我的评论：**
+
+> From Narnia to a Space Odyssey: The War of Ideas Between Arthur C. Clarke and C. S. Lewis这书属于彻头彻尾的标题党，起了一个有着仿佛战至大道磨灭气势的标题，实际上只有一小半篇幅属于通信内容——总体甚至比较客气但是符合各自人设的通信内容。不过通过它们能了解到包括但不仅限于CS刘易斯是被托尔金拉入教的等热（？）知识，可以当成八卦看( ﹁ ﹁ ) ~→
+
 本项直接以长篇博文呈现，**不提供 EPUB**，亦不收录原书所选两人的小说、随笔。译稿由 LLM 生成，手写信中不能可靠辨认的文字另有校勘标注。
 
 ---
