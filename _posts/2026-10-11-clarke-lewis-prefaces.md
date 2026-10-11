@@ -3,8 +3,6 @@ title: "从纳尼亚到太空漫游：编者导言与克拉克前言"
 slug: clarke-lewis-prefaces
 permalink: /posts/clarke-lewis-prefaces/
 date: 2026-10-11 17:40:00 +0800
-categories: [个人译作]
-tags: [科幻, 克拉克, 刘易斯]
 description: "《From Narnia to a Space Odyssey》（2003）中的编者导言与阿瑟·克拉克亲笔前言，中文译文。"
 toc: true
 comments: false
