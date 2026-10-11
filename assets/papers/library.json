@@ -4,13 +4,15 @@
   "source_sha256": "3068fe58ddff7a47347e7d48d95eea08cdb590576877196b3d4aacc8caaf2c42",
   "translation_progress": {
     "target": 315,
-    "completed": 8,
-    "public_full_text": 2,
-    "local_only": 6,
+    "completed": 7,
+    "public_full_text": 5,
+    "local_only": 2,
     "status_counts": {
       "access_blocked": 1,
-      "complete": 8,
-      "pending": 306
+      "complete": 7,
+      "incomplete": 1,
+      "pending": 305,
+      "running": 1
     },
     "model": "gpt-6-luna",
     "reasoning_effort": "xhigh",
@@ -111,18 +113,24 @@
       },
       "hyperlinks": {},
       "report_url": "/papers/reports/2026-10-11/",
-      "report_section": "### 05. You May Use the Same Channel Knowledge Map for Environment-Aware NLoS Sensing and Communication\n\n**本篇全文译稿入口：** 本地完整译稿（本地资料：paper.md） · [网页全文译稿状态](https://lrxuanxuan.github.io/papers/items/c993009e70191dfd/#paper-translation)\n\n\n**作者：** Wu, Di; Dai, Zhuoyin; Zeng, Yong。\n\n**年份 / venue / 状态：** 2026 / IEEE Transactions on Wireless Communications / 正式发表。核验日期2026-10-11。\n\n正式卷页：25:14627-14641；IEEE页面触发robot验证，采用[Crossref注册元数据](https://api.crossref.org/works/10.1109/TWC.2026.3678277) 与作者arXiv/机构资料交叉核验，首发月份未精确确认，不推断。\n\n**阅读版本：** Submission history From: Di Wu [ view email ] [v1] Fri, 4 Jul 2025 13:57:13 UTC (513 KB) [v2] Thu, 22 Jan 2026 04:33:55 UTC (488 KB) [v3] Tue, 17 Mar 2026 15:01:58 UTC (500 KB) [v4] Thu, 9 Apr 2026 08:18:57 UTC (6,667 KB)；实际PDF 15页，全文提取，重点方法/结果对应页3,4,5,6,7,8,9,10,11,12,13,14。\n\n**问题：** 几何感知常依赖LoS或显式散射体位置，通信构建的CKM是否可直接成为NLoS定位先验需要明确概率变换。\n\n**方法与独立机制：** 把感知目标视为虚拟UE，从通信角度—时延概率图CADM组合发射—目标与目标—接收路径先验。利用两段传播角度/时延分布的关系构造感知参数似然，再对目标位置作最大似然/梯度优化；FCNN学习位置相关分布均值和方差，并给出CRLB。延时均值/方差的相加依赖模型内的独立性及路径关联，不能对任意关联路径生搬。\n\n**已核实实验与结果：** 采用arXiv v4（2026-04-09）15页全文。第11页Algorithm1：先由回波估计角度/时延，再以CADM似然梯度更新位置。数值在100×100m二维区域、BS(50,0)m、随机散射体、10000训练位置80/20划分，比较混合LoS/NLoS与纯NLoS；FCNN三隐层128/256/128、5个高斯成分。Fig.7–10展示位置误差与CRLB随角度/延时误差的变化；曲线未数表化，不从图猜精确倍数。\n\n**局限与不可外推范围：** 验证主要是单跳散射合成环境与统计扰动，未证实跨城市实测泛化。感知参数由既有算法先估出，感知开销及参数估计误差不可忽略。通信→感知先验的独立性/路径关联假设在动态/多次反射场景需重验。用户无完整AoA/AoD监督城市，当前不能直接训练完整CADM。\n\n**迁移类型：** 理论启发或基线\n\n**相对阅读笔记位置：** 应用：从通信历史统计先验扩展到ISAC定位，保持通信/感知共享地图的可验证接口。\n\n**与既有阅读差异：** 相对WCM瞬时CSI获取和当前KAP-Flow，独立贡献是通信先验到感知先验的概率映射；不是未来CSI预测，也不以复用“CKM”名称替代机制。\n\n**课题接口：** 先在可控双站点/单跳仿真建立真实CADM和路径关联，分别测试oracle统计、有限测量图及误配图。再评估位置误差/CRLB，和独立感知图比较；当前主线只保留应用论证，不承诺实测部署。\n\n**推荐理由：** 第二篇TWC兼顾系统用途，给研究链路CKM→后验修正→ISAC的末端提供具体模型与边界。\n\n**身份与一手入口：** [arXiv 2507.03589](https://arxiv.org/abs/2507.03589) · [DOI 10.1109/TWC.2026.3678277](https://doi.org/10.1109/TWC.2026.3678277) · [正式来源/状态证据](https://ieeexplore.ieee.org/document/11474535) · [官方/作者PDF](https://arxiv.org/pdf/2507.03589)。\n\n**代码状态：** 未发现公开代码。arXiv v4/PDF无作者代码链接，GitHub精确标题查询0；ID查询403限流，额外网页查询无可确认作者实现。\n\n**本地PDF：** [打开原文](https://arxiv.org/pdf/2507.03589)。\n\n**翻译：** pending，已立即入队，交由独立pdf自动化gpt-6-luna / medium处理；预期译文路径（本地资料：paper.md）当前不是已完成文件。主任务不生成整篇翻译。\n\n**许可与网页：** [实际原文许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)；未有允许公开译文依据，译文只作本地阅读；ND/默认arXiv分发许可不推定允许共享翻译。网站全部PDF仅保留官方原文链接，不上传任何PDF。",
+      "report_section": "### 05. You May Use the Same Channel Knowledge Map for Environment-Aware NLoS Sensing and Communication\n\n**本篇全文译稿入口：** [本地完整译稿](/papers/translations/2026-10-11-d0843014971d4b2ec69c6d03/) · [网页全文译稿](https://lrxuanxuan.github.io/papers/translations/2026-10-11-d0843014971d4b2ec69c6d03/#paper-c993009e70191dfd)\n\n\n**作者：** Wu, Di; Dai, Zhuoyin; Zeng, Yong。\n\n**年份 / venue / 状态：** 2026 / IEEE Transactions on Wireless Communications / 正式发表。核验日期2026-10-11。\n\n正式卷页：25:14627-14641；IEEE页面触发robot验证，采用[Crossref注册元数据](https://api.crossref.org/works/10.1109/TWC.2026.3678277) 与作者arXiv/机构资料交叉核验，首发月份未精确确认，不推断。\n\n**阅读版本：** Submission history From: Di Wu [ view email ] [v1] Fri, 4 Jul 2025 13:57:13 UTC (513 KB) [v2] Thu, 22 Jan 2026 04:33:55 UTC (488 KB) [v3] Tue, 17 Mar 2026 15:01:58 UTC (500 KB) [v4] Thu, 9 Apr 2026 08:18:57 UTC (6,667 KB)；实际PDF 15页，全文提取，重点方法/结果对应页3,4,5,6,7,8,9,10,11,12,13,14。\n\n**问题：** 几何感知常依赖LoS或显式散射体位置，通信构建的CKM是否可直接成为NLoS定位先验需要明确概率变换。\n\n**方法与独立机制：** 把感知目标视为虚拟UE，从通信角度—时延概率图CADM组合发射—目标与目标—接收路径先验。利用两段传播角度/时延分布的关系构造感知参数似然，再对目标位置作最大似然/梯度优化；FCNN学习位置相关分布均值和方差，并给出CRLB。延时均值/方差的相加依赖模型内的独立性及路径关联，不能对任意关联路径生搬。\n\n**已核实实验与结果：** 采用arXiv v4（2026-04-09）15页全文。第11页Algorithm1：先由回波估计角度/时延，再以CADM似然梯度更新位置。数值在100×100m二维区域、BS(50,0)m、随机散射体、10000训练位置80/20划分，比较混合LoS/NLoS与纯NLoS；FCNN三隐层128/256/128、5个高斯成分。Fig.7–10展示位置误差与CRLB随角度/延时误差的变化；曲线未数表化，不从图猜精确倍数。\n\n**局限与不可外推范围：** 验证主要是单跳散射合成环境与统计扰动，未证实跨城市实测泛化。感知参数由既有算法先估出，感知开销及参数估计误差不可忽略。通信→感知先验的独立性/路径关联假设在动态/多次反射场景需重验。用户无完整AoA/AoD监督城市，当前不能直接训练完整CADM。\n\n**迁移类型：** 理论启发或基线\n\n**相对阅读笔记位置：** 应用：从通信历史统计先验扩展到ISAC定位，保持通信/感知共享地图的可验证接口。\n\n**与既有阅读差异：** 相对WCM瞬时CSI获取和当前KAP-Flow，独立贡献是通信先验到感知先验的概率映射；不是未来CSI预测，也不以复用“CKM”名称替代机制。\n\n**课题接口：** 先在可控双站点/单跳仿真建立真实CADM和路径关联，分别测试oracle统计、有限测量图及误配图。再评估位置误差/CRLB，和独立感知图比较；当前主线只保留应用论证，不承诺实测部署。\n\n**推荐理由：** 第二篇TWC兼顾系统用途，给研究链路CKM→后验修正→ISAC的末端提供具体模型与边界。\n\n**身份与一手入口：** [arXiv 2507.03589](https://arxiv.org/abs/2507.03589) · [DOI 10.1109/TWC.2026.3678277](https://doi.org/10.1109/TWC.2026.3678277) · [正式来源/状态证据](https://ieeexplore.ieee.org/document/11474535) · [官方/作者PDF](https://arxiv.org/pdf/2507.03589)。\n\n**代码状态：** 未发现公开代码。arXiv v4/PDF无作者代码链接，GitHub精确标题查询0；ID查询403限流，额外网页查询无可确认作者实现。\n\n**本地PDF：** [打开原文](https://arxiv.org/pdf/2507.03589)。\n\n**翻译：** pending，已立即入队，交由独立pdf自动化gpt-6-luna / medium处理；[预期译文路径](/papers/translations/2026-10-11-d0843014971d4b2ec69c6d03/)当前不是已完成文件。主任务不生成整篇翻译。\n\n**许可与网页：** [实际原文许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)；未有允许公开译文依据，译文只作本地阅读；ND/默认arXiv分发许可不推定允许共享翻译。网站全部PDF仅保留官方原文链接，不上传任何PDF。",
       "report_entry_url": "/papers/reports/2026-10-11/#paper-c993009e70191dfd",
       "paper_url": "/papers/items/c993009e70191dfd/",
       "paper_report_url": "/papers/items/c993009e70191dfd/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-11-d0843014971d4b2ec69c6d03/#paper-c993009e70191dfd",
+          "scope": "全文中英文对照",
+          "title": "You May Use the Same Channel Knowledge Map for Environment-Aware NLoS Sensing and Communication"
+        }
+      ],
       "links": [
         "https://ieeexplore.ieee.org/document/11474535",
         "https://arxiv.org/pdf/2507.03589",
         "https://arxiv.org/abs/2507.03589",
         "https://doi.org/10.1109/TWC.2026.3678277",
         "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
-        "https://lrxuanxuan.github.io/papers/items/c993009e70191dfd/#paper-translation",
+        "https://lrxuanxuan.github.io/papers/translations/2026-10-11-d0843014971d4b2ec69c6d03/#paper-c993009e70191dfd",
         "https://api.crossref.org/works/10.1109/TWC.2026.3678277"
       ],
       "github": [],
@@ -132,9 +140,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/c993009e70191dfd/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-11-d0843014971d4b2ec69c6d03/#paper-c993009e70191dfd",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "7fadb829367915b8",
@@ -221,18 +229,24 @@
       },
       "hyperlinks": {},
       "report_url": "/papers/reports/2026-10-11/",
-      "report_section": "### 03. CSI-Tuples-Based 3-D Channel Fingerprints Construction Assisted by Multimodal Learning\n\n**本篇全文译稿入口：** 本地完整译稿（本地资料：paper.md） · [网页全文译稿状态](https://lrxuanxuan.github.io/papers/items/d07df267b870c505/#paper-translation)\n\n\n**作者：** Xie, Chenjie; You, Li; Chen, Ruirong; He, Gaoning; Gao, Xiqi。\n\n**年份 / venue / 状态：** 2026 / IEEE Transactions on Wireless Communications / 正式发表。核验日期2026-10-11。\n\n正式卷页：25:17369-17383；IEEE页面触发robot验证，采用[Crossref注册元数据](https://api.crossref.org/works/10.1109/TWC.2026.3693681) 与作者arXiv/机构资料交叉核验，首发月份未精确确认，不推断。\n\n**阅读版本：** Submission history From: Li You [ view email ] [v1] Thu, 26 Mar 2026 10:25:43 UTC (20,999 KB)；实际PDF 14页，全文提取，重点方法/结果对应页3,4,5,6,7,8,9,10,11,12,13。\n\n**问题：** 仅以二维RSS图或单一几何输入描述低空传播，难以兼顾高度、地面测量和空间环境的异构关系。\n\n**方法与独立机制：** 把3D-CF写成位置与统计CSI组成的CSI-tuples，再由Corr-MMF相关特征融合、MMR多模态表示和CSI-R位置回归模块构建连续位置查询。输入横向环境、纵向环境与近地测量；含target/channel/spatial attention和相关损失权重λ。具体实验目标是归一化RSS，不能等同完整瞬时复矩阵H。\n\n**已核实实验与结果：** 14页作者稿第11页表III：场景4相对FL的RMSE由0.056到0.045，MAE由0.039到0.027；第12页注意力消融移除TAM时RMSE从0.045升到0.546。Fig.9作者设备下构图时间为3.06秒，FL 5.18秒、GAN 2.81秒；本方法不是所有基线最快。测试基于Sionna射线场景、64阵元、3.5GHz、最多5条路径，RSS阈值并归一化到[0,1]。\n\n**局限与不可外推范围：** 论文摘要27.5%更高精度不是每个场景每个指标的下界：场景4表III的RMSE降幅仅约19.6%，应报告具体表而非宣传口径。四场景比较不自动等于严格leave-one-city-out。近地采样在1.5m、1m分辨率，取得这些输入有成本；缺失模态消融说明性能下降，不证明任意模态缺失下无需重训。用户Sheet2不存在同时齐全坐标与AoA/AoD城市，不能照搬全模态端到端监督。\n\n**迁移类型：** 可改造工具\n\n**相对阅读笔记位置：** 缺口/深化：统计地图构建与连续位置查询，为生成先验提供可靠环境条件。\n\n**与既有阅读差异：** 相对现有WCM/CKM用于瞬时CSI的生成或恢复，这里主要解决上游统计RSS地图与多模态融合；不是又一普通无线diffusion模型。\n\n**课题接口：** 先用真实可获得的地图与地面RSS训练可独立测试的统计条件编码器，再把输出接现有FiLM/adaLN或条件token。做单模态、随机模态dropout、噪声位置和跨场景分割；AoA/AoD分支仅在有真实标签的数据子集启用。\n\n**推荐理由：** TWC正式卷页与arXiv journal-ref一致；提供环境/测量融合的可拆分模块，同时明确输入缺口和时间开销。\n\n**身份与一手入口：** [arXiv 2603.25288](https://arxiv.org/abs/2603.25288) · [DOI 10.1109/TWC.2026.3693681](https://doi.org/10.1109/TWC.2026.3693681) · [正式来源/状态证据](https://ieeexplore.ieee.org/document/11534430) · [官方/作者PDF](https://arxiv.org/pdf/2603.25288)。\n\n**代码状态：** 未发现公开代码。检查作者arXiv/正文无官方代码入口；GitHub精确标题与arXiv ID搜索均0，网页精确查询亦无可归属作者实现。此结论只代表本次检索，非证明不存在。\n\n**本地PDF：** [打开原文](https://arxiv.org/pdf/2603.25288)。\n\n**翻译：** pending，已立即入队，交由独立pdf自动化gpt-6-luna / medium处理；预期译文路径（本地资料：paper.md）当前不是已完成文件。主任务不生成整篇翻译。\n\n**许可与网页：** [实际原文许可](https://creativecommons.org/licenses/by-nc-nd/4.0/)；未有允许公开译文依据，译文只作本地阅读；ND/默认arXiv分发许可不推定允许共享翻译。网站全部PDF仅保留官方原文链接，不上传任何PDF。",
+      "report_section": "### 03. CSI-Tuples-Based 3-D Channel Fingerprints Construction Assisted by Multimodal Learning\n\n**本篇全文译稿入口：** [本地完整译稿](/papers/translations/2026-10-11-5a84a72a52125d7f34feaa47/) · [网页全文译稿](https://lrxuanxuan.github.io/papers/translations/2026-10-11-5a84a72a52125d7f34feaa47/#paper-d07df267b870c505)\n\n\n**作者：** Xie, Chenjie; You, Li; Chen, Ruirong; He, Gaoning; Gao, Xiqi。\n\n**年份 / venue / 状态：** 2026 / IEEE Transactions on Wireless Communications / 正式发表。核验日期2026-10-11。\n\n正式卷页：25:17369-17383；IEEE页面触发robot验证，采用[Crossref注册元数据](https://api.crossref.org/works/10.1109/TWC.2026.3693681) 与作者arXiv/机构资料交叉核验，首发月份未精确确认，不推断。\n\n**阅读版本：** Submission history From: Li You [ view email ] [v1] Thu, 26 Mar 2026 10:25:43 UTC (20,999 KB)；实际PDF 14页，全文提取，重点方法/结果对应页3,4,5,6,7,8,9,10,11,12,13。\n\n**问题：** 仅以二维RSS图或单一几何输入描述低空传播，难以兼顾高度、地面测量和空间环境的异构关系。\n\n**方法与独立机制：** 把3D-CF写成位置与统计CSI组成的CSI-tuples，再由Corr-MMF相关特征融合、MMR多模态表示和CSI-R位置回归模块构建连续位置查询。输入横向环境、纵向环境与近地测量；含target/channel/spatial attention和相关损失权重λ。具体实验目标是归一化RSS，不能等同完整瞬时复矩阵H。\n\n**已核实实验与结果：** 14页作者稿第11页表III：场景4相对FL的RMSE由0.056到0.045，MAE由0.039到0.027；第12页注意力消融移除TAM时RMSE从0.045升到0.546。Fig.9作者设备下构图时间为3.06秒，FL 5.18秒、GAN 2.81秒；本方法不是所有基线最快。测试基于Sionna射线场景、64阵元、3.5GHz、最多5条路径，RSS阈值并归一化到[0,1]。\n\n**局限与不可外推范围：** 论文摘要27.5%更高精度不是每个场景每个指标的下界：场景4表III的RMSE降幅仅约19.6%，应报告具体表而非宣传口径。四场景比较不自动等于严格leave-one-city-out。近地采样在1.5m、1m分辨率，取得这些输入有成本；缺失模态消融说明性能下降，不证明任意模态缺失下无需重训。用户Sheet2不存在同时齐全坐标与AoA/AoD城市，不能照搬全模态端到端监督。\n\n**迁移类型：** 可改造工具\n\n**相对阅读笔记位置：** 缺口/深化：统计地图构建与连续位置查询，为生成先验提供可靠环境条件。\n\n**与既有阅读差异：** 相对现有WCM/CKM用于瞬时CSI的生成或恢复，这里主要解决上游统计RSS地图与多模态融合；不是又一普通无线diffusion模型。\n\n**课题接口：** 先用真实可获得的地图与地面RSS训练可独立测试的统计条件编码器，再把输出接现有FiLM/adaLN或条件token。做单模态、随机模态dropout、噪声位置和跨场景分割；AoA/AoD分支仅在有真实标签的数据子集启用。\n\n**推荐理由：** TWC正式卷页与arXiv journal-ref一致；提供环境/测量融合的可拆分模块，同时明确输入缺口和时间开销。\n\n**身份与一手入口：** [arXiv 2603.25288](https://arxiv.org/abs/2603.25288) · [DOI 10.1109/TWC.2026.3693681](https://doi.org/10.1109/TWC.2026.3693681) · [正式来源/状态证据](https://ieeexplore.ieee.org/document/11534430) · [官方/作者PDF](https://arxiv.org/pdf/2603.25288)。\n\n**代码状态：** 未发现公开代码。检查作者arXiv/正文无官方代码入口；GitHub精确标题与arXiv ID搜索均0，网页精确查询亦无可归属作者实现。此结论只代表本次检索，非证明不存在。\n\n**本地PDF：** [打开原文](https://arxiv.org/pdf/2603.25288)。\n\n**翻译：** pending，已立即入队，交由独立pdf自动化gpt-6-luna / medium处理；[预期译文路径](/papers/translations/2026-10-11-5a84a72a52125d7f34feaa47/)当前不是已完成文件。主任务不生成整篇翻译。\n\n**许可与网页：** [实际原文许可](https://creativecommons.org/licenses/by-nc-nd/4.0/)；未有允许公开译文依据，译文只作本地阅读；ND/默认arXiv分发许可不推定允许共享翻译。网站全部PDF仅保留官方原文链接，不上传任何PDF。",
       "report_entry_url": "/papers/reports/2026-10-11/#paper-d07df267b870c505",
       "paper_url": "/papers/items/d07df267b870c505/",
       "paper_report_url": "/papers/items/d07df267b870c505/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-11-5a84a72a52125d7f34feaa47/#paper-d07df267b870c505",
+          "scope": "全文中英文对照",
+          "title": "CSI-tuples-based 3D Channel Fingerprints Construction Assisted by MultiModal Learning"
+        }
+      ],
       "links": [
         "https://ieeexplore.ieee.org/document/11534430",
         "https://arxiv.org/pdf/2603.25288",
         "https://arxiv.org/abs/2603.25288",
         "https://doi.org/10.1109/TWC.2026.3693681",
         "https://creativecommons.org/licenses/by-nc-nd/4.0/",
-        "https://lrxuanxuan.github.io/papers/items/d07df267b870c505/#paper-translation",
+        "https://lrxuanxuan.github.io/papers/translations/2026-10-11-5a84a72a52125d7f34feaa47/#paper-d07df267b870c505",
         "https://api.crossref.org/works/10.1109/TWC.2026.3693681"
       ],
       "github": [],
@@ -242,9 +256,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/d07df267b870c505/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-11-5a84a72a52125d7f34feaa47/#paper-d07df267b870c505",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "184784faa64269bc",
@@ -332,18 +346,24 @@
       },
       "hyperlinks": {},
       "report_url": "/papers/reports/2026-10-11/",
-      "report_section": "### 01. PosteriorBench: From Point Estimates to Posterior Matching in Evaluating Generative Inverse Solvers\n\n**本篇全文译稿入口：** 本地完整译稿（本地资料：paper.md） · [网页全文译稿状态](https://lrxuanxuan.github.io/papers/items/19047863e7f37f7d/#paper-translation)\n\n\n**作者：** Yao, Jiachen; Hsu, Zi-Siang; Deng, Xi; Gupta, Aditi; Ju, Xin; Benson, Sally M; Wen, Gege; Anandkumar, Anima。\n\n**年份 / venue / 状态：** 2026 / NeurIPS 2026 / 已接受待刊（会议官方名单确认）。核验日期2026-10-11。\n\n[会议官方2026名单](https://neurips.cc/Downloads/2026) 列出精确标题；截至核验日按已接受待刊描述，不把上传当正式proceedings发表。\n\n**阅读版本：** Submission history From: Jiachen Yao [ view email ] [v1] Thu, 17 Sep 2026 17:54:12 UTC (1,440 KB)；实际PDF 32页，全文提取，重点方法/结果对应页4,5,6,7,8,9,10。\n\n**问题：** 单个重建的低误差不足以证明生成器覆盖真实后验；导频弱约束方向尤其容易过度集中或漏模态。\n\n**方法与独立机制：** 构造Darcy、Poisson、CO₂封存和光传输材料推断四个有已知前向物理的逆问题，用拒绝采样/MCMC等昂贵参考后验，比较后验均值相对L2误差、标准差相对L2误差、MMD、SWD和径向平均功率谱误差。SWD使用训练尺度标准化和128个平滑GRF投影，避免逐像素随机投影的局部抵消。\n\n**已核实实验与结果：** 全文第8页表2：Darcy上MC-dropout后验均值误差0.1990，但标准差误差0.9509、MMD 0.6728；FunDPS相应为0.0804、0.4354、0.2040。第10页Fig.4显示单目标误差与分布指标非单调，不能从NMSE排序推出后验质量排序。四任务对八个概率求解器作对照，并考察分辨率、先验训练覆盖与guidance权重。\n\n**局限与不可外推范围：** 参考后验也有有限样本/采样收敛误差，任务主要为特定科学场数据；它提供评估标准，不证明某个无线生成器后验正确。RAPS的各向同性径向分桶不适合直接混合角度、时延、天线和频率轴；复信道应先约定实虚表示、白化、相位基准及轴向谱。论文时间数是各自任务协议的整批时间，不等同KAP-Flow单次接收机延迟。\n\n**迁移类型：** 可改造工具\n\n**相对阅读笔记位置：** 缺口：从NMSE与子空间误差拓展到条件后验分布及多样本端点的可靠性。\n\n**与既有阅读差异：** 已有Recursive Flow、PnP-CM、FlowADMM讨论如何生成或修正；本篇回答怎样验证样本集合。相对10月10日Twist Flow，补的是评估参考与指标，而不是再次换一个联合传输网络。\n\n**课题接口：** 在固定当前位置/导频/噪声条件下重复采样H，分别检查HP与H(I−PP†)的均值、方差、分布距离。真实信道每个观测只有一个H时，覆盖率需合成可计算参考后验，不能把邻居位置或其他独立观测样本冒充p(H|Y,r,e)。\n\n**推荐理由：** 当前M=1/2/4/8/16端点平均和耗时比较需要区分均值更准、样本更多与后验校准；本篇给出可接入的评估代码。\n\n**身份与一手入口：** [arXiv 2609.20794](https://arxiv.org/abs/2609.20794) · [正式来源/状态证据](https://neurips.cc/Downloads/2026) · [官方/作者PDF](https://arxiv.org/pdf/2609.20794)。\n\n**代码状态：** 完整开源实现。[作者仓库](https://github.com/neuraloperator/PosteriorBench)。arXiv/PDF直接链接作者仓库；161个文件含四任务dataset adapter、生成与评估入口、八方法adapter、训练/评估配置和训练脚本，README链接Hugging Face数据。静态检查evaluate.py与evaluation/metrics.py确有五类指标实现，generate.py确有采样入口。权重需训练或另备，未在本机运行或复现；MIT是代码许可，不覆盖论文译文。\n\n**本地PDF：** [打开原文](https://arxiv.org/pdf/2609.20794)。\n\n**翻译：** pending，已立即入队，交由独立pdf自动化gpt-6-luna / medium处理；预期译文路径（本地资料：paper.md）当前不是已完成文件。主任务不生成整篇翻译。\n\n**许可与网页：** [实际原文许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)；未有允许公开译文依据，译文只作本地阅读；ND/默认arXiv分发许可不推定允许共享翻译。网站全部PDF仅保留官方原文链接，不上传任何PDF。",
+      "report_section": "### 01. PosteriorBench: From Point Estimates to Posterior Matching in Evaluating Generative Inverse Solvers\n\n**本篇全文译稿入口：** [本地完整译稿](/papers/translations/2026-10-11-54a58fdbb99524ce3fd08d88/) · [网页全文译稿](https://lrxuanxuan.github.io/papers/translations/2026-10-11-54a58fdbb99524ce3fd08d88/#paper-19047863e7f37f7d)\n\n\n**作者：** Yao, Jiachen; Hsu, Zi-Siang; Deng, Xi; Gupta, Aditi; Ju, Xin; Benson, Sally M; Wen, Gege; Anandkumar, Anima。\n\n**年份 / venue / 状态：** 2026 / NeurIPS 2026 / 已接受待刊（会议官方名单确认）。核验日期2026-10-11。\n\n[会议官方2026名单](https://neurips.cc/Downloads/2026) 列出精确标题；截至核验日按已接受待刊描述，不把上传当正式proceedings发表。\n\n**阅读版本：** Submission history From: Jiachen Yao [ view email ] [v1] Thu, 17 Sep 2026 17:54:12 UTC (1,440 KB)；实际PDF 32页，全文提取，重点方法/结果对应页4,5,6,7,8,9,10。\n\n**问题：** 单个重建的低误差不足以证明生成器覆盖真实后验；导频弱约束方向尤其容易过度集中或漏模态。\n\n**方法与独立机制：** 构造Darcy、Poisson、CO₂封存和光传输材料推断四个有已知前向物理的逆问题，用拒绝采样/MCMC等昂贵参考后验，比较后验均值相对L2误差、标准差相对L2误差、MMD、SWD和径向平均功率谱误差。SWD使用训练尺度标准化和128个平滑GRF投影，避免逐像素随机投影的局部抵消。\n\n**已核实实验与结果：** 全文第8页表2：Darcy上MC-dropout后验均值误差0.1990，但标准差误差0.9509、MMD 0.6728；FunDPS相应为0.0804、0.4354、0.2040。第10页Fig.4显示单目标误差与分布指标非单调，不能从NMSE排序推出后验质量排序。四任务对八个概率求解器作对照，并考察分辨率、先验训练覆盖与guidance权重。\n\n**局限与不可外推范围：** 参考后验也有有限样本/采样收敛误差，任务主要为特定科学场数据；它提供评估标准，不证明某个无线生成器后验正确。RAPS的各向同性径向分桶不适合直接混合角度、时延、天线和频率轴；复信道应先约定实虚表示、白化、相位基准及轴向谱。论文时间数是各自任务协议的整批时间，不等同KAP-Flow单次接收机延迟。\n\n**迁移类型：** 可改造工具\n\n**相对阅读笔记位置：** 缺口：从NMSE与子空间误差拓展到条件后验分布及多样本端点的可靠性。\n\n**与既有阅读差异：** 已有Recursive Flow、PnP-CM、FlowADMM讨论如何生成或修正；本篇回答怎样验证样本集合。相对10月10日Twist Flow，补的是评估参考与指标，而不是再次换一个联合传输网络。\n\n**课题接口：** 在固定当前位置/导频/噪声条件下重复采样H，分别检查HP与H(I−PP†)的均值、方差、分布距离。真实信道每个观测只有一个H时，覆盖率需合成可计算参考后验，不能把邻居位置或其他独立观测样本冒充p(H|Y,r,e)。\n\n**推荐理由：** 当前M=1/2/4/8/16端点平均和耗时比较需要区分均值更准、样本更多与后验校准；本篇给出可接入的评估代码。\n\n**身份与一手入口：** [arXiv 2609.20794](https://arxiv.org/abs/2609.20794) · [正式来源/状态证据](https://neurips.cc/Downloads/2026) · [官方/作者PDF](https://arxiv.org/pdf/2609.20794)。\n\n**代码状态：** 完整开源实现。[作者仓库](https://github.com/neuraloperator/PosteriorBench)。arXiv/PDF直接链接作者仓库；161个文件含四任务dataset adapter、生成与评估入口、八方法adapter、训练/评估配置和训练脚本，README链接Hugging Face数据。静态检查evaluate.py与evaluation/metrics.py确有五类指标实现，generate.py确有采样入口。权重需训练或另备，未在本机运行或复现；MIT是代码许可，不覆盖论文译文。\n\n**本地PDF：** [打开原文](https://arxiv.org/pdf/2609.20794)。\n\n**翻译：** pending，已立即入队，交由独立pdf自动化gpt-6-luna / medium处理；[预期译文路径](/papers/translations/2026-10-11-54a58fdbb99524ce3fd08d88/)当前不是已完成文件。主任务不生成整篇翻译。\n\n**许可与网页：** [实际原文许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)；未有允许公开译文依据，译文只作本地阅读；ND/默认arXiv分发许可不推定允许共享翻译。网站全部PDF仅保留官方原文链接，不上传任何PDF。",
       "report_entry_url": "/papers/reports/2026-10-11/#paper-19047863e7f37f7d",
       "paper_url": "/papers/items/19047863e7f37f7d/",
       "paper_report_url": "/papers/items/19047863e7f37f7d/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-11-54a58fdbb99524ce3fd08d88/#paper-19047863e7f37f7d",
+          "scope": "全文中英文对照",
+          "title": "PosteriorBench: From Point Estimates to Posterior Matching in Evaluating Generative Inverse Solvers"
+        }
+      ],
       "links": [
         "https://neurips.cc/Downloads/2026",
         "https://arxiv.org/pdf/2609.20794",
         "https://arxiv.org/abs/2609.20794",
         "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
         "https://github.com/neuraloperator/PosteriorBench",
-        "https://lrxuanxuan.github.io/papers/items/19047863e7f37f7d/#paper-translation"
+        "https://lrxuanxuan.github.io/papers/translations/2026-10-11-54a58fdbb99524ce3fd08d88/#paper-19047863e7f37f7d"
       ],
       "github": [
         "https://github.com/neuraloperator/PosteriorBench"
@@ -354,9 +374,9 @@
       "hosted_pdfs": [],
       "status": "已接受待刊",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/19047863e7f37f7d/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-11-54a58fdbb99524ce3fd08d88/#paper-19047863e7f37f7d",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "b05ee57ebc6710ed",
@@ -5394,10 +5414,10 @@
       "pdf_sources": [],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
+      "translation_status": "running",
       "full_translation_public": false,
       "full_translation_url": "/papers/items/f1900748d3249be6/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_label": "全文翻译（进行中）"
     },
     {
       "id": "e10348decd7f0866",
@@ -15176,10 +15196,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "complete",
+      "translation_status": "incomplete",
       "full_translation_public": false,
       "full_translation_url": "/papers/items/9fffd291409b55ec/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_label": "全文翻译（进行中）"
     },
     {
       "id": "ec5a13f567ec08dc",
@@ -15642,6 +15662,17 @@
   "translations": [
     {
       "date": "2026-10-11",
+      "url": "/papers/translations/2026-10-11-d0843014971d4b2ec69c6d03/",
+      "slug": "2026-10-11-d0843014971d4b2ec69c6d03",
+      "source_file": "paper.md",
+      "scope": "全文中英文对照",
+      "title": "You May Use the Same Channel Knowledge Map for Environment-Aware NLoS Sensing and Communication",
+      "paper_id": "2507.03589",
+      "license_url": "",
+      "download": "/assets/papers/translations/2026-10-11-d0843014971d4b2ec69c6d03.md"
+    },
+    {
+      "date": "2026-10-11",
       "url": "/papers/translations/2026-10-11-878faa0dd39bfe89819e1f2f/",
       "slug": "2026-10-11-878faa0dd39bfe89819e1f2f",
       "source_file": "paper.md",
@@ -15661,6 +15692,28 @@
       "paper_id": "2609.38049",
       "license_url": "",
       "download": "/assets/papers/translations/2026-10-11-6ff624640482a6791a44bbf8.md"
+    },
+    {
+      "date": "2026-10-11",
+      "url": "/papers/translations/2026-10-11-5a84a72a52125d7f34feaa47/",
+      "slug": "2026-10-11-5a84a72a52125d7f34feaa47",
+      "source_file": "paper.md",
+      "scope": "全文中英文对照",
+      "title": "CSI-tuples-based 3D Channel Fingerprints Construction Assisted by MultiModal Learning",
+      "paper_id": "2603.25288",
+      "license_url": "",
+      "download": "/assets/papers/translations/2026-10-11-5a84a72a52125d7f34feaa47.md"
+    },
+    {
+      "date": "2026-10-11",
+      "url": "/papers/translations/2026-10-11-54a58fdbb99524ce3fd08d88/",
+      "slug": "2026-10-11-54a58fdbb99524ce3fd08d88",
+      "source_file": "paper.md",
+      "scope": "全文中英文对照",
+      "title": "PosteriorBench: From Point Estimates to Posterior Matching in Evaluating Generative Inverse Solvers",
+      "paper_id": "2609.20794",
+      "license_url": "",
+      "download": "/assets/papers/translations/2026-10-11-54a58fdbb99524ce3fd08d88.md"
     },
     {
       "date": "2026-07-15",
