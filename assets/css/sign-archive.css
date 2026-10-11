@@ -1,0 +1,23 @@
+.rc-playthings { max-width: 48rem; }
+.rc-playthings-lead, .rc-archive-note { color:var(--text-muted-color); line-height:1.8; }
+.rc-toy-link { display:flex; gap:1rem; align-items:center; padding:1.1rem 1.3rem; border:1px solid var(--main-border-color); border-radius:14px; color:var(--heading-color); background:var(--card-bg); text-decoration:none; }
+.rc-toy-link>span:nth-child(2) { flex:1; }
+.rc-toy-link small { display:block; color:var(--text-muted-color); margin-top:.3rem; }
+.rc-sign-archive { margin-top:2.5rem; }
+.rc-archive-heading { display:flex; flex-wrap:wrap; gap:.5rem; align-items:baseline; justify-content:space-between; }
+.rc-archive-heading h2 { margin:0; }
+.rc-archive-heading a { font-size:.85rem; }
+.rc-archive-note { font-size:.85rem; margin:1rem 0; }
+.rc-archive-controls { display:flex; flex-wrap:wrap; align-items:center; gap:.7rem; margin-bottom:1.5rem; font-size:.82rem; }
+.rc-archive-controls button, .rc-archive-controls select, .rc-import-button { background:var(--main-bg); color:var(--heading-color); border:1px solid var(--btn-border-color); border-radius:8px; padding:.4rem .65rem; font:inherit; cursor:pointer; }
+.rc-archive-controls button:hover, .rc-import-button:hover { border-color:var(--link-color); }
+.rc-archive-controls button:focus-visible, .rc-archive-controls select:focus-visible, .rc-import-button:focus-within { outline:2px solid var(--link-color); outline-offset:3px; }
+[data-archive-status] { color:var(--text-muted-color); font-size:.78rem; }
+.rc-archive-day { margin:1.5rem 0; }
+.rc-archive-day h3 { font-size:1rem; color:var(--heading-color); font-variant-numeric:tabular-nums; }
+.rc-archive-day h3 span, .rc-archive-kind { font-size:.72rem; font-weight:normal; margin-left:.6rem; color:var(--text-muted-color); }
+.rc-archive-quote { border:1px solid var(--main-border-color); border-radius:12px; background:var(--card-bg); padding:1rem 1.2rem; margin:.7rem 0; }
+.rc-archive-quote blockquote { margin:.4rem 0 .75rem; padding:0; border:0; color:var(--heading-color); line-height:1.9; white-space:pre-line; overflow-wrap:anywhere; }
+.rc-archive-quote p { text-align:right; color:var(--text-muted-color); font-size:.8rem; margin:0; line-height:1.7; }
+.rc-sign-archive [hidden] { display:none; }
+@media(max-width:600px) { .rc-archive-quote { padding:.85rem 1rem; } }
