@@ -12,8 +12,12 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+  # 16:00 UTC is 00:00 the following day in Beijing (UTC+8).
+  schedule:
+    - cron: '0 16 * * *'
+
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -34,6 +38,22 @@ jobs:
           # submodules: true
           # If using the 'assets' git submodule from Chirpy Starter, uncomment above
           # (See: https://github.com/cotes2020/chirpy-starter/tree/main/assets)
+
+      - name: Refresh daily sign (Asia/Shanghai)
+        run: python3 tools/update_daily_sign.py
+
+      # Scheduled workflows use GITHUB_TOKEN. Their pushes do not recursively
+      # trigger another Actions run; this same job builds the updated content.
+      - name: Commit canonical sign history
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: |
+          if ! git diff --quiet -- _data/daily_sign.json _data/daily_sign_history.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add _data/daily_sign.json _data/daily_sign_history.json
+            git commit -m "chore: refresh Beijing daily sign"
+            git push origin HEAD:${{ github.ref_name }}
+          fi
 
       - name: Setup Pages
         id: pages
