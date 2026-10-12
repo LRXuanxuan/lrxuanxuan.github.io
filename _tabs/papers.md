@@ -37,6 +37,19 @@ toc: false
   <p style="margin:.45rem 0 0"><a href="/papers/translations/2602-07321/">《无线上下文工程：面向高效移动智能体 AI 与边缘通用智能》</a> · 中文全文 · 7 页原文</p>
 </div>
 <p class="pl-meta"><a href="/papers/translation-status-2026-08/">2026 年 8 月 · 十篇论文全文翻译进度与授权说明</a></p>
+
+<section class="pl-recent" aria-labelledby="recent-papers-20261012">
+  <h3 id="recent-papers-20261012">本次上传的五篇论文 · 中文阅读</h3>
+  <p>原文 PDF 未上传本站；译稿以轻量 Markdown 页面展示，未完成部分会明确标示进度。</p>
+  <ul>
+    <li><a href="/papers/translations/2026-10-12-2607-16462/">CHEA：5G NR 可扩展注意力信道估计</a>（全文中文）</li>
+    <li><a href="/papers/translations/2026-10-12-2607-16877/">层次化无线基础模型与多任务优化</a>（正文全译）</li>
+    <li><a href="/papers/translations/2026-10-12-2607-17591/">张量动态信道估计与可移动天线 MIMO</a>（公式及附录校对中）</li>
+    <li><a href="/papers/translations/2026-10-12-2607-18881/">AFDM-ISAC 数据辅助 SBL 信道估计与感知</a>（翻译中）</li>
+    <li><a href="/papers/translations/2026-10-12-2607-19333/">Posterior-DDIM 后验一致性采样</a>（翻译中）</li>
+  </ul>
+</section>
+
 <div id="paper-library" data-source="{{ '/assets/papers/library.json' | relative_url }}">
   <div class="pl-intro"><span class="pl-eyebrow">DAILY RESEARCH READING</span><h2>每天一点，积累一条研究线索。</h2><p>无线通信、信号处理与生成模型。点击论文标题查看本篇推荐、证据、原文与代码，直接进入对应日报条目及译文。</p></div>
   <div id="pl-stats" class="pl-stats" aria-live="polite">正在加载论文记录…</div>
