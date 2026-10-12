@@ -4,7 +4,7 @@ icon: fas fa-book-open
 order: 2
 ---
 
-这里收录我整理的文学中文译本，其中《造星主》《最后与最初的人》及《斯特普尔顿短篇小说集》可直接分章或分篇阅读，切换中文与英文；其他部分书目提供 EPUB，另收录威尔斯专题、序言及书信译稿。书目按作者和内容归类。
+这里收录我整理的文学中文译本，其中《造星主》《最后与最初的人》《伦敦的最后人》《黑暗与光明》和《斯特普尔顿短篇小说集》可直接分章或分篇阅读，切换中文与英文；其他部分书目提供 EPUB，另收录威尔斯专题、序言及书信译稿。书目按作者和内容归类。
 
 > **关于翻译与署名**：本栏目既有由大型语言模型（LLM）生成的中文译稿，也有依照已有出版译本整理的内容，具体来源请参见各作品页面。其中《最后与最初的人》采用已有出版中文译本，不应视作 LLM 翻译。我主要负责收集与整理，不以原作或译本译者自居。LLM 译稿可能存在误译、漏译或表达不当，请结合原文阅读；公开传播仍须遵守相关版权与授权要求。
 
@@ -32,6 +32,18 @@ order: 2
 *{{ book.original }}*{% if book.note %} · {{ book.note }}{% endif %}
 
 [分章阅读 · 中文 / English]({{ '/translations/last-and-first-men/' | relative_url }})
+{% elsif book.title == "伦敦的最后人" %}
+### [《{{ book.title }}》]({{ '/translations/last-men-in-london/' | relative_url }})
+
+*{{ book.original }}*{% if book.note %} · {{ book.note }}{% endif %}
+
+[分节阅读 · 中文 / English]({{ '/translations/last-men-in-london/' | relative_url }})
+{% elsif book.title == "黑暗与光明" %}
+### [《{{ book.title }}》]({{ '/translations/darkness-and-the-light/' | relative_url }})
+
+*{{ book.original }}*{% if book.note %} · {{ book.note }}{% endif %}
+
+[分节阅读 · 中文 / English]({{ '/translations/darkness-and-the-light/' | relative_url }})
 {% else %}
 ### 《{{ book.title }}》
 

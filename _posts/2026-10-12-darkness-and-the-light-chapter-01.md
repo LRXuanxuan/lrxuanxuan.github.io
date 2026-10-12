@@ -1,0 +1,40 @@
+---
+layout: post
+title: "Darkness and the Light · 第一章 人类的两种未来"
+date: 2026-10-12 20:00:00 +0800
+categories: [文学译本]
+permalink: /translations/darkness-and-the-light/chapter-01/
+toc: false
+comments: false
+---
+
+<link rel="stylesheet" href="{{ '/assets/css/stapledon-reader.css' | relative_url }}">
+<div class="stapledon-meta"><em>Darkness and the Light</em> · 1942 · 奥拉夫·斯特普尔顿（Olaf Stapledon）</div>
+<nav class="stapledon-chapter-nav" aria-label="章节导航"><a href="/translations/darkness-and-the-light/">← 返回目录</a><span><a href="/translations/darkness-and-the-light/preface/">← 上一节</a> · <a href="/translations/darkness-and-the-light/chapter-02/">下一节 →</a></span></nav>
+<div class="stapledon-language-switch" role="group" aria-label="选择阅读语言"><span class="stapledon-switch-label">阅读语言</span><button type="button" data-stapledon-lang="zh" aria-pressed="true">中文</button><button type="button" data-stapledon-lang="en" aria-pressed="false">English</button></div>
+
+<div id="stapledon-reader" class="stapledon-reader">
+<section data-story-lang="zh" class="stapledon-body" lang="zh">
+<h2>第一章 人类的两种未来</h2>
+<p>我们的世界竟会有两个未来，这可信吗？可我见过它们。两种截然不同的未来摆在人类面前：一个黑暗，一个光明；一个意味着人类全部希望的失败、全部理想的背叛，另一个则意味着这些希望与理想经过艰苦奋争而最终获胜。</p>
+<p>在我们所谓“现代”的某个时刻——具体是哪一年我并不知道，因为我是在遥远的未来回望那里，仿佛搜寻自己久远的过去——地球历史原本唯一的洪流像被一块突出的岬角劈开，从此分成两股完全不同、彼此排斥的汹涌激流。两股激流都同样复杂，同样连贯，也都同样真实；在各自的时间峡谷中，无数世代的人生彼此承接，却再也不会汇合。</p>
+<p>这怎么可能？它当然不可能！然而我亲眼见过它发生。我看见了那两个背道而驰的未来，也亲身经历过它们。只要一个世界——正如我们的地球——其中平常那些半清醒的心灵里，光明意志与黑暗意志彼此均衡得如此微妙，以至于任何一方都不能长期压倒另一方，那么这样的事似乎终究非发生不可。从两者漫长的压力、起伏不定的争斗中，最后竟会产生一种看似不可能、看似不合情理的事物，一种比任何正统宗教中的神迹都更加惊人的奇迹。时间本身怎么会分裂成两股？若我们的行星有两个未来，那么太阳系的未来究竟包含哪一个？另一个又到哪里去了？抑或人类的犹疑不决不仅创造了两个未来的地球，也创造了两个由恒星与星系组成的未来宇宙？</p>
+<p>读者，你尽可断言：我看见的两个未来中，只有一个才是真正的未来，真正嵌在真实宇宙之中；另一个不过是幻觉。那么我只得惊恐地问：究竟哪一个是真的，光明的，还是黑暗的？因为对于见过二者的我来说，它们没有任何一个显得比另一个更不真实，只是其中一个无限值得我们渴望。也许你会说，两者都不过是我疯狂头脑的产物，而真正的未来既不可抵达，也不可想象。你愿意相信什么都可以，但在我看来，它们都是真实的，都以某种方式紧密编织在宇宙那可怖而美丽的图案里。不仅如此！我的心甚至需要它们二者同时存在。因为有黑暗作衬，光明才显得更加耀眼。怜悯当然祈求一切恐怖最后都被证明只是一场梦；然而为了光明自身，某种更严厉的激情却又要求邪恶也必须得到它自己的胜利。</p>
+<p>当我写下这本书时，我自己的死亡必然已经躺在不远的未来某处。究竟何时，我不知道；因为相较于那占据了我的宏大幻景，这样一件微小的事件不可能留下清楚的印迹。奇异的经历似乎正是在我死亡之际开始，最初模糊而断续。因此，这一双重故事最早的部分支离破碎、混乱不堪，仿佛成年人回忆童年时残存的片段。</p>
+<p>而且，在历史的上游，这两股时间之流彼此如此相似，几乎无法区分，正如一个人的两只眼睛所看见的景象大体相同。直到两个未来开始出现显著差异，它们才终于能够被辨认，也才显出彼此互不相容。从那以后，任何像我一样同时见证二者的人，都必然成为一种分裂的人格：他不只是同时生活两种人生，而是同时生活在两个宇宙里。</p>
+<p>此刻，我一面写作，一面又浸没在当代人类的激情与残暴行动之中；每天听见恐怖与野蛮的消息，担忧某场可怕的灾祸很快就会降临到我的人民、全人类，以及那极少数我最亲爱的人身上——对我而言，正是他们使“人类”成为一个活生生的存在。在这种处境下，我已无法完全重新捕捉死后体验中的那种宁静、明澈而理智的心境。因为在那漫长得跨越时代的未来里，我想我始终受着另一些超越人类的旁观者的支持。是否是宇宙中那些更清醒的族类，散居在星座上下、星系之间的各个世界里，派来观察者见证这颗地球上的奇迹？或者，他们只是从遥远之处把自己的注意和存在集中到我们这颗孤零零、微不足道的小球上——在这里，人类站在光明与黑暗之间那刀锋般的选择线上，搏杀着自己的命运？仿佛在他们的影响之下，我得以在某种程度上摆脱自己那点人类的渺小；仿佛在天外援助之下，我才能踉踉跄跄地借用那些超人却非神明的智能之眼，看见人类的双重命运。如今他们的存在已经退去。但为了纪念他们，我将尽我所能，以最贴近人类的同情，同时又以他们曾暂时借给我的那份冷静洞察，讲完这两个未来的故事。</p>
+</section>
+<section data-story-lang="en" class="stapledon-body" lang="en" hidden>
+<h2>1. MAN’S TWO FUTURES</h2>
+<p>IS IT CREDIBLE that our world should have two futures? I have seen them. Two entirely distinct futures lie before mankind, one dark, one bright; one the defeat of all man’s hopes, the betrayal of all his ideals, the other their hard-won triumph.</p>
+<p>At some date within the age that we call modern, some date not precisely known to me, for I looked back towards it from the distant futures as though searching in my remote past, the single torrent of terrestrial events is split, as though by a projecting promontory, so that it becomes thenceforth two wholly distinct and mutually exclusive surging floods of intricate existence, each one a coherent and actual history, in which the lives of countless generations succeed one another along separate ravines of time.</p>
+<p>How can this be? It cannot! Yet I have seen it happen. I have watched those two divergent futures. I have lived through them. In any world, as on our planet, it needs must happen, when the will for the light and the will for the darkness are so delicately balanced in the ordinary half-lucid spirits of the world that neither can for long prevail over the other. Out of their age-long stress and fluctuating battle must spring at last a thing seemingly impossible, seemingly irrational, something wore stupendously miraculous than any orthodox miracle. For how can time itself be divided into two streams? And if our planet has two futures, which of them has place in the future of the solar system, and what of the other? Or does man’s vacillation create not only two future Earths but two future universes of stars and galaxies?</p>
+<p>Reader, affirm if you will that only one of the two futures that I have watched is the real future, knit into the real cosmos, while the other is mere fantasy. Then which, I ask in terror, is real, the bright or the dark? For to me, who have seen both, neither is less real than the other, but one is infinitely more to be desired. Perhaps, reader, you will contend that both are figments of my crazy mind, and that the real future is inaccessible and inconceivable. Believe what you will, but to me both are real, both are somehow close-knit into the dread and lovely pattern of the universe. Nay more! My heart demands them both. For the light is more brilliant when the dark offsets it. Though pity implores that all horror should turn out to have been a dream, yet for the light’s own sake some sterner passion demands that evil may have its triumph.</p>
+<p>As I write this book my own death must lie somewhere in the near future. When, I cannot tell; for so minute an event could not imprint itself on the vision that has possessed me. Seemingly it is at the time of my death that the strange experience begins, obscurely and intermittently at first. For this reason the earlier part of the twofold story is fragmentary and chaotic, like the experiences of childhood remembered in maturity.</p>
+<p>Moreover the twin streams of history are in their upper reaches so similar as to be indistinguishable, like the almost identical views which a man has through his two eyes. Not till the two futures begin to differ strikingly can they be distinguished and known to be inconsistent themes. Thenceforth whoever witnesses them, as I did, must become a divided personality, living not merely two lives but in two universes.</p>
+<p>As I write this book, immersed once more in the passions and savage deeds of contemporary mankind, hearing each day of horror and brutality, fearing that very soon some hideous disaster may fall upon my people and on the whole human race, and on those few who, being most dear to me, are for me the living presence of humanity, it is impossible for me to recapture fully the serene and intelligent mood of my post-mortal experience. For throughout that age-long future I must, I think, have been strengthened by the felt presence of other and superhuman spectators. Was it that the more lucid populations of the cosmos, in their scattered worlds, up and down the constellations, here and there among the galaxies, had sent observers to witness the terrestrial miracle; or had focused their attention and their presence from afar on our little orb, so forlorn, so inconsiderable, where man, poised between the light and the dark on the knife-edge of choice, fought out his destiny. It was as though, under their influence, I was able to put off to some extent my human pettiness; as though, haltingly and with celestial aid, I could see man’s double fate through the eyes of those superhuman but not divine intelligences. Their presence is now withdrawn. But in memory of them I shall do my utmost to tell the twofold story at once with intimate human sympathy and with something of that calm insight which was lent to me.</p>
+</section>
+</div>
+<nav class="stapledon-chapter-nav" aria-label="章节导航"><a href="/translations/darkness-and-the-light/">← 返回目录</a><span><a href="/translations/darkness-and-the-light/preface/">← 上一节</a> · <a href="/translations/darkness-and-the-light/chapter-02/">下一节 →</a></span></nav>
+<p class="stapledon-footnote">中文来自提供的中文译本，英文根据提供的英文全集整理；二者未逐段校勘。网页仅收录纯文字，不新增电子书或图片。</p>
+<script src="{{ '/assets/js/stapledon-language.js' | relative_url }}" defer></script>
