@@ -171,7 +171,7 @@
   function renderHome() {
     if (!home) return;
     const today = localDay();
-    const time = home.querySelector('[data-rec-date]');
+    const time = home.querySelector('[data-rec-date]') || home.closest('.fm-daily-picks')?.querySelector('[data-rec-date]');
     if (time) { time.textContent = today.replaceAll('-', '.'); time.dateTime = today; }
     const list = home.querySelector('[data-rec-list]');
     if (!list) return;
