@@ -18,12 +18,12 @@ toc: true
 | [Zero-Shot Frequency Generalization for Radio Map Prediction](/papers/items/f01eb39a8eaa1174/#paper-translation) | **中文全篇译稿已公开** | [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) |
 | [Learnware for CSI Feedback](/papers/items/e1c6629139b1f577/#paper-translation) | 逐章译读稿已交付个人阅读；非全文 | arXiv 非独占分发许可不足以确认公众改编授权 |
 | [Universal CKM](/papers/items/47ac7ad81f5c0fb6/#paper-translation) | **个人阅读版完整中文译稿已交付**；未公开 | arXiv 非独占分发许可不足以确认公众改编授权 |
-| [Channel2World](/papers/translations/channel2world/) | **中文全篇译稿已公开** | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
-| [Hybrid-Domain Posterior Sampling (HDPS)](/papers/translations/hdps/) | **中文全篇译稿已公开** | 原论文首页标注 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
-| [MultiPathFormer](/papers/translations/multipathformer/) | **中文全篇译稿已公开** | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
+| [Channel2World](/papers/translations/channel2world/)（[论文条目](/papers/items/749bfdb8ab82b176/)） | **中文全篇译稿已公开** | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
+| [Hybrid-Domain Posterior Sampling (HDPS)](/papers/translations/hdps/)（[论文条目](/papers/items/836f81307350ca11/)） | **中文全篇译稿已公开** | 原论文首页标注 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
+| [MultiPathFormer](/papers/translations/multipathformer/)（[论文条目](/papers/items/50a1b62e5cb84f9d/)） | **中文全篇译稿已公开** | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
 | [Channel Map-Based Channel Estimation for Near-Field UM-MIMO](/papers/items/af0bb2a5b7abec0d/#paper-translation) | 逐章译读稿已交付个人阅读；非全文 | 公开改编许可未确认 |
 | [Channel Knowledge Map Enabled Dynamic Radio Environment Reconstruction](/papers/items/26e33f30c7c0a4e8/#paper-translation) | **个人阅读版完整中文译稿已交付**；未公开 | 公开改编许可未确认 |
-| [Picard Proximal Monte Carlo (PiX-MC)](/papers/translations/pix-mc-reading/) | **方法、定理、实验译读已公开；原文 55 页全文未译完** | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
+| [Picard Proximal Monte Carlo (PiX-MC)](/papers/translations/pix-mc-reading/)（[论文条目](/papers/items/874ff950767bb3f7/)） | **方法、定理、实验译读已公开；原文 55 页全文未译完** | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
 | [Composing Flow-Matching Energies with Known Physics](/papers/items/88a5eaf3ebd0b345/#paper-translation) | 逐章译读稿已交付个人阅读；非全文 | 公开改编许可未确认 |
 
 ## 逐章译读稿范围和不足
