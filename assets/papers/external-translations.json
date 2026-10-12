@@ -328,7 +328,9 @@
     "scope": "中文译稿（范围见原页面；未计入全文验收）",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-d85362be1aed96a2.md",
     "source_page_path": "papers/translations/2026-10-12-d85362be1aed96a2.md",
-    "paper_ids": [],
+    "paper_ids": [
+      "d85362be1aed96a2"
+    ],
     "source_arxiv_ids": [],
     "external": true,
     "qa_complete": false
