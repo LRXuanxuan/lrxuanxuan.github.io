@@ -4,7 +4,7 @@ icon: fas fa-book-open
 order: 2
 ---
 
-这里收录我整理的文学中文译本，其中《造星主》《最后与最初的人》《伦敦的最后人》《黑暗与光明》和《斯特普尔顿短篇小说集》可直接分章或分篇阅读，切换中文与英文；其他部分书目提供 EPUB，另收录威尔斯专题、序言及书信译稿。书目按作者和内容归类。
+这里收录我整理的文学中文译本，其中《造星主》《最后与最初的人》《伦敦的最后人》《黑暗与光明》《天狼星》《星际人？》和《斯特普尔顿短篇小说集》可直接分章或分篇阅读，切换中文与英文；其他部分书目提供 EPUB，另收录威尔斯专题、序言及书信译稿。书目按作者和内容归类。
 
 **阅读摘录**：进入任一网页版作品的正文，选中喜欢的中英文句子，即可划波浪线或写笔记。在该作品的目录页可集中查看全书摘录，并跳回原文。记录只保存在当前浏览器；建议使用摘录面板中的 JSON 导出功能定期备份。
 
@@ -46,6 +46,18 @@ order: 2
 *{{ book.original }}*{% if book.note %} · {{ book.note }}{% endif %}
 
 [分节阅读 · 中文 / English]({{ '/translations/darkness-and-the-light/' | relative_url }})
+{% elsif book.title == "天狼星" %}
+### [《{{ book.title }}》]({{ '/translations/sirius/' | relative_url }})
+
+*{{ book.original }}*{% if book.note %} · {{ book.note }}{% endif %}
+
+[分章阅读 · 中文 / English]({{ '/translations/sirius/' | relative_url }})
+{% elsif book.title == "星际人？" %}
+### [《{{ book.title }}》]({{ '/translations/interplanetary-man/' | relative_url }})
+
+*{{ book.original }}*{% if book.note %} · {{ book.note }}{% endif %}
+
+[分节阅读 · 中文 / English]({{ '/translations/interplanetary-man/' | relative_url }})
 {% else %}
 ### 《{{ book.title }}》
 
