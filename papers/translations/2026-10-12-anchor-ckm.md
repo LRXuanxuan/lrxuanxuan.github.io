@@ -68,7 +68,34 @@ CKM 无法一次建立后永久使用。新建筑、季节性植被、交通模�
 
 ## II. 系统模型与任务定义
 
-首先独立于具体重构架构，定义 CKM 场、有效探测域、掩码、缺失率、估计器信息集合及期望风险，然后分析直接重构的局限。原文表 I 汇总了模型符号：$\Omega$ 为区域，$G$ 为网格图，$N=HW$ 为网格节点数，$P$ 为目标 CKM 场，$M$ 为观测掩码，$\Pi$ 为环境先验，$\hat\mu$ 与 $\hat\sigma^2$ 分别为均值和预测方差，$\rho$ 为缺失率，$\Phi$ 为传播后的潜在场；其余符号在首次出现时定义。原文还区分式（12）的非酉 DFT $\mathcal F$ 和引理中使用的酉 DFT $\mathcal F_u$。
+首先独立于具体重构架构，定义 CKM 场、有效探测域、掩码、缺失率、估计器信息集合及期望风险，然后分析直接重构的局限。**表 I：主要符号说明（完整译表）。**
+
+| 符号 | 含义 |
+|---|---|
+| **任务与信道模型** | |
+| $\Omega,G,N,H,W$ | 区域、网格图、网格单元数量和网格尺寸（$N=HW$） |
+| $\mathbf x_i,\mathbf x_{\mathrm{TX}},\Omega_{\mathrm{bldg}}$ | 网格单元和发射机坐标、障碍物区域 |
+| $P_{\mathrm{TX}},P_{\mathrm{LS}},\bar P,\tilde P$ | 发射功率、大尺度功率、趋势场和残差场 |
+| $\mathrm{LOS}(\cdot),\boldsymbol\theta(\mathbf x),d_c$ | LOS 指示变量、局部传播参数及阴影衰落相关距离 |
+| $\mathbf p_i,\mathbf P,F$ | 逐单元属性、CKM 场和特征维数 |
+| $\Omega_{\mathrm{valid}},\Omega_o,\Omega_u$ | 有效单元集合、已观测及未观测的有效单元集合 |
+| $v_i,m_i,\mathbf M,\mathbf P_{\mathrm{obs}}$ | 有效性指示变量、观测指示变量、广播掩码和掩码 CKM |
+| $\rho,p,S,q_\rho$ | 缺失率、探测概率、采样支撑集合及掩码分布 |
+| **估计器、架构与损失** | |
+| $\Pi,G_{\mathrm{env}},f_\theta$ | 环境先验、现场布局／拓扑图及估计器 |
+| $\mathcal D_{\mathrm{CKM}},R_\theta,d_{\mathrm{CKM}}$ | 数据分布、任务风险与差异度量 |
+| $\hat{\boldsymbol\mu},\hat{\boldsymbol\sigma}^2,\hat{\mathbf P}$ | 预测均值、预测方差与重构 CKM |
+| $\mathcal F,\mathcal F_u,\hat{\mathbf Z},\Delta$ | 傅里叶变换、酉 DFT、去偏频谱和中心化掩码 |
+| $\mathbf X_0,\mathbf X^{(l)},\Phi$ | 导频支撑的初始场、算子潜在状态与传播后的潜在场 |
+| $L_F,C,(K_h,K_w),R$ | 条件傅里叶算子层数、潜在宽度、保留模态数与分解秩 |
+| $\gamma_l,\beta_l,\mathbf Z_{\mathrm{spec}}^{(l)},\mathbf Z_{\mathrm{spat}}^{(l)}$ | 调制场及频谱／局部更新 |
+| $\mathbf W_{\mathrm{spec}}^{(l)},\boldsymbol\Theta^{(l)}$ | 频谱权重和局部卷积分支 |
+| $\mathbf S,\mathbf h_i,\mathbf e_{ij},b_{ij}$ | 图到网格特征图、节点嵌入、边特征和注意力偏置 |
+| $V_{\mathrm{qry}},\mathbf x_q,\psi,L_{\mathrm{rff}}$ | 待查询接收机集合及坐标、傅里叶坐标特征与其数量 |
+| $s_{i,f},Q_{\mathrm{off}},\eta,r_{b,f,j}$ | 截断对数方差、离网格采样数、插值有效性与离网格残差 |
+| $\mathcal L_{\mathrm{total}},\mathcal L_{\mathrm{off}},w_{\mathrm{obs}},\lambda_{\mathrm{unc}}$ | 总损失、离网格损失、观测单元权重和方差正则化系数 |
+
+其中 $\mathcal F$ 是式（12）中的非酉二维离散傅里叶变换（DFT）；$\mathcal F_u$ 是引理 1 和推论 1 中的酉 DFT。
 
 ### A. 信道建模
 
