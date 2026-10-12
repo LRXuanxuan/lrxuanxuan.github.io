@@ -22,7 +22,7 @@ module RuixuanBlog
         next unless entry.is_a?(Hash) && entry['slug']
 
         add(entries, entry['added_at'], entry['title'],
-            "/tidbits/#{entry['slug']}", '豆知识')
+            "/tidbits/##{entry['slug']}", '豆知识')
       end
 
       Array(site.data['home_updates']).each do |entry|
