@@ -56,6 +56,8 @@
     });
   }
   function render() {
+    // Do not build hundreds of DOM cards while the archive is folded.
+    if(!root.open) return;
     const mode=filter.value;
     // Sort by Beijing calendar date first, then the actual redraw timestamp.
     // Older imports may have no timestamp; fall back to reverse archive insertion
@@ -151,8 +153,27 @@
     event.target.value='';
   });
   window.addEventListener('storage',event=>{if(event.key===records.key||event.key===votes?.storageKey)render();});
-  render();
-  records.migrate(root.dataset.pool).then(render).catch(()=>{status.textContent='旧签暂未加载，请稍后刷新；已有签册仍保留。';});
+  let archiveInitialized=false;
+  let refreshMissingDays=()=>Promise.resolve();
+  function revealLinkedArchive() {
+    if(location.hash==='#rc-archive-title') root.open=true;
+  }
+  root.addEventListener('toggle',()=>{
+    if(!root.open){list.replaceChildren();return;}
+    render();
+    if(!archiveInitialized) {
+      archiveInitialized=true;
+      records.migrate(root.dataset.pool).then(render).catch(()=>{
+        status.textContent='旧签暂未加载，请稍后刷新；已有签册仍保留。';
+      });
+    }
+    refreshMissingDays();
+  });
+  window.addEventListener('hashchange',revealLinkedArchive);
+  revealLinkedArchive();
+  // The hash target is in the summary. It can open automatically when linked
+  // from the homepage, but regular visits leave the native details folded.
+  if(root.open) root.dispatchEvent(new Event('toggle'));
 
   // GitHub's nightly job normally publishes the official archive. When the
   // queue is delayed, derive missing dates locally so the archive still shows
@@ -160,6 +181,7 @@
   if(calendar) {
     let updating=null,dayTimer=null;
     async function addMissingDays() {
+      if(!root.open)return;
       if(updating)return updating;
       const today=calendar.day();
       const existing=new Set(daily.map(row=>row.date));
@@ -191,9 +213,10 @@
       dayTimer=setTimeout(()=>addMissingDays().finally(schedule),
         calendar.nextMidnightDelay());
     }
-    addMissingDays().finally(schedule);
+    refreshMissingDays=()=>Promise.resolve(addMissingDays());
+    refreshMissingDays().finally(schedule);
     document.addEventListener('visibilitychange',()=>{
-      if(!document.hidden)addMissingDays().finally(schedule);
+      if(!document.hidden)refreshMissingDays().finally(schedule);
     });
   }
 })();
