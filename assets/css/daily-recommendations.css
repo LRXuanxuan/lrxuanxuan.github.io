@@ -1,9 +1,4 @@
 /* Lightweight daily trio and personal archive: text, borders, no external assets. */
-/* This homepage uses the full main column; other pages keep Chirpy's native panel. */
-#main-wrapper:has(.rc-home) #panel-wrapper{display:none!important}
-#main-wrapper:has(.rc-home) main[aria-label="Main Content"],
-#main-wrapper:has(.rc-home) #tail-wrapper{flex:0 0 100%;width:100%;max-width:100%}
-
 /* Three balanced, text-only recommendations beneath "这里有什么". */
 .rc-home .rc-rec-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.9rem;align-items:stretch}
 .rc-home .rc-rec-list .rc-rec-entry{display:flex;flex-direction:column;min-width:0;padding:1.2rem;background:var(--card-bg);border:1px solid var(--main-border-color);border-radius:13px;box-shadow:var(--card-shadow)}
