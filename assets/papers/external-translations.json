@@ -1,6 +1,26 @@
 [
   {
     "date": "2026-10-12",
+    "url": "/papers/translations/2026-10-12-radio-map-online-gp-full-zh/",
+    "slug": "2026-10-12-radio-map-online-gp-full-zh",
+    "source_file": "2026-10-12-radio-map-online-gp-full-zh.md",
+    "title": "记忆式在线高斯过程流式无线电地图更新｜全文中译",
+    "scope": "14页，摘要、正文各节、M-OSVGP及GOIPS算法、公式推导说明、图表与附录A–D，参考文献。",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-radio-map-online-gp-full-zh.md",
+    "source_page_path": "papers/translations/2026-10-12-radio-map-online-gp-full-zh.md",
+    "paper_ids": [
+      "ad7c6f680aefcbc8"
+    ],
+    "source_arxiv_ids": [
+      "2607.17954"
+    ],
+    "external": true,
+    "qa_complete": true,
+    "content_kind": "full_translation",
+    "license_status": "user_supplied_pdf_rights_not_independently_verified"
+  },
+  {
+    "date": "2026-10-12",
     "url": "/papers/translations/2026-10-12-sigmap-full-zh/",
     "slug": "2026-10-12-sigmap-full-zh",
     "source_file": "2026-10-12-sigmap-full-zh.md",
