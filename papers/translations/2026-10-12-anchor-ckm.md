@@ -391,7 +391,7 @@ $$
 \end{aligned}\tag{25}
 $$
 
-$\mathbf1_{\mathrm{phase2}}$ 仅在第二训练阶段启用非网格点项，$w_{\mathrm{obs}}$ 控制已观测点一致性惩罚，$\lambda_{\mathrm{unc}}$ 限制对数方差头。第二阶段，每个训练网格块从归一化区域抽取 $Q_{\mathrm{off}}$ 个连续坐标 $\mathbf x_{q,b,j}$。令 $\mathcal F_{\mathrm{tar}}$ 为待重构属性集合，$\mathcal I_h[P_f]$ 为稠密训练目标的双线性插值，$\eta_{b,j}$ 为插值得到的有效域指示值，$r_{b,f,j}=\hat\mu_f(\mathbf x_{q,b,j})-\mathcal I_h[P_f](\mathbf x_{q,b,j})$，则
+$\mathbf1_{\mathrm{phase2}}$ 仅在第二训练阶段启用非网格点项，$w_{\mathrm{obs}}$ 控制已观测点一致性惩罚，$\lambda_{\mathrm{unc}}$ 限制对数方差头。第二阶段，每个训练网格块从归一化区域抽取 $Q_{\mathrm{off}}$ 个连续坐标 $\mathbf x_{q,b,j}$。令 $\mathcal F_{\mathrm{tar}}$ 为待重构属性集合，$\mathcal I_h[P_f]$ 为稠密训练目标的双线性插值，$\eta_{b,j}$ 为插值得到的有效域指示值，$r_{b,f,j}=\hat\mu_f(\mathbf x_{q,b,j})-\mathcal I_h\left[P_f\right]\left(\mathbf x_{q,b,j}\right)$，则
 
 $$
 \mathcal L_{\mathrm{off}}
