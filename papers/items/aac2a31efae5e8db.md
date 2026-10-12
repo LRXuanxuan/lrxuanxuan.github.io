@@ -9,7 +9,7 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=aac2a31efae5e8db)
 
-[本篇日报说明](/papers/items/aac2a31efae5e8db/#paper-report) · [全文翻译（待补齐）](/papers/items/aac2a31efae5e8db/#paper-translation)
+[本篇日报说明](/papers/items/aac2a31efae5e8db/#paper-report) · [中文全文译文](/papers/translations/2607.11743/)
 
 **推荐日期：** 2026-07-20 · **发表状态：** 历史记录未明确
 
@@ -17,7 +17,7 @@ toc: true
 
 ## 本篇全文翻译
 
-本篇已列入全文翻译清单，尚未完成。完成并允许公开后，此入口将直达本篇全文译稿。
+中文译文已整理为独立网页，保留论文正文结构、公式、图表数值与附录（适用时）。[点击阅读中文全文译文](/papers/translations/2607.11743/)，也可从上方返回原论文条目及其研究推荐。
 
 <span id="paper-report"></span>
 
