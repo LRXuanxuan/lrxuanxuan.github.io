@@ -1,6 +1,106 @@
 [
   {
     "date": "2026-10-12",
+    "url": "/papers/translations/flow-energy-reading/",
+    "slug": "flow-energy-reading-2026",
+    "source_file": "flow-energy-reading-2026.md",
+    "title": "Flow-Matching Energy：物理可组合能量｜中文研究笔记",
+    "scope": "中文研究笔记（非全文翻译）",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/flow-energy-reading-2026.md",
+    "source_page_path": "papers/translations/flow-energy-reading-2026.md",
+    "paper_ids": [
+      "88a5eaf3ebd0b345"
+    ],
+    "source_arxiv_ids": [
+      "2608.18004"
+    ],
+    "external": true,
+    "qa_complete": false,
+    "content_kind": "research_notes",
+    "license_status": "not_verified_for_public_full_translation"
+  },
+  {
+    "date": "2026-10-12",
+    "url": "/papers/translations/dynamic-ckm-reading/",
+    "slug": "dynamic-ckm-reading-2026",
+    "source_file": "dynamic-ckm-reading-2026.md",
+    "title": "CKM 动态无线电环境重建｜中文研究笔记",
+    "scope": "中文研究笔记（非全文翻译）",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/dynamic-ckm-reading-2026.md",
+    "source_page_path": "papers/translations/dynamic-ckm-reading-2026.md",
+    "paper_ids": [
+      "26e33f30c7c0a4e8"
+    ],
+    "source_arxiv_ids": [
+      "2608.17322"
+    ],
+    "external": true,
+    "qa_complete": false,
+    "content_kind": "research_notes",
+    "license_status": "not_verified_for_public_full_translation"
+  },
+  {
+    "date": "2026-10-12",
+    "url": "/papers/translations/nearfield-map-reading/",
+    "slug": "nearfield-map-reading-2026",
+    "source_file": "nearfield-map-reading-2026.md",
+    "title": "Near-Field UM-MIMO：可移动阵列与信道地图｜中文研究笔记",
+    "scope": "中文研究笔记（非全文翻译）",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/nearfield-map-reading-2026.md",
+    "source_page_path": "papers/translations/nearfield-map-reading-2026.md",
+    "paper_ids": [
+      "af0bb2a5b7abec0d"
+    ],
+    "source_arxiv_ids": [
+      "2608.05520"
+    ],
+    "external": true,
+    "qa_complete": false,
+    "content_kind": "research_notes",
+    "license_status": "not_verified_for_public_full_translation"
+  },
+  {
+    "date": "2026-10-12",
+    "url": "/papers/translations/universal-ckm-reading/",
+    "slug": "universal-ckm-reading-2026",
+    "source_file": "universal-ckm-reading-2026.md",
+    "title": "Universal CKM：跨设备跨任务传播知识｜中文研究笔记",
+    "scope": "中文研究笔记（非全文翻译）",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/universal-ckm-reading-2026.md",
+    "source_page_path": "papers/translations/universal-ckm-reading-2026.md",
+    "paper_ids": [
+      "47ac7ad81f5c0fb6"
+    ],
+    "source_arxiv_ids": [
+      "2608.17382"
+    ],
+    "external": true,
+    "qa_complete": false,
+    "content_kind": "research_notes",
+    "license_status": "not_verified_for_public_full_translation"
+  },
+  {
+    "date": "2026-10-12",
+    "url": "/papers/translations/learnware-csi-reading/",
+    "slug": "learnware-csi-reading-2026",
+    "source_file": "learnware-csi-reading-2026.md",
+    "title": "Learnware for CSI Feedback：模型仓库与场景指纹｜中文研究笔记",
+    "scope": "中文研究笔记（非全文翻译）",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/learnware-csi-reading-2026.md",
+    "source_page_path": "papers/translations/learnware-csi-reading-2026.md",
+    "paper_ids": [
+      "e1c6629139b1f577"
+    ],
+    "source_arxiv_ids": [
+      "2608.17760"
+    ],
+    "external": true,
+    "qa_complete": false,
+    "content_kind": "research_notes",
+    "license_status": "not_verified_for_public_full_translation"
+  },
+  {
+    "date": "2026-10-12",
     "url": "/papers/translations/pix-mc-reading/",
     "slug": "pix-mc-reading-2026",
     "source_file": "pix-mc-reading-2026.md",
