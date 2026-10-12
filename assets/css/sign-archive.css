@@ -3,10 +3,28 @@
 .rc-toy-link { display:flex; gap:1rem; align-items:center; padding:1.1rem 1.3rem; border:1px solid var(--main-border-color); border-radius:14px; color:var(--heading-color); background:var(--card-bg); text-decoration:none; }
 .rc-toy-link>span:nth-child(2) { flex:1; }
 .rc-toy-link small { display:block; color:var(--text-muted-color); margin-top:.3rem; }
-.rc-sign-archive { margin-top:2.5rem; }
-.rc-archive-heading { display:flex; flex-wrap:wrap; gap:.5rem; align-items:baseline; justify-content:space-between; }
-.rc-archive-heading h2 { margin:0; }
+.rc-sign-archive { margin-top:2.5rem; border:1px solid var(--main-border-color); border-radius:12px; background:var(--card-bg); }
+.rc-archive-fold { display:flex; align-items:center; gap:.65rem; padding:1rem 1.15rem; cursor:pointer; list-style:none; color:var(--heading-color); }
+.rc-archive-fold::-webkit-details-marker { display:none; }
+.rc-archive-fold::marker { content:""; }
+.rc-archive-fold:hover { background:var(--sidebar-hover-bg); border-radius:12px; }
+.rc-archive-fold:focus-visible { outline:2px solid var(--link-color); outline-offset:3px; }
+.rc-archive-fold-chevron { font-size:1.15rem; color:var(--link-color); transition:transform .16s ease; line-height:1; }
+.rc-sign-archive[open] .rc-archive-fold-chevron { transform:rotate(90deg); }
+.rc-archive-fold-title { font-size:1.08rem; font-weight:700; }
+.rc-archive-fold-hint { color:var(--text-muted-color); font-size:.77rem; margin-left:auto; text-align:right; }
+.rc-archive-fold-close { display:none; }
+.rc-sign-archive[open] .rc-archive-fold-open { display:none; }
+.rc-sign-archive[open] .rc-archive-fold-close { display:inline; }
+.rc-archive-content { border-top:1px solid var(--main-border-color); padding:.85rem 1.15rem 1.2rem; }
+.rc-archive-heading { display:flex; flex-wrap:wrap; gap:.5rem; justify-content:flex-end; }
 .rc-archive-heading a { font-size:.85rem; }
+@media(max-width:480px) {
+  .rc-archive-fold { padding:.85rem .9rem; flex-wrap:wrap; }
+  .rc-archive-fold-hint { flex-basis:100%; margin-left:1.85rem; text-align:left; }
+  .rc-archive-content { padding:.8rem .9rem 1rem; }
+}
+@media(prefers-reduced-motion:reduce) { .rc-archive-fold-chevron { transition:none; } }
 .rc-archive-note { font-size:.85rem; margin:1rem 0; }
 .rc-archive-controls { display:flex; flex-wrap:wrap; align-items:center; gap:.7rem; margin-bottom:1.5rem; font-size:.82rem; }
 .rc-archive-controls button, .rc-archive-controls select, .rc-import-button { background:var(--main-bg); color:var(--heading-color); border:1px solid var(--btn-border-color); border-radius:8px; padding:.4rem .65rem; font:inherit; cursor:pointer; }
