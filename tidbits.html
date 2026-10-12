@@ -8,31 +8,85 @@ toc: false
 <link rel="stylesheet" href="{{ '/assets/css/tidbits.css' | relative_url }}">
 
 <div class="rc-tidbits-archive">
-  <p class="rc-tidbits-intro">一点有意思、也不一定有什么用的小知识，随手记在这里喵。最新添加的排在最上面。</p>
-  <p class="rc-tidbits-back"><a href="{{ '/playthings/' | relative_url }}">← 返回奇怪的小玩意</a></p>
+  <div class="rc-tidbits-overview" id="catalog">
+    <p class="rc-tidbits-intro">一点有意思、也不一定有什么用的小知识，随手记在这里喵。最新添加的排在最上面，点开标题就能读完整词条。</p>
+    <p class="rc-tidbits-back"><a href="{{ '/playthings/' | relative_url }}">← 返回奇怪的小玩意</a></p>
+    {% assign tidbits_by_newest = site.data.tidbits | sort: 'added_at' | reverse %}
+    <p class="rc-tidbits-count">共 {{ tidbits_by_newest.size }} 条</p>
+  </div>
 
-  {% assign tidbits_by_newest = site.data.tidbits | sort: 'added_at' | reverse %}
-  <p class="rc-tidbits-count">共 {{ tidbits_by_newest.size }} 条</p>
+  <p class="rc-tidbits-reading-back"><a href="#catalog">← 返回豆知识目录</a></p>
+
   {% for tidbit in tidbits_by_newest %}
   <article class="rc-tidbit-entry" id="{{ tidbit.slug | escape }}">
-    <header class="rc-tidbit-entry-header">
-      <time datetime="{{ tidbit.added_at | escape }}">{{ tidbit.added_at | date: '%Y.%m.%d' }}</time>
-      <h2>{{ tidbit.title | escape }}</h2>
-      <p class="rc-tidbit-entry-english">{{ tidbit.english | escape }}</p>
-      {% if tidbit.tags %}
-      <div class="rc-tidbit-tags" aria-label="词条标签">
-        {% for tag in tidbit.tags %}<span>{{ tag | escape }}</span>{% endfor %}
+    <details class="rc-tidbit-fold">
+      <summary class="rc-tidbit-summary">
+        <time datetime="{{ tidbit.added_at | escape }}">{{ tidbit.added_at | date: '%Y.%m.%d' }}</time>
+        <strong class="rc-tidbit-summary-title">{{ tidbit.title | escape }}</strong>
+        <span class="rc-tidbit-brief">{{ tidbit.teaser | escape }}</span>
+        <span class="rc-tidbit-action">
+          <span class="rc-tidbit-action-open">阅读全文 →</span>
+          <span class="rc-tidbit-action-back">← 返回目录</span>
+        </span>
+      </summary>
+      <div class="rc-tidbit-full">
+        <p class="rc-tidbit-entry-english">{{ tidbit.english | escape }}</p>
+        {% if tidbit.tags %}
+        <div class="rc-tidbit-tags" aria-label="词条标签">
+          {% for tag in tidbit.tags %}<span>{{ tag | escape }}</span>{% endfor %}
+        </div>
+        {% endif %}
+        <div class="rc-tidbit-body">{{ tidbit.body | markdownify }}</div>
+        {% if tidbit.sources %}
+        <p class="rc-tidbit-sources">相关资料：
+          {% for source in tidbit.sources %}
+          <a href="{{ source.url | escape }}" target="_blank" rel="noopener noreferrer">{{ source.label | escape }} ↗</a>{% unless forloop.last %}<span aria-hidden="true"> · </span>{% endunless %}
+          {% endfor %}
+        </p>
+        {% endif %}
       </div>
-      {% endif %}
-    </header>
-    <div class="rc-tidbit-body">{{ tidbit.body | markdownify }}</div>
-    {% if tidbit.sources %}
-    <p class="rc-tidbit-sources">相关资料：
-      {% for source in tidbit.sources %}
-      <a href="{{ source.url | escape }}" target="_blank" rel="noopener noreferrer">{{ source.label | escape }} ↗</a>{% unless forloop.last %}<span aria-hidden="true"> · </span>{% endunless %}
-      {% endfor %}
-    </p>
-    {% endif %}
+    </details>
   </article>
   {% endfor %}
 </div>
+
+<script>
+(function () {
+  "use strict";
+  const archive = document.querySelector(".rc-tidbits-archive");
+  if (!archive) return;
+  const entries = Array.from(archive.querySelectorAll(".rc-tidbit-entry[id]"));
+
+  function currentEntry() {
+    let slug;
+    try {
+      slug = decodeURIComponent(window.location.hash.slice(1));
+    } catch (_) {
+      return null;
+    }
+    return entries.find((entry) => entry.id === slug) || null;
+  }
+
+  function showFromHash() {
+    const selected = currentEntry();
+    archive.classList.toggle("is-reading", Boolean(selected));
+    for (const entry of entries) {
+      entry.hidden = Boolean(selected) && entry !== selected;
+      entry.querySelector(".rc-tidbit-fold").open = entry === selected;
+    }
+    if (selected) {
+      window.requestAnimationFrame(() => selected.scrollIntoView({ block: "start" }));
+    }
+  }
+
+  for (const entry of entries) {
+    entry.querySelector(".rc-tidbit-summary").addEventListener("click", (event) => {
+      event.preventDefault();
+      window.location.hash = currentEntry() === entry ? "catalog" : entry.id;
+    });
+  }
+
+  window.addEventListener("hashchange", showFromHash);
+  showFromHash();
+})();
+</script>
