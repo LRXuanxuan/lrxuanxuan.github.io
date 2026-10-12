@@ -9,13 +9,15 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=af0bb2a5b7abec0d)
 
-[本篇日报说明](/papers/items/af0bb2a5b7abec0d/#paper-report) · [中文译文进度](/papers/items/af0bb2a5b7abec0d/#paper-translation)
+[本篇日报说明](/papers/items/af0bb2a5b7abec0d/#paper-report) · [中文研究笔记（非全文）](/papers/translations/nearfield-map-reading/)
 
 **推荐日期：** 2026-08-19 · **发表状态：** 历史记录未明确
 
 <span id="paper-translation"></span>
 
 ## 中文译文及进度
+
+[阅读近场 UM-MIMO 信道估计中文研究笔记（非全文译文）](/papers/translations/nearfield-map-reading/)
 
 已完成中文逐章译读稿，覆盖近场 UM-MIMO 信道模型、可移动阵列 LoS 估计、NLoS 子空间方法、导频分配与实验；尚未逐段核对全部公式及完整书目。个人阅读稿已在当前对话提供。由于未核实公开改编授权，暂不公开上架整篇译文。
 
