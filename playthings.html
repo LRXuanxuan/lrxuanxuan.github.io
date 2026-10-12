@@ -17,9 +17,9 @@ toc: false
   <section class="rc-tidbit-preview" aria-labelledby="rc-tidbit-preview-title">
     <div class="rc-tidbit-preview-header">
       <h2 id="rc-tidbit-preview-title">🫘 豆知识</h2>
-      <a href="{{ '/tidbits/' | relative_url }}">查看全部 {{ tidbits_by_newest.size }} 条 ↗</a>
+      <a href="{{ '/tidbits/' | relative_url }}?v={{ latest_tidbit.added_at | date: '%Y%m%d%H%M%S' }}">查看全部 {{ tidbits_by_newest.size }} 条 ↗</a>
     </div>
-    <a class="rc-tidbit-latest" href="{{ '/tidbits/' | relative_url }}#{{ latest_tidbit.slug | escape }}">
+    <a class="rc-tidbit-latest" href="{{ '/tidbits/' | relative_url }}?v={{ latest_tidbit.added_at | date: '%Y%m%d%H%M%S' }}#{{ latest_tidbit.slug | escape }}">
       <time datetime="{{ latest_tidbit.added_at | escape }}">{{ latest_tidbit.added_at | date: '%Y.%m.%d' }} · 最新添加</time>
       <strong>{{ latest_tidbit.title | escape }}</strong>
       <span class="rc-tidbit-english">{{ latest_tidbit.english | escape }}</span>
