@@ -195,8 +195,10 @@
   sources:
     - label: "《浮士德》德文原典与行号：Klassik Stiftung Weimar"
       url: "https://faust.klassik-stiftung.de/"
-    - label: "《浮士德》两部德文原文：Project Gutenberg"
+    - label: "《浮士德》第一部德文原文：Project Gutenberg"
       url: "https://www.gutenberg.org/ebooks/2229"
+    - label: "《浮士德》第二部德文原文：Project Gutenberg"
+      url: "https://www.gutenberg.org/ebooks/2230"
     - label: "《浮士德》第二部情节与场次：Goetheanum"
       url: "https://faust.goetheanum.org/das-stueck/faust-ii"
     - label: "爱克曼《歌德谈话录》1831年6月6日：关于救赎与菲利门夫妇"
