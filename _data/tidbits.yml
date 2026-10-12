@@ -1,5 +1,44 @@
 # 豆知识：每次添加新词条，填写唯一 slug、北京时间 added_at，以及词条内容。
 # 首页预览与归档会自动按 added_at 倒序排列；同一天多条可用时分秒区分顺序。
+- slug: "ai-software-vs-hardware"
+  added_at: "2026-10-12T11:43:00+08:00"
+  title: "AI 史上的「软件派」与「硬件派」"
+  english: "Software-centric AI vs. Specialized AI Hardware"
+  teaser: "造出智能，究竟主要靠写出正确的程序，还是得先造一台特别的机器？"
+  tags:
+    - "人工智能史"
+    - "计算机架构"
+    - "技术史"
+  body: |
+    人工智能的发展史里，有一条很有意思的长期分歧。粗略说来：
+
+    > **智能主要来自可编程的算法／表征**  
+    > **VS**  
+    > **智能需要特殊的物理结构／计算架构**
+
+    早期**符号主义 AI**相信，可以在通用数字计算机上，通过符号表示、逻辑规则和搜索程序实现智能。Newell 与 Simon 在 1976 年提出的**物理符号系统假说**，正是这一思路的代表。
+
+    但另一种工程直觉是：既然智能计算有自己的特点，为什么非得迁就普通计算机？1980 年代的 **Lisp Machine**，以及日本自 1982 年启动的**第五代计算机计划**，都尝试为 AI 所需的编程语言、逻辑推理或并行处理设计专门的机器。后来，通用计算机的进步和规模经济，让不少早期 AI 专机失去了优势。
+
+    看起来，2010 年代的深度学习革命像是一次「软件派胜利」：2012 年的 **AlexNet** 没有依赖某种神秘的仿生大脑，而是在 GPU 上训练神经网络。不过，它恰恰也提醒我们：**算法、数据和算力缺一不可**。GPU 提供的大规模并行计算，是突破的重要条件。
+
+    故事还有一个反转：深度学习成功之后，专用 AI 硬件反而复兴了。Google 的 **TPU** 自 2015 年起用于数据中心，把已经证明有效的神经网络计算进一步做成了专用加速器。
+
+    所以，这并不是「软件最终消灭硬件」的故事。更贴切的说法是：**智能算法可以脱离某一种特定的机器结构来研究和实现；但要让它运行得足够快、足够省电，计算架构仍然举足轻重。**
+
+    另外，**「软件与专用硬件」**和**「符号主义与连接主义」**是两组不同的问题：前者谈如何实现和加速，后者谈智能如何表示与学习。它们常在历史上交错，却并不是同一场论战。
+
+    从「为了 AI 造机器」，到「先让 AI 算法成功，再为它造更合适的机器」，这段历史实在很有循环往复的喜感。😼
+  sources:
+    - label: "Newell & Simon (1976)：Computer Science as Empirical Inquiry"
+      url: "https://doi.org/10.1145/360018.360022"
+    - label: "日本信息处理学会：第五代计算机计划"
+      url: "https://museum.ipsj.or.jp/en/computer/other/0002.html"
+    - label: "Krizhevsky et al. (2012)：AlexNet"
+      url: "https://papers.nips.cc/paper_files/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html"
+    - label: "Google (2017)：TPU 研究介绍"
+      url: "https://cloud.google.com/blog/products/gcp/quantifying-the-performance-of-the-tpu-our-first-machine-learning-chip"
+
 - slug: "tautological-place-names"
   added_at: "2026-10-12T11:28:00+08:00"
   title: "同义反复地名／地名赘语现象"
