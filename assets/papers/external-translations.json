@@ -619,7 +619,7 @@
     "slug": "2026-10-12-active-diffusion-ckm",
     "source_file": "2026-10-12-active-diffusion-ckm.md",
     "title": "基于贝叶斯推断扩散模型的信道知识地图主动学习构建（中文译稿）",
-    "scope": "中文译稿（范围见原页面；未计入全文验收）",
+    "scope": "34页：正文第1–6节、式(1)–(45)、算法1–3、表1–2、图1–12题注，以及43篇参考文献中文题名。 逐段、公式及图表仍需最终核对。",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-active-diffusion-ckm.md",
     "source_page_path": "papers/translations/2026-10-12-active-diffusion-ckm.md",
     "paper_ids": [
@@ -629,7 +629,9 @@
       "2606.29862"
     ],
     "external": true,
-    "qa_complete": false
+    "qa_complete": false,
+    "content_kind": "full_translation_review_pending",
+    "license_status": "user_supplied_pdf_rights_not_independently_verified"
   },
   {
     "date": "2026-10-12",
@@ -637,7 +639,7 @@
     "slug": "2026-10-12-anchor-ckm",
     "source_file": "2026-10-12-anchor-ckm.md",
     "title": "Anchor-CKM：稀疏测量的导频锚定布局条件傅里叶重构（中文正文全译）",
-    "scope": "中文译稿（范围见原页面；未计入全文验收）",
+    "scope": "13页：正文 I–V、式(1)–(28)、算法1、7张表、5幅图题及43篇参考文献中文题名。 逐段、公式及图表仍需最终核对。",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-anchor-ckm.md",
     "source_page_path": "papers/translations/2026-10-12-anchor-ckm.md",
     "paper_ids": [
@@ -647,7 +649,9 @@
       "2607.01453"
     ],
     "external": true,
-    "qa_complete": false
+    "qa_complete": false,
+    "content_kind": "full_translation_review_pending",
+    "license_status": "user_supplied_pdf_rights_not_independently_verified"
   },
   {
     "date": "2026-10-12",
@@ -655,13 +659,19 @@
     "slug": "2026-10-12-car-flow",
     "source_file": "2026-10-12-car-flow.md",
     "title": "CAR-Flow：条件感知重参数化通过对齐源与目标改进流匹配（中文译文）",
-    "scope": "中文译稿（范围见原页面；未计入全文验收）",
+    "scope": "27页：正文、技术附录A–F、NeurIPS检查表16项完整中文说明、表1–4、图1–9题注及26篇参考文献中文题名。 逐段、公式及图表仍需最终核对。",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-car-flow.md",
     "source_page_path": "papers/translations/2026-10-12-car-flow.md",
-    "paper_ids": [],
-    "source_arxiv_ids": [],
+    "paper_ids": [
+      "7f07ae93a51d317e"
+    ],
+    "source_arxiv_ids": [
+      "2509.19300"
+    ],
     "external": true,
-    "qa_complete": false
+    "qa_complete": false,
+    "content_kind": "full_translation_review_pending",
+    "license_status": "user_supplied_pdf_rights_not_independently_verified"
   },
   {
     "date": "2026-10-12",
@@ -801,7 +811,7 @@
     "slug": "2026-10-12-multice-flow",
     "source_file": "2026-10-12-multice-flow.md",
     "title": "MultiCE-Flow：基于流匹配多模态扩散模型的信道估计（全文译稿）",
-    "scope": "中文译稿（范围见原页面；未计入全文验收）",
+    "scope": "6页：全文正文、式(1)–(6)、4幅图题、完整17条英文书目及中文题名对照。 逐段、公式及图表仍需最终核对。",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-multice-flow.md",
     "source_page_path": "papers/translations/2026-10-12-multice-flow.md",
     "paper_ids": [
@@ -811,7 +821,9 @@
       "2603.13440"
     ],
     "external": true,
-    "qa_complete": false
+    "qa_complete": false,
+    "content_kind": "full_translation_review_pending",
+    "license_status": "user_supplied_pdf_rights_not_independently_verified"
   },
   {
     "date": "2026-10-12",
@@ -837,7 +849,7 @@
     "slug": "2026-10-12-radiomapmotion",
     "source_file": "2026-10-12-radiomapmotion.md",
     "title": "RadioMapMotion：面向时空无线电地图预测的数据集与基线（中文译稿）",
-    "scope": "中文译稿（范围见原页面；未计入全文验收）",
+    "scope": "13页：正文 I–VII、公式、4张表、7幅图题及45篇参考文献的中文题名对照；原始书目保留英文。 逐段、公式及图表仍需最终核对。",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-radiomapmotion.md",
     "source_page_path": "papers/translations/2026-10-12-radiomapmotion.md",
     "paper_ids": [
@@ -847,7 +859,9 @@
       "2511.17526"
     ],
     "external": true,
-    "qa_complete": false
+    "qa_complete": false,
+    "content_kind": "full_translation_review_pending",
+    "license_status": "user_supplied_pdf_rights_not_independently_verified"
   },
   {
     "date": "2026-10-12",
