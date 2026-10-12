@@ -20,7 +20,7 @@
     p.github.forEach((u,i)=>appendLink(links,i?'GitHub '+(i+1):'GitHub 仓库',u));
     if (p.report_entry_url) appendLink(links,'本篇日报与证据',p.paper_report_url);
     appendLink(links,p.full_translation_label||'全文翻译（待补齐）',p.full_translation_url||p.paper_url+'#paper-translation');
-    p.translations.filter(t=>t.url!==p.full_translation_url&&t.scope!=='全文中英文对照').forEach(t=>appendLink(links,'本篇历史译文',t.url));c.append(links);
+    p.translations.filter(t=>t.scope!=='全文中英文对照').forEach(t=>appendLink(links,'本篇历史译文',t.url));c.append(links);
     if(!p.github.length)c.append(make('small',p.fields['代码/数据状态']||'未记录公开代码状态','pl-meta'));
     const d=make('details');d.append(make('summary','展开方法、结果、证据及表格全部字段'));
     const dl=make('dl');Object.entries(p.fields).forEach(([k,v])=>{dl.append(make('dt',k));const dd=make('dd',v||'—');const url=p.hyperlinks[k];if(url){dd.append(document.createTextNode(' '));appendLink(dd,'打开链接',url);}dl.append(dd);});
@@ -44,56 +44,8 @@
     $('pl-more').hidden=result.length<=limit;
     $('pl-status').disabled=view!=='papers';$('pl-code').disabled=view!=='papers';
   }
-  fetch(root.dataset.source,{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(async json=>{
-    data=json;
-    // Extra translations are kept in a stable manifest; the main data index is regenerated.
-    // A failure to load this optional manifest must not prevent the library from rendering.
-    try {
-      const resp=await fetch('/assets/papers/external-translations.json',{cache:'no-cache'});
-      if(resp.ok) {
-        const extras=await resp.json();
-        if(Array.isArray(extras)) {
-          const existing=new Set((data.translations||[]).map(t=>t.url));
-          for(const t of extras) {
-            if(!safe(t.url))continue;
-            if(!existing.has(t.url)) {
-              data.translations.push({
-                date:t.date||'',
-                title:t.title||'中文译稿',
-                scope:t.scope||'译稿',
-                url:t.url,
-                download:safe(t.download)?t.download:t.url
-              });
-              existing.add(t.url);
-            }
-            for(const id of t.paper_ids||[]) {
-              const p=(data.papers||[]).find(p=>p.id===id);
-              if(!p)continue;
-              // Preserve the distinction between complete and partial translation.
-              if(t.qa_complete===true) {
-                p.full_translation_url=t.url;
-                p.full_translation_label='全文中文译文';
-                p.translation_status='全文译稿已发布（按公开授权）';
-              } else if (t.content_kind==='full_translation_review_pending') {
-                p.full_translation_url=t.url;
-                p.full_translation_label='中文全篇译稿（校对中）';
-                p.translation_status='全篇中文译稿已公开；逐段与公式校对中';
-              } else if (t.content_kind==='research_notes') {
-                p.full_translation_url=t.url;
-                p.full_translation_label='中文研究笔记（非全文）';
-                p.translation_status='中文研究笔记已公开；全文翻译未公开或尚未完成';
-              } else if (id==='874ff950767bb3f7') {
-                p.full_translation_url=t.url;
-                p.full_translation_label='中文方法译读（非全文）';
-                p.translation_status='方法与理论译读已发布；尚未完成全文';
-              }
-            }
-          }
-          data.translations.sort((a,b)=>(b.date||'').localeCompare(a.date||''));
-        }
-      }
-    } catch(_err) { /* keep main catalogue available */ }
-    const stats=$('pl-stats');stats.replaceChildren();
+  fetch(root.dataset.source,{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(json=>{
+    data=json;const stats=$('pl-stats');stats.replaceChildren();
     const progress=data.translation_progress;
     [[data.total,'推荐记录'],[Object.keys(data.dates).length,'推荐日期'],[data.reports.length,'每日报告'],[progress?`${progress.completed}/${progress.target}`:'0','全文验收通过'],[progress?.public_full_text||0,'可公开全文译文']].forEach(([n,label])=>{const s=make('div',undefined,'pl-stat');s.append(make('strong',String(n)),make('span',label));stats.append(s);});
     Object.entries(data.dates).forEach(([date,n])=>{const o=make('option',date+' · '+n+'篇');o.value=date;$('pl-date').append(o);});

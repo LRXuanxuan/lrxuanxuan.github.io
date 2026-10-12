@@ -114,7 +114,7 @@ Flower已在阅读笔记中，但原推荐表尚无记录；按用户指定资�
 - 第234行：Solving Inverse Problems with FLAIR
 <span id="paper-c872dfd2607afd8a"></span>
 
-[本篇全文翻译](/papers/items/c872dfd2607afd8a/#paper-translation)
+[本篇全文翻译](/papers/translations/2026-10-02-f69d81ae0d16b949c706baa6/#paper-c872dfd2607afd8a)
 
 [对应论文条目](/papers/items/c872dfd2607afd8a/)
 

@@ -1,30 +1,29 @@
 {
   "schema_version": 2,
   "source": "每日论文推荐.xlsx",
-  "source_sha256": "bdc61feb93fbf3846110ae3a3432492b972cd372cb7a16dbc36a0868db0fd142",
+  "source_sha256": "db4003c5253bb1480587d089bae8608b7353257b0e6c5308e9c84ad323ece88b",
   "translation_progress": {
     "target": 315,
-    "completed": 23,
-    "public_full_text": 17,
-    "local_only": 6,
+    "completed": 22,
+    "public_full_text": 10,
+    "local_only": 12,
     "status_counts": {
-      "access_blocked": 1,
-      "complete": 19,
-      "running": 1,
-      "pending": 289,
-      "draft": 5
+      "access_blocked": 3,
+      "complete": 18,
+      "pending": 292,
+      "incomplete": 1,
+      "running": 1
     },
     "model": "gpt-6-luna",
     "reasoning_effort": "xhigh",
     "figures_required": false,
     "tables_required": true,
-    "algorithms_required": true,
-    "external_completion_provenance": "Four existing completion declarations moved from library.js into data; no additional QA performed."
+    "algorithms_required": true
   },
   "sheets": [
     {
       "name": "每日论文推荐",
-      "count": 320,
+      "count": 325,
       "headers": [
         "日期",
         "标题",
@@ -46,8 +45,9 @@
       ]
     }
   ],
-  "total": 320,
+  "total": 325,
   "dates": {
+    "2026-10-13": 5,
     "2026-10-12": 5,
     "2026-10-11": 5,
     "2026-10-10": 5,
@@ -86,8 +86,260 @@
     "2026-07-12": 5,
     "2026-07-11": 5
   },
-  "latest_date": "2026-10-12",
+  "latest_date": "2026-10-13",
   "papers": [
+    {
+      "id": "3925171895fd3316",
+      "date": "2026-10-13",
+      "title": "AUG-RME: An Attention-Based Uncertainty-Aware Grid-Free Framework for Radio Map Estimation",
+      "sheet": "每日论文推荐",
+      "row": 326,
+      "fields": {
+        "日期": "2026-10-13",
+        "标题": "AUG-RME: An Attention-Based Uncertainty-Aware Grid-Free Framework for Radio Map Estimation",
+        "内容": "网格地图限制离网查询与分辨率，现有grid-free预处理成本和适应性仍受限。 IEEE公开摘要描述空间语义embedding、不确定性感知特征精炼与预测uncertainty coefficient，最后attention建模空间相关性并融合可靠性，实现任意查询点RSS预测。 IEEE公开摘要称在synthetic与ray-tracing数据上提高预测准确率和样本效率，支持多分辨率/off-grid位置；具体数据划分、误差数值、网络规模与推理时间待全文核验，不猜测。 局限：全文受限，uncertainty coefficient是否具有统计校准、是否跨城市、如何训练及是否利用测试环境信息均待全文确认。grid-free坐标查询不等同于连续位置条件生成分布，更不证明后验覆盖率。",
+        "契合方向": "TWC连续查询：grid-free与预测可靠性",
+        "推荐理由": "正式顶刊补充连续条件兴趣，同时明确回归系数与生成后验的边界。",
+        "顶刊顶会/机构依据": "IEEE Transactions on Wireless Communications 25:23113–23127 (2026)；正式发表",
+        "发表年份": "2026",
+        "论文下载链接": "https://ieeexplore.ieee.org/ielam/7693/11298242/11683520-aam.pdf",
+        "检索来源": "https://xplorestaging.ieee.org/document/11683520",
+        "筛选备注": "理论启发或基线（待取得全文后确定实现）；缺口：坐标连续查询与不确定性可信度；适合给环境先验加可靠性接口。 与位置条件flow不同，它目前可核验的是RSS回归与可靠性系数；与FR3物理模型不同，是注意力建模空间采样的路线。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "全文暂不可访问，待用户通过学校账号获取；当前介绍依据公开摘要/元数据，未完成全文核验",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码",
+        "反馈匹配": "暂只用于研究问题/评价设计：比较离网插值误差与置信度—误差关系；不用未核验结构指导端到端实现。",
+        "反馈权重说明": "正式顶刊补充连续条件兴趣，同时明确回归系数与生成后验的边界。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-13/",
+      "report_section": "### 05. AUG-RME: An Attention-Based Uncertainty-Aware Grid-Free Framework for Radio Map Estimation\n\n作者：Haihan Nan; Emmanuel Obeng Frimpong; Dong Yang; Zhi Tian; Yue Wang; Lingjia Liu。\n\n年份/venue：IEEE Transactions on Wireless Communications 25:23113–23127 (2026)（2026）；发表状态：正式发表。核验日期2026-10-13。\n\n方向：TWC连续查询：grid-free与预测可靠性。\n\n**问题与方法：** 网格地图限制离网查询与分辨率，现有grid-free预处理成本和适应性仍受限。 IEEE公开摘要描述空间语义embedding、不确定性感知特征精炼与预测uncertainty coefficient，最后attention建模空间相关性并融合可靠性，实现任意查询点RSS预测。\n\n**关键结果：** IEEE公开摘要称在synthetic与ray-tracing数据上提高预测准确率和样本效率，支持多分辨率/off-grid位置；具体数据划分、误差数值、网络规模与推理时间待全文核验，不猜测。\n\n**局限与审计：** 全文受限，uncertainty coefficient是否具有统计校准、是否跨城市、如何训练及是否利用测试环境信息均待全文确认。grid-free坐标查询不等同于连续位置条件生成分布，更不证明后验覆盖率。\n\n**迁移与阅读位置：** 理论启发或基线（待取得全文后确定实现）；缺口：坐标连续查询与不确定性可信度；适合给环境先验加可靠性接口。 暂只用于研究问题/评价设计：比较离网插值误差与置信度—误差关系；不用未核验结构指导端到端实现。\n\n**差异与推荐理由：** 与位置条件flow不同，它目前可核验的是RSS回归与可靠性系数；与FR3物理模型不同，是注意力建模空间采样的路线。 正式顶刊补充连续条件兴趣，同时明确回归系数与生成后验的边界。\n\n**身份/来源：** [一手页面](https://xplorestaging.ieee.org/document/11683520)；[官方原文/PDF入口](https://ieeexplore.ieee.org/ielam/7693/11298242/11683520-aam.pdf)；[DOI](https://doi.org/10.1109/twc.2026.3731526)。IEEE公开摘要及Crossref卷25页23113–23127相符，IEEE索引Date of Publication 2026-09-07；正式发表，非根据模板推断。\n\n**代码：** 未发现公开代码。IEEE摘要/DOI来源、作者题名和AUG-RME网页检索未发现仓库；GitHub API403使穷尽性有限，未找到不等于不存在。\n\n[本篇全文翻译](https://lrxuanxuan.github.io/papers/items/3925171895fd3316/#paper-translation)（按本篇身份绑定）。\n\n**全文/翻译：** 全文暂不可访问，待用户通过学校账号获取；当前介绍依据公开摘要/元数据，未完成全文核验。PDF官方入口已记录；没有可打开原文，不入队、不虚构本地译稿。",
+      "report_entry_url": "/papers/reports/2026-10-13/#paper-3925171895fd3316",
+      "paper_url": "/papers/items/3925171895fd3316/",
+      "paper_report_url": "/papers/items/3925171895fd3316/#paper-report",
+      "translations": [],
+      "links": [
+        "https://ieeexplore.ieee.org/ielam/7693/11298242/11683520-aam.pdf",
+        "https://xplorestaging.ieee.org/document/11683520",
+        "https://doi.org/10.1109/twc.2026.3731526",
+        "https://lrxuanxuan.github.io/papers/items/3925171895fd3316/#paper-translation)（按本篇身份绑定"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://ieeexplore.ieee.org/ielam/7693/11298242/11683520-aam.pdf"
+      ],
+      "hosted_pdfs": [],
+      "status": "正式发表",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/3925171895fd3316/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "cb0e43169021c839",
+      "date": "2026-10-13",
+      "title": "RadioDiff-Inverse: Diffusion Enhanced Bayesian Inverse Estimation for ISAC Radio Map Construction",
+      "sheet": "每日论文推荐",
+      "row": 325,
+      "fields": {
+        "日期": "2026-10-13",
+        "标题": "RadioDiff-Inverse: Diffusion Enhanced Bayesian Inverse Estimation for ISAC Radio Map Construction",
+        "内容": "建筑/BS环境未知或粗糙时，稀疏且有噪RSS难以同时重建无线地图和环境轮廓。 将地图重建定义为Bayesian逆问题，用冻结ImageNet扩散模型作为先验，并在测量条件下重建路径损耗地图/感知建筑；分环境aware/unaware、随机/结构化采样与噪声对照。工程实现基于扩散posterior sampling/FPS-SMC。 正式版p11：噪声0.01、70%随机遮挡aware PSNR34.55dB/SSIM0.9847，unaware33.91/0.9836；90%遮挡aware27.83dB。p10报告H100约100s/256²图、可并行16图；这些不是实时信道估计或本文平台实测。 局限：公开正式版正文与图表解释存在需要复核的差异：80%/noise0.01正文给32.57dB，而后段80%噪声曲线文字约30.2dB；本报告不合并为一个统一数值结论。新数据需完整重建、不支持轻量增量更新；采样延迟高，ImageNet先验物理失配与相位信息均未解决。代码random_cond路径的building_mask送入mask_generator、未直接传给网络或sample_fn，不据文件名推断完整环境条件注入。road路径还需数据接线。",
+        "契合方向": "TWC无线逆问题：噪声稀疏RSS与环境缺失",
+        "推荐理由": "用正式TWC实例检查训练-free论述与实际采样成本/实现边界。",
+        "顶刊顶会/机构依据": "IEEE Transactions on Wireless Communications 25:14611–14626 (2026)；正式发表",
+        "发表年份": "2026",
+        "论文下载链接": "https://m64he.github.io/paper_sshen/2026/wang2026radiodiffinverse.pdf",
+        "检索来源": "https://m64he.github.io/paper_sshen/2026/wang2026radiodiffinverse.pdf",
+        "筛选备注": "理论启发或基线；应用或基线：无线测量逆问题、环境不完整与时延限制。 不是已读RadioDiff/RadioDiff-3D的同一论文；先验使用与测量后验更明确，但自然图像预训练迁移本身不作为当前课题核心创新。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "https://github.com/zsfang2/radiodiff-inverse",
+        "代码/数据状态": "作者预告/部分代码",
+        "反馈匹配": "可作为稀疏RSS/缺失环境测量基线，首先审计mask、观测噪声与输入信息公平性；不能直接代替复数MIMO先验或把建筑IoU写成AoA/AoD监督。",
+        "反馈权重说明": "用正式TWC实例检查训练-free论述与实际采样成本/实现边界。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-13/",
+      "report_section": "### 04. RadioDiff-Inverse: Diffusion Enhanced Bayesian Inverse Estimation for ISAC Radio Map Construction\n\n作者：Xiucheng Wang; Zhongsheng Fang; Nan Cheng; Ruijin Sun; Haibo Zhou; Zhou Su; Zan Li; Xuemin Shen。\n\n年份/venue：IEEE Transactions on Wireless Communications 25:14611–14626 (2026)（2026）；发表状态：正式发表。核验日期2026-10-13。\n\n方向：TWC无线逆问题：噪声稀疏RSS与环境缺失。\n\n**问题与方法：** 建筑/BS环境未知或粗糙时，稀疏且有噪RSS难以同时重建无线地图和环境轮廓。 将地图重建定义为Bayesian逆问题，用冻结ImageNet扩散模型作为先验，并在测量条件下重建路径损耗地图/感知建筑；分环境aware/unaware、随机/结构化采样与噪声对照。工程实现基于扩散posterior sampling/FPS-SMC。\n\n**关键结果：** 正式版p11：噪声0.01、70%随机遮挡aware PSNR34.55dB/SSIM0.9847，unaware33.91/0.9836；90%遮挡aware27.83dB。p10报告H100约100s/256²图、可并行16图；这些不是实时信道估计或本文平台实测。\n\n**局限与审计：** 公开正式版正文与图表解释存在需要复核的差异：80%/noise0.01正文给32.57dB，而后段80%噪声曲线文字约30.2dB；本报告不合并为一个统一数值结论。新数据需完整重建、不支持轻量增量更新；采样延迟高，ImageNet先验物理失配与相位信息均未解决。代码random_cond路径的building_mask送入mask_generator、未直接传给网络或sample_fn，不据文件名推断完整环境条件注入。road路径还需数据接线。\n\n**迁移与阅读位置：** 理论启发或基线；应用或基线：无线测量逆问题、环境不完整与时延限制。 可作为稀疏RSS/缺失环境测量基线，首先审计mask、观测噪声与输入信息公平性；不能直接代替复数MIMO先验或把建筑IoU写成AoA/AoD监督。\n\n**差异与推荐理由：** 不是已读RadioDiff/RadioDiff-3D的同一论文；先验使用与测量后验更明确，但自然图像预训练迁移本身不作为当前课题核心创新。 用正式TWC实例检查训练-free论述与实际采样成本/实现边界。\n\n**身份/来源：** [一手页面](https://m64he.github.io/paper_sshen/2026/wang2026radiodiffinverse.pdf)；[官方原文/PDF入口](https://m64he.github.io/paper_sshen/2026/wang2026radiodiffinverse.pdf)；[DOI](https://doi.org/10.1109/twc.2026.3677479)；[arXiv](https://arxiv.org/abs/2504.14298)。IEEE注册Crossref journal-article卷25页14611–14626；作者主页正式PDF首面相符，accepted 2026-03-21，current version 2026-04-01。\n\n**代码：** 作者预告/部分代码；[作者仓库](https://github.com/zsfang2/radiodiff-inverse)。原作者仓库实际存在sampling、配置、数据loader、预训练权重入口和指标代码；静态读sample_condition.py及random_cond配置。road未接线、环境条件路径与论文语义还需复核，保守列部分代码，未执行训练或数值复现。\n\n[本篇全文翻译](https://lrxuanxuan.github.io/papers/items/cb0e43169021c839/#paper-translation)（按本篇身份绑定）。\n\n**本地原文与翻译：** [PDF](https://m64he.github.io/paper_sshen/2026/wang2026radiodiffinverse.pdf)；job_id=0cebbcc6c828dac4bfe0d417，当前状态=pending。已立即派发并确认gpt-6-luna/xhigh活跃；尚未验收全文完成。预期输出 `本地资料：paper.md`。\n\n**许可：** 正式作者PDF有IEEE版权提示；仅个人使用，翻译公开分享许可未确认，当前仅本地。 网站PDF始终links_only，不上传文件。",
+      "report_entry_url": "/papers/reports/2026-10-13/#paper-cb0e43169021c839",
+      "paper_url": "/papers/items/cb0e43169021c839/",
+      "paper_report_url": "/papers/items/cb0e43169021c839/#paper-report",
+      "translations": [],
+      "links": [
+        "https://m64he.github.io/paper_sshen/2026/wang2026radiodiffinverse.pdf",
+        "https://github.com/zsfang2/radiodiff-inverse",
+        "https://doi.org/10.1109/twc.2026.3677479",
+        "https://arxiv.org/abs/2504.14298",
+        "https://lrxuanxuan.github.io/papers/items/cb0e43169021c839/#paper-translation)（按本篇身份绑定"
+      ],
+      "github": [
+        "https://github.com/zsfang2/radiodiff-inverse"
+      ],
+      "pdf_sources": [
+        "https://m64he.github.io/paper_sshen/2026/wang2026radiodiffinverse.pdf"
+      ],
+      "hosted_pdfs": [],
+      "status": "正式发表",
+      "translation_status": "running",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/cb0e43169021c839/#paper-translation",
+      "full_translation_label": "全文翻译（进行中）"
+    },
+    {
+      "id": "fa7f1bb2b6bb36bc",
+      "date": "2026-10-13",
+      "title": "Channel Knowledge Maps for FR3 UAV Base Stations: Dataset and ML-based Modeling",
+      "sheet": "每日论文推荐",
+      "row": 324,
+      "fields": {
+        "日期": "2026-10-13",
+        "标题": "Channel Knowledge Maps for FR3 UAV Base Stations: Dataset and ML-based Modeling",
+        "内容": "既有地面CKM很少覆盖FR3高空基站几何，建筑高度与跨城市泛化常被简化。 16180个513×513样本来自66城3236处布局、每布局5个发射高度，7.125GHz、1m水平格；包含几何、LOS、衰减、时延扩展与角扩展。LOS使用自由空间/相干双径与校准，NLOS使用COST231和14特征ridge，按拓扑与高度分组。 p5：37/15/14城市严格训练/验证/测试，10840/2750/2590张图；测试总RMSE1.93dB、LOS1.74、NLOS3.54；GMM U-Net总4.36，但NLOS3.34优于本篇。p6同CPU模型0.0602s/map，MAC仅统计NLOS点积，RT时延只作情境参考。 局限：需要给定确定性LOS掩码，代码不估计可见性。有效测试目标仅7.4%为NLOS，总指标LOS主导；地面接收机1.5m、中心Tx、固定频率。角扩展不是AoA/AoD路径标签，衰减图不是复数CSI，更不能填补Sheet2全模态联合监督。公开Zenodo编号由PDF给出，但本次服务访问失败，未下载或核验数据文件完整性。",
+        "契合方向": "无线数据与环境先验：FR3 UAV跨城市",
+        "推荐理由": "数据和物理基线共同约束泛化论证，避免用总体RMSE掩盖NLOS弱项。",
+        "顶刊顶会/机构依据": "IEEE GLOBECOM 2026 Workshops（arXiv作者自述已接受）；已接受待刊（作者自述）",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2610.06356",
+        "检索来源": "https://arxiv.org/abs/2610.06356",
+        "筛选备注": "可直接复现（模型代码）；数据获取待核验；缺口：连续高度、真实建筑高度与严格城市留出协议。 相对CKMImageNet/OpenPathNet增加FR3高空Tx与城市分组；相对GeoGS-CE，不学习delay-beam复信道先验，输出是衰减统计地图。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "https://github.com/unworthyzeus/CKMAttenuationPriors",
+        "代码/数据状态": "完整开源实现",
+        "反馈匹配": "先复现公开attenuation prior与9分组消融，再将预测衰减/LOS置信度作为独立环境token；需另有配对CSI才可用于p(H|r,e,M)训练，不能只改网络输出维数。",
+        "反馈权重说明": "数据和物理基线共同约束泛化论证，避免用总体RMSE掩盖NLOS弱项。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-13/",
+      "report_section": "### 03. Channel Knowledge Maps for FR3 UAV Base Stations: Dataset and ML-based Modeling\n\n作者：Moreno~Garcia, Guillem; Abadal, Sergi; Vinogradov, Evgenii。\n\n年份/venue：IEEE GLOBECOM 2026 Workshops（arXiv作者自述已接受）（2026）；发表状态：已接受待刊（作者自述）。核验日期2026-10-13。\n\n方向：无线数据与环境先验：FR3 UAV跨城市。\n\n**问题与方法：** 既有地面CKM很少覆盖FR3高空基站几何，建筑高度与跨城市泛化常被简化。 16180个513×513样本来自66城3236处布局、每布局5个发射高度，7.125GHz、1m水平格；包含几何、LOS、衰减、时延扩展与角扩展。LOS使用自由空间/相干双径与校准，NLOS使用COST231和14特征ridge，按拓扑与高度分组。\n\n**关键结果：** p5：37/15/14城市严格训练/验证/测试，10840/2750/2590张图；测试总RMSE1.93dB、LOS1.74、NLOS3.54；GMM U-Net总4.36，但NLOS3.34优于本篇。p6同CPU模型0.0602s/map，MAC仅统计NLOS点积，RT时延只作情境参考。\n\n**局限与审计：** 需要给定确定性LOS掩码，代码不估计可见性。有效测试目标仅7.4%为NLOS，总指标LOS主导；地面接收机1.5m、中心Tx、固定频率。角扩展不是AoA/AoD路径标签，衰减图不是复数CSI，更不能填补Sheet2全模态联合监督。公开Zenodo编号由PDF给出，但本次服务访问失败，未下载或核验数据文件完整性。\n\n**迁移与阅读位置：** 可直接复现（模型代码）；数据获取待核验；缺口：连续高度、真实建筑高度与严格城市留出协议。 先复现公开attenuation prior与9分组消融，再将预测衰减/LOS置信度作为独立环境token；需另有配对CSI才可用于p(H|r,e,M)训练，不能只改网络输出维数。\n\n**差异与推荐理由：** 相对CKMImageNet/OpenPathNet增加FR3高空Tx与城市分组；相对GeoGS-CE，不学习delay-beam复信道先验，输出是衰减统计地图。 数据和物理基线共同约束泛化论证，避免用总体RMSE掩盖NLOS弱项。\n\n**身份/来源：** [一手页面](https://arxiv.org/abs/2610.06356)；[官方原文/PDF入口](https://arxiv.org/pdf/2610.06356)；[arXiv](https://arxiv.org/abs/2610.06356)。arXiv comments称accepted for IEEE Globecom26 Workshops；作者自述而非出版社录用确认，未核验正式会议DOI。\n\n**代码：** 完整开源实现；[作者仓库](https://github.com/unworthyzeus/CKMAttenuationPriors)。PDF直接给作者仓库；静态核验model.py、冻结artifact加载、evaluate_hdf5.py、recalibrate_nlos.py及测试/结果目录。完整指attenuation模型/评估实现，不含完整射线追踪器或本次未获取的HDF5数据。\n\n**数据：** [论文给出的数据入口](https://doi.org/10.5281/zenodo.21839567)；访问/文件完整性待核验，不虚报已下载。\n\n[本篇全文翻译](https://lrxuanxuan.github.io/papers/items/fa7f1bb2b6bb36bc/#paper-translation)（按本篇身份绑定）。\n\n**本地原文与翻译：** [PDF](https://arxiv.org/pdf/2610.06356)；job_id=b5206d10b28143a3b007fe81，当前状态=pending。已立即派发并确认gpt-6-luna/xhigh活跃；尚未验收全文完成。预期输出 `本地资料：paper.md`。\n\n**许可：** [CC BY4.0原文许可](https://creativecommons.org/licenses/by/4.0/)，署名及翻译说明齐备后可分享完成稿。 网站PDF始终links_only，不上传文件。",
+      "report_entry_url": "/papers/reports/2026-10-13/#paper-fa7f1bb2b6bb36bc",
+      "paper_url": "/papers/items/fa7f1bb2b6bb36bc/",
+      "paper_report_url": "/papers/items/fa7f1bb2b6bb36bc/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2610.06356",
+        "https://arxiv.org/abs/2610.06356",
+        "https://github.com/unworthyzeus/CKMAttenuationPriors",
+        "https://doi.org/10.5281/zenodo.21839567",
+        "https://lrxuanxuan.github.io/papers/items/fa7f1bb2b6bb36bc/#paper-translation)（按本篇身份绑定",
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "github": [
+        "https://github.com/unworthyzeus/CKMAttenuationPriors"
+      ],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2610.06356"
+      ],
+      "hosted_pdfs": [],
+      "status": "已接受待刊",
+      "translation_status": "running",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/fa7f1bb2b6bb36bc/#paper-translation",
+      "full_translation_label": "全文翻译（进行中）"
+    },
+    {
+      "id": "4e65b9641a926d7f",
+      "date": "2026-10-13",
+      "title": "Getting Your Guidance Weights Right in diffusion and flow-matching posterior sampling",
+      "sheet": "每日论文推荐",
+      "row": 323,
+      "fields": {
+        "日期": "2026-10-13",
+        "标题": "Getting Your Guidance Weights Right in diffusion and flow-matching posterior sampling",
+        "内容": "手工指导权重把先验和观测关系隐藏在调参中，同一曲线不一定适配不同算子、噪声和NFE。 SIMCA把预训练无条件场与观测指导场写为两个标量权重的线性组合；每个时刻用条件DSM/CFM目标解2×2最小二乘。simulation-based版本在实际近似采样轨迹上贪心逐步标定；simulation-free版本直接使用前向加噪。 全文p7：CelebA随机/box inpainting相对Flower提高约1.7/1.2dB；50步可改善PSNR/SSIM，但LPIPS/FID有适度退化，不能复述为所有质量完全不变。ImageNet Gaussian去模糊仅25.28dB，低于DDNM28.06，全文专门披露不奏效场景。 局限：依赖可用干净样本及观测模型的离线校准；更换算子、噪声、先验、指导项、采样器或步数必须重标定。双标量函数类不是精确条件场保证，greedy SIMCA非全局联合最优。仅适用于加性指导形式，不直接给ADMM的ρ/惩罚参数最优结论。",
+        "契合方向": "后验求解：离线数据驱动指导权重",
+        "推荐理由": "当前同NFE和失配实验可加入校准成本与迁移失配的独立对照。",
+        "顶刊顶会/机构依据": "arXiv预印本；预印本/状态未确认",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2610.03503",
+        "检索来源": "https://arxiv.org/abs/2610.03503",
+        "筛选备注": "可改造工具；深化：把后验指导参数从启发式曲线变为可审计校准。 与β-Flow的协方差推导互补但应单独验证；相对已有SAIP/PnP，本篇离线解两个独立标量，并同时校准先验项权重。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "作者预告/部分代码",
+        "反馈匹配": "先在同一无条件straight-flow先验上做CSI版SIMCA，用训练/验证集的已知P与σ生成观测；每个P/噪声/NFE组合独立标定，不使用测试CSI。",
+        "反馈权重说明": "当前同NFE和失配实验可加入校准成本与迁移失配的独立对照。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-13/",
+      "report_section": "### 02. Getting Your Guidance Weights Right in diffusion and flow-matching posterior sampling\n\n作者：Moroy, Liam; Giovannelli, Jean-François; Altmann, Yoann; McLaughlin, Steve; Champagnat, Frédéric; Bourmaud, Guillaume。\n\n年份/venue：arXiv预印本（2026）；发表状态：预印本/状态未确认。核验日期2026-10-13。\n\n方向：后验求解：离线数据驱动指导权重。\n\n**问题与方法：** 手工指导权重把先验和观测关系隐藏在调参中，同一曲线不一定适配不同算子、噪声和NFE。 SIMCA把预训练无条件场与观测指导场写为两个标量权重的线性组合；每个时刻用条件DSM/CFM目标解2×2最小二乘。simulation-based版本在实际近似采样轨迹上贪心逐步标定；simulation-free版本直接使用前向加噪。\n\n**关键结果：** 全文p7：CelebA随机/box inpainting相对Flower提高约1.7/1.2dB；50步可改善PSNR/SSIM，但LPIPS/FID有适度退化，不能复述为所有质量完全不变。ImageNet Gaussian去模糊仅25.28dB，低于DDNM28.06，全文专门披露不奏效场景。\n\n**局限与审计：** 依赖可用干净样本及观测模型的离线校准；更换算子、噪声、先验、指导项、采样器或步数必须重标定。双标量函数类不是精确条件场保证，greedy SIMCA非全局联合最优。仅适用于加性指导形式，不直接给ADMM的ρ/惩罚参数最优结论。\n\n**迁移与阅读位置：** 可改造工具；深化：把后验指导参数从启发式曲线变为可审计校准。 先在同一无条件straight-flow先验上做CSI版SIMCA，用训练/验证集的已知P与σ生成观测；每个P/噪声/NFE组合独立标定，不使用测试CSI。\n\n**差异与推荐理由：** 与β-Flow的协方差推导互补但应单独验证；相对已有SAIP/PnP，本篇离线解两个独立标量，并同时校准先验项权重。 当前同NFE和失配实验可加入校准成本与迁移失配的独立对照。\n\n**身份/来源：** [一手页面](https://arxiv.org/abs/2610.03503)；[官方原文/PDF入口](https://arxiv.org/pdf/2610.03503)；[arXiv](https://arxiv.org/abs/2610.03503)。arXiv v1未披露录用信息，仅列预印本。\n\n**代码：** 作者预告/部分代码。公开摘要明确“Code will be made available”，论文未给可运行仓库；精确标题/编号检索未找到作者发布，API限流已记录。\n\n[本篇全文翻译](https://lrxuanxuan.github.io/papers/items/4e65b9641a926d7f/#paper-translation)（按本篇身份绑定）。\n\n**本地原文与翻译：** [PDF](https://arxiv.org/pdf/2610.03503)；job_id=f4f98ff0fe4ab9c6378586b7，当前状态=pending。已立即派发并确认gpt-6-luna/xhigh活跃；尚未验收全文完成。预期输出 `本地资料：paper.md`。\n\n**许可：** [CC BY4.0原文许可](https://creativecommons.org/licenses/by/4.0/)，署名及翻译说明齐备后可分享完成稿。 网站PDF始终links_only，不上传文件。",
+      "report_entry_url": "/papers/reports/2026-10-13/#paper-4e65b9641a926d7f",
+      "paper_url": "/papers/items/4e65b9641a926d7f/",
+      "paper_report_url": "/papers/items/4e65b9641a926d7f/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2610.03503",
+        "https://arxiv.org/abs/2610.03503",
+        "https://lrxuanxuan.github.io/papers/items/4e65b9641a926d7f/#paper-translation)（按本篇身份绑定",
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2610.03503"
+      ],
+      "hosted_pdfs": [],
+      "status": "预印本/状态未确认",
+      "translation_status": "running",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/4e65b9641a926d7f/#paper-translation",
+      "full_translation_label": "全文翻译（进行中）"
+    },
+    {
+      "id": "6d6929e2e9876fdb",
+      "date": "2026-10-13",
+      "title": "Spanning Diffusion and Flow-based Posterior Sampling via Exact Gaussian Conditioning",
+      "sheet": "每日论文推荐",
+      "row": 322,
+      "fields": {
+        "日期": "2026-10-13",
+        "标题": "Spanning Diffusion and Flow-based Posterior Sampling via Exact Gaussian Conditioning",
+        "内容": "独立重新加噪的PnP轨迹可能过宽，稀疏观测下需要明确控制路径相关性和先验置信度。 β-Flow以β∈[-1,1]连接流ODE、逆扩散与去相关路径，以κ调节Tweedie型各向同性协方差。每步一次去噪网络前向，然后用线性Gaussian模型的Kalman增益校正残差，无需网络梯度。 全文p7表5：100步FastMRI重建PSNR37.76dB，对照Flower37.70；稀疏CT为36.44dB，对照Flower33.41。CelebA表4随机inpainting34.52dB，Flower33.95。覆盖7类任务、4个数据集；不同任务的最优β/κ不同，并非所有指标最优。 局限：“exact”只指所选Gaussian近似的条件更新，不能宣称真实非Gaussian后验精确。p4明确省略c²S_post传播项，并删除Tweedie协方差Hessian；使用多粒子平均偏向MMSE，LPIPS不占优。参数逐任务验证集调优，100步不是一步求解，线性求解成本仍须计时。",
+        "契合方向": "后验求解：路径相关性与高斯校正",
+        "推荐理由": "能独立检验稀疏导频、CKM失配和零空间恢复时的先验强度，而不重训练整套模型。",
+        "顶刊顶会/机构依据": "arXiv预印本；预印本/状态未确认",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2610.13812",
+        "检索来源": "https://arxiv.org/abs/2610.13812",
+        "筛选备注": "可改造工具；深化：PnP-Flow/FlowADMM之后的轨迹和增益可控后验修正。 相对已读FLOWER/PnP-Flow增加路径相关性β；相对昨日SNaP的源分布设计，本篇改变每一步的校正与运输。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码",
+        "反馈匹配": "复数信道实虚堆叠后用y=Ax+n，A对应导频算子；保留相同straight-flow先验，只比较β=0/0.3/0.6和κ，不能把本文H误当无线信道H。",
+        "反馈权重说明": "能独立检验稀疏导频、CKM失配和零空间恢复时的先验强度，而不重训练整套模型。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-13/",
+      "report_section": "### 01. Spanning Diffusion and Flow-based Posterior Sampling via Exact Gaussian Conditioning\n\n作者：Deveney, Teo; Bogensperger, Lea; Wong, Hok Shing。\n\n年份/venue：arXiv预印本（2026）；发表状态：预印本/状态未确认。核验日期2026-10-13。\n\n方向：后验求解：路径相关性与高斯校正。\n\n**问题与方法：** 独立重新加噪的PnP轨迹可能过宽，稀疏观测下需要明确控制路径相关性和先验置信度。 β-Flow以β∈[-1,1]连接流ODE、逆扩散与去相关路径，以κ调节Tweedie型各向同性协方差。每步一次去噪网络前向，然后用线性Gaussian模型的Kalman增益校正残差，无需网络梯度。\n\n**关键结果：** 全文p7表5：100步FastMRI重建PSNR37.76dB，对照Flower37.70；稀疏CT为36.44dB，对照Flower33.41。CelebA表4随机inpainting34.52dB，Flower33.95。覆盖7类任务、4个数据集；不同任务的最优β/κ不同，并非所有指标最优。\n\n**局限与审计：** “exact”只指所选Gaussian近似的条件更新，不能宣称真实非Gaussian后验精确。p4明确省略c²S_post传播项，并删除Tweedie协方差Hessian；使用多粒子平均偏向MMSE，LPIPS不占优。参数逐任务验证集调优，100步不是一步求解，线性求解成本仍须计时。\n\n**迁移与阅读位置：** 可改造工具；深化：PnP-Flow/FlowADMM之后的轨迹和增益可控后验修正。 复数信道实虚堆叠后用y=Ax+n，A对应导频算子；保留相同straight-flow先验，只比较β=0/0.3/0.6和κ，不能把本文H误当无线信道H。\n\n**差异与推荐理由：** 相对已读FLOWER/PnP-Flow增加路径相关性β；相对昨日SNaP的源分布设计，本篇改变每一步的校正与运输。 能独立检验稀疏导频、CKM失配和零空间恢复时的先验强度，而不重训练整套模型。\n\n**身份/来源：** [一手页面](https://arxiv.org/abs/2610.13812)；[官方原文/PDF入口](https://arxiv.org/pdf/2610.13812)；[arXiv](https://arxiv.org/abs/2610.13812)。arXiv v1未披露录用信息，仅列预印本。\n\n**代码：** 未发现公开代码。arXiv/PDF未给本篇作者仓库；精确标题/编号网页检索未发现实现，GitHub API限流403。引用的Flower/PnP-Flow是基线，不算本篇代码。\n\n[本篇全文翻译](https://lrxuanxuan.github.io/papers/items/6d6929e2e9876fdb/#paper-translation)（按本篇身份绑定）。\n\n**本地原文与翻译：** [PDF](https://arxiv.org/pdf/2610.13812)；job_id=efefe2f58a16f81c96d87ead，当前状态=pending。已立即派发并确认gpt-6-luna/xhigh活跃；尚未验收全文完成。预期输出 `本地资料：paper.md`。\n\n**许可：** [CC BY4.0原文许可](https://creativecommons.org/licenses/by/4.0/)，署名及翻译说明齐备后可分享完成稿。 网站PDF始终links_only，不上传文件。",
+      "report_entry_url": "/papers/reports/2026-10-13/#paper-6d6929e2e9876fdb",
+      "paper_url": "/papers/items/6d6929e2e9876fdb/",
+      "paper_report_url": "/papers/items/6d6929e2e9876fdb/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2610.13812",
+        "https://arxiv.org/abs/2610.13812",
+        "https://lrxuanxuan.github.io/papers/items/6d6929e2e9876fdb/#paper-translation)（按本篇身份绑定",
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2610.13812"
+      ],
+      "hosted_pdfs": [],
+      "status": "预印本/状态未确认",
+      "translation_status": "running",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/6d6929e2e9876fdb/#paper-translation",
+      "full_translation_label": "全文翻译（进行中）"
+    },
     {
       "id": "d85362be1aed96a2",
       "date": "2026-10-12",
@@ -119,13 +371,7 @@
       "report_entry_url": "/papers/reports/2026-10-12/#paper-d85362be1aed96a2",
       "paper_url": "/papers/items/d85362be1aed96a2/",
       "paper_report_url": "/papers/items/d85362be1aed96a2/#paper-report",
-      "translations": [
-        {
-          "url": "/papers/translations/2026-10-12-d85362be1aed96a2/",
-          "title": "Digital Twin-Assisted Spatio-Temporal Diffusion Transformer for Channel Estimation in Low-Altitude ISAC Systems",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
-        }
-      ],
+      "translations": [],
       "links": [
         "https://discovery.ucl.ac.uk/id/eprint/10228582/",
         "https://doi.org/10.1109/tcomm.2026.3706480",
@@ -137,10 +383,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "draft_unverified",
+      "translation_status": "pending",
       "full_translation_public": false,
-      "full_translation_url": "/papers/translations/2026-10-12-d85362be1aed96a2/",
-      "full_translation_label": "全文初稿（待校对）"
+      "full_translation_url": "/papers/items/d85362be1aed96a2/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "5bc3cd8a05b4024c",
@@ -175,9 +421,9 @@
       "paper_report_url": "/papers/items/5bc3cd8a05b4024c/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-10-12-5bc3cd8a05b4024c/",
           "title": "BeamCKM: A Framework of Channel Knowledge Map Construction for Multi-Antenna Systems",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2026-10-12-5bc3cd8a05b4024c/"
         }
       ],
       "links": [
@@ -196,10 +442,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "draft_unverified",
+      "translation_status": "complete",
       "full_translation_public": false,
-      "full_translation_url": "/papers/translations/2026-10-12-5bc3cd8a05b4024c/",
-      "full_translation_label": "全文初稿（待校对）"
+      "full_translation_url": "/papers/items/5bc3cd8a05b4024c/#paper-translation",
+      "full_translation_label": "全文翻译（仅本地）"
     },
     {
       "id": "60f8712943d94c3d",
@@ -234,9 +480,9 @@
       "paper_report_url": "/papers/items/60f8712943d94c3d/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-10-12-60f8712943d94c3d/",
           "title": "6D Channel Knowledge Map Construction via Bidirectional Wireless Gaussian Splatting",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2026-10-12-60f8712943d94c3d/"
         }
       ],
       "links": [
@@ -252,10 +498,10 @@
       ],
       "hosted_pdfs": [],
       "status": "已接受待刊",
-      "translation_status": "draft_unverified",
+      "translation_status": "complete",
       "full_translation_public": false,
-      "full_translation_url": "/papers/translations/2026-10-12-60f8712943d94c3d/",
-      "full_translation_label": "全文初稿（待校对）"
+      "full_translation_url": "/papers/items/60f8712943d94c3d/#paper-translation",
+      "full_translation_label": "全文翻译（仅本地）"
     },
     {
       "id": "03c3642f12989295",
@@ -290,9 +536,14 @@
       "paper_report_url": "/papers/items/03c3642f12989295/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-10-12-03c3642f12989295/",
+          "url": "/papers/translations/2026-10-12-07cd9352cec539825a82cc81/#paper-03c3642f12989295",
+          "scope": "全文中英文对照",
+          "title": "Iterating Consistency Models: Stability, Error Bounds and Noise Schedules"
+        },
+        {
           "title": "Iterating Consistency Models: Stability, Error Bounds and Noise Schedules",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2026-10-12-03c3642f12989295/"
         }
       ],
       "links": [
@@ -307,10 +558,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "draft_unverified",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/translations/2026-10-12-03c3642f12989295/",
-      "full_translation_label": "全文初稿（待校对）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-12-07cd9352cec539825a82cc81/#paper-03c3642f12989295",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "cd1fd1c4e35890df",
@@ -345,9 +596,14 @@
       "paper_report_url": "/papers/items/cd1fd1c4e35890df/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-10-12-cd1fd1c4e35890df/",
+          "url": "/papers/translations/2026-10-12-e2227d37a5cd8f76429d8e25/#paper-cd1fd1c4e35890df",
+          "scope": "全文中英文对照",
+          "title": "SNaP: One-Step Posterior Sampling for Noisy Inverse Problems"
+        },
+        {
           "title": "SNaP: One-Step Posterior Sampling for Noisy Inverse Problems",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2026-10-12-cd1fd1c4e35890df/"
         }
       ],
       "links": [
@@ -362,10 +618,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "partial",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/translations/2026-10-12-cd1fd1c4e35890df/",
-      "full_translation_label": "正文译稿（附录待补）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-12-e2227d37a5cd8f76429d8e25/#paper-cd1fd1c4e35890df",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "c993009e70191dfd",
@@ -945,28 +1201,7 @@
       "report_entry_url": "/papers/reports/2026-10-09/#paper-10f0ab8efa0053a7",
       "paper_url": "/papers/items/10f0ab8efa0053a7/",
       "paper_report_url": "/papers/items/10f0ab8efa0053a7/#paper-report",
-      "translations": [
-        {
-          "date": "2026-10-12",
-          "url": "/papers/translations/2026-10-12-2610-04769-full-zh/",
-          "slug": "2026-10-12-2610-04769-full-zh",
-          "source_file": "2026-10-12-2610-04769-full-zh.md",
-          "title": "空间可重构夹持天线系统：实验验证及通感一体化应用｜全文中文翻译",
-          "scope": "原文8页：摘要、I—V节全部正文、图1—6题注、参考文献[1]—[15]及全部6位作者简介。",
-          "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-2610-04769-full-zh.md",
-          "source_page_path": "papers/translations/2026-10-12-2610-04769-full-zh.md",
-          "paper_ids": [
-            "10f0ab8efa0053a7"
-          ],
-          "source_arxiv_ids": [
-            "2610.04769"
-          ],
-          "external": true,
-          "qa_complete": true,
-          "content_kind": "full_translation",
-          "license_status": "user_supplied_pdf_rights_not_independently_verified"
-        }
-      ],
+      "translations": [],
       "links": [
         "https://arxiv.org/pdf/2610.04769",
         "https://arxiv.org/abs/2610.04769"
@@ -977,10 +1212,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "complete",
-      "full_translation_public": true,
-      "full_translation_url": "/papers/translations/2026-10-12-2610-04769-full-zh/",
-      "full_translation_label": "全文中文翻译"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/10f0ab8efa0053a7/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "35a0a3cc7dd34973",
@@ -1013,28 +1248,7 @@
       "report_entry_url": "/papers/reports/2026-10-09/#paper-35a0a3cc7dd34973",
       "paper_url": "/papers/items/35a0a3cc7dd34973/",
       "paper_report_url": "/papers/items/35a0a3cc7dd34973/#paper-report",
-      "translations": [
-        {
-          "date": "2026-10-12",
-          "url": "/papers/translations/2026-10-12-2604-07004-full-zh/",
-          "slug": "2026-10-12-2604-07004-full-zh",
-          "source_file": "2026-10-12-2604-07004-full-zh.md",
-          "title": "突发相位噪声下的信道估计与 LDPC 译码｜全文中文翻译",
-          "scope": "原文11页：摘要、I—VI节、公式(1)—(34)、图1—15、表I与参考文献[1]—[45]。",
-          "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-2604-07004-full-zh.md",
-          "source_page_path": "papers/translations/2026-10-12-2604-07004-full-zh.md",
-          "paper_ids": [
-            "35a0a3cc7dd34973"
-          ],
-          "source_arxiv_ids": [
-            "2604.07004"
-          ],
-          "external": true,
-          "qa_complete": true,
-          "content_kind": "full_translation",
-          "license_status": "user_supplied_pdf_rights_not_independently_verified"
-        }
-      ],
+      "translations": [],
       "links": [
         "https://arxiv.org/pdf/2604.07004",
         "https://arxiv.org/abs/2604.07004",
@@ -1049,10 +1263,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "complete",
-      "full_translation_public": true,
-      "full_translation_url": "/papers/translations/2026-10-12-2604-07004-full-zh/",
-      "full_translation_label": "全文中文翻译"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/35a0a3cc7dd34973/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "f21a0dbb22c712a9",
@@ -1085,28 +1299,7 @@
       "report_entry_url": "/papers/reports/2026-10-09/#paper-f21a0dbb22c712a9",
       "paper_url": "/papers/items/f21a0dbb22c712a9/",
       "paper_report_url": "/papers/items/f21a0dbb22c712a9/#paper-report",
-      "translations": [
-        {
-          "date": "2026-10-12",
-          "url": "/papers/translations/2026-10-12-geometry-gpr-full-zh/",
-          "slug": "2026-10-12-geometry-gpr-full-zh",
-          "source_file": "2026-10-12-geometry-gpr-full-zh.md",
-          "title": "几何感知 GPR 的节能低开销信道估计方案｜完整中文译文",
-          "scope": "原文13页：摘要、I—VII节、33个编号公式、算法1—2、图1—9、表I—III、附录A—B、37条参考文献及作者简介。",
-          "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-geometry-gpr-full-zh.md",
-          "source_page_path": "papers/translations/2026-10-12-geometry-gpr-full-zh.md",
-          "paper_ids": [
-            "f21a0dbb22c712a9"
-          ],
-          "source_arxiv_ids": [
-            "2512.22578"
-          ],
-          "external": true,
-          "qa_complete": true,
-          "content_kind": "full_translation",
-          "license_status": "user_supplied_pdf_rights_not_independently_verified"
-        }
-      ],
+      "translations": [],
       "links": [
         "https://oulurepo.oulu.fi/bitstream/handle/10024/65127/nbnfioulu-202609075987.pdf?sequence=1&isAllowed=y",
         "https://arxiv.org/abs/2512.22578",
@@ -1121,10 +1314,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "complete",
-      "full_translation_public": true,
-      "full_translation_url": "/papers/translations/2026-10-12-geometry-gpr-full-zh/",
-      "full_translation_label": "全文中文翻译"
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/f21a0dbb22c712a9/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "b22d53d1cb740209",
@@ -5207,7 +5400,13 @@
       "report_entry_url": "/papers/reports/2026-10-08-supplement/#paper-c872dfd2607afd8a",
       "paper_url": "/papers/items/c872dfd2607afd8a/",
       "paper_report_url": "/papers/items/c872dfd2607afd8a/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-02-f69d81ae0d16b949c706baa6/#paper-c872dfd2607afd8a",
+          "scope": "全文中英文对照",
+          "title": "Tweedie Moment Projected Diffusions for Inverse Problems"
+        }
+      ],
       "links": [
         "https://arxiv.org/abs/2310.06721"
       ],
@@ -5217,10 +5416,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/c872dfd2607afd8a/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-02-f69d81ae0d16b949c706baa6/#paper-c872dfd2607afd8a",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "9d095caa2a3f42e6",
@@ -5261,10 +5460,10 @@
       "pdf_sources": [],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
+      "translation_status": "running",
       "full_translation_public": false,
       "full_translation_url": "/papers/items/9d095caa2a3f42e6/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_label": "全文翻译（进行中）"
     },
     {
       "id": "1c41d4564d50ff2f",
@@ -5532,10 +5731,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
+      "translation_status": "complete",
       "full_translation_public": false,
       "full_translation_url": "/papers/items/3338a24ceb5e8eb5/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_label": "全文翻译（仅本地）"
     },
     {
       "id": "60e0b265df0ae795",
@@ -5578,10 +5777,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
+      "translation_status": "complete",
       "full_translation_public": false,
       "full_translation_url": "/papers/items/60e0b265df0ae795/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_label": "全文翻译（仅本地）"
     },
     {
       "id": "a726dc223fa71900",
@@ -5624,10 +5823,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
+      "translation_status": "complete",
       "full_translation_public": false,
       "full_translation_url": "/papers/items/a726dc223fa71900/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_label": "全文翻译（仅本地）"
     },
     {
       "id": "b9e4ec1984babd3a",
@@ -5670,10 +5869,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
+      "translation_status": "complete",
       "full_translation_public": false,
       "full_translation_url": "/papers/items/b9e4ec1984babd3a/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_label": "全文翻译（仅本地）"
     },
     {
       "id": "b02fa6815cfbc54e",
@@ -5716,10 +5915,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
+      "translation_status": "complete",
       "full_translation_public": false,
       "full_translation_url": "/papers/items/b02fa6815cfbc54e/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_label": "全文翻译（仅本地）"
     },
     {
       "id": "f1900748d3249be6",
@@ -11569,9 +11768,9 @@
       "paper_report_url": "/papers/items/749bfdb8ab82b176/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/channel2world/",
-          "title": "Channel2World: A Wireless Foundation Model for RF Environment Representation",
-          "scope": "全文中文译文（沿用原发布验收记录）"
+          "title": "Channel2World：面向 RF 环境表示的无线基础模型｜中文译文",
+          "scope": "全文中文译文（沿用原发布验收记录）",
+          "url": "/papers/translations/channel2world/"
         }
       ],
       "links": [
@@ -11622,9 +11821,9 @@
       "paper_report_url": "/papers/items/836f81307350ca11/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/hdps/",
-          "title": "Hybrid-Domain Posterior Sampling for Inverse Problems via Latent Flow Matching",
-          "scope": "全文中文译文（沿用原发布验收记录）"
+          "title": "HDPS：基于潜空间流匹配的混合域后验采样｜中文全文译文",
+          "scope": "全文中文译文（沿用原发布验收记录）",
+          "url": "/papers/translations/hdps/"
         }
       ],
       "links": [
@@ -11682,9 +11881,9 @@
       "paper_report_url": "/papers/items/50a1b62e5cb84f9d/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/multipathformer/",
-          "title": "MultiPathFormer: Towards a Foundation Model for Multipath Wireless Propagation",
-          "scope": "全文中文译文（沿用原发布验收记录）"
+          "title": "MultiPathFormer：面向多径无线传播的基础模型｜中文全文译文",
+          "scope": "全文中文译文（沿用原发布验收记录）",
+          "url": "/papers/translations/multipathformer/"
         }
       ],
       "links": [
@@ -11784,9 +11983,9 @@
       "paper_report_url": "/papers/items/f01eb39a8eaa1174/#paper-report",
       "translations": [
         {
-          "url": "/papers/items/f01eb39a8eaa1174/#paper-translation",
           "title": "Zero-Shot Frequency Generalization for Radio Map Prediction via Cross-Attention Physics-Residual Learning",
-          "scope": "全文中文译文（沿用原发布验收记录）"
+          "scope": "全文中文译文（沿用原发布验收记录）",
+          "url": "/papers/items/f01eb39a8eaa1174/#paper-translation"
         }
       ],
       "links": [
@@ -12412,9 +12611,9 @@
       "paper_report_url": "/papers/items/ec34c5578ca54efc/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-10-12-2607-16877/",
           "title": "Hierarchical Wireless Foundation Model for Multi-Task Optimization｜中文译稿",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2026-10-12-2607-16877/"
         }
       ],
       "links": [
@@ -12468,9 +12667,9 @@
       "paper_report_url": "/papers/items/0773a40eaa0e9ccf/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-10-12-2607-16462/",
           "title": "Scalable Attention for 5G NR Channel Estimation｜全文中文翻译",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2026-10-12-2607-16462/"
         }
       ],
       "links": [
@@ -12527,9 +12726,9 @@
       "paper_report_url": "/papers/items/3d745a62f2b3bff9/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-10-12-2607-17591/",
           "title": "Tensor-Based Dynamic Channel Estimation for mmWave Movable Antenna MIMO Systems｜中文译稿",
-          "scope": "译文校对中"
+          "scope": "译文校对中",
+          "url": "/papers/translations/2026-10-12-2607-17591/"
         }
       ],
       "links": [
@@ -12583,9 +12782,9 @@
       "paper_report_url": "/papers/items/975d3d4bbafd780a/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-10-12-2607-18881/",
           "title": "Data-aided Channel Estimation and Sensing With Sparse Bayesian Learning for AFDM-ISAC System｜中文译稿",
-          "scope": "译文编写中"
+          "scope": "译文编写中",
+          "url": "/papers/translations/2026-10-12-2607-18881/"
         }
       ],
       "links": [
@@ -12639,9 +12838,9 @@
       "paper_report_url": "/papers/items/862e9c5ddbe4c938/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-10-12-2607-19333/",
           "title": "Provable diffusion-based posterior sampling for linear inverse problems via DDIM｜中文译稿",
-          "scope": "译文编写中"
+          "scope": "译文编写中",
+          "url": "/papers/translations/2026-10-12-2607-19333/"
         }
       ],
       "links": [
@@ -12695,9 +12894,9 @@
       "paper_report_url": "/papers/items/65907205876c1561/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-10-12-five-abstracts/",
           "title": "2026 年 7 月五篇论文：摘要中译与主要内容",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2026-10-12-five-abstracts/"
         }
       ],
       "links": [
@@ -12750,9 +12949,9 @@
       "paper_report_url": "/papers/items/5cc0d0d751befc62/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-10-12-five-abstracts/",
           "title": "2026 年 7 月五篇论文：摘要中译与主要内容",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2026-10-12-five-abstracts/"
         }
       ],
       "links": [
@@ -12805,9 +13004,9 @@
       "paper_report_url": "/papers/items/2e094f4029e01a73/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-10-12-five-abstracts/",
           "title": "2026 年 7 月五篇论文：摘要中译与主要内容",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2026-10-12-five-abstracts/"
         }
       ],
       "links": [
@@ -12861,9 +13060,9 @@
       "paper_report_url": "/papers/items/ad7c6f680aefcbc8/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-10-12-five-abstracts/",
           "title": "2026 年 7 月五篇论文：摘要中译与主要内容",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2026-10-12-five-abstracts/"
         }
       ],
       "links": [
@@ -12916,9 +13115,9 @@
       "paper_report_url": "/papers/items/2b09701c969754d7/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-10-12-five-abstracts/",
           "title": "2026 年 7 月五篇论文：摘要中译与主要内容",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2026-10-12-five-abstracts/"
         }
       ],
       "links": [
@@ -12969,9 +13168,9 @@
       "paper_report_url": "/papers/items/d4bb92afbe7b5735/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2602-07321/",
           "title": "无线上下文工程：面向高效移动智能体 AI 与边缘通用智能",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2602-07321/"
         }
       ],
       "links": [
@@ -13022,9 +13221,9 @@
       "paper_report_url": "/papers/items/737df6ee69503784/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2511-07789/",
           "title": "数字孪生赋能的太赫兹车内信道建模与无线规划",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2511-07789/"
         }
       ],
       "links": [
@@ -13075,9 +13274,9 @@
       "paper_report_url": "/papers/items/bcea00b2a45ac1ba/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2604-23310/",
           "title": "RadTwin：面向动态环境的可泛化无线数字孪生",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2604-23310/"
         }
       ],
       "links": [
@@ -13129,9 +13328,9 @@
       "paper_report_url": "/papers/items/99dbc765a81ed6d7/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2512-04283/",
           "title": "基于流匹配的即插即用图像恢复：连续时间视角",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2512-04283/"
         }
       ],
       "links": [
@@ -13182,9 +13381,9 @@
       "paper_report_url": "/papers/items/21e48ed8b0eeb35f/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2605-18325/",
           "title": "基于变分贝叶斯推断的混合专家扩散模型自适应大规模 MIMO 信道估计",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2605-18325/"
         }
       ],
       "links": [
@@ -13235,9 +13434,9 @@
       "paper_report_url": "/papers/items/71fab5c33128602e/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2607.14778/",
           "title": "AUGUST：无线无人机点云成像感知与跟踪（中文译本）",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2607.14778/"
         }
       ],
       "links": [
@@ -13288,9 +13487,9 @@
       "paper_report_url": "/papers/items/baba21ee71e8e702/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2607.15127/",
           "title": "星载人工智能信道估计：面向LEO非地面网络（中文译本）",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2607.15127/"
         }
       ],
       "links": [
@@ -13344,9 +13543,9 @@
       "paper_report_url": "/papers/items/aac2a31efae5e8db/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2607.11743/",
           "title": "DeepRT-E：面向6G数字孪生信道的GPU并行混合射线追踪（中文译本）",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2607.11743/"
         }
       ],
       "links": [
@@ -13397,9 +13596,9 @@
       "paper_report_url": "/papers/items/4b9fd6c01ae6ebf0/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2607.14398/",
           "title": "IMCD：面向约束扩散模型的滚动采样训练（中文译本）",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2607.14398/"
         }
       ],
       "links": [
@@ -13450,9 +13649,9 @@
       "paper_report_url": "/papers/items/f8ef368c6d1a3838/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2607.14597/",
           "title": "自适应得分VAMP：倾斜EM超参数自调节（中文译本）",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2607.14597/"
         }
       ],
       "links": [
@@ -13505,9 +13704,9 @@
       "paper_report_url": "/papers/items/32e207630c528217/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-10-12-geogs-ce/",
           "title": "GeoGS-CE：利用三维高斯学习高速移动场景的时延—波束信道先验（全文中文译稿）",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2026-10-12-geogs-ce/"
         }
       ],
       "links": [
@@ -13560,9 +13759,9 @@
       "paper_report_url": "/papers/items/31c110a6940bc6b1/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-10-12-m3f-uav/",
           "title": "M3F-UAV：面向低空无线感知的缺失模态多模态基础模型（中文译稿）",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2026-10-12-m3f-uav/"
         }
       ],
       "links": [
@@ -13619,9 +13818,9 @@
       "paper_report_url": "/papers/items/57c195ba073ff3c0/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-10-12-radiodiff-v2/",
           "title": "RadioDiff-v2：用于多波束选择与定位的生成式角度无线电地图（中文译稿）",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2026-10-12-radiodiff-v2/"
         }
       ],
       "links": [
@@ -13677,9 +13876,9 @@
       "paper_report_url": "/papers/items/cb17d9f06c30b360/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-10-12-flow-posterior-transport/",
           "title": "流逆问题求解器究竟近似什么？后验传输视角（中文译稿）",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2026-10-12-flow-posterior-transport/"
         }
       ],
       "links": [
@@ -13732,9 +13931,9 @@
       "paper_report_url": "/papers/items/89d34bfc695d61c7/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-10-12-flowadmm/",
           "title": "FlowADMM：基于流模型重新加噪—去噪先验的即插即用 ADMM（中文译稿）",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2026-10-12-flowadmm/"
         }
       ],
       "links": [
@@ -13786,13 +13985,7 @@
       "report_entry_url": "/papers/reports/2026-07-18/#paper-fa28f9a68f6d526c",
       "paper_url": "/papers/items/fa28f9a68f6d526c/",
       "paper_report_url": "/papers/items/fa28f9a68f6d526c/#paper-report",
-      "translations": [
-        {
-          "url": "/papers/translations/2026-07-18-2605-22856/",
-          "title": "PilotWiMAE: Pilot-Native Representation Learning for Wireless Channels｜中文全文译稿",
-          "scope": "中文全文译稿（待最终校对）"
-        }
-      ],
+      "translations": [],
       "links": [
         "https://arxiv.org/pdf/2605.22856",
         "https://github.com/BerkIGuler/PilotWiMAE",
@@ -13806,10 +13999,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "draft",
+      "translation_status": "pending",
       "full_translation_public": false,
-      "full_translation_url": "/papers/translations/2026-07-18-2605-22856/",
-      "full_translation_label": "阅读中文全文译稿（校对中）"
+      "full_translation_url": "/papers/items/fa28f9a68f6d526c/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "0f3c634423a1a511",
@@ -13844,9 +14037,9 @@
       "paper_report_url": "/papers/items/0f3c634423a1a511/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-07-18-2606-14114/",
-          "title": "Digital Twin-Based Channel Generation Toolchain and Foundation Model for Low-Altitude XL-MIMO｜中文全文译稿",
-          "scope": "中文全文译稿（待最终校对）"
+          "title": "Digital Twin-Based Channel Generation Toolchain and Foundation Model for Low-Altitude XL-MIMO｜中文译稿",
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2026-07-18-2606-14114/"
         }
       ],
       "links": [
@@ -13864,10 +14057,10 @@
       ],
       "hosted_pdfs": [],
       "status": "Early Access",
-      "translation_status": "draft",
+      "translation_status": "pending",
       "full_translation_public": false,
-      "full_translation_url": "/papers/translations/2026-07-18-2606-14114/",
-      "full_translation_label": "阅读中文全文译稿（校对中）"
+      "full_translation_url": "/papers/items/0f3c634423a1a511/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "c68671443d485071",
@@ -13900,13 +14093,7 @@
       "report_entry_url": "/papers/reports/2026-07-18/#paper-c68671443d485071",
       "paper_url": "/papers/items/c68671443d485071/",
       "paper_report_url": "/papers/items/c68671443d485071/#paper-report",
-      "translations": [
-        {
-          "url": "/papers/translations/2026-07-18-2607-09778/",
-          "title": "BDFlow-3DRM: Height-Coherent 3D Radio Map Construction via Bi-Dynamical Flow Matching｜中文全文译稿",
-          "scope": "中文全文译稿（待最终校对）"
-        }
-      ],
+      "translations": [],
       "links": [
         "https://arxiv.org/pdf/2607.09778",
         "https://arxiv.org/abs/2607.09778"
@@ -13917,10 +14104,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "draft",
+      "translation_status": "pending",
       "full_translation_public": false,
-      "full_translation_url": "/papers/translations/2026-07-18-2607-09778/",
-      "full_translation_label": "阅读中文全文译稿（校对中）"
+      "full_translation_url": "/papers/items/c68671443d485071/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "918fe4810faa75ef",
@@ -13955,9 +14142,9 @@
       "paper_report_url": "/papers/items/918fe4810faa75ef/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-07-18-2604-09039/",
-          "title": "Diffusion Inpainting MIMO-OFDM Channels with Limited Noisy Observations｜中文全文译稿",
-          "scope": "中文全文译稿（待最终校对）"
+          "title": "Diffusion Inpainting MIMO-OFDM Channels with Limited Noisy Observations｜中文译稿",
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2026-07-18-2604-09039/"
         }
       ],
       "links": [
@@ -13970,10 +14157,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "draft",
+      "translation_status": "pending",
       "full_translation_public": false,
-      "full_translation_url": "/papers/translations/2026-07-18-2604-09039/",
-      "full_translation_label": "阅读中文全文译稿（校对中）"
+      "full_translation_url": "/papers/items/918fe4810faa75ef/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "47073e0c82d5f79a",
@@ -14008,9 +14195,9 @@
       "paper_report_url": "/papers/items/47073e0c82d5f79a/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-07-18-2607-03348/",
-          "title": "Diffusion-Based Noise-Adaptive Null-Space Channel Estimation for OFDM Systems｜中文全文译稿",
-          "scope": "中文全文译稿（待最终校对）"
+          "title": "DANCE：面向 OFDM 系统的扩散式噪声自适应零空间信道估计｜中文译稿",
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2026-07-18-2607-03348/"
         }
       ],
       "links": [
@@ -14023,10 +14210,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "draft",
+      "translation_status": "pending",
       "full_translation_public": false,
-      "full_translation_url": "/papers/translations/2026-07-18-2607-03348/",
-      "full_translation_label": "阅读中文全文译稿（校对中）"
+      "full_translation_url": "/papers/items/47073e0c82d5f79a/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "2880ca956315b835",
@@ -14109,9 +14296,9 @@
       "paper_report_url": "/papers/items/d569fea7ff83377d/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-10-12-2602-11950/",
           "title": "含噪环境信息与稀疏观测下的无线电地图预测｜中文全文翻译",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2026-10-12-2602-11950/"
         }
       ],
       "links": [
@@ -14216,9 +14403,9 @@
       "paper_report_url": "/papers/items/21ed3da21f9a0e8b/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-10-12-2603-14135/",
           "title": "有限训练数据下物理约束逆问题的条件流匹配：中文完整译稿",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2026-10-12-2603-14135/"
         }
       ],
       "links": [
@@ -14270,9 +14457,9 @@
       "paper_report_url": "/papers/items/463058a587f7308b/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-10-12-2606-20098/",
           "title": "场景特定MIMO信道生成：扩散与流匹配｜中文译稿",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2026-10-12-2606-20098/"
         }
       ],
       "links": [
@@ -14327,9 +14514,9 @@
       "paper_report_url": "/papers/items/d431cfb51608ba7f/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-10-12-radiomapmotion/",
           "title": "RadioMapMotion：面向时空无线电地图预测的数据集与基线（中文译稿）",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2026-10-12-radiomapmotion/"
         }
       ],
       "links": [
@@ -14383,9 +14570,9 @@
       "paper_report_url": "/papers/items/4b51c57a6007081b/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-10-12-active-diffusion-ckm/",
           "title": "基于贝叶斯推断扩散模型的信道知识地图主动学习构建（中文译稿）",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2026-10-12-active-diffusion-ckm/"
         }
       ],
       "links": [
@@ -14486,9 +14673,9 @@
       "paper_report_url": "/papers/items/32099465209a8e56/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-10-12-anchor-ckm/",
           "title": "Anchor-CKM：稀疏测量的导频锚定布局条件傅里叶重构（中文正文全译）",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2026-10-12-anchor-ckm/"
         }
       ],
       "links": [
@@ -14541,9 +14728,9 @@
       "paper_report_url": "/papers/items/7bc74209552df7d1/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-10-12-multice-flow/",
           "title": "MultiCE-Flow：基于流匹配多模态扩散模型的信道估计（全文译稿）",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "scope": "中文译稿（范围见原页面；未计入全文验收）",
+          "url": "/papers/translations/2026-10-12-multice-flow/"
         }
       ],
       "links": [
@@ -14594,11 +14781,6 @@
       "paper_report_url": "/papers/items/0605e8989459d625/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-10-12-quamoe-drf/",
-          "scope": "全文中文译稿",
-          "title": "QuaMoE-DRF: Proactive Beam and Rate Adaptation via Multimodal Dynamic Radio Map Forecasting in ISAC Networks"
-        },
-        {
           "url": "/papers/translations/2026-07-15-1663571a/#paper-0605e8989459d625",
           "scope": "摘要与引言 / 历史译文说明",
           "title": "2026-07-15 推荐五篇论文：摘要与 Introduction 中英对照、内容概括与研究启示"
@@ -14614,10 +14796,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "complete",
+      "translation_status": "pending",
       "full_translation_public": false,
-      "full_translation_url": "/papers/translations/2026-10-12-quamoe-drf/",
-      "full_translation_label": "全文中文译稿（已完成）"
+      "full_translation_url": "/papers/items/0605e8989459d625/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "dbcbae770032bc6b",
@@ -14652,11 +14834,6 @@
       "paper_report_url": "/papers/items/dbcbae770032bc6b/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-10-12-urbanmimomap/",
-          "scope": "全文中文译稿",
-          "title": "UrbanMIMOMap: A Ray-Traced MIMO CSI Dataset with Precoding-Aware Maps and Benchmarks"
-        },
-        {
           "url": "/papers/translations/2026-07-15-1663571a/#paper-dbcbae770032bc6b",
           "scope": "摘要与引言 / 历史译文说明",
           "title": "2026-07-15 推荐五篇论文：摘要与 Introduction 中英对照、内容概括与研究启示"
@@ -14675,10 +14852,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "complete",
+      "translation_status": "pending",
       "full_translation_public": false,
-      "full_translation_url": "/papers/translations/2026-10-12-urbanmimomap/",
-      "full_translation_label": "全文中文译稿（已完成）"
+      "full_translation_url": "/papers/items/dbcbae770032bc6b/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "be550448b3019c06",
@@ -14713,11 +14890,6 @@
       "paper_report_url": "/papers/items/be550448b3019c06/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-10-12-macs/",
-          "scope": "全文中文译稿",
-          "title": "MACS: Measurement-Aware Consistency Sampling for Inverse Problems"
-        },
-        {
           "url": "/papers/translations/2026-07-15-1663571a/#paper-be550448b3019c06",
           "scope": "摘要与引言 / 历史译文说明",
           "title": "2026-07-15 推荐五篇论文：摘要与 Introduction 中英对照、内容概括与研究启示"
@@ -14733,10 +14905,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "complete",
+      "translation_status": "pending",
       "full_translation_public": false,
-      "full_translation_url": "/papers/translations/2026-10-12-macs/",
-      "full_translation_label": "全文中文译稿（已完成）"
+      "full_translation_url": "/papers/items/be550448b3019c06/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "6c9be78fade3f7c5",
@@ -14771,11 +14943,6 @@
       "paper_report_url": "/papers/items/6c9be78fade3f7c5/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-10-12-cps/",
-          "scope": "全文中文译稿",
-          "title": "Consistency Posterior Sampling for Diverse Image Synthesis"
-        },
-        {
           "url": "/papers/translations/2026-07-15-1663571a/#paper-6c9be78fade3f7c5",
           "scope": "摘要与引言 / 历史译文说明",
           "title": "2026-07-15 推荐五篇论文：摘要与 Introduction 中英对照、内容概括与研究启示"
@@ -14795,10 +14962,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "complete",
+      "translation_status": "pending",
       "full_translation_public": false,
-      "full_translation_url": "/papers/translations/2026-10-12-cps/",
-      "full_translation_label": "全文中文译稿（已完成）"
+      "full_translation_url": "/papers/items/6c9be78fade3f7c5/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "2fbb99f8064d2cac",
@@ -14833,11 +15000,6 @@
       "paper_report_url": "/papers/items/2fbb99f8064d2cac/#paper-report",
       "translations": [
         {
-          "url": "/papers/translations/2026-10-12-multistep-cm/",
-          "scope": "全文中文译稿",
-          "title": "Multistep Consistency Models"
-        },
-        {
           "url": "/papers/translations/2026-07-15-1663571a/#paper-2fbb99f8064d2cac",
           "scope": "摘要与引言 / 历史译文说明",
           "title": "2026-07-15 推荐五篇论文：摘要与 Introduction 中英对照、内容概括与研究启示"
@@ -14856,10 +15018,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "complete",
+      "translation_status": "pending",
       "full_translation_public": false,
-      "full_translation_url": "/papers/translations/2026-10-12-multistep-cm/",
-      "full_translation_label": "全文中文译稿（已完成）"
+      "full_translation_url": "/papers/items/2fbb99f8064d2cac/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
     },
     {
       "id": "42e0a54e090c908a",
@@ -15381,8 +15543,8 @@
       },
       "hyperlinks": {},
       "report_url": "",
-      "report_section": "",
-      "report_entry_url": "",
+      "report_section": "# Adaptive Plug-and-Play Channel Estimation with Consistency Models for MIMO Systems\n\n**原推荐日期：** 2026-07-13（原表第 12 行）  \n**本篇核验日期：** 2026-10-12  \n**作者：** Jinlong Li, Kexin Fang, Peng Yang, Zehui Xiong, Xianbin Cao, and Dapeng Oliver Wu  \n**来源状态：** arXiv:2604.23595v2，2026-06-06 更新；本次未核实期刊/会议正式发表信息。\n\n## 研究问题\n\n压缩导频下的 MIMO 信道估计需要在观测一致性与信道先验之间折衷。扩散先验推理通常需要多次网络函数评估；固定的 ADMM 惩罚参数和去噪强度也难以适应不同 SNR 与导频配置。论文研究如何用一致性模型（consistency model, CM）构造更快的角域信道先验，并让推理参数随观测条件变化。\n\n## 方法\n\n作者训练条件 U-Net 一致性模型学习角域信道分布，并将其作为 plug-and-play（PnP）生成先验嵌入 PnP-ADMM。算法交替执行由导频观测驱动的数据一致性更新和 CM 去噪更新。惩罚参数先通过残差能量与噪声方差的一致性筛选候选值，再在候选集合内最小化残差非零时延自相关的白化分数；CM 去噪级别则由观测 SNR 和选出的惩罚参数共同确定。算法另使用固定动量外推。\n\n## 原文报告的结果\n\n- 摘要报告推理步数减少 50%–90%，并称估计精度较高、跨数据集表现良好；结论也报告其在不同导频比例和跨数据集测试中保持有竞争力的表现。\n- 仿真使用 60 GHz 窄带 MIMO 角域信道：QuaDRiGa 的 mmMAGIC_UMi_LOS 场景含 8,000/1,000/1,000 个训练/验证/测试样本；跨数据集测试使用 Raymobtime S002 子集的 1,800 个样本。系统设定为 64 发射天线、16 接收天线、2 条 RF 链，导频移相器为 4-bit。\n- 论文正文报告中等 SNR 下通常 5–10 次外层迭代已足够，主要增益出现在前几次迭代；固定去噪级别在 10 dB 以上趋于饱和，固定惩罚参数在 15 dB 以上退化。作者指出，所设主动噪声变体和单步扩散基线弱于所提方法，原因包括噪声尺度对 SNR/导频/观测条件敏感，以及压缩导频下残差具有有色、偏置和部分不可观测误差。\n- 论文以曲线展示 NMSE，但正文未给出可直接引用的完整数值表。本报告不从图上估读具体 NMSE 数值。\n\n## 局限与证据边界\n\n作者在结论中将自适应动量和更广泛的信道条件列为后续方向。实验是仿真设置，主实验集中于单一 QuaDRiGa 场景，另以 Raymobtime S002 做跨数据集测试；论文未报告真实射频链路验证或端到端壁钟时延比较。arXiv 页面和论文正文中本次未发现代码链接或代码可用性声明；这不等于已穷尽所有外部代码仓库。正式发表状态本次也未独立确认。\n\n## 对当前研究的接口（研究迁移推断）\n\n可将“残差能量约束后再用残差白化筛选惩罚参数”作为压缩导频估计中的可检验自适应控制基线；同时比较固定与 SNR 条件化的先验强度，分别报告 NMSE、NFE、壁钟时延和不同场景/导频划分的泛化结果。若接入 MC-CKM/WCM，应把场景先验、导频观测和残差诊断作为独立条件变量做消融；这一接口是基于论文机制提出的实验假设，不是论文已验证的结论。\n\n## 来源与许可\n\n- [arXiv 摘要与版本记录](https://arxiv.org/abs/2604.23595)\n- [arXiv v2 PDF](https://arxiv.org/pdf/2604.23595)\n- [本次提交对应的 CC BY 4.0 许可](https://creativecommons.org/licenses/by/4.0/)\n- arXiv 元数据列出 DOI `10.48550/arXiv.2604.23595`。arXiv 页面标示 v2 于 2026-06-06 更新；正式出版状态未据此推断。\n\n本篇报告依据公开 arXiv PDF 全文、摘要及版本/许可元数据核验。官方 PDF 可通过网页阅读；当前工作区没有对应本地 PDF 文件，因此尚未计算本地 SHA-256，也未建立全文翻译 job。全文翻译不计完成，待取得可校验的本地 PDF 后继续。\n",
+      "report_entry_url": "/papers/items/aa0d19ee3c4d5e07/#paper-report",
       "paper_url": "/papers/items/aa0d19ee3c4d5e07/",
       "paper_report_url": "/papers/items/aa0d19ee3c4d5e07/#paper-report",
       "translations": [
@@ -15394,7 +15556,8 @@
       ],
       "links": [
         "https://arxiv.org/pdf/2604.23595",
-        "https://arxiv.org/abs/2604.23595"
+        "https://arxiv.org/abs/2604.23595",
+        "https://creativecommons.org/licenses/by/4.0/"
       ],
       "github": [],
       "pdf_sources": [
@@ -15433,18 +15596,25 @@
         "反馈权重说明": ""
       },
       "hyperlinks": {},
-      "report_url": "",
-      "report_section": "",
-      "report_entry_url": "",
+      "report_url": "/papers/reports/2026-07-12/",
+      "report_section": "# RadioDiff-3D: A 3D×3D Radio Map Dataset and Generative Diffusion Based Benchmark for 6G Environment-Aware Communication\n\n- 原推荐日期：2026-07-12；原表身份：每日论文推荐第 11 行；论文身份键：8046b7bb709c36a9246345b8。\n\n- 本篇网站条目：[本篇日报与证据](https://lrxuanxuan.github.io/papers/items/dc124267e48719cb/#paper-report)（身份键 8046b7bb709c36a9246345b8）；[本篇翻译状态](https://lrxuanxuan.github.io/papers/items/dc124267e48719cb/#paper-translation)。\n- 本次补写/核验日期：2026-10-12。\n- 作者：Xiucheng Wang, Qiming Zhang, Nan Cheng, Junting Chen, Zezhong Zhang, Zan Li, Shuguang Cui, Xuemin Shen。正式发表：IEEE Transactions on Network Science and Engineering, 13, 3773–3789 (2026)，DOI 10.1109/TNSE.2025.3590545；IEEE DOI、作者数据仓库和书目记录交叉核验。\n- 证据范围：读取arXiv摘要与出版元数据，未阅读全文或其表格；下列方法/结果严格限于摘要。\n\n## 问题与方法\n\n**问题：** 既有radio map工作常限于固定二维平面的path loss，较少联合方向到达角（DoA）、到达时间（ToA）和高度变化，且静态学习对训练分布外环境泛化有限。**方法：** 构建基于真实城市场景射线追踪的UrbanRadio3D三维地图数据集（path loss、DoA、ToA）；提出3D卷积UNet基准及3D卷积扩散模型RadioDiff-3D，并覆盖已知发射机位置的radiation-aware与仅稀疏空间观测的radiation-unaware设置。\n\n## 结果与限制\n\narXiv摘要报告数据集在空间/指标维度及高度层数上扩展既有数据集，并称RadioDiff-3D在UrbanRadio3D多种环境动态下取得较好的高维radio map构建表现。摘要未给出可核实的数值指标，本条不补造精度数值。\n\n限制：本轮没有检查论文正文中的数据划分、指标和基线表，数据集的射线追踪分布与真实测量差异、稀疏观测率和跨城市泛化需阅读全文/独立复现实验。作者仓库公开数据集入口；未确认其中包含完整RadioDiff-3D训练实现。\n\n## 对当前课题的迁移位置\n\n可作二维CKM向高度—角度—时延多任务先验扩展的基准锚点。MVP：先取UrbanRadio3D公开数据，统一接收机空间划分，训练path-loss二维基线与3D条件模型；再单独增加DoA/ToA辅助任务，比较稀疏观测率变化下各任务误差与跨高度泛化。先验证可获取数据子集及许可证/下载条件，不直接将仿真数据结果写成实测结论。\n\n## 链接与代码\n\n- 原文/摘要：[arXiv:2507.12166](https://arxiv.org/abs/2507.12166)\n- PDF：[官方arXiv PDF](https://arxiv.org/pdf/2507.12166)（网站仅保留原文链接）\n- 出版记录：[IEEE DOI](https://doi.org/10.1109/TNSE.2025.3590545)；[DBLP书目](https://dblp.org/rec/journals/tnse/WangZCCZLCS26.html)\n- 数据集/作者仓库：[UNIC-Lab/UrbanRadio3D](https://github.com/UNIC-Lab/UrbanRadio3D)；代码状态：数据集公开，完整模型实现未确认。\n- 精读建议：核查“3D×3D”数据规模定义、射线追踪参数、空间/高度划分、DoA/ToA标签构造、扩散基线及推理开销。\n\n> 单篇内容按摘要和书目范围完成；未访问全文的限制已显式保留。",
+      "report_entry_url": "/papers/items/dc124267e48719cb/#paper-report",
       "paper_url": "/papers/items/dc124267e48719cb/",
       "paper_report_url": "/papers/items/dc124267e48719cb/#paper-report",
       "translations": [],
       "links": [
         "https://arxiv.org/pdf/2507.12166",
         "https://arxiv.org/abs/2507.12166",
+        "https://github.com/UNIC-Lab/UrbanRadio3D",
+        "https://lrxuanxuan.github.io/papers/items/dc124267e48719cb/#paper-report)（身份键",
+        "https://lrxuanxuan.github.io/papers/items/dc124267e48719cb/#paper-translation",
+        "https://arxiv.org/pdf/2507.12166)（网站仅保留原文链接",
+        "https://doi.org/10.1109/TNSE.2025.3590545",
+        "https://dblp.org/rec/journals/tnse/WangZCCZLCS26.html"
+      ],
+      "github": [
         "https://github.com/UNIC-Lab/UrbanRadio3D"
       ],
-      "github": [],
       "pdf_sources": [
         "https://arxiv.org/pdf/2507.12166"
       ],
@@ -15481,17 +15651,24 @@
         "反馈权重说明": ""
       },
       "hyperlinks": {},
-      "report_url": "",
-      "report_section": "",
-      "report_entry_url": "",
+      "report_url": "/papers/reports/2026-07-12/",
+      "report_section": "# Environment-Aware MIMO Channel Estimation in Pilot-Constrained Upper Mid-Band Systems\n\n- 原推荐日期：2026-07-12；原表身份：每日论文推荐第 10 行；论文身份键：8945337f08cbfbf33d79d68b。\n\n- 本篇网站条目：[本篇日报与证据](https://lrxuanxuan.github.io/papers/items/9fbabb9ea67e23ff/#paper-report)（身份键 8945337f08cbfbf33d79d68b）；[本篇翻译状态](https://lrxuanxuan.github.io/papers/items/9fbabb9ea67e23ff/#paper-translation)。\n- 本次补写/核验日期：2026-10-12。\n- 作者：Seyed Alireza Javid, Nuria González-Prelcic。原预印本年份：2025；Venue：IEEE ICASSP 2026，同题论文列入官方会议日程并于2026-05-07安排报告（Paper 13690）。IEEE Xplore DOI本轮未核实。作者另有题名不同的扩展期刊稿，不在本条合并身份。\n- 本轮证据范围：arXiv摘要/元数据；全文未核验。本轮没有读取论文全文，以下方法/结果限于公开摘要或书目证据；不会把表中“略读”状态当成本轮全文阅读事实。\n\n## 问题与方法\n\n**问题：** upper mid-band MIMO在导频受限场景下，模型估计精度下降；纯数据驱动方法又缺少物理可解释性并需要大量场景数据。\n\n**方法：** 物理模型初始信道估计与RSS环境地图作为两路输入，经带cross-attention的增强U-Net融合；论文定位为PINN式环境先验辅助信道估计。\n\n## 结果、局限\n\n**公开结果：** arXiv摘要称在城市射线追踪数据上，相对其SOTA对照NMSE提升超过5 dB，并称跨频率/环境只需少量微调；因未读全文，未核对基线、测试划分和dB计算口径。\n\n**局限与待核验：** 本轮只读到arXiv摘要与元数据，全文/实验表未核验；RSS地图可用性、地图生成误差、跨频率/环境划分、微调数据量及推理复杂度都需全文确认。发表状态不由arXiv摘要推断。\n\n## 对当前课题的迁移位置\n\n适合作为“环境特征+低导频CSI”的确定性基线，与CKM条件flow/score先验比较。MVP：固定射线追踪场景划分，对比LS/模型估计、U-Net、RSS cross-attention；逐步减少导频并增加环境迁移，报告NMSE、少样本适配量与复杂度，地图不可用时单列降级。\n\n## 链接与代码\n\n- 原文/摘要：[https://arxiv.org/abs/2511.05771](https://arxiv.org/abs/2511.05771)\n- 原文PDF：[https://arxiv.org/pdf/2511.05771](https://arxiv.org/pdf/2511.05771)（网站仅保留官方原文链接）\n- DOI/出版信息：未核实\n- 作者/出版核验：[ICASSP官方会议日程](https://www.cmsworkshops.com/ICASSP2026/view_paper.php?PaperNum=13690&bare=1)；[原预印本](https://arxiv.org/abs/2511.05771)\n- 代码：[作者仓库](https://github.com/ajavid34/PINN_channel-estimation)（仅确认作者主页所链接，本轮未审查仓库完整性）\n- 精读建议：精读建议：核查PINN具体约束是否进入损失/网络、RSS图与CSI样本如何配对、跨环境协议及5 dB所用指标基线。\n\n> 本条是 2026-07-12 原推荐记录的增量补写稿，不代表完整日报。整日仍需补齐原表5篇，并完成组合逻辑、覆盖概览与优先精读/MVP汇总后才能发布。",
+      "report_entry_url": "/papers/items/9fbabb9ea67e23ff/#paper-report",
       "paper_url": "/papers/items/9fbabb9ea67e23ff/",
       "paper_report_url": "/papers/items/9fbabb9ea67e23ff/#paper-report",
       "translations": [],
       "links": [
         "https://arxiv.org/pdf/2511.05771",
-        "https://arxiv.org/abs/2511.05771"
+        "https://arxiv.org/abs/2511.05771",
+        "https://lrxuanxuan.github.io/papers/items/9fbabb9ea67e23ff/#paper-report)（身份键",
+        "https://lrxuanxuan.github.io/papers/items/9fbabb9ea67e23ff/#paper-translation",
+        "https://arxiv.org/pdf/2511.05771)（网站仅保留官方原文链接",
+        "https://www.cmsworkshops.com/ICASSP2026/view_paper.php?PaperNum=13690&bare=1",
+        "https://github.com/ajavid34/PINN_channel-estimation)（仅确认作者主页所链接"
       ],
-      "github": [],
+      "github": [
+        "https://github.com/ajavid34/PINN_channel-estimation)（仅确认作者主页所链接"
+      ],
       "pdf_sources": [
         "https://arxiv.org/pdf/2511.05771"
       ],
@@ -15528,17 +15705,25 @@
         "反馈权重说明": ""
       },
       "hyperlinks": {},
-      "report_url": "",
-      "report_section": "",
-      "report_entry_url": "",
+      "report_url": "/papers/reports/2026-07-12/",
+      "report_section": "# WiFi-Diffusion: Achieving Fine-Grained WiFi Radio Map Estimation With Ultra-Low Sampling Rate by Diffusion Models\n\n- 原推荐日期：2026-07-12；原表身份：每日论文推荐第 9 行；论文身份键：75efc35bbfd29ce24e1fff61。\n\n- 本篇网站条目：[本篇日报与证据](https://lrxuanxuan.github.io/papers/items/870d5593d1b05f78/#paper-report)（身份键 75efc35bbfd29ce24e1fff61）；[本篇翻译状态](https://lrxuanxuan.github.io/papers/items/870d5593d1b05f78/#paper-translation)。\n- 本次补写/核验日期：2026-10-12。\n- 作者：Zhiyuan Liu, Shuhang Zhang, Qingyu Liu, Hongliang Zhang, Lingyang Song。年份：2025。Venue/发表状态：IEEE Journal on Selected Areas in Communications, 43(11), 3796–3812；正式发表；DOI 10.1109/JSAC.2025.3584562；IEEE目录/作者代码仓库书目交叉核验。\n- 本轮证据范围：摘要/书目及作者代码仓库README；全文未核验。本轮没有读取论文全文，以下方法/结果限于公开摘要或书目证据；不会把表中“略读”状态当成本轮全文阅读事实。\n\n## 问题与方法\n\n**问题：** 超低采样率下稀疏传感器观测远少于细网格radio map分辨率，直接回归难以恢复细节。\n\n**方法：** 三阶段boost–generation–election：利用障碍物布局等先验增强扩散模型，生成一组候选radio map，再用无线传播模型筛选候选。\n\n## 结果、局限\n\n**公开结果：** arXiv摘要报告：同一超低采样率下优于其SOTA对照约10倍，或以五分之一采样率获得可比质量；这是摘要所述仿真结论，指标定义和实验条件尚未全文核验。\n\n**局限与待核验：** 仅核验公开摘要、作者代码README及书目信息，未读取全文表格。传播模型筛选的计算开销、对传播模型失配/环境变化的稳健性，以及10倍/五分之一的指标具体定义需全文确认；WiFi radio map结果不能直接等同复数CSI恢复。\n\n## 对当前课题的迁移位置\n\n迁移“条件生成多候选+物理一致性重排”，不直接照搬radio map任务。MVP：固定同一CKM稀疏栅格生成器，对比随机候选、RMSE oracle与传播残差筛选；使用场景隔离划分，报告NMSE/覆盖误差和筛选耗时，再测传播模型失配。\n\n## 链接与代码\n\n- 原文/摘要：[https://arxiv.org/abs/2503.12004](https://arxiv.org/abs/2503.12004)\n- 原文PDF：[https://arxiv.org/pdf/2503.12004](https://arxiv.org/pdf/2503.12004)（网站仅保留官方原文链接）\n- DOI/出版信息：https://doi.org/10.1109/JSAC.2025.3584562\n- 作者/出版核验：[https://ieeexplore.ieee.org/document/11041529](https://ieeexplore.ieee.org/document/11041529)\n- 代码：作者公开完整实现：https://github.com/liuzhiyuan-pku/WiFi-Diffusion；仓库README列训练、测试、数据配置与论文引用\n- 精读建议：精读建议：优先看候选生成数、boost先验如何进入训练、election代价与额外计算量，以及采样率/地图划分是否泄漏。\n\n> 本条是 2026-07-12 原推荐记录的增量补写稿，不代表完整日报。整日仍需补齐原表5篇，并完成组合逻辑、覆盖概览与优先精读/MVP汇总后才能发布。",
+      "report_entry_url": "/papers/items/870d5593d1b05f78/#paper-report",
       "paper_url": "/papers/items/870d5593d1b05f78/",
       "paper_report_url": "/papers/items/870d5593d1b05f78/#paper-report",
       "translations": [],
       "links": [
         "https://arxiv.org/pdf/2503.12004",
-        "https://arxiv.org/abs/2503.12004"
+        "https://arxiv.org/abs/2503.12004",
+        "https://lrxuanxuan.github.io/papers/items/870d5593d1b05f78/#paper-report)（身份键",
+        "https://lrxuanxuan.github.io/papers/items/870d5593d1b05f78/#paper-translation",
+        "https://arxiv.org/pdf/2503.12004)（网站仅保留官方原文链接",
+        "https://doi.org/10.1109/JSAC.2025.3584562",
+        "https://ieeexplore.ieee.org/document/11041529",
+        "https://github.com/liuzhiyuan-pku/WiFi-Diffusion"
       ],
-      "github": [],
+      "github": [
+        "https://github.com/liuzhiyuan-pku/WiFi-Diffusion"
+      ],
       "pdf_sources": [
         "https://arxiv.org/pdf/2503.12004"
       ],
@@ -15575,15 +15760,20 @@
         "反馈权重说明": ""
       },
       "hyperlinks": {},
-      "report_url": "",
-      "report_section": "",
-      "report_entry_url": "",
+      "report_url": "/papers/reports/2026-07-12/",
+      "report_section": "# Channel Knowledge Map-assisted Dual-domain Tracking and Predictive Beamforming for High-Mobility Wireless Networks\n\n- 原推荐日期：2026-07-12；原表身份：每日论文推荐第 8 行；论文身份键：ae3e772a6c90dfe05cdcdaaa。\n\n- 本篇网站条目：[本篇日报与证据](https://lrxuanxuan.github.io/papers/items/db2cce36b933a85f/#paper-report)（身份键 ae3e772a6c90dfe05cdcdaaa）；[本篇翻译状态](https://lrxuanxuan.github.io/papers/items/db2cce36b933a85f/#paper-translation)。\n- 本次补写/核验日期：2026-10-12。\n- 作者：Ruolin Du, Zhiqiang Wei, Zai Yang, Lei Yang, Yong Zeng, Derrick Wing Kwan Ng, Jinhong Yuan。年份：2026。Venue/发表状态：IEEE Transactions on Wireless Communications, 25, 10968–10985；正式发表；DOI 10.1109/TWC.2026.3654755；由 DBLP/作者组 publication list 核验。\n- 本轮证据范围：摘要/书目访问；全文未核验。本轮没有读取论文全文，以下方法/结果限于公开摘要或书目证据；不会把表中“略读”状态当成本轮全文阅读事实。\n\n## 问题与方法\n\n**问题：** 高速移动下位置/速度跟踪与波束跟踪相互依赖，LoS 缺失时单一坐标或波束域观测易退化。\n\n**方法：** CKM连接坐标域与波束域：坐标域以 EKF 跟踪位置、速度，并将多径参数映射为位置先验；波束域利用位置更新形成 AoA 变化/波束转移模型，分析 AoA CRB，并联合优化预测波束和功率分配。\n\n## 结果、局限\n\n**公开结果：** arXiv摘要报告仿真中相对对照方法改善目标与波束跟踪，尤其NLoS路径AoA跟踪；当前未读取全文，不补写数值或基线细节。\n\n**局限与待核验：** 依据为arXiv摘要、DOI元数据及书目记录，未取得/核对全文实验表；性能结论仅按摘要定性转述。系统模型、训练/地图构建成本、失配敏感性和实时复杂度待全文核验。\n\n## 对当前课题的迁移位置\n\n可将位置/速度与AoA预测作为WCM/CKM条件，接入pilot时变CSI估计或预测波束选择。MVP：固定轨迹与多径几何，对比无地图EKF、仅坐标先验和双域CKM；按NLoS比例及采样间隔报告位置RMSE、AoA误差和波束中断率，并隔离地图训练场景。\n\n## 链接与代码\n\n- 原文/摘要：[https://arxiv.org/abs/2506.22796](https://arxiv.org/abs/2506.22796)\n- 原文PDF：[https://arxiv.org/pdf/2506.22796](https://arxiv.org/pdf/2506.22796)（网站仅保留官方原文链接）\n- DOI/出版信息：https://doi.org/10.1109/TWC.2026.3654755\n- 作者/出版核验：[https://dblp.org/rec/journals/twc/DuWYYZNY26.html](https://dblp.org/rec/journals/twc/DuWYYZNY26.html)\n- 代码：未发现作者代码链接\n- 精读建议：精读建议：先核对状态向量/观测方程、坐标-波束域先验映射、NLoS数据生成与对照定义，再判断是否能迁移到CSI估计。\n\n> 本条是 2026-07-12 原推荐记录的增量补写稿，不代表完整日报。整日仍需补齐原表5篇，并完成组合逻辑、覆盖概览与优先精读/MVP汇总后才能发布。",
+      "report_entry_url": "/papers/items/db2cce36b933a85f/#paper-report",
       "paper_url": "/papers/items/db2cce36b933a85f/",
       "paper_report_url": "/papers/items/db2cce36b933a85f/#paper-report",
       "translations": [],
       "links": [
         "https://arxiv.org/pdf/2506.22796",
-        "https://arxiv.org/abs/2506.22796"
+        "https://arxiv.org/abs/2506.22796",
+        "https://lrxuanxuan.github.io/papers/items/db2cce36b933a85f/#paper-report)（身份键",
+        "https://lrxuanxuan.github.io/papers/items/db2cce36b933a85f/#paper-translation",
+        "https://arxiv.org/pdf/2506.22796)（网站仅保留官方原文链接",
+        "https://doi.org/10.1109/TWC.2026.3654755",
+        "https://dblp.org/rec/journals/twc/DuWYYZNY26.html"
       ],
       "github": [],
       "pdf_sources": [
@@ -15622,15 +15812,19 @@
         "反馈权重说明": ""
       },
       "hyperlinks": {},
-      "report_url": "",
-      "report_section": "",
-      "report_entry_url": "",
+      "report_url": "/papers/reports/2026-07-12/",
+      "report_section": "# BeamCKMDiff: Beam-Aware Channel Knowledge Map Construction via Diffusion Transformer\n\n- 原推荐日期：2026-07-12；原表身份：每日论文推荐第 7 行；论文身份键：e7e0ee2ea8f1db5864b03cad。\n\n- 本篇网站条目：[本篇日报与证据](https://lrxuanxuan.github.io/papers/items/f25af54ef5c30a81/#paper-report)（身份键 e7e0ee2ea8f1db5864b03cad）；[本篇翻译状态](https://lrxuanxuan.github.io/papers/items/f25af54ef5c30a81/#paper-translation)。\n- 本次补写/核验日期：2026-10-12。\n- 作者：Le Zhao, Yining Wang, Xinyi Wang, Zesong Fei, Yong Zeng。论文版本：2026；IEEE INFOCOM 2026 conference publication，同题论文 DOI 10.1109/INFOCOM59046.2026.11571730（IEEE Xplore标题/DOI记录；全文访问需JS验证）。\n- 全文范围：本机对应源PDF SHA-256 与完成job `76af5d8a4891f6fe8185be30`记录一致；其逐页译稿覆盖原文6页，source_map及QA记录在本地译稿目录。以下结果依据该完整译稿及其表格，不表示本轮重新下载/复读了PDF。\n\n## 问题与方法\n\n**问题：** 既有CKM构建主要做全向图或离散波束码本；离散条件不能连续表达波束权重与空间能量分布的关系，且站点采样式构建成本高。**方法：** 用DiT做生成式beam-aware CKM，在噪声网络中以adaLN注入连续复数波束向量嵌入作为全局条件，学习波束图样与环境几何的耦合；全文实验以30个OSM城市拓扑、16×1 ULA、Sionna射线追踪生成数据，比较RadioUNet、TransUNet和RadioDiffUNet。\n\n## 结果与限制\n\n在论文表II列出的两个测试设置中，Beam-CKMDiff的NMSE分别为−21.24 dB和−20.68 dB，平均推理时延0.688 s；对应RadioDiffUNet为−19.49/−19.13 dB、0.373 s。论文报告未见采样测量条件下仍能重建连续波束图样。该结论来自论文指定的仿真和数据生成协议，不外推为实测无线网络性能。\n\n局限：训练与评估依赖射线追踪合成数据和限定的阵列/频率设定；扩散推理慢于判别式基线；作者明确把稀疏RSS测量融合及采样率—精度成本权衡留作后续研究。跨真实场地、阵列规模和传播模型失配仍需独立验证。\n\n## 对当前课题的迁移位置\n\n适合作为“连续物理条件控制生成器”的CKM构图锚点。MVP：在现有环境先验数据上复现连续波束条件编码，建立离散码本TransUNet、条件DiT与无波束条件消融；再把输出地图作为pilot CSI估计的先验，评估地图误差传播、导频减少量与端到端NMSE。严格按场景划分，不能把同场景随机点拆分称作跨环境泛化。\n\n## 链接与代码\n\n- 原文/摘要：[arXiv:2601.10207](https://arxiv.org/abs/2601.10207)\n- PDF：[官方arXiv PDF](https://arxiv.org/pdf/2601.10207v1)（网站仅保留原文链接）\n- 出版记录：[IEEE INFOCOM 2026 DOI](https://doi.org/10.1109/INFOCOM59046.2026.11571730)；IEEE页面本轮仅可确认题名及DOI，出版详情以DOI记录为准。\n- 代码：未发现作者公开实现链接；本地译稿不公开，原文arXiv许可未提供公开机器辅助译文的单独授权依据。\n- 精读建议：重点核对连续波束向量的复数嵌入与adaLN调制、表II两个测试域定义、无采样测试的可比性，以及0.688 s时延的硬件/批量设置。\n\n> 单篇范围完整；同日其他论文与整日组合总结另在日期归档中处理。",
+      "report_entry_url": "/papers/items/f25af54ef5c30a81/#paper-report",
       "paper_url": "/papers/items/f25af54ef5c30a81/",
       "paper_report_url": "/papers/items/f25af54ef5c30a81/#paper-report",
       "translations": [],
       "links": [
         "https://arxiv.org/pdf/2601.10207",
-        "https://arxiv.org/abs/2601.10207"
+        "https://arxiv.org/abs/2601.10207",
+        "https://lrxuanxuan.github.io/papers/items/f25af54ef5c30a81/#paper-report)（身份键",
+        "https://lrxuanxuan.github.io/papers/items/f25af54ef5c30a81/#paper-translation",
+        "https://arxiv.org/pdf/2601.10207v1)（网站仅保留原文链接",
+        "https://doi.org/10.1109/INFOCOM59046.2026.11571730"
       ],
       "github": [],
       "pdf_sources": [
@@ -15638,10 +15832,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "running",
+      "translation_status": "complete",
       "full_translation_public": false,
       "full_translation_url": "/papers/items/f25af54ef5c30a81/#paper-translation",
-      "full_translation_label": "全文翻译（进行中）"
+      "full_translation_label": "全文翻译（仅本地）"
     },
     {
       "id": "d7eb6567cc13c90c",
@@ -15929,6 +16123,17 @@
     }
   ],
   "reports": [
+    {
+      "date": "2026-10-13",
+      "url": "/papers/reports/2026-10-13/",
+      "source_file": "2026-10-13_每日前沿论文推荐.md",
+      "slug": "2026-10-13",
+      "covered_dates": [
+        "2026-10-13"
+      ],
+      "title": "10_13前沿论文推荐",
+      "download": "/assets/papers/reports/2026-10-13.md"
+    },
     {
       "date": "2026-10-12",
       "url": "/papers/reports/2026-10-12/",
@@ -16274,6 +16479,17 @@
       "download": "/assets/papers/reports/2026-07-14.md"
     },
     {
+      "date": "2026-07-12",
+      "url": "/papers/reports/2026-07-12/",
+      "source_file": "2026-07-12_每日前沿论文推荐.md",
+      "slug": "2026-07-12",
+      "covered_dates": [
+        "2026-07-12"
+      ],
+      "title": "2026-07-12 每日前沿论文推荐",
+      "download": "/assets/papers/reports/2026-07-12.md"
+    },
+    {
       "date": "2026-07-11",
       "url": "/papers/reports/2026-07-11/",
       "source_file": "2026-07-11_每日前沿论文推荐.md",
@@ -16286,66 +16502,6 @@
     }
   ],
   "translations": [
-    {
-      "date": "2026-10-12",
-      "url": "/papers/translations/2026-10-12-geometry-gpr-full-zh/",
-      "slug": "2026-10-12-geometry-gpr-full-zh",
-      "source_file": "2026-10-12-geometry-gpr-full-zh.md",
-      "title": "几何感知 GPR 的节能低开销信道估计方案｜完整中文译文",
-      "scope": "原文13页：摘要、I—VII节、33个编号公式、算法1—2、图1—9、表I—III、附录A—B、37条参考文献及作者简介。",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-geometry-gpr-full-zh.md",
-      "source_page_path": "papers/translations/2026-10-12-geometry-gpr-full-zh.md",
-      "paper_ids": [
-        "f21a0dbb22c712a9"
-      ],
-      "source_arxiv_ids": [
-        "2512.22578"
-      ],
-      "external": true,
-      "qa_complete": true,
-      "content_kind": "full_translation",
-      "license_status": "user_supplied_pdf_rights_not_independently_verified"
-    },
-    {
-      "date": "2026-10-12",
-      "url": "/papers/translations/2026-10-12-2604-07004-full-zh/",
-      "slug": "2026-10-12-2604-07004-full-zh",
-      "source_file": "2026-10-12-2604-07004-full-zh.md",
-      "title": "突发相位噪声下的信道估计与 LDPC 译码｜全文中文翻译",
-      "scope": "原文11页：摘要、I—VI节、公式(1)—(34)、图1—15、表I与参考文献[1]—[45]。",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-2604-07004-full-zh.md",
-      "source_page_path": "papers/translations/2026-10-12-2604-07004-full-zh.md",
-      "paper_ids": [
-        "35a0a3cc7dd34973"
-      ],
-      "source_arxiv_ids": [
-        "2604.07004"
-      ],
-      "external": true,
-      "qa_complete": true,
-      "content_kind": "full_translation",
-      "license_status": "user_supplied_pdf_rights_not_independently_verified"
-    },
-    {
-      "date": "2026-10-12",
-      "url": "/papers/translations/2026-10-12-2610-04769-full-zh/",
-      "slug": "2026-10-12-2610-04769-full-zh",
-      "source_file": "2026-10-12-2610-04769-full-zh.md",
-      "title": "空间可重构夹持天线系统：实验验证及通感一体化应用｜全文中文翻译",
-      "scope": "原文8页：摘要、I—V节全部正文、图1—6题注、参考文献[1]—[15]及全部6位作者简介。",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-2610-04769-full-zh.md",
-      "source_page_path": "papers/translations/2026-10-12-2610-04769-full-zh.md",
-      "paper_ids": [
-        "10f0ab8efa0053a7"
-      ],
-      "source_arxiv_ids": [
-        "2610.04769"
-      ],
-      "external": true,
-      "qa_complete": true,
-      "content_kind": "full_translation",
-      "license_status": "user_supplied_pdf_rights_not_independently_verified"
-    },
     {
       "date": "2026-10-12",
       "url": "/papers/translations/multipathformer/",
@@ -16379,6 +16535,21 @@
       ],
       "source_arxiv_ids": [
         "2608.00537"
+      ],
+      "external": true,
+      "qa_complete": true,
+      "qa_provenance": "Migrated existing live library.js completion declaration; not a new translation or new QA claim"
+    },
+    {
+      "date": "2026-10-12",
+      "url": "/papers/items/f01eb39a8eaa1174/#paper-translation",
+      "slug": "existing-f01eb39a8eaa1174",
+      "title": "Zero-Shot Frequency Generalization for Radio Map Prediction via Cross-Attention Physics-Residual Learning",
+      "scope": "全文中文译文（沿用原发布验收记录）",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/items/f01eb39a8eaa1174.md",
+      "source_page_path": "papers/items/f01eb39a8eaa1174.md",
+      "paper_ids": [
+        "f01eb39a8eaa1174"
       ],
       "external": true,
       "qa_complete": true,
@@ -16585,15 +16756,6 @@
     },
     {
       "date": "2026-10-12",
-      "url": "/papers/translations/2026-10-12-urbanmimomap/",
-      "slug": "2026-10-12-urbanmimomap",
-      "title": "UrbanMIMOMap: A Ray-Traced MIMO CSI Dataset with Precoding-Aware Maps and Benchmarks",
-      "scope": "全文中文译稿",
-      "paper_id": "2509.06270",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-urbanmimomap.md"
-    },
-    {
-      "date": "2026-10-12",
       "url": "/papers/translations/2026-10-12-radiomapmotion/",
       "slug": "2026-10-12-radiomapmotion",
       "source_file": "2026-10-12-radiomapmotion.md",
@@ -16630,24 +16792,6 @@
     },
     {
       "date": "2026-10-12",
-      "url": "/papers/translations/2026-10-12-quamoe-drf/",
-      "slug": "2026-10-12-quamoe-drf",
-      "title": "QuaMoE-DRF: Proactive Beam and Rate Adaptation via Multimodal Dynamic Radio Map Forecasting in ISAC Networks",
-      "scope": "全文中文译稿",
-      "paper_id": "2607.00974",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-quamoe-drf.md"
-    },
-    {
-      "date": "2026-10-12",
-      "url": "/papers/translations/2026-10-12-multistep-cm/",
-      "slug": "2026-10-12-multistep-cm",
-      "title": "Multistep Consistency Models",
-      "scope": "全文中文译稿",
-      "paper_id": "2403.06807",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-multistep-cm.md"
-    },
-    {
-      "date": "2026-10-12",
       "url": "/papers/translations/2026-10-12-multice-flow/",
       "slug": "2026-10-12-multice-flow",
       "source_file": "2026-10-12-multice-flow.md",
@@ -16663,15 +16807,6 @@
       ],
       "external": true,
       "qa_complete": false
-    },
-    {
-      "date": "2026-10-12",
-      "url": "/papers/translations/2026-10-12-macs/",
-      "slug": "2026-10-12-macs",
-      "title": "MACS: Measurement-Aware Consistency Sampling for Inverse Problems",
-      "scope": "全文中文译稿",
-      "paper_id": "2510.02208",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-macs.md"
     },
     {
       "date": "2026-10-12",
@@ -16773,6 +16908,17 @@
     },
     {
       "date": "2026-10-12",
+      "url": "/papers/translations/2026-10-12-e2227d37a5cd8f76429d8e25/",
+      "slug": "2026-10-12-e2227d37a5cd8f76429d8e25",
+      "source_file": "paper.md",
+      "scope": "全文中英文对照",
+      "title": "SNaP: One-Step Posterior Sampling for Noisy Inverse Problems",
+      "paper_id": "2609.34071",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-10-12-e2227d37a5cd8f76429d8e25.md"
+    },
+    {
+      "date": "2026-10-12",
       "url": "/papers/translations/2026-10-12-d85362be1aed96a2/",
       "slug": "2026-10-12-d85362be1aed96a2",
       "source_file": "2026-10-12-d85362be1aed96a2.md",
@@ -16780,21 +16926,10 @@
       "scope": "中文译稿（范围见原页面；未计入全文验收）",
       "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-d85362be1aed96a2.md",
       "source_page_path": "papers/translations/2026-10-12-d85362be1aed96a2.md",
-      "paper_ids": [
-        "d85362be1aed96a2"
-      ],
+      "paper_ids": [],
       "source_arxiv_ids": [],
       "external": true,
       "qa_complete": false
-    },
-    {
-      "date": "2026-10-12",
-      "url": "/papers/translations/2026-10-12-cps/",
-      "slug": "2026-10-12-cps",
-      "title": "Consistency Posterior Sampling for Diverse Image Synthesis",
-      "scope": "全文中文译稿",
-      "paper_id": "2410.02078",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-cps.md"
     },
     {
       "date": "2026-10-12",
@@ -17046,6 +17181,17 @@
     },
     {
       "date": "2026-10-12",
+      "url": "/papers/translations/2026-10-12-07cd9352cec539825a82cc81/",
+      "slug": "2026-10-12-07cd9352cec539825a82cc81",
+      "source_file": "paper.md",
+      "scope": "全文中英文对照",
+      "title": "Iterating Consistency Models: Stability, Error Bounds and Noise Schedules",
+      "paper_id": "2610.03414",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-10-12-07cd9352cec539825a82cc81.md"
+    },
+    {
+      "date": "2026-10-12",
       "url": "/papers/translations/2026-10-12-03c3642f12989295/",
       "slug": "2026-10-12-03c3642f12989295",
       "source_file": "2026-10-12-03c3642f12989295.md",
@@ -17064,18 +17210,57 @@
     },
     {
       "date": "2026-10-12",
-      "url": "/papers/items/f01eb39a8eaa1174/#paper-translation",
-      "slug": "existing-f01eb39a8eaa1174",
-      "title": "Zero-Shot Frequency Generalization for Radio Map Prediction via Cross-Attention Physics-Residual Learning",
-      "scope": "全文中文译文（沿用原发布验收记录）",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/items/f01eb39a8eaa1174.md",
-      "source_page_path": "papers/items/f01eb39a8eaa1174.md",
+      "url": "/papers/translations/2026-07-18-2607-03348/",
+      "slug": "2026-07-18-2607-03348",
+      "source_file": "2026-07-18-2607-03348.md",
+      "title": "DANCE：面向 OFDM 系统的扩散式噪声自适应零空间信道估计｜中文译稿",
+      "scope": "中文译稿（范围见原页面；未计入全文验收）",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-07-18-2607-03348.md",
+      "source_page_path": "papers/translations/2026-07-18-2607-03348.md",
       "paper_ids": [
-        "f01eb39a8eaa1174"
+        "47073e0c82d5f79a"
+      ],
+      "source_arxiv_ids": [
+        "2607.03348"
       ],
       "external": true,
-      "qa_complete": true,
-      "qa_provenance": "Migrated existing live library.js completion declaration; not a new translation or new QA claim"
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-12",
+      "url": "/papers/translations/2026-07-18-2606-14114/",
+      "slug": "2026-07-18-2606-14114",
+      "source_file": "2026-07-18-2606-14114.md",
+      "title": "Digital Twin-Based Channel Generation Toolchain and Foundation Model for Low-Altitude XL-MIMO｜中文译稿",
+      "scope": "中文译稿（范围见原页面；未计入全文验收）",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-07-18-2606-14114.md",
+      "source_page_path": "papers/translations/2026-07-18-2606-14114.md",
+      "paper_ids": [
+        "0f3c634423a1a511"
+      ],
+      "source_arxiv_ids": [
+        "2606.14114"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-12",
+      "url": "/papers/translations/2026-07-18-2604-09039/",
+      "slug": "2026-07-18-2604-09039",
+      "source_file": "2026-07-18-2604-09039.md",
+      "title": "Diffusion Inpainting MIMO-OFDM Channels with Limited Noisy Observations｜中文译稿",
+      "scope": "中文译稿（范围见原页面；未计入全文验收）",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-07-18-2604-09039.md",
+      "source_page_path": "papers/translations/2026-07-18-2604-09039.md",
+      "paper_ids": [
+        "918fe4810faa75ef"
+      ],
+      "source_arxiv_ids": [
+        "2604.09039"
+      ],
+      "external": true,
+      "qa_complete": false
     },
     {
       "date": "2026-10-11",
@@ -17133,85 +17318,15 @@
       "download": "/assets/papers/translations/2026-10-11-54a58fdbb99524ce3fd08d88.md"
     },
     {
-      "date": "2026-07-18",
-      "url": "/papers/translations/2026-07-18-2605-22856/",
-      "slug": "2026-07-18-2605-22856",
-      "source_file": "2026-07-18-2605-22856.md",
-      "title": "PilotWiMAE: Pilot-Native Representation Learning for Wireless Channels｜中文全文译稿",
-      "scope": "中文全文译稿（待最终校对）",
-      "paper_id": "fa28f9a68f6d526c",
-      "download": "/assets/papers/translations/2026-07-18-2605-22856.md",
-      "source_page_path": "papers/translations/2026-07-18-2605-22856.md",
-      "qa_complete": false
-    },
-    {
-      "date": "2026-07-18",
-      "url": "/papers/translations/2026-07-18-2607-09778/",
-      "slug": "2026-07-18-2607-09778",
-      "source_file": "2026-07-18-2607-09778.md",
-      "title": "BDFlow-3DRM: Height-Coherent 3D Radio Map Construction via Bi-Dynamical Flow Matching｜中文全文译稿",
-      "scope": "中文全文译稿（待最终校对）",
-      "paper_id": "c68671443d485071",
-      "download": "/assets/papers/translations/2026-07-18-2607-09778.md",
-      "source_page_path": "papers/translations/2026-07-18-2607-09778.md",
-      "qa_complete": false
-    },
-    {
-      "date": "2026-07-18",
-      "url": "/papers/translations/2026-07-18-2607-03348/",
-      "slug": "2026-07-18-2607-03348",
-      "source_file": "2026-07-18-2607-03348.md",
-      "title": "Diffusion-Based Noise-Adaptive Null-Space Channel Estimation for OFDM Systems｜中文全文译稿",
-      "scope": "中文全文译稿（待最终校对）",
-      "download": "/assets/papers/translations/2026-07-18-2607-03348.md",
-      "source_page_path": "papers/translations/2026-07-18-2607-03348.md",
-      "paper_ids": [
-        "47073e0c82d5f79a"
-      ],
-      "source_arxiv_ids": [
-        "2607.03348"
-      ],
-      "external": true,
-      "qa_complete": false,
-      "paper_id": "47073e0c82d5f79a"
-    },
-    {
-      "date": "2026-07-18",
-      "url": "/papers/translations/2026-07-18-2606-14114/",
-      "slug": "2026-07-18-2606-14114",
-      "source_file": "2026-07-18-2606-14114.md",
-      "title": "Digital Twin-Based Channel Generation Toolchain and Foundation Model for Low-Altitude XL-MIMO｜中文全文译稿",
-      "scope": "中文全文译稿（待最终校对）",
-      "download": "/assets/papers/translations/2026-07-18-2606-14114.md",
-      "source_page_path": "papers/translations/2026-07-18-2606-14114.md",
-      "paper_ids": [
-        "0f3c634423a1a511"
-      ],
-      "source_arxiv_ids": [
-        "2606.14114"
-      ],
-      "external": true,
-      "qa_complete": false,
-      "paper_id": "0f3c634423a1a511"
-    },
-    {
-      "date": "2026-07-18",
-      "url": "/papers/translations/2026-07-18-2604-09039/",
-      "slug": "2026-07-18-2604-09039",
-      "source_file": "2026-07-18-2604-09039.md",
-      "title": "Diffusion Inpainting MIMO-OFDM Channels with Limited Noisy Observations｜中文全文译稿",
-      "scope": "中文全文译稿（待最终校对）",
-      "download": "/assets/papers/translations/2026-07-18-2604-09039.md",
-      "source_page_path": "papers/translations/2026-07-18-2604-09039.md",
-      "paper_ids": [
-        "918fe4810faa75ef"
-      ],
-      "source_arxiv_ids": [
-        "2604.09039"
-      ],
-      "external": true,
-      "qa_complete": false,
-      "paper_id": "918fe4810faa75ef"
+      "date": "2026-10-02",
+      "url": "/papers/translations/2026-10-02-f69d81ae0d16b949c706baa6/",
+      "slug": "2026-10-02-f69d81ae0d16b949c706baa6",
+      "source_file": "paper.md",
+      "scope": "全文中英文对照",
+      "title": "Tweedie Moment Projected Diffusions for Inverse Problems",
+      "paper_id": "arxiv:2310.06721",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-10-02-f69d81ae0d16b949c706baa6.md"
     },
     {
       "date": "2026-07-15",

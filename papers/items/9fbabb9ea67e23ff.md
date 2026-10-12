@@ -9,7 +9,7 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=9fbabb9ea67e23ff)
 
-本篇日报尚待补齐 · [全文翻译（待补齐）](/papers/items/9fbabb9ea67e23ff/#paper-translation)
+[本篇日报说明](/papers/items/9fbabb9ea67e23ff/#paper-report) · [全文翻译（待补齐）](/papers/items/9fbabb9ea67e23ff/#paper-translation)
 
 **推荐日期：** 2026-07-12 · **发表状态：** 正式发表
 
@@ -23,7 +23,41 @@ toc: true
 
 ## 本篇推荐与证据
 
-本篇正式日报说明待补齐；以下保留原推荐表记录。
+# Environment-Aware MIMO Channel Estimation in Pilot-Constrained Upper Mid-Band Systems
+
+- 原推荐日期：2026-07-12；原表身份：每日论文推荐第 10 行；论文身份键：8945337f08cbfbf33d79d68b。
+
+- 本篇网站条目：[本篇日报与证据](https://lrxuanxuan.github.io/papers/items/9fbabb9ea67e23ff/#paper-report)（身份键 8945337f08cbfbf33d79d68b）；[本篇翻译状态](https://lrxuanxuan.github.io/papers/items/9fbabb9ea67e23ff/#paper-translation)。
+- 本次补写/核验日期：2026-10-12。
+- 作者：Seyed Alireza Javid, Nuria González-Prelcic。原预印本年份：2025；Venue：IEEE ICASSP 2026，同题论文列入官方会议日程并于2026-05-07安排报告（Paper 13690）。IEEE Xplore DOI本轮未核实。作者另有题名不同的扩展期刊稿，不在本条合并身份。
+- 本轮证据范围：arXiv摘要/元数据；全文未核验。本轮没有读取论文全文，以下方法/结果限于公开摘要或书目证据；不会把表中“略读”状态当成本轮全文阅读事实。
+
+## 问题与方法
+
+**问题：** upper mid-band MIMO在导频受限场景下，模型估计精度下降；纯数据驱动方法又缺少物理可解释性并需要大量场景数据。
+
+**方法：** 物理模型初始信道估计与RSS环境地图作为两路输入，经带cross-attention的增强U-Net融合；论文定位为PINN式环境先验辅助信道估计。
+
+## 结果、局限
+
+**公开结果：** arXiv摘要称在城市射线追踪数据上，相对其SOTA对照NMSE提升超过5 dB，并称跨频率/环境只需少量微调；因未读全文，未核对基线、测试划分和dB计算口径。
+
+**局限与待核验：** 本轮只读到arXiv摘要与元数据，全文/实验表未核验；RSS地图可用性、地图生成误差、跨频率/环境划分、微调数据量及推理复杂度都需全文确认。发表状态不由arXiv摘要推断。
+
+## 对当前课题的迁移位置
+
+适合作为“环境特征+低导频CSI”的确定性基线，与CKM条件flow/score先验比较。MVP：固定射线追踪场景划分，对比LS/模型估计、U-Net、RSS cross-attention；逐步减少导频并增加环境迁移，报告NMSE、少样本适配量与复杂度，地图不可用时单列降级。
+
+## 链接与代码
+
+- 原文/摘要：[https://arxiv.org/abs/2511.05771](https://arxiv.org/abs/2511.05771)
+- 原文PDF：[https://arxiv.org/pdf/2511.05771](https://arxiv.org/pdf/2511.05771)（网站仅保留官方原文链接）
+- DOI/出版信息：未核实
+- 作者/出版核验：[ICASSP官方会议日程](https://www.cmsworkshops.com/ICASSP2026/view_paper.php?PaperNum=13690&bare=1)；[原预印本](https://arxiv.org/abs/2511.05771)
+- 代码：[作者仓库](https://github.com/ajavid34/PINN_channel-estimation)（仅确认作者主页所链接，本轮未审查仓库完整性）
+- 精读建议：精读建议：核查PINN具体约束是否进入损失/网络、RSS图与CSI样本如何配对、跨环境协议及5 dB所用指标基线。
+
+> 本条是 2026-07-12 原推荐记录的增量补写稿，不代表完整日报。整日仍需补齐原表5篇，并完成组合逻辑、覆盖概览与优先精读/MVP汇总后才能发布。
 
 ## 原推荐表字段
 
@@ -66,4 +100,14 @@ toc: true
 [来源 1](https://arxiv.org/pdf/2511.05771)
 
 [来源 2](https://arxiv.org/abs/2511.05771)
+
+[来源 3](https://lrxuanxuan.github.io/papers/items/9fbabb9ea67e23ff/#paper-report)（身份键)
+
+[来源 4](https://lrxuanxuan.github.io/papers/items/9fbabb9ea67e23ff/#paper-translation)
+
+[来源 5](https://arxiv.org/pdf/2511.05771)（网站仅保留官方原文链接)
+
+[来源 6](https://www.cmsworkshops.com/ICASSP2026/view_paper.php?PaperNum=13690&bare=1)
+
+[来源 7](https://github.com/ajavid34/PINN_channel-estimation)（仅确认作者主页所链接)
 {% endraw %}

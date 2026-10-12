@@ -9,7 +9,7 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=ad7c6f680aefcbc8)
 
-[本篇日报说明](/papers/items/ad7c6f680aefcbc8/#paper-report) · [全文中译（14页已完成）](/papers/translations/2026-10-12-radio-map-online-gp-full-zh/)
+[本篇日报说明](/papers/items/ad7c6f680aefcbc8/#paper-report) · [全文翻译（待补齐）](/papers/items/ad7c6f680aefcbc8/#paper-translation) · [中文译稿（范围见原页面；未计入全文验收）](/papers/translations/2026-10-12-five-abstracts/)
 
 **推荐日期：** 2026-07-22 · **发表状态：** 历史记录未明确
 
@@ -17,9 +17,9 @@ toc: true
 
 ## 本篇全文翻译
 
-全文中文译稿已覆盖原文14页：包含正文、M-OSVGP和GOIPS算法、图表与附录推导。复杂公式符号应同步核对原文。\n\n[阅读全文中译](/papers/translations/2026-10-12-radio-map-online-gp-full-zh/)
+本篇已列入全文翻译清单，尚未完成。完成并允许公开后，此入口将直达本篇全文译稿。
 
-[先阅读这五篇的摘要中文翻译与内容概括](/papers/translations/2026-10-12-five-abstracts/)
+已有部分译文（不计全文完成）：[历史译文](/papers/translations/2026-10-12-five-abstracts/)
 
 <span id="paper-report"></span>
 
