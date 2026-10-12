@@ -22,7 +22,7 @@ toc: false
     <details class="rc-tidbit-fold">
       <summary class="rc-tidbit-summary">
         <time datetime="{{ tidbit.added_at | escape }}">{{ tidbit.added_at | date: '%Y.%m.%d' }}</time>
-        <strong class="rc-tidbit-summary-title">{{ tidbit.title | escape }}</strong>
+        <strong class="rc-tidbit-summary-title" role="heading" aria-level="2">{{ tidbit.title | escape }}</strong>
         <span class="rc-tidbit-brief">{{ tidbit.teaser | escape }}</span>
         <span class="rc-tidbit-action">
           <span class="rc-tidbit-action-open">阅读全文 →</span>
@@ -74,8 +74,9 @@ toc: false
       entry.hidden = Boolean(selected) && entry !== selected;
       entry.querySelector(".rc-tidbit-fold").open = entry === selected;
     }
-    if (selected) {
-      window.requestAnimationFrame(() => selected.scrollIntoView({ block: "start" }));
+    const destination = selected || document.getElementById("catalog");
+    if (destination) {
+      window.requestAnimationFrame(() => destination.scrollIntoView({ block: "start" }));
     }
   }
 
