@@ -4,14 +4,14 @@
   "source_sha256": "bdc61feb93fbf3846110ae3a3432492b972cd372cb7a16dbc36a0868db0fd142",
   "translation_progress": {
     "target": 315,
-    "completed": 20,
-    "public_full_text": 14,
+    "completed": 21,
+    "public_full_text": 15,
     "local_only": 6,
     "status_counts": {
       "access_blocked": 1,
-      "complete": 16,
+      "complete": 17,
       "running": 1,
-      "pending": 292,
+      "pending": 291,
       "draft": 5
     },
     "model": "gpt-6-luna",
@@ -945,7 +945,28 @@
       "report_entry_url": "/papers/reports/2026-10-09/#paper-10f0ab8efa0053a7",
       "paper_url": "/papers/items/10f0ab8efa0053a7/",
       "paper_report_url": "/papers/items/10f0ab8efa0053a7/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "date": "2026-10-12",
+          "url": "/papers/translations/2026-10-12-2610-04769-full-zh/",
+          "slug": "2026-10-12-2610-04769-full-zh",
+          "source_file": "2026-10-12-2610-04769-full-zh.md",
+          "title": "空间可重构夹持天线系统：实验验证及通感一体化应用｜全文中文翻译",
+          "scope": "原文8页：摘要、I—V节全部正文、图1—6题注、参考文献[1]—[15]及全部6位作者简介。",
+          "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-2610-04769-full-zh.md",
+          "source_page_path": "papers/translations/2026-10-12-2610-04769-full-zh.md",
+          "paper_ids": [
+            "10f0ab8efa0053a7"
+          ],
+          "source_arxiv_ids": [
+            "2610.04769"
+          ],
+          "external": true,
+          "qa_complete": true,
+          "content_kind": "full_translation",
+          "license_status": "user_supplied_pdf_rights_not_independently_verified"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2610.04769",
         "https://arxiv.org/abs/2610.04769"
@@ -956,10 +977,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/10f0ab8efa0053a7/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-12-2610-04769-full-zh/",
+      "full_translation_label": "全文中文翻译"
     },
     {
       "id": "35a0a3cc7dd34973",
@@ -16223,6 +16244,26 @@
     }
   ],
   "translations": [
+    {
+      "date": "2026-10-12",
+      "url": "/papers/translations/2026-10-12-2610-04769-full-zh/",
+      "slug": "2026-10-12-2610-04769-full-zh",
+      "source_file": "2026-10-12-2610-04769-full-zh.md",
+      "title": "空间可重构夹持天线系统：实验验证及通感一体化应用｜全文中文翻译",
+      "scope": "原文8页：摘要、I—V节全部正文、图1—6题注、参考文献[1]—[15]及全部6位作者简介。",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-2610-04769-full-zh.md",
+      "source_page_path": "papers/translations/2026-10-12-2610-04769-full-zh.md",
+      "paper_ids": [
+        "10f0ab8efa0053a7"
+      ],
+      "source_arxiv_ids": [
+        "2610.04769"
+      ],
+      "external": true,
+      "qa_complete": true,
+      "content_kind": "full_translation",
+      "license_status": "user_supplied_pdf_rights_not_independently_verified"
+    },
     {
       "date": "2026-10-12",
       "url": "/papers/translations/multipathformer/",
