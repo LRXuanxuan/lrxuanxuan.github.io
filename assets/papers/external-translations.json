@@ -1,6 +1,46 @@
 [
   {
     "date": "2026-10-12",
+    "url": "/papers/translations/2026-07-18-2605-22856/",
+    "slug": "2026-07-18-2605-22856",
+    "source_file": "2026-07-18-2605-22856.md",
+    "title": "PilotWiMAE：原生导频无线信道表示学习｜中文全篇初稿",
+    "scope": "中文全篇初稿（含正文、18 个编号公式、附录及书目；逐项校对中）",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-07-18-2605-22856.md",
+    "source_page_path": "papers/translations/2026-07-18-2605-22856.md",
+    "paper_ids": [
+      "fa28f9a68f6d526c"
+    ],
+    "source_arxiv_ids": [
+      "2605.22856"
+    ],
+    "external": true,
+    "qa_complete": false,
+    "content_kind": "full_translation_review_pending",
+    "license_status": "user_supplied_pdf_rights_not_independently_verified"
+  },
+  {
+    "date": "2026-10-12",
+    "url": "/papers/translations/2026-07-18-2607-09778/",
+    "slug": "2026-07-18-2607-09778",
+    "source_file": "2026-07-18-2607-09778.md",
+    "title": "BDFlow-3DRM：双动态流匹配三维无线电地图｜中文全篇初稿",
+    "scope": "中文全篇初稿（含正文、26 个编号公式、六表及书目；逐项校对中）",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-07-18-2607-09778.md",
+    "source_page_path": "papers/translations/2026-07-18-2607-09778.md",
+    "paper_ids": [
+      "c68671443d485071"
+    ],
+    "source_arxiv_ids": [
+      "2607.09778"
+    ],
+    "external": true,
+    "qa_complete": false,
+    "content_kind": "full_translation_review_pending",
+    "license_status": "user_supplied_pdf_rights_not_independently_verified"
+  },
+  {
+    "date": "2026-10-12",
     "url": "/papers/translations/2026-10-12-radio-map-online-gp-full-zh/",
     "slug": "2026-10-12-radio-map-online-gp-full-zh",
     "source_file": "2026-10-12-radio-map-online-gp-full-zh.md",
@@ -282,8 +322,8 @@
     "url": "/papers/translations/2026-07-18-2604-09039/",
     "slug": "2026-07-18-2604-09039",
     "source_file": "2026-07-18-2604-09039.md",
-    "title": "Diffusion Inpainting MIMO-OFDM Channels with Limited Noisy Observations｜中文译稿",
-    "scope": "中文译稿（范围见原页面；未计入全文验收）",
+    "title": "CDiT：有限含噪观测下的 MIMO-OFDM 信道扩散修复｜中文全篇初稿",
+    "scope": "中文全篇初稿（含正文、算法、公式及书目；逐项校对中）",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-07-18-2604-09039.md",
     "source_page_path": "papers/translations/2026-07-18-2604-09039.md",
     "paper_ids": [
@@ -293,15 +333,17 @@
       "2604.09039"
     ],
     "external": true,
-    "qa_complete": false
+    "qa_complete": false,
+    "content_kind": "full_translation_review_pending",
+    "license_status": "user_supplied_pdf_rights_not_independently_verified"
   },
   {
     "date": "2026-10-12",
     "url": "/papers/translations/2026-07-18-2606-14114/",
     "slug": "2026-07-18-2606-14114",
     "source_file": "2026-07-18-2606-14114.md",
-    "title": "Digital Twin-Based Channel Generation Toolchain and Foundation Model for Low-Altitude XL-MIMO｜中文译稿",
-    "scope": "中文译稿（范围见原页面；未计入全文验收）",
+    "title": "LAETwin-XL：低空 XL-MIMO 数字孪生信道生成与基础模型｜中文全篇初稿",
+    "scope": "中文全篇初稿（含正文、模型、实验及书目；逐项校对中）",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-07-18-2606-14114.md",
     "source_page_path": "papers/translations/2026-07-18-2606-14114.md",
     "paper_ids": [
@@ -311,15 +353,17 @@
       "2606.14114"
     ],
     "external": true,
-    "qa_complete": false
+    "qa_complete": false,
+    "content_kind": "full_translation_review_pending",
+    "license_status": "user_supplied_pdf_rights_not_independently_verified"
   },
   {
     "date": "2026-10-12",
     "url": "/papers/translations/2026-07-18-2607-03348/",
     "slug": "2026-07-18-2607-03348",
     "source_file": "2026-07-18-2607-03348.md",
-    "title": "DANCE：面向 OFDM 系统的扩散式噪声自适应零空间信道估计｜中文译稿",
-    "scope": "中文译稿（范围见原页面；未计入全文验收）",
+    "title": "DANCE：扩散式噪声自适应零空间信道估计｜中文全篇初稿",
+    "scope": "中文全篇初稿（含正文、算法、公式及书目；逐项校对中）",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-07-18-2607-03348.md",
     "source_page_path": "papers/translations/2026-07-18-2607-03348.md",
     "paper_ids": [
@@ -329,7 +373,9 @@
       "2607.03348"
     ],
     "external": true,
-    "qa_complete": false
+    "qa_complete": false,
+    "content_kind": "full_translation_review_pending",
+    "license_status": "user_supplied_pdf_rights_not_independently_verified"
   },
   {
     "date": "2026-10-12",
