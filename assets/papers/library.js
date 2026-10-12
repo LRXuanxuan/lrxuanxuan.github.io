@@ -93,6 +93,25 @@
         data.translation_progress.public_full_text = (data.translation_progress.public_full_text || 0) + 1;
       }
     }
+    const worldTranslation = data.papers.find(p => p.id === '749bfdb8ab82b176');
+    if (worldTranslation && !/已发布/.test(worldTranslation.translation_status || '')) {
+      worldTranslation.full_translation_label = '全文中文译文（已完成）';
+      worldTranslation.full_translation_url = '/papers/translations/channel2world/';
+      worldTranslation.translation_status = '全文译稿已发布（CC BY 4.0）';
+      if (!data.translations.some(t => t.url === worldTranslation.full_translation_url)) {
+        data.translations.unshift({
+          date: '2026-10-12',
+          title: 'Channel2World: A Wireless Foundation Model for RF Environment Representation',
+          scope: '全文中文译文',
+          url: worldTranslation.full_translation_url,
+          download: 'https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/channel2world-2026.md'
+        });
+      }
+      if (data.translation_progress) {
+        data.translation_progress.completed = (data.translation_progress.completed || 0) + 1;
+        data.translation_progress.public_full_text = (data.translation_progress.public_full_text || 0) + 1;
+      }
+    }
     const stats=$('pl-stats');stats.replaceChildren();
     const progress=data.translation_progress;
     [[data.total,'推荐记录'],[Object.keys(data.dates).length,'推荐日期'],[data.reports.length,'每日报告'],[progress?`${progress.completed}/${progress.target}`:'0','全文验收通过'],[progress?.public_full_text||0,'可公开全文译文']].forEach(([n,label])=>{const s=make('div',undefined,'pl-stat');s.append(make('strong',String(n)),make('span',label));stats.append(s);});
