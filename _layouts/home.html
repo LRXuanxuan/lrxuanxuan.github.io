@@ -5,7 +5,6 @@ layout: default
 <link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/sign-aspects.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/sign-votes.css' | relative_url }}">
-<link rel="stylesheet" href="{{ '/assets/css/daily-recommendations.css' | relative_url }}">
 
 <div class="rc-home">
   <section class="rc-hero" aria-labelledby="rc-home-title">
@@ -57,32 +56,14 @@ layout: default
       <a class="rc-card" href="{{ '/favorites/' | relative_url }}">
         <span class="rc-card-icon" aria-hidden="true"><i class="fas fa-book-reader"></i></span>
         <h3>书籍、音乐与游戏 <i class="fas fa-arrow-up-right-from-square rc-arrow" aria-hidden="true"></i></h3>
-        <p>书籍、唱片与游戏的私人 Top 10：从《白鲸记》和 Pink Floyd，到《密教模拟器》与《空洞骑士》。</p>
+        <p>私人书籍、音乐与游戏 Top 10；另有每日一曲、一书、一影与往日推荐手帖。</p>
       </a>
       <a class="rc-card" href="{{ '/playthings/' | relative_url }}">
         <span class="rc-card-icon" aria-hidden="true"><i class="fas fa-dice"></i></span>
         <h3>奇怪的小玩意 <i class="fas fa-arrow-up-right-from-square rc-arrow" aria-hidden="true"></i></h3>
-        <p>收藏每日推荐、日签、照明之咪摇奖机，以及偶尔冒出来的小实验。</p>
+        <p>收藏每天抽过的日签、照明之咪摇奖机，以及偶尔冒出来的小实验。</p>
       </a>
     </div>
-  </section>
-
-
-  <section class="rc-section rc-rec-section" data-rc-recommendations
-           data-pool="{{ '/assets/data/daily-recommendations.json' | relative_url }}"
-           aria-labelledby="rc-rec-heading">
-    <div class="rc-section-heading">
-      <h2 id="rc-rec-heading">每日推荐 · 一曲一书一影</h2>
-      <p><time class="rc-rec-date" data-rec-date></time> · 每天一首歌、一本书、一部电影。</p>
-    </div>
-    <div class="rc-rec-list" data-rec-list aria-live="polite">
-      <p class="rc-rec-help">正在翻找今天的三份推荐…</p>
-    </div>
-    <div class="rc-rec-footer">
-      <a href="{{ '/playthings/#rc-rec-archive-heading' | relative_url }}">翻阅往日推荐 ↗</a>
-      <span class="rc-rec-message" data-rec-status role="status" aria-live="polite"></span>
-    </div>
-    <noscript><p class="rc-rec-help">启用 JavaScript 后可查看每日推荐并记录喜好。</p></noscript>
   </section>
 
   <section class="rc-section rc-recent" aria-labelledby="rc-recent-heading">
@@ -113,4 +94,3 @@ layout: default
 <script src="{{ '/assets/js/sign-votes.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/js/sign-calendar.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/js/daily-sign.js' | relative_url }}" defer></script>
-<script src="{{ '/assets/js/daily-recommendations.js' | relative_url }}" defer></script>
