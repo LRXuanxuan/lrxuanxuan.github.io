@@ -1,5 +1,62 @@
 # 豆知识：每次添加新词条，填写唯一 slug、北京时间 added_at，以及词条内容。
 # 首页预览与归档会自动按 added_at 倒序排列；同一天多条可用时分秒区分顺序。
+- slug: "famous-nebulae"
+  added_at: "2026-10-12T11:47:00+08:00"
+  title: "著名星云"
+  english: "Famous Nebulae / Stellar Nurseries, Planetary Nebulae & Supernova Remnants"
+  teaser: "猎户座星云、创生之柱、宇宙悬崖、上帝之眼……十个著名星云，串起恒星的一生。"
+  tags:
+    - "天文学"
+    - "星云"
+    - "恒星演化"
+  body: |
+    星云（nebula）并不是单一类型的天体：有些是**新恒星诞生的气体与尘埃云**，有些是**衰老恒星抛出的外层物质**，还有些是**超新星爆炸留下的遗迹**。它们看起来都像宇宙里的云，背后的物理故事却相差很远。
+
+    ### 一、恒星的诞生：云海、悬崖与创生之柱
+
+    1. **[猎户座星云（Orion Nebula，M42）](https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-42/)**：约 **1500 光年**外，位于猎户座腰带下方的「剑」中。它是大型恒星形成区，中心的**猎户四边形星团（Trapezium）**里，年轻大质量恒星正用强紫外辐射照亮周围气体。在黑暗天空下，M42 甚至可以用肉眼看到。**经典关键词：恒星育儿园。**
+    2. **[鹰状星云（Eagle Nebula，M16）](https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-16/)**：约 **7000 光年**外。其最著名的景观是**「创生之柱」（Pillars of Creation）**：附近年轻恒星的辐射逐渐侵蚀分子云，比较致密的部分留成高耸的气体尘埃柱；柱内仍可能形成新恒星。**经典关键词：一面孕育，一面侵蚀。**
+    3. **[船底座星云（Carina Nebula，NGC 3372）](https://science.nasa.gov/asset/webb/cosmic-cliffs-in-the-carina-nebula-nircam-image/)**：著名的韦布望远镜照片**「宇宙悬崖」（Cosmic Cliffs）**拍摄的是船底座星云复合体中、约 **7600 光年**外的 NGC 3324 区域。看起来像山脉的「悬崖」，实际是受年轻恒星辐射和恒星风雕刻的巨大气体云边缘。**经典关键词：光年尺度的山脉。**
+    4. **[礁湖星云（Lagoon Nebula，M8）](https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-8/)**：约 **5200 光年**外，位于人马座。明亮的电离气体、暗色尘埃与年轻恒星交织，是另一座十分壮观的恒星工厂。**经典关键词：红色云海与新生恒星。**
+    5. **[马头星云（Horsehead Nebula，Barnard 33）](https://science.nasa.gov/asset/hubble/the-horsehead-nebula/)**：约 **1500 光年**外，是猎户座分子云的一部分。它的著名轮廓不是自身特别明亮，而是**前景致密尘埃遮住后方发光气体**所形成的黑色剪影；改用红外线拍摄，又会显出完全不同的结构。**经典关键词：以黑暗描出的马头。**
+
+    ### 二、恒星的晚年：戒指、眼睛与蝴蝶
+
+    **行星状星云（planetary nebula）与行星无关**。它们主要来自低至中等质量恒星晚期抛出的外层气体，中心留下炽热的恒星核心，最终成为白矮星。名字中的「行星」是早期望远镜观察留下的历史误称。
+
+    6. **[环状星云（Ring Nebula，M57）](https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-57/)**：约 **2000 光年**外，位于天琴座。看着像一只发光的宇宙甜甜圈，其真实结构比二维照片里的圆环复杂得多。**经典关键词：宇宙戒指。**
+    7. **[螺旋星云（Helix Nebula，NGC 7293）](https://science.nasa.gov/asset/hubble/the-helix-nebula-a-gaseous-envelope-expelled-by-a-dying-star/)**：距离仅约 **数百光年**，是著名的近邻行星状星云；层层气体环在地球视角下宛如一只巨眼，因此常被昵称为**「上帝之眼」**。**经典关键词：宇宙眼睛。**
+    8. **[蝴蝶星云（Butterfly Nebula，NGC 6302）](https://science.nasa.gov/asset/hubble/ngc-6302-the-butterfly-nebula/)**：又是行星状星云，但不呈圆环，而是出现鲜明的**双极气体外流**，形成蝴蝶翅膀般的结构。它的优雅轮廓实际上来自十分剧烈的恒星物质喷发。**经典关键词：狂暴的蝴蝶。**
+
+    ### 三、超新星的遗迹：绚烂的爆炸余波
+
+    9. **[蟹状星云（Crab Nebula，M1）](https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-1/)**：约 **6500 光年**外，位于金牛座。它与公元 **1054 年**中国等地观测记录的「客星」相联系；爆炸余波至今仍在扩张，中心还留有一颗高速旋转的**脉冲星（pulsar）**。**经典关键词：有古代观测记录的恒星爆炸。**
+    10. **[面纱星云（Veil Nebula）](https://science.nasa.gov/asset/hubble/veil-nebula-supernova-remnant/)**：约 **2100 光年**外，位于天鹅座，是更古老的超新星遗迹。纤细得像丝绸的气体结构，实际上与高速膨胀的激波撞击星际介质有关。**经典关键词：爆炸留下的宇宙薄纱。**
+
+    ### 四、怎么看懂那些绚烂的照片？
+
+    - **发射星云**：气体受辐射激发、电离后发光，猎户座星云是代表。
+    - **暗星云**：尘埃遮挡背景星光或发光气体，马头星云是代表；它不是一个真的「黑色实体」。
+    - **行星状星云**：恒星晚期抛出的气体，环状、螺旋、蝴蝶星云都是代表。
+    - **超新星遗迹**：爆炸抛射物及激波作用于周围介质形成的结构，蟹状、面纱星云都是代表。
+
+    还有一个拍照常识：**哈勃或韦布公布的彩色照片，不一定对应肉眼直接看到的颜色。**望远镜会通过滤光片采集不同波段的数据，再将其映射为可见颜色。尤其是红外影像，照片颜色往往是一种帮助人类理解数据的科学可视化。
+
+    ### 五、太阳系住在星云里吗？
+
+    **现在的太阳系并不在猎户座那样明亮、活跃的大型恒星形成星云内**。太阳附近位于银河系的**本地泡（Local Bubble）**中，并与非常稀薄的本地星际气体云相邻或交叠。这种气体远比照片里看着浓密的「宇宙彩云」稀薄。约 **46 亿年前**，太阳系本身却确实是由星际分子云中的物质逐渐坍缩、形成原太阳和原行星盘，最终诞生的。
+
+    所以，十个著名星云恰好能串成一个循环：**分子云孕育恒星 → 恒星演化 → 部分恒星抛出外壳、部分大质量恒星爆炸 → 物质重新进入星际空间 → 参与下一代恒星与行星的形成。**
+
+    以上名称均可点击，直达 NASA 的对应图像或介绍页面；**本站不加载或存储大尺寸图片**，保持轻量喵。 ฅ(•ω•ฅ)
+  sources:
+    - label: "NASA：哈勃梅西耶天体目录"
+      url: "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/"
+    - label: "NASA：韦布望远镜拍摄的「宇宙悬崖」"
+      url: "https://science.nasa.gov/asset/webb/cosmic-cliffs-in-the-carina-nebula-nircam-image/"
+    - label: "NASA：面纱星云的超新星遗迹"
+      url: "https://science.nasa.gov/asset/hubble/veil-nebula-supernova-remnant/"
+
 - slug: "horror-film-evolution-tree"
   added_at: "2026-10-12T11:46:30+08:00"
   title: "恐怖片进化树"
