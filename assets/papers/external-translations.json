@@ -1,6 +1,24 @@
 [
   {
     "date": "2026-10-12",
+    "url": "/papers/translations/pix-mc-reading/",
+    "slug": "pix-mc-reading-2026",
+    "source_file": "pix-mc-reading-2026.md",
+    "title": "PiX-MC：时间并行贝叶斯成像｜中文方法与理论译读（非全文）",
+    "scope": "方法与理论逐章译读（未完成 55 页全文）",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/pix-mc-reading-2026.md",
+    "source_page_path": "papers/translations/pix-mc-reading-2026.md",
+    "paper_ids": [
+      "874ff950767bb3f7"
+    ],
+    "source_arxiv_ids": [
+      "2608.17666"
+    ],
+    "external": true,
+    "qa_complete": false
+  },
+  {
+    "date": "2026-10-12",
     "url": "/papers/translations/2026-07-18-2604-09039/",
     "slug": "2026-07-18-2604-09039",
     "source_file": "2026-07-18-2604-09039.md",
