@@ -3,7 +3,6 @@ on:
   push:
     branches: [main]
     paths:
-      - ".github/workflows/translate-five-july-papers.yml"
       - "tools/translate_five_arxiv_papers.py"
   workflow_dispatch:
 
@@ -26,10 +25,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install text extraction and offline translation engine
+      - name: Install PDF text extractor
         run: |
-          python -m pip install --disable-pip-version-check 'pymupdf>=1.24,<2' 'argostranslate>=1.9,<2'
-      - name: Translate all five full PDF texts and validate page coverage
+          python -m pip install --disable-pip-version-check 'pymupdf>=1.24,<2'
+      - name: Translate five PDF texts through second-pass service and validate pages
         run: |
           python -u tools/translate_five_arxiv_papers.py | tee /tmp/translate-log.txt
           grep -q 'TRANSLATIONS_COMPLETE=5' /tmp/translate-log.txt
