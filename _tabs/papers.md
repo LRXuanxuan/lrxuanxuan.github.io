@@ -20,11 +20,17 @@ toc: false
 ---
 
 <link rel="stylesheet" href="{{ '/assets/papers/library.css' | relative_url }}">
-<section aria-label="本批新增论文译稿" style="margin:0 0 1rem 0">
+<section aria-label="2026年10月新译论文" style="margin:0 0 1rem 0">
   <details>
-    <summary><strong>2026-10-12 · 上传论文的中文全文译稿</strong>（当前已完成 1 / 5）</summary>
-    <p><a href="/papers/translations/2026-10-12-multice-flow/">MultiCE-Flow：基于流匹配的多模态信道估计</a> — 全文完成（6 页）。</p>
-    <p>RadioMapMotion、贝叶斯主动学习扩散 CGM、CAR-Flow、Anchor-CKM：尚待完整翻译与校核，暂不标注为全文完成。</p>
+    <summary><strong>2026-10-12 · 五篇论文的中文译稿</strong>（正文已发布 5 / 5，点击展开）</summary>
+    <ul>
+      <li><a href="/papers/translations/2026-10-12-radiomapmotion/">RadioMapMotion：时空无线电地图预测</a> — 正文、公式、图题与实验数据。</li>
+      <li><a href="/papers/translations/2026-10-12-active-diffusion-ckm/">基于贝叶斯推断扩散模型的 CKM 主动学习</a> — 全部六章、推导、三种算法和实验表格。</li>
+      <li><a href="/papers/translations/2026-10-12-car-flow/">CAR-Flow：条件感知重参数化与流匹配</a> — 正文、技术附录 A–F、NeurIPS 检查表作者问答。</li>
+      <li><a href="/papers/translations/2026-10-12-anchor-ckm/">Anchor-CKM：导频锚定的傅里叶地图重构</a> — 正文、推导、算法与实验表格。</li>
+      <li><a href="/papers/translations/2026-10-12-multice-flow/">MultiCE-Flow：多模态流匹配信道估计</a> — 正文、公式、图题及英文参考文献。</li>
+    </ul>
+    <p style="font-size:.9em">保留原论文的英文参考文献书目信息与图像外链，以节省博客空间；各篇页面顶部注明翻译范围。新译稿采用纯文本网页形式。</p>
   </details>
 </section>
 
