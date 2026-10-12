@@ -76,6 +76,23 @@
     }
     // Manually submitted manuscript translations (keep the generated data intact).
     data.translations=[...[{"date":"2026-10-12","scope":"全文中文译文","title":"Scalable Attention for 5G NR Channel Estimation","url":"/papers/translations/2026-10-12-2607-16462/","download":"https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-2607-16462.md"},{"date":"2026-10-12","scope":"全文中文译文","title":"Hierarchical Wireless Foundation Model for Multi-Task Optimization","url":"/papers/translations/2026-10-12-2607-16877/","download":"https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-2607-16877.md"},{"date":"2026-10-12","scope":"译文校对中","title":"Tensor-Based Dynamic Channel Estimation for mmWave Movable Antenna MIMO Systems","url":"/papers/translations/2026-10-12-2607-17591/","download":"https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-2607-17591.md"},{"date":"2026-10-12","scope":"译文编写中","title":"Data-aided Channel Estimation and Sensing With Sparse Bayesian Learning for AFDM-ISAC System","url":"/papers/translations/2026-10-12-2607-18881/","download":"https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-2607-18881.md"},{"date":"2026-10-12","scope":"译文编写中","title":"Provable diffusion-based posterior sampling for linear inverse problems via DDIM","url":"/papers/translations/2026-10-12-2607-19333/","download":"https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-2607-19333.md"}],...data.translations.filter(t=>!["/papers/translations/2026-10-12-2607-16462/","/papers/translations/2026-10-12-2607-16877/","/papers/translations/2026-10-12-2607-17591/","/papers/translations/2026-10-12-2607-18881/","/papers/translations/2026-10-12-2607-19333/"].includes(t.url))];
+    const addedTranslation = data.papers.find(p => p.id === '50a1b62e5cb84f9d');
+    if (addedTranslation && !/已发布/.test(addedTranslation.translation_status || '')) {
+      addedTranslation.full_translation_label = '全文中文译文（已完成）';
+      addedTranslation.full_translation_url = '/papers/translations/multipathformer/';
+      addedTranslation.translation_status = '全文译稿已发布（CC BY 4.0）';
+      if (!data.translations.some(t => t.url === addedTranslation.full_translation_url)) {
+        data.translations.unshift({
+          date: '2026-10-12', title: 'MultiPathFormer: Towards a Foundation Model for Multipath Wireless Propagation',
+          scope: '全文中文译文', url: addedTranslation.full_translation_url,
+          download: 'https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/multipathformer-2026.md'
+        });
+      }
+      if (data.translation_progress) {
+        data.translation_progress.completed = (data.translation_progress.completed || 0) + 1;
+        data.translation_progress.public_full_text = (data.translation_progress.public_full_text || 0) + 1;
+      }
+    }
     const stats=$('pl-stats');stats.replaceChildren();
     const progress=data.translation_progress;
     [[data.total,'推荐记录'],[Object.keys(data.dates).length,'推荐日期'],[data.reports.length,'每日报告'],[progress?`${progress.completed}/${progress.target}`:'0','全文验收通过'],[progress?.public_full_text||0,'可公开全文译文']].forEach(([n,label])=>{const s=make('div',undefined,'pl-stat');s.append(make('strong',String(n)),make('span',label));stats.append(s);});
