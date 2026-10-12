@@ -518,6 +518,83 @@ $$
 **版本与尺度提示**：正文第 4.1 节的命题 4采用“仅观测噪声趋零、源高斯先验固定”的 $p_0$ 前因子表述；附录 A.5 及附录 B 则采用 $p_0\propto e^{-I_0/\varepsilon}$ 的温度化源先验及 Gibbs 速率函数表述。两种渐近设定不应混写为相同前提；此处保持原论文的两种版本。
 
 
+## 附录 B：扩展大偏差分析
+
+本附录延展正文第 4.1 节的小噪声图景。此处采用 $y=A(x)+\sqrt\varepsilon\eta$，并**同时**采用温度化源先验 $p_0\propto e^{-I_0/\varepsilon}$，于是
+
+$$
+p_0^{y,\varepsilon}\propto e^{-I_y/\varepsilon},\qquad
+I_y(z)=I_0(z)+\ell_y(\Phi(z))-\min I_y,
+$$
+
+其中 $\ell_y(x)=\tfrac12\|A(x)-y\|^2$，$I_y$ 的极小点为 $z_k^\star$，Hessian 为 $H_k=\nabla^2I_y(z_k^\star)$。这与正文**固定**源高斯先验、只让观测噪声趋零的渐近设定不同，不能混用结论。
+
+### B.1 为什么重要性采样会塌缩
+
+从 $p_0$ 提议采样，以 $w(z)=p(y\mid\Phi(z))=\exp[-\ell_y(\Phi(z))/\varepsilon]$ 做自归一化重要性采样，其标准归一化有效样本量为
+
+$$
+\frac{\mathrm{ESS}}N=
+\frac{(\mathbb E_{p_0}w)^2}{\mathbb E_{p_0}w^2}
+=\frac1{1+\chi^2(p_0^{y,\varepsilon}\|p_0)}.
+$$
+
+**命题 6（指数级 ESS 衰减）**：若源先验按同阶温度化，由 Laplace 方法，$\mathbb E_{p_0}w^m$ 的主导指数由 $\inf_z[I_0(z)+m\ell_y(\Phi(z))]$ 决定。令 $m_j=\inf_z[I_0(z)+j\ell_y(\Phi(z))]$，$j\in\{0,1,2\}$，则
+
+$$
+\varepsilon\log\frac{\mathrm{ESS}}N
+\longrightarrow
+-(2m_1-m_2-m_0)=:-\Delta\le0.\tag{16}
+$$
+
+当似然在先验典型集合上有非平凡信息，$\Delta$ 可严格大于零，故 ESS/N 随 $1/\varepsilon$ 指数衰减。对高维图像，这说明理论精确的源重加权通常难以直接实施。
+
+作者用高斯流先验和随机线性测量，观测 $d/4$ 个坐标，固定 $\sigma=0.3$，使用 $N=4\times10^4$ 个候选采样进行检验。结果见表 8：维度从 2 增至 128 时，ESS/N 从 0.97 降至 $1/N$ 的底线；源 IS 估计的后验均值相对误差超过 1，甚至不如先验均值。
+
+**表 8：源重要性采样随维度增加的塌缩。**
+
+| 维数 d | 2 | 8 | 32 | 128 | 512 | 2048 |
+|---|---:|---:|---:|---:|---:|---:|
+| ESS/N | 0.97 | 3.2×10⁻³ | 3.2×10⁻⁴ | 2.5×10⁻⁵ | 2.5×10⁻⁵ | 2.5×10⁻⁵ |
+| IS 后验均值相对误差 | .03 | .06 | .83 | 1.89 | 1.97 | 2.23 |
+
+### B.2 精确重加权保留吸引盆地权重
+
+**命题 7（权重保持）**：$\varepsilon\to0$ 时，真实后验与精确源重新加权收敛到具有相同盆地权重的离散分布：
+
+$$
+\sum_k w_k\delta_{x_k^\star},\quad
+x_k^\star=\Phi(z_k^\star),\quad
+w_k\propto e^{-I_y(z_k^\star)/\varepsilon}|H_k|^{-1/2}.
+$$
+
+由此，源重新加权在定义上保持各个后验模态的相对概率质量。
+
+**命题 8（贪心引导坍缩到单一盆地）**：考虑沿单条轨迹的 $\nabla_x\log r_t$ 做理想化似然上升的极端情况。小噪声极限的终点由 $-\ell_y\circ\Phi_{t\to1}$ 的梯度流吸引域决定；在原文假定的主导吸引盆地图景下，终点分布成为某个点质量 $\delta_{x_{k^\star}^\star}$。此时对于任何引导强度 $c>0$，
+
+$$
+\mathrm{TV}(\mathrm{guidance},p(\cdot\mid y))
+\ge 1-\max_k w_k,\tag{17}
+$$
+
+对于真正多模态后验该值为正，而且与引导强度无关。
+
+**证明**：按精确权重重采样，自然复现真实极限混合分布，得命题 7。理想化确定性梯度下降将初始化点送入某一盆地极小点；如果贪心过程没有跟踪各盆地的概率质量，则最终会集中于主导盆地。一个点质量与混合分布的总变差是 $1-w_{k^\star}$，至少为 $1-\max_k w_k$。把梯度乘以正标量 $c$ 只改变梯度轨迹速度，不改变其吸引盆地，因此下界不随 $c$ 变。该论证是**单轨迹贪心引导的极端示意**，并非所有包含先验速度 $v_t$ 的真实算法都会严格坍缩到单点。真实失败通常表现为模态权重失真。
+
+式（17）对应表 1 的误差平台，也说明多个相近权重的模态越多，失配可能越明显。
+
+### B.3 最小动能修正的路径作用解释
+
+对带小动力学噪声的受控方程 $dx_t=(v_t+u_t)dt+\sqrt\varepsilon\,dW_t$，Freidlin–Wentzell 路径速率泛函为
+
+$$
+S[\gamma]=\frac12\int_0^1
+\|\dot\gamma_t-v_t(\gamma_t)\|^2dt.
+$$
+
+将无条件源 $p_0$ 输送到规定的后验 $p(\cdot\mid y)$，所需的最可能控制路径最小化该作用的期望。取 $u_t=\dot\gamma_t-v_t(\gamma_t)$，恰得到正文式（4）的动能最小化；极小解为相对 $v_t$ 的 Benamou–Brenier 测地线。因此 $u^\star$ 有三个等价视角：最小动能修正、Schrödinger 桥／Föllmer 漂移的确定性小噪声极限、Freidlin–Wentzell 最小作用控制。若从已重加权的 $p_0^y$ 出发，所需额外作用为零；动能就是坚持从未经条件化源 $p_0$ 出发的代价。
+
+
 ## 参考文献
 
 参考文献英文题名、作者及正式著录信息应以原 PDF 的 REFERENCES 部分为准；核心涉及：Albergo & Vanden-Eijnden (2022), Benamou & Brenier (2000), Ben-Hamu et al. (2024) D-Flow, Chung et al. (2022) DPS／MCG, Denker et al. (2024) Doob $h$-transform, Kim et al. (2025) FlowDPS, Martin et al. (2025) PnP-Flow, Pourya et al. (2026) FLOWER, Lipman et al. (2023) Flow Matching, Zhang et al. (2025) DAPS, Moufad et al. (2025) MGPS, Alkhouri et al. (2025) SITCOM 以及 Schrödinger 桥与大偏差理论。为减少中文翻译引入的题名歧义，原参考书目信息未改写。
