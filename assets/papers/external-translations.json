@@ -1,6 +1,26 @@
 [
   {
     "date": "2026-10-12",
+    "url": "/papers/translations/2026-10-12-2610-04769-full-zh/",
+    "slug": "2026-10-12-2610-04769-full-zh",
+    "source_file": "2026-10-12-2610-04769-full-zh.md",
+    "title": "空间可重构夹持天线系统：实验验证及通感一体化应用｜全文中文翻译",
+    "scope": "原文8页：摘要、I—V节全部正文、图1—6题注、参考文献[1]—[15]及全部6位作者简介。",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-2610-04769-full-zh.md",
+    "source_page_path": "papers/translations/2026-10-12-2610-04769-full-zh.md",
+    "paper_ids": [
+      "10f0ab8efa0053a7"
+    ],
+    "source_arxiv_ids": [
+      "2610.04769"
+    ],
+    "external": true,
+    "qa_complete": true,
+    "content_kind": "full_translation",
+    "license_status": "user_supplied_pdf_rights_not_independently_verified"
+  },
+  {
+    "date": "2026-10-12",
     "url": "/papers/translations/2026-10-12-climb-flow-2609-33834/",
     "slug": "2026-10-12-climb-flow-2609-33834",
     "source_file": "2026-10-12-climb-flow-2609-33834.md",
