@@ -9,15 +9,19 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=af0bb2a5b7abec0d)
 
-[本篇日报说明](/papers/items/af0bb2a5b7abec0d/#paper-report) · [全文翻译（待补齐）](/papers/items/af0bb2a5b7abec0d/#paper-translation)
+[本篇日报说明](/papers/items/af0bb2a5b7abec0d/#paper-report) · [中文译文进度](/papers/items/af0bb2a5b7abec0d/#paper-translation)
 
 **推荐日期：** 2026-08-19 · **发表状态：** 历史记录未明确
 
 <span id="paper-translation"></span>
 
-## 本篇全文翻译
+## 中文译文及进度
 
-本篇已列入全文翻译清单，尚未完成。完成并允许公开后，此入口将直达本篇全文译稿。
+已完成中文逐章译读稿，覆盖近场 UM-MIMO 信道模型、可移动阵列 LoS 估计、NLoS 子空间方法、导频分配与实验；尚未逐段核对全部公式及完整书目。个人阅读稿已在当前对话提供。由于未核实公开改编授权，暂不公开上架整篇译文。
+
+[查看原始 PDF](https://arxiv.org/pdf/2608.05520v1) · [查看十篇译稿进度](/papers/translation-status-2026-08/)
+
+**状态说明：** 完整全文翻译尚未验收通过，不能仅凭本稿把该论文标记为“全文已完成”。
 
 <span id="paper-report"></span>
 
