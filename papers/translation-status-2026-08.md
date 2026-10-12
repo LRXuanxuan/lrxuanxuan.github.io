@@ -15,7 +15,7 @@ toc: true
 | [Learnware for CSI Feedback](/papers/items/e1c6629139b1f577/#paper-translation) | 待译 | arXiv 非独占分发许可；尚不构成公众改编授权 |
 | [Universal CKM](/papers/items/47ac7ad81f5c0fb6/#paper-translation) | 待译 | arXiv 非独占分发许可；尚不构成公众改编授权 |
 | [Channel2World](/papers/translations/channel2world/) | **全文已完成并发布（2026-10-12）** | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
-| [Hybrid-Domain Posterior Sampling](/papers/items/836f81307350ca11/#paper-translation) | 待译 | arXiv 非独占分发许可；原会议版本应另核查 |
+| [Hybrid-Domain Posterior Sampling](/papers/translations/hdps/) | **全文已完成并发布（2026-10-12）** | 论文首页及 ACM MM26 版本标注 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
 | [MultiPathFormer](/papers/translations/multipathformer/) | **全文已完成并发布（2026-10-12）** | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
 | [Channel Map-Based Channel Estimation for Near-Field UM-MIMO](/papers/items/af0bb2a5b7abec0d/#paper-translation) | 待译 | 尚待核验 |
 | [Channel Knowledge Map Enabled Dynamic Radio Environment Reconstruction](/papers/items/26e33f30c7c0a4e8/#paper-translation) | 待译 | 尚待核验 |
