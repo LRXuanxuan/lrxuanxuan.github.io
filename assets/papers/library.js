@@ -45,7 +45,29 @@
     $('pl-status').disabled=view!=='papers';$('pl-code').disabled=view!=='papers';
   }
   fetch(root.dataset.source,{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(json=>{
-    data=json;const stats=$('pl-stats');stats.replaceChildren();
+    data=json;
+    // A standalone translation may be added after the bulk library index was generated.
+    // Reconcile its display state here without rewriting the large generated JSON catalogue.
+    const translatedPaper = data.papers.find(p => p.id === 'f01eb39a8eaa1174');
+    if (translatedPaper && !/已完成/.test(translatedPaper.translation_status || '')) {
+      translatedPaper.full_translation_label = '全文中文译文（已完成）';
+      translatedPaper.full_translation_url = '/papers/items/f01eb39a8eaa1174/#paper-translation';
+      translatedPaper.translation_status = '全文译稿已发布（CC BY-NC-SA 4.0）';
+      if (!data.translations.some(t => t.url === translatedPaper.full_translation_url)) {
+        data.translations.unshift({
+          date: '2026-10-12',
+          title: 'Zero-Shot Frequency Generalization for Radio Map Prediction via Cross-Attention Physics-Residual Learning',
+          scope: '全文中文译文',
+          url: translatedPaper.full_translation_url,
+          download: 'https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/items/f01eb39a8eaa1174.md'
+        });
+      }
+      if (data.translation_progress) {
+        data.translation_progress.completed = (data.translation_progress.completed || 0) + 1;
+        data.translation_progress.public_full_text = (data.translation_progress.public_full_text || 0) + 1;
+      }
+    }
+    const stats=$('pl-stats');stats.replaceChildren();
     const progress=data.translation_progress;
     [[data.total,'推荐记录'],[Object.keys(data.dates).length,'推荐日期'],[data.reports.length,'每日报告'],[progress?`${progress.completed}/${progress.target}`:'0','全文验收通过'],[progress?.public_full_text||0,'可公开全文译文']].forEach(([n,label])=>{const s=make('div',undefined,'pl-stat');s.append(make('strong',String(n)),make('span',label));stats.append(s);});
     Object.entries(data.dates).forEach(([date,n])=>{const o=make('option',date+' · '+n+'篇');o.value=date;$('pl-date').append(o);});
