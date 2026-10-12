@@ -10,6 +10,8 @@ toc: true
 
 # Near-Field UM-MIMO：可移动阵列与信道地图｜中文研究笔记
 
+**原论文作者：** Shuaifei Chen、Cheng-Xiang Wang、Chen Huang、Qianze Yang、Xiping Wu、Yunfei Chen、El-Hadi M. Aggoune。
+
 **性质：中文研究笔记，不是论文全文翻译。** 依据此前个人译稿提炼研究问题、关键公式和实验要点，正文为重新组织的解释与评论。原文的完整翻译/再发布许可尚未确认，本站不公开个人完整译稿；请通过 arXiv 阅读论文原文。本文不代表原作者认可。
 
 ## 场景与任务
