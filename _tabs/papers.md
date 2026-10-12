@@ -20,7 +20,7 @@ toc: false
   <strong>新译论文（2026-10-12）</strong>
   <p style="margin:.45rem 0 0"><a href="/papers/translations/2602-07321/">《无线上下文工程：面向高效移动智能体 AI 与边缘通用智能》</a> · 中文全文 · 7 页原文</p>
 </div>
-<p class="pl-meta">[2026 年 8 月 · 十篇论文全文翻译进度与授权说明](/papers/translation-status-2026-08/)</p>
+<p class="pl-meta"><a href="/papers/translation-status-2026-08/">2026 年 8 月 · 十篇论文全文翻译进度与授权说明</a></p>
 <div id="paper-library" data-source="{{ '/assets/papers/library.json' | relative_url }}">
   <div class="pl-intro"><span class="pl-eyebrow">DAILY RESEARCH READING</span><h2>每天一点，积累一条研究线索。</h2><p>无线通信、信号处理与生成模型。点击论文标题查看本篇推荐、证据、原文与代码，直接进入对应日报条目及译文。</p></div>
   <div id="pl-stats" class="pl-stats" aria-live="polite">正在加载论文记录…</div>
