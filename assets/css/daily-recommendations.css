@@ -1,15 +1,26 @@
 /* Lightweight daily trio and personal archive: text, borders, no external assets. */
-/* Three balanced, text-only recommendations beneath "这里有什么". */
-.rc-home .rc-rec-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.9rem;align-items:stretch}
-.rc-home .rc-rec-list .rc-rec-entry{display:flex;flex-direction:column;min-width:0;padding:1.2rem;background:var(--card-bg);border:1px solid var(--main-border-color);border-radius:13px;box-shadow:var(--card-shadow)}
-.rc-home .rc-rec-entry .rc-rec-kind{margin:0 0 .6rem}
-.rc-home .rc-rec-entry .rc-rec-title{font-size:1rem;line-height:1.6}
-.rc-home .rc-rec-entry .rc-rec-creator{font-size:.8rem}
-.rc-home .rc-rec-entry .rc-rec-tags{margin:.65rem 0}
-.rc-home .rc-rec-entry .rc-rec-note{font-size:.85rem;line-height:1.75;flex-grow:1;margin:.35rem 0 1rem}
-.rc-home .rc-rec-footer{margin-top:.85rem;border-top:0;justify-content:flex-start}
-.rc-home .rc-rec-footer a{font-size:.82rem}
-@media(max-width:1100px){.rc-home .rc-rec-list{grid-template-columns:1fr}}
+/* Favorites page: today's three light text-only cards, followed by folded history. */
+.fm-favorites .rc-rec-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;align-items:stretch}
+.fm-favorites .rc-rec-list .rc-rec-entry{display:flex;flex-direction:column;min-width:0;padding:1rem;background:var(--card-bg);border:1px solid var(--main-border-color);border-radius:12px;box-shadow:var(--card-shadow)}
+.fm-favorites .rc-rec-entry .rc-rec-kind{margin:0 0 .6rem}
+.fm-favorites .rc-rec-entry .rc-rec-title{font-size:.98rem;line-height:1.58}
+.fm-favorites .rc-rec-entry .rc-rec-creator{font-size:.79rem}
+.fm-favorites .rc-rec-entry .rc-rec-tags{margin:.6rem 0}
+.fm-favorites .rc-rec-entry .rc-rec-note{font-size:.82rem;line-height:1.75;flex-grow:1;margin:.35rem 0 .9rem}
+.fm-favorites .fm-daily-picks>[data-rc-recommendations]>.rc-rec-message{margin:.5rem 0 0}
+.fm-favorites .rc-rec-history{margin-top:1rem;border:1px solid var(--main-border-color);border-radius:12px;background:var(--card-bg);overflow:hidden}
+.fm-favorites .rc-rec-history>summary{display:flex;align-items:center;gap:.5rem;padding:.85rem 1rem;cursor:pointer;list-style:none;color:var(--heading-color);font-weight:650;font-size:.89rem}
+.fm-favorites .rc-rec-history>summary::-webkit-details-marker{display:none}
+.fm-favorites .rc-rec-history>summary:hover{background:var(--sidebar-hover-bg)}
+.fm-favorites .rc-rec-history>summary:focus-visible{outline:2px solid var(--link-color);outline-offset:-3px}
+.fm-favorites .rc-rec-fold-icon{color:var(--link-color);display:inline-block;transition:transform .15s ease}
+.fm-favorites .rc-rec-history[open] .rc-rec-fold-icon{transform:rotate(90deg)}
+.fm-favorites .rc-rec-history:not([open]) .rc-rec-fold-close,.fm-favorites .rc-rec-history[open] .rc-rec-fold-open{display:none}
+.fm-favorites .rc-rec-fold-note{font-size:.72rem;font-weight:400;color:var(--text-muted-color);margin-left:auto}
+.fm-favorites .rc-rec-history .rc-rec-archive{margin:0;border-top:1px solid var(--main-border-color);padding:1rem}
+.fm-favorites .rc-rec-history .rc-rec-archive-tools{margin:.8rem 0}
+@media(max-width:1150px){.fm-favorites .rc-rec-list{grid-template-columns:1fr}}
+@media(max-width:580px){.fm-favorites .rc-rec-fold-note{display:none}}
 
 .rc-rec-intro,.rc-rec-help{font-size:.73rem;color:var(--text-muted-color);line-height:1.65;margin:.25rem 0 .65rem}
 .rc-rec-date{font-variant-numeric:tabular-nums}
