@@ -1,6 +1,26 @@
 [
   {
     "date": "2026-10-12",
+    "url": "/papers/translations/2026-10-12-sigmap-full-zh/",
+    "slug": "2026-10-12-sigmap-full-zh",
+    "source_file": "2026-10-12-sigmap-full-zh.md",
+    "title": "SigMap：以地图作为提示的跨场景无线定位基础模型｜全文中译",
+    "scope": "17页，摘要、正文1–5节、致谢、附录A–C、图1–9图题、表1–7、式(1)–(21)及书目。",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-sigmap-full-zh.md",
+    "source_page_path": "papers/translations/2026-10-12-sigmap-full-zh.md",
+    "paper_ids": [
+      "2e094f4029e01a73"
+    ],
+    "source_arxiv_ids": [
+      "2607.15713"
+    ],
+    "external": true,
+    "qa_complete": true,
+    "content_kind": "full_translation",
+    "license_status": "user_supplied_pdf_rights_not_independently_verified"
+  },
+  {
+    "date": "2026-10-12",
     "url": "/papers/translations/2026-10-12-dynamic-ckm-full-zh/",
     "slug": "2026-10-12-dynamic-ckm-full-zh",
     "source_file": "2026-10-12-dynamic-ckm-full-zh.md",
