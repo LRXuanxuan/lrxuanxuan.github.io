@@ -139,8 +139,11 @@
     const ok = save();
     if (home) renderHome();
     if (archive) renderArchive();
-    const status = (home || archive).querySelector('[data-rec-status]');
-    if (status) status.textContent = ok ? '已记下偏好，之后的推荐会参考它喵。' : '评价暂存在当前页面；浏览器未允许保存。';
+    const message = ok ? '已记下偏好，之后的推荐会参考它喵。' : '评价暂存在当前页面；浏览器未允许保存。';
+    for (const area of [home, archive]) {
+      const status = area?.querySelector('[data-rec-status]');
+      if (status) status.textContent = message;
+    }
   }
   function makeEntry(kind, item) {
     const entry = make('article', 'rc-rec-entry');
@@ -184,8 +187,12 @@
     const list = archive.querySelector('[data-rec-archive-list]');
     const more = archive.querySelector('[data-rec-more]');
     if (!list) return;
-    const dates = Object.keys(state.days).filter(validDate).sort().reverse();
+    // History is collapsed by default. Do not build hundreds of cards while closed.
+    const fold = archive.closest('details.rc-rec-history');
+    if (fold && !fold.open) return;
+    const dates = Object.keys(state.days).filter(date => validDate(date) && date < localDay()).sort().reverse();
     list.replaceChildren();
+    if (!dates.length) list.append(make('p', 'rc-rec-empty', '往日推荐会从明天开始积累喵。'));
     for (const date of dates.slice(0, archiveLimit)) {
       const day = make('section', 'rc-rec-day');
       day.append(make('h3', '', date.replaceAll('-', '.')));
@@ -199,7 +206,7 @@
     }
     if (more) more.hidden = archiveLimit >= dates.length;
     const count = archive.querySelector('[data-rec-count]');
-    if (count) count.textContent = '共存有 ' + dates.length + ' 天的三项推荐；只在本浏览器保存评价。';
+    if (count) count.textContent = '已归档 ' + dates.length + ' 天的推荐；喜好只保存在本浏览器。';
   }
   function setStatus(message) {
     const status = archive?.querySelector('[data-rec-status]');
@@ -207,6 +214,10 @@
   }
   function setupArchive() {
     if (!archive) return;
+    const fold = archive.closest('details.rc-rec-history');
+    fold?.addEventListener('toggle', () => {
+      if (fold.open) renderArchive();
+    });
     archive.querySelector('[data-rec-more]')?.addEventListener('click', () => {
       archiveLimit += 14; renderArchive();
     });
