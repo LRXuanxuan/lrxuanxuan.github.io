@@ -18,6 +18,7 @@ toc: false
 
 <div class="pl-latest-translations" style="margin:1rem 0 1.3rem;padding:.85rem 1rem;border:1px solid var(--main-border-color);border-radius:.6rem">
   <strong>新译论文（2026-10-12）</strong>
+  <p style="margin:.45rem 0 0"><a href="/papers/translations/2605-18325/">《基于变分贝叶斯推断的混合专家扩散模型自适应大规模 MIMO 信道估计》</a> · 中文正文及公式 · 13 页原文</p>
   <p style="margin:.45rem 0 0"><a href="/papers/translations/2604-23310/">《RadTwin：面向动态环境的可泛化无线数字孪生》</a> · 中文全文 · 9 页原文</p>
   <p style="margin:.45rem 0 0"><a href="/papers/translations/2602-07321/">《无线上下文工程：面向高效移动智能体 AI 与边缘通用智能》</a> · 中文全文 · 7 页原文</p>
 </div>
