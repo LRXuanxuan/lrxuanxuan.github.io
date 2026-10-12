@@ -21,55 +21,55 @@ order: 2
 {% if book.title == "斯特普尔顿短篇小说集" %}
 ### [《{{ book.title }}》]({{ '/translations/stapledon/' | relative_url }})（{{ book.year_label }}）
 
-*{{ book.original }}*{% if book.note %} · {{ book.note }}{% endif %}
+*{{ book.original }}* · {{ book.kind }}{% if book.note %} · {{ book.note }}{% endif %}
 
 [选择篇目 · 中英切换]({{ '/translations/stapledon/' | relative_url }})
 {% elsif book.title == "造星主" %}
 ### [《{{ book.title }}》]({{ '/translations/star-maker/' | relative_url }})（{{ book.year_label }}）
 
-*{{ book.original }}*{% if book.note %} · {{ book.note }}{% endif %}
+*{{ book.original }}* · {{ book.kind }}{% if book.note %} · {{ book.note }}{% endif %}
 
 [分章阅读 · 中文 / English]({{ '/translations/star-maker/' | relative_url }})
 {% elsif book.title == "最后与最初的人" %}
 ### [《{{ book.title }}》]({{ '/translations/last-and-first-men/' | relative_url }})（{{ book.year_label }}）
 
-*{{ book.original }}*{% if book.note %} · {{ book.note }}{% endif %}
+*{{ book.original }}* · {{ book.kind }}{% if book.note %} · {{ book.note }}{% endif %}
 
 [分章阅读 · 中文 / English]({{ '/translations/last-and-first-men/' | relative_url }})
 {% elsif book.title == "伦敦的最后人" %}
 ### [《{{ book.title }}》]({{ '/translations/last-men-in-london/' | relative_url }})（{{ book.year_label }}）
 
-*{{ book.original }}*{% if book.note %} · {{ book.note }}{% endif %}
+*{{ book.original }}* · {{ book.kind }}{% if book.note %} · {{ book.note }}{% endif %}
 
 [分节阅读 · 中文 / English]({{ '/translations/last-men-in-london/' | relative_url }})
 {% elsif book.title == "黑暗与光明" %}
 ### [《{{ book.title }}》]({{ '/translations/darkness-and-the-light/' | relative_url }})（{{ book.year_label }}）
 
-*{{ book.original }}*{% if book.note %} · {{ book.note }}{% endif %}
+*{{ book.original }}* · {{ book.kind }}{% if book.note %} · {{ book.note }}{% endif %}
 
 [分节阅读 · 中文 / English]({{ '/translations/darkness-and-the-light/' | relative_url }})
 {% elsif book.title == "天狼星" %}
 ### [《{{ book.title }}》]({{ '/translations/sirius/' | relative_url }})（{{ book.year_label }}）
 
-*{{ book.original }}*{% if book.note %} · {{ book.note }}{% endif %}
+*{{ book.original }}* · {{ book.kind }}{% if book.note %} · {{ book.note }}{% endif %}
 
 [分章阅读 · 中文 / English]({{ '/translations/sirius/' | relative_url }})
 {% elsif book.title == "怪约翰" %}
 ### [《{{ book.title }}》]({{ '/translations/odd-john/' | relative_url }})（{{ book.year_label }}）
 
-*{{ book.original }}*{% if book.note %} · {{ book.note }}{% endif %}
+*{{ book.original }}* · {{ book.kind }}{% if book.note %} · {{ book.note }}{% endif %}
 
 [分章阅读 · 中文 / English]({{ '/translations/odd-john/' | relative_url }})
 {% elsif book.title == "星际人？" %}
 ### [《{{ book.title }}》]({{ '/translations/interplanetary-man/' | relative_url }})（{{ book.year_label }}）
 
-*{{ book.original }}*{% if book.note %} · {{ book.note }}{% endif %}
+*{{ book.original }}* · {{ book.kind }}{% if book.note %} · {{ book.note }}{% endif %}
 
 [分节阅读 · 中文 / English]({{ '/translations/interplanetary-man/' | relative_url }})
 {% else %}
 ### 《{{ book.title }}》
 
-*{{ book.original }}*{% if book.note %} · {{ book.note }}{% endif %}
+*{{ book.original }}* · {{ book.kind }}{% if book.note %} · {{ book.note }}{% endif %}
 
 {% assign epub_path = "/assets/epub/" | append: book.filename %}
 {% if epub_paths contains epub_path %}
@@ -86,7 +86,7 @@ order: 2
 {% for book in sheckley_books %}
 ### [《{{ book.title }}》]({{ '/translations/dimension-of-miracles/' | relative_url }}) · 1968
 
-*{{ book.original }}*
+*{{ book.original }}* · {{ book.kind }}
 
 [分章阅读 · 中文 / English]({{ '/translations/dimension-of-miracles/' | relative_url }})
 
