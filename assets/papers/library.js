@@ -19,7 +19,14 @@
     p.pdf_sources.forEach((u,i)=>appendLink(links,p.hosted_pdfs.length?'原始 PDF 来源':(i?'PDF 来源 '+(i+1):'PDF / 原文'),u));
     p.github.forEach((u,i)=>appendLink(links,i?'GitHub '+(i+1):'GitHub 仓库',u));
     if (p.report_entry_url) appendLink(links,'本篇日报与证据',p.paper_report_url);
-    appendLink(links,p.full_translation_label||'全文翻译（待补齐）',p.full_translation_url||p.paper_url+'#paper-translation');
+    const newlyTranslated = {
+      '71fab5c33128602e': '/papers/translations/2607.14778/',
+      'baba21ee71e8e702': '/papers/translations/2607.15127/',
+      'aac2a31efae5e8db': '/papers/translations/2607.11743/',
+      '4b9fd6c01ae6ebf0': '/papers/translations/2607.14398/',
+      'f8ef368c6d1a3838': '/papers/translations/2607.14597/'
+    };
+    appendLink(links,newlyTranslated[p.id]?'中文全文译文':(p.full_translation_label||'全文翻译（待补齐）'),newlyTranslated[p.id]||p.full_translation_url||p.paper_url+'#paper-translation');
     p.translations.filter(t=>!/^全文/.test(t.scope||'')).forEach(t=>appendLink(links,'本篇历史译文',t.url));c.append(links);
     if(!p.github.length)c.append(make('small',p.fields['代码/数据状态']||'未记录公开代码状态','pl-meta'));
     const d=make('details');d.append(make('summary','展开方法、结果、证据及表格全部字段'));
