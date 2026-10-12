@@ -1,0 +1,27 @@
+# 豆知识：每次添加新词条，填写唯一 slug、北京时间 added_at，以及词条内容。
+# 首页预览与归档会自动按 added_at 倒序排列；同一天多条可用时分秒区分顺序。
+- slug: "tautological-place-names"
+  added_at: "2026-10-12T11:28:00+08:00"
+  title: "同义反复地名／地名赘语现象"
+  english: "Tautological place name / Toponymic pleonasm"
+  teaser: "一座山被不同语言反复命名，最后竟然真的叫成了「山山山」。"
+  tags:
+    - "语言学"
+    - "地名学"
+    - "词源"
+  body: |
+    假设某地在当地语言中叫“山”。外来者不知道这个名字本身就有“山”的意思，只把它当作一个专有名称，于是又添上自己语言里的“山”。后来的人再来一次，便有了“山山山”。
+
+    这种由不同语言重复表达同一含义的名称，称为**同义反复地名**（tautological place name）；从“添加了语义重复成分”的角度，也可以用**地名赘语**（toponymic pleonasm）来描述。
+
+    - **Pendle Hill（英国彭德尔山）**：名称中的 *pen* 来自古老的布立吞语系词汇，与“山、山顶”有关；后来加上古英语 *hyll*（山），再加上现代英语 *hill*（山）。按词源拆解，几乎就是“山山山”。
+    - **River Avon（英国埃文河）**：*Avon* 源于古布立吞语中表示“河流”的词，与威尔士语 *afon* 同源；前面再加英语 *river*，便成了“河河”。
+
+    它并非单纯的翻译失误。随着语言更替，原先能听懂的普通名词变成了词义不透明的地名；后来的使用者添上熟悉的类别词，反而能让名字更容易理解。
+
+    所以，一个看似累赘的地名，也可能是一块小小的**语言地层化石**：每一次“多此一举”，都留下了历史上不同语言群体使用它的痕迹。
+  sources:
+    - label: "Pendle Hill Project：The hill they named three times"
+      url: "https://www.pendlehillproject.com/sites/default/files/docs/Final%20Sense%20of%20Place%20Toolkit.pdf"
+    - label: "River Avon：Etymology"
+      url: "https://en.wikipedia.org/wiki/River_Avon,_Warwickshire"

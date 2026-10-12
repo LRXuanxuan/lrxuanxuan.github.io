@@ -1,0 +1,30 @@
+/* 轻量豆知识：首页仅一条预览，独立页按时间倒序展示全文。 */
+.rc-tidbit-preview { margin-top:1.8rem; border:1px solid var(--main-border-color); border-radius:12px; background:var(--card-bg); padding:1.1rem 1.2rem; }
+.rc-tidbit-preview-header { display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:.5rem; margin-bottom:.7rem; }
+.rc-tidbit-preview-header h2 { margin:0; font-size:1.12rem; color:var(--heading-color); }
+.rc-tidbit-preview-header a { font-size:.8rem; text-decoration:none; }
+.rc-tidbit-latest { display:flex; flex-direction:column; gap:.3rem; color:var(--text-color); text-decoration:none!important; padding:.35rem 0 .15rem; }
+.rc-tidbit-latest:hover strong, .rc-tidbit-latest:focus-visible strong { color:var(--link-color); }
+.rc-tidbit-latest:focus-visible { outline:2px solid var(--link-color); outline-offset:4px; border-radius:4px; }
+.rc-tidbit-latest time { color:var(--text-muted-color); font-size:.79rem; font-variant-numeric:tabular-nums; }
+.rc-tidbit-latest strong { font-size:1rem; line-height:1.5; color:var(--heading-color); }
+.rc-tidbit-english,.rc-tidbit-teaser { font-size:.86rem; line-height:1.7; }
+.rc-tidbit-english { color:var(--text-muted-color); }
+.rc-tidbit-more { align-self:flex-end; color:var(--link-color); font-size:.82rem; margin-top:.2rem; }
+.rc-tidbits-archive { max-width:48rem; }
+.rc-tidbits-intro { color:var(--text-muted-color); line-height:1.8; }
+.rc-tidbits-back { font-size:.85rem; margin:.75rem 0; }
+.rc-tidbits-count { margin:1.5rem 0 .8rem; color:var(--text-muted-color); font-size:.8rem; }
+.rc-tidbit-entry { padding:1.35rem 0 1.8rem; border-top:1px solid var(--main-border-color); scroll-margin-top:5rem; }
+.rc-tidbit-entry-header time { font-size:.82rem; color:var(--text-muted-color); font-variant-numeric:tabular-nums; }
+.rc-tidbit-entry-header h2 { font-size:1.3rem; line-height:1.45; margin:.55rem 0 .25rem; color:var(--heading-color); }
+.rc-tidbit-entry-english { color:var(--text-muted-color); font-size:.88rem; margin:0 0 .9rem; }
+.rc-tidbit-tags { display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:1.1rem; }
+.rc-tidbit-tags span { font-size:.73rem; color:var(--text-muted-color); border:1px solid var(--main-border-color); padding:.12rem .5rem; border-radius:999px; }
+.rc-tidbit-body { font-size:.94rem; line-height:1.9; overflow-wrap:anywhere; }
+.rc-tidbit-body p { margin:.85rem 0; }
+.rc-tidbit-body ul { margin:.75rem 0 1rem; padding-left:1.5rem; }
+.rc-tidbit-body li { margin:.45rem 0; }
+.rc-tidbit-sources { margin:1.4rem 0 0; font-size:.79rem; line-height:1.8; color:var(--text-muted-color); }
+.rc-tidbit-sources a { overflow-wrap:anywhere; }
+@media (max-width:480px) { .rc-tidbit-preview { padding:.95rem 1rem; } .rc-tidbit-entry-header h2 { font-size:1.16rem; } }

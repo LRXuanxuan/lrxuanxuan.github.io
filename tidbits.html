@@ -1,0 +1,38 @@
+---
+layout: page
+title: 豆知识
+permalink: /tidbits/
+toc: false
+---
+
+<link rel="stylesheet" href="{{ '/assets/css/tidbits.css' | relative_url }}">
+
+<div class="rc-tidbits-archive">
+  <p class="rc-tidbits-intro">一点有意思、也不一定有什么用的小知识，随手记在这里喵。最新添加的排在最上面。</p>
+  <p class="rc-tidbits-back"><a href="{{ '/playthings/' | relative_url }}">← 返回奇怪的小玩意</a></p>
+
+  {% assign tidbits_by_newest = site.data.tidbits | sort: 'added_at' | reverse %}
+  <p class="rc-tidbits-count">共 {{ tidbits_by_newest.size }} 条</p>
+  {% for tidbit in tidbits_by_newest %}
+  <article class="rc-tidbit-entry" id="{{ tidbit.slug | escape }}">
+    <header class="rc-tidbit-entry-header">
+      <time datetime="{{ tidbit.added_at | escape }}">{{ tidbit.added_at | date: '%Y.%m.%d' }}</time>
+      <h2>{{ tidbit.title | escape }}</h2>
+      <p class="rc-tidbit-entry-english">{{ tidbit.english | escape }}</p>
+      {% if tidbit.tags %}
+      <div class="rc-tidbit-tags" aria-label="词条标签">
+        {% for tag in tidbit.tags %}<span>{{ tag | escape }}</span>{% endfor %}
+      </div>
+      {% endif %}
+    </header>
+    <div class="rc-tidbit-body">{{ tidbit.body | markdownify }}</div>
+    {% if tidbit.sources %}
+    <p class="rc-tidbit-sources">相关资料：
+      {% for source in tidbit.sources %}
+      <a href="{{ source.url | escape }}" target="_blank" rel="noopener noreferrer">{{ source.label | escape }} ↗</a>{% unless forloop.last %}<span aria-hidden="true"> · </span>{% endunless %}
+      {% endfor %}
+    </p>
+    {% endif %}
+  </article>
+  {% endfor %}
+</div>

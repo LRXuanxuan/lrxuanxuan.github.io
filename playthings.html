@@ -7,9 +7,28 @@ toc: false
 <link rel="stylesheet" href="{{ '/assets/css/sign-archive.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/sign-aspects.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/sign-votes.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/tidbits.css' | relative_url }}">
 <div class="rc-playthings">
   <p class="rc-playthings-lead">抽过的签，和偶尔心血来潮的小玩意，都放在这里喵。</p>
   <a class="rc-toy-link" href="{{ '/fortune/' | relative_url }}"><span aria-hidden="true">🎲</span><span><strong>照明之咪摇奖机</strong><small>去看看今天会摇到什么。</small></span><span aria-hidden="true">↗</span></a>
+  {% assign tidbits_by_newest = site.data.tidbits | sort: 'added_at' | reverse %}
+  {% assign latest_tidbit = tidbits_by_newest.first %}
+  {% if latest_tidbit %}
+  <section class="rc-tidbit-preview" aria-labelledby="rc-tidbit-preview-title">
+    <div class="rc-tidbit-preview-header">
+      <h2 id="rc-tidbit-preview-title">🫘 豆知识</h2>
+      <a href="{{ '/tidbits/' | relative_url }}">查看全部 {{ tidbits_by_newest.size }} 条 ↗</a>
+    </div>
+    <a class="rc-tidbit-latest" href="{{ '/tidbits/' | relative_url }}#{{ latest_tidbit.slug | escape }}">
+      <time datetime="{{ latest_tidbit.added_at | escape }}">{{ latest_tidbit.added_at | date: '%Y.%m.%d' }} · 最新添加</time>
+      <strong>{{ latest_tidbit.title | escape }}</strong>
+      <span class="rc-tidbit-english">{{ latest_tidbit.english | escape }}</span>
+      <span class="rc-tidbit-teaser">{{ latest_tidbit.teaser | escape }}</span>
+      <span class="rc-tidbit-more">读读这条 →</span>
+    </a>
+  </section>
+  {% endif %}
+
   <details class="rc-sign-archive" data-pool="{{ '/assets/data/quote-pool.json' | relative_url }}" aria-labelledby="rc-archive-title">
     <summary class="rc-archive-fold" id="rc-archive-title">
       <span class="rc-archive-fold-chevron" aria-hidden="true">▸</span>
