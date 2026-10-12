@@ -155,7 +155,7 @@ comments: false
 <p>‘That is a good beginning for an investigator, is it not? To be an information-gathering machine?’</p>
 <p>‘A beginning, maybe. But it’s not all there is, by a long shot.’</p>
 <p>‘To be sure, there has been a final adjustment of my circuits.’</p>
-<p>‘I’<a id="_idTextAnchor001"></a>d be curious to hear the details of that, Daneel.’</p>
+<p>‘I’<span id="_idTextAnchor001"></span>d be curious to hear the details of that, Daneel.’</p>
 <p>‘That is easy enough. A particularly strong drive has been inserted into my motivation banks; a desire for justice.’</p>
 <p><em>‘Justice!’</em> cried Baley. The irony faded from his face and was replaced by a look of the most earnest distrust.</p>
 <p>But R. Daneel turned swiftly in his chair and stared at the door. ‘Someone is out there.’</p>

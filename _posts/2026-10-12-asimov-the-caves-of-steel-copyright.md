@@ -22,7 +22,7 @@ comments: false
 <p>An imprint of HarperCollins<em>Publishers</em> Ltd </p>
 <p>1 London Bridge Street </p>
 <p>London SE1 9GF</p>
-<p><a href="http://www.harpercollins.co.uk">www.harpercollins.co.uk</a></p>
+<p><a href="https://www.harpercollins.co.uk">www.harpercollins.co.uk</a></p>
 <p>This eBook edition 2023</p>
 <p>First published in Great Britain by</p>
 <p>TV Boardman &amp; Co Ltd 1954</p>

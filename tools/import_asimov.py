@@ -44,6 +44,14 @@ def clean(body, source, target_map):
     for e in list(body.find_all(True)):
         if e.name == 'a':
             href = e.get('href', '')
+            if not href:
+                if e.get('id'):
+                    e.name = 'span'
+                else:
+                    e.unwrap()
+                    continue
+            elif href.startswith('http://'):
+                e['href'] = 'https://' + href[len('http://'):]
             if href and not re.match(r'https?://', href):
                 file, _, anchor = href.partition('#')
                 dest = posixpath.normpath(posixpath.join(posixpath.dirname(source), file)) if file else source
@@ -64,9 +72,9 @@ def clean(body, source, target_map):
         elif e.name == 'span' and 'bold' in classes:
             e.name = 'strong'
         e.attrs = {k: v for k, v in e.attrs.items() if k in ('id', 'href', 'lang')}
-        if e.name == 'span':
+        if e.name == 'span' and not e.get('id'):
             e.unwrap()
-        elif e.name not in ('p', 'h2', 'h3', 'h4', 'em', 'strong', 'i', 'b', 'br', 'hr', 'a', 'sup', 'sub', 'blockquote', 'ul', 'ol', 'li', 'aside'):
+        elif e.name not in ('p', 'h2', 'h3', 'h4', 'em', 'strong', 'i', 'b', 'br', 'hr', 'a', 'span', 'sup', 'sub', 'blockquote', 'ul', 'ol', 'li', 'aside'):
             e.unwrap()
     for p in body.find_all('p'):
         if not p.get_text(strip=True) and not p.find(['hr', 'br']):
