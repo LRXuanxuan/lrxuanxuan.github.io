@@ -2,13 +2,17 @@
 """Build text-only Chinese reading pages for five supplied arXiv PDFs.
 
 Source PDFs are downloaded at build time; no PDF or image is committed.
-The translation engine is offline Argos Translate after package installation.
+Text is translated using an online translation endpoint with validation and term normalization.
 The resulting pages are MACHINE FIRST DRAFTS, never peer-reviewed translations.
 """
 from __future__ import annotations
 
 import html
 import re
+import json
+import time
+import urllib.error
+import urllib.parse
 import urllib.request
 from datetime import date
 from pathlib import Path
@@ -28,24 +32,81 @@ ASSET = ROOT / "assets" / "papers" / "translations"
 CACHE = Path("/tmp/arxiv-paper-translation-cache")
 
 
+class ScientificTranslator:
+    """Online EN->ZH translator with retries and communications terminology checks."""
+
+    def __init__(self):
+        self.cache = {}
+        self.calls = 0
+
+    def translate(self, text: str) -> str:
+        if not text.strip():
+            return ""
+        if text in self.cache:
+            return self.cache[text]
+        q = urllib.parse.urlencode({
+            "client": "gtx", "sl": "en", "tl": "zh-CN", "dt": "t", "q": text
+        })
+        req = urllib.request.Request(
+            "https://translate.googleapis.com/translate_a/single?" + q,
+            headers={"User-Agent": "Mozilla/5.0 (research paper translation quality pass)"}
+        )
+        for attempt in range(6):
+            try:
+                with urllib.request.urlopen(req, timeout=40) as resp:
+                    payload = json.load(resp)
+                result = "".join(part[0] or "" for part in payload[0])
+                if not result.strip():
+                    raise ValueError("translation service returned an empty result")
+                result = self.normalize_terms(result)
+                if re.search(r"(.{2,9})\\1{10,}", result):
+                    raise ValueError("repeated-output degeneration detected")
+                self.cache[text] = result
+                self.calls += 1
+                if self.calls % 80 == 0:
+                    print("MT_BLOCKS_DONE=", self.calls, flush=True)
+                time.sleep(0.08)
+                return result
+            except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError,
+                    ValueError, IndexError, TypeError) as exc:
+                if attempt == 5:
+                    raise RuntimeError(f"Translation request failed after retries: {exc}") from exc
+                time.sleep(min(40, 2 ** attempt + 1))
+        raise AssertionError("unreachable")
+
+    @staticmethod
+    def normalize_terms(text: str) -> str:
+        substitutions = [
+            ("渠道知识图谱", "信道知识地图"),
+            ("渠道知识地图", "信道知识地图"),
+            ("频道知识图谱", "信道知识地图"),
+            ("信道知识图谱", "信道知识地图"),
+            ("通道知识地图", "信道知识地图"),
+            ("无线电地图", "无线电地图"),
+            ("飞行员符号", "导频符号"),
+            ("飞行员开销", "导频开销"),
+            ("导频额外费用", "导频开销"),
+            ("飞行员", "导频"),
+            ("综艺滤波器", "集合滤波器"),
+            ("综艺过滤", "集合滤波"),
+            ("综艺节目", "集合"),
+            ("增材高斯", "加性高斯"),
+            ("添加剂高斯", "加性高斯"),
+            ("附加高斯", "加性高斯"),
+            ("双胞胎数字", "数字孪生"),
+            ("数字双胞胎", "数字孪生"),
+            ("广义射线追踪", "射线追踪"),
+        ]
+        for a, b in substitutions:
+            text = text.replace(a, b)
+        text = text.replace("渠道状态信息", "信道状态信息")
+        text = text.replace("频道状态信息", "信道状态信息")
+        text = text.replace("渠道", "信道")
+        return text
+
+
 def translator():
-    import argostranslate.package
-    import argostranslate.translate
-    langs = argostranslate.translate.get_installed_languages()
-    en = next((z for z in langs if z.code == "en"), None)
-    zh = next((z for z in langs if z.code == "zh"), None)
-    if en is None or zh is None:
-        argostranslate.package.update_package_index()
-        packages = argostranslate.package.get_available_packages()
-        p = next((p for p in packages if p.from_code == "en" and p.to_code == "zh"), None)
-        if p is None:
-            raise RuntimeError("No en->zh Argos model listed")
-        print("Downloading en-zh model:", p.package_version, flush=True)
-        argostranslate.package.install_from_path(p.download())
-        langs = argostranslate.translate.get_installed_languages()
-        en = next(z for z in langs if z.code == "en")
-        zh = next(z for z in langs if z.code == "zh")
-    return en.get_translation(zh)
+    return ScientificTranslator()
 
 
 def download(arxiv_id: str) -> Path:
@@ -117,23 +178,31 @@ def extract(doc, expected_pages: int):
 
 
 def translate_text(model, text: str) -> str:
-    # Long PDF text blocks can exceed the MT model sentence window.
-    sentences = re.split(r"(?<=[.!?])\s+(?=[A-Z(\[])", text)
+    """Translate all prose, including long blocks; never drop long spans."""
+    sentences = re.split(r"(?<=[.!?])\\s+(?=[A-Z(\\[])", text)
     chunks, cur = [], ""
     for sent in sentences:
-        if len(cur) + len(sent) > 700 and cur:
-            chunks.append(cur)
-            cur = ""
-        cur += (" " if cur else "") + sent
+        if len(sent) > 1050:
+            # Fallback for tables or PDF merges without sentence boundaries.
+            words = sent.split()
+            parts, curpart = [], ""
+            for word in words:
+                if curpart and len(curpart) + len(word) > 950:
+                    parts.append(curpart)
+                    curpart = ""
+                curpart += (" " if curpart else "") + word
+            if curpart:
+                parts.append(curpart)
+        else:
+            parts = [sent]
+        for part in parts:
+            if len(cur) + len(part) > 1050 and cur:
+                chunks.append(cur)
+                cur = ""
+            cur += (" " if cur else "") + part
     if cur:
         chunks.append(cur)
-    translated = []
-    for chunk in chunks:
-        if len(chunk) > 1250:
-            # PDF blocks occasionally contain large tables; keep those literal.
-            translated.append(chunk)
-        else:
-            translated.append(model.translate(chunk))
+    translated = [model.translate(chunk) for chunk in chunks]
     return " ".join(translated)
 
 
@@ -155,7 +224,7 @@ def article(meta, pages, model):
         "# " + zh_title, "", "**原题**：" + en_title, "",
         f"**论文来源**：[arXiv:{aid}](https://arxiv.org/abs/{aid}) · PDF {num_pages} 页",
         "",
-        "> 状态：已覆盖 PDF 全部页面的自动化中文机器翻译初稿，尚未逐段人工核校；公式、符号及参考文献按原文保留。复杂公式、双栏表格和图中文字应对照官方 PDF 核实。请勿将本稿当作经审校的正式译本。",
+        "> 状态：全文自动中译初稿（第二轮翻译及通信术语校正），尚未逐段人工核校。原文公式、参考文献按原样保留；复杂公式、双栏表格和图中文字应对照官方 PDF 核实。请勿将本稿当作正式学术译本。",
         "",
         "## 页码导航", "",
         " · ".join(f"[{n}](#page-{n})" for n in range(1, num_pages + 1)),
@@ -200,11 +269,11 @@ def article(meta, pages, model):
         f"- PDF 原件页数：{num_pages}；译稿覆盖页数：{len(pages)}。",
         f"- 英文文字块：{ntrans}；机器译文未识别而保留原文的文字块：{nfallback}；公式与非语言文字块保留原文：{nmath}；参考文献块保留原文：{nrefs}。",
         "- 源 PDF 自动文字提取可能造成公式上下标、双栏阅读顺序与跨页表格损坏。官方 PDF 是准确原文的依据。",
-        "- 译文为自动化机器初稿，专有名词、定理和公式周边文字仍需进一步学术审校。",
+        "- 译文采用自动化翻译并进行了通信术语归一化，专有名词、定理和公式周边文字仍需进一步学术审校。",
         "",
         "{% endraw %}", ""
     ])
-    if nfallback > max(8, ntrans // 20):
+    if nfallback > max(6, ntrans // 50):
         raise RuntimeError(f"Too many untranslatable blocks: {aid}: {nfallback}/{ntrans}")
     if ntrans < num_pages * 3:
         raise RuntimeError(f"Suspiciously few translated blocks: {aid} ({ntrans})")
