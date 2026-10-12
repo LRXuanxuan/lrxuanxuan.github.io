@@ -306,57 +306,217 @@ $$
 
 本文提出从后验传输理解基于流的逆问题求解：对确定性流先验，条件化等价于对源分布重新加权，而已有轨迹引导算法可被理解为从无条件源出发时所需最小动能修正的近似。闭式后验实验验证源重新加权的精确性，并揭示轨迹引导固有的偏差与模式坍塌。受分析启发，作者提出计算廉价的速度修正器，其输出不确定性与实际误差相关。后验传输视角有望为超越单张重建指标的下一代流逆问题求解器设计与评价提供原则性基础。
 
-## 附录与证明导读（对应原论文 A–E）
+## 附录 A：证明
 
-本部分为原论文附录各命题和实验构造的中文技术整理。涉及积分交换、光滑性和大偏差极限的中间计算，请与 PDF 原文逐式核对；并非对原附录每个中间证明句子的逐字翻译。
+### A.1 引理 1 与命题 1
 
-### 附录 A：命题和定理的证明
-
-**A.1 引理 1 与命题 1。** 源后验按 $p_0^y(z)\propto p(y|\Phi(z))p_0(z)$ 定义。对任意有界测试函数 $f$，由推前定义有：
+**源空间变量替换。** 令源分布为 $p_0(z)$、可逆流映射为 $\Phi$。根据概率密度的变量替换公式，源后验
 
 $$
-\mathbb E_{z\sim p_0^y}[f(\Phi(z))]
-=\frac1{p(y)}\int f(\Phi(z))p(y|\Phi(z))p_0(z)\,dz
-=\mathbb E_{x\sim p(x|y)}[f(x)].
+p_0^y(z)=\frac{p(y\mid\Phi(z))p_0(z)}{p(y)}
 $$
 
-从而 $\Phi_\#p_0^y=p(\cdot|y)$。推广到任意时刻 $t$，由 $\Phi_{0\to1}=\Phi_{t\to1}\circ\Phi_{0\to t}$ 得到 $p_t^y=r_t p_t$。沿特征线 $x_t=\Phi_{0\to t}(x_0)$，$r_t(x_t)$ 只依赖终点而保持常量，即输运方程 $\partial_t r_t+v_t\cdot\nabla r_t=0$。把它与无条件连续性方程 $\partial_t p_t+\nabla\cdot(v_t p_t)=0$ 相乘组合，就得到式（3）。
-
-**A.2 命题 2。** 对带微小布朗扰动的流，Doob $h^\varepsilon$-变换的漂移含有扩散系数和 $\nabla\log h^\varepsilon$，端点似然通过随机未来状态的条件期望定义。随着噪声参数趋零，未来状态的分布集中到确定性终点 $\Phi_{t\to1}(x)$，因此 $h^\varepsilon$ 收敛到 $p(y|\Phi_{t\to1}(x))$。在适当正则性及离开奇异点的条件下，附加漂移的系数趋零，条件信息则保留在初始密度的端点似然权重中。这一极限不能误解为“随机扩散在有限噪声时也不需要引导”。
-
-**A.3 边缘路径重新加权与命题 3。** 若从无条件 $p_0$ 起步，必须施加修正场 $u$ 来改变时间边缘，使终点匹配后验。由连续性方程：
+经映射 $\Phi$ 推前后，得到
 
 $$
-\partial_t q_t+\nabla\cdot[(v_t+u_t)q_t]=0.
+(\Phi_\#p_0^y)(x)
+=p_0^y(\Phi^{-1}(x))
+|\det D\Phi^{-1}(x)|
+=\frac{p(y\mid x)p_1(x)}{p(y)}
+=p(x\mid y).
 $$
 
-与理想条件路径 $p_t^y$ 的差异可转化为加权流量与端点约束的控制问题。局部求解器不显式解这一全局控制，而在每步用端点预测及其似然梯度构造近似流量。将端点后验退化为点质量、替换为高斯、或者把梯度流分裂为近端与重投影更新，分别形成 FlowDPS、FLOWER 和 PnP-Flow 的近似结构。
+**后验路径。** 令 $\mu_0$ 为任意初始分布，$\mu_t=(\Phi_{0\to t})_\#\mu_0$。因 $\{\Phi_{0\to t}\}_t$ 是 $\dot x=v_t(x)$ 的流，路径 $t\mapsto\mu_t$ 弱意义下满足连续性（Liouville）方程：
 
-**A.4 定理 1。** 使用相同初值耦合近似修正流与理想修正流，研究轨迹距离。对动力学差值利用 $v_t+u_t$ 的 Lipschitz 条件和 Grönwall 不等式，可用沿时间累积的修正场误差上界终端轨迹距离；再对耦合求期望，并用 Wasserstein 距离的耦合定义，将轨迹误差变成终端分布的 $W_2$ 上界。数值积分误差及流模型近似误差另行加到上界，得到式（5）。这一证明依赖正则性、耦合以及理想修正场存在，不意味着可以直接计算 $u^\star$。
+$$
+\partial_t\mu_t+\nabla\cdot(\mu_t v_t)=0.
+$$
 
-**A.5 命题 4。** 将源后验写为 Laplace 型指数倾斜密度（6）。在各非退化极小点 $z_k^\star$ 周围二阶展开 $\ell_y\circ\Phi$，高斯积分的主导项包含 Hessian 行列式的负半次方；再乘上源先验密度，得到式（7）的模态权重。极小点间的相对权重由全局归一化确定，微分同胚推前不改变各分量权重。结论仅适用于观测噪声趋零的极限。
+对任意紧支撑平滑测试函数 $g\in C_c^\infty$，从 $g(\Phi_{0\to t}(x))$ 对时间求导并相对 $\mu_0$ 积分，有
 
-### 附录 B：扩展大偏差分析
+$$
+\frac{d}{dt}\int g\,d\mu_t=\int\nabla g\cdot v_t\,d\mu_t.
+$$
 
-**B.1 重要性采样为何塌缩。** 源空间的重要性权重 $w(z)=p(y|\Phi(z))$ 在小噪声下指数集中。如果观测维度或测量约束数量增加，随机源样本落入高权重邻域的概率快速变小，有效样本量 $\mathrm{ESS}=(\sum_iw_i)^2/\sum_i w_i^2$ 急剧下降。在理论有效而数值不可行的情况下，独立重要性采样常由极少样本主导，导致后验均值与方差失真。
+特别取 $\mu_0=p_0^y$，就得到 $p_t^y=(\Phi_{0\to t})_\#p_0^y$ 以及 $\partial_tp_t^y+\nabla\cdot(p_t^y v_t)=0$，终点 $p_1^y=\Phi_\#p_0^y=p(\cdot\mid y)$。整个过程的速度场仍为不依赖测量 $y$ 的先验 $v_t$；条件化只改变初始源分布。
 
-**B.2 Laplace 权重与贪心引导。** 精确重加权会按式（7）保留不同测量一致盆地之间的概率权重。只在单条轨迹上作局部似然上升，可能将质量集中到某个吸引盆地；在一个理想化的单模态收敛构造中，其与真实混合后验的总变差距离下界为 $1-\max_k w_k$。作者明确指出这只是更真实求解器的一种极端示意：先验流本身能够在模态间分配质量，因此真实错误通常是模态权重失配而不是所有样本压到单点。
+### A.2 命题 2：小噪声 $h$-变换漂移消失
 
-**B.3 最小动能修正与路径大偏差。** 在具有小扩散噪声的参考路径测度下，稀有条件事件的控制代价由路径作用泛函刻画。小噪声极限把最优随机漂移和确定性最小动能修正联系起来，形成式（4）的控制问题。这是对 Schrödinger 桥／Föllmer 漂移关系的解释，不代表该最小能量修正可以直接高效计算。
+设端点权重 $g(x_1)=p(y\mid x_1)$ 有界且为 $C^1$，并在相关紧集上有 $g\ge c>0$，以确保 $\log g$ 定义良好且 Lipschitz。令 $\Phi$ 为满足假设 1 的 $C^1$ 流。考虑参考 SDE
 
-### 附录 C：补充定性结果
+$$
+dx_t=v_t(x_t)\,dt+\varepsilon\,dW_t,
+$$
 
-作者在 AFHQ-Cat 和 CelebA 的超分辨、修补、去模糊及分布外测试中提供更多重建图、八样本蒙太奇和不确定性图。每个案例均展示退化观测、重建／后验均值、样本多样性与重建误差。其目的在于显示跨样本变化主要落在受观测约束较弱的位置，而不是主观挑选单张“好看”的图。具体像素图像保留在原论文 PDF，不额外托管到轻量博客。
+它按端点观测条件化的 Doob 桥，其漂移为 $v_t+\varepsilon^2\nabla\log h_t^\varepsilon$，其中调和函数
 
-### 附录 D：算法和实验细节
+$$
+h_t^\varepsilon(x)=
+\mathbb E[g(x_1^\varepsilon)\mid x_t^\varepsilon=x].\tag{9}
+$$
 
-**D.1 速度修正器。** 实用算法从独立源样本 $z$ 启动，在时间步 $t$ 计算流速度 $v_t(x_t)$ 及 Tweedie 端点估计 $\widehat x_1=x_t+(1-t)v_t(x_t)$。数据项定义为 $\ell_y(\widehat x_1)$（高斯噪声情形与 $\|A(\widehat x_1)-y\|^2$ 成比例）；对当前状态反向传播得到测量修正梯度，再经逐图归一化和迁移算子调制，叠加到流速度完成 Euler 步。这里无需通过整个 ODE 历史反向传播。不同源随机数重复运行产生多个样本，均值与逐像素标准差分别用于点估计和不确定性图。算法的方向来自命题 3，但归一化和实际迁移权重是在验证实验中确定的数值策略。
+**步骤 1：调和函数趋于端点的逐点计算。** 令 $x_1^\varepsilon$ 是从 $x_t^\varepsilon=x$ 出发的参考 SDE 终点。由假设 1 下的 SDE 小噪声稳定性，通过 Grönwall 不等式得到
 
-**D.2 闭式二维模型。** 先验采用八分量 Gaussian mixture。作者使用具有解析条件速度的流插值，因而可近似排除网络训练误差；观测采用线性高斯形式，使真实后验仍为可求参数的 Gaussian mixture。计算 20,000 个样本，评价 sliced-W2、energy distance、multi-scale MMD² 和模态权重 $\ell_1$，并把两批真后验独立抽样的差异作为 MC 噪声基线。对 FlowDPS 风格引导扫描多个引导强度；DAPS／MGPS 在相同解析先验上实现，以避免不同生成模型造成的比较混淆。
+$$
+\mathbb E\|x_1^\varepsilon-\Phi_{t\to1}(x)\|^2
+\le C\varepsilon^2.
+$$
 
-### 附录 E：与现有框架的关系
+因此 $x_1^\varepsilon$ 在 $L^2$ 中趋于 $\Phi_{t\to1}(x)$，进而依概率收敛。由 $g$ 有界连续和支配收敛定理，
 
-该后验传输视角与正规化流潜变量条件推断在数学上相通：只要 $\Phi$ 可逆、流密度定义良好，就可以在源空间按终点似然进行贝叶斯条件化。随机扩散中的 Doob $h$-变换则在动力学中显式修改漂移；Schrödinger 桥／最小作用控制把源边缘的变形转化为路径能量问题。本文区分“从正确的条件源出发沿未修改动力学移动”和“从错误的无条件源出发用额外漂移补偿”两种程序；它们可能在终点产生相同后验，但所需计算与引导结构不同。
+$$
+h_t^\varepsilon(x)\to
+g(\Phi_{t\to1}(x))=:h_t^0(x).
+$$
+
+**步骤 2：$C^1$ 收敛及统一梯度界。** 将式（9）关于 $x$ 求导。记一阶变分流的 Jacobian 为 $J_{t\to1}^\varepsilon=\partial x_1^\varepsilon/\partial x$，它在 $L^2$ 中趋向确定性 Jacobian $\nabla\Phi_{t\to1}(x)$，则
+
+$$
+\nabla h_t^\varepsilon(x)=
+\mathbb E[(J_{t\to1}^\varepsilon)^\top
+\nabla g(x_1^\varepsilon)]
+\longrightarrow
+(\nabla\Phi_{t\to1}(x))^\top
+\nabla g(\Phi_{t\to1}(x))
+=\nabla h_t^0(x).\tag{10}
+$$
+
+极限梯度在紧集上有限且有界，又因 $h_t^\varepsilon\to h_t^0\ge c>0$，所以对足够小的 $\varepsilon$，$\|\nabla\log h_t^\varepsilon(x)\|\le M(x)<\infty$。
+
+**步骤 3：附加漂移消失，条件信息转移到源分布。** 因而
+
+$$
+\|\varepsilon^2\nabla\log h_t^\varepsilon(x)\|
+\le\varepsilon^2M(x)\to0.
+$$
+
+与此同时，桥过程初始密度被 $h_0^\varepsilon$ 重新加权：
+
+$$
+p_0^{y,\varepsilon}\propto h_0^\varepsilon p_0
+\to g(\Phi(\cdot))p_0
+=p(y\mid\Phi(\cdot))p_0
+\propto p_0^y.
+$$
+
+极限是从 $p_0^y$ 出发沿确定性流 $\Phi$ 演化、没有附加漂移的过程，与命题 1 一致。
+
+**备注：温度化似然的情形。** 上述步骤 2 的 $O(1)$ 梯度界建立在 $g$ 不随 $\varepsilon$ 改变的前提上。若似然按小噪声尺度温度化，$g_\varepsilon=\exp(-\ell_y\circ\Phi_{t\to1}/\varepsilon^2)$，则 $\log h_t^\varepsilon\asymp-S_t/\varepsilon^2$，从而 $\varepsilon^2\nabla\log h_t^\varepsilon\to-\nabla S_t\ne0$：修正漂移趋于 Freidlin–Wentzell 最小作用控制。两种极限并不矛盾：前者从重加权源出发，后者从未经条件化的 $p_0$ 出发并为传输付出作用代价，对应正文第 3 节与第 4 节的区别。
+
+### A.3 边缘路径的精确重新加权及命题 3
+
+**命题 5（确定性重新加权）。** 对所有 $t$，后验时间边缘等于先验边缘乘以逐点似然：
+
+$$
+p_t^y(x)=p_t(x)
+\frac{p(y\mid\Phi_{t\to1}(x))}{p(y)}.\tag{11}
+$$
+
+证明是直接的：在先验流下，给定 $x_t$，终点 $x_1=\Phi_{t\to1}(x_t)$ 是确定函数，因此按终点观测 $y$ 条件化，只需对 $x_t$ 的分布乘以 $p(y\mid x_1=\Phi_{t\to1}(x_t))$；归一化分母为 $p(y)$。扩散 $h$-函数需要的未来条件期望，在这里因 $x_1\mid x_t$ 是 Dirac 质量而退化成逐点计算。
+
+式（11）定义瞬时似然分数：
+
+$$
+s_t(x):=\nabla_x\log p(y\mid\Phi_{t\to1}(x))
+=(\nabla_x\Phi_{t\to1}(x))^\top
+\nabla_{x_1}\log p(y\mid x_1)
+\big|_{x_1=\Phi_{t\to1}(x)}.\tag{12}
+$$
+
+**规范修正场。** 如果坚持从无条件 $p_0$ 出发，就必须积分 $\dot x=v_t+u_t$，使其边缘 $q_t^u$ 满足 $q_0=p_0$、$q_1^u=p(\cdot\mid y)$。在满足终端约束的所有 $u$ 中，式（4）定义最小动能修正场 $u_t^\star=\nabla\varphi_t$，相应 $(q_t^\star,\varphi_t)$ 满足相对参考漂移 $v_t$ 的 Benamou–Brenier 最优性系统：
+
+$$
+\begin{cases}
+\partial_tq_t^\star+
+\nabla\cdot(q_t^\star(v_t+\nabla\varphi_t))=0,\\
+\partial_t\varphi_t+v_t\cdot\nabla\varphi_t+
+\tfrac12\|\nabla\varphi_t\|^2=0,
+\end{cases}\tag{13}
+$$
+
+边界条件为 $q_0^\star=p_0$、$q_1^\star=p(\cdot\mid y)$。这是 Doob／Föllmer 漂移的确定性、欧氏迁移度量对应物；存在性与梯度场形式根据动态最优传输及假设 1 得到。
+
+**已有求解器的近似。** 轨迹引导算法贪心地遵循瞬时似然分数 $s_t$，其中有两重近似：
+
+（1）**端点映射**。用一步流 Tweedie 线性化
+
+$$
+\widehat x_1(x,t)=x+(1-t)v_t(x)
+=\Phi_{t\to1}(x)+O((1-t)^2)
+$$
+
+代替真实端点映射，故将 $s_t(x)$ 近似为 $\nabla_x\log p(y\mid\widehat x_1(x,t))$。
+
+（2）**迁移度量与贪心性**。不求解式（13），而用迁移矩阵 $M_t$ 对分数进行缩放并逐步局部更新：FlowDPS 取 $M_t=\zeta_t I$，隐含点质量端点；FLOWER 以各向同性高斯 $\mathcal N(\widehat x_1,\sigma_{r,t}^2I)$ 近似 $x_1\mid x_t$，按其后验协方差设置 $M_t$，通过共轭梯度实现；PnP-Flow 用数据保真近端映射及流路径重新投影替代梯度步，形成算子分裂近似。
+
+除线性端点映射、高斯端点后验或传输代价趋零等退化情况外，这些近似一般并不精确，因此即使速度场准确，仍有 $u_t\ne u_t^\star$，产生后验偏差。
+
+### A.4 定理 1 的证明
+
+令 $w_t=v_t+u_t^\star$ 为精确总速度，$w_t'=v_t+u_t$ 为近似总速度，从共同初始分布 $p_0$ 生成流 $\Psi_{0\to t}$ 与 $\Psi'_{0\to t}$。通过相同随机初值 $x_0\sim p_0$ 耦合轨迹，写 $x_t=\Psi_{0\to t}(x_0)$、$x_t'=\Psi'_{0\to t}(x_0)$。则由假设 1：
+
+$$
+\begin{aligned}
+\frac d{dt}\|x_t-x_t'\|
+&\le\|w_t(x_t)-w_t(x_t')\|
++\|w_t(x_t')-w_t'(x_t')\|\\
+&\le L\|x_t-x_t'\|
++\|u_t^\star(x_t')-u_t(x_t')\|.
+\end{aligned}\tag{14}
+$$
+
+由 Grönwall 不等式及 $x_0=x_0'$：
+
+$$
+\|x_1-x_1'\|\le
+\int_0^1e^{L(1-s)}
+\|u_s^\star(x_s')-u_s(x_s')\|\,ds.
+$$
+
+取 $L^2(p_0)$ 范数，以此耦合作为 $W_2$ 的可行输运方案，再用 Minkowski 积分不等式：
+
+$$
+W_2\left((\Psi_{0\to1})_\#p_0,
+(\Psi'_{0\to1})_\#p_0\right)
+\le e^L\int_0^1
+\left(\mathbb E_{q_s^u}
+\|u_s-u_s^\star\|^2\right)^{1/2}ds.\tag{15}
+$$
+
+对于精确 $v_t$ 和连续积分，左侧两分布正是 $p(\cdot\mid y)$ 与 $p_1^u$。再由三角不等式加上有限时间步产生的 ODE 离散化误差 $\varepsilon_{\rm disc}$ 和学习流模型误差 $\varepsilon_{\rm flow}$，并将上式的 $e^L$ 记入新的常数，便得到正文式（5）。
+
+**备注：不可消除的误差下限。** 若修正方向或迁移矩阵设定错误，例如使用各向同性标量 $M_t$ 却需要各向异性场，或贪心更新代替全局重新分配模态质量，那么即使对 $u_t$ 乘以任何标量 $c>0$，它与 $u_t^\star$ 的差异仍可能有正下限。表 1 中的引导强度平台就是这种现象。
+
+### A.5 命题 4 的证明
+
+对于 Gibbs 型源后验 $p_0^{y,\varepsilon}\propto e^{-I_y/\varepsilon}$，若 $I_y$ 连续且因 $I_0$ 的强制性而有紧致次水平集，就构成良好速率函数。由 Varadhan 引理／Laplace 原理，分布族满足大偏差原理：对闭集 $F$ 和开集 $G$，有
+
+$$
+\limsup_{\varepsilon\to0}
+\varepsilon\log p_0^{y,\varepsilon}(F)
+\le-\inf_FI_y,
+\qquad
+\liminf_{\varepsilon\to0}
+\varepsilon\log p_0^{y,\varepsilon}(G)
+\ge-\inf_GI_y.
+$$
+
+因此质量集中在 $\arg\min I_y=\{z_k^\star\}$。在各非退化极小点附近使用二阶 Laplace 展开，得到归一化混合权重
+
+$$
+w_k\propto e^{-I_y(z_k^\star)/\varepsilon}
+|\nabla^2I_y(z_k^\star)|^{-1/2}.
+$$
+
+最后因为 $\Phi$ 是连续双射，由收缩原理得到推前后验的大偏差速率函数
+
+$$
+J_y(x)=\inf_{z:\Phi(z)=x}I_y(z)
+=I_y(\Phi^{-1}(x)).
+$$
+
+**版本与尺度提示**：正文第 4.1 节的命题 4采用“仅观测噪声趋零、源高斯先验固定”的 $p_0$ 前因子表述；附录 A.5 及附录 B 则采用 $p_0\propto e^{-I_0/\varepsilon}$ 的温度化源先验及 Gibbs 速率函数表述。两种渐近设定不应混写为相同前提；此处保持原论文的两种版本。
+
 
 ## 参考文献
 
