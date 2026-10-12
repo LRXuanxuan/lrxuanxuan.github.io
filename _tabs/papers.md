@@ -8,6 +8,13 @@ toc: false
 ---
 
 <link rel="stylesheet" href="{{ '/assets/papers/library.css' | relative_url }}">
+<section aria-label="本批新增论文译稿" style="margin:0 0 1rem 0">
+  <details>
+    <summary><strong>2026-10-12 · 上传论文的中文全文译稿</strong>（当前已完成 1 / 5）</summary>
+    <p><a href="/papers/translations/2026-10-12-multice-flow/">MultiCE-Flow：基于流匹配的多模态信道估计</a> — 全文完成（6 页）。</p>
+    <p>RadioMapMotion、贝叶斯主动学习扩散 CGM、CAR-Flow、Anchor-CKM：尚待完整翻译与校核，暂不标注为全文完成。</p>
+  </details>
+</section>
 <div id="paper-library" data-source="{{ '/assets/papers/library.json' | relative_url }}">
   <div class="pl-intro"><span class="pl-eyebrow">DAILY RESEARCH READING</span><h2>每天一点，积累一条研究线索。</h2><p>无线通信、信号处理与生成模型。点击论文标题查看本篇推荐、证据、原文与代码，直接进入对应日报条目及译文。</p></div>
   <div id="pl-stats" class="pl-stats" aria-live="polite">正在加载论文记录…</div>
