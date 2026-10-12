@@ -1,6 +1,24 @@
 [
   {
     "date": "2026-10-12",
+    "url": "/papers/translations/2026-10-12-groupwise-narrow-beam-2506-01043/",
+    "slug": "2026-10-12-groupwise-narrow-beam-2506-01043",
+    "source_file": "2026-10-12-groupwise-narrow-beam-2506-01043.md",
+    "title": "分组窄波束：PC-HBF 上行信道估计｜中文全篇译稿",
+    "scope": "13页，正文I–VII、式（1）–（41）、EDA算法、附录A、图表及书目；校对中",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-groupwise-narrow-beam-2506-01043.md",
+    "source_page_path": "papers/translations/2026-10-12-groupwise-narrow-beam-2506-01043.md",
+    "paper_ids": [],
+    "source_arxiv_ids": [
+      "2506.01043"
+    ],
+    "external": true,
+    "qa_complete": false,
+    "content_kind": "full_translation_review_pending",
+    "license_status": "user_supplied_pdf_rights_not_independently_verified"
+  },
+  {
+    "date": "2026-10-12",
     "url": "/papers/translations/2026-10-12-2610-04769-full-zh/",
     "slug": "2026-10-12-2610-04769-full-zh",
     "source_file": "2026-10-12-2610-04769-full-zh.md",
