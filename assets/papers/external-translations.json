@@ -1,6 +1,26 @@
 [
   {
     "date": "2026-10-12",
+    "url": "/papers/translations/2026-10-12-geometry-gpr-full-zh/",
+    "slug": "2026-10-12-geometry-gpr-full-zh",
+    "source_file": "2026-10-12-geometry-gpr-full-zh.md",
+    "title": "几何感知 GPR 的节能低开销信道估计方案｜完整中文译文",
+    "scope": "原文13页：摘要、I—VII节、33个编号公式、算法1—2、图1—9、表I—III、附录A—B、37条参考文献及作者简介。",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-geometry-gpr-full-zh.md",
+    "source_page_path": "papers/translations/2026-10-12-geometry-gpr-full-zh.md",
+    "paper_ids": [
+      "f21a0dbb22c712a9"
+    ],
+    "source_arxiv_ids": [
+      "2512.22578"
+    ],
+    "external": true,
+    "qa_complete": true,
+    "content_kind": "full_translation",
+    "license_status": "user_supplied_pdf_rights_not_independently_verified"
+  },
+  {
+    "date": "2026-10-12",
     "url": "/papers/translations/2026-10-12-pctgs-2606-18734/",
     "slug": "2026-10-12-pctgs-2606-18734",
     "source_file": "2026-10-12-pctgs-2606-18734.md",
