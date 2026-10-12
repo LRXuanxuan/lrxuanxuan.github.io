@@ -3,7 +3,6 @@ layout: post
 title: "新世界里的老人"
 date: 2026-10-12 19:03:00 +0800
 categories: [文学译本]
-tags: [奥拉夫·斯特普尔顿, 科幻, 短篇小说]
 author: Olaf Stapledon
 permalink: /translations/stapledon/old-man-in-new-world/
 toc: false

@@ -3,7 +3,6 @@ layout: post
 title: "声音的世界"
 date: 2026-10-12 19:02:00 +0800
 categories: [文学译本]
-tags: [奥拉夫·斯特普尔顿, 科幻, 短篇小说]
 author: Olaf Stapledon
 permalink: /translations/stapledon/world-of-sound/
 toc: false

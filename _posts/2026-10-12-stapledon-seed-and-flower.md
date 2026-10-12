@@ -3,7 +3,6 @@ layout: post
 title: "种子与花朵"
 date: 2026-10-12 19:01:00 +0800
 categories: [文学译本]
-tags: [奥拉夫·斯特普尔顿, 科幻, 短篇小说]
 author: Olaf Stapledon
 permalink: /translations/stapledon/seed-and-flower/
 toc: false
