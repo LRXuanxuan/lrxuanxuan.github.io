@@ -9,6 +9,10 @@ math: true
 
 ## 中英文译文
 
+- [空间可重构夹持天线系统：实验验证及通感一体化应用｜全文中文翻译](/papers/translations/2026-10-12-2610-04769-full-zh/) · 全文中文译稿
+- [突发相位噪声下的信道估计与 LDPC 译码｜全文中文翻译](/papers/translations/2026-10-12-2604-07004-full-zh/) · 全文中文译稿
+- [几何感知 GPR 的节能低开销信道估计方案｜完整中文译文](/papers/translations/2026-10-12-geometry-gpr-full-zh/) · 全文中文译稿
+
 - [MultiPathFormer：面向多径无线传播的基础模型｜中文全文译文](/papers/translations/multipathformer/) · 中文译稿（范围见原页面；未计入全文验收）
 - [HDPS：基于潜空间流匹配的混合域后验采样｜中文全文译文](/papers/translations/hdps/) · 中文译稿（范围见原页面；未计入全文验收）
 - [Channel2World：面向 RF 环境表示的无线基础模型｜中文译文](/papers/translations/channel2world/) · 中文译稿（范围见原页面；未计入全文验收）
