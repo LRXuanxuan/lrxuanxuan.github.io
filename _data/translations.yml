@@ -1,51 +1,67 @@
 - title: "最后与最初的人"
   original: "Last and First Men"
+  sort_year: 1930
+  year_label: "1930"
   author: "Olaf Stapledon"
   note: "长篇小说 · 网页分章阅读"
 
-- title: "怪约翰"
-  original: "Odd John"
-  author: "Olaf Stapledon"
-  filename: "Odd John怪约翰.epub"
-  download_url: "/assets/epub/Odd%20John%E6%80%AA%E7%BA%A6%E7%BF%B0.epub"
-
 - title: "伦敦的最后人"
   original: "Last Men in London"
+  sort_year: 1932
+  year_label: "1932"
   author: "Olaf Stapledon"
   filename: "Last Men in London伦敦最后的人.epub"
   download_url: "/assets/epub/Last%20Men%20in%20London%E4%BC%A6%E6%95%A6%E6%9C%80%E5%90%8E%E7%9A%84%E4%BA%BA.epub"
 
+- title: "怪约翰"
+  original: "Odd John"
+  sort_year: 1935
+  year_label: "1935"
+  author: "Olaf Stapledon"
+  filename: "Odd John怪约翰.epub"
+  download_url: "/assets/epub/Odd%20John%E6%80%AA%E7%BA%A6%E7%BF%B0.epub"
+
 - title: "造星主"
   original: "Star Maker"
+  sort_year: 1937
+  year_label: "1937"
   author: "Olaf Stapledon"
   filename: "Star Maker造星主.epub"
   download_url: "/assets/epub/Star%20Maker%E9%80%A0%E6%98%9F%E4%B8%BB.epub"
 
 - title: "黑暗与光明"
   original: "Darkness and the Light"
+  sort_year: 1942
+  year_label: "1942"
   author: "Olaf Stapledon"
   filename: "Darkness and the Light黑暗与光明.epub"
   download_url: "/assets/epub/Darkness%20and%20the%20Light%E9%BB%91%E6%9A%97%E4%B8%8E%E5%85%89%E6%98%8E.epub"
 
 - title: "天狼星"
   original: "Sirius"
+  sort_year: 1944
+  year_label: "1944"
   author: "Olaf Stapledon"
   filename: "Sirius天狼星.epub"
   download_url: "/assets/epub/Sirius%E5%A4%A9%E7%8B%BC%E6%98%9F.epub"
 
-- title: "斯特普尔顿短篇小说集"
-  original: "Selected Short Stories"
-  author: "Olaf Stapledon"
-  filename: "奥拉夫·斯特普尔顿短篇小说集.epub"
-  download_url: "/assets/epub/%E5%A5%A5%E6%8B%89%E5%A4%AB%C2%B7%E6%96%AF%E7%89%B9%E6%99%AE%E5%B0%94%E9%A1%BF%E7%9F%AD%E7%AF%87%E5%B0%8F%E8%AF%B4%E9%9B%86.epub"
-  note: "短篇小说集 · 《四次相遇》太牛b了（落泪）"
-
 - title: "星际人？"
   original: "Interplanetary Man?"
+  sort_year: 1948
+  year_label: "1948"
   author: "Olaf Stapledon"
   filename: "Interplanetary_Man星际人演讲稿.epub"
   download_url: "/assets/epub/Interplanetary_Man%E6%98%9F%E9%99%85%E4%BA%BA%E6%BC%94%E8%AE%B2%E7%A8%BF.epub"
   note: "演讲稿"
+
+- title: "斯特普尔顿短篇小说集"
+  original: "Selected Short Stories"
+  sort_year: 1979
+  year_label: "1916—1979"
+  author: "Olaf Stapledon"
+  filename: "奥拉夫·斯特普尔顿短篇小说集.epub"
+  download_url: "/assets/epub/%E5%A5%A5%E6%8B%89%E5%A4%AB%C2%B7%E6%96%AF%E7%89%B9%E6%99%AE%E5%B0%94%E9%A1%BF%E7%9F%AD%E7%AF%87%E5%B0%8F%E8%AF%B4%E9%9B%86.epub"
+  note: "短篇小说集 · 《四次相遇》太牛b了（落泪）"
 
 - title: "奇迹维度"
   original: "Dimension of Miracles"

@@ -1,0 +1,55 @@
+---
+layout: post
+title: "怪约翰 · 第一章　约翰与作者"
+date: 2026-10-12 21:00:00 +0800
+categories: [文学译本]
+permalink: /translations/odd-john/chapter-01/
+toc: false
+comments: false
+---
+
+<link rel="stylesheet" href="{{ '/assets/css/stapledon-reader.css' | relative_url }}">
+<div class="stapledon-meta"><em>Odd John</em> · 1935 · 奥拉夫·斯特普尔顿（Olaf Stapledon）</div>
+<nav class="stapledon-chapter-nav" aria-label="章节导航"><a href="/translations/odd-john/">← 返回目录</a><span><a href="/translations/odd-john/">← 上一节</a> · <a href="/translations/odd-john/chapter-02/">下一节 →</a></span></nav>
+<div class="stapledon-language-switch" role="group" aria-label="选择阅读语言"><button type="button" data-stapledon-lang="zh" aria-pressed="true">中文</button><button type="button" data-stapledon-lang="en" aria-pressed="false">English</button></div>
+<div id="stapledon-reader">
+<section data-story-lang="zh" lang="zh-CN">
+<h3>第一章　约翰与作者</h3>
+<p>我告诉约翰，我打算为他作传时，他笑了。“我亲爱的先生！”他说，“不过，这当然是免不了的。”从约翰嘴里说出的“先生”二字，常常差不多就等于“傻瓜”。</p>
+<p>“这个嘛，”我抗议道，“猫也有权看看国王。”</p>
+<p>他回答：“不错，可它真的能看见国王吗？小猫咪，你真的能看见我吗？”</p>
+<p>这话竟是一个古怪的孩子对一个成年男子说的。</p>
+<p>约翰说得对。虽然我从他还是婴儿时就认识他，而且从某种意义上说与他颇为亲近，可我对于内在的、真正的约翰几乎一无所知。直到今天，我所知道的也不过是他一生中那些惊人的事实。我知道他直到六岁才会走路；知道他十岁以前就犯过几起入室盗窃，还杀死过一名警察；知道他十八岁时看上去仍像个少年，却在南太平洋建立了他那个荒诞得不可思议的殖民地；还知道他二十三岁时容貌几乎未变，却智胜了六个大国派去逮捕他的六艘军舰。我也知道约翰和他所有追随者是怎样死去的。</p>
+<p>这些事实我知道；而且即便冒着被那六个大国中的某一个毁掉的风险，我也要把自己记得的一切告诉世人。</p>
+<p>我还知道另一件很难解释的事。我模模糊糊地明白他为什么要建立那个殖民地。我也知道，尽管他把全部精力都投入了这项事业，却从来没有真正指望它会成功。他确信，世界迟早会发现他，并摧毁他的成果。“我们的机会，”他有一次说，“连百万分之一都不到。”随后他笑了。</p>
+<p>约翰的笑声有一种奇异的、令人不安的力量。那是一阵低沉、急促而干脆的轻笑，使我想起真正的惊雷爆发之前，有时会先响起的那一阵低低的噼啪声。然而雷声并没有接踵而来，只有片刻沉默；而听见的人，头皮上会掠过一种古怪的麻刺感。</p>
+<p>我相信，约翰这种不像人类的、冷酷却从不恶毒的笑声，正是理解他性格中一切令我困惑之处的钥匙。我一次又一次问自己：他为什么偏偏在那个时刻笑？他究竟在笑什么？他的笑到底意味着什么？那种怪声真的算笑吗，还是某种我的族类根本无法理解的情绪反应？譬如，幼年的约翰打翻水壶、被严重烫伤时，为什么会一边流泪一边发笑？我没有亲眼见到他的死亡，但我确信，当最后时刻到来时，他最后一口气也一定化作了兴味盎然的笑声。为什么？</p>
+<p>这些问题我答不上来，也就无法理解约翰最本质的部分。我确信，他的笑来自他经验中的某个侧面，而那个侧面完全超出了我的视野。因此，正如约翰所断言的，我当然是个很不称职的传记作者。但如果我保持沉默，他那独一无二的一生就会永远湮没。尽管我无能，我仍必须把自己能记录的一切写下来；也许有一天，这些文字会落到某个与约翰同等层次的存在手中，而他能够凭借想象，穿透这些文字，看见约翰本人那奇异却又辉煌的精神。</p>
+<p>约翰这一类人——或者至少与他大致同类的人——如今仍活在世上，而且今后还会出现更多，这一点至少很可能是真的。不过，正如约翰本人所发现的，这些极其罕见的超常者——约翰有时称他们为“醒者”——绝大多数不是肉体过于脆弱，就是精神严重失衡，因此无法在世界上留下多大的痕迹。超常发展可以偏颇到何等可悲的程度，J. D. 贝雷斯福德先生关于不幸的维克托·斯托特的记述已经说明了这一点。我希望下面这份简短记录，至少能让人隐约看见一种心智：它在“超人性”上更为惊人，同时在广义的人性上也更加完整。</p>
+<p>为了让读者一开始就明白，他面对的并不只是一个智力神童，我想先描述一下约翰在二十三岁、也就是他生命最后一个夏天里的外貌。</p>
+<p>他确实更像少年而不像成年男子，尽管在某些心境下，那张年轻的脸会突然显出一种奇异的阅历感，甚至近乎族长般的神情。他身材纤细，四肢修长，带着青春期特有的、尚未长成的幼驹般感觉；可与此同时，他又具有一种完全属于自己的、奇异而成熟的优雅。事实上，在那些真正认识他的人眼里，他仿佛是一种永远新鲜、永远能显出新美感的生物。但陌生人却常常被他不合常规的比例弄得反感。他们说他像蜘蛛：躯干太不起眼，手臂和腿又长又柔韧，整个脑袋仿佛只剩下眼睛和额头。</p>
+<p>如今把这些特征写在纸上，我自己都难以想象它们怎么会构成美。然而在约翰身上，它们的确构成了美——至少对于我们这些能够摆脱希腊诸神或电影明星所造成的先入之见去看他的人是如此。约翰一贯毫无虚伪的谦逊，有一次对我说：“我的长相可以粗略地测试一个人。一个人如果有机会了解我，却始终看不出我漂亮，我就知道他内里已经死了，而且很危险。”</p>
+<p>不过还是让我把这幅肖像补完吧。和他的殖民地同伴一样，约翰大多数时候赤身裸体。这样一来，他的男性身体也一览无余；尽管已经二十三岁，他的性发育仍显得尚未成熟。他的皮肤被波利尼西亚的阳光晒成一种灰褐、近乎绿褐的颜色，双颊则带着较温暖的红色。他的手极大，筋腱分明。不知为何，那双手看上去比身体的其余部分成熟得多。“蜘蛛似的”这个形容放在这里也很贴切。他的头当然很大，但配上修长的四肢，并不显得失衡。显然，他大脑独特的发展更多依赖于繁复的脑回，而不是单纯的体积。即便如此，他的头其实仍比看上去大得多，因为可见的头部几乎没有被头发占去任何体积：头发只是紧贴头皮的一层薄薄发帽，像黑人那样卷曲，却几乎是白色的绒毛。他的鼻子小而宽，也许略带蒙古人种的特征。嘴唇很大，却轮廓清楚，而且总是在活动，仿佛不停地给他的思想和情绪作旁白。然而我也见过许多次，那双嘴唇会突然绷紧，显出花岗岩般的倔强。按照通常的比例，约翰的眼睛对于他的脸来说确实大得过分，使他带上一种奇异的猫科动物或鹰隼般神态；低而平直的眉毛又强化了这种感觉。不过，一个彻底少年气、甚至顽皮的微笑往往会把这种神态一扫而空。约翰眼中的眼白几乎看不见，瞳孔极大，那双奇异的绿色虹膜通常只剩一圈细线；但在热带的烈日下，瞳孔又会收缩成针尖。总的说来，他的眼睛是身上最明显“古怪”的部分。不过，他的目光并没有维克托·斯托特那种传说中诡异而强迫性的力量。或者更准确地说，要感受到那双眼睛的魔力，你必须先对驱使它们的那个可怕灵魂有所了解。</p>
+</section>
+<section data-story-lang="en" lang="en" hidden>
+<h3><span id="a331"></span>CHAPTER I. JOHN AND THE AUTHOR</h3>
+<p><span class="t28">W</span><span class="t31">HEN</span><span class="t30"> I </span><span class="t31">TOLD</span><span class="t30"> </span>John that I intended to write his biography, he laughed. “My dear man!” he said. “But of course it was inevitable.” The word “man” on John’s lips was often equivalent to “fool.”</p>
+<p>“Well,” I protested, “a cat may look at a king.”</p>
+<p>He replied, “Yes, but can it really see the king? Can you, puss, really see me?”</p>
+<p>This from a queer child to a full-grown man.</p>
+<p>John was right. Though I had known him since he was a baby, and was in a sense intimate with him, I knew almost nothing of the inner, the real John. To this day I know little but the amazing facts of his career. I know that he never walked till he was six, that before he was ten he committed several burglaries and killed a policeman, that at eighteen, when he still looked a young boy, he founded his preposterous colony in the South Seas, and that at twenty-three, in appearance but little altered, he outwitted the six warships that six Great Powers had sent to seize him. I know also how John and all his followers died.</p>
+<p>Such facts I know; and even at the risk of destruction by one or other of the six Great Powers, I shall tell the world all that I can remember.</p>
+<p>Something else I know, which will be very difficult to explain. In a confused way I know why he founded his colony. I know too that although he gave his whole energy to this task, he never seriously expected to succeed. He was convinced that sooner or later the world would find him out and destroy his work. “Our chance,” he once said, “is not as much as one in a million.” And then he laughed.</p>
+<p>John’s laugh was strangely disturbing. It was a low, rapid, crisp chuckle. It reminded me of that whispered crackling prelude which sometimes precedes a really great crash of thunder. But no thunder followed it, only a moment’s silence; and for his hearers an odd tingling of the scalp.</p>
+<p>I believe that this inhuman, this ruthless but never malicious laugh of John’s contained the key to all that baffles me in his character. Again and again I asked myself why he laughed just then, what precisely was he laughing at, what did his laughter really mean, was that strange noise really laughter at all, or some emotional reaction incomprehensible to my kind? Why, for instance, did the infant John laugh through his tears when he had upset a kettle and was badly scalded? I was not present at his death, but I feel sure that, when his end came, his last breath spent itself in zestful laughter. Why?</p>
+<p>In failing to answer these questions, I fail to understand the essential John. His laughter, I am convinced, sprang from some aspect of his experience entirely beyond my vision. I am therefore, of course, as John affirmed, a very incompetent biographer. But if I keep silence, the facts of his unique career will be lost for ever. In spite of my incompetence, I must record all that I can, in the hope that, if these pages fall into the hands of some being of John’s own stature, he may imaginatively see through them to the strange but glorious spirit of John himself.</p>
+<p>That others of his kind, or approximately of his kind, are now alive, and that yet others will appear, is at least probable. But as John himself discovered, the great majority of these very rare supernormals, whom John sometimes called “wide-awakes,” are either so delicate physically or so unbalanced mentally that they leave no considerable mark on the world. How pathetically one-sided the supernormal development may be is revealed in Mr. J. D. Beresford’s account of the unhappy Victor Stott. I hope that the following brief record will at least suggest a mind at once more strikingly “superhuman” and more broadly human.</p>
+<p>That the reader may look for something more than an intellectual prodigy I will here at the outset try to give an impression of John’s appearance in his twenty-third and last summer.</p>
+<p>He was indeed far more like a boy than a man, though in some moods his youthful face would assume a curiously experienced and even patriarchal expression. Slender, long limbed, and with that unfinished coltish look characteristic of puberty, he had also a curiously finished grace all his own. Indeed to those who had come to know him he seemed a creature of ever-novel beauty. But strangers were often revolted by his uncouth proportions. They called him spiderish. His body, they complained, was so insignificant, his legs and arms so long and lithe, his head all eye and brow.</p>
+<p>Now that I have set down these characters I cannot conceive how they might make for beauty. But in John they did, at least for those of us who could look at him without preconceptions derived from Greek gods, or film stars. With characteristic lack of false modesty, John once said to me, “My looks are a rough test of people. If they don’t begin to see me beautiful when they have had a chance to learn, I know they’re dead inside, and dangerous.”</p>
+<p>But let me complete the description. Like his fellow-colonists, John mostly went naked. His maleness, thus revealed, was immature in spite of his twenty-three years. His skin, burnt by the Polynesian sun, was of a grey, almost a green brown, warming to a ruddier tint in the cheeks. His hands were extremely large and sinewy. Somehow they seemed more mature than the rest of his body. “Spiderish” seemed appropriate in this connexion also. His head was certainly large but not out of proportion to his long limbs. Evidently the unique development of his brain depended more on manifold convolutions than on sheer bulk. All the same his was a much larger head than it looked, for its visible bulk was scarcely at all occupied by the hair, which was but a close skull-cap, a mere superficies of Negroid but almost white wool. His nose was small but broad, rather Mongolian perhaps. His lips, large but definite, were always active. They expressed a kind of running commentary on his thoughts and feelings. Yet many a time I have seen those lips harden into granitic stubbornness. John’s eyes were indeed, according to ordinary standards, much too big for his face, which acquired thus a strangely cat-like or falcon-like expression. This was emphasized by the low and level eyebrows, but often completely abolished by a thoroughly boyish and even mischievous smile. The whites of John’s eyes were almost invisible. The pupils were immense. The oddly green irises were as a rule mere filaments. But in tropical sunshine the pupils narrowed to mere pin-pricks. Altogether, his eyes were the most obviously “queer” part of him. His glance, however, had none of that weirdly compelling power recorded in the case of Victor Stott. Or rather, to feel their magic, one needed to have already learnt something of the formidable spirit that used them.</p>
+</section>
+</div>
+<nav class="stapledon-chapter-nav" aria-label="章节导航"><a href="/translations/odd-john/">← 返回目录</a><span><a href="/translations/odd-john/">← 上一节</a> · <a href="/translations/odd-john/chapter-02/">下一节 →</a></span></nav>
+<p class="stapledon-footnote">中文取自所提供的 EPUB，英文依据所提供的奥拉夫·斯特普尔顿英文全集整理。未上传 EPUB 文件或图片；中文译本来源与公开传播授权须另行核实。</p>
+<script src="{{ '/assets/js/stapledon-language.js' | relative_url }}" defer></script>

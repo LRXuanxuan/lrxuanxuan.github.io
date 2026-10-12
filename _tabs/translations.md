@@ -4,7 +4,7 @@ icon: fas fa-book-open
 order: 2
 ---
 
-这里收录我整理的文学译本与英文原版，其中《造星主》《最后与最初的人》《伦敦的最后人》《黑暗与光明》《天狼星》《星际人？》《斯特普尔顿短篇小说集》及《奇迹维度》可直接分章或分篇阅读，切换中文与英文；阿西莫夫与克拉克作品提供纯英文网页阅读。其他部分书目提供 EPUB，另收录威尔斯专题、序言及书信译稿。书目按作者和内容归类。
+这里收录我整理的文学译本与英文原版，其中《造星主》《最后与最初的人》《伦敦的最后人》《黑暗与光明》《天狼星》《怪约翰》《星际人？》《斯特普尔顿短篇小说集》及《奇迹维度》可直接分章或分篇阅读，切换中文与英文；阿西莫夫与克拉克作品提供纯英文网页阅读。其他部分书目提供 EPUB，另收录威尔斯专题、序言及书信译稿。其他书目按作者与内容归类，斯特普尔顿作品则按首次出版或发表年份排列。
 
 **阅读摘录**：进入任一网页版作品的正文，选中喜欢的中英文句子，即可划波浪线或写笔记。在该作品的目录页可集中查看全书摘录，并跳回原文。记录只保存在当前浏览器；建议使用摘录面板中的 JSON 导出功能定期备份。
 
@@ -14,46 +14,54 @@ order: 2
 
 ## 奥拉夫·斯特普尔顿（Olaf Stapledon）
 
-{% assign stapleton_books = site.data.translations | where: "author", "Olaf Stapledon" %}
+以下按英文原作首版／首次发表年份由早到晚排列。短篇集收录作品发表年份横跨 1916—1979 年，因而按最晚年份置于末尾，并非指整部选集于 1979 年初版。
+
+{% assign stapleton_books = site.data.translations | where: "author", "Olaf Stapledon" | sort: "sort_year" %}
 {% for book in stapleton_books %}
 {% if book.title == "斯特普尔顿短篇小说集" %}
-### [《{{ book.title }}》]({{ '/translations/stapledon/' | relative_url }})
+### [《{{ book.title }}》]({{ '/translations/stapledon/' | relative_url }})（{{ book.year_label }}）
 
 *{{ book.original }}*{% if book.note %} · {{ book.note }}{% endif %}
 
 [选择篇目 · 中英切换]({{ '/translations/stapledon/' | relative_url }})
 {% elsif book.title == "造星主" %}
-### [《{{ book.title }}》]({{ '/translations/star-maker/' | relative_url }})
+### [《{{ book.title }}》]({{ '/translations/star-maker/' | relative_url }})（{{ book.year_label }}）
 
 *{{ book.original }}*{% if book.note %} · {{ book.note }}{% endif %}
 
 [分章阅读 · 中文 / English]({{ '/translations/star-maker/' | relative_url }})
 {% elsif book.title == "最后与最初的人" %}
-### [《{{ book.title }}》]({{ '/translations/last-and-first-men/' | relative_url }})
+### [《{{ book.title }}》]({{ '/translations/last-and-first-men/' | relative_url }})（{{ book.year_label }}）
 
 *{{ book.original }}*{% if book.note %} · {{ book.note }}{% endif %}
 
 [分章阅读 · 中文 / English]({{ '/translations/last-and-first-men/' | relative_url }})
 {% elsif book.title == "伦敦的最后人" %}
-### [《{{ book.title }}》]({{ '/translations/last-men-in-london/' | relative_url }})
+### [《{{ book.title }}》]({{ '/translations/last-men-in-london/' | relative_url }})（{{ book.year_label }}）
 
 *{{ book.original }}*{% if book.note %} · {{ book.note }}{% endif %}
 
 [分节阅读 · 中文 / English]({{ '/translations/last-men-in-london/' | relative_url }})
 {% elsif book.title == "黑暗与光明" %}
-### [《{{ book.title }}》]({{ '/translations/darkness-and-the-light/' | relative_url }})
+### [《{{ book.title }}》]({{ '/translations/darkness-and-the-light/' | relative_url }})（{{ book.year_label }}）
 
 *{{ book.original }}*{% if book.note %} · {{ book.note }}{% endif %}
 
 [分节阅读 · 中文 / English]({{ '/translations/darkness-and-the-light/' | relative_url }})
 {% elsif book.title == "天狼星" %}
-### [《{{ book.title }}》]({{ '/translations/sirius/' | relative_url }})
+### [《{{ book.title }}》]({{ '/translations/sirius/' | relative_url }})（{{ book.year_label }}）
 
 *{{ book.original }}*{% if book.note %} · {{ book.note }}{% endif %}
 
 [分章阅读 · 中文 / English]({{ '/translations/sirius/' | relative_url }})
+{% elsif book.title == "怪约翰" %}
+### [《{{ book.title }}》]({{ '/translations/odd-john/' | relative_url }})（{{ book.year_label }}）
+
+*{{ book.original }}*{% if book.note %} · {{ book.note }}{% endif %}
+
+[分章阅读 · 中文 / English]({{ '/translations/odd-john/' | relative_url }})
 {% elsif book.title == "星际人？" %}
-### [《{{ book.title }}》]({{ '/translations/interplanetary-man/' | relative_url }})
+### [《{{ book.title }}》]({{ '/translations/interplanetary-man/' | relative_url }})（{{ book.year_label }}）
 
 *{{ book.original }}*{% if book.note %} · {{ book.note }}{% endif %}
 
