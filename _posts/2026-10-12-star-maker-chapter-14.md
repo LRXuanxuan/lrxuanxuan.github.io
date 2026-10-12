@@ -1,0 +1,59 @@
+---
+layout: post
+title: "造星主 · 第十四章　创世神话"
+date: 2026-10-12 18:20:00 +0800
+categories: [文学译本]
+permalink: /translations/star-maker/chapter-14/
+toc: false
+comments: false
+---
+
+<link rel="stylesheet" href="{{ '/assets/css/stapledon-reader.css' | relative_url }}">
+
+<div class="stapledon-meta"><em>Star Maker</em> · 1937 · 奥拉夫·斯特普尔顿（Olaf Stapledon）</div>
+
+<nav class="stapledon-chapter-nav" aria-label="章节导航"><a href="/translations/star-maker/">← 返回全书目录</a><span><a href='/translations/star-maker/chapter-13/'>← 上一节</a> · <a href='/translations/star-maker/chapter-15/'>下一节 →</a></span></nav>
+
+<div class="stapledon-language-switch" role="group" aria-label="选择阅读语言">
+<span class="stapledon-switch-label">阅读语言</span>
+<button type="button" data-stapledon-lang="zh" aria-pressed="true">中文</button>
+<button type="button" data-stapledon-lang="en" aria-pressed="false">English</button>
+</div>
+
+<article class="stapledon-reader" id="stapledon-reader">
+<section class="stapledon-body" data-story-lang="zh" lang="zh-CN" aria-label="中文译文">
+<p>一个人在山地行走，迷失在浓雾中，只能从一块岩石摸索到另一块岩石；忽然间，他也许会走出云雾，发现自己正站在悬崖边缘。脚下铺展开山谷与丘陵、平原、河流和错综复杂的城市，远处是散布着岛屿的大海，头顶则是太阳。我在宇宙经验的至高时刻也是如此：我从自身有限性的迷雾中突然走出，面对一个又一个宇宙，也面对那道不仅照亮一切、而且赋予一切生命的光本身。紧接着，迷雾又立刻重新合拢，把我包围。</p>
+<p>那幅奇异的异象，对任何有限心灵来说都不可思议，即使是宇宙尺度的心灵也一样；我绝不可能真正把它描述出来。如今的我只是一个渺小的人类个体，与那段经验已经隔着无限遥远的距离；而即使对当时那个宇宙心灵而言，它也同样令人困惑。然而，如果对于我这场冒险最巅峰的一刻，我对其中内容完全一言不发，那就等于背叛整部叙述的精神。也许人类语言，甚至人类思维本身，依其本性就无法表达形而上的真理；可无论如何，我仍必须设法说出一点什么，哪怕只能借助比喻。</p>
+<p>我所能做的，只是以自己贫弱的人类能力尽量记录：当那种无法承受的清明已经把我刺瞎，而我摸索着试图回忆究竟曾经显现了什么时，那幅异象在我的宇宙想象中留下了怎样奇异而骚动的余波。因为在我的失明中，那幅异象确实从受创的心灵里激发出一个关于自身的幻想性反射：一个回声、一个符号、一则神话、一场疯狂的梦。它粗陋得可鄙，也歪曲得可鄙；但我相信，它并非完全没有意义。我将尽可能叙述这则贫乏神话、这一个纯粹的寓言——只限于我现在作为一个普通人类还能够记住的部分。除此之外，我无能为力。然而，就连这件事我也无法真正做好。我曾不止一次，而是许多次写下这场梦的记录，然后又把它毁掉，因为它实在太不充分。怀着一种彻底失败的感觉，我现在只能结结巴巴地报告其中少数较为可理解的特征。</p>
+<p>真正异象中的一个特征，在我的神话里以一种极其令人困惑、又极不充分的方式表现出来。它声称：我作为宇宙心灵所经历的那个至高时刻，实际上把永恒本身包含在内；而在永恒之中，又存在许多彼此完全独立的时间序列。因为尽管在永恒中，一切时间都同时在场；尽管无限精神既然是完善的，就必然在自身之中包含一切可能创造的全部成就；然而这件事只有在另一意义上才可能成立：无限而绝对的精神，在其有限的、时间性的、创造性的模式中，必须构想并执行那整整一大系列创造。为了创造，永恒而无限的精神把时间包含进自己的永恒，在自身之中容纳全部漫长的创造序列。</p>
+<p>在我的梦中，造星主作为永恒而绝对的精神，在时间之外凝视着自己的一切作品；但与此同时，作为绝对精神那有限而富于创造性的模式，它又按照属于自己冒险与成长的时间序列，一个接一个地赋予这些创造以具体存在。更进一步，每一个作品、每一个宇宙本身，又都拥有自身独特的时间；因此，任何单一宇宙内部完整的事件序列，对造星主而言不仅可以从宇宙自身的时间内部观察，也可以从外部——从属于造星主自身生命的时间中——进行观察，在那里，那个宇宙的一切时代都共同存在。按照这个占据我心灵的奇异梦境或神话，造星主在其有限而创造性的模式中，实际上是一个正在发展、正在觉醒的精神。它竟然既如此，同时又永恒地完善，这在人类理智看来当然不可想象；然而，我那因超越人类的异象而负担过重的心灵，找不到别的方式向自己表达创造之谜。</p>
+<p>我的梦告诉我：在永恒中，造星主是完善而绝对的；然而在属于它创造模式的时间之初，它却是一个幼年的神祇——躁动、热切、强大，却没有清晰意志。它拥有全部创造力量，能够制造具有各种物理属性与精神属性的宇宙。唯一限制它的是逻辑。因此，它可以规定最令人惊奇的自然律，却不能例如让二乘二等于五。在早期阶段，它还受到自身不成熟的限制。它仍处在婴儿般的恍惚状态。虽然它那有意识地探索和创造的心灵，其无意识源头不是别的，正是它自身永恒的本质；但在意识层面，最初的它不过是一股朦胧而盲目的创造饥渴。</p>
+<p>一开始，它立刻着手探索自己的力量。它从自身内部，把自己某部分无意识的实体客体化出来，作为艺术创作的材料；然后以有意识的目的塑造这些材料。于是，它一次又一次制作出一个又一个玩具般的宇宙。</p>
+<p>然而，具有创造性的造星主那无意识的实体，并不是别的，正是永恒精神本身，也就是造星主永恒而完善的那一面。正因此，在它尚不成熟的阶段，每当它从自身深处唤出某种粗朴物质作为宇宙原料时，那种原料本身就绝非毫无形态，而是已经富含各种确定的潜能：逻辑的、物理的、生物的、心理的潜能。有时，这些潜能会顽强抵抗年轻造星主有意识的计划。它并不总能容纳它们，更不用说完全实现它们。在我看来，创作媒介自身的这种独特性，经常使它的计划受挫；但与此同时，它也一次又一次启发造星主构想出更加丰饶的方案。按照我的神话，造星主一次又一次从自己的受造物身上学习，于是又超越自己的受造物，并渴望按照更加宏阔的计划重新工作。一次又一次，它把一个已经完成的宇宙放到一边，再从自己内部唤出一个新的创造。</p>
+<p>在我这场梦的早期阶段，我曾多次疑惑：造星主在创造中究竟试图完成什么？我无法不相信，它最初其实并没有清楚构想自己的目的。显然，就连它自己也必须逐渐发现这个目的；而且在我看来，它的工作往往带有试探性，它的目标也十分混乱。然而到了成熟期末尾，它终于立志尽可能充分地创造：唤出自身媒介的全部潜力，塑造越来越精妙、又具有越来越和谐多样性的作品。随着它的目的逐渐清晰，这个目的似乎还包括一种意志：创造一个又一个宇宙，使每个宇宙都能够容纳某种独一无二的觉知与表达成就。因为，受造物在感知和意志上的成就，似乎正是造星主自身借以一个宇宙接一个宇宙地苏醒到更高度清明的工具。</p>
+<p>因此，正是通过一系列接续出现的受造物，造星主一步步从幼年神性走向成熟神性。</p>
+<p>也正因此，到最后，它终于成为了那个从永恒视角看来、它在一开始就已经是的存在：一切事物的根基与冠冕。</p>
+<p>以梦境特有的非理性方式，这个从我心中升起的梦之神话，把永恒精神表现为无穷无数有限存在者共同的原因，同时又表现为它们共同的结果。以某种无法理解的方式，一切有限事物尽管在某种意义上只是绝对精神构造出的产物，却又同时对绝对精神自身的存在不可或缺。离开它们，绝对精神本身也没有存在可言。至于这种晦暗关系究竟表达了某种重要真理，还是不过是梦境制造出来的一则无关紧要的虚构，我无法判断。</p>
+</section>
+<section class="stapledon-body" data-story-lang="en" lang="en" aria-label="English original" hidden>
+<h3>XIV. THE MYTH OF CREATION</h3>
+<p>A WALKER IN mountainous country, lost in mist, and groping from rock to rock, may come suddenly out of the cloud to find himself on the very brink of a precipice. Below he sees valleys and hills, plains, rivers, and intricate cities, the sea with all its islands, and overhead the sun. So I, in the supreme moment of my cosmical experience, emerged from the mist of my finitude to be confronted by cosmos upon cosmos, and by the light itself that not only illumines but gives life to all. Then immediately the mist closed in upon me again.</p>
+<p>That strange vision, inconceivable to any finite mind, even of cosmical stature, I cannot possibly describe. I, the little human individual, am now infinitely removed from it; and even to the cosmical mind itself it was most baffling. Yet if I were to say nothing whatever of the content of my adventure’s crowning moment, I should belie the spirit of the whole. Though human language and even human thought itself are perhaps in their very nature incapable of metaphysical truth, something I must somehow contrive to express, even if only by metaphor.</p>
+<p>All I can do is to record, as best I may with my poor human powers, something of the vision’s strange and tumultuous after-effect upon my own cosmical imagination when the intolerable lucidity had already blinded me, and I gropingly strove to recollect what it was that had appeared. For in my blindness the vision did evoke from my stricken mind a fantastic reflex of itself, an echo, a symbol, a myth, a crazy dream, contemptibly crude and falsifying, yet, as I believe, not wholly without significance. This poor myth, this mere parable, I shall recount, so far as I can remember it in my merely human state. More I cannot do. But even this I cannot properly accomplish. Not once, but many times, I have written down an account of my dream, and then destroyed it, so inadequate was it. With a sense of utter failure I stammeringly report only a few of its more intelligible characters.</p>
+<p>One feature of the actual vision my myth represented in a most perplexing and inadequate manner. It declared that the supreme moment of my experience as the cosmical mind actually comprised eternity within it, and that within eternity there lay a multiplicity of temporal sequences wholly distinct from one another. For though in eternity all times are present, and the infinite spirit, being perfect, must comprise in itself the full achievement of all possible creations, yet this could not be unless in its finite, its temporal and creative mode, the infinite and absolute spirit conceived and executed the whole vast series of creations. For creation’s sake the eternal and infinite spirit entails time within its eternity, contains the whole protracted sequence of creations.</p>
+<p>In my dream, the Star Maker himself, as eternal and absolute spirit, timelessly contemplated all his works; but also as the finite and creative mode of the absolute spirit, he bodied forth his creations one after the other in a time sequence proper to his own adventure and growth. And further, each of his works, each cosmos, was itself gifted with its own peculiar time, in such a manner that the whole sequence of events within any single cosmos could be viewed by the Star Maker not only from within the cosmical time itself but also externally, from the time proper to his own life, with all the cosmical epochs co-existing together.</p>
+<p>According to the strange dream or myth which took possession of my mind, the Star Maker in his finite and creative mode was actually a developing, an awakening spirit. That he should be so, and yet also eternally perfect, is of course humanly inconceivable; but my mind, overburdened with superhuman vision, found no other means of expressing to itself the mystery of creation.</p>
+<p>Eternally, so my dream declared to me, the Star Maker is perfect and absolute; yet in the beginning of the time proper to his creative mode he was an infant deity, restless, eager, mighty, but without clear will. He was equipped with all creative power. He could make universes with all kinds of physical and mental attributes. He was limited only by logic. Thus he could ordain the most surprising natural laws, but he could not, for instance, make twice two equal five. In his early phase he was limited also by his immaturity. He was still in the trance of infancy. Though the unconscious source of his consciously exploring and creating mentality was none other than his own eternal essence, consciously he was at first but the vague blind hunger of creativity.</p>
+<p>In his beginning he immediately set about exploring his power. He objectified from himself something of his own unconscious substance to be the medium of his art, and this he moulded with conscious purpose. Thus again and again he fashioned toy cosmos after toy cosmos.</p>
+<p>But the creative Star Maker’s own unconscious substance was none other than the eternal spirit itself, the Star Maker in his eternal and perfect aspect. Thus it was that, in his immature phases, whenever he evoked from his own depth the crude substance of a cosmos, the substance itself turned out to be not formless but rich in determinate potentialities, logical, physical, biological, psychological. These potentialities were sometimes recalcitrant to the conscious purpose of the young Star Maker. He could not always accommodate, still less fulfil them. It seemed to me that this idiosyncrasy of the medium itself often defeated his plan; but also that it suggested again and again more fertile conceptions. Again and again, according to my myth, the Star Maker learned from his creature, and thereby outgrew his creature, and craved to work upon an ampler plan. Again and again he set aside a finished cosmos and evoked from himself a new creation.</p>
+<p>Many times in the early part of my dream I felt doubt as to what the Star Maker was striving to accomplish in his creating. I could not but believe that his purpose was at first not clearly conceived. He himself had evidently to discover it gradually; and often, as it seemed to me, his work was tentative, and his aim confused. But at the close of his maturity he willed to create as fully as possible, to call forth the full potentiality of his medium, to fashion works of increasing subtlety, and of increasingly harmonious diversity. As his purpose became clearer, it seemed also to include the will to create universes each of which might contain some unique achievement of awareness and expression. For the creature’s achievement of perception and of will was seemingly the instrument by which the Star Maker himself, cosmos by cosmos, woke into keener lucidity.</p>
+<p>Thus it was that, through the succession of his creatures, the Star Maker advanced from stage to stage in the progress from infantile to mature divinity.</p>
+<p>Thus it was that in the end he became what, in the eternal view, he already was in the beginning, the ground and crown of all things.</p>
+<p>In the typically irrational manner of dreams, this dream-myth which arose in my mind represented the eternal spirit as being at once the cause and the result of the infinite host of finite existents. In some unintelligible manner all finite things, though they were in a sense figments of the absolute spirit, were also essential to the very existence of the absolute spirit. Apart from them it had no being. But whether this obscure relationship represented some important truth or was merely a trivial dream-fiction, I cannot say.</p>
+</section>
+</article>
+
+<nav class="stapledon-chapter-nav" aria-label="章节导航"><a href="/translations/star-maker/">← 返回全书目录</a><span><a href='/translations/star-maker/chapter-13/'>← 上一节</a> · <a href='/translations/star-maker/chapter-15/'>下一节 →</a></span></nav>
+
+<p class="stapledon-footnote">中文为用户提供的 LLM 译稿，可能存在误译；英文依据提供的斯特普尔顿英文全集整理。正文已转为网页文本，未上传 EPUB 或图片。</p>
+<script src="{{ '/assets/js/stapledon-language.js' | relative_url }}" defer></script>

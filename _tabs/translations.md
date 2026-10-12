@@ -4,7 +4,7 @@ icon: fas fa-book-open
 order: 2
 ---
 
-这里收录我整理的文学中文译本，其中部分书目提供 EPUB，《斯特普尔顿短篇小说集》可直接选择篇目并切换中英正文；另收录威尔斯专题、序言及书信译稿。书目按作者和内容归类。
+这里收录我整理的文学中文译本，其中《造星主》《最后与最初的人》及《斯特普尔顿短篇小说集》可直接分章或分篇阅读，切换中文与英文；其他部分书目提供 EPUB，另收录威尔斯专题、序言及书信译稿。书目按作者和内容归类。
 
 > **关于翻译与署名**：这些中文译文由大型语言模型（LLM）生成，并非由我独立翻译。我主要负责收集和整理，不以人工译者自居。LLM 译文难免可能存在误译、漏译或表达不当，阅读时请以原文为准。此说明仅用于交代译文来源，并不代表原作或译文已获得公开传播许可。
 
@@ -20,6 +20,18 @@ order: 2
 *{{ book.original }}*{% if book.note %} · {{ book.note }}{% endif %}
 
 [选择篇目 · 中英切换]({{ '/translations/stapledon/' | relative_url }})
+{% elsif book.title == "造星主" %}
+### [《{{ book.title }}》]({{ '/translations/star-maker/' | relative_url }})
+
+*{{ book.original }}*{% if book.note %} · {{ book.note }}{% endif %}
+
+[分章阅读 · 中文 / English]({{ '/translations/star-maker/' | relative_url }})
+{% elsif book.title == "最后与最初的人" %}
+### [《{{ book.title }}》]({{ '/translations/last-and-first-men/' | relative_url }})
+
+*{{ book.original }}*{% if book.note %} · {{ book.note }}{% endif %}
+
+[分章阅读 · 中文 / English]({{ '/translations/last-and-first-men/' | relative_url }})
 {% else %}
 ### 《{{ book.title }}》
 
