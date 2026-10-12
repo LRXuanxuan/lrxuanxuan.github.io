@@ -6,17 +6,61 @@ toc: false
 ---
 
 <link rel="stylesheet" href="{{ '/assets/css/favorites.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/daily-recommendations.css' | relative_url }}">
 
 <div class="fm-favorites">
   <header class="fm-heading">
     <p class="fm-eyebrow">A LITTLE PERSONAL CANON</p>
     <h2>我喜欢的书、唱片与游戏</h2>
     <nav class="fm-nav" aria-label="切换书籍与音乐榜单">
+      <a href="#daily-picks"><i class="fas fa-calendar-day" aria-hidden="true"></i> 每日推荐</a>
       <a href="#books"><i class="fas fa-book-open" aria-hidden="true"></i> 书籍 Top 10</a>
       <a href="#albums"><i class="fas fa-music" aria-hidden="true"></i> 音乐 Top 10</a>
       <a href="#games"><i class="fas fa-gamepad" aria-hidden="true"></i> 游戏 Top 10</a>
     </nav>
   </header>
+
+
+  <section id="daily-picks" class="fm-section fm-daily-picks" aria-labelledby="fm-daily-picks-title">
+    <div class="fm-section-title">
+      <div>
+        <p class="fm-category">A LITTLE SOMETHING FOR TODAY</p>
+        <h2 id="fm-daily-picks-title">每日推荐 · 一曲一书一影</h2>
+      </div>
+      <time class="fm-count rc-rec-date" data-rec-date></time>
+    </div>
+
+    <div data-rc-recommendations data-pool="{{ '/assets/data/daily-recommendations.json' | relative_url }}">
+      <div class="rc-rec-list" data-rec-list aria-live="polite">
+        <p class="rc-rec-help">正在翻找今天的三份推荐…</p>
+      </div>
+      <p class="rc-rec-message" data-rec-status role="status" aria-live="polite"></p>
+    </div>
+
+    <details class="rc-rec-history">
+      <summary id="rc-rec-archive-heading">
+        <span class="rc-rec-fold-icon" aria-hidden="true">▸</span>
+        <span class="rc-rec-fold-open">展开往日推荐</span>
+        <span class="rc-rec-fold-close">收起往日推荐</span>
+        <span class="rc-rec-fold-note">按日期回看每日的一曲、一书、一影</span>
+      </summary>
+      <section class="rc-rec-archive" data-rc-rec-archive
+               data-pool="{{ '/assets/data/daily-recommendations.json' | relative_url }}"
+               aria-label="往日推荐与私人反馈">
+        <p class="rc-rec-intro">按北京时间归档，最新日期在最上方。喜欢、不喜欢和接触过的记录仅保存在本浏览器，之后的推荐会参考反馈。</p>
+        <div class="rc-rec-archive-tools">
+          <button class="rc-rec-tool" type="button" data-rec-export>↓ 导出推荐手帖</button>
+          <button class="rc-rec-tool" type="button" data-rec-import>↑ 导入推荐手帖</button>
+          <input type="file" accept="application/json,.json" data-rec-import-input>
+          <span class="rc-rec-message" data-rec-status role="status" aria-live="polite"></span>
+        </div>
+        <p class="rc-rec-intro" data-rec-count></p>
+        <div data-rec-archive-list><p class="rc-rec-empty">展开后会显示历史推荐。</p></div>
+        <button type="button" class="rc-rec-tool" data-rec-more hidden>再看前十四天 ↓</button>
+      </section>
+    </details>
+    <noscript><p class="rc-rec-help">启用 JavaScript 后可查看每日推荐并保存偏好。</p></noscript>
+  </section>
 
   <section id="books" class="fm-section" aria-labelledby="fm-books-title">
     <div class="fm-section-title">
@@ -82,3 +126,5 @@ toc: false
     </ol>
   </section>
 </div>
+
+<script src="{{ '/assets/js/daily-recommendations.js' | relative_url }}" defer></script>
