@@ -11,8 +11,14 @@ toc: false
 <div class="rc-playthings">
   <p class="rc-playthings-lead">抽过的签，和偶尔心血来潮的小玩意，都放在这里喵。</p>
   <a class="rc-toy-link" href="{{ '/fortune/' | relative_url }}"><span aria-hidden="true">🎲</span><span><strong>照明之咪摇奖机</strong><small>去看看今天会摇到什么。</small></span><span aria-hidden="true">↗</span></a>
-  <section class="rc-sign-archive" data-pool="{{ '/assets/data/quote-pool.json' | relative_url }}" aria-labelledby="rc-archive-title">
-    <div class="rc-archive-heading"><h2 id="rc-archive-title">我的签册</h2><a href="{{ '/' | relative_url }}">回首页抽签 ↗</a></div>
+  <details class="rc-sign-archive" data-pool="{{ '/assets/data/quote-pool.json' | relative_url }}" aria-labelledby="rc-archive-title">
+    <summary class="rc-archive-fold" id="rc-archive-title">
+      <span class="rc-archive-fold-chevron" aria-hidden="true">▸</span>
+      <span class="rc-archive-fold-title" role="heading" aria-level="2">我的签册</span>
+      <span class="rc-archive-fold-hint"><span class="rc-archive-fold-open">点击展开</span><span class="rc-archive-fold-close">点击收起</span> · 默认日签与重抽记录</span>
+    </summary>
+    <div class="rc-archive-content">
+      <div class="rc-archive-heading"><a href="{{ '/' | relative_url }}">回首页抽签 ↗</a></div>
     <p class="rc-archive-note">默认日签与重抽签，按北京时间归档，最新抽取的排在最上方。重抽记录及日签评价只保存在当前浏览器；换设备时可分别导出、导入。</p>
     <div class="rc-archive-controls">
       <label>筛选 <select data-archive-filter><option value="all">全部签</option><option value="daily">默认日签</option><option value="redraw">重抽签</option></select></label>
@@ -31,7 +37,8 @@ toc: false
       <section class="rc-archive-day" data-daily-date="{{ sign.date }}"><h3>{{ sign.date }} <span>默认日签</span></h3><article class="rc-archive-quote"><blockquote>{{ sign.text | escape }}</blockquote><p>—— {{ sign.author | escape }}《{{ sign.book | escape }}》</p></article></section>
     {% endfor %}
     </div>
-  </section>
+    </div>
+  </details>
   <section class="rc-rec-archive" data-rc-rec-archive data-pool="{{ '/assets/data/daily-recommendations.json' | relative_url }}" aria-labelledby="rc-rec-archive-heading">
     <h2 id="rc-rec-archive-heading">每日推荐手帖</h2>
     <p class="rc-rec-intro">每天一首歌、一本书、一部电影。附上短评、标签和你的私人评价；错过的日期也会按天补齐。</p>
@@ -53,5 +60,5 @@ toc: false
 <script src="{{ '/assets/js/sign-aspects.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/js/sign-votes.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/js/sign-calendar.js' | relative_url }}" defer></script>
-<script src="{{ '/assets/js/sign-archive.js' | relative_url }}?v=20261012-newest-first" defer></script>
+<script src="{{ '/assets/js/sign-archive.js' | relative_url }}?v=20261012-collapsed" defer></script>
 <script src="{{ '/assets/js/daily-recommendations.js' | relative_url }}" defer></script>
