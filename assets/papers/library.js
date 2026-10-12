@@ -74,7 +74,11 @@
                 p.full_translation_url=t.url;
                 p.full_translation_label='全文中文译文';
                 p.translation_status='全文译稿已发布（按公开授权）';
-              } else if(id==='874ff950767bb3f7') {
+              } else if (t.content_kind==='research_notes') {
+                p.full_translation_url=t.url;
+                p.full_translation_label='中文研究笔记（非全文）';
+                p.translation_status='中文研究笔记已公开；全文翻译未公开或尚未完成';
+              } else if (id==='874ff950767bb3f7') {
                 p.full_translation_url=t.url;
                 p.full_translation_label='中文方法译读（非全文）';
                 p.translation_status='方法与理论译读已发布；尚未完成全文';
