@@ -19,15 +19,8 @@
     p.pdf_sources.forEach((u,i)=>appendLink(links,p.hosted_pdfs.length?'原始 PDF 来源':(i?'PDF 来源 '+(i+1):'PDF / 原文'),u));
     p.github.forEach((u,i)=>appendLink(links,i?'GitHub '+(i+1):'GitHub 仓库',u));
     if (p.report_entry_url) appendLink(links,'本篇日报与证据',p.paper_report_url);
-    const newlyTranslated = {
-      '71fab5c33128602e': '/papers/translations/2607.14778/',
-      'baba21ee71e8e702': '/papers/translations/2607.15127/',
-      'aac2a31efae5e8db': '/papers/translations/2607.11743/',
-      '4b9fd6c01ae6ebf0': '/papers/translations/2607.14398/',
-      'f8ef368c6d1a3838': '/papers/translations/2607.14597/'
-    };
-    appendLink(links,newlyTranslated[p.id]?'中文全文译文':(p.full_translation_label||'全文翻译（待补齐）'),newlyTranslated[p.id]||p.full_translation_url||p.paper_url+'#paper-translation');
-    p.translations.filter(t=>!/^全文/.test(t.scope||'')).forEach(t=>appendLink(links,'本篇历史译文',t.url));c.append(links);
+    appendLink(links,p.full_translation_label||'全文翻译（待补齐）',p.full_translation_url||p.paper_url+'#paper-translation');
+    p.translations.filter(t=>t.scope!=='全文中英文对照').forEach(t=>appendLink(links,'本篇历史译文',t.url));c.append(links);
     if(!p.github.length)c.append(make('small',p.fields['代码/数据状态']||'未记录公开代码状态','pl-meta'));
     const d=make('details');d.append(make('summary','展开方法、结果、证据及表格全部字段'));
     const dl=make('dl');Object.entries(p.fields).forEach(([k,v])=>{dl.append(make('dt',k));const dd=make('dd',v||'—');const url=p.hyperlinks[k];if(url){dd.append(document.createTextNode(' '));appendLink(dd,'打开链接',url);}dl.append(dd);});
@@ -52,86 +45,7 @@
     $('pl-status').disabled=view!=='papers';$('pl-code').disabled=view!=='papers';
   }
   fetch(root.dataset.source,{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(json=>{
-    data=json;
-    // A standalone translation may be added after the bulk library index was generated.
-    // Reconcile its display state here without rewriting the large generated JSON catalogue.
-    const translatedPaper = data.papers.find(p => p.id === 'f01eb39a8eaa1174');
-    if (translatedPaper && !/已完成/.test(translatedPaper.translation_status || '')) {
-      translatedPaper.full_translation_label = '全文中文译文（已完成）';
-      translatedPaper.full_translation_url = '/papers/items/f01eb39a8eaa1174/#paper-translation';
-      translatedPaper.translation_status = '全文译稿已发布（CC BY-NC-SA 4.0）';
-      if (!data.translations.some(t => t.url === translatedPaper.full_translation_url)) {
-        data.translations.unshift({
-          date: '2026-10-12',
-          title: 'Zero-Shot Frequency Generalization for Radio Map Prediction via Cross-Attention Physics-Residual Learning',
-          scope: '全文中文译文',
-          url: translatedPaper.full_translation_url,
-          download: 'https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/items/f01eb39a8eaa1174.md'
-        });
-      }
-      if (data.translation_progress) {
-        data.translation_progress.completed = (data.translation_progress.completed || 0) + 1;
-        data.translation_progress.public_full_text = (data.translation_progress.public_full_text || 0) + 1;
-      }
-    }
-    // Manually submitted manuscript translations (keep the generated data intact).
-    data.translations=[...[{"date":"2026-10-12","scope":"全文中文译文","title":"Scalable Attention for 5G NR Channel Estimation","url":"/papers/translations/2026-10-12-2607-16462/","download":"https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-2607-16462.md"},{"date":"2026-10-12","scope":"全文中文译文","title":"Hierarchical Wireless Foundation Model for Multi-Task Optimization","url":"/papers/translations/2026-10-12-2607-16877/","download":"https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-2607-16877.md"},{"date":"2026-10-12","scope":"译文校对中","title":"Tensor-Based Dynamic Channel Estimation for mmWave Movable Antenna MIMO Systems","url":"/papers/translations/2026-10-12-2607-17591/","download":"https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-2607-17591.md"},{"date":"2026-10-12","scope":"译文编写中","title":"Data-aided Channel Estimation and Sensing With Sparse Bayesian Learning for AFDM-ISAC System","url":"/papers/translations/2026-10-12-2607-18881/","download":"https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-2607-18881.md"},{"date":"2026-10-12","scope":"译文编写中","title":"Provable diffusion-based posterior sampling for linear inverse problems via DDIM","url":"/papers/translations/2026-10-12-2607-19333/","download":"https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-2607-19333.md"}],...data.translations.filter(t=>!["/papers/translations/2026-10-12-2607-16462/","/papers/translations/2026-10-12-2607-16877/","/papers/translations/2026-10-12-2607-17591/","/papers/translations/2026-10-12-2607-18881/","/papers/translations/2026-10-12-2607-19333/"].includes(t.url))];
-    const addedTranslation = data.papers.find(p => p.id === '50a1b62e5cb84f9d');
-    if (addedTranslation && !/已发布/.test(addedTranslation.translation_status || '')) {
-      addedTranslation.full_translation_label = '全文中文译文（已完成）';
-      addedTranslation.full_translation_url = '/papers/translations/multipathformer/';
-      addedTranslation.translation_status = '全文译稿已发布（CC BY 4.0）';
-      if (!data.translations.some(t => t.url === addedTranslation.full_translation_url)) {
-        data.translations.unshift({
-          date: '2026-10-12', title: 'MultiPathFormer: Towards a Foundation Model for Multipath Wireless Propagation',
-          scope: '全文中文译文', url: addedTranslation.full_translation_url,
-          download: 'https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/multipathformer-2026.md'
-        });
-      }
-      if (data.translation_progress) {
-        data.translation_progress.completed = (data.translation_progress.completed || 0) + 1;
-        data.translation_progress.public_full_text = (data.translation_progress.public_full_text || 0) + 1;
-      }
-    }
-    const worldTranslation = data.papers.find(p => p.id === '749bfdb8ab82b176');
-    if (worldTranslation && !/已发布/.test(worldTranslation.translation_status || '')) {
-      worldTranslation.full_translation_label = '全文中文译文（已完成）';
-      worldTranslation.full_translation_url = '/papers/translations/channel2world/';
-      worldTranslation.translation_status = '全文译稿已发布（CC BY 4.0）';
-      if (!data.translations.some(t => t.url === worldTranslation.full_translation_url)) {
-        data.translations.unshift({
-          date: '2026-10-12',
-          title: 'Channel2World: A Wireless Foundation Model for RF Environment Representation',
-          scope: '全文中文译文',
-          url: worldTranslation.full_translation_url,
-          download: 'https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/channel2world-2026.md'
-        });
-      }
-      if (data.translation_progress) {
-        data.translation_progress.completed = (data.translation_progress.completed || 0) + 1;
-        data.translation_progress.public_full_text = (data.translation_progress.public_full_text || 0) + 1;
-      }
-    }
-    const hdpsTranslation = data.papers.find(p => p.id === '836f81307350ca11');
-    if (hdpsTranslation && !/已发布/.test(hdpsTranslation.translation_status || '')) {
-      hdpsTranslation.full_translation_label = '全文中文译文（已完成）';
-      hdpsTranslation.full_translation_url = '/papers/translations/hdps/';
-      hdpsTranslation.translation_status = '全文译稿已发布（CC BY 4.0）';
-      if (!data.translations.some(t => t.url === hdpsTranslation.full_translation_url)) {
-        data.translations.unshift({
-          date: '2026-10-12',
-          title: 'Hybrid-Domain Posterior Sampling for Inverse Problems via Latent Flow Matching',
-          scope: '全文中文译文',
-          url: hdpsTranslation.full_translation_url,
-          download: 'https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/hdps-2026.md'
-        });
-      }
-      if (data.translation_progress) {
-        data.translation_progress.completed = (data.translation_progress.completed || 0) + 1;
-        data.translation_progress.public_full_text = (data.translation_progress.public_full_text || 0) + 1;
-      }
-    }
-    const stats=$('pl-stats');stats.replaceChildren();
+    data=json;const stats=$('pl-stats');stats.replaceChildren();
     const progress=data.translation_progress;
     [[data.total,'推荐记录'],[Object.keys(data.dates).length,'推荐日期'],[data.reports.length,'每日报告'],[progress?`${progress.completed}/${progress.target}`:'0','全文验收通过'],[progress?.public_full_text||0,'可公开全文译文']].forEach(([n,label])=>{const s=make('div',undefined,'pl-stat');s.append(make('strong',String(n)),make('span',label));stats.append(s);});
     Object.entries(data.dates).forEach(([date,n])=>{const o=make('option',date+' · '+n+'篇');o.value=date;$('pl-date').append(o);});

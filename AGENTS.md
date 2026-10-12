@@ -16,3 +16,12 @@
 - 豆知识条目维护在 `_data/tidbits.yml`。添加时使用唯一的 `slug` 与带 `+08:00` 时区的 `added_at`；存档以北京时间的添加时间倒序排序。
 - 更新 YAML 数据前后保持字段、缩进、Markdown 原文和已有条目不变。提交前检查特殊符号、换行、代码块、链接和引用块是否在网站中按预期显示。
 - 修改网站内容以**局部、最小变更**为原则，不要顺手改变无关页面的功能或视觉布局。
+
+
+## 论文库布局与译文接入（2026-10-12用户明确要求）
+
+- `/papers/` 的首页模板是 `_tabs/papers.md`。顶部必须保持 `DAILY RESEARCH READING` → 导语 → 统计 → 论文/每日报告/中英文译文/全部目录 → 筛选的原有顺序。日常新增译文不得在模板前插入批次标题、长列表、details、通知卡片或公告，也不得随意改 CSS/导航/筛选。
+- 译文正文放 `papers/translations/<唯一slug>.md`，使用唯一 permalink `/papers/translations/<slug>/`，保留已有地址。队列已验收双语稿由 `site_sync/export_library.py` 自动生成；手动既有译文只登记到 `assets/papers/external-translations.json`（本地维护源为 `site_sync/external_translations.json`），由导出器合并到 `assets/papers/library.json` 的 `translations`，在原“中英文译文”视图和 catalog 展示。
+- 登记字段为 date/title/url/slug/scope/source_page_path/download/paper_ids/source_arxiv_ids/qa_complete。paper_ids 必须由标题、DOI 或原文 arXiv 身份核验，禁止按日期匹配。未绑定的译文保留统一目录，不猜关联。不得把部分译稿/技术整理/翻译中当作全文验收通过，统计来自真实 QA；不能在 library.js 硬编码单篇链接或手动增加计数。
+- 推荐记录通过每篇 `translations` 列表直达本篇译稿；已完成的标准全文入口保持 `full_translation_url`。目录保留部分译稿范围说明。日报继续只关联本篇；已有URL与全文、其他网站栏目均须保留。
+- 发布前读取最新 main，保留其他任务文件，以最小差异提交；同一时刻只允许一个导出/发布者。检查 Actions 成功、首页第一块和译文列表/链接后才能宣称部署完成。PDF始终只保留原文链接。

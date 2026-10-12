@@ -7,55 +7,8 @@ permalink: /papers/
 toc: false
 ---
 
-## 2026-10-12 · 上传论文中文译稿
-
-本组依据上传的五篇论文整理为可在网页阅读的**纯文字学术译稿**。保留正文结构、主要公式和实验表格；不在本站托管原始 PDF 或论文配图。**附录中的部分长证明、补充实验和英文参考文献采用技术整理或保留原文链接，尚非逐字逐句的全篇校勘本**。
-
-- [GeoGS-CE：三维高斯与高速移动时延—波束信道先验](/papers/translations/2026-10-12-geogs-ce/) · [论文原文](https://arxiv.org/abs/2605.16094)
-- [M3F-UAV：面向低空无线感知的缺失模态多模态基础模型](/papers/translations/2026-10-12-m3f-uav/) · [论文原文](https://arxiv.org/abs/2607.13678)
-- [RadioDiff-v2：用于波束选择和定位的生成式角度无线电地图](/papers/translations/2026-10-12-radiodiff-v2/) · [论文原文](https://arxiv.org/abs/2607.08045)
-- [后验传输视角：流逆问题求解器究竟近似什么？](/papers/translations/2026-10-12-flow-posterior-transport/) · [论文原文](https://arxiv.org/abs/2606.24516)
-- [FlowADMM：基于重新加噪—去噪流先验的即插即用 ADMM](/papers/translations/2026-10-12-flowadmm/) · [论文原文](https://arxiv.org/abs/2605.08640)
-
----
-
+<!-- Stable library shell: add translations via assets/papers/external-translations.json, never prepend batches here. -->
 <link rel="stylesheet" href="{{ '/assets/papers/library.css' | relative_url }}">
-<section aria-label="2026年10月新译论文" style="margin:0 0 1rem 0">
-  <details>
-    <summary><strong>2026-10-12 · 五篇论文的中文译稿</strong>（正文已发布 5 / 5，点击展开）</summary>
-    <ul>
-      <li><a href="/papers/translations/2026-10-12-radiomapmotion/">RadioMapMotion：时空无线电地图预测</a> — 正文、公式、图题与实验数据。</li>
-      <li><a href="/papers/translations/2026-10-12-active-diffusion-ckm/">基于贝叶斯推断扩散模型的 CKM 主动学习</a> — 全部六章、推导、三种算法和实验表格。</li>
-      <li><a href="/papers/translations/2026-10-12-car-flow/">CAR-Flow：条件感知重参数化与流匹配</a> — 正文、技术附录 A–F、NeurIPS 检查表作者问答。</li>
-      <li><a href="/papers/translations/2026-10-12-anchor-ckm/">Anchor-CKM：导频锚定的傅里叶地图重构</a> — 正文、推导、算法与实验表格。</li>
-      <li><a href="/papers/translations/2026-10-12-multice-flow/">MultiCE-Flow：多模态流匹配信道估计</a> — 正文、公式、图题及英文参考文献。</li>
-    </ul>
-    <p style="font-size:.9em">保留原论文的英文参考文献书目信息与图像外链，以节省博客空间；各篇页面顶部注明翻译范围。新译稿采用纯文本网页形式。</p>
-  </details>
-</section>
-
-<div class="pl-latest-translations" style="margin:1rem 0 1.3rem;padding:.85rem 1rem;border:1px solid var(--main-border-color);border-radius:.6rem">
-  <strong>新译论文（2026-10-12）</strong>
-  <p style="margin:.45rem 0 0"><a href="/papers/translations/2512-04283/">《基于流匹配的即插即用图像恢复：连续时间视角》</a> · 中文正文、定理证明和附录 · 24 页原文</p>
-  <p style="margin:.45rem 0 0"><a href="/papers/translations/2511-07789/">《数字孪生赋能的太赫兹车内信道建模与无线规划》</a> · 中文正文及公式 · 13 页原文</p>
-  <p style="margin:.45rem 0 0"><a href="/papers/translations/2605-18325/">《基于变分贝叶斯推断的混合专家扩散模型自适应大规模 MIMO 信道估计》</a> · 中文正文及公式 · 13 页原文</p>
-  <p style="margin:.45rem 0 0"><a href="/papers/translations/2604-23310/">《RadTwin：面向动态环境的可泛化无线数字孪生》</a> · 中文全文 · 9 页原文</p>
-  <p style="margin:.45rem 0 0"><a href="/papers/translations/2602-07321/">《无线上下文工程：面向高效移动智能体 AI 与边缘通用智能》</a> · 中文全文 · 7 页原文</p>
-</div>
-<p class="pl-meta"><a href="/papers/translation-status-2026-08/">2026 年 8 月 · 十篇论文全文翻译进度与授权说明</a></p>
-
-<section class="pl-recent" aria-labelledby="recent-papers-20261012">
-  <h3 id="recent-papers-20261012">本次上传的五篇论文 · 中文阅读</h3>
-  <p>原文 PDF 未上传本站；译稿以轻量 Markdown 页面展示，未完成部分会明确标示进度。</p>
-  <ul>
-    <li><a href="/papers/translations/2026-10-12-2607-16462/">CHEA：5G NR 可扩展注意力信道估计</a>（全文中文）</li>
-    <li><a href="/papers/translations/2026-10-12-2607-16877/">层次化无线基础模型与多任务优化</a>（正文全译）</li>
-    <li><a href="/papers/translations/2026-10-12-2607-17591/">张量动态信道估计与可移动天线 MIMO</a>（公式及附录校对中）</li>
-    <li><a href="/papers/translations/2026-10-12-2607-18881/">AFDM-ISAC 数据辅助 SBL 信道估计与感知</a>（翻译中）</li>
-    <li><a href="/papers/translations/2026-10-12-2607-19333/">Posterior-DDIM 后验一致性采样</a>（翻译中）</li>
-  </ul>
-</section>
-
 <div id="paper-library" data-source="{{ '/assets/papers/library.json' | relative_url }}">
   <div class="pl-intro"><span class="pl-eyebrow">DAILY RESEARCH READING</span><h2>每天一点，积累一条研究线索。</h2><p>无线通信、信号处理与生成模型。点击论文标题查看本篇推荐、证据、原文与代码，直接进入对应日报条目及译文。</p></div>
   <div id="pl-stats" class="pl-stats" aria-live="polite">正在加载论文记录…</div>
