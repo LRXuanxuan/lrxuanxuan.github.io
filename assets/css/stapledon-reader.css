@@ -1,0 +1,16 @@
+/* Olaf Stapledon short-story reader: lightweight, theme-aware */
+.stapledon-meta{color:var(--text-muted-color,#777);font-size:.94rem;margin:.2rem 0 1.3rem}
+.stapledon-chapter-nav{display:flex;justify-content:space-between;gap:.8rem;flex-wrap:wrap;font-size:.9rem;margin:1.25rem 0;padding:.55rem 0;border-top:1px solid var(--main-border-color,#ddd);border-bottom:1px solid var(--main-border-color,#ddd)}
+.stapledon-chapter-nav span{margin-left:auto;text-align:right}
+.stapledon-language-switch{position:sticky;top:.4rem;z-index:8;display:flex;align-items:center;gap:.4rem;width:max-content;max-width:100%;padding:.45rem .65rem;margin:1rem 0 1.4rem;border:1px solid var(--main-border-color,#ccc);border-radius:.65rem;background:var(--main-bg,#fff);box-shadow:0 2px 8px rgba(0,0,0,.07)}
+.stapledon-switch-label{font-size:.85rem;color:var(--text-muted-color,#777);margin-right:.35rem;white-space:nowrap}
+.stapledon-language-switch button{font:inherit;font-size:.9rem;cursor:pointer;background:transparent;color:var(--text-color,inherit);padding:.25rem .7rem;border:1px solid var(--main-border-color,#aaa);border-radius:.45rem}
+.stapledon-language-switch button[aria-pressed="true"]{background:var(--link-color,#3676a7);color:#fff;border-color:transparent;font-weight:600}
+.stapledon-language-switch button:focus-visible{outline:2px solid var(--link-color,#3676a7);outline-offset:2px}
+.stapledon-body[hidden]{display:none!important}
+.stapledon-reader{max-width:76ch;margin:0 auto}
+.stapledon-reader .stapledon-body p{line-height:1.95;margin:0 0 1.25em;text-align:justify;overflow-wrap:break-word}
+.stapledon-reader .stapledon-body[lang="en"] p{line-height:1.85;hyphens:auto}
+.stapledon-reader .stapledon-body p.story-note{color:var(--text-muted-color,#777);font-size:.88em;font-style:italic;text-align:left}
+.stapledon-footnote{color:var(--text-muted-color,#777);font-size:.82rem;margin:1.5rem 0}
+@media(max-width:600px){.stapledon-language-switch{top:.2rem}.stapledon-chapter-nav{font-size:.85rem}.stapledon-reader .stapledon-body p{line-height:1.85}}
