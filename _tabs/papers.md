@@ -7,6 +7,18 @@ permalink: /papers/
 toc: false
 ---
 
+## 2026-10-12 · 上传论文中文译稿
+
+本组依据上传的五篇论文整理为可在网页阅读的**纯文字学术译稿**。保留正文结构、主要公式和实验表格；不在本站托管原始 PDF 或论文配图。**附录中的部分长证明、补充实验和英文参考文献采用技术整理或保留原文链接，尚非逐字逐句的全篇校勘本**。
+
+- [GeoGS-CE：三维高斯与高速移动时延—波束信道先验](/papers/translations/2026-10-12-geogs-ce/) · [论文原文](https://arxiv.org/abs/2605.16094)
+- [M3F-UAV：面向低空无线感知的缺失模态多模态基础模型](/papers/translations/2026-10-12-m3f-uav/) · [论文原文](https://arxiv.org/abs/2607.13678)
+- [RadioDiff-v2：用于波束选择和定位的生成式角度无线电地图](/papers/translations/2026-10-12-radiodiff-v2/) · [论文原文](https://arxiv.org/abs/2607.08045)
+- [后验传输视角：流逆问题求解器究竟近似什么？](/papers/translations/2026-10-12-flow-posterior-transport/) · [论文原文](https://arxiv.org/abs/2606.24516)
+- [FlowADMM：基于重新加噪—去噪流先验的即插即用 ADMM](/papers/translations/2026-10-12-flowadmm/) · [论文原文](https://arxiv.org/abs/2605.08640)
+
+---
+
 <link rel="stylesheet" href="{{ '/assets/papers/library.css' | relative_url }}">
 <section aria-label="本批新增论文译稿" style="margin:0 0 1rem 0">
   <details>
