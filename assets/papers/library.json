@@ -118,7 +118,13 @@
       "report_entry_url": "/papers/reports/2026-10-12/#paper-d85362be1aed96a2",
       "paper_url": "/papers/items/d85362be1aed96a2/",
       "paper_report_url": "/papers/items/d85362be1aed96a2/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-12-d85362be1aed96a2/",
+          "title": "Digital Twin-Assisted Spatio-Temporal Diffusion Transformer for Channel Estimation in Low-Altitude ISAC Systems",
+          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+        }
+      ],
       "links": [
         "https://discovery.ucl.ac.uk/id/eprint/10228582/",
         "https://doi.org/10.1109/tcomm.2026.3706480",
@@ -130,10 +136,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
+      "translation_status": "draft_unverified",
       "full_translation_public": false,
-      "full_translation_url": "/papers/items/d85362be1aed96a2/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_url": "/papers/translations/2026-10-12-d85362be1aed96a2/",
+      "full_translation_label": "全文初稿（待校对）"
     },
     {
       "id": "5bc3cd8a05b4024c",
@@ -189,10 +195,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "running",
+      "translation_status": "draft_unverified",
       "full_translation_public": false,
-      "full_translation_url": "/papers/items/5bc3cd8a05b4024c/#paper-translation",
-      "full_translation_label": "全文翻译（进行中）"
+      "full_translation_url": "/papers/translations/2026-10-12-5bc3cd8a05b4024c/",
+      "full_translation_label": "全文初稿（待校对）"
     },
     {
       "id": "60f8712943d94c3d",
@@ -245,10 +251,10 @@
       ],
       "hosted_pdfs": [],
       "status": "已接受待刊",
-      "translation_status": "running",
+      "translation_status": "draft_unverified",
       "full_translation_public": false,
-      "full_translation_url": "/papers/items/60f8712943d94c3d/#paper-translation",
-      "full_translation_label": "全文翻译（进行中）"
+      "full_translation_url": "/papers/translations/2026-10-12-60f8712943d94c3d/",
+      "full_translation_label": "全文初稿（待校对）"
     },
     {
       "id": "03c3642f12989295",
@@ -300,10 +306,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "running",
+      "translation_status": "draft_unverified",
       "full_translation_public": false,
-      "full_translation_url": "/papers/items/03c3642f12989295/#paper-translation",
-      "full_translation_label": "全文翻译（进行中）"
+      "full_translation_url": "/papers/translations/2026-10-12-03c3642f12989295/",
+      "full_translation_label": "全文初稿（待校对）"
     },
     {
       "id": "cd1fd1c4e35890df",
@@ -355,10 +361,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "running",
+      "translation_status": "partial",
       "full_translation_public": false,
-      "full_translation_url": "/papers/items/cd1fd1c4e35890df/#paper-translation",
-      "full_translation_label": "全文翻译（进行中）"
+      "full_translation_url": "/papers/translations/2026-10-12-cd1fd1c4e35890df/",
+      "full_translation_label": "正文译稿（附录待补）"
     },
     {
       "id": "c993009e70191dfd",
@@ -16638,7 +16644,9 @@
       "scope": "中文译稿（范围见原页面；未计入全文验收）",
       "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-d85362be1aed96a2.md",
       "source_page_path": "papers/translations/2026-10-12-d85362be1aed96a2.md",
-      "paper_ids": [],
+      "paper_ids": [
+        "d85362be1aed96a2"
+      ],
       "source_arxiv_ids": [],
       "external": true,
       "qa_complete": false
