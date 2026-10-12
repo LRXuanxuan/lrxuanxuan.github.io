@@ -72,7 +72,7 @@
 
     最后一组翻译成人话尤其好记：**“不是所有”＝“至少一个不是”；“一个都没有”＝“所有都不是”。**
 
-    写 LaTeX 时，常用命令包括 `\\neg`、`\\land`、`\\lor`、`\\to`、`\\leftrightarrow`、`\\forall`、`\\exists`、`\\Rightarrow`、`\\Leftrightarrow`、`\\vdash`、`\\models`。不必背全，先掌握 **¬、∧、∨、→、↔、∀、∃** 这七个核心符号，已经能读懂大量基础逻辑表达式。
+    写 LaTeX 时，常用命令包括 `\neg`、`\land`、`\lor`、`\to`、`\leftrightarrow`、`\forall`、`\exists`、`\Rightarrow`、`\Leftrightarrow`、`\vdash`、`\models`。不必背全，先掌握 **¬、∧、∨、→、↔、∀、∃** 这七个核心符号，已经能读懂大量基础逻辑表达式。
 
 - slug: "ai-software-vs-hardware"
   added_at: "2026-10-12T11:43:00+08:00"
