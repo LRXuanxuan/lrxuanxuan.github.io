@@ -74,6 +74,10 @@
                 p.full_translation_url=t.url;
                 p.full_translation_label='全文中文译文';
                 p.translation_status='全文译稿已发布（按公开授权）';
+              } else if (t.content_kind==='full_translation_review_pending') {
+                p.full_translation_url=t.url;
+                p.full_translation_label='中文全篇译稿（校对中）';
+                p.translation_status='全篇中文译稿已公开；逐段与公式校对中';
               } else if (t.content_kind==='research_notes') {
                 p.full_translation_url=t.url;
                 p.full_translation_label='中文研究笔记（非全文）';

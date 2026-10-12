@@ -1,6 +1,106 @@
 [
   {
     "date": "2026-10-12",
+    "url": "/papers/translations/2026-10-12-tap/",
+    "slug": "2026-10-12-tap",
+    "source_file": "2026-10-12-tap.md",
+    "title": "TAP：通用化 CSI 反馈的时序信道估计｜全篇中译",
+    "scope": "中文全篇译稿：模型、算法、实验、近场局限（分上下篇）",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-tap.md",
+    "source_page_path": "papers/translations/2026-10-12-tap.md",
+    "paper_ids": [
+      "67d6ba71d51870c4"
+    ],
+    "source_arxiv_ids": [
+      "2608.01713"
+    ],
+    "external": true,
+    "qa_complete": false,
+    "content_kind": "full_translation_review_pending",
+    "license_status": "user_supplied_pdf_rights_not_independently_verified"
+  },
+  {
+    "date": "2026-10-12",
+    "url": "/papers/translations/2026-10-12-csi-refinenet-2607-23691/",
+    "slug": "2026-10-12-csi-refinenet",
+    "source_file": "2026-10-12-csi-refinenet-2607-23691.md",
+    "title": "CSI RefineNet：软数据辅助迭代接收机｜中文全文",
+    "scope": "中文全文：6 页，模型公式、算法、实验、书目",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-csi-refinenet-2607-23691.md",
+    "source_page_path": "papers/translations/2026-10-12-csi-refinenet-2607-23691.md",
+    "paper_ids": [
+      "2b25f06314f93a0f"
+    ],
+    "source_arxiv_ids": [
+      "2607.23691"
+    ],
+    "external": true,
+    "qa_complete": true,
+    "content_kind": "full_translation",
+    "license_status": "user_supplied_pdf_rights_not_independently_verified"
+  },
+  {
+    "date": "2026-10-12",
+    "url": "/papers/translations/2026-10-12-radiovil-2608-16167/",
+    "slug": "2026-10-12-radiovil",
+    "source_file": "2026-10-12-radiovil-2608-16167.md",
+    "title": "RadioVIL：异常感知扩散模型｜中文全文",
+    "scope": "中文全文：6 页，公式、实验、图表说明及书目",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-radiovil-2608-16167.md",
+    "source_page_path": "papers/translations/2026-10-12-radiovil-2608-16167.md",
+    "paper_ids": [
+      "80e9a2d71a6acd36"
+    ],
+    "source_arxiv_ids": [
+      "2608.16167"
+    ],
+    "external": true,
+    "qa_complete": true,
+    "content_kind": "full_translation",
+    "license_status": "user_supplied_pdf_rights_not_independently_verified"
+  },
+  {
+    "date": "2026-10-12",
+    "url": "/papers/translations/2026-10-12-rmworld-2608-20126/",
+    "slug": "2026-10-12-rmworld",
+    "source_file": "2026-10-12-rmworld-2608-20126.md",
+    "title": "RMWorld：任务感知无线世界模型｜全篇中译",
+    "scope": "中文全篇译稿：方法、证明与实验（分上下篇）",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-rmworld-2608-20126.md",
+    "source_page_path": "papers/translations/2026-10-12-rmworld-2608-20126.md",
+    "paper_ids": [
+      "2558d2736320f228"
+    ],
+    "source_arxiv_ids": [
+      "2608.20126"
+    ],
+    "external": true,
+    "qa_complete": false,
+    "content_kind": "full_translation_review_pending",
+    "license_status": "user_supplied_pdf_rights_not_independently_verified"
+  },
+  {
+    "date": "2026-10-12",
+    "url": "/papers/translations/2026-10-12-puhno/",
+    "slug": "2026-10-12-puhno",
+    "source_file": "2026-10-12-puhno.md",
+    "title": "PU-HNO：物理展开神经算子｜全篇中译（含附录）",
+    "scope": "中文全篇译稿：正文、附录 A—H（参考文献保留英文）",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-puhno.md",
+    "source_page_path": "papers/translations/2026-10-12-puhno.md",
+    "paper_ids": [
+      "2e0d5029e130cc29"
+    ],
+    "source_arxiv_ids": [
+      "2608.18495"
+    ],
+    "external": true,
+    "qa_complete": false,
+    "content_kind": "full_translation_review_pending",
+    "license_status": "user_supplied_pdf_rights_not_independently_verified"
+  },
+  {
+    "date": "2026-10-12",
     "url": "/papers/translations/flow-energy-reading/",
     "slug": "flow-energy-reading-2026",
     "source_file": "flow-energy-reading-2026.md",
