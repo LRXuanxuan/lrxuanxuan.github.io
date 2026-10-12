@@ -13,6 +13,18 @@ toc: true
 
 > 本页仅包含五篇论文的摘要译文和研究内容概括，不是全文翻译。原始来源为 2026 年 7 月的五份 arXiv 论文。论文正文、公式及图表请参阅各篇原文，全文中译尚未完成。
 
+## 五篇全文中译入口（2026-10-12）
+
+以下提供各论文对应的中文阅读页。为保持博客轻量化，正文以 Markdown 文本发布，原 PDF 和图片仅外链；参考文献的英文正式书目信息仍以原稿为准。
+
+- **SigMap（17 页）：** [全文中译](/papers/translations/2026-10-12-sigmap-full-zh/)
+- **在线 GP 无线电地图（14 页）：** [全文中译](/papers/translations/2026-10-12-radio-map-online-gp-full-zh/)
+- **动态 CKM（7 页）：** [全文中译](/papers/translations/2026-10-12-dynamic-ckm-full-zh/)
+- **生成式 ODE 积分误差（21 页）：** [正文中译](/papers/translations/2026-10-12-spatial-ode-main/) · [附录中译](/papers/translations/2026-10-12-spatial-ode-appendix/)
+- **EnCF 隐式数据同化（26 页）：** [正文中译](/papers/translations/2026-10-12-encf-main/) · [附录中译](/papers/translations/2026-10-12-encf-appendix/)
+
+**阅读说明：** 新补入的两篇采用学术化中文重述原文各节、保留核心方程、定理、表格与附录，并非逐句双语对照；正式参考文献保留原文。复杂公式符号和图中的细节仍需对照原 PDF 校读。
+
 ## 1. SigMap：地图提示与跨场景无线定位
 
 **英文题目：** Map as a Prompt: Learning Multi-Modal Spatial-Signal Foundation Models for Cross-Scenario Wireless Localization
