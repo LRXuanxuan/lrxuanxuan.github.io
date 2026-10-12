@@ -1,6 +1,24 @@
 [
   {
     "date": "2026-10-12",
+    "url": "/papers/translations/2026-10-12-climb-flow-2609-33834/",
+    "slug": "2026-10-12-climb-flow-2609-33834",
+    "source_file": "2026-10-12-climb-flow-2609-33834.md",
+    "title": "CLIMB-Flow：多尺度流耦合后验采样｜中文译文",
+    "scope": "5页，摘要、正文、公式（1）–（9）、算法1、图表及书目；逐项复核中",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-climb-flow-2609-33834.md",
+    "source_page_path": "papers/translations/2026-10-12-climb-flow-2609-33834.md",
+    "paper_ids": [],
+    "source_arxiv_ids": [
+      "2609.33834"
+    ],
+    "external": true,
+    "qa_complete": false,
+    "content_kind": "full_translation_review_pending",
+    "license_status": "user_supplied_pdf_rights_not_independently_verified"
+  },
+  {
+    "date": "2026-10-12",
     "url": "/papers/translations/2026-07-18-2605-22856/",
     "slug": "2026-07-18-2605-22856",
     "source_file": "2026-07-18-2605-22856.md",
