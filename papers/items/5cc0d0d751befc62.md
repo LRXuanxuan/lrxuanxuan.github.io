@@ -19,6 +19,8 @@ toc: true
 
 全文中译正在重新核校。首轮自动翻译出现严重术语错误，因此暂不开放为可用的全文译本。
 
+[先阅读这五篇的摘要中文翻译与内容概括](/papers/translations/2026-10-12-five-abstracts/)
+
 <span id="paper-report"></span>
 
 ## 本篇推荐与证据
