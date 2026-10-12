@@ -4,8 +4,8 @@
   "source_sha256": "bdc61feb93fbf3846110ae3a3432492b972cd372cb7a16dbc36a0868db0fd142",
   "translation_progress": {
     "target": 315,
-    "completed": 16,
-    "public_full_text": 10,
+    "completed": 20,
+    "public_full_text": 14,
     "local_only": 6,
     "status_counts": {
       "access_blocked": 1,
@@ -17,7 +17,8 @@
     "reasoning_effort": "xhigh",
     "figures_required": false,
     "tables_required": true,
-    "algorithms_required": true
+    "algorithms_required": true,
+    "external_completion_provenance": "Four existing completion declarations moved from library.js into data; no additional QA performed."
   },
   "sheets": [
     {
@@ -11499,8 +11500,8 @@
       "translations": [
         {
           "url": "/papers/translations/channel2world/",
-          "title": "Channel2World：面向 RF 环境表示的无线基础模型｜中文译文",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "title": "Channel2World: A Wireless Foundation Model for RF Environment Representation",
+          "scope": "全文中文译文（沿用原发布验收记录）"
         }
       ],
       "links": [
@@ -11513,10 +11514,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/749bfdb8ab82b176/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/channel2world/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "836f81307350ca11",
@@ -11552,8 +11553,8 @@
       "translations": [
         {
           "url": "/papers/translations/hdps/",
-          "title": "HDPS：基于潜空间流匹配的混合域后验采样｜中文全文译文",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "title": "Hybrid-Domain Posterior Sampling for Inverse Problems via Latent Flow Matching",
+          "scope": "全文中文译文（沿用原发布验收记录）"
         }
       ],
       "links": [
@@ -11573,10 +11574,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/836f81307350ca11/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/hdps/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "50a1b62e5cb84f9d",
@@ -11612,8 +11613,8 @@
       "translations": [
         {
           "url": "/papers/translations/multipathformer/",
-          "title": "MultiPathFormer：面向多径无线传播的基础模型｜中文全文译文",
-          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+          "title": "MultiPathFormer: Towards a Foundation Model for Multipath Wireless Propagation",
+          "scope": "全文中文译文（沿用原发布验收记录）"
         }
       ],
       "links": [
@@ -11627,10 +11628,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/50a1b62e5cb84f9d/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/multipathformer/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "af0bb2a5b7abec0d",
@@ -11711,7 +11712,13 @@
       "report_entry_url": "/papers/reports/2026-08-19/#paper-f01eb39a8eaa1174",
       "paper_url": "/papers/items/f01eb39a8eaa1174/",
       "paper_report_url": "/papers/items/f01eb39a8eaa1174/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/items/f01eb39a8eaa1174/#paper-translation",
+          "title": "Zero-Shot Frequency Generalization for Radio Map Prediction via Cross-Attention Physics-Residual Learning",
+          "scope": "全文中文译文（沿用原发布验收记录）"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2608.16194",
         "https://arxiv.org/abs/2608.16194",
@@ -11727,10 +11734,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
+      "translation_status": "complete",
+      "full_translation_public": true,
       "full_translation_url": "/papers/items/f01eb39a8eaa1174/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "26e33f30c7c0a4e8",
@@ -16203,7 +16210,7 @@
       "slug": "multipathformer-2026",
       "source_file": "multipathformer-2026.md",
       "title": "MultiPathFormer：面向多径无线传播的基础模型｜中文全文译文",
-      "scope": "中文译稿（范围见原页面；未计入全文验收）",
+      "scope": "全文中文译文（沿用原发布验收记录）",
       "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/multipathformer-2026.md",
       "source_page_path": "papers/translations/multipathformer-2026.md",
       "paper_ids": [
@@ -16213,7 +16220,8 @@
         "2608.05076"
       ],
       "external": true,
-      "qa_complete": false
+      "qa_complete": true,
+      "qa_provenance": "Migrated existing live library.js completion declaration; not a new translation or new QA claim"
     },
     {
       "date": "2026-10-12",
@@ -16221,7 +16229,7 @@
       "slug": "hdps-2026",
       "source_file": "hdps-2026.md",
       "title": "HDPS：基于潜空间流匹配的混合域后验采样｜中文全文译文",
-      "scope": "中文译稿（范围见原页面；未计入全文验收）",
+      "scope": "全文中文译文（沿用原发布验收记录）",
       "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/hdps-2026.md",
       "source_page_path": "papers/translations/hdps-2026.md",
       "paper_ids": [
@@ -16231,7 +16239,8 @@
         "2608.00537"
       ],
       "external": true,
-      "qa_complete": false
+      "qa_complete": true,
+      "qa_provenance": "Migrated existing live library.js completion declaration; not a new translation or new QA claim"
     },
     {
       "date": "2026-10-12",
@@ -16239,7 +16248,7 @@
       "slug": "channel2world-2026",
       "source_file": "channel2world-2026.md",
       "title": "Channel2World：面向 RF 环境表示的无线基础模型｜中文译文",
-      "scope": "中文译稿（范围见原页面；未计入全文验收）",
+      "scope": "全文中文译文（沿用原发布验收记录）",
       "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/channel2world-2026.md",
       "source_page_path": "papers/translations/channel2world-2026.md",
       "paper_ids": [
@@ -16249,7 +16258,8 @@
         "2608.17544"
       ],
       "external": true,
-      "qa_complete": false
+      "qa_complete": true,
+      "qa_provenance": "Migrated existing live library.js completion declaration; not a new translation or new QA claim"
     },
     {
       "date": "2026-10-12",
@@ -17070,6 +17080,21 @@
       "scope": "摘要与引言 / 历史译文说明",
       "title": "2026-07-11 论文翻译：第 5 篇与跨论文研究路线",
       "download": "/assets/papers/translations/2026-07-11-203f202a.md"
+    },
+    {
+      "date": "2026-10-12",
+      "url": "/papers/items/f01eb39a8eaa1174/#paper-translation",
+      "slug": "existing-f01eb39a8eaa1174",
+      "title": "Zero-Shot Frequency Generalization for Radio Map Prediction via Cross-Attention Physics-Residual Learning",
+      "scope": "全文中文译文（沿用原发布验收记录）",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/items/f01eb39a8eaa1174.md",
+      "source_page_path": "papers/items/f01eb39a8eaa1174.md",
+      "paper_ids": [
+        "f01eb39a8eaa1174"
+      ],
+      "external": true,
+      "qa_complete": true,
+      "qa_provenance": "Migrated existing live library.js completion declaration; not a new translation or new QA claim"
     }
   ],
   "assets": [],

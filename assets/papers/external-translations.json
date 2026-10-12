@@ -671,7 +671,7 @@
     "slug": "channel2world-2026",
     "source_file": "channel2world-2026.md",
     "title": "Channel2World：面向 RF 环境表示的无线基础模型｜中文译文",
-    "scope": "中文译稿（范围见原页面；未计入全文验收）",
+    "scope": "全文中文译文（沿用原发布验收记录）",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/channel2world-2026.md",
     "source_page_path": "papers/translations/channel2world-2026.md",
     "paper_ids": [
@@ -681,7 +681,8 @@
       "2608.17544"
     ],
     "external": true,
-    "qa_complete": false
+    "qa_complete": true,
+    "qa_provenance": "Migrated existing live library.js completion declaration; not a new translation or new QA claim"
   },
   {
     "date": "2026-10-12",
@@ -689,7 +690,7 @@
     "slug": "hdps-2026",
     "source_file": "hdps-2026.md",
     "title": "HDPS：基于潜空间流匹配的混合域后验采样｜中文全文译文",
-    "scope": "中文译稿（范围见原页面；未计入全文验收）",
+    "scope": "全文中文译文（沿用原发布验收记录）",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/hdps-2026.md",
     "source_page_path": "papers/translations/hdps-2026.md",
     "paper_ids": [
@@ -699,7 +700,8 @@
       "2608.00537"
     ],
     "external": true,
-    "qa_complete": false
+    "qa_complete": true,
+    "qa_provenance": "Migrated existing live library.js completion declaration; not a new translation or new QA claim"
   },
   {
     "date": "2026-10-12",
@@ -707,7 +709,7 @@
     "slug": "multipathformer-2026",
     "source_file": "multipathformer-2026.md",
     "title": "MultiPathFormer：面向多径无线传播的基础模型｜中文全文译文",
-    "scope": "中文译稿（范围见原页面；未计入全文验收）",
+    "scope": "全文中文译文（沿用原发布验收记录）",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/multipathformer-2026.md",
     "source_page_path": "papers/translations/multipathformer-2026.md",
     "paper_ids": [
@@ -717,6 +719,22 @@
       "2608.05076"
     ],
     "external": true,
-    "qa_complete": false
+    "qa_complete": true,
+    "qa_provenance": "Migrated existing live library.js completion declaration; not a new translation or new QA claim"
+  },
+  {
+    "date": "2026-10-12",
+    "url": "/papers/items/f01eb39a8eaa1174/#paper-translation",
+    "slug": "existing-f01eb39a8eaa1174",
+    "title": "Zero-Shot Frequency Generalization for Radio Map Prediction via Cross-Attention Physics-Residual Learning",
+    "scope": "全文中文译文（沿用原发布验收记录）",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/items/f01eb39a8eaa1174.md",
+    "source_page_path": "papers/items/f01eb39a8eaa1174.md",
+    "paper_ids": [
+      "f01eb39a8eaa1174"
+    ],
+    "external": true,
+    "qa_complete": true,
+    "qa_provenance": "Migrated existing live library.js completion declaration; not a new translation or new QA claim"
   }
 ]
