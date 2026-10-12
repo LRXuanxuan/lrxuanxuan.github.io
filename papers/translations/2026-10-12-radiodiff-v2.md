@@ -411,10 +411,105 @@ LOS 条件分布高度集中，问题基本适定。RadioDiff-v2 在所有 LOS �
 
 本文将角度无线电地图预测重新表述为感知—失真问题，提出使用流匹配训练的双分支一维扩散 Transformer RadioDiff-v2，并以按指标选择的估计器组合，从单个模型读出所有部署量。在跨环境零样本测试中，该估计器组合在全部指标上优于基线，既取得约十三倍的分布保真优势，又达到回归级逐单元精度、贝叶斯最优波束选择，以及在回归地图融合趋于饱和时仍随基站数增加而改善的多站似然定位。这样，一张零样本地图便能同时支持频谱重建、多波束选择和环境感知 6G 接收机定位。未来工作将把条件密度拓展至宽带和区分俯仰角的频谱，使频率选择性与三维波束管理也能够纳入同一生成框架。
 
-## 参考文献与阅读说明
+## 参考文献（保留原论文 46 条英文著录）
 
-原论文参考文献见 PDF 第 11–12 页，共覆盖无线电地图／CKM、RadioUNet、RME-GAN、RadioDiff、Map2APS、流匹配、Rectified Flow、DiT、GAN、生成式定位及分布评价文献。书目条目及 DOI、页码应以原始 PDF 为准；它们是检索信息，未重新翻译英文刊名与论文题名。
+参考文献中的作者、论文题名、出版物与页码按原文保留英文，避免翻译后的书目信息影响检索。
 
-**译者技术校核提示（非原文）**：原文将流匹配训练误差用于构造“条件似然”或“负对数似然（差常数）”评分。将这一评分当作定位目标是原文的实际算法；但不能从一般流匹配损失自动推出其等于严格归一化的条件 log-likelihood。若在其他论文中引用此方法，宜区分“生成式条件评分”与“精确概率密度求值”。
+[1] N. Cheng, F. Chen, W. Chen, Z. Cheng, Q. Yang, C. Li, and X. Shen, “6G omni-scenario on-demand services provisioning: vision, technology and prospect (in Chinese),” *Sci Sin Inform*, 54(5):1025–1054, 2024.
+
+[2] N. Docomo et al., “5g channel model for bands up to 100 ghz,” Technical report, 2016.
+
+[3] H. Li, K. Gupta, C. Wang, N. Ghose, and B. Wang, “RadioNet: Robust deep-learning based radio fingerprinting,” *IEEE CNS*, pp. 190–198, 2022.
+
+[4] S. Zhang, S. Jiang, W. Lin, Z. Fang, K. Liu, H. Zhang, and K. Chen, “Generative ai on spectrumnet: An open benchmark of multiband 3d radio maps,” *IEEE Trans. Cognit. Commun. Networking*, 11(2):886–901, 2025.
+
+[5] G. Sun, W. Xie, D. Niyato, F. Mei, J. Kang, H. Du, and S. Mao, “Generative ai for deep reinforcement learning: Framework, analysis, and use cases,” *IEEE Wireless Commun.*, 32(3):186–195, 2025.
+
+[6] R. Levie, Ç. Yapar, G. Kutyniok, and G. Caire, “RadioUNet: Fast radio map estimation with convolutional neural networks,” *IEEE Trans. Wireless Commun.*, 20(6):4001–4015, 2021.
+
+[7] X. Wang, K. Tao, N. Cheng, Z. Yin, Z. Li, Y. Zhang, and X. Shen, “Radiodiff: An effective generative diffusion model for sampling-free dynamic radio map construction,” *IEEE Trans. Cognit. Commun. Networking*, 11(2):738–750, 2025.
+
+[8] O. Ronneberger, P. Fischer, and T. Brox, “U-net: Convolutional networks for biomedical image segmentation,” *MICCAI*, Springer, pp. 234–241, 2015.
+
+[9] S. Zhang, A. Wijesinghe, and Z. Ding, “RME-GAN: A learning framework for radio map estimation based on conditional generative adversarial network,” *IEEE Internet Things J.*, 10(20):18016–18027, 2023.
+
+[10] A. Creswell, T. White, V. Dumoulin, K. Arulkumaran, B. Sengupta, and A. A. Bharath, “Generative adversarial networks: An overview,” *IEEE Signal Process. Mag.*, 35(1):53–65, 2018.
+
+[11] X. Wang, Q. Zhang, N. Cheng, R. Sun, Z. Li, S. Cui, and X. Shen, “Radiodiff-k2: Helmholtz equation informed generative diffusion model for multi-path aware radio map construction,” *IEEE J. Sel. Areas Commun.*, 44:2318–2333, 2026.
+
+[12] Y. Blau and T. Michaeli, “The perception-distortion tradeoff,” *CVPR*, pp. 6228–6237, 2018.
+
+[13] Y. Lipman, R. T. Q. Chen, H. Ben-Hamu, M. Nickel, and M. Le, “Flow matching for generative modeling,” *ICLR*, 2023.
+
+[14] X. Liu, C. Gong, and Q. Liu, “Flow straight and fast: Learning to generate and transfer data with rectified flow,” *ICLR*, 2023.
+
+[15] W. Peebles and S. Xie, “Scalable diffusion models with transformers,” *ICCV*, pp. 4172–4182, 2023.
+
+[16] Ç. Yapar, R. Levie, G. Kutyniok, and G. Caire, “Locunet: Fast urban positioning using radio maps and deep learning,” *ICASSP*, pp. 4063–4067, 2022.
+
+[17] X. Wang, X. Wang, S. Mao, J. Zhang, S. C. Periaswamy, and J. Patton, “Indoor radio map construction and localization with deep gaussian processes,” *IEEE Internet Things J.*, 7(11):11238–11249, 2020.
+
+[18] Y. Zeng and X. Xu, “Toward environment-aware 6G communications via channel knowledge map,” *IEEE Wireless Commun.*, 28(3):84–91, 2021.
+
+[19] X. Wang, Y. Pan, N. Cheng, Ç. Yapar, R. Sun, Z. Yin, C. Zhou, W. Xu, Y. Zhang, J. Zhang, S. Cui, and X. Shen, “A tutorial on learning-based radio map construction: Data, paradigms, and physics-awareness,” arXiv:2603.17499, 2026.
+
+[20] X. Wang, Z. Fang, N. Cheng, R. Sun, H. Zhou, Z. Su, Z. Li, and X. Shen, “Radiodiff-inverse: Diffusion enhanced bayesian inverse estimation for isac radio map construction,” *IEEE Trans. Wireless Commun.*, 25:14611–14626, 2026.
+
+[21] X. Wang, T. Yuan, Y. Cao, N. Cheng, R. Sun, and W. Zhuang, “iRadioDiff: Physics-informed diffusion model for indoor radio map construction and localization,” arXiv:2511.20015, 2025.
+
+[22] X. Wang, Z. Guo, and N. Cheng, “RadioDiff-FS: Physics-informed manifold alignment in few-shot diffusion models for high-fidelity radio map construction,” arXiv:2603.18865, 2026.
+
+[23] X. Wang, P. Zheng, H. Jia, N. Cheng, R. Sun, C. Zhou, and X. Shen, “RadioDiff-flux: Efficient radio map construction via generative denoise diffusion model trajectory midpoint reuse,” *IEEE Trans. Cognit. Commun. Networking*, 12:4882–4895, 2026.
+
+[24] X. Li, S. Zhang, H. Li, X. Li, L. Xu, H. Xu, H. Mei, G. Zhu, N. Qi, and M. Xiao, “Radiogat: A joint model-based and data-driven framework for multi-band radiomap reconstruction via graph attention networks,” *IEEE Trans. Wireless Commun.*, 23(11):17777–17792, 2024.
+
+[25] F. Jaensch, G. Caire, and B. Demir, “Radio map estimation–an open dataset with directive transmitter antennas and initial experiments,” arXiv:2402.00878, 2024.
+
+[26] D. Wu, Z. Wu, Y. Qiu, S. Fu, and Y. Zeng, “Ckmimagenet: A comprehensive dataset to enable channel knowledge map construction via computer vision,” *IEEE/CIC ICCC Workshops*, pp. 114–119, 2024.
+
+[27] X. Wang, Q. Zhang, N. Cheng, J. Chen, Z. Zhang, Z. Li, S. Cui, and X. Shen, “RadioDiff-3D: A 3D×3D radio map dataset and generative diffusion based benchmark for 6G environment-aware communication,” *IEEE Trans. Netw. Sci. Eng.*, 13:3773–3789, 2026.
+
+[28] J. Ho, A. Jain, and P. Abbeel, “Denoising diffusion probabilistic models,” *NeurIPS*, 33:6840–6851, 2020.
+
+[29] J. Song, C. Meng, and S. Ermon, “Denoising diffusion implicit models,” *ICLR*, pp. 1–12, 2021.
+
+[30] Y. Song, J. Sohl-Dickstein, D. P. Kingma, A. Kumar, S. Ermon, and B. Poole, “Score-based generative modeling through stochastic differential equations,” *ICLR*, 2021.
+
+[31] R. Rombach, A. Blattmann, D. Lorenz, P. Esser, and B. Ommer, “High-resolution image synthesis with latent diffusion models,” *CVPR*, pp. 10674–10685, 2022.
+
+[32] A. Nichol, P. Dhariwal, A. Ramesh, P. Shyam, P. Mishkin, B. McGrew, I. Sutskever, and M. Chen, “Glide: Towards photorealistic image generation and editing with text-guided diffusion models,” *ICML*, PMLR 162:16784–16804, 2022.
+
+[33] Y. Huang, Z. Qin, X. Liu, and K. Xu, “Decoupled diffusion models with explicit transition probability,” arXiv:2306.13720, 2023.
+
+[34] A. Vaswani, N. Shazeer, N. Parmar, J. Uszkoreit, L. Jones, A. N. Gomez, Ł. Kaiser, and I. Polosukhin, “Attention is all you need,” *NeurIPS*, 30, 2017.
+
+[35] F.-A. Croitoru, V. Hondru, R. T. Ionescu, and M. Shah, “Diffusion models in vision: A survey,” *IEEE Trans. Pattern Anal. Mach.*, 45(9):10850–10869, 2023.
+
+[36] R. Liu, B. P. L. Lau, K. Ismail, A. Chathuranga, C. Yuen, S. X. Yang, Y. L. Guan, S. Mao, and U.-X. Tan, “Exploiting radio fingerprints for simultaneous localization and mapping,” *IEEE Pervasive Comput.*, 22(3):38–46, 2023.
+
+[37] Y. Kang, J. Kang, J. Wen, T. Zhang, Z. Yang, D. Niyato, and Y. Zhang, “Confidence-regulated generative diffusion models for reliable ai agent migration in vehicular metaverses,” arXiv:2505.12710, 2025.
+
+[38] M. Zhou, L. Ying, L. Lu, L. Shi, J. Zi, and Z. Yu, “Electromagnetic scattering laws in weyl systems,” *Nature Commun.*, 8(1):1388, 2017.
+
+[39] G. A. Deschamps, “Ray techniques in electromagnetics,” *Proc. IEEE*, 60(9):1022–1035, 1972.
+
+[40] J. Huang, X. Wang, N. Cheng, K. Wang, R. Sun, and Z. Yin, “Map2aps: A physically grounded benchmark for direct angle power spectrum prediction from urban geometry,” arXiv:2605.14989, 2026.
+
+[41] A. Alkhateeb, “Deepmimo: A generic deep learning dataset for millimeter wave and massive mimo applications,” arXiv:1902.06435, 2019.
+
+[42] R. Wahl, G. Wölfle, P. Wertz, P. Wildbolz, and F. Landstorfer, “Dominant path prediction model for urban scenarios,” *14th IST Mobile and Wireless Communications Summit*, pp. 1–5, 2005.
+
+[43] J. Ho and T. Salimans, “Classifier-free diffusion guidance,” 2022.
+
+[44] G. Peyré and M. Cuturi, “Computational optimal transport: With applications to data science,” *Found. Trends Mach. Learn.*, 11(5–6):355–607, 2019.
+
+[45] E. Damosso and L. M. Correia, “Digital mobile radio towards future generation systems—COST action 231 final report,” European Commission, Brussels, Belgium, Tech. Rep. EUR 18957, 1999.
+
+[46] Z. Wang, A. C. Bovik, H. R. Sheikh, and E. P. Simoncelli, “Image quality assessment: from error visibility to structural similarity,” *IEEE Trans. Image Processing*, 13(4):600–612, 2004.
+
+## 学术核验提示（非原文）
+
+原文在定位实验中，将流匹配训练误差作为候选位置的“条件似然”或“负对数似然（差常数）”评分。把该评分用于定位是原论文实际做法；但一般流匹配损失并不直接等于严格归一化的条件对数似然。引用时宜区分“生成式条件评分”和“精确概率密度求值”。
+
 
 {% endraw %}
