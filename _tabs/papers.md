@@ -30,6 +30,7 @@ toc: false
 
 <div class="pl-latest-translations" style="margin:1rem 0 1.3rem;padding:.85rem 1rem;border:1px solid var(--main-border-color);border-radius:.6rem">
   <strong>新译论文（2026-10-12）</strong>
+  <p style="margin:.45rem 0 0"><a href="/papers/translations/2512-04283/">《基于流匹配的即插即用图像恢复：连续时间视角》</a> · 中文正文、定理证明和附录 · 24 页原文</p>
   <p style="margin:.45rem 0 0"><a href="/papers/translations/2511-07789/">《数字孪生赋能的太赫兹车内信道建模与无线规划》</a> · 中文正文及公式 · 13 页原文</p>
   <p style="margin:.45rem 0 0"><a href="/papers/translations/2605-18325/">《基于变分贝叶斯推断的混合专家扩散模型自适应大规模 MIMO 信道估计》</a> · 中文正文及公式 · 13 页原文</p>
   <p style="margin:.45rem 0 0"><a href="/papers/translations/2604-23310/">《RadTwin：面向动态环境的可泛化无线数字孪生》</a> · 中文全文 · 9 页原文</p>
