@@ -1,0 +1,41 @@
+---
+layout: "post"
+title: "2001: A Space Odyssey · 34 - The Orbiting Ice"
+date: "2026-10-12 21:45:00 +0800"
+categories: ["英文文学"]
+permalink: "/translations/2001-a-space-odyssey/chapter-34/"
+lang: "en"
+toc: false
+comments: false
+---
+
+<link rel="stylesheet" href="{{ '/assets/css/stapledon-reader.css' | relative_url }}">
+
+<div class="stapledon-meta"><em>2001: A Space Odyssey</em> · 1968 · Arthur C. Clarke · English</div>
+
+<nav class="stapledon-chapter-nav" aria-label="章节导航"><a href="/translations/2001-a-space-odyssey/">← 返回全书目录</a><span><a href="/translations/2001-a-space-odyssey/chapter-33/">← 上一节</a> · <a href="/translations/2001-a-space-odyssey/chapter-35/">下一节 →</a></span></nav>
+
+<article class="stapledon-reader" id="stapledon-reader">
+<section class="stapledon-body" data-story-lang="en" lang="en" aria-label="English original">
+<h2>    34 - The Orbiting Ice</h2>
+<p>    Discovery was now deep into the wide-ranging system of moons, and the great planet itself was less than a day ahead. The ship had long since passed the boundary set by outermost Phoebe, moving backward in a wildly eccentric orbit eight million miles from its primary. Ahead of it now lay Japetus, Hyperion, Titan, Rhea, Dione, Tethys, Enceladus, Mimas, Janus - and the rings themselves. All the satellites showed a maze of surface detail in the telescope, and Bowman had relayed back to Earth as many photographs as he could take. Titan alone - three thousand miles in diameter, and as large as the planet Mercury - would occupy a survey team for months; he could give it, and all its cold companions, only the briefest of glances. There was no need for more; already he was quite certain that Japetus was indeed his goal.</p>
+<p>    All the other satellites were pitted by occasional meteor craters - though these were much fewer than on Mars - and showed apparently random patterns of light and shade, with here and there a few bright spots that were probably patches of frozen gas. Japetus alone possessed a distinctive geography, and a very strange one indeed.</p>
+<p>    One hemisphere of the satellite, which, like its companions, turned the same face always toward Saturn, was extremely dark, and showed very little surface detail. In complete contrast, the other was dominated by a brilliant white oval, about four hundred miles long and two hundred wide. At the moment, only part of this striking formation was in daylight, but the reason for Japetus's extraordinary variations in brilliance was now quite obvious. On the western side of the moon's orbit, the bright ellipse was presented toward the Sun - and the Earth. On the eastern phase, the patch was turned away, and only the poorly reflecting hemisphere could be observed.</p>
+<p>    The great ellipse was perfectly symmetrical, straddling the equator of Japetus with its major axis pointing toward the poles; and it was so sharp-edged that it almost looked as if someone had carefully painted a huge white oval on the face of the little moon. It was completely flat, and Bowman wondered if it could be a lake of frozen liquid - though that would hardly account for its startlingly artificial appearance.</p>
+<p>    But he had little time to study Japetus on his way into the heart of the Saturnian system, for the climax of the voyage - Discovery's last perturbation maneuver - was rapidly approaching. In the Jupiter fly-by, the ship had used the gravitational field of the planet to increase her velocity. Now she must do the reverse; she had to lose as much speed as possible, lest she escape from the Solar System and fly on to the stars. Her present course was one designed to trap her, so that she would become another moon of Saturn, shuttling back and forth along a narrow, two-million-mile-long ellipse. At its near point it would almost graze the planet; at its far one, it would touch the orbit of Japetus.</p>
+<p>    The computers back on Earth, though their information was always three hours late, had assured Bowman that everything was in order. Velocity and altitude were correct; there was nothing more to be done, until the moment of closest approach.</p>
+<p>    The immense system of rings now spanned the sky, and already the ship was passing over its outermost edge. As he looked down upon them from a height of some ten thousand miles, Bowman could see through the telescope that the rings were made largely of ice, glittering and scintillating in the light of the Sun. He might have been flying over a snowstorm that occasionally cleared to reveal, where the ground should have been, baffling glimpses of night and stars.</p>
+<p>    As Discovery curved still closer toward Saturn, the Sun slowly descended toward the multiple arches of the rings. Now they had become a slim, silver bridge spanning the entire sky; though they were too tenuous to do more than dim the sunlight, their myriads of crystals refracted and scattered it in dazzling pyrotechnics. And as the Sun moved behind the thousand-mile-wide drifts of orbiting ice, pale ghosts of itself marched and merged across the sky, and the heavens were filled with shifting flares and flashes. Then the Sun sank below the rings, so that they framed it with their arches, and the celestial fireworks ceased.</p>
+<p>    A little later, the ship curved into the shadow of Saturn, as it made its closest approach over the night side of the planet. Above shone the stars and the rings; below lay a dimly visible sea of clouds. There were none of the mysterious patterns of luminosity that had glowed in the Jovian night; perhaps Saturn was too cold for such displays. The mottled cloudscape was revealed only by the ghostly radiance reflected back from the circling icebergs, still illuminated by the hidden Sun.</p>
+<p>    But in the center of the arch there was a wide, dark gap, like the missing span of an uncompleted bridge, where the shadow of the planet lay across its rings.</p>
+<p>    Radio contact with Earth had been broken, and could not be resumed until the ship emerged from the eclipsing bulk of Saturn. It was perhaps as well that Bowman was too busy now to think of his suddenly enhanced loneliness; for the next few hours, every second would be occupied as he checked the braking maneuvers, already programmed by the computers on Earth.</p>
+<p>    After their months of idleness, the main thrusters began to blast out their miles-long cataracts of glowing plasma. Gravity returned, though briefly, to the weightless world of the control deck. And hundreds of miles below, the clouds of methane and frozen ammonia blazed with a light that they had never known before, as Discovery swept, a fierce and tiny sun, through the Saturnian night.</p>
+<p>    At last, the pale dawn lay ahead; the ship, moving more and more slowly now, was emerging into day. It could no longer escape from the Sun, or even from Saturn - but it was still moving swiftly enough to rise away from the planet until it grazed the orbit of Japetus, two million miles out.</p>
+<p>    It would take Discovery fourteen days to make that climb, as she coasted once more, though in reverse order, across the paths of all the inner moons. One by one she would cut through the orbits of Janus, Mimas, Enceladus, Tethys, Dione, Rhea, Titan, Hyperion - worlds bearing the names of gods and goddesses who had vanished only yesterday, as time was counted here.</p>
+<p>    Then she would meet Japetus, and must make her rendezvous. If she failed, she would fall back toward Saturn and repeat her twenty-eight-day ellipse indefinitely.</p>
+<p>    There would be no chance for a second rendezvous if Discovery missed on this attempt. The next time around, Japetus would be far away, almost on the other side of Saturn.</p>
+<p>    It was true that they would meet again, when the orbits of ship and satellite meshed for a second time. But that appointment was so many years ahead that, whatever happened, Bowman knew he would not witness it.</p>
+</section>
+</article>
+
+<nav class="stapledon-chapter-nav" aria-label="章节导航"><a href="/translations/2001-a-space-odyssey/">← 返回全书目录</a><span><a href="/translations/2001-a-space-odyssey/chapter-33/">← 上一节</a> · <a href="/translations/2001-a-space-odyssey/chapter-35/">下一节 →</a></span></nav>

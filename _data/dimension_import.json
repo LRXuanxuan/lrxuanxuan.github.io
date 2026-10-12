@@ -1,0 +1,427 @@
+{
+  "title": "Dimension of Miracles",
+  "slug": "dimension-of-miracles",
+  "year": 1968,
+  "english_sha256": "780a3c6784accb509d98aa29aef6cdfd41e83f57a2f21cc123ccd35aabfef974",
+  "chinese_sha256": "69103dd63aa387db275419b82436d852539ae6162e4d0a4d489c1e1ec6319dc5",
+  "pages": [
+    {
+      "title": "Epigraph",
+      "english_title": "Epigraph",
+      "slug": "epigraph",
+      "source": "OEBPS/section2.html",
+      "chinese_source": null,
+      "url": "/translations/dimension-of-miracles/epigraph/",
+      "text_sha256": {
+        "en": "7cacdde617be4b34f710d971b8b089f5830d4d11906ea9ac3c290ce1c383ed64"
+      }
+    },
+    {
+      "title": "Dedication",
+      "english_title": "Dedication",
+      "slug": "dedication",
+      "source": "OEBPS/section3.html",
+      "chinese_source": null,
+      "url": "/translations/dimension-of-miracles/dedication/",
+      "text_sha256": {
+        "en": "4e9f35e0fc3c5c264a29a58da16ac93a40da54c1b2960c3cbc0ea1250a8b5c38"
+      }
+    },
+    {
+      "title": "第一部 离开地球",
+      "english_title": "Part One - The Departure from Earth",
+      "slug": "part-01",
+      "source": "OEBPS/section4.html",
+      "chinese_source": "OEBPS/part1.xhtml",
+      "url": "/translations/dimension-of-miracles/part-01/",
+      "text_sha256": {
+        "zh": "6ed99be51c733d08b7a33d660a05a3beeb2a09f1a04976ba454c6f19805d1a98",
+        "en": "05f3fcf353ba41918a6d473c8f62a5fcd496c94cc75a71dd36118801a5f16d78"
+      }
+    },
+    {
+      "title": "第一章",
+      "english_title": "Chapter 1",
+      "slug": "chapter-01",
+      "source": "OEBPS/section5.html",
+      "chinese_source": "OEBPS/chapter1.xhtml",
+      "url": "/translations/dimension-of-miracles/chapter-01/",
+      "text_sha256": {
+        "zh": "b0438ce9f970abc72a9e8e151cc099b468d02c82b15dd66038b59195671f4c68",
+        "en": "ead153d6c8668433e05dd5c1a8a57c591f69a82fd5bc75227a491a27a5c36a79"
+      }
+    },
+    {
+      "title": "第二章",
+      "english_title": "Chapter 2",
+      "slug": "chapter-02",
+      "source": "OEBPS/section6.html",
+      "chinese_source": "OEBPS/chapter2.xhtml",
+      "url": "/translations/dimension-of-miracles/chapter-02/",
+      "text_sha256": {
+        "zh": "f1469ebad96919d71ec5167e5631678ea03ce99a0a75e1286b9412a08cc4ccca",
+        "en": "57a8c2716b743c6e7637e3109c3e45e2aed3db29bde4ecd943d4a2d5ff2ca114"
+      }
+    },
+    {
+      "title": "第三章",
+      "english_title": "Chapter 3",
+      "slug": "chapter-03",
+      "source": "OEBPS/section7.html",
+      "chinese_source": "OEBPS/chapter3.xhtml",
+      "url": "/translations/dimension-of-miracles/chapter-03/",
+      "text_sha256": {
+        "zh": "8d1394f2aab04c2bf94d075026f4b1a1617e55ed9c217e8aa89dd48e412ddc21",
+        "en": "4ecb8585261c72c90c8f6a8852714c53bc767fc009ccd63a55afcbdadb4a16a7"
+      }
+    },
+    {
+      "title": "第四章",
+      "english_title": "Chapter 4",
+      "slug": "chapter-04",
+      "source": "OEBPS/section8.html",
+      "chinese_source": "OEBPS/chapter4.xhtml",
+      "url": "/translations/dimension-of-miracles/chapter-04/",
+      "text_sha256": {
+        "zh": "45aa5faa722a19b5bdd1227e49784dd407b57a5dfbc4832bebffcab146c765c9",
+        "en": "e846c35abdbe46869b5f1d3ece385f45ef7dbabcaafb4484781373dc61adcd99"
+      }
+    },
+    {
+      "title": "第二部 地球在哪里？",
+      "english_title": "Part Two - Where is Earth?",
+      "slug": "part-02",
+      "source": "OEBPS/section9.html",
+      "chinese_source": "OEBPS/part2.xhtml",
+      "url": "/translations/dimension-of-miracles/part-02/",
+      "text_sha256": {
+        "zh": "7f9382e017cd81304fdc1b55efef34497ec3c2fb6d8d6f00c1e3321746d5acae",
+        "en": "818e080b8a00f58725394a67187f1a73a77d6dbb2184e3c45d4211cebbd871d1"
+      }
+    },
+    {
+      "title": "第五章",
+      "english_title": "Chapter 5",
+      "slug": "chapter-05",
+      "source": "OEBPS/section10.html",
+      "chinese_source": "OEBPS/chapter5.xhtml",
+      "url": "/translations/dimension-of-miracles/chapter-05/",
+      "text_sha256": {
+        "zh": "685882df415d06a78c796dc5d6f571316f71425da5a16ebd4ec4d3ee2a886d65",
+        "en": "306cc08d947efdbedc201f2114604fedb168f08f3a089691ed52051b440830f5"
+      }
+    },
+    {
+      "title": "第六章",
+      "english_title": "Chapter 6",
+      "slug": "chapter-06",
+      "source": "OEBPS/section11.html",
+      "chinese_source": "OEBPS/chapter6.xhtml",
+      "url": "/translations/dimension-of-miracles/chapter-06/",
+      "text_sha256": {
+        "zh": "c3485cd656e15ce285c9aa3d203c6662a6d84415df6700145624c10059aaba23",
+        "en": "6bda3171c4a1b5804aa5ad27c8f7e864a5b30d59dc5ada53afab1715883a385a"
+      }
+    },
+    {
+      "title": "第七章",
+      "english_title": "Chapter 7",
+      "slug": "chapter-07",
+      "source": "OEBPS/section12.html",
+      "chinese_source": "OEBPS/chapter7.xhtml",
+      "url": "/translations/dimension-of-miracles/chapter-07/",
+      "text_sha256": {
+        "zh": "b56ea76a715a55d9a9e09995017e8221c90ad0810c791f9f13d5b7c9681dcc45",
+        "en": "f4d34a5ab36ffb09435d22811a67009685fd5acf73926d5c15d6d6291eee0087"
+      }
+    },
+    {
+      "title": "第八章",
+      "english_title": "Chapter 8",
+      "slug": "chapter-08",
+      "source": "OEBPS/section13.html",
+      "chinese_source": "OEBPS/chapter8.xhtml",
+      "url": "/translations/dimension-of-miracles/chapter-08/",
+      "text_sha256": {
+        "zh": "5124ffd2a02a96eaa0d598cdb4deb90c3d37356b6d6bf467be58b920ac0a7aa0",
+        "en": "f839868a89e7d48bff5d4b0c8059fbf14534f4470fe4f976d536d4c50be9d3c6"
+      }
+    },
+    {
+      "title": "第九章",
+      "english_title": "Chapter 9",
+      "slug": "chapter-09",
+      "source": "OEBPS/section14.html",
+      "chinese_source": "OEBPS/chapter9.xhtml",
+      "url": "/translations/dimension-of-miracles/chapter-09/",
+      "text_sha256": {
+        "zh": "c70363abed2fd8bf606ecd14015cbcbd83459b91e3c22d5d8126f2489d97f063",
+        "en": "6303190583ef29d0c5d45ebfb9960b6d6c65c7da8cc188064dcecb4baae92804"
+      }
+    },
+    {
+      "title": "第十章",
+      "english_title": "Chapter 10",
+      "slug": "chapter-10",
+      "source": "OEBPS/section15.html",
+      "chinese_source": "OEBPS/chapter10.xhtml",
+      "url": "/translations/dimension-of-miracles/chapter-10/",
+      "text_sha256": {
+        "zh": "042aad8dfa1e826ba5f49652ed0a4f13d4f67cb2ada6d7f61e506f7b6ce29075",
+        "en": "73e0195bba3ecd2b90564d1993eb5723d6e1fb6ffa6eab41f63cb545c51f71d6"
+      }
+    },
+    {
+      "title": "第十一章",
+      "english_title": "Chapter 11",
+      "slug": "chapter-11",
+      "source": "OEBPS/section16.html",
+      "chinese_source": "OEBPS/chapter11.xhtml",
+      "url": "/translations/dimension-of-miracles/chapter-11/",
+      "text_sha256": {
+        "zh": "0f40d4de64aff7a6ffea66ae21662ef144e50570774bfc6d1bd1e0ea5203b626",
+        "en": "408f84840a8f0c0a96c9679223e4794a389b21688ba0432c75984481077ed552"
+      }
+    },
+    {
+      "title": "第十二章",
+      "english_title": "Chapter 12",
+      "slug": "chapter-12",
+      "source": "OEBPS/section17.html",
+      "chinese_source": "OEBPS/chapter12.xhtml",
+      "url": "/translations/dimension-of-miracles/chapter-12/",
+      "text_sha256": {
+        "zh": "9b58aa2daa419b6f83fbed30034c3b0c195d4e0729642e5706c5e5c081236b78",
+        "en": "b04db8034374cf37635011e342be7c7b9e89faf743c9272f9bf9382a46ea254d"
+      }
+    },
+    {
+      "title": "第十三章",
+      "english_title": "Chapter 13",
+      "slug": "chapter-13",
+      "source": "OEBPS/section18.html",
+      "chinese_source": "OEBPS/chapter13.xhtml",
+      "url": "/translations/dimension-of-miracles/chapter-13/",
+      "text_sha256": {
+        "zh": "2bbe2fa9a16ad157e3eceeddd50c99933ce8805b6725216073b403df62212eff",
+        "en": "97fba99016d76d482e72665781b0f6bce08d2a71449484ba8caeac76ebdb0a72"
+      }
+    },
+    {
+      "title": "第十四章",
+      "english_title": "Chapter 14",
+      "slug": "chapter-14",
+      "source": "OEBPS/section19.html",
+      "chinese_source": "OEBPS/chapter14.xhtml",
+      "url": "/translations/dimension-of-miracles/chapter-14/",
+      "text_sha256": {
+        "zh": "34f0185713fd3e3ebe7678ee75b0a337f2fcd8e13646b37c8293ada20a45c070",
+        "en": "e005454597c062bca16b866e93894a70f1eff93bb10c3386cc89355834e3c2d0"
+      }
+    },
+    {
+      "title": "第十五章",
+      "english_title": "Chapter 15",
+      "slug": "chapter-15",
+      "source": "OEBPS/section20.html",
+      "chinese_source": "OEBPS/chapter15.xhtml",
+      "url": "/translations/dimension-of-miracles/chapter-15/",
+      "text_sha256": {
+        "zh": "5685fd18aea6a4abf402bcd342ff8281bdb1cbd6b7f27dfe511d7349772ee38d",
+        "en": "ac7265d743be3f690da097912d044ffbfd10c68f64143a07466fde3ea2f72986"
+      }
+    },
+    {
+      "title": "第十六章",
+      "english_title": "Chapter 16",
+      "slug": "chapter-16",
+      "source": "OEBPS/section21.html",
+      "chinese_source": "OEBPS/chapter16.xhtml",
+      "url": "/translations/dimension-of-miracles/chapter-16/",
+      "text_sha256": {
+        "zh": "b7f0bddcbec3b543ae4570353f76405359325e11371b7e87f5ce91417ff2cbe7",
+        "en": "816f3ccb63ac2f83fc5107d3e1657ab55ddeb91cc6726c71e229ad0c71069e2a"
+      }
+    },
+    {
+      "title": "第十七章",
+      "english_title": "Chapter 17",
+      "slug": "chapter-17",
+      "source": "OEBPS/section22.html",
+      "chinese_source": "OEBPS/chapter17.xhtml",
+      "url": "/translations/dimension-of-miracles/chapter-17/",
+      "text_sha256": {
+        "zh": "2fde9dac1ed0d8e9a9cff670517d3a8e168583f726186b2442879bfd2884b999",
+        "en": "8f2bf327db08c2e912b2404761a927581f486829ddb388eef9b2cc0c85a283e3"
+      }
+    },
+    {
+      "title": "第三部 地球在何时？",
+      "english_title": "Part Three - When is Earth?",
+      "slug": "part-03",
+      "source": "OEBPS/section23.html",
+      "chinese_source": "OEBPS/part3.xhtml",
+      "url": "/translations/dimension-of-miracles/part-03/",
+      "text_sha256": {
+        "zh": "0090131b70664b0049d8762515f6f9530fde5c0d3064f3556e9a850e8ce7c226",
+        "en": "ecd6074f999b84b3a5de0a8ea2b4925ea1d58009f1a236c3085d1b9657961295"
+      }
+    },
+    {
+      "title": "第十八章",
+      "english_title": "Chapter 18",
+      "slug": "chapter-18",
+      "source": "OEBPS/section24.html",
+      "chinese_source": "OEBPS/chapter18.xhtml",
+      "url": "/translations/dimension-of-miracles/chapter-18/",
+      "text_sha256": {
+        "zh": "564b66a054bd352a73d45c2cc6870097798b0512f460919f98228e9fd550bbc1",
+        "en": "6d27b154c93b47b4be047d7a1b5ccbc8f9b9b4877e0af855ebb6d719c3d349cc"
+      }
+    },
+    {
+      "title": "第十九章",
+      "english_title": "Chapter 19",
+      "slug": "chapter-19",
+      "source": "OEBPS/section25.html",
+      "chinese_source": "OEBPS/chapter19.xhtml",
+      "url": "/translations/dimension-of-miracles/chapter-19/",
+      "text_sha256": {
+        "zh": "2c68b8176bcf93090ddd4465f300a49d76a9b8fcc59a477346ce410d03372989",
+        "en": "076ff0e52358fb9ee393e724b09bb142be489d098a67f1eabe5e5030aeb7029c"
+      }
+    },
+    {
+      "title": "第二十章",
+      "english_title": "Chapter 20",
+      "slug": "chapter-20",
+      "source": "OEBPS/section26.html",
+      "chinese_source": "OEBPS/chapter20.xhtml",
+      "url": "/translations/dimension-of-miracles/chapter-20/",
+      "text_sha256": {
+        "zh": "41b453d594815f8b52080e0ddcc35d02f48108ea29c88a36aca9827c39b1654a",
+        "en": "830b31fc3394032761e227e535a26e71b248efcae87e51b625795d5a171b53da"
+      }
+    },
+    {
+      "title": "第二十一章",
+      "english_title": "Chapter 21",
+      "slug": "chapter-21",
+      "source": "OEBPS/section27.html",
+      "chinese_source": "OEBPS/chapter21.xhtml",
+      "url": "/translations/dimension-of-miracles/chapter-21/",
+      "text_sha256": {
+        "zh": "5ba9e69e9f485813b0bbef35a04c42d89cc996fe948510ff64d82e9bb2377555",
+        "en": "62d36e00f8d9463f0667299ed245e53ecf2680926aa32d24c10b80926ad1a476"
+      }
+    },
+    {
+      "title": "第四部 哪一个地球？",
+      "english_title": "Part Four - Which is Earth?",
+      "slug": "part-04",
+      "source": "OEBPS/section28.html",
+      "chinese_source": "OEBPS/part4.xhtml",
+      "url": "/translations/dimension-of-miracles/part-04/",
+      "text_sha256": {
+        "zh": "881f5d3e541345cc6afb83a2b36752d3b2e5e924b958ea8b1c030a2da648c40e",
+        "en": "d392d6a7812bdfb5d87848e36cde0e1c9f60f287c343e4aa991c7b273d7f2708"
+      }
+    },
+    {
+      "title": "第二十二章",
+      "english_title": "Chapter 22",
+      "slug": "chapter-22",
+      "source": "OEBPS/section29.html",
+      "chinese_source": "OEBPS/chapter22.xhtml",
+      "url": "/translations/dimension-of-miracles/chapter-22/",
+      "text_sha256": {
+        "zh": "8235a37d351175ba08366004af5c83a54a5accf3699fc50a2aad2a4a69150580",
+        "en": "a0b95b6c8a7bab5414befe433d73206198e035a3ebe4d49b27c116af0d17f795"
+      }
+    },
+    {
+      "title": "第二十三章",
+      "english_title": "Chapter 23",
+      "slug": "chapter-23",
+      "source": "OEBPS/section30.html",
+      "chinese_source": "OEBPS/chapter23.xhtml",
+      "url": "/translations/dimension-of-miracles/chapter-23/",
+      "text_sha256": {
+        "zh": "3aba8fea5791375077a03029b06d0a6f2034f36a89a214bdc1eee16647b4286b",
+        "en": "ddd5425b22b21b937af38b495f15af969118411d4bc8d626a5f9f7c97127a544"
+      }
+    },
+    {
+      "title": "第二十四章",
+      "english_title": "Chapter 24",
+      "slug": "chapter-24",
+      "source": "OEBPS/section31.html",
+      "chinese_source": "OEBPS/chapter24.xhtml",
+      "url": "/translations/dimension-of-miracles/chapter-24/",
+      "text_sha256": {
+        "zh": "597650d99b1b2f190b45d3490cd2b1a6d4afbea3dd9934cc6b98ca822a82d3d8",
+        "en": "04c988e46bf65e1297c40fc45785a8ef1b67918e300a823a393b38887bf730a0"
+      }
+    },
+    {
+      "title": "第二十五章",
+      "english_title": "Chapter 25",
+      "slug": "chapter-25",
+      "source": "OEBPS/section32.html",
+      "chinese_source": "OEBPS/chapter25.xhtml",
+      "url": "/translations/dimension-of-miracles/chapter-25/",
+      "text_sha256": {
+        "zh": "a9eb51deba2c5d6c56e37d50bc7ce05ead48c57f38a7c0586f70533107645385",
+        "en": "2b68985b90441b066565496abcc3f11c77ae935a44c14f54ffa331732efa5815"
+      }
+    },
+    {
+      "title": "第二十六章",
+      "english_title": "Chapter 26",
+      "slug": "chapter-26",
+      "source": "OEBPS/section33.html",
+      "chinese_source": "OEBPS/chapter26.xhtml",
+      "url": "/translations/dimension-of-miracles/chapter-26/",
+      "text_sha256": {
+        "zh": "686ba78221a5770eac6c09a53dfafa7d6166201a281fdc767ab7c24188261828",
+        "en": "224204a7aee588507223211406c247be1e59e61a1e92f6ef7a00922e9e634e95"
+      }
+    },
+    {
+      "title": "第二十七章",
+      "english_title": "Chapter 27",
+      "slug": "chapter-27",
+      "source": "OEBPS/section34.html",
+      "chinese_source": "OEBPS/chapter27.xhtml",
+      "url": "/translations/dimension-of-miracles/chapter-27/",
+      "text_sha256": {
+        "zh": "e29d902dbdedb8bd8f66b700e1c059232cc621aa1e3df08d87dcf3d961c3b237",
+        "en": "e635f3765a12ea6cf93c06682ddc41b05e6956535cc6e11283d4cb95d85f3fe1"
+      }
+    },
+    {
+      "title": "第五部 返回地球",
+      "english_title": "Part Five - The Return to Earth",
+      "slug": "part-05",
+      "source": "OEBPS/section35.html",
+      "chinese_source": "OEBPS/part5.xhtml",
+      "url": "/translations/dimension-of-miracles/part-05/",
+      "text_sha256": {
+        "zh": "ed9aa550f17855754b6b1472b8c06f93f0c5525ca145bdf4f91ed572061430f8",
+        "en": "b67fd7919aca3e9333b7266e7eb7562c710aa0b9dabca6c09cbe8ca8c7bc1281"
+      }
+    },
+    {
+      "title": "第二十八章",
+      "english_title": "Chapter 28",
+      "slug": "chapter-28",
+      "source": "OEBPS/section36.html",
+      "chinese_source": "OEBPS/chapter28.xhtml",
+      "url": "/translations/dimension-of-miracles/chapter-28/",
+      "text_sha256": {
+        "zh": "9ee082155bbc3449edd0b48112cc41ad6102a3f3107a767a80d2dd6f03b7524f",
+        "en": "1559534ea43d0c9e238dfa2a7d4e0c38204a5dd8d3acb1e2be8fc7746342f1ae"
+      }
+    }
+  ]
+}

@@ -298,8 +298,10 @@
     notebook.id="reading-notes";
     summary=make("summary");notebook.append(summary);
     notebook.append(make("p","rn-hint",index?
-      "本书各章节的中文与英文摘录汇总于此。点击摘录可回到原文；笔记只存在当前浏览器。":
-      "选中正文即可「划波浪线」或「写笔记」。中英文分别记载，点击摘录可回到原句；数据仅存本机浏览器。"));
+      "本书各章节的摘录汇总于此。点击摘录可回到原文；笔记只存在当前浏览器。":
+      (reader && reader.querySelectorAll("[data-story-lang]").length === 1 ?
+      "选中正文即可「划波浪线」或「写笔记」。点击摘录可回到原句；数据仅存本机浏览器。":
+      "选中正文即可「划波浪线」或「写笔记」。中英文分别记载，点击摘录可回到原句；数据仅存本机浏览器。")));
     var actions=make("div","rn-actions");
     actions.append(btn("↓ 导出 JSON 备份",exportNotes));
     var picker=make("input");picker.type="file";picker.accept=".json,application/json";picker.hidden=true;

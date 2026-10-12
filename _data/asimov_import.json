@@ -1,0 +1,1062 @@
+[
+  {
+    "title": "The Caves of Steel",
+    "slug": "the-caves-of-steel",
+    "year": 1954,
+    "epub_sha256": "9fa44443c4c5800eb0b2271751510da764cc571721adc7d3fb0a4d4f302eb1b5",
+    "pages": [
+      {
+        "title": "Copyright",
+        "slug": "copyright",
+        "source": "OPS/xhtml/003_copyright.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-caves-of-steel/copyright/",
+        "text_sha256": "c83c37285019e8165b284f9e8e8a4d1ed78929eee297766267e9185a5de7bfa1",
+        "characters": 1357
+      },
+      {
+        "title": "Dedication",
+        "slug": "dedication",
+        "source": "OPS/xhtml/004_dedication.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-caves-of-steel/dedication/",
+        "text_sha256": "88eeef0f31f10551efa1cda5f37dd9fbfe5f4e14a76008cdd1237c121edb2bac",
+        "characters": 47
+      },
+      {
+        "title": "1 Conversation with a Commissioner",
+        "slug": "chapter-01",
+        "source": "OPS/xhtml/006_chapter001.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-caves-of-steel/chapter-01/",
+        "text_sha256": "33c2254152c18f864b49269bc73003920823e077d7a74d7dbb6a240d739b6716",
+        "characters": 19678
+      },
+      {
+        "title": "2 Round Trip on an Expressway",
+        "slug": "chapter-02",
+        "source": "OPS/xhtml/007_chapter002.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-caves-of-steel/chapter-02/",
+        "text_sha256": "054c1019850c291709d410e157b19113b0ade2f46d0deb8c39d96cc7b7e6d0ae",
+        "characters": 23629
+      },
+      {
+        "title": "3 Incident at a Shoe Counter",
+        "slug": "chapter-03",
+        "source": "OPS/xhtml/008_chapter003.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-caves-of-steel/chapter-03/",
+        "text_sha256": "7fe4fa7a088cae74327bbddec58a928dba2d9db476d968f60d3e5133e384ae22",
+        "characters": 15528
+      },
+      {
+        "title": "4 Introduction to a Family",
+        "slug": "chapter-04",
+        "source": "OPS/xhtml/009_chapter004.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-caves-of-steel/chapter-04/",
+        "text_sha256": "43a5c7a5976e21a48f5ba3fa4f851598796f129d79aedd9b777729df9bcbf162",
+        "characters": 24582
+      },
+      {
+        "title": "5 Analysis of a Murder",
+        "slug": "chapter-05",
+        "source": "OPS/xhtml/010_chapter005.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-caves-of-steel/chapter-05/",
+        "text_sha256": "992ac3522299010ab879f549740426121f5f1cf6d073b5e1fccb1e38da251254",
+        "characters": 21516
+      },
+      {
+        "title": "6 Whispers in a Bedroom",
+        "slug": "chapter-06",
+        "source": "OPS/xhtml/011_chapter006.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-caves-of-steel/chapter-06/",
+        "text_sha256": "4086b1e8562750d83a83a5d44cde0f9abe55d4d3c2f14eedbbe7666df53d1d4b",
+        "characters": 13067
+      },
+      {
+        "title": "7 Excursion into Spacetown",
+        "slug": "chapter-07",
+        "source": "OPS/xhtml/012_chapter007.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-caves-of-steel/chapter-07/",
+        "text_sha256": "e538542202bbbaec8fb020d1fab263d2e997ce81ccba55458e70c1c0ff49ff0e",
+        "characters": 24402
+      },
+      {
+        "title": "8 Debate over a Robot",
+        "slug": "chapter-08",
+        "source": "OPS/xhtml/013_chapter008.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-caves-of-steel/chapter-08/",
+        "text_sha256": "f04d52800a6b02742e4db5815196ae5eff16422983b4cfb2e61beaa0f19eaccb",
+        "characters": 21404
+      },
+      {
+        "title": "9 Elucidation by a Spacer",
+        "slug": "chapter-09",
+        "source": "OPS/xhtml/014_chapter009.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-caves-of-steel/chapter-09/",
+        "text_sha256": "369b2c0e36baffb5f6c409b3f0a1c034cfcb1db0108e4a0846f7bf9615d22690",
+        "characters": 24427
+      },
+      {
+        "title": "10 Afternoon of a Plain-Clothes Man",
+        "slug": "chapter-10",
+        "source": "OPS/xhtml/015_chapter010.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-caves-of-steel/chapter-10/",
+        "text_sha256": "924c48e537051fe41bb16075998d0f395fdbbe6a27ae7145b01ad6ff7c0e12d5",
+        "characters": 23779
+      },
+      {
+        "title": "11 Escape along the Strips",
+        "slug": "chapter-11",
+        "source": "OPS/xhtml/016_chapter011.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-caves-of-steel/chapter-11/",
+        "text_sha256": "5579c7536576190a9d599c0aabbeadd15bd215a821055b6a203a7e7aa382bf13",
+        "characters": 23008
+      },
+      {
+        "title": "12 Words from an Expert",
+        "slug": "chapter-12",
+        "source": "OPS/xhtml/017_chapter012.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-caves-of-steel/chapter-12/",
+        "text_sha256": "aa30bcbaac70f52ffca4c322ffd99fb875d037ff8540a88c1b4570c20bec7762",
+        "characters": 23616
+      },
+      {
+        "title": "13 Shift to the Machine",
+        "slug": "chapter-13",
+        "source": "OPS/xhtml/018_chapter013.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-caves-of-steel/chapter-13/",
+        "text_sha256": "9554d748a8558a45db393ef02a3a7afe9aae7d9cfa4a6ba5f910087fd16fa989",
+        "characters": 27004
+      },
+      {
+        "title": "14 Power of a Name",
+        "slug": "chapter-14",
+        "source": "OPS/xhtml/019_chapter014.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-caves-of-steel/chapter-14/",
+        "text_sha256": "04c6a2fa706abc91695f4fb27751f849f52db664e28195789bba650c0bead8aa",
+        "characters": 23204
+      },
+      {
+        "title": "15 Arrest of a Conspirator",
+        "slug": "chapter-15",
+        "source": "OPS/xhtml/020_chapter015.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-caves-of-steel/chapter-15/",
+        "text_sha256": "e9237a7afed95f9e32cf45f6b3beb6e73fe3268af6ad6dd8ab9ebce3d1b8e75f",
+        "characters": 19247
+      },
+      {
+        "title": "16 Questions Concerning a Motive",
+        "slug": "chapter-16",
+        "source": "OPS/xhtml/021_chapter016.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-caves-of-steel/chapter-16/",
+        "text_sha256": "ea8421678999ef756a484ad2904023d8eb17b36cd943fdffbb09a3e2a26e6105",
+        "characters": 23033
+      },
+      {
+        "title": "17 Conclusion of a Project",
+        "slug": "chapter-17",
+        "source": "OPS/xhtml/022_chapter017.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-caves-of-steel/chapter-17/",
+        "text_sha256": "097e53e378e2d5c1d2299b2b6a055323805e6482bc6dc598b5a96b9222481eeb",
+        "characters": 19884
+      },
+      {
+        "title": "18 End of an Investigation",
+        "slug": "chapter-18",
+        "source": "OPS/xhtml/023_chapter018.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-caves-of-steel/chapter-18/",
+        "text_sha256": "cc2455f84b67d092bece4a5405c91fa2930af5bf7887f59fbadabcc1e36d6457",
+        "characters": 28346
+      },
+      {
+        "title": "About the Author",
+        "slug": "about-the-author",
+        "source": "OPS/xhtml/024_abouttheauthor.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-caves-of-steel/about-the-author/",
+        "text_sha256": "0786804fc149e21eea5cff6ba743ffd71b6383e1fbd76ba4aff7063cb1b46579",
+        "characters": 1847
+      }
+    ]
+  },
+  {
+    "title": "The Naked Sun",
+    "slug": "the-naked-sun",
+    "year": 1957,
+    "epub_sha256": "69bf89c8afda5e5c270d494eff2900205dd9c09b0da4d3cdcd7ea61f6eaa9955",
+    "pages": [
+      {
+        "title": "Copyright",
+        "slug": "copyright",
+        "source": "OPS/html/003_copyright.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-naked-sun/copyright/",
+        "text_sha256": "55ba6a306acbece838baa82cb95560af3da16ef0f8636c769e5d601b178560f7",
+        "characters": 1355
+      },
+      {
+        "title": "Dedication",
+        "slug": "dedication",
+        "source": "OPS/html/004_dedication.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-naked-sun/dedication/",
+        "text_sha256": "e6b8b0132fe2ab4c197407ccd16b1ead39ccb676d8d09d5222ac6124c6a87481",
+        "characters": 123
+      },
+      {
+        "title": "1 A Question is Asked",
+        "slug": "chapter-01",
+        "source": "OPS/html/006_chapter001.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-naked-sun/chapter-01/",
+        "text_sha256": "6c3785aaaa233e07ddcbfdc01fc513809ba7ae9a929a337d7b3227fa7b67b592",
+        "characters": 25241
+      },
+      {
+        "title": "2 A Friend is Encountered",
+        "slug": "chapter-02",
+        "source": "OPS/html/007_chapter002.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-naked-sun/chapter-02/",
+        "text_sha256": "f96e1ae64ea2ee6762034fc0deacdbb5503a61347aadfdaeef2abf6a4a8965be",
+        "characters": 23676
+      },
+      {
+        "title": "3 A Victim is Named",
+        "slug": "chapter-03",
+        "source": "OPS/html/008_chapter003.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-naked-sun/chapter-03/",
+        "text_sha256": "90970908f927589cd92a77be6fa3cb2e21fcdbade10fe456885d6e2115619eba",
+        "characters": 22459
+      },
+      {
+        "title": "4 A Woman is Viewed",
+        "slug": "chapter-04",
+        "source": "OPS/html/009_chapter004.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-naked-sun/chapter-04/",
+        "text_sha256": "a703bea33fb6394c0aba2f5a5839057e206e71d2c54a169e20529c47fba9d530",
+        "characters": 17206
+      },
+      {
+        "title": "5 A Crime is Discussed",
+        "slug": "chapter-05",
+        "source": "OPS/html/010_chapter005.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-naked-sun/chapter-05/",
+        "text_sha256": "d2c6ebc21f078618c20603e7d045d11f4652b2fa6bc8031e9061338e158b253f",
+        "characters": 16567
+      },
+      {
+        "title": "6 A Theory is Refuted",
+        "slug": "chapter-06",
+        "source": "OPS/html/011_chapter006.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-naked-sun/chapter-06/",
+        "text_sha256": "e5cc74002c811789835f2e0483fe103e377cc66e59eb86b7d48d4d8a0a39ede6",
+        "characters": 23534
+      },
+      {
+        "title": "7 A Doctor is Prodded",
+        "slug": "chapter-07",
+        "source": "OPS/html/012_chapter007.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-naked-sun/chapter-07/",
+        "text_sha256": "451e664c939cddf3709c9b4dfc63c1b8844e6a465795f926409a6abdb2d97807",
+        "characters": 19421
+      },
+      {
+        "title": "8 A Spacer is Defied",
+        "slug": "chapter-08",
+        "source": "OPS/html/013_chapter008.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-naked-sun/chapter-08/",
+        "text_sha256": "06183a2eb5b01b5861dca1eeec48a2b8e51bd8bfd837aff591324c96588c57db",
+        "characters": 21163
+      },
+      {
+        "title": "9 A Robot is Stymied",
+        "slug": "chapter-09",
+        "source": "OPS/html/014_chapter009.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-naked-sun/chapter-09/",
+        "text_sha256": "932817cfda6e74bb1487dba0e1925c15a972811866555536e58b20db741be4c1",
+        "characters": 16882
+      },
+      {
+        "title": "10 A Culture is Traced",
+        "slug": "chapter-10",
+        "source": "OPS/html/015_chapter010.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-naked-sun/chapter-10/",
+        "text_sha256": "32f5d435531a2d6045d947a62d08443ba10f46771da9cfa659481f3c90886444",
+        "characters": 21822
+      },
+      {
+        "title": "11 A Farm is Inspected",
+        "slug": "chapter-11",
+        "source": "OPS/html/016_chapter011.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-naked-sun/chapter-11/",
+        "text_sha256": "116f5889852b9aa83ddf56ceec261d7f7f6aa7cfe5ff60c023e6fe5b810e6694",
+        "characters": 20008
+      },
+      {
+        "title": "12 A Target is Missed",
+        "slug": "chapter-12",
+        "source": "OPS/html/017_chapter012.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-naked-sun/chapter-12/",
+        "text_sha256": "ce0bd85f873073bb62ef41e698e60d92bb044f75517eb53a82333723d8a63b27",
+        "characters": 22970
+      },
+      {
+        "title": "13 A Roboticist is Confronted",
+        "slug": "chapter-13",
+        "source": "OPS/html/018_chapter013.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-naked-sun/chapter-13/",
+        "text_sha256": "2aebfa77340754125178c954678c8ccd3a50f1624863ee27dc16ca803756230e",
+        "characters": 16766
+      },
+      {
+        "title": "14 A Motive is Revealed",
+        "slug": "chapter-14",
+        "source": "OPS/html/019_chapter014.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-naked-sun/chapter-14/",
+        "text_sha256": "13acb2fadc39324bd29938c3c277c59b2d54d171760230a7b54c5785fcce7d04",
+        "characters": 17229
+      },
+      {
+        "title": "15 A Portrait is Coloured",
+        "slug": "chapter-15",
+        "source": "OPS/html/020_chapter015.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-naked-sun/chapter-15/",
+        "text_sha256": "6f1e9b6916e9b5ef7f039ac19e05b1ab4620721f382417943efcf00a15f88ae4",
+        "characters": 23785
+      },
+      {
+        "title": "16 A Solution is Offered",
+        "slug": "chapter-16",
+        "source": "OPS/html/021_chapter016.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-naked-sun/chapter-16/",
+        "text_sha256": "118f344311cffbc2ed76af7c3f79c347cac2645348406812e21b858dbab9e732",
+        "characters": 20116
+      },
+      {
+        "title": "17 A Meeting is Held",
+        "slug": "chapter-17",
+        "source": "OPS/html/022_chapter017.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-naked-sun/chapter-17/",
+        "text_sha256": "317eef43d2ffb6857d0eefeba46eca08515bfd00b0f93a698224621c5f620402",
+        "characters": 22781
+      },
+      {
+        "title": "18 A Question is Answered",
+        "slug": "chapter-18",
+        "source": "OPS/html/023_chapter018.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-naked-sun/chapter-18/",
+        "text_sha256": "b48fdef6ca329d6cbc2d3214c1333c17cbd77f02fd069f3876d3728b78533c81",
+        "characters": 27770
+      },
+      {
+        "title": "About the Author",
+        "slug": "about-the-author",
+        "source": "OPS/html/024_author.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-naked-sun/about-the-author/",
+        "text_sha256": "0786804fc149e21eea5cff6ba743ffd71b6383e1fbd76ba4aff7063cb1b46579",
+        "characters": 1847
+      }
+    ]
+  },
+  {
+    "title": "The Rest of the Robots",
+    "slug": "the-rest-of-the-robots",
+    "year": 1964,
+    "epub_sha256": "65b2d2a026ad2d2b7b7221e2cd31d7fde884a72d53bfbae7dfc3ef78896eeeac",
+    "pages": [
+      {
+        "title": "Copyright",
+        "slug": "copyright",
+        "source": "OPS/xhtml/003_copyright.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-rest-of-the-robots/copyright/",
+        "text_sha256": "a1ebbacba8465426f966682f7af18496a4f9f41f2c4b9107ffbb0bd9882a62bf",
+        "characters": 1356
+      },
+      {
+        "title": "Dedication",
+        "slug": "dedication",
+        "source": "OPS/xhtml/004_dedication.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-rest-of-the-robots/dedication/",
+        "text_sha256": "374f40e6a0d6d135c818d6eaa002a77ebecd6f6c6b96aca2a6464fe881ef97e5",
+        "characters": 67
+      },
+      {
+        "title": "Introduction",
+        "slug": "introduction",
+        "source": "OPS/xhtml/006_introduction.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-rest-of-the-robots/introduction/",
+        "text_sha256": "717cd8c1e1bcba802b79a48e5a3947ecd80273c53a83bae3c39737b450cc59c2",
+        "characters": 10375
+      },
+      {
+        "title": "Part I The Coming of the Robots",
+        "slug": "part-01",
+        "source": "OPS/xhtml/007_part001.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-rest-of-the-robots/part-01/",
+        "text_sha256": "37ca26030da67a7a5e93398e2361ffe8648cdd5770c62c9faa4005897c40b408",
+        "characters": 31
+      },
+      {
+        "title": "1 Robot AL-76 Goes Astray",
+        "slug": "chapter-01",
+        "source": "OPS/xhtml/008_chapter001.xhtml",
+        "anchor": "",
+        "group": "Part I The Coming of the Robots",
+        "url": "/translations/the-rest-of-the-robots/chapter-01/",
+        "text_sha256": "e57f6dc18317d5c4fd1f1a024a48b5c310f3a5805408caacc474476823e0bbb3",
+        "characters": 28734
+      },
+      {
+        "title": "2 Victory Unintentional",
+        "slug": "chapter-02",
+        "source": "OPS/xhtml/009_chapter002.xhtml",
+        "anchor": "",
+        "group": "Part I The Coming of the Robots",
+        "url": "/translations/the-rest-of-the-robots/chapter-02/",
+        "text_sha256": "5fde6f0f7f6d45120cc566773a6c2ccdf269a6644c0a65adef3f2151602b6168",
+        "characters": 42086
+      },
+      {
+        "title": "Part II The Laws of Robotics",
+        "slug": "part-02",
+        "source": "OPS/xhtml/010_part002.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-rest-of-the-robots/part-02/",
+        "text_sha256": "72b18fdccd916b21d6ff4712676d5b4551eec4232ac4b24327a02a8729e294c6",
+        "characters": 5732
+      },
+      {
+        "title": "3 First Law",
+        "slug": "chapter-03",
+        "source": "OPS/xhtml/011_chapter003.xhtml",
+        "anchor": "",
+        "group": "Part II The Laws of Robotics",
+        "url": "/translations/the-rest-of-the-robots/chapter-03/",
+        "text_sha256": "08b8f767c73423db9fb83461e17a657c3ec9d73d266dae9523ac1b509e1bf519",
+        "characters": 6855
+      },
+      {
+        "title": "4 Let’s Get Together",
+        "slug": "chapter-04",
+        "source": "OPS/xhtml/012_chapter004.xhtml",
+        "anchor": "",
+        "group": "Part II The Laws of Robotics",
+        "url": "/translations/the-rest-of-the-robots/chapter-04/",
+        "text_sha256": "ce98e8afd8ee7781393effbd2495671255c3344f018751c01a0bd0b1341e5bf0",
+        "characters": 32192
+      },
+      {
+        "title": "Part III Susan Calvin",
+        "slug": "part-03",
+        "source": "OPS/xhtml/013_part003.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-rest-of-the-robots/part-03/",
+        "text_sha256": "84c4fc84feb2b5125107f202e028261f1c65d037a092313b2300b188bbe2aba0",
+        "characters": 1302
+      },
+      {
+        "title": "5 Satisfaction Guaranteed",
+        "slug": "chapter-05",
+        "source": "OPS/xhtml/014_chapter005.xhtml",
+        "anchor": "",
+        "group": "Part III Susan Calvin",
+        "url": "/translations/the-rest-of-the-robots/chapter-05/",
+        "text_sha256": "7cbd597da80967b8c24bd6456abdf0ad050ec64e2d40a1277ad744b3b0fd4129",
+        "characters": 29486
+      },
+      {
+        "title": "6 Risk",
+        "slug": "chapter-06",
+        "source": "OPS/xhtml/015_chapter006.xhtml",
+        "anchor": "",
+        "group": "Part III Susan Calvin",
+        "url": "/translations/the-rest-of-the-robots/chapter-06/",
+        "text_sha256": "4b7f5878e4333e9dfaeaac08bd819e4fd964aebf37be3314f1bf8ded16fb0353",
+        "characters": 54292
+      },
+      {
+        "title": "7 Lenny",
+        "slug": "chapter-07",
+        "source": "OPS/xhtml/016_chapter007.xhtml",
+        "anchor": "",
+        "group": "Part III Susan Calvin",
+        "url": "/translations/the-rest-of-the-robots/chapter-07/",
+        "text_sha256": "1aed55bd9965a7b789df615827e3203789191cad6bbd0de767e59922122a3645",
+        "characters": 29938
+      },
+      {
+        "title": "8 Galley Slave",
+        "slug": "chapter-08",
+        "source": "OPS/xhtml/017_chapter008.xhtml",
+        "anchor": "",
+        "group": "Part III Susan Calvin",
+        "url": "/translations/the-rest-of-the-robots/chapter-08/",
+        "text_sha256": "ed55417a3057fff05e7e9270e6f5a4951cc54c0887d28405f36ef34ce78ef54a",
+        "characters": 70080
+      },
+      {
+        "title": "Footnotes",
+        "slug": "footnotes",
+        "source": "OPS/xhtml/018_footnotes.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-rest-of-the-robots/footnotes/",
+        "text_sha256": "e068883dd4d5a54f0328791ae77a1d8bdd259c767911d26734ea017e301d446d",
+        "characters": 531
+      },
+      {
+        "title": "About the Author",
+        "slug": "about-the-author",
+        "source": "OPS/xhtml/019_author.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-rest-of-the-robots/about-the-author/",
+        "text_sha256": "0786804fc149e21eea5cff6ba743ffd71b6383e1fbd76ba4aff7063cb1b46579",
+        "characters": 1847
+      }
+    ]
+  },
+  {
+    "title": "The Robots of Dawn",
+    "slug": "the-robots-of-dawn",
+    "year": 1983,
+    "epub_sha256": "64f94f87171289dd94c09334f031b6f2cc3b67df0c6445b5da7b2a1015998a25",
+    "pages": [
+      {
+        "title": "Copyright",
+        "slug": "copyright",
+        "source": "OPS/xhtml/003_copyright.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-robots-of-dawn/copyright/",
+        "text_sha256": "c3d4b4ba64a2b45ed330b1bca17120b2281337c89c4768827ba1a2b4bc751902",
+        "characters": 1386
+      },
+      {
+        "title": "Dedication",
+        "slug": "dedication",
+        "source": "OPS/xhtml/004_dedication.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-robots-of-dawn/dedication/",
+        "text_sha256": "f19ff94494cc2e148ecd583819557a30bca7d351ae659f701c93e7001de91095",
+        "characters": 129
+      },
+      {
+        "title": "1 Baley",
+        "slug": "chapter-01",
+        "source": "OPS/xhtml/006_chapter001.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-robots-of-dawn/chapter-01/",
+        "text_sha256": "3a57316a48788a5cf6f828fc74e672cef328509a2b547c3800d94843419bb87b",
+        "characters": 45611
+      },
+      {
+        "title": "2 Daneel",
+        "slug": "chapter-02",
+        "source": "OPS/xhtml/007_chapter002.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-robots-of-dawn/chapter-02/",
+        "text_sha256": "8299c6d3155f5ded815577940c0f117171c5eda2f7c7a9a4a357e7f6ae5ca3de",
+        "characters": 45875
+      },
+      {
+        "title": "3 Giskard",
+        "slug": "chapter-03",
+        "source": "OPS/xhtml/008_chapter003.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-robots-of-dawn/chapter-03/",
+        "text_sha256": "2097b14c817ffd0eb73b49d4d98a32167a8c5abaed4621b4c5a37382eb7b9177",
+        "characters": 34361
+      },
+      {
+        "title": "4 Fastolfe",
+        "slug": "chapter-04",
+        "source": "OPS/xhtml/009_chapter004.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-robots-of-dawn/chapter-04/",
+        "text_sha256": "2017e1d09a9e45253aa1bb5f65e898708c8b813a3f43e5c0110fee64f57586b6",
+        "characters": 39605
+      },
+      {
+        "title": "5 Daneel and Giskard",
+        "slug": "chapter-05",
+        "source": "OPS/xhtml/010_chapter005.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-robots-of-dawn/chapter-05/",
+        "text_sha256": "35f3ea99e9ef29bbf55c1e68692ba77077919091f96afe8d8c3fc7ac2dc3c421",
+        "characters": 66206
+      },
+      {
+        "title": "6 Gladia",
+        "slug": "chapter-06",
+        "source": "OPS/xhtml/011_chapter006.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-robots-of-dawn/chapter-06/",
+        "text_sha256": "1894d6508f738eaa97467047ae6803f30357aab43a522264f435cef32727e8ac",
+        "characters": 57041
+      },
+      {
+        "title": "7 Again Fastolfe",
+        "slug": "chapter-07",
+        "source": "OPS/xhtml/012_chapter007.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-robots-of-dawn/chapter-07/",
+        "text_sha256": "95d36b8f3b994f3482ff1477149a7eaf170d7eb59d9c48d869fbd2a0aa1498d4",
+        "characters": 47043
+      },
+      {
+        "title": "8 Fastolfe and Vasilia",
+        "slug": "chapter-08",
+        "source": "OPS/xhtml/013_chapter008.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-robots-of-dawn/chapter-08/",
+        "text_sha256": "0815fb78d6e88679f0aa3bfbeb01d9d63dd30ffefc4b01d1ddb73d6313a9910c",
+        "characters": 37803
+      },
+      {
+        "title": "9 Vasilia",
+        "slug": "chapter-09",
+        "source": "OPS/xhtml/014_chapter009.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-robots-of-dawn/chapter-09/",
+        "text_sha256": "928fb26fd0128747ce4e52690b1ce4eadf268341e577d2c6da59a9297c3b25cd",
+        "characters": 38413
+      },
+      {
+        "title": "10 Again Vasilia",
+        "slug": "chapter-10",
+        "source": "OPS/xhtml/015_chapter010.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-robots-of-dawn/chapter-10/",
+        "text_sha256": "ee469f74eb01608e9aa4344892ce89588a37bf6144aed7c122dbaf2fcfc391a6",
+        "characters": 31532
+      },
+      {
+        "title": "11 Gremionis",
+        "slug": "chapter-11",
+        "source": "OPS/xhtml/016_chapter011.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-robots-of-dawn/chapter-11/",
+        "text_sha256": "769de0f87ee03432949eb866a7561c59082f99483ee92a8774e0657523aaceca",
+        "characters": 32168
+      },
+      {
+        "title": "12 Again Gremionis",
+        "slug": "chapter-12",
+        "source": "OPS/xhtml/017_chapter012.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-robots-of-dawn/chapter-12/",
+        "text_sha256": "be33ac975fac387985225673881b7af24b4d840adf1b9de546c7edb4b54a324d",
+        "characters": 43306
+      },
+      {
+        "title": "13 Amadiro",
+        "slug": "chapter-13",
+        "source": "OPS/xhtml/018_chapter013.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-robots-of-dawn/chapter-13/",
+        "text_sha256": "5aec30c2c03a5480ab8d4ee9665147202d233f27e541bc81348793ad18954f23",
+        "characters": 32340
+      },
+      {
+        "title": "14 Again Amadiro",
+        "slug": "chapter-14",
+        "source": "OPS/xhtml/019_chapter014.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-robots-of-dawn/chapter-14/",
+        "text_sha256": "5a479a092a567d02488eee10cf78180a6379f61e02f5d92552c482c63a5e5899",
+        "characters": 51105
+      },
+      {
+        "title": "15 Again Daneel and Giskard",
+        "slug": "chapter-15",
+        "source": "OPS/xhtml/020_chapter015.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-robots-of-dawn/chapter-15/",
+        "text_sha256": "2077832b77bf8b0ac43c60bd24bf588b7384fec000b0f44cc2e55674f288f572",
+        "characters": 42286
+      },
+      {
+        "title": "16 Again Gladia",
+        "slug": "chapter-16",
+        "source": "OPS/xhtml/021_chapter016.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-robots-of-dawn/chapter-16/",
+        "text_sha256": "2ffd09c75f172286c4d3467bb71fdc56f1039c41d2fbb09f074d59c915e58002",
+        "characters": 24702
+      },
+      {
+        "title": "17 The Chairman",
+        "slug": "chapter-17",
+        "source": "OPS/xhtml/022_chapter017.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-robots-of-dawn/chapter-17/",
+        "text_sha256": "12cd438d3c48c60ce29bc05f274b47ff550f13b4ccf87afe1751770951ad5fa9",
+        "characters": 44860
+      },
+      {
+        "title": "18 Again the Chairman",
+        "slug": "chapter-18",
+        "source": "OPS/xhtml/023_chapter018.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-robots-of-dawn/chapter-18/",
+        "text_sha256": "3a944baeb736d9078c137a20220ac0f80a7f3cf8066be4d27167d35018c4729c",
+        "characters": 41171
+      },
+      {
+        "title": "19 Again Baley",
+        "slug": "chapter-19",
+        "source": "OPS/xhtml/024_chapter019.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-robots-of-dawn/chapter-19/",
+        "text_sha256": "9e76ecca407b536bc05ca487127024096da9be494c6b96454bf00440b6c40f3c",
+        "characters": 37260
+      },
+      {
+        "title": "About the Author",
+        "slug": "about-the-author",
+        "source": "OPS/xhtml/025_abouttheauthor.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/the-robots-of-dawn/about-the-author/",
+        "text_sha256": "0786804fc149e21eea5cff6ba743ffd71b6383e1fbd76ba4aff7063cb1b46579",
+        "characters": 1847
+      }
+    ]
+  },
+  {
+    "title": "Robots and Empire",
+    "slug": "robots-and-empire",
+    "year": 1985,
+    "epub_sha256": "b38b0236cff623b4812ce80a45957bae0dc4ff69fc0df4b1ef0d1c231b98de95",
+    "pages": [
+      {
+        "title": "Copyright",
+        "slug": "copyright",
+        "source": "OEBPS/Text/Copyright.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/robots-and-empire/copyright/",
+        "text_sha256": "ca153ddb0103790d5ff11072ebfcdcdb07a3ee7155769c5e4391209412220a3e",
+        "characters": 399
+      },
+      {
+        "title": "Dedication",
+        "slug": "dedication",
+        "source": "OEBPS/Text/Dedication.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/robots-and-empire/dedication/",
+        "text_sha256": "eeed2de30339341af11cf5bad26f18757fa1f811f522248e081046db5352d64e",
+        "characters": 129
+      },
+      {
+        "title": "Chapter 1 The Descendant",
+        "slug": "chapter-01",
+        "source": "OEBPS/Text/Part_1.xhtml",
+        "anchor": "heading_id_2",
+        "group": "Part One",
+        "url": "/translations/robots-and-empire/chapter-01/",
+        "text_sha256": "e48556ced4c228fd1621a55c46016f82b18b8ae1265d89a2bdccec8245020b72",
+        "characters": 47875
+      },
+      {
+        "title": "Chapter 2 The Ancestor?",
+        "slug": "chapter-02",
+        "source": "OEBPS/Text/Part_1.xhtml",
+        "anchor": "heading_id_7",
+        "group": "Part One",
+        "url": "/translations/robots-and-empire/chapter-02/",
+        "text_sha256": "1da44802c657b93d8f59f9f8da5162e81c4572bd75ef7a8da34f8b25cece3fa5",
+        "characters": 38122
+      },
+      {
+        "title": "Chapter 3 The Crisis",
+        "slug": "chapter-03",
+        "source": "OEBPS/Text/Part_1.xhtml",
+        "anchor": "heading_id_13",
+        "group": "Part One",
+        "url": "/translations/robots-and-empire/chapter-03/",
+        "text_sha256": "cd2f042ca1d8d55ae8ecae11a4d55c2454636c018508dcabef076c15563a0428",
+        "characters": 50666
+      },
+      {
+        "title": "Chapter 4 Another Descendant",
+        "slug": "chapter-04",
+        "source": "OEBPS/Text/Part_1.xhtml",
+        "anchor": "heading_id_19",
+        "group": "Part One",
+        "url": "/translations/robots-and-empire/chapter-04/",
+        "text_sha256": "5aca8fc09189a2a4903d60006f2c3cc28b5c7f64997b071a1ac9100b378ab9af",
+        "characters": 35922
+      },
+      {
+        "title": "Chapter 5 The Abandoned World",
+        "slug": "chapter-05",
+        "source": "OEBPS/Text/Part_2.xhtml",
+        "anchor": "heading_id_2",
+        "group": "Part Two",
+        "url": "/translations/robots-and-empire/chapter-05/",
+        "text_sha256": "a3fe13b8274a13ecebf2c9c84abff092772e2ebb09debe153523724817157eb3",
+        "characters": 39304
+      },
+      {
+        "title": "Chapter 6 The Crew",
+        "slug": "chapter-06",
+        "source": "OEBPS/Text/Part_2.xhtml",
+        "anchor": "heading_id_8",
+        "group": "Part Two",
+        "url": "/translations/robots-and-empire/chapter-06/",
+        "text_sha256": "5d63b16b1721f6264ec30fedb0ce075f5c342cb1d8e921439e20410c3ef6b34c",
+        "characters": 29666
+      },
+      {
+        "title": "Chapter 7 The Overseer",
+        "slug": "chapter-07",
+        "source": "OEBPS/Text/Part_2.xhtml",
+        "anchor": "heading_id_13",
+        "group": "Part Two",
+        "url": "/translations/robots-and-empire/chapter-07/",
+        "text_sha256": "9fdaaa288a12a2fb2d21c008ad2ee251672095362d87afc97923f78b798f8f6f",
+        "characters": 44971
+      },
+      {
+        "title": "Chapter 8 The Settler World",
+        "slug": "chapter-08",
+        "source": "OEBPS/Text/Part_3.xhtml",
+        "anchor": "heading_id_2",
+        "group": "Part Three",
+        "url": "/translations/robots-and-empire/chapter-08/",
+        "text_sha256": "946ec530d261a2b50edad13cd48acfd0a35d7065149576168864d2a46ca083f6",
+        "characters": 33858
+      },
+      {
+        "title": "Chapter 9 The Speech",
+        "slug": "chapter-09",
+        "source": "OEBPS/Text/Part_3.xhtml",
+        "anchor": "heading_id_7",
+        "group": "Part Three",
+        "url": "/translations/robots-and-empire/chapter-09/",
+        "text_sha256": "9033f0c76c517382fce9161e1d38e6f48e7961588110456c55c8d5ec33608c29",
+        "characters": 52046
+      },
+      {
+        "title": "Chapter 10 After the Speech",
+        "slug": "chapter-10",
+        "source": "OEBPS/Text/Part_3.xhtml",
+        "anchor": "heading_id_12",
+        "group": "Part Three",
+        "url": "/translations/robots-and-empire/chapter-10/",
+        "text_sha256": "f30025f583546978f1218d000e64f45e3ab756c456432ec9638fd836df3150be",
+        "characters": 47988
+      },
+      {
+        "title": "Chapter 11 The Old Leader",
+        "slug": "chapter-11",
+        "source": "OEBPS/Text/Part_4.xhtml",
+        "anchor": "heading_id_2",
+        "group": "Part Four",
+        "url": "/translations/robots-and-empire/chapter-11/",
+        "text_sha256": "12785ca6dcec5f0ee122c406e54077fe2750461270faa850aa0abfb05bde6012",
+        "characters": 34562
+      },
+      {
+        "title": "Chapter 12 The Plan and the Daughter",
+        "slug": "chapter-12",
+        "source": "OEBPS/Text/Part_4.xhtml",
+        "anchor": "heading_id_7",
+        "group": "Part Four",
+        "url": "/translations/robots-and-empire/chapter-12/",
+        "text_sha256": "30f7bd917958a65b6235919227b7208b0a2d56163d135f907db994832740f4d0",
+        "characters": 40276
+      },
+      {
+        "title": "Chapter 13 The Telepathic Robot",
+        "slug": "chapter-13",
+        "source": "OEBPS/Text/Part_4.xhtml",
+        "anchor": "heading_id_13",
+        "group": "Part Four",
+        "url": "/translations/robots-and-empire/chapter-13/",
+        "text_sha256": "ffe13abed97f8c8cf5fe9aaeef3d1aae767688cf22be861abf81e3a5adfeedc5",
+        "characters": 54559
+      },
+      {
+        "title": "Chapter 14 The Duel",
+        "slug": "chapter-14",
+        "source": "OEBPS/Text/Part_4.xhtml",
+        "anchor": "heading_id_22",
+        "group": "Part Four",
+        "url": "/translations/robots-and-empire/chapter-14/",
+        "text_sha256": "48ad1caee8cc6dcc298cd531baa30f076f61c505926268387998bcee8ab2c7fb",
+        "characters": 48509
+      },
+      {
+        "title": "Chapter 15 The Holy World",
+        "slug": "chapter-15",
+        "source": "OEBPS/Text/Part_5.xhtml",
+        "anchor": "heading_id_2",
+        "group": "Part Five",
+        "url": "/translations/robots-and-empire/chapter-15/",
+        "text_sha256": "4e2ff083eb57ea491f477046b9aa5c180c943adf336fd6b0e1b9e97a81165a4d",
+        "characters": 44389
+      },
+      {
+        "title": "Chapter 16 The City",
+        "slug": "chapter-16",
+        "source": "OEBPS/Text/Part_5.xhtml",
+        "anchor": "heading_id_11",
+        "group": "Part Five",
+        "url": "/translations/robots-and-empire/chapter-16/",
+        "text_sha256": "4ce0274c33b8f99640e90d4ce529972e6fa34065255f2107ce92ed928979a422",
+        "characters": 41739
+      },
+      {
+        "title": "Chapter 17 The Assassin",
+        "slug": "chapter-17",
+        "source": "OEBPS/Text/Part_5.xhtml",
+        "anchor": "heading_id_18",
+        "group": "Part Five",
+        "url": "/translations/robots-and-empire/chapter-17/",
+        "text_sha256": "297c4e0311836b88272d5a1b9d4d77c710e9a228ff3a0b819f552d972d7d2b0a",
+        "characters": 48510
+      },
+      {
+        "title": "Chapter 18 The Zeroth Law",
+        "slug": "chapter-18",
+        "source": "OEBPS/Text/Part_5.xhtml",
+        "anchor": "heading_id_25",
+        "group": "Part Five",
+        "url": "/translations/robots-and-empire/chapter-18/",
+        "text_sha256": "0e63cdf8c3c9052b18118c8a389888ed7a6c70f4bf1478785a1c05c4f08433ad",
+        "characters": 50460
+      },
+      {
+        "title": "Chapter 19 Alone",
+        "slug": "chapter-19",
+        "source": "OEBPS/Text/Part_5.xhtml",
+        "anchor": "heading_id_34",
+        "group": "Part Five",
+        "url": "/translations/robots-and-empire/chapter-19/",
+        "text_sha256": "27b25dbeb03f4a0dc90d148a3ac533913f0126a214a960ec60bb900ad1614c4b",
+        "characters": 4259
+      },
+      {
+        "title": "About the Author",
+        "slug": "about-the-author",
+        "source": "OEBPS/Text/AboutTheAuthor.xhtml",
+        "anchor": "",
+        "group": "",
+        "url": "/translations/robots-and-empire/about-the-author/",
+        "text_sha256": "7b0ea1c6a1c38862c2f7920aca47bf9e866f5e4732a8a4c4278624471e1529c4",
+        "characters": 336
+      }
+    ]
+  }
+]

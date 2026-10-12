@@ -1,0 +1,1642 @@
+[
+  {
+    "title": "Childhood's End",
+    "slug": "childhoods-end",
+    "year": 1953,
+    "epub_sha256": "95952fad68e85b913dc838c28733d39aec3c0cfe167ffa567cf3313262adb03f",
+    "pages": [
+      {
+        "title": "Copyright",
+        "slug": "copyright",
+        "source": "OEBPS/cop.htm",
+        "url": "/translations/childhoods-end/copyright/",
+        "characters": 537,
+        "text_sha256": "196a37def1a850a8d3d326b007fae5b60c66f89e6d5a8f7ebf8ae9f53c8f5def"
+      },
+      {
+        "title": "Epigraph",
+        "slug": "epigraph",
+        "source": "OEBPS/fm.htm",
+        "url": "/translations/childhoods-end/epigraph/",
+        "characters": 64,
+        "text_sha256": "3f32f0ea5fd2a661c09e15b46c45f1c9b110580982f6d0b5f06d1b9c12de1bf4"
+      },
+      {
+        "title": "Foreword",
+        "slug": "foreword",
+        "source": "OEBPS/fwd.htm",
+        "url": "/translations/childhoods-end/foreword/",
+        "characters": 6413,
+        "text_sha256": "8a3eab02c42ca909216f81c8be9e6325ade2ecdea620d56e65c67d4369615e54"
+      },
+      {
+        "title": "I. Earth and the Overlords",
+        "slug": "part-01",
+        "source": "OEBPS/p01.htm",
+        "url": "/translations/childhoods-end/part-01/",
+        "characters": 24,
+        "text_sha256": "ac13f10bdeeb9c5beed23bd84af15eae6260b617584bfc2859ab58f92c6bb3d1"
+      },
+      {
+        "title": "1",
+        "slug": "chapter-01",
+        "source": "OEBPS/c01.htm",
+        "url": "/translations/childhoods-end/chapter-01/",
+        "characters": 8504,
+        "text_sha256": "bda24060babf0a753cf22051c0df2d97c3ad8617355767d42f0fc6406fc131ad"
+      },
+      {
+        "title": "2",
+        "slug": "chapter-02",
+        "source": "OEBPS/c02.htm",
+        "url": "/translations/childhoods-end/chapter-02/",
+        "characters": 28517,
+        "text_sha256": "8792b59c1f5295811b43f8098037849d7a9c72f45cbbcfc02698a5fe1a671eb2"
+      },
+      {
+        "title": "3",
+        "slug": "chapter-03",
+        "source": "OEBPS/c03.htm",
+        "url": "/translations/childhoods-end/chapter-03/",
+        "characters": 42731,
+        "text_sha256": "04f81e025ade0835df70d71b75e6a1dfe9ebad4ba52622b306e32d5cd6bbc04a"
+      },
+      {
+        "title": "4",
+        "slug": "chapter-04",
+        "source": "OEBPS/c04.htm",
+        "url": "/translations/childhoods-end/chapter-04/",
+        "characters": 29602,
+        "text_sha256": "1bf6113ac1912861ae9dfe6d12feef95fe4cad6f4be54dbbe718ab0ff565ac87"
+      },
+      {
+        "title": "II. The Golden Age",
+        "slug": "part-02",
+        "source": "OEBPS/p02.htm",
+        "url": "/translations/childhoods-end/part-02/",
+        "characters": 17,
+        "text_sha256": "4175cd63c34da1fccf4f78afb41c7174ec311c91b59ed843c16ccc073bd34955"
+      },
+      {
+        "title": "5",
+        "slug": "chapter-05",
+        "source": "OEBPS/c05.htm",
+        "url": "/translations/childhoods-end/chapter-05/",
+        "characters": 4924,
+        "text_sha256": "e796e600051aa4be20a7233ec8abf3b9ed1eecfe5368aa72f4aaf079a324e724"
+      },
+      {
+        "title": "6",
+        "slug": "chapter-06",
+        "source": "OEBPS/c06.htm",
+        "url": "/translations/childhoods-end/chapter-06/",
+        "characters": 14300,
+        "text_sha256": "d92e26f2bdf9f284b8d863841d6320946f0fdfbe6fbfdee2bb70b60066b27cc2"
+      },
+      {
+        "title": "7",
+        "slug": "chapter-07",
+        "source": "OEBPS/c07.htm",
+        "url": "/translations/childhoods-end/chapter-07/",
+        "characters": 27322,
+        "text_sha256": "0f6a5dc5f4205b3175ede69e2ab91e3f136fcfd584d76245128100ce204b83a7"
+      },
+      {
+        "title": "8",
+        "slug": "chapter-08",
+        "source": "OEBPS/c08.htm",
+        "url": "/translations/childhoods-end/chapter-08/",
+        "characters": 21690,
+        "text_sha256": "96bcb839e53b91ea299e094fbcc6edbd9c5cef36f4cfbc2859def76fd68d432c"
+      },
+      {
+        "title": "9",
+        "slug": "chapter-09",
+        "source": "OEBPS/c09.htm",
+        "url": "/translations/childhoods-end/chapter-09/",
+        "characters": 17760,
+        "text_sha256": "ffdd3e17c67f90ec502ec1b843179285174b1b9b7c48c185fde3ad7cebbee29a"
+      },
+      {
+        "title": "10",
+        "slug": "chapter-10",
+        "source": "OEBPS/c10.htm",
+        "url": "/translations/childhoods-end/chapter-10/",
+        "characters": 5784,
+        "text_sha256": "63ad8896a6839a2d688c1c22e3db9dd9e711cf7309b4aad440bf9858658f241a"
+      },
+      {
+        "title": "11",
+        "slug": "chapter-11",
+        "source": "OEBPS/c11.htm",
+        "url": "/translations/childhoods-end/chapter-11/",
+        "characters": 14769,
+        "text_sha256": "7c92e8e6ecbd87447d2fda137fd0869aeb34081079fe8f61f8f8d3344e55afc8"
+      },
+      {
+        "title": "12",
+        "slug": "chapter-12",
+        "source": "OEBPS/c12.htm",
+        "url": "/translations/childhoods-end/chapter-12/",
+        "characters": 11137,
+        "text_sha256": "f2a757d3909de42729412e8c2ffc79c4ea1275467ab8bf589b5e28af1604a5ea"
+      },
+      {
+        "title": "13",
+        "slug": "chapter-13",
+        "source": "OEBPS/c13.htm",
+        "url": "/translations/childhoods-end/chapter-13/",
+        "characters": 11197,
+        "text_sha256": "4511238ace773071a921b7ca501c11dc70191a180adb2501199da3d321446e8d"
+      },
+      {
+        "title": "14",
+        "slug": "chapter-14",
+        "source": "OEBPS/c14.htm",
+        "url": "/translations/childhoods-end/chapter-14/",
+        "characters": 9052,
+        "text_sha256": "371846199b8ff0e43985a02e6f7eb8350ed9132c218493be82a2cbdfd9fa30bc"
+      },
+      {
+        "title": "III. The Last Generation",
+        "slug": "part-03",
+        "source": "OEBPS/p03.htm",
+        "url": "/translations/childhoods-end/part-03/",
+        "characters": 23,
+        "text_sha256": "d8f2073f697d9c6ad6edc31e812f6bbf3774cdb5ba93e7760310694ab1ec5e25"
+      },
+      {
+        "title": "15",
+        "slug": "chapter-15",
+        "source": "OEBPS/c15.htm",
+        "url": "/translations/childhoods-end/chapter-15/",
+        "characters": 21064,
+        "text_sha256": "69cf1c82c9351d332456fa7dab3a2354909ba8a01df3eb5e7ce5f875ef4c9e08"
+      },
+      {
+        "title": "16",
+        "slug": "chapter-16",
+        "source": "OEBPS/c16.htm",
+        "url": "/translations/childhoods-end/chapter-16/",
+        "characters": 15538,
+        "text_sha256": "5a0a18cf3baa97eaa9eb24ab8acf48d4b7302e00a0a333fe8d91e96aaa7d3ef5"
+      },
+      {
+        "title": "17",
+        "slug": "chapter-17",
+        "source": "OEBPS/c17.htm",
+        "url": "/translations/childhoods-end/chapter-17/",
+        "characters": 20317,
+        "text_sha256": "6773669cf1002fda80b1b614fa9391966ff4c266a8e75d3b92fdb5a6c5b04079"
+      },
+      {
+        "title": "18",
+        "slug": "chapter-18",
+        "source": "OEBPS/c18.htm",
+        "url": "/translations/childhoods-end/chapter-18/",
+        "characters": 18187,
+        "text_sha256": "1e18dedd19d7f0a148b3beebb30e716ae30a3caa0a207d9737defa0997b3c94c"
+      },
+      {
+        "title": "19",
+        "slug": "chapter-19",
+        "source": "OEBPS/c19.htm",
+        "url": "/translations/childhoods-end/chapter-19/",
+        "characters": 4427,
+        "text_sha256": "1577fa4c7501e106a86504cd2d1696e65eda43afe8a1c6ab316c367d7e706938"
+      },
+      {
+        "title": "20",
+        "slug": "chapter-20",
+        "source": "OEBPS/c20.htm",
+        "url": "/translations/childhoods-end/chapter-20/",
+        "characters": 10587,
+        "text_sha256": "6829a8da36c13879c45879b24b75704f10c3083994286f56a853feabba976f9f"
+      },
+      {
+        "title": "21",
+        "slug": "chapter-21",
+        "source": "OEBPS/c21.htm",
+        "url": "/translations/childhoods-end/chapter-21/",
+        "characters": 6294,
+        "text_sha256": "351ce3f0fd961f9f6956844cdc064f639ddb378eb2adb7b22b01a13df2f16dba"
+      },
+      {
+        "title": "22",
+        "slug": "chapter-22",
+        "source": "OEBPS/c22.htm",
+        "url": "/translations/childhoods-end/chapter-22/",
+        "characters": 25924,
+        "text_sha256": "c2e56cceb7449121008104e251bd3d74d3d0de90a91174fab8d30fcb7926ec25"
+      },
+      {
+        "title": "23",
+        "slug": "chapter-23",
+        "source": "OEBPS/c23.htm",
+        "url": "/translations/childhoods-end/chapter-23/",
+        "characters": 15416,
+        "text_sha256": "83a93225ad7f1a0739d65e3e5e2764b50104e1daf89fae331c0f45563330ad8b"
+      },
+      {
+        "title": "24",
+        "slug": "chapter-24",
+        "source": "OEBPS/c24.htm",
+        "url": "/translations/childhoods-end/chapter-24/",
+        "characters": 16801,
+        "text_sha256": "77f4d751ebbe2ac64f54565989eb0dd493c0bd4a246b687a56def49b263a4a12"
+      },
+      {
+        "title": "Appendix",
+        "slug": "appendix",
+        "source": "OEBPS/app.htm",
+        "url": "/translations/childhoods-end/appendix/",
+        "characters": 4567,
+        "text_sha256": "7a4e26bd9c5f46bfad9b9e461b99e9c5bb4a0632da7e9fa3db8f58095ce28911"
+      }
+    ]
+  },
+  {
+    "title": "The City and the Stars",
+    "slug": "the-city-and-the-stars",
+    "year": 1956,
+    "epub_sha256": "248831588f974cd9e35381c87d71207f3f4ba3713ab2d1918de2af016a9aa34d",
+    "pages": [
+      {
+        "title": "Copyright",
+        "slug": "copyright",
+        "source": "OEBPS/cop.htm",
+        "url": "/translations/the-city-and-the-stars/copyright/",
+        "characters": 529,
+        "text_sha256": "773c27efdbb1d1d667c3144210a27fd5a4be1a49b754637c2961b5661a201e3a"
+      },
+      {
+        "title": "Prologue",
+        "slug": "prologue",
+        "source": "OEBPS/prl.htm",
+        "url": "/translations/the-city-and-the-stars/prologue/",
+        "characters": 2531,
+        "text_sha256": "5c672cbeb39dbb4b6a1757612d7ec581936375e2a551352643a089096f13595c"
+      },
+      {
+        "title": "Chapter One",
+        "slug": "chapter-01",
+        "source": "OEBPS/c01.htm",
+        "url": "/translations/the-city-and-the-stars/chapter-01/",
+        "characters": 11319,
+        "text_sha256": "82daabe7b975e8bd80afe872f526c6a4aee3d1ea903a78031a56dc40551e5133"
+      },
+      {
+        "title": "Chapter Two",
+        "slug": "chapter-02",
+        "source": "OEBPS/c02.htm",
+        "url": "/translations/the-city-and-the-stars/chapter-02/",
+        "characters": 12412,
+        "text_sha256": "05e5f2352287ef562910bf9b6546167ba52cb9840a93632310389914cf938804"
+      },
+      {
+        "title": "Chapter Three",
+        "slug": "chapter-03",
+        "source": "OEBPS/c03.htm",
+        "url": "/translations/the-city-and-the-stars/chapter-03/",
+        "characters": 12340,
+        "text_sha256": "7040fc9b3cff8d7d9b42fa73db9a96930055dc528778cbce314393a1b90fa4bc"
+      },
+      {
+        "title": "Chapter Four",
+        "slug": "chapter-04",
+        "source": "OEBPS/c04.htm",
+        "url": "/translations/the-city-and-the-stars/chapter-04/",
+        "characters": 27766,
+        "text_sha256": "01220d3b94df331902b095cb75b6cf131011ad8beffff5cf924fe48c0696e887"
+      },
+      {
+        "title": "Chapter Five",
+        "slug": "chapter-05",
+        "source": "OEBPS/c05.htm",
+        "url": "/translations/the-city-and-the-stars/chapter-05/",
+        "characters": 14725,
+        "text_sha256": "145a17147dc80789593fb26e582b84f2bb62a6b598d9ba891b7d478a15eeb1e6"
+      },
+      {
+        "title": "Chapter Six",
+        "slug": "chapter-06",
+        "source": "OEBPS/c06.htm",
+        "url": "/translations/the-city-and-the-stars/chapter-06/",
+        "characters": 14297,
+        "text_sha256": "76bcdea2effeb2c0b9cdc694999b27d270acebc7f2efaa9c7bbb7d17834480e1"
+      },
+      {
+        "title": "Chapter Seven",
+        "slug": "chapter-07",
+        "source": "OEBPS/c07.htm",
+        "url": "/translations/the-city-and-the-stars/chapter-07/",
+        "characters": 20679,
+        "text_sha256": "2d81ef5b7d929ff88833bfc2244ad052ae9ecceb6a5d05eaa40df67e34935e84"
+      },
+      {
+        "title": "Chapter Eight",
+        "slug": "chapter-08",
+        "source": "OEBPS/c08.htm",
+        "url": "/translations/the-city-and-the-stars/chapter-08/",
+        "characters": 19309,
+        "text_sha256": "42101698fb34c6a1b9272ff303ff56bf83ac70de6f8f4d5cb7bff96783324e10"
+      },
+      {
+        "title": "Chapter Nine",
+        "slug": "chapter-09",
+        "source": "OEBPS/c09.htm",
+        "url": "/translations/the-city-and-the-stars/chapter-09/",
+        "characters": 17872,
+        "text_sha256": "13e31e445ffd8c6371e40d867eeb4eb3a62c3327f6684cebfaa8ec17309231bd"
+      },
+      {
+        "title": "Chapter Ten",
+        "slug": "chapter-10",
+        "source": "OEBPS/c10.htm",
+        "url": "/translations/the-city-and-the-stars/chapter-10/",
+        "characters": 30532,
+        "text_sha256": "3dfc6503d94a2b8952bbb5121a888fe95780c478fbbafb48c4caf484ec160ca2"
+      },
+      {
+        "title": "Chapter Eleven",
+        "slug": "chapter-11",
+        "source": "OEBPS/c11.htm",
+        "url": "/translations/the-city-and-the-stars/chapter-11/",
+        "characters": 35788,
+        "text_sha256": "db40d867e45e8a6c352917f3e41e20b6e4ab600c2bd99cfc402185f70b041a58"
+      },
+      {
+        "title": "Chapter Twelve",
+        "slug": "chapter-12",
+        "source": "OEBPS/c12.htm",
+        "url": "/translations/the-city-and-the-stars/chapter-12/",
+        "characters": 26243,
+        "text_sha256": "3201b51949b1e1d6029b2fe0b0cc2569664aa92aac8d9d031dc13eb06e55c22f"
+      },
+      {
+        "title": "Chapter Thirteen",
+        "slug": "chapter-13",
+        "source": "OEBPS/c13.htm",
+        "url": "/translations/the-city-and-the-stars/chapter-13/",
+        "characters": 17326,
+        "text_sha256": "a06b7427018f5dfdc4e0ede3c946eaf35311cfa586691a3c052047535c920045"
+      },
+      {
+        "title": "Chapter Fourteen",
+        "slug": "chapter-14",
+        "source": "OEBPS/c14.htm",
+        "url": "/translations/the-city-and-the-stars/chapter-14/",
+        "characters": 14042,
+        "text_sha256": "8ece720aac20dbea46bc7a9a105b9415d0841c149618e59fe343bc7c40c91d4d"
+      },
+      {
+        "title": "Chapter Fifteen",
+        "slug": "chapter-15",
+        "source": "OEBPS/c15.htm",
+        "url": "/translations/the-city-and-the-stars/chapter-15/",
+        "characters": 17587,
+        "text_sha256": "0909d726f78b19ad7dfae6be2b2eb6f40573017c116f0243ee703c7c360f97d3"
+      },
+      {
+        "title": "Chapter Sixteen",
+        "slug": "chapter-16",
+        "source": "OEBPS/c16.htm",
+        "url": "/translations/the-city-and-the-stars/chapter-16/",
+        "characters": 21970,
+        "text_sha256": "9c175f56fa3d96246abdd779e924df6ac9d7400c18f0438ee4ae8f238f4c6773"
+      },
+      {
+        "title": "Chapter Seventeen",
+        "slug": "chapter-17",
+        "source": "OEBPS/c17.htm",
+        "url": "/translations/the-city-and-the-stars/chapter-17/",
+        "characters": 22024,
+        "text_sha256": "58f4dcde1a92663edef41e2f100933226fdb50b715ec730afc4f08e75363b8e8"
+      },
+      {
+        "title": "Chapter Eighteen",
+        "slug": "chapter-18",
+        "source": "OEBPS/c18.htm",
+        "url": "/translations/the-city-and-the-stars/chapter-18/",
+        "characters": 22232,
+        "text_sha256": "fc9a3d7d5737c4a64e646f0d1d06dcd1e0c60c1aabc0be14fde80c6cdde421b6"
+      },
+      {
+        "title": "Chapter Nineteen",
+        "slug": "chapter-19",
+        "source": "OEBPS/c19.htm",
+        "url": "/translations/the-city-and-the-stars/chapter-19/",
+        "characters": 19453,
+        "text_sha256": "e41c44da9de1d4ab0b2fe84725ff7c86f69a2f98447e8ddabf20a3234f178252"
+      },
+      {
+        "title": "Chapter Twenty",
+        "slug": "chapter-20",
+        "source": "OEBPS/c20.htm",
+        "url": "/translations/the-city-and-the-stars/chapter-20/",
+        "characters": 22695,
+        "text_sha256": "d0859f927136f4bdfa99d2797d076b6697dbb13fa78156eb8f8843fbc2fd32a7"
+      },
+      {
+        "title": "Chapter Twenty-One",
+        "slug": "chapter-21",
+        "source": "OEBPS/c21.htm",
+        "url": "/translations/the-city-and-the-stars/chapter-21/",
+        "characters": 19947,
+        "text_sha256": "2ea0d6885fa123988e038638000e32503ff9548fbf715344647d0efe83d46d4d"
+      },
+      {
+        "title": "Chapter Twenty-Two",
+        "slug": "chapter-22",
+        "source": "OEBPS/c22.htm",
+        "url": "/translations/the-city-and-the-stars/chapter-22/",
+        "characters": 10549,
+        "text_sha256": "06398c8ba7fc9366199b11468dea2e876fbdf4d61b3ac37cf1c72ecc29dfa583"
+      },
+      {
+        "title": "Chapter Twenty-Three",
+        "slug": "chapter-23",
+        "source": "OEBPS/c23.htm",
+        "url": "/translations/the-city-and-the-stars/chapter-23/",
+        "characters": 15152,
+        "text_sha256": "a7b804d80e2aec4ba4b15866f24f525ed4b97955cf01032733e47f96da1a29b2"
+      },
+      {
+        "title": "Chapter Twenty-Four",
+        "slug": "chapter-24",
+        "source": "OEBPS/c24.htm",
+        "url": "/translations/the-city-and-the-stars/chapter-24/",
+        "characters": 18986,
+        "text_sha256": "dcea205ea632676df5fc01458f0c507201925bd87114b76ab89fe7438fdf59c2"
+      },
+      {
+        "title": "Chapter Twenty-Five",
+        "slug": "chapter-25",
+        "source": "OEBPS/c25.htm",
+        "url": "/translations/the-city-and-the-stars/chapter-25/",
+        "characters": 10837,
+        "text_sha256": "519f8ef4300c9561086c6d0c5ffbdb8cb1c8dd8462c8f23d752851188ca9c57a"
+      },
+      {
+        "title": "Chapter Twenty-Six",
+        "slug": "chapter-26",
+        "source": "OEBPS/c26.htm",
+        "url": "/translations/the-city-and-the-stars/chapter-26/",
+        "characters": 9783,
+        "text_sha256": "0e7c782bbccf3db85c84822d3dba2a6d5fb710f0347e0c14e69113ac6c7dfad4"
+      }
+    ]
+  },
+  {
+    "title": "2001: A Space Odyssey",
+    "slug": "2001-a-space-odyssey",
+    "year": 1968,
+    "epub_sha256": "ae31393c55c5dbc2f162f3685778a907dda492239e45e4f2cb111c255098afcd",
+    "pages": [
+      {
+        "title": "Edition information, Foreword and Dedication",
+        "slug": "foreword",
+        "source": "OEBPS/part1.xhtml",
+        "url": "/translations/2001-a-space-odyssey/foreword/",
+        "characters": 1794,
+        "text_sha256": "2d3efa504e618df127dfbdf2af7eee07303efe2f48007f8d319601184c6605dc"
+      },
+      {
+        "title": "1 - The Road to Extinction",
+        "slug": "chapter-01",
+        "source": "OEBPS/part2.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-01/",
+        "characters": 9937,
+        "text_sha256": "cf141bf5b4979b90ff267b24046e89cebdafc862951c5c5e810c484863dce465"
+      },
+      {
+        "title": "2 - The New Rock",
+        "slug": "chapter-02",
+        "source": "OEBPS/part3.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-02/",
+        "characters": 9699,
+        "text_sha256": "a74a5cff2585277157e291498bf8f0394915d654e6567556e04b6c0508a1287f"
+      },
+      {
+        "title": "3 - Academy",
+        "slug": "chapter-03",
+        "source": "OEBPS/part4.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-03/",
+        "characters": 7855,
+        "text_sha256": "d97dfabcae1445cfd415b922bab32a03dbedfb510f07d02181a9d3004ea451d8"
+      },
+      {
+        "title": "4 - The Leopard",
+        "slug": "chapter-04",
+        "source": "OEBPS/part5.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-04/",
+        "characters": 10100,
+        "text_sha256": "d71b5edd4a4a02191dba015d2a86143c85a5fe58e75e262f6b70106af3efc1b4"
+      },
+      {
+        "title": "5 - Encounter in the Dawn",
+        "slug": "chapter-05",
+        "source": "OEBPS/part6.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-05/",
+        "characters": 3211,
+        "text_sha256": "a34383ba9e3051471f6be908cf27771b023e0fc1fbd2f4a2bcd710f2a4ea9d4e"
+      },
+      {
+        "title": "6 - Ascent of Man",
+        "slug": "chapter-06",
+        "source": "OEBPS/part7.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-06/",
+        "characters": 4276,
+        "text_sha256": "78364809fb9c42fddd20eb1f1687cbbdd62e1c641a90a53f6ece62bd50c602a7"
+      },
+      {
+        "title": "7 - Special Flight",
+        "slug": "chapter-07",
+        "source": "OEBPS/part8.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-07/",
+        "characters": 14538,
+        "text_sha256": "80b2e4c05b117ac56276a862e72ac899c72d4091c2aaabf4c3aaef2f18bf4657"
+      },
+      {
+        "title": "8 - Orbital Rendezvous",
+        "slug": "chapter-08",
+        "source": "OEBPS/part9.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-08/",
+        "characters": 6385,
+        "text_sha256": "2c076f5cfc209955b393716080677fe160f2ea14262a43748a842426da84c394"
+      },
+      {
+        "title": "9 - Moon Shuttle",
+        "slug": "chapter-09",
+        "source": "OEBPS/part10.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-09/",
+        "characters": 17196,
+        "text_sha256": "f50fd22b52c84835127d227aeab4c07f55d49a46d2db89cb16807edf5513cf45"
+      },
+      {
+        "title": "10 - Clavius Base",
+        "slug": "chapter-10",
+        "source": "OEBPS/part11.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-10/",
+        "characters": 12156,
+        "text_sha256": "435bb674a00943d5dd80a94b83df0624579d587d0f356e273d6744b1b17bfa25"
+      },
+      {
+        "title": "11 - Anomaly",
+        "slug": "chapter-11",
+        "source": "OEBPS/part12.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-11/",
+        "characters": 7040,
+        "text_sha256": "10aa2f12631ad5fa1797ed7fb3edb633408997294648049e65966a24d9a05ba8"
+      },
+      {
+        "title": "12 - Journey by Earthlight",
+        "slug": "chapter-12",
+        "source": "OEBPS/part13.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-12/",
+        "characters": 13042,
+        "text_sha256": "420f3222f665b382a90edf7637e9c06ecb3da0dff34a7c2faf8cc23145862068"
+      },
+      {
+        "title": "13 - The Slow Dawn",
+        "slug": "chapter-13",
+        "source": "OEBPS/part14.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-13/",
+        "characters": 6873,
+        "text_sha256": "590a26be9ed7bac8c5f43ce42bb9073c348520706afa01df8b3cb16eb839efe5"
+      },
+      {
+        "title": "14 - The Listeners",
+        "slug": "chapter-14",
+        "source": "OEBPS/part15.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-14/",
+        "characters": 4173,
+        "text_sha256": "c15280618185770be5bc3d2c39cd5595ba693067415c45cf91c52cfd6eda0c76"
+      },
+      {
+        "title": "15 - Discovery",
+        "slug": "chapter-15",
+        "source": "OEBPS/part16.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-15/",
+        "characters": 10111,
+        "text_sha256": "10388e1189df0e806db6cc1b00fc6a3f887e55b2449cfe876b2a4c1d5bc2c4bf"
+      },
+      {
+        "title": "16 - Hal",
+        "slug": "chapter-16",
+        "source": "OEBPS/part17.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-16/",
+        "characters": 6302,
+        "text_sha256": "653e8f3e5f3c89381d834c893d35466fdbbc963b7a5eb0d32ad5340bc05ddb48"
+      },
+      {
+        "title": "17 - Cruise Mode",
+        "slug": "chapter-17",
+        "source": "OEBPS/part18.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-17/",
+        "characters": 12646,
+        "text_sha256": "dba552d2e9c752d3a21c4e80f8b49d73cf9d211adc014ca96190c2de7e67d000"
+      },
+      {
+        "title": "18 - Through the Asteroids",
+        "slug": "chapter-18",
+        "source": "OEBPS/part19.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-18/",
+        "characters": 5707,
+        "text_sha256": "6ea514ebe46d32d390243898249497fb4eee7b5b57ccec2ec133462cdbd49938"
+      },
+      {
+        "title": "19 - Transit of Jupiter",
+        "slug": "chapter-19",
+        "source": "OEBPS/part20.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-19/",
+        "characters": 12851,
+        "text_sha256": "970741c50e3cfe383e983b3993f1a696a08a9a8535527783655c3dbcbf498f5b"
+      },
+      {
+        "title": "20 - The World of the Gods",
+        "slug": "chapter-20",
+        "source": "OEBPS/part21.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-20/",
+        "characters": 5365,
+        "text_sha256": "44fda7be4ce0f6ee06397d1099fbd05bfea6a965c260456894e3c5ddcfe870a3"
+      },
+      {
+        "title": "21 - Birthday Party",
+        "slug": "chapter-21",
+        "source": "OEBPS/part22_split_001.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-21/",
+        "characters": 8855,
+        "text_sha256": "ffcb8f8f7ae093955578b8a005913ca005c56618e767c575cc647880ca8a7464"
+      },
+      {
+        "title": "22 - Excursion",
+        "slug": "chapter-22",
+        "source": "OEBPS/part23.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-22/",
+        "characters": 13471,
+        "text_sha256": "08a15e859cfeb01b3b7564c353a82d8cc145f35479e0e8bf9c5a3386ccece4d7"
+      },
+      {
+        "title": "23 - Diagnosis",
+        "slug": "chapter-23",
+        "source": "OEBPS/part24.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-23/",
+        "characters": 6134,
+        "text_sha256": "e62c2442d4c9872aed81b4e9cabf0e10ec3f09c877d224a362c6c5a671e1e50a"
+      },
+      {
+        "title": "24 - Broken Circuit",
+        "slug": "chapter-24",
+        "source": "OEBPS/part25.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-24/",
+        "characters": 7841,
+        "text_sha256": "6b717019a8741772add3207c8624169bd29482a3ea9c1d16a607a4595317b99c"
+      },
+      {
+        "title": "25 - First Man to Saturn",
+        "slug": "chapter-25",
+        "source": "OEBPS/part25.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-25/",
+        "characters": 6051,
+        "text_sha256": "dcc3d0853fbd85443db579b3562a88cba68fcd4ad47833a8c36306e9a3445670"
+      },
+      {
+        "title": "26 - Dialogue with Hal",
+        "slug": "chapter-26",
+        "source": "OEBPS/part25.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-26/",
+        "characters": 9807,
+        "text_sha256": "9d0ea58a88fbb4d7f4d672b7543fb955979a3e786b41eb649ac2470f6a1ddd1a"
+      },
+      {
+        "title": "27 - Need to Know",
+        "slug": "chapter-27",
+        "source": "OEBPS/part25.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-27/",
+        "characters": 3018,
+        "text_sha256": "ed4b1262a2925e50e68be6b133275f1cb95d0cb3da8daed339c3b8b248fd5f41"
+      },
+      {
+        "title": "28 - In Vacuum",
+        "slug": "chapter-28",
+        "source": "OEBPS/part25.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-28/",
+        "characters": 13284,
+        "text_sha256": "351b9c82a39a11146c19d900b448c9e0034daad3d7674d517aea8c2076e20e69"
+      },
+      {
+        "title": "29 - Alone",
+        "slug": "chapter-29",
+        "source": "OEBPS/part25.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-29/",
+        "characters": 3543,
+        "text_sha256": "8b2c3f933c445177606a682fab44c9466a1c288df4f69cd1faaf971fd84c0d8c"
+      },
+      {
+        "title": "30 - The Secret",
+        "slug": "chapter-30",
+        "source": "OEBPS/part25.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-30/",
+        "characters": 6667,
+        "text_sha256": "4ff02d19a83a7f3a2d7bd6edbd20ac05efddef4be25ec841b9d36c6ec00b4da1"
+      },
+      {
+        "title": "31- Survival",
+        "slug": "chapter-31",
+        "source": "OEBPS/part25.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-31/",
+        "characters": 8757,
+        "text_sha256": "3531b2893fadbb09dbcd417eb017351af28de5f7d2b4ebf13c8e1e61ea6c194c"
+      },
+      {
+        "title": "32 - Concerning E.T.'s",
+        "slug": "chapter-32",
+        "source": "OEBPS/part25.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-32/",
+        "characters": 8327,
+        "text_sha256": "e345f8727221f1ae63cf92c182c1f8b54ba76483a6f366399d378dbdc3680385"
+      },
+      {
+        "title": "33 - Ambassador",
+        "slug": "chapter-33",
+        "source": "OEBPS/part25.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-33/",
+        "characters": 5693,
+        "text_sha256": "27bb6f676744219f299a71fef6c75509c7efce2102af6eb3b0ec1f1237002650"
+      },
+      {
+        "title": "34 - The Orbiting Ice",
+        "slug": "chapter-34",
+        "source": "OEBPS/part25.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-34/",
+        "characters": 6901,
+        "text_sha256": "eb6d618233a2f301672657000be6f4afac6a0282c41d5caab2823ac33f48dce9"
+      },
+      {
+        "title": "35 - The Eye of Japetus",
+        "slug": "chapter-35",
+        "source": "OEBPS/part25.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-35/",
+        "characters": 3424,
+        "text_sha256": "fc66d6d42dc86958a903756dee26673a8f16d70172d32dbbb3b1af56bb294ca0"
+      },
+      {
+        "title": "36 - Big Brother",
+        "slug": "chapter-36",
+        "source": "OEBPS/part25.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-36/",
+        "characters": 1552,
+        "text_sha256": "df781cef959d56b4ec39d1fc8244e840e54113b635a0e285ac1441c957b37d57"
+      },
+      {
+        "title": "37 - Experiment",
+        "slug": "chapter-37",
+        "source": "OEBPS/part25.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-37/",
+        "characters": 3901,
+        "text_sha256": "1aed5d492c5bfe9e33d8e9984fe31d4810363e4c3e4637e253a2d96947de337c"
+      },
+      {
+        "title": "38 - The Sentinel",
+        "slug": "chapter-38",
+        "source": "OEBPS/part25.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-38/",
+        "characters": 2920,
+        "text_sha256": "433982f8a2f90acd49bd9cf5877a88fc7c4447a2296272d7a22645dc28bd4a33"
+      },
+      {
+        "title": "39 - Into the Eye",
+        "slug": "chapter-39",
+        "source": "OEBPS/part25.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-39/",
+        "characters": 5858,
+        "text_sha256": "a3d67b153c0e3f2f3d7056b572831b7a0a502902a2082f8888ea2a509cc1a9dc"
+      },
+      {
+        "title": "40 - Exit",
+        "slug": "chapter-40",
+        "source": "OEBPS/part25.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-40/",
+        "characters": 379,
+        "text_sha256": "f191edf00d5f15ad6d6a6c8349a73994103901cd081a02e95e1ba40ac8ff3280"
+      },
+      {
+        "title": "41 - Grand Central",
+        "slug": "chapter-41",
+        "source": "OEBPS/part25.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-41/",
+        "characters": 9030,
+        "text_sha256": "1414c99669a998478b3a190b620e7ac0cea25a932c68d87237c95c810d193125"
+      },
+      {
+        "title": "42 - The Alien Sky",
+        "slug": "chapter-42",
+        "source": "OEBPS/part25.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-42/",
+        "characters": 8359,
+        "text_sha256": "af712c0ec7dd09a77c1aeed1468cad828235fc7912ee00cce5b427b2e887e5e3"
+      },
+      {
+        "title": "43 - Inferno",
+        "slug": "chapter-43",
+        "source": "OEBPS/part25.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-43/",
+        "characters": 6207,
+        "text_sha256": "84ab0dbb9ed06f555a790e6031d230592923a61c1fd5f0cd378a8a350809d426"
+      },
+      {
+        "title": "44 - Reception",
+        "slug": "chapter-44",
+        "source": "OEBPS/part25.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-44/",
+        "characters": 14685,
+        "text_sha256": "a06bbbafe8f1d125d4ea5db963530347260ca71af18e1bffc9c1151c192f2b23"
+      },
+      {
+        "title": "45 - Recapitulation",
+        "slug": "chapter-45",
+        "source": "OEBPS/part25.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-45/",
+        "characters": 3513,
+        "text_sha256": "bf24d484b95de15569ee3187de97b5c84ccdf5dbb28385dc28cc76c0c6aa639d"
+      },
+      {
+        "title": "46 - Transformation",
+        "slug": "chapter-46",
+        "source": "OEBPS/part25.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-46/",
+        "characters": 6337,
+        "text_sha256": "8af65503655eb23613854ee77b5cfe5e5236ec138f9b9bb35dbd22b5aed0ce96"
+      },
+      {
+        "title": "47 - Star-Child",
+        "slug": "chapter-47",
+        "source": "OEBPS/part25.xhtml",
+        "url": "/translations/2001-a-space-odyssey/chapter-47/",
+        "characters": 918,
+        "text_sha256": "ae5671931effbac487c9ddddd99b418ed7e1dff2dfe27a2f325c75e4ad3dee09"
+      },
+      {
+        "title": "Epilogue: After 2001",
+        "slug": "epilogue",
+        "source": "OEBPS/part25.xhtml",
+        "url": "/translations/2001-a-space-odyssey/epilogue/",
+        "characters": 8815,
+        "text_sha256": "6c8446416beaebe5d01fb1d3c8e686ea00c286eac1c792248821fde4d1467321"
+      }
+    ]
+  },
+  {
+    "title": "The Best of Arthur C. Clarke 1937–1955",
+    "slug": "best-of-clarke-1937-1955",
+    "year": 1976,
+    "epub_sha256": "007a38f99ad9b66b5cb7580d7a5309a75f7b8ce714b9eeea26b29c19cc182ccc",
+    "pages": [
+      {
+        "title": "Copyright",
+        "slug": "copyright",
+        "source": "OEBPS/Text/copyright.html",
+        "url": "/translations/best-of-clarke-1937-1955/copyright/",
+        "characters": 366,
+        "text_sha256": "3df32a436c59bd75f481acf919aebd9f34b6ab2691863c4463d15c53e8227fd9"
+      },
+      {
+        "title": "Introduction",
+        "slug": "introduction",
+        "source": "OEBPS/Text/intro.html",
+        "url": "/translations/best-of-clarke-1937-1955/introduction/",
+        "characters": 10407,
+        "text_sha256": "85b2806f24aabf7b7ae6fd8d4ffc837807085fd1238973cc880f8e5c3d7b50f5"
+      },
+      {
+        "title": "Travel by Wire!",
+        "slug": "story-01",
+        "source": "OEBPS/Text/Story-01.html",
+        "url": "/translations/best-of-clarke-1937-1955/story-01/",
+        "characters": 9941,
+        "text_sha256": "cd2fae9badbf5512cf170a2654fce3b7ad6d75d93b8aead08094eb0d39d3b148"
+      },
+      {
+        "title": "Retreat from Earth",
+        "slug": "story-02",
+        "source": "OEBPS/Text/Story-02.html",
+        "url": "/translations/best-of-clarke-1937-1955/story-02/",
+        "characters": 25784,
+        "text_sha256": "b99511087a2edcd3d110eb4167c1e611c63c036c54fd62493544464f7e1c96aa"
+      },
+      {
+        "title": "The Awakening",
+        "slug": "story-03",
+        "source": "OEBPS/Text/Story-03.html",
+        "url": "/translations/best-of-clarke-1937-1955/story-03/",
+        "characters": 5603,
+        "text_sha256": "d93dc3290247bc37b53e84f544182ad72c53677d327cdab790053c7bfdc86d76"
+      },
+      {
+        "title": "Whacky",
+        "slug": "story-04",
+        "source": "OEBPS/Text/Story-04.html",
+        "url": "/translations/best-of-clarke-1937-1955/story-04/",
+        "characters": 1939,
+        "text_sha256": "66c13205b7401a5e9d4a6c3231fa7565381ed807e4e4952f2fc731c5feba5c00"
+      },
+      {
+        "title": "Castaway",
+        "slug": "story-05",
+        "source": "OEBPS/Text/Story-05.html",
+        "url": "/translations/best-of-clarke-1937-1955/story-05/",
+        "characters": 14290,
+        "text_sha256": "89bd1a737f97d44f9cbb75898db7481f4a1acba6bf1362fa807228f348404a5c"
+      },
+      {
+        "title": "History Lesson",
+        "slug": "story-06",
+        "source": "OEBPS/Text/Story-06.html",
+        "url": "/translations/best-of-clarke-1937-1955/story-06/",
+        "characters": 18963,
+        "text_sha256": "231a833feb033a8a9902d369c22172396dde97bd207ab90130fe56c1fe1ae67b"
+      },
+      {
+        "title": "Hide and Seek",
+        "slug": "story-07",
+        "source": "OEBPS/Text/Story-07.html",
+        "url": "/translations/best-of-clarke-1937-1955/story-07/",
+        "characters": 24016,
+        "text_sha256": "aa7eb03133347992cfed8a73386f861af4dd9a8cb1e0105e60cfcb787efb3142"
+      },
+      {
+        "title": "Second Dawn",
+        "slug": "story-08",
+        "source": "OEBPS/Text/Story-08.html",
+        "url": "/translations/best-of-clarke-1937-1955/story-08/",
+        "characters": 68145,
+        "text_sha256": "8b5bad00b51bf0eb46702de608bd4d0f8d64c4f2c71e3122694f01f9c0e0288e"
+      },
+      {
+        "title": "The Sentinel",
+        "slug": "story-09",
+        "source": "OEBPS/Text/Story-09.html",
+        "url": "/translations/best-of-clarke-1937-1955/story-09/",
+        "characters": 22366,
+        "text_sha256": "9dfe24edb75593705b085dbf6ffa86b60de25fb0f5a9d84bdfc6b4773e744a49"
+      },
+      {
+        "title": "The Star",
+        "slug": "story-10",
+        "source": "OEBPS/Text/Story-10.html",
+        "url": "/translations/best-of-clarke-1937-1955/story-10/",
+        "characters": 13642,
+        "text_sha256": "d11bc2db9fced16072f713ad1a04f5c55e17199e3ba448645d88edc75e2a84a3"
+      },
+      {
+        "title": "Refugee",
+        "slug": "story-11",
+        "source": "OEBPS/Text/Story-11.html",
+        "url": "/translations/best-of-clarke-1937-1955/story-11/",
+        "characters": 26423,
+        "text_sha256": "0add134e3288ada2bdf441f0103ff85a26220613d42c126bf227c4b2e57f1854"
+      }
+    ]
+  },
+  {
+    "title": "The Best of Arthur C. Clarke 1956–1972",
+    "slug": "best-of-clarke-1956-1972",
+    "year": 1977,
+    "epub_sha256": "a54f283ab5636f6918f667a4fff7527b9876590218e8f5f32505702109558822",
+    "pages": [
+      {
+        "title": "Copyright",
+        "slug": "copyright",
+        "source": "OEBPS/Text/copyright.html",
+        "url": "/translations/best-of-clarke-1956-1972/copyright/",
+        "characters": 434,
+        "text_sha256": "fc0405fce753334c69353b11333f90af0e4ccf87007a591dda20afae73900ca4"
+      },
+      {
+        "title": "Introduction",
+        "slug": "introduction",
+        "source": "OEBPS/Text/intro.html",
+        "url": "/translations/best-of-clarke-1956-1972/introduction/",
+        "characters": 10407,
+        "text_sha256": "85b2806f24aabf7b7ae6fd8d4ffc837807085fd1238973cc880f8e5c3d7b50f5"
+      },
+      {
+        "title": "Venture to the Moon",
+        "slug": "story-01",
+        "source": "OEBPS/Text/story-1.html",
+        "url": "/translations/best-of-clarke-1956-1972/story-01/",
+        "characters": 57205,
+        "text_sha256": "519f4d3365221656400504c5874dc7340bb0adb3489d4ab11cf0af705e9d4d81"
+      },
+      {
+        "title": "Into the Comet",
+        "slug": "story-02",
+        "source": "OEBPS/Text/story-2.html",
+        "url": "/translations/best-of-clarke-1956-1972/story-02/",
+        "characters": 22394,
+        "text_sha256": "e25ffdd9f514ee8260719d3fff1acd986d4a1704f3855ebec34b5505fdd98505"
+      },
+      {
+        "title": "Summertime on Icarus",
+        "slug": "story-03",
+        "source": "OEBPS/Text/story-3.html",
+        "url": "/translations/best-of-clarke-1956-1972/story-03/",
+        "characters": 25153,
+        "text_sha256": "27ec00bbc81b6b9acfc92344470efc10660f485acb4e8d16e3ed0ff70d43c92e"
+      },
+      {
+        "title": "Death and the Senator",
+        "slug": "story-04",
+        "source": "OEBPS/Text/story-4.html",
+        "url": "/translations/best-of-clarke-1956-1972/story-04/",
+        "characters": 43665,
+        "text_sha256": "529315df10cdce1aa9974632161addd27642d8aaabfcb25514d062ef4fad42b1"
+      },
+      {
+        "title": "Hate",
+        "slug": "story-05",
+        "source": "OEBPS/Text/story-5.html",
+        "url": "/translations/best-of-clarke-1956-1972/story-05/",
+        "characters": 34463,
+        "text_sha256": "54f4460f67e92508d1c1d00ac987bbe60e75f00d48198b96a771ef7bad375bbc"
+      },
+      {
+        "title": "Sunjammer",
+        "slug": "story-06",
+        "source": "OEBPS/Text/story-6.html",
+        "url": "/translations/best-of-clarke-1956-1972/story-06/",
+        "characters": 42754,
+        "text_sha256": "c58460f7a090f4838d7919fcc92cdd7560931abc0bbfca016c4669d20a896231"
+      },
+      {
+        "title": "A Meeting with Medusa",
+        "slug": "story-07",
+        "source": "OEBPS/Text/story-7.html",
+        "url": "/translations/best-of-clarke-1956-1972/story-07/",
+        "characters": 96250,
+        "text_sha256": "8c9fae705e93d92b458d7885268c48702f5c63761229db64821a8c276b1ee368"
+      }
+    ]
+  },
+  {
+    "title": "The Fountains of Paradise",
+    "slug": "the-fountains-of-paradise",
+    "year": 1979,
+    "epub_sha256": "7fd6ae0af2f1b04578f8bb17ef7895ba33a5e759c61c471d63a48cccc1ce8c34",
+    "pages": [
+      {
+        "title": "Copyright",
+        "slug": "copyright",
+        "source": "OEBPS/cop.htm",
+        "url": "/translations/the-fountains-of-paradise/copyright/",
+        "characters": 581,
+        "text_sha256": "2bb80f033a15107e2401f4db3cc3d57f6ef20aba07e6917065a2a8e8f9277888"
+      },
+      {
+        "title": "Dedication",
+        "slug": "dedication",
+        "source": "OEBPS/ded.htm",
+        "url": "/translations/the-fountains-of-paradise/dedication/",
+        "characters": 291,
+        "text_sha256": "687e6eed1349061f0d73c67ec1323145e4244a1a2863535b6b5d163b6cbadd7d"
+      },
+      {
+        "title": "Epigraph",
+        "slug": "epigraph",
+        "source": "OEBPS/fm.htm",
+        "url": "/translations/the-fountains-of-paradise/epigraph/",
+        "characters": 185,
+        "text_sha256": "23187f527669cee69b621997c6d0e28e15df9516ef10f45a5dd1cb5b80360a36"
+      },
+      {
+        "title": "Introduction",
+        "slug": "introduction",
+        "source": "OEBPS/itr.htm",
+        "url": "/translations/the-fountains-of-paradise/introduction/",
+        "characters": 2505,
+        "text_sha256": "f7786b67c56e92bffd73b605faa5fe5145829c60bfef9977181297c968573ca7"
+      },
+      {
+        "title": "Preface",
+        "slug": "preface",
+        "source": "OEBPS/prf.htm",
+        "url": "/translations/the-fountains-of-paradise/preface/",
+        "characters": 788,
+        "text_sha256": "0f8e024d86fc35dc716841fab244cd8767195e42e276a2f1fc35ebf62391f2df"
+      },
+      {
+        "title": "I. The Palace",
+        "slug": "part-01",
+        "source": "OEBPS/p1.htm",
+        "url": "/translations/the-fountains-of-paradise/part-01/",
+        "characters": 13,
+        "text_sha256": "ae8e45ffce6c95bcc7f3d048b2f087bdfedb34022cfd81c10356c3d56de381f6"
+      },
+      {
+        "title": "1. Kalidasa",
+        "slug": "chapter-01",
+        "source": "OEBPS/c1.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-01/",
+        "characters": 9067,
+        "text_sha256": "d3c76437cda4b130371e88ff42691604b8ca22674dc1d8a6b7280e551d6ece28"
+      },
+      {
+        "title": "2. The Engineer",
+        "slug": "chapter-02",
+        "source": "OEBPS/c2.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-02/",
+        "characters": 12245,
+        "text_sha256": "cfe5724228a7bc2a56b3debdd80b5b2c68e627fc7d1eb18c5ed8746bd45617a9"
+      },
+      {
+        "title": "3. The Fountains",
+        "slug": "chapter-03",
+        "source": "OEBPS/c3.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-03/",
+        "characters": 3003,
+        "text_sha256": "1297feea9870cae867f47593c99863da737d511b7c5fc5e5ba01694d68e26817"
+      },
+      {
+        "title": "4. Demon Rock",
+        "slug": "chapter-04",
+        "source": "OEBPS/c4.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-04/",
+        "characters": 15498,
+        "text_sha256": "17c74225056d99ef5de9a5ae2a620c0c3b73c1bad16fd850af7bedf65f6b0756"
+      },
+      {
+        "title": "5. Through the Telescope",
+        "slug": "chapter-05",
+        "source": "OEBPS/c5.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-05/",
+        "characters": 7775,
+        "text_sha256": "25a48ea82bb70270ffe3b31f6b6ebf4be43d9ed45717005e6ac1d518f8518315"
+      },
+      {
+        "title": "6. The Artist",
+        "slug": "chapter-06",
+        "source": "OEBPS/c6.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-06/",
+        "characters": 5134,
+        "text_sha256": "97e4fc9574fae11efb38dbb463d11ddcbc271f88e006b438acaa25089225c629"
+      },
+      {
+        "title": "7. The God-King’s Palace",
+        "slug": "chapter-07",
+        "source": "OEBPS/c7.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-07/",
+        "characters": 16244,
+        "text_sha256": "de9675630c3a9bdb2cf394158091e23f9453109135370b5ffea2d2738b597daa"
+      },
+      {
+        "title": "8. Malgara",
+        "slug": "chapter-08",
+        "source": "OEBPS/c8.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-08/",
+        "characters": 2725,
+        "text_sha256": "6b44b43f2f86ee8184c0a487f09c702116f5e41387ec3bcd7764056ec5ccf55b"
+      },
+      {
+        "title": "9. Filament",
+        "slug": "chapter-09",
+        "source": "OEBPS/c9.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-09/",
+        "characters": 5523,
+        "text_sha256": "cd1b619695dd4b131459895afe49fcaeb9a3a34877a155e27e54b73cf1055848"
+      },
+      {
+        "title": "10. The Ultimate Bridge",
+        "slug": "chapter-10",
+        "source": "OEBPS/c10.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-10/",
+        "characters": 17862,
+        "text_sha256": "9a2f8b1e7e27629dbf308799f3d5298efe1c3c20c59989002758bdba76a99267"
+      },
+      {
+        "title": "11. The Silent Princess",
+        "slug": "chapter-11",
+        "source": "OEBPS/c11.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-11/",
+        "characters": 10047,
+        "text_sha256": "dd5576641a798b21ecdff2e3f18e60834025d1062eb47122adfdcea5f8e1e42c"
+      },
+      {
+        "title": "II. The Temple",
+        "slug": "part-02",
+        "source": "OEBPS/p2.htm",
+        "url": "/translations/the-fountains-of-paradise/part-02/",
+        "characters": 2906,
+        "text_sha256": "3761e933b2b4aa170a7c4fced5f9b40b3aa0b0b7a37be1df4d262cd75c631ea5"
+      },
+      {
+        "title": "12. Starglider",
+        "slug": "chapter-12",
+        "source": "OEBPS/c12.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-12/",
+        "characters": 4964,
+        "text_sha256": "8196350c088d5b93a590e0a5d44aff7d881431dca5f062204f23115bb5834451"
+      },
+      {
+        "title": "13. Shadow at Dawn",
+        "slug": "chapter-13",
+        "source": "OEBPS/c13.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-13/",
+        "characters": 10828,
+        "text_sha256": "2fb6177844713fa1266d5d63a3d1ab9c8288a58f88cf9ed0b78ec4aeef9f4300"
+      },
+      {
+        "title": "14. The Education of Starglider",
+        "slug": "chapter-14",
+        "source": "OEBPS/c14.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-14/",
+        "characters": 5253,
+        "text_sha256": "1c831d0d3ff1131777be8549ff56f72997c294a93a50d51858f61ac50283314a"
+      },
+      {
+        "title": "15. Bodhidharma",
+        "slug": "chapter-15",
+        "source": "OEBPS/c15.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-15/",
+        "characters": 9473,
+        "text_sha256": "6ae01d848dce53b609d8fd11770f648bb262e0e155b739e804d8633b3943fc7f"
+      },
+      {
+        "title": "16. Conversations with Starglider",
+        "slug": "chapter-16",
+        "source": "OEBPS/c16.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-16/",
+        "characters": 7067,
+        "text_sha256": "6c3443beec41a23a5ccfe03c7f1f6c1da12ec9cced8df1166389896937aeb6e6"
+      },
+      {
+        "title": "17. Parakarma",
+        "slug": "chapter-17",
+        "source": "OEBPS/c17.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-17/",
+        "characters": 11098,
+        "text_sha256": "ae4ada6d16e81eab64e58aae98549ff9bdbb43cfec2f5185bd824adeee453f2e"
+      },
+      {
+        "title": "18. The Golden Butterflies",
+        "slug": "chapter-18",
+        "source": "OEBPS/c18.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-18/",
+        "characters": 2654,
+        "text_sha256": "647a5aeb4454a5904c1aa24ff87d6ded29e394aa49435e18aba091791605aa96"
+      },
+      {
+        "title": "19. By the Shores of Lake Saladin",
+        "slug": "chapter-19",
+        "source": "OEBPS/c19.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-19/",
+        "characters": 11159,
+        "text_sha256": "fe696bf1217011b1260241154c1ae65ff02746ba7cf6a2130d8e80fce02aa2e8"
+      },
+      {
+        "title": "20. The Bridge That Danced",
+        "slug": "chapter-20",
+        "source": "OEBPS/c20.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-20/",
+        "characters": 10753,
+        "text_sha256": "c4f7d67a6e92a506cfb538e3affe2d20658f5eb81d6fa6ed9abcd74ff4757583"
+      },
+      {
+        "title": "21. Judgment",
+        "slug": "chapter-21",
+        "source": "OEBPS/c21.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-21/",
+        "characters": 6493,
+        "text_sha256": "b613be52da31957e485a4f48793e04543fc29f8c47db3f65abf54896f5f569ab"
+      },
+      {
+        "title": "III. The Bell",
+        "slug": "part-03",
+        "source": "OEBPS/p3.htm",
+        "url": "/translations/the-fountains-of-paradise/part-03/",
+        "characters": 13,
+        "text_sha256": "239bc6a65e19ad5f3aff041ea5d2c7d18985b317ecc30f0e678e974c53001630"
+      },
+      {
+        "title": "22. Apostate",
+        "slug": "chapter-22",
+        "source": "OEBPS/c22.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-22/",
+        "characters": 4152,
+        "text_sha256": "89bfabf210f9e44775a4c4131cc0f16f36b8c614e06476275dcfd11a6f7a7b68"
+      },
+      {
+        "title": "23. Moondozer",
+        "slug": "chapter-23",
+        "source": "OEBPS/c23.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-23/",
+        "characters": 14927,
+        "text_sha256": "503bd722e5ae0ffd719b4516f234f4969b5216343f803c457e1ac2a4ae189719"
+      },
+      {
+        "title": "24. The Finger of God",
+        "slug": "chapter-24",
+        "source": "OEBPS/c24.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-24/",
+        "characters": 2839,
+        "text_sha256": "abaed2b115c16d81515b7ce9d2616bc177383fdba6db62ffdb3e5af9409c1729"
+      },
+      {
+        "title": "25. Orbital Roulette",
+        "slug": "chapter-25",
+        "source": "OEBPS/c25.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-25/",
+        "characters": 3814,
+        "text_sha256": "a830ad3985da7e534fa8a10a060163bdaeb15c27ae77147090fbe9321f9bec53"
+      },
+      {
+        "title": "26. The Night before Vesak",
+        "slug": "chapter-26",
+        "source": "OEBPS/c26.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-26/",
+        "characters": 4659,
+        "text_sha256": "5e737aa380b2df5721200611b4be8135dbbd9bdb62441c86c1cdffc4ee4fe40c"
+      },
+      {
+        "title": "27. Ashoka Station",
+        "slug": "chapter-27",
+        "source": "OEBPS/c27.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-27/",
+        "characters": 7542,
+        "text_sha256": "4f93df02ab8e6a4873238fc72c2cecbdfa69fd2b528a58355a787bf7657348e4"
+      },
+      {
+        "title": "28. The First Lowering",
+        "slug": "chapter-28",
+        "source": "OEBPS/c28.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-28/",
+        "characters": 8827,
+        "text_sha256": "4822137586011e363ba385b7bbdc07427c3e02c4d35c47a7f41a80ba0c52c575"
+      },
+      {
+        "title": "29. Final Approach",
+        "slug": "chapter-29",
+        "source": "OEBPS/c29.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-29/",
+        "characters": 7265,
+        "text_sha256": "b9a06fe09345a7ab4f9b0e4878de35c35c6d86b64f776eba4c2a0cb87390cb33"
+      },
+      {
+        "title": "30. The Legions of the King",
+        "slug": "chapter-30",
+        "source": "OEBPS/c30.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-30/",
+        "characters": 3968,
+        "text_sha256": "91bc10bf45995cb641ac5ccbe866093df4f6f31b2640f091db6a4e38b63ddd30"
+      },
+      {
+        "title": "31. Exodus",
+        "slug": "chapter-31",
+        "source": "OEBPS/c31.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-31/",
+        "characters": 5437,
+        "text_sha256": "0b2a0bf0ef415d255fb95b0be780b64e9e3cec8e46d56f00345a33fdff53a594"
+      },
+      {
+        "title": "IV. The Tower",
+        "slug": "part-04",
+        "source": "OEBPS/p4.htm",
+        "url": "/translations/the-fountains-of-paradise/part-04/",
+        "characters": 13,
+        "text_sha256": "b2074c7d80fbeba656269e999935845e2b7986decc8c45b32e2597644866ac8f"
+      },
+      {
+        "title": "32. Space Express",
+        "slug": "chapter-32",
+        "source": "OEBPS/c32.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-32/",
+        "characters": 9013,
+        "text_sha256": "d25e9bc4f1be7ddb830027e152b53c7c0b4380f41e8df09bd220b5243b722217"
+      },
+      {
+        "title": "33. CORA",
+        "slug": "chapter-33",
+        "source": "OEBPS/c33.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-33/",
+        "characters": 3422,
+        "text_sha256": "aac680e450055f4047a5ee2c130a463fa0d529ef15bf3f06690594f5ea146de0"
+      },
+      {
+        "title": "34. Vertigo",
+        "slug": "chapter-34",
+        "source": "OEBPS/c34.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-34/",
+        "characters": 14680,
+        "text_sha256": "1c104b50a96e53622e8a2c5529c963a32805085705bfa818cd6dea0d2ad92827"
+      },
+      {
+        "title": "35. Starglider Plus Eighty",
+        "slug": "chapter-35",
+        "source": "OEBPS/c35.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-35/",
+        "characters": 2213,
+        "text_sha256": "78ed7298418412c30abaaf744df5e8d0af8f8a74a3b59ebf65e2239eb8df7b0f"
+      },
+      {
+        "title": "36. The Cruel Sky",
+        "slug": "chapter-36",
+        "source": "OEBPS/c36.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-36/",
+        "characters": 9530,
+        "text_sha256": "b4f3b25fb4d5e1ccc1349250f74df4eeecf93823988cc381624305272c2415f3"
+      },
+      {
+        "title": "37. The Billion-Ton Diamond",
+        "slug": "chapter-37",
+        "source": "OEBPS/c37.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-37/",
+        "characters": 6099,
+        "text_sha256": "f483171776a34700efaf087e770ba3ffc4b2c302a09805ca79d191534ecc44c2"
+      },
+      {
+        "title": "V. Ascension",
+        "slug": "part-05",
+        "source": "OEBPS/p5.htm",
+        "url": "/translations/the-fountains-of-paradise/part-05/",
+        "characters": 12,
+        "text_sha256": "df9ec87ac12d7ff04b05c7b6161223f468a8c095f4855c2313d4245579dcc073"
+      },
+      {
+        "title": "38. A Place of Silent Storms",
+        "slug": "chapter-38",
+        "source": "OEBPS/c38.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-38/",
+        "characters": 5396,
+        "text_sha256": "fae33e5184b613e2ad8474067d6d61b7999978b09e6175d528a44597e5c8fc7c"
+      },
+      {
+        "title": "39. The Wounded Sun",
+        "slug": "chapter-39",
+        "source": "OEBPS/c39.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-39/",
+        "characters": 9388,
+        "text_sha256": "1cea39334dcd38fab1ac97eea182413f6e6f5f6c4aa039cb0b0e2e0f84c72efc"
+      },
+      {
+        "title": "40. The End of the Line",
+        "slug": "chapter-40",
+        "source": "OEBPS/c40.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-40/",
+        "characters": 4030,
+        "text_sha256": "a9ed71c84d495d2d2bae90f93b166824ab4911fd5085c8e25302fd97f9246344"
+      },
+      {
+        "title": "41. Meteor",
+        "slug": "chapter-41",
+        "source": "OEBPS/c41.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-41/",
+        "characters": 2581,
+        "text_sha256": "730f21aec1ddb1c9a9f523c10efcf5c6d4bf4052e6cdc3197603780bf6e9230e"
+      },
+      {
+        "title": "42. Death in Orbit",
+        "slug": "chapter-42",
+        "source": "OEBPS/c42.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-42/",
+        "characters": 2986,
+        "text_sha256": "fe36a41489010ef202aeadaa0409010d4b4f01b1841fba2f776219212e7a3272"
+      },
+      {
+        "title": "43. Fail-Safe",
+        "slug": "chapter-43",
+        "source": "OEBPS/c43.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-43/",
+        "characters": 6166,
+        "text_sha256": "6c671e4566fba28ed4dafcafd753903f71d83d55e2037f71ca794ebc88bde84c"
+      },
+      {
+        "title": "44. A Cave in the Sky",
+        "slug": "chapter-44",
+        "source": "OEBPS/c44.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-44/",
+        "characters": 10862,
+        "text_sha256": "57d750abb1203f3476891be644765e217ff6e48930214ed644c8b2282503bec8"
+      },
+      {
+        "title": "45. The Man for the Job",
+        "slug": "chapter-45",
+        "source": "OEBPS/c45.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-45/",
+        "characters": 5419,
+        "text_sha256": "de13d654efef2a036a9a1ec4341b629da613c3200f3d631d00df8fb4d9db79c1"
+      },
+      {
+        "title": "46. Spider",
+        "slug": "chapter-46",
+        "source": "OEBPS/c46.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-46/",
+        "characters": 12172,
+        "text_sha256": "a12cda9e32f89ad5649375e9b80db8544662744e5c78b3443c55adf911cae3bd"
+      },
+      {
+        "title": "47. Beyond the Aurora",
+        "slug": "chapter-47",
+        "source": "OEBPS/c47.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-47/",
+        "characters": 9701,
+        "text_sha256": "992b950090ae55329a64b09ca542c83e8250a1662c7c124b58cebbbb87b8b221"
+      },
+      {
+        "title": "48. Night at the Villa",
+        "slug": "chapter-48",
+        "source": "OEBPS/c48.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-48/",
+        "characters": 6121,
+        "text_sha256": "067ef173e6cb4c97598aec1b97e55362de5f6464e1c3766e18f98aec5528e031"
+      },
+      {
+        "title": "49. A Bumpy Ride",
+        "slug": "chapter-49",
+        "source": "OEBPS/c49.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-49/",
+        "characters": 5960,
+        "text_sha256": "9cce06d4dbc7273cc796c4c2cbe8c2c32618ac78d6a13fbdac46434913b69f3a"
+      },
+      {
+        "title": "50. The Falling Fireflies",
+        "slug": "chapter-50",
+        "source": "OEBPS/c50.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-50/",
+        "characters": 2990,
+        "text_sha256": "55b0fb4958de52502f8a36d33353b03faabbe84db1344daa586080eb690514a7"
+      },
+      {
+        "title": "51. On the Porch",
+        "slug": "chapter-51",
+        "source": "OEBPS/c51.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-51/",
+        "characters": 5238,
+        "text_sha256": "605c6649bd4e02f5d659e339729ec685dbb9a5422449ccde464a31453c9f1325"
+      },
+      {
+        "title": "52. The Other Passenger",
+        "slug": "chapter-52",
+        "source": "OEBPS/c52.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-52/",
+        "characters": 8207,
+        "text_sha256": "9767f387c6e115958aeb47556f2b15d155107fa05412ae74b9c4add390d84c6c"
+      },
+      {
+        "title": "53. Fade-Out",
+        "slug": "chapter-53",
+        "source": "OEBPS/c53.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-53/",
+        "characters": 7166,
+        "text_sha256": "f9d61f8bdc530d8ba2f9c6472c9ede85a5937c01ff3388dc016be7f3fbc0dc42"
+      },
+      {
+        "title": "54. Theory of Relativity",
+        "slug": "chapter-54",
+        "source": "OEBPS/c54.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-54/",
+        "characters": 3176,
+        "text_sha256": "c96858ab6b33c0be95066821a7005eda132cbc40beee5c6c1c48ee68a81def9f"
+      },
+      {
+        "title": "55. Hard Dock",
+        "slug": "chapter-55",
+        "source": "OEBPS/c55.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-55/",
+        "characters": 9563,
+        "text_sha256": "4ab1f2b52ecadcb68f337f375165de6b78e060969391356b7b788dab680e11fd"
+      },
+      {
+        "title": "56. View from the Balcony",
+        "slug": "chapter-56",
+        "source": "OEBPS/c56.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-56/",
+        "characters": 5559,
+        "text_sha256": "83c37b893956c5d7fcbc3f816762d4d27042eeefd5f7a22bde6002449160248c"
+      },
+      {
+        "title": "57. The Last Dawn",
+        "slug": "chapter-57",
+        "source": "OEBPS/c57.htm",
+        "url": "/translations/the-fountains-of-paradise/chapter-57/",
+        "characters": 7821,
+        "text_sha256": "960e23d16db63a70d392e7f2413b86d10a5952c07b46e250eeb054eec0db0d0d"
+      },
+      {
+        "title": "Epilogue: Kalidasa’s Triumph",
+        "slug": "epilogue",
+        "source": "OEBPS/epi.htm",
+        "url": "/translations/the-fountains-of-paradise/epilogue/",
+        "characters": 9255,
+        "text_sha256": "3ac96b63fd32e285b4e02fc70bb94eb8c95ba782c4ac72eac5a3023334a97c93"
+      },
+      {
+        "title": "Sources and Acknowledgments",
+        "slug": "sources-and-acknowledgments",
+        "source": "OEBPS/ack.htm",
+        "url": "/translations/the-fountains-of-paradise/sources-and-acknowledgments/",
+        "characters": 10940,
+        "text_sha256": "34246130bfe8d6dea562524454b1e9c3ba2e4cfff8fb9275c98d1f994d4d1937"
+      }
+    ]
+  }
+]

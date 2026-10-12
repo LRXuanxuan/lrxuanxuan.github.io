@@ -4,7 +4,7 @@ icon: fas fa-book-open
 order: 2
 ---
 
-这里收录我整理的文学中文译本，其中《造星主》《最后与最初的人》《伦敦的最后人》《黑暗与光明》《天狼星》《星际人？》和《斯特普尔顿短篇小说集》可直接分章或分篇阅读，切换中文与英文；其他部分书目提供 EPUB，另收录威尔斯专题、序言及书信译稿。书目按作者和内容归类。
+这里收录我整理的文学译本与英文原版，其中《造星主》《最后与最初的人》《伦敦的最后人》《黑暗与光明》《天狼星》《星际人？》《斯特普尔顿短篇小说集》及《奇迹维度》可直接分章或分篇阅读，切换中文与英文；阿西莫夫与克拉克作品提供纯英文网页阅读。其他部分书目提供 EPUB，另收录威尔斯专题、序言及书信译稿。书目按作者和内容归类。
 
 **阅读摘录**：进入任一网页版作品的正文，选中喜欢的中英文句子，即可划波浪线或写笔记。在该作品的目录页可集中查看全书摘录，并跳回原文。记录只保存在当前浏览器；建议使用摘录面板中的 JSON 导出功能定期备份。
 
@@ -76,16 +76,43 @@ order: 2
 
 {% assign sheckley_books = site.data.translations | where: "author", "Robert Sheckley" %}
 {% for book in sheckley_books %}
-### 《{{ book.title }}》
+### [《{{ book.title }}》]({{ '/translations/dimension-of-miracles/' | relative_url }}) · 1968
 
 *{{ book.original }}*
 
-{% assign epub_path = "/assets/epub/" | append: book.filename %}
-{% if epub_paths contains epub_path %}
-[下载 EPUB]({{ book.download_url | relative_url }})
-{% else %}
-<small class="text-muted">EPUB 文件尚未上传</small>
-{% endif %}
+[分章阅读 · 中文 / English]({{ '/translations/dimension-of-miracles/' | relative_url }})
+
+{% endfor %}
+
+---
+
+## 艾萨克·阿西莫夫（Isaac Asimov）
+
+英文原版，按单行本首版年份排列。点击作品名进入全书目录，支持划线与笔记。
+
+{% assign asimov_books = site.data.asimov | sort: "year" %}
+{% for book in asimov_books %}
+### [{{ book.title }}]({{ '/translations/' | append: book.slug | append: '/' | relative_url }}) · {{ book.year }}
+
+{{ book.kind }} · English
+
+[分章 / 分篇阅读 · 英文原版]({{ '/translations/' | append: book.slug | append: '/' | relative_url }})
+
+{% endfor %}
+
+---
+
+## 阿瑟·克拉克（Arthur C. Clarke）
+
+英文原版，按出版年份排列；两卷选集按分卷出版年标注，标题中的年份表示作品年代范围。
+
+{% assign clarke_books = site.data.clarke | sort: "year" %}
+{% for book in clarke_books %}
+### [{{ book.title }}]({{ '/translations/' | append: book.slug | append: '/' | relative_url }}) · {{ book.year }}
+
+{{ book.kind }} · English
+
+[分章 / 分篇阅读 · 英文原版]({{ '/translations/' | append: book.slug | append: '/' | relative_url }})
 
 {% endfor %}
 
