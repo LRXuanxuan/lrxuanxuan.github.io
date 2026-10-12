@@ -491,4 +491,30 @@ $$
 [25] Sheng et al. (2025), *A wireless foundation model for multi-task prediction*.  
 [26] Fontaine et al. (2024), *Towards a wireless physical-layer foundation model*.  
 [27] Zhang et al. (2025), *Multi-modal data-enhanced foundation models*.  
-[28]–[41] 其余书目及准确卷页请参阅原文 References 段落；上述编号是正文对应索引，不能代替正式书目引用。
+[28] Z. Han、L. Bai、X. Cai、X. Cheng：《WiCo-MG：通过机器联觉实现多径生成的无线信道基础模型》，arXiv:2511.15026，2025。
+
+[29] M. Alrabeiah、A. Alkhateeb：《使用 sub-6 GHz 信道进行毫米波波束及阻挡预测的深度学习方法》，*IEEE Transactions on Communications*，68(9):5504–5518，2020。
+
+[30] A. Alkhateeb、S. Alex、P. Varkey、Y. Li、Q. Qu、D. Tujkovic：《用于高移动性毫米波系统的深度学习协同波束成形》，*IEEE Access*，6:37328–37348，2018。
+
+[31] X. Li、J. Guo、C.-K. Wen、S. Jin：《Auto-CsiNet：面向 massive MIMO CSI 反馈的场景定制自动神经架构生成》，arXiv:2311.15950，2023。
+
+[32] M. Soltani、V. Pourahmadi、A. Mirzaei、H. Sheikhzadeh：《基于深度学习的信道估计》，arXiv:1810.05893，2019。
+
+[33] H. He、C.-K. Wen、S. Jin、G. Y. Li：《面向波束空间毫米波大规模 MIMO 系统的深度学习信道估计》，*IEEE Wireless Communications Letters*，7(5):852–855，2018。
+
+[34] A. Alkhateeb：《DeepMIMO：面向毫米波及 massive MIMO 应用的通用深度学习数据集》，CoRR abs/1902.06435，2019。
+
+[35] M. Li、T. Lv、J. Chen、L. Cui、Y. Lu、D. Florencio、C. Zhang、Z. Li、F. Wei：《TrOCR：采用预训练模型的 Transformer 光学字符识别》，*Proceedings of the AAAI Conference on Artificial Intelligence*，37(11):13094–13102，2023。
+
+[36] E.-C. Trînc、C. Ancuți、A. Vesa、C. Simu、V.-A. Niță、C. Stolojescu-Crișan：《使用射线追踪与机器学习的三维城市室外 WiFi 7 网络规划与分析：面向高分辨率数字孪生的 Transformer 代理建模》，*Sensors*，26(7)，2026。
+
+[37] T. S. Rappaport：《无线通信——原理与实践》（书评/相关条目），*Microwave Journal*，45(12):128–129，2002。
+
+[38] J. Hoydis、S. Cammerer、F. A. Aoudia、A. Vem、N. Binder、G. Marcus、A. Keller：《Sionna：面向下一代物理层研究的开源库》，arXiv:2203.11854，2023。
+
+[39] RemCom：《无线电磁传播软件》，[Wireless InSite 官方页面](https://www.remcom.com/wireless-insite-propagation-software)。
+
+[40] NVIDIA：《Omniverse Digital Twin—Aerial Omniverse Digital Twin》，[官方文档](https://docs.nvidia.com/aerial/aerial-dt/index.html)。
+
+[41] W. Jiang、H. D. Schotten：《用于衰落信道预测的深度学习》，*IEEE Open Journal of the Communications Society*，1:320–332，2020。
