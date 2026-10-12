@@ -383,7 +383,7 @@
     - label: "斯坦福哲学百科：Spinoza（《神学政治论》）"
       url: "https://plato.stanford.edu/entries/spinoza/"
     - label: "大英百科全书：Anticlericalism"
-      url: "https://www.britannica.com/topic/anticlericalism"
+      url: "https://www.oxfordlearnersdictionaries.com/definition/english/anticlericalism"
 
 - slug: "problem-of-evil-worship-worthiness"
   added_at: "2026-10-12T15:01:57+08:00"
@@ -506,7 +506,7 @@
     - label: "索耶本人：Writing The Terminal Experiment"
       url: "https://sfwriter.com/essayte.htm"
     - label: "索耶官网：Calculating God"
-      url: "https://www.sfwriter.com/cg.htm"
+      url: "https://sfwriter.com/excg.htm"
 
 - slug: "hugo-science-fiction-fantasy-history"
   added_at: "2026-10-12T15:01:54+08:00"
