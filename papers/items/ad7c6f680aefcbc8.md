@@ -9,7 +9,7 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=ad7c6f680aefcbc8)
 
-[本篇日报说明](/papers/items/ad7c6f680aefcbc8/#paper-report) · [全文翻译（正在校订）](/papers/items/ad7c6f680aefcbc8/#paper-translation)
+[本篇日报说明](/papers/items/ad7c6f680aefcbc8/#paper-report) · [全文翻译（未完成）](/papers/items/ad7c6f680aefcbc8/#paper-translation)
 
 **推荐日期：** 2026-07-22 · **发表状态：** 历史记录未明确
 
@@ -17,7 +17,7 @@ toc: true
 
 ## 本篇全文翻译
 
-全文中译正在重新核校。首轮自动翻译出现严重术语错误，因此暂不开放为可用的全文译本。
+全文中译尚未完成。已撤下存在严重术语错误的自动译稿，需逐段校订后才能公开。
 
 [先阅读这五篇的摘要中文翻译与内容概括](/papers/translations/2026-10-12-five-abstracts/)
 
