@@ -1,6 +1,24 @@
 [
   {
     "date": "2026-10-12",
+    "url": "/papers/translations/2026-10-12-pctgs-2606-18734/",
+    "slug": "2026-10-12-pctgs-2606-18734",
+    "source_file": "2026-10-12-pctgs-2606-18734.md",
+    "title": "PC-TGS：点云辅助切平面高斯泼溅局部信道预测｜中文译稿",
+    "scope": "15页，I–V、式（1）–（47）、图1–6、表I–VI、附录A–C、参考文献，校对中",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-pctgs-2606-18734.md",
+    "source_page_path": "papers/translations/2026-10-12-pctgs-2606-18734.md",
+    "paper_ids": [],
+    "source_arxiv_ids": [
+      "2606.18734"
+    ],
+    "external": true,
+    "qa_complete": false,
+    "content_kind": "full_translation_review_pending",
+    "license_status": "user_supplied_pdf_rights_not_independently_verified"
+  },
+  {
+    "date": "2026-10-12",
     "url": "/papers/translations/2026-10-12-2604-07004-full-zh/",
     "slug": "2026-10-12-2604-07004-full-zh",
     "source_file": "2026-10-12-2604-07004-full-zh.md",
