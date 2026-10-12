@@ -1,6 +1,26 @@
 [
   {
     "date": "2026-10-12",
+    "url": "/papers/translations/2026-10-12-dynamic-ckm-full-zh/",
+    "slug": "2026-10-12-dynamic-ckm-full-zh",
+    "source_file": "2026-10-12-dynamic-ckm-full-zh.md",
+    "title": "动态信道知识地图：基本原理、构建方法与应用｜完整中文译文",
+    "scope": "原文7页，摘要、I–V章节、图1–4题注、表I及参考文献[1]–[15]。图像按官方PDF链接展示。",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-dynamic-ckm-full-zh.md",
+    "source_page_path": "papers/translations/2026-10-12-dynamic-ckm-full-zh.md",
+    "paper_ids": [
+      "2b09701c969754d7"
+    ],
+    "source_arxiv_ids": [
+      "2607.17133"
+    ],
+    "external": true,
+    "qa_complete": true,
+    "content_kind": "full_translation",
+    "license_status": "user_supplied_pdf_rights_not_independently_verified"
+  },
+  {
+    "date": "2026-10-12",
     "url": "/papers/translations/2026-10-12-tap/",
     "slug": "2026-10-12-tap",
     "source_file": "2026-10-12-tap.md",
