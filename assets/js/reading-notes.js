@@ -307,7 +307,20 @@
     actions.append(btn("↑ 导入 JSON 备份",function(){picker.click();}));
     actions.append(picker);notebook.append(actions);
     list=make("ul","rn-list");notebook.append(list);
-    holder.insertAdjacentElement("afterend",notebook);
+    if(index && host){
+      var heading=Array.from(host.querySelectorAll("h2")).find(function(e){return /目录|篇目/.test(e.textContent);}) || host.querySelector("h2");
+      if(heading) host.insertBefore(notebook,heading);
+      else host.appendChild(notebook);
+    } else {
+      holder.insertAdjacentElement("afterend",notebook);
+      var nav=document.querySelector(".stapledon-chapter-nav");
+      if(nav){
+        var quick=make("a","rn-quick","〰 查看摘录");
+        quick.href="#reading-notes";
+        quick.addEventListener("click",function(){notebook.open=true;});
+        nav.append(quick);
+      }
+    }
     showList();
   }
   buildUI();
