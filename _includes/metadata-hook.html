@@ -1,0 +1,13 @@
+<!-- Clean up service workers left by the old offline-first theme setting. -->
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations().then(function (registrations) {
+    registrations.forEach(function (registration) { registration.unregister(); });
+    if (registrations.length && 'caches' in window) {
+      caches.keys().then(function (keys) {
+        keys.forEach(function (key) { caches.delete(key); });
+      });
+    }
+  }).catch(function () {});
+}
+</script>
