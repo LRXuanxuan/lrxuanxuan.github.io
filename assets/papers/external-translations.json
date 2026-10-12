@@ -1,6 +1,26 @@
 [
   {
     "date": "2026-10-12",
+    "url": "/papers/translations/2026-10-12-2604-07004-full-zh/",
+    "slug": "2026-10-12-2604-07004-full-zh",
+    "source_file": "2026-10-12-2604-07004-full-zh.md",
+    "title": "突发相位噪声下的信道估计与 LDPC 译码｜全文中文翻译",
+    "scope": "原文11页：摘要、I—VI节、公式(1)—(34)、图1—15、表I与参考文献[1]—[45]。",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-2604-07004-full-zh.md",
+    "source_page_path": "papers/translations/2026-10-12-2604-07004-full-zh.md",
+    "paper_ids": [
+      "35a0a3cc7dd34973"
+    ],
+    "source_arxiv_ids": [
+      "2604.07004"
+    ],
+    "external": true,
+    "qa_complete": true,
+    "content_kind": "full_translation",
+    "license_status": "user_supplied_pdf_rights_not_independently_verified"
+  },
+  {
+    "date": "2026-10-12",
     "url": "/papers/translations/2026-10-12-groupwise-narrow-beam-2506-01043/",
     "slug": "2026-10-12-groupwise-narrow-beam-2506-01043",
     "source_file": "2026-10-12-groupwise-narrow-beam-2506-01043.md",
