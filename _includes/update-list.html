@@ -1,0 +1,15 @@
+<!-- A unified feed built from posts, paper reports/translations, tidbits and section updates. -->
+{% assign update_list = site.data.recent_updates %}
+{% if update_list and update_list.size > 0 %}
+  <section id="access-lastmod">
+    <h2 class="panel-heading">{{ site.data.locales[include.lang].panel.lastmod | default: '最近更新' }}</h2>
+    <ul class="content list-unstyled ps-0 pb-1 ms-1 mt-2">
+      {% for item in update_list limit: 8 %}
+        <li class="text-truncate lh-lg">
+          <a href="{{ item.url | relative_url }}" title="{{ item.kind | escape }} · {{ item.date | date: '%Y.%m.%d' }} · {{ item.title | escape }}">[{{ item.kind | escape }}] {{ item.title | escape }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+  <!-- #access-lastmod -->
+{% endif %}
