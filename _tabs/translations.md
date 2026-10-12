@@ -4,7 +4,7 @@ icon: fas fa-book-open
 order: 2
 ---
 
-这里收录我整理的文学中文译本，其中 **8 部作品提供 EPUB**，另有可直接在网页阅读的威尔斯专题、序言及书信译稿。书目按作者和内容归类。
+这里收录我整理的文学中文译本，其中部分书目提供 EPUB，《斯特普尔顿短篇小说集》可直接选择篇目并切换中英正文；另收录威尔斯专题、序言及书信译稿。书目按作者和内容归类。
 
 > **关于翻译与署名**：这些中文译文由大型语言模型（LLM）生成，并非由我独立翻译。我主要负责收集和整理，不以人工译者自居。LLM 译文难免可能存在误译、漏译或表达不当，阅读时请以原文为准。此说明仅用于交代译文来源，并不代表原作或译文已获得公开传播许可。
 
@@ -14,6 +14,13 @@ order: 2
 
 {% assign stapleton_books = site.data.translations | where: "author", "Olaf Stapledon" %}
 {% for book in stapleton_books %}
+{% if book.title == "斯特普尔顿短篇小说集" %}
+### [《{{ book.title }}》]({{ '/translations/stapledon/' | relative_url }})
+
+*{{ book.original }}*{% if book.note %} · {{ book.note }}{% endif %}
+
+[选择篇目 · 中英切换]({{ '/translations/stapledon/' | relative_url }})
+{% else %}
 ### 《{{ book.title }}》
 
 *{{ book.original }}*{% if book.note %} · {{ book.note }}{% endif %}
@@ -24,7 +31,7 @@ order: 2
 {% else %}
 <small class="text-muted">EPUB 文件尚未上传</small>
 {% endif %}
-
+{% endif %}
 {% endfor %}
 
 ## 罗伯特·谢克里（Robert Sheckley）
