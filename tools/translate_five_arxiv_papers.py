@@ -162,7 +162,7 @@ def article(meta, pages, model):
         "",
         "## 全文逐页中译", "",
     ]
-    ntrans, nmath, nrefs = 0, 0, 0
+    ntrans, nmath, nrefs, nfallback = 0, 0, 0, 0
     for pg_idx, blocks in enumerate(pages, start=1):
         lines.extend([f"## 第 {pg_idx} 页", "", f'<span id="page-{pg_idx}"></span>', ""])
         for idx, (text, mathy, ref_mode) in enumerate(blocks, start=1):
@@ -183,7 +183,14 @@ def article(meta, pages, model):
             except Exception as e:
                 raise RuntimeError(f"{aid} p{pg_idx} block{idx}: {e}") from e
             if len(chinese.strip()) < 2:
-                raise RuntimeError(f"Empty MT result {aid} p{pg_idx} block{idx}")
+                # Translators can return an empty string on mixed TeX/PDF glyphs.
+                # Retry a prose-only projection, but never silently discard content.
+                cleaned = re.sub(r"[^\\x20-\\x7e]+", " ", text).strip()
+                if cleaned:
+                    chinese = translate_text(model, cleaned)
+                if len(chinese.strip()) < 2:
+                    nfallback += 1
+                    chinese = "【机器译文未识别，原文保留待校订】" + text
             lines.append(ensure_safe(chinese) + "\n")
             ntrans += 1
         lines.extend([
@@ -191,12 +198,14 @@ def article(meta, pages, model):
         ])
     lines.extend(["", "## 文本完整性和核对说明", "",
         f"- PDF 原件页数：{num_pages}；译稿覆盖页数：{len(pages)}。",
-        f"- 已自动翻译英文文字块：{ntrans}；公式与非语言文字块保留原文：{nmath}；参考文献块保留原文：{nrefs}。",
+        f"- 英文文字块：{ntrans}；机器译文未识别而保留原文的文字块：{nfallback}；公式与非语言文字块保留原文：{nmath}；参考文献块保留原文：{nrefs}。",
         "- 源 PDF 自动文字提取可能造成公式上下标、双栏阅读顺序与跨页表格损坏。官方 PDF 是准确原文的依据。",
         "- 译文为自动化机器初稿，专有名词、定理和公式周边文字仍需进一步学术审校。",
         "",
         "{% endraw %}", ""
     ])
+    if nfallback > max(8, ntrans // 20):
+        raise RuntimeError(f"Too many untranslatable blocks: {aid}: {nfallback}/{ntrans}")
     if ntrans < num_pages * 3:
         raise RuntimeError(f"Suspiciously few translated blocks: {aid} ({ntrans})")
     return slug, "\n".join(lines), (ntrans, nmath, nrefs)
