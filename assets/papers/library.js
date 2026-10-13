@@ -12,7 +12,10 @@
   function appendLink(parent, text, url) { const a=anchor(text,url); if (a) parent.append(a); }
   function card(p) {
     const c=make('article',undefined,'pl-card'); c.id='paper-'+p.id;
-    const m=make('div',undefined,'pl-meta'); m.append(make('span',p.date)); m.append(make('span',p.fields['契合方向']||'研究阅读','pl-pill'));m.append(make('span',p.status));c.append(m);
+    const top=make('div',undefined,'pl-card-top');
+    const m=make('div',undefined,'pl-meta'); m.append(make('span',p.date)); m.append(make('span',p.fields['契合方向']||'研究阅读','pl-pill'));m.append(make('span',p.status));top.append(m);
+    if (window.PaperMarks) { const marks=window.PaperMarks.createToolbar(p.id); if (marks) top.append(marks); }
+    c.append(top);
     const heading=make('h3');appendLink(heading,p.title,p.paper_url);c.append(heading);c.append(make('p',p.fields['推荐理由']||p.fields['内容']?.slice(0,220)||'', 'pl-reason'));
     const links=make('div',undefined,'pl-links');
     for (const a of p.hosted_pdfs) appendLink(links,'下载 PDF','/'+a.site_path);
