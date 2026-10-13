@@ -901,5 +901,116 @@
     "external": true,
     "primary_translation": true,
     "qa_complete": false
+  },
+  {
+    "date": "2026-10-13",
+    "url": "/papers/translations/2026-07-29-2607-20909/",
+    "slug": "2026-07-29-2607-20909",
+    "source_file": "2026-07-29-2607-20909.md",
+    "title": "RadioTrace：发射机感知扩散无线电地图估计｜中文译稿（校对中）",
+    "scope": "正文、公式、实验、附录已编译；参考书目未重录；逐句校对中，未计入全文验收",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-07-29-2607-20909.md",
+    "source_page_path": "papers/translations/2026-07-29-2607-20909.md",
+    "paper_ids": [
+      "d3442bacafe52a2b"
+    ],
+    "source_arxiv_ids": [
+      "2607.20909"
+    ],
+    "external": true,
+    "primary_translation": true,
+    "qa_complete": false
+  },
+  {
+    "date": "2026-10-13",
+    "url": "/papers/translations/2026-07-29-2607-22204/",
+    "slug": "2026-07-29-2607-22204",
+    "source_file": "2026-07-29-2607-22204.md",
+    "title": "跨频段 CSI 重建基础模型｜中文译稿（校对中）",
+    "scope": "正文及主要公式表格和参考文献已编译；逐式校对中，未计入全文验收",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-07-29-2607-22204.md",
+    "source_page_path": "papers/translations/2026-07-29-2607-22204.md",
+    "paper_ids": [
+      "d1075d0eb3ab3dc2"
+    ],
+    "source_arxiv_ids": [
+      "2607.22204"
+    ],
+    "external": true,
+    "primary_translation": true,
+    "qa_complete": false
+  },
+  {
+    "date": "2026-10-13",
+    "url": "/papers/translations/2026-07-29-2607-24330/",
+    "slug": "2026-07-29-2607-24330",
+    "source_file": "2026-07-29-2607-24330.md",
+    "title": "SPA-TANN：空时频张量信道外推｜中文译稿（校对中）",
+    "scope": "正文及式 (1)–(39)、命题和图表译稿；书目引至原文；校对中，未计入全文验收",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-07-29-2607-24330.md",
+    "source_page_path": "papers/translations/2026-07-29-2607-24330.md",
+    "paper_ids": [
+      "86311056e017da7f"
+    ],
+    "source_arxiv_ids": [
+      "2607.24330"
+    ],
+    "external": true,
+    "primary_translation": true,
+    "qa_complete": false
+  },
+  {
+    "date": "2026-10-13",
+    "url": "/papers/translations/2026-07-29-2607-24876/",
+    "slug": "2026-07-29-2607-24876",
+    "source_file": "2026-07-29-2607-24876.md",
+    "title": "RC-BFM：低时延生成式语义通信｜中文译稿（校对中）",
+    "scope": "正文、式 (1)–(16)、图表及算法初译；逐句校对中，未计入全文验收",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-07-29-2607-24876.md",
+    "source_page_path": "papers/translations/2026-07-29-2607-24876.md",
+    "paper_ids": [
+      "7e60d1f6e3cbae1c"
+    ],
+    "source_arxiv_ids": [
+      "2607.24876"
+    ],
+    "external": true,
+    "primary_translation": true,
+    "qa_complete": false
+  },
+  {
+    "date": "2026-10-13",
+    "url": "/papers/translations/2026-07-29-2607-24872/",
+    "slug": "2026-07-29-2607-24872",
+    "source_file": "2026-07-29-2607-24872.md",
+    "title": "BRCL：发射端 MIMO CSI 波束响应对比学习｜中文译稿（校对中）",
+    "scope": "正文、主要式 (1)–(52)、实验图表初译；书目引至原文；校对中，未计入全文验收",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-07-29-2607-24872.md",
+    "source_page_path": "papers/translations/2026-07-29-2607-24872.md",
+    "paper_ids": [
+      "e759ecd4245bde17"
+    ],
+    "source_arxiv_ids": [
+      "2607.24872"
+    ],
+    "external": true,
+    "primary_translation": true,
+    "qa_complete": false
+  },
+  {
+    "date": "2026-10-13",
+    "url": "/papers/translations/2026-07-30-2508-10546/",
+    "slug": "2026-07-30-2508-10546",
+    "source_file": "2026-07-30-2508-10546.md",
+    "title": "GUDL：无监督深度平衡大规模信道估计｜中文部分译稿",
+    "scope": "已译正文与主要定理；附录 A–D 大量中间推导待逐式补译；部分译稿，未计入全文验收",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-07-30-2508-10546.md",
+    "source_page_path": "papers/translations/2026-07-30-2508-10546.md",
+    "paper_ids": [],
+    "source_arxiv_ids": [
+      "2508.10546"
+    ],
+    "external": true,
+    "qa_complete": false
   }
 ]
