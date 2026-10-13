@@ -17,7 +17,7 @@
   if (!host && !reader) return;
   var holder = reader || host;
   var KEY = "lrx-reading-notes-v1", MAX_NOTES = 2500, MAX_QUOTE = 2000, MAX_COMMENT = 4000;
-  var MAX_DELETED = 10000, REMOTE_FILE = "reading-notes.json", MAX_REMOTE_BYTES = 3 * 1024 * 1024;
+  var MAX_DELETED = 10000, REMOTE_FILE = "reading-notes.json", MAX_REMOTE_BYTES = 1024 * 1024;
   var nativeHighlight = !!(window.CSS && CSS.highlights && typeof window.Highlight === "function");
   var notebook, list, summary, empty, pop, active = null;
   function valid(n) {
@@ -428,7 +428,7 @@
         if(mode==="push"){
           var content=JSON.stringify({version:2,notes:merged.notes,deleted:merged.deleted},null,2);
           if(new TextEncoder().encode(content).length>MAX_REMOTE_BYTES)
-            throw Error("合并后的文件超过 3 MB，请先导出整理。");
+            throw Error("合并后的文件超过 1 MB，请先导出整理。");
           var body={message:"Backup private reading notes",content:utf8ToBase64(content)};
           if(file)body.sha=file.sha;
           await api(fileUrl,{method:"PUT",headers:Object.assign({},headers,{"Content-Type":"application/json"}),
