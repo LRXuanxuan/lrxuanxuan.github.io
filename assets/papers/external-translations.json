@@ -1,6 +1,94 @@
 [
   {
     "date": "2026-10-13",
+    "url": "/papers/translations/2026-10-13-vtdl-highway-otfs-2026/",
+    "slug": "2026-10-13-vtdl-highway-otfs-2026",
+    "source_file": "2026-10-13-vtdl-highway-otfs-2026.md",
+    "title": "V-TDL：用于OTFS性能评价的高速公路车载信道模型｜中文全篇译稿",
+    "scope": "IEEE TCOM 2026作者接受稿16页；正文I–VII、式（1）–（41）、表I–V、图1–19及书目；校对中",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-13-vtdl-highway-otfs-2026.md",
+    "source_page_path": "papers/translations/2026-10-13-vtdl-highway-otfs-2026.md",
+    "paper_ids": [],
+    "source_arxiv_ids": [],
+    "external": true,
+    "qa_complete": false,
+    "content_kind": "full_translation_review_pending",
+    "license_status": "user_supplied_pdf_rights_not_independently_verified"
+  },
+  {
+    "date": "2026-10-13",
+    "url": "/papers/translations/2026-10-13-twist-flow-2610-09281/",
+    "slug": "2026-10-13-twist-flow-2610-09281",
+    "source_file": "2026-10-13-twist-flow-2610-09281.md",
+    "title": "Twist Flow for Inverse Problems：联合扭转流｜中文全篇译稿",
+    "scope": "原文25页；正文1–5、式（1）–（33）、表1–4、图1–4、附录A.1–A.8及书目；校对中",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-13-twist-flow-2610-09281.md",
+    "source_page_path": "papers/translations/2026-10-13-twist-flow-2610-09281.md",
+    "paper_ids": [],
+    "source_arxiv_ids": [
+      "2610.09281"
+    ],
+    "external": true,
+    "qa_complete": false,
+    "content_kind": "full_translation_review_pending",
+    "license_status": "user_supplied_pdf_rights_not_independently_verified"
+  },
+  {
+    "date": "2026-10-12",
+    "url": "/papers/translations/2026-10-12-pctgs-2606-18734/",
+    "slug": "2026-10-12-pctgs-2606-18734",
+    "source_file": "2026-10-12-pctgs-2606-18734.md",
+    "title": "PC-TGS：点云辅助切平面高斯泼溅信道预测｜中文全篇译稿",
+    "scope": "原文15页；正文I–V、式（1）–（47）、表I–VI、图1–6及附录A–C；校对中",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-pctgs-2606-18734.md",
+    "source_page_path": "papers/translations/2026-10-12-pctgs-2606-18734.md",
+    "paper_ids": [],
+    "source_arxiv_ids": [
+      "2606.18734"
+    ],
+    "external": true,
+    "qa_complete": false,
+    "content_kind": "full_translation_review_pending",
+    "license_status": "user_supplied_pdf_rights_not_independently_verified"
+  },
+  {
+    "date": "2026-10-12",
+    "url": "/papers/translations/2026-10-12-groupwise-narrow-beam-2506-01043/",
+    "slug": "2026-10-12-groupwise-narrow-beam-2506-01043",
+    "source_file": "2026-10-12-groupwise-narrow-beam-2506-01043.md",
+    "title": "分组窄波束：混合波束成形上行信道估计｜中文全篇译稿",
+    "scope": "原文13页；正文I–VII、式（1）–（41）、算法1、附录A、图表与书目；校对中",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-groupwise-narrow-beam-2506-01043.md",
+    "source_page_path": "papers/translations/2026-10-12-groupwise-narrow-beam-2506-01043.md",
+    "paper_ids": [],
+    "source_arxiv_ids": [
+      "2506.01043"
+    ],
+    "external": true,
+    "qa_complete": false,
+    "content_kind": "full_translation_review_pending",
+    "license_status": "user_supplied_pdf_rights_not_independently_verified"
+  },
+  {
+    "date": "2026-10-12",
+    "url": "/papers/translations/2026-10-12-climb-flow-2609-33834/",
+    "slug": "2026-10-12-climb-flow-2609-33834",
+    "source_file": "2026-10-12-climb-flow-2609-33834.md",
+    "title": "CLIMB-Flow：多尺度耦合线性逆问题后验采样｜中文全篇译稿",
+    "scope": "原文5页；摘要、正文、算法1、式（1）–（9）、表1、图示与书目；校对中",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-climb-flow-2609-33834.md",
+    "source_page_path": "papers/translations/2026-10-12-climb-flow-2609-33834.md",
+    "paper_ids": [],
+    "source_arxiv_ids": [
+      "2609.33834"
+    ],
+    "external": true,
+    "qa_complete": false,
+    "content_kind": "full_translation_review_pending",
+    "license_status": "user_supplied_pdf_rights_not_independently_verified"
+  },
+  {
+    "date": "2026-10-13",
     "url": "/papers/translations/2026-10-12-f4-ckm/",
     "slug": "2026-10-12-f4-ckm",
     "source_file": "2026-10-12-f4-ckm.md",
