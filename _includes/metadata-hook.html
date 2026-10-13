@@ -23,3 +23,13 @@ may opt in with front matter: reading_notes: true.
 <link rel="stylesheet" href="{{ '/assets/css/reading-notes.css' | relative_url }}">
 <script src="{{ '/assets/js/reading-notes.js' | relative_url }}" defer></script>
 {% endif %}
+
+{%- comment -%}
+Paper reading flags are injected into all canonical /papers/items/<id>/ pages.
+Every newly exported paper receives them without modifying generated Markdown.
+{%- endcomment -%}
+{% assign pm_route = page.permalink | default: page.url %}
+{% if pm_route contains '/papers/items/' %}
+<link rel="stylesheet" href="{{ '/assets/css/paper-marks.css' | relative_url }}">
+<script src="{{ '/assets/js/paper-marks.js' | relative_url }}" defer></script>
+{% endif %}
