@@ -19,6 +19,7 @@
 - 核心脚本：`assets/js/reading-notes.js`；样式：`assets/css/reading-notes.css`；入口继续由 `_includes/metadata-hook.html` 自动挂载。
 - 本地仍使用原键 `localStorage['lrx-reading-notes-v1']`，不更改或清空历史摘录。内部格式升级到 `version: 2`，字段 `notes` 保留原文和批注，增加 `updated` 和 `deleted`（删除墓碑，时间戳，解决跨设备删除重现）。
 - 私库固定文件名 `reading-notes.json`；只上传 JSON 纯文本，绝不把该文件提交到**公开博客仓库**、GitHub Pages、Issue、Actions 日志或公共 Gist。
+- 为兼容 GitHub Contents API 的小文件 Base64 返回方式，私库同步快照限制为约 1 MiB；超过时提示用户先导出整理，不静默截断数据。手动 JSON 导入仍允许最大 3 MB。
 - **仅手动同步**：访问令牌在输入框中短暂使用，不写入浏览器 localStorage、sessionStorage、URL、仓库、日志；不自动同步，不加载第三方 SDK，也没有自己托管的后端。刷新网页后需要重新输入 token。
 - 每次同步前读取 GitHub API `GET /repos/{owner}/{repo}`，**必须核验 `private === true`**，否则停止执行（fail closed）。使用 GitHub Contents API 的 sha 乐观并发控制，遇到并发冲突返回提示，不覆盖远程新版本。
 - 「↑ 合并并同步到私库」先读取远程快照、按每条 ID / `updated` / `deleted` 合并，成功写入后再刷新本机。相同 ID 编辑冲突使用时间戳较新的版本；用户应避免不同设备同时操作同一条批注。
