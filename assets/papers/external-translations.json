@@ -1,6 +1,46 @@
 [
   {
     "date": "2026-10-13",
+    "url": "/papers/translations/2026-10-13-flow-map-denoisers-2606-19802/",
+    "slug": "2026-10-13-flow-map-denoisers-2606-19802",
+    "source_file": "2026-10-13-flow-map-denoisers-2606-19802.md",
+    "title": "Flow Map Denoisers：逆问题失真—感知权衡｜60页全文分篇中译",
+    "scope": "60页：正文1—7节、附录A—E、公式(1)—(38)、定理/命题/证明、图1—39题注、表1—15、75条参考文献、16项NeurIPS检查清单；按正文和附录分篇阅读。",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-13-flow-map-denoisers-2606-19802.md",
+    "source_page_path": "papers/translations/2026-10-13-flow-map-denoisers-2606-19802.md",
+    "paper_ids": [
+      "b22d53d1cb740209"
+    ],
+    "source_arxiv_ids": [
+      "2606.19802"
+    ],
+    "external": true,
+    "qa_complete": true,
+    "content_kind": "full_translation",
+    "license_status": "user_supplied_pdf_rights_not_independently_verified"
+  },
+  {
+    "date": "2026-10-13",
+    "url": "/papers/translations/2026-10-13-ocl-pde-2610-06259/",
+    "slug": "2026-10-13-ocl-pde-2610-06259",
+    "source_file": "2026-10-13-ocl-pde-2610-06259.md",
+    "title": "OCL-PDE：基于观测互补潜变量的 PDE 逆问题生成框架｜全文分篇中译",
+    "scope": "34页：正文1—5节、附录A—F、算法1—4、公式(1)—(34)、表1—16、图1—12题注、48条参考文献及研究声明；附录与书目分篇链接；原图引用官方PDF。",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-13-ocl-pde-2610-06259.md",
+    "source_page_path": "papers/translations/2026-10-13-ocl-pde-2610-06259.md",
+    "paper_ids": [
+      "3d73885958ebba6e"
+    ],
+    "source_arxiv_ids": [
+      "2610.06259"
+    ],
+    "external": true,
+    "qa_complete": true,
+    "content_kind": "full_translation",
+    "license_status": "user_supplied_pdf_rights_not_independently_verified"
+  },
+  {
+    "date": "2026-10-13",
     "url": "/papers/translations/2026-10-13-vtdl-highway-otfs-2026/",
     "slug": "2026-10-13-vtdl-highway-otfs-2026",
     "source_file": "2026-10-13-vtdl-highway-otfs-2026.md",
