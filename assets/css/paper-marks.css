@@ -1,0 +1,30 @@
+/* Four lightweight, independent, browser-local paper flags. */
+.pm-marks { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: .38rem; }
+.pm-marks button {
+  font: inherit; font-size: .75rem; font-weight: 550; line-height: 1.35;
+  padding: .32rem .57rem; border: 1px solid var(--main-border-color, #d0d9df);
+  border-radius: 999px; color: var(--text-muted-color, #64748b);
+  background: var(--card-bg, transparent); cursor: pointer;
+  transition: border-color .12s ease, background .12s ease;
+}
+.pm-marks button:hover { border-color: var(--link-color, #177e86); color: var(--link-color, #177e86); }
+.pm-marks button.is-set {
+  border-color: var(--link-color, #177e86);
+  color: var(--link-color, #177e86);
+  background: var(--sidebar-hover-bg, #e6f5f4);
+  font-weight: 700;
+}
+.pm-marks button:focus-visible { outline: 2px solid var(--link-color, #177e86); outline-offset: 2px; }
+.pm-marks .pm-star { font-size: .94em; }
+.pm-marks .pm-note { font-size: .72rem; color: var(--text-muted-color, #64748b); flex-basis: 100%; text-align: right; }
+.pm-marks .pm-note:empty { display: none; }
+.pm-detail { display: flex; justify-content: flex-end; margin: .15rem 0 .95rem; }
+.pm-detail .pm-marks { max-width: 100%; }
+#paper-library .pl-card-top { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: .55rem .8rem; }
+#paper-library .pl-card-top .pl-meta { flex: 1 1 11rem; }
+#paper-library .pl-card-top .pm-marks { margin-left: auto; }
+@media (max-width: 650px) {
+  .pm-marks button { padding: .35rem .52rem; }
+  #paper-library .pl-card-top .pm-marks { justify-content: flex-start; margin-left: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .pm-marks button { transition: none; } }
