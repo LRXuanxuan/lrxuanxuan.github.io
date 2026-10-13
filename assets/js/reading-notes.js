@@ -480,6 +480,11 @@
     showList();
   }
   buildUI();
+  window.addEventListener("storage",function(event){
+    if(event.key!==KEY)return;
+    var changed=load();notes=changed.notes;deleted=changed.deleted;
+    repaint();showList();
+  });
   if(textRoot) {repaint();popup();}
   var rn=new URLSearchParams(location.search).get("rn");
   if(rn) {
