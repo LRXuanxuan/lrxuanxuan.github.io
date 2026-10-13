@@ -9,6 +9,7 @@ A minimal, ready-to-use template for creating a blog with the [**Chirpy**][chirp
 
 - [日签与十四准则：分类规则、小说/电影台词/歌词入库格式与发布流程](docs/daily-sign-standard.md)
 - [仓库长期维护说明（AGENTS.md）](AGENTS.md)
+- [文学划线和笔记：私有 GitHub 仓库手动同步](docs/reading-notes-private-sync.md)
 - 新增日签后先运行 `python3 tools/validate_daily_sign.py`，然后再部署。
 
 ## Why This Starter Exists
