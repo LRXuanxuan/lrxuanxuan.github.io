@@ -39,6 +39,9 @@ jobs:
           # If using the 'assets' git submodule from Chirpy Starter, uncomment above
           # (See: https://github.com/cotes2020/chirpy-starter/tree/main/assets)
 
+      - name: Validate daily sign pool and explicit aspects
+        run: python3 tools/validate_daily_sign.py
+
       - name: Refresh daily sign (Asia/Shanghai)
         run: python3 tools/update_daily_sign.py
 
