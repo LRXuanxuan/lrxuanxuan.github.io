@@ -721,9 +721,123 @@ $$
 
 ---
 
-## 参考文献说明
+## 参考文献（原论文 [1]—[56]）
 
-原 PDF 第 9—13 页的参考文献共 56 条（[1]—[56]），包括 Sionna RT、无线传播、NeRF/RadioUNet、神经算子、物理感知学习、去噪、感知指标以及经验风险与 Rademacher 复杂度理论。为保持作者、年份、期刊、文章题名及 DOI 的可检索性，**参考文献使用原 PDF 的英文著录原文**，不对英文论文标题重新编译或改写。可直接从 [原 PDF 第 9—13 页](https://arxiv.org/pdf/2608.18495) 查阅；本博客不额外托管 56 条英文书目信息，也不虚构 DOI 或参考内容。
+以下保留作者、英文文献题名、会议／期刊、年份及论文提供的主要检索信息。英文题名是正式书目信息，不另行意译。
+
+[1] A. Goldsmith, *Wireless Communications*. Cambridge University Press, 2005.
+
+[2] D. Tse and P. Viswanath, *Fundamentals of Wireless Communication*. Cambridge University Press, 2005.
+
+[3] H. Lu, C. Vattheuer, B. Mirzasoleiman, and O. Abari, “NewRF: A deep learning framework for wireless radiation field reconstruction and channel prediction,” *ICML*, PMLR 235, 2024.
+
+[4] X. Chen, Z. Feng, K. Qian, and X. Zhang, “Radio frequency ray tracing with neural object representation for enhanced RF modeling,” *CVPR*, 2025.
+
+[5] K. Yang, G. Dong, S. Ji, W. Du, and M. Srivastava, “GSRF: Complex-valued 3D Gaussian splatting for efficient radio-frequency data synthesis,” *NeurIPS*, 2025.
+
+[6] J. Hoydis, F. Aït Aoudia, S. Cammerer, M. Nimier-David, N. Binder, G. Marcus, and A. Keller, “Sionna RT: Differentiable ray tracing for radio propagation modeling,” arXiv:2303.11103, 2023.
+
+[7] C. Modesto, L. Mozart, P. Batista, A. Cavalcante, and A. Klautau, “Accelerating ray tracing-based wireless channels generation for real-time network digital twins,” *IEEE Open J. Commun. Soc.*, 2025.
+
+[8] R. Levie, Ç. Yapar, G. Kutyniok, and G. Caire, “RadioUNet: Fast radio map estimation with convolutional neural networks,” *IEEE Trans. Wireless Commun.*, 20(6):4001–4015, 2021.
+
+[9] Ç. Yapar, R. Levie, G. Kutyniok, and G. Caire, “Dataset of pathloss and ToA radio maps with localization application,” arXiv:2212.11777, 2022.
+
+[10] J. Hoydis, S. Cammerer, F. Aït Aoudia, M. Nimier-David, L. Maggi, G. Marcus, A. Vem, and A. Keller, “Sionna,” https://nvlabs.github.io/sionna/, 2022.
+
+[11] Altair, “Altair Feko,” https://altair.com/feko, 2026. 商用计算电磁学软件，原文访问日期 2026-05-05。
+
+[12] Ansys, “Ansys HFSS | 3D High Frequency Simulation Software,” https://www.ansys.com/products/electronics/ansys-hfss, 2026. 商用三维全波电磁仿真软件，访问日期 2026-05-05。
+
+[13] Remcom, “Wireless InSite Propagation Software,” https://www.remcom.com/wireless-insite-propagation-software, 2026. 商用无线传播和射线追踪软件，访问日期 2026-05-05。
+
+[14] M. Zhu, L. Cazzella, F. Linsalata, M. Magarini, M. Matteucci, and U. Spagnolini, “Toward real-time digital twins of EM environments: Computational benchmark for ray launching software,” *IEEE Open J. Commun. Soc.*, 5:6291–6302, 2024.
+
+[15] L. Lu, P. Jin, G. Pang, Z. Zhang, and G. E. Karniadakis, “Learning nonlinear operators via DeepONet based on the universal approximation theorem of operators,” *Nature Machine Intelligence*, 3(3):218–229, 2021.
+
+[16] Z. Li, N. B. Kovachki, K. Azizzadenesheli, B. Liu, K. Bhattacharya, A. M. Stuart, and A. Anandkumar, “Fourier neural operator for parametric partial differential equations,” *ICLR*, 2021.
+
+[17] M. Raissi, P. Perdikaris, and G. E. Karniadakis, “Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations,” *Journal of Computational Physics*, 378:686–707, 2019.
+
+[18] Z. Li, D. Z. Huang, B. Liu, K. Azizzadenesheli, and A. Anandkumar, “Physics-informed neural operator for learning partial differential equations,” *ICLR*, 2022.
+
+[19] L. Lu, R. Pestourie, S. G. Johnson, and G. Romano, “Multifidelity deep neural operators for efficient learning of partial differential equations with application to fast inverse design of nanoscale heat transport,” *Physical Review Research*, 4(2):023210, 2022.
+
+[20] A. A. Howard, M. Perego, G. E. Karniadakis, and P. Stinis, “Multifidelity deep operator networks for data-driven and physics-informed problems,” *Journal of Computational Physics*, 493:112462, 2023.
+
+[21] J. Lehtinen, J. Munkberg, J. Hasselgren, S. Laine, T. Karras, M. Aittala, and T. Aila, “Noise2Noise: Learning image restoration without clean data,” *ICML*, PMLR 80:2965–2974, 2018.
+
+[22] A. Krull, T.-O. Buchholz, and F. Jug, “Noise2Void – learning denoising from single noisy images,” *CVPR*, pp. 2129–2137, 2019.
+
+[23] Y. Quan, M. Chen, T. Pang, and H. Ji, “Self2Self with dropout: Learning self-supervised denoising from single image,” *CVPR*, pp. 1890–1898, 2020.
+
+[24] B. Böck, A. Oeldemann, T. Mayer, F. Rossetto, and W. Utschick, “Physics-informed generative modeling of wireless channels,” *ICML*, PMLR 267:4602–4626, 2025.
+
+[25] X. Chen, Z. Feng, K. Sun, K. Qian, and X. Zhang, “RFCanvas: Modeling RF channel by fusing visual priors and few-shot RF measurements,” *ACM SenSys*, pp. 464–477, 2024.
+
+[26] T. Orekondy, P. Kumar, S. Kadambi, H. Ye, J. Soriaga, and A. Behboodi, “WiNeRT: Towards neural ray tracing for wireless channel modelling and differentiable simulations,” *ICLR*, 2023.
+
+[27] X. Zhao, Z. An, Q. Pan, and L. Yang, “NeRF2: Neural radio-frequency radiance fields,” *ACM MobiCom*, 2023.
+
+[28] Y. Bu, J. Yu, K. Zheng, X. Zhang, and P. Pal, “NEAR: Neural electromagnetic array response,” *ICML*, PMLR 267:5749–5774, 2025.
+
+[29] 3GPP, “Study on channel model for frequencies from 0.5 to 100 GHz,” ETSI TR 38.901, V16.1.0, Release 16, 2020.
+
+[30] S. Jaeckel, L. Raschkowski, K. Börner, and L. Thiele, “QuaDRiGa: A 3-D multi-cell channel model with time evolution for enabling virtual field trials,” *IEEE Trans. Antennas Propag.*, 62(6):3242–3256, 2014.
+
+[31] J. Hoydis, F. Aït Aoudia, S. Cammerer, F. Euchner, M. Nimier-David, S. ten Brink, and A. Keller, “Learning radio environments by differentiable ray tracing,” arXiv:2311.18558, 2023.
+
+[32] Y. LeCun, L. Bottou, Y. Bengio, and P. Haffner, “Gradient-based learning applied to document recognition,” *Proceedings of the IEEE*, 86(11):2278–2324, 2002（依原论文著录）。
+
+[33] O. Ronneberger, P. Fischer, and T. Brox, “U-Net: Convolutional networks for biomedical image segmentation,” *MICCAI*, pp. 234–241, 2015.
+
+[34] K. He, X. Zhang, S. Ren, and J. Sun, “Deep residual learning for image recognition,” *CVPR*, pp. 770–778, 2016.
+
+[35] A. Dosovitskiy, L. Beyer, A. Kolesnikov, D. Weissenborn, X. Zhai, T. Unterthiner, M. Dehghani, M. Minderer, G. Heigold, S. Gelly, J. Uszkoreit, and N. Houlsby, “An image is worth 16x16 words: Transformers for image recognition at scale,” *ICLR*, 2021.
+
+[36] K. Bian, M. Tao, S. Sun, and J. Yu, “GeneRT: A physics-informed approach to intelligent wireless channel modeling via generalizable neural ray tracing,” arXiv:2506.18295, 2025.
+
+[37] Z. Li, N. Kovachki, K. Azizzadenesheli, B. Liu, K. Bhattacharya, A. Stuart, and A. Anandkumar, “Fourier neural operator for parametric partial differential equations,” arXiv:2010.08895, 2020.
+
+[38] J. Kossaifi, N. Kovachki, K. Azizzadenesheli, and A. Anandkumar, “Multi-grid tensorized Fourier neural operator for high-resolution PDEs,” arXiv:2310.00120, 2023.
+
+[39] M. A. Rahman, Z. E. Ross, and K. Azizzadenesheli, “U-NO: U-shaped neural operators,” arXiv:2204.11127, 2022.
+
+[40] B. Bonev, T. Kurth, C. Hundt, J. Pathak, M. Baust, K. Kashinath, and A. Anandkumar, “Spherical Fourier neural operators: Learning stable dynamics on the sphere,” *ICML*, pp. 2806–2823, 2023.
+
+[41] A. Rahman, R. J. George, M. Elleithy, D. Leibovici, Z. Li, B. Bonev, C. White, J. Berner, R. A. Yeh, J. Kossaifi et al., “Pretraining codomain attention neural operators for solving multiphysics PDEs,” *NeurIPS*, 37:104035–104064, 2024.
+
+[42] T. Tripura and S. Chakraborty, “Wavelet neural operator for solving parametric partial differential equations in computational mechanics problems,” *Computer Methods in Applied Mechanics and Engineering*, 404:115783, 2023.
+
+[43] C. M. Bishop and N. M. Nasrabadi, *Pattern Recognition and Machine Learning*. Springer, 2006, vol. 4, no. 4（依原论文著录）。
+
+[44] H. White, “A heteroskedasticity-consistent covariance matrix estimator and a direct test for heteroskedasticity,” *Econometrica*, pp. 817–838, 1980.
+
+[45] N. Cressie, *Statistics for Spatial Data*. John Wiley & Sons, 2015.
+
+[46] E. Perez, F. Strub, H. De Vries, V. Dumoulin, and A. Courville, “FiLM: Visual reasoning with a general conditioning layer,” *AAAI*, 32(1), 2018.
+
+[47] J. B. Keller, “Geometrical theory of diffraction,” 2016（依原论文著录）。
+
+[48] I. Loshchilov and F. Hutter, “Decoupled weight decay regularization,” arXiv:1711.05101, 2017.
+
+[49] L. Li, K. Jamieson, G. DeSalvo, A. Rostamizadeh, and A. Talwalkar, “Hyperband: A novel bandit-based approach to hyperparameter optimization,” *Journal of Machine Learning Research*, 18(185):1–52, 2018.
+
+[50] Z. Wang, A. C. Bovik, H. R. Sheikh, and E. P. Simoncelli, “Image quality assessment: From error visibility to structural similarity,” *IEEE Trans. Image Process.*, 13(4):600–612, 2004.
+
+[51] K. Ding, K. Ma, S. Wang, and E. P. Simoncelli, “Image quality assessment: Unifying structure and texture similarity,” *IEEE Trans. Pattern Anal. Mach. Intell.*, 44(5):2567–2581, 2020.
+
+[52] R. Zhang, P. Isola, A. A. Efros, E. Shechtman, and O. Wang, “The unreasonable effectiveness of deep features as a perceptual metric,” *CVPR*, pp. 586–595, 2018.
+
+[53] J. Canny, “A computational approach to edge detection,” *IEEE Trans. Pattern Anal. Mach. Intell.*, no. 6, pp. 679–698, 2009（依原论文著录）。
+
+[54] P. L. Bartlett, D. J. Foster, and M. J. Telgarsky, “Spectrally-normalized margin bounds for neural networks,” *NeurIPS*, 30, 2017.
+
+[55] N. Kovachki, S. Lanthaler, and S. Mishra, “On universal approximation and error bounds for Fourier neural operators,” *Journal of Machine Learning Research*, 22(290):1–76, 2021.
+
+[56] P. L. Bartlett and S. Mendelson, “Rademacher and Gaussian complexities: Risk bounds and structural results,” *Journal of Machine Learning Research*, 3:463–482, 2002.
+
+
 
 [← 返回正文](/papers/translations/2026-10-12-puhno-main/)
 {% endraw %}
