@@ -371,7 +371,13 @@
       "report_entry_url": "/papers/reports/2026-10-12/#paper-d85362be1aed96a2",
       "paper_url": "/papers/items/d85362be1aed96a2/",
       "paper_report_url": "/papers/items/d85362be1aed96a2/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-12-d85362be1aed96a2/",
+          "title": "Digital Twin-Assisted Spatio-Temporal Diffusion Transformer for Channel Estimation in Low-Altitude ISAC Systems",
+          "scope": "中文译稿（范围见原页面；未计入全文验收）"
+        }
+      ],
       "links": [
         "https://discovery.ucl.ac.uk/id/eprint/10228582/",
         "https://doi.org/10.1109/tcomm.2026.3706480",
@@ -383,10 +389,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
+      "translation_status": "draft_unverified",
       "full_translation_public": false,
-      "full_translation_url": "/papers/items/d85362be1aed96a2/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_url": "/papers/translations/2026-10-12-d85362be1aed96a2/",
+      "full_translation_label": "中文全文初稿（待逐页验收）"
     },
     {
       "id": "5bc3cd8a05b4024c",
@@ -16926,7 +16932,9 @@
       "scope": "中文译稿（范围见原页面；未计入全文验收）",
       "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-d85362be1aed96a2.md",
       "source_page_path": "papers/translations/2026-10-12-d85362be1aed96a2.md",
-      "paper_ids": [],
+      "paper_ids": [
+        "d85362be1aed96a2"
+      ],
       "source_arxiv_ids": [],
       "external": true,
       "qa_complete": false
