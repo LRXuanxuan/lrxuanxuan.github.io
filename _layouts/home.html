@@ -66,26 +66,30 @@ layout: default
     </div>
   </section>
 
-  <section class="rc-section rc-recent" aria-labelledby="rc-recent-heading">
+  <section class="rc-section rc-wander" data-wander-index="{{ '/assets/data/random-walk.json' | relative_url }}" aria-labelledby="rc-wander-heading">
     <div class="rc-section-heading">
-      <h2 id="rc-recent-heading">近期上传</h2>
-      <p>按更新日期排列，记录最近放进博客的内容。</p>
+      <h2 id="rc-wander-heading">随机漫游</h2>
+      <p>随手翻开科幻章节、豆知识或论文译稿的一页，让旧文字也出来散散步。</p>
     </div>
-    {% assign recent_uploads = site.data.home_updates | sort: 'date' | reverse %}
-    <ul class="rc-update-list">
-      {% for upload in recent_uploads limit: 3 %}
-      <li>
-        <a href="{{ upload.url | relative_url }}">
-          <time datetime="{{ upload.date }}">{{ upload.date | date: '%Y.%m.%d' }}</time>
-          <span class="rc-update-body">
-            <strong>{{ upload.title }}</strong>
-            <span>{{ upload.description }}</span>
-          </span>
-          <i class="fas fa-arrow-right rc-update-arrow" aria-hidden="true"></i>
-        </a>
-      </li>
-      {% endfor %}
-    </ul>
+    <div class="rc-wander-panel">
+      <div class="rc-wander-filters" role="group" aria-label="选择随机漫游的栏目">
+        <button type="button" data-wander-filter="all" aria-pressed="true">全部</button>
+        <button type="button" data-wander-filter="literature" aria-pressed="false">科幻与翻译</button>
+        <button type="button" data-wander-filter="tidbits" aria-pressed="false">豆知识</button>
+        <button type="button" data-wander-filter="papers" aria-pressed="false">论文译稿</button>
+      </div>
+      <div class="rc-wander-result" aria-live="polite" aria-atomic="true">
+        <p class="rc-wander-kind" data-wander-kind>站内随读</p>
+        <h3 data-wander-title>翻开随机的一页</h3>
+        <p class="rc-wander-teaser" data-wander-teaser>从已有的文章和收藏中，随机挑选一篇来阅读。</p>
+      </div>
+      <div class="rc-wander-actions">
+        <button type="button" data-wander-next disabled><i class="fas fa-random" aria-hidden="true"></i> 再逛逛</button>
+        <a data-wander-open href="{{ '/translations/' | relative_url }}">先去科幻书架看看 ↗</a>
+        <span class="rc-wander-status" data-wander-status role="status">正在整理漫游路线…</span>
+      </div>
+      <noscript><p class="rc-wander-status">启用 JavaScript 后即可随机抽取；也可以直接从栏目入口阅读。</p></noscript>
+    </div>
   </section>
 </div>
 
@@ -94,3 +98,5 @@ layout: default
 <script src="{{ '/assets/js/sign-votes.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/js/sign-calendar.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/js/daily-sign.js' | relative_url }}" defer></script>
+
+<script src="{{ '/assets/js/random-walk.js' | relative_url }}" defer></script>
