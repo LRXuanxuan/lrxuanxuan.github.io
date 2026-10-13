@@ -1,6 +1,44 @@
 [
   {
     "date": "2026-10-13",
+    "url": "/papers/translations/2026-10-13-radiodiff-inverse-twc-2026/",
+    "slug": "2026-10-13-radiodiff-inverse-twc-2026",
+    "source_file": "2026-10-13-radiodiff-inverse-twc-2026.md",
+    "title": "RadioDiff-Inverse：面向ISAC无线电地图的扩散增强贝叶斯逆估计｜中文译稿（校对中）",
+    "scope": "原文16页，I–VI、式（1）–（45）、表I–III、图1–13、参考文献；待逐句校对",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-13-radiodiff-inverse-twc-2026.md",
+    "source_page_path": "papers/translations/2026-10-13-radiodiff-inverse-twc-2026.md",
+    "paper_ids": [
+      "cb0e43169021c839"
+    ],
+    "source_arxiv_ids": [],
+    "external": true,
+    "primary_translation": true,
+    "qa_complete": false,
+    "content_kind": "full_translation_review_pending",
+    "license_status": "ieee_republication_permission_not_independently_verified"
+  },
+  {
+    "date": "2026-10-13",
+    "url": "/papers/translations/2026-10-13-aug-rme-twc-2026/",
+    "slug": "2026-10-13-aug-rme-twc-2026",
+    "source_file": "2026-10-13-aug-rme-twc-2026.md",
+    "title": "AUG-RME：注意力与不确定性感知的无网格无线电地图估计｜中文译稿（校对中）",
+    "scope": "原文15页，I–VI、式（1）–（14）、表I–III、图1–12、参考文献；待逐句校对",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-13-aug-rme-twc-2026.md",
+    "source_page_path": "papers/translations/2026-10-13-aug-rme-twc-2026.md",
+    "paper_ids": [
+      "3925171895fd3316"
+    ],
+    "source_arxiv_ids": [],
+    "external": true,
+    "primary_translation": true,
+    "qa_complete": false,
+    "content_kind": "full_translation_review_pending",
+    "license_status": "ieee_republication_permission_not_independently_verified"
+  },
+  {
+    "date": "2026-10-13",
     "url": "/papers/translations/2026-10-13-beta-flow-2610-13812/",
     "slug": "2026-10-13-beta-flow-2610-13812",
     "source_file": "2026-10-13-beta-flow-2610-13812.md",
