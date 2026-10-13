@@ -33,10 +33,15 @@
     for(const a of p.hosted_pdfs){const att=make('p',`${a.title} · ${a.authors||''} · 未修改原文。`,'pl-meta');appendLink(att,'原文授权',a.license_url);d.append(att);}
     d.append(make('small',`来源：${data.source} · ${p.sheet} 第 ${p.row} 行 · 全文译稿：${p.translation_status}`,'pl-meta'));c.append(d);return c;
   }
+  function matchesReadingMark(p, selected) {
+    if (!selected) return true;
+    const mask = window.PaperMarks?.getMask?.(p.id) ?? 0;
+    return selected === 'none' ? mask === 0 : (mask & Number(selected)) !== 0;
+  }
   function render() {
-    const q=$('pl-query').value.trim().toLowerCase(), day=$('pl-date').value, status=$('pl-status').value, code=$('pl-code').checked;
+    const q=$('pl-query').value.trim().toLowerCase(), day=$('pl-date').value, status=$('pl-status').value, code=$('pl-code').checked, reading=$('pl-reading').value;
     const source=view==='papers'?data.papers:data[view];
-    const result=source.filter(p=>(!query.get('paper')||view!=='papers'||p.id===query.get('paper'))&&(!day||p.date===day)&&(!q||p.title.toLowerCase().includes(q))&&(view!=='papers'||((!status||p.status===status)&&(!code||p.github.length))));
+    const result=source.filter(p=>(!query.get('paper')||view!=='papers'||p.id===query.get('paper'))&&(!day||p.date===day)&&(!q||p.title.toLowerCase().includes(q))&&(view!=='papers'||((!status||p.status===status)&&(!code||p.github.length)&&matchesReadingMark(p,reading))));
     $('pl-count').textContent=`${view==='papers'?'论文记录':view==='reports'?'日报':'译文'} ${result.length} ${view==='papers'?'条':'份'} · 默认按日期由新到旧`;
     const dest=$('pl-results');dest.replaceChildren();
     for (const p of result.slice(0,limit)) {
@@ -45,7 +50,7 @@
     }
     if(!result.length)dest.append(make('p','没有匹配记录，请调整筛选条件。'));
     $('pl-more').hidden=result.length<=limit;
-    $('pl-status').disabled=view!=='papers';$('pl-code').disabled=view!=='papers';
+    $('pl-status').disabled=view!=='papers';$('pl-code').disabled=view!=='papers';$('pl-reading').disabled=view!=='papers';
   }
   fetch(root.dataset.source,{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(async json=>{
     data=json;
@@ -84,6 +89,10 @@
     if(query.get('date'))$('pl-date').value=query.get('date');
     $('pl-filters').addEventListener('submit',e=>e.preventDefault());$('pl-filters').addEventListener('input',()=>{query.delete('paper');limit=20;render();});$('pl-filters').addEventListener('reset',()=>setTimeout(()=>{query.delete('paper');limit=20;render();},0));
     root.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>{view=b.dataset.view;limit=20;root.querySelectorAll('[data-view]').forEach(x=>x.classList.toggle('active',x===b));render();}));
-    $('pl-more').addEventListener('click',()=>{limit+=20;render();});render();
+    $('pl-more').addEventListener('click',()=>{limit+=20;render();});
+    // Filtering uses the same local flags as each paper card/detail page.
+    // React to clicks in this tab as well as cross-tab localStorage changes.
+    window.addEventListener('paper-marks-changed',()=>{if(view==='papers' && $('pl-reading').value) render();});
+    render();
   }).catch(err=>{$('pl-stats').textContent='论文库暂时无法加载：'+err.message;});
 })();
