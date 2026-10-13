@@ -91,3 +91,11 @@
 - 数据规则：作品标题统一放 `book`（电影名、歌曲名也一样），`author` 实事求是，`chapter` 记录章节/说话角色/歌词段落，`readerLink` 仅在有可用微信读书链接时填入；每条须有稳定且唯一的 `id`、`theme`、`aspect`、正数 `weight` 和 `quoteWeight`。新媒介可选填 `sourceType`。诗句保留换行，清理乱码、版本尾巴、下载站噪声，谨慎处理版权。
 - **只向 `quotes` 末尾追加并更新 `count`，勿清洗/排序/重建全池或重算旧 ID。** 既有 1060 条分类不得无授权覆盖。新增前运行 `python3 tools/validate_daily_sign.py`，不通过不得部署。
 - 保留北京时间每日 00:00 换签、自动历史归档，首页重抽、签册折叠及日期/时间倒序、14 个图标、用户本地 `♡ 贴贴 / 🐾 踩踩` 与导入导出，不得清除用户记录或上传个人评价。使用轻量纯文本，不上传图片/PDF/媒体大文件。
+
+## 文学摘录与 GitHub 私库同步（2026-10-13）
+
+- 本地阅读笔记仍由 `assets/js/reading-notes.js` 与 `assets/css/reading-notes.css` 负责，`_includes/metadata-hook.html` 对翻译作品与已启用文学笔记的页面自动载入；不得逐篇复制实现。
+- 新增「☁ 私库同步（手动）」：浏览器划线与批注默认仅在 `localStorage['lrx-reading-notes-v1']`。用户自建 Private 仓库，通过 GitHub fine-grained PAT 授予**仅该仓库**的 Contents 读写权限后，手动合并上传/拉取私人摘录；不自动上传，不存储 token。**禁止**把摘录备份、token、访问记录上传至本公开博客仓库或 GitHub Pages。
+- 同步前必须通过 GitHub API 核验目标仓库为 `private===true`，失效/无法核验时拒绝。同步文档保存为私库 `reading-notes.json`，使用文件 sha 防止并发覆盖、时间戳合并变更以及删除墓碑防止已删记录恢复。
+- 本地格式 v2 保持旧存储键，兼容 v1 导入备份和全部原有划线、跳转、修改、删除、作品汇总。令牌只在本次页面输入框短暂使用，刷新后消失，不写浏览器存储；断网、本机使用、导出导入应不依赖私库功能。
+- **操作说明与安全约束唯一详见** [docs/reading-notes-private-sync.md](docs/reading-notes-private-sync.md)。ChatGPT 要读取私库，需要用户为 GitHub 连接单独授权该私有仓库，不可假称连接已开通。不得绕过权限或放宽默认隐私策略。
