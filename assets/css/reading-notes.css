@@ -20,3 +20,13 @@
 .rn-wave{text-decoration-line:underline;text-decoration-style:wavy;text-decoration-color:#bf7651;text-decoration-thickness:1.2px;text-underline-offset:.22em}
 ::highlight(rn-saved-waves){text-decoration-line:underline;text-decoration-style:wavy;text-decoration-color:#bf7651;text-decoration-thickness:1.2px;text-underline-offset:.22em}
 @media(max-width:600px){.rn-notebook{padding:.65rem}.rn-float{font-size:.85rem}}
+
+/* Private sync controls; folded by default. */
+.rn-sync{margin:.65rem 0 .8rem;padding-top:.65rem;border-top:1px dashed var(--main-border-color,#ddd)}
+.rn-sync>summary{cursor:pointer;font-size:.85rem;font-weight:600}
+.rn-sync[open]>summary{margin-bottom:.5rem}
+.rn-sync-fields{display:flex;flex-wrap:wrap;gap:.65rem;margin:.6rem 0}
+.rn-sync-fields label{display:flex;flex:1 1 230px;min-width:0;flex-direction:column;gap:.22rem;font-size:.83rem}
+.rn-sync-input{box-sizing:border-box;width:100%;min-width:0;padding:.35rem .5rem;font:inherit;color:inherit;background:transparent;border:1px solid var(--main-border-color,#bbb);border-radius:.45rem}
+.rn-sync-status{font-size:.83rem;color:var(--text-muted-color,#777);line-height:1.6;margin:.4rem 0 .6rem;overflow-wrap:anywhere}
+.rn-sync .rn-btn:disabled{opacity:.5;cursor:wait}
