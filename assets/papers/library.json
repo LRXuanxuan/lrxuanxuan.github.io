@@ -4,13 +4,13 @@
   "source_sha256": "db4003c5253bb1480587d089bae8608b7353257b0e6c5308e9c84ad323ece88b",
   "translation_progress": {
     "target": 315,
-    "completed": 22,
-    "public_full_text": 10,
+    "completed": 27,
+    "public_full_text": 15,
     "local_only": 12,
     "status_counts": {
       "access_blocked": 3,
-      "complete": 18,
-      "pending": 292,
+      "complete": 23,
+      "pending": 287,
       "incomplete": 1,
       "running": 1
     },
@@ -1207,7 +1207,28 @@
       "report_entry_url": "/papers/reports/2026-10-09/#paper-10f0ab8efa0053a7",
       "paper_url": "/papers/items/10f0ab8efa0053a7/",
       "paper_report_url": "/papers/items/10f0ab8efa0053a7/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "date": "2026-10-12",
+          "url": "/papers/translations/2026-10-12-2610-04769-full-zh/",
+          "slug": "2026-10-12-2610-04769-full-zh",
+          "source_file": "2026-10-12-2610-04769-full-zh.md",
+          "title": "空间可重构夹持天线系统：实验验证及通感一体化应用｜全文中文翻译",
+          "scope": "原文8页：摘要、I—V节、图1—6题注、15条参考文献和6位作者简介。",
+          "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-2610-04769-full-zh.md",
+          "source_page_path": "papers/translations/2026-10-12-2610-04769-full-zh.md",
+          "paper_ids": [
+            "10f0ab8efa0053a7"
+          ],
+          "source_arxiv_ids": [
+            "2610.04769"
+          ],
+          "external": true,
+          "qa_complete": true,
+          "content_kind": "full_translation",
+          "license_status": "user_supplied_pdf_rights_not_independently_verified"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2610.04769",
         "https://arxiv.org/abs/2610.04769"
@@ -1218,10 +1239,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/10f0ab8efa0053a7/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-12-2610-04769-full-zh/",
+      "full_translation_label": "全文中文翻译"
     },
     {
       "id": "35a0a3cc7dd34973",
@@ -1254,7 +1275,28 @@
       "report_entry_url": "/papers/reports/2026-10-09/#paper-35a0a3cc7dd34973",
       "paper_url": "/papers/items/35a0a3cc7dd34973/",
       "paper_report_url": "/papers/items/35a0a3cc7dd34973/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "date": "2026-10-12",
+          "url": "/papers/translations/2026-10-12-2604-07004-full-zh/",
+          "slug": "2026-10-12-2604-07004-full-zh",
+          "source_file": "2026-10-12-2604-07004-full-zh.md",
+          "title": "突发相位噪声下的信道估计与 LDPC 译码｜全文中文翻译",
+          "scope": "原文11页：摘要、I—VI节、公式(1)—(34)、图1—15、表I及45条参考文献。",
+          "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-2604-07004-full-zh.md",
+          "source_page_path": "papers/translations/2026-10-12-2604-07004-full-zh.md",
+          "paper_ids": [
+            "35a0a3cc7dd34973"
+          ],
+          "source_arxiv_ids": [
+            "2604.07004"
+          ],
+          "external": true,
+          "qa_complete": true,
+          "content_kind": "full_translation",
+          "license_status": "user_supplied_pdf_rights_not_independently_verified"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2604.07004",
         "https://arxiv.org/abs/2604.07004",
@@ -1269,10 +1311,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/35a0a3cc7dd34973/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-12-2604-07004-full-zh/",
+      "full_translation_label": "全文中文翻译"
     },
     {
       "id": "f21a0dbb22c712a9",
@@ -1305,7 +1347,28 @@
       "report_entry_url": "/papers/reports/2026-10-09/#paper-f21a0dbb22c712a9",
       "paper_url": "/papers/items/f21a0dbb22c712a9/",
       "paper_report_url": "/papers/items/f21a0dbb22c712a9/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "date": "2026-10-12",
+          "url": "/papers/translations/2026-10-12-geometry-gpr-full-zh/",
+          "slug": "2026-10-12-geometry-gpr-full-zh",
+          "source_file": "2026-10-12-geometry-gpr-full-zh.md",
+          "title": "几何感知 GPR 的节能低开销信道估计方案｜完整中文译文",
+          "scope": "原文13页：摘要、I—VII节、33个编号公式、算法1—2、图1—9、表I—III、附录A—B、37条参考文献及作者简介。",
+          "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-geometry-gpr-full-zh.md",
+          "source_page_path": "papers/translations/2026-10-12-geometry-gpr-full-zh.md",
+          "paper_ids": [
+            "f21a0dbb22c712a9"
+          ],
+          "source_arxiv_ids": [
+            "2512.22578"
+          ],
+          "external": true,
+          "qa_complete": true,
+          "content_kind": "full_translation",
+          "license_status": "user_supplied_pdf_rights_not_independently_verified"
+        }
+      ],
       "links": [
         "https://oulurepo.oulu.fi/bitstream/handle/10024/65127/nbnfioulu-202609075987.pdf?sequence=1&isAllowed=y",
         "https://arxiv.org/abs/2512.22578",
@@ -1320,10 +1383,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/f21a0dbb22c712a9/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-12-geometry-gpr-full-zh/",
+      "full_translation_label": "全文中文翻译"
     },
     {
       "id": "b22d53d1cb740209",
@@ -1356,7 +1419,28 @@
       "report_entry_url": "/papers/reports/2026-10-09/#paper-b22d53d1cb740209",
       "paper_url": "/papers/items/b22d53d1cb740209/",
       "paper_report_url": "/papers/items/b22d53d1cb740209/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "date": "2026-10-13",
+          "url": "/papers/translations/2026-10-13-flow-map-denoisers-2606-19802/",
+          "slug": "2026-10-13-flow-map-denoisers-2606-19802",
+          "source_file": "2026-10-13-flow-map-denoisers-2606-19802.md",
+          "title": "Flow Map Denoisers：逆问题失真—感知权衡｜60页全文分篇中译",
+          "scope": "原文60页：正文1—7节、附录A—E、公式(1)—(38)、定理/证明、图1—39题注、表1—15、75条书目、16项NeurIPS检查清单。",
+          "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-13-flow-map-denoisers-2606-19802.md",
+          "source_page_path": "papers/translations/2026-10-13-flow-map-denoisers-2606-19802.md",
+          "paper_ids": [
+            "b22d53d1cb740209"
+          ],
+          "source_arxiv_ids": [
+            "2606.19802"
+          ],
+          "external": true,
+          "qa_complete": true,
+          "content_kind": "full_translation",
+          "license_status": "user_supplied_pdf_rights_not_independently_verified"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2606.19802",
         "https://arxiv.org/abs/2606.19802",
@@ -1371,10 +1455,10 @@
       ],
       "hosted_pdfs": [],
       "status": "已接受待刊",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/b22d53d1cb740209/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-13-flow-map-denoisers-2606-19802/",
+      "full_translation_label": "全文中文翻译"
     },
     {
       "id": "3d73885958ebba6e",
@@ -1407,7 +1491,28 @@
       "report_entry_url": "/papers/reports/2026-10-09/#paper-3d73885958ebba6e",
       "paper_url": "/papers/items/3d73885958ebba6e/",
       "paper_report_url": "/papers/items/3d73885958ebba6e/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "date": "2026-10-13",
+          "url": "/papers/translations/2026-10-13-ocl-pde-2610-06259/",
+          "slug": "2026-10-13-ocl-pde-2610-06259",
+          "source_file": "2026-10-13-ocl-pde-2610-06259.md",
+          "title": "OCL-PDE：基于观测互补潜变量的 PDE 逆问题生成框架｜全文分篇中译",
+          "scope": "原文34页：正文1—5节、附录A—F、算法1—4、公式(1)—(34)、表1—16、图1—12题注、48条书目；附录分篇链接。",
+          "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-13-ocl-pde-2610-06259.md",
+          "source_page_path": "papers/translations/2026-10-13-ocl-pde-2610-06259.md",
+          "paper_ids": [
+            "3d73885958ebba6e"
+          ],
+          "source_arxiv_ids": [
+            "2610.06259"
+          ],
+          "external": true,
+          "qa_complete": true,
+          "content_kind": "full_translation",
+          "license_status": "user_supplied_pdf_rights_not_independently_verified"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2610.06259",
         "https://arxiv.org/abs/2610.06259"
@@ -1418,10 +1523,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/3d73885958ebba6e/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-13-ocl-pde-2610-06259/",
+      "full_translation_label": "全文中文翻译"
     },
     {
       "id": "e8bdd417cfd6310c",
@@ -16508,6 +16613,106 @@
     }
   ],
   "translations": [
+    {
+      "date": "2026-10-13",
+      "url": "/papers/translations/2026-10-13-ocl-pde-2610-06259/",
+      "slug": "2026-10-13-ocl-pde-2610-06259",
+      "source_file": "2026-10-13-ocl-pde-2610-06259.md",
+      "title": "OCL-PDE：基于观测互补潜变量的 PDE 逆问题生成框架｜全文分篇中译",
+      "scope": "原文34页：正文1—5节、附录A—F、算法1—4、公式(1)—(34)、表1—16、图1—12题注、48条书目；附录分篇链接。",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-13-ocl-pde-2610-06259.md",
+      "source_page_path": "papers/translations/2026-10-13-ocl-pde-2610-06259.md",
+      "paper_ids": [
+        "3d73885958ebba6e"
+      ],
+      "source_arxiv_ids": [
+        "2610.06259"
+      ],
+      "external": true,
+      "qa_complete": true,
+      "content_kind": "full_translation",
+      "license_status": "user_supplied_pdf_rights_not_independently_verified"
+    },
+    {
+      "date": "2026-10-13",
+      "url": "/papers/translations/2026-10-13-flow-map-denoisers-2606-19802/",
+      "slug": "2026-10-13-flow-map-denoisers-2606-19802",
+      "source_file": "2026-10-13-flow-map-denoisers-2606-19802.md",
+      "title": "Flow Map Denoisers：逆问题失真—感知权衡｜60页全文分篇中译",
+      "scope": "原文60页：正文1—7节、附录A—E、公式(1)—(38)、定理/证明、图1—39题注、表1—15、75条书目、16项NeurIPS检查清单。",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-13-flow-map-denoisers-2606-19802.md",
+      "source_page_path": "papers/translations/2026-10-13-flow-map-denoisers-2606-19802.md",
+      "paper_ids": [
+        "b22d53d1cb740209"
+      ],
+      "source_arxiv_ids": [
+        "2606.19802"
+      ],
+      "external": true,
+      "qa_complete": true,
+      "content_kind": "full_translation",
+      "license_status": "user_supplied_pdf_rights_not_independently_verified"
+    },
+    {
+      "date": "2026-10-12",
+      "url": "/papers/translations/2026-10-12-2610-04769-full-zh/",
+      "slug": "2026-10-12-2610-04769-full-zh",
+      "source_file": "2026-10-12-2610-04769-full-zh.md",
+      "title": "空间可重构夹持天线系统：实验验证及通感一体化应用｜全文中文翻译",
+      "scope": "原文8页：摘要、I—V节、图1—6题注、15条参考文献和6位作者简介。",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-2610-04769-full-zh.md",
+      "source_page_path": "papers/translations/2026-10-12-2610-04769-full-zh.md",
+      "paper_ids": [
+        "10f0ab8efa0053a7"
+      ],
+      "source_arxiv_ids": [
+        "2610.04769"
+      ],
+      "external": true,
+      "qa_complete": true,
+      "content_kind": "full_translation",
+      "license_status": "user_supplied_pdf_rights_not_independently_verified"
+    },
+    {
+      "date": "2026-10-12",
+      "url": "/papers/translations/2026-10-12-2604-07004-full-zh/",
+      "slug": "2026-10-12-2604-07004-full-zh",
+      "source_file": "2026-10-12-2604-07004-full-zh.md",
+      "title": "突发相位噪声下的信道估计与 LDPC 译码｜全文中文翻译",
+      "scope": "原文11页：摘要、I—VI节、公式(1)—(34)、图1—15、表I及45条参考文献。",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-2604-07004-full-zh.md",
+      "source_page_path": "papers/translations/2026-10-12-2604-07004-full-zh.md",
+      "paper_ids": [
+        "35a0a3cc7dd34973"
+      ],
+      "source_arxiv_ids": [
+        "2604.07004"
+      ],
+      "external": true,
+      "qa_complete": true,
+      "content_kind": "full_translation",
+      "license_status": "user_supplied_pdf_rights_not_independently_verified"
+    },
+    {
+      "date": "2026-10-12",
+      "url": "/papers/translations/2026-10-12-geometry-gpr-full-zh/",
+      "slug": "2026-10-12-geometry-gpr-full-zh",
+      "source_file": "2026-10-12-geometry-gpr-full-zh.md",
+      "title": "几何感知 GPR 的节能低开销信道估计方案｜完整中文译文",
+      "scope": "原文13页：摘要、I—VII节、33个编号公式、算法1—2、图1—9、表I—III、附录A—B、37条参考文献及作者简介。",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-geometry-gpr-full-zh.md",
+      "source_page_path": "papers/translations/2026-10-12-geometry-gpr-full-zh.md",
+      "paper_ids": [
+        "f21a0dbb22c712a9"
+      ],
+      "source_arxiv_ids": [
+        "2512.22578"
+      ],
+      "external": true,
+      "qa_complete": true,
+      "content_kind": "full_translation",
+      "license_status": "user_supplied_pdf_rights_not_independently_verified"
+    },
     {
       "date": "2026-10-12",
       "url": "/papers/translations/multipathformer/",
