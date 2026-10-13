@@ -1,5 +1,68 @@
 [
   {
+    "date": "2026-10-13",
+    "url": "/papers/translations/2026-10-13-beta-flow-2610-13812/",
+    "slug": "2026-10-13-beta-flow-2610-13812",
+    "source_file": "2026-10-13-beta-flow-2610-13812.md",
+    "title": "β-Flow：通过精确高斯条件化统一扩散与流后验采样｜中文全文译稿（校对中）",
+    "scope": "原文17页，正文1–5、附录A–E、式（1）–（18）、算法1、表1–9、图1–7、书目；待逐句校对",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-13-beta-flow-2610-13812.md",
+    "source_page_path": "papers/translations/2026-10-13-beta-flow-2610-13812.md",
+    "paper_ids": [
+      "6d6929e2e9876fdb"
+    ],
+    "source_arxiv_ids": [
+      "2610.13812"
+    ],
+    "external": true,
+    "primary_translation": true,
+    "qa_complete": false,
+    "content_kind": "full_translation_review_pending",
+    "license_status": "original_arxiv_license_check_before_reuse"
+  },
+  {
+    "date": "2026-10-13",
+    "url": "/papers/translations/2026-10-13-simca-guidance-2610-03503/",
+    "slug": "2026-10-13-simca-guidance-2610-03503",
+    "source_file": "2026-10-13-simca-guidance-2610-03503.md",
+    "title": "SIMCA：扩散与流匹配后验采样的引导权重校准｜中文全文译稿（校对中）",
+    "scope": "原文20页，正文1–6、附录A–F、式（1）–（13）、算法1、表1–6、图1–9、书目；待逐句校对",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-13-simca-guidance-2610-03503.md",
+    "source_page_path": "papers/translations/2026-10-13-simca-guidance-2610-03503.md",
+    "paper_ids": [
+      "4e65b9641a926d7f"
+    ],
+    "source_arxiv_ids": [
+      "2610.03503"
+    ],
+    "external": true,
+    "primary_translation": true,
+    "qa_complete": false,
+    "content_kind": "full_translation_review_pending",
+    "license_status": "original_arxiv_license_check_before_reuse"
+  },
+  {
+    "date": "2026-10-13",
+    "url": "/papers/translations/2026-10-13-fr3-uav-ckm-2610-06356/",
+    "slug": "2026-10-13-fr3-uav-ckm-2610-06356",
+    "source_file": "2026-10-13-fr3-uav-ckm-2610-06356.md",
+    "title": "面向 FR3 无人机基站的信道知识地图：数据集与机器学习建模｜中文全文译稿（校对中）",
+    "scope": "原文6页，正文I–V、式（1）–（12）、表I–V、图1–3、书目；待逐句校对",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-13-fr3-uav-ckm-2610-06356.md",
+    "source_page_path": "papers/translations/2026-10-13-fr3-uav-ckm-2610-06356.md",
+    "paper_ids": [
+      "fa7f1bb2b6bb36bc"
+    ],
+    "source_arxiv_ids": [
+      "2610.06356"
+    ],
+    "external": true,
+    "primary_translation": true,
+    "qa_complete": false,
+    "content_kind": "full_translation_review_pending",
+    "license_status": "original_arxiv_license_check_before_reuse"
+  },
+  {
     "date": "2026-10-12",
     "url": "/papers/translations/2026-10-12-geometry-gpr-full-zh/",
     "slug": "2026-10-12-geometry-gpr-full-zh",
