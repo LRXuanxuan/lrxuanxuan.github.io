@@ -53,7 +53,7 @@ toc: true
 
 **本地原文及翻译：** [PDF](https://arxiv.org/pdf/2410.17264)，13页；job_id=61010543f523f89eaeb7766e，状态=pending；已取得原文即入队，派发原worker失败：当前应用未找到既有threadId。尚未开始/验收译稿，不把入队称已翻译。预期路径：`本地资料：paper.md`。
 
-**共享许可：** [原文许可](http://creativecommons.org/licenses/by/4.0/)允许署名衍生译文，完成QA后可公开。 PDF始终只保留官方链接。
+**共享许可：** [原文许可](https://creativecommons.org/licenses/by/4.0/)允许署名衍生译文，完成QA后可公开。 PDF始终只保留官方链接。
 
 ## 原推荐表字段
 
@@ -105,5 +105,5 @@ toc: true
 
 [来源 6](https://lrxuanxuan.github.io/papers/items/bbbca963f48f95bf/#paper-translation)（按标题/主键绑定本篇状态)
 
-[来源 7](http://creativecommons.org/licenses/by/4.0/)允许署名衍生译文)
+[来源 7](https://creativecommons.org/licenses/by/4.0/)允许署名衍生译文)
 {% endraw %}
