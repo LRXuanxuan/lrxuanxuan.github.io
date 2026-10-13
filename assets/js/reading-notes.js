@@ -397,7 +397,7 @@
       if(!token){showStatus("请先输入私库的细粒度访问令牌。");return;}
       var endpoint="https://api.github.com/repos/"+full;
       var headers={"Accept":"application/vnd.github+json",
-        "Authorization":"Bearer "+token,"X-GitHub-Api-Version":"2022-11-28"};
+        "Authorization":"Bearer "+token};
       async function api(url,options) {
         var response=await fetch(url,Object.assign({headers:headers,cache:"no-store"},options||{}));
         if(!response.ok){
