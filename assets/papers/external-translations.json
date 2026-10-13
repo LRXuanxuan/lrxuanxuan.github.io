@@ -8,7 +8,9 @@
     "scope": "IEEE TCOM 2026作者接受稿16页；正文I–VII、式（1）–（41）、表I–V、图1–19及书目；校对中",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-13-vtdl-highway-otfs-2026.md",
     "source_page_path": "papers/translations/2026-10-13-vtdl-highway-otfs-2026.md",
-    "paper_ids": [],
+    "paper_ids": [
+      "4b346a8bd1ffac3c"
+    ],
     "source_arxiv_ids": [],
     "external": true,
     "qa_complete": false,
@@ -24,7 +26,9 @@
     "scope": "原文25页；正文1–5、式（1）–（33）、表1–4、图1–4、附录A.1–A.8及书目；校对中",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-13-twist-flow-2610-09281.md",
     "source_page_path": "papers/translations/2026-10-13-twist-flow-2610-09281.md",
-    "paper_ids": [],
+    "paper_ids": [
+      "6e957d5655dac99c"
+    ],
     "source_arxiv_ids": [
       "2610.09281"
     ],
@@ -42,7 +46,9 @@
     "scope": "原文15页；正文I–V、式（1）–（47）、表I–VI、图1–6及附录A–C；校对中",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-pctgs-2606-18734.md",
     "source_page_path": "papers/translations/2026-10-12-pctgs-2606-18734.md",
-    "paper_ids": [],
+    "paper_ids": [
+      "f20ef02970b5dae8"
+    ],
     "source_arxiv_ids": [
       "2606.18734"
     ],
@@ -60,7 +66,9 @@
     "scope": "原文13页；正文I–VII、式（1）–（41）、算法1、附录A、图表与书目；校对中",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-groupwise-narrow-beam-2506-01043.md",
     "source_page_path": "papers/translations/2026-10-12-groupwise-narrow-beam-2506-01043.md",
-    "paper_ids": [],
+    "paper_ids": [
+      "b05ee57ebc6710ed"
+    ],
     "source_arxiv_ids": [
       "2506.01043"
     ],
@@ -78,7 +86,9 @@
     "scope": "原文5页；摘要、正文、算法1、式（1）–（9）、表1、图示与书目；校对中",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-climb-flow-2609-33834.md",
     "source_page_path": "papers/translations/2026-10-12-climb-flow-2609-33834.md",
-    "paper_ids": [],
+    "paper_ids": [
+      "e7dcb19b8767dc77"
+    ],
     "source_arxiv_ids": [
       "2609.33834"
     ],
