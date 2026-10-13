@@ -44,8 +44,36 @@
     $('pl-more').hidden=result.length<=limit;
     $('pl-status').disabled=view!=='papers';$('pl-code').disabled=view!=='papers';
   }
-  fetch(root.dataset.source,{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(json=>{
-    data=json;const stats=$('pl-stats');stats.replaceChildren();
+  fetch(root.dataset.source,{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(async json=>{
+    data=json;
+    // The static index can lag behind newly committed hand-curated translations.
+    // Merge only the public translation registry; do not modify QA counts or paper statistics.
+    try {
+      const response=await fetch('/assets/papers/external-translations.json',{cache:'no-cache'});
+      if(response.ok) {
+        const external=await response.json();
+        const byId=new Map((data.papers||[]).map(p=>[p.id,p]));
+        data.translations=data.translations||[];
+        const knownUrls=new Set(data.translations.map(t=>t.url));
+        for(const e of external) {
+          if(!e.url||!e.title||!safe(e.url)) continue;
+          const item={date:e.date||'',title:e.title,url:e.url,scope:e.scope||'',download:e.download||''};
+          if(!knownUrls.has(e.url)) {data.translations.push(item);knownUrls.add(e.url);}
+          for(const id of e.paper_ids||[]) {
+            const paper=byId.get(id);
+            if(!paper) continue;
+            paper.translations=paper.translations||[];
+            if(!paper.translations.some(t=>t.url===e.url))paper.translations.push(item);
+            if(e.primary_translation) {
+              paper.full_translation_url=e.url;
+              paper.full_translation_label=e.qa_complete?'中文全文译稿':'中文译稿（待逐句核验）';
+            }
+          }
+        }
+        data.translations.sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+      }
+    }catch(err){console.warn('外部译文目录暂不可用',err);}
+    const stats=$('pl-stats');stats.replaceChildren();
     const progress=data.translation_progress;
     [[data.total,'推荐记录'],[Object.keys(data.dates).length,'推荐日期'],[data.reports.length,'每日报告'],[progress?`${progress.completed}/${progress.target}`:'0','全文验收通过'],[progress?.public_full_text||0,'可公开全文译文']].forEach(([n,label])=>{const s=make('div',undefined,'pl-stat');s.append(make('strong',String(n)),make('span',label));stats.append(s);});
     Object.entries(data.dates).forEach(([date,n])=>{const o=make('option',date+' · '+n+'篇');o.value=date;$('pl-date').append(o);});
