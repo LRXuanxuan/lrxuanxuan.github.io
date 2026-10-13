@@ -11,6 +11,10 @@ toc: true
 
 ## 中英文译文
 
+- [FR3 UAV CKM：7.125 GHz 无人机基站信道知识地图｜中文译稿](/papers/translations/2026-10-13-fr3-uav-ckm-2610-06356/) · 原文全文结构译稿（校对中；未计入全文验收）
+- [SIMCA：扩散与流匹配的引导权重校准｜中文译稿](/papers/translations/2026-10-13-simca-guidance-2610-03503/) · 原文全文结构译稿（校对中；未计入全文验收）
+- [β-Flow：精确高斯条件化的统一后验采样｜中文译稿](/papers/translations/2026-10-13-beta-flow-2610-13812/) · 原文全文结构译稿（校对中；未计入全文验收）
+
 - [空间可重构夹持天线系统：实验验证及通感一体化应用（8页）](/papers/translations/2026-10-12-2610-04769-full-zh/) · 全文中文译稿
 - [突发相位噪声下的信道估计与 LDPC 译码（11页）](/papers/translations/2026-10-12-2604-07004-full-zh/) · 全文中文译稿
 - [几何感知 GPR 低能耗信道估计（13页）](/papers/translations/2026-10-12-geometry-gpr-full-zh/) · 全文中文译稿
