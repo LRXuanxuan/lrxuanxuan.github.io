@@ -12119,7 +12119,16 @@
       "report_entry_url": "/papers/reports/2026-07-29/#paper-e759ecd4245bde17",
       "paper_url": "/papers/items/e759ecd4245bde17/",
       "paper_report_url": "/papers/items/e759ecd4245bde17/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "date": "2026-10-13",
+          "title": "BRCL：发射端 MIMO CSI 波束响应对比学习｜中文译稿（校对中）",
+          "url": "/papers/translations/2026-07-29-2607-24872/",
+          "slug": "2026-07-29-2607-24872",
+          "scope": "正文、主要式 (1)–(52)、实验图表初译；书目引至原文；校对中，未计入全文验收",
+          "qa_complete": false
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2607.24872",
         "https://arxiv.org/abs/2607.24872",
@@ -12169,7 +12178,16 @@
       "report_entry_url": "/papers/reports/2026-07-29/#paper-7e60d1f6e3cbae1c",
       "paper_url": "/papers/items/7e60d1f6e3cbae1c/",
       "paper_report_url": "/papers/items/7e60d1f6e3cbae1c/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "date": "2026-10-13",
+          "title": "RC-BFM：低时延生成式语义通信｜中文译稿（校对中）",
+          "url": "/papers/translations/2026-07-29-2607-24876/",
+          "slug": "2026-07-29-2607-24876",
+          "scope": "正文、式 (1)–(16)、图表及算法初译；逐句校对中，未计入全文验收",
+          "qa_complete": false
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2607.24876",
         "https://arxiv.org/abs/2607.24876",
@@ -12219,7 +12237,16 @@
       "report_entry_url": "/papers/reports/2026-07-29/#paper-86311056e017da7f",
       "paper_url": "/papers/items/86311056e017da7f/",
       "paper_report_url": "/papers/items/86311056e017da7f/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "date": "2026-10-13",
+          "title": "SPA-TANN：空时频张量信道外推｜中文译稿（校对中）",
+          "url": "/papers/translations/2026-07-29-2607-24330/",
+          "slug": "2026-07-29-2607-24330",
+          "scope": "正文及式 (1)–(39)、命题和图表译稿；书目引至原文；校对中，未计入全文验收",
+          "qa_complete": false
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2607.24330",
         "https://arxiv.org/abs/2607.24330",
@@ -12269,7 +12296,16 @@
       "report_entry_url": "/papers/reports/2026-07-29/#paper-d1075d0eb3ab3dc2",
       "paper_url": "/papers/items/d1075d0eb3ab3dc2/",
       "paper_report_url": "/papers/items/d1075d0eb3ab3dc2/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "date": "2026-10-13",
+          "title": "跨频段 CSI 重建基础模型｜中文译稿（校对中）",
+          "url": "/papers/translations/2026-07-29-2607-22204/",
+          "slug": "2026-07-29-2607-22204",
+          "scope": "正文及主要公式表格和参考文献已编译；逐式校对中，未计入全文验收",
+          "qa_complete": false
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2607.22204",
         "https://arxiv.org/abs/2607.22204",
@@ -12322,7 +12358,16 @@
       "report_entry_url": "/papers/reports/2026-07-29/#paper-d3442bacafe52a2b",
       "paper_url": "/papers/items/d3442bacafe52a2b/",
       "paper_report_url": "/papers/items/d3442bacafe52a2b/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "date": "2026-10-13",
+          "title": "RadioTrace：发射机感知扩散无线电地图估计｜中文译稿（校对中）",
+          "url": "/papers/translations/2026-07-29-2607-20909/",
+          "slug": "2026-07-29-2607-20909",
+          "scope": "正文、公式、实验、附录已编译；参考书目未重录；逐句校对中，未计入全文验收",
+          "qa_complete": false
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2607.20909",
         "https://arxiv.org/abs/2607.20909",
@@ -16532,6 +16577,100 @@
     }
   ],
   "translations": [
+    {
+      "date": "2026-10-13",
+      "url": "/papers/translations/2026-07-30-2508-10546/",
+      "slug": "2026-07-30-2508-10546",
+      "title": "GUDL：无监督深度平衡大规模信道估计｜中文全范围初稿（校对中）",
+      "scope": "正文 I–VI、公式 (1)–(141)、附录 A–D 已覆盖，书目原文保留；逐段校对中，未计入全文 QA 验收",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-07-30-2508-10546.md",
+      "source_page_path": "papers/translations/2026-07-30-2508-10546.md",
+      "paper_ids": [],
+      "source_arxiv_ids": [
+        "2508.10546"
+      ],
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-13",
+      "url": "/papers/translations/2026-07-29-2607-24872/",
+      "slug": "2026-07-29-2607-24872",
+      "title": "BRCL：发射端 MIMO CSI 波束响应对比学习｜中文译稿（校对中）",
+      "scope": "正文、主要式 (1)–(52)、实验图表初译；书目引至原文；校对中，未计入全文验收",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-07-29-2607-24872.md",
+      "source_page_path": "papers/translations/2026-07-29-2607-24872.md",
+      "paper_ids": [
+        "e759ecd4245bde17"
+      ],
+      "source_arxiv_ids": [
+        "2607.24872"
+      ],
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-13",
+      "url": "/papers/translations/2026-07-29-2607-24876/",
+      "slug": "2026-07-29-2607-24876",
+      "title": "RC-BFM：低时延生成式语义通信｜中文译稿（校对中）",
+      "scope": "正文、式 (1)–(16)、图表及算法初译；逐句校对中，未计入全文验收",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-07-29-2607-24876.md",
+      "source_page_path": "papers/translations/2026-07-29-2607-24876.md",
+      "paper_ids": [
+        "7e60d1f6e3cbae1c"
+      ],
+      "source_arxiv_ids": [
+        "2607.24876"
+      ],
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-13",
+      "url": "/papers/translations/2026-07-29-2607-24330/",
+      "slug": "2026-07-29-2607-24330",
+      "title": "SPA-TANN：空时频张量信道外推｜中文译稿（校对中）",
+      "scope": "正文及式 (1)–(39)、命题和图表译稿；书目引至原文；校对中，未计入全文验收",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-07-29-2607-24330.md",
+      "source_page_path": "papers/translations/2026-07-29-2607-24330.md",
+      "paper_ids": [
+        "86311056e017da7f"
+      ],
+      "source_arxiv_ids": [
+        "2607.24330"
+      ],
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-13",
+      "url": "/papers/translations/2026-07-29-2607-22204/",
+      "slug": "2026-07-29-2607-22204",
+      "title": "跨频段 CSI 重建基础模型｜中文译稿（校对中）",
+      "scope": "正文及主要公式表格和参考文献已编译；逐式校对中，未计入全文验收",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-07-29-2607-22204.md",
+      "source_page_path": "papers/translations/2026-07-29-2607-22204.md",
+      "paper_ids": [
+        "d1075d0eb3ab3dc2"
+      ],
+      "source_arxiv_ids": [
+        "2607.22204"
+      ],
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-13",
+      "url": "/papers/translations/2026-07-29-2607-20909/",
+      "slug": "2026-07-29-2607-20909",
+      "title": "RadioTrace：发射机感知扩散无线电地图估计｜中文译稿（校对中）",
+      "scope": "正文、公式、实验、附录已编译；参考书目未重录；逐句校对中，未计入全文验收",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-07-29-2607-20909.md",
+      "source_page_path": "papers/translations/2026-07-29-2607-20909.md",
+      "paper_ids": [
+        "d3442bacafe52a2b"
+      ],
+      "source_arxiv_ids": [
+        "2607.20909"
+      ],
+      "qa_complete": false
+    },
     {
       "date": "2026-10-13",
       "title": "SIMCA：扩散与流匹配后验采样的引导权重校准｜中文全篇译稿（校对中）",
