@@ -25,3 +25,9 @@
 - 登记字段为 date/title/url/slug/scope/source_page_path/download/paper_ids/source_arxiv_ids/qa_complete。paper_ids 必须由标题、DOI 或原文 arXiv 身份核验，禁止按日期匹配。未绑定的译文保留统一目录，不猜关联。不得把部分译稿/技术整理/翻译中当作全文验收通过，统计来自真实 QA；不能在 library.js 硬编码单篇链接或手动增加计数。
 - 推荐记录通过每篇 `translations` 列表直达本篇译稿；已完成的标准全文入口保持 `full_translation_url`。目录保留部分译稿范围说明。日报继续只关联本篇；已有URL与全文、其他网站栏目均须保留。
 - 发布前读取最新 main，保留其他任务文件，以最小差异提交；同一时刻只允许一个导出/发布者。检查 Actions 成功、首页第一块和译文列表/链接后才能宣称部署完成。PDF始终只保留原文链接。
+
+## 首页「随机漫游」约定
+
+- 首页「随机漫游」取代了人工维护的「近期上传」。不要恢复重复的静态更新列表；右侧「最近更新」继续独立工作。
+- `_plugins/random_wander.rb` 在 Jekyll 构建时自动从文学章节／个人译作、`_data/tidbits.yml` 和 `papers/translations/*.md` 生成 `/assets/data/random-walk.json`。新内容只需按现有栏目规范发布，不能手工维护一份冗余随机目录。
+- `assets/js/random-walk.js` 使用原生 JS，本地随机、栏目筛选、避免连续重复；默认「全部」先等概率选栏目再选文章。保持纯文字、无需依赖或大媒体文件，并验证豆知识锚点可打开具体条目。
