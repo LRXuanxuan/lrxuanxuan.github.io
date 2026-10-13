@@ -49,7 +49,7 @@ toc: true
 
 **数据：** [作者Zenodo入口](https://zenodo.org/records/15721131)；尚未下载全数据，不虚报复现。
 
-[本篇全文翻译](https://lrxuanxuan.github.io/papers/items/bbbca963f48f95bf/#paper-translation)（按标题/主键绑定本篇状态）。
+[本篇全文翻译](https://lrxuanxuan.github.io/papers/items/bbbca963f48f95bf/#paper-translation) （按标题/主键绑定本篇状态）。
 
 **本地原文及翻译：** [PDF](https://arxiv.org/pdf/2410.17264)，13页；job_id=61010543f523f89eaeb7766e，状态=pending；已取得原文即入队，派发原worker失败：当前应用未找到既有threadId。尚未开始/验收译稿，不把入队称已翻译。预期路径：`本地资料：paper.md`。
 
@@ -103,7 +103,7 @@ toc: true
 
 [来源 5](https://zenodo.org/records/15721131)
 
-[来源 6](https://lrxuanxuan.github.io/papers/items/bbbca963f48f95bf/#paper-translation)（按标题/主键绑定本篇状态)
+[来源 6](https://lrxuanxuan.github.io/papers/items/bbbca963f48f95bf/#paper-translation)
 
 [来源 7](https://creativecommons.org/licenses/by/4.0/)允许署名衍生译文)
 {% endraw %}
