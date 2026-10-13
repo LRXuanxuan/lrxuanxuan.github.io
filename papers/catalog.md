@@ -11,26 +11,6 @@ toc: true
 
 ## 中英文译文
 
-- [RadioTrace：无需部署时微调的发射机感知扩散无线电地图估计｜中文译稿](/papers/translations/2026-07-29-2607-20909/) · 正文、实验与附录已译，校对中；未计入全文验收
-- [跨频段 CSI 重建基础模型｜中文译稿](/papers/translations/2026-07-29-2607-22204/) · 正文、公式与实验译稿，校对中；未计入全文验收
-- [SPA-TANN：FR3 空时频张量信道外推与 ADD 去混叠｜中文译稿](/papers/translations/2026-07-29-2607-24330/) · 正文、39 个编号公式与图表译稿，校对中；未计入全文验收
-- [RC-BFM：低时延生成式语义通信｜中文译稿](/papers/translations/2026-07-29-2607-24876/) · 正文、公式和实验译稿，校对中；未计入全文验收
-- [BRCL：面向发射端 MIMO 的波束响应对比学习｜中文译稿](/papers/translations/2026-07-29-2607-24872/) · 正文、主要公式与图表译稿，校对中；未计入全文验收
-- [GUDL：GSURE 与无监督 DEQ 大规模信道估计｜中文译稿](/papers/translations/2026-07-30-2508-10546/) · 正文及附录 A—D 公式 (1)—(141) 初稿已覆盖，仍待逐段复核；未计入全文验收
-
-## 2026 年 8 月 21 日｜五篇论文中文阅读入口
-
-以下按当日推荐顺序提供译稿入口。现有中文译稿覆盖论文各章节及公式，长文分为正文和附录等多个轻量页面；尚待逐段比对，不计入已验收全文。
-
-- [TAP：面向通用化 CSI 反馈的时序信道估计（上、下篇）](/papers/translations/2026-10-12-tap/) · [论文条目](/papers/items/67d6ba71d51870c4/)
-- [CSI RefineNet：高移动性 OFDM 的软数据辅助迭代接收机](/papers/translations/2026-10-12-csi-refinenet-2607-23691/) · [论文条目](/papers/items/2b25f06314f93a0f/)
-- [RadioVIL：无线电地图修复与零样本车辆定位](/papers/translations/2026-10-12-radiovil-2608-16167/) · [论文条目](/papers/items/80e9a2d71a6acd36/)
-- [RMWorld：任务感知无线世界模型与多无人机通信控制（上、下篇）](/papers/translations/2026-10-12-rmworld-2608-20126/) · [论文条目](/papers/items/2558d2736320f228/)
-- [PU-HNO：无线场建模的物理展开神经算子（正文、附录）](/papers/translations/2026-10-12-puhno/) · [论文条目](/papers/items/2e0d5029e130cc29/)
-
----
-
-
 - [SIMCA：扩散与流匹配后验采样的引导权重校准｜中文全篇译稿（校对中）](/papers/translations/2026-10-13-simca-guidance-2610-03503/) · 原文全文结构译稿（校对中；未计入全文验收）
 - [RadioDiff-Inverse：面向 ISAC 无线电地图构建的扩散增强贝叶斯逆估计｜中文全篇译稿（校对中）](/papers/translations/2026-10-13-radiodiff-inverse-twc-2026/) · 中文译稿（校对中；IEEE公开传播许可待核验）
 - [FR3 无人机基站信道知识地图：数据集与机器学习建模｜中文全文译稿（校对中）](/papers/translations/2026-10-13-fr3-uav-ckm-2610-06356/) · 原文全文结构译稿（校对中；未计入全文验收）
@@ -93,6 +73,36 @@ toc: true
 - [2026-07-11 论文翻译：第 5 篇与跨论文研究路线](/papers/translations/2026-07-11-203f202a/) · 摘要与引言 / 历史译文说明
 
 ## 推荐论文
+
+### 2026-10-14 · [RIS-Assisted Smart Radio Environment for Enhanced Non-Orthogonal Multiplexing Indoor Positioning System](/papers/items/220958130ce04ff6/)
+
+提醒无线地图的系统价值还取决于观测可辨识性和控制成本，而非只追求地图RMSE。
+
+[本篇日报](/papers/items/220958130ce04ff6/#paper-report)
+
+### 2026-10-14 · [Joint Environmental Mobility Tracking and Channel Estimation for Integrated Sensing and Communication Systems](/papers/items/f45785491df6f940/)
+
+能界定“速度已知且环境固定”当前模型之外的动态系统边界。
+
+[本篇日报](/papers/items/f45785491df6f940/#paper-report)
+
+### 2026-10-14 · [Radio Map Prediction From Aerial Images and Application to Coverage Optimization](/papers/items/bbbca963f48f95bf/)
+
+完整代码/数据入口让缺失模态与系统效用可以独立验证，避免只有生成图像指标。
+
+[本篇日报](/papers/items/bbbca963f48f95bf/#paper-report)
+
+### 2026-10-14 · [Reducing Pilots in Channel Estimation With Predictive Foundation Models](/papers/items/7a0f79a63e6bc961/)
+
+与KAP-Flow“历史传播知识+当前导频”主题直接关联，也提供时延随天线规模增长的边界。
+
+[本篇日报](/papers/items/7a0f79a63e6bc961/#paper-report)
+
+### 2026-10-14 · [Exact Posterior Score Estimation for Solving Linear Inverse Problems](/papers/items/9ffca193cee23d97/)
+
+可把导频约束与条件先验的概率关系做成可验证推导，并明确零空间不确定性。
+
+[本篇日报](/papers/items/9ffca193cee23d97/#paper-report)
 
 ### 2026-10-13 · [AUG-RME: An Attention-Based Uncertainty-Aware Grid-Free Framework for Radio Map Estimation](/papers/items/3925171895fd3316/)
 

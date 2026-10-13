@@ -9,7 +9,7 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=7e60d1f6e3cbae1c)
 
-[本篇日报说明](/papers/items/7e60d1f6e3cbae1c/#paper-report) · [阅读中文译稿（校对中）](/papers/translations/2026-07-29-2607-24876/)
+[本篇日报说明](/papers/items/7e60d1f6e3cbae1c/#paper-report) · [全文翻译（待补齐）](/papers/items/7e60d1f6e3cbae1c/#paper-translation)
 
 **推荐日期：** 2026-07-29 · **发表状态：** 历史记录未明确
 
@@ -17,7 +17,7 @@ toc: true
 
 ## 本篇全文翻译
 
-本篇中文译稿已发布，尚未完成逐段校对和全文验收：[阅读中文译稿（校对中）](/papers/translations/2026-07-29-2607-24876/)。公式、表格与原文细节请同时对照原 PDF。
+本篇已列入全文翻译清单，尚未完成。完成并允许公开后，此入口将直达本篇全文译稿。
 
 <span id="paper-report"></span>
 
