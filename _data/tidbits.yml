@@ -1744,6 +1744,30 @@
     > 美国独立战争 + 月球流放殖民地 + 自由意志主义 + Mike + 质量投射器 = 《严厉的月亮》
 
     至于 Mannie 那一大家子的复杂亲属关系，大概还得单独画一张图才说得清。😼
+
+    ### 延伸阅读：为什么2077年经常出现在科幻作品里？
+
+    《严厉的月亮》把独立日安排在**2076年7月4日**，正好是美国《独立宣言》发表三百周年。不过，另一个年份也很值得玩味：**2077年**。好几部著名科幻作品都把故事或大事件放在这一年。但要先记住一道简单的算术：
+
+    > 1776 + 300 = **2076**，不是2077。
+
+    因此，「作品发生在2077年」与「作者刻意影射美国建国」是两回事。可以把这些例子分开来看。
+
+    - **《辐射》（Fallout）系列**：设定中，2076年迎来美国建国三百周年，76号避难所也与这一纪念背景有关；到了**2077年10月23日**，核战争「大战」（Great War）爆发，旧世界被摧毁。这让「庆祝自由三百周年」与「次年文明毁灭」形成强烈的历史反讽。但不能仅凭这种对照，断言最初设定2077年的开发者就是为了制造这一寓意。
+    - **《赛博朋克2077》（Cyberpunk 2077）**：故事发生在2077年的夜之城。它继承了Mike Pondsmith于1988年推出的《Cyberpunk》桌面角色扮演游戏世界观，经过《Cyberpunk 2020》及设定于2045年的《Cyberpunk RED》等作品不断扩展。**目前没有可靠的创作者说明可以证明，「2077」是为了纪念1776年美国独立。**
+    - **《遗落战境》（Oblivion，2013）**：故事发生在**2077年**，地球历经战争、满目疮痍，主角Jack Harper负责维护无人机。这是又一个著名的「2077年」，但它的剧情与美国独立三百周年没有得到证实的创作关联。
+    - **《超越时间线》（Continuum，2012—2015）**：主人公Kiera Cameron来自**2077年**的温哥华，那个时代的社会权力高度集中于大型企业，反抗组织试图通过时间旅行改变未来。故事当然有「谁有权统治」的政治问题，但这不等于年份本身在致敬美国革命。
+
+    ### 2076是纪念日，2077未必是密码
+
+    把它们放在一起，最可靠的区分是：
+
+    > **明确历史致敬**：《严厉的月亮》直接选择2076年7月4日宣布独立；《辐射》的世界观明确设有2076年的美国建国三百周年纪念。  
+    > **年份巧合或尚未证实的联想**：《赛博朋克2077》《遗落战境》《超越时间线》虽然都选了2077年，但不能因此说它们影射1776年。
+
+    另外还存在一种普通的叙事解释：对于20世纪后半叶和21世纪初的创作者，2070年代既足够遥远，可以容纳巨大的技术和社会变迁，又没有远到完全脱离今天的文化与政治概念。这是**合理的创作倾向推测**，不是经过统计验证的年份选择规律。
+
+    最好玩的对照仍然是：**海因莱因让月球在美国独立三百周年时建立新共和国；《辐射》则让人类在三百周年庆典后不久把旧世界炸了。**同一个历史周年，在不同科幻宇宙里，成了截然相反的未来想象。😼
   sources:
     - label: "美国历史学会：The Age of Planetary Revolution"
       url: "https://www.historians.org/perspectives-article/the-age-of-planetary-revolution-remembering-the-future-in-science-fiction-december-2022/"
@@ -1751,6 +1775,14 @@
       url: "https://www.heinleinsociety.org/heinlein-readers-discussion-group-saturday-04-20-2002-500-p-m-the-moon-is-a-harsh-mistress/"
     - label: "《严厉的月亮》：作品梗概及历史典故"
       url: "https://en.wikipedia.org/wiki/The_Moon_Is_a_Harsh_Mistress"
+    - label: "Bethesda：Fallout Day与2077年10月23日的大战"
+      url: "https://bethesda.net/en-US/news/fallout-day-broadcast-2025-reminder"
+    - label: "GOG：《赛博朋克》桌游到2077年的时间线"
+      url: "https://www.gog.com/en/news/cyberpunk_tabletop_rpgs_road_from_2020_to_the_year_2077"
+    - label: "《遗落战境》片头制作资料：2077年背景"
+      url: "https://prologue.com/portfolio-item/oblivion/"
+    - label: "Rotten Tomatoes：《超越时间线》剧情简介"
+      url: "https://www.rottentomatoes.com/tv/continuum"
 
 - slug: "faust-goethe-reading-notes-two-parts"
   added_at: "2026-10-12T14:54:30+08:00"
