@@ -563,3 +563,159 @@ $$
 
 V-TDL 的计算复杂度远低于 V-CORE，因为不需模拟道路车辆的具体位置和各反射体的双基地 RCS。与 EVA 等简单随机 TDL 模型相比，V-TDL 的主要额外成本来自利用预计算的协方差矩阵 Cholesky 分解生成相关多普勒，生成阶段的开销大致与路径数的平方成正比。但通常信道模型中的显著路径数很少，因此增加的计算负担较轻，相较整体信道仿真可视为小幅开销。
 
+## VI. 数值结果
+
+本节首先在 V-TDL、V-CORE 和 EVA 下比较 OFDM 与 OTFS 的性能（VI-A）；随后研究不同路径相关程度对 OTFS 的影响（VI-B）；最后分析系统带宽改变有效时延分辨率及信道分集、进而改变 OTFS 性能的规律（VI-C）。
+
+### A. OTFS 与 OFDM
+
+我们将两种调制分别置于三种信道模型下：（i）提出的 V-TDL；（ii）基于几何的随机 V-CORE；（iii）EVA。V-CORE 和 V-TDL 均采用两个不同交通场景 G1 和 G2，其中 G2 由于车辆密度更高、车道数量更多，环境更复杂。EVA 模型只需要最高车速，设置为 160 km/h。
+
+**表 IV：V-CORE 与 V-TDL 测试场景参数。**
+
+| 模型与场景 | 参数 | 取值 |
+|---|---|---|
+| V-CORE G1 | 全部参数 | 同表 I |
+| V-CORE G2 | 车道数 \(N_L\) | 5 |
+| V-CORE G2 | 各车道最低车速 | 70、85、100、115、130 km/h |
+| V-CORE G2 | 各车道最高车速 | 100、115、130、145、160 km/h |
+| V-CORE G2 | 各车道车辆长度 | 16.0、6.0、6.0、6.0、4.4 m |
+| V-CORE G2 | 平均车间距 \(\mu_d\) | 40 m |
+| V-CORE G2 | 安全车距 \(D_s\) | 15 m |
+| V-TDL G1 | \(N_L,\mu_d,\tau_{\max},v_{\max}\) | 3，80 m，4500 ns，160 km/h |
+| V-TDL G2 | \(N_L,\mu_d,\tau_{\max},v_{\max}\) | 5，40 m，4500 ns，160 km/h |
+
+除表 IV 列出的变化外，V-CORE 参数同表 I。
+
+以下是 OFDM/OTFS 仿真的共同假设。
+
+**1）整数归一化时延。** 带宽为 \(B\)、帧长为 \(T_f\) 时，第 \(i\) 条路径的归一化时延与多普勒分别为 \(\ell_i=\tau_iB\)、\(\kappa_i=\nu_iT_f\)。可分辨归一化时延的集合 \(\mathcal L=\{\ell_i:i=1,\ldots,P\}\) 通常假定包含于自然数集合，即使用整数时延单元。对应多普勒频移通常并不满足整数假设。
+
+**2）信道估计。** 假定接收机拥有完整信道状态信息（CSI）：包括噪声方差 \(\sigma^2\)、每条路径的复增益 \(h_i\)、归一化时延 \(\ell_i\) 和多普勒 \(\kappa_i\)。实际接收机无法区分映射到同一时延—多普勒单元的物理路径。如果两条路径 \(i,j\) 满足 \(\ell_i=\ell_j\) 且 \(\lfloor\kappa_i\rceil=\lfloor\kappa_j\rceil\)，则视为不可分辨，将它们合并为一条等效路径，其增益 \(h_k=h_i+h_j\)。合并后可分辨路径数为 \(P^\ast\le P\)。
+
+**3）几何信道相干时间。** 假定时延—多普勒信道在一个帧内不变。取 \(M=512\)、\(\Delta f=30\) kHz，路径长度分辨率 \(c/(M\Delta f)\approx19.5\) m。\(N=128\) 时帧长 \(T_f=N/\Delta f\approx4.3\) ms。160 km/h 车辆一帧内位移小于 0.2 m，远小于路径长度分辨率，因此帧长短于几何相干时间，整个帧内时延和多普勒可看作不变。这是 OTFS 应用所需的重要假设。
+
+**4）信噪比。** 平均 SNR 定义为：
+
+$$
+\operatorname{SNR}=
+\frac{E_s}{\sigma^2}\,\mathbb E[\|h\|^2],
+\qquad
+\|h\|^2=\sum_{i=1}^{P^\ast}|h_i|^2. \tag{41}
+$$
+
+其中 \(E_s\) 是平均符号能量。由于随机衰落，每帧的瞬时信噪比不同。式（41）与多输入单输出（MISO）系统中的最大比传输（MRT）预编码平均信噪比定义一致 [47]；在 OTFS 中，MRC 相干合并各多径，也提供类似的合并增益。
+
+**5）检测。** OFDM 使用单抽头 MMSE 均衡；OTFS 使用时延—时间域 MRC 检测。
+
+**表 V：OFDM/OTFS 仿真系统参数。**
+
+| 参数 | 数值 |
+|---|---|
+| 带宽 \(B\) | 15.36 MHz |
+| 时延单元／子载波 \(M\) | 512 |
+| 多普勒单元／时隙 \(N\) | 128 |
+| 子载波间隔 \(\Delta f\) | 30 kHz |
+| 帧长 \(T_f=N/\Delta f\) | 约 4.2 ms（精确计算约 4.27 ms） |
+| 载波频率 \(f_c\) | 3.6 GHz |
+| 数据调制 | 无编码 4-QAM |
+
+图 17 比较帧错误率（Frame Error Rate，FER）随平均 SNR 的变化。只要帧内有任何一个比特错误，该帧就判为错误。结果表明 OTFS 在全部模型和场景下都优于 OFDM。
+
+但 EVA 下的 OTFS 相比 V-CORE 和 V-TDL 约有 5 dB 的额外增益。这是因为 EVA 视所有抽头完全独立，人为提高了信道分集；V-CORE 几何仿真表明，高速公路道路结构主要沿水平方向展开，车辆反射产生的多径经常落入相同延迟—多普勒单元，从而降低可分辨分集。此外，V-CORE 由双基地 RCS 决定的功率时延分布通常比 EVA 衰减更快。两个因素共同导致 EVA 高估高速车载场景中的 OTFS 性能。
+
+反之，在 G1 和 G2 下，V-TDL 的 OTFS 结果分别与对应的 V-CORE 结果非常接近；交通强度更高的 G2 比 G1 具有更强分集，OTFS 性能因此更好。V-TDL 使用固定路径数，不像 V-CORE 每次随机产生不同数量的路径。虽然在收集统计量时固定路径数可能带来偏差，但两种模型给出的系统性能接近，说明这一简化并未显著损害用于性能评估的真实性。
+
+这一仿真验证了 V-TDL 对不同车载交通条件下路径相关性的捕获，以及交通密度通过改变分集度影响 OTFS 性能的能力。有趣的是，OFDM 在相同模型和场景下表现出**相反的趋势**：分集度越高，OFDM 面对的多径多普勒成分越丰富，ICI 问题可能越严重。
+
+**图 17：不同车载模型下 OTFS 和 OFDM 的 FER–SNR 曲线。** V-TDL 与 V-CORE 的 G1/G2 性能基本接近；EVA 高估 OTFS 的性能，OTFS 在全部场景仍优于 OFDM。[论文 DOI](https://doi.org/10.1109/TCOMM.2026.3663522)
+
+### B. 不同路径相关程度下的 OTFS 性能
+
+V-TDL 的一项核心特征，是显式描述多径间相关性，而这种相关性不可避免地降低 OTFS 可获取的分集。为进一步量化其影响，作者设计了原 EVA 的三个变体 EVA-1、EVA-2 和 EVA-3，逐步引入不同形式的相关。
+
+**EVA-1：** 各路径仍像 EVA 一样独立，只是多普勒频移的各一维边缘分布改用 V-TDL G1 场景前九条路径所对应的边缘分布。
+
+**EVA-2：** 与 EVA-1 相同，但路径时延整体乘以二，改变时延分辨及路径之间的时延关系。
+
+**EVA-3：** 与 EVA-2 的时延设置相同，但各路径多普勒不再独立抽样，而是服从 V-TDL G1 前九条路径的联合分布，包含协方差矩阵中的非对角项，因此同时存在时延结构与多普勒相关。
+
+三个变体使用与 EVA 相同的功率时延谱。图 18 在表 V 的相同 OTFS 系统下比较 FER。EVA-1 与原始 EVA 的性能接近，说明具体多普勒边缘分布形状并不是主要决定因素；真正重要的是路径是否相互独立。EVA-2 相比 EVA-1 约损失 2 dB，EVA-3 又相比 EVA-2 损失近似幅度。由此验证：提高多径之间的相关程度，会削弱 OTFS 性能。
+
+**图 18：不同路径相关性下 OTFS 的 FER–SNR。** 依次通过 EVA-1、EVA-2、EVA-3 分离和量化边缘多普勒分布、时延关系与多普勒联合相关的影响。[论文 DOI](https://doi.org/10.1109/TCOMM.2026.3663522)
+
+### C. 不同系统带宽下的 OTFS 性能
+
+除路径相关性外，时延分辨率也是决定有效分集的重要因素。时延分辨率与系统带宽 \(B=M\Delta f\) 成反比。该实验固定 G1 环境，对 EVA 和 V-TDL 中的 OTFS 改变带宽并比较性能。
+
+测试三个配置 \(M=32,128,512\)，其余参数均保持表 V 的值。由于不同 \(M\) 会在固定 \(N\) 下改变帧内符号数量，直接比较整帧 FER 不公平。因此改用 OTFS 的**符号错误率（Symbol Error Rate，SER）**。论文将它定义为时延—多普勒网格 \(X_{\rm dd}\) 中、大小为 \(N\) 的行向量的错误率，三种带宽的 \(N\) 保持相同。
+
+图 19 显示：当带宽减少时，接收机时延分辨率下降，更多物理传播路径落入相同的可分辨延迟单元，感知到的分集减少，OTFS 性能因此恶化。对于同样的物理场景，增加带宽能帮助区分更多多径，从而让 OTFS 更好地利用延迟—多普勒分集。
+
+**图 19：不同带宽下 EVA 与 V-TDL G1 的 OTFS SER–SNR。** 带宽减少导致时延分辨能力与可用分集下降。[论文 DOI](https://doi.org/10.1109/TCOMM.2026.3663522)
+
+## VII. 结论与未来工作
+
+本文提出车载抽头延迟线（V-TDL）信道模型，用于准确刻画高速公路车辆环境中的传播变化。它兼有固定抽头随机模型的简洁性和对时延、多普勒频移、信道增益等关键参数的精细统计刻画。结果表明，其系统性能预测与复杂得多的基于几何的模型相近。
+
+不同于假设所有抽头独立、容易高估性能的传统随机模型，V-TDL 显式捕获多径相关性。这一点至关重要，因为相关性改变可分辨信道分集，并可能显著改变通信系统性能。论文还展示系统带宽改变接收机能够感知的时延分集、从而影响 OTFS 性能的机制。尽管如此，OTFS 在全部考察的车载场景中都优于 OFDM，在高流量密度和较大时延扩展等分集较丰富的场景中特别明显。
+
+后续研究方向包括：使用更多类型的双基地 RCS 测量，例如考虑多样化车辆形状，以及收发天线之间不同仰角；将模型扩展至**分数时延**情形；并进一步研究如何利用路径相关性的结构，设计新的 OTFS 信号检测算法。
+
+## 致谢与资助说明
+
+本研究得到欧盟 Horizon Europe SNS JU MultiX 项目（Grant Agreement 101192521）、欧盟 Next Generation EU 意大利国家复苏与韧性计划（NRRP）的“Telecommunications of the Future / RESTART”合作项目、PRIN 2022 PNRR 的 CSI-Future 项目，以及澳大利亚研究理事会（ARC）Discovery 项目 DP200100096 的支持。论文所表达的观点属于作者自身，不代表资助机构立场。
+
+## 参考文献
+
+以下保留原文英文题名、作者与出版信息，以便与 DOI、数据库及原文编号交叉查找。
+
+[1] Wang et al., “On the road to 6G: Visions, requirements, key technologies, and testbeds,” IEEE Communications Surveys & Tutorials, 2023.  
+[2] Saad, Bennis and Chen, “A vision of 6G wireless systems: Applications, trends, technologies, and open research problems,” IEEE Network, 2020.  
+[3] Giordani et al., “Toward 6G networks: Use cases and technologies,” IEEE Communications Magazine, 2020.  
+[4] Wu and Fan, “A survey on high mobility wireless communications: Challenges, opportunities and solutions,” IEEE Access, 2016.  
+[5] Noor-A-Rahim et al., “6G for vehicle-to-everything (V2X) communications: Enabling technologies, challenges, and opportunities,” Proceedings of the IEEE, 2022.  
+[6] Hakak et al., “Autonomous vehicles in 5G and beyond: A survey,” Vehicular Communications, 2023.  
+[7] Tse and Viswanath, *Fundamentals of Wireless Communication*, Cambridge University Press, 2005.  
+[8] 3GPP, “Evolved Universal Terrestrial Radio Access (E-UTRA); User Equipment (UE) Radio Transmission and Reception,” TS 36.101.  
+[9] ITU, “Rec. ITU-R M.1034-1: Requirements for the radio interface(s) for international mobile telecommunications-2000,” 1997.  
+[10] Compagnoni et al., “OTFS vs. OFDM in High-speed Vehicular Traffic Scenarios,” IEEE WCNC, 2025.  
+[11] Schaubach, Davis and Rappaport, “A ray tracing method for predicting path loss and delay spread in microcellular environments,” VTS Conference, 1992.  
+[12] He et al., “The design and applications of high-performance ray-tracing simulation platform for 5G and beyond wireless communications: A tutorial,” IEEE Communications Surveys & Tutorials, 2019.  
+[13] Guan et al., “Towards 6G: Paradigm of realistic terahertz channel modeling,” China Communications, 2021.  
+[14] Hadani et al., “Orthogonal Time Frequency Space Modulation,” IEEE WCNC, 2017.  
+[15] Wang et al., “Performance Degradation of OFDM Systems due to Doppler Spreading,” IEEE TWC, 2006.  
+[16] Groll et al., “Sparsity in the delay-doppler domain for measured 60 GHz vehicle-to-infrastructure communication channels,” IEEE ICC Workshops, 2019.  
+[17] Ma et al., “OTFS-TSMA for massive internet of things in high-speed railway,” IEEE TWC, 2022.  
+[18] Gaudio, Colavolpe and Caire, “OTFS vs. OFDM in the presence of sparsity: A fair comparison,” IEEE TWC, 2022.  
+[19] Ramachandran, Surabhi and Chockalingam, “OTFS: A new modulation scheme for high-mobility use cases,” Journal of the Indian Institute of Science, 2020.  
+[20] Raviteja, Viterbo and Hong, “OTFS performance on static multipath channels,” IEEE WCL, 2019.  
+[21] Murali and Chockalingam, “On OTFS Modulation for High-Doppler Fading Channels,” ITA, 2018.  
+[22] Priya, Hong and Viterbo, “OTFS channel estimation and detection for channels with very large delay spread,” IEEE TWC, 2024.  
+[23] Hong, Thaj and Viterbo, *Delay-Doppler Communications Principles and Applications*, Elsevier, 2022.  
+[24] Paier et al., “Characterization of vehicle-to-vehicle radio channels from measurements at 5.2 GHz,” Wireless Personal Communications, 2009.  
+[25] Wiffen et al., “Comparison of OTFS and OFDM in Ray Launched sub-6 GHz and mmWave Line-of-Sight Mobility Channels,” IEEE PIMRC, 2018.  
+[26] Xiong et al., “Vehicle-to-vehicle channel characterization based on ray-tracing for urban road scenarios,” Wireless Communications and Mobile Computing, 2021.  
+[27] Nuckelt et al., “Comparison of ray tracing and channel-sounder measurements for vehicular communications,” IEEE VTC Spring, 2013.  
+[28] Karedal et al., “A Geometry-Based Stochastic MIMO Model for Vehicle-to-Vehicle Communications,” IEEE TWC, 2009.  
+[29] Rakesh and Viterbo, “Geometry Based Stochastic Channel Modeling using Ambit Processes,” IEEE WCNC, 2020.  
+[30] Alsalami et al., “Regular-shaped geometry-based stochastic model for vehicle-to-vehicle visible light communication channel,” JEEIT, 2019.  
+[31] Yuan et al., “Novel 3D geometry-based stochastic models for non-isotropic MIMO vehicle-to-vehicle channels,” IEEE TWC, 2014.  
+[32] Beygi, Ström and Mitra, “Geometry-based stochastic modeling and estimation of vehicle to vehicle channels,” IEEE ICASSP, 2014.  
+[33] Deng, Ge and Ding, “A unifying view of OTFS and its many variants,” IEEE Communications Surveys & Tutorials, 2025.  
+[34] Blazek et al., “Vehicular Channel Characterization in Orthogonal Time-Frequency Space,” IEEE ICC Workshops, 2019.  
+[35] Radovic, Mecklenbräuker and Blazek, “OTFS performance over different measured vehicular 60 GHz millimeter-wave channels,” SoftCOM, 2021.  
+[36] Marsalek et al., “Real-world OTFS channel estimation performance evaluation on mmWave vehicular channels,” WSA, 2024.  
+[37] Singh et al., “Low-complexity ZF/MMSE MIMO-OTFS receivers for high-speed vehicular communication,” IEEE Open Journal of the Communications Society, 2022.  
+[38] Reddy et al., “Spectral efficient modem design with OTFS modulation for vehicular-IoT system,” IEEE IoT Journal, 2023.  
+[39] Ge et al., “OTFS signaling for SCMA with coordinated multi-point vehicle communications,” IEEE TVT, 2023.  
+[40] Raviteja et al., “Practical pulse-shaping waveforms for reduced-cyclic-prefix OTFS,” IEEE TVT, 2019.  
+[41] Thaj and Viterbo, “Low Complexity Iterative Rake Decision Feedback Equalizer for Zero-Padded OTFS Systems,” IEEE TVT, 2020.  
+[42] Willis, *Bistatic Radar*, Institution of Engineering and Technology, 2004.  
+[43] Rao, Wilton and Glisson, “Electromagnetic Scattering by Surfaces of Arbitrary Shape,” IEEE TAP, 1982.  
+[44] Naval Air Warfare Center Weapons Division, *Electronic Warfare and Radar Systems Engineering Handbook*, 4th ed., 2013.  
+[45] Acosta, Tokuda and Ingram, “Measured joint Doppler-delay power profiles for vehicle-to-vehicle communications at 2.4 GHz,” IEEE GLOBECOM, 2004.  
+[46] 3GPP, “Study on channel model for frequencies from 0.5 to 100 GHz,” Technical Report, 2024.  
+[47] Björnson and Demir, *Introduction to Multiple Antenna Communications and Reconfigurable Surfaces*, Now Publishers, 2024.
+
+{% endraw %}
