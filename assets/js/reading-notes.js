@@ -1,4 +1,4 @@
-/* 本地阅读摘录 v1：原文波浪线、随笔、作品目录汇总、JSON 备份。无依赖、无联网。 */
+/* 阅读摘录 v2：本地优先，手动同步 GitHub 私有仓库。无第三方依赖、不自动上传。 */
 (function () {
   "use strict";
   var path = location.pathname;
@@ -17,6 +17,7 @@
   if (!host && !reader) return;
   var holder = reader || host;
   var KEY = "lrx-reading-notes-v1", MAX_NOTES = 2500, MAX_QUOTE = 2000, MAX_COMMENT = 4000;
+  var MAX_DELETED = 10000, REMOTE_FILE = "reading-notes.json", MAX_REMOTE_BYTES = 3 * 1024 * 1024;
   var nativeHighlight = !!(window.CSS && CSS.highlights && typeof window.Highlight === "function");
   var notebook, list, summary, empty, pop, active = null;
   function valid(n) {
@@ -34,16 +35,28 @@
           typeof s.text === "string" && s.text.length === s.end - s.start && s.text.length <= MAX_QUOTE;
       });
   }
+  function readDeleted(value) {
+    var result = Object.create(null);
+    if (!value || typeof value !== "object" || Array.isArray(value)) return result;
+    var pairs = Object.entries(value);
+    if (pairs.length > MAX_DELETED) throw Error("删除记录超出上限");
+    pairs.forEach(function (pair) {
+      if (/^[a-zA-Z0-9_-]{3,90}$/.test(pair[0]) &&
+          Number.isSafeInteger(pair[1]) && pair[1] > 0) result[pair[0]] = pair[1];
+    });
+    return result;
+  }
   function load() {
     try {
       var d = JSON.parse(localStorage.getItem(KEY) || "{}");
-      return Array.isArray(d.notes) ? d.notes.filter(valid).slice(0, MAX_NOTES) : [];
-    } catch (_) { return []; }
+      return {notes:Array.isArray(d.notes) ? d.notes.filter(valid).slice(0,MAX_NOTES) : [],
+        deleted:readDeleted(d.deleted)};
+    } catch (_) { return {notes:[],deleted:Object.create(null)}; }
   }
-  var notes = load();
+  var state = load(), notes = state.notes, deleted = state.deleted;
   function save() {
     try {
-      localStorage.setItem(KEY, JSON.stringify({version:1,notes:notes}));
+      localStorage.setItem(KEY, JSON.stringify({version:2,notes:notes,deleted:deleted}));
       return true;
     } catch (_) {
       alert("无法保存笔记：浏览器可能禁用了本地存储，或存储空间已满。请先导出备份。");
@@ -192,7 +205,7 @@
     var title=(document.querySelector("h1")||{}).textContent||document.title||"网页";
     var n={id:"rn-"+Date.now().toString(36)+"-"+Math.random().toString(36).slice(2,9),
       book:book,page:path,title:title.trim().slice(0,200),lang:s.lang,
-      quote:s.quote,parts:s.parts,comment:comment,created:Date.now()};
+      quote:s.quote,parts:s.parts,comment:comment,created:Date.now(),updated:Date.now()};
     notes.push(n);
     if(!save()) {notes.pop();return;}
     try {window.getSelection().removeAllRanges();}catch(_){}
@@ -238,8 +251,9 @@
     if(el) el.scrollIntoView({behavior:"smooth",block:"center"});
   }
   function noteSet(n,text) {
-    var old=n.comment;n.comment=text.slice(0,MAX_COMMENT);
-    if(!save()){n.comment=old;return false;}return true;
+    var old=n.comment, oldTime=n.updated;
+    n.comment=text.slice(0,MAX_COMMENT);n.updated=Date.now();
+    if(!save()){n.comment=old;n.updated=oldTime;return false;}return true;
   }
   function showList() {
     if(!list)return;
@@ -268,15 +282,16 @@
       }));
       actions.append(btn("删除",function(){
         if(!confirm("删除这条划线与笔记？"))return;
-        var old=notes.slice();notes=notes.filter(function(e){return e.id!==n.id;});
-        if(!save()){notes=old;return;}
+        var old=notes.slice(), prior=deleted[n.id];
+        deleted[n.id]=Date.now();notes=notes.filter(function(e){return e.id!==n.id;});
+        if(!save()){notes=old;if(prior===undefined)delete deleted[n.id];else deleted[n.id]=prior;return;}
         repaint();showList();
       }));
       li.append(actions);list.append(li);
     });
   }
   function exportNotes() {
-    var json=JSON.stringify({version:1,exportedAt:new Date().toISOString(),notes:notes},null,2);
+    var json=JSON.stringify({version:2,exportedAt:new Date().toISOString(),notes:notes,deleted:deleted},null,2);
     var url=URL.createObjectURL(new Blob([json],{type:"application/json;charset=utf-8"}));
     var a=make("a");a.href=url;a.download="reading-notes-"+new Date().toISOString().slice(0,10)+".json";
     document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url);},1500);
@@ -285,29 +300,168 @@
     if(!file||file.size>3*1024*1024){alert("请选择不大于 3 MB 的笔记 JSON 备份。");return;}
     file.text().then(function(text){
       var obj=JSON.parse(text);
-      if(!obj||obj.version!==1||!Array.isArray(obj.notes))throw Error("格式不正确");
+      if(!obj||(obj.version!==1&&obj.version!==2)||!Array.isArray(obj.notes))throw Error("格式不正确");
       var received=obj.notes.filter(valid), ids=new Set(notes.map(function(n){return n.id;}));
       var added=received.filter(function(n){return !ids.has(n.id);}).slice(0,MAX_NOTES-notes.length);
-      var before=notes.slice();notes=notes.concat(added);
-      if(!save()){notes=before;return;}
+      var before=notes.slice(), oldDeleted=Object.assign(Object.create(null),deleted);
+      added.forEach(function(n){if(deleted[n.id]){n.updated=Date.now();delete deleted[n.id];}});
+      notes=notes.concat(added);
+      if(!save()){notes=before;deleted=oldDeleted;return;}
       repaint();showList();alert("导入完成：新增 "+added.length+" 条（重复笔记已跳过）。");
     }).catch(function(){alert("读取失败：请使用本站导出的 JSON 备份。");});
+  }
+
+  // 只接受用户明确指定的私有仓库。令牌仅在 input 中，绝不写入本地存储/仓库。
+  function noteTime(n) {
+    return Number.isSafeInteger(n.updated) && n.updated > 0 ? n.updated :
+      (Number.isSafeInteger(n.created) && n.created > 0 ? n.created : 0);
+  }
+  function normalizeRemote(doc) {
+    if (!doc || (doc.version !== 1 && doc.version !== 2) || !Array.isArray(doc.notes) ||
+        doc.notes.length > MAX_NOTES || !doc.notes.every(valid))
+      throw Error("私库备份格式无效或摘录数量超限，请先手动备份并检查。");
+    return {notes:doc.notes,deleted:readDeleted(doc.deleted)};
+  }
+  function mergeStores(a,b) {
+    var entries=new Map(), removed=Object.create(null);
+    a.notes.forEach(function(n){entries.set(n.id,n);});
+    b.notes.forEach(function(n){
+      var old=entries.get(n.id);
+      if(!old || noteTime(n)>noteTime(old))entries.set(n.id,n);
+    });
+    [a.deleted,b.deleted].forEach(function(obj){
+      Object.entries(obj).forEach(function(pair){
+        if(!removed[pair[0]] || pair[1]>removed[pair[0]])removed[pair[0]]=pair[1];
+      });
+    });
+    if(Object.keys(removed).length>MAX_DELETED)throw Error("删除记录超出上限，请先导出备份。");
+    var merged=Array.from(entries.values()).filter(function(n){
+      return !removed[n.id] || noteTime(n)>removed[n.id];
+    });
+    if(merged.length>MAX_NOTES)throw Error("合并后摘录超出 "+MAX_NOTES+" 条上限，请先导出整理。");
+    return {notes:merged,deleted:removed};
+  }
+  function applyStore(result) {
+    var previousNotes=notes, previousDeleted=deleted;
+    notes=result.notes;deleted=result.deleted;
+    if(!save()){notes=previousNotes;deleted=previousDeleted;return false;}
+    repaint();showList();return true;
+  }
+  function utf8ToBase64(value) {
+    var bytes=new TextEncoder().encode(value), str="";
+    for(var i=0;i<bytes.length;i+=8192)
+      str+=String.fromCharCode.apply(null,bytes.subarray(i,i+8192));
+    return btoa(str);
+  }
+  function base64ToUtf8(value) {
+    var bin=atob(value.replace(/\\s/g,"")), bytes=new Uint8Array(bin.length);
+    for(var i=0;i<bin.length;i++)bytes[i]=bin.charCodeAt(i);
+    return new TextDecoder("utf-8",{fatal:true}).decode(bytes);
+  }
+  function syncPanel() {
+    var pane=make("details","rn-sync");
+    pane.append(make("summary",null,"☁ 私库同步（手动）"));
+    pane.append(make("p","rn-hint","将全部作品摘录保存到你自己的 GitHub 私有仓库。默认仅存本机；点击按钮才访问 GitHub。"));
+    var fields=make("div","rn-sync-fields");
+    var repoLabel=make("label",null,"私有仓库（用户名/仓库名）");
+    var repoInput=make("input","rn-sync-input");
+    repoInput.type="text";repoInput.value="LRXuanxuan/reading-notes-private";
+    repoInput.autocomplete="off";repoInput.spellcheck=false;
+    repoLabel.append(repoInput);fields.append(repoLabel);
+    var tokenLabel=make("label",null,"GitHub fine-grained token（仅本页临时使用）");
+    var tokenInput=make("input","rn-sync-input");
+    tokenInput.type="password";tokenInput.placeholder="粘贴只授权该私库 Contents 读写的令牌";
+    tokenInput.autocomplete="off";tokenInput.spellcheck=false;
+    tokenLabel.append(tokenInput);fields.append(tokenLabel);pane.append(fields);
+    var help=make("p","rn-hint");
+    help.append("首次使用：先在 GitHub ");
+    var newRepo=make("a",null,"创建私有仓库");
+    newRepo.href="https://github.com/new";newRepo.target="_blank";newRepo.rel="noopener noreferrer";help.append(newRepo);
+    help.append("（勾选 Private 和 Add README），再");
+    var newToken=make("a",null,"创建细粒度令牌");
+    newToken.href="https://github.com/settings/personal-access-tokens/new";
+    newToken.target="_blank";newToken.rel="noopener noreferrer";help.append(newToken);
+    help.append("（仅该仓库、Contents: Read and write）。不要将令牌发送给他人或填写到公开文件。");
+    pane.append(help);
+    var status=make("p","rn-sync-status","尚未同步。令牌不会被网站保存，关闭/刷新页面后需重新输入。");
+    status.setAttribute("role","status");status.setAttribute("aria-live","polite");
+    function showStatus(message){status.textContent=message;}
+    var actions=make("div","rn-actions"), push=btn("↑ 合并并同步到私库",function(){run("push");});
+    var pull=btn("↓ 从私库合并到本机",function(){run("pull");});
+    actions.append(push,pull);pane.append(actions);pane.append(status);
+    async function run(mode) {
+      var full=repoInput.value.trim(), token=tokenInput.value.trim();
+      if(!/^[A-Za-z0-9-]{1,39}\\/[A-Za-z0-9_.-]{1,100}$/.test(full)) {
+        showStatus("请填写有效的 GitHub 用户名/仓库名。");return;
+      }
+      if(!token){showStatus("请先输入私库的细粒度访问令牌。");return;}
+      var endpoint="https://api.github.com/repos/"+full;
+      var headers={"Accept":"application/vnd.github+json",
+        "Authorization":"Bearer "+token,"X-GitHub-Api-Version":"2022-11-28"};
+      async function api(url,options) {
+        var response=await fetch(url,Object.assign({headers:headers,cache:"no-store"},options||{}));
+        if(!response.ok){
+          var message=response.status===401?"令牌无效或已失效":
+            response.status===403?"访问被拒绝：请检查私库权限、令牌有效期或 API 限额":
+            response.status===409?"私库已被其他设备更新，请重新点击同步":
+            response.status===404?"仓库或文件不可访问：确认私库存在且令牌已授权":
+            "GitHub API 返回 HTTP "+response.status;
+          var err=Error(message);err.status=response.status;throw err;
+        }
+        return response.json();
+      }
+      push.disabled=true;pull.disabled=true;
+      showStatus("正在核对私库权限并"+(mode==="push"?"合并同步":"读取摘录")+"……");
+      try {
+        var info=await api(endpoint);
+        if(info.private!==true)throw Error("安全限制：目标仓库不是 Private，已阻止上传或读取。");
+        var fileUrl=endpoint+"/contents/"+REMOTE_FILE;
+        var file=null;
+        try {file=await api(fileUrl);}catch(error){if(error.status!==404)throw error;}
+        if(mode==="pull"&&!file)throw Error("私库尚无摘录文件，可先点击「合并并同步到私库」。");
+        if(file && (file.size>MAX_REMOTE_BYTES || typeof file.content!=="string"))
+          throw Error("远端摘录文件过大或不是普通文件，已停止同步。");
+        var remote=file?normalizeRemote(JSON.parse(base64ToUtf8(file.content))):
+          {notes:[],deleted:Object.create(null)};
+        // 发送之前重新读取本地状态，避免把本页的其他操作遗漏。
+        var merged=mergeStores({notes:notes,deleted:deleted},remote);
+        if(mode==="push"){
+          var content=JSON.stringify({version:2,notes:merged.notes,deleted:merged.deleted},null,2);
+          if(new TextEncoder().encode(content).length>MAX_REMOTE_BYTES)
+            throw Error("合并后的文件超过 3 MB，请先导出整理。");
+          var body={message:"Backup private reading notes",content:utf8ToBase64(content)};
+          if(file)body.sha=file.sha;
+          await api(fileUrl,{method:"PUT",headers:Object.assign({},headers,{"Content-Type":"application/json"}),
+            body:JSON.stringify(body)});
+        }
+        // 若同步过程中用户又新建/编辑了摘录，不要覆盖这些改动。
+        var current=mergeStores({notes:notes,deleted:deleted},merged);
+        if(!applyStore(current))throw Error("GitHub 操作完成，但本地保存失败：请先导出备份。");
+        showStatus(mode==="push"?
+          "私库同步完成，共 "+merged.notes.length+" 条摘录。若同步时又修改了笔记，请再次同步。":
+          "已从私库合并到本机，目前共 "+current.notes.length+" 条摘录；不会删除本机独有内容。");
+      } catch(error) {
+        showStatus("同步失败："+(error&&error.message?error.message:"请检查网络与授权后重试"));
+      } finally {push.disabled=false;pull.disabled=false;}
+    }
+    return pane;
   }
   function buildUI() {
     notebook=make("details","rn-notebook");
     notebook.id="reading-notes";
     summary=make("summary");notebook.append(summary);
     notebook.append(make("p","rn-hint",index?
-      "本书各章节的摘录汇总于此。点击摘录可回到原文；笔记只存在当前浏览器。":
+      "本书各章节的摘录汇总于此。点击摘录可回到原文；默认保存在当前浏览器；可手动同步至私人仓库。":
       (reader && reader.querySelectorAll("[data-story-lang]").length === 1 ?
-      "选中正文即可「划波浪线」或「写笔记」。点击摘录可回到原句；数据仅存本机浏览器。":
-      "选中正文即可「划波浪线」或「写笔记」。中英文分别记载，点击摘录可回到原句；数据仅存本机浏览器。")));
+      "选中正文即可「划波浪线」或「写笔记」。点击摘录可回到原句；默认仅存本机，可手动私库同步。":
+      "选中正文即可「划波浪线」或「写笔记」。中英文分别记载，点击摘录可回到原句；默认仅存本机，可手动私库同步。")));
     var actions=make("div","rn-actions");
     actions.append(btn("↓ 导出 JSON 备份",exportNotes));
     var picker=make("input");picker.type="file";picker.accept=".json,application/json";picker.hidden=true;
     picker.addEventListener("change",function(){if(picker.files&&picker.files[0])importNotes(picker.files[0]);picker.value="";});
     actions.append(btn("↑ 导入 JSON 备份",function(){picker.click();}));
     actions.append(picker);notebook.append(actions);
+    notebook.append(syncPanel());
     list=make("ul","rn-list");notebook.append(list);
     if(index && host){
       var heading=Array.from(host.querySelectorAll("h2")).find(function(e){return /目录|篇目/.test(e.textContent);}) || host.querySelector("h2");
