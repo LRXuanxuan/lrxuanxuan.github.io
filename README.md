@@ -5,6 +5,12 @@
 
 A minimal, ready-to-use template for creating a blog with the [**Chirpy**][chirpy] Jekyll theme. Get up and running in minutes with all critical files pre-configured.
 
+## 本站内容维护约定
+
+- [日签与十四准则：分类规则、小说/电影台词/歌词入库格式与发布流程](docs/daily-sign-standard.md)
+- [仓库长期维护说明（AGENTS.md）](AGENTS.md)
+- 新增日签后先运行 `python3 tools/validate_daily_sign.py`，然后再部署。
+
 ## Why This Starter Exists
 
 When installing Chirpy through [RubyGems.org][gem], Jekyll can only read a subset of theme files (`_data`, `_layouts`, `_includes`, `_sass`, `assets`) and limited `_config.yml` options from the gem. As a result, users cannot enjoy the full out-of-the-box experience that Chirpy offers.
