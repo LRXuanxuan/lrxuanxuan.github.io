@@ -424,7 +424,7 @@
         var remote=file?normalizeRemote(JSON.parse(base64ToUtf8(file.content))):
           {notes:[],deleted:Object.create(null)};
         // 发送之前重新读取本地状态，避免把本页的其他操作遗漏。
-        var merged=mergeStores({notes:notes,deleted:deleted},remote);
+        var merged=mergeStores(mergeStores({notes:notes,deleted:deleted},load()),remote);
         if(mode==="push"){
           var content=JSON.stringify({version:2,notes:merged.notes,deleted:merged.deleted},null,2);
           if(new TextEncoder().encode(content).length>MAX_REMOTE_BYTES)
@@ -435,7 +435,7 @@
             body:JSON.stringify(body)});
         }
         // 若同步过程中用户又新建/编辑了摘录，不要覆盖这些改动。
-        var current=mergeStores({notes:notes,deleted:deleted},merged);
+        var current=mergeStores(mergeStores({notes:notes,deleted:deleted},load()),merged);
         if(!applyStore(current))throw Error("GitHub 操作完成，但本地保存失败：请先导出备份。");
         showStatus(mode==="push"?
           "私库同步完成，共 "+merged.notes.length+" 条摘录。若同步时又修改了笔记，请再次同步。":
