@@ -11,6 +11,19 @@ toc: true
 
 ## 中英文译文
 
+## 2026 年 8 月 21 日｜五篇论文中文阅读入口
+
+以下按当日推荐顺序提供译稿入口。现有中文译稿覆盖论文各章节及公式，长文分为正文和附录等多个轻量页面；尚待逐段比对，不计入已验收全文。
+
+- [TAP：面向通用化 CSI 反馈的时序信道估计（上、下篇）](/papers/translations/2026-10-12-tap/) · [论文条目](/papers/items/67d6ba71d51870c4/)
+- [CSI RefineNet：高移动性 OFDM 的软数据辅助迭代接收机](/papers/translations/2026-10-12-csi-refinenet-2607-23691/) · [论文条目](/papers/items/2b25f06314f93a0f/)
+- [RadioVIL：无线电地图修复与零样本车辆定位](/papers/translations/2026-10-12-radiovil-2608-16167/) · [论文条目](/papers/items/80e9a2d71a6acd36/)
+- [RMWorld：任务感知无线世界模型与多无人机通信控制（上、下篇）](/papers/translations/2026-10-12-rmworld-2608-20126/) · [论文条目](/papers/items/2558d2736320f228/)
+- [PU-HNO：无线场建模的物理展开神经算子（正文、附录）](/papers/translations/2026-10-12-puhno/) · [论文条目](/papers/items/2e0d5029e130cc29/)
+
+---
+
+
 - [SIMCA：扩散与流匹配后验采样的引导权重校准｜中文全篇译稿（校对中）](/papers/translations/2026-10-13-simca-guidance-2610-03503/) · 原文全文结构译稿（校对中；未计入全文验收）
 - [RadioDiff-Inverse：面向 ISAC 无线电地图构建的扩散增强贝叶斯逆估计｜中文全篇译稿（校对中）](/papers/translations/2026-10-13-radiodiff-inverse-twc-2026/) · 中文译稿（校对中；IEEE公开传播许可待核验）
 - [FR3 无人机基站信道知识地图：数据集与机器学习建模｜中文全文译稿（校对中）](/papers/translations/2026-10-13-fr3-uav-ckm-2610-06356/) · 原文全文结构译稿（校对中；未计入全文验收）
