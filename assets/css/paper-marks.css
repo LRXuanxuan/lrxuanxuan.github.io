@@ -28,3 +28,28 @@
   #paper-library .pl-card-top .pm-marks { justify-content: flex-start; margin-left: 0; }
 }
 @media (prefers-reduced-motion: reduce) { .pm-marks button { transition: none; } }
+
+
+/* The paper-library theme uses an ID selector for all buttons: match it here. */
+#paper-library .pm-marks button {
+  font-size: .75rem;
+  line-height: 1.35;
+  padding: .32rem .57rem;
+  border-radius: 999px;
+  border-color: var(--main-border-color, #d0d9df);
+  color: var(--text-muted-color, #64748b);
+  background: var(--card-bg, transparent);
+}
+#paper-library .pm-marks button:hover {
+  border-color: var(--link-color, #177e86);
+  color: var(--link-color, #177e86);
+}
+#paper-library .pm-marks button.is-set {
+  border-color: var(--link-color, #177e86);
+  color: var(--link-color, #177e86);
+  background: var(--sidebar-hover-bg, #e6f5f4);
+  font-weight: 700;
+}
+@media (max-width: 650px) {
+  #paper-library .pm-marks button { padding: .35rem .52rem; }
+}
