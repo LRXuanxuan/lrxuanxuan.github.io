@@ -9,6 +9,8 @@ toc: false
 
 <!-- Stable library shell: add translations via assets/papers/external-translations.json, never prepend batches here. -->
 <link rel="stylesheet" href="{{ '/assets/papers/library.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/paper-marks.css' | relative_url }}">
+<script src="{{ '/assets/js/paper-marks.js' | relative_url }}" defer></script>
 <div id="paper-library" data-source="{{ '/assets/papers/library.json' | relative_url }}">
   <div class="pl-intro"><span class="pl-eyebrow">DAILY RESEARCH READING</span><h2>每天一点，积累一条研究线索。</h2><p>无线通信、信号处理与生成模型。点击论文标题查看本篇推荐、证据、原文与代码，直接进入对应日报条目及译文。</p></div>
   <div id="pl-stats" class="pl-stats" aria-live="polite">正在加载论文记录…</div>
