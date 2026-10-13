@@ -11,6 +11,11 @@ toc: true
 
 ## 中英文译文
 
+- [SIMCA：扩散与流匹配后验采样的引导权重校准｜中文全篇译稿（校对中）](/papers/translations/2026-10-13-simca-guidance-2610-03503/) · 原文全文结构译稿（校对中；未计入全文验收）
+- [RadioDiff-Inverse：面向 ISAC 无线电地图构建的扩散增强贝叶斯逆估计｜中文全篇译稿（校对中）](/papers/translations/2026-10-13-radiodiff-inverse-twc-2026/) · 中文译稿（校对中；IEEE公开传播许可待核验）
+- [FR3 无人机基站信道知识地图：数据集与机器学习建模｜中文全文译稿（校对中）](/papers/translations/2026-10-13-fr3-uav-ckm-2610-06356/) · 原文全文结构译稿（校对中；未计入全文验收）
+- [β-Flow：通过精确高斯条件化统一扩散与流后验采样｜中文全篇译稿（校对中）](/papers/translations/2026-10-13-beta-flow-2610-13812/) · 原文全文结构译稿（校对中；未计入全文验收）
+- [AUG-RME：基于注意力与不确定性感知的无网格无线电地图估计｜中文全篇译稿（校对中）](/papers/translations/2026-10-13-aug-rme-twc-2026/) · 中文译稿（校对中；IEEE公开传播许可待核验）
 - [MultiPathFormer：面向多径无线传播的基础模型｜中文全文译文](/papers/translations/multipathformer/) · 全文中文译文（沿用原发布验收记录）
 - [HDPS：基于潜空间流匹配的混合域后验采样｜中文全文译文](/papers/translations/hdps/) · 全文中文译文（沿用原发布验收记录）
 - [Zero-Shot Frequency Generalization for Radio Map Prediction via Cross-Attention Physics-Residual Learning](/papers/items/f01eb39a8eaa1174/#paper-translation) · 全文中文译文（沿用原发布验收记录）

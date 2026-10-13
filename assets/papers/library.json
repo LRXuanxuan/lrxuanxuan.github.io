@@ -119,7 +119,13 @@
       "report_entry_url": "/papers/reports/2026-10-13/#paper-3925171895fd3316",
       "paper_url": "/papers/items/3925171895fd3316/",
       "paper_report_url": "/papers/items/3925171895fd3316/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "title": "AUG-RME：基于注意力与不确定性感知的无网格无线电地图估计｜中文全篇译稿（校对中）",
+          "scope": "中文译稿（校对中；IEEE公开传播许可待核验）",
+          "url": "/papers/translations/2026-10-13-aug-rme-twc-2026/"
+        }
+      ],
       "links": [
         "https://ieeexplore.ieee.org/ielam/7693/11298242/11683520-aam.pdf",
         "https://xplorestaging.ieee.org/document/11683520",
@@ -168,7 +174,13 @@
       "report_entry_url": "/papers/reports/2026-10-13/#paper-cb0e43169021c839",
       "paper_url": "/papers/items/cb0e43169021c839/",
       "paper_report_url": "/papers/items/cb0e43169021c839/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "title": "RadioDiff-Inverse：面向 ISAC 无线电地图构建的扩散增强贝叶斯逆估计｜中文全篇译稿（校对中）",
+          "scope": "中文译稿（校对中；IEEE公开传播许可待核验）",
+          "url": "/papers/translations/2026-10-13-radiodiff-inverse-twc-2026/"
+        }
+      ],
       "links": [
         "https://m64he.github.io/paper_sshen/2026/wang2026radiodiffinverse.pdf",
         "https://github.com/zsfang2/radiodiff-inverse",
@@ -220,7 +232,13 @@
       "report_entry_url": "/papers/reports/2026-10-13/#paper-fa7f1bb2b6bb36bc",
       "paper_url": "/papers/items/fa7f1bb2b6bb36bc/",
       "paper_report_url": "/papers/items/fa7f1bb2b6bb36bc/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "title": "FR3 无人机基站信道知识地图：数据集与机器学习建模｜中文全文译稿（校对中）",
+          "scope": "原文全文结构译稿（校对中；未计入全文验收）",
+          "url": "/papers/translations/2026-10-13-fr3-uav-ckm-2610-06356/"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2610.06356",
         "https://arxiv.org/abs/2610.06356",
@@ -273,7 +291,13 @@
       "report_entry_url": "/papers/reports/2026-10-13/#paper-4e65b9641a926d7f",
       "paper_url": "/papers/items/4e65b9641a926d7f/",
       "paper_report_url": "/papers/items/4e65b9641a926d7f/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "title": "SIMCA：扩散与流匹配后验采样的引导权重校准｜中文全篇译稿（校对中）",
+          "scope": "原文全文结构译稿（校对中；未计入全文验收）",
+          "url": "/papers/translations/2026-10-13-simca-guidance-2610-03503/"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2610.03503",
         "https://arxiv.org/abs/2610.03503",
@@ -322,7 +346,13 @@
       "report_entry_url": "/papers/reports/2026-10-13/#paper-6d6929e2e9876fdb",
       "paper_url": "/papers/items/6d6929e2e9876fdb/",
       "paper_report_url": "/papers/items/6d6929e2e9876fdb/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "title": "β-Flow：通过精确高斯条件化统一扩散与流后验采样｜中文全篇译稿（校对中）",
+          "scope": "原文全文结构译稿（校对中；未计入全文验收）",
+          "url": "/papers/translations/2026-10-13-beta-flow-2610-13812/"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2610.13812",
         "https://arxiv.org/abs/2610.13812",
@@ -16502,6 +16532,76 @@
     }
   ],
   "translations": [
+    {
+      "date": "2026-10-13",
+      "title": "SIMCA：扩散与流匹配后验采样的引导权重校准｜中文全篇译稿（校对中）",
+      "url": "/papers/translations/2026-10-13-simca-guidance-2610-03503/",
+      "slug": "2026-10-13-simca-guidance-2610-03503",
+      "scope": "原文全文结构译稿（校对中；未计入全文验收）",
+      "source_page_path": "papers/translations/2026-10-13-simca-guidance-2610-03503.md",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-13-simca-guidance-2610-03503.md",
+      "paper_ids": [
+        "4e65b9641a926d7f"
+      ],
+      "source_arxiv_ids": [],
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-13",
+      "title": "RadioDiff-Inverse：面向 ISAC 无线电地图构建的扩散增强贝叶斯逆估计｜中文全篇译稿（校对中）",
+      "url": "/papers/translations/2026-10-13-radiodiff-inverse-twc-2026/",
+      "slug": "2026-10-13-radiodiff-inverse-twc-2026",
+      "scope": "中文译稿（校对中；IEEE公开传播许可待核验）",
+      "source_page_path": "papers/translations/2026-10-13-radiodiff-inverse-twc-2026.md",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-13-radiodiff-inverse-twc-2026.md",
+      "paper_ids": [
+        "cb0e43169021c839"
+      ],
+      "source_arxiv_ids": [],
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-13",
+      "title": "FR3 无人机基站信道知识地图：数据集与机器学习建模｜中文全文译稿（校对中）",
+      "url": "/papers/translations/2026-10-13-fr3-uav-ckm-2610-06356/",
+      "slug": "2026-10-13-fr3-uav-ckm-2610-06356",
+      "scope": "原文全文结构译稿（校对中；未计入全文验收）",
+      "source_page_path": "papers/translations/2026-10-13-fr3-uav-ckm-2610-06356.md",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-13-fr3-uav-ckm-2610-06356.md",
+      "paper_ids": [
+        "fa7f1bb2b6bb36bc"
+      ],
+      "source_arxiv_ids": [],
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-13",
+      "title": "β-Flow：通过精确高斯条件化统一扩散与流后验采样｜中文全篇译稿（校对中）",
+      "url": "/papers/translations/2026-10-13-beta-flow-2610-13812/",
+      "slug": "2026-10-13-beta-flow-2610-13812",
+      "scope": "原文全文结构译稿（校对中；未计入全文验收）",
+      "source_page_path": "papers/translations/2026-10-13-beta-flow-2610-13812.md",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-13-beta-flow-2610-13812.md",
+      "paper_ids": [
+        "6d6929e2e9876fdb"
+      ],
+      "source_arxiv_ids": [],
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-13",
+      "title": "AUG-RME：基于注意力与不确定性感知的无网格无线电地图估计｜中文全篇译稿（校对中）",
+      "url": "/papers/translations/2026-10-13-aug-rme-twc-2026/",
+      "slug": "2026-10-13-aug-rme-twc-2026",
+      "scope": "中文译稿（校对中；IEEE公开传播许可待核验）",
+      "source_page_path": "papers/translations/2026-10-13-aug-rme-twc-2026.md",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-13-aug-rme-twc-2026.md",
+      "paper_ids": [
+        "3925171895fd3316"
+      ],
+      "source_arxiv_ids": [],
+      "qa_complete": false
+    },
     {
       "date": "2026-10-12",
       "url": "/papers/translations/multipathformer/",

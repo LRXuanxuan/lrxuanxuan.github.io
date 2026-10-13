@@ -9,7 +9,7 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=fa7f1bb2b6bb36bc)
 
-[本篇日报说明](/papers/items/fa7f1bb2b6bb36bc/#paper-report) · [全文翻译（进行中）](/papers/items/fa7f1bb2b6bb36bc/#paper-translation)
+[本篇日报说明](/papers/items/fa7f1bb2b6bb36bc/#paper-report) · [全文翻译（进行中）](/papers/items/fa7f1bb2b6bb36bc/#paper-translation) · [原文全文结构译稿（校对中；未计入全文验收）](/papers/translations/2026-10-13-fr3-uav-ckm-2610-06356/)
 
 **推荐日期：** 2026-10-13 · **发表状态：** 已接受待刊
 
@@ -18,6 +18,8 @@ toc: true
 ## 本篇全文翻译
 
 本篇全文翻译正在补齐或核验，尚未计为完成。完成并允许公开后，此入口将直达本篇全文译稿。
+
+已有部分译文（不计全文完成）：[历史译文](/papers/translations/2026-10-13-fr3-uav-ckm-2610-06356/)
 
 <span id="paper-report"></span>
 
