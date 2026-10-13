@@ -1,0 +1,35 @@
+---
+layout: page
+title: 推荐表格
+permalink: /papers/table/
+toc: false
+---
+<link rel="stylesheet" href="{{ '/assets/papers/workbook.css' | relative_url }}">
+<section id="workbook-table" data-source="{{ '/assets/papers/library.json' | relative_url }}" aria-label="推荐工作簿网页表格">
+  <p class="wt-back"><a href="{{ '/papers/' | relative_url }}">← 返回论文库</a></p>
+  <p class="wt-intro">保留推荐工作簿的全部列与原始顺序。左右滑动查看其他列，点击单元格展开完整内容。</p>
+  <p id="wt-source" class="wt-source" aria-live="polite">正在加载推荐表格…</p>
+  <form id="wt-filters" class="wt-filters" role="search">
+    <label>标题搜索<input id="wt-query" type="search" placeholder="输入论文标题" autocomplete="off"></label>
+    <label>推荐日期<select id="wt-date"><option value="">全部日期</option></select></label>
+    <label>阅读状态<select id="wt-reading"><option value="">全部记录</option><option value="skimmed">已略读</option><option value="studied">已精读</option><option value="unread">未略读、未精读</option></select></label>
+    <label>每页条数<select id="wt-size"><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></label>
+    <button type="reset">重置</button>
+  </form>
+  <p id="wt-count" aria-live="polite"></p>
+  <div id="wt-scroll" class="wt-scroll" tabindex="0" role="region" aria-label="推荐表格，可横向滚动">
+    <table id="wt-grid"><caption class="wt-sr-only">每日论文推荐工作簿主表</caption><thead></thead><tbody></tbody></table>
+  </div>
+  <p id="wt-empty" hidden>没有匹配记录，请调整筛选条件。</p>
+  <nav class="wt-pager" aria-label="推荐表格分页">
+    <button id="wt-first" type="button" disabled>首页</button><button id="wt-prev" type="button" disabled>上一页</button>
+    <span id="wt-page" aria-live="polite"></span>
+    <button id="wt-next" type="button" disabled>下一页</button><button id="wt-last" type="button" disabled>末页</button>
+  </nav>
+  <dialog id="wt-detail" aria-labelledby="wt-detail-title">
+    <div class="wt-dialog-head"><h2 id="wt-detail-title"></h2><button id="wt-close" type="button">关闭</button></div>
+    <p id="wt-detail-meta" class="wt-source"></p><div id="wt-detail-links" class="wt-detail-links"></div><dl id="wt-detail-fields"></dl>
+  </dialog>
+  <noscript>请启用 JavaScript 浏览表格，或查看<a href="{{ '/papers/catalog/' | relative_url }}">全部推荐目录</a>。</noscript>
+</section>
+<script src="{{ '/assets/papers/workbook.js' | relative_url }}" defer></script>

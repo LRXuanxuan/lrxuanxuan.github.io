@@ -11,19 +11,6 @@ toc: true
 
 ## 中英文译文
 
-- [AUG-RME：无网格无线电地图的注意力与不确定性感知｜中文译稿](/papers/translations/2026-10-13-aug-rme-twc-2026/) · 中文译稿（校对中；IEEE 公开传播许可待核验）
-- [RadioDiff-Inverse：扩散增强贝叶斯无线电地图逆估计｜中文译稿](/papers/translations/2026-10-13-radiodiff-inverse-twc-2026/) · 中文译稿（校对中；IEEE 公开传播许可待核验）
-
-- [FR3 UAV CKM：7.125 GHz 无人机基站信道知识地图｜中文译稿](/papers/translations/2026-10-13-fr3-uav-ckm-2610-06356/) · 原文全文结构译稿（校对中；未计入全文验收）
-- [SIMCA：扩散与流匹配的引导权重校准｜中文译稿](/papers/translations/2026-10-13-simca-guidance-2610-03503/) · 原文全文结构译稿（校对中；未计入全文验收）
-- [β-Flow：精确高斯条件化的统一后验采样｜中文译稿](/papers/translations/2026-10-13-beta-flow-2610-13812/) · 原文全文结构译稿（校对中；未计入全文验收）
-
-- [空间可重构夹持天线系统：实验验证及通感一体化应用（8页）](/papers/translations/2026-10-12-2610-04769-full-zh/) · 全文中文译稿
-- [突发相位噪声下的信道估计与 LDPC 译码（11页）](/papers/translations/2026-10-12-2604-07004-full-zh/) · 全文中文译稿
-- [几何感知 GPR 低能耗信道估计（13页）](/papers/translations/2026-10-12-geometry-gpr-full-zh/) · 全文中文译稿
-- [OCL-PDE：观测互补潜变量与 PDE 逆问题（34页，分篇）](/papers/translations/2026-10-13-ocl-pde-2610-06259/) · 全文中文译稿
-- [Flow Map Denoisers：逆问题的失真—感知权衡（60页，分篇）](/papers/translations/2026-10-13-flow-map-denoisers-2606-19802/) · 全文中文译稿
-
 - [MultiPathFormer：面向多径无线传播的基础模型｜中文全文译文](/papers/translations/multipathformer/) · 全文中文译文（沿用原发布验收记录）
 - [HDPS：基于潜空间流匹配的混合域后验采样｜中文全文译文](/papers/translations/hdps/) · 全文中文译文（沿用原发布验收记录）
 - [Zero-Shot Frequency Generalization for Radio Map Prediction via Cross-Attention Physics-Residual Learning](/papers/items/f01eb39a8eaa1174/#paper-translation) · 全文中文译文（沿用原发布验收记录）
