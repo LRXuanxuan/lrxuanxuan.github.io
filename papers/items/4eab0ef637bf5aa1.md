@@ -9,7 +9,7 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=4eab0ef637bf5aa1)
 
-[本篇日报说明](/papers/items/4eab0ef637bf5aa1/#paper-report) · [全文翻译（待补齐）](/papers/items/4eab0ef637bf5aa1/#paper-translation)
+[本篇日报说明](/papers/items/4eab0ef637bf5aa1/#paper-report) · [中文全文译稿](/papers/translations/2026-10-12-f4-ckm/)
 
 **推荐日期：** 2026-07-17 · **发表状态：** 历史记录未明确
 
@@ -17,7 +17,7 @@ toc: true
 
 ## 本篇全文翻译
 
-本篇已列入全文翻译清单，尚未完成。完成并允许公开后，此入口将直达本篇全文译稿。
+[阅读《F⁴-CKM：利用射频辐射场渲染学习信道知识地图》中文译稿](/papers/translations/2026-10-12-f4-ckm/)（保留正文章节、公式、实验及原文参考文献著录；插图请对照英文原论文）。
 
 <span id="paper-report"></span>
 
