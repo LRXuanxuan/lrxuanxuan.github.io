@@ -806,5 +806,100 @@
     ],
     "source_arxiv_ids": [],
     "qa_complete": false
+  },
+  {
+    "date": "2026-10-13",
+    "url": "/papers/translations/2026-10-12-tap/",
+    "slug": "2026-10-12-tap",
+    "source_file": "2026-10-12-tap.md",
+    "title": "Temporal Channel Estimation for Generalized CSI Feedback（TAP）｜中文译稿（上、下篇）",
+    "scope": "覆盖原文正文与所列附录的中文译稿（待逐段复核，未计入全文验收）",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-tap.md",
+    "source_page_path": "papers/translations/2026-10-12-tap.md",
+    "paper_ids": [
+      "67d6ba71d51870c4"
+    ],
+    "source_arxiv_ids": [
+      "2608.01713"
+    ],
+    "external": true,
+    "primary_translation": true,
+    "qa_complete": false
+  },
+  {
+    "date": "2026-10-13",
+    "url": "/papers/translations/2026-10-12-csi-refinenet-2607-23691/",
+    "slug": "2026-10-12-csi-refinenet-2607-23691",
+    "source_file": "2026-10-12-csi-refinenet-2607-23691.md",
+    "title": "CSI RefineNet：高移动性 OFDM 迭代接收机｜中文译稿",
+    "scope": "覆盖原文正文与所列附录的中文译稿（待逐段复核，未计入全文验收）",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-csi-refinenet-2607-23691.md",
+    "source_page_path": "papers/translations/2026-10-12-csi-refinenet-2607-23691.md",
+    "paper_ids": [
+      "2b25f06314f93a0f"
+    ],
+    "source_arxiv_ids": [
+      "2607.23691"
+    ],
+    "external": true,
+    "primary_translation": true,
+    "qa_complete": false
+  },
+  {
+    "date": "2026-10-13",
+    "url": "/papers/translations/2026-10-12-radiovil-2608-16167/",
+    "slug": "2026-10-12-radiovil-2608-16167",
+    "source_file": "2026-10-12-radiovil-2608-16167.md",
+    "title": "RadioVIL：异常感知无线电地图修复及车辆定位｜中文译稿",
+    "scope": "覆盖原文正文与所列附录的中文译稿（待逐段复核，未计入全文验收）",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-radiovil-2608-16167.md",
+    "source_page_path": "papers/translations/2026-10-12-radiovil-2608-16167.md",
+    "paper_ids": [
+      "80e9a2d71a6acd36"
+    ],
+    "source_arxiv_ids": [
+      "2608.16167"
+    ],
+    "external": true,
+    "primary_translation": true,
+    "qa_complete": false
+  },
+  {
+    "date": "2026-10-13",
+    "url": "/papers/translations/2026-10-12-rmworld-2608-20126/",
+    "slug": "2026-10-12-rmworld-2608-20126",
+    "source_file": "2026-10-12-rmworld-2608-20126.md",
+    "title": "RMWorld：面向多无人机控制的任务感知无线世界模型｜中文译稿（上、下篇）",
+    "scope": "覆盖原文正文与所列附录的中文译稿（待逐段复核，未计入全文验收）",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-rmworld-2608-20126.md",
+    "source_page_path": "papers/translations/2026-10-12-rmworld-2608-20126.md",
+    "paper_ids": [
+      "2558d2736320f228"
+    ],
+    "source_arxiv_ids": [
+      "2608.20126"
+    ],
+    "external": true,
+    "primary_translation": true,
+    "qa_complete": false
+  },
+  {
+    "date": "2026-10-13",
+    "url": "/papers/translations/2026-10-12-puhno/",
+    "slug": "2026-10-12-puhno",
+    "source_file": "2026-10-12-puhno.md",
+    "title": "PU-HNO：面向无线场建模的物理展开神经算子｜中文译稿（正文、附录）",
+    "scope": "覆盖原文正文与所列附录的中文译稿（待逐段复核，未计入全文验收）",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-puhno.md",
+    "source_page_path": "papers/translations/2026-10-12-puhno.md",
+    "paper_ids": [
+      "2e0d5029e130cc29"
+    ],
+    "source_arxiv_ids": [
+      "2608.18495"
+    ],
+    "external": true,
+    "primary_translation": true,
+    "qa_complete": false
   }
 ]
