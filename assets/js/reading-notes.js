@@ -354,7 +354,7 @@
     return btoa(str);
   }
   function base64ToUtf8(value) {
-    var bin=atob(value.replace(/\\s/g,"")), bytes=new Uint8Array(bin.length);
+    var bin=atob(value.replace(/\s/g,"")), bytes=new Uint8Array(bin.length);
     for(var i=0;i<bin.length;i++)bytes[i]=bin.charCodeAt(i);
     return new TextDecoder("utf-8",{fatal:true}).decode(bytes);
   }
@@ -391,7 +391,7 @@
     actions.append(push,pull);pane.append(actions);pane.append(status);
     async function run(mode) {
       var full=repoInput.value.trim(), token=tokenInput.value.trim();
-      if(!/^[A-Za-z0-9-]{1,39}\\/[A-Za-z0-9_.-]{1,100}$/.test(full)) {
+      if(!/^[A-Za-z0-9-]{1,39}\/[A-Za-z0-9_.-]{1,100}$/.test(full)) {
         showStatus("请填写有效的 GitHub 用户名/仓库名。");return;
       }
       if(!token){showStatus("请先输入私库的细粒度访问令牌。");return;}
