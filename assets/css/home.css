@@ -163,56 +163,44 @@
 }
 .rc-home .rc-card-pending { box-shadow: none; }
 
-.rc-home .rc-update-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* Random wandering: text-only discovery card. */
+.rc-home .rc-wander-panel {
   border: 1px solid var(--rc-border);
-  background: var(--card-bg);
   border-radius: 13px;
-  overflow: hidden;
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  padding: clamp(1rem, 3vw, 1.4rem);
 }
-.rc-home .rc-update-list li + li { border-top: 1px solid var(--rc-border); }
-.rc-home .rc-update-list a {
-  display: flex;
-  gap: 1.2rem;
-  align-items: center;
-  padding: 1.1rem 1.25rem;
-  color: var(--text-color);
-  text-decoration: none;
-  transition: background .18s ease;
-}
-.rc-home .rc-update-list a:hover {
-  background: var(--sidebar-hover-bg);
-  color: var(--text-color);
-}
-.rc-home .rc-update-list time {
-  min-width: 6.2rem;
-  color: var(--text-muted-color);
-  font-size: .8rem;
-  font-variant-numeric: tabular-nums;
-}
-.rc-home .rc-update-body {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: .25rem;
-  min-width: 0;
-}
-.rc-home .rc-update-body strong {
-  font-size: .94rem;
-  font-weight: 650;
-  color: var(--heading-color);
-}
-.rc-home .rc-update-body > span {
-  font-size: .83rem;
-  color: var(--text-muted-color);
-  line-height: 1.65;
-}
-.rc-home .rc-update-arrow {
-  color: var(--link-color);
+.rc-home .rc-wander-filters { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem; }
+.rc-home .rc-wander-filters button,
+.rc-home .rc-wander-actions button {
+  font: inherit;
   font-size: .82rem;
+  padding: .4rem .8rem;
+  border: 1px solid var(--btn-border-color);
+  border-radius: 999px;
+  background: var(--main-bg);
+  color: var(--text-color);
+  cursor: pointer;
 }
+.rc-home .rc-wander-filters button[aria-pressed="true"] {
+  border-color: var(--link-color);
+  color: var(--link-color);
+  background: var(--sidebar-hover-bg);
+  font-weight: 650;
+}
+.rc-home .rc-wander-filters button:hover,
+.rc-home .rc-wander-actions button:hover { border-color: var(--link-color); }
+.rc-home .rc-wander-filters button:disabled,
+.rc-home .rc-wander-actions button:disabled { opacity: .6; cursor: wait; }
+.rc-home .rc-wander-result { padding: .95rem 0 1rem; border-top: 1px solid var(--rc-border); min-height: 8rem; }
+.rc-home .rc-wander-kind { margin: 0 0 .55rem; color: var(--link-color); font-size: .77rem; letter-spacing: .05em; }
+.rc-home .rc-wander-result h3 { font-size: 1.06rem; line-height: 1.6; color: var(--heading-color); font-weight: 700; margin: 0 0 .5rem; overflow-wrap: anywhere; }
+.rc-home .rc-wander-teaser { font-size: .86rem; color: var(--text-muted-color); line-height: 1.8; margin: 0; overflow-wrap: anywhere; }
+.rc-home .rc-wander-actions { display: flex; align-items: center; gap: .65rem 1rem; flex-wrap: wrap; }
+.rc-home .rc-wander-actions a { color: var(--link-color); font-size: .85rem; font-weight: 600; text-decoration: none; }
+.rc-home .rc-wander-actions a:hover { text-decoration: underline; }
+.rc-home .rc-wander-status { font-size: .73rem; color: var(--text-muted-color); }
 .rc-home a:focus-visible {
   outline: 3px solid var(--link-color);
   outline-offset: 3px;
@@ -223,12 +211,9 @@
   .rc-home .rc-section { margin-top: 2rem; }
   .rc-home .rc-card-grid { grid-template-columns: 1fr; }
   .rc-home .rc-card { padding: 1.1rem 1.2rem; }
-  .rc-home .rc-update-list a { align-items: flex-start; gap: .3rem; flex-wrap: wrap; }
-  .rc-home .rc-update-list time { width: 100%; }
-  .rc-home .rc-update-arrow { margin-left: auto; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .rc-home .rc-quicklinks a, .rc-home .rc-card, .rc-home .rc-update-list a {
+  .rc-home .rc-quicklinks a, .rc-home .rc-card {
     transition: none;
   }
 }
