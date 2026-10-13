@@ -31,3 +31,12 @@
 - 首页「随机漫游」取代了人工维护的「近期上传」。不要恢复重复的静态更新列表；右侧「最近更新」继续独立工作。
 - `_plugins/random_wander.rb` 在 Jekyll 构建时自动从文学章节／个人译作、`_data/tidbits.yml` 和 `papers/translations/*.md` 生成 `/assets/data/random-walk.json`。新内容只需按现有栏目规范发布，不能手工维护一份冗余随机目录。
 - `assets/js/random-walk.js` 使用原生 JS，本地随机、栏目筛选、避免连续重复；默认「全部」先等概率选栏目再选文章。保持纯文字、无需依赖或大媒体文件，并验证豆知识锚点可打开具体条目。
+
+
+## 科研论文四项个人标记（2026-10-13）
+
+- `/papers/` 论文卡片右上角与每篇 `/papers/items/<16位论文ID>/` 独立页面正文右上角，**必须**提供同一组四个精简、醒目、可点击的独立标记：`已略读`、`已精读`、`已参考`、`收藏`。用户原请求中的“已精度”按“已精读”处理。四项彼此独立，允许重复点击取消；`aria-pressed` 表示当前状态。
+- 标记以论文库既有的 16 位稳定 `paper.id` 为主键（详情页从 `/papers/items/<id>/` 解析），保存在当前浏览器 `localStorage['rc-paper-marks-v1']` 的 `{ paperId: 0..15 }` 位掩码里。列表、独立页与多标签页的标记应相互一致；无需 GitHub API、登录或外部追踪。只记录使用者自己的状态，不能提交个人标记数据到公开仓库。更换设备／浏览器、清除站点数据不会自动同步。
+- **实现入口：** `assets/js/paper-marks.js` 是唯一标记逻辑，`assets/css/paper-marks.css` 是共用轻量样式；`assets/papers/library.js` 在每个论文卡片顶部使用 `window.PaperMarks.createToolbar(p.id)`；`_tabs/papers.md` 加载共用资源，`_includes/metadata-hook.html` 根据论文详情 permalink 自动加载并注入按钮。新增、覆盖或重新导出 `papers/items/*.md` 和 `assets/papers/library.json` 时，不需要往每篇文档复制脚本，更**不得删除共用入口**。
+- 本地四项标记与推荐表中历史的静态“是否略读 / 是否精读”字段独立；不得伪称自动写回原数据、跨设备云同步，也不应自行改变用户历史勾选或把「精读」强制推断成「略读」。
+- 验收至少检查：论文库卡片右上角、任意独立论文页右上角的四项按钮；点击／再次点击切换、刷新后保留、两个入口状态一致、较窄屏幕自动换行、无 JS 时论文阅读不受阻；下次新增论文仍自动出现。保持原生 JS/CSS、无新增大文件、无后台或第三方依赖。
