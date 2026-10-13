@@ -11,6 +11,9 @@ toc: true
 
 ## 中英文译文
 
+- [AUG-RME：无网格无线电地图的注意力与不确定性感知｜中文译稿](/papers/translations/2026-10-13-aug-rme-twc-2026/) · 中文译稿（校对中；IEEE 公开传播许可待核验）
+- [RadioDiff-Inverse：扩散增强贝叶斯无线电地图逆估计｜中文译稿](/papers/translations/2026-10-13-radiodiff-inverse-twc-2026/) · 中文译稿（校对中；IEEE 公开传播许可待核验）
+
 - [FR3 UAV CKM：7.125 GHz 无人机基站信道知识地图｜中文译稿](/papers/translations/2026-10-13-fr3-uav-ckm-2610-06356/) · 原文全文结构译稿（校对中；未计入全文验收）
 - [SIMCA：扩散与流匹配的引导权重校准｜中文译稿](/papers/translations/2026-10-13-simca-guidance-2610-03503/) · 原文全文结构译稿（校对中；未计入全文验收）
 - [β-Flow：精确高斯条件化的统一后验采样｜中文译稿](/papers/translations/2026-10-13-beta-flow-2610-13812/) · 原文全文结构译稿（校对中；未计入全文验收）
