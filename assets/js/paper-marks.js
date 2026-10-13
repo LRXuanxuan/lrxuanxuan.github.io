@@ -49,6 +49,7 @@
       saved = true;
     } catch (_) { /* Private mode or storage quota. */ }
     refresh();
+    window.dispatchEvent(new Event('paper-marks-changed'));
     if (!saved) {
       const note = toolbar.querySelector('.pm-note');
       note.textContent = '本地存储不可用，刷新后标记可能丢失';
@@ -111,11 +112,12 @@
     body.prepend(row);
   }
 
-  window.PaperMarks = Object.freeze({ createToolbar });
+  window.PaperMarks = Object.freeze({ createToolbar, getMask: bits });
   window.addEventListener('storage', event => {
     if (event.key !== STORE && event.key !== null) return;
     state = read();
     refresh();
+    window.dispatchEvent(new Event('paper-marks-changed'));
   });
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', mountDetail, { once: true });
