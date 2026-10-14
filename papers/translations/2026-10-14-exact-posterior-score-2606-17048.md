@@ -14,7 +14,7 @@ toc: true
 **原题：** Exact Posterior Score Estimation for Solving Linear Inverse Problems  
 **作者：** Abbas Mammadov、Ozgur Kara、Kaan Oktay、Iskander Azangulov、Adil Kaan Akan、Hyungjin Chung、James Matthew Rehg、Yee Whye Teh  
 **来源：** arXiv:2606.17048v1，2026 年 6 月 15 日，原文 47 页。  
-**译文状态：** 正文第 1–6 节、致谢和正文表 1 已补齐；正文图示提供完整图注及原图链接。附录 A 的全部理论证明与公式 (19)–(62)、附录 B 实现细节和附录 C 的更广泛影响已逐节补译；附录 D–F 的图表与部分段落、参考文献仍待对照。未通过全篇验收。  
+**译文状态：** 正文 1–6 节、致谢和表 1 已补入；附录 A 的公式 (19)–(62) 与证明、附录 B–C、附录 D.1–D.14 的章节内容、附录 E–F 的方法及指标也已补充，并恢复 D 节原始顺序。附录多张数值表仍为节选而非逐格全译，参考文献未完整转录，逐段校验尚未结束。**未通过全篇验收。**  
 **图示：** 图 1（后验查询的平移中心与各向异性协方差）、图 2（五类逆问题定性比较）、图 3（采样步数敏感性）见原论文相应页；未上传大尺寸插图。
 
 ## 摘要
