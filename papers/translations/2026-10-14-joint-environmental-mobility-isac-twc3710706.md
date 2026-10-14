@@ -304,7 +304,195 @@ D-SCVBI 主要包含两类交替更新：
 
 原文算法 1 为联合支撑估计，算法 2 为完整 D-SCVBI 过程。作者对 E、M 步的迭代行为与复杂度作了专门讨论，并指出在近似更新和支撑估计误差存在时，整体收敛证明需要相应技术条件。**本译稿尚未逐行给出算法 1–2 及原文所有更新公式。**
 
-## VI. 仿真结果（实验参数和验证方向）
+
+### A. D-SCVBI 的总体结构（原文第 V-A 节）
+
+第 \(t\) 个时隙的联合概率分布分解为观测似然、噪声精度、稀疏系数、稀疏精度、雷达—通信支撑耦合与 2D-MM 联合支撑先验：
+\[
+p(y_t,\pi_t,\breve s_t;\kappa_t)
+=p(y_t\mid x_t,\omega_t;\kappa_t)\,
+p(\omega_t)p(x_t\mid\rho_t)
+p(\rho_t\mid s_t)p(s_t\mid\breve s_t)p(\breve s_t). \tag{24}
+\]
+图 2 以因子图展示该分解，表 I 给出各因子、概率分布和函数形式。
+
+为了把历史信息带入当前时隙，依据序贯贝叶斯推断，作者将当前联合分布乘上前一时隙给出的预测先验与原先静态先验的比值：
+\[
+p(y_{1:t},\pi_t,\breve s_t;\widehat\kappa_{1:t-1},\kappa_t)
+\propto
+p(y_t,\pi_t,\breve s_t;\kappa_t)
+\frac{p(\pi_t,\breve s_t\mid y_{1:t-1};\widehat\kappa_{1:t-1})}
+{p(\pi_t,\breve s_t)}. \tag{25}
+\]
+预测先验需要积分前一时隙隐变量，并求和前一时隙的支撑状态。作者根据状态转移，将其分为 \(p(\pi_t\mid\breve s_t)\) 与 \(p(\breve s_t\mid\breve s_{t-1})\)，得到式 (26)–(28)。
+
+为了避免全局精确积分造成的复杂度，前一个时隙的后验近似采用可分解的 \(q(\pi_{t-1})q(\breve s_{t-1})\)。此时当前时隙的近似联合分布为
+\[
+\widehat p(y_{1:t},\pi_t,\breve s_t;\widehat\kappa_{1:t-1},\kappa_t)
+=p(y_t\mid x_t,\omega_t;\kappa_t)
+p(\omega_t)p(x_t\mid\rho_t)p(\rho_t\mid s_t)
+p(s_t\mid\breve s_t)\widehat p(\breve s_t), \tag{29}
+\]
+其中 \(\widehat p(\breve s_t)=\sum_{\breve s_{t-1}}p(\breve s_t\mid\breve s_{t-1})q(\breve s_{t-1})\)，它将此前观测对当前支撑的影响压缩为一个预测先验。
+
+每个时隙中，D-SCVBI 交替执行 E 步和 M 步直至收敛。E 步在固定 \(\kappa_t\) 时通过变分近似和 2D-MM 消息传递估计各隐变量后验；M 步根据近似后验构造替代目标，再更新位置、速度和运动方向。收敛后，利用支撑非零概率的阈值选择活动网格；联合处理雷达、通信多普勒获得位置和速度，稀疏系数的后验均值用于重构雷达与通信信道。
+
+### B. D-SCVBI 的 M 步（第 V-B 节）
+
+直接最大化边缘对数似然较困难，作者构造满足下界性、在当前迭代点处相切并具有一致局部梯度的替代函数 \(U(\kappa_t;\dot\kappa_t)\)，条件见式 (30a)–(30c)。借鉴 EM，将精确隐变量后验作为积分权重，得到式 (31) 的辅助函数，并将更新写成
+\[
+\kappa_t^{i+1}=\arg\max_{\kappa_t}U(\kappa_t;\kappa_t^i). \tag{32}
+\]
+然而，该优化非凸且精确后验不能直接计算。为此，对 \(\pi_t=\{x_t,\rho_t,s_t,\omega_t\}\) 作平均场分解 \(q(\pi_t)=\prod_{j\in\mathcal J}q(\pi_{t,j})\)，并用 \(q(\pi_t)q(\breve s_t)\) 近似隐变量联合后验。将其代入式 (31)，得到可计算的 \(\widehat U(\kappa_t;\kappa_t^i)\)，如式 (33)。更新规则于是为
+\[
+\kappa_t^{i+1}=\arg\max_{\kappa_t}\widehat U(\kappa_t;\kappa_t^i). \tag{34}
+\]
+进一步采用梯度迭代求得驻点：
+\[
+\kappa_t^{i+1}=\kappa_t^i+
+\varsigma^i\nabla_{\kappa_t}\widehat U(\kappa_t;\kappa_t^i), \tag{35}
+\]
+其中步长 \(\varsigma^i\) 由 Armijo 线搜索规则确定。位置网格、移动目标和 UE 的速度大小与方向等分块参数交替更新。
+
+### C. D-SCVBI 的 E 步和两个模块（第 V-C 节）
+
+原始因子图存在大量环，难以进行直接的精确贝叶斯推断。图 3、图 4 将因子图拆分为两部分：\(G_A\) 描述观测和稀疏系数之间的结构，由 **Module A** 实现变分贝叶斯推断；\(G_B\) 描述雷达/通信支撑以及 2D-MM 的时空结构，由 **Module B** 实现消息传递。两个模块交换外信息，形成 Turbo 式迭代。
+
+Module A 使用当前观测 \(y_t\) 和 Module B 给出的支撑先验，计算 \(q(\pi_t)\)。随后，它将当前支撑后验除以输入先验，获得发送给 Module B 的外信息：
+\[
+\nu_{\eta^\star_{t,q}\to s^\star_{t,q}}(s^\star_{t,q})
+\propto \frac{q(s^\star_{t,q})}
+{h^\star_{A,t,q}(s^\star_{t,q})},\quad\forall q. \tag{36}
+\]
+Module B 利用 2D-MM、雷达与通信部分共同支撑以及上述外信息执行推断，然后将自身产生的外信息送回 Module A。两个模块交替更新直至收敛。
+
+### D. Module A：SC-VBI 变分更新（第 V-D 节）
+
+Module A 通过在平均场分解约束下最小化 \(q(\pi_t)\) 与真实后验之间的 KL 散度执行变分推断：
+\[
+\min_{q(\pi_t)}
+\operatorname{KL}\bigl(q(\pi_t)\,\|\,p(\pi_t\mid y_{1:t})\bigr),
+\quad q(\pi_t)=\prod_{j\in\mathcal J}q(\pi_{t,j}). \tag{37}
+\]
+当其他分布固定时，一个因子的最优更新满足
+\[
+\log q(\pi_{t,j'})
+=\mathbb E_{\prod_{j\ne j'}q(\pi_{t,j})}
+[\log p(\pi_t\mid y_{1:t})]+\text{常数}. \tag{38}
+\]
+
+**更新稀疏信道系数 \(x\)。** 近似后验为复高斯分布
+\[
+q(x)=\mathcal{CN}(x;\mu,\Sigma), \tag{39}
+\]
+\[
+\mu=\Sigma\Phi^H\langle\Gamma\rangle y,\quad
+\Sigma=(\Phi^H\langle\Gamma\rangle\Phi+
+\operatorname{diag}(\langle\rho\rangle))^{-1}, \tag{40}
+\]
+其中 \(\Gamma=\operatorname{blkdiag}(\omega^r I_{MGN},\omega^c I_{MGN})\) 表示雷达与通信噪声精度矩阵。完整求逆是主要复杂度来源，下文以子空间约束降低开销。
+
+**更新精度 \(\rho\)。** 其变分后验仍属于 Gamma 分布族：
+\[
+q(\rho)=\prod_q\operatorname{Ga}(\rho_q;\widetilde a_q,\widetilde b_q), \tag{41}
+\]
+参数更新为
+\[
+\widetilde a_q
+=1+\widetilde\gamma_q a_q+(1-\widetilde\gamma_q)\bar a_q, \tag{42}
+\]
+\[
+\widetilde b_q
+=|\mu_q|^2+\Sigma_{q,q}
++\widetilde\gamma_qb_q+(1-\widetilde\gamma_q)\bar b_q. \tag{43}
+\]
+这里 \(\widetilde\gamma_q=\mathbb E[s_q]\) 为后验非零概率；\(\mu_q\) 和 \(\Sigma_{q,q}\) 是信道系数后验均值及其方差。
+
+**更新支撑 \(s\)。** 近似分布可写为两个 Bernoulli 因子积：
+\[
+q(s)=\prod_{q=0}^{Q}
+(\widetilde\gamma_q^r)^{s_q^r}
+(1-\widetilde\gamma_q^r)^{1-s_q^r}
+(\widetilde\gamma_q^c)^{s_q^c}
+(1-\widetilde\gamma_q^c)^{1-s_q^c}. \tag{44}
+\]
+非零概率由 Gamma 分布相关的先验及精度期望更新，使用 \(\mathbb E[\rho_q]=\widetilde a_q/\widetilde b_q\) 与 \(\mathbb E[\log\rho_q]=\psi(\widetilde a_q)-\log\widetilde b_q\)；\(\psi\) 为 digamma 函数。用 0.5 作为默认阈值时，\(q(s_q^\star=1)>0.5\) 表示相应网格存在目标或散射体，反之表示不存在。作者指出这一规则对应代价对称时的 MAP 决策，也可根据误检/漏检成本选择其他阈值。
+
+**更新噪声精度 \(\omega\)。** 后验仍为 Gamma 分布：
+\[
+q(\omega^\star)=\operatorname{Ga}(\omega^\star;
+\widetilde c_\omega,\widetilde d_\omega), \tag{45}
+\]
+其中 \(\widetilde c_\omega=c_\omega+MGN\)，\(\widetilde d_\omega\) 包含噪声先验参数、测量残差能量及信道估计不确定性对应的矩阵迹项。这样的更新允许自适应估计雷达和通信链路的噪声功率。
+
+### E. Module B：2D-MM 支撑消息传递（第 V-E 节）
+
+图 5 给出隐含支撑向量的二维马尔可夫因子图示例，其中空间转移因子和时间转移因子将相邻位置与相邻时隙的联合支撑连接起来。在第一时隙，没有前一时隙状态的因子；在末尾时隙不向未来传播消息。利用求和—乘积（sum-product）规则，Module B 执行空间方向的前向—后向消息传递，并结合从上一时隙获得的时间先验。
+
+雷达和通信两个支撑变量通过联合支撑 \(\breve s\) 相连。它们各自从 Module A 传来的概率消息，经过条件耦合因子变换为联合支撑的占据概率，见式 (46)。沿二维马尔可夫链前向传播的占据概率记为 \(\gamma^f_{t,q}\)，后向传播的概率记为 \(\gamma^b_{t,q}\)；根据两类消息和先验融合，可获得传递至下一时隙的活动概率 \(\pi^{act}_{t+1,q}\)，见式 (47)、(48)。
+
+计算下一时隙的消息时，使用
+\[
+\pi_{t,q}^{out}=
+\frac{\gamma^f_{t,q}\gamma^b_{t,q}}
+{\gamma^f_{t,q}\gamma^b_{t,q}+
+(1-\gamma^f_{t,q})(1-\gamma^b_{t,q})}, 
+\]
+对应原文算法 1 的最终输出。联合支撑的信息再分别返回雷达和通信的支撑分支，例如原文式 (50) 的二值概率消息。最终联合支撑边缘后验采用 Bernoulli 形式
+\[
+q(\breve s_t)\propto
+\prod_{q=0}^{Q}
+(\pi_{\breve s_{t,q}})^{\breve s_{t,q}}
+(1-\pi_{\breve s_{t,q}})^{1-\breve s_{t,q}}, \tag{51}
+\]
+其中 \(\pi_{\breve s_{t,q}}\) 由雷达和通信输入概率及 \(\pi_{t,q}^{out}\) 融合计算。
+
+**算法 1：联合支撑估计（流程译文）。** 输入第 \(t\) 个时隙各网格的雷达与通信占据概率消息，以及由上一时隙传来的活动概率；输出 \(Q+1\) 个网格的联合支撑后验。首时隙使用初始稀疏率 \(\gamma\) 初始化前向概率，其余时隙用前一时隙活动概率和时间转移概率初始化。然后依次执行从小索引到大索引的前向传播、从大索引到小索引的后向传播，最后按上述贝叶斯概率融合公式输出。具体状态转移计算分别在原算法第 6、8、12、14 行和式 (47) 中给出。
+
+### F. 实现与计算复杂度（第 V-F 节）
+
+完整后验协方差 \(\Sigma\) 的高维矩阵求逆复杂度约为 \(O((Q+1)^3)\)。为避免这一开销，作者采用 SC-VBI 方案 [37]，通过对后验均值施加子空间约束，把原问题改写为一个二次目标最小化：
+\[
+\min_\mu\varphi(\mu)=
+\mu^H\Sigma^{-1}\mu-
+2\operatorname{Re}\{\mu^H\Phi^H\langle\Gamma\rangle y\}. \tag{52}
+\]
+利用上一时隙的估计均值推断当前活跃支撑集合 \(\widehat{\mathcal S}\)，在该低维子空间内先计算 LMMSE 型初始化：
+\[
+\mu_0[\widehat{\mathcal S}]
+=\Sigma[\widehat{\mathcal S}]
+\Phi^H[\widehat{\mathcal S}]
+\langle\Gamma\rangle y, \tag{53}
+\]
+非活动索引的初值设置为零。接着仅执行有限次 \(B_x\) 梯度更新：
+\[
+\mu^{(i)}=\mu^{(i-1)}
+-\epsilon_x^{(i)}\nabla_\mu\varphi(\mu^{(i-1)}), \tag{54}
+\]
+其梯度由 \(\Sigma^{-1}\mu-\Phi^H\langle\Gamma\rangle y\) 给出（式 (55)），步长用 Armijo 规则确定。更新后的支撑根据
+\[
+\widehat{\mathcal S}=\{q:|\mu_q|^2>\varepsilon\} \tag{56}
+\]
+重新识别，其中阈值 \(\varepsilon\) 与噪声功率相关，通常取噪声功率的 2–3 倍。有限次梯度更新结合子空间初始化，旨在折中每次迭代计算量与收敛速度。
+
+**算法 2：完整 D-SCVBI（流程译文）。**
+
+1. 输入全部时隙的观测 \(y_{1:T}\)、稀疏先验超参数、噪声 Gamma 超参数、初始联合支撑概率和最大迭代次数 \(I_{\max}\)。输出信道系数、支撑估计与感知参数 \(\widehat\kappa_{1:T}\)。
+2. 使用式 (21)、(22) 进行初始 AoA 与 ToA 粗定位。
+3. 遍历时隙 \(t=1,\ldots,T\)，在每个时隙初始化感知参数和测量矩阵，并在未收敛且迭代次数未超过 \(I_{\max}\) 时执行循环。
+4. E 步 Module A：利用式 (39)–(45) 更新 \(q(x),q(\rho),q(s),q(\omega)\)，通过式 (36) 提取外信息并传递至 Module B。
+5. E 步 Module B：执行算法 1 的联合支撑估计，根据式 (51) 得到联合支撑后验，再把新的支撑消息传回 Module A；两个模块内部反复迭代直至收敛。
+6. M 步：根据 E 步输出构造式 (33) 的替代函数，使用式 (35) 的梯度方法交替更新 \(\kappa_t\)。
+7. 当前时隙收敛后，使用后验均值估计稀疏信道、使用支撑最大后验概率识别目标；根据式 (14) 预测下一时隙状态，并传递消息。
+8. 完成全部时隙后，输出信道、支撑、位置及运动参数。
+
+**收敛与复杂度。** Module A 的变分坐标更新单调降低 KL 散度；M 步的替代目标迭代形成非递减目标序列，理论上趋于驻点。作者将两者放入块坐标上升框架，指出在支持估计误差和对子问题仅执行有限次梯度迭代时，仍可参考 [37] 的收敛理论。在计算量方面，常规 Turbo-VBI 需要大矩阵求逆 \(O((Q+1)^3)\)，SC-VBI 只在活动集合中求逆，约为 \(O(|\widehat{\mathcal S}|^3)\)。加上 M 步的矩阵—向量乘法，总体每迭代的计算复杂度估计为
+\[
+O\bigl(MGN(Q+1)+|\widehat{\mathcal S}|^3\bigr).
+\]
+在实际传播路径数有限的情况下，活动集合通常远小于全部网格，因而减少了高维网格和大阵列下的计算负担。
+
+## VI. 仿真结果
 
 为验证 D-SCVBI 的有效性，文章与动态正交匹配追踪（D-OMP）、Turbo-CS，以及去掉 2D-DFT 先验或去掉状态预测模块的消融方法进行比较。
 
