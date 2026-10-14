@@ -222,7 +222,7 @@
         var chosen=active;
         hidePop();
         if(!chosen)return;
-        var question="我正在阅读 Harlan Ellison 的 A Boy and His Dog。请用中文解释以下英文原文的生词、俚语、句法和语气；必要时提供忠实的逐句译意，不要提前剧透。\\n\\n"+chosen.quote;
+        var question="我正在阅读 Harlan Ellison 的 A Boy and His Dog。请用中文解释以下英文原文的生词、俚语、句法和语气；必要时提供忠实的逐句译意，不要提前剧透。\n\n"+chosen.quote;
         var tab=window.open("https://chatgpt.com/","_blank","noopener,noreferrer");
         if(navigator.clipboard && navigator.clipboard.writeText){
           navigator.clipboard.writeText(question).then(function(){
