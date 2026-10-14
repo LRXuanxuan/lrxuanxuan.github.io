@@ -111,7 +111,14 @@
     showVotes(quote);
     voteStatus.textContent='';
     showAspect(quote);
-    source.replaceChildren(document.createTextNode(`—— ${quote.author}《${quote.book}》`));
+    if ((quote.chapter || '').startsWith('演唱：')) {
+      source.replaceChildren(document.createTextNode('——《'+quote.book+'》 '));
+      const meta=document.createElement('small');
+      meta.textContent='｜'+quote.chapter+'｜作词：'+quote.author;
+      source.append(meta);
+    } else {
+      source.replaceChildren(document.createTextNode(`—— ${quote.author}《${quote.book}》`));
+    }
     if (/^https:\/\/weread\.qq\.com\//.test(quote.readerLink || '')) {
       const link = document.createElement('a');
       link.href = quote.readerLink;
