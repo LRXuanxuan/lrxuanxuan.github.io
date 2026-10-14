@@ -679,4 +679,211 @@ OFDM 系统总共包含 1024 个子载波，载波频率 3.5 GHz，子载波间�
 ## 翻译范围及校对说明
 
 正文 I–VII 的关键段落、主要概率模型、D-SCVBI 双模块更新、算法 1–2、复杂度分析以及仿真结果已补充，保留了原文关键公式编号和图 1–12 的说明。由于部分内容采用按小节归并翻译，仍需与英文 PDF 做逐句核对；原文表 I 完整因子函数列表、若干长公式、参考文献及作者简介尚未逐项译入。因此**不能将当前稿件标为逐字逐句的全文译稿或通过全文验收**。
+
+
+---
+
+## 公式逐项核对补译：支撑先验与递推消息（原文第 6、8–11 页）
+
+前版已经介绍了对应概率模型和 D-SCVBI 更新策略，但仍有部分**原文编号的表达式**只被文字描述，未明确写出。以下以原 PDF 印刷公式编号为准补充。
+
+### 三层先验的联合分解：原文公式 (20)
+
+根据支撑、精度及稀疏系数三层条件模型，所有时隙上的联合先验是
+\[
+\begin{aligned}
+&p(s_{1:T}^r,s_{1:T}^c,\breve s_{1:T},
+\rho_{1:T}^r,\rho_{1:T}^c,x_{1:T}^r,x_{1:T}^c)\\
+&=\prod_{t=1}^{T}
+\underbrace{p(s_t^r,s_t^c,\breve s_t)}_{\text{联合支撑}}\,
+\underbrace{p(\rho_t^r\mid s_t^r)p(\rho_t^c\mid s_t^c)}_{\text{精度}}\,
+\underbrace{p(x_t^r\mid\rho_t^r)p(x_t^c\mid\rho_t^c)}_{\text{稀疏系数}} .
+\end{aligned}\tag{20}
+\]
+雷达和通信在观测似然及系数向量层面分别建模，却通过联合支撑 \(\breve s_t\) 共享空间占据信息。观测噪声精度再独立引入 Gamma 超先验 \(p(\omega^\star)=\operatorname{Ga}(\omega^\star;c_\omega,d_\omega)\)，由数据更新。
+
+### 序贯贝叶斯先验：原文公式 (26)–(28)
+
+为处理状态演化，先从前一个时隙的后验中计算当前隐状态预测先验：
+\[
+\begin{aligned}
+&p(\pi_t,\breve s_t\mid y_{1:t-1};\widehat\kappa_{1:t-1})\\
+&=\sum_{\breve s_{t-1}}\int
+\underbrace{p(\pi_t,\breve s_t\mid\pi_{t-1},\breve s_{t-1})}_{\text{状态转移}}
+\underbrace{p(\pi_{t-1},\breve s_{t-1}\mid
+y_{1:t-1};\widehat\kappa_{1:t-1})}_{\text{历史后验}}
+\,d\pi_{t-1}.
+\end{aligned}\tag{26}
+\]
+原文用 \(p(\pi_t\mid\breve s_t)p(\breve s_t\mid\breve s_{t-1})\) 近似状态转移，得到
+\[
+\begin{aligned}
+&p(\pi_t,\breve s_t\mid y_{1:t-1};\widehat\kappa_{1:t-1})\\
+&=\sum_{\breve s_{t-1}}\int
+p(\pi_t\mid\breve s_t)\,
+p(\breve s_t\mid\breve s_{t-1})\,
+p(\pi_{t-1},\breve s_{t-1}\mid
+y_{1:t-1};\widehat\kappa_{1:t-1})
+\,d\pi_{t-1}.
+\end{aligned}\tag{27}
+\]
+将式 (27) 代入引入历史预测的联合分布式 (25)，有
+\[
+\begin{aligned}
+&p(y_{1:t},\pi_t,\breve s_t;
+\widehat\kappa_{1:t-1},\kappa_t)\\
+&\propto p(y_t\mid x_t,\omega_t;\kappa_t)
+p(\omega_t)p(x_t\mid\rho_t)
+p(\rho_t\mid s_t)p(s_t\mid\breve s_t)\\
+&\quad\times\sum_{\breve s_{t-1}}\int
+p(\breve s_t\mid\breve s_{t-1})
+p(\pi_{t-1},\breve s_{t-1}\mid
+y_{1:t-1};\widehat\kappa_{1:t-1})\,d\pi_{t-1}.
+\end{aligned}\tag{28}
+\]
+在求和积分成本过高时，作者再把前一时隙的真实后验换为因子化的变分近似 \(q(\pi_{t-1})q(\breve s_{t-1})\)，由此得到正文已经给出的式 (29)。
+
+### 代理目标函数：原文公式 (30a)–(33)
+
+作者为对数边缘似然 \(\ell(\kappa_t)=\log p(y_{1:t};\widehat\kappa_{1:t-1},\kappa_t)\) 构造在固定点 \(\dot\kappa_t\) 处相切的下界 \(U\)。三条条件依次是
+\[
+U(\kappa_t;\dot\kappa_t)
+\le\ell(\kappa_t),\quad\forall\kappa_t, \tag{30a}
+\]
+\[
+U(\dot\kappa_t;\dot\kappa_t)
+=\ell(\dot\kappa_t), \tag{30b}
+\]
+\[
+\left.\frac{\partial U(\kappa_t;\dot\kappa_t)}
+{\partial\kappa_t}\right|_{\kappa_t=\dot\kappa_t}
+=\left.\frac{\partial\ell(\kappa_t)}
+{\partial\kappa_t}\right|_{\kappa_t=\dot\kappa_t}. \tag{30c}
+\]
+借鉴期望最大化（EM），原文定义
+\[
+\begin{aligned}
+U(\kappa_t;\kappa_t^{(i)})
+=\sum_{\breve s_t}\int&
+p(\pi_t,\breve s_t\mid y_{1:t},\kappa_t^{(i)})\\
+&\times\log\frac{
+p(y_{1:t},\pi_t,\breve s_t;
+\widehat\kappa_{1:t-1},\kappa_t)}
+{p(\pi_t,\breve s_t\mid
+y_{1:t},\kappa_t^{(i)})}\,d\pi_t .
+\end{aligned}\tag{31}
+\]
+直接使用真实后验难以计算。因此作者采用 \(q(\pi_t)q(\breve s_t)\) 的变分分解，并用近似联合密度 \(\widehat p\) 构造
+\[
+\begin{aligned}
+\widehat U(\kappa_t;\kappa_t^{(i)})
+=\sum_{\breve s_t}\int&
+q(\pi_t)q(\breve s_t)\\
+&\times\log\frac{
+\widehat p(y_{1:t},\pi_t,\breve s_t;
+\widehat\kappa_{1:t-1},\kappa_t)}
+{q(\pi_t)q(\breve s_t)}\,d\pi_t .
+\end{aligned}\tag{33}
+\]
+接下来通过正文式 (34)、(35) 对感知参数分块执行梯度优化。
+
+### 2D-MM 消息传递的补全：原文公式 (46)–(50)
+
+从 Module A 传到联合支撑 \(\breve s_{t,q}\) 的消息是
+\[
+\begin{aligned}
+\nu_{u^\star_{t,q}\to\breve s_{t,q}}
+&\propto\sum_{s^\star_{t,q}}
+\nu_{s^\star_{t,q}\to u^\star_{t,q}}
+u^\star_{t,q}(s^\star_{t,q},\breve s_{t,q})\\
+&\propto
+(\breve\pi^\star_{t,q})^{\breve s_{t,q}}
+(1-\breve\pi^\star_{t,q})^{1-\breve s_{t,q}},
+\end{aligned}\tag{46}
+\]
+其中 \( \star\in\{r,c\}\)，并且
+\[
+\breve\pi^\star_{t,q}=
+\left(1+\frac{1-\pi^{\star,\mathrm{int}}_{t,q}}
+{1+2\lambda^\star_{t,q}\pi^{\star,\mathrm{int}}_{t,q}
+-\lambda^\star_{t,q}-\pi^{\star,\mathrm{int}}_{t,q}}\right)^{-1}.
+\]
+为计算空间前向递推，原文在第 11 页页脚给出长分式：
+\[
+\bar\gamma_{t,q}
+=\frac{
+\begin{aligned}
+&\breve\pi^r_{t,q+1}\breve\pi^c_{t,q+1}\gamma^b_{t,q+1}
+\bigl(\pi^{\mathrm{act}}_{t,q+1}p_{011}
++(1-\pi^{\mathrm{act}}_{t,q+1})p_{001}\bigr)\\
+&+(1-\breve\pi^r_{t,q+1})(1-\breve\pi^c_{t,q+1})
+(1-\gamma^b_{t,q+1})
+\bigl(\pi^{\mathrm{act}}_{t,q+1}p_{010}
++(1-\pi^{\mathrm{act}}_{t,q+1})p_{000}\bigr)
+\end{aligned}
+}{
+\begin{aligned}
+&\breve\pi^r_{t,q+1}\breve\pi^c_{t,q+1}\gamma^b_{t,q+1}
+\bigl(\pi^{\mathrm{act}}_{t,q+1}p_{111}
++(1-\pi^{\mathrm{act}}_{t,q+1})p_{101}\bigr)\\
+&+(1-\breve\pi^r_{t,q+1})(1-\breve\pi^c_{t,q+1})
+(1-\gamma^b_{t,q+1})
+\bigl(\pi^{\mathrm{act}}_{t,q+1}p_{110}
++(1-\pi^{\mathrm{act}}_{t,q+1})p_{100}\bigr)
+\end{aligned}
+}. \tag{47}
+\]
+这里 \(p_{bca}\) 是第 III 节所定义的空间—时间条件转移概率，\(\gamma^b\) 为后向消息的非零概率。本文保留了较长的分子和分母，而没有用“按式 (47) 更新”代替真实公式。
+
+为把当前时隙的支撑概率传给下一时隙，对时空及两路雷达/通信消息进行乘积融合：
+\[
+\begin{aligned}
+\nu_{\breve s_{t,q}\to\psi_{t+1,q}}
+&\propto
+\nu_{\psi_{t,q}\to\breve s_{t,q}}
+\nu_{\psi_{t,q+1}\to\breve s_{t,q}}
+\nu_{u^r_{t,q}\to\breve s_{t,q}}
+\nu_{u^c_{t,q}\to\breve s_{t,q}}\\
+&\propto
+(\pi^{\mathrm{act}}_{t+1,q})^{\breve s_{t,q}}
+(1-\pi^{\mathrm{act}}_{t+1,q})^{1-\breve s_{t,q}},
+\end{aligned}\tag{48}
+\]
+其中
+\[
+\pi^{\mathrm{act}}_{t+1,q}=
+\frac{\gamma^f_{t,q}\gamma^b_{t,q}
+\breve\pi^r_{t,q}\breve\pi^c_{t,q}}
+{\gamma^f_{t,q}\gamma^b_{t,q}
+\breve\pi^r_{t,q}\breve\pi^c_{t,q}
++(1-\gamma^f_{t,q})(1-\gamma^b_{t,q})
+(1-\breve\pi^r_{t,q})(1-\breve\pi^c_{t,q})}.
+\]
+联合支撑的时空因子发往当前网格的外信息记为
+\[
+\nu_{\psi\to\breve s_{t,q}}
+\propto(\pi^{\mathrm{out}}_{t,q})^{\breve s_{t,q}}
+(1-\pi^{\mathrm{out}}_{t,q})^{1-\breve s_{t,q}}. \tag{49}
+\]
+最后，由联合支撑反向传递至雷达支撑：
+\[
+\begin{aligned}
+\nu_{u^r_{t,q}\to s^r_{t,q}}
+&\propto\sum_{\breve s_{t,q}}
+\nu_{\breve s_{t,q}\to u^r_{t,q}}\,
+u^r_{t,q}(s^r_{t,q},\breve s_{t,q})\\
+&\propto(\pi^r_{t,q})^{s^r_{t,q}}
+(1-\pi^r_{t,q})^{1-s^r_{t,q}} .
+\end{aligned}\tag{50}
+\]
+其中 \(\pi^r_{t,q}=\pi_{\breve s_{t,q}\to u^r_{t,q}}
+\lambda^r_{t,q}\)。通信分支也有同形式的表达，参数改为 \(c\)。
+
+SC-VBI 均值更新目标式 (52) 对应的梯度在原文中单独编号为
+\[
+\left.\nabla_\mu\varphi(\mu)\right|_{\mu=\mu^{(i-1)}}
+=\Sigma^{-1}\mu^{(i-1)}-\Phi^H\langle\Gamma\rangle y. \tag{55}
+\]
+其作用是避免在每一轮都对整个 \(2(Q+1)\) 维精度矩阵求逆，而只需在活动子空间做初始化，再使用矩阵—向量乘法更新。
+
 {% endraw %}
