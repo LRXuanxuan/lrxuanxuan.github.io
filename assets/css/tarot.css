@@ -1,0 +1,90 @@
+/* 纯文字塔罗，复用博客配色变量；无图片、外部字体和动画依赖。 */
+.rc-tarot {
+  margin-top: 1rem;
+  border: 1px solid var(--main-border-color);
+  border-radius: 12px;
+  background: var(--card-bg);
+}
+.rc-tarot > summary {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  padding: 1rem 1.15rem;
+  cursor: pointer;
+  list-style: none;
+  color: var(--heading-color);
+  border-radius: 12px;
+}
+.rc-tarot > summary::-webkit-details-marker { display: none; }
+.rc-tarot > summary::marker { content: ""; }
+.rc-tarot > summary:hover { background: var(--sidebar-hover-bg); }
+.rc-tarot > summary:focus-visible, .rc-tarot button:focus-visible,
+.rc-tarot select:focus-visible, .rc-tarot input:focus-visible {
+  outline: 2px solid var(--link-color);
+  outline-offset: 3px;
+}
+.rc-tarot-arrow { color: var(--link-color); transition: transform .16s ease; }
+.rc-tarot[open] .rc-tarot-arrow { transform: rotate(90deg); }
+.rc-tarot-heading { font-weight: 700; font-size: 1.08rem; }
+.rc-tarot-hint { color: var(--text-muted-color); margin-left: auto; text-align: right; font-size: .77rem; }
+.rc-tarot-body {
+  border-top: 1px solid var(--main-border-color);
+  padding: 1rem 1.15rem 1.2rem;
+}
+.rc-tarot-intro, .rc-tarot-note {
+  color: var(--text-muted-color);
+  font-size: .85rem;
+  line-height: 1.75;
+  margin: .1rem 0 1rem;
+}
+.rc-tarot-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .75rem 1rem;
+  font-size: .85rem;
+}
+.rc-tarot-controls label { display: inline-flex; align-items: center; gap: .4rem; margin: 0; }
+.rc-tarot-controls select, .rc-tarot-controls button {
+  background: var(--main-bg);
+  color: var(--heading-color);
+  font: inherit;
+  padding: .4rem .7rem;
+  border: 1px solid var(--btn-border-color);
+  border-radius: 8px;
+}
+.rc-tarot-controls button { cursor: pointer; }
+.rc-tarot-controls button:hover { border-color: var(--link-color); color: var(--link-color); }
+.rc-tarot-controls input { accent-color: var(--link-color); }
+.rc-tarot-result { margin-top: 1.1rem; }
+.rc-tarot-result:empty { display: none; }
+.rc-tarot-result:focus { outline: none; }
+.rc-tarot-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+  gap: .8rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.rc-tarot-card {
+  border: 1px solid var(--main-border-color);
+  background: var(--main-bg);
+  border-radius: 10px;
+  padding: .95rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.rc-tarot-position { font-size: .76rem; color: var(--text-muted-color); margin-bottom: .45rem; }
+.rc-tarot-card h3 { font-size: 1rem; color: var(--heading-color); line-height: 1.5; margin: 0 0 .25rem; }
+.rc-tarot-english { font-size: .77rem; color: var(--text-muted-color); margin: 0 0 .7rem; }
+.rc-tarot-meaning { font-size: .88rem; line-height: 1.75; margin: 0; }
+.rc-tarot-note { margin: 1rem 0 0; font-size: .78rem; }
+@media (max-width: 480px) {
+  .rc-tarot > summary { flex-wrap: wrap; padding: .85rem .9rem; }
+  .rc-tarot-hint { flex-basis: 100%; margin-left: 1.8rem; text-align: left; }
+  .rc-tarot-body { padding: .85rem .9rem 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rc-tarot-arrow { transition: none; }
+}
