@@ -232,3 +232,14 @@
 .rc-home .rc-sign-actions button:disabled { opacity:.6; cursor:wait; }
 .rc-home .rc-sign-actions [hidden] { display:none; }
 .rc-home [data-sign-status], .rc-home .rc-sign-note { color:var(--text-muted-color); font-size:.75rem; line-height:1.6; }
+
+/* Balanced redraw toggle sits below the four compact primary actions. */
+.rc-home .rc-sign-actions [data-sign-mix] {
+  font-size: .76rem;
+  white-space: nowrap;
+}
+.rc-home .rc-sign-actions [data-sign-mix][aria-pressed="true"] {
+  border-color: var(--link-color);
+  color: var(--link-color);
+  background: var(--sidebar-hover-bg);
+}

@@ -24,6 +24,46 @@
     aspectSlot.replaceChildren(aspects.badge(quote));
   };
   const recentKey = 'rc-sign-recent-authors-v1';
+  // Mixing changes personal redraws only; the Beijing midnight sign is unchanged.
+  const mixKey = 'rc-sign-mix-v1';
+  const mixButton = root.querySelector('[data-sign-mix]');
+  let mixEnabled = true;
+  try { mixEnabled = localStorage.getItem(mixKey) !== 'off'; } catch (_) {}
+  function displayMix() {
+    if (!mixButton) return;
+    mixButton.hidden = false;
+    mixButton.setAttribute('aria-pressed', String(mixEnabled));
+    mixButton.textContent = '🥄 搅拌均匀：' + (mixEnabled ? '开' : '关');
+  }
+  mixButton?.addEventListener('click', () => {
+    mixEnabled = !mixEnabled;
+    try { localStorage.setItem(mixKey, mixEnabled ? 'on' : 'off'); } catch (_) {}
+    displayMix();
+  });
+  window.addEventListener('storage', event => {
+    if (event.key !== mixKey) return;
+    mixEnabled = event.newValue !== 'off';
+    displayMix();
+  });
+  displayMix();
+
+  // Historic text excerpts without sourceType remain in the "excerpt" group.
+  const typeOf = quote => quote?.sourceType === 'song' ? 'song' :
+    quote?.sourceType === 'film' ? 'film' : 'excerpt';
+  function stir(eligible, previous) {
+    if (!mixEnabled || eligible.length < 2) return eligible;
+    const byType = new Map();
+    for (const quote of eligible) {
+      const type = typeOf(quote);
+      if (!byType.has(type)) byType.set(type, []);
+      byType.get(type).push(quote);
+    }
+    // Sample the media first, uniformly, then use the existing book/quote weights.
+    // Only repeat a medium when no other eligible medium remains.
+    const alternatives = [...byType.keys()].filter(type => type !== typeOf(previous));
+    const choices = alternatives.length ? alternatives : [...byType.keys()];
+    return byType.get(choices[Math.floor(uniform() * choices.length)]);
+  }
   let initialQuote = {id:root.dataset.signId||'',text:initialText,book:root.dataset.book||'',author:root.dataset.author||'',chapter:root.dataset.chapter||'',readerLink:root.dataset.readerLink||'',aspect:root.dataset.aspect||''};
   let currentQuote=initialQuote;
   function showVotes(quote) {
@@ -78,7 +118,7 @@
     }
     return poolPromise;
   }
-  function pick(available) {
+  function pick(available, previous) {
     const authorKey = quote => records ? records.authorKey(quote) : quote.author;
     try { recentAuthors=JSON.parse(localStorage.getItem(recentKey)||'[]'); } catch (_) {}
     if (!Array.isArray(recentAuthors)) recentAuthors=[];
@@ -87,6 +127,7 @@
     let eligible=available.filter(quote=>!last.includes(authorKey(quote)) && authorKey(quote)!==initialAuthor);
     if(!eligible.length) eligible=available.filter(quote=>authorKey(quote)!==last[last.length-1]);
     if(!eligible.length) eligible=available;
+    eligible = stir(eligible, previous);
     const groups = new Map();
     for (const quote of eligible) {
       if (!groups.has(quote.book)) groups.set(quote.book, {weight:Number(quote.weight)||1, quotes:[]});
@@ -143,7 +184,11 @@
         root.querySelector('[data-sign-clear]').hidden = false;
         return;
       }
-      const quote = pick(available);
+      // The server-rendered daily quote has no sourceType, so look it up.
+      const displayed = pool.find(q => q.id && q.id === currentQuote.id) ||
+        pool.find(q => q.text === currentQuote.text && q.book === currentQuote.book) ||
+        currentQuote;
+      const quote = pick(available, displayed);
       render(quote);
       recentAuthors.push(records ? records.authorKey(quote) : quote.author);
       recentAuthors=recentAuthors.slice(-6);
