@@ -18,7 +18,7 @@ layout: default
         <blockquote>{{ sign.text | escape }}</blockquote>
         <span data-sign-aspect class="rc-sign-aspect" aria-label="日签准则"></span>
       </div>
-      <p class="rc-sign-source">—— {{ sign.author | escape }}《{{ sign.book | escape }}》{% if sign.readerLink != empty %} <a href="{{ sign.readerLink | escape }}" target="_blank" rel="noopener noreferrer" aria-label="在微信读书中打开本书">↗</a>{% endif %}</p>
+      <p class="rc-sign-source">{% if sign.chapter contains "演唱：" %}——《{{ sign.book | escape }}》 <small>｜{{ sign.chapter | escape }}｜作词：{{ sign.author | escape }}</small>{% else %}—— {{ sign.author | escape }}《{{ sign.book | escape }}》{% if sign.readerLink != empty %} <a href="{{ sign.readerLink | escape }}" target="_blank" rel="noopener noreferrer" aria-label="在微信读书中打开本书">↗</a>{% endif %}{% endif %}</p>
       <div class="rc-sign-toolbar" aria-label="日签互动">
         <div class="rc-sign-votes" role="group" aria-label="日签喜欢或不喜欢">
           <button type="button" data-sign-like aria-label="喜欢这句日签" aria-pressed="false"><span aria-hidden="true" class="rc-vote-icon">♡</span> 贴贴</button>
