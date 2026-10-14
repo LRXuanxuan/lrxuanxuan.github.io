@@ -11,6 +11,11 @@ toc: true
 
 ## 中英文译文
 
+- [RIS 辅助智能无线环境与静态室内定位｜中文阶段性译稿](/papers/translations/2026-10-14-ris-static-indoor-positioning-twc3649587/) · 尚有章节、公式和图表未译，未通过全文验收
+- [从航拍图像预测无线电地图及覆盖优化｜中文阶段性译稿](/papers/translations/2026-10-14-radio-map-aerial-images-2410-17264/) · 尚有章节、公式和图表未译，未通过全文验收
+- [利用预测式基础模型减少信道估计导频｜中文阶段性译稿](/papers/translations/2026-10-14-predictive-foundation-channel-estimation-2512-15562/) · 尚有章节、公式和图表未译，未通过全文验收
+- [精确后验分数 EPS 求解线性逆问题｜中文阶段性译稿](/papers/translations/2026-10-14-exact-posterior-score-2606-17048/) · 尚有章节、公式和图表未译，未通过全文验收
+- [ISAC 环境运动联合跟踪与信道估计｜中文阶段性译稿](/papers/translations/2026-10-14-joint-environmental-mobility-isac-twc3710706/) · 尚有章节、公式和图表未译，未通过全文验收
 - [SIMCA：扩散与流匹配后验采样的引导权重校准｜中文全篇译稿（校对中）](/papers/translations/2026-10-13-simca-guidance-2610-03503/) · 原文全文结构译稿（校对中；未计入全文验收）
 - [RadioDiff-Inverse：面向 ISAC 无线电地图构建的扩散增强贝叶斯逆估计｜中文全篇译稿（校对中）](/papers/translations/2026-10-13-radiodiff-inverse-twc-2026/) · 中文译稿（校对中；IEEE公开传播许可待核验）
 - [FR3 无人机基站信道知识地图：数据集与机器学习建模｜中文全文译稿（校对中）](/papers/translations/2026-10-13-fr3-uav-ckm-2610-06356/) · 原文全文结构译稿（校对中；未计入全文验收）
