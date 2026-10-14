@@ -91,7 +91,15 @@
         const article=document.createElement('article');article.className='rc-archive-quote';
         const kind=document.createElement('span');kind.className='rc-archive-kind';kind.textContent=quote.kind==='daily'?'默认日签':quote.kind==='legacy'?'旧版重抽签':'重抽签';
         const text=document.createElement('blockquote');text.textContent=quote.text;
-        const source=document.createElement('p');source.textContent=`—— ${quote.author||''}《${quote.book}》`;
+        const source=document.createElement('p');
+        if ((quote.chapter||'').startsWith('演唱：')) {
+          source.textContent='——《'+quote.book+'》 ';
+          const meta=document.createElement('small');
+          meta.textContent='｜'+quote.chapter+'｜作词：'+(quote.author||'');
+          source.append(meta);
+        } else {
+          source.textContent=`—— ${quote.author||''}《${quote.book}》`;
+        }
         if(/^https:\/\/weread\.qq\.com\//.test(quote.readerLink||'')) {const a=document.createElement('a');a.href=quote.readerLink;a.target='_blank';a.rel='noopener noreferrer';a.textContent=' ↗';a.setAttribute('aria-label','在微信读书中打开本书');source.append(a);}
         if (aspects) {
           const aspect=aspects.get(quote);
