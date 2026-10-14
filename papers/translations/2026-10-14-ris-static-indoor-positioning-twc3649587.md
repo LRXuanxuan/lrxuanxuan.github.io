@@ -493,4 +493,176 @@ P_e=\frac{1}{H}\sum_{h\in\mathcal H}\|\widehat p_h-p_h\|, \tag{54}
 ## 翻译范围及校对说明
 
 正文 I–VII 已补充主要理论、SRA 算法 1、公式 (29)–(54)、全部仿真场景以及原文表 I–II、图 1–14 的内容说明。由于此前部分段落为内容归并，尚须逐段检查原文细节与推导形式，引用列表尚未逐条翻译。**因此仍属于正文扩充译稿，而不是通过逐字逐句验收的全文译本。**
+
+
+---
+
+## 公式逐项补漏：原文未完整抄录的公式 (4)、(5)、(8)、(31)–(46)、(52)、(53)
+
+以下直接对照上传 PDF 的第 4、7–9、11–12 页，恢复前一版只在文字中提及、未按原文编号列出的数学表达式。
+
+**AP—RIS—RP 的信号与等效参数。** 来自所有 RIS 元素的反射信号是其各自产生的信号之和：
+\[
+y_{{\rm AP-RIS-RP}_i}(t)=
+\sum_{n=1}^{N}\beta_n\alpha_n\alpha'_{n,i}
+g(t-t_n-\tau_n-\tau'_{n,i})
+e^{j[\omega(t-t_n-\tau_n-\tau'_{n,i})+\phi_n+\phi'_{n,i}]}. \tag{4}
+\]
+定义合并参数
+\[
+B_{n,i}=\beta_n\alpha_n\alpha'_{n,i},\quad
+\mu_{n,i}=t_n+\tau_n+\tau'_{n,i},\quad
+\theta_{n,i}=\phi_n+\phi'_{n,i}. \tag{5}
+\]
+对第 \(i\) 个 RP 的合成信号模平方展开时，得到尚未平均相位的交叉项：
+\[
+|y_i(t)|^2=
+\sum_{l=1}^{K+N}\sum_{v=1}^{K+N}
+B_{l,i}B_{v,i}g(t-\mu_{l,i})g(t-\mu_{v,i})
+e^{j[\theta_{l,i}-\theta_{v,i}+\omega(\mu_{v,i}-\mu_{l,i})]}. \tag{8}
+\]
+通过对均匀分布的随机相位取期望，非对角交叉项消失，得到正文式 (9) 的能量求和表达。
+
+**时延隔离约束。** 当第 \(m\) 个单元唯一关联到 \(RP_k\) 时，原文式 (31) 要求
+\[
+\tau_{m,i}+t_m
+\begin{cases}<T_2,&i=k,\\ \ge T_2,&i\ne k.\end{cases} \tag{31}
+\]
+选择下一个 RIS 单元时，如果需要关联的 RP 已被处理，可以把目标转为第二小传播延迟对应的位置。于是第 \(m+1\) 列的测量矩阵包含
+\[
+G(i,m+1)=
+\begin{cases}
+\displaystyle\int_{T_2-\epsilon'}^{T_2}
+g^2(t-\mu_{m+1}(k))\,dt,&i=k,\\
+\displaystyle\int_{T_2-\epsilon}^{T_2}
+g^2(t-\mu_{m+1}(k'))\,dt,&i=k',\\
+0,&i\notin\{k,k'\},
+\end{cases} \tag{32}
+\]
+其中 \(\epsilon'\) 是由两个 RP 的传播延迟差对 \(\epsilon\) 修正后的窗口宽度，见原文式 (32) 下方定义。因为该 RIS 单元此时也会在此前已经关联的 RP 上产生能量，需要更新对应元素集合 \(\nu_k\)。
+
+对原文紧接着给出的两个 RP 延迟关系，若 \(\tau(n,k)<\tau(n,j)\)，选择
+\[
+t_n+\tau(n,k)=T_2-\epsilon, \tag{33}
+\]
+然后按照
+\[
+G(i,n)=
+\begin{cases}
+\displaystyle\int_{T_2-\epsilon'}^{T_2}g^2(t-\mu_n(i))dt,
+&\tau(n,i)\le\tau(n,k),\\
+\displaystyle\int_{T_2-\epsilon}^{T_2}g^2(t-\mu_n(k))dt,
+&i=k,\\
+0,&\text{其他},
+\end{cases} \tag{34}
+\]
+确定对应列。**符号检查：** 原文式 (34) 的第一、第二种条件可能在 \(i=k\) 处重叠，且作者未在文字中消除这一重叠；此处忠实保留作者列出的条件，若用于实现，必须参考具体的时延分支顺序处理，不能直接作为互斥分段函数照抄。
+
+**选择关联单元的矩阵示例。** 当 \(I=N=4\) 时，作者假设传播延迟仅取四种等级 \(\tau_1<\tau_2<\tau_3<\tau_4\)，给出
+\[
+\tau^\top=
+\begin{bmatrix}
+\tau_1&\tau_2&\tau_1&\tau_3\\
+\tau_3&\tau_4&\tau_4&\tau_1\\
+\tau_2&\tau_2&\tau_3&\tau_4\\
+\tau_2&\tau_3&\tau_3&\tau_1
+\end{bmatrix}. \tag{37}
+\]
+如果 RP1、RP2、RP3、RP4 分别关联 RIS1、RIS4、RIS2、RIS3，得到
+\[
+G=
+\begin{bmatrix}
+G(1,1)&G(1,2)&G(1,3)&0\\
+0&0&0&G(2,4)\\
+0&G(3,2)&G(3,3)&0\\
+0&0&G(4,3)&G(4,4)
+\end{bmatrix}. \tag{38}
+\]
+此时每个 RP 参与能量计算的 RIS 幅度平方分别组成集合：
+\(\nu_1=[\beta_1^2,\beta_2^2,\beta_3^2]\)，
+\(\nu_2=[\beta_4^2]\)，
+\(\nu_3=[\beta_2^2,\beta_3^2]\)，
+\(\nu_4=[\beta_3^2,\beta_4^2]\)。
+
+另一种方案让四个 RP 分别关联 RIS3、RIS1、RIS2、RIS4，对应
+\[
+G=
+\begin{bmatrix}
+G(1,1)&G(1,2)&G(1,3)&0\\
+G(2,1)&0&0&G(2,4)\\
+G(3,1)&G(3,2)&0&0\\
+G(4,1)&G(4,2)&0&G(4,4)
+\end{bmatrix}. \tag{39}
+\]
+这时 \(\nu_1=[\beta_1^2,\beta_2^2,\beta_3^2]\)、
+\(\nu_2=[\beta_1^2,\beta_4^2]\)、
+\(\nu_3=[\beta_1^2,\beta_2^2]\)、
+\(\nu_4=[\beta_1^2,\beta_2^2,\beta_4^2]\)。由于第二种分配使更多 RP 与 RIS 单元耦合，SRA 优先选择更稀疏的第一种矩阵。
+
+若候选 RIS 单元数增加到 \(N=8\)，原文扩展后的传播时延矩阵为
+\[
+\tau^\top=
+\begin{bmatrix}
+\tau_1&\tau_2&\tau_1&\tau_3&\tau_2&\tau_2&\tau_3&\tau_2\\
+\tau_3&\tau_4&\tau_4&\tau_1&\tau_3&\tau_3&\tau_4&\tau_1\\
+\tau_2&\tau_2&\tau_3&\tau_4&\tau_3&\tau_2&\tau_3&\tau_4\\
+\tau_2&\tau_3&\tau_3&\tau_1&\tau_4&\tau_4&\tau_2&\tau_4
+\end{bmatrix}. \tag{40}
+\]
+此时 RP1–RP4 分别关联 RIS1、RIS8、RIS2、RIS7，形成更稀疏的
+\[
+G=
+\begin{bmatrix}
+G(1,1)&G(1,2)&0&0&0&0&0&0\\
+0&0&0&0&0&0&0&G(2,8)\\
+0&G(3,2)&0&0&0&0&0&0\\
+0&0&0&0&0&0&G(4,7)&0
+\end{bmatrix}. \tag{41}
+\]
+相应的 RIS 元素参与集合为
+\(\nu_1=[\beta_1^2,\beta_2^2]\)、
+\(\nu_2=[\beta_8^2]\)、
+\(\nu_3=[\beta_2^2]\)、
+\(\nu_4=[\beta_7^2]\)。未选中的 RIS 单元可以关闭，或把对应反射幅度置零，从而在给定 RP 数下减少矩阵耦合和后续约束数量。
+
+**RSS 最小距离优化的具体矩阵与约束边界。** 对四个已经按 \(RSS_1>RSS_2>RSS_3>RSS_4\) 排序的 RP，式 (42) 的相邻差分矩阵为
+\[
+f=\begin{bmatrix}
+1&-1&0&0\\
+0&1&-1&0\\
+0&0&1&-1
+\end{bmatrix}. \tag{43}
+\]
+以 RSS 的可测下界 \(lb\) 和上界 \(ub\) 作为约束，目标能量 \(C_i\) 的对应边界为
+\[
+a_i=
+\frac{10^{lb/20}
+-\displaystyle\sum_{k=1}^{K}B_{k,i}^2
+\int_{T_1}^{T_2}g^2(t-\mu_{k,i})dt}
+{\alpha^2(\alpha'_i)^2}, \tag{45}
+\]
+\[
+b_i=
+\frac{10^{ub/20}
+-\displaystyle\sum_{k=1}^{K}B_{k,i}^2
+\int_{T_1}^{T_2}g^2(t-\mu_{k,i})dt}
+{\alpha^2(\alpha'_i)^2}. \tag{46}
+\]
+这使原文式 (44)、(49) 中的 \(a_i\le C_i\le b_i\) 有明确物理来源。
+
+**动态 MetaLocalization 复杂度（原文式 (52)）。** 对照 RIS 文中第 IV-D 节，作者列出的动态重构算法复杂度为
+\[
+O\!\left((Z_u+1)I^2MN^3+(Z_u+1-Z_l)CIN^2\right), \tag{52}
+\]
+其中**此处的符号与 SRA 复杂度 (51) 中不完全同义**：对被比较的方法，\(I\) 是用户数，\(N\) 是参考点数，\(M\) 是 RIS 单元数，\(C\) 是相位取值数，\(Z_u,Z_l\) 是搜索粒度等级。SRA 自身的复杂度则是 \(O(IN+I^2\mathrm{Iter}_{SQP})\)，不随在线用户数增长。两者涉及的任务与符号定义不同，不能仅把公式相除直接声称某个精确的加速倍数。
+
+**动态 MDRSS 调度目标（原文式 (53)）。** 对 \(T\) 个时隙分别采用 RIS 状态 \(\Theta_1,\ldots,\Theta_T\)，把不同状态产生的指纹叠加为
+\(\bar s_i=[s_i(\Theta_1)^\top,\ldots,s_i(\Theta_T)^\top]^\top\)。动态方法的典型目标是
+\[
+\max_{\Theta_{1:T}}\;\min_{i\ne j}
+\|\bar s_i-\bar s_j\|_2,\quad
+\text{满足硬件及切换约束}. \tag{53}
+\]
+与之相比，SRA 采用离线一次性静态优化，尽量避免动态控制所需的反馈和配置切换开销。若要公平比较，应使两种方法的测量延迟与控制预算相同。
+
 {% endraw %}
