@@ -216,6 +216,22 @@
     pop.setAttribute("role","toolbar");pop.setAttribute("aria-label","选中文字后的摘录操作");
     pop.append(btn("〰 划波浪线",function(){add(false);}));
     pop.append(btn("✎ 写笔记",function(){add(true);}));
+    // 读者主动触发：将短摘录复制成提问，不调用在线 API，也不上传 EPUB。
+    if (book === "/translations/a-boy-and-his-dog/") {
+      pop.append(btn("💬 问 GPT",function(){
+        var chosen=active;
+        hidePop();
+        if(!chosen)return;
+        var question="我正在阅读 Harlan Ellison 的 A Boy and His Dog。请用中文解释以下英文原文的生词、俚语、句法和语气；必要时提供忠实的逐句译意，不要提前剧透。\\n\\n"+chosen.quote;
+        var tab=window.open("https://chatgpt.com/","_blank","noopener,noreferrer");
+        if(navigator.clipboard && navigator.clipboard.writeText){
+          navigator.clipboard.writeText(question).then(function(){
+            alert("提问已复制；请在打开的 ChatGPT 页面粘贴发送。");
+          }).catch(function(){prompt("复制这段提问，再粘贴到 ChatGPT：",question);});
+        } else prompt("复制这段提问，再粘贴到 ChatGPT：",question);
+        if(!tab) { /* 浏览器可能阻止弹窗；复制文本仍可用。 */ }
+      }));
+    }
     document.body.appendChild(pop);
     pop.addEventListener("mousedown",function(e){e.preventDefault();});
     function show() {
@@ -486,6 +502,8 @@
     repaint();showList();
   });
   if(textRoot) {repaint();popup();}
+  // 本机导入 EPUB 后 DOM 才出现；此时恢复旧划线，并更新摘录定位。
+  window.addEventListener("reading-notes-content-ready",function(){repaint();showList();});
   var rn=new URLSearchParams(location.search).get("rn");
   if(rn) {
     var target=notes.find(function(n){return n.id===rn && n.page===path;});
