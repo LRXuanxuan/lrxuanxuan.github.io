@@ -124,6 +124,92 @@ a(\theta_{t,l}^{c}). \tag{5}
 
 论文拟通过 BS 联合处理雷达回波和 UL 通信信号，估计并连续跟踪 UE、雷达目标与通信散射体的位置、实际速度及相关信道参数。
 
+
+
+### PDF 查漏补译：通信多普勒公式 (6) 与观测矩阵 (10)–(11)
+
+与单站雷达的往返多普勒不同，上行通信路径涉及 UE—散射体—BS 的双站几何关系，因此散射体速度和 UE 速度均可能影响同一条传播路径。令 \((v_t^u,\varphi_t^u)\) 为 UE 的速度大小与方向，\((v_{t,l}^c,\varphi_{t,l}^c)\) 为第 \(l\) 个通信散射体的速度大小与方向，\(\theta_{t,l}^c\) 和 \(\vartheta_{t,l}^c\) 分别为该路径相对于 BS 和 UE 的 AoA、AoD，则原文将第 \(l\) 条通信路径的总多普勒频移表示为
+\[
+f_{t,l}^{c}=\frac{f_c}{c}
+\left[
+v_t^u\cos(\vartheta_{t,l}^c-\varphi_t^u)
+-v_{t,l}^c\left(
+\cos(\vartheta_{t,l}^c-\varphi_{t,l}^c)+
+\cos(\theta_{t,l}^c-\varphi_{t,l}^c)\right)
+\right]. \tag{6}
+\]
+其中 \(f_c\) 为载波频率、\(c\) 为光速。对 LoS 路径 \(l=0\)，只有 UE 运动产生的多普勒，原文写为
+\[
+f_{t,0}^c=-\frac{f_cv_t^u}{c}
+\cos(\theta_t^u-\varphi_t^u).
+\]
+这里方向角符号直接保留作者的坐标约定。雷达多普勒是单站双程速度投影，而通信多普勒还包含双站的角度信息；对于同时为雷达目标和通信散射体的物体，两类投影可以提供互补约束，从而恢复速度大小与方向。
+
+根据原文第 III-A 节，雷达和通信的稀疏位置域表示分别是
+\(H_{g,n}=A(r,p^u)D_{g,n}^r\operatorname{diag}(x^r)A^\top(r,p^u)\)
+与 \(h_{g,n}=A(r,p^u)D_{g,n}^cx^c\)。
+将其代入接收信号模型可得到原文省略于此前译稿中的公式：
+\[
+y_{g,n}^{r}
+=\underbrace{\left((v_{g,n}^{r})^\top\otimes A(r,p^u)\right)
+\left(A(r,p^u)\diamond D_{g,n}^{r}\right)}_{\Phi_{g,n}^{r}}
+x^{r}+z_{g,n}^{r}, \tag{10}
+\]
+\[
+y_{g,n}^{c}
+=\underbrace{u_{g,n}^{c}A(r,p^u)D_{g,n}^{c}}_{\Phi_{g,n}^{c}}
+x^{c}+z_{g,n}^{c}. \tag{11}
+\]
+其中 \(\otimes\) 是 Kronecker 积，\(\diamond\) 是 Khatri–Rao（逐列 Kronecker）积，\(\Phi_{g,n}^r,\Phi_{g,n}^c\) 为单个资源元素上的雷达与通信测量矩阵。
+
+对于 \(\star\in\{r,c\}\)，令
+\[
+y_{g,1:N}^{\star}
+=\bigl[(y_{g,1}^{\star})^\top,\ldots,
+(y_{g,N}^{\star})^\top\bigr]^\top
+\in\mathbb C^{MN\times1},
+\]
+\[
+y^{\star}=
+\bigl[(y_{1,1:N}^{\star})^\top,\ldots,
+(y_{G,1:N}^{\star})^\top\bigr]^\top
+\in\mathbb C^{MGN\times1}.
+\]
+噪声 \(z^\star\) 按照相同次序堆叠。通信测量矩阵按资源元素竖直拼接而成：
+\[
+\Phi^c=
+\begin{bmatrix}
+u_{1,1}^cA(r,p^u)D_{1,1}^c\\
+\vdots\\
+u_{G,N}^cA(r,p^u)D_{G,N}^c
+\end{bmatrix}
+\in\mathbb C^{MGN\times(Q+1)}.
+\]
+雷达测量矩阵相应由 \(\Phi_{1,1}^r,\ldots,\Phi_{G,N}^r\) 堆叠而成，也属于 \(\mathbb C^{MGN\times(Q+1)}\)。将两种观测上下拼接、测量矩阵按块对角组合，即得到正文式 (12)：
+\[
+y_t=
+\underbrace{\operatorname{blkdiag}(\Phi_t^r,\Phi_t^c)}_{\Phi_t(\kappa_t)}
+\begin{bmatrix}x_t^r\\x_t^c\end{bmatrix}+z_t .
+\]
+感知参数集合为
+\(\kappa_t=\{r_t,v_t,\varphi_t,p_t^u,v_t^u,\varphi_t^u\}\)，其中不仅包含动态位置网格，还包含各目标以及 UE 的实际速度大小与方向。
+
+### PDF 查漏补译：完整高斯—马尔可夫速度模型 (13)
+
+用户设备速度大小与方向均服从高斯—马尔可夫运动模型：
+\[
+v_t^u=\alpha_vv_{t-1}^u+(1-\alpha_v)\mu_v+
+\sqrt{1-\alpha_v^2}\,\chi_{t-1}^{v,u},\tag{13a}
+\]
+\[
+\varphi_t^u=\alpha_\varphi\varphi_{t-1}^u+
+(1-\alpha_\varphi)\mu_\varphi+
+\sqrt{1-\alpha_\varphi^2}\,\chi_{t-1}^{\varphi,u}. \tag{13b}
+\]
+其中 \(\alpha_v,\alpha_\varphi\in(0,1)\) 控制随机性与时间相关性，\(\mu_v,\mu_\varphi\) 为速度和方向的均值，扰动 \(\chi_{t-1}^{v,u},\chi_{t-1}^{\varphi,u}\) 为独立、不相关的平稳零均值高斯过程。移动雷达目标采用同样形式的位置与速度状态演化。UE 的位置递推采用式 (14)，该模型作为可选状态预测模块，作者在实验中固定相关运动参数，并指出可通过在线参数估计或数据驱动运动模型改进。
+
+**原图与结构：** PDF 第 3 页图 1 为 BS、UE、雷达目标及通信散射体的几何位置与角度定义；第 8 页图 2 为 D-SCVBI 的联合概率因子图；第 9 页图 3 和图 4 为 Turbo 模块之间交换支撑外信息的示意。图内变量定义应与上述观测模型和第 V 节的模块 A/B 对应，不应将通信传播路径错误理解为单站往返路径。
+
 ## III. 问题描述
 
 ### A. 接收信号的稀疏表示
