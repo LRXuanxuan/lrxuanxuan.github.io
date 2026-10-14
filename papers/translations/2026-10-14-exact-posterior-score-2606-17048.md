@@ -14,7 +14,7 @@ toc: true
 **原题：** Exact Posterior Score Estimation for Solving Linear Inverse Problems  
 **作者：** Abbas Mammadov、Ozgur Kara、Kaan Oktay、Iskander Azangulov、Adil Kaan Akan、Hyungjin Chung、James Matthew Rehg、Yee Whye Teh  
 **来源：** arXiv:2606.17048v1，2026 年 6 月 15 日，原文 47 页。  
-**译文状态：** 正文第 1–6 节、致谢和正文表 1 已补齐；正文图示提供完整图注及原图链接。原文附录 A–F、附录表格与参考文献暂未译入，尚未通过全文（含附录）验收。  
+**译文状态：** 正文第 1–6 节、致谢和正文表 1 已补齐；正文图示提供完整图注及原图链接。附录 A 的全部理论证明与公式 (19)–(62)、附录 B 实现细节和附录 C 的更广泛影响已逐节补译；附录 D–F 的图表与部分段落、参考文献仍待对照。未通过全篇验收。  
 **图示：** 图 1（后验查询的平移中心与各向异性协方差）、图 2（五类逆问题定性比较）、图 3（采样步数敏感性）见原论文相应页；未上传大尺寸插图。
 
 ## 摘要
@@ -312,4 +312,314 @@ AM 得到牛津大学 Clarendon Fund 奖学金的支持。作者感谢 fal 提�
 ## 翻译范围与原文附件
 
 **正文第 1–6 节和致谢已经补齐。** 原文第 11–13 页为参考文献，第 14 页起为包含证明和额外实验的附录，尚未翻译到本页；原文表 6 和附录详细实现设置亦未纳入正文译稿。网页中的数学表达式已保留对应正文原始编号，表 1 数值按原文逐项转录。所有原图及补充材料可在上方 arXiv 原文中查看。
+
+
+---
+
+## 附录 A. 理论与推导（逐节对照原文第 16–19 页）
+
+本附录给出 EPS 分数恒等式、后验速度、等效时间特例及单步后验均值极限的完整推导。沿用正文假设：\(x_t=\alpha_t x_0+\beta_t\epsilon\)，\(\epsilon\sim\mathcal N(0,I_d)\)，且 \(y=Ax_0+\eta\)，\(\eta\sim\mathcal N(0,\sigma_y^2I_m)\)。
+
+### A.1 各向异性 Tweedie 公式
+
+对任何正定矩阵 \(\Sigma\)，定义
+\[
+p_{\mathrm{data}}^\Sigma(\mu)
+=\int\mathcal N(\mu;x_0,\Sigma)p_{\mathrm{data}}(x_0)\,dx_0,\quad
+D_\Sigma(\mu)=\mathbb E[x_0\mid x_0+\xi=\mu],\quad
+\xi\sim\mathcal N(0,\Sigma). \tag{19}
+\]
+则有
+\[
+D_\Sigma(\mu)=\mu+\Sigma\nabla_\mu\log p_{\mathrm{data}}^\Sigma(\mu). \tag{20}
+\]
+事实上，在积分号下求导，得到
+\[
+\nabla_\mu p_{\mathrm{data}}^\Sigma(\mu)
+=\int\nabla_\mu\mathcal N(\mu;x_0,\Sigma)p_{\mathrm{data}}(x_0)\,dx_0, \tag{21}
+\]
+\[
+=\int\mathcal N(\mu;x_0,\Sigma)\Sigma^{-1}(x_0-\mu)
+p_{\mathrm{data}}(x_0)\,dx_0. \tag{22}
+\]
+两端除以 \(p_{\mathrm{data}}^\Sigma(\mu)\)，得到
+\[
+\nabla_\mu\log p_{\mathrm{data}}^\Sigma(\mu)
+=\Sigma^{-1}\bigl(\mathbb E[x_0\mid x_0+\xi=\mu]-\mu\bigr), \tag{23}
+\]
+即证明式 (20)。EPS 的关键在于，\(\Sigma\) 是由逆问题确定的**完整协方差矩阵**，并非为了与无条件扩散时间匹配而选择的标量噪声水平。
+
+### A.2 定理 1 的证明
+
+**重述定理 1。** 在线性高斯逆问题 (5) 及插值路径 (1) 下，时刻 \(t\) 的后验分数为
+\[
+\nabla_{x_t}\log p(x_t\mid y)
+=\frac{\alpha_tD_{\Sigma_\star(t)}(\mu_\star(x_t,y,t))-x_t}{\beta_t^2}, \tag{24}
+\]
+其中
+\[
+\Sigma_\star(t)=
+\left(\frac{\alpha_t^2}{\beta_t^2}I_d+
+\frac1{\sigma_y^2}A^\top A\right)^{-1},\quad
+\mu_\star=\Sigma_\star(t)
+\left(\frac{\alpha_t}{\beta_t^2}x_t+\frac1{\sigma_y^2}A^\top y\right). \tag{25}
+\]
+等价地，\(D_{\Sigma_\star(t)}(\mu_\star)=\mathbb E[x_0\mid x_t,y]\)。
+
+**证明。** 给定 \(x_0\) 时，\(x_t\) 与 \(y\) 条件独立，因此
+\[
+p(x_t\mid y)=\frac1{p(y)}
+\int p(x_t\mid x_0)p(y\mid x_0)p_{\mathrm{data}}(x_0)\,dx_0. \tag{26}
+\]
+其中两个高斯因子分别为
+\[
+p(x_t\mid x_0)=(2\pi\beta_t^2)^{-d/2}
+\exp\left[-\frac{\|x_t-\alpha_tx_0\|^2}{2\beta_t^2}\right], \tag{27}
+\]
+\[
+p(y\mid x_0)=(2\pi\sigma_y^2)^{-m/2}
+\exp\left[-\frac{\|y-Ax_0\|^2}{2\sigma_y^2}\right]. \tag{28}
+\]
+收集指数中依赖 \(x_0\) 的项：
+\[
+-\frac{\|x_t-\alpha_tx_0\|^2}{2\beta_t^2}
+-\frac{\|y-Ax_0\|^2}{2\sigma_y^2} \tag{29}
+\]
+\[
+=-\frac12 x_0^\top
+\underbrace{\left(\frac{\alpha_t^2}{\beta_t^2}I_d+
+\frac1{\sigma_y^2}A^\top A\right)}_{\Lambda_t}x_0
++x_0^\top\underbrace{\left(
+\frac{\alpha_t}{\beta_t^2}x_t+
+\frac1{\sigma_y^2}A^\top y\right)}_{b_t}
+-\frac{\|x_t\|^2}{2\beta_t^2}
+-\frac{\|y\|^2}{2\sigma_y^2}. \tag{30}
+\]
+因为 \(\beta_t>0\)，即使 \(A\) 秩亏，\(\Lambda_t\) 仍然正定。令 \(\Sigma_\star=\Lambda_t^{-1}\)、\(\mu_\star=\Sigma_\star b_t\)，对式 (30) 完全平方：
+\[
+-\frac12x_0^\top\Lambda_tx_0+b_t^\top x_0
+=-\frac12(x_0-\mu_\star)^\top\Sigma_\star^{-1}
+(x_0-\mu_\star)+\frac12b_t^\top\Sigma_\star b_t. \tag{31}
+\]
+于是两个似然因子之积可以分解为
+\[
+p(x_t\mid x_0)p(y\mid x_0)
+=C_t(x_t,y)\,\mathcal N(x_0;\mu_\star,\Sigma_\star), \tag{32}
+\]
+其中关于 \(x_0\) 的全部依赖均包含在所示高斯密度中，而且
+\[
+\log C_t(x_t,y)=\operatorname{const}(t)
+-\frac{\|x_t\|^2}{2\beta_t^2}
+-\frac{\|y\|^2}{2\sigma_y^2}
++\frac12b_t^\top\Sigma_\star b_t. \tag{33}
+\]
+将式 (32) 代回式 (26)，得到
+\[
+p(x_t\mid y)=\frac{C_t(x_t,y)}{p(y)}
+p_{\mathrm{data}}^{\Sigma_\star}(\mu_\star),\quad
+p_{\mathrm{data}}^{\Sigma_\star}(\mu_\star)
+=\int\mathcal N(x_0;\mu_\star,\Sigma_\star)
+p_{\mathrm{data}}(x_0)\,dx_0. \tag{34}
+\]
+现在对式 (34) 关于 \(x_t\) 求导。因为 \(\Sigma_\star\) 不依赖 \(x_t\)，并且
+\(\partial b_t/\partial x_t=(\alpha_t/\beta_t^2)I_d\)，所以
+\[
+\frac{\partial\mu_\star}{\partial x_t}
+=\frac{\alpha_t}{\beta_t^2}\Sigma_\star. \tag{35}
+\]
+归一化因子的梯度为
+\[
+\nabla_{x_t}\log C_t(x_t,y)
+=-\frac{x_t}{\beta_t^2}+
+\nabla_{x_t}\left(\frac12b_t^\top\Sigma_\star b_t\right), \tag{36}
+\]
+\[
+=-\frac{x_t}{\beta_t^2}
++\frac{\alpha_t}{\beta_t^2}\Sigma_\star b_t
+=-\frac{x_t}{\beta_t^2}
++\frac{\alpha_t}{\beta_t^2}\mu_\star. \tag{37}
+\]
+按照式 (35) 使用链式法则：
+\[
+\nabla_{x_t}\log p_{\mathrm{data}}^{\Sigma_\star}(\mu_\star)
+=\frac{\alpha_t}{\beta_t^2}
+\Sigma_\star\nabla_\mu\log p_{\mathrm{data}}^{\Sigma_\star}(\mu)
+\big|_{\mu=\mu_\star}. \tag{38}
+\]
+由各向异性 Tweedie 恒等式 (20)：
+\[
+\Sigma_\star\nabla_\mu\log p_{\mathrm{data}}^{\Sigma_\star}(\mu_\star)
+=D_{\Sigma_\star}(\mu_\star)-\mu_\star. \tag{39}
+\]
+合并式 (37)–(39)，枢轴项相互抵消：
+\[
+\nabla_{x_t}\log p(x_t\mid y)
+=-\frac{x_t}{\beta_t^2}
++\frac{\alpha_t}{\beta_t^2}\mu_\star
++\frac{\alpha_t}{\beta_t^2}
+\bigl(D_{\Sigma_\star}(\mu_\star)-\mu_\star\bigr), \tag{40}
+\]
+\[
+=\frac{\alpha_tD_{\Sigma_\star}(\mu_\star)-x_t}{\beta_t^2}. \tag{41}
+\]
+最后，在与 \(\mathcal N(x_0;\mu_\star,\Sigma_\star)p_{\mathrm{data}}(x_0)\) 成正比的联合密度下，\(x_0\) 的后验均值恰好就是 \(D_{\Sigma_\star}(\mu_\star)\)。因此 \(D_{\Sigma_\star(t)}(\mu_\star(x_t,y,t))=\mathbb E[x_0\mid x_t,y]\)，定理证毕。
+
+### A.3 命题 2 的证明
+
+为简化记号，定义 \(D_\star(x_t,y,t):=D_{\Sigma_\star(t)}(\mu_\star(x_t,y,t))\)，由定理 1 知其等于 \(\mathbb E[x_0\mid x_t,y]\)。由于 \(x_t=\alpha_tx_0+\beta_t\epsilon\)，给定 \((x_t,y)\) 时，
+\[
+\mathbb E[\epsilon\mid x_t,y]
+=\frac{x_t-\alpha_t\mathbb E[x_0\mid x_t,y]}{\beta_t}
+=\frac{x_t-\alpha_tD_\star(x_t,y,t)}{\beta_t}. \tag{42}
+\]
+后验速度是路径导数的条件期望：
+\[
+v_t^y(x_t)=\mathbb E[\dot\alpha_tx_0+\dot\beta_t\epsilon\mid x_t,y], \tag{43}
+\]
+\[
+=\dot\alpha_tD_\star(x_t,y,t)+
+\dot\beta_t\frac{x_t-\alpha_tD_\star(x_t,y,t)}{\beta_t}, \tag{44}
+\]
+\[
+=\frac{\dot\beta_t}{\beta_t}x_t+
+\left(\dot\alpha_t-\alpha_t\frac{\dot\beta_t}{\beta_t}\right)
+D_\star(x_t,y,t). \tag{45}
+\]
+因此，对该插值路径而言，估计精确后验去噪器等价于估计精确后验速度。
+
+### A.4 命题 3 的证明
+
+令
+\[
+\Lambda_t=\frac{\alpha_t^2}{\beta_t^2}I_d+
+\frac1{\sigma_y^2}A^\top A,\quad
+\Sigma_\star(t)=\Lambda_t^{-1}. \tag{46}
+\]
+利用 \(x_t=\alpha_tx_0+\beta_t\epsilon\) 和 \(y=Ax_0+\sigma_y\eta\)，枢轴为
+\[
+\mu_\star=\Sigma_\star\left(
+\frac{\alpha_t}{\beta_t^2}x_t+
+\frac1{\sigma_y^2}A^\top y\right), \tag{47}
+\]
+\[
+=\Sigma_\star\left[
+\left(\frac{\alpha_t^2}{\beta_t^2}I_d+
+\frac1{\sigma_y^2}A^\top A\right)x_0+
+\frac{\alpha_t}{\beta_t}\epsilon+
+\frac1{\sigma_y}A^\top\eta
+\right], \tag{48}
+\]
+\[
+=x_0+\Sigma_\star\left(
+\frac{\alpha_t}{\beta_t}\epsilon+
+\frac1{\sigma_y}A^\top\eta\right). \tag{49}
+\]
+括号内的噪声是零均值高斯向量，其经过 \(\Sigma_\star\) 变换后的协方差为
+\[
+\Sigma_\star
+\left(\frac{\alpha_t^2}{\beta_t^2}I_d+
+\frac1{\sigma_y^2}A^\top A\right)\Sigma_\star
+=\Sigma_\star\Lambda_t\Sigma_\star=\Sigma_\star. \tag{50}
+\]
+因此 \(\mu_\star\mid x_0,t\sim\mathcal N(x_0,\Sigma_\star(t))\)，命题成立。
+
+### A.5 观察 4 的证明
+
+对 EDM，\(\alpha_t=1\)、\(\beta_t=\sigma_t\)。令
+\[
+A=U_r S V_r^\top \tag{51}
+\]
+为 \(A\) 的紧奇异值分解，其中 \(S=\operatorname{diag}(s_1,\ldots,s_r)\) 包含正奇异值。令 \(V_0\) 构成 \(A\) 的零空间的一组标准正交基，则
+\[
+P_N(A)=V_0V_0^\top,\qquad A^\dagger=V_rS^{-1}U_r^\top. \tag{52}
+\]
+设置 \(\lambda=\sigma_y^2/\sigma_t^2\)，枢轴可写成
+\[
+\mu_\star=V_r(S^2+\lambda I)^{-1}
+\bigl(SU_r^\top y+\lambda V_r^\top x_t\bigr)
++V_0V_0^\top x_t. \tag{53}
+\]
+当 \(\lambda\to0\) 时，
+\[
+\mu_\star\longrightarrow
+V_rS^{-1}U_r^\top y+V_0V_0^\top x_t
+=A^\dagger y+P_N(A)x_t. \tag{54}
+\]
+接下来证明相应的各向异性去噪器收敛到后验均值 \(\mathbb E[x_0\mid y]\)。在同一 SVD 坐标系下，
+\[
+\Sigma_\star(t)=
+\left(\frac1{\sigma_t^2}I+\frac1{\sigma_y^2}A^\top A\right)^{-1}, \tag{55}
+\]
+\[
+=\sigma_y^2 V_r(S^2+\lambda I)^{-1}V_r^\top
++\sigma_t^2V_0V_0^\top. \tag{56}
+\]
+所以当 \(\sigma_t\to\infty\)，行空间协方差趋于
+\[
+\sigma_y^2V_rS^{-2}V_r^\top
+=\sigma_y^2(A^\top A)^\dagger, \tag{57}
+\]
+而零空间方差趋于无穷。这意味着极限下的去噪查询仅在 \(A\) 的行空间保留有限信息，在零空间完全没有信息。
+
+更明确地说，极限中可保留的有限噪声观测为
+\[
+z=A^\dagger y=A^\dagger Ax_0+A^\dagger\eta
+=P_{\mathcal R(A^\top)}x_0+\zeta,\quad
+\zeta\sim\mathcal N\bigl(0,\sigma_y^2(A^\top A)^\dagger\bigr). \tag{58}
+\]
+因为 \(A^\dagger\) 是 \(y\) 的确定函数，给定 \(y\) 必然知道 \(z\)。反过来，在已知协方差的高斯测量噪声条件下，\(z=A^\dagger y\) 对 \(x_0\) 而言是关于 \(y\) 的充分统计量：\(y\) 在 \(\mathcal R(A)\) 正交补上的分量不携带 \(x_0\) 的信息。因此
+\[
+\mathbb E[x_0\mid z]=\mathbb E[x_0\mid y]. \tag{59}
+\]
+极限中的各向异性去噪器恰好是对应于这一行空间观测、且在零空间具有无限不确定性的贝叶斯估计器，于是
+\[
+\lim_{\sigma_t\to\infty}
+D_{\Sigma_\star(t)}(\mu_\star(x_t,y,t))
+=\mathbb E[x_0\mid y]. \tag{60}
+\]
+观察 4 得证。
+
+### A.6 等效时间与 GLASS 极限
+
+当 \(A^\top A=\gamma^2I_d\)，式 (12) 的协方差各向同性：
+\[
+\Sigma_\star(t)=\sigma_\star^2(t)I_d,\quad
+\sigma_\star^2(t)=
+\frac{\beta_t^2\sigma_y^2}{
+\alpha_t^2\sigma_y^2+\beta_t^2\gamma^2}. \tag{61}
+\]
+在这一特例中，可以用一个等效的标量噪声水平表示后验去噪查询。如果基础去噪器是在有效噪声比 \(\beta_s^2/\alpha_s^2\) 下进行各向同性扰动训练的，则选择 \(s=t_\star\)，使
+\[
+\frac{\beta_{t_\star}^2}{\alpha_{t_\star}^2}
+=\sigma_\star^2(t). \tag{62}
+\]
+由此可以用等效时间 \(t_\star\) 处的预训练各向同性去噪器近似 \(D_{\Sigma_\star(t)}(\mu_\star)\)。GLASS [52] 一类无需训练的等效时间方法正是在这一条件下成立的。然而一般逆问题中的 \(A^\top A\) 有不同的特征值，且常具有非平凡零空间；此时 \(\Sigma_\star\) 各向异性，无法以单个标量时间表示后验去噪核。EPS 微调所针对的，正是这一缺失的各向异性去噪几何结构。
+
+### A.7 与岭回归、高斯过程的联系
+
+式 (12) 正是岭回归和高斯过程回归中常见的线性高斯贝叶斯更新。\(\sigma_y^{-2}A^\top A\) 扮演数据精度的角色；\((\alpha_t^2/\beta_t^2)I_d\) 扮演先验精度的角色，由当前扩散噪声水平决定；\(\mu_\star\) 是二者按照精度加权的均值。随着 \(\sigma_t\) 增大，先验精度消失，\(\mu_\star\) 趋于仅由数据决定的岭回归解；随着 \(\sigma_t\) 减小，\(\mu_\star\) 向 \(x_t\) 收缩。协方差 \(\Sigma_\star(t)\) 是对应的后验协方差：在充分测量的方向上（\(A^\top A\) 特征值较大）它收缩，而在测量薄弱的方向上依然分散，与高斯过程后验的异方差不确定性相呼应 [54]。
+
+## 附录 B. 实现细节（原文第 20 页）
+
+**网络架构。** ImageNet-64×64 使用 EDM-ADM 检查点 [17]，文件名为 edm-imagenet-64x64-cond-adm.pkl，约含 296M 参数，使用 1000 类 one-hot 条件嵌入。FFHQ-64×64 使用作者从头训练的 EDM-DDPM++ 检查点。EPS 将第一个卷积层输入从 3 通道扩展至 6 通道：三通道枢轴均值 \(\mu_\star\) 与三通道任务相关观测张量拼接。新增输入通道的权重初始化为零，使微调开始时网络与无条件预训练的映射一致。对于图像修复，观测张量是掩码后的 \(y\)；对于超分辨率，是对 \(y\) 最近邻上采样的结果；对于去模糊，是经过模糊的 \(y\)。因此所有任务的总输入宽度都为 6 通道。
+
+**枢轴求解。** 二值掩码使 \(\Sigma_\star\) 为对角矩阵，可以逐元素求解。四倍超分辨率使用平均池化和最近邻上采样原语，复杂度为 \(O(d)\)。对圆周卷积模糊核，使用二维 FFT 对角化 \(A^\top A\)，每一步只需复数逐元素除法和逆 FFT，复杂度 \(O(d\log d)\)。实测枢轴求解每步耗时不足 1 ms，而 batch=1 时 U-Net 的一次前向约耗时 19 ms。
+
+**优化。** 保留标准 EDM 优化配置：Adam 的 \(\beta_1=0.9\)、\(\beta_2=0.999\)、\(\epsilon=10^{-8}\)；对数正态噪声抽样 \(P_{\rm mean}=-1.2\)、\(P_{\rm std}=1.2\)、\(\sigma_{\rm data}=0.5\)；噪声日程端点 \(\sigma_{\min}=0.002\)、\(\sigma_{\max}=80\)、\(\rho=7\)。学习率为 \(10^{-4}\)，前 \(2\times10^6\) 张图像执行线性预热。指数移动平均（EMA）的半衰期为 500 kimg，预热比例为 5%。损失权重沿用 EDM：
+\[
+\lambda(\sigma)=\frac{\sigma^2+\sigma_{\rm data}^2}
+{(\sigma\sigma_{\rm data})^2}.
+\]
+ImageNet-64 的逐任务微调运行 10 epoch（约 25k 次迭代），在四块 NVIDIA B200 GPU 上，batch=128、梯度累积步数 1；FFHQ-64 用 batch=192 运行同等次数的迭代。逐任务端到端微调分别约需 24 小时和 10 小时。
+
+**训练时算子的随机化。** 每次小批量更新都重新采样算子。随机修复的逐像素 Bernoulli 掩码密度从 \(U(50\%,70\%)\) 抽取，默认训练密度为 70%。方框修复每次独立采样一个矩形，其高、宽分别从 \([H/4,H/2]\) 和 \([W/4,W/2]\) 内均匀抽取，且每边保留 \(H/16\) 的边距。运动去模糊核长度从 \(\{7,9,11,13,15\}\) 中随机选择，角度从 \([0^\circ,180^\circ]\) 中随机取值；高斯去模糊使用长度 11、带宽 \(\sigma_{\rm blur}=0.75\) 的固定核。超分辨率使用固定四倍平均池化。训练和评价阶段的观测噪声均固定为 \(\sigma_y=0.05\)。
+
+**推理时采样。** 对 20 NFE 和 100 NFE 版本，使用确定性 EDM Euler ODE 采样器，并设置 second_order=False。1 NFE 版本根据观察 4 在最高噪声 \(\sigma_{\max}\) 处计算一次去噪器，利用高噪声枢轴进行一次前向传播，直接返回条件 MMSE 估计器 \(\mathbb E[x_0\mid y]\)。ImageNet-64 的推理类别标签使用对应图像的真实 ImageNet-1k 类别，FFHQ-64 不使用类别标签。
+
+**复现性。** 所有随机种子均固定；所有方法使用相同的 100 张评价图像，每图使用相同的 10 个后验随机种子。作者计划在论文被接收后开源结构化枢轴求解器、训练循环、采样器及各任务微调检查点。
+
+## 附录 C. 更广泛的影响（原文第 21 页）
+
+EPS 为线性逆问题的后验采样提供了一种有理论依据且经过校准的方法。由于它保留标准去噪预训练的输入和输出结构，现有预训练先验只需轻量微调，而不需要从头训练，就能转化为带有不确定性量化能力的后验采样器。对于可靠重建与定量后验不确定性十分重要的科学成像应用，这使方法较易适配；闭式枢轴和协方差也为分析下游流程中的采样器提供透明工具。除这些益处之外，本工作没有带来明显超出所依赖生成式扩散先验之外的额外社会影响；高保真图像生成的双重用途，以及底层训练数据中人口群体或领域偏差等常见问题，仍然适用。
+
 {% endraw %}
