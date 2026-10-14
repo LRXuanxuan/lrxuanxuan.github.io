@@ -12,7 +12,7 @@ layout: default
     <h1 id="rc-home-title">{{ site.title }}</h1>
     <p class="rc-tagline">{{ site.tagline }}</p>
     {% assign sign = site.data.daily_sign %}
-    <section class="rc-daily-sign" data-date="{{ sign.date | escape }}" data-sign-id="{{ sign.id | escape }}" data-book="{{ sign.book | escape }}" data-author="{{ sign.author | escape }}" data-chapter="{{ sign.chapter | escape }}" data-reader-link="{{ sign.readerLink | escape }}" data-pool="{{ '/assets/data/quote-pool.json' | relative_url }}" data-aspect="{{ sign.aspect | default: 'lantern' | escape }}" aria-labelledby="rc-sign-title">
+    <section class="rc-daily-sign" data-date="{{ sign.date | escape }}" data-sign-id="{{ sign.id | escape }}" data-book="{{ sign.book | escape }}" data-author="{{ sign.author | escape }}" data-chapter="{{ sign.chapter | escape }}" data-reader-link="{{ sign.readerLink | escape }}" data-pool="{{ '/assets/data/quote-pool.json' | relative_url }}" data-aspect="{{ sign.aspect | default: 'lantern' | escape }}" data-source-type="{{ sign.sourceType | escape }}" data-release-date="{{ sign.releaseDate | escape }}" aria-labelledby="rc-sign-title">
       <div class="rc-sign-heading"><span id="rc-sign-title">日签</span> <time datetime="{{ sign.date }}">{{ sign.date | date: '%Y.%m.%d' }}</time></div>
       <div class="rc-sign-quote-line">
         <blockquote>{{ sign.text | escape }}</blockquote>
@@ -28,6 +28,11 @@ layout: default
         {% assign sign_year = "" %}
       {% endif %}
       <p class="rc-sign-source">——《{{ sign.book | escape }}》 <small>· {{ sign_performer | strip | escape }}{% if sign_year != empty %} · {{ sign_year | escape }}{% endif %}</small></p>
+      {% elsif sign.sourceType == "film" or sign.chapter contains "｜AFI " %}
+      {% assign film_parts = sign.chapter | split: "｜" %}
+      {% assign film_role = film_parts | first %}
+      {% assign film_year = film_parts | slice: -2, 1 | first %}
+      <p class="rc-sign-source">——《{{ sign.book | escape }}》 <small>· {{ film_role | escape }} · 上映：{% if sign.releaseDate != empty and sign.releaseDate != nil %}{{ sign.releaseDate | escape }}{% else %}{{ film_year | escape }}{% endif %}</small></p>
       {% else %}
       <p class="rc-sign-source">—— {{ sign.author | escape }}《{{ sign.book | escape }}》{% if sign.readerLink != empty %} <a href="{{ sign.readerLink | escape }}" target="_blank" rel="noopener noreferrer" aria-label="在微信读书中打开本书">↗</a>{% endif %}</p>
       {% endif %}
@@ -40,7 +45,10 @@ layout: default
         <a href="{{ '/playthings/#rc-archive-title' | relative_url }}">查看签册</a>
       </div>
       <div class="rc-sign-actions">
-        <button type="button" data-sign-mix aria-pressed="true" title="重抽时先均匀选择文摘、歌词或电影台词，并尽量避开当前类型；不改变每天的默认日签。" hidden>🥄 搅拌均匀：开</button>
+        <details class="rc-sign-preferences">
+          <summary>抽签设置</summary>
+          <button type="button" data-sign-mix aria-pressed="true" title="开启后，所有尚未抽过的签文等概率；文摘、歌词和电影台词按剩余条数占比出现，不优先新条目。" hidden>🥄 搅拌均匀：开</button>
+        </details>
         <button type="button" data-sign-reset hidden>回到今日日签</button>
         <button type="button" data-sign-clear hidden>清空重抽记录</button>
         <span class="rc-vote-hint" data-vote-status role="status" aria-live="polite"></span>
