@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "count": 1488,
+  "count": 1494,
   "quotes": [
     {
       "id": "b3faf27097cae9a98a228080e7ea5d2a57b4ffbc963b300cb013bb45e4dbaec7",
@@ -18285,6 +18285,84 @@
       "quoteWeight": 1,
       "theme": "reflection",
       "aspect": "moth",
+      "sourceType": "song"
+    },
+    {
+      "id": "ab26c10140000000000000000000000000000000000000000000000000000400",
+      "text": "an Oxford comma\n一个牛津逗号。",
+      "book": "Oxford Comma",
+      "author": "Ezra Koenig",
+      "chapter": "演唱：Vampire Weekend｜专辑：Vampire Weekend（发行：2008）｜首发：2008",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "edge",
+      "sourceType": "song"
+    },
+    {
+      "id": "ab26c10140000000000000000000000000000000000000000000000000000410",
+      "text": "Blake's got a new face\n布莱克换了一副新面孔。",
+      "book": "One (Blake's Got a New Face)",
+      "author": "Ezra Koenig",
+      "chapter": "演唱：Vampire Weekend｜专辑：Vampire Weekend（发行：2008）｜首发：2008",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "moth",
+      "sourceType": "song"
+    },
+    {
+      "id": "ab26c10140000000000000000000000000000000000000000000000000000420",
+      "text": "Like the future was supposed to be\n仿佛未来本来就该是这副模样。",
+      "book": "Taxi Cab",
+      "author": "Ezra Koenig",
+      "chapter": "演唱：Vampire Weekend｜专辑：Contra（发行：2010）｜首发：2010",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "inspiration",
+      "aspect": "rose",
+      "sourceType": "song"
+    },
+    {
+      "id": "ab26c10140000000000000000000000000000000000000000000000000000430",
+      "text": "the two of us could run\n我们两人可以一起奔跑。",
+      "book": "Run",
+      "author": "Ezra Koenig",
+      "chapter": "演唱：Vampire Weekend｜专辑：Contra（发行：2010）｜首发：2010",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "inspiration",
+      "aspect": "rose",
+      "sourceType": "song"
+    },
+    {
+      "id": "ab26c10140000000000000000000000000000000000000000000000000000440",
+      "text": "Your sword's grown old and rusty\n你的剑已老旧生锈。",
+      "book": "Giving Up the Gun",
+      "author": "Ezra Koenig",
+      "chapter": "演唱：Vampire Weekend｜专辑：Contra（发行：2010）｜首发：2010",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "winter",
+      "sourceType": "song"
+    },
+    {
+      "id": "ab26c10140000000000000000000000000000000000000000000000000000450",
+      "text": "I think you're a contra\n我觉得你是个反叛者。",
+      "book": "I Think Ur a Contra",
+      "author": "Ezra Koenig",
+      "chapter": "演唱：Vampire Weekend｜专辑：Contra（发行：2010）｜首发：2010",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "edge",
       "sourceType": "song"
     }
   ]
