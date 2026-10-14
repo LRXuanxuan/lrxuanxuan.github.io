@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "count": 1513,
+  "count": 1519,
   "quotes": [
     {
       "id": "b3faf27097cae9a98a228080e7ea5d2a57b4ffbc963b300cb013bb45e4dbaec7",
@@ -18610,6 +18610,84 @@
       "quoteWeight": 1,
       "theme": "reflection",
       "aspect": "lantern",
+      "sourceType": "song"
+    },
+    {
+      "id": "ab26c10140000000000000000000000000000000000000000000000000000800",
+      "text": "The gold won't weigh us down\n金子不会压垮我们。",
+      "book": "Married in a Gold Rush",
+      "author": "Ezra Koenig 等",
+      "chapter": "演唱：Vampire Weekend feat. Danielle Haim｜专辑：Father of the Bride（发行：2019）｜首发：2019",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "heart",
+      "sourceType": "song"
+    },
+    {
+      "id": "ab26c10140000000000000000000000000000000000000000000000000000810",
+      "text": "Standing in the garden\n站在花园里。",
+      "book": "Sunflower",
+      "author": "Ezra Koenig 等",
+      "chapter": "演唱：Vampire Weekend feat. Steve Lacy｜专辑：Father of the Bride（发行：2019）｜首发：2019",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "scenery",
+      "aspect": "nectar",
+      "sourceType": "song"
+    },
+    {
+      "id": "ab26c10140000000000000000000000000000000000000000000000000000820",
+      "text": "2021, will you think about me?\n到了二〇二一年，你还会想起我吗？",
+      "book": "2021",
+      "author": "Ezra Koenig",
+      "chapter": "演唱：Vampire Weekend｜专辑：Father of the Bride（发行：2019）｜首发：2019",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "winter",
+      "sourceType": "song"
+    },
+    {
+      "id": "ab26c10140000000000000000000000000000000000000000000000000000830",
+      "text": "We belong together\n我们天生属于彼此。",
+      "book": "We Belong Together",
+      "author": "Ezra Koenig 等",
+      "chapter": "演唱：Vampire Weekend feat. Danielle Haim｜专辑：Father of the Bride（发行：2019）｜首发：2019",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "heart",
+      "sourceType": "song"
+    },
+    {
+      "id": "ab26c10140000000000000000000000000000000000000000000000000000840",
+      "text": "The snow fell last night\n昨夜下了一场雪。",
+      "book": "Spring Snow",
+      "author": "Ezra Koenig",
+      "chapter": "演唱：Vampire Weekend｜专辑：Father of the Bride（发行：2019）｜首发：2019",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "winter",
+      "sourceType": "song"
+    },
+    {
+      "id": "ab26c10140000000000000000000000000000000000000000000000000000850",
+      "text": "Just think what could have been\n想想原本可能发生的一切。",
+      "book": "Jerusalem, New York, Berlin",
+      "author": "Ezra Koenig",
+      "chapter": "演唱：Vampire Weekend｜专辑：Father of the Bride（发行：2019）｜首发：2019",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "histories",
       "sourceType": "song"
     }
   ]
