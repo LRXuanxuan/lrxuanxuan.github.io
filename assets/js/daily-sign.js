@@ -47,24 +47,8 @@
   });
   displayMix();
 
-  // Historic text excerpts without sourceType remain in the "excerpt" group.
-  const typeOf = quote => quote?.sourceType === 'song' ? 'song' :
-    quote?.sourceType === 'film' ? 'film' : 'excerpt';
-  function stir(eligible, previous) {
-    if (!mixEnabled || eligible.length < 2) return eligible;
-    const byType = new Map();
-    for (const quote of eligible) {
-      const type = typeOf(quote);
-      if (!byType.has(type)) byType.set(type, []);
-      byType.get(type).push(quote);
-    }
-    // Sample the media first, uniformly, then use the existing book/quote weights.
-    // Only repeat a medium when no other eligible medium remains.
-    const alternatives = [...byType.keys()].filter(type => type !== typeOf(previous));
-    const choices = alternatives.length ? alternatives : [...byType.keys()];
-    return byType.get(choices[Math.floor(uniform() * choices.length)]);
-  }
-  let initialQuote = {id:root.dataset.signId||'',text:initialText,book:root.dataset.book||'',author:root.dataset.author||'',chapter:root.dataset.chapter||'',readerLink:root.dataset.readerLink||'',aspect:root.dataset.aspect||''};
+  // Mix mode uniformly samples remaining quotes: category frequency follows pool share.
+  let initialQuote = {id:root.dataset.signId||'',text:initialText,book:root.dataset.book||'',author:root.dataset.author||'',chapter:root.dataset.chapter||'',readerLink:root.dataset.readerLink||'',aspect:root.dataset.aspect||'',sourceType:root.dataset.sourceType||'',releaseDate:root.dataset.releaseDate||''};
   let currentQuote=initialQuote;
   function showVotes(quote) {
     const active=votes?.get(quote);
@@ -118,7 +102,9 @@
     }
     return poolPromise;
   }
-  function pick(available, previous) {
+  function pick(available) {
+    if (mixEnabled) return available[Math.floor(uniform() * available.length)];
+    // OFF: use the previous book-weighted and recent-author-avoiding picker.
     const authorKey = quote => records ? records.authorKey(quote) : quote.author;
     try { recentAuthors=JSON.parse(localStorage.getItem(recentKey)||'[]'); } catch (_) {}
     if (!Array.isArray(recentAuthors)) recentAuthors=[];
@@ -127,7 +113,6 @@
     let eligible=available.filter(quote=>!last.includes(authorKey(quote)) && authorKey(quote)!==initialAuthor);
     if(!eligible.length) eligible=available.filter(quote=>authorKey(quote)!==last[last.length-1]);
     if(!eligible.length) eligible=available;
-    eligible = stir(eligible, previous);
     const groups = new Map();
     for (const quote of eligible) {
       if (!groups.has(quote.book)) groups.set(quote.book, {weight:Number(quote.weight)||1, quotes:[]});
@@ -159,6 +144,16 @@
       const meta=document.createElement('small');
       meta.textContent=' · '+performer+(release?' · '+release:'');
       source.append(meta);
+    } else if (quote.sourceType === 'film' || /｜AFI /.test(quote.chapter || '')) {
+      const parts=(quote.chapter||'').split('｜');
+      const index=parts.findIndex(x=>/^\d{4}$/.test(x));
+      const role=(index>0?parts.slice(0,index):parts.slice(0,1)).join(' · ');
+      const year=index>=0?parts[index]:'';
+      const date=/^\d{4}-\d{2}-\d{2}$/.test(quote.releaseDate||'')?quote.releaseDate:year;
+      source.replaceChildren(document.createTextNode('——《'+quote.book+'》'));
+      const meta=document.createElement('small');
+      meta.textContent=(role?' · '+role:'')+(date?' · 上映：'+date:'');
+      source.append(meta);
     } else {
       source.replaceChildren(document.createTextNode(`—— ${quote.author}《${quote.book}》`));
     }
@@ -186,11 +181,7 @@
         root.querySelector('[data-sign-clear]').hidden = false;
         return;
       }
-      // The server-rendered daily quote has no sourceType, so look it up.
-      const displayed = pool.find(q => q.id && q.id === currentQuote.id) ||
-        pool.find(q => q.text === currentQuote.text && q.book === currentQuote.book) ||
-        currentQuote;
-      const quote = pick(available, displayed);
+      const quote = pick(available);
       render(quote);
       recentAuthors.push(records ? records.authorKey(quote) : quote.author);
       recentAuthors=recentAuthors.slice(-6);
