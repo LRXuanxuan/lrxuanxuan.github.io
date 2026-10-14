@@ -243,3 +243,11 @@
   color: var(--link-color);
   background: var(--sidebar-hover-bg);
 }
+
+/* Native, default-collapsed randomization settings: no new dependencies. */
+.rc-home .rc-sign-preferences{display:inline-flex;align-items:center;gap:.45rem;flex-wrap:wrap;font-size:.76rem}
+.rc-home .rc-sign-preferences summary{cursor:pointer;color:var(--text-muted-color);padding:.2rem .1rem}
+.rc-home .rc-sign-preferences summary:hover{color:var(--link-color)}
+.rc-home .rc-sign-preferences summary:focus-visible{outline:2px solid var(--link-color);outline-offset:2px}
+.rc-home .rc-sign-preferences:not([open]) [data-sign-mix]{display:none}
+.rc-home .rc-sign-preferences[open]{display:inline-flex;gap:.5rem}
