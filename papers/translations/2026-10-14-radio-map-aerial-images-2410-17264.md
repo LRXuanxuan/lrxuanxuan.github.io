@@ -14,7 +14,7 @@ toc: true
 **原题：** Radio Map Prediction from Aerial Images and Application to Coverage Optimization  
 **作者：** Fabian Jaensch、Giuseppe Caire、Begüm Demir  
 **来源：** arXiv:2410.17264v2（2025 年 6 月 23 日），原文 13 页。  
-**翻译进度：** 摘要、第 I 节引言、部分系统方法、重要实验数值、第 IV 节覆盖优化与第 V 节结论已翻译或整理。尚未完成原文 II–III 全部段落、表格逐格译注、所有图注及参考文献。**本稿为阶段性译文，不计入全文验收。**  
+**翻译进度：** 正文 I–V、公式 (1)–(6)、数据集与实验表 I–VIII 的主要内容已补入，附有数据归一化原文矛盾的核验说明；仍有合并转述的段落、图注细节和参考文献未完成逐字逐句校对。**当前为扩充译稿，不计入全文验收。**  
 **图片说明：** 图 1–9 保留原文图号，具体图像见原 PDF，不在博客另行上传。
 
 ## 摘要
