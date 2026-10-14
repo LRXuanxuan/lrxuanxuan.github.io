@@ -168,6 +168,86 @@ G\Upsilon=C,\qquad \Upsilon=[\beta_1^2,\ldots,\beta_N^2]^\top. \tag{27}
 \]
 这里 \(G\) 为 \(I\times N\) 矩阵。论文在推导该逆矩阵时依赖适当的方阵选择或独立单元子集，以确保唯一解；同时，由于 \(\Upsilon\) 表示反射幅度平方，各分量必须非负或满足文中的正值条件。因此，问题不仅是分配理想 RSS 值，还要寻找物理可实现的时延与幅度配置。
 
+
+### PDF 查漏补译：贝叶斯误判概率与 RSS 可分辨性（原文第 III 节、公式 (15)–(25)）
+
+**引理。** 当两个参考点（RP）之间的观测 RSS 足够不同时，错误定位的似然下降。假定用户位置先验均匀，两个参考点 \(RP_i\) 和 \(RP_{i'}\) 之间发生定位混淆的概率，在观测 RSS 更接近其实际所在 RP 的期望 RSS \(S_i(\Gamma)\)、而非 \(S_{i'}(\Gamma)\) 时最小。
+
+**证明。** 给定 RIS 配置 \(\Gamma\)，第 \(i\) 个参考点的 RSS 条件概率密度由高斯模型给出：
+\[
+P(RSS\mid S_i(\Gamma),i)
+=\frac{1}{\sqrt{2\pi\sigma^2}}
+\exp\left[-\frac{(RSS-S_i(\Gamma))^2}{2\sigma^2}\right]. \tag{15}
+\]
+为避免把 \(RP_i\) 误判为任意其他 \(RP_{i'}\)，需要
+\[
+P(i\mid RSS,S_i(\Gamma))>
+P(i'\mid RSS,S_i(\Gamma)),\quad i'\ne i. \tag{16}
+\]
+由贝叶斯定理，
+\[
+P(i\mid RSS,S_i(\Gamma))
+=\frac{p_iP(RSS\mid S_i(\Gamma),i)}
+{\sum_jp_jP(RSS\mid S_j(\Gamma),j)}, \tag{17}
+\]
+其中 \(p_i\) 为用户位置先验。若两个位置的先验相同，即 \(p_i=p_{i'}\)，条件 (16) 等价于比较两处的似然：
+\[
+\frac{1}{\sqrt{2\pi\sigma^2}}
+e^{-(RSS-S_i(\Gamma))^2/(2\sigma^2)}
+>
+\frac{1}{\sqrt{2\pi\sigma^2}}
+e^{-(RSS-S_{i'}(\Gamma))^2/(2\sigma^2)}. \tag{18}
+\]
+对两边取对数并整理，
+\[
+(RSS-S_i(\Gamma))^2<(RSS-S_{i'}(\Gamma))^2,
+\]
+\[
+\Rightarrow\quad
+2\bigl(S_{i'}(\Gamma)-S_i(\Gamma)\bigr)RSS
+<S_{i'}^2(\Gamma)-S_i^2(\Gamma). \tag{19}
+\]
+因此，决策边界位于两个期望 RSS 的中点，具体规则为
+\[
+\begin{cases}
+RSS>\dfrac{S_i(\Gamma)+S_{i'}(\Gamma)}{2},
+&\text{若 }S_i(\Gamma)>S_{i'}(\Gamma),\\[5pt]
+RSS<\dfrac{S_i(\Gamma)+S_{i'}(\Gamma)}{2},
+&\text{若 }S_i(\Gamma)<S_{i'}(\Gamma).
+\end{cases} \tag{20}
+\]
+
+接下来定义置信区间半径 \(\varsigma\)，表示由测量噪声、阴影衰落与动态环境扰动共同引起的 RSS 相对于期望值的最大可接受偏差。为了确保整个置信区间位于正确决策边界的一侧，若 \(S_i(\Gamma)<S_{i'}(\Gamma)\)，应有
+\[
+S_i(\Gamma)+\varsigma
+<\frac{S_i(\Gamma)+S_{i'}(\Gamma)}2
+\quad\Rightarrow\quad
+\varsigma<\frac{S_{i'}(\Gamma)-S_i(\Gamma)}2; \tag{22}
+\]
+若 \(S_i(\Gamma)>S_{i'}(\Gamma)\)，则要求
+\[
+S_i(\Gamma)-\varsigma
+>\frac{S_i(\Gamma)+S_{i'}(\Gamma)}2
+\quad\Rightarrow\quad
+\varsigma<\frac{S_i(\Gamma)-S_{i'}(\Gamma)}2. \tag{23}
+\]
+两种情况统一为
+\[
+\varsigma<\frac{|S_i(\Gamma)-S_{i'}(\Gamma)|}{2}. \tag{24}
+\]
+这个上界表示在保持可靠定位的前提下所能容忍的最大 RSS 波动。文章引用文献 [32]、[33] 说明室内 RSS 标准差通常在 2–6 dB 范围；对应 95% 置信区间的半径约为 \(1.96\sigma\)，即约 4–12 dB。作者强调，这一结果基于相对紧凑室内区域中的**同方差、局部平稳近似**。大型空间中若存在明显不同的噪声分布或时变条件，统一方差假设未必成立。
+
+由于两个参考点之间的 RSS 差异越大，其可容忍的波动越大，本文将**最大化不同 RP 的期望 RSS 间隔**作为优化目标。若 RIS 反射单元到各 RP 的幅度系数近似相等，则用 \(\alpha_n=\alpha\)、\(\alpha'_{n,i}=\alpha'_i\) 近似传播幅度，代入 RSS 式 (11) 可得
+\[
+\sum_{n=1}^N\beta_n^2\int_{T_1}^{T_2}g^2(t-\mu_{n,i})\,dt
+=
+\frac{10^{RSS_i/20}-
+\displaystyle\sum_{k=1}^{K}B_{k,i}^2
+\int_{T_1}^{T_2}g^2(t-\mu_{k,i})\,dt}
+{\alpha^2(\alpha'_i)^2}. \tag{25}
+\]
+这就是随后将右端目标量简记为 \(C_i\)，再建立式 (26)–(28) 的直接来源。需要注意 \(10^{RSS_i/20}\) 来自论文所采用的式 (11)，这里保持原文约定，不按常规功率 dB 习惯擅自更换为 10 的指数分母。
+
 ## IV. 静态重构算法（主要思路）
 
 SRA 在全部参考点上确定**一套固定 RIS 配置**。用户从一个参考点移动到另一个参考点时，感受到的是该固定配置与不同传播路径相结合产生的不同信号图样，而不是由 RIS 控制器针对用户逐次修改配置。因而这种方案不要求以正交复用专门为每名用户分配独占的 RIS 配置时隙。不过，时分复用仍可用来收集更多独立观测，提高定位精度。
