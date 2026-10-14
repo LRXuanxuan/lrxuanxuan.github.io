@@ -31,14 +31,13 @@ BLOCKED_KNOWN_TITLES = ("高清日本史5战国时代:逐鹿关原",)
 
 def normalized_credit(value: str) -> str:
     """Normalize spaces and width variants without changing other author names."""
-    return re.sub(r"\\s+", "", unicodedata.normalize("NFKC", value))
+    return re.sub(r"\s+", "", unicodedata.normalize("NFKC", value))
 
 
 def is_blocked_entry(author: str, book: str) -> bool:
     credit = normalized_credit(author)
     title = normalized_credit(book)
     return any(name in credit for name in BLOCKED_CREATOR_NAMES) or title in BLOCKED_KNOWN_TITLES
-
 
 
 def check_pool(pool: object) -> list[str]:
