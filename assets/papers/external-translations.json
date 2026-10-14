@@ -1,5 +1,91 @@
 [
   {
+    "date": "2026-10-14",
+    "slug": "2026-10-14-ris-static-indoor-positioning-twc3649587",
+    "title": "RIS 辅助智能无线环境与静态室内定位｜中文阶段性译稿",
+    "paper_ids": [
+      "220958130ce04ff6"
+    ],
+    "source_arxiv_ids": [],
+    "url": "/papers/translations/2026-10-14-ris-static-indoor-positioning-twc3649587/",
+    "source_file": "2026-10-14-ris-static-indoor-positioning-twc3649587.md",
+    "scope": "中文阶段性译稿（部分章节与公式，非全文；未验收）",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-14-ris-static-indoor-positioning-twc3649587.md",
+    "source_page_path": "papers/translations/2026-10-14-ris-static-indoor-positioning-twc3649587.md",
+    "external": true,
+    "qa_complete": false
+  },
+  {
+    "date": "2026-10-14",
+    "slug": "2026-10-14-radio-map-aerial-images-2410-17264",
+    "title": "从航拍图像预测无线电地图及覆盖优化｜中文阶段性译稿",
+    "paper_ids": [
+      "bbbca963f48f95bf"
+    ],
+    "source_arxiv_ids": [
+      "2410.17264"
+    ],
+    "url": "/papers/translations/2026-10-14-radio-map-aerial-images-2410-17264/",
+    "source_file": "2026-10-14-radio-map-aerial-images-2410-17264.md",
+    "scope": "中文阶段性译稿（部分章节与公式，非全文；未验收）",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-14-radio-map-aerial-images-2410-17264.md",
+    "source_page_path": "papers/translations/2026-10-14-radio-map-aerial-images-2410-17264.md",
+    "external": true,
+    "qa_complete": false
+  },
+  {
+    "date": "2026-10-14",
+    "slug": "2026-10-14-predictive-foundation-channel-estimation-2512-15562",
+    "title": "利用预测式基础模型减少信道估计导频｜中文阶段性译稿",
+    "paper_ids": [
+      "7a0f79a63e6bc961"
+    ],
+    "source_arxiv_ids": [
+      "2512.15562"
+    ],
+    "url": "/papers/translations/2026-10-14-predictive-foundation-channel-estimation-2512-15562/",
+    "source_file": "2026-10-14-predictive-foundation-channel-estimation-2512-15562.md",
+    "scope": "中文阶段性译稿（部分章节与公式，非全文；未验收）",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-14-predictive-foundation-channel-estimation-2512-15562.md",
+    "source_page_path": "papers/translations/2026-10-14-predictive-foundation-channel-estimation-2512-15562.md",
+    "external": true,
+    "qa_complete": false
+  },
+  {
+    "date": "2026-10-14",
+    "slug": "2026-10-14-exact-posterior-score-2606-17048",
+    "title": "精确后验分数 EPS 求解线性逆问题｜中文阶段性译稿",
+    "paper_ids": [
+      "9ffca193cee23d97"
+    ],
+    "source_arxiv_ids": [
+      "2606.17048"
+    ],
+    "url": "/papers/translations/2026-10-14-exact-posterior-score-2606-17048/",
+    "source_file": "2026-10-14-exact-posterior-score-2606-17048.md",
+    "scope": "中文阶段性译稿（部分章节与公式，非全文；未验收）",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-14-exact-posterior-score-2606-17048.md",
+    "source_page_path": "papers/translations/2026-10-14-exact-posterior-score-2606-17048.md",
+    "external": true,
+    "qa_complete": false
+  },
+  {
+    "date": "2026-10-14",
+    "slug": "2026-10-14-joint-environmental-mobility-isac-twc3710706",
+    "title": "ISAC 环境运动联合跟踪与信道估计｜中文阶段性译稿",
+    "paper_ids": [
+      "f45785491df6f940"
+    ],
+    "source_arxiv_ids": [],
+    "url": "/papers/translations/2026-10-14-joint-environmental-mobility-isac-twc3710706/",
+    "source_file": "2026-10-14-joint-environmental-mobility-isac-twc3710706.md",
+    "scope": "中文阶段性译稿（部分章节与公式，非全文；未验收）",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-14-joint-environmental-mobility-isac-twc3710706.md",
+    "source_page_path": "papers/translations/2026-10-14-joint-environmental-mobility-isac-twc3710706.md",
+    "external": true,
+    "qa_complete": false
+  },
+  {
     "date": "2026-10-12",
     "url": "/papers/translations/2026-07-18-2604-09039/",
     "slug": "2026-07-18-2604-09039",
