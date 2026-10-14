@@ -350,5 +350,72 @@ y_{k,t}=h_{k,t}^{H}v_{k,t}x_{k,t}+n_{k,t}, \tag{19}
 
 ## 翻译范围与校对说明
 
-正文 I–V 的主要论述、实验设置、估计性能、零样本泛化、BER、消融、复杂度与实现可行性均已补译；保留了主要公式并补全原文表 I–III 的核心数值。该网页仍需要与 PDF 按段落逐句最终校对，部分段落采用归并叙述，并未翻译附录 A–B、完整参考文献或逐个曲线数据点。**目前不能标记为含附录及参考文献的完整译文验收稿。**
+正文 I–V 的主要论述、实验设置、估计性能、零样本泛化、BER、消融、复杂度与实现可行性均已补译；保留了主要公式并补全原文表 I–III 的核心数值。该网页仍需要与 PDF 按段落逐句最终校对，部分段落采用归并叙述，并已补译附录 A–B，尚未逐项转录完整参考文献或曲线数据点。**目前不能标记为含附录及参考文献的完整译文验收稿。**
+
+
+---
+
+## 附录 A. 因果 Transformer 的细节（对照 PDF 第 14 页）
+
+因果 Transformer 由若干堆叠层构成，每层包含一个多头因果自注意力模块和前馈网络（FFN）。多头注意力包含 \(N_H\) 个缩放点积注意力头，每个头的输入由查询（Query，Q）、键（Key，K）和值（Value，V）矩阵组成，分别为 \(Q_h=EW_h^Q\)、\(K_h=EW_h^K\)、\(V_h=EW_h^V\)，\(h=1,\ldots,N_H\)。其中 \(W_h^Q,W_h^K\in\mathbb R^{d\times d_k}\)，\(W_h^V\in\mathbb R^{d\times d_v}\) 为可学习的投影矩阵，且 \(d_k=d_v=d/N_H\)。完成输入变换后，第 \(h\) 个头的因果注意力操作为
+\[
+\mathrm{head}_h
+=\operatorname{Softmax}\left(
+\frac{Q_hK_h^\top+M}{\sqrt{d_k}}\right)V_h
+\in\mathbb R^{N_{\mathrm{pat}}\times d_v}. \tag{20}
+\]
+这里 \(M\in\mathbb R^{N_{\mathrm{pat}}\times N_{\mathrm{pat}}}\) 为因果掩码，其第 \((m,j)\) 个元素是
+\[
+M(m,j)=
+\begin{cases}0,&m\ge j,\\-\infty,&\text{其他情况}.\end{cases} \tag{21}
+\]
+这确保位置 \(m\) 只关注当前位置及更早的位置 \(j\le m\)，防止未来 token 的信息泄漏。
+
+随后拼接各注意力头的输出，执行线性投影：
+\[
+O=[\mathrm{head}_1,\ldots,\mathrm{head}_{N_H}]W^O, \tag{22}
+\]
+其中 \(W^O\in\mathbb R^{N_Hd_v\times d}\)，使聚合后的表示回到 Transformer 的潜在维度。多头注意力输出 \(O\in\mathbb R^{N_{\mathrm{pat}}\times d}\) 再由 FFN 处理，得到该层输出。
+
+## 附录 B. 导频处理网络的细节（对照 PDF 第 14–15 页）
+
+### A. 输入特征准备
+
+去扩频（despreading）操作得到 \(N_t\) 幅尺寸为 \(K\times L_B\) 的特征图，记为 \(\widehat H'_P\)，其中 \(L_B=T/R_T\)。把实部与虚部沿天线维度拼接，原始初步估计 \(\widehat H_P\) 和去扩频特征 \(\widehat H'_P\) 分别得到 \(2N_t\) 幅大小为 \(K\times T\) 和 \(K\times L_B\) 的特征图。将这些特征沿末轴连接，得到
+\[
+A\in\mathbb R^{2N_t\times K\times L_f},\qquad L_f=T+L_B.
+\]
+按照文献 [20] 的操作，在进入 Transformer 编码器之前，输入首先通过 patch embedding 模块。
+
+为捕获天线之间的空间依赖关系，对每个子载波 \(k\in\{1,\ldots,K\}\) 的空间—时间信道 \(A_k\in\mathbb R^{2N_t\times L_f}\) 单独处理，从而简化表示学习。随后将 \(A_k\) 划分为由 \(2N_t\) 个 patch 组成的序列，每个 patch 是长度为 \(L_f\) 的特征向量。这种划分促使模型关注不同天线单元之间的空间信道相关性。再通过一个全连接层将每个 patch 映射到 \(d_m\) 维潜在空间，对每个子载波得到 patch embedding \(F_k\in\mathbb R^{2N_t\times d_m}\)。
+
+### B. 增强 FFN 的操作
+
+增强 FFN 引入深度卷积（DWConv）来捕获局部频率相关性。定义 \(H:=K\)、\(W:=2N_t\)，则 \(Q=H W\)。令 \(R_e\in\mathbb R^{Q\times d_m}\) 为注意力模块产生的输入 token。增强 FFN 的过程为
+\[
+R_{l1}=\operatorname{GELU}
+\bigl(\operatorname{AdaLN}(\operatorname{Linear}_1(R_e))\bigr), \tag{23a}
+\]
+\[
+R_{l1}\in\mathbb R^{Q\times d_m'}
+\;\longrightarrow\;
+R'_{l1}\in\mathbb R^{H\times W\times d_m'}, \tag{23b}
+\]
+\[
+R'_d=\operatorname{GELU}
+\bigl(\operatorname{AdaLN}(\operatorname{DWConv}(R'_{l1}))\bigr), \tag{23c}
+\]
+\[
+R'_d\in\mathbb R^{H\times W\times d_m'}
+\;\longrightarrow\;
+R_d\in\mathbb R^{Q\times d_m'}, \tag{23d}
+\]
+\[
+R_{l2}=\operatorname{AdaLN}
+\bigl(\operatorname{Linear}_2(R_d)\bigr)+R_e. \tag{23e}
+\]
+式 (23b) 和式 (23d) 中的箭头分别表示在一维 token 序列（长度 \(Q\)）与二维空间—频率网格（\(H\times W\)）之间重排张量维度，并不是数值变换。输入和输出借助残差连接相加。
+
+**核验备注：** PDF 第 15–16 页为参考文献 [1]–[49]。附录 A 和 B 的两组公式已经按原文编号 (20)–(23e) 补入；参考文献条目的题名、作者和出版信息仍需逐项转录，不能把未译的参考文献算作完整翻译。
+
 {% endraw %}
