@@ -94,6 +94,18 @@ order: 2
 
 ---
 
+## 哈兰·埃里森（Harlan Ellison）
+
+### [《一个男孩和他的狗》A Boy and His Dog]({{ '/translations/a-boy-and-his-dog/' | relative_url }}) · 1969
+
+中篇小说（Novella） · English · **本机 EPUB 原文阅读器**
+
+[打开阅读页 · 十节跳转、划线、笔记与 GPT 辅助精读]({{ '/translations/a-boy-and-his-dog/' | relative_url }})
+
+本书尚受版权保护：本站仅提供浏览器本地导入入口，不托管全文，使用个人合法获取的 EPUB 阅读。
+
+---
+
 ## 艾萨克·阿西莫夫（Isaac Asimov）
 
 英文原版，按单行本首版年份排列。点击作品名进入全书目录，支持划线与笔记。
