@@ -52,7 +52,7 @@ toc: false
     <div data-archive-daily>
     {% assign archived_signs = site.data.daily_sign_history | sort: 'date' | reverse %}
     {% for sign in archived_signs %}
-      <section class="rc-archive-day" data-daily-date="{{ sign.date }}"><h3>{{ sign.date }} <span>默认日签</span></h3><article class="rc-archive-quote"><blockquote>{{ sign.text | escape }}</blockquote><p>—— {{ sign.author | escape }}《{{ sign.book | escape }}》</p></article></section>
+      <section class="rc-archive-day" data-daily-date="{{ sign.date }}"><h3>{{ sign.date }} <span>默认日签</span></h3><article class="rc-archive-quote"><blockquote>{{ sign.text | escape }}</blockquote>{% if sign.chapter contains "演唱：" %}{% assign performer = sign.chapter | split: "演唱：" | last | split: "｜" | first %}{% assign release_year = sign.chapter | split: "首发：" | last | slice: 0, 4 %}<p>——《{{ sign.book | escape }}》 · {{ performer | strip | escape }}{% if sign.chapter contains "首发：" %} · {{ release_year | escape }}{% endif %}</p>{% else %}<p>—— {{ sign.author | escape }}《{{ sign.book | escape }}》</p>{% endif %}</article></section>
     {% endfor %}
     </div>
     </div>
@@ -64,4 +64,4 @@ toc: false
 <script src="{{ '/assets/js/sign-aspects.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/js/sign-votes.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/js/sign-calendar.js' | relative_url }}" defer></script>
-<script src="{{ '/assets/js/sign-archive.js' | relative_url }}?v=20261012-collapsed" defer></script>
+<script src="{{ '/assets/js/sign-archive.js' | relative_url }}?v=20261014-lyrics-compact" defer></script>

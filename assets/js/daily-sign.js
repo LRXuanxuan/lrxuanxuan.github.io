@@ -153,9 +153,11 @@
     voteStatus.textContent='';
     showAspect(quote);
     if ((quote.chapter || '').startsWith('演唱：')) {
-      source.replaceChildren(document.createTextNode('——《'+quote.book+'》 '));
+      const performer=((quote.chapter.match(/演唱：([^｜]+)/)||[])[1]||quote.author||'').trim();
+      const release=((quote.chapter.match(/首发：\s*(\d{4})/)||quote.chapter.match(/发行：\s*(\d{4})/)||[])[1]||'');
+      source.replaceChildren(document.createTextNode('——《'+quote.book+'》'));
       const meta=document.createElement('small');
-      meta.textContent='｜'+quote.chapter+'｜作词：'+quote.author;
+      meta.textContent=' · '+performer+(release?' · '+release:'');
       source.append(meta);
     } else {
       source.replaceChildren(document.createTextNode(`—— ${quote.author}《${quote.book}》`));
