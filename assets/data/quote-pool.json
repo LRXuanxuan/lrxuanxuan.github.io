@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "count": 1505,
+  "count": 1513,
   "quotes": [
     {
       "id": "b3faf27097cae9a98a228080e7ea5d2a57b4ffbc963b300cb013bb45e4dbaec7",
@@ -18506,6 +18506,110 @@
       "quoteWeight": 1,
       "theme": "inspiration",
       "aspect": "heart",
+      "sourceType": "song"
+    },
+    {
+      "id": "ab26c10140000000000000000000000000000000000000000000000000000700",
+      "text": "future glory\n未来的荣光。",
+      "book": "Hold You Now",
+      "author": "Ezra Koenig、Danielle Haim 等",
+      "chapter": "演唱：Vampire Weekend feat. Danielle Haim｜专辑：Father of the Bride（发行：2019）｜首发：2019",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "inspiration",
+      "aspect": "rose",
+      "sourceType": "song"
+    },
+    {
+      "id": "ab26c10140000000000000000000000000000000000000000000000000000701",
+      "text": "carry you forever\n永远将你背负心间。",
+      "book": "Hold You Now",
+      "author": "Ezra Koenig、Danielle Haim 等",
+      "chapter": "演唱：Vampire Weekend feat. Danielle Haim｜专辑：Father of the Bride（发行：2019）｜首发：2019",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "heart",
+      "sourceType": "song"
+    },
+    {
+      "id": "ab26c10140000000000000000000000000000000000000000000000000000702",
+      "text": "hold you now\n此刻拥抱你。",
+      "book": "Hold You Now",
+      "author": "Ezra Koenig、Danielle Haim 等",
+      "chapter": "演唱：Vampire Weekend feat. Danielle Haim｜专辑：Father of the Bride（发行：2019）｜首发：2019",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "heart",
+      "sourceType": "song"
+    },
+    {
+      "id": "ab26c10140000000000000000000000000000000000000000000000000000710",
+      "text": "I don't wanna live like this\n我不愿这样生活下去。",
+      "book": "Harmony Hall",
+      "author": "Ezra Koenig",
+      "chapter": "演唱：Vampire Weekend｜专辑：Father of the Bride（发行：2019）｜首发：2019",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "edge",
+      "sourceType": "song"
+    },
+    {
+      "id": "ab26c10140000000000000000000000000000000000000000000000000000720",
+      "text": "No time to discuss it\n没时间再讨论了。",
+      "book": "Bambina",
+      "author": "Ezra Koenig",
+      "chapter": "演唱：Vampire Weekend｜专辑：Father of the Bride（发行：2019）｜首发：2019",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "edge",
+      "sourceType": "song"
+    },
+    {
+      "id": "ab26c10140000000000000000000000000000000000000000000000000000730",
+      "text": "I felt close to you\n我曾感到与你如此亲近。",
+      "book": "Big Blue",
+      "author": "Ezra Koenig",
+      "chapter": "演唱：Vampire Weekend｜专辑：Father of the Bride（发行：2019）｜首发：2019",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "heart",
+      "sourceType": "song"
+    },
+    {
+      "id": "ab26c10140000000000000000000000000000000000000000000000000000740",
+      "text": "There's an avalanche coming\n一场雪崩即将来临。",
+      "book": "Unbearably White",
+      "author": "Ezra Koenig",
+      "chapter": "演唱：Vampire Weekend｜专辑：Father of the Bride（发行：2019）｜首发：2019",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "winter",
+      "sourceType": "song"
+    },
+    {
+      "id": "ab26c10140000000000000000000000000000000000000000000000000000750",
+      "text": "a satisfied mind\n一颗知足的心。",
+      "book": "Rich Man",
+      "author": "Ezra Koenig",
+      "chapter": "演唱：Vampire Weekend｜专辑：Father of the Bride（发行：2019）｜首发：2019",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "lantern",
       "sourceType": "song"
     }
   ]
