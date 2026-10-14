@@ -14,7 +14,7 @@ toc: true
 **原题：** Reducing Pilots in Channel Estimation with Predictive Foundation Models  
 **作者：** Xingyu Zhou、Le Liang、Hao Ye、Jing Zhang、Chao-Kai Wen、Shi Jin  
 **版本：** arXiv:2512.15562v2，2026 年 3 月 15 日，16 页。  
-**状态：** 正文 I–V 的方法、数值实验、BER、复杂度及实现讨论已补齐主要内容；仍待逐段校对及附录、参考文献翻译。**不是全文验收完成稿。**  
+**状态：** 正文 I–V 的主要内容、公式 (1)–(19)、实验表与 BER 分析，以及附录 A–B 的公式 (20)–(23e) 均已补入；仍需逐段核实表达、补齐完整参考文献和全部图注细节。**不是全文逐句验收完成稿。**  
 **原图：** 图 1–15 的流程和测试曲线请参见原 PDF。本页采用纯文字与公式，未上传原始图片。
 
 ## 摘要
