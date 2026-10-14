@@ -8,9 +8,34 @@ toc: false
 <link rel="stylesheet" href="{{ '/assets/css/sign-aspects.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/sign-votes.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/tidbits.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/tarot.css' | relative_url }}?v=20261015">
 <div class="rc-playthings">
   <p class="rc-playthings-lead">抽过的签，和偶尔心血来潮的小玩意，都放在这里喵。</p>
   <a class="rc-toy-link" href="{{ '/fortune/' | relative_url }}"><span aria-hidden="true">🎲</span><span><strong>照明之咪摇奖机</strong><small>去看看今天会摇到什么。</small></span><span aria-hidden="true">↗</span></a>
+  <details class="rc-tarot" id="tarot" data-rc-tarot>
+    <summary>
+      <span class="rc-tarot-arrow" aria-hidden="true">▸</span>
+      <span class="rc-tarot-heading" role="heading" aria-level="2">🃏 文字塔罗</span>
+      <span class="rc-tarot-hint">78 张牌 · 无图抽牌 · 点击展开</span>
+    </summary>
+    <div class="rc-tarot-body">
+      <p class="rc-tarot-intro">心里想着一件事，然后洗牌。可以抽一张找灵感，或者用三张牌回望过去、观察现在、想象未来。</p>
+      <div class="rc-tarot-controls">
+        <label>牌阵
+          <select data-tarot-spread aria-label="选择塔罗牌阵">
+            <option value="one">单张 · 一点提示</option>
+            <option value="three">三张 · 过去／现在／未来</option>
+          </select>
+        </label>
+        <label><input type="checkbox" data-tarot-reversed checked> 包含逆位</label>
+        <button type="button" data-tarot-draw>洗牌并抽取 ✦</button>
+      </div>
+      <div class="rc-tarot-result" data-tarot-result tabindex="-1" role="status" aria-live="polite"></div>
+      <p class="rc-tarot-note">使用经典 78 张塔罗牌的简明关键词；牌义仅供娱乐和自我思考，不是对未来的确定预言。抽牌完全在浏览器内进行，不上传或保存结果。</p>
+      <noscript><p>启用 JavaScript 后即可抽牌。</p></noscript>
+    </div>
+  </details>
+
   {% assign tidbits_by_newest = site.data.tidbits | sort: 'added_at' | reverse %}
   {% assign latest_tidbit = tidbits_by_newest.first %}
   {% if latest_tidbit %}
@@ -65,3 +90,4 @@ toc: false
 <script src="{{ '/assets/js/sign-votes.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/js/sign-calendar.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/js/sign-archive.js' | relative_url }}?v=20261014-lyrics-compact" defer></script>
+<script src="{{ '/assets/js/tarot.js' | relative_url }}?v=20261015" defer></script>
