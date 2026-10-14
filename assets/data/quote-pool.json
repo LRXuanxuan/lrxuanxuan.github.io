@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "count": 1519,
+  "count": 1528,
   "quotes": [
     {
       "id": "b3faf27097cae9a98a228080e7ea5d2a57b4ffbc963b300cb013bb45e4dbaec7",
@@ -18688,6 +18688,123 @@
       "quoteWeight": 1,
       "theme": "reflection",
       "aspect": "histories",
+      "sourceType": "song"
+    },
+    {
+      "id": "ab26c10140000000000000000000000000000000000000000000000000000900",
+      "text": "the angry child\n那个愤怒的孩子。",
+      "book": "Ice Cream Piano",
+      "author": "Ezra Koenig",
+      "chapter": "演唱：Vampire Weekend｜专辑：Only God Was Above Us（发行：2024）｜首发：2024",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "moth",
+      "sourceType": "song"
+    },
+    {
+      "id": "ab26c10140000000000000000000000000000000000000000000000000000901",
+      "text": "ice cream piano\n冰淇淋钢琴。",
+      "book": "Ice Cream Piano",
+      "author": "Ezra Koenig",
+      "chapter": "演唱：Vampire Weekend｜专辑：Only God Was Above Us（发行：2024）｜首发：2024",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "scenery",
+      "aspect": "sky",
+      "sourceType": "song"
+    },
+    {
+      "id": "ab26c10140000000000000000000000000000000000000000000000000000902",
+      "text": "won't sing\n不愿歌唱。",
+      "book": "Ice Cream Piano",
+      "author": "Ezra Koenig",
+      "chapter": "演唱：Vampire Weekend｜专辑：Only God Was Above Us（发行：2024）｜首发：2024",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "heart",
+      "sourceType": "song"
+    },
+    {
+      "id": "ab26c10140000000000000000000000000000000000000000000000000000910",
+      "text": "How the cruel, with time, becomes classical\n残酷之物如何随岁月成为经典。",
+      "book": "Classical",
+      "author": "Ezra Koenig",
+      "chapter": "演唱：Vampire Weekend｜专辑：Only God Was Above Us（发行：2024）｜首发：2024",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "histories",
+      "sourceType": "song"
+    },
+    {
+      "id": "ab26c10140000000000000000000000000000000000000000000000000000920",
+      "text": "Too old for dying young\n已老得无法英年早逝。",
+      "book": "Capricorn",
+      "author": "Ezra Koenig",
+      "chapter": "演唱：Vampire Weekend｜专辑：Only God Was Above Us（发行：2024）｜首发：2024",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "winter",
+      "sourceType": "song"
+    },
+    {
+      "id": "ab26c10140000000000000000000000000000000000000000000000000000930",
+      "text": "Call me jealous, call me mad\n说我嫉妒也好，说我疯狂也罢。",
+      "book": "Prep-School Gangsters",
+      "author": "Ezra Koenig",
+      "chapter": "演唱：Vampire Weekend｜专辑：Only God Was Above Us（发行：2024）｜首发：2024",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "grail",
+      "sourceType": "song"
+    },
+    {
+      "id": "ab26c10140000000000000000000000000000000000000000000000000000940",
+      "text": "You've never seen a starry night\n你从未见过繁星满天的夜晚。",
+      "book": "The Surfer",
+      "author": "Ezra Koenig",
+      "chapter": "演唱：Vampire Weekend｜专辑：Only God Was Above Us（发行：2024）｜首发：2024",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "scenery",
+      "aspect": "sky",
+      "sourceType": "song"
+    },
+    {
+      "id": "ab26c10140000000000000000000000000000000000000000000000000000950",
+      "text": "Each generation makes its own apology\n每一代人都要作出自己的辩解。",
+      "book": "Gen-X Cops",
+      "author": "Ezra Koenig",
+      "chapter": "演唱：Vampire Weekend｜专辑：Only God Was Above Us（发行：2024）｜首发：2024",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "histories",
+      "sourceType": "song"
+    },
+    {
+      "id": "ab26c10140000000000000000000000000000000000000000000000000000960",
+      "text": "Deep inside the city, your memory remains\n在城市深处，对你的记忆依旧留存。",
+      "book": "Mary Boone",
+      "author": "Ezra Koenig",
+      "chapter": "演唱：Vampire Weekend｜专辑：Only God Was Above Us（发行：2024）｜首发：2024",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "winter",
       "sourceType": "song"
     }
   ]
