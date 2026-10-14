@@ -104,3 +104,10 @@
 - 同步前必须通过 GitHub API 核验目标仓库为 `private===true`，失效/无法核验时拒绝。同步文档保存为私库 `reading-notes.json`，使用文件 sha 防止并发覆盖、时间戳合并变更以及删除墓碑防止已删记录恢复。
 - 本地格式 v2 保持旧存储键，兼容 v1 导入备份和全部原有划线、跳转、修改、删除、作品汇总。令牌只在本次页面输入框短暂使用，刷新后消失，不写浏览器存储；断网、本机使用、导出导入应不依赖私库功能。
 - **操作说明与安全约束唯一详见** [docs/reading-notes-private-sync.md](docs/reading-notes-private-sync.md)。ChatGPT 要读取私库，需要用户为 GitHub 连接单独授权该私有仓库，不可假称连接已开通。不得绕过权限或放宽默认隐私策略。
+
+
+## 《一个男孩和他的狗》本地英文阅读页（2026-10-15）
+
+- `/translations/a-boy-and-his-dog/` 用纯静态页面与 `assets/js/local-epub-reader.js` 读取用户本机 EPUB，不向网站/公共仓库上传原作全文。原作在版权保护期内；不得把上传的 EPUB 或提取的整篇正文直接提交到 GitHub Pages。
+- 页面始终沿用 `assets/js/reading-notes.js`：原有英文划线、注释、摘录汇总、JSON 导出/导入、手动 GitHub 私库同步均保留。EPUB 动态加载完成时必须派发 `reading-notes-content-ready` 以恢复已保存的波浪线与原句定位。
+- “问 GPT”仅在用户选择句子并主动点击后复制提问文本、打开 ChatGPT，不在后台读取或发送 EPUB，不储存 API 密钥。只采用原生浏览器 API 和简洁 CSS，禁止加载沉重的 EPUB/ZIP 依赖。
