@@ -6,6 +6,7 @@ import json
 import math
 import re
 import sys
+import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -20,6 +21,24 @@ STRING_FIELDS = ("id", "text", "book", "author", "chapter", "readerLink", "theme
 BAD_UNICODE = re.compile(r"[\x00-\x08\x0b-\x1f\u200b-\u200f\ufeff\ufffc\ufffd]")
 NOISY_TITLE = re.compile(r"(?i)z-library|1lib\.sk|\.pdf$|纯文字版$")
 UNIQUE_ID = re.compile(r"^[0-9a-f]{64}$")
+
+# Creators explicitly excluded from future daily-sign imports by the site owner.
+# Include common simplified/traditional/Japanese character variants.
+BLOCKED_CREATOR_NAMES = ("樱雪丸", "櫻雪丸", "桜雪丸")
+# Also reject a previously imported title if future data arrives with missing credits.
+BLOCKED_KNOWN_TITLES = ("高清日本史5战国时代:逐鹿关原",)
+
+
+def normalized_credit(value: str) -> str:
+    """Normalize spaces and width variants without changing other author names."""
+    return re.sub(r"\\s+", "", unicodedata.normalize("NFKC", value))
+
+
+def is_blocked_entry(author: str, book: str) -> bool:
+    credit = normalized_credit(author)
+    title = normalized_credit(book)
+    return any(name in credit for name in BLOCKED_CREATOR_NAMES) or title in BLOCKED_KNOWN_TITLES
+
 
 
 def check_pool(pool: object) -> list[str]:
@@ -47,6 +66,8 @@ def check_pool(pool: object) -> list[str]:
         if any(not isinstance(row.get(k), str) for k in STRING_FIELDS):
             continue
         sign_id, quote_text, book = row["id"], row["text"], row["book"]
+        if is_blocked_entry(row["author"], book):
+            errors.append(f"{label}: creator is on the site owner\'s daily-sign exclusion list")
         if not UNIQUE_ID.fullmatch(sign_id):
             errors.append(f"{label}.id: expected permanent 64-character lowercase hex ID")
         if sign_id in ids:
