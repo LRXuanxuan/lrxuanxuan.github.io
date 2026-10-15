@@ -11,11 +11,11 @@ toc: true
 
 ## 中英文译文
 
-- [RIS 辅助智能无线环境与静态室内定位｜中文阶段性译稿](/papers/translations/2026-10-14-ris-static-indoor-positioning-twc3649587/) · 尚有章节、公式和图表未译，未通过全文验收
-- [从航拍图像预测无线电地图及覆盖优化｜中文阶段性译稿](/papers/translations/2026-10-14-radio-map-aerial-images-2410-17264/) · 尚有章节、公式和图表未译，未通过全文验收
-- [利用预测式基础模型减少信道估计导频｜中文阶段性译稿](/papers/translations/2026-10-14-predictive-foundation-channel-estimation-2512-15562/) · 尚有章节、公式和图表未译，未通过全文验收
-- [精确后验分数 EPS 求解线性逆问题｜中文阶段性译稿](/papers/translations/2026-10-14-exact-posterior-score-2606-17048/) · 尚有章节、公式和图表未译，未通过全文验收
-- [ISAC 环境运动联合跟踪与信道估计｜中文阶段性译稿](/papers/translations/2026-10-14-joint-environmental-mobility-isac-twc3710706/) · 尚有章节、公式和图表未译，未通过全文验收
+- [RIS 辅助智能无线环境与静态室内定位｜中文阶段性译稿](/papers/translations/2026-10-14-ris-static-indoor-positioning-twc3649587/) · 中文阶段性译稿（部分章节与公式，非全文；未验收）
+- [从航拍图像预测无线电地图及覆盖优化｜中文阶段性译稿](/papers/translations/2026-10-14-radio-map-aerial-images-2410-17264/) · 中文阶段性译稿（部分章节与公式，非全文；未验收）
+- [利用预测式基础模型减少信道估计导频｜中文阶段性译稿](/papers/translations/2026-10-14-predictive-foundation-channel-estimation-2512-15562/) · 中文阶段性译稿（部分章节与公式，非全文；未验收）
+- [ISAC 环境运动联合跟踪与信道估计｜中文阶段性译稿](/papers/translations/2026-10-14-joint-environmental-mobility-isac-twc3710706/) · 中文阶段性译稿（部分章节与公式，非全文；未验收）
+- [精确后验分数 EPS 求解线性逆问题｜中文阶段性译稿](/papers/translations/2026-10-14-exact-posterior-score-2606-17048/) · 中文阶段性译稿（部分章节与公式，非全文；未验收）
 - [SIMCA：扩散与流匹配后验采样的引导权重校准｜中文全篇译稿（校对中）](/papers/translations/2026-10-13-simca-guidance-2610-03503/) · 原文全文结构译稿（校对中；未计入全文验收）
 - [RadioDiff-Inverse：面向 ISAC 无线电地图构建的扩散增强贝叶斯逆估计｜中文全篇译稿（校对中）](/papers/translations/2026-10-13-radiodiff-inverse-twc-2026/) · 中文译稿（校对中；IEEE公开传播许可待核验）
 - [FR3 无人机基站信道知识地图：数据集与机器学习建模｜中文全文译稿（校对中）](/papers/translations/2026-10-13-fr3-uav-ckm-2610-06356/) · 原文全文结构译稿（校对中；未计入全文验收）
@@ -78,6 +78,36 @@ toc: true
 - [2026-07-11 论文翻译：第 5 篇与跨论文研究路线](/papers/translations/2026-07-11-203f202a/) · 摘要与引言 / 历史译文说明
 
 ## 推荐论文
+
+### 2026-10-15 · [Coupled-Interference Modeled FTN Signaling Over Doubly Selective Fading Channels: Joint Subpath Recovery and Iterative Detection](/papers/items/0995fadc98ae06dc/)
+
+说明物理算子失配能掩盖先验效果，并提供把NMSE延伸到译码BER/复杂度的系统视角。
+
+[本篇日报](/papers/items/0995fadc98ae06dc/#paper-report)
+
+### 2026-10-15 · [A Framework for Geometry-Based Statistical Channel Modeling in ISAC Systems](/papers/items/845777143fa43f02/)
+
+补足先验/后验方法所需的物理一致数据与通信—感知双指标，防止只凭NMSE论证ISAC价值。
+
+[本篇日报](/papers/items/845777143fa43f02/#paper-report)
+
+### 2026-10-15 · [Electromagnetic Environment Knowledge Construction and Channel Prediction: A Model-Data Dual-Driven Approach Toward 6G Digital Twin Channel](/papers/items/d68de96d72878d65/)
+
+给当前连续条件编码提供比简单拼接更有物理含义的参照，同时保留摘要级证据边界。
+
+[本篇日报](/papers/items/d68de96d72878d65/#paper-report)
+
+### 2026-10-15 · [Edge-preserving Bayesian neural networks via hierarchical sparsity-promoting priors](/papers/items/d6877992b1c0b08c/)
+
+10月12日新预印本且提供可审查实现，能检验模型是否在遮挡边缘自信地犯错。
+
+[本篇日报](/papers/items/d6877992b1c0b08c/#paper-report)
+
+### 2026-10-15 · [Posterior sampling by source-space MCMC via prior-based few-step transport maps](/papers/items/b953516010d4360b/)
+
+最直接对应当前生成先验与导频约束的接口，也提供对先验误差与采样误差分开的严谨表述。
+
+[本篇日报](/papers/items/b953516010d4360b/#paper-report)
 
 ### 2026-10-14 · [RIS-Assisted Smart Radio Environment for Enhanced Non-Orthogonal Multiplexing Indoor Positioning System](/papers/items/220958130ce04ff6/)
 
