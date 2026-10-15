@@ -15,7 +15,7 @@ toc: true
 **作者：** Hoang Phuc Hau Luu、Marcelo Hartmann、Zhongjian Wang  
 **原文：** arXiv:2610.01034v1，2026 年 10 月 1 日，共 34 页。  
 **许可与署名：** 原文按 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 许可发布；本页为中文翻译，已对语言作转换，保留原作者署名与原文链接；译文未经原作者认可。  
-**译文范围（必须阅读）：** 已翻译**摘要、第 1 节、第 2 节和第 3.1 节**，涵盖原文公式 (1)–(13)。**第 3.2–3.3 节、第 4–5 节、附录 A–B、图表细项和参考文献尚未翻译/核对，因此不是全文译文，尚未通过全文 QA。** 公式编号与原文一致；图表请对照原文 PDF。
+**译文范围（必须阅读）：** 已翻译**摘要、第 1–3 节**，涵盖原文公式 (1)–(21)。**第 4–5 节、附录 A–B、图表细项和参考文献尚未翻译/核对，因此不是全文译文，尚未通过全文 QA。** 公式编号与原文一致；图表请对照原文 PDF。
 
 ## 摘要
 
@@ -183,8 +183,239 @@ $$
 
 当 $S_\theta$ 不精确时，我们希望量化由此引入的后验误差。令 $S$ 为生成构造所对应的精确传输，即 $S_\#\gamma=\pi_0$；在适当正则性假设下，认为该映射存在。定义理想的源空间后验 $\nu^y(dz)\propto\ell_y(S(z))\gamma(dz)$。我们的目标是用学习 $S_\theta$ 时的训练误差控制源空间偏差 $W_2(\nu_\theta^y,\nu^y)$，以及数据空间偏差 $W_2((S_\theta)_\#\nu_\theta^y,\pi^y)$。这里 $W_2$ 表示 Wasserstein 距离（Villani 等，2009）；对于 iMF，其训练误差与 $R(\theta)$ 有关，下一节将对此展开讨论。
 
+
+### 3.2 improved MeanFlow 源与后验稳定性
+
+我们通过式（12）和（13）的 improved MeanFlow 参数化 $S_\theta$，并使用式（10）的联合训练损失 $L(\theta)=L_{\mathrm{iMF}}(\theta)+\lambda L_{\mathrm{FM}}(\theta)$ 进行训练。iMF 支持少步生成，并确保 $L$ 与式（11）的边缘风险 $R$ 只相差一个独立于 $\theta$ 的加性常数。因此，对于固定模型类 $\Theta$，
+
+$$
+\begin{aligned}
+R(\theta)&=
+\underbrace{L(\theta)-\inf_{\vartheta\in\Theta}L(\vartheta)}
+_{\epsilon_{\mathrm{opt}}\colon\text{总体训练次优性}}\\
+&\quad+\underbrace{\inf_{\vartheta\in\Theta}R(\vartheta)}
+_{\epsilon_{\mathrm{app}}\colon\text{模型类逼近误差}}
+=:\delta.
+\end{aligned}\tag{14}
+$$
+
+证明见附录 A.2。分解式（14）表明，边缘风险 $R(\theta)$ 由实际所用训练目标 $L$ 的总体次优性和模型类逼近误差共同控制。根据 MeanFlow 恒等式（5），精确瞬时速度与区间平均速度场能够联合取得零边缘风险（Geng 等，2026b），因此理论上表达能力足够强的模型类可使 $\epsilon_{\mathrm{app}}$ 很小。我们的目标是用 $R(\theta)$ 控制后验误差。
+
+对于原始 MeanFlow（Geng 等，2026a），$L_{\mathrm{MF}}(\theta)-R_{\mathrm{MF}}(\theta)$ 对参数的依赖阻止了分解式（14）在一般情况下成立。因此，训练次优性和逼近误差都很小，不一定意味着边缘风险也很小。
+
+为建立后验稳定性，我们首先控制**实际实现的 iMF 传输映射**的误差，并借鉴 Boffi 等（2024）对流映射误差的分析。理论中采用独立耦合 $X\sim\pi_0$、$Z\sim\gamma$，时间变量 $R,T\overset{\rm iid}{\sim}\mathrm{Unif}[0,1]$。令 $V=Z-X$、$W_t=(1-t)X+tZ$、$v(w,t)=\mathbb E[V\mid W_t=w]$，并记 $p_t=\operatorname{Law}(W_t)$，于是 $p_0=\pi_0$、$p_1=\gamma$。脚注 2 指出，也可采用更一般的时间安排；本文选择简单的情形以便表述。
+
+**假设 3.1（先验与边缘流）。** 先验 $\pi_0\in\mathcal P_2(\mathbb R^d)$。对于任意 $t\in[0,1]$ 及 $p_t$-几乎处处的 $w$，ODE
+$\frac{d}{ds}\xi_s^{t,w}=v(\xi_s^{t,w},s)$、$\xi_t^{t,w}=w$ 在 $[0,t]$ 上有绝对连续的解，其解映射 $\varphi_{s,t}(w):=\xi_s^{t,w}$ 构成可测流，并满足
+
+$$
+(\varphi_{s,t})_\#p_t=p_s,\qquad 0\leq s\leq t\leq1.
+$$
+
+在假设 3.1 下，$S:=\varphi_{0,1}$ 是精确的先验传输映射，即 $S_\#\gamma=\pi_0$。
+
+**假设 3.2（学习平均速度的正则性）。** $u_\theta$ 在 $\mathbb R^d\times(0,1)^2$ 上连续可微，并且 $u_\theta$ 及其全部一阶导数可连续延拓至 $\mathbb R^d\times[0,1]^2$。
+
+对于 $r,t\in[0,1]$，定义边缘 iMF 回归残差及其积分：
+
+$$
+\begin{aligned}
+\bar q_\theta(w,r,t)
+&:=u_\theta(w,r,t)-v(w,t)\\
+&\quad+(t-r)\left[\partial_tu_\theta(w,r,t)
++\partial_wu_\theta(w,r,t)v_\theta(w,t)\right],\\
+G_\theta(r)&:=\int_r^1
+\|\bar q_\theta(\cdot,r,t)\|^2_{L^2(p_t)}\,dt.
+\end{aligned}
+$$
+
+因此，式（9）的 iMF 风险可以重写为 $R_{\mathrm{iMF}}(\theta)=\mathbb E\|\bar q_\theta(W_T,R,T)\|^2$。我们再作如下假设。
+
+**假设 3.3（跨起始时间的正则性）。** $G_\theta:[0,1]\to[0,\infty)$ 满足 $L_G$-Lipschitz 条件：
+
+$$
+|G_\theta(r)-G_\theta(r')|\leq L_G|r-r'|,
+\qquad \forall r,r'\in[0,1].
+$$
+
+**注释 3.4。** 如果 $\bar q_\theta$ 关于 $r$ 连续可微，并且当 $0\leq r\leq t\leq1$ 时，$\bar q_\theta$ 及其导数 $\partial_r\bar q_\theta$ 在 $L^2(p_t)$ 中一致有界，那么假设 3.3 成立。在上述有限二阶矩假设下，对于直接输入空间与时间变量的有限层仿射–SiLU 网络，这些条件成立；所得到的常数可以依赖网络参数。详情和证明见附录 A.3。
+
+固定生成时间表 $1=t_K>t_{K-1}>\cdots>t_0=0$，并设 $h_k=t_k-t_{k-1}$。
+
+**假设 3.5。**
+
+$$
+\begin{aligned}
+\sum_{k=1}^K\int_{t_{k-1}}^{t_k}(t-t_{k-1})^2
+\big\|(\partial_wu_\theta)(\cdot,t_{k-1},t)
+(v-v_\theta)(\cdot,t)\big\|_{L^2(p_t)}^2dt\\
+\leq B_u^2 R_{\mathrm{FM}}(\theta).
+\end{aligned}\tag{15}
+$$
+
+这里，$R_{\mathrm{FM}}$ 是辅助速度头的边缘流匹配风险（3）。
+
+**注释 3.6。** 式（15）的一个充分条件为
+
+$$
+\sup_{w,\;0\leq r<t\leq1}(t-r)
+\|\partial_wu_\theta(w,r,t)\|_{\rm op}\leq B_u.
+$$
+
+特别地，如果 $u_\theta$ 对 $w$ 在所有 $(r,t)$ 上一致满足 $L_u$-Lipschitz 条件（例如仿射–SiLU 网络），则由于 $t-r\leq1$，可令 $B_u=L_u$。不过，假设 3.5 的加权界更弱：它仅在 $L^2(p_t)$ 意义下约束 Jacobian 对 $v-v_\theta$ 的作用。详情见附录 A.4。
+
+**定理 3.7。** 设 $F_{k,\theta}(w)=w-h_ku_\theta(w,t_{k-1},t_k)$ 满足 $L_k$-Lipschitz 条件，$S_\theta=F_{1,\theta}\circ\cdots\circ F_{K,\theta}$ 是式（13）的少步 iMF 映射。定义
+
+$$
+\begin{gathered}
+\Lambda_k:=\prod_{j<k}L_j,\qquad \Lambda_1=1,\\
+A_K:=\sum_{k=1}^K\Lambda_k\sqrt{h_k},\qquad
+B_K:=\left(\sum_{k=1}^K\Lambda_k^2h_k\right)^{1/2}.
+\end{gathered}
+$$
+
+在假设 3.1、3.2、3.3 和 3.5 下，若 $\delta\leq L_G/2$，则
+
+$$
+\mathbb E_\gamma\|S_\theta(Z)-S(Z)\|^2
+\leq\left[
+A_K(2L_G\delta)^{1/4}
++\frac{B_uB_K}{\sqrt{\lambda}}\delta^{1/2}
+\right]^2.\tag{16}
+$$
+
+如果 $u_\theta$ 在空间变量上一致满足 $L_u$-Lipschitz 条件，则 $\Lambda_k\leq e^{L_u}$、$A_K\leq e^{L_u}\sqrt K$、$B_K\leq e^{L_u}$。定理 3.7 的证明见附录 A.5。
+
+式（16）通过式（14）的 $\delta$，把传输误差与总体训练次优性和模型类逼近误差联系起来。当 $\delta=0$ 时，该界收敛至零，并**不要求步长 $h_k$ 趋近于零**。这正是少步结果的意义。特别地，当 $K=1$ 时，$A_1=B_1=1$，于是式（16）为式（12）的单步映射提供了误差保证，而且无需假定 $S_\theta$ 本身满足 Lipschitz 条件。附录 B.1 的实验进一步显示，对于单步和六步生成，随着 $\delta$ 减小，传输映射误差 $\mathbb E_\gamma\|S_\theta(Z)-S(Z)\|^2$ 也随之减小。定义
+
+$$
+\begin{aligned}
+\mathcal E&:=\mathbb E_{Z\sim\gamma}\|S_\theta(Z)-S(Z)\|^2,\\
+b_K(\delta)&:=A_K(2L_G\delta)^{1/4}
++\frac{B_uB_K}{\sqrt\lambda}\delta^{1/2}.
+\end{aligned}\tag{17}
+$$
+
+下面建立后验误差与传输误差的联系。固定观测 $y$，给出如下假设。
+
+**假设 3.8（权重的正则性）。** 存在有限常数 $M_y>0$ 和 $L_y\geq0$，对所有 $x,x'\in\mathbb R^d$ 满足
+
+$$
+0\leq\ell_y(x)\leq M_y,\qquad
+|\ell_y(x)-\ell_y(x')|\leq L_y\|x-x'\|.
+$$
+
+并且 $Z_y:=\int\ell_y(x)\pi_0(dx)>0$。
+
+根据第 3.1 节的符号，归一化后的源空间后验为
+
+$$
+\begin{gathered}
+\nu^y(dz)=\frac{\ell_y(S(z))}{Z_y}\gamma(dz),\\
+\nu_\theta^y(dz)=\frac{\ell_y(S_\theta(z))}{Z_{\theta,y}}\gamma(dz),\\
+Z_{\theta,y}:=\int\ell_y(S_\theta(z))\gamma(dz).
+\end{gathered}
+$$
+
+只有当 $Z_{\theta,y}>0$ 时，$\nu_\theta^y$ 才有定义；且 $S_\#\nu^y=\pi^y$。当 $\ell_y>0$ 时记 $\Phi_y=-\log\ell_y$。
+
+**定理 3.9。** 在假设 3.8 下，如果 $L_y\mathcal E^{1/2}\leq Z_y/2$，那么 $Z_{\theta,y}\geq Z_y/2>0$，且
+
+$$
+\begin{gathered}
+W_2(\nu_\theta^y,\nu^y)\leq C_y(d)^{1/2}\mathcal E^{1/4},\\
+C_y(d):=\frac{4L_y}{Z_y}
+\left[\sqrt{d^2+4d+1}+\frac{M_y(1+d)}{Z_y}\right].
+\end{gathered}\tag{18}
+$$
+
+如果另外假设 $S_\theta$ 满足 $L_{S_\theta}$-Lipschitz 条件，则有
+
+$$
+W_2((S_\theta)_\#\nu_\theta^y,\pi^y)
+\leq L_{S_\theta}C_y(d)^{1/2}\mathcal E^{1/4}
++\sqrt{\frac{M_y}{Z_y}}\mathcal E^{1/2}.
+$$
+
+证明见附录 A.6。合并上述结果，得到：
+
+**推论 3.10。** 假定定理 3.7 与假设 3.8 的条件成立，$L_{S_\theta}$ 为 $S_\theta$ 的 Lipschitz 常数，$C_y(d)$ 按定理 3.9 定义。若 $\delta\leq L_G/2$ 且 $L_yb_K(\delta)\leq Z_y/2$，则 $Z_{\theta,y}\geq Z_y/2>0$，并且
+
+$$
+W_2(\nu_\theta^y,\nu^y)
+\leq C_y(d)^{1/2}b_K(\delta)^{1/2},\tag{19}
+$$
+
+$$
+W_2((S_\theta)_\#\nu_\theta^y,\pi^y)
+\leq L_{S_\theta}C_y(d)^{1/2}b_K(\delta)^{1/2}
++\sqrt{\frac{M_y}{Z_y}}b_K(\delta).\tag{20}
+$$
+
+### 3.3 结合 improved MeanFlow 的源空间并行回火
+
+给定学习好的 iMF，我们希望从 $\nu_\theta^y$ 中采样。尽管源空间参考分布是高斯分布，拉回的似然仍可能导致多模态，而且源空间保留了数据的维度。为改善不同模态之间的混合，我们使用源空间并行回火（SPT；Wang 等，2026a），并结合 pCN 与高斯参考分裂 HMC 等局部转移核，以应对高维性。这两类局部方法均可直接在无限维 Hilbert 空间上表述，因此也适用于高维高斯参考目标（Beskos 等，2008；Cotter 等，2013；Beskos 等，2011）。
+
+并行回火（Geyer，1991）使用逆温度 $0=\beta_0<\cdots<\beta_J=1$ 的多个副本，每个副本分别以
+
+$$
+\nu_{\theta,\beta}^y(dz)\propto
+\ell_y(S_\theta(z))^\beta\gamma(dz)
+$$
+
+为目标分布。局部 MCMC 转移核分别探索各自的目标，而相邻副本之间的 Metropolis 交换促进跨模态转移。每个采样扫描（sweep）先对每个副本执行一次局部更新，再针对每一对相邻温度副本各尝试一次 Metropolis 交换。最冷副本（$\beta=1$）的目标就是 $\nu_\theta^y$。以下两个变体的区别在于局部 MCMC 核。
+
+**iMF+SPT+pCN。** 与 Wang 等（2026a）相同，所有副本都采用 pCN。令 $\Phi_y=-\log\ell_y$、$\Psi_\theta=\Phi_y\circ S_\theta$，提案为
+
+$$
+z'=\cos(h_\beta)z+\sin(h_\beta)\xi,\qquad
+\xi\sim\gamma,\quad h_\beta\in(0,\pi/2],
+$$
+
+接受概率为
+
+$$
+1\wedge\exp\{-\beta[\Psi_\theta(z')-\Psi_\theta(z)]\}.
+$$
+
+当 $\beta=0$ 时，每个提案都被接受；若取 $h_0=\pi/2$，则可独立抽取新的高斯样本 $z'=\xi\sim\gamma$。
+
+**iMF+SPT+hybrid。** 当 $\Psi_\theta$ 可微时，为利用局部后验几何结构，我们以分裂 HMC（Beskos 等，2011）代替最冷副本（$\beta=1$）的 pCN 更新，同时在其他较热副本中仍使用 pCN 以控制成本。重新采样动量 $p\sim\gamma$，定义 Hamiltonian：
+
+$$
+H(z,p)=\tfrac12\|z\|^2+\tfrac12\|p\|^2+\Psi_\theta(z).
+$$
+
+从 $(z_0,p_0)=(z,p)$ 出发，执行 $L$ 步 Strang 分裂：
+
+$$
+\begin{aligned}
+p_{\ell+1/2}
+&=p_\ell-\frac h2\nabla\Psi_\theta(z_\ell)
+&&\text{（半步动量更新）},\\
+\begin{pmatrix}z_{\ell+1}\\\widetilde p_{\ell+1}\end{pmatrix}
+&=\begin{pmatrix}\cos(h)I&\sin(h)I\\-\sin(h)I&\cos(h)I\end{pmatrix}
+\begin{pmatrix}z_\ell\\p_{\ell+1/2}\end{pmatrix}
+&&\text{（精确谐振旋转）},\\
+p_{\ell+1}
+&=\widetilde p_{\ell+1}-\frac h2\nabla\Psi_\theta(z_{\ell+1})
+&&\text{（半步动量更新）}.
+\end{aligned}\tag{21}
+$$
+
+最终以概率 $1\wedge\exp\{H(z,p)-H(z',p')\}$ 接受提案 $(z',p')=(z_L,-p_L)$；否则保留原状态 $z$。
+
+**采样器的几何收敛。** Wang 等（2026a）已证明，全部副本使用 pCN 的 SPT 在 $W_2$ 距离下几何收敛至学习后验。本文把这一保证扩展至 SPT+hybrid。令 $\nu_n=\operatorname{Law}(z_n)$，其中 $z_n$ 为执行 $n$ 个采样扫描后最冷副本的状态。在附录 A.7 的条件下，包括源空间权重有正的下界且有有限上界，两种采样器的最冷副本边缘分布均满足
+
+$$
+W_2(\nu_n,\nu_\theta^y)\leq C\rho^n
+$$
+
+其中 $C<\infty$、$\rho\in(0,1)$。结合后验稳定性（定理 3.9、推论 3.10），可获得端到端误差界：其采样项以几何速率衰减，而传输误差项在 $\delta\to0$ 时消失；详见推论 A.3。
+
+
 ---
 
-**后续未完成部分：** 3.2 iMF 源与后验稳定性；3.3 iMF 源空间并行回火；4 实验；5 结论；附录 A、B；完整图表与参考文献。上述内容尚未上传中文译文，不能将本页视为完整论文翻译。
+**后续未完成部分：** 第 4–5 节、附录 A–B、完整图表与参考文献尚未译完，不能将本页视为完整论文翻译。
 
 {% endraw %}
