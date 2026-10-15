@@ -112,12 +112,16 @@
     body.prepend(row);
   }
 
-  window.PaperMarks = Object.freeze({ createToolbar, getMask: bits });
-  window.addEventListener('storage', event => {
-    if (event.key !== STORE && event.key !== null) return;
+  function reload() {
     state = read();
     refresh();
     window.dispatchEvent(new Event('paper-marks-changed'));
+  }
+
+  window.PaperMarks = Object.freeze({ createToolbar, getMask: bits, reload });
+  window.addEventListener('storage', event => {
+    if (event.key !== STORE && event.key !== null) return;
+    reload();
   });
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', mountDetail, { once: true });
