@@ -700,8 +700,432 @@ L_u:=\sup_{w\in\mathbb R^d,\,(r,t)\in[0,1]^2}
 $$
 
 
+### A.5 定理 3.7 的证明
+
+**总体风险的控制。** 根据式（14）以及联合边缘风险的定义，
+
+$$
+R_{\mathrm{iMF}}(\theta)+\lambda R_{\mathrm{FM}}(\theta)
+=R(\theta)=\delta.
+$$
+
+因此 $R_{\mathrm{iMF}}(\theta)\leq\delta$，并且 $R_{\mathrm{FM}}(\theta)\leq\delta/\lambda$。
+
+**恢复固定时间切片。** 在 $[0,1]^2$ 上独立均匀采样时间意味着
+
+$$
+\begin{aligned}
+\int_0^1G_\theta(r)\,dr
+&=\int_0^1\int_r^1\|\bar q_\theta(\cdot,r,t)\|_{L^2(p_t)}^2\,dt\,dr\\
+&\leq\int_0^1\int_0^1\|\bar q_\theta(\cdot,r,t)\|_{L^2(p_t)}^2\,dt\,dr\\
+&=R_{\mathrm{iMF}}(\theta).
+\end{aligned}
+$$
+
+固定 $r\in[0,1]$ 和 $h\in(0,1]$，选取区间 $I=[a,b]\subset[0,1]$，使 $a\leq r\leq b$、$b-a=h$。由假设 3.3，对于 $s\in I$，有 $G_\theta(r)\leq G_\theta(s)+L_G|s-r|$。在 $I$ 上取平均，
+
+$$
+G_\theta(r)\leq\frac1h\int_I G_\theta(s)\,ds
++\frac{L_G}{h}\int_I|s-r|\,ds.
+$$
+
+第一项不超过 $\delta/h$，因为 $G_\theta\geq0$ 且 $\int_0^1G_\theta(s)\,ds\leq\delta$。对于第二项，注意
+
+$$
+\int_a^b|s-r|\,ds
+=\frac{(r-a)^2+(b-r)^2}{2}\leq\frac{h^2}{2}.
+$$
+
+于是
+
+$$
+G_\theta(r)\leq\frac{\delta}{h}+\frac{L_Gh}{2}. \tag{22}
+$$
+
+若 $0<\delta\leq L_G/2$，取 $h=\sqrt{2\delta/L_G}\in(0,1]$，将式（22）的上界最小化，得到
+
+$$
+G_\theta(r)\leq(2L_G\delta)^{1/2},
+\qquad\forall r\in[0,1].\tag{23}
+$$
+
+当 $\delta=0$ 时，在式（22）中令 $h\downarrow0$，仍得到同样结论。
+
+**局部传输误差。** 定义
+
+$$
+\begin{aligned}
+q_\theta(w,r,t)
+&:=u_\theta(w,r,t)-v(w,t)\\
+&\quad+(t-r)\big[\partial_tu_\theta(w,r,t)
++\partial_wu_\theta(w,r,t)v(w,t)\big]\\
+&=\bar q_\theta(w,r,t)
++(t-r)\partial_wu_\theta(w,r,t)
+\big(v(w,t)-v_\theta(w,t)\big).
+\end{aligned}
+$$
+
+固定 $0\leq r<t\leq1$，对于 $p_t$-几乎处处的 $w$，令
+
+$$
+w_s:=\varphi_{s,t}(w),\qquad
+D_s:=(s-r)u_\theta(w_s,r,s)-w_s,\quad s\in[r,t].
+$$
+
+根据假设 3.1 与 3.2，$D_s$ 绝对连续。由链式法则，对几乎所有 $s$，$\frac{dD_s}{ds}=q_\theta(w_s,r,s)$。因为 $D_r=-\varphi_{r,t}(w)$，$D_t=(t-r)u_\theta(w,r,t)-w$，积分可得
+
+$$
+(t-r)u_\theta(w,r,t)-w+\varphi_{r,t}(w)
+=\int_r^t q_\theta(\varphi_{s,t}(w),r,s)\,ds.\tag{24}
+$$
+
+对于固定的生成时间表，令 $F_k:=\varphi_{t_{k-1},t_k}$ 为精确的单步映射，并定义
+
+$$
+\begin{aligned}
+Q_k&:=\int_{t_{k-1}}^{t_k}
+\|\bar q_\theta(\cdot,t_{k-1},t)\|_{L^2(p_t)}^2\,dt,\\
+J_{v,k}&:=\int_{t_{k-1}}^{t_k}(t-t_{k-1})^2
+\|\partial_wu_\theta(\cdot,t_{k-1},t)
+(v-v_\theta)(\cdot,t)\|_{L^2(p_t)}^2\,dt.
+\end{aligned}
+$$
+
+根据式（24），
+
+$$
+F_{k,\theta}(w)-F_k(w)
+=-\int_{t_{k-1}}^{t_k}
+q_\theta(\varphi_{s,t_k}(w),t_{k-1},s)\,ds.
+$$
+
+利用 $(\varphi_{s,t_k})_\#p_{t_k}=p_s$、Minkowski 不等式以及时间上的 Cauchy–Schwarz 不等式，
+
+$$
+\begin{aligned}
+&\|F_{k,\theta}-F_k\|_{L^2(p_{t_k})}\\
+&\leq\int_{t_{k-1}}^{t_k}
+\|q_\theta(\varphi_{s,t_k}(\cdot),t_{k-1},s)\|_{L^2(p_{t_k})}\,ds\\
+&=\int_{t_{k-1}}^{t_k}
+\|q_\theta(\cdot,t_{k-1},s)\|_{L^2(p_s)}\,ds\\
+&\leq\int_{t_{k-1}}^{t_k}
+\|\bar q_\theta(\cdot,t_{k-1},s)\|_{L^2(p_s)}\,ds\\
+&\quad+\int_{t_{k-1}}^{t_k}(s-t_{k-1})
+\|\partial_wu_\theta(\cdot,t_{k-1},s)
+(v-v_\theta)(\cdot,s)\|_{L^2(p_s)}\,ds\\
+&\leq\sqrt{h_k}\left(\sqrt{Q_k}+\sqrt{J_{v,k}}\right).
+\end{aligned}\tag{25}
+$$
+
+**组合各单步映射。** 利用流的复合性质，$S=F_1\circ\cdots\circ F_K=\varphi_{0,1}$。定义中间映射
+
+$$
+H_k:=F_{1,\theta}\circ\cdots\circ F_{k,\theta}
+\circ F_{k+1}\circ\cdots\circ F_K,\qquad k=0,\ldots,K,
+$$
+
+其中空复合视为恒等映射。因此，$H_0=S$、$H_K=S_\theta$，并且
+
+$$
+S_\theta(z)-S(z)=\sum_{k=1}^K[H_k(z)-H_{k-1}(z)].
+$$
+
+$H_k$ 与 $H_{k-1}$ 仅在第 $k$ 个单步映射上不同。它们共同的内部复合是精确流 $F_{k+1}\circ\cdots\circ F_K=\varphi_{t_k,1}$，共同的外部复合 $F_{1,\theta}\circ\cdots\circ F_{k-1,\theta}$ 的 Lipschitz 常数不超过 $\Lambda_k=\prod_{j<k}L_j$。因而
+
+$$
+\|H_k(z)-H_{k-1}(z)\|
+\leq\Lambda_k
+\|F_{k,\theta}(\varphi_{t_k,1}(z))
+-F_k(\varphi_{t_k,1}(z))\|.
+$$
+
+由于 $(\varphi_{t_k,1})_\#\gamma=p_{t_k}$，取 $L^2(\gamma)$ 范数并应用三角不等式得
+
+$$
+\begin{aligned}
+\|S_\theta-S\|_{L^2(\gamma)}
+&\leq\sum_{k=1}^K\Lambda_k
+\|F_{k,\theta}-F_k\|_{L^2(p_{t_k})}\\
+&\leq\sum_{k=1}^K\Lambda_k\sqrt{h_k}
+\left(\sqrt{Q_k}+\sqrt{J_{v,k}}\right)\\
+&\leq A_K(2L_G\delta)^{1/4}
++B_K\left(\sum_{k=1}^KJ_{v,k}\right)^{1/2}\\
+&\leq A_K(2L_G\delta)^{1/4}
++\frac{B_uB_K}{\sqrt{\lambda}}\delta^{1/2}.
+\end{aligned}
+$$
+
+第三行对 $J_{v,k}$ 应用求和形式的 Cauchy–Schwarz 不等式。两边平方即证明式（16）。当 $K=1$ 时，$h_1=\Lambda_1=A_1=B_1=1$，同样的论证给出单步传输界。此时复合估计中没有外层学习映射，因此不要求 $F_{1,\theta}$ 满足 Lipschitz 条件。
+
+最后，如果 $u_\theta$ 在空间上统一满足 $L_u$-Lipschitz 条件，则
+
+$$
+L_k\leq1+h_kL_u,\qquad
+\Lambda_k\leq\exp\left(L_u\sum_{j<k}h_j\right)\leq e^{L_u}.
+$$
+
+由于 $\sum_kh_k=1$，由 Cauchy–Schwarz 得到 $A_K\leq e^{L_u}\sqrt K$ 和 $B_K\leq e^{L_u}$。此外 $L_{S_\theta}\leq\prod_kL_k\leq e^{L_u}$，这也用于数据空间后验界。所有估计均针对固定的生成时间表成立。
+
+### A.6 定理 3.9 的证明
+
+令 $e:=\mathcal E^{1/2}$，$a(z):=\ell_y(S_\theta(z))$，$b(z):=\ell_y(S(z))$。权重假设给出
+
+$$
+|Z_{\theta,y}-Z_y|
+\leq\int|a-b|\,d\gamma\leq L_ye.
+$$
+
+因而 $L_ye\leq Z_y/2$ 确保 $Z_{\theta,y}\geq Z_y/2>0$。定义 $U_2(z)=1+\|z\|^2$，并使用如下加权变差的约定：
+
+$$
+\|\mu-\nu\|_{U_2}:=
+\sup_{|f|\leq U_2}\left|\int f\,d\mu-\int f\,d\nu\right|.
+$$
+
+对于每一个这样的 $f$，将归一化密度之差分解为
+
+$$
+\int f\,d(\nu_\theta^y-\nu^y)
+=\frac1{Z_{\theta,y}}\int f(a-b)\,d\gamma
++\frac{Z_y-Z_{\theta,y}}{Z_yZ_{\theta,y}}\int fb\,d\gamma.
+$$
+
+由于 $\mathbb E_\gamma U_2=1+d$、$\mathbb E_\gamma U_2^2=d^2+4d+1$，Cauchy–Schwarz 不等式给出
+
+$$
+\begin{aligned}
+\|\nu_\theta^y-\nu^y\|_{U_2}
+&\leq\frac{L_ye}{Z_{\theta,y}}
+\left[\sqrt{d^2+4d+1}+\frac{M_y(1+d)}{Z_y}\right]\\
+&\leq\frac{C_y(d)}2e.
+\end{aligned}
+$$
+
+为完整起见，可以令两个测度的共同部分进行恒等耦合，并将余下的正测度部分任意耦合。利用 $\|z-z'\|^2\leq2\|z\|^2+2\|z'\|^2$，得到
+
+$$
+W_2^2(\mu,\nu)
+\leq2\int\|z\|^2\,d|\mu-\nu|(z)
+\leq2\|\mu-\nu\|_{U_2}.
+$$
+
+这证明了式（18）。由于归一化权重相对于 $\gamma$ 有界，所有源空间后验的二阶矩均有限。
+
+对于数据空间的结论，先注意 $S_\#\gamma=\pi_0$ 与推前的定义共同意味着 $S_\#\nu^y=\pi^y$。插入中间测度 $(S_\theta)_\#\nu^y$，由 Lipschitz 传输与三角不等式可得
+
+$$
+\begin{aligned}
+W_2((S_\theta)_\#\nu_\theta^y,\pi^y)
+&\leq L_{S_\theta}W_2(\nu_\theta^y,\nu^y)\\
+&\quad+W_2((S_\theta)_\#\nu^y,S_\#\nu^y).
+\end{aligned}
+$$
+
+使用同一输入变量进行耦合，可对第二项建立上界：
+
+$$
+\begin{aligned}
+W_2^2((S_\theta)_\#\nu^y,S_\#\nu^y)
+&\leq\mathbb E_{\nu^y}\|S_\theta-S\|^2\\
+&\leq\frac{M_y}{Z_y}\mathcal E.
+\end{aligned}
+$$
+
+这便证明了数据空间后验稳定性。代入式（17）即可得到式（19）–（20）。
+
+### A.7 源空间采样器的几何收敛性
+
+固定 $\theta$ 和 $y$，定义
+
+$$
+\begin{gathered}
+\omega(z):=\ell_y(S_\theta(z)),\qquad
+\mu_j(dz):=Z_j^{-1}\omega(z)^{\beta_j}\gamma(dz),\\
+Z_j:=\int\omega^{\beta_j}\,d\gamma,\qquad
+\Pi:=\bigotimes_{j=0}^J\mu_j.
+\end{gathered}
+$$
+
+因此 $\mu_0=\gamma$、$\mu_J=\nu_\theta^y$。令 $\eta_n$ 为 $n$ 次正式采样扫描后的联合分布，$\nu_n$ 为其最冷副本边缘分布。使用
+
+$$
+\chi^2(\eta\|\Pi):=
+\int\left(\frac{d\eta}{d\Pi}-1\right)^2\,d\Pi.
+$$
+
+**假设 A.1（源空间权重与正式采样器）。** 源空间权重可测，并且对每个 $z\in\mathbb R^d$，满足 $0<m\leq\omega(z)\leq M<\infty$，其中 $m<M$。逆温度序列 $0=\beta_0<\cdots<\beta_J=1$（$J\geq1$）以及全部局部核参数在正式采样期间保持固定。每次扫描对所有副本独立应用局部转移核，之后按指定顺序各尝试一次相邻 Metropolis 交换；交换顺序可以随扫描编号改变。每个 pCN 角度满足 $h_{\beta_j}\in(0,\pi/2]$。
+
+对于混合采样器，$\Psi_\theta=-\log\omega$ 连续可微，最冷副本使用第 3.3 节带 Metropolis 校正的分裂 HMC，每次更新使用独立刷新后的高斯动量。初始联合分布满足 $D_0:=\chi^2(\eta_0\|\Pi)<\infty$。
+
+严格为正的权重下界是该收敛结论的一项**额外条件**。例如，对于有界奖励取指数的权重，这一条件成立。Wang 等（2026a）已证明 SPT+pCN 的几何收敛性。以下结论对两种局部核给出显式误差界，并将保证扩展至混合采样器。
+
+**定理 A.2（SPT+pCN 与 SPT+hybrid 的几何收敛）。** 在假设 A.1 下，令 $\kappa:=M/m$。对于 iMF+SPT+pCN，定义
+
+$$
+g_{\mathrm{pCN}}:=
+\min_{0\leq j\leq J}\kappa^{-\beta_j}(1-\cos h_{\beta_j}),
+\qquad q_{\mathrm{pCN}}:=1-g_{\mathrm{pCN}}\in(0,1).
+$$
+
+那么，对每个非负整数 $n$，
+
+$$
+\chi^2(\eta_n\|\Pi)\leq D_0q_{\mathrm{pCN}}^{2n},
+\qquad
+W_2(\nu_n,\nu_\theta^y)
+\leq\sqrt{2\kappa D_0}\,q_{\mathrm{pCN}}^n.\tag{26}
+$$
+
+对于 iMF+SPT+hybrid，定义
+
+$$
+\begin{gathered}
+g_{\mathrm{hot}}:=
+\min_{0\leq j<J}\kappa^{-\beta_j}(1-\cos h_{\beta_j}),\\
+a:=\kappa^{-(1-\beta_{J-1})},\qquad
+q_{\mathrm{hyb}}:=1-g_{\mathrm{hot}}^2a\in(0,1).
+\end{gathered}
+$$
+
+则有
+
+$$
+\begin{aligned}
+\chi^2(\eta_n\|\Pi)
+&\leq D_0q_{\mathrm{hyb}}^{2\lfloor n/2\rfloor},\\
+W_2(\nu_n,\nu_\theta^y)
+&\leq\sqrt{2\kappa D_0}\,
+q_{\mathrm{hyb}}^{\lfloor n/2\rfloor}.
+\end{aligned}\tag{27}
+$$
+
+若将最冷副本更新替换为任意固定且以 $\mu_J$ 为不变分布的 Markov 核，上述混合采样界仍成立。特别地，不要求分裂 HMC 单独满足谱隙假设。若初始分布 $\eta_0=\gamma^{\otimes(J+1)}$，则 $D_0\leq\kappa^{\sum_{j=0}^J\beta_j}-1$。
+
+**证明。** 除非另有说明，以下算子的范数都定义在中心化空间 $L_0^2(\Pi):=\{f\in L^2(\Pi):\int f\,d\Pi=0\}$ 上。每个局部核和每次 Metropolis 交换都保持 $\Pi$ 不变，因而都是 $L^2(\Pi)$ 压缩算子。它们的复合也保持联合目标分布，其最冷副本边缘分布就是 $\nu_\theta^y$。
+
+**pCN 更新的压缩性。** 令 $\mathsf Q_j$ 表示高斯 pCN 提案核，$\mathsf A_j$ 表示相对于 $\mu_j$ 的 Metropolis 校正核。高斯核在 $L^2(\gamma)$ 上自伴且为正，中心化范数为 $\cos h_{\beta_j}$。记 $a_j=d\mu_j/d\gamma$，被接受的转移测度为
+
+$$
+\min\{a_j(z),a_j(z')\}\,\gamma(dz)\mathsf Q_j(z,dz').
+$$
+
+比较 Dirichlet 型和方差得到
+
+$$
+\begin{aligned}
+\langle f,(I-\mathsf A_j)f\rangle_{\mu_j}
+&\geq(\inf a_j)\langle f,(I-\mathsf Q_j)f\rangle_\gamma\\
+&\geq\frac{\inf a_j}{\sup a_j}
+(1-\cos h_{\beta_j})\operatorname{Var}_{\mu_j}(f)\\
+&\geq\kappa^{-\beta_j}
+(1-\cos h_{\beta_j})\operatorname{Var}_{\mu_j}(f).
+\end{aligned}
+$$
+
+校正后的核也为正，因为
+
+$$
+\min\{a_j(z),a_j(z')\}
+=\int_0^\infty
+\mathbf 1_{\{a_j(z)\geq s\}}
+\mathbf 1_{\{a_j(z')\geq s\}}\,ds
+$$
+
+将接受部分的二次型表示为 $\mathsf Q_j$ 的非负二次型积分，而拒绝部分也非负。因此，可逆性与正性蕴含
+
+$$
+\|\mathsf A_j\|_{L_0^2(\mu_j)\to L_0^2(\mu_j)}
+\leq1-\kappa^{-\beta_j}(1-\cos h_{\beta_j}).\tag{28}
+$$
+
+**所有副本均使用 pCN 的扫描。** 对式（28）进行张量化可知，联合局部更新的中心化范数不超过 $q_{\mathrm{pCN}}$。随后执行的交换扫描是压缩算子，因而在 $n$ 次扫描后，该范数不超过 $q_{\mathrm{pCN}}^n$。把伴随算子作用于初始密度差 $d\eta_0/d\Pi-1$，即可证明式（26）的第一个界。
+
+**混合扫描。** 令 $\mathsf H$ 为最冷副本的不变核，并写出局部更新
+
+$$
+\mathsf L=
+\left(\bigotimes_{j<J}\mathsf A_j\right)\otimes\mathsf H.
+$$
+
+令 $\mathsf E$ 为向最冷坐标函数空间的正交投影：它对所有较热坐标按照 $\bigotimes_{j<J}\mu_j$ 积分。$\mathsf L$ 与 $\mathsf E$ 可交换，并且式（28）给出
+
+$$
+\|\mathsf L\mathsf E\|\leq1,\qquad
+\|\mathsf L(I-\mathsf E)\|\leq r,\qquad
+r:=1-g_{\mathrm{hot}}\in[0,1).
+$$
+
+对于完整的交换扫描 $\mathsf S$，所有只涉及较热副本的交换满足 $\mathsf E\mathsf S_j=\mathsf S_j\mathsf E=\mathsf E$。因为边 $(J-1,J)$ 只尝试一次交换，所以 $\mathsf E\mathsf S\mathsf E=\mathsf E\mathsf S_{J-1}\mathsf E$。当作用于最冷坐标的函数时，该核是一个独立 Metropolis 核，其目标为 $\mu_J$，提案为 $\mu_{J-1}$。此外，
+
+$$
+\frac{d\mu_J}{d\mu_{J-1}}(z)
+=\frac{Z_{J-1}}{Z_J}\omega(z)^{1-\beta_{J-1}}
+\leq\kappa^{1-\beta_{J-1}}=a^{-1}.
+$$
+
+其转移核因此以 $a\mu_J$ 为下界，得到在 $L_0^2(\Pi)$ 上 $\|\mathsf E\mathsf S\mathsf E\|\leq1-a$。
+
+设置 $\mathsf D:=\mathsf E+r(I-\mathsf E)$。对于 $r>0$，算子 $\mathsf T:=\mathsf L\mathsf E+r^{-1}\mathsf L(I-\mathsf E)$ 是压缩算子，并满足 $\mathsf L=\mathsf T\mathsf D=\mathsf D\mathsf T$。当 $r=0$ 时，取 $\mathsf T=\mathsf L$，仍有相同分解。因此，
+
+$$
+\begin{aligned}
+\|\mathsf L\mathsf S\mathsf L\|
+&\leq\|\mathsf D\mathsf S\mathsf D\|\\
+&\leq r^2+2r(1-r)+(1-r)^2(1-a)\\
+&=1-g_{\mathrm{hot}}^2a=q_{\mathrm{hyb}}.
+\end{aligned}
+$$
+
+这里，将 $\mathsf D=rI+(1-r)\mathsf E$ 展开，并利用 $\mathsf S$、$\mathsf E\mathsf S$ 和 $\mathsf S\mathsf E$ 均为压缩算子。每次正式采样扫描在函数上的作用为 $\mathsf L\mathsf S_n$，所以不论指定交换顺序如何，每连续两次扫描都会使中心化范数至少按因子 $q_{\mathrm{hyb}}$ 压缩。将相应伴随算子作用于初始密度差，即可证明式（27）的 $\chi^2$ 界。该论证仅用到 $\mathsf H$ 的不变性，因此也证明了任意最冷不变核的推广结论。
+
+**最冷边缘的 Wasserstein 界。** $\mu_J$ 相对于 $\gamma$ 的密度的最大值与最小值之比不超过 $\kappa$。利用高斯对数 Sobolev 不等式、有界扰动定理及对数 Sobolev 不等式所蕴含的传输不等式（Otto & Villani，2000），
+
+$$
+W_2^2(\nu,\mu_J)\leq
+2\kappa\operatorname{KL}(\nu\|\mu_J)
+\leq2\kappa\chi^2(\nu\|\mu_J).
+$$
+
+另见 Wang 等（2026a，引理 A.10）。条件 Jensen 不等式给出 $\chi^2(\nu_n\|\mu_J)\leq\chi^2(\eta_n\|\Pi)$。将其与联合分布界结合，就证明了式（26）和式（27）；其中后者可写成 $C\rho^n$，取 $\rho=\sqrt{q_{\mathrm{hyb}}}$，$C=\sqrt{2\kappa D_0/q_{\mathrm{hyb}}}$。
+
+最后，在独立高斯初始化下，
+
+$$
+D_0+1=
+\prod_{j=0}^J
+\left[
+\left(\int\omega^{\beta_j}\,d\gamma\right)
+\left(\int\omega^{-\beta_j}\,d\gamma\right)
+\right]
+\leq\kappa^{\sum_{j=0}^J\beta_j}.
+$$
+
+证明完毕。
+
+**推论 A.3（端到端收敛）。** 假定定理 3.7、定理 3.9 和定理 A.2 的假设均成立。此外，假定 $S_\theta$ 满足 $L_{S_\theta}$-Lipschitz 条件、$0\leq\delta\leq L_G/2$，以及 $L_yb_K(\delta)\leq Z_y/2$。定义
+
+$$
+s_n:=\sqrt{2\kappa D_0}
+\begin{cases}
+q_{\mathrm{pCN}}^n,&\text{iMF+SPT+pCN},\\
+q_{\mathrm{hyb}}^{\lfloor n/2\rfloor},&\text{iMF+SPT+hybrid}.
+\end{cases}
+$$
+
+那么，数据空间输出分布满足
+
+$$
+\begin{aligned}
+W_2((S_\theta)_\#\nu_n,\pi^y)
+&\leq L_{S_\theta}s_n
++L_{S_\theta}C_y(d)^{1/2}b_K(\delta)^{1/2}\\
+&\quad+\sqrt{\frac{M_y}{Z_y}}\,b_K(\delta).
+\end{aligned}\tag{29}
+$$
+
+
 ---
 
-**后续未完成部分：** 附录 A.5–A.7、附录 B、参考文献的完整逐条保留及图表交叉校对尚未完成；不计为全文翻译完成。
+**后续未完成部分：** 附录 B、参考文献的完整逐条保留及图表交叉校对尚未完成；不计为全文翻译完成。
 
 {% endraw %}
