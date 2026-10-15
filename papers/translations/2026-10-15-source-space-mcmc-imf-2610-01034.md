@@ -1314,8 +1314,55 @@ SiT+SPT+pCN 在两种 iMF 方法之后运行，并采用特定于提示词的时
 为维持博客轻量化原则，图像保留在[作者原文中的图 7–18](https://arxiv.org/html/2610.01034v1#S5)；本站提供中文图注与对应实验数据，不重复上传原图文件。
 
 
+## 参考文献
+
+以下按原论文参考文献列表保留作者、英文篇名、出版来源、年份与可核验编号；书目标题不另作意译，以便检索和复核。
+
+1. Ben-Hamu, H., Puny, O., Gat, I., Karrer, B., Singer, U., & Lipman, Y. *D-flow: Differentiating through flows for controlled generation*. arXiv:2402.14017, 2024.
+2. Beskos, A., Roberts, G., Stuart, A., & Voss, J. *MCMC methods for diffusion bridges*. Stochastics and Dynamics, 8(03), 319–350, 2008.
+3. Beskos, A., Pinski, F. J., Sanz-Serna, J. M., & Stuart, A. M. *Hybrid Monte Carlo on Hilbert spaces*. Stochastic Processes and their Applications, 121(10), 2201–2230, 2011.
+4. Betancourt, M., Byrne, S., & Girolami, M. *Optimizing the integrator step size for Hamiltonian Monte Carlo*. arXiv:1411.6669, 2014.
+5. Bissiri, P. G., Holmes, C. C., & Walker, S. G. *A general framework for updating belief distributions*. Journal of the Royal Statistical Society Series B: Statistical Methodology, 78(5), 1103–1130, 2016.
+6. Boffi, N. M., Albergo, M. S., & Vanden-Eijnden, E. *Flow map matching with stochastic interpolants: A mathematical framework for consistency models*. arXiv:2406.07507, 2024.
+7. Chen, R. T. Q., Rubanova, Y., Bettencourt, J., & Duvenaud, D. K. *Neural ordinary differential equations*. Advances in Neural Information Processing Systems, 31, 2018.
+8. Chen, Y., Keyes, D., Law, K. J. H., & Ltaief, H. *Accelerated dimension-independent adaptive metropolis*. SIAM Journal on Scientific Computing, 38(5), S539–S565, 2016.
+9. Cheng, Z., Wang, L.-L., & Wang, Z. *Preconditioned one-step generative modeling for Bayesian inverse problems in function spaces*. arXiv:2603.14798, 2026.
+10. Chung, H., Kim, J., Mccann, M. T., Klasky, M. L., & Ye, J. C. *Diffusion posterior sampling for general noisy inverse problems*. International Conference on Learning Representations (ICLR), 2023.
+11. Cotter, S. L., Roberts, G. O., Stuart, A. M., & White, D. *MCMC methods for functions: modifying old algorithms to make them faster*. Statistical Science, 424–446, 2013.
+12. Earl, D. J., & Deem, M. W. *Parallel tempering: Theory, applications, and new perspectives*. Physical Chemistry Chemical Physics, 7(23), 3910–3916, 2005.
+13. Geng, Z., Deng, M., Bai, X., Kolter, Z., & He, K. *Mean flows for one-step generative modeling*. Advances in Neural Information Processing Systems, 38, 75460–75482, 2026a.
+14. Geng, Z., Lu, Y., Wu, Z., Shechtman, E., Kolter, J. Z., & He, K. *Improved mean flows: On the challenges of fastforward generative models*. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 30467–30476, 2026b.
+15. Geyer, C. J. *Markov chain Monte Carlo maximum likelihood*. 1991.
+16. Greenberg, D., Nonnenmacher, M., & Macke, J. *Automatic posterior transformation for likelihood-free inference*. International Conference on Machine Learning (ICML), 2404–2414, PMLR, 2019.
+17. Hairer, E., Wanner, G., & Nørsett, S. P. *Solving ordinary differential equations I: Nonstiff problems*. Springer, 1993.
+18. Hoffman, M., Sountsov, P., Dillon, J. V., Langmore, I., Tran, D., & Vasudevan, S. *Neutra-lizing bad geometry in Hamiltonian Monte Carlo using neural transport*. arXiv:1903.03704, 2019.
+19. Hoffman, M. D., Gelman, A., et al. *The No-U-Turn sampler: adaptively setting path lengths in Hamiltonian Monte Carlo*. Journal of Machine Learning Research, 15(1), 1593–1623, 2014.
+20. Karthik, S., Roth, K., Mancini, M., & Akata, Z. *If at first you don't succeed, try, try again: Faithful diffusion-based text-to-image generation by selection*. arXiv:2305.13308, 2023.
+21. Korbak, T., Perez, E., & Buckley, C. *RL with KL penalties is better viewed as Bayesian inference*. Findings of the Association for Computational Linguistics: EMNLP, 1083–1091, 2022.
+22. Lipman, Y., Chen, R. T. Q., Ben-Hamu, H., Nickel, M., & Le, M. *Flow matching for generative modeling*. International Conference on Learning Representations (ICLR), 2023.
+23. Lu, J., & Wang, Z. *On variance reduction in learning mean flows*. arXiv:2605.09235, 2026.
+24. Lunz, S., Öktem, O., & Schönlieb, C.-B. *Adversarial regularizers in inverse problems*. Advances in Neural Information Processing Systems, 31, 2018.
+25. Ma, N., Goldstein, M., Albergo, M. S., Boffi, N. M., Vanden-Eijnden, E., & Xie, S. *SiT: Exploring flow and diffusion-based generative models with scalable interpolant transformers*. European Conference on Computer Vision (ECCV), 23–40, Springer, 2024.
+26. Otto, F., & Villani, C. *Generalization of an inequality by Talagrand and links with the logarithmic Sobolev inequality*. Journal of Functional Analysis, 173(2), 361–400, 2000.
+27. Papamakarios, G., Nalisnick, E., Rezende, D. J., Mohamed, S., & Lakshminarayanan, B. *Normalizing flows for probabilistic modeling and inference*. Journal of Machine Learning Research, 22(57), 1–64, 2021.
+28. Parno, M. D., & Marzouk, Y. M. *Transport map accelerated Markov chain Monte Carlo*. SIAM/ASA Journal on Uncertainty Quantification, 6(2), 645–682, 2018.
+29. Patel, D., & Oberai, A. A. *Bayesian inference with generative adversarial network priors*. arXiv:1907.09987, 2019.
+30. Patel, D. V., Ray, D., & Oberai, A. A. *Solution of physics-based Bayesian inverse problems with deep generative priors*. Computer Methods in Applied Mechanics and Engineering, 400, 115428, 2022.
+31. Purohit, V., Repasky, M., Lu, J., Qiu, Q., Xie, Y., & Cheng, X. *Consistency posterior sampling for diverse image synthesis*. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 28327–28336, June 2025.
+32. Radev, S. T., Schmitt, M., Schumacher, L., Elsemüller, L., Pratz, V., Schälte, Y., Köthe, U., & Bürkner, P.-C. *BayesFlow: Amortized Bayesian workflows with neural networks*. arXiv:2306.16015, 2023.
+33. Radford, A., Kim, J. W., Hallacy, C., Ramesh, A., Goh, G., Agarwal, S., Sastry, G., Askell, A., Mishkin, P., Clark, J., et al. *Learning transferable visual models from natural language supervision*. International Conference on Machine Learning, 8748–8763, PMLR, 2021.
+34. Ramzi, Z., Remy, B., Lanusse, F., Starck, J.-L., & Ciuciu, P. *Denoising score-matching for uncertainty quantification in inverse problems*. arXiv:2011.08698, 2020.
+35. Stuart, A. M. *Inverse problems: A Bayesian perspective*. Acta Numerica, 19, 451–559, 2010.
+36. Tong, A., Fatras, K., Malkin, N., Huguet, G., Zhang, Y., Rector-Brooks, J., Wolf, G., & Bengio, Y. *Improving and generalizing flow-based generative models with minibatch optimal transport*. Transactions on Machine Learning Research, 2024.
+37. Villani, C., et al. *Optimal transport: old and new*. Vol. 338, Springer, 2009.
+38. Vincent, P. *A connection between score matching and denoising autoencoders*. Neural Computation, 23(7), 1661–1674, 2011.
+39. Wang, S.-H., Keller, J., Transue, T., Brown, D. B., Strohmer, T., & Wang, B. *Test-time guidance for flow-based generative models via parallel tempering on source distributions*. International Conference on Machine Learning (ICML), 2026a.
+40. Wang, Z., Harting, A., Barreau, M., Zavlanos, M., & Johansson, K. H. *Source-guided flow matching*. International Conference on Learning Representations (ICLR), 2026b.
+41. Zhang, B. J., Marzouk, Y. M., & Spiliopoulos, K. *Transport map unadjusted Langevin algorithms: Learning and discretizing perturbed samplers*. Foundations of Data Science, 7(3), 705–736, 2025.
+
+
 ---
 
-**后续未完成部分：** 参考文献逐条整理、与原文图表交叉校对及全文 QA 尚未完成。
+**译文状态：** 摘要、正文、证明和补充实验附录 A–B、参考文献及所有图 1–18 的中文图注已整理，原图链接指向作者版本；仍需最终公式、数据与网页渲染 QA，尚不计入已验收全文。
 
 {% endraw %}
