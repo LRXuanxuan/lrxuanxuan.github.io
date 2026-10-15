@@ -84,6 +84,96 @@ toc: true
 
 ## 推荐论文
 
+### 2026-10-18 · [Unique Word Channel Estimation for Oversampled OTFS](/papers/items/86114af96c829ace/)
+
+提醒高SNR误差地板可能来自前向波形模型，不必首先归因于生成先验能力。
+
+[本篇日报](/papers/items/86114af96c829ace/#paper-report)
+
+### 2026-10-18 · [Message Passing-Based Sparse Channel Estimation Under Partially Coherent Wiener Phase Errors](/papers/items/3d5e7096d44233e3/)
+
+能够检查先验收益是否被硬件模型误差掩盖，保持算法创新与观测建模分开归因。
+
+[本篇日报](/papers/items/3d5e7096d44233e3/#paper-report)
+
+### 2026-10-18 · [Near-Field Channel Estimation for XL-RIS Assisted Multi-User XL-MIMO Systems: Hybrid Beamforming Architectures](/papers/items/cb094c362cc496f4/)
+
+与当前子空间分析相呼应，可检验统计先验之外的共享几何结构是否已经解释部分增益。
+
+[本篇日报](/papers/items/cb094c362cc496f4/#paper-report)
+
+### 2026-10-18 · [Hybrid-Field Sparse Channel Representation and Recovery for XL-RIS-Assisted mmWave MIMO Systems](/papers/items/1c892b8b96990986/)
+
+可补足当前研究中“少NFE之外还能怎样节省实际矩阵计算”的结构基线。
+
+[本篇日报](/papers/items/1c892b8b96990986/#paper-report)
+
+### 2026-10-18 · [A Unified Two-Stage Generative Diffusion Framework for Channel Estimation and Port Selection in Multiuser MIMO-FAS](/papers/items/4764027833b18444/)
+
+把后验样本价值落到最差用户速率，并提供不混淆估计与下游优化的消融结构。
+
+[本篇日报](/papers/items/4764027833b18444/#paper-report)
+
+### 2026-10-17 · [SwiftChannel : Algorithm-Hardware Co-Design for Deep Learning-Based 5G Channel Estimation](/papers/items/ea9486d36b8deb3a/)
+
+有完整可审查实现，可把“少步更快”变成有测量边界的工程论证。
+
+[本篇日报](/papers/items/ea9486d36b8deb3a/#paper-report)
+
+### 2026-10-17 · [Near-Field Sparse Bayesian Channel Estimation and Tracking for XL-IRS-Aided Wideband mmWave Systems](/papers/items/d48b0ee5ed171655/)
+
+提供“上一帧后验怎样成为下一帧先验”的具体工程参照。
+
+[本篇日报](/papers/items/d48b0ee5ed171655/#paper-report)
+
+### 2026-10-17 · [CKMImageNet: A Dataset for AI-Based Channel Knowledge Map Toward Environment-Aware Communication and Sensing](/papers/items/9a6506037bc21abd/)
+
+为后续连续条件、跨城和多模态实验提供可审计的数据边界。
+
+[本篇日报](/papers/items/9a6506037bc21abd/#paper-report)
+
+### 2026-10-17 · [Conditional Flow Matching for Transport Between Markov Processes](/papers/items/d0a6df0a63370a84/)
+
+把时序条件化和跨域适配的可验证目标从静态图像质量推进到动态转移。
+
+[本篇日报](/papers/items/d0a6df0a63370a84/#paper-report)
+
+### 2026-10-17 · [Conditional Flow Matching for Bayesian Posterior Inference](/papers/items/0ea4eaed1ae65891/)
+
+提供从NMSE走向后验可信集合的工具，同时包含可直接核查的统计指标。
+
+[本篇日报](/papers/items/0ea4eaed1ae65891/#paper-report)
+
+### 2026-10-16 · [RSS Map-Assisted MIMO Channel Estimation in the Upper Mid-Band Under Pilot Constraints](/papers/items/5d52867365440edf/)
+
+与当前地图条件和物理后验校正接口直接相关，且可以审查实际损失定义。
+
+[本篇日报](/papers/items/5d52867365440edf/#paper-report)
+
+### 2026-10-16 · [Interference-Cancellation-Based Channel Knowledge Map Construction and Its Applications to Channel Estimation](/papers/items/ef5d07dc84efccfe/)
+
+能够把地图失配落到可计算的协方差和干扰结构，而非抽象地添加噪声。
+
+[本篇日报](/papers/items/ef5d07dc84efccfe/#paper-report)
+
+### 2026-10-16 · [Semi-Blind Strategies for MMSE Channel Estimation Utilizing Generative Priors](/papers/items/75bb9a72af1f9eb2/)
+
+与当前子空间机制最贴近，也能提供强度足够的非扩散统计基线。
+
+[本篇日报](/papers/items/75bb9a72af1f9eb2/#paper-report)
+
+### 2026-10-16 · [Difficulty-Calibrated Interpolation Paths for Conditional Flow Matching](/papers/items/ef8d446b657ee3d1/)
+
+改动集中、可归因，适合检验低预算瓶颈；文本矛盾也提醒不能照抄论文的默认超参数。
+
+[本篇日报](/papers/items/ef8d446b657ee3d1/#paper-report)
+
+### 2026-10-16 · [Flow Matching from Viewpoint of Proximal Operators](/papers/items/960c9e722bdf3f38/)
+
+能帮助写清生成先验稳定性到底针对什么几何对象，避免把先验收缩与观测约束混为一谈。
+
+[本篇日报](/papers/items/960c9e722bdf3f38/#paper-report)
+
 ### 2026-10-15 · [Coupled-Interference Modeled FTN Signaling Over Doubly Selective Fading Channels: Joint Subpath Recovery and Iterative Detection](/papers/items/0995fadc98ae06dc/)
 
 说明物理算子失配能掩盖先验效果，并提供把NMSE延伸到译码BER/复杂度的系统视角。
