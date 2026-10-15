@@ -910,5 +910,69 @@
     ],
     "source_arxiv_ids": [],
     "qa_complete": false
+  },
+  {
+    "date": "2026-10-15",
+    "title": "FTN 耦合干扰建模与迭代检测｜中文译稿（校对中）",
+    "url": "/papers/translations/2026-10-15-ftn-coupled-interference/",
+    "slug": "2026-10-15-ftn-coupled-interference",
+    "scope": "用户提供中文译稿（校对中；保留算法、公式及参考文献待核说明；未计入全文验收）",
+    "source_page_path": "papers/translations/2026-10-15-ftn-coupled-interference.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-15-ftn-coupled-interference.md",
+    "paper_ids": [
+      "0995fadc98ae06dc"
+    ],
+    "source_arxiv_ids": [],
+    "qa_complete": false,
+    "external": true
+  },
+  {
+    "date": "2026-10-15",
+    "title": "GSBL-BNN：层次稀疏促进先验与边缘保持｜中文译稿（校对中）",
+    "url": "/papers/translations/2026-10-15-gsbl-bnn-2610-17023/",
+    "slug": "2026-10-15-gsbl-bnn-2610-17023",
+    "scope": "用户提供中文译稿（校对中；保留算法、公式及参考文献待核说明；未计入全文验收）",
+    "source_page_path": "papers/translations/2026-10-15-gsbl-bnn-2610-17023.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-15-gsbl-bnn-2610-17023.md",
+    "paper_ids": [
+      "d6877992b1c0b08c"
+    ],
+    "source_arxiv_ids": [
+      "2610.17023"
+    ],
+    "qa_complete": false,
+    "external": true
+  },
+  {
+    "date": "2026-10-15",
+    "title": "EEK 电磁环境知识构建与信道预测｜中文译稿（校对中）",
+    "url": "/papers/translations/2026-10-15-eek-physics-graph/",
+    "slug": "2026-10-15-eek-physics-graph",
+    "scope": "用户提供中文译稿（校对中；保留算法、公式及参考文献待核说明；未计入全文验收）",
+    "source_page_path": "papers/translations/2026-10-15-eek-physics-graph.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-15-eek-physics-graph.md",
+    "paper_ids": [
+      "d68de96d72878d65"
+    ],
+    "source_arxiv_ids": [],
+    "qa_complete": false,
+    "external": true
+  },
+  {
+    "date": "2026-10-15",
+    "title": "ISAC 几何统计信道建模框架｜中文译稿（校对中）",
+    "url": "/papers/translations/2026-10-15-isac-gbsm-framework/",
+    "slug": "2026-10-15-isac-gbsm-framework",
+    "scope": "用户提供中文译稿（校对中；保留算法、公式及参考文献待核说明；未计入全文验收）",
+    "source_page_path": "papers/translations/2026-10-15-isac-gbsm-framework.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-15-isac-gbsm-framework.md",
+    "paper_ids": [
+      "845777143fa43f02"
+    ],
+    "source_arxiv_ids": [
+      "2511.23201"
+    ],
+    "qa_complete": false,
+    "external": true
   }
 ]

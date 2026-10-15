@@ -12,6 +12,10 @@ toc: true
 ## 中英文译文
 
 - [基于先验少步传输映射的源空间 MCMC 后验采样｜中文全篇译稿（校对中）](/papers/translations/2026-10-15-source-space-mcmc-imf-2610-01034/) · 摘要、正文 1–5 节、公式 1–29、附录 A–B、41 条参考文献、图 1–18 的中文说明与表 1–3；逐段 QA 中，未计入全文验收
+- [ISAC 几何统计信道建模框架｜中文译稿（校对中）](/papers/translations/2026-10-15-isac-gbsm-framework/) · 用户提供中文译稿（校对中；保留算法、公式及参考文献待核说明；未计入全文验收）
+- [GSBL-BNN：层次稀疏促进先验与边缘保持｜中文译稿（校对中）](/papers/translations/2026-10-15-gsbl-bnn-2610-17023/) · 用户提供中文译稿（校对中；保留算法、公式及参考文献待核说明；未计入全文验收）
+- [FTN 耦合干扰建模与迭代检测｜中文译稿（校对中）](/papers/translations/2026-10-15-ftn-coupled-interference/) · 用户提供中文译稿（校对中；保留算法、公式及参考文献待核说明；未计入全文验收）
+- [EEK 电磁环境知识构建与信道预测｜中文译稿（校对中）](/papers/translations/2026-10-15-eek-physics-graph/) · 用户提供中文译稿（校对中；保留算法、公式及参考文献待核说明；未计入全文验收）
 - [RIS 辅助智能无线环境与静态室内定位｜中文阶段性译稿](/papers/translations/2026-10-14-ris-static-indoor-positioning-twc3649587/) · 中文阶段性译稿（部分章节与公式，非全文；未验收）
 - [从航拍图像预测无线电地图及覆盖优化｜中文阶段性译稿](/papers/translations/2026-10-14-radio-map-aerial-images-2410-17264/) · 中文阶段性译稿（部分章节与公式，非全文；未验收）
 - [利用预测式基础模型减少信道估计导频｜中文阶段性译稿](/papers/translations/2026-10-14-predictive-foundation-channel-estimation-2512-15562/) · 中文阶段性译稿（部分章节与公式，非全文；未验收）
