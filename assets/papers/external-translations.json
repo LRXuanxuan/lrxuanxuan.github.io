@@ -2,7 +2,7 @@
   {
     "date": "2026-10-15",
     "slug": "2026-10-15-source-space-mcmc-imf-2610-01034",
-    "title": "基于先验少步传输映射的源空间 MCMC 后验采样｜中文阶段性译稿",
+    "title": "基于先验少步传输映射的源空间 MCMC 后验采样｜中文全篇译稿（校对中）",
     "paper_ids": [
       "b953516010d4360b"
     ],
@@ -11,7 +11,7 @@
     ],
     "url": "/papers/translations/2026-10-15-source-space-mcmc-imf-2610-01034/",
     "source_file": "2026-10-15-source-space-mcmc-imf-2610-01034.md",
-    "scope": "已译摘要、第 1–2 节和第 3.1 节（公式 1–13）；非全文，未验收",
+    "scope": "摘要、正文 1–5 节、公式 1–29、附录 A–B、41 条参考文献、图 1–18 的中文说明与表 1–3；逐段 QA 中，未计入全文验收",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-15-source-space-mcmc-imf-2610-01034.md",
     "source_page_path": "papers/translations/2026-10-15-source-space-mcmc-imf-2610-01034.md",
     "external": true,
