@@ -53,3 +53,20 @@
 @media (max-width: 650px) {
   #paper-library .pm-marks button { padding: .35rem .52rem; }
 }
+
+/* Collapsed, opt-in public reading-mark synchronization controls. */
+#paper-library .pm-sync {
+  margin: .7rem 0 1rem;
+  padding: .55rem .85rem;
+  border: 1px solid var(--main-border-color, #d0d9df);
+  border-radius: .65rem;
+  font-size: .88rem;
+}
+#paper-library .pm-sync summary { cursor: pointer; font-weight: 650; }
+#paper-library .pm-sync p { margin: .55rem 0; }
+#paper-library .pm-sync-actions { display: flex; flex-wrap: wrap; align-items: flex-end; gap: .55rem; margin-top: .65rem; }
+#paper-library .pm-sync-actions label { display: flex; flex: 1 1 15rem; flex-direction: column; gap: .3rem; min-width: 0; }
+#paper-library .pm-sync-actions input { box-sizing: border-box; width: 100%; min-width: 0; padding: .4rem; font: inherit; }
+#paper-library .pm-sync-actions button { font: inherit; padding: .43rem .65rem; cursor: pointer; }
+#paper-library .pm-sync-actions button:disabled { cursor: wait; opacity: .55; }
+#paper-library .pm-sync-status { color: var(--text-muted-color, #64748b); overflow-wrap: anywhere; }
