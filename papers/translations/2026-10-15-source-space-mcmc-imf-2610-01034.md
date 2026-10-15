@@ -523,8 +523,185 @@ $$
 本研究得到 NTU-SUG、新加坡教育部（MOE）AcRF Tier 1 RG17/24 和芬兰研究委员会项目 369502 资助。作者感谢 LUMI 超级计算机提供计算资源。LUMI 由 EuroHPC 联合事业组织拥有，并由芬兰 CSC 和 LUMI 联盟运营。
 
 
+## 附录 A. 证明与补充说明
+
+### A.1 $L_{\mathrm{iMF}}$ 与 $R_{\mathrm{iMF}}$ 的等价性
+
+将 $L_{\mathrm{iMF}}(\theta)=\mathbb E\|A_\theta-V\|_2^2$ 写为如下形式，其中预测项为
+
+$$
+\begin{aligned}
+A_\theta:=u_\theta(W_T,R,T)+(T-R)\big[
+\partial_tu_\theta(W_T,R,T)\\
++(\partial_wu_\theta)(W_T,R,T)v_\theta(W_T,T)\big].
+\end{aligned}
+$$
+
+$A_\theta$ 关于 $(W_T,R,T)$ 可测。由于 $(R,T)$ 与 $(X,Z)$ 独立，因此
+
+$$
+\mathbb E[V\mid W_T,R,T]=v(W_T,T).
+$$
+
+从而有
+
+$$
+\mathbb E\langle A_\theta-v(W_T,T),\,
+V-v(W_T,T)\rangle=0.
+$$
+
+展开平方范数便得到
+
+$$
+L_{\mathrm{iMF}}(\theta)=R_{\mathrm{iMF}}(\theta)
++\underbrace{\mathbb E\|V-v(W_T,T)\|_2^2}_{C},
+$$
+
+其中 $C$ 独立于参数 $\theta$。
+
+### A.2 式（14）的证明
+
+由于 $R(\theta)=L(\theta)+C$，故 $\inf R=\inf L+C$。因此
+
+$$
+R(\theta)=L(\theta)-\inf L+\inf R,
+$$
+
+即式（14）。
+
+### A.3 注释 3.4 的详细论证
+
+记
+
+$$
+\begin{aligned}
+A&:=\sup_{0\leq r\leq t\leq1}
+\|\bar q_\theta(\cdot,r,t)\|_{L^2(p_t)},\\
+B&:=\sup_{0\leq r\leq t\leq1}
+\|\partial_r\bar q_\theta(\cdot,r,t)\|_{L^2(p_t)}.
+\end{aligned}
+$$
+
+依照假设，$A,B<\infty$。对于 $0\leq r<s\leq t\leq1$，由微积分基本定理和 Minkowski 不等式，
+
+$$
+\begin{aligned}
+\|\bar q_\theta(\cdot,r,t)-\bar q_\theta(\cdot,s,t)\|_{L^2(p_t)}
+&\leq\int_r^s\|\partial_r\bar q_\theta(\cdot,a,t)\|_{L^2(p_t)}\,da\\
+&\leq B(s-r).
+\end{aligned}
+$$
+
+进而得到
+
+$$
+\left|
+\|\bar q_\theta(\cdot,r,t)\|_{L^2(p_t)}^2
+-\|\bar q_\theta(\cdot,s,t)\|_{L^2(p_t)}^2
+\right|\leq2AB(s-r).
+$$
+
+拆分 $G_\theta(r)$ 与 $G_\theta(s)$ 的积分，有
+
+$$
+\begin{aligned}
+|G_\theta(r)-G_\theta(s)|
+&\leq\int_r^s\|\bar q_\theta(\cdot,r,t)\|_{L^2(p_t)}^2\,dt\\
+&\quad+\int_s^1\left|
+\|\bar q_\theta(\cdot,r,t)\|_{L^2(p_t)}^2-
+\|\bar q_\theta(\cdot,s,t)\|_{L^2(p_t)}^2
+\right|dt\\
+&\leq A^2(s-r)+2AB(1-s)(s-r)\\
+&\leq(A^2+2AB)|s-r|.
+\end{aligned}
+$$
+
+现在假设 $u_\theta$ 和 $v_\theta$ 都是由仿射映射和逐坐标 SiLU 激活函数有限次复合得到的网络，并直接输入空间和时间变量。SiLU 激活 $\rho(a)=a/(1+e^{-a})$ 光滑，且一阶和二阶导数有界。根据链式法则，这些网络的一阶、二阶输入导数有界，网络输出至多线性增长。因为时间输入处于 $[0,1]$，存在有限常数 $C_\theta$，使得
+
+$$
+\|u_\theta(w,r,t)\|+\|v_\theta(w,t)\|
+\leq C_\theta(1+\|w\|),
+$$
+
+而 $u_\theta$ 的一阶、二阶输入导数一致有界。
+
+由于 $v$ 和 $v_\theta$ 都不依赖于 $r$，有
+
+$$
+\begin{aligned}
+\partial_r\bar q_\theta
+&=\partial_ru_\theta-\partial_tu_\theta
+-(\partial_wu_\theta)v_\theta\\
+&\quad+(t-r)\left[
+\partial_{rt}u_\theta+(\partial_{rw}u_\theta)v_\theta
+\right].
+\end{aligned}
+$$
+
+上述网络界意味着，在必要时增大 $C_\theta$ 后，对于 $0\leq r\leq t\leq1$ 一致成立
+
+$$
+\begin{aligned}
+\|\bar q_\theta(w,r,t)\|
+&\leq C_\theta(1+\|w\|)+\|v(w,t)\|,\\
+\|\partial_r\bar q_\theta(w,r,t)\|
+&\leq C_\theta(1+\|w\|).
+\end{aligned}
+$$
+
+令 $M_2:=\mathbb E\|X\|^2<\infty$，其中 $X\sim\pi_0$（假设 3.1）。利用 $X$ 和 $Z\sim\mathcal N(0,I_d)$ 的独立性，得到
+
+$$
+\mathbb E\|W_t\|^2=(1-t)^2M_2+t^2d\leq M_2+d.
+$$
+
+此外，由于 $v(W_t,t)=\mathbb E[Z-X\mid W_t]$，条件 Jensen 不等式给出
+
+$$
+\|v(\cdot,t)\|_{L^2(p_t)}^2
+\leq\mathbb E\|Z-X\|^2=M_2+d.
+$$
+
+这些估计建立了 $A,B<\infty$，从而证明了对于所述网络结构的论断。所得常数可能依赖网络参数。
+
+### A.4 注释 3.6 的详细论证
+
+记 $e_\theta(w,t):=v(w,t)-v_\theta(w,t)$。对于 $r<t$，算子范数界意味着
+
+$$
+(t-r)\|\partial_wu_\theta(w,r,t)e_\theta(w,t)\|
+\leq B_u\|e_\theta(w,t)\|.
+$$
+
+两边平方、对 $p_t$ 积分，并对时间表中的各区间求和，得到
+
+$$
+\begin{aligned}
+&\sum_{k=1}^K\int_{t_{k-1}}^{t_k}(t-t_{k-1})^2
+\|\partial_wu_\theta(\cdot,t_{k-1},t)e_\theta(\cdot,t)\|_{L^2(p_t)}^2\,dt\\
+&\quad\leq B_u^2\sum_{k=1}^K\int_{t_{k-1}}^{t_k}
+\|e_\theta(\cdot,t)\|_{L^2(p_t)}^2\,dt
+=B_u^2R_{\mathrm{FM}}(\theta).
+\end{aligned}
+$$
+
+最后一步利用 $T\sim\operatorname{Unif}[0,1]$，以及这些区间恰好划分 $[0,1]$ 的事实。
+
+如果 $u_\theta$ 关于 $w$ 一致满足 $L_u$-Lipschitz 条件，则
+$\|\partial_wu_\theta(w,r,t)\|_{\rm op}\leq L_u$。考虑到 $t-r\leq1$，取 $B_u=L_u$ 即满足充分条件。
+
+最后要强调，式（15）仅在空间与时间平均的意义下约束 Jacobian 对 $e_\theta$ 的作用，并不要求一致的算子范数界。例如，当 $v_\theta=v$ 时，该式左端为零。
+
+对于将空间与时间直接作为输入的有限仿射–SiLU 网络，其空间 Jacobian 一致有界，论证与附录 A.3 类似：
+
+$$
+L_u:=\sup_{w\in\mathbb R^d,\,(r,t)\in[0,1]^2}
+\|\partial_wu_\theta(w,r,t)\|_{\rm op}<\infty.
+$$
+
+
 ---
 
-**后续未完成部分：** 附录 A–B、参考文献的完整逐条保留及图表数据交叉校对尚未完成；不计为全文翻译完成。
+**后续未完成部分：** 附录 A.5–A.7、附录 B、参考文献的完整逐条保留及图表交叉校对尚未完成；不计为全文翻译完成。
 
 {% endraw %}
