@@ -11,7 +11,7 @@ toc: true
 
 ## 中英文译文
 
-- [基于先验少步传输映射的源空间 MCMC 后验采样｜中文阶段性译稿](/papers/translations/2026-10-15-source-space-mcmc-imf-2610-01034/) · 已译摘要、第 1–2 节与第 3.1 节（式 1–13）；非全文，未验收
+- [基于先验少步传输映射的源空间 MCMC 后验采样｜中文全篇译稿（校对中）](/papers/translations/2026-10-15-source-space-mcmc-imf-2610-01034/) · 摘要、正文 1–5 节、公式 1–29、附录 A–B、41 条参考文献、图 1–18 的中文说明与表 1–3；逐段 QA 中，未计入全文验收
 - [RIS 辅助智能无线环境与静态室内定位｜中文阶段性译稿](/papers/translations/2026-10-14-ris-static-indoor-positioning-twc3649587/) · 中文阶段性译稿（部分章节与公式，非全文；未验收）
 - [从航拍图像预测无线电地图及覆盖优化｜中文阶段性译稿](/papers/translations/2026-10-14-radio-map-aerial-images-2410-17264/) · 中文阶段性译稿（部分章节与公式，非全文；未验收）
 - [利用预测式基础模型减少信道估计导频｜中文阶段性译稿](/papers/translations/2026-10-14-predictive-foundation-channel-estimation-2512-15562/) · 中文阶段性译稿（部分章节与公式，非全文；未验收）
