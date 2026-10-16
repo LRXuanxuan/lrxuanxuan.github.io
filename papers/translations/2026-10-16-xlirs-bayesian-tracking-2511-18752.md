@@ -447,7 +447,28 @@ TS-CET 结合张量正交匹配追踪（OMP）、基于粒子的变分贝叶斯�
 
 ### B. CT 阶段联合分布的近似
 
-在信道跟踪（CT）阶段的第 $t$ 帧，算法根据全部历史观测 $\mathbf y^{(1:t)}$，求取路径幅度 $\nu_n^{(t)}$、相位 $\omega_n^{(t)}$、多普勒频偏 $f_d^{(t)}$ 和离网格参数 $\Xi_{u,m,k}^{(t)}$ 的边缘后验。为降低跨帧时序消息传递的复杂度，作者首先将式（38）的联合分布拆解为三部分：当前帧观测的似然、描述前后帧参数变化的时变稀疏先验，以及前一帧参数的边缘后验（原文式（39））。随后用 SPVBI 产生的近似边缘后验替代精确历史后验，得到
+在信道跟踪（CT）阶段的第 $t$ 帧，算法根据全部历史观测 $\mathbf y^{(1:t)}$，求取路径幅度 $\nu_n^{(t)}$、相位 $\omega_n^{(t)}$、多普勒频偏 $f_d^{(t)}$ 和离网格参数 $\Xi_{u,m,k}^{(t)}$ 的边缘后验。为降低跨帧时序消息传递的复杂度，作者首先将式（38）的联合分布拆解为三部分：当前帧观测的似然、描述前后帧参数变化的时变稀疏先验，以及前一帧参数的边缘后验。原文式（39）写为
+
+$
+\begin{aligned}
+p(\mathbf y^{(1:t)},\boldsymbol\kappa^{(t)})
+={}&p(\mathbf y^{(t)}\mid\boldsymbol\nu^{(t)},
+\boldsymbol\omega^{(t)},f_d^{(t)},\boldsymbol\Xi^{(t)})\\
+&\times\int_{\boldsymbol\kappa^{(t-1)}}
+p(\boldsymbol\nu^{(t)}\mid\boldsymbol\nu^{(t-1)},\mathbf s^{(t)})
+p(\boldsymbol\omega^{(t)}\mid\boldsymbol\omega^{(t-1)},\mathbf s^{(t)})\\
+&\quad{}\cdot p(\mathbf s^{(t)}\mid\mathbf s^{(t-1)})
+p(f_d^{(t)}\mid f_d^{(t-1)})
+p(\boldsymbol\Xi^{(t)}\mid\boldsymbol\Xi^{(t-1)})\\
+&\quad{}\cdot p(\boldsymbol\nu^{(t-1)}\mid\mathbf y^{(1:t-1)})
+p(\boldsymbol\omega^{(t-1)}\mid\mathbf y^{(1:t-1)})
+p(\mathbf s^{(t-1)}\mid\mathbf y^{(1:t-1)})\\
+&\quad{}\cdot p(f_d^{(t-1)}\mid\mathbf y^{(1:t-1)})
+p(\boldsymbol\Xi^{(t-1)}\mid\mathbf y^{(1:t-1)}).
+\end{aligned}\tag{39}
+$
+
+其中三个因子组依次对应本帧观测似然、时变稀疏先验与上一帧边缘后验。原文用对前一帧状态的积分表示历史状态消元，并在该式中采用上一帧边缘后验的乘积近似；为避免擅自改变原文推导，这里保留其写法。随后用 SPVBI 产生的近似边缘后验替代精确历史后验，得到
 
 $$
 \begin{aligned}
