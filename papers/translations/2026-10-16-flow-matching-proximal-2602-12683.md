@@ -1311,3 +1311,296 @@ $$
 $\|DP_\lambda(x_1;h)-h\|
 \le\sqrt{\lambda C}\|h\|$。
 证明完毕。
+
+
+## 附录 C. 将 FM 向量场写为梯度场
+
+本节解释如何从近端视角出发，把 FM 向量场理解为梯度流。考虑两种形式：一是在原始状态变量中写出梯度流；二是缩放状态变量，从而获得 Moreau 包络的梯度流。
+
+### C.1 原变量中的梯度流
+
+由第 2.3 节，定义含时势
+
+$$
+F_t^{\rm FM}(y):=
+-\frac{\dot\alpha_t}{2\alpha_t}\|y\|^2
+-\left(\dot\beta_t-\beta_t\frac{\dot\alpha_t}{\alpha_t}\right)
+\psi_t^\ast(y).
+\tag{28}
+$$
+
+则
+
+$$
+v_t(y)=-\nabla F_t^{\rm FM}(y).
+\tag{29}
+$$
+
+因此 FM 动力学 $\dot x_t=v_t(x_t)$ 是原状态变量中的**非自治梯度流**。这本质上与 OT 的 Benamou–Brenier 表述相近 [Ambrosio 等，2008]：后者把 OT 向量场表示为某个势的梯度
+$v_t=\nabla F_t^{\rm BB}$。不过这里的时间调度比标准测地线路径
+$\alpha_t=1-t,\beta_t=t$ 更一般。
+
+### C.2 缩放后的 Moreau 包络流
+
+为了使“近端”结构直接出现在 ODE 中，定义缩放状态
+
+$$
+z_t:=\frac{x_t}{\beta_t},\qquad t>0.
+\tag{30}
+$$
+
+直接计算可得
+
+$$
+\dot z_t
+=-c_t\left(
+z_t-\operatorname{prox}_{\lambda_t\varphi}(z_t)
+\right),
+\tag{31}
+$$
+
+其中
+$c_t=\dot\beta_t/\beta_t-\dot\alpha_t/\alpha_t>0$。
+
+已知 Moreau 包络连续可微，并满足
+
+$$
+\nabla M_\lambda\varphi(z)=
+\frac{z-\operatorname{prox}_{\lambda\varphi}(z)}{\lambda}.
+$$
+
+因此缩放状态的 ODE 为
+
+$$
+\dot z_t
+=-c_t\lambda_t\nabla M_{\lambda_t}\varphi(z_t).
+\tag{32}
+$$
+
+所以，在自然缩放 $z_t=x_t/\beta_t$ 下，OT-CFM 动力学成为**光滑 Moreau 包络** $M_{\lambda_t}\varphi$ 的梯度流。
+
+## 附录 D. 假设 A3：相对内部次梯度的条件测度分解判据
+
+本节给出一个便于使用的测度论判据：当最优耦合集中在次微分的图上时，相应条件点几乎必然落在每条纤维（fiber）的相对内部。结论纯属测度论性质，可用于非光滑情形的 OT 耦合。
+
+### D.1 设置与记号
+
+取 $d\ge1$，令
+$\varphi:\mathbb R^d\to(-\infty,+\infty]$
+正常、下半连续且凸。对每个 $x\in\mathbb R^d$，
+次微分 $\partial\varphi(x)$ 是可能为空的闭凸集。记
+
+$$
+C(x)=\partial\varphi(x),\qquad
+L(x)=\operatorname{aff}C(x),\qquad
+k(x)=\dim L(x).
+$$
+
+用 $\operatorname{ri}$ 和 $\operatorname{bd}$ 分别表示相对内部与相对边界。对闭凸集 $C\subset\mathbb R^d$，
+
+$$
+\operatorname{bd}(C)=C\setminus\operatorname{ri}(C).
+$$
+
+对维数为 $k$ 的仿射子空间 $L$，
+$\mathcal H^k\!\restriction L$ 表示限制在 $L$ 上的 $k$ 维 Hausdorff 测度，等价于 $L$ 内蕴的 $k$ 维 Lebesgue 测度。
+
+设 $\pi$ 是定义在 $\mathbb R^d\times\mathbb R^d$ 的概率测度，其第一边缘分布为 $P_1$。假设 $\pi$ 支撑于 $\partial\varphi$ 的图：
+
+$$
+\pi(\operatorname{graph}(\partial\varphi))=1,
+\tag{33}
+$$
+
+其中
+
+$$
+\operatorname{graph}(\partial\varphi)
+=\{(x_1,x_0):x_0\in\partial\varphi(x_1)\}.
+$$
+
+对于二次代价 OT，循环单调集上的 Rockafellar 定理 [1970，定理 24.8] 保证 $\pi^{\rm OT}$ 对某个凸势满足式 (33)。
+
+由于 $\mathbb R^d$ 是 Polish 空间，$\pi$ 可以相对于 $P_1$ 进行条件概率分解：存在一个在 $P_1$ 几乎处处唯一确定的概率核
+$x_1\mapsto\pi_{x_1}$，使
+
+$$
+\pi(\mathrm dx_1,\mathrm dx_0)
+=P_1(\mathrm dx_1)\pi_{x_1}(\mathrm dx_0).
+\tag{34}
+$$
+
+对任意有界 Borel 可测函数
+$g:\mathbb R^d\times\mathbb R^d\to\mathbb R$，
+
+$$
+\int g(x_1,x_0)\,\pi(\mathrm dx_1,\mathrm dx_0)
+=\int\left(\int g(x_1,x_0)\,\pi_{x_1}(\mathrm dx_0)\right)
+P_1(\mathrm dx_1).
+\tag{35}
+$$
+
+### D.2 必要且充分的条件测度分解条件
+
+**引理 D.1（相对内部的条件测度分解等价性）。** 假设式 (33) 成立，
+$\pi_{x_1}$ 是式 (34) 的条件概率核。以下条件等价：
+
+1. 对 $\pi$-几乎处处的 $(x_1,x_0)$，有
+   $x_0\in\operatorname{ri}(\partial\varphi(x_1))$。
+2. 对 $P_1$-几乎处处的 $x_1$，
+   $\pi_{x_1}(
+   \partial\varphi(x_1)\setminus\operatorname{ri}(\partial\varphi(x_1))
+   )=0$；
+   等价地，
+   $\pi_{x_1}(\operatorname{ri}(\partial\varphi(x_1)))=1$。
+
+**证明。** 定义可测集
+
+$$
+E=\{(x_1,x_0):
+x_0\in\operatorname{ri}(\partial\varphi(x_1))\}.
+$$
+
+对式 (35) 取 $g=\mathbf1_E$，得到
+
+$$
+\pi(E)=\int\pi_{x_1}(E_{x_1})P_1(\mathrm dx_1),
+$$
+
+其中
+
+$$
+E_{x_1}
+=\{x_0:(x_1,x_0)\in E\}
+=\operatorname{ri}(\partial\varphi(x_1)).
+$$
+
+于是 $\pi(E)=1$ 当且仅当对 $P_1$-几乎处处 $x_1$ 有
+$\pi_{x_1}(E_{x_1})=1$，正好是条件 2。等价性得证。
+
+引理 D.1 给出的判据是精确的：它把希望成立的联合测度 $\pi$ 几乎处处性质，转化为各条纤维上的条件测度 $\pi_{x_1}$ 几乎处处性质。
+
+### D.3 可检验的充分条件：每条纤维上的绝对连续性
+
+现在给出一个实用的充分条件。其依据是：一个具有非空相对内部的满维凸集，其相对边界的内蕴体积为零。
+
+**引理 D.2（相对边界的内蕴体积为零）。** 令
+$L\subset\mathbb R^d$ 是维数 $k\ge1$ 的仿射子空间，$C\subset L$ 为非空闭凸集，且
+$\operatorname{ri}(C)\ne\varnothing$。则
+
+$$
+\mathcal H^k\!\restriction L(\operatorname{bd}(C))=0.
+$$
+
+若 $k=0$，则 $C$ 是单点集，
+$\operatorname{ri}(C)=C$。
+
+**证明。** $k=0$ 的情形显然。对 $k\ge1$，取仿射等距映射
+$A:L\to\mathbb R^k$，令
+$T=A(C)\subset\mathbb R^k$。
+$T$ 闭、凸且具有非空欧氏内部，并满足
+
+$$
+A(\operatorname{ri}(C))=\operatorname{int}(T),
+\qquad
+A(\operatorname{bd}(C))=\partial T.
+$$
+
+由于 $A$ 将 $(L,\mathcal H^k\restriction L)$ 等距映射为
+$(\mathbb R^k,\operatorname{Leb}^k)$，
+
+$$
+\mathcal H^k\!\restriction L(\operatorname{bd}(C))=0
+\iff\operatorname{Leb}^k(\partial T)=0.
+$$
+
+下面证明 $\operatorname{Leb}^k(\partial T)=0$。反设该值为正。因为
+$\partial T\subset T$，$T$ 具有正 Lebesgue 测度。由 Lebesgue 密度定理 [Rudin，1986，定理 7.12]，$T$ 的几乎处处点都是密度点，因此可以选择
+$x\in\partial T$，使
+
+$$
+\lim_{r\downarrow0}
+\frac{\operatorname{Leb}^k(T\cap B_r(x))}
+{\operatorname{Leb}^k(B_r(x))}=1.
+$$
+
+另一方面，$T$ 是有非空内部的闭凸集，而
+$x\in\partial T$。根据支撑超平面定理，存在非零
+$n\in\mathbb R^k$，使对所有 $z\in T$，
+
+$$
+\langle n,z-x\rangle\le0.
+$$
+
+也就是说，$T$ 完全包含在闭半空间
+
+$$
+H^-=\{z:\langle n,z-x\rangle\le0\}
+$$
+
+中，而与其相对的开半空间
+$H^+=\{z:\langle n,z-x\rangle>0\}$
+不与 $T$ 相交。对任意 $r>0$，
+$B_r(x)\cap H^+$ 在忽略零测集后恰好占球体体积的一半。因此
+
+$$
+\operatorname{Leb}^k(T\cap B_r(x))
+\le\operatorname{Leb}^k(B_r(x)\cap H^-)
+=\frac12\operatorname{Leb}^k(B_r(x)).
+$$
+
+这意味着 $T$ 在 $x$ 的密度至多 $1/2$，与 $x$ 是密度点矛盾。故
+$\operatorname{Leb}^k(\partial T)=0$，结论成立。
+
+接下来给出所需的充分条件。
+
+**引理 D.3（相对内部次梯度的充分条件测度分解判据）。**
+假设式 (33) 成立，令 $\pi_{x_1}$ 为式 (34) 的条件分布。进一步假设对 $P_1$-几乎处处的 $x_1$：
+
+1. $\pi_{x_1}$ 支撑于
+   $C(x_1)=\partial\varphi(x_1)$，即
+   $\pi_{x_1}(C(x_1))=1$。
+2. 记 $L(x_1)=\operatorname{aff}C(x_1)$、
+   $k(x_1)=\dim L(x_1)$；$\pi_{x_1}$ 对 $L(x_1)$ 内蕴的 $k(x_1)$ 维体积绝对连续：
+
+$$
+\pi_{x_1}\ll
+\mathcal H^{k(x_1)}\!\restriction L(x_1).
+\tag{36}
+$$
+
+则对 $\pi$-几乎处处 $(x_1,x_0)$，
+
+$$
+x_0\in\operatorname{ri}(\partial\varphi(x_1)).
+$$
+
+**证明。** 固定一个满足两个条件的 $x_1$，
+记 $C=C(x_1)$、$L=L(x_1)$、
+$k=k(x_1)$。
+
+若 $k=0$，$C$ 为单点集，
+$\operatorname{ri}(C)=C$，由条件 1，
+$\pi_{x_1}(\operatorname{ri}(C))=1$。
+
+若 $k\ge1$，引理 D.2 给出
+$\mathcal H^k\restriction L(\operatorname{bd}(C))=0$。
+由式 (36)，$\pi_{x_1}(\operatorname{bd}(C))=0$。
+又因 $C$ 闭凸，
+
+$$
+C\setminus\operatorname{ri}(C)=\operatorname{bd}(C),
+$$
+
+所以
+
+$$
+\pi_{x_1}(C\setminus\operatorname{ri}(C))=0
+\Longrightarrow
+\pi_{x_1}(\operatorname{ri}(C))=1.
+$$
+
+这就是引理 D.1 的条件 2，因而引理 D.1 保证所需的 $\pi$-几乎处处结论。证毕。
+
+**解释。** 引理 D.3 的意义是：如果在 $P_1$-几乎每个目标点 $x_1$ 上，条件分布 $\pi(\mathrm dx_0\mid x_1)$ 对次梯度纤维
+$\partial\varphi(x_1)$ 的仿射包具有密度，那么耦合不会把概率质量分配到该纤维的低维边界面；每条纤维上的条件样本因此以概率 1 落在相对内部，进而得到联合分布 $\pi$ 几乎处处的结论。
