@@ -819,7 +819,18 @@ $$
 p(\nu\mid x)\propto
 \exp\left[-\tfrac12\left(\frac{\nu^2}{3^2}
 +e^{-\nu}x^2+\frac{\nu}{2}\right)\right].\tag{18}
-$$
+$
+
+> **原文式（18）核对：** 上式按 PDF 原样保留。但由正文式（14）的 $\nu\sim\mathcal N(0,3^2)$、$x\mid\nu\sim\mathcal N(0,e^\nu)$ 直接计算，
+>
+> $
+> p(\nu\mid x)\propto p(\nu)p(x\mid\nu)
+> \propto\exp\left[-\frac12\left(
+> \frac{\nu^2}{3^2}+e^{-\nu}x^2+\nu
+> \right)\right].
+> $
+>
+> 因为高斯似然的归一化系数包含 $e^{-\nu/2}$，括号中的线性项应为 $\nu$，而原 PDF 式（18）印作 $\nu/2$。这是原论文公式与模型定义之间的差异，不是译文主动修正；复现实验时应核对作者实际采用的目标对数密度。
 
 可以通过对称随机游走提议的 Metropolis–Hastings（MH）采样器估计：
 
