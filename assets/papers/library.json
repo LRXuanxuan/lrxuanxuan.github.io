@@ -893,7 +893,13 @@
       "report_entry_url": "/papers/reports/2026-10-16/#paper-960c9e722bdf3f38",
       "paper_url": "/papers/items/960c9e722bdf3f38/",
       "paper_report_url": "/papers/items/960c9e722bdf3f38/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "title": "从近端算子视角理解流匹配｜中文全篇译稿（逐式校对中）",
+          "scope": "摘要、正文 1–7、公式 1–53、命题及定理证明、实验与图 1–6、附录 A–G、参考文献 43 条均已译；逐式终校中，未计入已验收全文",
+          "url": "/papers/translations/2026-10-16-flow-matching-proximal-2602-12683/"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2602.12683",
         "https://arxiv.org/abs/2602.12683",
@@ -909,7 +915,7 @@
       "translation_status": "pending",
       "full_translation_public": false,
       "full_translation_url": "/papers/items/960c9e722bdf3f38/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_label": "中文全篇译稿（待终校）"
     },
     {
       "id": "0995fadc98ae06dc",
@@ -17976,6 +17982,24 @@
     }
   ],
   "translations": [
+    {
+      "date": "2026-10-16",
+      "slug": "2026-10-16-flow-matching-proximal-2602-12683",
+      "title": "从近端算子视角理解流匹配｜中文全篇译稿（逐式校对中）",
+      "paper_ids": [
+        "960c9e722bdf3f38"
+      ],
+      "source_arxiv_ids": [
+        "2602.12683"
+      ],
+      "url": "/papers/translations/2026-10-16-flow-matching-proximal-2602-12683/",
+      "source_file": "2026-10-16-flow-matching-proximal-2602-12683.md",
+      "scope": "摘要、正文 1–7、公式 1–53、命题及定理证明、实验与图 1–6、附录 A–G、参考文献 43 条均已译；逐式终校中，未计入已验收全文",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-16-flow-matching-proximal-2602-12683.md",
+      "source_page_path": "papers/translations/2026-10-16-flow-matching-proximal-2602-12683.md",
+      "external": true,
+      "qa_complete": false
+    },
     {
       "date": "2026-10-16",
       "slug": "2026-10-16-markov-cfm-2610-07229",
