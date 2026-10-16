@@ -1315,3 +1315,112 @@ k^2=\sigma^2\bigl(
 $$
 
 这就得到正文的定理 2。请注意：关于 $\lambda_j$ 与 $\lambda'_j$ 的尺度关系应结合原论文中的特征值归一化约定核查，避免在其他系统中直接移用此概率界。
+
+
+## 参考文献
+
+> 以下按照原文 [1]–[49] 编号提供作者、中文题名释义及书目要素，不额外增加原 PDF 没有的文献。英文题名与标准缩写可在上传 PDF 第 14–15 页逐项查阅。
+
+[1] F. Weißer、N. Turan、D. Semmler、W. Utschick，**利用高斯混合模型的数据辅助信道估计**，ICASSP 2024，8886–8890 页。
+
+[2] F. Rusek 等，**扩大 MIMO 规模：超大型阵列的机遇与挑战**，IEEE Signal Processing Magazine，30(1)，40–60，2013。
+
+[3] Y. Kabalci，《5G 移动通信系统：基础、挑战与关键技术》，Springer，2019，329–359 页。
+
+[4] H. Ye、G. Y. Li、B.-H. Juang，**深度学习在 OFDM 系统信道估计与信号检测中的作用**，IEEE Wireless Communications Letters，7(1)，114–117，2018。
+
+[5] Z. Shang 等，**不完美 CSI 下基于 NOMA 的认知无线电网络安全传输**，IEEE Communications Letters，25(8)，2517–2521，2021。
+
+[6] H. Harkat 等，**MIMO-OFDM 系统综述：近期趋势回顾**，Signals，3(2)，359–395，2022。
+
+[7] S. C、J. Sandeep，**无线通信网络信道估计机制综述**，ICECA 2021，603–608 页。
+
+[8] T. L. Marzetta，**多用户 MIMO 需要多少训练？** Asilomar Conference on Signals, Systems and Computers，359–363，2006。
+
+[9] E. De Carvalho、D. Slock，**半盲、盲及基于训练序列的信道估计 Cramér–Rao 界**，IEEE SPAWC，129–132，1997。
+
+[10] E. De Carvalho、D. Slock，**半盲信道估计 ML 方法的渐近性能**，Asilomar Conference，1624–1628，1997。
+
+[11] A. Medles、D. Slock，**增强 MIMO 信道半盲估计中的训练序列部分**，Asilomar Conference，1825–1829，2003。
+
+[12] J. Ma、L. Ping，**大型天线系统的数据辅助信道估计**，IEEE Transactions on Signal Processing，62(12)，3111–3124，2014。
+
+[13] M. Joham 等，**半盲信道估计：一种新的最小二乘方法**，International Conference on Telecommunications，416–420，1999。
+
+[14] D. Neumann、M. Joham、W. Utschick，**大规模 MIMO 系统中的信道估计**，arXiv:1503.08691，2015。
+
+[15] E. Nayebi、B. D. Rao，**多用户大规模 MIMO 系统的半盲信道估计**，IEEE Transactions on Signal Processing，66(2)，540–553，2018。
+
+[16] Y. Liu、L. Brunel、J. J. Boutros，**在多径信道因子图上利用高斯近似进行联合信道估计与解码**，IEEE PIMRC，3164–3168，2009。
+
+[17] S. Wu 等，**用于三维大规模 MIMO-OFDM 联合信道估计与解码的消息传递接收机**，IEEE Transactions on Wireless Communications，15(12)，8122–8138，2016。
+
+[18] A. Mehrotra 等，**OTFS-MIMO 中通过仿射预编码叠加导频进行数据辅助 CSI 估计**，IEEE Transactions on Communications，71(8)，4482–4498，2023。
+
+[19] A. Osinsky 等，**massive MIMO Turbo 接收机的数据辅助 LS 信道估计**，IEEE VTC Spring，1–5，2020。
+
+[20] M. Liu、M. Crussiere、J.-F. Helard，**一种用于 TDS-OFDM 的低复杂度数据辅助信道估计方法**，IEEE Transactions on Broadcasting，58(2)，247–260，2012。
+
+[21] S. Park、B. Shim、J. W. Choi，**利用虚拟导频信号的 MIMO-OFDM 迭代信道估计**，IEEE Transactions on Signal Processing，63(12)，3032–3045，2015。
+
+[22] I. Khan、M. Cheffena、M. M. Hasan，**利用可靠载波的 MIMO-OFDM 数据辅助信道估计**，IEEE Access，11，47836–47847，2023。
+
+[23] T.-K. Kim 等，**通过强化学习实现 MIMO 系统的半数据辅助信道估计**，IEEE Transactions on Wireless Communications，22(7)，4565–4579，2023。
+
+[24] I. Khan 等，**MIMO-OFDM 的低复杂度峰值功率辅助数据辅助信道估计新方案**，IEEE Open Journal of Signal Processing，6，992–1003，2025。
+
+[25] N. Zilberstein、A. Swami、S. Segarra，**基于扩散模型的大规模 MIMO 联合信道估计与数据检测**，ICASSP 2024，13291–13295 页。
+
+[26] Y. Deng、T. Ohtsuki，**大规模 MU-MIMO 系统中的低复杂度子空间 MMSE 信道估计**，IEEE Access，8，124371–124381，2020。
+
+[27] S. M. Kay，《统计信号处理基础：估计理论》，Prentice-Hall，1993。
+
+[28] J. Yang 等，**通过从测量中学习高斯混合模型实现压缩感知**，IEEE Transactions on Image Processing，24(1)，106–119，2015。
+
+[29] D. Neumann、T. Wiese、W. Utschick，**学习 MMSE 信道估计器**，IEEE Transactions on Signal Processing，66(11)，2905–2917，2018。
+
+[30] M. Koller、B. Fesl、N. Turan、W. Utschick，**基于高斯混合模型的渐近 MSE 最优估计器**，IEEE Transactions on Signal Processing，70，4109–4123，2022。
+
+[31] B. Fesl、N. Turan、W. Utschick，**基于因子分析器混合的低秩结构化 MMSE 信道估计**，Asilomar Conference，375–380，2023。
+
+[32] M. Baur、B. Fesl、W. Utschick，**利用变分自编码器实现参数化 MMSE 估计**，IEEE Transactions on Signal Processing，72，3731–3744，2024。
+
+[33] N. Turan 等，**通过生成建模实现 FDD 系统的通用低复杂度反馈方案**，IEEE Transactions on Wireless Communications，23(6)，6251–6265，2024。
+
+[34] F. Weißer 等，**利用高斯混合模型的数据辅助 MU-MIMO 信道估计**，IEEE ICC 2024，6684–6689 页。
+
+[35] 3GPP，**用于 MIMO 仿真的空间信道模型**，技术报告 TR 25.996 v16.0.0，2020。
+
+[36] N. Turan 等，**使用测量数据评估基于高斯混合模型的信道估计器**，ISWCS，1–6，2022。
+
+[37] A. P. Dempster、N. M. Laird、D. B. Rubin，**通过 EM 算法从不完整数据进行最大似然估计**，Journal of the Royal Statistical Society Series B，39(1)，1–38，1977。
+
+[38] E. Björnson、J. Hoydis、L. Sanguinetti，**Massive MIMO 网络：频谱效率、能量效率与硬件效率**，Foundations and Trends in Signal Processing，11(3–4)，154–655，2017。
+
+[39] V. Milman、G. Schechtman，《有限维赋范空间的渐近理论》，Lecture Notes in Mathematics，1200，Springer，1986。
+
+[40] X. Zhang、A. Kammoun、M.-S. Alouini，**通过 CRB 探究大规模 MIMO 半盲信道估计的基本极限**，IEEE Transactions on Signal Processing，1–16，2025。
+
+[41] W. Utschick，**信号子空间投影算子的跟踪**，IEEE Transactions on Signal Processing，50(4)，769–778，2002。
+
+[42] B. Yang，**投影近似子空间跟踪**，IEEE Transactions on Signal Processing，43(1)，95–107，1995。
+
+[43] B. Böck 等，**给定侧信息的无线信道统计特征描述**，IEEE Wireless Communications Letters，13(12)，3508–3512，2024。
+
+[44] T. T. Nguyen 等，**使用有限连续密度混合逼近无穷远处消失的密度函数**，Cogent Mathematics & Statistics，7(1)，1750861，2020。
+
+[45] C. M. Bishop，《模式识别与机器学习》，Springer-Verlag，2006。
+
+[46] D. P. Kingma、M. Welling，**变分自编码器导论**，Foundations and Trends in Machine Learning，12(4)，307–392，2019。
+
+[47] M. Baur、B. Böck、N. Turan、W. Utschick，**用于信道估计的 VAE：真实世界测量经验**，WSA，117–122，2024。
+
+[48] H. L. Van Trees，《检测、估计与调制理论：第一部分》，Wiley，2001。
+
+[49] A. Loukas，**样本协方差与真实协方差矩阵的特征向量有多接近？** ICML / PMLR 70，2228–2237，2017。
+
+## 翻译与复现核查备注（不属于原文）
+
+- 第三节对于投影噪声协方差的式 (23) 使用空间不相关瑞利衰落相关假设；在实测数据上，作者采用式 (64) 的近似。不能把投影 LMMSE 的优越性不加条件地推广到任意信道模型。
+- 附录 C 给出的 BCRB 表达针对本文设定，并包含对特定用户信道的矩阵子块提取；它与普通无偏 CRB 的适用范围不同。
+- 第四节式 (59) 的非零均值补偿、附录 D 特征值缩放符号需与原文及实际实现作逐式核查。译文暂不自行纠正作者的数学表示。
