@@ -374,7 +374,13 @@
       "report_entry_url": "/papers/reports/2026-10-17/#paper-ea9486d36b8deb3a",
       "paper_url": "/papers/items/ea9486d36b8deb3a/",
       "paper_report_url": "/papers/items/ea9486d36b8deb3a/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "title": "SwiftChannel：5G 信道估计算法与硬件协同设计｜中文阶段性译稿",
+          "scope": "摘要、引言、相关工作、估计网络前半部分已译；后续章节待补",
+          "url": "/papers/translations/2026-10-16-swiftchannel-2605-01931/"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2605.01931",
         "https://ieeexplore.ieee.org/document/11311690/",
@@ -428,7 +434,13 @@
       "report_entry_url": "/papers/reports/2026-10-17/#paper-d48b0ee5ed171655",
       "paper_url": "/papers/items/d48b0ee5ed171655/",
       "paper_report_url": "/papers/items/d48b0ee5ed171655/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "title": "XL-IRS 近场稀疏贝叶斯估计与跟踪｜中文阶段性译稿",
+          "scope": "摘要、引言、系统模型前半部分已译；后续章节待补",
+          "url": "/papers/translations/2026-10-16-xlirs-bayesian-tracking-2511-18752/"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2511.18752",
         "https://ieeexplore.ieee.org/document/11593984/",
@@ -479,7 +491,13 @@
       "report_entry_url": "/papers/reports/2026-10-17/#paper-9a6506037bc21abd",
       "paper_url": "/papers/items/9a6506037bc21abd/",
       "paper_report_url": "/papers/items/9a6506037bc21abd/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "title": "CKMImageNet：面向环境感知通信与感知的信道知识地图数据集｜中文译稿（校对中）",
+          "scope": "摘要、正文 I–VI、图表与参考文献已译；未逐段逐式验收",
+          "url": "/papers/translations/2026-10-16-ckmimagenet-2504-09849/"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2504.09849",
         "https://ieeexplore.ieee.org/document/11184538/",
@@ -533,7 +551,13 @@
       "report_entry_url": "/papers/reports/2026-10-17/#paper-d0a6df0a63370a84",
       "paper_url": "/papers/items/d0a6df0a63370a84/",
       "paper_report_url": "/papers/items/d0a6df0a63370a84/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "title": "马尔可夫过程间传输的条件流匹配｜中文阶段性译稿",
+          "scope": "摘要、引言、预备知识和问题模型已译；主要定理、实验和附录待补",
+          "url": "/papers/translations/2026-10-16-markov-cfm-2610-07229/"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2610.07229",
         "https://arxiv.org/abs/2610.07229",
@@ -582,7 +606,13 @@
       "report_entry_url": "/papers/reports/2026-10-17/#paper-0ea4eaed1ae65891",
       "paper_url": "/papers/items/0ea4eaed1ae65891/",
       "paper_report_url": "/papers/items/0ea4eaed1ae65891/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "title": "用于贝叶斯后验推断的条件流匹配｜中文阶段性译稿",
+          "scope": "摘要、引言、方法 2.1–2.2 已译；后续章节和附录待补",
+          "url": "/papers/translations/2026-10-16-conditional-flow-bayesian-2510-09534/"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2510.09534",
         "https://arxiv.org/abs/2510.09534",
@@ -17946,6 +17976,96 @@
     }
   ],
   "translations": [
+    {
+      "date": "2026-10-16",
+      "slug": "2026-10-16-markov-cfm-2610-07229",
+      "title": "马尔可夫过程间传输的条件流匹配｜中文阶段性译稿",
+      "paper_ids": [
+        "d0a6df0a63370a84"
+      ],
+      "source_arxiv_ids": [
+        "2610.07229"
+      ],
+      "url": "/papers/translations/2026-10-16-markov-cfm-2610-07229/",
+      "source_file": "2026-10-16-markov-cfm-2610-07229.md",
+      "scope": "摘要、引言、预备知识和问题模型已译；主要定理、实验和附录待补",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-16-markov-cfm-2610-07229.md",
+      "source_page_path": "papers/translations/2026-10-16-markov-cfm-2610-07229.md",
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-16",
+      "slug": "2026-10-16-swiftchannel-2605-01931",
+      "title": "SwiftChannel：5G 信道估计算法与硬件协同设计｜中文阶段性译稿",
+      "paper_ids": [
+        "ea9486d36b8deb3a"
+      ],
+      "source_arxiv_ids": [
+        "2605.01931"
+      ],
+      "url": "/papers/translations/2026-10-16-swiftchannel-2605-01931/",
+      "source_file": "2026-10-16-swiftchannel-2605-01931.md",
+      "scope": "摘要、引言、相关工作、估计网络前半部分已译；后续章节待补",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-16-swiftchannel-2605-01931.md",
+      "source_page_path": "papers/translations/2026-10-16-swiftchannel-2605-01931.md",
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-16",
+      "slug": "2026-10-16-xlirs-bayesian-tracking-2511-18752",
+      "title": "XL-IRS 近场稀疏贝叶斯估计与跟踪｜中文阶段性译稿",
+      "paper_ids": [
+        "d48b0ee5ed171655"
+      ],
+      "source_arxiv_ids": [
+        "2511.18752"
+      ],
+      "url": "/papers/translations/2026-10-16-xlirs-bayesian-tracking-2511-18752/",
+      "source_file": "2026-10-16-xlirs-bayesian-tracking-2511-18752.md",
+      "scope": "摘要、引言、系统模型前半部分已译；后续章节待补",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-16-xlirs-bayesian-tracking-2511-18752.md",
+      "source_page_path": "papers/translations/2026-10-16-xlirs-bayesian-tracking-2511-18752.md",
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-16",
+      "slug": "2026-10-16-conditional-flow-bayesian-2510-09534",
+      "title": "用于贝叶斯后验推断的条件流匹配｜中文阶段性译稿",
+      "paper_ids": [
+        "0ea4eaed1ae65891"
+      ],
+      "source_arxiv_ids": [
+        "2510.09534"
+      ],
+      "url": "/papers/translations/2026-10-16-conditional-flow-bayesian-2510-09534/",
+      "source_file": "2026-10-16-conditional-flow-bayesian-2510-09534.md",
+      "scope": "摘要、引言、方法 2.1–2.2 已译；后续章节和附录待补",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-16-conditional-flow-bayesian-2510-09534.md",
+      "source_page_path": "papers/translations/2026-10-16-conditional-flow-bayesian-2510-09534.md",
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-16",
+      "slug": "2026-10-16-ckmimagenet-2504-09849",
+      "title": "CKMImageNet：面向环境感知通信与感知的信道知识地图数据集｜中文译稿（校对中）",
+      "paper_ids": [
+        "9a6506037bc21abd"
+      ],
+      "source_arxiv_ids": [
+        "2504.09849"
+      ],
+      "url": "/papers/translations/2026-10-16-ckmimagenet-2504-09849/",
+      "source_file": "2026-10-16-ckmimagenet-2504-09849.md",
+      "scope": "摘要、正文 I–VI、图表与参考文献已译；未逐段逐式验收",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-16-ckmimagenet-2504-09849.md",
+      "source_page_path": "papers/translations/2026-10-16-ckmimagenet-2504-09849.md",
+      "external": true,
+      "qa_complete": false
+    },
     {
       "date": "2026-10-16",
       "slug": "2026-10-16-semi-blind-generative-priors-2504-17573",
