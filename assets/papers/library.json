@@ -634,7 +634,13 @@
       "report_entry_url": "/papers/reports/2026-10-16/#paper-5d52867365440edf",
       "paper_url": "/papers/items/5d52867365440edf/",
       "paper_report_url": "/papers/items/5d52867365440edf/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "title": "RSS 地图辅助的 FR3 MIMO 信道估计｜中文译稿（逐式校对中）",
+          "scope": "已译摘要、正文 I–VI、公式 1–25、算法 1、图 1–12、表 I–VIII、参考文献 1–41；逐式终校中，未计入已验收全文",
+          "url": "/papers/translations/2026-10-16-rss-map-fr3-pinn-2603-00112/"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2603.00112",
         "https://ieeexplore.ieee.org/document/11570128/",
@@ -655,7 +661,7 @@
       "translation_status": "pending",
       "full_translation_public": false,
       "full_translation_url": "/papers/items/5d52867365440edf/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_label": "中文译稿（待终校）"
     },
     {
       "id": "ef5d07dc84efccfe",
@@ -17928,6 +17934,24 @@
     }
   ],
   "translations": [
+    {
+      "date": "2026-10-16",
+      "slug": "2026-10-16-rss-map-fr3-pinn-2603-00112",
+      "title": "RSS 地图辅助的 FR3 MIMO 信道估计｜中文译稿（逐式校对中）",
+      "paper_ids": [
+        "5d52867365440edf"
+      ],
+      "source_arxiv_ids": [
+        "2603.00112"
+      ],
+      "url": "/papers/translations/2026-10-16-rss-map-fr3-pinn-2603-00112/",
+      "source_file": "2026-10-16-rss-map-fr3-pinn-2603-00112.md",
+      "scope": "已译摘要、正文 I–VI、公式 1–25、算法 1、图 1–12、表 I–VIII、参考文献 1–41；逐式终校中，未计入已验收全文",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-16-rss-map-fr3-pinn-2603-00112.md",
+      "source_page_path": "papers/translations/2026-10-16-rss-map-fr3-pinn-2603-00112.md",
+      "external": true,
+      "qa_complete": false
+    },
     {
       "date": "2026-10-16",
       "slug": "2026-10-16-difficulty-calibrated-flow-matching-2608-21286",
