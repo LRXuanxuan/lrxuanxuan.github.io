@@ -399,8 +399,147 @@ TS-CET 结合张量正交匹配追踪（OMP）、基于粒子的变分贝叶斯�
 
 
 
+
+### B. CT 阶段联合分布的近似
+
+在信道跟踪（CT）阶段的第 $t$ 帧，算法根据全部历史观测 $\mathbf y^{(1:t)}$，求取路径幅度 $\nu_n^{(t)}$、相位 $\omega_n^{(t)}$、多普勒频偏 $f_d^{(t)}$ 和离网格参数 $\Xi_{u,m,k}^{(t)}$ 的边缘后验。为降低跨帧时序消息传递的复杂度，作者首先将式（38）的联合分布拆解为三部分：当前帧观测的似然、描述前后帧参数变化的时变稀疏先验，以及前一帧参数的边缘后验（原文式（39））。随后用 SPVBI 产生的近似边缘后验替代精确历史后验，得到
+
+$$
+\begin{aligned}
+\widehat p(\mathbf y^{(1:t)},\boldsymbol\kappa^{(t)})\simeq{}&
+p(\mathbf y^{(t)}\mid\boldsymbol\nu^{(t)},\boldsymbol\omega^{(t)},f_d^{(t)},\boldsymbol\Xi^{(t)})\\
+&\cdot\widehat p(\boldsymbol\nu^{(t)}\mid\mathbf s^{(t)})\,
+\widehat p(\boldsymbol\omega^{(t)}\mid\mathbf s^{(t)})\\
+&\cdot\widehat p(\mathbf s^{(t)})\,
+\widehat p(f_d^{(t)})\,
+\widehat p(\boldsymbol\Xi^{(t)}).
+\end{aligned}\tag{40}
+$$
+
+以幅度先验为例，作者对前一帧粒子后验作高斯近似 $\widehat q(\nu_n^{(t-1)})=\mathcal N(\widehat m_{n}^{(t-1)},\widehat\Sigma_{n}^{(t-1)})$，再与动态转移分布卷积，从而获得第 $t$ 帧幅度的预测先验：
+
+$$
+\begin{aligned}
+\widehat p(\nu_n^{(t)})&=\mathcal N(m_n^{(t)},\Sigma_n^{(t)}),\\
+m_n^{(t)}&=(1-\chi_\nu)\widehat m_n^{(t-1)}+\chi_\nu\mu_\nu,\\
+\Sigma_n^{(t)}&=(1-\chi_\nu)^2\widehat\Sigma_n^{(t-1)}+\chi_\nu^2\zeta_\nu.
+\end{aligned}
+$$
+
+当 $s_n^{(t)}$ 表示某条路径是否激活时，相应幅度先验是零点冲激与连续高斯分布的混合；激活概率由上一帧的支持后验和马尔可夫转移概率预测：
+
+$$
+\widehat\pi_n^{(t)}=w_{n,1}^{(t-1)}(1-\lambda_{1,-1})+
+\lambda_{-1,1}w_{n,2}^{(t-1)}.
+$$
+
+相位、频偏及离网格偏移的预测先验采用相似的计算。由于这里已将上一帧的消息折叠进当前帧先验，CT 阶段不再需要 CE 阶段用于空间稀疏性联合估计的 turbo 消息传递框架。
+
+### C. 阶段 I：ETJM-OMP 方法
+
+第一阶段先估计信道张量的稀疏支撑集合 $\dot{\mathcal N}^{(t)}$，为第二阶段初始化路径幅度、相位、Doppler 频偏及离网格参数。ETJM-OMP 先在较小的三维索引集合 $\mathcal S^{(t)}=\{\mathcal N_U^{(t)},\overline{\mathcal N}_R^{(t)},\mathcal N_f^{(t)}\}$ 内搜索原子；CE 阶段的候选集合由张量 OMP 顺序搜索（T-OMP-SS）给出，CT 阶段则由上一帧的支持估计产生。与顺序搜索不同，ETJM-OMP 同时选择张量三个维度上的索引，以减轻分维选取所造成的误匹配，并减少相对于全维联合 OMP 的存储和计算开销。
+
+设第 $l$ 次迭代、第 $p$ 个导频观测的残差为 $\mathcal T_p^{(l)}$，初始化 $\mathcal T_p^{(0)}=\mathcal Y_p$。每次按以下准则联合选择空间、极域和时延原子：
+
+$$
+\begin{aligned}
+&(u^{(l)},m^{(l)},k^{(l)})\\
+&=\arg\max_{u,m,k}\frac1Z\sum_{p=1}^{P}\Bigl|\mathcal T_p^{(l-1)}
+\times_1\mathbf u_{U,p}^{H}(u)
+\times_2\mathbf u_{R,p}^{H}(m)
+\times_3\mathbf u_{K,p}^{H}(k)\Bigr|^2.
+\end{aligned}\tag{41}
+$$
+
+式中三个向量分别对应主动波束和角度原子、XL-IRS 无源波束与极域原子，以及子载波导频与时延原子；$Z$ 是由原子范数构成的归一化因子。在第 $l$ 轮选出活跃路径后，将所有选中原子的组合构成非稀疏测量矩阵 $\mathbf U^{(l)}$，用伪逆得到幅度系数 $\dot{\mathbf z}=(\mathbf U^{(l)})^\dagger\mathbf y$，再从各个导频观测残差中减去该路径的张量外积。残差功率低于阈值 $\varepsilon_{\rm I}$ 时停止。
+
+活跃路径的三维索引压缩成线性索引：
+
+$$
+n^{(l)}=(k^{(l)}-1)\overline N_RN_U+(m^{(l)}-1)N_U+u^{(l)}.
+$$
+
+路径增益的模和相角给出 $\dot\nu_n$、$\dot\omega_n$。固定已识别的活跃支撑与增益后，多普勒频偏 $f_d$ 和离网格偏移 $\boldsymbol\Xi$ 通过最小化观测拟合残差来估计（原文式（42）），并用 Armijo 步长规则进行梯度下降：
+
+$$
+\begin{aligned}
+f_d^{(i+1)}&=f_d^{(i)}-\epsilon_{f_d}^{(i)}g_{f_d}^{(i)},\\
+\Delta\phi_{u^{(l)}}^{(i+1)}&=\Delta\phi_{u^{(l)}}^{(i)}-\epsilon_{\phi}^{(i)}g_{\phi,l}^{(i)}.
+\end{aligned}\tag{43}
+$$
+
+其他离网格偏移 $\Delta\overline\vartheta_{m^{(l)}}$、$\Delta\overline r_{m^{(l)}}$、$\Delta\tau_{k^{(l)}}$ 采用类似的梯度更新。$g$ 表示式（42）目标函数相对于相应变量的梯度。
+
+### D. 阶段 II：T-SPVBI 方法
+
+CE 阶段需要联合利用极域的二维块稀疏性以及角度、时延域的一维簇稀疏性。直接套用式（40）的跨帧近似不能表征这些初始空间结构，因此作者将消息传递和随机粒子变分贝叶斯推断组合成 turbo-SPVBI（T-SPVBI）。原文图 5 表明，它包含两个反复交换外信息的模块：模块 A 负责 SPVBI 后验估计，模块 B 负责空间结构化稀疏性组合。在 CT 阶段，模块 B 被省略，由前一帧传递的近似后验作为模块 A 的先验。
+
+**1）模块 A：SPVBI 估计器。** 将待估参数划分为连续变量和离散支撑变量。连续变量集合为 $\mathcal H_1=\{\boldsymbol\nu,\boldsymbol\omega,f_d,\Delta\boldsymbol\phi,\Delta\overline{\boldsymbol\vartheta},\Delta\overline{\mathbf r},\Delta\boldsymbol\tau\}$；CE 阶段离散集合为 $\mathcal H_2=\{\mathbf s,\mathbf s_U,\mathbf s_R,\mathbf s_K\}$，CT 阶段为 $\mathcal H_2=\{\mathbf s\}$。每个变量的边缘变分分布用有限个 Dirac 粒子表示：
+
+$$
+q(\kappa_{l,n})=\sum_{k=1}^{N_p}w_{l,n,k}\,\delta(\kappa_{l,n}-p_{l,n,k}),
+\qquad q(\boldsymbol\kappa)=\prod_l\prod_n q(\kappa_{l,n}).
+$$
+
+其中 $p_{l,n,k}$ 是粒子位置，$w_{l,n,k}$ 为其非负权重，并满足归一化约束。对离散支撑变量，只需两个固定位置 $+1$、$-1$ 的粒子。对于连续变量，需要联合优化粒子位置和权重，使变分分布与目标后验之间的 Kullback–Leibler（KL）散度最小。原文问题（44）为
+
+$$
+\begin{aligned}
+\min_{\{\mathbf w_{l,n}\},\{\mathbf p_{l,n}\}}\quad&
+\mathcal K=\int q(\boldsymbol\kappa)
+\log\frac{q(\boldsymbol\kappa)}{\widehat p(\mathbf y,\boldsymbol\kappa)}\,d\boldsymbol\kappa,\\
+\text{s.t.}\quad&\sum_{k=1}^{N_p}w_{l,n,k}=1,\quad\varepsilon_w<w_{l,n,k}\le1,\\
+&\dot\kappa_{l,n}-\Delta_{l,n}\le p_{l,n,k}\le
+\dot\kappa_{l,n}+\Delta_{l,n},\quad\kappa_l\in\mathcal H_1.
+\end{aligned}\tag{44}
+$$
+
+这里 $\dot\kappa_{l,n}$ 是第一阶段的粗估计，$\Delta_{l,n}$ 规定相应的可信搜索区间；权重下界 $\varepsilon_w>0$ 用于避免退化粒子。由于目标分布的高维积分难以精确计算，作者用随机逐次凸近似（Stochastic Successive Convex Approximation，SSCA）交替优化位置与权重。连续参数的初始区间参考 OMP 统计误差界，频偏与离网格偏移的区间则在仿真中设置为与粗估计绝对值成比例（比例因子 $c\in[0,1]$）。
+
+收敛后的粒子分布可转化为高斯近似，以便在 CT 阶段向下一帧传递均值和方差：
+
+$$
+\widehat m_{l,n}=\sum_{k=1}^{N_p}\widehat p_{l,n,k}\widehat w_{l,n,k},\qquad
+\widehat\Sigma_{l,n}=\sum_{k=1}^{N_p}\widehat p_{l,n,k}^{2}\widehat w_{l,n,k}-\widehat m_{l,n}^{2}.
+$$
+
+此外，模块 A 给模块 B 传递支撑变量的外信息，例如 $g_{BU,n}(s_{U,n})=q(s_{U,n})/g_{AU,n}(s_{U,n})$；角度和时延域的支撑外信息以同样方式计算。
+
+**2）模块 B：稀疏性组合器。** 模块 B 在极域马尔可夫随机场（MRF）及角度、时延域马尔可夫链的因子图上运行和积（sum–product）消息传递。模块 A 的外信息作为因子图中相应的先验因子，模块 B 据此计算反向外信息，并返回模块 A。由于极域 MRF 含有回路，采用有环置信传播（loopy belief propagation）更新消息。迭代结束后，各域输出信息形式分别为 $g_{AU,u}$、$g_{AR,m}$ 和 $g_{AK,k}$。
+
+**原文算法 1：TS-CET 总流程（步骤译文）。** 输入是当前帧观测、收发波束、XL-IRS 反射系数、频域导频、各域字典，以及 CT 阶段的上一帧后验；输出是所有连续待估参数的 MMSE 后验均值。阶段 I 首先初始化三维候选搜索集合；在外层迭代中反复用式（41）寻找活跃路径、更新稀疏幅度估计和支撑索引，直到残差收敛，然后根据式（43）修正频偏与离网格参数。阶段 II 在其基础上初始化粒子位置与权重，模块 A 依式（44）通过 SSCA 更新；对 CE 阶段，再由模块 B 执行支持变量因子图上的和积消息传递。两个模块迭代到终止条件，输出连续参数的后验均值。算法整体复杂度分析见原文第四节末及附录 C。
+
+## V. 仿真结果
+
+仿真考虑二维坐标场景：BS 固定于 $(0,0)$ m，XL-IRS 固定于 $(60,30)$ m，移动用户初始位置为 $(70,5)$ m，沿 $y$ 轴以 $5$ m/s 移动。BS 配备 $N_B=32$ 根天线和 $R_B=4$ 条 RF 链；XL-IRS 有 $N_R=128$ 个反射单元；用户有 $N_U=16$ 根天线和一条 RF 链。极域非均匀位置网格包含 $384$ 个网格点：$128$ 个角度网格、每角度 $3$ 个距离网格。初始 IRS–用户信道中有三个散射体簇，分别贡献 $4$、$2$、$2$ 条路径，总计 $L^{(1)}=8$；这些簇导致极域二维块稀疏，以及角度、时延域的一维簇稀疏。
+
+系统带宽为 $f_s=200$ MHz，总子载波数为 $K=128$；循环前缀长度为 $L_{\rm cp}=K/4$，有效时延网格数 $N_f=3L_{\rm cp}/4=24$。信道估计与跟踪只使用 $\overline K=31$ 个子载波。初始 CE 阶段采用 $P_{\rm I}=20$ 个 OFDM 导频符号，后续 CT 阶段仅采用 $P_{\rm II}=6$ 个。信道大尺度路径损耗按文献 [31] 建模。除特殊说明外，载频为 $28$ GHz、噪声功率为 $-91$ dBm、信噪比为 $10$ dB、$\varepsilon_v=0.5$、粒子数 $N_p=10$、批大小 $B=15$。在该场景下 XL-IRS 的 Rayleigh 距离约 $86.2$ m，而用户到 XL-IRS 的距离约 $26.9$ m，因此用户确实位于 XL-IRS 的近场区域。
+
+以每个导频期间真实级联信道张量 $\mathcal R_p^{(t)}$ 及其重构 $\widehat{\mathcal R}_p^{(t)}$ 之间的 NMSE 为性能指标：
+
+$$
+\mathrm{NMSE}^{(t)}=\frac1P\sum_{p=1}^P
+\frac{\|\widehat{\mathcal R}_p^{(t)}-\mathcal R_p^{(t)}\|_F^2}
+{\|\mathcal R_p^{(t)}\|_F^2}.
+$$
+
+基准包括 CE 阶段的 EM-OMP 和 EM-FSBL，CT 阶段逐帧独立估计且不利用时序相关性的 EM-FSBL，以及仅跟踪稀疏增益、不更新非理想参数的 TS-CET。另设一组已知全部非理想参数的理想 TS-CET，为信道估计误差提供性能下界。
+
+**图 6：算法收敛性。** ETJM-OMP 大约在 $30$ 次迭代后收敛，且残差对应的 NMSE 曲线基本单调下降；CE 和 CT 中的 SPVBI 约在 $25$ 次迭代后收敛。SPVBI 早期会出现轻微振荡，原因是其 SSCA 梯度由随机采样得到的统计期望逐步近似，不具备严格的逐次单调下降保证；随着迭代增加，整体呈下降趋势。
+
+**图 7：初始 CE 阶段在不同 SNR 下的 NMSE。** TS-CET 优于 EM-OMP 和 EM-FSBL。作者将其归因于两点：粒子后验可以更准确地近似复杂的双高斯级联增益先验；以及模块 B 中的 turbo 消息传递联合利用二维极域块稀疏与角度、时延域一维簇稀疏，从而降低错误激活路径的概率。TS-CET 和完美非理想参数版本之间仍存在误差差距，在较高 SNR 下趋于稳定，反映粒子化后验近似自身带来的参数估计误差。
+
+**图 8：CT 阶段跨帧跟踪及导频数的影响。** TS-CET 在多个时间帧内表现稳定。相反，不使用历史信息的 EM-FSBL 需要每帧重新估计，在 CT 导频显著减少后波动明显；若使用 TS-CET 但不持续跟踪频偏与离网格参数，估计误差会逐帧累积，使 NMSE 随时间上升。所提 TS-CET 只用 $6$ 个导频就可获得良好的跟踪效果，进一步增至 $8$ 个改善很有限；降至 $4$ 个则明显恶化。而 EM-FSBL 把导频数增至 $8$ 时 NMSE 改善明显，表明其性能更受导频开销制约。
+
+**图 9：CT 阶段时均 NMSE 与 SNR。** 对 $T=50$ 个帧，定义 $\mathrm{TNMSE}=\frac1{(T-1)P}\sum_{t=2}^T\sum_{p=1}^P \frac{\|\widehat{\mathcal R}_p^{(t)}-\mathcal R_p^{(t)}\|_F^2}{\|\mathcal R_p^{(t)}\|_F^2}$。各算法的时均估计误差通常随 SNR 增加而降低，但不跟踪非理想参数或不利用时序相关性的基准仍存在明显性能差距。TS-CET 在仅用较少导频的 CT 阶段取得接近 CE 阶段的估计精度，且高 SNR 下两者更接近，因为噪声影响减弱后，信道时序相关性能被更充分利用。
+
+## VI. 结论
+
+本文研究 XL-IRS 辅助宽带毫米波系统中的近场稀疏信道估计与跟踪问题。通过设计极域—角度—时延域字典，并结合张量表示技术，建立级联 BS–IRS–用户信道的多维稀疏表示；在此基础上，分别构建 CE 阶段的空间结构化先验和 CT 阶段的时序动态稀疏先验。随后提出 TS-CET，将张量 OMP、基于粒子的 VBI 与消息传递相结合，以相对低的导频和计算开销，近似求解两个阶段信道参数的后验分布。数值实验表明，该算法能够在初始估计和后续动态跟踪中保持较高的信道估计精度。
+
+
 ---
 
-**续译状态：** 第二节和第三节大部分公式已译；第四节剩余算法、第五至六节、附录和参考文献尚待对照原始 PDF 补充。此处是明确标识范围的阶段性译稿，不代表完整论文，也未经过逐页、逐式验收。
+**续译状态：** 摘要与正文 I–VI 已译，公式 40–44、算法 1 和图 6–9 说明已补充；附录 A–C、完整参考文献及逐式核对仍未完成，尚不计入已验收全文。
 
 {% endraw %}
