@@ -727,13 +727,85 @@ $$
 
 第二阶段中，SPVBI 模块使用小批量抽样和凸替代函数最小化。记 $J$ 为待估参数变量数、$B$ 为批大小、$N_p$ 为每个连续变量的粒子数、$F_{\rm grad}$ 为一次梯度计算的平均 FLOPs。单变量的随机梯度求值含 $O(N_pBF_{\rm grad})$ 开销，而单纯形或区间约束下的局部替代问题还需要相应的数值计算。模块 B 的因子图消息传递具有线性复杂度。若第二阶段迭代 $N_{\rm II}$ 次、每次 SPVBI 内部平均进行 $N_{\rm SSCA}$ 次更新，总开销按这些次数与单次粒子更新成本相乘计算（原文附录 C）；因而高维粒子后验计算是关键的复杂度来源之一。
 
-## 参考文献
+## 参考文献（保留原始英文书目信息）
 
-原文参考文献列表及作者完整单位见[原始 PDF 第 14–15 页](https://arxiv.org/pdf/2511.18752v2#page=14)；本译稿保留正文中所有原始参考文献编号 [1]–[36]，暂未逐条重新排印书目信息。
+以下 36 条参考文献从原始 PDF 第 14–15 页恢复。保留英文论文题名和出版信息以便文献检索，不擅自翻译或补造 DOI。
+
+[1] W. Saad, M. Bennis, and M. Chen, “A vision of 6G wireless systems: Applications, trends, technologies, and open research problems,” IEEE Network, vol. 34, no. 3, pp. 134–142, 2020.
+
+[2] M. Cui and L. Dai, “Channel estimation for extremely large-scale MIMO: Far-field or near-field?” IEEE Trans. Commun., vol. 70, no. 4, pp. 2663–2677, Apr. 2022.
+
+[3] H. Lu, Y. Zeng, C. You, Y. Han, J. Zhang, Z. Wang, Z. Dong, S. Jin, C.-X. Wang, T. Jiang, X. You, and R. Zhang, “A tutorial on near-field XL-MIMO communications toward 6G,” IEEE Commun. Surv. Tutor., vol. 26, no. 4, pp. 2213–2257, 2024.
+
+[4] Y. Lu and L. Dai, “Near-field channel estimation in mixed LoS/NLoS environments for extremely large-scale MIMO systems,” IEEE Trans. Commun., vol. 71, no. 6, pp. 3694–3707, Jun. 2023.
+
+[5] Q. Wu, S. Zhang, B. Zheng, C. You, and R. Zhang, “Intelligent reflecting surface-aided wireless communications: A tutorial,” IEEE Trans. Commun., vol. 69, no. 5, pp. 3313–3351, May 2021.
+
+[6] C. You, Y. Cai, Y. Liu, M. Di Renzo, T. M. Duman, A. Yener, and A. Lee Swindlehurst, “Next generation advanced transceiver technologies for 6G and beyond,” IEEE J. Sel. Areas Commun., vol. 43, no. 3, pp. 582–627, Mar. 2025.
+
+[7] Y. Wei, M.-M. Zhao, M.-J. Zhao, and Y. Cai, “Channel estimation for IRS-aided multiuser communications with reduced error propagation,” IEEE Trans. Wireless Commun., vol. 21, no. 4, pp. 2725–2741, Apr. 2022.
+
+[8] X. Zheng, P. Wang, J. Fang, and H. Li, “Compressed channel estimation for IRS-assisted millimeter wave OFDM systems: A low-rank tensor decomposition-based approach,” IEEE Wireless Commun. Lett., vol. 11, no. 6, pp. 1258–1262, Jun. 2022.
+
+[9] S. Yang, C. Xie, W. Lyu, B. Ning, Z. Zhang, and C. Yuen, “Near-field channel estimation for extremely large-scale reconfigurable intelligent surface (XL-RIS)-aided wideband mmWave systems,” IEEE J. Sel. Areas Commun., vol. 42, no. 6, pp. 1567–1582, Jun. 2024.
+
+[10] J. Wu, S. Kim, and B. Shim, “Parametric sparse channel estimation for RIS-assisted terahertz systems,” IEEE Trans. Commun., vol. 71, no. 9, pp. 5503–5518, Sep. 2023.
+
+[11] T. G. Kolda and B. W. Bader, “Tensor decompositions and applications,” SIAM Rev., vol. 51, no. 3, pp. 455–500, Aug. 2009.
+
+[12] K. T. Selvan and R. Janaswamy, “Fraunhofer and Fresnel distances: Unified derivation for aperture antennas,” IEEE Antennas Propag. Mag., vol. 59, no. 4, pp. 12–15, Aug. 2017.
+
+[13] Y. Pan, C. Pan, S. Jin, and J. Wang, “RIS-aided near-field localization and channel estimation for the terahertz system,” IEEE J. Sel. Top. Signal Process., vol. 17, no. 4, pp. 878–892, Jul. 2023.
+
+[14] 3GPP, TS 38.211 V16.7.0 Release 16, Technical Specification Group Radio Access Network; NR; Physical channels and modulation, Sep. 2021.
+
+[15] G. Zhou, C. Pan, H. Ren, P. Popovski, and A. L. Swindlehurst, “Channel estimation for RIS-aided multiuser millimeter-wave systems,” IEEE Trans. Signal Process., vol. 70, pp. 1478–1492, Mar. 2022.
+
+[16] P. Wang, J. Fang, L. Dai, and H. Li, “Joint transceiver and large intelligent surface design for massive MIMO mmWave systems,” IEEE Trans. Wireless Commun., vol. 20, no. 2, pp. 1052–1064, Feb. 2021.
+
+[17] N. O’Donoughue and J. M. F. Moura, “On the product of independent complex Gaussians,” IEEE Trans. Signal Process., vol. 60, no. 3, pp. 1050–1063, Mar. 2012.
+
+[18] S. Som and P. Schniter, “Approximate message passing for recovery of sparse signals with markov-random-field support structure,” in Proc. Int. Conf. Mach. Learn. (ICML), Jul. 2011.
+
+[19] X. Kuai, L. Chen, X. Yuan, and A. Liu, “Structured turbo compressed sensing for downlink massive MIMO-OFDM channel estimation,” IEEE Trans. Wireless Commun., vol. 18, no. 8, pp. 3813–3826, Aug. 2019.
+
+[20] W. Xu, A. Liu, B. Zhou, and M.-J. Zhao, “Successive linear approximation VBI for joint sparse signal recovery and dynamic grid parameters estimation,” IEEE Transactions on Wireless Communications, vol. 24, no. 11, pp. 9645–9659, Nov. 2025.
+
+[21] J. Ziniel and P. Schniter, “Dynamic compressive sensing of time-varying signals via approximate message passing,” IEEE Trans. Signal Process., vol. 61, no. 21, pp. 5270–5284, Nov. 2013.
+
+[22] C. Zhang, D. Guo, and P. Fan, “Tracking angles of departure and arrival in a mobile millimeter wave channel,” in Proc. IEEE Int. Conf. Commun. (ICC), May 2016, pp. 1–6.
+
+[23] A. Liu, G. Liu, L. Lian, V. K. N. Lau, and M.-J. Zhao, “Robust recovery of structured sparse signals with uncertain sensing matrix: A turbo-VBI approach,” IEEE Trans. Wireless Commun., vol. 19, no. 5, pp. 3185– 3198, May 2020.
+
+[24] J. Dai, A. Liu, and V. K. N. Lau, “FDD massive MIMO channel estimation with arbitrary 2D-array geometry,” IEEE Trans. Signal Process., vol. 66, no. 10, pp. 2584–2599, May 2018.
+
+[25] B. Zhou, Q. Chen, H. Wymeersch, P. Xiao, and L. Zhao, “Variational inference-based positioning with nondeterministic measurement accuracies and reference location errors,” IEEE Trans. Mobile Comput., vol. 16, no. 10, pp. 2955–2969, Oct. 2017.
+
+[26] D. C. Araújo, A. L. F. de Almeida, J. P. C. L. Da Costa, and R. T. de Sousa, “Tensor-based channel estimation for massive MIMO-OFDM systems,” IEEE Access, vol. 7, pp. 42 133–42 147, 2019.
+
+[27] G. Parisi and R. Shankar, Statistical field theory. Westview Press, 1988.
+
+[28] G. Tan, B. Wu, and T. Herfet, “Performance analysis of OMP-based channel estimations in mobile OFDM systems,” IEEE Trans. Wireless Commun., vol. 17, no. 5, pp. 3459–3473, May 2018.
+
+[29] A. Liu, V. K. N. Lau, and B. Kananian, “Stochastic successive convex approximation for non-convex constrained stochastic optimization,” IEEE Trans. Signal Process., vol. 67, no. 16, pp. 4189–4203, Aug. 2019.
+
+[30] S. Z. Li, Markov random field modeling in image analysis. Springer Science & Business Media, 2009.
+
+[31] Z. Chen, M.-M. Zhao, M. Li, M. Lei, and M.-J. Zhao, “IRS-aided joint spatial division and multiplexing for mmWave multiuser MISO systems,” IEEE Trans. Wireless Commun., vol. 22, no. 11, pp. 7789–7804, Nov. 2023.
+
+[32] Z.-Q. Luo, W.-K. Ma, A. M.-C. So, Y. Ye, and S. Zhang, “Semidefinite relaxation of quadratic optimization problems,” IEEE Signal Process. Mag., vol. 27, no. 3, pp. 20–34, May 2010.
+
+[33] P. Cao, J. Thompson, and H. V. Poor, “A sequential constraint relaxation algorithm for rank-one constrained problems,” in 2017 25th European Signal Processing Conference (EUSIPCO), Aug 2017, pp. 1060–1064.
+
+[34] A. Beck, A. Ben-Tal, and L. Tetruashvili, “A sequential parametric convex approximation method with applications to nonconvex truss topology design problems,” J. Global Optim., vol. 47, no. 1, pp. 29– 51, 2010.
+
+[35] Y. Chen and X. Ye, “Projection onto a simplex,” arXiv preprint arXiv:1101.6081, 2011.
+
+[36] Z. Hu, A. Liu, Y. Wan, T. X. Han, and M. Zhao, “A two-stage multiband delay estimation scheme via stochastic particle-based variational bayesian inference,” IEEE Internet Things J., vol. 11, no. 11, pp. 19 632– 19 645, Jun. 2024.
 
 
 ---
 
-**译文状态：** 摘要、正文 I–VI、附录 A–C 与主要公式 (1)–(51)、算法 1、图 1–9、主要仿真结果已译；原参考文献按 PDF 链接对照，部分长公式与符号仍需逐页校对，因此未通过全文 QA。
+**译文状态：** 摘要、正文 I–VI、附录 A–C 与主要公式 (1)–(51)、算法 1、图 1–9、主要仿真结果已译；36 条参考文献已按 PDF 恢复；长公式与推导仍需逐页终校，因此未通过全文 QA。
 
 {% endraw %}
