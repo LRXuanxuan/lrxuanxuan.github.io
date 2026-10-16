@@ -11,6 +11,12 @@ toc: true
 
 ## 中英文译文
 
+- [过采样 OTFS：唯一字 UW 导频信道估计｜中文译稿（逐段校对中）](/papers/translations/2026-10-16-uw-otfs-2601-09364/) · I–XI 节中文结构译稿、关键公式、算法与仿真说明；逐式全文校对中
+- [TWC：维纳相位噪声下的消息传递稀疏估计｜中文译稿（逐段校对中）](/papers/translations/2026-10-16-phase-noise-message-passing-twc/) · I–VII 节、因子图消息计算、算法与仿真；附录公式及参考文献待核
+- [XL-RIS 多用户混合波束成形与 CLRA-JO 近场估计｜中文译稿（逐段校对中）](/papers/translations/2026-10-16-xlris-clra-2401-06966/) · I–VI 节、共同列空间与联合优化、仿真；部分长公式待核
+- [XL-RIS 混合场 DK-ODC 与 SI-VBL 稀疏恢复｜中文译稿（逐段校对中）](/papers/translations/2026-10-16-hybrid-field-xlris-2608-00052/) · I–VI 节、算法 1–3、表 I–III、图 1–13；部分附录及公式待核
+- [MIMO-FAS 两阶段扩散：信道后验与端口选择｜中文译稿（逐段校对中）](/papers/translations/2026-10-16-mimofas-two-stage-diffusion-2605-29679/) · I–VI 节、连续流与离散扩散算法、仿真结果；逐式全文校对中
+
 - [基于先验少步传输映射的源空间 MCMC 后验采样｜中文全篇译稿（校对中）](/papers/translations/2026-10-15-source-space-mcmc-imf-2610-01034/) · 摘要、正文 1–5 节、公式 1–29、附录 A–B、41 条参考文献、图 1–18 的中文说明与表 1–3；逐段 QA 中，未计入全文验收
 - [ISAC 几何统计信道建模框架｜中文译稿（校对中）](/papers/translations/2026-10-15-isac-gbsm-framework/) · 用户提供中文译稿（校对中；保留算法、公式及参考文献待核说明；未计入全文验收）
 - [GSBL-BNN：层次稀疏促进先验与边缘保持｜中文译稿（校对中）](/papers/translations/2026-10-15-gsbl-bnn-2610-17023/) · 用户提供中文译稿（校对中；保留算法、公式及参考文献待核说明；未计入全文验收）
