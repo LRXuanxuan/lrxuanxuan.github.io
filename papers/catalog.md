@@ -13,7 +13,7 @@ toc: true
 
 - [CKMImageNet：信道知识地图数据集｜中文译稿（全文校对中）](/papers/translations/2026-10-16-ckmimagenet-2504-09849/) · 摘要、正文 I–VI、主要图表及参考文献已译；全文逐段校对中，未验收
 - [贝叶斯后验推断的条件流匹配｜中文阶段性译稿](/papers/translations/2026-10-16-conditional-flow-bayesian-2510-09534/) · 摘要与正文 1–5 节已译；附录 A–E 与参考文献待补，未验收
-- [XL-IRS 近场稀疏贝叶斯估计与跟踪｜中文阶段性译稿](/papers/translations/2026-10-16-xlirs-bayesian-tracking-2511-18752/) · 摘要与正文 I–VI 已译，包括 TS-CET 算法及实验；附录 A–C 和参考文献待补，未验收
+- [XL-IRS 近场稀疏贝叶斯估计与跟踪｜中文阶段性译稿](/papers/translations/2026-10-16-xlirs-bayesian-tracking-2511-18752/) · 摘要、正文 I–VI、附录 A–C 与算法 1、主要图表已译；逐式校对中，未验收
 - [SwiftChannel：5G 信道估计算法与硬件协同设计｜中文阶段性译稿](/papers/translations/2026-10-16-swiftchannel-2605-01931/) · 摘要与正文 I–VIII 已译，含公式、算法与表 I–VII；参考文献对照原始 PDF，逐式校对中
 - [马尔可夫过程间传输的条件流匹配｜中文阶段性译稿](/papers/translations/2026-10-16-markov-cfm-2610-07229/) · 摘要与正文 1–7 节已译；附录 A–F 和参考文献待补，未验收
 - [过采样 OTFS：唯一字 UW 导频信道估计｜中文译稿（逐段校对中）](/papers/translations/2026-10-16-uw-otfs-2601-09364/) · I–XI 节中文结构译稿、关键公式、算法与仿真说明；逐式全文校对中
