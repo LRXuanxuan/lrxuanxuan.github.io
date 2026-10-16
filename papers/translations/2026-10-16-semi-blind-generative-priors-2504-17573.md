@@ -426,3 +426,324 @@ $$
 | 投影优于普通 LMMSE | ≥0.9946 | ≥0.9923 | ≥0.9907 |
 
 **图 1｜空间不相关瑞利衰落下各估计器 MSE 随 SNR 的变化。** 采用 $J=8$、$M=64$ 和高斯数据符号：(a) 具有完美子空间知识；(b) 以 $N=200$ 个快照估计子空间。比较随机与确定性 CRB、BCRB、ML、普通 LMMSE、子空间 LMMSE 和投影 LMMSE。
+
+
+## IV. 利用生成先验的半盲信道估计
+
+实际中的用户信道并不服从单一高斯分布，因此不能直接使用式 (10)。给定导频观测 $\mathbf y_p$ 的条件均值可写为
+
+$$
+\widehat{\mathbf h}_{\rm CME}
+=\mathbb E[\mathbf h\mid\mathbf y_p]
+=\int\mathbf h\,
+\frac{p_n(\mathbf y_p-\mathbf h)p(\mathbf h)}
+{p(\mathbf y_p)}
+\,\mathrm d\mathbf h.\tag{38}
+$$
+
+这一积分一般无法解析计算：首先真实信道先验 $p(\mathbf h)$ 通常未知，其次积分本身不具有闭式解。为了重新表述 CME，利用这样的性质：对任意分布的随机变量 $\mathbf h$，可找到一种条件变量 $c$，使给定 $c$ 的分布成为高斯。文献 [43] 还指出，对无线信道而言，该条件高斯分布保持零均值性质，表示为
+
+$$
+\mathbf h\mid c\sim\mathcal N_{\mathbb C}
+(\mathbf0,\mathbf C_{\mathbf h\mid c}).\tag{39}
+$$
+
+由全期望定律，可重写条件均值：
+
+$$
+\mathbb E[\mathbf h\mid\mathbf y_p]
+=\mathbb E[\mathbb E[\mathbf h\mid\mathbf y_p,c]\mid\mathbf y_p],
+\tag{40}
+$$
+
+$$
+=\int\mathbb E[\mathbf h\mid\mathbf y_p,c]\,
+p(c\mid\mathbf y_p)\,\mathrm dc,\tag{41}
+$$
+
+$$
+=\int\widehat{\mathbf h}_c(\mathbf y_p)
+p(c\mid\mathbf y_p)\,\mathrm dc,\tag{42}
+$$
+
+其中在给定 $c$ 时的 LMMSE 为
+
+$$
+\widehat{\mathbf h}_c(\mathbf y_p)
+=\mathbf C_{\mathbf h\mid c}
+(\mathbf C_{\mathbf h\mid c}+\mathbf C_n)^{-1}
+\mathbf y_p.\tag{43}
+$$
+
+然而，真实信道分布未知时，很难找到合适的 $c$。因此 [30]–[32] 利用 GMM、因子分析器混合模型（MFA）和 VAE 等条件高斯潜变量模型（CGLM）近似 CME。它们在离散（GMM、MFA）或连续（VAE）潜变量 $c$ 给定时提供一个高斯分布。本文集中研究 GMM 和 VAE 的半盲适配。
+
+### A. 基于 GMM 的半盲信道估计
+
+利用 GMM 的通用逼近能力 [44]，以 $K$ 个复高斯分量的混合近似真实信道 PDF：
+
+$$
+f_{\mathbf h}^{(K)}(\mathbf h)
+=\sum_{k=1}^{K}p(k)\,
+\mathcal N_{\mathbb C}(\mathbf h;\boldsymbol\mu_k,\mathbf C_k).
+\tag{44}
+$$
+
+$p(k)$、$\boldsymbol\mu_k$、$\mathbf C_k$ 分别为第 $k$ 个混合分量的权重、均值和协方差。对无线信道，每个分量均值取 $\boldsymbol\mu_k=\mathbf0$ [43]。依据 $T$ 个训练信道组成的数据集
+$\mathcal H=\{\mathbf h_t\}_{t=1}^T$，使用标准 EM 算法 [45] 拟合 GMM。条件分布为
+
+$$
+\mathbf h\mid k\sim
+\mathcal N_{\mathbb C}(\mathbf0,\mathbf C_k).\tag{45}
+$$
+
+因此 GMM 提供离散潜变量 $k$，可以据此参数化 CME。对应的**子空间 GMM** 估计器为
+
+$$
+\widehat{\mathbf h}_{\rm sub.GMM}
+=\mathbf V\widehat{\mathbf h}'_{\rm GMM}
+=\mathbf V\sum_{k=1}^{K}
+p(k\mid\mathbf y')\,\widehat{\mathbf h}'_{{\rm GMM},k},
+\tag{46}
+$$
+
+其中
+
+$$
+\widehat{\mathbf h}'_{{\rm GMM},k}
+=\mathbf V^{\rm H}\mathbf C_k\mathbf V
+\bigl(\mathbf V^{\rm H}\mathbf C_k\mathbf V
++\sigma^2\mathbf I_J\bigr)^{-1}
+\mathbf V^{\rm H}\mathbf y_p,\tag{47}
+$$
+
+$$
+p(k\mid\mathbf y')
+=\frac{
+p(k)\mathcal N_{\mathbb C}(
+\mathbf y';\mathbf0,
+\mathbf V^{\rm H}\mathbf C_k\mathbf V+\sigma^2\mathbf I_J)}
+{\displaystyle\sum_{i=1}^{K}
+p(i)\mathcal N_{\mathbb C}(
+\mathbf y';\mathbf0,
+\mathbf V^{\rm H}\mathbf C_i\mathbf V+\sigma^2\mathbf I_J)}.
+\tag{48}
+$$
+
+**投影 GMM** 则为
+
+$$
+\widehat{\mathbf h}_{\rm proj.GMM}
+=\sum_{k=1}^{K}p(k\mid\widetilde{\mathbf y})
+\,\widehat{\mathbf h}_{{\rm proj.GMM},k},\tag{49}
+$$
+
+$$
+\widehat{\mathbf h}_{{\rm proj.GMM},k}
+=\mathbf C_k(\mathbf C_k+\mathbf C_{\widetilde n})^{-1}
+\widetilde{\mathbf y},\tag{50}
+$$
+
+$$
+p(k\mid\widetilde{\mathbf y})
+=\frac{
+p(k)\mathcal N_{\mathbb C}(
+\widetilde{\mathbf y};\mathbf0,
+\mathbf C_k+\mathbf C_{\widetilde n})}
+{\displaystyle\sum_{i=1}^{K}
+p(i)\mathcal N_{\mathbb C}(
+\widetilde{\mathbf y};\mathbf0,
+\mathbf C_i+\mathbf C_{\widetilde n})}.
+\tag{51}
+$$
+
+这里 $p(k\mid\cdot)$ 是后验混合分量权重（responsibility）。算法 1、2 汇总了两种 GMM 半盲信道估计器的训练与在线推断。
+
+**算法 1｜子空间 GMM 信道估计**
+
+**离线训练：** 输入数据集 $\mathcal H=\{\mathbf h_t\}_{t=1}^T$；用 EM 拟合 GMM [30]。
+
+**在线估计：** 输入全部接收符号 $\mathbf Y=[\mathbf y(1),\ldots,\mathbf y(N)]$、导频矩阵 $\mathbf P$ 和噪声方差 $\sigma^2$。首先计算
+$\widehat{\mathbf C}_{y\mid H}\leftarrow N^{-1}\mathbf Y\mathbf Y^{\rm H}$，提取其前 $J$ 个主特征向量组成 $\widehat{\mathbf V}$；对导频去相关，
+$\mathbf Y_p\leftarrow\mathbf Y_p'\mathbf P^\dagger$。
+对每个用户 $j=1,\ldots,J$，计算
+$\mathbf y'_j=\widehat{\mathbf V}^{\rm H}\mathbf y_{p,j}$；
+对 $k=1,\ldots,K$，计算式 (47) 的分量子空间 LMMSE；再用式 (48) 的后验权重求和，得到
+$\widehat{\mathbf h}_j=\widehat{\mathbf V}
+\sum_k p(k\mid\mathbf y'_j)\widehat{\mathbf h}'_k$。返回全部 $J$ 个信道估计。
+
+**算法 2｜投影 GMM 信道估计**
+
+离线阶段同算法 1。在线阶段先利用所有接收符号形成 $\widehat{\mathbf C}_{y\mid H}$、$\widehat{\mathbf V}$ 并进行导频去相关。对每个用户，先计算
+$\widetilde{\mathbf y}_j
+=\widehat{\mathbf V}\widehat{\mathbf V}^{\rm H}\mathbf y_{p,j}$；
+对每个 GMM 分量计算式 (50) 的投影 LMMSE；根据式 (51) 的责任权重形成
+$\widehat{\mathbf h}_j=\sum_kp(k\mid\widetilde{\mathbf y}_j)\widehat{\mathbf h}_k$。返回全部用户信道。
+
+### B. 基于 VAE 的半盲信道估计
+
+为了用 VAE 学习未知信道分布 $p(\mathbf h)$，通过证据下界（evidence lower bound，ELBO）优化参数化似然 $p_\theta(\mathbf h)$。引入变分分布
+$q_\varphi(\mathbf z\mid\mathbf y')$ 和
+$q_\varphi(\mathbf z\mid\widetilde{\mathbf y})$，分别近似潜变量后验 $p(\mathbf z\mid\mathbf y')$ 与
+$p(\mathbf z\mid\widetilde{\mathbf y})$。
+
+不同于 GMM，VAE 编码器在训练时不知道某一次在线信道的子空间 $\operatorname{range}(\mathbf V)$，因此难以学习 $p(\mathbf z\mid\mathbf y')$。而且该输入的维度将随系统用户数量变化。为避免这两个问题，作者统一用
+$q_\varphi(\mathbf z\mid\widetilde{\mathbf y})$ 近似两种后验。对此可计算的 ELBO 为 [46]
+
+$$
+\mathcal L_{\theta,\varphi}
+=\mathbb E_{q_\varphi}[
+\log p_\theta(\mathbf h\mid\mathbf z)]
+-D_{\rm KL}\bigl(
+q_\varphi(\mathbf z\mid\widetilde{\mathbf y})
+\Vert p(\mathbf z)\bigr),\tag{52}
+$$
+
+其中期望相对于 $q_\varphi(\mathbf z\mid\widetilde{\mathbf y})$，
+Kullback–Leibler 散度为
+
+$$
+D_{\rm KL}(q_\varphi\Vert p)
+=\mathbb E_{q_\varphi}\left[
+\log\frac{q_\varphi(\mathbf z\mid\widetilde{\mathbf y})}
+{p(\mathbf z)}\right].\tag{53}
+$$
+
+ELBO 通过深度神经网络（DNN）和重参数化技巧 [46] 优化。采用的概率分布是
+
+$$
+\begin{aligned}
+p(\mathbf z)&=\mathcal N(\mathbf0,\mathbf I_Z),\\
+p_\theta(\mathbf h\mid\mathbf z)
+&=\mathcal N_{\mathbb C}(
+\boldsymbol\mu_\theta(\mathbf z),\mathbf C_\theta(\mathbf z)),\\
+q_\varphi(\mathbf z\mid\widetilde{\mathbf y})
+&=\mathcal N(\boldsymbol\mu_\varphi(\widetilde{\mathbf y}),
+\operatorname{diag}(
+\boldsymbol\sigma_\varphi^2(\widetilde{\mathbf y}))).
+\end{aligned}\tag{54}
+$$
+
+图 2 展示半盲 VAE 结构。对于基站 ULA 和 URA，信道协方差分别具有 Toeplitz 或分块 Toeplitz 结构。[43] 表明 VAE 输出的条件协方差也能保持该结构，因此参数化为
+
+$$
+\mathbf C_\theta(\mathbf z)
+=\mathbf Q^{\rm H}
+\operatorname{diag}(\mathbf c_\theta(\mathbf z))
+\mathbf Q,\tag{55}
+$$
+
+其中 ULA 时 $\mathbf Q=\mathbf Q_M$，即 $M$ 阶 DFT 矩阵，对应循环矩阵近似 [32]；URA 时
+$\mathbf Q=\mathbf Q'_{N_v}\otimes\mathbf Q'_{N_h}$，
+其中 $\mathbf Q'_{N_x}$ 含 $2N_x$ 阶 DFT 矩阵的前 $N_x$ 列，从而实现分块 Toeplitz 参数化 [47]。对于（分块）Toeplitz 参数化，根据 [43] 还可将 $\boldsymbol\mu_\theta(\mathbf z)$ 设置为零。
+
+**图 2｜半盲 VAE 结构。** 全部接收符号 $\mathbf Y$ 用于求样本协方差的前 $J$ 个特征向量 $\widehat{\mathbf V}$，导频观测先经子空间投影得到 $\widetilde{\mathbf y}$；编码器输出潜变量近似后验的均值 $\boldsymbol\mu_\varphi$ 与标准差 $\boldsymbol\sigma_\varphi$，通过高斯重参数化采样 $\mathbf z$；解码器输出条件信道分布参数 $\boldsymbol\mu_\theta(\mathbf z)$ 与 $\mathbf C_\theta(\mathbf z)$。
+
+VAE 训练成功后，其输出构成局部条件高斯参数化：
+
+$$
+\mathbf h\mid\mathbf z\sim p_\theta(\mathbf h\mid\mathbf z).
+\tag{56}
+$$
+
+根据 [32]，可以采用后验的点质量近似：
+
+$$
+p(\mathbf z\mid\widetilde{\mathbf y})
+\approx
+\begin{cases}
+1,&\mathbf z=\boldsymbol\mu_\varphi(\widetilde{\mathbf y}),\\
+0,&\text{其他情形}.
+\end{cases}\tag{57}
+$$
+
+这样无需对连续潜变量积分，直接用编码器的后验均值进行估计。**投影 VAE** 为
+
+$$
+\widehat{\mathbf h}_{\rm proj.VAE}
+=\boldsymbol\mu_\theta(\mathbf z)
++\mathbf C_\theta(\mathbf z)
+(\mathbf C_\theta(\mathbf z)+\mathbf C_{\widetilde n})^{-1}
+\bigl(\widetilde{\mathbf y}-\boldsymbol\mu_\theta(\mathbf z)\bigr),
+\tag{58}
+$$
+
+**子空间 VAE** 为
+
+$$
+\begin{aligned}
+\widehat{\mathbf h}_{\rm sub.VAE}
+={}&\mathbf V
+\mathbf V^{\rm H}\mathbf C_\theta(\mathbf z)\mathbf V
+\left(
+\mathbf V^{\rm H}\mathbf C_\theta(\mathbf z)\mathbf V
++\sigma^2\mathbf I_J\right)^{-1}\\
+&\times\bigl(
+\mathbf V^{\rm H}\mathbf y_p
+-\mathbf V^{\rm H}\boldsymbol\mu_\theta(\mathbf z)
+\bigr)
+-\mathbf V\mathbf V^{\rm H}\boldsymbol\mu_\theta(\mathbf z).
+\end{aligned}\tag{59}
+$$
+
+式 (59) 末项的负号按原文保留；与通常非零均值 LMMSE 的均值补偿写法可能存在符号差异，因此实现时应核对原 PDF 与作者代码。
+
+**算法 3｜子空间 VAE 信道估计**
+
+离线阶段：对训练信道集 $\mathcal H$ 优化 ELBO 以训练 VAE [32]。在线阶段：用 $\mathbf Y$ 估计
+$\widehat{\mathbf C}_{y\mid H}=N^{-1}\mathbf Y\mathbf Y^{\rm H}$，
+提取前 $J$ 个特征向量 $\widehat{\mathbf V}$，对导频去相关。对每个用户 $j$，先计算
+$\widetilde{\mathbf y}
+=\widehat{\mathbf V}\widehat{\mathbf V}^{\rm H}\mathbf y_{p,j}$；
+由 VAE 输出 $\boldsymbol\mu_\theta(\mathbf z)$ 和 $\mathbf C_\theta(\mathbf z)$；按式 (59) 的子空间公式估计 $\widehat{\mathbf h}_j$。返回全部用户信道。
+
+**算法 4｜投影 VAE 信道估计**
+
+离线 VAE 训练、样本协方差、主子空间估计和导频去相关均同算法 3。不同之处在于，对每个用户把导频先投影为 $\widetilde{\mathbf y}$，再用 VAE 的条件均值、协方差按式 (58) 直接在原空间估计。返回全部用户信道。有关 VAE 参数化 CME 的详细介绍见文献 [32]。
+
+### C. 复杂度分析
+
+文献 [30] 的独立 GMM 估计器预先计算所有分量的滤波器，计算复杂度为 $O(KM^2)$；独立 VAE 的复杂度为 $O(DM^2)$ [32]，其中 $D$ 是一次前向传播的网络层数。
+
+半盲方法还需要子空间估计。样本协方差计算代价为 $O(NM^2)$，再提取前 $J$ 个主特征向量，总复杂度约为 $O((N+J)M^2)$。如果用投影近似子空间跟踪（PAST）算法 [42] 逐次更新，可把每次更新的子空间计算复杂度降至 $O(JM)$。
+
+子空间 GMM 的 $K$ 个 LMMSE 滤波器无法完全提前计算，复杂度约为
+$O(K(M^2+JM^2+J^3))$；子空间 VAE 的复杂度为
+$O(DM^2+JM^2+J^3)$。
+投影 GMM 与投影 VAE 分别具有
+$O(KM^2+JM^2)$、$O(DM^2+JM^2)$ 的复杂度。GMM 的 $K$ 个分量可并行处理；VAE 的卷积层同样可以并行，实际计算时可降低延迟。
+
+## V. 基线估计器
+
+为对比本文方法，考虑如下基线。首先利用估计子空间
+$\operatorname{range}(\mathbf V)$，构造基于导频的 ML：
+$\widehat{\mathbf h}_{\rm ML}
+=\mathbf V\mathbf V^{\rm H}\mathbf y_p$，它是式 (16) 的闭式解，可视作普通 LS
+$\widehat{\mathbf h}_{\rm LS}=\mathbf y_p$
+的子空间调整版本。
+
+其次用训练信道集 $\mathcal H$ 估计全局统计协方差：
+
+$$
+\mathbf C_s
+=\frac1{|\mathcal H|}
+\sum_{\mathbf h\in\mathcal H}\mathbf h\mathbf h^{\rm H}.
+\tag{60}
+$$
+
+将 $\mathbf C_s$ 用于第三节 A、B 的半盲估计策略，分别得到
+
+$$
+\widehat{\mathbf h}_{\rm sub.s-cov}
+=\mathbf V\mathbf V^{\rm H}\mathbf C_s\mathbf V
+\bigl(\mathbf V^{\rm H}\mathbf C_s\mathbf V
++\sigma^2\mathbf I_J\bigr)^{-1}
+\mathbf V^{\rm H}\mathbf y_p,\tag{61}
+$$
+
+$$
+\widehat{\mathbf h}_{\rm proj.s-cov}
+=\mathbf C_s(\mathbf C_s+\mathbf C_{\widetilde n})^{-1}
+\mathbf P_H\mathbf y_p.\tag{62}
+$$
+
+还与仅使用导频的 GMM [30]、VAE [32] 对比。最后加入两种迭代优化式 (13) 联合 ML 目标的方案：文献 [15] 的 EM 和类似文献 [16] 的消息传递（MP）。两者均运行至收敛或最多 500 次迭代，以先到者为准。
