@@ -377,7 +377,7 @@
       "translations": [
         {
           "title": "SwiftChannel：5G 信道估计算法与硬件协同设计｜中文阶段性译稿",
-          "scope": "摘要、引言、相关工作、估计网络前半部分已译；后续章节待补",
+          "scope": "摘要、正文 I–VIII、主要公式、算法与表 I–VII 已译；原始参考文献和作者简介按 PDF 对照，未通过逐段逐式 QA",
           "url": "/papers/translations/2026-10-16-swiftchannel-2605-01931/"
         }
       ],
@@ -437,7 +437,7 @@
       "translations": [
         {
           "title": "XL-IRS 近场稀疏贝叶斯估计与跟踪｜中文阶段性译稿",
-          "scope": "摘要、引言、系统模型前半部分已译；后续章节待补",
+          "scope": "摘要、正文 I–VI、算法 1、主要公式和仿真结果已译；附录 A–C 与参考文献待译，未计入全文验收",
           "url": "/papers/translations/2026-10-16-xlirs-bayesian-tracking-2511-18752/"
         }
       ],
@@ -494,7 +494,7 @@
       "translations": [
         {
           "title": "CKMImageNet：面向环境感知通信与感知的信道知识地图数据集｜中文译稿（校对中）",
-          "scope": "摘要、正文 I–VI、图表与参考文献已译；未逐段逐式验收",
+          "scope": "摘要、正文 I–VI、主要图表与参考文献已译；逐段逐式校对中，未计入全文验收",
           "url": "/papers/translations/2026-10-16-ckmimagenet-2504-09849/"
         }
       ],
@@ -554,7 +554,7 @@
       "translations": [
         {
           "title": "马尔可夫过程间传输的条件流匹配｜中文阶段性译稿",
-          "scope": "摘要、引言、预备知识和问题模型已译；主要定理、实验和附录待补",
+          "scope": "摘要、正文 1–7 节与主要定理、算法及实验已译；附录 A–F 与参考文献待译，未验收",
           "url": "/papers/translations/2026-10-16-markov-cfm-2610-07229/"
         }
       ],
@@ -609,7 +609,7 @@
       "translations": [
         {
           "title": "用于贝叶斯后验推断的条件流匹配｜中文阶段性译稿",
-          "scope": "摘要、引言、方法 2.1–2.2 已译；后续章节和附录待补",
+          "scope": "摘要、正文 1–5 节与主要定理和实验表格已译；附录 A–E 与完整参考文献待译，未计入全文验收",
           "url": "/papers/translations/2026-10-16-conditional-flow-bayesian-2510-09534/"
         }
       ],
@@ -17988,7 +17988,7 @@
       ],
       "url": "/papers/translations/2026-10-16-markov-cfm-2610-07229/",
       "source_file": "2026-10-16-markov-cfm-2610-07229.md",
-      "scope": "摘要、引言、预备知识和问题模型已译；主要定理、实验和附录待补",
+      "scope": "摘要、正文 1–7 节与主要定理、算法及实验已译；附录 A–F 与参考文献待译，未验收",
       "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-16-markov-cfm-2610-07229.md",
       "source_page_path": "papers/translations/2026-10-16-markov-cfm-2610-07229.md",
       "external": true,
@@ -18006,7 +18006,7 @@
       ],
       "url": "/papers/translations/2026-10-16-swiftchannel-2605-01931/",
       "source_file": "2026-10-16-swiftchannel-2605-01931.md",
-      "scope": "摘要、引言、相关工作、估计网络前半部分已译；后续章节待补",
+      "scope": "摘要、正文 I–VIII、主要公式、算法与表 I–VII 已译；原始参考文献和作者简介按 PDF 对照，未通过逐段逐式 QA",
       "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-16-swiftchannel-2605-01931.md",
       "source_page_path": "papers/translations/2026-10-16-swiftchannel-2605-01931.md",
       "external": true,
@@ -18024,7 +18024,7 @@
       ],
       "url": "/papers/translations/2026-10-16-xlirs-bayesian-tracking-2511-18752/",
       "source_file": "2026-10-16-xlirs-bayesian-tracking-2511-18752.md",
-      "scope": "摘要、引言、系统模型前半部分已译；后续章节待补",
+      "scope": "摘要、正文 I–VI、算法 1、主要公式和仿真结果已译；附录 A–C 与参考文献待译，未计入全文验收",
       "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-16-xlirs-bayesian-tracking-2511-18752.md",
       "source_page_path": "papers/translations/2026-10-16-xlirs-bayesian-tracking-2511-18752.md",
       "external": true,
@@ -18042,7 +18042,7 @@
       ],
       "url": "/papers/translations/2026-10-16-conditional-flow-bayesian-2510-09534/",
       "source_file": "2026-10-16-conditional-flow-bayesian-2510-09534.md",
-      "scope": "摘要、引言、方法 2.1–2.2 已译；后续章节和附录待补",
+      "scope": "摘要、正文 1–5 节与主要定理和实验表格已译；附录 A–E 与完整参考文献待译，未计入全文验收",
       "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-16-conditional-flow-bayesian-2510-09534.md",
       "source_page_path": "papers/translations/2026-10-16-conditional-flow-bayesian-2510-09534.md",
       "external": true,
@@ -18060,7 +18060,7 @@
       ],
       "url": "/papers/translations/2026-10-16-ckmimagenet-2504-09849/",
       "source_file": "2026-10-16-ckmimagenet-2504-09849.md",
-      "scope": "摘要、正文 I–VI、图表与参考文献已译；未逐段逐式验收",
+      "scope": "摘要、正文 I–VI、主要图表与参考文献已译；逐段逐式校对中，未计入全文验收",
       "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-16-ckmimagenet-2504-09849.md",
       "source_page_path": "papers/translations/2026-10-16-ckmimagenet-2504-09849.md",
       "external": true,
