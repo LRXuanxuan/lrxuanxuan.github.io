@@ -547,6 +547,127 @@ $
 这种形式可以表示收缩型单调映射 $G$，因此避免原有的表示损失，同时仍能使用 ICNN 学习速度场。
 
 
+## 补充材料 A：数学记号（原文第 13 页）
+
+本节汇总全文使用的数学记号。向量 $x\in\mathbb R^d$ 的欧氏范数为 $\|x\|=(\sum_{i=1}^d x_i^2)^{1/2}$；矩阵 $A\in\mathbb R^{d\times d}$ 的 Frobenius 范数为 $\|A\|_F=(\sum_{i,j}A_{ij}^2)^{1/2}$。对标量函数 $f:\mathbb R^d\to\mathbb R$，梯度为 $\nabla f(x)=(\partial f/\partial x_1,\ldots,\partial f/\partial x_d)^\top$，Hessian 矩阵满足 $[\nabla^2f(x)]_{ij}=\partial^2f/(\partial x_i\partial x_j)$。对向量场 $v:\mathbb R^d\to\mathbb R^d$，Jacobian 为 $J_v(x)=\nabla v(x)$，其第 $(i,j)$ 元为 $\partial v_i/\partial x_j$。散度是 Jacobian 的迹：
+
+$$
+\nabla\cdot v(x)=\sum_{i=1}^d\frac{\partial v_i}{\partial x_i}
+=\operatorname{tr}(\nabla v(x)).
+$$
+
+散度刻画一个向量场在局部的净概率流出率，出现在时间变化密度所满足的连续性方程中。给定可测映射 $T:\mathbb R^d\to\mathbb R^d$ 和概率测度 $\mu$，推前测度 $T_\#\mu$ 是当 $X\sim\mu$ 时随机变量 $T(X)$ 的分布：对任意 Borel 集 $A$，$T_\#\mu(A)=\mu(T^{-1}(A))$。
+
+二阶 Wasserstein 距离定义为
+
+$$
+W_2^2(\mu,\nu)=
+\inf_{\gamma\in\Gamma(\mu,\nu)}
+\int_{\mathbb R^d\times\mathbb R^d}\|x-y\|^2\,d\gamma(x,y),
+$$
+
+其中 $\Gamma(\mu,\nu)$ 为两种边缘分布分别为 $\mu,\nu$ 的耦合集合。集合 $A,B\subset\mathbb R^d$ 的 Hausdorff 距离为
+
+$$
+d_H(A,B)=\max\left\{
+\sup_{a\in A}\inf_{b\in B}\|a-b\|,
+\sup_{b\in B}\inf_{a\in A}\|a-b\|
+\right\}.
+$$
+
+## 补充材料 B：相关研究（原文第 13–17 页）
+
+贝叶斯后验抽样已有多种生成式实现，本节按底层技术归类。
+
+**归一化流（Normalizing Flows）。** 归一化流使用一串可逆变换，将易于采样的基分布 $p_0$（如高斯）映射到复杂目标 $p_1$。若 $f$ 可逆且 Jacobian 行列式存在，则
+
+$$
+p_1(x)=p_0(f^{-1}(x))|\det J_{f^{-1}}(x)|.
+$$
+
+Real NVP（Dinh 等，2017）通过块三角耦合层使行列式易于计算。将输入分成两部分，第一部分保持不变，第二部分进行条件仿射变换：
+
+$$
+x'_{1:d}=x_{1:d},\qquad
+x'_{d+1:D}=x_{d+1:D}\odot e^{s(x_{1:d})}+t(x_{1:d}),
+$$
+
+其中 $s$ 与 $t$ 为神经网络参数化的尺度函数、平移函数，$\odot$ 是逐元素乘法。变换的对数 Jacobian 行列式是尺度输出的和。这类模型能够精确计算似然，但网络架构必须满足可逆性和可计算 Jacobian 约束。Ardizzone 等（2018）用可逆网络摊销学习后验；Radev 等（2020）的 BayesFlow 结合摘要网络与条件归一化流，利用仿真数据作摊销贝叶斯推断。这些工作对静态观测条件化，而本文直接通过速度场回归学习传输，不需要上述架构性可逆约束。
+
+**连续归一化流（Continuous Normalizing Flows，CNF）。** CNF（Chen 等，2018）使用连续时间 ODE 描述变换：$dx_t/dt=v_t(x_t,\omega)$，$t\in[0,1]$，$\omega$ 为可学习参数。其密度计算依赖连续时间变量替换公式。
+
+**引理 2（瞬时变量替换，Chen 等，2018）。** 若 $x(t)\sim p_t$ 为连续随机变量、$\dot x_t=v_t(x_t)$，速度对状态满足一致 Lipschitz 条件、对时间连续，则沿轨迹的对数密度满足
+
+$$
+\frac{d}{dt}\log p_t(x(t))
+=-\operatorname{tr}\left(\frac{dv}{dx(t)}\right).
+$$
+
+**扩散模型。** 扩散模型（Song 等，2020）通过前向加噪和反向得分估计学习数据分布。其采样和训练通常计算开销较大，并依赖得分函数的精度。前向 SDE 为 $dx_t=f_t(x_t)dt+g_t\,dB_t$，与之对应的反向随机动力学涉及 $f_t$、$g_t$ 和 $\nabla_x\log p_t(x)$。通过 Fokker–Planck 方程，
+
+$$
+\begin{aligned}
+\frac{\partial p_t(x)}{\partial t}
+&=-\nabla_x(fp_t)+\frac12g^2\nabla_x^2p_t\\
+&=-\nabla_x(fp_t)+\frac12g^2\nabla_x(p_t\nabla_x\log p_t)\\
+&=-\nabla_x\bigl[(f-\tfrac12g^2\nabla_x\log p_t)p_t\bigr],
+\end{aligned}
+$$
+
+得到对应的概率流 ODE，漂移为 $\widetilde f(x,t)=f(x,t)-\tfrac12g(t)^2\nabla_x\log p_t(x)$。这给出了随机扩散与确定性概率流之间的联系。
+
+### B.1 引导与条件抽样的区别
+
+扩散引导方法通过附加信号，使采样向某类目标结果偏移。常见方法是分类器引导和无分类器引导。基础的得分分解为
+
+$$
+\nabla\log p_t(x\mid y)=\nabla\log p_t(y\mid x)+\nabla\log p_t(x).
+$$
+
+**分类器引导**（Song 等，2020）另训练分类器 $p(y\mid x)$，在采样阶段将其梯度与扩散模型得分组合，偏向指定类别。生成模型本身仍按边缘分布 $p(x)$ 训练，类别信号不参与它的基本训练目标。
+
+**无分类器引导**（Classifier-Free Guidance，CFG；Ho 与 Salimans，2022）则让单一生成模型在训练时同时见到有条件和无条件输入，通过 Bernoulli 条件掩码区分两种模式；推断时调节引导权重，在相应速度或得分之间插值：
+
+$$
+\widetilde v_t(x\mid y)
+=(1-w)v_t(x\mid\varnothing)+w\,v_t(x\mid y).\tag{15}
+$$
+
+Zheng 等（2023）把这一思想扩展为引导流，在流匹配模型中使用时间依赖的分类器信号：$\widetilde v_t(x\mid y)=v_t(x)+b_t\nabla\log p_\phi(y\mid x,t)$。引导的优势是控制生成样本与条件标签的贴合程度，但**它追求的不是精确条件分布估计**；引导分布一般是受权重影响的温度化近似。
+
+### B.2 利用生成模型进行后验采样
+
+**基于 GAN 的方法。** Wang 与 Ročková（2022）、Baptista 等（2024）通过匹配“数据与参数”的联合样本和“边缘数据与噪声”的配对样本学习后验；Baptista 等额外施加单调性与块三角结构以稳定推断。本文沿用块三角思想，但用流匹配代替对抗训练，目标更简单且表 2 报告收敛更快。Bendel 等（2023）在条件 GAN 框架下引入改善训练稳定性与样本多样性的正则项，主要考虑线性逆问题。
+
+**基于扩散的后验采样。** Chung 等（2023）的 DPS 使用引导项解决一般有噪逆问题，既可以将得分与似然梯度组合，也可以用 Tweedie 公式近似干净样本的条件均值：
+
+$$
+dx_t=-\frac{\beta(t)}2x_t\,dt
+-\beta(t)\left[\nabla_x\log p_t(x_t)+\nabla_x\log p_t(y\mid x_t)\right]dt
++\sqrt{\beta(t)}\,d\bar B_t,
+$$
+
+$$
+\widehat x_0=\mathbb E[x_0\mid x_t]\approx
+\frac{x_t+[1-\bar\alpha(t)]s_\theta^\star(x_t,t)}{\sqrt{\bar\alpha(t)}}.
+$$
+
+**基于流的后验采样。** Ben-Hamu 等（2024）及 Pokle 等（2024）针对线性逆问题，在**推断阶段**修改生成路径以满足数据一致性，而非直接学习后验。FlowDPS（Kim 等，2025a）将 DPS 移植到流匹配，仍借助对数密度梯度进行得分估计。Wildberger 等（2023）先用正向仿真生成训练数据，再训练固定观测 $y$ 条件下的后验流。本文不同之处是让观测变量和参数变量**同时随流时间演化**，把联合传输拆为边缘和条件两个协同问题，而不是全部依赖单一的静态观测条件网络。
+
+### B.3 条件最优传输及相关框架
+
+Kerrigan 等（2024）将 Benamou–Brenier 公式推广到条件情形，保持条件变量 $y$ 不变，学习从源分布到后验的条件速度场，其重点是最小化条件 Wasserstein 距离。Chemseddine 等（2024）定义条件 Wasserstein 距离 $W_{p,Y}$，对条件空间中的质量传输施加惩罚，得到 OT Bayesian Flow Matching。在欧氏空间、线性插值且数据边缘匹配的条件下，这些方法和本文具有相同的目标速度，但训练过程中保持固定的变量和可建立的理论保证不同。
+
+Generale 等（2024）研究不断接收时间序列观测的动态系统预测：每一步流的源分布是上一步的后验近似，而非固定噪声。Isobe 等（2024）研究条件之间的传输，例如从 $\pi(\theta\mid y_1)$ 连续流向 $\pi(\theta\mid y_2)$，通过在条件空间中积分优化变换对条件的平滑性。这两者与本文的固定观测后验恢复任务不同。
+
+### B.4 贝叶斯计算中的传输方法
+
+Makkuva 等（2020）借助输入凸神经网络表达凸势函数，以直接优化静态 OT 问题、学习整体 Monge 映射；本文只在可信集构造中可选择加入凸性，后验采样本身不要求它。Li 等（2025）把后验学习表述为 OT 问题，在简单设定下得到可高效抽样的线性传输。本文同样希望学习确定性的先验—后验映射，但通过流匹配隐式获得映射，而不直接求解静态 OT。
+
+Duan（2023）用随机近似传输对 MCMC 预条件化（Transport Monte Carlo）；Hoffman 等（2019）用神经传输减弱后验几何的复杂性后，再在变换空间运行 HMC。两者的传输都是 Monte Carlo 的辅助预条件器，不是独立的后验采样器。本文则直接积分学习的速度场生成后验样本，不依赖 Hamilton 动力学或接受—拒绝步骤。
+
+Katzfuss 与 Schäfer（2024）针对高维空间场使用高斯过程回归、maximin 空间排序和贝叶斯正则化，估计三角 Rosenblatt/Knothe 传输。本文虽同样使用三角思想，却不预设空间结构或高斯过程先验。Jiang 等（2025）针对高维参数空间结合得分匹配与 Langevin 动力学；Polson 与 Sokolov（2024）用 pinball 损失训练基于分位数的深度采样器。本文通过时变联合速度场分解学习多维后验，与上述方法均不同。
+
 ---
 
 **续译状态：** 附录 A–C 已按原文翻译，附录 D–E、参考文献清单与跨页公式细节仍待补充。此处是明确标识范围的阶段性译稿，不代表完整论文，也未经过逐页、逐式验收。
