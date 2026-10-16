@@ -832,3 +832,486 @@ $\widehat{\mathbf V}\widehat{\mathbf V}^{\rm H}=\mathbf I_M$，所有半盲估�
 本文提出一类基于条件高斯潜变量模型（CGLM）的新型半盲信道估计方法。为此讨论了两种把子空间知识纳入已有 LMMSE 估计器的方式。两种方法都通过全部接收符号形成样本协方差，并利用其主特征向量估计子空间。理论分析表明，在空间不相关瑞利衰落下，投影型估计器具有更高的估计质量。
 
 随后，论文说明如何利用 GMM 和 VAE 两种 CGLM 为这两类半盲 LMMSE 估计器提供生成先验参数。基于实际测量数据和空间信道模型的大量仿真结果表明，与标准半盲估计方案相比，所提方法具有更好的信道估计性能。
+
+
+## 附录
+
+### A. 投影 LMMSE 的均方误差
+
+对于任意线性估计 $\widehat{\mathbf h}=\mathbf W\mathbf y_p$，均方误差为
+
+$$
+\begin{aligned}
+\mathrm{MSE}
+&=\mathbb E\|\mathbf h-\widehat{\mathbf h}\|^2\\
+&=\mathbb E\left[
+\operatorname{tr}\bigl(
+(\mathbf h-\widehat{\mathbf h})
+(\mathbf h^{\rm H}-\widehat{\mathbf h}^{\rm H})
+\bigr)\right],\tag{65}
+\end{aligned}
+$$
+
+$$
+=\mathbb E\bigl[
+\operatorname{tr}(\mathbf h\mathbf h^{\rm H})
+-2\operatorname{tr}(\mathbf h\mathbf y^{\rm H}\mathbf W^{\rm H})
++\operatorname{tr}(\mathbf W\mathbf y\mathbf y^{\rm H}\mathbf W^{\rm H})
+\bigr].\tag{66}
+$$
+
+对投影 LMMSE，式 (66) 的第二项可改写为
+
+$$
+\mathbb E[
+\operatorname{tr}(\mathbf h\widetilde{\mathbf y}^{\rm H}
+\mathbf W^{\rm H})],\tag{67}
+$$
+
+$$
+=\mathbb E[
+\operatorname{tr}(\mathbf h\mathbf h^{\rm H}
+\mathbf W^{\rm H})],\tag{68}
+$$
+
+$$
+=\mathbb E\left[
+\operatorname{tr}\left(
+\mathbf h\mathbf h^{\rm H}
+\left(\mathbf C+\sigma^2\frac JM\mathbf I_M\right)^{-1}
+\mathbf C\right)\right],\tag{69}
+$$
+
+$$
+=\operatorname{tr}\left(
+\mathbf C
+\left(\mathbf C+\sigma^2\frac JM\mathbf I_M\right)^{-1}
+\mathbf C\right).\tag{70}
+$$
+
+同样，式 (66) 第三项为
+
+$$
+\mathbb E\bigl[
+\operatorname{tr}(
+\mathbf W\widetilde{\mathbf y}\widetilde{\mathbf y}^{\rm H}
+\mathbf W^{\rm H})\bigr],\tag{71}
+$$
+
+$$
+=\mathbb E\left[
+\operatorname{tr}\bigl(
+\mathbf W(\mathbf h\mathbf h^{\rm H}
++\widetilde{\mathbf n}\widetilde{\mathbf n}^{\rm H})
+\mathbf W^{\rm H}\bigr)\right],\tag{72}
+$$
+
+$$
+\begin{aligned}
+=\mathbb E\Bigl[
+\operatorname{tr}\Bigl(
+&\mathbf C
+(\mathbf C+\sigma^2(J/M)\mathbf I_M)^{-1}\\
+&\times(\mathbf h\mathbf h^{\rm H}
++\widetilde{\mathbf n}\widetilde{\mathbf n}^{\rm H})
+(\mathbf C+\sigma^2(J/M)\mathbf I_M)^{-1}
+\mathbf C\Bigr)\Bigr],\tag{73}
+\end{aligned}
+$$
+
+$$
+=\operatorname{tr}\left(
+\mathbf C(\mathbf C+\sigma^2(J/M)\mathbf I_M)^{-1}
+\mathbf C\right),\tag{74}
+$$
+
+其中采用了
+$\mathbb E[\widetilde{\mathbf n}\widetilde{\mathbf n}^{\rm H}]
+=\sigma^2(J/M)\mathbf I_M$。将以上结果代回式 (66)，即得正文式 (26) 的均方误差。
+
+### B. 瑞利衰落下子空间 LMMSE 的均方误差
+
+在空间不相关瑞利衰落下，子空间 LMMSE 滤波器为
+
+$$
+\mathbf W_{\rm sub}
+=\frac1{1+\sigma^2}\mathbf V\mathbf V^{\rm H}.\tag{75}
+$$
+
+利用此滤波器，式 (66) 的第二项可以写为
+
+$$
+\mathbb E[
+\operatorname{tr}(\mathbf h\mathbf y^{\rm H}
+\mathbf W_{\rm sub}^{\rm H})],\tag{76}
+$$
+
+$$
+=\mathbb E_{\mathbf h}\left[
+\mathbb E\bigl[
+\operatorname{tr}(\mathbf h\mathbf h^{\rm H}
+\mathbf W_{\rm sub}^{\rm H})\mid\mathbf h
+\bigr]\right],\tag{77}
+$$
+
+$$
+=\frac1{1+\sigma^2}
+\mathbb E_{\mathbf h}\left[
+\operatorname{tr}(\mathbf h\mathbf h^{\rm H}
+\mathbf V\mathbf V^{\rm H})\right],\tag{78}
+$$
+
+$$
+=\frac1{1+\sigma^2}
+\mathbb E_{\mathbf h}\left[
+\operatorname{tr}(\mathbf h\mathbf h^{\rm H})\right],\tag{79}
+$$
+
+$$
+=\frac M{1+\sigma^2}.\tag{80}
+$$
+
+类似地，式 (66) 的第三项为
+
+$$
+\mathbb E\bigl[
+\operatorname{tr}(
+\mathbf W_{\rm sub}\mathbf y\mathbf y^{\rm H}
+\mathbf W_{\rm sub}^{\rm H})\bigr],\tag{81}
+$$
+
+$$
+\begin{aligned}
+=&\mathbb E_{\mathbf h}\Bigl[
+\mathbb E[
+\operatorname{tr}(\mathbf W_{\rm sub}
+\mathbf h\mathbf h^{\rm H}\mathbf W_{\rm sub}^{\rm H})
+\mid\mathbf h]\Bigr]\\
+&+\mathbb E_{\mathbf h}\Bigl[
+\mathbb E[
+\operatorname{tr}(\mathbf W_{\rm sub}
+\mathbf n\mathbf n^{\rm H}\mathbf W_{\rm sub}^{\rm H})
+\mid\mathbf h]\Bigr],\tag{82}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+=\frac1{(1+\sigma^2)^2}
+\Bigl(&\mathbb E[
+\operatorname{tr}(
+\mathbf V\mathbf V^{\rm H}\mathbf h\mathbf h^{\rm H}
+\mathbf V\mathbf V^{\rm H})]\\
+&+\mathbb E[
+\operatorname{tr}(
+\mathbf V\mathbf V^{\rm H}\mathbf n\mathbf n^{\rm H}
+\mathbf V\mathbf V^{\rm H})]\Bigr),\tag{83}
+\end{aligned}
+$$
+
+$$
+=\frac1{(1+\sigma^2)^2}
+\Bigl(
+\mathbb E[\operatorname{tr}(\mathbf h\mathbf h^{\rm H})]
++\sigma^2\mathbb E[
+\operatorname{tr}(\mathbf V\mathbf V^{\rm H})]\Bigr),\tag{84}
+$$
+
+$$
+=\frac{M+J\sigma^2}{(1+\sigma^2)^2}.\tag{85}
+$$
+
+因此对于 $\mathbf C=\mathbf I_M$，子空间法的 MSE 为
+
+$$
+\mathrm{MSE}_{\rm sub,iid}
+=M-\frac{2M}{1+\sigma^2}
++\frac{M+J\sigma^2}{(1+\sigma^2)^2},\tag{86}
+$$
+
+$$
+=\frac{\sigma^2(M\sigma^2+J)}{(1+\sigma^2)^2}.
+\tag{87}
+$$
+
+### C. 贝叶斯 Cramér–Rao 界的推导
+
+根据 [48]，对任何 $\widehat{\mathbf h}(\mathbf Y)$ 都适用的贝叶斯 Cramér–Rao 下界（BCRB）为
+
+$$
+\mathbb E\|\widehat{\mathbf h}(\mathbf Y)-\mathbf h\|^2
+\ge\operatorname{tr}\left(
+[\mathbb E_{\mathbf h}[\mathbf I(\mathbf h)]
++\mathbf J_p]^{-1}_{:M,:M}
+\right),\tag{88}
+$$
+
+其中 $\mathbf I(\mathbf h)$ 是对应于无偏 CRB 逆矩阵的 Fisher 信息矩阵，先验信息为
+
+$$
+\mathbf J_p
+=\mathbb E_{\mathbf h}\left[
+\frac{\partial\log p(\mathbf h)}{\partial\mathbf h}
+\frac{\partial\log p(\mathbf h)}{\partial\mathbf h^{\rm H}}
+\right],\tag{89}
+$$
+
+$$
+=\operatorname{blckdiag}(
+\mathbf C_1,\ldots,\mathbf C_J)^{-1}.\tag{90}
+$$
+
+式 (88) 中 $[\,\cdot\,]_{:M,:M}$ 表示整体 BCRB 矩阵的左上角 $M\times M$ 子块；不失一般性地，把目标用户编号为第一个。
+
+若所有用户均满足 $\mathbf C_j=\mathbf I_M$，先验信息为
+
+$$
+\mathbf J_p=\mathbf I_{JM}.\tag{91}
+$$
+
+采用 [40] 推导的确定性 BCRB 形式，得到
+
+$$
+\mathrm{BCRB}_{\rm iid,d}
+=\sigma^2\left[
+(\mathbf X^*\mathbf X^{\rm T})\otimes\mathbf P_H^\perp
++(\mathbf P^*\mathbf P^{\rm T})\otimes\mathbf P_H
++\sigma^2\mathbf I_{JM}
+\right]^{-1},\tag{92}
+$$
+
+其中 $\mathbf P_H^\perp=\mathbf I_M-\mathbf P_H$。
+
+对于随机 CRB，使用 [15] 的 Fisher 信息矩阵。先引入按实部、虚部堆叠的向量
+
+$$
+\overline{\mathbf h}
+=[\Re\{\mathbf h_1^{\rm T}\},\Im\{\mathbf h_1^{\rm T}\},
+\ldots,\Re\{\mathbf h_J^{\rm T}\},
+\Im\{\mathbf h_J^{\rm T}\}]^{\rm T}.
+$$
+
+于是先验信息为
+
+$$
+\mathbf J_p
+=\mathbb E_{\overline{\mathbf h}}\left[
+\frac{\partial\log p(\overline{\mathbf h})}
+{\partial\overline{\mathbf h}}
+\frac{\partial\log p(\overline{\mathbf h})}
+{\partial\overline{\mathbf h}^{\rm T}}
+\right],\tag{93}
+$$
+
+$$
+=2\,\operatorname{blckdiag}(
+\overline{\mathbf C}_1,\ldots,
+\overline{\mathbf C}_J)^{-1},\tag{94}
+$$
+
+$$
+\overline{\mathbf C}_j
+=\begin{bmatrix}
+\Re\{\mathbf C_j\}&-\Im\{\mathbf C_j\}\\
+\Im\{\mathbf C_j\}&\Re\{\mathbf C_j\}
+\end{bmatrix}.\tag{95}
+$$
+
+对于空间不相关瑞利衰落，
+
+$$
+\mathrm{BCRB}_{\rm iid,s}
+=\left[
+\left(\frac{2N_p}{J\sigma^2}+2\right)
+\mathbf I_{2JM}+\mathbf R
+\right]^{-1},\tag{96}
+$$
+
+其中 $\mathbf R$ 是 [15] 中与载荷数据符号有关的项。
+
+### D. 定理 2 的证明
+
+首先固定信道矩阵 $\mathbf H$，只对高斯数据符号和噪声的随机实现取期望。记投影 LMMSE 滤波器为 $\mathbf W_{\rm proj}$，则
+
+$$
+\begin{aligned}
+&\mathbb E_{\mathbf X,\mathbf N}\|
+\widehat{\mathbf h}_{\rm proj}(\widehat{\mathbf V})
+-\widehat{\mathbf h}_{\rm proj}(\mathbf V)\|^2\\
+&=\mathbb E_{\mathbf X,\mathbf N}
+\left\|\mathbf W_{\rm proj}
+(\widehat{\mathbf V}\widehat{\mathbf V}^{\rm H}
+-\mathbf V\mathbf V^{\rm H})
+\mathbf y\right\|^2,\tag{97}
+\end{aligned}
+$$
+
+$$
+\le\lambda_{\max}(
+\mathbf W_{\rm proj}^{\rm H}\mathbf W_{\rm proj})
+\mathbb E_{\mathbf X}\bigl[
+\operatorname{tr}(\mathbf A)
++\mathbb E_{\mathbf N}\operatorname{tr}(\mathbf B)
+\bigr].\tag{98}
+$$
+
+其中信道项的推导为
+
+$$
+\operatorname{tr}(\mathbf A)
+=\operatorname{tr}\Bigl[
+(\widehat{\mathbf V}\widehat{\mathbf V}^{\rm H}
+-\mathbf V\mathbf V^{\rm H})
+\mathbf h\mathbf h^{\rm H}
+(\widehat{\mathbf V}\widehat{\mathbf V}^{\rm H}
+-\mathbf V\mathbf V^{\rm H})
+\Bigr],\tag{99}
+$$
+
+$$
+=\operatorname{tr}\Bigl[
+(\mathbf I-\widehat{\mathbf V}\widehat{\mathbf V}^{\rm H})
+\mathbf h\mathbf h^{\rm H}
+(\mathbf I-\widehat{\mathbf V}\widehat{\mathbf V}^{\rm H})
+\Bigr],\tag{100}
+$$
+
+$$
+=\|(\mathbf I-\widehat{\mathbf V}\widehat{\mathbf V}^{\rm H})
+\mathbf h\|^2,\tag{101}
+$$
+
+$$
+=\|(\mathbf I-\widehat{\mathbf V}\widehat{\mathbf V}^{\rm H})
+\mathbf V\mathbf s\|^2,\tag{102}
+$$
+
+$$
+=\sum_{i\le J}\sum_{j>J}
+|\widehat{\mathbf v}_j^{\rm H}\mathbf v_i s_i|^2,\tag{103}
+$$
+
+$$
+\le |s_{\max}|^2
+\sum_{i\le J}\sum_{j>J}
+|\widehat{\mathbf v}_j^{\rm H}\mathbf v_i|^2,\tag{104}
+$$
+
+$$
+=|s_{\max}|^2
+\sum_{j>J}\sum_{i\le J}
+|\widehat{\mathbf v}_j^{\rm H}\mathbf v_i|^2.\tag{105}
+$$
+
+这里 $\mathbf h=\mathbf V\mathbf s$，且
+$\mathbf s=[s_1,\ldots,s_J]^{\rm T}$，
+$s_{\max}=\max_i|s_i|$。
+
+噪声项满足
+
+$$
+\begin{aligned}
+\mathbb E_{\mathbf N}\operatorname{tr}(\mathbf B)
+=\mathbb E_{\mathbf N}\operatorname{tr}\Bigl[
+&(\widehat{\mathbf V}\widehat{\mathbf V}^{\rm H}
+-\mathbf V\mathbf V^{\rm H})\mathbf n\mathbf n^{\rm H}\\
+&\times(\widehat{\mathbf V}\widehat{\mathbf V}^{\rm H}
+-\mathbf V\mathbf V^{\rm H})\Bigr],\tag{106}
+\end{aligned}
+$$
+
+$$
+=\sigma^2\Bigl[
+\operatorname{tr}(
+\widehat{\mathbf V}\widehat{\mathbf V}^{\rm H}
++\mathbf V\mathbf V^{\rm H})
+-2\operatorname{tr}(
+\widehat{\mathbf V}\widehat{\mathbf V}^{\rm H}
+\mathbf V\mathbf V^{\rm H})\Bigr],\tag{107}
+$$
+
+$$
+=2\sigma^2\left[
+J-\sum_{i,j\le J}
+|\widehat{\mathbf v}_j^{\rm H}\mathbf v_i|^2
+\right],\tag{108}
+$$
+
+$$
+=2\sigma^2\sum_{j\le J}
+\sum_{i>J}|\widehat{\mathbf v}_j^{\rm H}\mathbf v_i|^2.
+\tag{109}
+$$
+
+结合式 (104)–(109)，得到
+
+$$
+\begin{aligned}
+&\mathbb E_{\mathbf N}\|
+\widehat{\mathbf h}_{\rm proj}(\widehat{\mathbf V})
+-\widehat{\mathbf h}_{\rm proj}(\mathbf V)\|^2\\
+&\le\lambda_{\max}(
+\mathbf W_{\rm proj}^{\rm H}\mathbf W_{\rm proj})
+(|s_{\max}|^2+2\sigma^2)
+\sum_{j\le J}\sum_{i>J}
+|\widehat{\mathbf v}_j^{\rm H}\mathbf v_i|^2.
+\end{aligned}\tag{110}
+$$
+
+随后使用文献 [49, Corollary 4.1] 关于真实协方差与样本协方差特征向量内积的概率界。
+
+**推论 2.1。** 令 $\lambda'_i$ 和 $\mathbf v_i$ 分别为真实协方差的特征值与特征向量。对于满足文献指定非零条件的权重 $w_{ji}$ 及任意 $\varepsilon>0$，有
+
+$$
+\mathbb P\left(
+\sum_{j\le J}\sum_{i>J}
+w_{ji}|\widehat{\mathbf v}_j^{\rm H}\mathbf v_i|^2
+\le\varepsilon
+\right)
+\ge
+1-\sum_{j\le J}\sum_{i>J}
+\frac{4k_i^2w_{ji}}
+{N\varepsilon(\lambda'_j-\lambda'_i)^2},
+\tag{111}
+$$
+
+其中 $k_i^2=\mathbb E\|\mathbf y\mathbf y^{\rm H}\mathbf v_i\|^2-(\lambda'_i)^2$。
+
+对于本文问题，真实接收协方差是
+$\mathbf C_{y\mid H}=\mathbf H\mathbf H^{\rm H}/J
++\sigma^2\mathbf I_M$，
+因此 $\lambda'_i=\sigma^2$（$i>J$）。由 [49, Corollary 4.3]，
+
+$$
+k_i^2=\lambda'_i
+\bigl(\lambda'_i+\operatorname{tr}(
+\mathbf C_{y\mid H})\bigr).\tag{112}
+$$
+
+结合式 (110)、(111)、(112)，得
+
+$$
+\begin{aligned}
+&\mathbb P\Bigl(
+\mathbb E_{\mathbf X,\mathbf N}
+\|\widehat{\mathbf h}_{\rm proj}(\widehat{\mathbf V})
+-\widehat{\mathbf h}_{\rm proj}(\mathbf V)\|^2
+\le\varepsilon\Bigr)\\
+&\ge
+1-\frac{4k^2(M-J)\lambda_{\max}(
+\mathbf W_{\rm proj}^{\rm H}\mathbf W_{\rm proj})}
+{J^2N\varepsilon}
+(|s_{\max}|^2+2\sigma^2)
+\sum_{j\le J}\frac1{\lambda_j^2},
+\end{aligned}\tag{113}
+$$
+
+其中 $\lambda_j=(\lambda'_j-\sigma^2)/J$ 在原文被说明为 $\mathbf H\mathbf H^{\rm H}$ 的相应特征值，且
+
+$$
+k^2=\sigma^2\bigl(
+\sigma^2+\operatorname{tr}(\mathbf C_{y\mid H})\bigr).
+\tag{114}
+$$
+
+这就得到正文的定理 2。请注意：关于 $\lambda_j$ 与 $\lambda'_j$ 的尺度关系应结合原论文中的特征值归一化约定核查，避免在其他系统中直接移用此概率界。
