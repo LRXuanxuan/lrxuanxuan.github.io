@@ -14,7 +14,7 @@ toc: true
 **原题：** Near-Field Sparse Bayesian Channel Estimation and Tracking for XL-IRS-Aided Wideband mmWave Systems  
 **作者：** Xiaokun Tuo、Zijian Chen、Ming-Min Zhao、Changsheng You、Min-Jian Zhao  
 **版本：** arXiv:2511.18752v2，2026 年 1 月 16 日，原文 15 页。  
-**译文范围：** 摘要、引言、系统模型与传输协议的主要内容。层次先验、完整消息传递更新、仿真与参考文献尚未完成逐段翻译；不计入全文验收。
+**译文范围（2026-10-17 校对更新）：** 已译摘要、正文 I–VI、附录 A–C、主要公式（1）–（51）、算法及图表相关文字；原参考文献暂以 PDF 原文链接提供，复杂推导尚待逐段逐式核验，不计入已验收全文。
 
 ## 摘要
 
