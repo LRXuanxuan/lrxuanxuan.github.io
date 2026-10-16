@@ -11,6 +11,11 @@ toc: true
 
 ## 中英文译文
 
+- [CKMImageNet：信道知识地图数据集｜中文译稿（全文校对中）](/papers/translations/2026-10-16-ckmimagenet-2504-09849/) · 摘要、正文 I–VI、图表及参考文献；逐段校对中；未通过全文验收
+- [贝叶斯后验推断的条件流匹配｜中文阶段性译稿](/papers/translations/2026-10-16-conditional-flow-bayesian-2510-09534/) · 摘要、引言、方法 2.1–2.2；剩余章节及附录待翻译；未通过全文验收
+- [XL-IRS 近场稀疏贝叶斯估计与跟踪｜中文阶段性译稿](/papers/translations/2026-10-16-xlirs-bayesian-tracking-2511-18752/) · 摘要、引言及系统模型前半部分；后续章节待翻译；未通过全文验收
+- [SwiftChannel：5G 信道估计算法与硬件协同设计｜中文阶段性译稿](/papers/translations/2026-10-16-swiftchannel-2605-01931/) · 摘要、引言、相关工作及估计网络前半部分；后续章节待翻译；未通过全文验收
+- [马尔可夫过程间传输的条件流匹配｜中文阶段性译稿](/papers/translations/2026-10-16-markov-cfm-2610-07229/) · 摘要、引言、预备知识及问题模型；主要定理及附录待翻译；未通过全文验收
 - [过采样 OTFS：唯一字 UW 导频信道估计｜中文译稿（逐段校对中）](/papers/translations/2026-10-16-uw-otfs-2601-09364/) · I–XI 节中文结构译稿、关键公式、算法与仿真说明；逐式全文校对中
 - [TWC：维纳相位噪声下的消息传递稀疏估计｜中文译稿（逐段校对中）](/papers/translations/2026-10-16-phase-noise-message-passing-twc/) · I–VII 节、因子图消息计算、算法与仿真；附录公式及参考文献待核
 - [XL-RIS 多用户混合波束成形与 CLRA-JO 近场估计｜中文译稿（逐段校对中）](/papers/translations/2026-10-16-xlris-clra-2401-06966/) · I–VI 节、共同列空间与联合优化、仿真；部分长公式待核
