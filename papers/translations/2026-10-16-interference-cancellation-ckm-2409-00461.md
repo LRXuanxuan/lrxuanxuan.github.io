@@ -931,3 +931,463 @@ O\!\left(
 \left(\bar L+\sum_k\bar L_k^{\rm I}\right)^3
 \right).
 $$
+
+
+## V. CKM 辅助的信道估计
+
+第五节 A 小节介绍最小均方误差与干扰抑制合并（minimum mean square error and interference rejection combining，MMSE-IRC）估计器 [41]。B 小节利用 CKM 估计用户信道的频率—空间联合协方差和干扰信号的空间协方差；C 小节利用协方差结构降低复杂度；D 小节分析用户信道协方差精度对估计性能的影响。
+
+### A. MMSE-IRC 估计器
+
+考虑当前时隙 $t$ 的信道估计。由于导频传输周期通常远短于 CKM 更新周期，邻小区之间难以实时建立低时延的导频使用信息交换。因此，为使估计器具有一般性，这里把所有干扰用户的导频 $\mathbf X_{t,k}^{\rm I}$ 视为未知。
+
+根据式 (3)，先左乘目标用户导频逆矩阵 $\mathbf X_t^{-1}$，再把 $\mathbf X_t^{-1}\mathbf Y_t$ 向量化，得到
+
+$$
+\mathbf r_t
+=\mathbf h_t+\sum_k\widetilde{\mathbf h}_{t,k}^{\rm I}
++\mathbf w_t,\tag{41}
+$$
+
+其中
+$\mathbf r_t=\operatorname{vec}(\mathbf X_t^{-1}\mathbf Y_t)$，
+$\mathbf h_t=\operatorname{vec}(\mathbf H_t)$，
+$\widetilde{\mathbf h}_{t,k}^{\rm I}
+=\operatorname{vec}(\mathbf X_t^{-1}
+\mathbf X_{t,k}^{\rm I}\mathbf H_{t,k}^{\rm I})$；
+$\mathbf w_t$ 为各元素独立服从 $\mathcal{CN}(0,\gamma/P)$ 的白高斯噪声。记 $\widehat{\mathbf C}_t$ 为 $\mathbf h_t$ 的协方差估计，
+$\widehat{\mathbf R}_t^{\rm I}$ 为 $\sum_k\widetilde{\mathbf h}_{t,k}^{\rm I}+\mathbf w_t$ 的协方差估计。MMSE-IRC 估计器为
+
+$$
+\widehat{\mathbf h}_t
+=\widehat{\mathbf C}_t
+\left(
+\widehat{\mathbf C}_t+\widehat{\mathbf R}_t^{\rm I}
+\right)^{-1}\mathbf r_t.\tag{42}
+$$
+
+MMSE-IRC 的性能受两个协方差估计影响。特别地，当它们分别等于目标信道和干扰加噪声的真实协方差时，式 (42) 是贝叶斯最优的线性 MMSE 估计器 [20]。下面借助 CKM 提供较强的 $\widehat{\mathbf C}_t$ 先验，并辅助估计 $\widehat{\mathbf R}_t^{\rm I}$。
+
+### B. 基于 CKM 的协方差估计
+
+通过式 (5) 把当前时隙映射到网格 $q=\mathcal L(t)$，然后使用式 (6) 的 $\mathcal C(q)$ 获得该网格的有效路径参数 $\{\bar\tau_{q,l},\bar\theta_{q,l},\bar\phi_{q,l},\bar\rho_{q,l}\}_{l=1}^{\bar L}$。本节将这些 CKM 输出视为确定性变量，以简化记号。由式 (7)，向量化的目标信道为
+
+$$
+\mathbf h_t
+=\sum_l\bar\alpha_{t,l}\sqrt{\bar\rho_{q,l}}\,
+\mathbf b(\bar\theta_{q,l},\bar\phi_{q,l})
+\otimes\mathbf a_N(\bar\tau_{q,l})
++\operatorname{vec}(\Delta\mathbf H_t).\tag{43}
+$$
+
+各 $\bar\alpha_{t,l}$ 独立同分布、零均值、单位方差。忽略 CKM 表示误差 $\operatorname{vec}(\Delta\mathbf H_t)$，计算
+
+$$
+\widehat{\mathbf C}_t
+=\mathbb E[\mathbf h_t\mathbf h_t^{\rm H}]
+=\sum_l\bar\rho_{q,l}
+\bigl(\mathbf b_l\otimes\mathbf a_N(\bar\tau_{q,l})\bigr)
+\bigl(\mathbf b_l\otimes\mathbf a_N(\bar\tau_{q,l})\bigr)^{\rm H},
+\tag{44}
+$$
+
+其中 $\mathbf b_l=\mathbf b(\bar\theta_{q,l},\bar\phi_{q,l})$。
+
+为了估计干扰协方差 $\widehat{\mathbf R}_t^{\rm I}$，先分析真实协方差的结构。由式 (2)，干扰项写为
+
+$$
+\widetilde{\mathbf h}_{t,k}^{\rm I}
+=\sum_{l=1}^{L_k^{\rm I}}
+\alpha_{t,k,l}^{\rm I}\sqrt{\rho_{t,k,l}^{\rm I}}\,
+\mathbf b(\theta_{t,k,l}^{\rm I},\phi_{t,k,l}^{\rm I})
+\otimes\mathbf s_{t,k,l},\tag{45}
+$$
+
+其中 $\mathbf s_{t,k,l}
+=\mathbf X_t^{-1}\mathbf X_{t,k}^{\rm I}
+\mathbf a_N(\tau_{t,k,l}^{\rm I})$。由于干扰导频未知，把它建模为随机矩阵，满足
+$\mathbb E[\mathbf X_{t,k}^{\rm I}(\mathbf X_{t,k}^{\rm I})^{\rm H}]
+=P^{\rm I}\mathbf I$，于是
+$\mathbb E[\mathbf s_{t,k,l}\mathbf s_{t,k,l}^{\rm H}]
+=(P^{\rm I}/P)\mathbf I$。由此得到
+
+$$
+\begin{aligned}
+\mathbf R_t^{\rm I}
+&=\mathbb E\!\left[
+\left(\sum_k\widetilde{\mathbf h}_{t,k}^{\rm I}
++\mathbf w_t\right)
+\left(\sum_k\widetilde{\mathbf h}_{t,k}^{\rm I}
++\mathbf w_t\right)^{\rm H}
+\right]\tag{46a}\\
+&=\sum_{k,l}\rho_{t,k,l}^{\rm I}
+\bigl(\mathbf b_{t,k,l}^{\rm I}
+(\mathbf b_{t,k,l}^{\rm I})^{\rm H}\bigr)
+\otimes
+\mathbb E[\mathbf s_{t,k,l}\mathbf s_{t,k,l}^{\rm H}]
++\frac\gamma P\mathbf I\\
+&=\mathbf Q_t\otimes\mathbf I_N,\tag{46b}
+\end{aligned}
+$$
+
+其中
+
+$$
+\mathbf Q_t
+=\frac\gamma P\mathbf I_M
++\frac{P^{\rm I}}P
+\sum_{k,l}\rho_{t,k,l}^{\rm I}
+\mathbf b_{t,k,l}^{\rm I}
+(\mathbf b_{t,k,l}^{\rm I})^{\rm H}
+$$
+
+表示干扰加噪声的空间协方差。式 (46a) 使用了式 (45) 和 Kronecker 积恒等式；式 (46b) 利用时延/频率维度上干扰加噪声的协方差为单位阵这一性质。
+
+作者采用样本协方差估计 $\mathbf Q_t$。首先把频率—空间接收向量变换到时延—空间域：
+
+$$
+\widetilde{\mathbf r}_t
+=(\mathbf I_M\otimes\mathbf F^{\rm H})\mathbf r_t
+=\widetilde{\mathbf h}_t
++(\mathbf I_M\otimes\mathbf F^{\rm H})
+\left(\sum_k\widetilde{\mathbf h}_{t,k}^{\rm I}
++\mathbf w_t\right),\tag{47}
+$$
+
+其中 $\widetilde{\mathbf h}_t$ 是目标用户时延—空间信道，$\mathbf F$ 是 DFT 矩阵。通常，目标用户信道的最大时延扩展远小于 OFDM 符号时长；因此，对超过其最大时延索引 $J_0$ 的抽头 $j$，各天线上的目标信道分量可近似为零。于是 $\widetilde{\mathbf r}_{t,mN+j}$ 在这些抽头位置几乎只包含干扰与噪声。
+
+此外，由 $\mathbf R_t^{\rm I}=\mathbf Q_t\otimes\mathbf I$ 可知，左乘酉变换 $\mathbf I\otimes\mathbf F^{\rm H}$ 不改变干扰与噪声协方差：
+$(\mathbf I\otimes\mathbf F^{\rm H})
+(\mathbf Q_t\otimes\mathbf I)
+(\mathbf I\otimes\mathbf F)
+=\mathbf Q_t\otimes\mathbf I$。
+
+因此可以先根据 CKM 决定目标信道最大时延扩展，再用仅有干扰与噪声的时延抽头估计 $\mathbf Q_t$。CKM 给出的功率时延谱（PDP）为
+
+$$
+\begin{aligned}
+P_{q,j}
+&=\frac1M\sum_{m=0}^{M-1}
+\mathbb E\bigl[|
+\widetilde h_{t,mN+j}|^2\bigr]\\
+&=\sum_l\bar\rho_{q,l}\,
+\frac{\|\mathbf b_l\|_2^2}{M}\,
+\left|[\mathbf F^{\rm H}
+\mathbf a_N(\bar\tau_{q,l})]_j\right|^2,
+\quad j=1,\ldots,N .
+\end{aligned}\tag{48}
+$$
+
+给定功率阈值 $P^{\rm thres}$，定义
+$\mathcal J=\{j:P_{q,j}<P^{\rm thres}\}$ 为目标信道功率近似为零的时延抽头索引集合。由这些抽头上的 $M$ 维空间观测形成样本协方差：
+
+$$
+\begin{aligned}
+\widehat{\mathbf Q}_t
+=\frac1{|\mathcal J|}
+\sum_{j\in\mathcal J}
+&[\widetilde r_{t,0N+j},\ldots,
+\widetilde r_{t,(M-1)N+j}]^{\rm T}\\
+&\quad\times
+[\widetilde r_{t,0N+j},\ldots,
+\widetilde r_{t,(M-1)N+j}]^* .
+\end{aligned}\tag{49}
+$$
+
+结合式 (46b)，得到 $\widehat{\mathbf R}_t^{\rm I}
+=\widehat{\mathbf Q}_t\otimes\mathbf I_N$。
+
+### C. 低复杂度 MMSE-IRC
+
+直接计算式 (42) 中 $(\widehat{\mathbf C}_t+
+\widehat{\mathbf R}_t^{\rm I})^{-1}$ 的复杂度为 $O(N^3M^3)$，当子载波和天线数量较大时不可接受。为降低复杂度，首先把 $\widehat{\mathbf C}_t$ 分解为
+
+$$
+\widehat{\mathbf C}_t
+=\mathbf A_q\boldsymbol\Sigma_q\mathbf A_q^{\rm H},
+\tag{50}
+$$
+
+其中
+$\mathbf A_q=[
+\mathbf b(\bar\theta_{q,1},\bar\phi_{q,1})\otimes
+\mathbf a_N(\bar\tau_{q,1}),\ldots,
+\mathbf b(\bar\theta_{q,\bar L},\bar\phi_{q,\bar L})\otimes
+\mathbf a_N(\bar\tau_{q,\bar L})]
+\in\mathbb C^{MN\times\bar L}$，
+$\boldsymbol\Sigma_q=\operatorname{diag}(
+[\bar\rho_{q,1},\ldots,\bar\rho_{q,\bar L}]^{\rm T})$。
+
+将式 (50) 及 $\widehat{\mathbf R}_t^{\rm I}
+=\widehat{\mathbf Q}_t\otimes\mathbf I$ 代入式 (42)，并使用 Woodbury 矩阵恒等式：
+
+$$
+\begin{aligned}
+\widehat{\mathbf h}_t
+&=\mathbf A_q\boldsymbol\Sigma_q\mathbf A_q^{\rm H}
+\left(
+\mathbf A_q\boldsymbol\Sigma_q\mathbf A_q^{\rm H}
++\widehat{\mathbf Q}_t\otimes\mathbf I_N
+\right)^{-1}\mathbf r_t,\tag{51a}\\
+&=\mathbf A_q
+\left(
+\mathbf A_q^{\rm H}
+(\widehat{\mathbf Q}_t^{-1}\otimes\mathbf I_N)
+\mathbf A_q+\boldsymbol\Sigma_q^{-1}
+\right)^{-1}\\
+&\qquad\times
+\mathbf A_q^{\rm H}
+(\widehat{\mathbf Q}_t^{-1}\otimes\mathbf I_N)
+\mathbf r_t.
+\tag{51b}
+\end{aligned}
+$$
+
+式 (51b) 中涉及的主要矩阵求逆复杂度由
+$O(N^3M^3)$ 降至 $O(\bar L^3+M^3)$。其中 $\bar L$ 可以调节，以折中性能和复杂度。此时
+$\mathbf A_q^{\rm H}(\widehat{\mathbf Q}_t^{-1}\otimes\mathbf I)\mathbf A_q$
+仍是开销较大的部分，通常需要约 $\bar L^2NM+\bar LM^2N$ 次复数乘法。下面通过 Khatri–Rao 积性质进一步降低复杂度。
+
+记 $\circledast_c$ 为按列 Khatri–Rao 积。可把
+$\mathbf A_q$ 表示为
+$\mathbf A_q=\mathbf B_q\circledast_c\mathbf A_{f,q}$，
+其中
+$\mathbf A_{f,q}
+=[\mathbf a_N(\bar\tau_{q,1}),\ldots,
+\mathbf a_N(\bar\tau_{q,\bar L})]$，
+$\mathbf B_q
+=[\mathbf b(\bar\theta_{q,1},\bar\phi_{q,1}),\ldots,
+\mathbf b(\bar\theta_{q,\bar L},\bar\phi_{q,\bar L})]$。
+由此
+
+$$
+\begin{aligned}
+&\mathbf A_q^{\rm H}
+(\widehat{\mathbf Q}_t^{-1}\otimes\mathbf I_N)
+\mathbf A_q\\
+&=(\mathbf B_q\circledast_c\mathbf A_{f,q})^{\rm H}
+(\widehat{\mathbf Q}_t^{-1}\otimes\mathbf I_N)
+(\mathbf B_q\circledast_c\mathbf A_{f,q}),\tag{52a}\\
+&=(\mathbf B_q^{\rm H}\circledast_r\mathbf A_{f,q}^{\rm H})
+\bigl((\widehat{\mathbf Q}_t^{-1}\mathbf B_q)
+\circledast_c\mathbf A_{f,q}\bigr),\tag{52b}\\
+&=(\mathbf B_q^{\rm H}\widehat{\mathbf Q}_t^{-1}
+\mathbf B_q)
+\odot(\mathbf A_{f,q}^{\rm H}\mathbf A_{f,q}),\tag{52c}
+\end{aligned}
+$$
+
+其中 $\circledast_r$ 为按行 Khatri–Rao 积。式 (52b) 利用矩阵与 Khatri–Rao 积的混合乘积规则；式 (52c) 利用列积与行积相乘得到 Hadamard 积的性质。经此转换，求上述核心矩阵的乘法复杂度由
+$\bar L^2NM+\bar LM^2N$ 降至
+$\bar L^2(N+M)+\bar LM^2$。综合矩阵求逆和乘法计算，MMSE-IRC 估计复杂度由 $O(N^3M^3)$ 降至
+
+$$
+O\!\left(M^2(M+\bar L)+(M+N)\bar L^2+\bar L^3\right).
+$$
+
+### D. CKM 表示误差界
+
+本节分析 CKM 输出如何影响 MMSE-IRC 的估计性能。根据式 (51b)，MMSE-IRC 可看成以 $\mathbf A_q$ 为变换矩阵的线性信道重构：
+
+$$
+\widehat{\mathbf h}_t=\mathbf A_q\widehat{\boldsymbol\beta}_t,
+\tag{53}
+$$
+
+其中
+
+$$
+\widehat{\boldsymbol\beta}_t
+=\left(
+\mathbf A_q^{\rm H}
+(\widehat{\mathbf Q}_t^{-1}\otimes\mathbf I)
+\mathbf A_q+\boldsymbol\Sigma_q^{-1}
+\right)^{-1}
+\mathbf A_q^{\rm H}
+(\widehat{\mathbf Q}_t^{-1}\otimes\mathbf I)\mathbf r_t.
+$$
+
+显然，$\mathbf A_q$ 的表示能力直接影响重构误差
+$\|\widehat{\mathbf h}_t-\mathbf h_t\|_2^2$。作者将该线性重构的可达到的最小误差定义为 CKM 精度。
+
+**定义 1。** 时隙 $t$ 的 CKM 精度定义为
+
+$$
+\mathcal L_{\rm CKM}
+=\min_{\boldsymbol\beta_t}
+\frac1{NM}\|
+\mathbf h_t-\mathbf A_q\boldsymbol\beta_t
+\|_2^2.\tag{54}
+$$
+
+接下来说明，在无干扰、无噪声的情况下，MMSE-IRC 的重构 MSE 等于 $\mathcal L_{\rm CKM}$。
+
+**命题 1。** 若式 (41) 的系统无干扰且无噪声，即
+$\widetilde{\mathbf h}_{t,k}^{\rm I}=\mathbf0$ 对所有 $k$ 成立，且 $\mathbf w_t=\mathbf0$，则式 (51b) 中 MMSE-IRC 的估计均方误差等于 $\mathcal L_{\rm CKM}$。
+
+**证明。** 当 $\widehat{\boldsymbol\beta}_t$ 取最小二乘估计
+$(\mathbf A_q^{\rm H}\mathbf A_q)^{-1}
+\mathbf A_q^{\rm H}\mathbf h_t$ 时，取得式 (54) 的最小值，相应目标信道估计为
+
+$$
+\mathbf h_t^\ast
+=\mathbf A_q(\mathbf A_q^{\rm H}\mathbf A_q)^{-1}
+\mathbf A_q^{\rm H}\mathbf h_t.\tag{55}
+$$
+
+对 $\mathbf A_q$ 做奇异值分解（SVD）
+$\mathbf A_q=\mathbf U\mathbf D\mathbf V^{\rm H}$，上式可写为
+
+$$
+\mathbf h_t^\ast
+=\mathbf A_q\mathbf V\mathbf D^\dagger
+\mathbf U^{\rm H}\mathbf h_t.\tag{56}
+$$
+
+在无干扰、无噪声条件下，将式 (51a) 表示为
+
+$$
+\begin{aligned}
+\widehat{\mathbf h}_t
+&=\mathbf A_q\boldsymbol\Sigma_q\mathbf A_q^{\rm H}
+(\mathbf A_q\boldsymbol\Sigma_q\mathbf A_q^{\rm H})^\dagger
+\mathbf r_t,\tag{57a}\\
+&=\mathbf A_q\boldsymbol\Sigma_q\mathbf V\mathbf D^{\rm H}
+(\mathbf D\mathbf V^{\rm H}
+\boldsymbol\Sigma_q\mathbf V\mathbf D^{\rm H})^\dagger
+\mathbf U^{\rm H}\mathbf h_t,\tag{57b}\\
+&=\mathbf A_q\mathbf V\mathbf D^\dagger
+\mathbf U^{\rm H}\mathbf h_t.\tag{57c}
+\end{aligned}
+$$
+
+与式 (56) 相同，因此无噪声、无干扰时 MMSE-IRC 达到 CKM 表示误差下界。下节数值实验将以 $\mathcal L_{\rm CKM}$ 作为所提 MMSE-IRC 性能的下界（LB）。
+
+## VI. 数值结果
+
+本节评估 CKM 构建和 CKM 辅助信道估计。基站配置 $4\times8$ 的 URA，为使用 $N=192$ 个子载波的用户提供服务。子载波间隔 $\Delta f=30$ kHz，载波频率 6.5 GHz。用户信道按照标准 3GPP TR 38.901 [18] 的城市宏蜂窝非视距（UMa NLOS）场景生成，其中信道簇数设为 10，每簇含 20 条子路径，所以 $L=200$。不同位置的信道参数变化遵循该标准中的空间一致性过程 [18, Sec. 7.6.3.2]。
+
+在第 $q$ 个网格，沿长度为 $d$ 的线段均匀采样 $|\mathcal T_q|=10d$ 次以构造信道数据集；随后将其随机分为 7:3 的两个子集，前者用于构建 CKM，后者用于信道估计。干扰用户数量设为 4，稀疏率为 0.5。各干扰信道同样遵循 UMa NLOS 标准，每个干扰用户具有 $L_k^{\rm I}=200$ 条路径。
+
+CKM 构建中，算法 1 迭代 40 次，每个干扰用户提取 $\bar L_k^{\rm I}=15$ 条路径参数用于干扰消除。信道估计中，按照式 (49) 估计干扰协方差，$P^{\rm thres}$ 设置为比干扰加噪声功率低 10 dB。导频采用恒模信号，其相位在 $[0,2\pi)$ 均匀随机选取。
+
+**CKM 构建对照方法：**
+
+1. **基于 OMP 的 CKM。** 正交匹配追踪（OMP）[25] 是贪心算法，利用由
+$\mathbf a_N(\cdot)\otimes\mathbf a_{M_1}(\cdot)
+\otimes\mathbf a_{M_2}(\cdot)$ 均匀采样产生的时延—角度字典，依次寻找匹配度最高的前 $\bar L$ 组时延和角度参数。随后基于式 (28) 用 LS 估计 $\boldsymbol\beta_t$，再计算
+$\bar\rho_{q,l}=\sum_t|\widehat\beta_{t,l}|^2/|\mathcal T_q|$。
+2. **不感知 ICI 的 CKM。** 为检验算法 1 的干扰消除效果，将干扰信号当作 AWGN 处理，并在算法 1 中去掉干扰信道参数估计部分。
+
+**信道估计对照方法：**
+
+1. **OMP：** 与 OMP-based CKM 的步骤类似，但不计算路径功率 $\bar\rho_{q,l}$。
+2. **TMP：** 文献 [28] 的 Turbo Message Passing，是一种基于压缩感知的稀疏信号恢复算法。原始 TMP 包含 LMMSE 模块及为 AWGN 信号模型设计的去噪器；本文修改 LMMSE 模块，使其利用式 (49) 估计的干扰协方差，选择时延抽头 $j\in[N/4+1,\ldots,3N/4]$。
+3. **VBI-MMSE：** 文献 [30] 利用变分贝叶斯推断学习目标用户信道的 PDP 与空间协方差，再结合干扰空间协方差估计，在各时延抽头上分别使用 MMSE 信道估计器。
+4. **下界（LB）：** 由 CKM 精度定义给出的线性表示误差下界。
+
+**图 4｜不同有效路径数下的 CKM 精度。** 固定 $d=2$ m，绘制不同 SINR 下 CKM 精度关于 $\bar L$ 的变化，同时展示基于 OMP 的 CKM 和不感知 ICI 的 CKM。所提方法在 $\bar L$ 与 SINR 增大时更准确；特别在 $\bar L=60$、SINR = −5 dB 时，CKM 精度达到 −20.5 dB。作为对比，OMP-based 和 ICI-non-cognitive CKM 的精度分别约为 −8 dB 与 −12.8 dB，比所提算法的误差分别高 12.5 dB 和 7.7 dB。这说明即使 SINR 很低，算法 1 仍能准确构建 CKM，并验证干扰消除机制的作用。
+
+**图 5｜不同有效路径数下 MMSE-IRC 信道估计的 MSE 与 SINR。** 固定 $d=2$ m，构建 CKM 时 SINR=10 dB。随着估计阶段 SINR 增加，信道估计性能改善，并逐渐接近 LB。较大的 $\bar L$ 一般带来更低估计误差，但也提高复杂度；工程实践中应在精度和算力之间选择合理的有效路径数。
+
+**图 6｜不同网格尺寸和有效路径数下的 CKM 精度。** CKM 构建 SINR=10 dB。$\bar L$ 增大或网格尺寸 $d$ 减小，均可提高 CKM 精度。例如，实现 −20 dB 的 CKM 精度，$d=2$ 时需要 $\bar L\ge40$，$d=3$ 时需要 $\bar L\ge60$。这说明在实际定位精度等约束固定网格大小后，可通过选择适当 $\bar L$ 达到期望精度。
+
+**图 7｜不同信道估计器的 NMSE 与 SINR。** 固定 $\bar L=60$、$d=2$ m，CKM 构建 SINR=0 dB。图中比较 OMP、TMP、VBI-MMSE、采用 OMP-based CKM 的 MMSE-IRC、采用不感知 ICI 的 CKM 的 MMSE-IRC，以及采用本文 CKM 的 MMSE-IRC。低于 −5 dB 时，OMP 比 TMP 与 VBI-MMSE 更好；高于 −5 dB 时，TMP 与 VBI-MMSE 更好。作者认为，这是由于贝叶斯方法在低 SINR 下难以准确学习先验。
+
+本文 MMSE-IRC 显著优于所有对照方法。要实现 −15 dB 的估计 MSE，TMP 与 VBI-MMSE 分别需要 SINR≥5 dB 和 SINR≥2.5 dB，而本文方法只需 SINR≥−15 dB，相当于 SINR 需求至少下降 17.5 dB。进一步地，在 SINR=5 dB 时，采用本文 CKM 的 MMSE-IRC 达到 NMSE≈−25 dB，而采用 OMP-based CKM 与 ICI-non-cognitive CKM 的 MMSE-IRC 分别约为 −18 dB 和 −10 dB。这些实验结果表明，准确的 CKM 构建能够显著改善后续信道估计性能。
+
+## VII. 结论
+
+本文研究了存在小区间干扰时 MIMO-OFDM 系统的 CKM 构建与 CKM 辅助信道估计。首先把物理区域划分成网格，并利用各网格对应的基站接收信号提取信道模型参数。将 CKM 构建转化为贝叶斯推断问题，发展包含干扰消除机制的混合消息传递算法。在 CKM 输出的基础上设计 MMSE-IRC 信道估计器，并借助用户信道协方差的结构大幅降低计算复杂度。数值实验验证了所提出 CKM 的高精度，以及 CKM 辅助信道估计相对于现有先进方案的性能优势。
+
+## 参考文献
+
+下列 41 条条目沿用原文编号，提供中文题名释义与原文作者/期刊信息。原始英文书目格式请参照原论文第 13 页。
+
+[1] Z. Zhang 等，**6G 无线网络：愿景、需求、架构及关键技术**，IEEE Vehicular Technology Magazine，14(3)，28–41，2019。
+
+[2] X. You 等，**迈向 6G 无线通信网络：愿景、关键支撑技术与新范式转变**，Science China Information Sciences，64，1–74，2021。
+
+[3] J. Wang 等，**面向 6G 超大规模 MIMO 无线通信系统的通用三维时空频非平稳太赫兹信道模型**，IEEE Journal on Selected Areas in Communications，39(6)，1576–1589，2021。
+
+[4] D. Romero、S.-J. Kim，**无线电地图估计：频谱地图绘制的数据驱动方法**，IEEE Signal Processing Magazine，39(6)，53–72，2022。
+
+[5] D. He 等，**面向 5G 及未来无线通信的高性能射线追踪仿真平台设计与应用教程**，IEEE Communications Surveys & Tutorials，21(1)，10–27，2019。
+
+[6] Y. Sun 等，**基于环境特征的路径损耗预测模型**，IEEE Wireless Communications Letters，11(9)，2010–2014，2022。
+
+[7] A. B. H. Alaya-Feki 等，**认知无线电网络的频谱感知使用：干扰地图构建**，IEEE PIMRC，1–5，2008。
+
+[8] D. Romero 等，**从量化功率测量学习功率谱地图**，IEEE Transactions on Signal Processing，65(10)，2547–2560，2017。
+
+[9] Y. Zeng 等，**基于信道知识地图的 6G 环境感知通信教程**，IEEE Communications Surveys & Tutorials，2024。
+
+[10] F. Liu 等，**通信与感知一体化：迈向面向 6G 及未来的双功能无线网络**，IEEE Journal on Selected Areas in Communications，40(6)，1728–1767，2022。
+
+[11] D. Wu 等，**利用信道知识地图的环境感知混合波束成形**，IEEE Transactions on Wireless Communications，23(5)，4990–5005，2024。
+
+[12] Y. Long 等，**信道知识地图赋能的环境感知无线定位**，IEEE GLOBECOM，5354–5359，2022。
+
+[13] Y. Zeng、X. Xu，**通过信道知识地图迈向环境感知 6G 通信**，IEEE Wireless Communications，28(3)，84–91，2021。
+
+[14] K. Li 等，**环境感知通信的信道知识地图：使用 EM 算法构建地图**，IEEE WCNC，1659–1664，2022。
+
+[15] P. B. Papazian 等，**移动毫米波通信的无线信道探测器：系统实现与测量评估**，IEEE Transactions on Microwave Theory and Techniques，64(9)，2924–2932，2016。
+
+[16] 3GPP，**NR 物理层控制过程**，TS 38.213，Release 17，2022。
+
+[17] D. Tse、P. Viswanath，《无线通信基础》（Fundamentals of Wireless Communication），Cambridge University Press，2005。
+
+[18] 3GPP，**0.5–100 GHz 频段信道模型研究**，TR 38.901，Release 16，2020。
+
+[19] J. Yedidia、W. Freeman、Y. Weiss，**构建自由能近似与广义置信传播算法**，IEEE Transactions on Information Theory，51(7)，2282–2312，2005。
+
+[20] S. M. Kay，《统计信号处理基础：估计理论》（Fundamentals of Statistical Signal Processing: Estimation Theory），Prentice Hall，1993。
+
+[21] Y. Zeng 等，**面向 6G 的信道知识地图环境感知通信教程**，IEEE Communications Surveys & Tutorials，2024。
+
+[22] 3GPP，**物理信道与调制**，TS 38.211，Release 15，2017。
+
+[23] C. A. Balanis，《天线理论：分析与设计》（Antenna Theory: Analysis and Design），Wiley，2016。
+
+[24] H. Minn 等，**一种鲁棒的 OFDM 系统定时与频率同步方法**，IEEE Transactions on Wireless Communications，2(4)，822–839，2003。
+
+[25] T. T. Cai、L. Wang，**含噪稀疏信号恢复的正交匹配追踪**，IEEE Transactions on Information Theory，57(7)，4680–4688，2011。
+
+[26] D. L. Donoho 等，**压缩感知的消息传递算法**，Proceedings of the National Academy of Sciences，106(45)，18914–18919，2009。
+
+[27] J. Ma、X. Yuan、L. Ping，**基于部分 DFT 测量矩阵的 Turbo 压缩感知**，IEEE Signal Processing Letters，22(2)，158–161，2015。
+
+[28] X. Kuai 等，**面向下行大规模 MIMO-OFDM 信道估计的结构化 Turbo 压缩感知**，IEEE Transactions on Wireless Communications，18(8)，3813–3826，2019。
+
+[29] H. He 等，**基于深度学习的波束域毫米波大规模 MIMO 信道估计**，IEEE Wireless Communications Letters，7(5)，852–855，2018。
+
+[30] H. Guo、V. K. N. Lau，**小区间干扰下蜂窝网络上行信道估计的鲁棒深度学习**，IEEE Journal on Selected Areas in Communications，41(6)，1873–1887，2023。
+
+[31] C. Liu、W. Jiang、X. Yuan，**面向时变 MIMO-OFDM 的学习式分块平面信道估计**，IEEE Wireless Communications Letters，2024。
+
+[32] E. Riegler 等，**融合置信传播与平均场近似：一种自由能方法**，IEEE Transactions on Information Theory，59(1)，588–602，2012。
+
+[33] D. Zhang 等，**在受约束 Bethe 自由能最小化框架下统一消息传递算法**，IEEE Transactions on Wireless Communications，20(7)，4144–4158，2021。
+
+[34] H. Jiang、X. Yuan、Q. Guo，**通过混合向量消息传递实现广义双线性分解**，arXiv:2401.03626，2024。
+
+[35] J. Winn、C. M. Bishop、T. Jaakkola，**变分消息传递**，Journal of Machine Learning Research，6(4)，2005。
+
+[36] T. P. Minka，**用于近似贝叶斯推断的期望传播**，UAI，362–369，2001。
+
+[37] C. M. Bishop，《模式识别与机器学习》（Pattern Recognition and Machine Learning），Springer，2006。
+
+[38] S. Guiasu、A. Shenitzer，**最大熵原理**，The Mathematical Intelligencer，7，42–48，1985。
+
+[39] K. V. Mardia、P. E. Jupp，《方向统计》（Directional Statistics），Wiley，2009。
+
+[40] M.-A. Badiu、T. L. Hansen、B. H. Fleury，**线谱的变分贝叶斯推断**，IEEE Transactions on Signal Processing，65(9)，2247–2261，2017。
+
+[41] F. M. L. Tavares 等，**接收机非理想因素对 5G 网络 MMSE-IRC 接收机性能的影响**，IEEE VTC Spring，1–6，2014。
+
+## 翻译校对说明（不属于原文）
+
+- 本文多处涉及二维矩阵与向量化之间的 Kronecker 积顺序，译文按推导上下文统一写为“空间向量 $\otimes$ 频率向量”，并保持原文的公式编号。阅读或复现时仍应以原 PDF 中实际的 $\operatorname{vec}$ 约定与阵列向量排列为准。
+- 原文式 (26) 的 V-M 参数组合、式 (40c) 的干扰功率求和记号和式 (48) 的抽头索引，在 PDF 文本层存在印刷或提取歧义，尚需逐式视觉复核。
+- 本文依赖邻小区共享导频构建 CKM，但在实时信道估计阶段不需要知道干扰导频；两种阶段的已知条件并不相同，不能在实验复现时混用。
