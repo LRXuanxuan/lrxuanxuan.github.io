@@ -154,7 +154,7 @@ $$
 
 其中 $\psi_t(y,\theta)$ 对 $\theta$ 是凸函数。我们可以使用输入凸神经网络（input convex neural network，ICNN）训练该凸函数。这种实现是本文方法与 Kerrigan 等（2024）同期研究的重要区别之一。
 
-在单调性假设下，进一步假设源变量 $\theta_0$ 服从球对称均匀分布，即 $\theta_0=r\phi$，其中 $r\sim\mathrm{Unif}(0,1)$，$\phi$ 在单位球面 $\mathbb S^{d-1}(1)$ 上均匀分布。在这种情况下，$G(y^*,\cdot)$ 可以视为多元 Monge–Kantorovich（MK）条件向量分位数，即 Brenier 映射，记为 $Q_{\theta\mid y^*}:\Theta\to\Theta$。于是，可将一个球通过算法 1 学得的传输映射，以构造贝叶斯 $\tau$ 可信集：
+在单调性假设下，原文进一步指定一个**径向均匀、方向在球面上均匀**的源分布：$\theta_0=r\phi$，其中 $r\sim\mathrm{Unif}(0,1)$，$\phi$ 在单位球面 $\mathbb S^{d-1}(1)$ 上均匀分布。原文称其为 *spherical uniform*。**核对说明：** 在 $d>1$ 时，半径 $r$ 均匀与通常所谓的“单位球内体积均匀分布”并不等价；此处严格采用论文给出的径向定义，避免将两种测度混淆。在这种情况下，$G(y^*,\cdot)$ 可以视为多元 Monge–Kantorovich（MK）条件向量分位数，即 Brenier 映射，记为 $Q_{\theta\mid y^*}:\Theta\to\Theta$。于是，可将一个球通过算法 1 学得的传输映射，以构造贝叶斯 $\tau$ 可信集：
 
 $$
 \widehat C_\tau(y^*)=\widehat G(y^*,\mathbb S^d(\tau)).\tag{11}
