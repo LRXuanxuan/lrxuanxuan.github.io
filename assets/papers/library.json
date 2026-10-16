@@ -694,7 +694,13 @@
       "report_entry_url": "/papers/reports/2026-10-16/#paper-ef5d07dc84efccfe",
       "paper_url": "/papers/items/ef5d07dc84efccfe/",
       "paper_report_url": "/papers/items/ef5d07dc84efccfe/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "title": "基于干扰消除的信道知识地图构建及其信道估计应用｜中文译稿（待逐式校对）",
+          "scope": "已译摘要、正文 I–VII、公式 1–57、算法 1、图 1–7、参考文献 1–41；复杂推导校对中，未计入已验收全文",
+          "url": "/papers/translations/2026-10-16-interference-cancellation-ckm-2409-00461/"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2409.00461",
         "https://ieeexplore.ieee.org/document/10938781/",
@@ -712,7 +718,7 @@
       "translation_status": "pending",
       "full_translation_public": false,
       "full_translation_url": "/papers/items/ef5d07dc84efccfe/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_label": "中文译稿（待终校）"
     },
     {
       "id": "75bb9a72af1f9eb2",
@@ -17934,6 +17940,24 @@
     }
   ],
   "translations": [
+    {
+      "date": "2026-10-16",
+      "slug": "2026-10-16-interference-cancellation-ckm-2409-00461",
+      "title": "基于干扰消除的信道知识地图构建及其信道估计应用｜中文译稿（待逐式校对）",
+      "paper_ids": [
+        "ef5d07dc84efccfe"
+      ],
+      "source_arxiv_ids": [
+        "2409.00461"
+      ],
+      "url": "/papers/translations/2026-10-16-interference-cancellation-ckm-2409-00461/",
+      "source_file": "2026-10-16-interference-cancellation-ckm-2409-00461.md",
+      "scope": "已译摘要、正文 I–VII、公式 1–57、算法 1、图 1–7、参考文献 1–41；复杂推导校对中，未计入已验收全文",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-16-interference-cancellation-ckm-2409-00461.md",
+      "source_page_path": "papers/translations/2026-10-16-interference-cancellation-ckm-2409-00461.md",
+      "external": true,
+      "qa_complete": false
+    },
     {
       "date": "2026-10-16",
       "slug": "2026-10-16-rss-map-fr3-pinn-2603-00112",
