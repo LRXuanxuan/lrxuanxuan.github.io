@@ -764,3 +764,550 @@ $\lambda_1=0$ 与 $\lambda_2=-\gamma=-1$，与定理 4.4 一致。
 ### 致谢
 
 Kenji Fukumizu 的研究部分获得 JST CREST JPMJCR2015 和 JSPS 学术变革领域研究（A）22H05106 支持；Wei Huang 获得 JSPS KAKENHI 24K20848 和 JST BOOST JPMJBY24G6 支持；Han Bao 获得 JST PRESTO JPMJPR24K6 支持。
+
+
+## 附录 A. 半导数与近端算子
+
+本附录归纳全文所用的凸分析基本定义和事实，尤其是半导数与近端算子。详细内容参见 Parikh 与 Boyd [2014]、Rockafellar 与 Wets [1998]。
+
+### A.1 定义
+
+对映射 $G:\mathbb R^d\to\mathbb R^d$，其在 $x$ 沿 $h$ 的半导数定义为
+
+$$
+DG(x;h):=
+\lim_{\substack{\varepsilon\downarrow0\\h'\to h}}
+\frac{G(x+\varepsilon h')-G(x)}{\varepsilon},
+\tag{18}
+$$
+
+只要该极限存在。它推广了单侧极限意义下的方向导数。
+
+对凸函数 $F:\mathbb R^d\to\overline{\mathbb R}$、$\lambda>0$，近端算子为
+
+$$
+\operatorname{prox}_{\lambda F}(y)
+=\arg\min_x\left\{
+F(x)+\frac1{2\lambda}\|x-y\|^2
+\right\}.
+\tag{19}
+$$
+
+近端算子常用于优化步骤。如果 $F$ 正常、下半连续、凸且可微，则
+
+$$
+x=y-\lambda\nabla F(x)
+\quad\Longleftrightarrow\quad
+x=\operatorname{prox}_{\lambda F}(y).
+$$
+
+因此，$x_{t+1}=\operatorname{prox}_{\lambda F}(x_t)$ 可以视作梯度流
+$\dot x=-\nabla F(x)$ 的一步隐式 Euler 方法。
+
+$F$ 在参数 $\lambda$ 下的 **Moreau 包络**（亦称 Moreau–Yosida 正则化）定义为
+
+$$
+M_\lambda F(y)=\min_x
+\left\{F(x)+\frac1{2\lambda}\|x-y\|^2\right\}.
+\tag{20}
+$$
+
+当 $F$ 凸时，
+$x\mapsto F(x)+\frac1{2\lambda}\|x-y\|^2$
+是严格凸函数，所以 $\operatorname{prox}_{\lambda F}(y)$ 是实现 $M_\lambda F(y)$ 的唯一极小点。
+
+### A.2 近端有界性与近端正则性
+
+以下回顾变分分析中的两个标准正则性概念 [Rockafellar 与 Wets，1998，第 1、13 章]。令 $f:\mathbb R^d\to\overline{\mathbb R}$ 为正常下半连续函数。
+
+**定义 A.1（近端有界性，prox-boundedness）。** 若存在 $\lambda>0$，使至少一个 $x\in\mathbb R^d$ 满足 $M_\lambda f(x)>-\infty$（等价于 $M_\lambda f$ 不恒为 $-\infty$），则称 $f$ 具有近端有界性。其近端阈值为
+
+$$
+\bar\lambda_f:=
+\sup\left\{\lambda>0:
+\exists x,\ M_\lambda f(x)>-\infty\right\}
+\in(0,+\infty].
+$$
+
+直观而言，近端有界性意味着 $f$ 不会比二次函数下降得更快，因此只要步长 $\lambda<\bar\lambda_f$ 足够小，近端子问题就有适当的下界。
+
+**定义 A.2（近端正则性，prox-regularity）。** 取
+$\bar x\in\operatorname{dom}f$、
+$\bar v\in\partial f(\bar x)$。若存在 $\varepsilon>0$、$\rho\ge0$，使任意
+$x,x'\in B(\bar x,\varepsilon)$
+以及满足 $\|v-\bar v\|<\varepsilon$、
+$|f(x)-f(\bar x)|<\varepsilon$ 的 $v\in\partial f(x)$ 都有
+
+$$
+f(x')\ge f(x)+\langle v,x'-x\rangle
+-\frac\rho2\|x'-x\|^2,
+\tag{21}
+$$
+
+则称 $f$ 在 $\bar x$ 相对于 $\bar v$ 近端正则。
+
+式 (21) 是局部“相差一个二次项的凸性”条件：在附近的次梯度方向上，函数具有一个二次支撑模型。近端正则性是保证近端映射良好局部性质（例如局部单值性与 Lipschitz 性）的标准假设，并用于描述近端算子及其方向导数的二阶变分性质。
+
+**备注 A.3（凸函数情形）。** 若 $f$ 正常、下半连续且凸，则次梯度不等式保证式 (21) 在全局成立，且 $\rho=0$，所以 $f$ 处处近端正则。另一方面，凸性保证存在仿射下界：例如 $v\in\partial f(\bar x)$ 时，对任意 $y$，
+$f(y)\ge f(\bar x)+\langle v,y-\bar x\rangle$。这又保证对任意 $\lambda>0$、$x\in\mathbb R^d$，$M_\lambda f(x)>-\infty$，即 $\bar\lambda_f=+\infty$。因此，对正常、下半连续凸函数，近端有界性和正则性都直接成立。
+
+### A.3 欧氏近端算子的一阶展开
+
+本节给出小步长情形中欧氏近端算子的标准一阶展开。第 3.2 节利用这一结论把扩散去噪器解释为近似的近端步骤。
+
+**引理 A.4（$\operatorname{prox}_{\lambda F}$ 的一阶展开）。** 令 $F:\mathbb R^d\to\mathbb R$ 在点 $x$ 的某邻域内为 $C^2$。假设 $\nabla F$ 在 $x$ 附近局部 Lipschitz，即存在 $r>0$、$L>0$，使任意 $u,v\in B(x,r)$ 都有
+
+$$
+\|\nabla F(u)-\nabla F(v)\|\le L\|u-v\|.
+$$
+
+则存在 $\lambda_0>0$ 和常数 $C>0$（依赖于 $x,r,L$ 及 $\nabla F$ 的局部界），使对所有
+$\lambda\in(0,\lambda_0)$，
+
+$$
+\operatorname{prox}_{\lambda F}(x)
+=x-\lambda\nabla F(x)+R_\lambda,
+\qquad\|R_\lambda\|\le C\lambda^2.
+$$
+
+**证明。** 固定使 $\nabla F$ 在 $B(x,r)$ 上 $L$-Lipschitz 的 $r,L$。对每个 $\lambda>0$，考虑
+
+$$
+\Phi_\lambda(z):=F(z)+\frac1{2\lambda}\|z-x\|^2.
+$$
+
+原文指出 $\Phi_\lambda$ 是 $(1/\lambda)$-强凸且 $C^1$，因此具有唯一极小点
+$z_\lambda=\operatorname{prox}_{\lambda F}(x)$，满足一阶最优性条件
+
+$$
+0=\nabla F(z_\lambda)+\frac1\lambda(z_\lambda-x),
+$$
+
+亦即
+
+$$
+z_\lambda=x-\lambda\nabla F(z_\lambda).
+\tag{22}
+$$
+
+令 $M=\|\nabla F(x)\|$。由 $B(x,r)$ 上的 Lipschitz 性，对于 $z\in B(x,r)$，
+
+$$
+\|\nabla F(z)\|\le M+L\|z-x\|.
+$$
+
+暂时假设 $z_\lambda\in B(x,r)$。由式 (22)，
+
+$$
+\|z_\lambda-x\|
+=\lambda\|\nabla F(z_\lambda)\|
+\le\lambda(M+L\|z_\lambda-x\|).
+$$
+
+当 $\lambda L<1/2$，得到
+
+$$
+\|z_\lambda-x\|\le
+\frac{\lambda M}{1-\lambda L}\le2\lambda M.
+\tag{23}
+$$
+
+选择 $\lambda_1>0$ 使 $\lambda_1L<1/2$、
+$2\lambda_1M<r$，则式 (23) 保证对
+$\lambda\in(0,\lambda_1)$ 有 $\|z_\lambda-x\|<r$，与临时假设自洽，说明小 $\lambda$ 时 $z_\lambda$ 保持在该邻域内。
+
+对于这样的 $\lambda$，利用 Lipschitz 界
+
+$$
+\|\nabla F(z_\lambda)-\nabla F(x)\|
+\le L\|z_\lambda-x\|.
+$$
+
+定义余项
+
+$$
+R_\lambda:=
+\operatorname{prox}_{\lambda F}(x)
+-(x-\lambda\nabla F(x))
+=z_\lambda-x+\lambda\nabla F(x).
+$$
+
+由式 (22)，
+
+$$
+R_\lambda
+=\lambda(\nabla F(x)-\nabla F(z_\lambda)),
+$$
+
+从而
+
+$$
+\|R_\lambda\|\le\lambda L\|z_\lambda-x\|.
+$$
+
+结合式 (23)，
+
+$$
+\|R_\lambda\|\le\lambda L(2\lambda M)
+=2LM\lambda^2.
+$$
+
+取 $C=2LM$、$\lambda_0=\lambda_1$，证明完毕。
+
+**备注 A.5（与隐式 Euler 的等价视角）。** 如 A.1 所讨论，近端算子满足隐式 Euler 形式
+
+$$
+\operatorname{prox}_{\lambda F}(x)
+=x-\lambda\nabla F(
+\operatorname{prox}_{\lambda F}(x)),
+$$
+
+对应梯度流 $\dot x=-\nabla F(x)$。引理 A.4 说明，这一隐式步与显式 Euler 步
+$x-\lambda\nabla F(x)$ 在 $\lambda$ 的二阶误差内一致。
+
+## 附录 B. 上图导数与二阶次导数的有效定义域
+
+记 $\overline{\mathbb R}=\mathbb R\cup\{+\infty\}$。
+
+### B.1 上图导数与上图收敛
+
+**上图（epigraph）。** 对函数
+$f:\mathbb R^d\to\overline{\mathbb R}$，定义
+
+$$
+\operatorname{epi}f
+=\{(x,r)\in\mathbb R^d\times\mathbb R:f(x)\le r\}.
+$$
+
+**上图收敛（epi-convergence）。** 若函数序列
+$f_n:\mathbb R^d\to\overline{\mathbb R}$ 对每个 $x\in\mathbb R^d$ 均满足
+
+(i) 任意 $x_n\to x$，有
+$\liminf_{n\to\infty}f_n(x_n)\ge f(x)$；
+
+(ii) 存在 $x_n\to x$，使
+$\limsup_{n\to\infty}f_n(x_n)\le f(x)$；
+
+则称 $f_n$ 上图收敛到 $f$，记作
+$f_n\xrightarrow{\rm epi}f$。等价地，
+$\operatorname{epi}f_n$ 在 Painlevé–Kuratowski 意义下收敛到 $\operatorname{epi}f$。
+
+**一阶上图导数。** 取正常、下半连续的 $f$ 与
+$\bar x\in\operatorname{dom}f$。对 $t>0$ 定义差商
+
+$$
+\Delta_t f(\bar x)(w)
+:=\frac{f(\bar x+tw)-f(\bar x)}t.
+$$
+
+如果 $t\downarrow0$ 时，
+$\Delta_t f(\bar x)\xrightarrow{\rm epi}df(\bar x)$，
+则 $df(\bar x)$ 称为 $f$ 在 $\bar x$ 的一阶上图导数，并称 $f$ 在 $\bar x$ 上图可微。此时标准的逐点表达式为
+
+$$
+df(\bar x)(w)
+=\liminf_{\substack{t\downarrow0\\w'\to w}}
+\frac{f(\bar x+tw')-f(\bar x)}t
+\in\overline{\mathbb R}.
+$$
+
+### B.2 二阶次导数与有效定义域
+
+设 $f:\mathbb R^d\to\overline{\mathbb R}$ 正常、下半连续且凸，固定 $x\in\operatorname{dom}f$、
+$v\in\partial f(x)$。
+
+**定义 B.1（二阶次导数/二阶上图导数）。** 对任意 $w\in\mathbb R^d$ 定义
+
+$$
+d^2f(x\mid v)(w)
+=\liminf_{\substack{t\downarrow0\\w'\to w}}
+\frac{f(x+tw')-f(x)-t\langle v,w'\rangle}{t^2/2}
+\in\overline{\mathbb R}.
+$$
+
+其有效定义域为
+$\operatorname{dom}d^2f(x\mid v)
+=\{w:d^2f(x\mid v)(w)<+\infty\}$。
+以下专注于 $v=0$ 的情形。
+
+### B.3 引理 4.2 的证明
+
+记 $P_\lambda=\operatorname{prox}_{\lambda f}$，
+$\lambda>0$。
+
+**引理 B.2（即引理 4.2）。** 若 $f$ 正常、下半连续、凸且 $0\in\partial f(x_1)$，固定 $\lambda>0$、$h\in\mathbb R^d$。当 $f$ 在 $x_1$ 相对于零向量二阶上图可微时，下列半导数存在：
+
+$$
+DP_\lambda(x_1;h)
+=\lim_{\substack{\varepsilon\downarrow0\\h'\to h}}
+\frac{P_\lambda(x_1+\varepsilon h')-P_\lambda(x_1)}
+{\varepsilon},
+$$
+
+且是强凸优化问题的唯一极小点：
+
+$$
+DP_\lambda(x_1;h)\in
+\arg\min_{w\in\mathbb R^d}
+\left\{d^2f(x_1\mid0)(w)+
+\frac1\lambda\|w-h\|^2\right\}.
+\tag{24}
+$$
+
+**证明。** 应用 Rockafellar 与 Wets [1998，练习 13.45]。唯一需要确认的是本文的 $f$ 近端有界且近端正则（定义见 A.2）。由于 $f$ 凸，依据 A.2 中备注 A.3，两种性质均直接成立。证毕。
+
+### B.4 假设 A1–A3 的讨论
+
+本小节解释假设 A1–A3 的含义及其推论。对于最优传输的 Aleksandrov–Brenier 势 $\varphi$，固定
+$x_0\in\partial\varphi(x_1)$ 的 OT 样本对，定义
+
+$$
+f(y)=\varphi(y)-\langle y,x_0\rangle.
+$$
+
+设 $\mathcal M\subset\mathbb R^d$ 是维数 $m<d$ 的嵌入 $C^2$ 子流形，固定 $x_1\in\mathcal M$。记
+$T_{x_1}\mathcal M$、$N_{x_1}\mathcal M$ 为切空间、法空间，满足
+$\mathbb R^d=T_{x_1}\mathcal M\oplus N_{x_1}\mathcal M$、
+$\dim N_{x_1}\mathcal M=d-m$。
+
+假设：(A1) $f|_\mathcal M$ 在 $x_1$ 邻域内为 $C^2$；(A2) $\dim\operatorname{aff}(\partial f(x_1))=d-m$；(A3) $0\in\operatorname{ri}(\partial f(x_1))$。
+
+A1 是很自然的光滑性要求。A2 的直观含义是凸势的尖锐折角发生在 $d-m$ 维的法向空间内。A1 与 A2 蕴含下一引理（用于 B.5 的命题 4.1 证明）；关于 A3 的判据则见附录 D。
+
+**引理 B.3。** 若 A1、A2 在 $x_1\in\mathcal M$ 处成立，则
+
+$$
+\operatorname{par}(\partial f(x_1))
+=N_{x_1}\mathcal M,
+$$
+
+其中对凸集 $C$，
+$\operatorname{par}(C)
+:=\operatorname{aff}(C)-\operatorname{aff}(C)$
+是其平行子空间。
+
+**证明。** 首先证明任意 $z_0\in\partial f(x_1)$ 在
+$T_{x_1}\mathcal M$ 上的投影不依赖 $z_0$。由
+$z_0\in\partial f(x_1)$，有
+$0\in\partial(f(\cdot)-\langle\cdot,z_0\rangle)(x_1)$。
+因此 $x_1$ 是函数
+$f(x)-\langle x,z_0\rangle$ 的全局极小点，当然也是其在 $\mathcal M$ 上的极小点。由 A1 的可微性，对任意 $u\in T_{x_1}\mathcal M$，
+
+$$
+\langle\nabla_\mathcal M f(x_1)-z_0,u\rangle=0,
+$$
+
+即
+
+$$
+\operatorname{Proj}_{T_{x_1}\mathcal M}(z_0)
+=\nabla_\mathcal M f(x_1).
+$$
+
+因此对 $z,z'\in\partial f(x_1)$，
+$\operatorname{Proj}_{T_{x_1}\mathcal M}(z-z')=0$，
+即 $z-z'\in N_{x_1}\mathcal M$，从而
+
+$$
+\operatorname{par}(\partial f(x_1))
+=\operatorname{span}(\partial f(x_1)-\partial f(x_1))
+\subset N_{x_1}\mathcal M.
+$$
+
+又由 A2，
+
+$$
+\dim\operatorname{par}(\partial f(x_1))
+=\dim\operatorname{aff}(\partial f(x_1))
+=d-m=\dim N_{x_1}\mathcal M.
+$$
+
+两个线性子空间维数相同，且前者包含于后者，因此必然相等。证毕。
+
+### B.5 命题 4.1 的证明
+
+**命题 B.4（即命题 4.1）。** 若 A1、A2、A3 成立，则
+
+$$
+\operatorname{dom}d^2f(x_1\mid0)=T_{x_1}\mathcal M,
+$$
+
+等价地，
+$d^2f(x_1\mid0)(w)<+\infty$
+当且仅当 $w\in T_{x_1}\mathcal M$。
+
+**证明。** 为简便起见，记
+$T=T_{x_1}\mathcal M$、
+$N=N_{x_1}\mathcal M$。
+
+**(i) 相对内部。** 令 $C=\partial f(x_1)$。
+由于 $0\in\operatorname{aff}(C)$，其仿射包是一个线性子空间，所以
+$\operatorname{aff}(C)=\operatorname{par}(C)$。
+由引理 B.3，
+$\operatorname{aff}(C)=N$。
+结合 $0\in\operatorname{ri}(C)$，存在 $r_0>0$，使 $N$ 中以零为中心的开球
+
+$$
+B_N(0,r_0)
+=\{n\in N:\|n\|<r_0\}
+\subset C=\partial f(x_1).
+\tag{25}
+$$
+
+**(ii) 证明 $\operatorname{dom}d^2f(x_1\mid0)\subset T$。**
+对任意 $w\notin T$，将其正交分解为
+$w=w_T+w_N$，其中 $w_T\in T$、$w_N\in N$ 且 $w_N\ne0$。取 $r\in(0,r_0)$，令
+
+$$
+g=r\frac{w_N}{\|w_N\|}\in N.
+$$
+
+由式 (25)，$g\in\partial f(x_1)$。
+由于 $\langle g,w\rangle=r\|w_N\|>0$，可找到 $\varepsilon>0$、$c>0$，使
+
+$$
+\langle g,w'\rangle\ge c
+\qquad(\|w'-w\|<\varepsilon).
+\tag{26}
+$$
+
+次梯度不等式给出，任意 $t>0$、$\|w'-w\|<\varepsilon$ 都有
+
+$$
+f(x_1+tw')-f(x_1)
+\ge t\langle g,w'\rangle\ge ct.
+$$
+
+因此
+
+$$
+\frac{f(x_1+tw')-f(x_1)}{t^2/2}
+\ge\frac{2c}{t}\to+\infty
+\quad(t\downarrow0).
+$$
+
+对 $t\downarrow0$、$w'\to w$ 取下极限，
+$d^2f(x_1\mid0)(w)=+\infty$，故 $w$ 不在其有效定义域内。
+
+**(iii) 证明 $T\subset\operatorname{dom}d^2f(x_1\mid0)$。**
+固定任意 $w\in T$。
+由于 $0\in\partial f(x_1)$ 且 $f$ 凸，$x_1$ 为 $f$ 的全局极小点。
+$\mathcal M$ 是嵌入的 $C^2$ 流形，所以存在一条 $C^2$ 曲线
+$\gamma:(-\delta,\delta)\to\mathcal M$，
+满足 $\gamma(0)=x_1$、
+$\dot\gamma(0)=w$。
+
+令
+$w_t=(\gamma(t)-x_1)/t$（$t\ne0$），则
+$w_t\to w$，且 $x_1+tw_t=\gamma(t)\in\mathcal M$。
+再定义单变量函数 $g(t)=f(\gamma(t))$。由 A1 及曲线的 $C^2$ 性质，
+$g$ 在零附近为 $C^2$。由于
+$g(t)\ge g(0)$，$t=0$ 为极小点，故 $g'(0)=0$。由 Taylor 展开，存在 $C>0$、$\delta'>0$，使
+
+$$
+0\le g(t)-g(0)\le Ct^2
+\qquad(|t|<\delta').
+$$
+
+从而对充分小的正 $t$，
+
+$$
+\frac{f(x_1+tw_t)-f(x_1)}{t^2/2}
+=\frac{g(t)-g(0)}{t^2/2}\le2C.
+$$
+
+因为 $w_t\to w$，有
+
+$$
+d^2f(x_1\mid0)(w)
+\le\liminf_{t\downarrow0}
+\frac{f(x_1+tw_t)-f(x_1)}{t^2/2}
+\le2C<+\infty.
+$$
+
+因此 $w\in\operatorname{dom}d^2f(x_1\mid0)$。
+两方向包含关系合并，命题得证。
+
+### B.6 引理 4.3 的证明
+
+**引理 B.5（即引理 4.3）。** 设 $h_T$ 是 $h$ 在
+$T_{x_1}\mathcal M$ 上的正交投影。
+
+(i) 对任意 $h$，
+$DP_\lambda(x_1;h)=DP_\lambda(x_1;h_T)
+\in T_{x_1}\mathcal M$。
+
+(ii) 若 $h\in N_{x_1}\mathcal M$，
+$DP_\lambda(x_1;h)=0$。
+
+(iii) 存在 $C>0$，使对切空间中的 $h$ 有
+$\|DP_\lambda(x_1;h)-h\|
+\le C\sqrt\lambda\|h\|$。
+（原文 B.5 的表述将向量加上标量 $C\sqrt\lambda\|h\|$；这里用本节证明所得的范数界表达其本意，正文仍保留 $O(\sqrt\lambda)$ 记号。）
+
+**证明。**
+
+**(i)** 将命题 4.1 与引理 4.2 结合。由于
+$d^2f(x_1\mid0)(w)=+\infty$ 对
+$w\notin T_{x_1}\mathcal M$ 成立，式 (14) 的最小化可以限制到切空间：
+
+$$
+DP_\lambda(x_1;h)\in
+\arg\min_{w\in T_{x_1}\mathcal M}
+\left\{d^2f(x_1\mid0)(w)
++\frac1\lambda\|w-h\|^2\right\}.
+\tag{27}
+$$
+
+因此 $DP_\lambda(x_1;h)$ 属于切空间。
+若 $w\in T$，将 $h$ 分解为 $h_T+h_N$ 后有
+$\|w-h\|^2=\|w-h_T\|^2+\|h_N\|^2$。
+（原文该行省去了与 $w$ 无关的 $\|h_N\|^2$ 常数。）因此两优化问题具有同一极小点，(i) 得证。
+
+**(ii)** 由式 (12) 二阶上图导数的定义，选择 $w'=0$ 可得
+$d^2f(x_1\mid0)(0)\le0$；又因
+$0\in\partial f(x_1)$，二阶上图导数处处非负，故在 $w=0$ 达到最小值 0。
+若 $h$ 纯法向，则对 $w\in T$ 有
+$\|w-h\|^2=\|w\|^2+\|h\|^2$，第二项也在 $w=0$ 达到最小值，因此式 (27) 的唯一极小点为零。
+
+**(iii)** 将式 (27) 在极小点
+$w=DP_\lambda(x_1;h)$ 和候选点 $w=h$ 处的目标函数值比较：
+
+$$
+d^2f(x_1\mid0)(DP_\lambda(x_1;h))
++\frac1\lambda\|DP_\lambda(x_1;h)-h\|^2
+\le d^2f(x_1\mid0)(h).
+$$
+
+二阶上图导数非负，因而
+
+$$
+\|DP_\lambda(x_1;h)-h\|^2
+\le\lambda d^2f(x_1\mid0)(h).
+$$
+
+只需证明存在常数 $C>0$，使对切空间 $h$，
+$d^2f(x_1\mid0)(h)\le C\|h\|^2$。
+凸函数 $f$ 的二阶上图导数也是凸的 [Rockafellar 与 Wets，1998，命题 13.20]，并由命题 4.1 在整个切空间有限，因此在切空间连续，特别是在单位球上有界：存在 $C>0$，使对 $\|u\|\le1$ 有
+$d^2f(x_1\mid0)(u)\le C$。
+
+又由 [Rockafellar 与 Wets，1998，命题 13.5]，二阶上图导数正二次齐次：
+
+$$
+d^2f(x_1\mid0)(rh)
+=r^2d^2f(x_1\mid0)(h),
+\qquad r>0.
+$$
+
+于是取 $u=h/\|h\|$，可得
+
+$$
+d^2f(x_1\mid0)(h)
+=\|h\|^2 d^2f(x_1\mid0)(u)
+\le C\|h\|^2,
+$$
+
+所以
+$\|DP_\lambda(x_1;h)-h\|
+\le\sqrt{\lambda C}\|h\|$。
+证明完毕。
