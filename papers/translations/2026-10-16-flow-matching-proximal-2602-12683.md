@@ -766,6 +766,56 @@ $\lambda_1=0$ 与 $\lambda_2=-\gamma=-1$，与定理 4.4 一致。
 Kenji Fukumizu 的研究部分获得 JST CREST JPMJCR2015 和 JSPS 学术变革领域研究（A）22H05106 支持；Wei Huang 获得 JSPS KAKENHI 24K20848 和 JST BOOST JPMJBY24G6 支持；Han Bao 获得 JST PRESTO JPMJPR24K6 支持。
 
 
+
+
+## 参考文献
+
+> 按原论文第 14–18 页的**字母顺序**保留全部 43 条文献。为避免混淆版本与检索信息，保留英文题名及原刊会/出版社信息，同时给出中文题名释义。英文原题属于书目信息，并非译文遗漏。
+
+1. M. S. Albergo, E. Vanden-Eijnden. **Building normalizing flows with stochastic interpolants**（利用随机插值构建归一化流）. *ICLR*, 2023. [原文链接](https://openreview.net/forum?id=li7qeBbCR1t)。
+2. A. D. Aleksandrov. **The existence almost everywhere of the second differential of a convex function and certain related properties of convex surfaces**（凸函数二阶微分几乎处处存在以及凸曲面的一些相关性质）. *Uchen. Zap. Leningrad. Univ.*, 37(6):3–35, 1939（俄语）。
+3. L. Ambrosio, N. Gigli, G. Savaré. **Gradient Flows: In Metric Spaces and in the Space of Probability Measures**（梯度流：度量空间和概率测度空间）. ETH Zürich 数学讲义丛书，Birkhäuser，第二版，2008。
+4. H. H. Bauschke, P. L. Combettes. **Convex Analysis and Monotone Operator Theory in Hilbert Spaces**（Hilbert 空间中的凸分析与单调算子理论）. Springer，第二版，2017。
+5. Y. Brenier. **Polar factorization and monotone rearrangement of vector-valued functions**（向量值函数的极分解与单调重排）. *Communications on Pure and Applied Mathematics*, 44(4):375–417, 1991。
+6. L. A. Caffarelli. **The Monge–Ampère equation and optimal transportation, an elementary review**（Monge–Ampère 方程与最优传输：基础综述）. *Optimal Transportation and Applications*, Lecture Notes in Mathematics 1813:1–10, Springer，2003。DOI: 10.1007/978-3-540-44857-0_1。
+7. N. Chandramoorthy, A. De Clercq. **When and how can inexact generative models still sample from the data manifold?**（近似生成模型何时以及如何仍能从数据流形采样？）. *NeurIPS*, 2025。
+8. M. Chen, K. Huang, T. Zhao, M. Wang. **Score approximation, estimation and distribution recovery of diffusion models on low-dimensional data**（低维数据上扩散模型的得分逼近、估计及分布恢复）. *ICML*, PMLR, 4672–4712, 2023。
+9. S. Chen, H. Zhang, M. Guo, Y. Lu, P. Wang, Q. Qu. **Exploring low-dimensional subspace in diffusion models for controllable image editing**（探索扩散模型中的低维子空间以实现可控图像编辑）. *NeurIPS*, 27340–27371, 2024。
+10. C. Chi, Z. Xu, S. Feng, E. Cousineau, Y. Du, B. Burchfiel, R. Tedrake, S. Song. **Diffusion policy: Visuomotor policy learning via action diffusion**（扩散策略：通过动作扩散学习视觉运动策略）. *The International Journal of Robotics Research*, 44(10–11):1684–1704, 2025. DOI: 10.1177/02783649241273668。
+11. G. Corso, H. Stärk, B. Jing, R. Barzilay, T. S. Jaakkola. **DiffDock: Diffusion steps, twists, and turns for molecular docking**（DiffDock：用于分子对接的扩散步骤、扭转和转向）. *ICLR*, 2023. [原文链接](https://openreview.net/forum?id=kKF8_K-mBbS)。
+12. M. Cuturi. **Sinkhorn distances: Lightspeed computation of optimal transport**（Sinkhorn 距离：最优传输的高速计算）. *NeurIPS*, 2292–2300, 2013。
+13. P. Esser, S. Kulal, A. Blattmann, R. Entezari, J. Müller, H. Saini, Y. Levi, D. Lorenz, A. Sauer, F. Boesel, D. Podell, T. Dockhorn, Z. English, R. Rombach. **Scaling rectified flow transformers for high-resolution image synthesis**（将整流流 Transformer 扩展到高分辨率图像生成）. *ICML*, PMLR, 12606–12633, 2024。
+14. C. E. Gutiérrez. **The Monge–Ampère Equation**（Monge–Ampère 方程）. *Progress in Nonlinear Differential Equations and Their Applications*, 44, Birkhäuser, 2001. DOI: 10.1007/978-1-4612-0195-3。
+15. J. Ho, A. Jain, P. Abbeel. **Denoising diffusion probabilistic models**（去噪扩散概率模型）. *NeurIPS*, 6840–6851, 2020。
+16. K. Ikeda, M. Koyama, J. Zhang, K. Hayashi, K. Fukumizu. **Pairwise optimal transports for training all-to-all flow-based condition transfer model**（利用成对最优传输训练全对全流式条件迁移模型）. *NeurIPS*, 2025。
+17. B. Kawar, M. Elad, S. Ermon, J. Song. **Denoising diffusion restoration models**（去噪扩散恢复模型）. *NeurIPS*, 23593–23606, 2022。
+18. N. Kornilov, P. Mokrov, A. Gasnikov, A. Korotin. **Optimal flow matching: Learning straight trajectories in just one step**（最优流匹配：仅用一步学习直线轨迹）. *NeurIPS*, 37:104180–104204, 2024。
+19. J. Lee. **Introduction to Smooth Manifolds**（光滑流形导论）. *Graduate Texts in Mathematics*, Springer，2012。ISBN: 9781441999825。
+20. X. Li, Z. Shen, Y.-P. Hsieh, N. He. **When scores learn geometry: Rate separations under the manifold hypothesis**（当得分函数学习几何时：流形假设下的速率分离）. arXiv:2509.24912，2025。
+21. Y. Lipman, R. T. Q. Chen, H. Ben-Hamu, M. Nickel, M. Le. **Flow matching for generative modeling**（面向生成建模的流匹配）. *ICLR*, 2023. [原文链接](https://openreview.net/forum?id=PqvMRDCJT9t)。
+22. X. Liu, C. Gong, Q. Liu. **Flow straight and fast: Learning to generate and transfer data with rectified flow**（又直又快地流动：通过整流流学习数据生成与传输）. *ICLR*, 2023。
+23. Z. Liu, W. Zhang, T. Li. **Improving the Euclidean diffusion generation of manifold data by mitigating score function singularity**（通过缓解得分函数奇异性改善流形数据的欧氏扩散生成）. *NeurIPS*, 2025。
+24. C. Léonard. **A survey of the Schrödinger problem and some of its connections with optimal transport**（Schrödinger 问题及其与最优传输部分联系的综述）. *Discrete and Continuous Dynamical Systems*, 34(4):1533–1574, 2014. DOI: 10.3934/dcds.2014.34.1533。
+25. K. Oko, S. Akiyama, T. Suzuki. **Diffusion models are minimax optimal distribution estimators**（扩散模型是极小极大最优的分布估计器）. *ICML*, PMLR 202:26517–26582, 2023。
+26. V. M. Panaretos, Y. Zemel. **An Invitation to Statistics in Wasserstein Space**（Wasserstein 空间中的统计学导论）. Springer Nature，2020。
+27. N. Parikh, S. Boyd. **Proximal algorithms**（近端算法）. *Foundations and Trends in Optimization*, 1(3):127–239, 2014. DOI: 10.1561/2400000003。
+28. J. Pidstrigach. **Score-based generative models detect manifolds**（基于得分的生成模型识别流形）. *NeurIPS*, 35852–35865, 2022。
+29. A.-A. Pooladian, H. Ben-Hamu, C. Domingo-Enrich, B. Amos, Y. Lipman, R. T. Q. Chen. **Multisample flow matching: Straightening flows with minibatch couplings**（多样本流匹配：利用小批量耦合拉直流）. *ICML*, PMLR, 28100–28127, 2023。
+30. R. T. Rockafellar. **Convex Analysis**（凸分析）. Princeton University Press，1970。
+31. R. T. Rockafellar, R. J.-B. Wets. **Variational Analysis**（变分分析）. Springer，1998。（原 PDF 中书名拼写为 “Variatioal Analysis”，这里列出常用正确书名以便检索。）
+32. R. Rombach, A. Blattmann, D. Lorenz, P. Esser, B. Ommer. **High-resolution image synthesis with latent diffusion models**（利用潜扩散模型进行高分辨率图像合成）. *CVPR*, 10684–10695, 2022。
+33. W. Rudin. **Real and Complex Analysis**（实分析与复分析）. McGraw-Hill，第三版，1986。
+34. C. Saharia, W. Chan, S. Saxena, L. Li, J. Whang, E. Denton, S. K. S. Ghasemipour, R. Gontijo-Lopes, B. K. Ayan, T. Salimans, J. Ho, D. J. Fleet, M. Norouzi. **Photorealistic text-to-image diffusion models with deep language understanding**（具有深度语言理解能力的照片级真实感文生图扩散模型）. *NeurIPS*, 2022. [原文链接](https://openreview.net/forum?id=08Yk-n5l2Al)。
+35. F. Santambrogio. **Optimal Transport for Applied Mathematicians: Calculus of Variations, PDEs, and Modeling**（面向应用数学家的最优传输：变分法、偏微分方程与建模）. Springer International Publishing，2015。ISBN: 9783319208282。
+36. Y. Shi, V. De Bortoli, A. Campbell, A. Doucet. **Diffusion Schrödinger bridge matching**（扩散 Schrödinger 桥匹配）. *NeurIPS*, 36:62183–62223, 2023。
+37. J. Sohl-Dickstein, E. Weiss, N. Maheswaranathan, S. Ganguli. **Deep unsupervised learning using nonequilibrium thermodynamics**（利用非平衡热力学进行深度无监督学习）. *ICML*, PMLR, 2256–2265, 2015。
+38. Y. Song, J. Sohl-Dickstein, D. P. Kingma, A. Kumar, S. Ermon, B. Poole. **Score-based generative modeling through stochastic differential equations**（通过随机微分方程进行基于得分的生成建模）. *ICLR*, 2021。
+39. A. Tong, K. Fatras, N. Malkin, G. Huguet, Y. Zhang, J. Rector-Brooks, G. Wolf, Y. Bengio. **Improving and generalizing flow-based generative models with minibatch optimal transport**（通过小批量最优传输改进和推广流生成模型）. *Transactions on Machine Learning Research*, 2024. [原文链接](https://openreview.net/forum?id=CD9Snc73AW)。
+40. M. C. K. Tweedie. **An index which distinguishes between some important exponential families**（用于区分若干重要指数族的指标）. *Indian Statistical Institute Golden Jubilee International Conference*, 579–604, 1984。
+41. P. Wang, H. Zhang, Z. Zhang, S. Chen, Y. Ma, Q. Qu. **Diffusion models learn low-dimensional distributions via subspace clustering**（扩散模型通过子空间聚类学习低维分布）. *CoRR*, 2025. arXiv:2409.02426。
+42. J. L. Watson, D. Juergens, N. R. Bennett, B. L. Trippe, J. Yim, H. E. Eisenach, W. Ahern, A. J. Borst, R. J. Ragotte, L. F. Milles, B. I. M. Wicky, N. Hanikel, S. J. Pellock, A. Courbet, W. Sheffler, J. Wang, P. Venkatesh, I. Sappington, S. Vazquez Torres, A. Lauko, V. De Bortoli, E. Mathieu, S. Ovchinnikov, R. Barzilay, T. S. Jaakkola, F. DiMaio, M. Baek, D. Baker. **De novo design of protein structure and function with RFdiffusion**（使用 RFdiffusion 从头设计蛋白质结构和功能）. *Nature*, 620(7976):1089–1100, 2023。
+43. L. Yang, Z. Zhang, Y. Song, S. Hong, R. Xu, Y. Zhao, W. Zhang, B. Cui, M.-H. Yang. **Diffusion models: A comprehensive survey of methods and applications**（扩散模型：方法及应用综合综述）. *ACM Computing Surveys*, 56(4):1–39, 2024。
+
 ## 附录 A. 半导数与近端算子
 
 本附录归纳全文所用的凸分析基本定义和事实，尤其是半导数与近端算子。详细内容参见 Parikh 与 Boyd [2014]、Rockafellar 与 Wets [1998]。
