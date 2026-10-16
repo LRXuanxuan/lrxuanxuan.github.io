@@ -2107,3 +2107,460 @@ $c\eta_n\log(c/\delta)\le\varepsilon/2$，
 $K_R=B_{R+Mc}(0)$、它的连续模 $\omega_R$ 和误差
 $\eta_n(\delta,R+Mc)$ 表现出来。因此，同样的 $\delta$ 与 $N$ 适用于所有
 $\|x_0\|\le R$ 的初值。
+
+
+### F.3 推前测度的收敛
+
+令 $\mathcal P_2(\mathbb R^d)$ 为具有有限二阶矩的 Borel 概率测度集合。对
+$\mu\in\mathcal P_2(\mathbb R^d)$，定义时刻 $t$ 的推前测度
+
+$$
+\mu_t^{(n)}
+=(\Phi_n(t,\cdot))_\#\mu,\qquad
+\mu_t=(\Phi(t,\cdot))_\#\mu.
+$$
+
+**推论 F.5（推前测度的 $W_2$ 收敛）。**
+在定理 F.4 的假设下，若
+$\mu\in\mathcal P_2(\mathbb R^d)$，则
+
+$$
+W_2(\mu_c^{(n)},\mu_c)\to0
+\qquad(n\to\infty).
+$$
+
+特别地，
+$\mu_c^{(n)}\Rightarrow\mu_c$ 弱收敛，且二阶矩收敛。
+
+**证明。** 设随机变量 $X_0$ 的分布为 $\mu$，并定义
+
+$$
+X_n=\Phi_n(c,X_0),\qquad
+X=\Phi(c,X_0).
+$$
+
+于是
+$\mathcal L(X_n)=\mu_c^{(n)}$、
+$\mathcal L(X)=\mu_c$。
+利用共享同一个 $X_0$ 诱导的耦合，
+
+$$
+W_2(\mu_c^{(n)},\mu_c)^2
+\le\mathbb E\|X_n-X\|^2.
+$$
+
+由假设 B1（原文证明误写作 A1），
+
+$$
+\|X_n-X_0\|
+\le\int_0^c\|v_n(t,X_n(t))\|\,\mathrm dt
+\le Mc,
+$$
+
+且 $\|X-X_0\|\le Mc$。
+因此 $\|X_n-X\|\le2Mc$ 几乎必然成立，
+$\|X_n-X\|^2\le4M^2c^2$ 构成可积的控制上界。
+
+定理 F.4 证明流映射逐点收敛：任意确定性初值
+$x_0$ 都有
+$\Phi_n(c,x_0)\to\Phi(c,x_0)$。
+故
+$\|X_n-X\|\to0$ 几乎必然成立。
+通过控制收敛定理，
+
+$$
+\mathbb E\|X_n-X\|^2\to0,
+$$
+
+从而
+$W_2(\mu_c^{(n)},\mu_c)\to0$。
+最后，$W_2$ 收敛意味着弱收敛和二阶矩收敛。证毕。
+
+**备注 F.6（$[\delta,c]$ 上关于时间一致的版本）。**
+如果定理 F.4 的结论加强为：对每个 $R>0$，
+
+$$
+\sup_{t\in[\delta,c]}
+\sup_{\|x_0\|\le R}
+\|\Phi_n(t,x_0)-\Phi(t,x_0)\|
+\to0,
+$$
+
+那么同样的耦合方法对任意固定
+$\delta\in(0,c)$ 给出
+
+$$
+\sup_{t\in[\delta,c]}
+W_2(\mu_t^{(n)},\mu_t)\to0.
+$$
+
+## 附录 G. 利用正向近端算子表示 OT-CFM 向量场
+
+正文主要借助 Aleksandrov–Brenier 势 $\varphi$，研究由
+$P_1$ 到 $P_0$ 的集合值传输
+$\partial\varphi:P_1\rightrightarrows P_0$。
+在流形假设下，$\varphi$ 可能不可微；但正因允许集合值映射，才能覆盖目标分布支撑于低维子流形的情形。
+
+也可以从 $P_0\to P_1$ 的方向分析。因为基分布 $P_0$ 绝对连续（通常为
+$\mathcal N(0,I_d)$），总存在凸势 $\phi$，使
+
+$$
+S:=\nabla\phi:P_0\rightrightarrows P_1.
+$$
+
+使用这个正向 Brenier 映射，第 2 节中的凸分析恒等关系只需最小修改便仍然成立。下面的陈述和证明与第 2 节的论证平行。
+
+### G.1 基于正向 Brenier 势的插值
+
+抽取 $x_0\sim P_0$，令
+$x_1=S(x_0)=\nabla\phi(x_0)$，
+利用 OT 映射形成确定性的仿射插值：
+
+$$
+x_t=\alpha_t x_0+\beta_t x_1
+=\alpha_t x_0+\beta_t\nabla\phi(x_0)
+=:K_t(x_0).
+\tag{45}
+$$
+
+引入凸势
+
+$$
+\chi_t(x)
+:=\frac{\alpha_t}{2}\|x\|^2+\beta_t\phi(x),
+\tag{46}
+$$
+
+于是
+$K_t(x_0)=\nabla\chi_t(x_0)$。
+当 $\alpha_t>0$ 时，
+$\chi_t$ 为 $\alpha_t$-强凸，因此每个
+$t\in[0,1)$ 的 $\nabla\chi_t:\mathbb R^d\to\mathbb R^d$ 是双射。
+
+下面给出与正文第 2 节平行的 OT-CFM 近端形式定理。其证明与第 2 节几乎相同，因此原文省略。
+
+**定理 G.1（流形支撑目标上的 OT-CFM）。**
+设 $P_0$ 在 $\mathbb R^d$ 上绝对连续，
+$P_1$ 支撑于光滑嵌入子流形
+$\mathcal M\subset\mathbb R^d$。
+设 $S=\nabla\phi$ 是把 $P_0$ 推前到 $P_1$ 的 Brenier 映射。抽取
+$x_0\sim P_0$，
+$x_1=S(x_0)$，
+按式 (45) 定义 $x_t$。则：
+
+**(1) 逆映射的近端表达。** 对任意 $t\in(0,1)$，
+
+$$
+x_0=K_t^{-1}(x_t)
+=\nabla\chi_t^\ast(x_t)
+=\operatorname{prox}_{\mu_t\phi}
+\left(\frac{x_t}{\alpha_t}\right),
+$$
+
+其中
+
+$$
+\mu_t:=\frac{\beta_t}{\alpha_t}.
+$$
+
+**(2) 监督向量场的逐点表达。**
+确定性 OT-CFM 向量场
+$v_t(x_t)=\dot\alpha_t x_0+\dot\beta_t x_1$
+仅依赖 $x_t$，其表达式为
+
+$$
+v_t(x)
+=\frac{\dot\beta_t}{\beta_t}x
++\left(\dot\alpha_t
+-\alpha_t\frac{\dot\beta_t}{\beta_t}\right)
+\operatorname{prox}_{\mu_t\phi}
+\left(\frac x{\alpha_t}\right).
+$$
+
+**(3) 梯度流形式。** 定义含时势
+
+$$
+F_t^{\rm FM,man}(x)
+:=-\frac{\dot\beta_t}{2\beta_t}\|x\|^2
+-\left(\dot\alpha_t
+-\alpha_t\frac{\dot\beta_t}{\beta_t}\right)
+\chi_t^\ast(x).
+$$
+
+则
+
+$$
+v_t(x)=-\nabla F_t^{\rm FM,man}(x),
+$$
+
+所以 FM 动力学 $\dot x_t=v_t(x_t)$ 是梯度流，并可视作近端算法的连续时间极限。
+
+**推论意义。** 即使 $P_1$ 支撑于低维流形 $\mathcal M$，只要
+$t<1$，插值点 $x_t$ 仍具有全维分布，因为 $\nabla\chi_t$ 强单调。
+与第 2 节讨论的
+$\operatorname{prox}_{\lambda_t\varphi}$ 不同，这里的
+$\operatorname{prox}_{\mu_t\phi}$ 在作者的表述中起“加噪步骤”的作用，把点拉向相应编码 $x_0$。不过，由于数据 $x_1$ 与编码 $x_0$ 之间存在确定性对应，仍可以通过 $\phi$ 和 Brenier 映射 $S$ 分析流形结构。
+
+### G.2 流形支撑目标附近的 OT-CFM Lyapunov 分析
+
+下面使用从 $P_0$ 到 $P_1$ 的 Brenier 势进行相同的 Lyapunov 分析。由于 $P_0$ 有密度，Kantorovich–Monge 问题存在一个传输映射 $S$，使最优耦合满足 $x_1=S(x_0)$。这种方向使部分论证更简单，但下面的证明需要 Brenier 势具有明显更强的光滑性，以满足 Sard 定理的条件。
+
+记
+
+$$
+A(x_0)=DS(x_0)=\nabla^2\phi(x_0)
+$$
+
+为 Brenier 势的 Hessian。由下文的引理 G.3，对
+$P_0$-几乎处处 $x_0$，
+$A(x_0)$ 的秩为 $m$，其值域与核对应于环境空间中流形的切向/法向分解：
+
+$$
+\operatorname{range}A(x_0)=T_{x_1}\mathcal M,
+\qquad
+\ker A(x_0)\simeq N_{x_1}\mathcal M.
+\tag{47}
+$$
+
+这里把 $T_{x_0}\mathbb R^d$ 中的
+$\ker A(x_0)$ 通过环境空间 $\mathbb R^d$ 识别成
+$T_{x_1}\mathbb R^d$ 中的子空间。
+
+与第 2 节相同，OT-CFM 向量场写为
+
+$$
+v_t(x_t)=\dot\alpha_t x_0+\dot\beta_tS(x_0),
+\qquad x_t=K_t(x_0).
+\tag{48}
+$$
+
+再引入终端时间 $\tau$，满足
+$\mathrm d\tau=\mathrm dt/(1-t)$，
+使 $\tau\to\infty$ 对应 $t\uparrow1$。
+
+以下定理给出与定理 4.4 相同的 Lyapunov 指数，但证明和假设不同。它对 Brenier 势的可微阶数作更高要求，源自使用 Sard 定理（见引理 G.3）。一般情况下这一高阶光滑性条件不一定成立。例如 Caffarelli [2003] 对 $P_0$、$P_1$ 都绝对连续的条件证明了凸势的 $C^2$ 正则性；但当 $P_0$ 有密度而 $P_1$ 为奇异测度时，凸势虽然存在，却可能不具有相应正则性。特别地，$\nabla S=\nabla^2\phi$ 秩亏，行列式为零，因而不能直接使用普通 Monge–Ampère 方程。若 $S$ 至少沿流形方向存在导数，仍可对最大 Lyapunov 指数进行类似分析。
+
+**定理 G.2（OT-CFM 的终端 Lyapunov 谱）。**
+设 $P_0,P_1,x_t,v_t$ 如上，$P_1$ 支撑于光滑嵌入流形
+$\mathcal M\subset\mathbb R^d$。
+令终端时间 $\tau=-\log(1-t)$，
+假设时间调度满足 (SC)。
+存在一个凸势 $\phi:\mathbb R^d\to\mathbb R$，使正向 Brenier 映射
+$S=\nabla\phi$ 满足
+$S_\#P_0=P_1$，并假定
+$\phi\in C^r$，其中
+
+$$
+r\ge\max\{d-m+2,\,2\}.
+$$
+
+则重参数化流
+
+$$
+\frac{\mathrm d}{\mathrm d\tau}x(\tau)
+=(1-t(\tau))v_{t(\tau)}(x(\tau))
+$$
+
+的终端 Lyapunov 指数几乎必然满足
+
+$$
+\lambda(v)=
+\begin{cases}
+-\gamma,&v\in N_{x_1}\mathcal M,\\
+0,&v\in T_{x_1}\mathcal M.
+\end{cases}
+$$
+
+因而 $\mathcal M$ 是 OT-CFM 动力学的终端法向双曲吸引子。
+
+**证明。** 固定 $x_0$，令
+$x_1=S(x_0)\in\mathcal M$。流形附近动力学由 $v_t$ 的雅可比矩阵 $J_t$ 决定：
+
+$$
+J_t(x_t)
+:=D_xv_t(x_t)
+=(\dot\alpha_tI+\dot\beta_tA(x_0))
+(\alpha_tI+\beta_tA(x_0))^{-1}.
+\tag{49}
+$$
+
+其中
+$(\alpha_tI+\beta_tA(x_0))^{-1}$
+是 $x_t=K_t(x_0)=\alpha_tx_0+\beta_tS(x_0)$
+的雅可比矩阵的逆。
+
+令 $\mu_1,\ldots,\mu_m$ 为 $A(x_0)$ 的非零特征值，
+$u_j$ 为相应特征向量。
+因为 $\phi$ 凸，
+$\mu_j>0$。由式 (47)，有
+$u_j\in T_{x_1}\mathcal M$，并满足
+
+$$
+A(x_0)u_j=\mu_j u_j
+\quad(j=1,\ldots,m),
+$$
+
+$$
+A(x_0)u=0\qquad
+(u\in N_{x_1}\mathcal M).
+$$
+
+令 $\Phi_\tau(x_0)$ 为流映射，$v\in\mathbb R^d$ 为扰动方向。
+如第 4 节，定义
+
+$$
+\xi(\tau):=D\Phi_\tau(x_0)v.
+\tag{50}
+$$
+
+相应变分方程为
+
+$$
+\xi'(\tau)
+=(1-t)J_t(x_t)\xi(\tau).
+\tag{51}
+$$
+
+**法向方向。** 若 $\xi(0)\in N_{x_1}\mathcal M$，
+因为 $A(x_0)\xi=0$，由式 (49) 可知
+$\xi(\tau)$ 始终留在法空间。因此
+
+$$
+\xi'(\tau)
+=(1-t)\frac{\dot\alpha_t}{\alpha_t}\xi(\tau).
+$$
+
+由 (SC)，
+$(1-t)\dot\alpha_t/\alpha_t\to-\gamma$。
+应用与定理 4.4 相同的 Cesàro 平均论证：
+
+$$
+\frac1\tau\log\|\xi(\tau)\|\to-\gamma
+\qquad(\tau\to\infty).
+$$
+
+故法向 Lyapunov 指数为 $-\gamma$。
+
+**切向方向。** 令 $u\in T_{x_1}\mathcal M$
+为 $A(x_0)$ 对应于特征值 $\mu>0$ 的特征向量。则
+
+$$
+(1-t)J_tu
+=(1-t)
+\frac{\dot\alpha_t+\dot\beta_t\mu}
+{\alpha_t+\beta_t\mu}\,u.
+$$
+
+因此，从 $\xi(0)=u$ 出发的变分方程解始终位于相应特征空间，并简化为
+
+$$
+\xi'(\tau)
+=(1-t)
+\frac{\dot\alpha_t+\dot\beta_t\mu}
+{\alpha_t+\beta_t\mu}\,\xi(\tau).
+$$
+
+根据 (SC) 中的
+$(1-t)\dot\alpha_t/\alpha_t\to-\gamma$
+以及 $\alpha_t\to0$，可得
+$(1-t)\dot\alpha_t\to0$。
+又因为 $\alpha_t,\beta_t$ 为非负量，
+
+$$
+(1-t)\frac{\dot\alpha_t}
+{\alpha_t+\beta_t\mu}
+\le
+(1-t)\frac{\dot\alpha_t}{\beta_t\mu}
+\to0,
+$$
+
+且由 $\dot\beta_t/\beta_t$ 有界，
+
+$$
+(1-t)\frac{\dot\beta_t\mu}
+{\alpha_t+\beta_t\mu}
+\le
+(1-t)\frac{\dot\beta_t}{\beta_t}
+\to0.
+$$
+
+再次使用 Cesàro 平均论证，
+
+$$
+\frac1\tau\log\|\xi(\tau)\|\to0
+\qquad(\tau\to\infty).
+$$
+
+一般切向向量可按 $A(x_0)$ 的切向特征向量分解，结论同样成立。证毕。
+
+**引理 G.3（正向 Brenier 映射的秩 $m$ 结构）。**
+令 $\mathcal M\subset\mathbb R^d$ 是维数
+$m<d$ 的 $C^1$ 嵌入子流形。
+假设 $P_0$ 相对于 $d$ 维 Lebesgue 测度绝对连续，密度为 $\rho_0$；$P_1$ 支撑于 $\mathcal M$ 且相对于 $\mathcal H^m\restriction\mathcal M$ 绝对连续。假设存在凸势
+$\phi:\mathbb R^d\to\mathbb R$，其正向 Brenier 映射
+$S=\nabla\phi$ 满足 $S_\#P_0=P_1$。
+进一步假设
+$\phi\in C^r$，
+$r\ge\max\{d-m+2,2\}$。
+则对 $P_0$-几乎处处 $x\in\mathbb R^d$，
+
+$$
+\operatorname{rank}DS(x)=m,
+\tag{52}
+$$
+
+并有
+
+$$
+\operatorname{range}DS(x)=T_{S(x)}\mathcal M,
+\qquad
+\ker DS(x)=N_{S(x)}\mathcal M.
+\tag{53}
+$$
+
+**证明。** 由于 $\phi\in C^2$，
+$S=\nabla\phi$ 为 $C^1$，且处处可微，其雅可比
+$DS(x)=\nabla^2\phi(x)$ 对称。
+又由 $P_1$ 支撑于 $\mathcal M$ 且
+$S_\#P_0=P_1$，有
+
+$$
+P_0(\{x:S(x)\notin\mathcal M\})=0.
+$$
+
+原文进一步利用 $S$ 的可微性推断对任意
+$x\in\mathbb R^d$ 都有 $S(x)\in\mathcal M$，从而
+
+$$
+\operatorname{range}DS(x)\subset T_{S(x)}\mathcal M,
+$$
+
+以及
+$\operatorname{rank}DS(x)\le m$。
+
+根据 $\phi$ 的光滑性假设，
+$S$ 的可微阶数不低于
+$\max\{d-m+1,1\}$。
+因此由 Sard 定理 [Lee，2012]，在几乎处处位置有
+$\operatorname{rank}DS(x)=m$。
+于是对 $P_0$-几乎处处 $x$，
+
+$$
+\operatorname{range}DS(x)\subset T_{S(x)}\mathcal M,
+\qquad
+\dim\operatorname{range}DS(x)
+=m=\dim T_{S(x)}\mathcal M,
+$$
+
+两者必相等。最后，由 $DS(x)$ 对称，
+
+$$
+\begin{aligned}
+\ker DS(x)
+&=(\operatorname{range}DS(x))^\perp\\
+&=(T_{S(x)}\mathcal M)^\perp
+=N_{S(x)}\mathcal M.
+\end{aligned}
+$$
+
+证明完毕。
