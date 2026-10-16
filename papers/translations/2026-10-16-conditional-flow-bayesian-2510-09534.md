@@ -668,8 +668,269 @@ Duan（2023）用随机近似传输对 MCMC 预条件化（Transport Monte Carlo
 
 Katzfuss 与 Schäfer（2024）针对高维空间场使用高斯过程回归、maximin 空间排序和贝叶斯正则化，估计三角 Rosenblatt/Knothe 传输。本文虽同样使用三角思想，却不预设空间结构或高斯过程先验。Jiang 等（2025）针对高维参数空间结合得分匹配与 Langevin 动力学；Polson 与 Sokolov（2024）用 pinball 损失训练基于分位数的深度采样器。本文通过时变联合速度场分解学习多维后验，与上述方法均不同。
 
+
+## 附录 D：第三节理论结果的证明
+
+### D.1 定理 1 的证明
+
+真实联合分布 $p_1$ 可通过式（1）的映射 $T$ 从 $p_0$ 恢复。神经网络学习的联合速度场诱导近似传输 $\widehat T$，将 $p_0$ 送到估计联合分布 $\widehat p_1$：
+
+$
+\widehat p_1=\widehat T_\#p_0,\qquad p_1=T_\#p_0.
+$
+
+当流匹配目标（2）中的速度误差足够小时，$\widehat p_1$ 与 $p_1$ 接近。具体而言，利用 Benton 等（2024）的定理 1，在假设 1、2 下，如果 $\mathcal L_{\mathrm{FM}}\le\varepsilon_N^2$，则
+
+$
+W_2(\widehat p_1,p_1)\le\varepsilon_N
+\exp\left(\int_0^1L_t\,dt\right).\tag{16}
+$
+
+估计后验由联合映射 $\widehat T$ 的条件分量 $\widehat G(y^\star,\cdot)$ 恢复；由引理 1 和 Baptista 等（2024）的定理 2.4，真实条件分量 $G(y^\star,\cdot)$ 恢复真实后验：
+
+$
+\widehat\pi_{\theta\mid Y=y^\star}
+=\widehat G(y^\star,\cdot)_\#p_0^\Theta,\qquad
+\pi_{\theta\mid Y=y^\star}
+=G(y^\star,\cdot)_\#p_0^\Theta.
+$
+
+接下来建立联合分布误差与条件后验误差的联系。对于式（1）的块三角传输，原文写作
+
+$
+\begin{aligned}
+W_2^2(\widehat p_1,p_1)
+&=W_2^2(\widehat T_\#p_0,T_\#p_0)\\
+&=\int\|\widehat T(y_0,\theta_0)-T(y_0,\theta_0)\|^2
+\,p_0(dy_0,d\theta_0)\\
+&=\int\|\widehat F(y_0)-F(y_0)\|^2p_0^Y(dy_0)\\
+&\quad+\int\|\widehat G(\widehat F(y_0),\theta_0)
+-G(F(y_0),\theta_0)\|^2p_0(dy_0,d\theta_0).
+\end{aligned}
+$
+
+两项均非负，因此原文据式（16）分别控制两项。根据假设 2，$\widehat v_t$ 在空间上满足 $\|\widehat v_t(x)-\widehat v_t(x')\|\le L_t\|x-x'\|$；沿时间积分可得估计传输映射的 Lipschitz 性。其条件分量继承这一性质：
+
+$
+\|\widehat G(\widehat F(y_0),\theta_0)
+-\widehat G(F(y_0),\theta_0)\|
+\le L\|\widehat F(y_0)-F(y_0)\|.
+$
+
+再用三角不等式，
+
+$
+\begin{aligned}
+&\|\widehat G(F(y_0),\theta_0)-G(F(y_0),\theta_0)\|\\
+&\le\|\widehat G(F(y_0),\theta_0)
+-\widehat G(\widehat F(y_0),\theta_0)\|\\
+&\quad+\|\widehat G(\widehat F(y_0),\theta_0)
+-G(F(y_0),\theta_0)\|.
+\end{aligned}
+$
+
+将 $(a+b)^2\le2a^2+2b^2$ 用于上式，关于 $p_0(y_0,\theta_0)$ 取平方期望，原文推得
+
+$
+\begin{aligned}
+&\int\|\widehat G(F(y_0),\theta_0)-G(F(y_0),\theta_0)\|^2\,dp_0\\
+&\le2W_2^2(\widehat p_1,p_1)
++(2L-2)\int\|\widehat F(y_0)-F(y_0)\|^2\,dp_0^Y\\
+&\le2Le^{2L}\varepsilon_N^2.
+\end{aligned}
+$
+
+最后利用 $\pi_Y=F_\#p_0^Y$，把上式重新写为关于真实观测边缘分布的平均条件后验误差：
+
+$
+\begin{aligned}
+&\int W_2^2(\widehat\pi_{\theta\mid y},\pi_{\theta\mid y})\pi_Y(dy)\\
+&=\int\|\widehat G(y,\theta_0)-G(y,\theta_0)\|^2
+\,p_0^\Theta(d\theta_0)\pi_Y(dy)\\
+&=\int\|\widehat G(F(y_0),\theta_0)-G(F(y_0),\theta_0)\|^2
+\,p_0(d\theta_0,dy_0)\\
+&\le2Le^{2L}\varepsilon_N^2.
+\end{aligned}
+$
+
+定理 1 证毕（依照原文论证步骤）。
+
+> **证明核验注：** 原文将 $W_2^2(T_\#p_0,\widehat T_\#p_0)$ 与指定同源耦合的平方距离积分直接写为相等；一般情形下，同源耦合只能给出 Wasserstein 距离的**上界**，相等需要耦合最优等额外论证。原文后续 Lipschitz 常数的使用还存在 $L$ 与 $L^2$ 的记号问题。译稿忠实呈现原证明的推导路线，但不将这些步骤未经证明地视为严格等式；该理论界应连同其原始假设和证明一起使用。
+
+### D.2 定理 2 的证明
+
+实际训练最小化的是式（4）的 $\mathcal L_{\rm CFM}$，而非式（2）的 $\mathcal L_{\rm FM}$。尽管两种目标数值不同，它们对网络参数 $\phi$ 的梯度相同（式（5））。Albergo 与 Vanden-Eijnden（2023）的命题 1 还给出
+
+$
+v=\arg\min_{\widehat v}\mathcal L_{\rm FM}(\widehat v,v)
+=\arg\min_{\widehat v}\mathcal L_{\rm CFM}(\widehat v,v).
+$
+
+需要注意，$\mathcal L_{\rm CFM}$ 通常不会收敛到零，而是收敛到一个与估计速度 $\widehat v$ 无关的常数：
+
+$
+\int_t\mathbb E_{p_t(x\mid z),q(z)}
+\|v_t(x\mid z)\|^2dt
+-\int_t\mathbb E_{p_t(x)}\|v_t(x)\|^2dt.
+$
+
+对此常数一般不存在统一保证。虽然直接计算 $\mathcal L_{\rm FM}$ 不可行，仍可应用 Farrell 等（2021）的理论框架，因为真实速度 $v$ 是 $\mathcal L_{\rm CFM}$ 的总体极小值，而估计速度是其经验损失在多层感知机函数类 $\mathcal V_{\rm MLP}$ 上的极小值：
+
+$
+\widehat v=\arg\min_{\widetilde v\in\mathcal V_{\rm MLP}}
+\frac1N\sum_{i=1}^N
+\|\widetilde v_{t_i}(x_i)-v_{t_i}(x_i\mid z_i)\|^2.
+$
+
+其中 $t_i$ 是第 $i$ 个采样时间，$x_i=(y_i,\theta_i)$ 是第 $i$ 个生成样本。依据 Farrell 等（2021）的定理 1，存在与 $N$ 无关的 $C>0$，使得对任一坐标 $1\le k\le n+d$，以至少
+
+$
+1-\exp[-N^{\beta/(\beta+n+d)}\log^8N]
+$
+
+的概率有
+
+$
+\mathbb E_{t,x}(\widehat v_{t,k}(x)-v_{t,k}(x))^2
+\le C\left(N^{-\beta/(\beta+n+d)}\log^8N
++\frac{\log\log N}{N}\right).
+$
+
+这里的期望涉及速度函数的全部变量，即 $t\sim\mathrm{Unif}(0,1)$ 和 $x\sim p_1$。对所有坐标求和，得到流匹配损失上界：
+
+$
+\mathcal L_{\rm FM}
+\le C(n+d)\left(N^{-\beta/(\beta+n+d)}\log^8N
++\frac{\log\log N}{N}\right)=:\varepsilon_N^2,
+$
+
+成功概率至少为 $1-(n+d)\exp[-N^{\beta/(\beta+n+d)}\log^8N]$。于是 $\varepsilon_N^2$ 具有有限样本收敛率。进一步，
+
+$
+\begin{aligned}
+\sum_{N=1}^\infty\mathbb P(\mathcal L_{\rm FM}>\varepsilon_N^2)
+&\le(n+d)\sum_{N=1}^\infty
+\exp[-N^{\beta/(\beta+n+d)}\log^8N]\\
+&<\infty.
+\end{aligned}
+$
+
+由 Borel–Cantelli 引理，产生的训练数据上几乎必然有 $\mathcal L_{\rm FM}<\varepsilon_N^2$。结合定理 1，
+
+$
+\mathbb E_{\pi_Y}W_2^2(\widehat\pi_{\theta\mid Y},
+\pi_{\theta\mid Y})
+=O\left(N^{-\beta/(\beta+n+d)}\log^8N\right).
+$
+
+由此得到平均意义下随 $N$ 呈多项式速率收敛的结论。
+
+还需证明关于观测 $y$ 的一致收敛。根据假设 3，$\mathcal Y$ 为紧集；假设 1、2 使 $W_2(\widehat\pi_{\theta\mid y},\pi_{\theta\mid y})$ 关于 $y$ 等度连续。事实上，对任意 $y,y'\in\mathcal Y$，由三角不等式，
+
+$
+\begin{aligned}
+&|W_2(\widehat\pi_{\theta\mid y},\pi_{\theta\mid y})
+-W_2(\widehat\pi_{\theta\mid y'},\pi_{\theta\mid y'})|\\
+&\le W_2(\widehat\pi_{\theta\mid y},\widehat\pi_{\theta\mid y'})
++W_2(\pi_{\theta\mid y},\pi_{\theta\mid y'})\\
+&\le C\|y-y'\|
+\end{aligned}
+$
+
+其中最后一步使用速度场及相应传输映射的 Lipschitz 性。
+
+再利用反证法：若存在 $\delta>0$，使某个 $\bar y$ 处的 Wasserstein 距离超过 $\delta$，则由等度连续性，在邻域 $B(\bar y,\delta/(2C))$ 内，该距离仍超过 $\delta/2$。因此
+
+$
+\mathbb E_{\pi_Y}W_2^2(\widehat\pi_{\theta\mid y},\pi_{\theta\mid y})
+\ge\int_{B(\bar y,\delta/(2C))}(\delta/2)^2\pi_Y(dy).
+$
+
+原文利用每个 $\mathcal Y$ 内非空开球具有正 $\pi_Y$ 测度，指出右侧存在与 $N$ 无关的正下界，与前述平均平方距离趋零相矛盾。因此
+
+$
+\sup_{y\in\mathcal Y}
+W_2(\widehat\pi_{\theta\mid y},\pi_{\theta\mid y})\longrightarrow0.
+$
+
+> **证明条件注：** 上述反证法需要对相关邻域的 $\pi_Y$ 测度有适当的正下界。仅由“紧集”这一条件本身，不能推出每个非空开球具有正测度；此处按原文证明保留该论述，实际应用需要核实边缘分布的支撑条件。
+
+### D.3 推论 3 与命题 4 的证明
+
+定理 2 给出的后验收敛，意味着
+
+$
+W_2^2(\widehat\pi_{\theta\mid y^\star},\pi_{\theta\mid y^\star})
+=\int\|\widehat G(y^\star,\theta_0)-G(y^\star,\theta_0)\|^2
+\,p_0^\Theta(d\theta_0)
+$
+
+关于 $y^\star\in\mathcal Y$ 一致趋于零。根据假设 3，$\Theta$ 为紧集；由假设 1、2，映射 $G,\widehat G$ 在 $\Theta$ 上均满足 Lipschitz 条件。采用定理 2 证明中的类似方法，得到对任意 $y^\star$ 的映射一致收敛：
+
+$
+\sup_{\theta_0\in\Theta}
+\|\widehat G(y^\star,\theta_0)-G(y^\star,\theta_0)\|
+\longrightarrow0.\tag{17}
+$
+
+回顾式（11）的估计可信集 $\widehat C_\tau(y^\star)$ 和式（12）的理想集合 $C_\tau(y^\star)$。对任意 $\theta^\star\in C_\tau(y^\star)$，由于 $S^d(\tau)$ 紧致，存在 $\theta_0^\star\in S^d(\tau)$ 使 $\theta^\star=G(y^\star,\theta_0^\star)$。这一源点也可以通过条件向量秩 $R_{\theta\mid y^\star}(\theta^\star)$ 确定。将它通过估计向量分位映射传输，令 $\widehat\theta^\star=\widehat G(y^\star,\theta_0^\star)\in\widehat C_\tau(y^\star)$；结合式（17），可得到
+
+$
+\sup_{\theta\in C_\tau(y^\star)}
+\inf_{\widehat\theta\in\widehat C_\tau(y^\star)}
+\|\widehat\theta-\theta\|\longrightarrow0.
+$
+
+反过来，对任意 $\widehat\theta^\star\in\widehat C_\tau(y^\star)$，也存在 $\theta^\star\in C_\tau(y^\star)$ 使二者距离趋零，所以
+
+$
+\sup_{\widehat\theta\in\widehat C_\tau(y^\star)}
+\inf_{\theta\in C_\tau(y^\star)}
+\|\widehat\theta-\theta\|\longrightarrow0.
+$
+
+式（17）的收敛关于 $y^\star\in\mathcal Y$ 一致，而 $\tau\in(0,1)$ 的选取任意。因此
+
+$
+\sup_{y^\star\in\mathcal Y}
+d_H(\widehat C_\tau(y^\star),C_\tau(y^\star))\to0.
+$
+
+推论 3 证毕。这里原文在定义 $\widehat\theta^\star$ 的一句将其写为经 $G$ 而非 $\widehat G$ 传输，但按其后续论证及可信集定义，应由估计映射 $\widehat G$ 产生；译稿已注明这一符号差异。
+
+对命题 4，在估计后验 $\widehat\pi_{\theta\mid y^\star}$ 下，事件 $\{\widehat r_{\theta\mid y^\star}(\theta)>1-\alpha\}$ 等价于源点落在球形源域的外环 $S^d(1)\setminus S^d(1-\alpha)$。因此
+
+$
+\begin{aligned}
+&\widehat\pi_{\theta\mid y^\star}
+(\widehat r_{\theta\mid y^\star}(\theta)>1-\alpha)\\
+&=p_0^\Theta(S^d(1))-p_0^\Theta(S^d(1-\alpha))
+=\alpha.
+\end{aligned}
+$
+
+定理 2 的一致收敛蕴含 $\widehat\pi_{\theta\mid y^\star}\Rightarrow\pi_{\theta\mid y^\star}$ 的弱收敛。又因为 $\Theta$ 紧致，映射连续性由假设 1、2 保证。定义
+
+$
+\widehat F(\tau)=\widehat\pi_{\theta\mid y^\star}
+(\widehat r_{\theta\mid y^\star}(\theta)\le\tau),
+\quad
+F(\tau)=\pi_{\theta\mid y^\star}
+(\widehat r_{\theta\mid y^\star}(\theta)\le\tau).
+$
+
+原文据此使用弱收敛及连续性得出 $|\widehat F(1-\alpha)-F(1-\alpha)|\to0$，从而
+
+$
+\pi_{\theta\mid y^\star}
+(\widehat r_{\theta\mid y^\star}(\theta)>1-\alpha)\to\alpha.
+$
+
+命题 4 证毕。需注意这里的判别事件本身包含随训练样本变化的估计映射 $\widehat r$，将通常的弱收敛结论直接用于变化的事件还需要相应的边界控制；本稿照译原文论证并保留这一技术条件提醒。
+
+
 ---
 
-**续译状态：** 附录 A–C 已按原文翻译，附录 D–E、参考文献清单与跨页公式细节仍待补充。此处是明确标识范围的阶段性译稿，不代表完整论文，也未经过逐页、逐式验收。
+**续译状态：** 附录 A–C 已按原文翻译，附录 D 已译，附录 E、参考文献清单与跨页公式细节仍待补充。此处是明确标识范围的阶段性译稿，不代表完整论文，也未经过逐页、逐式验收。
 
 {% endraw %}
