@@ -11,11 +11,11 @@ toc: true
 
 ## 中英文译文
 
-- [CKMImageNet：信道知识地图数据集｜中文译稿（全文校对中）](/papers/translations/2026-10-16-ckmimagenet-2504-09849/) · 摘要、正文 I–VI、主要图表及参考文献已译；全文逐段校对中，未验收
-- [贝叶斯后验推断的条件流匹配｜中文阶段性译稿](/papers/translations/2026-10-16-conditional-flow-bayesian-2510-09534/) · 摘要与正文 1–5 节已译；附录 A–E 与参考文献待补，未验收
-- [XL-IRS 近场稀疏贝叶斯估计与跟踪｜中文阶段性译稿](/papers/translations/2026-10-16-xlirs-bayesian-tracking-2511-18752/) · 摘要、正文 I–VI、附录 A–C 与算法 1、主要图表已译；逐式校对中，未验收
-- [SwiftChannel：5G 信道估计算法与硬件协同设计｜中文阶段性译稿](/papers/translations/2026-10-16-swiftchannel-2605-01931/) · 摘要、正文 I–VIII、主要公式、图表、参考文献 49 条及作者简介已译；逐式校对中，未验收
-- [马尔可夫过程间传输的条件流匹配｜中文阶段性译稿](/papers/translations/2026-10-16-markov-cfm-2610-07229/) · 摘要与正文 1–7 节已译；附录 A–F 和参考文献待补，未验收
+- [CKMImageNet：信道知识地图数据集｜中文译稿（全文校对中）](/papers/translations/2026-10-16-ckmimagenet-2504-09849/) · 摘要、正文 I–VI、公式（1）、表 I–II、图 1–10 说明及 41 条参考文献；仍待逐段逐项核对，未通过全文验收
+- [贝叶斯后验推断的条件流匹配｜中文阶段性译稿](/papers/translations/2026-10-16-conditional-flow-bayesian-2510-09534/) · 摘要、正文 1–5 节、主要公式（1）–（14）与实验内容；附录 A–E 及参考文献待补，未通过全文验收
+- [XL-IRS 近场稀疏贝叶斯估计与跟踪｜中文阶段性译稿](/papers/translations/2026-10-16-xlirs-bayesian-tracking-2511-18752/) · 摘要、正文 I–VI、公式（1）–（51）、附录 A–C、算法和图表说明；参考文献未逐条排印，逐式校对中，未通过全文验收
+- [SwiftChannel：5G 信道估计算法与硬件协同设计｜中文阶段性译稿](/papers/translations/2026-10-16-swiftchannel-2605-01931/) · 摘要、正文 I–VIII、公式（1）–（12）、表 I–VII、图 1–10 说明、参考文献 49 条和作者简介；逐段逐式校对中，未通过全文验收
+- [马尔可夫过程间传输的条件流匹配｜中文阶段性译稿](/papers/translations/2026-10-16-markov-cfm-2610-07229/) · 摘要、正文 1–7 节、主要公式（1）–（23）、附录 A.1；附录 A.2–A.5、B–F 和参考文献待补，未通过全文验收
 - [过采样 OTFS：唯一字 UW 导频信道估计｜中文译稿（逐段校对中）](/papers/translations/2026-10-16-uw-otfs-2601-09364/) · I–XI 节中文结构译稿、关键公式、算法与仿真说明；逐式全文校对中
 - [TWC：维纳相位噪声下的消息传递稀疏估计｜中文译稿（逐段校对中）](/papers/translations/2026-10-16-phase-noise-message-passing-twc/) · I–VII 节、因子图消息计算、算法与仿真；附录公式及参考文献待核
 - [XL-RIS 多用户混合波束成形与 CLRA-JO 近场估计｜中文译稿（逐段校对中）](/papers/translations/2026-10-16-xlris-clra-2401-06966/) · I–VI 节、共同列空间与联合优化、仿真；部分长公式待核
