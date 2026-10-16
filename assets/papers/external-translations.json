@@ -1,5 +1,23 @@
 [
   {
+    "date": "2026-10-16",
+    "slug": "2026-10-16-difficulty-calibrated-flow-matching-2608-21286",
+    "title": "DC-FM：面向条件流匹配的难度校准插值路径｜中文完整译稿（待逐式复核）",
+    "paper_ids": [
+      "ef8d446b657ee3d1"
+    ],
+    "source_arxiv_ids": [
+      "2608.21286"
+    ],
+    "url": "/papers/translations/2026-10-16-difficulty-calibrated-flow-matching-2608-21286/",
+    "source_file": "2026-10-16-difficulty-calibrated-flow-matching-2608-21286.md",
+    "scope": "已译摘要、正文 I–VI、公式 1–13、命题与证明、图 1–4、表 I–IV、参考文献 1–18；逐式终校中，未计入已验收全文",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-16-difficulty-calibrated-flow-matching-2608-21286.md",
+    "source_page_path": "papers/translations/2026-10-16-difficulty-calibrated-flow-matching-2608-21286.md",
+    "external": true,
+    "qa_complete": false
+  },
+  {
     "date": "2026-10-15",
     "slug": "2026-10-15-source-space-mcmc-imf-2610-01034",
     "title": "基于先验少步传输映射的源空间 MCMC 后验采样｜中文全篇译稿（校对中）",
