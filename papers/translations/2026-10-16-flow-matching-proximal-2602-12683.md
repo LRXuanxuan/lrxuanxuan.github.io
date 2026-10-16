@@ -1604,3 +1604,506 @@ $$
 
 **解释。** 引理 D.3 的意义是：如果在 $P_1$-几乎每个目标点 $x_1$ 上，条件分布 $\pi(\mathrm dx_0\mid x_1)$ 对次梯度纤维
 $\partial\varphi(x_1)$ 的仿射包具有密度，那么耦合不会把概率质量分配到该纤维的低维边界面；每条纤维上的条件样本因此以概率 1 落在相对内部，进而得到联合分布 $\pi$ 几乎处处的结论。
+
+
+## 附录 E. Schrödinger 桥的去噪器视角
+
+在 Schrödinger 桥框架中，时间 $0$ 和 $s$ 的联合密度分解为
+
+$$
+p^{\rm SB}(x_s,x_0)\propto
+\psi_s(x_s)K_s(x_s\mid x_0)\phi_0(x_0),
+$$
+
+其中 $K_s(x_s\mid x_0)$ 是参考扩散过程的转移核，
+$(\phi,\psi)$ 为指数域 Schrödinger 势，是 Kolmogorov 方程的解 [Léonard，2014]。当参考过程为布朗运动时，
+
+$$
+K_s(x_s\mid x_0)=
+\mathcal N(x_s;x_0,2\epsilon s I).
+$$
+
+下面推导去噪器
+$D_s(x_s):=\mathbb E[X_0\mid X_s=x_s]$
+的简洁表达式。
+
+首先展开条件路径分布：
+
+$$
+\begin{aligned}
+p_s^{\rm SB}(x_0\mid x_s)
+&=\frac{p_s^{\rm SB}(x_s,x_0)}{p_s(x_s)}\\
+&=\frac{p_s^{\rm SB}(x_s,x_0)}
+{\int p_s^{\rm SB}(x_s,x_0)\,\mathrm dx_0}\\
+&=\frac{K_s(x_s\mid x_0)\phi_0(x_0)}
+{\int K_s(x_s\mid x'_0)\phi_0(x'_0)\,\mathrm dx'_0}.
+\end{aligned}
+$$
+
+于是去噪器为
+
+$$
+\begin{aligned}
+\mathbb E[X_0\mid X_s=x_s]
+&=\frac{\int x_0K_s(x_s\mid x_0)\phi_0(x_0)\,\mathrm dx_0}
+{\int K_s(x_s\mid x_0)\phi_0(x_0)\,\mathrm dx_0}\\
+&=\frac{\int(x_s+y)
+\exp(-\|y\|^2/(4\epsilon s))
+\phi_0(x_s+y)\,\mathrm dy}
+{\int\exp(-\|y\|^2/(4\epsilon s))
+\phi_0(x_s+y)\,\mathrm dy},
+\end{aligned}
+$$
+
+其中代换 $y=x_0-x_s$。下面使用 Laplace 近似。将
+$\phi_0$ 做 Taylor 展开：
+
+$$
+\phi_0(x_s+y)
+=\phi_0(x_s)+\nabla\phi_0(x_s)^{\rm T}y
++\frac12y^{\rm T}
+\nabla^2\phi_0(x_s)y
++O(\|y\|^3).
+$$
+
+由高斯积分，对去噪器分母可得
+
+$$
+\int\exp\left(-\frac{\|y\|^2}{4\epsilon s}\right)
+\phi_0(x_s+y)\,\mathrm dy
+=(4\pi\epsilon s)^{d/2}\phi_0(x_s)
++O((\epsilon s)^{(d+2)/2}).
+$$
+
+其中一阶项因高斯转移核的对称性而消失。
+
+对分子作分解：
+
+$$
+\begin{aligned}
+&\int(x_s+y)
+e^{-\|y\|^2/(4\epsilon s)}
+\phi_0(x_s+y)\,\mathrm dy\\
+&=x_s\int e^{-\|y\|^2/(4\epsilon s)}
+\phi_0(x_s+y)\,\mathrm dy\\
+&\quad+\int y e^{-\|y\|^2/(4\epsilon s)}
+\phi_0(x_s+y)\,\mathrm dy.
+\end{aligned}
+$$
+
+第一项可按分母的方式求得。对第二项代入 Taylor 展开：
+
+$$
+\begin{aligned}
+&\int y e^{-\|y\|^2/(4\epsilon s)}
+\phi_0(x_s+y)\,\mathrm dy\\
+&=\phi_0(x_s)\underbrace{\int y e^{-\|y\|^2/(4\epsilon s)}
+\,\mathrm dy}_{=0}\\
+&\quad+\int y e^{-\|y\|^2/(4\epsilon s)}
+(\nabla\phi_0(x_s)^{\rm T}y)\,\mathrm dy
++O((\epsilon s)^{(d+2)/2}).
+\end{aligned}
+$$
+
+在第 $i$ 个分量中，第二个积分为
+
+$$
+\begin{aligned}
+&\int y_i e^{-\|y\|^2/(4\epsilon s)}
+(\nabla\phi_0(x_s)^{\rm T}y)\,\mathrm dy\\
+&=\sum_{j=1}^d
+\nabla_j\phi_0(x_s)
+\int y_i y_j e^{-\|y\|^2/(4\epsilon s)}\,\mathrm dy\\
+&=\sum_{j=1}^d
+\nabla_j\phi_0(x_s)\,
+2\epsilon s\,\delta_{ij}(4\pi\epsilon s)^{d/2}\\
+&=2\epsilon s(4\pi\epsilon s)^{d/2}
+\nabla_i\phi_0(x_s).
+\end{aligned}
+$$
+
+代回分子，得
+
+$$
+\begin{aligned}
+&\int(x_s+y)e^{-\|y\|^2/(4\epsilon s)}
+\phi_0(x_s+y)\,\mathrm dy\\
+&\quad=(4\pi\epsilon s)^{d/2}
+[x_s\phi_0(x_s)+2\epsilon s\nabla\phi_0(x_s)]
++O((\epsilon s)^{(d+2)/2}).
+\end{aligned}
+$$
+
+所以通过 Laplace 近似，去噪器简化为
+
+$$
+\begin{aligned}
+D_s(x_s)
+&=\mathbb E[X_0\mid X_s=x_s]\\
+&=\frac{x_s\phi_0(x_s)+2\epsilon s\nabla\phi_0(x_s)}
+{\phi_0(x_s)}
++O((\epsilon s)^2)\\
+&=x_s+2\epsilon s\nabla\log\phi_0(x_s)
++O((\epsilon s)^2).
+\end{aligned}
+$$
+
+由此得到第 3.2 节中的表达式。与扩散模型中的 Tweedie **精确公式**不同，Schrödinger 桥去噪器的该表达式来自小噪声极限下的 Laplace 近似。
+
+## 附录 F. 小批量 OT-FM 流的稳定性与推前测度收敛
+
+本节证明小批量 OT-CFM 的 ODE 解向总体 OT-CFM 对应解收敛，结果基于第 3.1 节。下面先给出更一般的向量场收敛结论，它也适用于第 3.1 节的情况。由于 $\dot\alpha_t/\alpha_t$ 在 $t\to1$ 时发散，本文只证明任意固定 $c<1$ 时刻的收敛。
+
+固定 $c\in(0,1)$，对 $n\in\mathbb N$，令
+$v_n,v:[0,c]\times\mathbb R^d\to\mathbb R^d$
+为可能随机的含时向量场。假设任意
+$x_0\in\mathbb R^d$ 的初值问题
+
+$$
+\dot x_n(t)=v_n(t,x_n(t)),
+\qquad x_n(0)=x_0
+\tag{37}
+$$
+
+与
+
+$$
+\dot x(t)=v(t,x(t)),
+\qquad x(0)=x_0
+\tag{38}
+$$
+
+在 $[0,c]$ 上都存在唯一绝对连续解。相应的流映射记为
+$\Phi_n(t,x_0)=x_n(t)$、
+$\Phi(t,x_0)=x(t)$。
+
+本节按每一条样本路径进行分析（pathwise）：当向量场为随机场时，全部假设与结论都理解为在所声明界成立的事件上有效。例如若 $v_n\to v$ 几乎必然局部一致收敛，则以下结果也几乎必然成立。
+
+### F.1 单侧 Lipschitz 界
+
+先给出近端形式 OT-CFM 向量场满足的关键单调性估计。令正常、下半连续凸函数 $f$ 的欧氏近端映射
+
+$$
+\operatorname{prox}_{\lambda f}(y)
+=\arg\min_{x\in\mathbb R^d}
+\left\{f(x)+\frac1{2\lambda}\|x-y\|^2\right\}.
+$$
+
+众所周知，任意 $\lambda>0$ 的近端映射都是 1-Lipschitz 的。
+
+**引理 F.1（近端 OT-FM 向量场的单侧 Lipschitz 界）。**
+令 $\alpha,\beta\in C^1((0,1))$，且
+$\alpha_t>0$、$\beta_t>0$。
+固定 $t\in(0,1)$，定义
+
+$$
+\lambda_t:=\frac{\alpha_t}{\beta_t},
+\qquad
+b(t):=\beta_t\left(
+\frac{\dot\beta_t}{\beta_t}
+-\frac{\dot\alpha_t}{\alpha_t}
+\right).
+$$
+
+取正常、下半连续凸函数
+$\varphi:\mathbb R^d\to(-\infty,+\infty]$，定义
+
+$$
+v(t,x)=\frac{\dot\alpha_t}{\alpha_t}x+
+b(t)\operatorname{prox}_{\lambda_t\varphi}
+\left(\frac x{\beta_t}\right).
+\tag{39}
+$$
+
+若 $b(t)\ge0$，则对任意 $x,y\in\mathbb R^d$，
+
+$$
+\langle v(t,x)-v(t,y),x-y\rangle
+\le\frac{\dot\beta_t}{\beta_t}\|x-y\|^2.
+\tag{40}
+$$
+
+将 $\varphi$ 替换为任意其他凸势（例如 $\varphi_n$）时同样成立，因此该界对小批量 OT 势关于 $n$ 是一致的。
+
+**证明。** 固定 $t$，记
+$d=x-y$、$u=x/\beta_t$、
+$w=y/\beta_t$，
+以及
+$p=\operatorname{prox}_{\lambda_t\varphi}(u)$、
+$q=\operatorname{prox}_{\lambda_t\varphi}(w)$。
+由式 (39)，
+
+$$
+v(t,x)-v(t,y)
+=\frac{\dot\alpha_t}{\alpha_t}d+b(t)(p-q).
+$$
+
+所以
+
+$$
+\begin{aligned}
+&\langle v(t,x)-v(t,y),d\rangle\\
+&=\frac{\dot\alpha_t}{\alpha_t}\|d\|^2
++b(t)\langle p-q,d\rangle.
+\end{aligned}
+$$
+
+因为 $d=\beta_t(u-w)$，近端映射 1-Lipschitz，故
+
+$$
+\begin{aligned}
+\langle p-q,d\rangle
+&=\beta_t\langle p-q,u-w\rangle\\
+&\le\beta_t\|p-q\|\|u-w\|\\
+&\le\beta_t\|u-w\|^2
+=\frac1{\beta_t}\|d\|^2.
+\end{aligned}
+$$
+
+利用 $b(t)\ge0$ 及
+$b(t)/\beta_t
+=\dot\beta_t/\beta_t-\dot\alpha_t/\alpha_t$，
+
+$$
+\begin{aligned}
+\langle v(t,x)-v(t,y),d\rangle
+&\le\left(
+\frac{\dot\alpha_t}{\alpha_t}
++\frac{b(t)}{\beta_t}
+\right)\|d\|^2\\
+&=\frac{\dot\beta_t}{\beta_t}\|d\|^2.
+\end{aligned}
+$$
+
+即式 (40)。证毕。
+
+**备注 F.2（标准调度）。** 当
+$\alpha_t=1-t$、$\beta_t=t$ 时，
+$\dot\beta_t/\beta_t=1/t$、
+$b(t)=1/(1-t)>0$，
+因此引理 F.1 给出的单侧 Lipschitz 常数为
+
+$$
+\ell(t)=\frac1t.
+$$
+
+它比仅利用近端映射非扩张性通过范数估计得到的双侧 Lipschitz 界
+
+$$
+L(t)=\frac1t+\frac2{1-t}
+$$
+
+明显更小。
+
+### F.2 $c$ 时刻的轨迹收敛
+
+下面作出若干假设。B3、B4 主要用于将实际情况形式化，而 B1、B2 是对向量场附加的假设。
+
+**假设 F.3（向量场一致有界及其收敛）。** 固定 $c\in(0,1)$。
+
+**(B1) 一致有界。** 存在 $M>0$，使对任意 $n$、
+$t\in[0,c]$、$x\in\mathbb R^d$，
+
+$$
+\|v_n(t,x)\|\le M,\qquad
+\|v(t,x)\|\le M.
+$$
+
+**(B2) 初始时间的一致接近性（关于 $n$ 一致）。**
+任意 $\varepsilon>0$，存在
+$\delta\in(0,c]$，使
+
+$$
+\sup_{n\ge1}\sup_{t\in[0,\delta]}
+\sup_{x\in\mathbb R^d}
+\|v_n(t,x)-v(t,x)\|\le\varepsilon.
+$$
+
+**(B3) 离开 $t=0$ 时的紧集一致收敛。**
+对任意 $\delta\in(0,c]$、$R>0$，
+
+$$
+\eta_n(\delta,R):=
+\sup_{t\in[\delta,c]}
+\sup_{\|x\|\le R}
+\|v_n(t,x)-v(t,x)\|
+\to0\qquad(n\to\infty).
+$$
+
+**(B4) $v$ 在 $(0,c]$ 上的单侧 Lipschitz 界。**
+对任意 $t\in(0,c]$、$x,y\in\mathbb R^d$，
+
+$$
+\langle v(t,x)-v(t,y),x-y\rangle
+\le\frac1t\|x-y\|^2.
+$$
+
+参见上一小节备注 F.2。
+
+**定理 F.4（标准调度下 $c$ 时刻的轨迹收敛）。**
+假设 B1–B4 成立。固定 $R>0$，
+$x_0\in\mathbb R^d$ 满足 $\|x_0\|\le R$，
+$x_n$、$x$ 分别为式 (37)、(38) 的唯一解。
+则对每个 $\varepsilon>0$，存在
+$N\in\mathbb N$，使任意 $n\ge N$ 都满足
+
+$$
+\|x_n(c)-x(c)\|\le\varepsilon.
+\tag{41}
+$$
+
+而且上述界在初始状态球内一致成立：
+
+$$
+\sup_{\|x_0\|\le R}
+\|\Phi_n(c,x_0)-\Phi(c,x_0)\|\le\varepsilon.
+$$
+
+**证明。** 设
+$\varepsilon_0=\varepsilon/(4c)$。
+由 B1，对任意 $t\in[0,c]$，
+
+$$
+\|x_n(t)-x_0\|
+\le\int_0^t\|v_n(s,x_n(s))\|\,\mathrm ds
+\le Mt,
+$$
+
+$$
+\|x(t)-x_0\|\le Mt.
+$$
+
+所以对所有 $t\in[0,c]$，
+$x_n(t),x(t)\in B_{R+Mc}(0)=:K_R$。
+
+由 B2，取 $\delta_1\in(0,c]$，
+使
+
+$$
+\sup_n\sup_{t\in[0,\delta_1]}\sup_x
+\|v_n(t,x)-v(t,x)\|\le\varepsilon_0.
+$$
+
+因为 $v$ 关于 $x$ 连续，
+$[0,c]\times K_R$ 紧，
+$v$ 在其上一致连续。定义该紧集上的连续模
+
+$$
+\omega_R(r):=
+\sup_{\substack{t\in[0,c]\\x,y\in K_R\\
+\|x-y\|\le r}}
+\|v(t,x)-v(t,y)\|,
+\qquad r\ge0.
+$$
+
+因此 $\omega_R(r)\to0$（$r\downarrow0$）。
+选择 $\delta\in(0,\delta_1]$，使
+$\omega_R(2M\delta)\le\varepsilon_0$。
+令
+
+$$
+\Delta(t)=x_n(t)-x(t).
+$$
+
+将区间 $[0,c]$ 分为 $[0,\delta]$ 和 $[\delta,c]$ 分别估计。
+
+**(i) 当 $t\in[0,\delta]$。**
+$\Delta(0)=0$，且
+
+$$
+\begin{aligned}
+\|\dot\Delta(t)\|
+&=\|v_n(t,x_n(t))-v(t,x(t))\|\\
+&\le\|v_n(t,x_n(t))-v(t,x_n(t))\|\\
+&\qquad+\|v(t,x_n(t))-v(t,x(t))\|.
+\end{aligned}
+$$
+
+第一项由 $\delta_1$ 的选择不超过 $\varepsilon_0$。
+第二项满足
+$\|x_n(t)-x(t)\|
+\le2Mt\le2M\delta$，
+因此不超过
+$\omega_R(2M\delta)\le\varepsilon_0$。
+故
+$\|\dot\Delta(t)\|\le2\varepsilon_0$。
+积分可得
+
+$$
+\|\Delta(\delta)\|\le2\varepsilon_0\delta.
+\tag{42}
+$$
+
+**(ii) 当 $t\in[\delta,c]$。**
+重写
+
+$$
+\begin{aligned}
+\dot\Delta(t)
+={}&v_n(t,x_n(t))-v(t,x_n(t))\\
+&+v(t,x_n(t))-v(t,x(t)).
+\end{aligned}
+$$
+
+设 $y(t)=\|\Delta(t)\|$。
+对 $y(t)>0$ 的几乎所有 $t$，
+
+$$
+\begin{aligned}
+y'(t)
+&=\left\langle
+\frac{\Delta(t)}{\|\Delta(t)\|},\dot\Delta(t)
+\right\rangle\\
+&\le\|v_n(t,x_n(t))-v(t,x_n(t))\|\\
+&\quad+\frac{\langle
+v(t,x_n(t))-v(t,x(t)),\Delta(t)
+\rangle}{\|\Delta(t)\|}.
+\end{aligned}
+$$
+
+因为 $x_n(t)\in K_R$，由 B3 第一项至多为
+$\eta_n(\delta,R+Mc)$。
+第二项由单侧 Lipschitz 条件 B4 控制：
+
+$$
+\frac{\langle
+v(t,x_n(t))-v(t,x(t)),\Delta(t)
+\rangle}{\|\Delta(t)\|}
+\le\frac1t\|\Delta(t)\|=\frac1t y(t).
+$$
+
+因此几乎处处有
+
+$$
+y'(t)\le\eta_n(\delta,R+Mc)+\frac1t y(t).
+\tag{43}
+$$
+
+简记 $\eta_n=\eta_n(\delta,R+Mc)$，
+式 (43) 蕴含 $(y(t)/t)'\le\eta_n/t$。
+从 $\delta$ 积分到 $c$：
+
+$$
+y(c)\le\frac c\delta y(\delta)
++c\eta_n\log\frac c\delta.
+\tag{44}
+$$
+
+代入式 (42)，
+
+$$
+y(c)\le2c\varepsilon_0
++c\eta_n\log(c/\delta)
+=\frac\varepsilon2+c\eta_n\log(c/\delta).
+$$
+
+由 B3，$\eta_n\to0$，因此可以选择 $N$，使对任意
+$n\ge N$ 有
+$c\eta_n\log(c/\delta)\le\varepsilon/2$，
+从而 $y(c)\le\varepsilon$，式 (41) 得证。
+
+**初值球内的一致性。**
+以上常数对 $R$ 的依赖仅通过紧集
+$K_R=B_{R+Mc}(0)$、它的连续模 $\omega_R$ 和误差
+$\eta_n(\delta,R+Mc)$ 表现出来。因此，同样的 $\delta$ 与 $N$ 适用于所有
+$\|x_0\|\le R$ 的初值。
