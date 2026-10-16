@@ -392,3 +392,325 @@ O((\epsilon s)^2)$ 的形式。
 $S=\nabla\phi$ 给出传输映射 $x_1=S(x_0)$。
 
 虽然使用正向 OT 映射可能在数学上更简单，本文仍选择反向的集合值映射 $x_1\mapsto x_0$，以将近端算子解释为去噪器（第 2.3.1 节），与扩散模型形成对应。另外，对 $S$ 也可以进行第 4 节的 Lyapunov 分析，但所得定理需要更强的 $S$ 的光滑性假设，经典 Caffarelli 正则性理论 [Caffarelli，2003] 并不能保证它们。详见附录 G.2。
+
+
+## 4. 终端 Lyapunov 指数分析
+
+本节基于第 2 节的近端算子框架，在低维流形假设下分析 FM 的终端行为。首先借助二阶变分刻画，讨论近端算子的半导数（semiderivative，即方向导数）。更一般的理论见 Rockafellar 与 Wets [1998]。
+
+以下假设 $\mathcal M\subset\mathbb R^d$ 是维度为 $m<d$ 的 $C^2$ 子流形，且目标分布 $P_1$ 的支撑为 $\mathcal M$。对于 $x_1\in\mathcal M$，分别以 $T_{x_1}\mathcal M$ 和 $N_{x_1}\mathcal M$ 表示相对于 $\mathbb R^d$ 内积的切空间和法空间。于是
+
+$$
+\mathbb R^d\simeq T_{x_1}\mathcal M\oplus N_{x_1}\mathcal M,
+\qquad \dim N_{x_1}\mathcal M=d-m.
+$$
+
+### 4.1 Lyapunov 指数
+
+先考虑一般时间 $\tau\in[0,\infty)$ 下的 ODE
+
+$$
+\frac{\mathrm dx(\tau)}{\mathrm d\tau}
+=u_\tau(x(\tau)),
+$$
+
+以及其流映射 $\Phi_\tau:\mathbb R^d\to\mathbb R^d$，即
+$x(\tau)=\Phi_\tau(x(0))$。
+对于初始状态 $x(0)=x_0$ 和任意非零向量 $v\in\mathbb R^d$，方向 $v$ 的 Lyapunov 指数定义为（若极限存在）
+
+$$
+\lambda(x_0,v)
+:=\lim_{\tau\to+\infty}
+\frac1\tau\log\left\|D_x\Phi_\tau(x_0)v\right\|.
+\tag{11}
+$$
+
+其中 $D_x\Phi_\tau$ 是流映射相对于初始状态的雅可比矩阵，$\|\cdot\|$ 可以取 $\mathbb R^d$ 上任意范数。由于有限维空间所有范数等价，$\lambda$ 不依赖范数选择。Lyapunov 指数为负（正）意味着附近轨迹在 $\tau$ 时间下沿相应方向指数收缩（扩张）。
+
+### 4.2 二阶导数与切向/法向分解
+
+为了在数据流形附近沿不同方向定义 FM ODE 的 Lyapunov 指数，需要回顾凸分析中的二阶上图导数。对 $g:\mathbb R^d\to\overline{\mathbb R}$，令
+
+$$
+\operatorname{dom}g=\{z\in\mathbb R^d:g(z)<+\infty\}.
+$$
+
+取正常、下半连续凸函数 $f$，固定 $x\in\operatorname{dom}f$ 与
+$v\in\partial f(x)$。**相对于 $v$，$f$ 在 $x$ 的二阶上图导数**定义为
+
+$$
+d^2f(x\mid v)(w)=
+\liminf_{\substack{t\downarrow0\\w'\to w}}
+\frac{f(x+tw')-f(x)-t\langle v,w'\rangle}{t^2/2}.
+\tag{12}
+$$
+
+其取值允许为 $+\infty$，有效定义域为
+
+$$
+\operatorname{dom}d^2f(x\mid v)
+=\{w:d^2f(x\mid v)(w)<+\infty\}.
+$$
+
+根据次梯度定义，若 $v\in\partial f(x)$，则对所有 $w$ 有
+$d^2f(x\mid v)(w)\ge0$。
+
+本文通过二阶上图导数识别切方向。如第 2 节所述，令 $\varphi$ 为 $P_1\to P_0$ 的 Aleksandrov–Brenier 势，固定 OT 样本对 $(x_1,x_0)$，满足 $x_0\in\partial\varphi(x_1)$。定义平移后的凸势
+
+$$
+f(\cdot):=\varphi(\cdot)-\langle x_0,\cdot\rangle.
+\tag{13}
+$$
+
+于是 $0\in\partial f(x_1)$，即 $x_1$ 是 $f$ 的一个全局极小点。
+
+理论分析对 $f$ 在 $x_1$ 处作出三个假设。记 $f|_\mathcal M$ 为 $f$ 在流形上的限制，$\operatorname{aff}(S)$ 为集合 $S$ 的仿射包。
+
+**(A1)** $f|_\mathcal M$ 在 $x_1\in\mathcal M$ 的某邻域内为 $C^2$。
+
+**(A2)** $\dim\operatorname{aff}(\partial f(x_1))=d-m$。
+
+**(A3)** $0\in\operatorname{ri}(\partial f(x_1))$，其中 $\operatorname{ri}$ 表示在 $\operatorname{aff}(\partial f(x_1))$ 中取相对内部。
+
+这些假设将凸势沿流形方向的光滑性（A1）与法向方向的尖锐变化相结合。A2 意味着次梯度的变化跨越整个法空间，编码了法向几何；A3 排除极点落在次梯度集合的边界/退化面上的情形。在 A1–A3 下，下一命题通过二阶上图导数的有效域确定切空间（证明见附录 B.5）。
+
+**命题 4.1。** 在假设 A1、A2、A3 下，
+
+$$
+\operatorname{dom}d^2f(x_1\mid0)=T_{x_1}\mathcal M.
+$$
+
+即
+
+$$
+d^2f(x_1\mid0)(w)<+\infty
+\quad\Longleftrightarrow\quad
+w\in T_{x_1}\mathcal M.
+$$
+
+为简化记号，定义
+
+$$
+P_\lambda:=\operatorname{prox}_{\lambda f},
+\qquad\lambda>0.
+$$
+
+下一个引理刻画近端算子的半导数（证明见附录 B.3）。
+
+**引理 4.2。** 设 $f$ 正常、下半连续且凸，并有 $0\in\partial f(x_1)$。固定 $\lambda>0$ 和 $h\in\mathbb R^d$。若 $f$ 在 $x_1$ 相对于零向量二阶上图可微，则下列半导数存在：
+
+$$
+DP_\lambda(x_1;h):=
+\lim_{\substack{\varepsilon\downarrow0\\h'\to h}}
+\frac{P_\lambda(x_1+\varepsilon h')-P_\lambda(x_1)}
+{\varepsilon}.
+$$
+
+它是以下强凸优化问题的唯一极小点：
+
+$$
+DP_\lambda(x_1;h)\in
+\arg\min_{w\in\mathbb R^d}
+\left\{
+d^2f(x_1\mid0)(w)+
+\frac1\lambda\|w-h\|^2
+\right\}.
+\tag{14}
+$$
+
+运用引理 4.2，可证明（见附录 B.6）：
+
+**引理 4.3。** 记 $h_T$ 为 $h$ 在 $T_{x_1}\mathcal M$ 上的正交投影。在上述记号下：
+
+(i) 任意 $h\in\mathbb R^d$ 都满足
+$DP_\lambda(x_1;h)
+=DP_\lambda(x_1;h_T)\in T_{x_1}\mathcal M$。
+
+(ii) 若 $h\in N_{x_1}\mathcal M$，则
+$DP_\lambda(x_1;h)=0$。
+
+(iii) 若 $h\in T_{x_1}\mathcal M$，则
+$DP_\lambda(x_1;h)=h+O(\sqrt\lambda)\|h\|$。
+
+若 $\varphi$ 可微，这意味着 $P_\lambda$ 的雅可比在切空间上的作用为 $I_m+o(1)$，在法空间上为零。引理 4.2 把这一雅可比性质扩展到不可微的势函数，对流形学习至关重要：近端算子在保留沿流形方向光滑性的同时，有效滤除势函数曲率的奇异性。
+
+### 4.3 终端 Lyapunov 指数
+
+关于终端时间调度，作如下假设。
+
+**(SC)** $\alpha_t$ 和 $\beta_t$ 为 $C^1$ 曲线，存在 $\gamma>0$，使
+
+$$
+(1-t)\frac{\dot\alpha_t}{\alpha_t}\to-\gamma
+\quad(t\to1),
+$$
+
+且 $t\to1$ 时 $\dot\beta_t$ 有界。
+
+例如标准调度 $\alpha_t=C_\alpha(1-t)^\gamma$、
+$\beta_t=C_\beta t^\eta$，$\gamma,\eta>0$，满足 (SC)。
+
+为了研究终端行为，对时间变量做对数变换
+
+$$
+\tau:=-\log(1-t),\qquad
+t=t(\tau)=1-e^{-\tau},\qquad
+\frac{\mathrm dt}{\mathrm d\tau}=1-t.
+$$
+
+当 $t\to1$ 时，$\tau\to\infty$。定义
+$u_\tau(x(\tau))=(1-t)v_{t(\tau)}(x(\tau))$，
+则 OT-CFM 的重参数化动力学为
+
+$$
+x'(\tau)=u_\tau(x(\tau)),
+$$
+
+上方撇号代表对 $\tau$ 求导。
+
+固定 OT 样本对 $(x_1,x_0)$，考虑轨迹
+$x_t=\alpha_tx_0+\beta_tx_1$。记
+$\lambda_t=\alpha_t/\beta_t$ 并定义
+
+$$
+Q_t(x_t):=
+\operatorname{prox}_{\lambda_t\varphi}(x_t/\beta_t)
+=\operatorname{prox}_{\lambda_t\varphi}(x_1+\lambda_t x_0).
+$$
+
+由于 $f$ 是 $\varphi$ 按式 (13) 平移得到的势，存在恒等关系
+
+$$
+\operatorname{prox}_{\lambda f}(x_1)
+=\operatorname{prox}_{\lambda\varphi}(x_1+\lambda x_0),
+$$
+
+因此有
+
+$$
+DQ_t(x_t;\xi)=DP_{\lambda_t}(x_1;\xi/\beta_t).
+\tag{15}
+$$
+
+下列定理是全文关于 Lyapunov 指数的主要结果。
+
+**定理 4.4（Lyapunov 指数）。** 假设时间调度满足 (SC)。固定 OT 样本对 $(x_1,x_0)$，并假设以 Aleksandrov–Brenier 势 $\varphi$ 构造的平移势
+$f=\varphi-\langle x_0,\cdot\rangle$
+在 $x_1$ 满足 (A1)、(A2)、(A3)，并在 $(x_1\mid0)$ 二阶上图可微。令 $\Phi_\tau$ 为重参数化动力学
+$x'(\tau)=u_\tau(x(\tau))$ 的流映射。对收敛到 $x_1$ 的轨迹，其终端 Lyapunov 指数满足
+
+$$
+\lambda(v)=-\gamma,\qquad
+v\in N_{x_1}\mathcal M\setminus\{0\};
+$$
+
+$$
+\lambda(v)=0,\qquad
+v\in T_{x_1}\mathcal M\setminus\{0\},
+$$
+
+其中
+$\lambda(v)=\lim_{\tau\to\infty}\tau^{-1}
+\log\|D\Phi_\tau(x_0)v\|$。
+因此 $\mathcal M$ 是法向收缩率为 $\gamma$ 的**法向双曲吸引子**。
+
+**证明。** 令 $\xi(\tau)=D\Phi_\tau(x_0)v$。由半导数定义可知 $\xi$ 满足方向变分方程
+
+$$
+\xi'(\tau)=Du_\tau(x(\tau);\xi(\tau)),
+\qquad \xi(0)=v.
+\tag{16}
+$$
+
+对式 (10) 沿 $\xi$ 求半导数，得
+
+$$
+\begin{aligned}
+Du_\tau(x(\tau);\xi)
+=(1-t)\Bigg\{&
+\frac{\dot\alpha_t}{\alpha_t}\xi\\
+&+\beta_t\left(
+\frac{\dot\beta_t}{\beta_t}
+-\frac{\dot\alpha_t}{\alpha_t}\right)
+DQ_t(x(\tau);\xi)
+\Bigg\}.
+\end{aligned}\tag{17}
+$$
+
+**情况 1：$v\in N_{x_1}\mathcal M\setminus\{0\}$。**
+因为初始扰动 $\xi(0)=v$ 为法向向量，由引理 4.3(ii) 与式 (15)，
+$DQ_t(x(\tau);\xi(0))=0$。于是 ODE (16) 的解始终留在法空间中。将式 (16)、(17) 投影到法空间，并利用引理 4.3(i) 给出的 $DQ_t\in T_{x_1}\mathcal M$，得到
+
+$$
+\xi'(\tau)=a(t)\xi(\tau),\qquad
+a(t):=(1-t)\frac{\dot\alpha_t}{\alpha_t}.
+$$
+
+因此
+
+$$
+\|\xi(\tau)\|
+=\exp\left(\int_0^\tau a(t(s))\,\mathrm ds\right)\|v\|,
+$$
+
+$$
+\frac1\tau\log\|\xi(\tau)\|
+=\frac1\tau\log\|v\|
++\frac1\tau\int_0^\tau a(t(s))\,\mathrm ds.
+$$
+
+由 (SC)，$a(t)$ 有界且 $a(t(\tau))\to-\gamma$，其 Cesàro 平均同样收敛到 $-\gamma$，从而
+
+$$
+\lambda(v)=\lim_{\tau\to\infty}
+\frac1\tau\log\|\xi(\tau)\|=-\gamma.
+$$
+
+**情况 2：$v\in T_{x_1}\mathcal M\setminus\{0\}$。**
+此时解保持在切空间内。由引理 4.3(iii) 和式 (15)，有
+$DQ_t(x(\tau);\xi)=\xi/\beta_t+o(\|\xi\|)$。
+因此
+
+$$
+\xi'(\tau)=c(\tau)\xi(\tau)+\delta(\xi),
+$$
+
+其中
+
+$$
+c(\tau)
+=(1-t)\frac{\dot\alpha_t}{\alpha_t}(1-\beta_t)
++(1-t)\dot\beta_t=o(1),
+$$
+
+以及 $\delta(\xi)=o(\|\xi\|)$。
+因此存在 $r(\tau)=o(1)$，使当 $\tau\to\infty$ 时，
+
+$$
+\|\xi'(\tau)\|
+\le|c(\tau)|\|\xi\|+\|\delta(\xi)\|
+\le r(\tau)\|\xi\|.
+$$
+
+利用
+
+$$
+\left|\frac{\mathrm d}{\mathrm d\tau}
+\log\|\xi(\tau)\|\right|
+=\frac{|\langle\xi(\tau),\xi'(\tau)\rangle|}
+{\|\xi(\tau)\|^2}
+\le r(\tau),
+$$
+
+再对其采用与情况 1 相同的 Cesàro 平均论证，即得
+
+$$
+\lim_{\tau\to\infty}
+\frac1\tau\log\|\xi(\tau)\|=0.
+$$
+
+证毕。
+
+定理 4.4 说明：切向扰动的 Lyapunov 指数为零，既不指数扩张也不指数收缩；法向扰动的 Lyapunov 指数为负，以 $O(e^{-\gamma\tau})$ 的速率收缩。这意味着 OT-CFM 动力学受到扰动时，数据流形的结构仍可保持。
+
+这一结果与 Chandramoorthy 和 De Clercq [2025] 对扩散模型的稳定性分析一致。该研究指出，如果切向 Lyapunov 指数占主导地位，动力学中的流形结构便具有稳定性，并在实验中验证扩散模型具有该性质。Li 等 [2025]、Liu 等 [2025] 分别研究得分函数在切向与法向的展开，推得流形切向指数为零、法向指数为负。本文结果与这些观察相符，说明两类生成动力学在低维数据流形附近具有相似的稳定行为。
