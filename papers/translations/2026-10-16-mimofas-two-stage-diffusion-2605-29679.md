@@ -140,4 +140,235 @@ $$
 
 随后进行轻量局部改进。**当 $S=1$ 时**，原文将此解释为用单个估计信道替代完整信道后验的 plug-in 近似，即常见的级联估计—决策管线；$S>1$ 时则尝试利用后验不确定性改善端口决策。
 
+## III. 基于流的扩散信道估计框架
+
+按照第 II-C 节的分析，阶段 I 需要从信道后验 $p(\widetilde{\mathbf H}\mid\mathbf Y_p)$ 中进行近似采样。人工设计的稀疏先验不足以描述 FAS 信道复杂的空间相关性，因此本文采用基于流的扩散模型学习数据驱动的信道先验，并通过观测引导实现近似后验采样。本节依次介绍流模型、离线训练和多用户在线信道估计。
+
+### A. 基于流的扩散模型预备知识
+
+生成模型旨在通过训练数据 $\mathcal D_{\rm train}=\{\mathbf h^{(i)}\}_{i=1}^{N_{\rm train}}$，学习近似真实数据分布 $q(\mathbf h)$ 的模型 $p_\vartheta(\mathbf h)$。基于流的扩散模型把标准高斯源分布 $\mathcal N(0,\mathbf I)$ 通过连续时间概率路径 $\{p_t\}_{t\in[0,1]}$ 传输至目标信道分布，采用与常见从数据到噪声的叙述相反的生成时间方向：$p_1=\mathcal N(0,\mathbf I)$，$p_0=q$。
+
+定义时间相关的双射映射 $\psi_t$，其常微分方程为：
+
+$
+\frac{d\psi_t(\mathbf z)}{dt}
+=\mathbf v_t(\psi_t(\mathbf z)),\qquad
+\psi_1(\mathbf z)=\mathbf z.\tag{17}
+$
+
+$\mathbf v_t$ 是随时间变化的速度场。一个初始噪声样本 $\mathbf z_1\sim\mathcal N(0,\mathbf I)$ 被沿连续轨迹 $\mathbf z_t=\psi_t(\mathbf z_1)$ 传输；从 $t=1$ 积分至 $t=0$ 得到符合目标分布的信道样本 $\mathbf h=\mathbf z_0$。
+
+给定具有边缘速度场 $\mathbf v_t$ 的概率路径，通常可以将其用参数化网络 $\mathbf v_t^\vartheta$ 逼近，流匹配（Flow Matching，FM）目标为：
+
+$
+\mathcal L_{\rm FM}(\vartheta)=
+\mathbb E_{t,\mathbf z_t\sim p_t}
+\left[\|\mathbf v_t(\mathbf z_t)
+-\mathbf v_t^\vartheta(\mathbf z_t)\|_2^2\right].\tag{18}
+$
+
+但真实边缘速度场一般无法计算。采用更简单的条件概率路径 $p_t(\mathbf z_t\mid\mathbf h)$，可将边缘分布与速度场写成：
+
+$
+p_t(\mathbf z_t)
+=\int p_t(\mathbf z_t\mid\mathbf h)q(\mathbf h)d\mathbf h,\tag{19}
+$
+
+$
+\mathbf v_t(\mathbf z_t)
+=\mathbb E_{\mathbf h\sim p_t(\cdot\mid\mathbf z_t)}
+[\mathbf v_t(\mathbf z_t\mid\mathbf h)]
+=\int\mathbf v_t(\mathbf z_t\mid\mathbf h)
+\frac{p_t(\mathbf z_t\mid\mathbf h)q(\mathbf h)}
+{p_t(\mathbf z_t)}d\mathbf h.\tag{20}
+$
+
+由于未知数据分布 $q$，式 (20) 的积分仍难计算。条件流匹配（Conditional Flow Matching，CFM）改为直接拟合条件速度场：
+
+$
+\mathcal L_{\rm CFM}(\vartheta)=
+\mathbb E_{t,\mathbf h\sim q,\mathbf z_t\sim p_t(\cdot\mid\mathbf h)}
+\left[\|\mathbf v_t(\mathbf z_t\mid\mathbf h)
+-\mathbf v_t^\vartheta(\mathbf z_t)\|_2^2\right].\tag{21}
+$
+
+原文指出，CFM 与 FM 对网络参数的梯度相同，因而具有等价的优化目标。训练完成后，从高斯分布采样，再通过 Euler 等方法从 $t=1$ 积分到 $t=0$：
+
+$
+\mathbf z_{t-\Delta t}
+=\mathbf z_t-\mathbf v_t^\vartheta(\mathbf z_t)\Delta t.\tag{22}
+$
+
+由此通过调整网络函数评价次数（number of function evaluations，NFE），在生成质量与推断速度间权衡。
+
+### B. 离线训练：学习基于流的信道先验
+
+**1）仿射条件流与最优传输。** 为具体实现式 (21)，作者选取仿射条件流，在信道样本 $\mathbf h\sim q$ 和噪声 $\mathbf z_1\sim\mathcal N(0,\mathbf I)$ 之间插值：
+
+$
+\mathbf z_t=\psi_t(\mathbf z_1\mid\mathbf h)
+=a_t\mathbf h+b_t\mathbf z_1.\tag{23}
+$
+
+边界条件要求 $a_0=1,b_0=0$，$a_1=0,b_1=1$。作者取线性最优传输形式 $a_t=1-t,b_t=t$：
+
+$
+\mathbf z_t=(1-t)\mathbf h+t\mathbf z_1,\tag{24}
+$
+
+其对应的条件速度场为：
+
+$
+\mathbf v_t(\mathbf z_t\mid\mathbf h)
+=\frac{da_t}{dt}\mathbf h+
+\frac{db_t}{dt}\mathbf z_1
+=\mathbf z_1-\mathbf h.\tag{25}
+$
+
+这里的“最优传输（OT）路径”指所采用的线性条件路径，原文认为其较直的轨迹有利于减少大步长数值求解的离散化误差；并非表示使用了求解数据—噪声总体最优耦合的单独训练算法。利用重参数化技巧，最终实际优化目标成为：
+
+$
+\mathcal L_{\rm CFM}(\vartheta)=
+\mathbb E_{t,\mathbf h\sim q,\mathbf z_1\sim p}
+\left[\left\|
+\mathbf v_t^\vartheta(\mathbf z_t)
+-(\mathbf z_1-\mathbf h)\right\|_2^2\right].\tag{26}
+$
+
+该目标仅需样本、高斯噪声、随机时间与向量回归，不需要在每次训练时积分 ODE。
+
+**2）网络与离线训练。** 速度网络采用轻量 U-Net：对称的三层分辨率编码器—解码器结构、用于特征提取的 ResNet 块，以及保留空间细节的跳跃连接。实值信道向量 $\mathbf z_t\in\mathbb R^{2N}$ 被重新排列为 $2\times N_x\times N_y$ 的张量，两个通道对应复信道实部和虚部；连续时间 $t$ 经过正弦位置编码，并注入各 ResNet 模块。
+
+在每个小批量中，从离线信道数据集抽取 $B$ 个样本，对每个样本独立抽取 $t^{(i)}\sim U[0,1]$ 与 $\mathbf z_1^{(i)}\sim\mathcal N(0,\mathbf I)$，按照式 (24) 构造 $\mathbf z_{t^{(i)}}^{(i)}$。经验训练损失为：
+
+$
+\widehat{\mathcal L}_{\rm CFM}(\vartheta)
+=\frac1B\sum_{i=1}^{B}
+\left\|\mathbf v_{t^{(i)}}^\vartheta
+(\mathbf z_{t^{(i)}}^{(i)})
+-(\mathbf z_1^{(i)}-\mathbf h^{(i)})\right\|_2^2.\tag{27}
+$
+
+**算法 1：离线基于流的扩散模型训练。** 输入训练集、小批量大小 $B$ 与学习率 $\zeta$；循环执行样本抽取、均匀时间采样、高斯噪声采样及插值状态构造；计算式 (27)；用 SGD/Adam 更新 $\vartheta\leftarrow\vartheta-\zeta\nabla_\vartheta\widehat{\mathcal L}_{\rm CFM}$，直至收敛。
+
+### C. 在线推断：以测量一致性流引导实现多用户信道估计
+
+直接从 $K$ 个独立高斯源变量积分流 ODE，只会产生忽略导频的无条件信道样本。为了在推断期间满足导频观测，作者受到 FlowDPS [42] 启发，设计了对所有用户进行并行引导生成的统一测量一致性机制。
+
+**1）流分解。** 先省略用户下标。沿最优传输路径，式 (20) 中的瞬时边缘速度可以表示为给定中间状态的条件速度期望：
+
+$
+\mathbf v_t(\mathbf z_t)
+=\mathbb E[\mathbf z_1-\mathbf h\mid\mathbf z_t]
+=\widehat{\mathbf z}_{1\mid t}
+-\widehat{\mathbf h}_{0\mid t},\tag{28}
+$
+
+其中 $\widehat{\mathbf h}_{0\mid t}=\mathbb E[\mathbf h\mid\mathbf z_t]$，$\widehat{\mathbf z}_{1\mid t}=\mathbb E[\mathbf z_1\mid\mathbf z_t]$。再由条件均值的线性性得：
+
+$
+\mathbf z_t=(1-t)\widehat{\mathbf h}_{0\mid t}
++t\widehat{\mathbf z}_{1\mid t}.\tag{29}
+$
+
+联立并以学习网络近似真实速度场，得到最优传输路径下的 Tweedie 形式：
+
+$
+\widehat{\mathbf h}_{0\mid t}
+=\mathbf z_t-t\mathbf v_t^\vartheta(\mathbf z_t),\tag{30}
+$
+
+$
+\widehat{\mathbf z}_{1\mid t}
+=\mathbf z_t+(1-t)\mathbf v_t^\vartheta(\mathbf z_t).\tag{31}
+$
+
+据此，从任何中间状态都可以近似提取“干净信道预测”及“噪声源预测”。将其代回 Euler 更新，得到：
+
+$
+\begin{aligned}
+\mathbf z_{t-\Delta t}
+&=\mathbf z_t-\mathbf v_t^\vartheta(\mathbf z_t)\Delta t\\
+&=[1-(t-\Delta t)]\widehat{\mathbf h}_{0\mid t}
++(t-\Delta t)\widehat{\mathbf z}_{1\mid t}.
+\end{aligned}\tag{32}
+$
+
+这一分解的工程作用是：无需直接改写整个生成轨迹，只需在每个时间步对“干净信道预测”施加导频一致性约束，再按原有权重重组成下一中间状态。
+
+**2）对干净信道预测施加统一引导。** 恢复用户下标后，各用户的复信道预测通过实值逆映射拼接为：
+
+$
+\widehat{\mathbf H}_{0\mid t}
+=[f^{-1}(\widehat{\mathbf h}_{1,0\mid t}),
+\ldots,f^{-1}(\widehat{\mathbf h}_{K,0\mid t})].\tag{33}
+$
+
+测量一致性损失定义为：
+
+$
+\mathcal L_{\rm MC}
+=\frac12\left\|
+\mathbf Y_p-\boldsymbol\Omega_{\mathcal O}
+\widehat{\mathbf H}_{0\mid t}\mathbf P
+\right\|_F^2.\tag{34}
+$
+
+采用负梯度更新干净信道估计：
+
+$
+\widehat{\mathbf H}_{0\mid t}(\mathbf Y_p)
+=\widehat{\mathbf H}_{0\mid t}
+-\alpha_t\nabla_{\widehat{\mathbf H}_{0\mid t}}
+\mathcal L_{\rm MC},\tag{35}
+$
+
+$
+\nabla_{\widehat{\mathbf H}_{0\mid t}}\mathcal L_{\rm MC}
+=-\boldsymbol\Omega_{\mathcal O}^{H}
+\left(\mathbf Y_p-
+\boldsymbol\Omega_{\mathcal O}\widehat{\mathbf H}_{0\mid t}
+\mathbf P\right)\mathbf P^{H}.\tag{36}
+$
+
+再取更新矩阵第 $k$ 列，并经实值映射 $f$ 得到各用户在该步的引导结果（原文式 (37)）。
+
+**3）稳健引导的三项实用技术。**
+
+第一，**梯度归一化**。生成初始阶段 $t\to1$ 时，预测信道不确定性大，梯度模长波动明显。于是作者将引导梯度除以 Frobenius 范数，令更新幅度主要受 $\alpha_t$ 控制：
+
+$
+\widehat{\mathbf H}_{0\mid t}(\mathbf Y_p)
+=\widehat{\mathbf H}_{0\mid t}
+-\alpha_t\frac{\nabla\mathcal L_{\rm MC}}
+{\|\nabla\mathcal L_{\rm MC}\|_F}.\tag{38}
+$
+
+第二，**多步内优化与插值**。单个流积分步内只修正一次通常不能充分满足测量约束。因此参考 DDS [45]，每个外部积分步执行 $N_{\rm iter}$ 次连续梯度更新（例如 3 次），再将导频引导结果与原先验预测插值：
+
+$
+\widehat{\mathbf H}_{0\mid t}^{\rm guided}
+=(1-\gamma_t)\widehat{\mathbf H}_{0\mid t}
++\gamma_t\widehat{\mathbf H}_{0\mid t}(\mathbf Y_p).\tag{39}
+$
+
+设 $\gamma_t=t$：在高噪声早期加强测量一致性，接近 $t=0$ 时更多保留学习先验的结构。
+
+第三，**噪声随机性注入**。由于导频包含 AWGN，仅最小化测量残差可能过拟合噪声。作者在 Euler 步前修改源噪声预测：
+
+$
+\widehat{\mathbf z}_{k,1\mid t}^{\rm stoch}
+=\sqrt{1-\eta_t}\widehat{\mathbf z}_{k,1\mid t}
++\sqrt{\eta_t}\boldsymbol\epsilon,\quad
+\boldsymbol\epsilon\sim\mathcal N(0,\mathbf I).\tag{40}
+$
+
+采用 $\eta_t=1-(t-\Delta t)$，使随机性随 $t\to0$ 增强；不过 Euler 分解中噪声分量的权重是 $t-\Delta t$，会在末端消失，因此作者认为这种处理能够抑制导频噪声过拟合而不明显损害最终估计。
+
+**算法 2：在线流模型信道估计。** （1）对 $K$ 个用户分别初始化高斯状态 $\mathbf z_{k,1}$；（2）从 $t=1$ 递减至 $0$，并行计算式 (30)、(31)；（3）将各用户干净信道预测组装成 $\widehat{\mathbf H}_{0\mid t}$；（4）计算式 (36)，执行 $N_{\rm iter}$ 次归一化测量梯度更新；（5）按式 (39) 将引导结果和先验预测插值；（6）根据式 (40) 注入源噪声，再以式 (32) 更新每名用户状态；（7）输出各用户最终估计信道。
+
+**备注 2：贝叶斯解释。** 作者将这一生成过程视作学习先验 $p_\vartheta(\widetilde{\mathbf H})=\prod_k p_\vartheta(\mathbf h_k)$ 和导频似然共同定义的后验的近似采样：不可直接计算的含噪似然梯度，用“在去噪预测点上评价似然梯度”来近似，并以局部线性干净数据流形假设作解释。插值时间表和随机性安排参考 [42]。但梯度归一化改变了精确梯度的幅值，因此它是近似引导而不是已证明的精确后验采样；更严格的论证需参见 [42]。
+
+为构成第 II-C 节所需的后验样本集合，阶段 I 将算法 2 用独立初值及独立随机性运行 $S$ 次，得到 $\{\widehat{\mathbf H}^{(s)}\}_{s=1}^{S}$。与只输出一个点估计不同，后续端口选择将利用这些样本反映未知信道的不确定性。
+
 {% endraw %}
