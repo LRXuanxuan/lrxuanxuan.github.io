@@ -842,7 +842,7 @@ $$
 &+\operatorname{tr}(
 \mathbb E[\boldsymbol\beta_t^{u{\rm I}}
 (\boldsymbol\beta_t^{u{\rm I}})^{\rm H}]
-\mathbb E[\boldsymbol\Psi_t^{\rm H}\boldsymbol\Psi_t])
+\mathbb E[\boldsymbol\Psi_t\boldsymbol\Psi_t^{\rm H}])
 \Bigr),\tag{40a}
 \end{aligned}
 $$
@@ -854,12 +854,13 @@ $$
 $$
 
 $$
-\widehat{\rho}^{\rm I}
+\widehat{\rho}_{t,k,l}^{\rm I}
 =\frac{
-\sum_{t,k,l}(|\mu_{\beta_{t,k,l}^{\rm I}}|^2+
-v_{\beta_{t,k,l}^{\rm I}})/L_k^{\rm I}
+\displaystyle\sum_{t,k}\lambda_{t,k}^{\rm post}
+\frac{\displaystyle\sum_l\bigl(|\mu_{\beta_{t,k,l}^{\rm I}}|^2+
+v_{\beta_{t,k,l}^{\rm I}}\bigr)}{L_k^{\rm I}}
 }{
-\sum_{t,k}\lambda_{t,k}^{\rm post}
+\displaystyle\sum_{t,k}\lambda_{t,k}^{\rm post}
 },\tag{40c}
 $$
 
@@ -871,7 +872,7 @@ $$
 \tag{40d}
 $$
 
-式 (40c) 采用原文按干扰用户与路径聚合的功率表达，并保留相应记号；原 PDF 的左端索引和求和范围存在需要复核的排版歧义，不额外推定一个不同的估计公式。
+**原式核对说明。** 式 (40a) 中第二个期望的乘积顺序为原 PDF 所印的 $\boldsymbol\Psi_t\boldsymbol\Psi_t^{\rm H}$，但与前一项相乘时有维数值得核查；此处不擅自改成 $\boldsymbol\Psi_t^{\rm H}\boldsymbol\Psi_t$。式 (40c) 的分子包含 $\lambda_{t,k}^{\rm post}$ 权重，已按 PDF 第 9 页补齐；其左端保留原文的 $t,k,l$ 下标，虽然右端对这些下标求和，原稿该记号可能不严谨。
 
 ### E. 总体算法
 
