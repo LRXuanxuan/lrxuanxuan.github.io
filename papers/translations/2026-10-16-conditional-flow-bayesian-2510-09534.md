@@ -929,6 +929,219 @@ $
 命题 4 证毕。需注意这里的判别事件本身包含随训练样本变化的估计映射 $\widehat r$，将通常的弱收敛结论直接用于变化的事件还需要相应的边界控制；本稿照译原文论证并保留这一技术条件提醒。
 
 
+## 补充材料 C：技术说明（原文第 17–18 页）
+
+### C.1 与其他基于流的方法的比较
+
+同期有两项也通过流匹配学习后验的研究：Chemseddine 等（2024）最小化条件 Wasserstein 距离，以学习通向后验分布的速度场；Kerrigan 等（2024）推广 Benamou–Brenier 优化，从而获得通向后验的最优传输映射。
+
+**最优传输与一致性。** 这两种方法重点优化源分布与目标后验之间的条件 Wasserstein 距离；本文主要关注定理 2 所证明的统计一致性，即学习后验能否在 Wasserstein 意义下收敛到真实后验。因此理论动机不同。Kerrigan 等的方法理论上要求条件 Wasserstein 空间的特定测地路径；本文可采用线性、测地或 Albergo 与 Vanden-Eijnden（2023）的其他插值方案，不改变第 3 节一致性保证，因为证明只依赖学习的**联合速度场**精度，并不依赖某条特定插值路径。
+
+本文还可借助 ICNN 强制映射单调，使其成为 Monge–Kantorovich 条件向量分位数映射，用以构造嵌套可信集与条件向量秩。若在 Kerrigan 的最优传输路径框架中添加相同的单调性限制，则可能与其学习真实 OT 路径的目的发生冲突。这不意味着本文在所有标准下都更优，而是以不严格追求 OT 最优性，换取形式化的不确定性量化工具。
+
+**直接学习后验与先学联合分布。** Chemseddine、Wildberger 和 Kerrigan 等方法的条件速度场只在 $\Theta$ 中演化，并以固定观测 $y^*$ 为输入：$\dot\theta_t=v_t(y^*,\theta_t)$。本文在 $\mathcal Y\times\Theta$ 上学习块三角联合速度 $\dot y_t=f_t(y_t)$、$\dot\theta_t=g_t(y_t,\theta_t)$，利用联合分布到条件后验的三角传输理论建立精度联系。
+
+这种分解将观测边缘几何交给 $f_t$，条件网络 $g_t$ 只需学习参数与**动态观测流**的关系，而不是学习静态原始观测与参数之间的全部复杂几何。原则上可以减弱各分量所需的光滑性要求，也减少网络的表示负担。对于处于训练观测低密度区域的 $y^*$，边缘流有可能充当结构导引，连接训练样本之间的几何间隙；作者认为这可能解释表 3 在若干模拟推断基准上相对于 Kerrigan 等（2024）的经验提升，但并未将这种解释作为已证明的定理。
+
+### C.2 ICNN 的表示能力问题
+
+式（10）用 ICNN 学习凸函数 $\widehat\psi_t$，并令条件速度 $\widehat g_t(y_t,\theta_t)=\nabla_{\theta_t}\widehat\psi_t(y_t,\theta_t)$。这会减少模型表示能力：并非所有单调传输映射都能用对参数单调的速度场表示。在线性插值路径下，端点条件速度可写为
+
+$$
+g_t(y,\theta\mid x_0,x_1)=G(y^*,\theta_0)-\theta_0.
+$$
+
+若速度关于 $\theta$ 单调，即 $\nabla_\theta g_t\succeq0$，就会要求 $\nabla G\succeq I$，从而无法表示收缩型单调映射。实践中可以使源分布方差明显小于目标分布，使期望传输更可能是扩张映射、落入 ICNN 单调速度表示类。
+
+作者还提出理论上容纳收缩映射的替代形式。先设
+
+$$
+\widehat g_t(y_t,\theta_t)
+=\nabla_{\theta_t}\widehat\psi_t^*(y^*,\theta_t)-\theta_0,
+$$
+
+其中 $\widehat\psi_t^*$ 为由 ICNN 学习的凸函数。问题是速度网络在流匹配中接收 $\theta_t$ 而不是 $\theta_0$；利用线性路径下近似关系 $\theta_0\approx\theta_t-t\widehat g_t$，将其改写为
+
+$$
+\widehat g_t^*(y_t,\theta_t)=
+\frac{\nabla_{\theta_t}\widehat\psi_t(y^*,\theta_t)-\theta_t}{1-t}.
+$$
+
+新表示允许具有收缩性质的单调映射 $G$，从而避免最初限制带来的部分表示损失，仍可用 ICNN 学习速度。该表达式在 $t=1$ 含显式分母，数值实现需要注意端点处理；原文未在这里给出独立的端点稳定性证明。
+
+## 补充材料 D：第 3 节理论证明（原文第 18–21 页）
+
+### D.1 定理 1 的证明
+
+真实联合分布与估计联合分布分别由块三角映射 $T,\widehat T$ 推前相同源分布得到：
+
+$$
+p_1=T_\#p_0,\qquad \widehat p_1=\widehat T_\#p_0.
+$$
+
+根据 Benton 等（2024，定理 1），在假设 1、2 下，若流匹配目标 $\mathcal L_{\rm FM}\le\varepsilon_N^2$，有
+
+$$
+W_2(\widehat p_1,p_1)\le
+\varepsilon_N\exp\!\left(\int_0^1L_t\,dt\right).\tag{16}
+$$
+
+估计条件后验和真实条件后验分别由参数分量的切片映射推前得到：
+
+$$
+\widehat\pi_{\theta\mid y^*}
+=\widehat G(y^*,\cdot)_\#p_0^\Theta,\qquad
+\pi_{\theta\mid y^*}
+=G(y^*,\cdot)_\#p_0^\Theta.
+$$
+
+原文接下来将联合二阶 Wasserstein 距离的平方写成两个映射在同一源抽样下的平方误差积分，并拆分为观测边缘分量和条件分量：
+
+$$
+\begin{aligned}
+W_2^2(\widehat p_1,p_1)
+&=\int\|\widehat T(y_0,\theta_0)-T(y_0,\theta_0)\|^2p_0(dy_0,d\theta_0)\\
+&=\int\|\widehat F(y_0)-F(y_0)\|^2p_0^Y(dy_0)\\
+&\quad+\int\|\widehat G(\widehat F(y_0),\theta_0)
+-G(F(y_0),\theta_0)\|^2p_0(dy_0,d\theta_0).
+\end{aligned}
+$$
+
+进一步，作者由学习速度场的空间 Lipschitz 性获得切片映射的 Lipschitz 界，用 $L=\int_0^1L_tdt$ 记相应控制量：
+
+$$
+\|\widehat G(\widehat F(y_0),\theta_0)
+-\widehat G(F(y_0),\theta_0)\|
+\le L\|\widehat F(y_0)-F(y_0)\|.
+$$
+
+结合三角不等式 $(a+b)^2\le2a^2+2b^2$，作者推得
+
+$$
+\begin{aligned}
+&\int\|\widehat G(F(y_0),\theta_0)-G(F(y_0),\theta_0)\|^2\,p_0(dy_0,d\theta_0)\\
+&\quad\le2W_2^2(\widehat p_1,p_1)
++(2L-2)\int\|\widehat F(y_0)-F(y_0)\|^2p_0^Y(dy_0)\\
+&\quad\le2Le^{2L}\varepsilon_N^2.
+\end{aligned}
+$$
+
+因 $F_\#p_0^Y=\pi_Y$，据此将积分改写为各观测下条件后验距离的平均：
+
+$$
+\int W_2^2(\widehat\pi_{\theta\mid y},\pi_{\theta\mid y})\,\pi_Y(dy)
+\le2Le^{2L}\varepsilon_N^2.
+$$
+
+即正文定理 1。
+
+> **逐式校对警示（源文推导，未擅自修正）：** 上述原文把由同一源点生成的两映射之间的平均平方距离**直接等同于** $W_2^2$。一般而言，这样构造的是一个合法耦合，因此通常只能推出“$\le$”，并不能自动得到等号，除非进一步证明该耦合最优。原文还把速度场的积分 Lipschitz 量直接作为终点映射的系数，且出现 $2L-2$ 这一可能为负的系数。这些步骤不能仅凭现有论述确认为严格成立，故将作者的推导原样翻译，并把潜在证明缺口与已证明的结论区别对待。
+
+### D.2 定理 2 的证明
+
+实际训练最小化条件流匹配目标 $\mathcal L_{\rm CFM}$（式（4）），而理论上希望控制不可直接计算的 $\mathcal L_{\rm FM}$（式（2））。因为二者对神经网络参数的梯度相同（式（5）），两者具有相同的最优速度场；Albergo 与 Vanden-Eijnden（2023，命题 1）也证明
+
+$$
+v=\arg\min_{\widehat v}\mathcal L_{\rm FM}(\widehat v,v)
+=\arg\min_{\widehat v}\mathcal L_{\rm CFM}(\widehat v,v).
+$$
+
+$\mathcal L_{\rm CFM}$ 的极小值一般不是零，而是与 $\widehat v$ 无关的常数，即条件速度平方范数的总体期望与边缘速度平方范数总体期望之差。因此不能凭 $\mathcal L_{\rm CFM}$ 的原始数值是否接近零判断拟合效果。
+
+设 $\mathcal V_{\rm MLP}$ 为多层感知机可表示的函数类，$t_i$ 为独立均匀抽取的流时间，$x_i=(y_i,\theta_i)$ 是第 $i$ 个模拟样本。估计速度场通过最小化
+
+$$
+\widehat v=\arg\min_{\widetilde v\in\mathcal V_{\rm MLP}}
+\frac1N\sum_{i=1}^N
+\|\widetilde v_{t_i}(x_i)-v_{t_i}(x_i\mid z_i)\|^2
+$$
+
+得到。在假设 3、4 下，借助 Farrell 等（2021，定理 1）的 ReLU 回归逼近与统计分析，对每个坐标 $1\le k\le n+d$，存在与 $N$ 无关的常数 $C$，以至少 $1-\exp\{-N^{\beta/(\beta+n+d)}\log^8N\}$ 的概率，
+
+$$
+\mathbb E_{t,x}[\widehat v_{t,k}(x)-v_{t,k}(x)]^2
+\le C\left(N^{-\beta/(\beta+n+d)}\log^8N+
+\frac{\log\log N}{N}\right).
+$$
+
+将 $n+d$ 个坐标求和，得到 $\mathcal L_{\rm FM}\le\varepsilon_N^2$，其中
+
+$$
+\varepsilon_N^2=C(n+d)\left(
+N^{-\beta/(\beta+n+d)}\log^8N+
+\frac{\log\log N}{N}\right).
+$$
+
+并且失败概率不超过 $(n+d)\exp\{-N^{\beta/(\beta+n+d)}\log^8N\}$。由于失败概率序列可求和，Borel–Cantelli 引理保证 $\mathcal L_{\rm FM}\le\varepsilon_N^2$ 最终几乎必然成立。再使用定理 1，得到平均后验 $W_2$ 误差随 $N$ 增大而收敛。
+
+为了把 $\pi_Y$ 加权平均收敛提升为对所有 $y\in\mathcal Y$ 的一致收敛，证明利用假设 3 给出的紧致 $\mathcal Y$ 以及假设 1、2 保证的条件后验 Wasserstein 误差关于 $y$ 的等度连续性。设 $E_N(y)=W_2(\widehat\pi_{\theta\mid y},\pi_{\theta\mid y})$，由三角不等式，
+
+$$
+|E_N(y)-E_N(y')|
+\le W_2(\widehat\pi_{\theta\mid y},\widehat\pi_{\theta\mid y'})
++W_2(\pi_{\theta\mid y},\pi_{\theta\mid y'})
+\le C\|y-y'\|.
+$$
+
+若存在 $\bar y$ 使 $E_N(\bar y)>\delta$，在半径 $\delta/(2C)$ 的邻域内便有 $E_N(y)>\delta/2$。若每个相关邻域都有与 $N$ 无关的正 $\pi_Y$ 质量，则
+
+$$
+\mathbb E_{\pi_Y}E_N(Y)^2
+\ge\int_{B(\bar y,\delta/(2C))}(\delta/2)^2\,\pi_Y(dy)>0,
+$$
+
+与加权平均误差趋零矛盾，因此 $\sup_{y\in\mathcal Y}E_N(y)\to0$。
+
+> **核对说明：** 原文将“紧致”与“每个以 $\mathcal Y$ 中点为中心的开球具有正 $\pi_Y$ 质量”同时使用。后一个性质需要观测分布对所考虑集合有相应支持条件，不能单凭紧致性推出；要在取上确界时保证统一的正质量界，还需谨慎核实。此处按原论文陈述保留证明结构。
+
+### D.3 推论 3 与命题 4 的证明
+
+由定理 2 的后验一致收敛以及 $\Theta$ 紧致、$G$ 和 $\widehat G$ 在 $\Theta$ 上一致 Lipschitz，作者沿用 D.2 的邻域反证思路，得到映射的统一收敛：
+
+$$
+\sup_{\theta_0\in\Theta}
+\|\widehat G(y^*,\theta_0)-G(y^*,\theta_0)\|\to0
+\quad\text{（对全部 }y^*\in\mathcal Y\text{ 一致）}.\tag{17}
+$$
+
+对任意 $\theta^*\in C_\tau(y^*)$，由于源球 $\mathbb S^d(\tau)$ 紧致，存在源点 $\theta_0^*$，满足 $\theta^*=G(y^*,\theta_0^*)$。令 $\widehat\theta^*=\widehat G(y^*,\theta_0^*)\in\widehat C_\tau(y^*)$，由式（17）有 $\|\widehat\theta^*-\theta^*\|\to0$。因此
+
+$$
+\sup_{\theta\in C_\tau(y^*)}
+\inf_{\widehat\theta\in\widehat C_\tau(y^*)}
+\|\widehat\theta-\theta\|\to0.
+$$
+
+反方向同理。于是对任意固定 $\tau\in(0,1)$，
+
+$$
+\sup_{y^*\in\mathcal Y}
+d_H(\widehat C_\tau(y^*),C_\tau(y^*))\to0,
+$$
+
+证明推论 3。原文在这一处把 $\widehat\theta^*$ 的定义写成 $G(y^*,\theta_0^*)$，但按其证明意图与集合隶属关系，应该调用 $\widehat G$；此处已标注原文笔误。
+
+对于命题 4，在估计后验 $\widehat G(y^*,\cdot)_\#p_0^\Theta$ 下，事件 $\{\widehat r_{\theta\mid y^*}(\theta)>1-\alpha\}$ 等价于源点落在单位球与半径 $1-\alpha$ 球之间的区域，因此
+
+$$
+\widehat\pi_{\theta\mid y^*}
+\{\widehat r_{\theta\mid y^*}(\theta)>1-\alpha\}
+=p_0^\Theta(\mathbb S^d(1))
+-p_0^\Theta(\mathbb S^d(1-\alpha))
+=\alpha.
+$$
+
+再借助定理 2 的后验弱收敛、紧致参数空间和变换连续性，设
+$\widehat F(\tau)=\widehat\pi_{\theta\mid y^*}(\widehat r_{\theta\mid y^*}(\theta)\le\tau)$、
+$F(\tau)=\pi_{\theta\mid y^*}(\widehat r_{\theta\mid y^*}(\theta)\le\tau)$。作者得到 $|\widehat F(1-\alpha)-F(1-\alpha)|\to0$，从而
+
+$$
+\pi_{\theta\mid y^*}
+\{\widehat r_{\theta\mid y^*}(\theta)>1-\alpha\}\to\alpha.
+$$
+
+即命题 4 的渐近校准性质。
+
 ---
 
 **续译状态：** 附录 A–C 已按原文翻译，附录 D 已译，附录 E、参考文献清单与跨页公式细节仍待补充。此处是明确标识范围的阶段性译稿，不代表完整论文，也未经过逐页、逐式验收。
