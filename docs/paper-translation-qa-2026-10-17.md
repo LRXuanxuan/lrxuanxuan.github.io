@@ -41,3 +41,9 @@
 - [XL-IRS TS-CET](https://lrxuanxuan.github.io/papers/translations/2026-10-16-xlirs-bayesian-tracking-2511-18752/)
 - [SwiftChannel](https://lrxuanxuan.github.io/papers/translations/2026-10-16-swiftchannel-2605-01931/)
 - [Markov CFM](https://lrxuanxuan.github.io/papers/translations/2026-10-16-markov-cfm-2610-07229/)
+
+## 后续复核补充（2026-10-17）
+
+- **CKMImageNet：第 IV-A 节裁剪配置与图 8。** 英文原文同时记载完整图像 200×200、裁剪图像 128×128、相邻图像“端点间隔”17 像素、49 张裁剪图像。若 17 像素是同轴滑窗起点步长，则单轴最多 floor((200−128)/17)+1=5 个起点，合计最多 25 张，不足 49；7×7 张需要同轴间隔不大于 12 像素。由于英文“endpoints ... separated by 17 pixels”可能另有所指，目前仅在译文中说明歧义并保留作者报告值，不能凭此段直接复现 49 张裁剪方案。
+- **SwiftChannel：第 VII-C 节表 VII 及其后正文。** 表格列 7.311 W 为“On-chip Power”，正文却称同一功耗为“total board-level consumption”。片上与整板功耗概念不同，原稿测量口径未统一；已在中文页面增设原文注，不擅自指定最终正确口径。
+- **本轮校验范围。** 回查了上传的五份 PDF、网页正文、主要原文表格和重要公式标注。新发现两处属于原论文自身表述/数据不一致，并非翻译时应自行改动的数值；后续仍需原文逐段校验，不能因此更改“未通过全文 QA”状态。
