@@ -99,68 +99,68 @@ $$
 
 令 $\lambda$ 为信道在角度域中非零分量的比例，$\mu$ 为其非零复高斯分量的方差。采用 Bernoulli–Gaussian（BG）稀疏先验：
 
-$
+$$
 p(x[n])=(1-\lambda)\delta(x[n])
 +\lambda\mathcal{CN}(x[n];0,\mu).\tag{6}
-$
+$$
 
 本文把每个测量批次的相位误差吸收到通道向量中，定义：
 
-$
+$$
 \mathbf z_b=e^{j\phi_b}\mathbf x,\qquad b=1,\ldots,B.\tag{7}
-$
+$$
 
 所有辅助向量与真实稀疏信道具有**同一支撑**和**相同逐元素幅度**，只在共同旋转相位上有所差异。原来的非线性测量模型因此转化为：
 
-$
+$$
 \mathbf y_b=\mathbf A_b\mathbf z_b+\mathbf w_b,\qquad b=1,\ldots,B.\tag{8}
-$
+$$
 
 先分别估计 $\mathbf z_b$，再根据它们恢复 $\mathbf x$ 和批次相位。论文将只利用共享支撑的 MMV-AMP 方案称为 SuppOnly；完整方法进一步使用共享幅度结构及相位噪声维纳统计信息。
 
 对第 $n$ 个通道条目定义二值支撑 $s[n]\in\{0,1\}$、非负幅度 $r[n]$ 以及随批次变化的相位 $\Theta_b[n]$，则：
 
-$
+$$
 z_b[n]=s[n]r[n]e^{j\Theta_b[n]}.\tag{9}
-$
+$$
 
 条件概率 $p(z_b[n]\mid s[n],r[n],\theta_b[n])$ 为在零或 $r[n]e^{j\theta_b[n]}$ 处的 Dirac 点质量（式 (10)）。支撑的 Bernoulli 先验和幅度的 Rayleigh 先验分别是：
 
-$
+$$
 p(s[n])=\lambda^{s[n]}(1-\lambda)^{1-s[n]},
 \tag{11}
-$
+$$
 
-$
+$$
 p(r[n])=\operatorname{Rayleigh}
 (r[n];\sqrt{\mu/2}).\tag{12}
-$
+$$
 
 真实的维纳相位演化为：
 
-$
+$$
 \angle\mathbf z_b
 =\angle\mathbf z_{b-1}
 +\mathbf1_{N^2}\Phi_b,\qquad
 \Phi_b\sim\mathcal N(0,\sigma_{\rm pn}^2).\tag{13}
-$
+$$
 
 **这里的所有 $N^2$ 个信道分量共享一个相位噪声创新。** 为避免由这一全局随机变量造成过多因子图环路，论文采用松弛模型：
 
-$
+$$
 \Theta_b[n]=\Theta_{b-1}[n]+\Phi_b[n],
 \quad
 \Phi_b[n]\overset{\rm iid}{\sim}
 \mathcal N(0,\sigma_{\rm pn}^2).\tag{14}
-$
+$$
 
 故而：
 
-$
+$$
 p(\theta_b[n]\mid\theta_{b-1}[n])
 =\mathcal N(\theta_b[n];
 \theta_{b-1}[n],\sigma_{\rm pn}^2).\tag{15}
-$
+$$
 
 该式是为了实现消息传递而采取的**统计近似**，不是完全准确的物理模型。作者后续通过秩一交替优化重新利用各分量共同旋转的真实结构。
 
@@ -168,7 +168,7 @@ $
 
 把所有观测似然、支持和幅度先验、辅助向量条件密度以及相位演化联合起来，后验分解为：
 
-$
+$$
 \begin{aligned}
 &p(\{\mathbf z_b\},\mathbf s,\mathbf r,
 \{\boldsymbol\theta_b\}\mid\{\mathbf y_b\})\\
@@ -182,7 +182,7 @@ p(z_b[n]\mid s[n],r[n],\theta_b[n])\\
 p(\theta_b[n]\mid\theta_{b-1}[n])
 \prod_{n=1}^{N^2}p(s[n])p(r[n]).
 \end{aligned}\tag{16}
-$
+$$
 
 该分解形成 $B$ 个测量批次平面：单个平面内部的密集线性观测用 AMP 求解；平面之间通过共同支撑、共同幅度以及维纳相位转移连接。**图 3、表 I** 分别给出因子图结点与各因子概率表达。
 
@@ -190,20 +190,20 @@ $
 
 在完成消息传递后，堆叠得到：
 
-$
+$$
 \widehat{\mathbf Z}=
 [\widehat{\mathbf z}_1,\ldots,\widehat{\mathbf z}_B]
 \in\mathbb C^{N^2\times B}.
-$
+$$
 
 由于真实无噪声矩阵 $\mathbf Z=\mathbf x(e^{j\boldsymbol\phi})^T$ 为秩一，作者通过：
 
-$
+$$
 \{\widehat{\mathbf x},\widehat{\boldsymbol\phi}\}
 =\arg\min_{\mathbf x,\boldsymbol\phi}
 \|\widehat{\mathbf Z}-
 \mathbf x(e^{j\boldsymbol\phi})^T\|_F\tag{17}
-$
+$$
 
 恢复稀疏信道及批次相位。
 
@@ -215,19 +215,19 @@ $
 
 首批消息无历史先验，Bernoulli 支撑、Rayleigh 幅度与均匀相位共同形成 BG 密度：
 
-$
+$$
 \nu_{f_1[n]\to z_1[n]}
 =(1-\lambda)\delta(z_1[n])
 +\lambda\mathcal{CN}(z_1[n];0,\mu).\tag{18}
-$
+$$
 
 在密集线性测量因子图中，普通和积算法要求求解高维积分。AMP 利用中心极限定理与泰勒展开，把测量因子送往变量的消息近似为高斯，减少计算量 [9]。设平面 $b$ 的 AMP 局部后验均值、方差分别为 $e_b[n]$、$c_b[n]$，则离开 AMP 子图的消息为：
 
-$
+$$
 \nu_{z_b[n]\to f_b[n]}
 =\mathcal{CN}(z_b[n];e_b[n],c_b[n]).
 \tag{19}
-$
+$$
 
 对于第二批及之后的批次，AMP 的进入先验会成为融合过去信息的 Bernoulli–Gaussian mixture，而不再只是普通 BG。
 
@@ -235,39 +235,39 @@ $
 
 离开平面的幅度消息 $\nu_{f_b[n]\to r[n]}$ 是将支撑消息、复高斯后验与相位消息相乘，再对支撑和相位求积分得到的（原文式 (20)）。当 $s[n]=0$ 时，该密度在 $r[n]$ 上产生常数项，不能直接归一化。因此引入 $s[n]\in\{\epsilon,1\}$、$\epsilon\to0$ 的连续近似，定义混合权重：
 
-$
+$$
 \Omega(\overleftarrow\pi_b[n])
 =\frac{\epsilon^2\overleftarrow\pi_b[n]}
 {1-\overleftarrow\pi_b[n]+
 \epsilon^2\overleftarrow\pi_b[n]}.
 \tag{21}
-$
+$$
 
 式 (22) 给出对应的适当归一化消息。为了得到可计算形式，作者暂时假设相位均匀分布；这一假设对首批准确，对后续批次则忽略了维纳相位的集中性。积分后得到带第一类修正贝塞尔函数 $I_0,I_1$ 的表达，再使用高斯密度近似：
 
-$
+$$
 \nu_{f_b[n]\to r[n]}
 \propto \mathcal N(r[n];t_b[n],v_b[n]).
 \tag{25}
-$
+$$
 
 $t_b[n]$、$v_b[n]$ 由原文式 (23)、(24) 的闭式表达得到，具体推导见附录 A。
 
 进入第 $b$ 批次的幅度消息将 Rayleigh 先验与先前 $b-1$ 个高斯消息相乘：
 
-$
+$$
 \nu_{r[n]\to f_b[n]}
 =p(r[n])\prod_{\ell=1}^{b-1}
 \nu_{f_\ell[n]\to r[n]}\tag{26}
-$
+$$
 
 并可化为正半轴上的：
 
-$
+$$
 \nu_{r[n]\to f_b[n]}
 \propto r[n]\mathcal N(r[n];\eta_b[n],\gamma_b[n]),
 \quad r[n]\ge0.\tag{27}
-$
+$$
 
 $\eta_b,\gamma_b$ 是高斯精度加权的统计参数，具体见原文式 (28)。
 
@@ -275,26 +275,26 @@ $\eta_b,\gamma_b$ 是高斯精度加权的统计参数，具体见原文式 (28)
 
 支撑消息要求对 $z_b[n]$、$r[n]$ 和 $\theta_b[n]$ 积分（式 (29)）。令 $\vec\pi_b[n]$ 表示当前平面对“$s[n]=1$”的置信概率，则：
 
-$
+$$
 \vec\pi_b[n]=
 \frac{[\nu_{f_b[n]\to s[n]}]_{s[n]=1}}
 {[\nu_{f_b[n]\to s[n]}]_{s[n]=1}
 +[\nu_{f_b[n]\to s[n]}]_{s[n]=0}}.
 \tag{30}
-$
+$$
 
 作者用 Rice 分布拟合式 (27) 的幅度先验，采用相同的均值、方差匹配得到参数 $\rho_b,\tau_b$；Rice 密度见式 (31)，使用 Rice 分布与 AMP 复高斯似然推导 $\vec\pi_b[n]$ 的计算近似（式 (32)，推导见附录 B）。
 
 对新批次，先前所有支撑置信概率通过贝叶斯乘积组合：
 
-$
+$$
 \overleftarrow\pi_b[n]=
 \frac{\lambda\prod_{\ell=1}^{b-1}\vec\pi_\ell[n]}
 {(1-\lambda)\prod_{\ell=1}^{b-1}
 (1-\vec\pi_\ell[n])
 +\lambda\prod_{\ell=1}^{b-1}\vec\pi_\ell[n]}.
 \tag{33}
-$
+$$
 
 因此每批都不会独立地丢弃前一批可能提供的稀疏支撑证据。
 
@@ -302,21 +302,21 @@ $
 
 为处理时间相关性，作者进一步假设 AMP 当前相位估计无误，等于复均值 $e_b[n]$ 的相位：
 
-$
+$$
 \nu_{f_b[n]\to\Theta_b[n]}
 =\delta(\theta_b[n]-\angle e_b[n]).
 \tag{34}
-$
+$$
 
 与维纳转移密度卷积，下一批的相位先验成为：
 
-$
+$$
 \nu_{\Theta_b[n]\to f_b[n]}
 \propto\mathcal N(\theta_b[n];
 \varphi_b[n],\sigma_{\rm pn}^2),
 \quad \varphi_b[n]=\angle e_{b-1}[n],
 \tag{36}
-$
+$$
 
 即围绕上一批相位估计的高斯分布。此近似减少消息表达的复杂度，但忽略了 AMP 相位均值自身的不确定性，可能在低信噪比及强相位扰动下失效。
 
@@ -326,22 +326,22 @@ $
 
 由于直接积分求精确密度很困难，作者近似为一个零点质量和多个复高斯分量的混合分布。第 $k$ 个复高斯均值具有：
 
-$
+$$
 \beta_{b,k}[n]
 =\overline\beta_b[n]
 e^{j\angle\beta_{b,k}[n]}.
 \tag{37}
-$
+$$
 
 各分量均值分布于同一半径上，公共协方差记为 $\xi_b[n]$；原文式 (38)–(43) 给出半径、方差、混合数 $K_b[n]$ 以及各分量的相位间距。混合分量越靠近预测的中心相位，权重越高。未归一化权重按照以中心分量为均值的高斯密度计算（式 (44)），最终归一化：
 
-$
+$$
 \omega_{b,k}[n]
 =\frac{\widetilde\omega_{b,k}[n]}
 {\sum_{k'=1}^{K_b[n]}
 \widetilde\omega_{b,k'}[n]}.
 \tag{45}
-$
+$$
 
 **图 5** 比较真实环形扇区概率密度及 BGM 近似；随着 BGM 分量增加，近似精度通常提高，但计算量也增加。**图 6** 显示最大分量数超过 60 后 NMSE 基本不再变化，因此文中截断为 60。
 
@@ -349,9 +349,9 @@ $
 
 若每平面需要 $T_{\rm amp}$ 次 AMP、执行 $T_{\rm fb}$ 次前后传播，整体复杂度为：
 
-$
+$$
 O(T_{\rm fb}BT_{\rm amp}MN^2).
-$
+$$
 
 主要成本是各平面矩阵—向量运算；相较于直接联合 $BM$ 个观测执行 AMP，增加的传播轮次数约带来 $T_{\rm fb}$ 倍开销。但该算法对每批测量数 $M$、阵列信道维度 $N^2$ 的依赖仍为线性。
 
@@ -367,12 +367,12 @@ $
 
 重构质量以 $\widehat{\mathbf H}=\mathbf U_N\widehat{\mathbf X}\mathbf U_N$ 与真实信道之间的 NMSE 评价：
 
-$
+$$
 \mathrm{NMSE}=
 \mathbb E\left[
 \frac{\|\mathbf H-\widehat{\mathbf H}\|_F^2}
 {\|\mathbf H\|_F^2}\right].
-$
+$$
 
 基线包括：SuppOnly（仅传播共享支撑的 MMV-AMP）；SparseLift（提升矩阵稀疏恢复）；PCMP1/PCMP2（需已知非零个数，分别设置为 19 和 38 的相位感知匹配追踪）；IgnoredPN（忽略相位误差并把全部批次观测堆叠做 AMP）；ZeroPN（无相位噪声理想参考）；Batch1（只利用第一批测量）。
 
@@ -406,12 +406,12 @@ $
 
 **附录 A** 从式 (22) 推导带贝塞尔函数的幅度消息，并利用第一类修正贝塞尔函数恒等式：
 
-$
+$$
 \int_{-\pi}^{\pi}
 \exp(\operatorname{Re}\{\kappa e^{-j\theta}\})\,d\theta
 =2\pi I_0(|\kappa|)
 \tag{47}
-$
+$$
 
 推导式 (23)、(24) 的消息均值和方差。**附录 B** 推导 Rice 幅度近似与支撑概率的闭式组合式 (32)。**附录 C** 根据复平面环形扇区的高斯覆盖几何推导混合分量数与均值相位（式 (42)、(43)，图 12）。
 
