@@ -529,20 +529,38 @@ $$
 n^{(l)}=(k^{(l)}-1)\overline N_RN_U+(m^{(l)}-1)N_U+u^{(l)}.
 $$
 
-路径增益的模和相角给出 $\dot\nu_n$、$\dot\omega_n$。固定已识别的活跃支撑与增益后，通过以下最大似然对应的残差最小化问题估计 Doppler 频偏 $f_d$ 和离网格偏移 $\boldsymbol\Xi$：
+路径增益的模和相角给出 $\dot\nu_n$、$\dot\omega_n$。固定已识别的活跃支撑与增益后，通过以下最大似然（ML）对应的残差最小化问题估计 Doppler 频偏 $\dot f_d$ 和离网格偏移向量 $\boldsymbol\Xi$：
 
-$$
-\min_{f_d,\boldsymbol\Xi}
-\sum_{\bar k=1}^{\bar K}\sum_{p=1}^{P}
+$
+\min_{\dot f_d,\boldsymbol\Xi}
+\sum_{k=1}^{\bar K}\sum_{p=1}^{P}
 \left\|
 \mathbf y_{k,p}
 -\sqrt{p_T}\,x_{k,p}\mathbf W_p^{\mathsf H}
 \mathbf a_B(\vartheta_B)\mathbf f_p^{\mathsf T}
 \dot{\mathbf R}_{k,p}\mathbf v_p
 \right\|_2^2.\tag{42}
-$$
+$
 
-其中 $\dot{\mathbf R}_{k,p}$ 是在当前活跃路径集合及幅相估计下重构的级联信道，依赖待优化的频偏与离网格参数。原文使用 Armijo 步长规则进行梯度下降：
+其中 $\dot{\mathbf R}_{k,p}$ 为固定已识别活跃路径集合 $\dot{\mathcal N}$ 和初始复增益 $\dot{\mathbf z}$ 后、按照候选频偏及离网格参数重构的级联信道：
+
+$
+\begin{aligned}
+\dot{\mathbf R}_{k,p}
+={}&\sum_l[\dot{\mathbf z}]_l\,
+e^{-j2\pi f_k(\tau_{k^{(l)}}+\Delta\tau_{k^{(l)}})}
+\widetilde{\mathbf a}_{U,p}
+(\varphi_{u^{(l)}}+\Delta\varphi_{u^{(l)}})\\
+&\quad\cdot\mathbf a_R^{\mathsf T}
+(\bar\vartheta_{m^{(l)}}+\Delta\bar\vartheta_{m^{(l)}},
+\bar r_{m^{(l)}}+\Delta\bar r_{m^{(l)}}),\\
+\widetilde{\mathbf a}_{U,p}(\varphi)
+\triangleq{}&\mathbf a_U^*(\varphi)
+e^{j2\pi f_d(p-1)T_s\varphi}.
+\end{aligned}
+$
+
+上述补式对应原文紧随式（42）之后对 $\dot{\mathbf R}_{k,p}$ 和 $\widetilde{\mathbf a}_{U,p}$ 的定义，避免遗漏 ML 优化目标随待估参数变化的具体机制。原文使用 Armijo 步长规则进行梯度下降：
 
 $$
 \begin{aligned}
