@@ -538,8 +538,115 @@ $$
 本文研究 XL-IRS 辅助宽带毫米波系统中的近场稀疏信道估计与跟踪问题。通过设计极域—角度—时延域字典，并结合张量表示技术，建立级联 BS–IRS–用户信道的多维稀疏表示；在此基础上，分别构建 CE 阶段的空间结构化先验和 CT 阶段的时序动态稀疏先验。随后提出 TS-CET，将张量 OMP、基于粒子的 VBI 与消息传递相结合，以相对低的导频和计算开销，近似求解两个阶段信道参数的后验分布。数值实验表明，该算法能够在初始估计和后续动态跟踪中保持较高的信道估计精度。
 
 
+
+## 附录 A：XL-IRS 无源波束成形设计
+
+如正文所述，CE 阶段与 CT 阶段在可用先验知识上有所不同，因此作者采用不同的无源波束设计策略。初始 CE 阶段尚不知道用户及散射体的位置，故第 $p$ 个导频对应的 XL-IRS 反射系数采用随机相位：
+
+$$
+[\mathbf v_p^{(1)}]_n=e^{j\theta_{v,n,p}},\qquad
+\forall n\in\mathcal N_R,\quad p=1,\ldots,P.\tag{45}
+$$
+
+其中 $\theta_{v,n,p}$ 在 $[0,2\pi]$ 内随机生成。这一设计能够形成近似全向的探测波束，覆盖可能出现的用户和散射体位置，并降低测量矩阵不同列的相关性，从而改善压缩感知估计性能。
+
+在后续 CT 阶段，既需要利用上一帧估计的潜在路径位置取得反射增益，也需要探索尚未被检测到的位置。为此，作者设计近场多波束。设 $\overline{\mathcal N}^{(t-1)}_R$ 包含上一帧所估计的非零位置支撑，在角度–距离网格上将其与邻域索引合并，形成扩展候选集 $\widetilde{\mathcal N}^{(t)}_R$，邻域范围由 $\Delta N$ 控制。将相应近场阵列响应构成候选波束矩阵 $\widetilde{\mathbf A}^{(t)}_R$；剩余网格位置构成探索波束矩阵 $\dot{\mathbf A}^{(t)}_R$。在每个导频时隙，把全部候选波束与一部分探索波束合并为 $\mathbf A^{(t)}_{R,p}$，使连续 $P$ 个时隙可以扫描余下的位置。
+
+具体地，设候选位置数为 $\widetilde Q$、余下位置数为 $\dot Q=\overline N_R-\widetilde Q$，每个导频对应的探索波束组大小为 $M_R^{(t)}=\lfloor\dot Q/P\rfloor$，末组容纳剩余索引。无源波束通过如下优化同时提升多个方向的反射增益：
+
+$$
+\begin{aligned}
+\max_{\mathbf v_p^{(t)}}\quad&\| (\mathbf v_p^{(t)})^T\mathbf A_{R,p}^{(t)}\|_2^2,\\
+\text{s.t.}\quad&| (\mathbf v_p^{(t)})^T\mathbf a_q|^2
+-| (\mathbf v_p^{(t)})^T\mathbf a_1|^2<\varepsilon_v,\\
+&\qquad q=2,\ldots,\check Q,\\
+&|[\mathbf v_p^{(t)}]_n|=1,\quad\forall n\in\mathcal N_R.
+\end{aligned}\tag{46}
+$$
+
+原文式（46b）为各波束的增益差异约束，目的是使多个关注方向获得近似相等的波束增益，避免单一方向占据绝大多数能量；式（46c）对应反射单元的恒模约束。该非凸问题可通过半正定松弛（SDR）与秩一重缩放方法，或不进行变量提升的其他方法近似求解。发射端主动波束 $\mathbf f_p^{(t)}$ 亦采用类似设计。
+
+## 附录 B：通过 SSCA 优化粒子权重和位置
+
+针对正文式（44）的 KL 散度最小化问题，作者利用随机逐次凸近似（SSCA）交替优化每个变量 $\kappa_{l,n}$ 的粒子位置向量 $\mathbf p_{l,n}$ 和权重向量 $\mathbf w_{l,n}$。
+
+**粒子位置更新。** 第 $i$ 次迭代时，保持上一轮权重 $\mathbf w_{l,n}^{(i-1)}$ 不变，并将其他变量 $\widetilde{\boldsymbol\kappa}_{l,n}$ 对目标函数的影响取期望，得到粒子位置子问题（47）：
+
+$$
+\begin{aligned}
+\min_{\mathbf p_{l,n}}\quad&
+\mathcal K_{\kappa_{l,n}}^{(i)}(\mathbf w_{l,n}^{(i-1)},\mathbf p_{l,n})\\
+&=\mathbb E_{\widetilde{\boldsymbol\kappa}_{l,n}}\left[
+ g_{\kappa_{l,n}}^{(i)}(\mathbf w_{l,n}^{(i-1)},\mathbf p_{l,n};
+ \widetilde{\boldsymbol\kappa}_{l,n})\right],\\
+\text{s.t.}\quad&\dot\kappa_{l,n}-\Delta_{l,n}\le p_{l,n,k}\le
+\dot\kappa_{l,n}+\Delta_{l,n},\quad\forall k.
+\end{aligned}\tag{47}
+$$
+
+文中 $g$ 将粒子权重的熵项与对数联合分布项相结合；其条件期望一般无法直接计算。作者围绕上一轮位置构造带二次正则项的凸替代函数：
+
+$$
+\bar f_{\mathbf p_{l,n}}^{(i)}(\mathbf p_{l,n})
+=(\mathbf f_{\mathbf p_{l,n}}^{(i)})^T
+(\mathbf p_{l,n}-\mathbf p_{l,n}^{(i-1)})
++\Omega_{\mathbf p_{l,n}}
+\|\mathbf p_{l,n}-\mathbf p_{l,n}^{(i-1)}\|_2^2.\tag{48}
+$$
+
+$\Omega_{\mathbf p_{l,n}}>0$，而 $\mathbf f_{\mathbf p_{l,n}}^{(i)}$ 通过递推平均小批量随机梯度得到。记从其他变量当前变分分布抽取的 $B$ 组样本为 $\widetilde{\boldsymbol\kappa}_{l,n}^{(b)}$，则有
+
+$$
+\mathbf f_{\mathbf p}^{(i)}=(1-\rho^{(i)})\mathbf f_{\mathbf p}^{(i-1)}
++\frac{\rho^{(i)}}B\sum_{b=1}^B
+\nabla_{\mathbf p}g^{(i)}(\mathbf w^{(i-1)},\mathbf p^{(i-1)};
+\widetilde{\boldsymbol\kappa}^{(b)}).
+$$
+
+最小化式（48）并满足区间约束，相当于先按负梯度方向移动，再投影到允许区间：令 $\widetilde p_{l,n,k}=p_{l,n,k}^{(i-1)}-[\mathbf f_{\mathbf p}^{(i)}]_k/(2\Omega_{\mathbf p})$，将其裁剪至 $[\dot\kappa_{l,n}-\Delta_{l,n},\dot\kappa_{l,n}+\Delta_{l,n}]$ 得到 $\bar p_{l,n,k}$。最终使用松弛更新
+
+$$
+\mathbf p_{l,n}^{(i)}=(1-\gamma^{(i)})\mathbf p_{l,n}^{(i-1)}
++\gamma^{(i)}\bar{\mathbf p}_{l,n}.\tag{49}
+$$
+
+**粒子权重更新。** 保持更新后的位置 $\mathbf p_{l,n}^{(i)}$ 不变，类似地构造带二次正则项的权重凸替代函数：
+
+$$
+\bar f_{\mathbf w_{l,n}}^{(i)}(\mathbf w_{l,n})
+=(\mathbf f_{\mathbf w_{l,n}}^{(i)})^T
+(\mathbf w_{l,n}-\mathbf w_{l,n}^{(i-1)})
++\Omega_{\mathbf w_{l,n}}
+\|\mathbf w_{l,n}-\mathbf w_{l,n}^{(i-1)}\|_2^2.\tag{50}
+$$
+
+其中梯度估计 $\mathbf f_{\mathbf w_{l,n}}^{(i)}$ 也通过小批量梯度的指数递推平均得到。由于权重必须为正且总和为一，作者使用单纯形投影求得满足式（44b）的中间权重 $\bar{\mathbf w}_{l,n}$，再作
+
+$$
+\mathbf w_{l,n}^{(i)}=(1-\gamma^{(i)})\mathbf w_{l,n}^{(i-1)}
++\gamma^{(i)}\bar{\mathbf w}_{l,n}.\tag{51}
+$$
+
+根据文献 [36] 的定理 3，只要步长序列满足 $\rho^{(i)}\to0$、$\sum_i\rho^{(i)}=\infty$、$\sum_i(\rho^{(i)})^2<\infty$ 和 $\gamma^{(i)}/\rho^{(i)}\to0$ 等条件，SPVBI 可几乎必然收敛至式（44）的驻点解集合。文中给出一种实际参数选择：$\rho^{(i)}=5/[5+(i-1)^{0.9}]$，$\gamma^{(i)}=5/[15+(i-1)]$。
+
+## 附录 C：计算复杂度分析
+
+第一阶段中，确定粗三维候选集合 $\mathcal S^{(t)}$ 的操作具有常数级开销。每次张量联合搜索的复杂度为 $O(R_B\overline K L^3)$，网格偏移梯度更新开销为 $O(N_U^2+\overline N_R^2+N_f^2)$。设平均联合搜索次数为 $N_{\rm JS}$、第一阶段外层迭代次数为 $N_{\rm I}$，则总复杂度为
+
+$$
+O\!\left(N_{\rm I}\left[N_{\rm JS}R_B\overline K L^3+
+N_U^2+\overline N_R^2+N_f^2\right]\right).
+$$
+
+第二阶段中，SPVBI 模块使用小批量抽样和凸替代函数最小化。记 $J$ 为待估参数变量数、$B$ 为批大小、$N_p$ 为每个连续变量的粒子数、$F_{\rm grad}$ 为一次梯度计算的平均 FLOPs。单变量的随机梯度求值含 $O(N_pBF_{\rm grad})$ 开销，而单纯形或区间约束下的局部替代问题还需要相应的数值计算。模块 B 的因子图消息传递具有线性复杂度。若第二阶段迭代 $N_{\rm II}$ 次、每次 SPVBI 内部平均进行 $N_{\rm SSCA}$ 次更新，总开销按这些次数与单次粒子更新成本相乘计算（原文附录 C）；因而高维粒子后验计算是关键的复杂度来源之一。
+
+## 参考文献
+
+原文参考文献列表及作者完整单位见[原始 PDF 第 14–15 页](https://arxiv.org/pdf/2511.18752v2#page=14)；本译稿保留正文中所有原始参考文献编号 [1]–[36]，暂未逐条重新排印书目信息。
+
+
 ---
 
-**续译状态：** 摘要与正文 I–VI 已译，公式 40–44、算法 1 和图 6–9 说明已补充；附录 A–C、完整参考文献及逐式核对仍未完成，尚不计入已验收全文。
+**译文状态：** 摘要、正文 I–VI、附录 A–C 与主要公式 (1)–(51)、算法 1、图 1–9、主要仿真结果已译；原参考文献按 PDF 链接对照，部分长公式与符号仍需逐页校对，因此未通过全文 QA。
 
 {% endraw %}
