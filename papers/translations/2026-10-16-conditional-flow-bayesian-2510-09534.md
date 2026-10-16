@@ -334,32 +334,32 @@ $$
 
 对向量值函数 $v:\mathbb R^d\to\mathbb R^d$，其 Jacobian 矩阵记为 $J_v(x)=\nabla v(x)$，其中 $[J_v(x)]_{ij}=\partial v_i/\partial x_j$。向量场的散度等于 Jacobian 的迹：
 
-$
+$$
 \nabla\cdot v(x)=\sum_{i=1}^d\frac{\partial v_i}{\partial x_i}
 =\operatorname{tr}(\nabla v(x)).
-$
+$$
 
 该量度量在向量场作用下，概率从某一点向外流出的净速率，因而出现在描述时变概率密度的连续性方程中。
 
 若 $T:\mathbb R^d\to\mathbb R^d$ 是可测映射、$\mu$ 是概率测度，则推前测度 $T_\#\mu$ 是 $X\sim\mu$ 时 $T(X)$ 的概率分布。对任意 Borel 集 $A\subset\mathbb R^d$，
 
-$
+$$
 T_\#\mu(A):=\mu(T^{-1}(A)).
-$
+$$
 
 概率测度 $\mu,\nu$ 的二阶 Wasserstein 距离定义为
 
-$
+$$
 W_2^2(\mu,\nu)=\inf_{\gamma\in\Gamma(\mu,\nu)}
 \int_{\mathbb R^d\times\mathbb R^d}\|x-y\|^2\,d\gamma(x,y),
-$
+$$
 
 其中 $\Gamma(\mu,\nu)$ 为边缘分布分别为 $\mu,\nu$ 的全部耦合分布集合。集合 $A,B\subset\mathbb R^d$ 的 Hausdorff 距离为
 
-$
+$$
 d_H(A,B)=\max\left\{\sup_{a\in A}\inf_{b\in B}\|a-b\|,
 \sup_{b\in B}\inf_{a\in A}\|a-b\|\right\}.
-$
+$$
 
 ## 附录 B：相关工作
 
@@ -367,16 +367,16 @@ $
 
 **归一化流（Normalizing Flow，NF）。** NF 利用一系列可逆变换，把简单源分布 $p_0(x)$（如高斯）映射到复杂目标分布 $p_1(x)$。对于可逆映射 $f:\mathbb R^d\to\mathbb R^d$，由变量替换公式，
 
-$
+$$
 p_1(x)=p_0(f^{-1}(x))\,|\det J_{f^{-1}}(x)|.
-$
+$$
 
 Real NVP（Dinh 等，2017）采用块三角耦合层，使 Jacobian 行列式易于求解。每一层将输入划分为两部分，一部分保持不变，另一部分接受以前一部分为条件的变换：
 
-$
+$$
 x'_{1:d}=x_{1:d},\qquad
 x'_{d+1:D}=x_{d+1:D}\odot\exp(s(x_{1:d}))+t(x_{1:d}),
-$
+$$
 
 其中尺度函数 $s(x_{1:d})\in\mathbb R^{D-d}$ 与平移函数 $t(x_{1:d})\in\mathbb R^{D-d}$ 均由神经网络参数化，$\odot$ 是逐元素乘积。这使 Jacobian 为三角矩阵，其对数行列式简化为尺度输出的求和。NF 能精确计算似然，但为了保证可逆性，网络结构必须受到约束。
 
@@ -384,70 +384,70 @@ NF 已用于基于仿真的推断（SBI）。Ardizzone 等（2018）利用可逆
 
 **连续归一化流（CNF）。** CNF（Chen 等，2018）把 NF 推广为常微分方程的连续时间变换：
 
-$
+$$
 \frac{dx_t}{dt}=v_t(x_t,\omega),\quad t\in[0,1],
-$
+$$
 
 其中 $\omega\in\Omega$ 为可学习参数。CNF 仍使用微分形式的变量替换公式。
 
 **引理 2（瞬时变量替换，Chen 等，2018）。** 若 $x(t)\sim p_t$，速度场满足 $dx_t=v_t(x_t)dt$，且 $v$ 关于状态一致 Lipschitz 连续、关于时间连续，则沿流轨迹有原文给出的对数密度变化关系。其标准形式为
 
-$
+$$
 \frac{d}{dt}\log p_t(x(t))=-\operatorname{tr}\left(\frac{dv}{dx(t)}\right).
-$
+$$
 
 原文该处左边排印为 $\partial p_t(x(t))/\partial t$，但文字称其为“对数概率的变化”，二者并非同一个量；上式按引理名称所指的瞬时变量替换关系写出，并保留这一原文排印差异供核对。
 
 **扩散模型。** 扩散模型（Song 等，2020）在正向过程中向数据加噪，并通过估计得分函数学习反向过程。它们生成能力强，但训练和采样通常有较高成本，并依赖准确的得分估计。基于随机微分方程（SDE）的扩散模型，通过 Fokker–Planck 方程与概率流 ODE 相关联。正向与反向过程分别写为
 
-$
+$$
 dx_t=f_t(x_t)\,dt+g_t\,dB_t,
-$
+$$
 
-$
+$$
 dx_t=[f_t(x_t)-g_t^2\nabla_x\log p_t(x_t)]\,dt
 +g_t\,d\widetilde B_t,
-$
+$$
 
 其中 $f_t$ 是漂移项，$g_t$ 是噪声尺度，$B_t,\widetilde B_t$ 为 Brownian 运动，$\nabla_x\log p_t$ 为得分函数。由于
 
-$
+$$
 \begin{aligned}
 \partial_t p_t(x)
 &=-\nabla_x(fp_t)+\tfrac12g^2\nabla_x^2p_t\\
 &=-\nabla_x(fp_t)+\tfrac12g^2\nabla_x(p_t\nabla_x\log p_t)\\
 &=-\nabla_x[(f-\tfrac12g^2\nabla_x\log p_t)p_t],
 \end{aligned}
-$
+$$
 
 可得概率流 ODE 的漂移为
 
-$
+$$
 \widetilde f(x,t)=f(x,t)-\tfrac12 g(t)^2\nabla_x\log p_t(x).
-$
+$$
 
 ### B.1 引导与条件采样
 
 引导（guidance）技术旨在使扩散模型生成过程趋向指定结果。两类代表性方法是分类器引导（Song 等，2020）和无分类器引导（Ho 与 Salimans，2022）。它们以得分分解为出发点：
 
-$
+$$
 \nabla\log p_t(x\mid y)=\nabla\log p_t(y\mid x)+\nabla\log p_t(x).
-$
+$$
 
 分类器引导使用额外训练的 $p(y\mid x)$ 从图像预测类别。扩散模型本身仍学习边缘分布 $p(x)$；分类器的梯度仅在采样阶段与生成模型的得分估计结合，促使生成图像接近指定类别。
 
 无分类器引导（CFG）不再需要外部分类型网络，而是训练一个同时支持有条件和无条件生成的扩散模型。训练时使用 Bernoulli 随机变量指示是否提供类别等条件信息，推断时通过改变引导系数在两种模式之间插值：
 
-$
+$$
 \widetilde v_t(x\mid y)
 =(1-w)v_t(x\mid\varnothing)+wv_t(x\mid y).\tag{15}
-$
+$$
 
 该插值也可理解为条件与无条件得分估计的加权组合。Guided Flow（Zheng 等，2023）将 CFG 从扩散推广到流匹配，采用依赖时间的分类器得分分解：
 
-$
+$$
 \widetilde v_t(x\mid y)=v_t(x)+b_t\nabla\log p_\phi(y\mid x,t).
-$
+$$
 
 引导方法的主要优势是可控制生成样本与条件信息的一致程度，但其目标并不是精确的条件分布估计。引导后的分布一般属于温度修正近似，准确程度取决于引导尺度。
 
@@ -459,19 +459,19 @@ $
 
 **基于扩散的后验采样。** Chung 等（2023）针对一般含噪逆问题提出扩散后验采样，在扩散动力学中直接结合分类器/观测信号，无须显式施加测量一致性约束。原文给出
 
-$
+$$
 \frac{dx}{dt}=-\frac{\beta(t)}2x-
 \beta(t)[\nabla_x\log p_t(x)+\nabla_x\log p_t(y\mid x)]
 +\sqrt{\beta(t)}\,d\overline B_t.
-$
+$$
 
 原文这里将微分时间项和 Brownian 增量写在同一等式，译稿保留其表达结构；严格写为 SDE 时应使两侧的时间微分记号一致。后验采样过程的似然近似使用 Tweedie 公式估计原始信号条件均值：
 
-$
+$$
 \widehat x_0:=\mathbb E[x_0\mid x_t]
 \approx\frac{x_t+(1-\bar\alpha(t))s_\theta^\star(x_t,t)}
 {\sqrt{\bar\alpha(t)}}.
-$
+$$
 
 **基于流的后验采样。** Ben-Hamu 等（2024）与 Pokle 等（2024）针对线性逆问题提出无需重新训练的条件生成方法，通过在推断阶段修改生成过程实现数据一致性，而不是直接学习后验分布。FlowDPS（Kim 等，2025a）将扩散后验采样推广到流匹配模型，仍依赖学习的对数密度梯度作得分估计。与之不同，本文完全放弃基于得分的训练，使用结构化速度分解实现后验恢复。
 
@@ -517,32 +517,32 @@ Jiang 等（2025）将得分匹配与 Langevin 动力学结合开展基于仿真
 
 这里进一步说明备注 3 所提的 ICNN 表示问题。式（10）使用 ICNN 学习凸函数 $\widehat\psi_t$，再令
 
-$
+$$
 \widehat g_t(y_t,\theta_t)
 =\nabla_{\theta_t}\widehat\psi_t(y_t,\theta_t).
-$
+$$
 
 这一方式确实降低了表示能力：并非所有单调映射都能由单调速度场表示。对于线性插值路径，原文给出速度
 
-$
+$$
 g_t(y,\theta\mid x_0,x_1)=G(y^\star,\theta_0)-\theta_0.
-$
+$$
 
 要求 $\widehat g_t$ 关于 $\theta$ 单调，即 $\nabla_\theta g_t\succeq0$，意味着 $\nabla G\succeq I$，从而不能表示某些收缩型单调映射。实践中可让源分布的方差远小于目标分布，使最优传输自然具有扩张性，减少这一限制。
 
 更根本的解决方案是修改速度参数化，使模型能够表示收缩映射。作者提出以凸函数 $\widehat\psi_t^\star$ 定义
 
-$
+$$
 \widehat g_t(y_t,\theta_t)
 =\nabla_{\theta_t}\widehat\psi_t^\star(y^\star,\theta_t)-\theta_0.
-$
+$$
 
 但流匹配速度网络需要以当前 $\theta_t$ 而非初始 $\theta_0$ 为输入。对于线性插值，可用 $\theta_0\approx\theta_t-t\widehat g_t$ 近似，并据此整理为另一种形式：
 
-$
+$$
 \widehat g_t^\star(y_t,\theta_t)
 =\frac{\nabla_{\theta_t}\widehat\psi_t(y^\star,\theta_t)-\theta_t}{1-t}.
-$
+$$
 
 这种形式可以表示收缩型单调映射 $G$，因此避免原有的表示损失，同时仍能使用 ICNN 学习速度场。
 
@@ -553,29 +553,29 @@ $
 
 真实联合分布 $p_1$ 可通过式（1）的映射 $T$ 从 $p_0$ 恢复。神经网络学习的联合速度场诱导近似传输 $\widehat T$，将 $p_0$ 送到估计联合分布 $\widehat p_1$：
 
-$
+$$
 \widehat p_1=\widehat T_\#p_0,\qquad p_1=T_\#p_0.
-$
+$$
 
 当流匹配目标（2）中的速度误差足够小时，$\widehat p_1$ 与 $p_1$ 接近。具体而言，利用 Benton 等（2024）的定理 1，在假设 1、2 下，如果 $\mathcal L_{\mathrm{FM}}\le\varepsilon_N^2$，则
 
-$
+$$
 W_2(\widehat p_1,p_1)\le\varepsilon_N
 \exp\left(\int_0^1L_t\,dt\right).\tag{16}
-$
+$$
 
 估计后验由联合映射 $\widehat T$ 的条件分量 $\widehat G(y^\star,\cdot)$ 恢复；由引理 1 和 Baptista 等（2024）的定理 2.4，真实条件分量 $G(y^\star,\cdot)$ 恢复真实后验：
 
-$
+$$
 \widehat\pi_{\theta\mid Y=y^\star}
 =\widehat G(y^\star,\cdot)_\#p_0^\Theta,\qquad
 \pi_{\theta\mid Y=y^\star}
 =G(y^\star,\cdot)_\#p_0^\Theta.
-$
+$$
 
 接下来建立联合分布误差与条件后验误差的联系。对于式（1）的块三角传输，原文写作
 
-$
+$$
 \begin{aligned}
 W_2^2(\widehat p_1,p_1)
 &=W_2^2(\widehat T_\#p_0,T_\#p_0)\\
@@ -585,19 +585,19 @@ W_2^2(\widehat p_1,p_1)
 &\quad+\int\|\widehat G(\widehat F(y_0),\theta_0)
 -G(F(y_0),\theta_0)\|^2p_0(dy_0,d\theta_0).
 \end{aligned}
-$
+$$
 
 两项均非负，因此原文据式（16）分别控制两项。根据假设 2，$\widehat v_t$ 在空间上满足 $\|\widehat v_t(x)-\widehat v_t(x')\|\le L_t\|x-x'\|$；沿时间积分可得估计传输映射的 Lipschitz 性。其条件分量继承这一性质：
 
-$
+$$
 \|\widehat G(\widehat F(y_0),\theta_0)
 -\widehat G(F(y_0),\theta_0)\|
 \le L\|\widehat F(y_0)-F(y_0)\|.
-$
+$$
 
 再用三角不等式，
 
-$
+$$
 \begin{aligned}
 &\|\widehat G(F(y_0),\theta_0)-G(F(y_0),\theta_0)\|\\
 &\le\|\widehat G(F(y_0),\theta_0)
@@ -605,22 +605,22 @@ $
 &\quad+\|\widehat G(\widehat F(y_0),\theta_0)
 -G(F(y_0),\theta_0)\|.
 \end{aligned}
-$
+$$
 
 将 $(a+b)^2\le2a^2+2b^2$ 用于上式，关于 $p_0(y_0,\theta_0)$ 取平方期望，原文推得
 
-$
+$$
 \begin{aligned}
 &\int\|\widehat G(F(y_0),\theta_0)-G(F(y_0),\theta_0)\|^2\,dp_0\\
 &\le2W_2^2(\widehat p_1,p_1)
 +(2L-2)\int\|\widehat F(y_0)-F(y_0)\|^2\,dp_0^Y\\
 &\le2Le^{2L}\varepsilon_N^2.
 \end{aligned}
-$
+$$
 
 最后利用 $\pi_Y=F_\#p_0^Y$，把上式重新写为关于真实观测边缘分布的平均条件后验误差：
 
-$
+$$
 \begin{aligned}
 &\int W_2^2(\widehat\pi_{\theta\mid y},\pi_{\theta\mid y})\pi_Y(dy)\\
 &=\int\|\widehat G(y,\theta_0)-G(y,\theta_0)\|^2
@@ -629,7 +629,7 @@ $
 \,p_0(d\theta_0,dy_0)\\
 &\le2Le^{2L}\varepsilon_N^2.
 \end{aligned}
-$
+$$
 
 定理 1 证毕（依照原文论证步骤）。
 
@@ -639,73 +639,73 @@ $
 
 实际训练最小化的是式（4）的 $\mathcal L_{\rm CFM}$，而非式（2）的 $\mathcal L_{\rm FM}$。尽管两种目标数值不同，它们对网络参数 $\phi$ 的梯度相同（式（5））。Albergo 与 Vanden-Eijnden（2023）的命题 1 还给出
 
-$
+$$
 v=\arg\min_{\widehat v}\mathcal L_{\rm FM}(\widehat v,v)
 =\arg\min_{\widehat v}\mathcal L_{\rm CFM}(\widehat v,v).
-$
+$$
 
 需要注意，$\mathcal L_{\rm CFM}$ 通常不会收敛到零，而是收敛到一个与估计速度 $\widehat v$ 无关的常数：
 
-$
+$$
 \int_t\mathbb E_{p_t(x\mid z),q(z)}
 \|v_t(x\mid z)\|^2dt
 -\int_t\mathbb E_{p_t(x)}\|v_t(x)\|^2dt.
-$
+$$
 
 对此常数一般不存在统一保证。虽然直接计算 $\mathcal L_{\rm FM}$ 不可行，仍可应用 Farrell 等（2021）的理论框架，因为真实速度 $v$ 是 $\mathcal L_{\rm CFM}$ 的总体极小值，而估计速度是其经验损失在多层感知机函数类 $\mathcal V_{\rm MLP}$ 上的极小值：
 
-$
+$$
 \widehat v=\arg\min_{\widetilde v\in\mathcal V_{\rm MLP}}
 \frac1N\sum_{i=1}^N
 \|\widetilde v_{t_i}(x_i)-v_{t_i}(x_i\mid z_i)\|^2.
-$
+$$
 
 其中 $t_i$ 是第 $i$ 个采样时间，$x_i=(y_i,\theta_i)$ 是第 $i$ 个生成样本。依据 Farrell 等（2021）的定理 1，存在与 $N$ 无关的 $C>0$，使得对任一坐标 $1\le k\le n+d$，以至少
 
-$
+$$
 1-\exp[-N^{\beta/(\beta+n+d)}\log^8N]
-$
+$$
 
 的概率有
 
-$
+$$
 \mathbb E_{t,x}(\widehat v_{t,k}(x)-v_{t,k}(x))^2
 \le C\left(N^{-\beta/(\beta+n+d)}\log^8N
 +\frac{\log\log N}{N}\right).
-$
+$$
 
 这里的期望涉及速度函数的全部变量，即 $t\sim\mathrm{Unif}(0,1)$ 和 $x\sim p_1$。对所有坐标求和，得到流匹配损失上界：
 
-$
+$$
 \mathcal L_{\rm FM}
 \le C(n+d)\left(N^{-\beta/(\beta+n+d)}\log^8N
 +\frac{\log\log N}{N}\right)=:\varepsilon_N^2,
-$
+$$
 
 成功概率至少为 $1-(n+d)\exp[-N^{\beta/(\beta+n+d)}\log^8N]$。于是 $\varepsilon_N^2$ 具有有限样本收敛率。进一步，
 
-$
+$$
 \begin{aligned}
 \sum_{N=1}^\infty\mathbb P(\mathcal L_{\rm FM}>\varepsilon_N^2)
 &\le(n+d)\sum_{N=1}^\infty
 \exp[-N^{\beta/(\beta+n+d)}\log^8N]\\
 &<\infty.
 \end{aligned}
-$
+$$
 
 由 Borel–Cantelli 引理，产生的训练数据上几乎必然有 $\mathcal L_{\rm FM}<\varepsilon_N^2$。结合定理 1，
 
-$
+$$
 \mathbb E_{\pi_Y}W_2^2(\widehat\pi_{\theta\mid Y},
 \pi_{\theta\mid Y})
 =O\left(N^{-\beta/(\beta+n+d)}\log^8N\right).
-$
+$$
 
 由此得到平均意义下随 $N$ 呈多项式速率收敛的结论。
 
 还需证明关于观测 $y$ 的一致收敛。根据假设 3，$\mathcal Y$ 为紧集；假设 1、2 使 $W_2(\widehat\pi_{\theta\mid y},\pi_{\theta\mid y})$ 关于 $y$ 等度连续。事实上，对任意 $y,y'\in\mathcal Y$，由三角不等式，
 
-$
+$$
 \begin{aligned}
 &|W_2(\widehat\pi_{\theta\mid y},\pi_{\theta\mid y})
 -W_2(\widehat\pi_{\theta\mid y'},\pi_{\theta\mid y'})|\\
@@ -713,23 +713,23 @@ $
 +W_2(\pi_{\theta\mid y},\pi_{\theta\mid y'})\\
 &\le C\|y-y'\|
 \end{aligned}
-$
+$$
 
 其中最后一步使用速度场及相应传输映射的 Lipschitz 性。
 
 再利用反证法：若存在 $\delta>0$，使某个 $\bar y$ 处的 Wasserstein 距离超过 $\delta$，则由等度连续性，在邻域 $B(\bar y,\delta/(2C))$ 内，该距离仍超过 $\delta/2$。因此
 
-$
+$$
 \mathbb E_{\pi_Y}W_2^2(\widehat\pi_{\theta\mid y},\pi_{\theta\mid y})
 \ge\int_{B(\bar y,\delta/(2C))}(\delta/2)^2\pi_Y(dy).
-$
+$$
 
 原文利用每个 $\mathcal Y$ 内非空开球具有正 $\pi_Y$ 测度，指出右侧存在与 $N$ 无关的正下界，与前述平均平方距离趋零相矛盾。因此
 
-$
+$$
 \sup_{y\in\mathcal Y}
 W_2(\widehat\pi_{\theta\mid y},\pi_{\theta\mid y})\longrightarrow0.
-$
+$$
 
 > **证明条件注：** 上述反证法需要对相关邻域的 $\pi_Y$ 测度有适当的正下界。仅由“紧集”这一条件本身，不能推出每个非空开球具有正测度；此处按原文证明保留该论述，实际应用需要核实边缘分布的支撑条件。
 
@@ -737,72 +737,72 @@ $
 
 定理 2 给出的后验收敛，意味着
 
-$
+$$
 W_2^2(\widehat\pi_{\theta\mid y^\star},\pi_{\theta\mid y^\star})
 =\int\|\widehat G(y^\star,\theta_0)-G(y^\star,\theta_0)\|^2
 \,p_0^\Theta(d\theta_0)
-$
+$$
 
 关于 $y^\star\in\mathcal Y$ 一致趋于零。根据假设 3，$\Theta$ 为紧集；由假设 1、2，映射 $G,\widehat G$ 在 $\Theta$ 上均满足 Lipschitz 条件。采用定理 2 证明中的类似方法，得到对任意 $y^\star$ 的映射一致收敛：
 
-$
+$$
 \sup_{\theta_0\in\Theta}
 \|\widehat G(y^\star,\theta_0)-G(y^\star,\theta_0)\|
 \longrightarrow0.\tag{17}
-$
+$$
 
 回顾式（11）的估计可信集 $\widehat C_\tau(y^\star)$ 和式（12）的理想集合 $C_\tau(y^\star)$。对任意 $\theta^\star\in C_\tau(y^\star)$，由于 $S^d(\tau)$ 紧致，存在 $\theta_0^\star\in S^d(\tau)$ 使 $\theta^\star=G(y^\star,\theta_0^\star)$。这一源点也可以通过条件向量秩 $R_{\theta\mid y^\star}(\theta^\star)$ 确定。将它通过估计向量分位映射传输，令 $\widehat\theta^\star=\widehat G(y^\star,\theta_0^\star)\in\widehat C_\tau(y^\star)$；结合式（17），可得到
 
-$
+$$
 \sup_{\theta\in C_\tau(y^\star)}
 \inf_{\widehat\theta\in\widehat C_\tau(y^\star)}
 \|\widehat\theta-\theta\|\longrightarrow0.
-$
+$$
 
 反过来，对任意 $\widehat\theta^\star\in\widehat C_\tau(y^\star)$，也存在 $\theta^\star\in C_\tau(y^\star)$ 使二者距离趋零，所以
 
-$
+$$
 \sup_{\widehat\theta\in\widehat C_\tau(y^\star)}
 \inf_{\theta\in C_\tau(y^\star)}
 \|\widehat\theta-\theta\|\longrightarrow0.
-$
+$$
 
 式（17）的收敛关于 $y^\star\in\mathcal Y$ 一致，而 $\tau\in(0,1)$ 的选取任意。因此
 
-$
+$$
 \sup_{y^\star\in\mathcal Y}
 d_H(\widehat C_\tau(y^\star),C_\tau(y^\star))\to0.
-$
+$$
 
 推论 3 证毕。这里原文在定义 $\widehat\theta^\star$ 的一句将其写为经 $G$ 而非 $\widehat G$ 传输，但按其后续论证及可信集定义，应由估计映射 $\widehat G$ 产生；译稿已注明这一符号差异。
 
 对命题 4，在估计后验 $\widehat\pi_{\theta\mid y^\star}$ 下，事件 $\{\widehat r_{\theta\mid y^\star}(\theta)>1-\alpha\}$ 等价于源点落在球形源域的外环 $S^d(1)\setminus S^d(1-\alpha)$。因此
 
-$
+$$
 \begin{aligned}
 &\widehat\pi_{\theta\mid y^\star}
 (\widehat r_{\theta\mid y^\star}(\theta)>1-\alpha)\\
 &=p_0^\Theta(S^d(1))-p_0^\Theta(S^d(1-\alpha))
 =\alpha.
 \end{aligned}
-$
+$$
 
 定理 2 的一致收敛蕴含 $\widehat\pi_{\theta\mid y^\star}\Rightarrow\pi_{\theta\mid y^\star}$ 的弱收敛。又因为 $\Theta$ 紧致，映射连续性由假设 1、2 保证。定义
 
-$
+$$
 \widehat F(\tau)=\widehat\pi_{\theta\mid y^\star}
 (\widehat r_{\theta\mid y^\star}(\theta)\le\tau),
 \quad
 F(\tau)=\pi_{\theta\mid y^\star}
 (\widehat r_{\theta\mid y^\star}(\theta)\le\tau).
-$
+$$
 
 原文据此使用弱收敛及连续性得出 $|\widehat F(1-\alpha)-F(1-\alpha)|\to0$，从而
 
-$
+$$
 \pi_{\theta\mid y^\star}
 (\widehat r_{\theta\mid y^\star}(\theta)>1-\alpha)\to\alpha.
-$
+$$
 
 命题 4 证毕。需注意这里的判别事件本身包含随训练样本变化的估计映射 $\widehat r$，将通常的弱收敛结论直接用于变化的事件还需要相应的边界控制；本稿照译原文论证并保留这一技术条件提醒。
 
@@ -815,25 +815,25 @@ $
 
 重新考察正文第 4 节由式（14）定义的 Neal 漏斗分布。重排式（14）后，给定 $x$ 的后验在归一化常数之外可以表示为
 
-$
+$$
 p(\nu\mid x)\propto
 \exp\left[-\tfrac12\left(\frac{\nu^2}{3^2}
 +e^{-\nu}x^2+\frac{\nu}{2}\right)\right].\tag{18}
-$
+$$
 
 可以通过对称随机游走提议的 Metropolis–Hastings（MH）采样器估计：
 
-$
+$$
 \nu^\star\sim q(\cdot\mid\nu^{(t-1)})
 =\mathcal N(\nu^{(t-1)},\sigma^2),
-$
+$$
 
 其接受概率为
 
-$
+$$
 \alpha=\min\left\{1,\exp\left[
 \ell(\nu^\star;x)-\ell(\nu^{(t-1)};x)\right]\right\},
-$
+$$
 
 其中 $\ell$ 是式（18）给出的未归一化对数后验。本文在不同 $x$ 下比较两种采样器。此设置对 MH 有利，因为给定 $x$ 的未归一化后验关于 $\nu$ 是对数凹的。整体而言，流模型在实际 $x$ 范围内能够较忠实地逼近 MH 的结果。$x=25$ 时，$\nu$ 较可能取大值且该区域数据较少，流模型给出的尾部分布略宽。
 
@@ -843,54 +843,54 @@ $
 
 回顾假设 2：$\widehat v_t(x)$ 对 $x,t$ 可微，并且对每个固定的 $t$，存在有限的 $L_t$ 使
 
-$
+$$
 \|v_t(x)-v_t(x')\|\le L_t\|x-x'\|,
 \qquad x,x'\in\mathbb R^{n+p}.
-$
+$$
 
 定理 1 给出平均平方 Wasserstein 后验误差上界 $2\varepsilon_N^2Le^{2L}$，其中 $L=\int_0^1L_tdt$。这表明采样误差的界可能随 Lipschitz 常数指数增长。
 
 令联合变量
 
-$
+$$
 x_t=[y_t^\top,\theta_t^\top]^\top
 =[y_{1t},\ldots,y_{nt},\theta_{1t},\ldots,\theta_{pt}]^\top,
-$
+$$
 
 均值和协方差分别为 $\mu_t=\mathbb E x_t$、$\Sigma_t=\operatorname{Cov}(x_t)
 =\mathbb E[(x_t-\mu_t)(x_t-\mu_t)^\top]$。若 $x_t$ 遵循确定性流 $\dot x_t=v_t(x_t)$，原文将协方差的时间导数写成
 
-$
+$$
 \frac{d}{dt}\Sigma_t
 =\mathbb E[(\nabla_xv_t)(x_t)\Sigma_t+
 \Sigma_t(\nabla_xv_t)^\top(x_t)].\tag{19}
-$
+$$
 
 假设 2 对应的 Lipschitz 常数可用速度场 Jacobian 的算子范数表示：
 
-$
+$$
 L_t=\sup_{x\ne x'}
 \frac{\|v_t(x)-v_t(x')\|}{\|x-x'\|}
 =\sup_x\|\nabla_xv_t(x)\|_{\rm op}.\tag{20}
-$
+$$
 
 因此 $\|\nabla_xv_t(x)\|_{\rm op}\le L_t$。原文据此给出
 
-$
+$$
 \frac{d}{dt}\Sigma_t\preceq2L_t\Sigma_t
 \quad\Longrightarrow\quad
 \Sigma_t\preceq\exp\left(2\int_0^tL_sds\right)\Sigma_0,
-$
+$$
 
 其中从独立的源分布出发时 $\Sigma_0=I_{n+p}$。
 
 数值上，若 $\nabla_xv_t$ 的某个元素很大，会推高 $L_t$。例如第 $j$ 个坐标的标准差只有 $10^{-3}$，其他坐标的量级为 1；沿第 $j$ 维移动 $\pm10^{-3}$，欧氏距离变化很小，但网络输出即使只改变 0.05，也有
 
-$
+$$
 \frac{|v_t^{(i)}(x)-v_t^{(i)}(x')|}
 {|x^{(j)}-x'^{(j)}|}
 \approx\frac{0.05}{10^{-3}}=50.
-$
+$$
 
 这意味着 Jacobian 的单列已可显著增大算子范数。低方差坐标会使梯度显得异常大，推高 Lipschitz 常数；把该坐标重新缩放到单位方差可以消除这种放大效应。从随机优化角度看，个别坐标的梯度远大于其他坐标，也会导致速度网络训练失衡。将目标联合数据 $x_1$ 标准化，或者等价地分别重参数化 $y,\theta$ 使经验协方差 $\widehat\Sigma_1$ 接近单位阵，有助于网络有效学习目标。
 
@@ -906,12 +906,12 @@ $
 
 为检验后验推断对先验分布的敏感性，作者进一步研究经典易感—感染—康复（SIR）流行病模型。S、I、R 分别为易感、感染与康复人数，$N=S+I+R$ 为固定总人口；$\beta$ 为传染率，$\gamma$ 为平均康复率。模型满足非线性 ODE：
 
-$
+$$
 \frac d{dt}[S,I,R]
 =\left[-\frac{\beta S I}N,\,
 \frac{\beta S I}N-\gamma I,\,
 \gamma I\right].
-$
+$$
 
 所有实验均在固定人口规模与归一化初始条件下模拟 300 天。
 
@@ -931,9 +931,9 @@ $
 
 令 $\psi:\mathbb R^n\times\mathbb R^p\times\mathbb R\to\mathbb R$ 为部分输入凸神经网络（PICNN；Amos 等，2017）：它关于 $\theta\in\Theta$ 凸，而关于 $(y,t)\in\mathcal Y\times[0,1]$ 不受此约束。定义
 
-$
+$$
 g_t(y,\theta):=\nabla_\theta\psi_t(y,\theta).\tag{21}
-$
+$$
 
 由于 $\theta\mapsto\psi_t(y,\theta)$ 连续可微且凸，其梯度关于 $\theta$ 单调。因此将 $g_t$ 中的一般 MLP 换为式（21）的凸函数梯度，就在结构上施加了所需单调性，同时保留对 $y$ 和 $t$ 的灵活建模能力。
 
@@ -941,9 +941,9 @@ $
 
 为构造给定观测 $y^\star$ 下的可信集，按照第 2.3 节，从单位球面抽取方向 $\xi$，固定半径 $\tau$ 并令 $\theta_0=\tau\xi$。在以 $y^\star$ 为条件的联合速度场 $(f_t,g_t)$ 下使源点演化，便将半径为 $\tau$ 的球面 $S^{d-1}(\tau)$ 送到估计可信集的边界 $\partial\widehat C_\tau(y^\star)$。$g_t$ 的单调性确保径向顺序：若 $\tau_1<\tau_2$，由内球面出发的轨迹终点始终位于外球面像所围区域内，因此
 
-$
+$$
 \widehat C_{\tau_1}(y^\star)\subset\widehat C_{\tau_2}(y^\star).
-$
+$$
 
 于是 $\{\widehat C_\tau(y^\star)\}_{0\le\tau\le1}$ 构成嵌套区域，后验概率质量随 $\tau$ 单调增加。若选择使源球包含 $1-\alpha$ 概率质量的半径，则所得到的是 $(1-\alpha)$ 贝叶斯可信集。
 
@@ -957,16 +957,16 @@ $
 
 令 $N_k$ 为第 $k$ 天的新增确诊，使用滚动 14 天病例总数近似第 $t$ 天的活跃感染人数：
 
-$
+$$
 I(t)=\sum_{k=t-13}^t N_k.
-$
+$$
 
 易感人数结合检测信息及潜伏期估计：假设潜伏期为 5 天，在第 $k+6$ 天及以后才检测阳性的人，在第 $k$ 天仍被视为易感。因此 $S(t)$ 包括当天检测阴性者与至少六天后才检测阳性者。由于数据不记录康复人数，假定确诊感染最终有 95%–99% 康复。记累计死亡为 $D(t)$，则
 
-$
+$$
 R(t)=p\left(\sum_{k=t-15}^tN_k\right)-D(t),
 \qquad p\in[0.95,0.99].
-$
+$$
 
 **表 4：伊利诺伊州数据描述统计（2020-03-10—2020-09-25）**
 
@@ -979,11 +979,11 @@ $
 
 分析中使用传染率及移除率的对数正态先验：
 
-$
+$$
 \beta\sim\operatorname{LogNormal}(\log0.4,0.5^2),
 \qquad
 \gamma\sim\operatorname{LogNormal}(\log(1/8),0.2^2).
-$
+$$
 
 对每组参数 $(\beta,\gamma)$ 数值求解 SIR 方程，并利用参数与模拟数据配对训练三角流模型。完成训练后，以伊利诺伊州 200 天观测为条件生成后验样本。作者重点报告四个流行病学函数量：基本再生数 $R_0=\beta/\gamma$、传染期 $D=1/\gamma$、早期指数增长率 $r=\beta-\gamma$、病例翻倍时间 $T_d=\log2/r$。
 
@@ -1007,11 +1007,11 @@ $
 
 **SIR 实验。** 令轨迹为 $y=(S_t,I_t,R_t)_{t=1}^T$、参数为 $\theta=(\beta,\gamma)$。边缘速度 $f_t$ 使用四层 MLP（隐藏宽度 64）；$g_t$ 表示为两个残差块构成的谱归一化 ResNet 的梯度，每个残差块宽度 128，使用 SiLU 激活。数据预处理分三步：（i）原始序列转为七维汇总统计
 
-$
+$$
 [\operatorname{peak}I,\ t_{\rm peak},\ 
 \overline S,\overline I,\overline R,\operatorname{corr}(S,I),
 \operatorname{corr}(I,R)];
-$
+$$
 
 （ii）所有统计量用训练批次均值和标准差归一到零均值、单位方差；（iii）参数先作对数变换 $(\log\beta,\log\gamma)$，再标准化。训练使用 AdamW，权重衰减 $10^{-4}$，批大小 256，学习率 $2\times10^{-4}$。
 
@@ -1024,192 +1024,42 @@ $
 1. **Gaussian Linear。** 先验 $\theta\sim\mathcal N(0,0.1I)$，$\theta\in\mathbb R^{10}$；似然 $x\mid\theta\sim\mathcal N(\theta,0.1I)$，$x\in\mathbb R^{10}$。
 2. **Simple Likelihood and Complex Posterior（SLCP）。** 先验 $\theta\sim\mathrm{Unif}(-3,3)$，$\theta\in\mathbb R^5$。令 $x=(x_1,x_2,x_3,x_4)$，各 $x_i\sim\mathcal N(m_\theta,S_\theta)$，其中
 
-$
+$$
 m_\theta=\begin{bmatrix}\theta_1\\\theta_2\end{bmatrix},\quad
 S_\theta=\begin{bmatrix}s_1^2&\rho s_1s_2\\
 \rho s_1s_2&s_2^2\end{bmatrix},\quad
 s_1=\theta_3^2,\ s_2=\theta_4^2,\ \rho=\tanh(\theta_5).
-$
+$$
 
 将四个二维观测合并，得到 $x\in\mathbb R^8$。
 
 3. **Gaussian Mixture。** 先验 $\theta\sim\mathrm{Unif}(-10,10)$，$\theta\in\mathbb R^2$；似然为同均值、不同协方差的高斯混合：
 
-$
+$$
 p(x\mid\theta)=\tfrac12\mathcal N(x;\theta,I)
 +\tfrac12\mathcal N(x;\theta,0.01I),\quad x\in\mathbb R^2.
-$
+$$
 
 4. **Bernoulli GLM。** 先验 $\beta\sim\mathcal N(0,2)$、$f\sim\mathcal N(0,(F^\top F)^{-1})$，其中 $1\le i,j\le9$，$F_{i,i-2}=1$、$F_{i,i-1}=-2$、$F_{i,i}=1+\sqrt{(i-1)/9}$，其余元素为 0。观测 $x=(x_1,\ldots,x_{10})$，令 $x_1=\sum_i z_i$，$x_{2:10}$ 是观测 $z$ 的相应统计量，其中
 
-$
+$$
 z_i\sim\mathrm{Bernoulli}(\eta(v_i^\top f+\beta)),
 \qquad\eta(a)=\frac{e^a}{1+e^a}.
-$
+$$
 
 原文在 $x_{2:10}$ 的矩阵表达中使用经验协方差与一个记作 $V_z$ 的矩阵，相关索引/排版应以 PDF 最后一页为准，不能仅据此行重构全部模拟器实现。
 
 5. **Two Moons。** 先验 $\theta\sim\mathrm U(-1,1)$，$\theta\in\mathbb R^2$。生成观测
 
-$
+$$
 x=\begin{bmatrix}r\cos\alpha+0.25\\r\sin\alpha\end{bmatrix}
 +\begin{bmatrix}-|\theta_1+\theta_2|/\sqrt2\\
 (-\theta_1+\theta_2)/\sqrt2\end{bmatrix},
-$
+$$
 
 其中 $\alpha\sim\mathrm U(-\pi/2,\pi/2)$，$r\sim\mathcal N(0.1,0.01^2)$，$x\in\mathbb R^2$。
 
 **计算资源。** 初期分析和原型实验在配备 Intel Core i7 与 16 GB 内存的 MacBook Pro 上进行。较大实验使用机构研究集群的多核 CPU 与 128 GB 内存。作者明确说明所有实验均未使用 GPU。依数据集和任务而异，典型聚类与评估运行可在数小时内完成。
-
-
-## 补充材料 E：其他实验（原文第 21–30 页）
-
-本节补充考察流匹配后验采样器的单调性与可信集恢复、联合变量尺度对后验恢复的影响，以及不同先验和真实疫情数据下的推断表现。
-
-### E.1 Neal's Funnel 的条件后验
-
-重新考虑正文式（14）的 Neal's Funnel。将其联合密度改写后，给定观测 $x$ 的 $\nu$ 后验在归一化常数意义下为
-
-$$
-p(\nu\mid x)\propto
-\exp\!\left[-\frac12\left(\frac{\nu^2}{3^2}
-+e^{-\nu}x^2+\nu\right)\right].\tag{18}
-$$
-
-因为这一例的对数后验对 $\nu$ 凹，可以用对称建议分布的 Metropolis–Hastings（MH）较容易地获得可靠参考。给定当前 $\nu^{(t-1)}$，建议状态
-$\nu^*\sim\mathcal N(\nu^{(t-1)},\sigma^2)$，接受概率为
-$\alpha=\min\{1,\exp[\ell(\nu^*;x)-\ell(\nu^{(t-1)};x)]\}$，其中 $\ell$ 是式（18）的未归一化对数后验。
-
-**图 5：** 分别在 $x=-5,1,10,25$ 时，用 MH（第一行）和学习流（第二行）估计 $\nu\mid x$。在实际考察的观测范围内，学习流较好地近似 MH 的条件后验；当 $x=25$ 时，$\nu$ 更可能处于较大值且相应训练数据稀疏，流模型估计的尾部比 MH 略宽。
-
-### E.2 适当变量缩放的影响
-
-假设 2 规定 $\widehat v_t(x)$ 对状态空间是 $L_t$-Lipschitz 的。理论 1 给出的平均平方 $W_2$ 后验误差上界含 $2\varepsilon_N^2Le^{2L}$，其中 $L=\int_0^1L_tdt$；这表明 Lipschitz 常数增大会显著放大理论误差上界。
-
-令 $x_t=[y_t^\top,\theta_t^\top]^\top$，$\mu_t=\mathbb Ex_t$、$\Sigma_t=\operatorname{Cov}(x_t)$。原文将确定性速度流 $\dot x_t=v_t(x_t)$ 下的协方差演化写为
-
-$$
-\frac d{dt}\Sigma_t
-=\mathbb E\!\left[(\nabla_xv_t)(x_t)\Sigma_t
-+\Sigma_t(\nabla_xv_t)^\top(x_t)\right].\tag{19}
-$$
-
-速度场对空间的 Lipschitz 常数可以通过 Jacobian 算子范数表示：
-
-$$
-L_t=\sup_{x\ne x'}\frac{\|v_t(x)-v_t(x')\|}{\|x-x'\|}
-=\sup_x\|\nabla_xv_t(x)\|_{\rm op}.\tag{20}
-$$
-
-因而 $\|\nabla_xv_t(x)\|_{\rm op}\le L_t$。原文将两式结合，写出 $\frac d{dt}\Sigma_t\preceq2L_t\Sigma_t$，进而得到 $\Sigma_t\preceq e^{2\int_0^tL_sds}\Sigma_0$，这里源分布独立且协方差为 $I_{n+d}$。
-
-当某个坐标的标准差只有 $10^{-3}$、其他坐标量级为 1 时，沿该方向变化 $10^{-3}$ 在总欧氏距离中极小，但网络输出若变化 0.05，则对应方向的差商高达 $0.05/10^{-3}=50$。这会推高 Jacobian 算子范数及 Lipschitz 上界，并在随机优化时造成不同变量方向的梯度极不均衡。把观测和参数共同标准化到接近单位方差，使联合经验协方差接近单位矩阵，有助于网络学习与数值稳定。
-
-**图 6：** SIR 模型中，未缩放的参数空间和手工摘要统计量空间具有很大的尺度差异。**图 7：** 联合分布恢复实验对比标准化前后的差异，说明共同尺度校准的重要性。
-
-> **公式（19）核对提示：** 对一般非线性确定性 ODE，协方差的精确导数直接由 $\mathbb E[(v_t(x_t)-\mathbb Ev_t(x_t))(x_t-\mu_t)^\top+\text{转置}]$ 给出。原文式（19）使用期望 Jacobian 与协方差的乘积，通常还需要额外的线性或闭合假设才能直接等同于精确导数。本译稿保留原式，不把这一近似或可能的证明缺口隐去。
-
-### E.3 SIR 模型中先验选择的影响
-
-经典易感—感染—康复模型（Susceptible–Infected–Recovered，SIR）把总人口 $N=S+I+R$ 分为三个仓室，传播率为 $\beta$、康复率为 $\gamma$，满足
-
-$$
-\frac d{dt}[S,I,R]
-=\left[-\frac{\beta S I}{N},\
-\frac{\beta S I}{N}-\gamma I,\
-\gamma I\right].
-$$
-
-所有实验都模拟 300 天的轨迹，使用统一的归一化初始条件和固定总人口。对参数 $(\beta,\gamma)$，作者比较三种先验族：
-
-- **对数正态先验（图 8）：** $\log\beta\sim\mathcal N(\log0.4,0.5^2)$，$\log\gamma\sim\mathcal N(\log(1/8),0.2^2)$。
-- **均匀先验（图 9）：** $\beta\sim U(0.2,0.8)$，$\gamma\sim U(0.05,0.5)$，用于表示合理范围内较少结构信息的先验。
-- **Gamma 先验（图 10）：** $\beta\sim\operatorname{Gamma}(\text{shape}=2.0,\text{scale}=0.2)$，均值 0.4；$\gamma\sim\operatorname{Gamma}(2.0,0.1)$，均值 0.2，分布向右偏并有更重的右尾。
-
-每种先验独立模拟 5000 条 SIR 轨迹，数值积分并提取固定的手工摘要统计量：感染人数峰值、峰值时刻、易感/感染/康复人数平均值，以及变量间互相关。以摘要统计量为条件，通过流匹配训练参数后验映射。为单独考察先验影响，三种设置的网络结构和其余超参数固定不变。
-
-实验表明，尽管真实参数始终为 $(\beta,\gamma)=(0.3,0.1)$，所学习的后验仍明显受先验选择影响。对数正态先验下后验更集中于真实值附近，并具有一定偏斜；均匀先验下，缺乏先验正则约束，后验在主要似然脊线的正交方向更分散；Gamma 先验则形成明显更重的右尾，尤其是在 $\gamma$ 方向，反映先验形状与非线性前向动力学的共同影响。
-
-**图 8：** 对数正态先验与学习后验的参数边缘分布及联合分布，对照真实参数位置。**图 9：** 用均匀先验替换对数正态先验的对应结果。**图 10：** 用 Gamma 先验替换的结果。三图均以真实参数的红色标记作为参照。
-
-### E.4 利用输入凸神经网络实现单调性
-
-令 $\psi:\mathbb R^n\times\mathbb R^p\times\mathbb R\to\mathbb R$ 为部分输入凸神经网络（Partially Input Convex Neural Network，PICNN；Amos 等，2017），要求其关于 $\theta\in\Theta$ 凸，而不限制 $(y,t)\in\mathcal Y\times[0,1]$ 上的灵活性。定义
-
-$$
-g_t(y,\theta)=\nabla_\theta\psi_t(y,\theta).\tag{21}
-$$
-
-若 $\psi_t$ 在 $\theta$ 上一阶连续可微且凸，则其梯度关于 $\theta$ 单调。因此把条件速度分量中的普通 MLP 替换为凸势梯度，就能在结构上强制单调性，同时保留对观测和流时间的表示能力。
-
-训练源分布时，作者分别在 $n$ 维与 $d$ 维空间生成球对称径向样本：$y_0=r\phi$、$\theta_0=\tau\xi$，其中 $\phi\sim U(\mathbb S^{n-1}(1))$、$\xi\sim U(\mathbb S^{d-1}(1))$，$r,\tau\sim U[0,1]$。如果使用联合空间的各向同性高斯源分布，参数边缘本身仍为各向同性高斯，则无须上述特殊球面采样操作。
-
-在给定 $y^*$ 下构造可信集时，在参数空间的单位球面上均匀抽取方向 $\xi$，固定半径 $\tau$，令 $\theta_0=\tau\xi$。把该球壳上的初始点送入联合速度场，得到可信集边界 $\partial\widehat C_\tau(y^*)$ 的样本。条件速度的单调性使不同半径对应的轨迹具有嵌套的顺序：若 $\tau_1<\tau_2$，内层球面的像不应穿出外层所界定的区域，因此 $\widehat C_{\tau_1}\subseteq\widehat C_{\tau_2}$。选择使源球含有概率质量 $1-\alpha$ 的半径，即得到标称的 $(1-\alpha)$ 贝叶斯可信集。
-
-作者先在密集的 $(\theta,\theta')$ 网格上检验第 2.3 节的单调性内积条件是否非负，再检查不同半径生成的可信集是否交叉。**图 11：** 共轭高斯示例，$n=4$，每列对应不同的观测样本；$\tau=0.50,0.60,0.70,0.80,0.90,0.95$ 的区域嵌套而不交叉。**图 12：** 对 SIR 模型绘制 $\beta,\gamma$ 的边缘与联合后验，可信集层级为 $\tau=0.5,0.6,0.7,0.8,0.9,0.99$；轮廓从浅到深，对应从小到大可信集，红色参照线表示真实参数 $(0.3,0.1)$。
-
-### E.5 真实数据：COVID-19 分析
-
-作者使用美国伊利诺伊州公共卫生部门公开的日度 COVID-19 监测数据，覆盖 2020 年 3 月 10 日至 9 月 25 日，共 200 天。记录包含日期、累计及新增确诊病例、累计及新增死亡、检测总人数。依据 AlQadi 与 Bani-Yaghoub（2022）的方法，从这些观测重建 SIR 的仓室：
-
-感染人数 $I(t)$ 采用前 14 天新增确诊数之和，$I(t)=\sum_{k=t-13}^{t}N_k$。易感人数 $S(t)$ 结合检测数据及约 5 天的潜伏期估计：当天检测阴性者，加上预计至少 6 天后才转阳、在时刻 $t$ 尚处于潜伏期的人。原数据不含康复人数，故假设确诊感染者中最终康复比例 $p$ 位于 95%–99%，令
-
-$$
-R(t)=p\left(\sum_{k=t-15}^{t}N_k\right)-D(t),\qquad p\in[0.95,0.99],
-$$
-
-其中 $D(t)$ 为累计死亡人数。
-
-**表 4：伊利诺伊州 COVID-19 数据的描述统计量（2020-03-10 至 2020-09-25）。**
-
-| 统计量 | 新增病例 $N_t$ | 每日检测 | 死亡 | $S$ | $I$ | $R$ |
-|---|---:|---:|---:|---:|---:|---:|
-| 均值 | 1,375 | 25,286 | 4,950 | 32,336 | 18,372 | 111,496 |
-| 标准差 | 819 | 18,935 | 3,160 | 20,294 | 10,147 | 77,738 |
-| 最小值 | 0 | 0 | 0 | 14 | 0 | 0 |
-| 最大值 | 5,594 | 149,273 | 8,672 | 153,951 | 35,019 | 260,877 |
-
-作者采用传染率与移除率的对数正态先验，分别为 $\beta\sim\operatorname{LogNormal}(\log0.4,0.5^2)$ 和 $\gamma\sim\operatorname{LogNormal}(\log(1/8),0.2^2)$。给定参数抽样后数值求解 SIR ODE，用 $(\beta,\gamma,\text{模拟数据})$ 配对训练块三角流，再以伊利诺伊州 200 天观测生成条件后验。重点解释四个流行病学量：基础再生数 $R_0=\beta/\gamma$、平均传染期 $D=1/\gamma$、早期指数增长率 $r=\beta-\gamma$ 和倍增时间 $T_d=\log2/r$。
-
-原文报告 $\gamma$ 对应感染期约 14.6 天，与文献常见的 10–20 天范围一致；$R_0\approx3.5$ 落于未采取干预时早期传播估计的 3–5 范围；$r$ 的 MAP 估计约为每天 0.17，对应倍增时间约 3.98 天，也与早期报告的约 2–4 天同数量级。因为 AlQadi 与 Bani-Yaghoub（2022）使用包含额外驱动项的扩展 SIR 模型，本文数值不宜与该研究直接视为同一模型下的严格比较。
-
-**表 5：参数与派生统计量的最大后验估计（MAP）及 90% 边缘可信区间。**
-
-| 统计 | $\beta$ | $\gamma$ | $R_0$ | $1/\gamma$（天） | $r$ | $T_d$（天） |
-|---|---:|---:|---:|---:|---:|---:|
-| MAP | 0.24 | 0.07 | 3.54 | 14.58 | 0.17 | 3.98 |
-| 下界 LB | 0.12 | 0.05 | 1.53 | 9.46 | 0.04 | 1.23 |
-| 上界 UB | 0.64 | 0.11 | 9.25 | 18.75 | 0.56 | 14.26 |
-
-### E.6 实验实现细节
-
-除另有说明外，各实验都从联合 $\mathcal Y\times\Theta$ 空间的各向同性标准高斯 $\mathcal N(0,I_{n+d})$ 出发。代码与精确实验配置由原作者 GitHub 仓库提供。
-
-**Neal's Funnel。** 观测边缘速度 $f_t$ 与条件速度 $g_t$ 均使用四层全连接网络、隐藏宽度 64、ELU 激活，Adam 学习率 0.001，训练 20000 次迭代。
-
-**共轭高斯。** 架构与 Funnel 示例相似，但根据观测维度 $n$ 比例调整隐藏宽度，起始宽度 64。较低维的问题允许更小的网络，而无需明显损失精度。
-
-**SIR。** 对轨迹 $y=(S_t,I_t,R_t)_{t=1}^T$、参数 $\theta=(\beta,\gamma)$，$f_t$ 是四层宽 64 MLP，$g_t$ 是由两残差块、每块宽 128、SiLU 激活组成且经过谱归一化的 ResNet 的梯度。预处理把原始时序变成 7 维摘要
-$[\operatorname{peak}I,t_{\rm peak},\bar S,\bar I,\bar R,\operatorname{corr}(S,I),\operatorname{corr}(I,R)]$，在训练批次上逐维零均值、单位方差标准化；参数先作 $\log\beta,\log\gamma$ 变换再标准化。采用 AdamW、权重衰减 $10^{-4}$、批量 256、学习率 $2\times10^{-4}$。
-
-**可信集覆盖实验。** 在共轭高斯情形，对每份模拟数据 $y$，从内层 $\tau$ 球中均匀生成 $n_{\rm set}=2000$ 个源噪声向量，送入给定 $y$ 条件下的学习流，取输出的 $(\mu,\sigma)$ 点集凸包，作为 $C_\tau(y)$。对 $\tau\in\{0.5,0.6,0.7,0.8,0.9,0.95\}$ 得到嵌套集合。再独立从学习流生成 $M=2000$ 个给定 $y$ 的后验样本，计算其中落入各凸包的比例；对 100 份独立 $y$ 重复，并将覆盖率箱线图与理想 $y=\tau$ 直线对照（图 3）。实验显示经验包含概率与标称概率比较接近。
-
-**表 2 与表 3 的模拟推断基准。** 使用 sbibm（Lueckmann 等，2021）包。每个任务从先验和仿真器抽取 10 组真值参数与观测；每份观测建立 10000 个参考后验样本，比较 1000–100000 次仿真预算下不同算法。拒绝式 ABC 和序贯 Monte-Carlo ABC 采用 sbibm 实现。主要评价指标是分类器二样本检验（C2ST），分类器为两层 MLP，每层宽度为数据维度的 10 倍，进行五折交叉验证；另外记录运行时间（表 2）。引导流遵循 Zheng 等（2023）并固定引导强度 $\omega=1.5$。
-
-五项评测模型为：
-
-1. **Gaussian Linear：** $\theta\sim\mathcal N(0,0.1I)$、$\theta\in\mathbb R^{10}$；给定 $\theta$，$x\sim\mathcal N(\theta,0.1I)$，$x\in\mathbb R^{10}$。
-2. **Simple Likelihood and Complex Posterior（SLCP）：** $\theta\sim U(-3,3)^5$；观测含四个二维样本，$x_i\sim\mathcal N(m_\theta,S_\theta)$，$m_\theta=(\theta_1,\theta_2)^\top$，
-$S_\theta=\left(\begin{smallmatrix}s_1^2&\rho s_1s_2\\\rho s_1s_2&s_2^2\end{smallmatrix}\right)$，
-$s_1=\theta_3^2,s_2=\theta_4^2,\rho=\tanh(\theta_5)$，故 $x\in\mathbb R^8$。
-3. **Gaussian Mixture：** $\theta\sim U(-10,10)^2$；条件似然为 $0.5\mathcal N(\theta,I)+0.5\mathcal N(\theta,0.01I)$，$x\in\mathbb R^2$。
-4. **Bernoulli GLM：** 截距 $\beta\sim\mathcal N(0,2)$；潜变量 $f\sim\mathcal N(0,(F^\top F)^{-1})$；矩阵 $F$ 的非零项在 $1\le i,j\le9$ 下为 $F_{i,i-2}=1$、$F_{i,i-1}=-2$、$F_{i,i}=1+\sqrt{(i-1)/9}$。每个 $z_i$ 为 Bernoulli 随机变量，成功概率由 logistic 函数 $\eta(v_i^\top f+\beta)=e^{v_i^\top f+\beta}/(1+e^{v_i^\top f+\beta})$ 决定；观测由这些二元结果的总数和标准化组合构成（详细构造见原始公式）。
-5. **Two Moons：** $\theta\sim U(-1,1)^2$；观测
-$x=(r\cos\alpha+0.25,r\sin\alpha)^\top+
-(-|\theta_1+\theta_2|/\sqrt2,(-\theta_1+\theta_2)/\sqrt2)^\top$，
-其中 $\alpha\sim U(-\pi/2,\pi/2)$、$r\sim\mathcal N(0.1,0.01^2)$，$x\in\mathbb R^2$。
-
-**计算资源。** 原型分析使用 Intel Core i7、16 GB 内存的 MacBook Pro；规模较大的实验使用机构研究集群中多核 CPU 和 128 GB 内存的计算节点。作者明确说明**未使用 GPU**；不同任务的运行时间有所不同，常见的聚类和评测运行在数小时内结束。
 
 
 ## 参考文献（保留原始英文书目）
