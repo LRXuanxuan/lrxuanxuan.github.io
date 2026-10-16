@@ -101,7 +101,7 @@
     ],
     "url": "/papers/translations/2026-10-16-markov-cfm-2610-07229/",
     "source_file": "2026-10-16-markov-cfm-2610-07229.md",
-    "scope": "摘要、正文 1–7 节、主要公式（1）–（23）、附录 A.1；附录 A.2–A.5、B–F 和参考文献待补，未通过全文验收",
+    "scope": "摘要、正文 1–7 节、公式（1）–（49）、附录 A.1–A.5 已译；附录 B–F 与参考文献待补，新增证明公式已修复展示格式，未通过全文验收",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-16-markov-cfm-2610-07229.md",
     "source_page_path": "papers/translations/2026-10-16-markov-cfm-2610-07229.md",
     "external": true,
