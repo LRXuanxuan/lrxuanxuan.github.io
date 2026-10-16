@@ -1040,14 +1040,14 @@ p(x\mid\theta)=\tfrac12\mathcal N(x;\theta,I)
 +\tfrac12\mathcal N(x;\theta,0.01I),\quad x\in\mathbb R^2.
 $$
 
-4. **Bernoulli GLM。** 先验 $\beta\sim\mathcal N(0,2)$、$f\sim\mathcal N(0,(F^\top F)^{-1})$，其中 $1\le i,j\le9$，$F_{i,i-2}=1$、$F_{i,i-1}=-2$、$F_{i,i}=1+\sqrt{(i-1)/9}$，其余元素为 0。观测 $x=(x_1,\ldots,x_{10})$，令 $x_1=\sum_i z_i$，$x_{2:10}$ 是观测 $z$ 的相应统计量，其中
+4. **Bernoulli GLM。** 先验 $\beta\sim\mathcal N(0,2)$、$f\sim\mathcal N(0,(F^\top F)^{-1})$，其中 $1\le i,j\le9$，$F_{i,i-2}=1$、$F_{i,i-1}=-2$、$F_{i,i}=1+\sqrt{(i-1)/9}$，其余元素为 0。观测 $x=(x_1,\ldots,x_{10})$，记 $z=(z_1,\ldots,z_T)^\top$，并按照原文写成 $x_1=\sum_{i=1}^{T}z_i$、$x_{2:10}=\frac{1}{x_1}Vz$，其中
 
 $$
 z_i\sim\mathrm{Bernoulli}(\eta(v_i^\top f+\beta)),
 \qquad\eta(a)=\frac{e^a}{1+e^a}.
 $$
 
-原文在 $x_{2:10}$ 的矩阵表达中使用经验协方差与一个记作 $V_z$ 的矩阵，相关索引/排版应以 PDF 最后一页为准，不能仅据此行重构全部模拟器实现。
+原文将 $V$ 与二值观测向量 $z$ 相乘，但在该附录条目中未展开 $V$ 的矩阵定义；此处按照 PDF 第 30 页保留 $x_{2:10}=x_1^{-1}Vz$ 的原记号，不将 $Vz$ 误写成名为 $V_z$ 的变量。
 
 5. **Two Moons。** 先验 $\theta\sim\mathrm U(-1,1)$，$\theta\in\mathbb R^2$。生成观测
 
