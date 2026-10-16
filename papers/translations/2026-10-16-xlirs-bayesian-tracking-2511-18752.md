@@ -202,7 +202,16 @@ $$
 \tau_k=\frac{1}{f_s}\left(k-\frac12\right).
 $$
 
-假设 $N_f$ 足够大，使得所有级联路径时延都小于 $\tau_{N_f}$。对于 XL-IRS 处的极坐标域，使用 $\bar N_R=N_RS$ 个非均匀网格点 $(\bar\vartheta_m,\bar r_m)$；其中 $N_R$ 与 $S$ 分别为角度和距离网格数。原文式（13）依据极坐标采样方法确定角度与距离，并使用阈值距离 $Z_\Delta$ 控制距离采样间隔。
+假设 $N_f$ 足够大，使得所有级联路径时延都小于 $\tau_{N_f}$。对于 XL-IRS 处的极坐标域，使用 $\bar N_R=N_RS$ 个非均匀网格点 $(\bar\vartheta_m,\bar r_m)$；其中 $N_R$ 与 $S$ 分别为角度和距离网格数。依据原文式（13），角度网格与距离网格的采样位置为
+
+$
+\bar\vartheta_m=\frac{2}{N_R}
+\left(\left\lfloor\frac{m-1}{S}\right\rfloor-\frac{N_R-1}{2}\right),
+\qquad
+\bar r_m=Z_\Delta\,\frac{1-\bar\vartheta_m^2}{\operatorname{mod}(m-1,S)}.\tag{13}
+$
+
+其中 $Z_\Delta$ 为距离阈值。**原文公式核对说明：** 当 $\operatorname{mod}(m-1,S)=0$ 时，式（13）的距离表达式包含零分母。按原文保留该式，不能把这一项当作有限距离直接计算；若实现时将其作为远场极限网格点处理，需要另行确定程序中的实际约定。
 
 由于真实角度、时延和极坐标位置连续变化，通常不会恰好落在离散字典网格上。为进行超分辨参数估计，作者引入四组离网格修正量 $\Delta\boldsymbol\phi^{(t)}$、$\Delta\boldsymbol\tau^{(t)}$、$\Delta\bar{\boldsymbol\vartheta}^{(t)}$ 和 $\Delta\bar{\mathbf r}^{(t)}$。令 $u_l^{(t)}$、$k_l^{(t)}$、$m_l^{(t)}$ 为与第 $l$ 条真实路径的角度、时延、极坐标位置最近的网格索引。非零位置上的修正值定义为
 
@@ -226,7 +235,23 @@ $$
 \times_3\mathbf A_f(\Delta\boldsymbol\tau^{(t)}).\tag{16}
 $$
 
-$\boldsymbol{\mathcal Z}^{(t)}\in\mathbb C^{N_U\times\bar N_R\times N_f}$ 为极坐标—角度—时延域中的稀疏级联信道，其非零单元对应 $L^{(t)}$ 条传播路径。把它代入式（12），并对观测张量向量化，可得
+$\boldsymbol{\mathcal Z}^{(t)}\in\mathbb C^{N_U\times\bar N_R\times N_f}$ 为极坐标—角度—时延域中的稀疏级联信道，其非零单元对应 $L^{(t)}$ 条传播路径。将式（16）代入式（12），三阶观测张量首先满足
+
+$
+\begin{aligned}
+\boldsymbol{\mathcal Y}_p^{(t)}
+={}&\boldsymbol{\mathcal Z}^{(t)}
+\times_1\left(\mathbf X_p^{(t)}
+\widetilde{\mathbf A}_{BU,p}(\Delta\boldsymbol\phi^{(t)})\right)\\
+&\times_2\left((\mathbf v_p^{(t)})^{\mathsf T}
+\mathbf A_R(\Delta\bar{\boldsymbol\vartheta}^{(t)},\Delta\bar{\mathbf r}^{(t)})\right)\\
+&\times_3\left(\sqrt{p_T}\operatorname{diag}(\mathbf x_p)\,
+\mathbf S\mathbf A_f(\Delta\boldsymbol\tau^{(t)})\right)
++\overline{\boldsymbol{\mathcal N}}_p^{(t)}.
+\end{aligned}\tag{17}
+$
+
+再将观测张量向量化，可得
 
 $$
 \mathbf y_p^{(t)}=\mathbf F_p^{(t)}\mathbf z^{(t)}+\bar{\mathbf n}_p^{(t)},\tag{18}
@@ -341,7 +366,19 @@ $$
 \omega_n^{(t)}=(1-\chi_\omega)(\omega_n^{(t-1)}-\mu_\omega)+\chi_\omega\varepsilon_{\omega,n}^{(t)}+\mu_\omega.\tag{30}
 $$
 
-$\chi_\nu,\chi_\omega\in[0,1]$ 调节时间相关性，$\mu_\nu,\mu_\omega$ 为平稳均值，$\varepsilon$ 为高斯扰动。根据是否存在有效路径，状态转移采用零点 Dirac 分布与高斯条件分布的混合；式（31）和式（32）分别将幅度、相位条件先验分解为第二帧初始分布和后续各帧的条件转移概率。第二帧初始分布由 CE 阶段的 $\widehat\nu_n,\widehat\omega_n$ 预测得到。
+$\chi_\nu,\chi_\omega\in[0,1]$ 调节时间相关性，$\mu_\nu,\mu_\omega$ 为平稳均值，$\varepsilon$ 为高斯扰动。根据是否存在有效路径，状态转移采用零点 Dirac 分布与高斯条件分布的混合；式（31）和式（32）分别将幅度、相位条件先验分解为第二帧初始分布和后续各帧的条件转移概率。第二帧初始分布由 CE 阶段的 $\widehat\nu_n,\widehat\omega_n$ 预测得到。原文的跨帧先验分解式为
+
+$
+p(\boldsymbol\nu^{(2:T)}\mid\mathbf s^{(2:T)})
+=\prod_{n=1}^{\bar N}p(\nu_n^{(2)}\mid s_n^{(2)})
+\prod_{t=3}^{T}p(\nu_n^{(t)}\mid\nu_n^{(t-1)},s_n^{(t)}).\tag{31}
+$
+
+$
+p(\boldsymbol\omega^{(2:T)}\mid\mathbf s^{(2:T)})
+=\prod_{n=1}^{\bar N}p(\omega_n^{(2)}\mid s_n^{(2)})
+\prod_{t=3}^{T}p(\omega_n^{(t)}\mid\omega_n^{(t-1)},s_n^{(t)}).\tag{32}
+$
 
 **支撑向量。** 传播环境缓慢变化时，各支撑位置也可以由一阶马尔可夫链刻画：
 
@@ -372,7 +409,15 @@ $$
 \Delta\bar{\mathbf r}^{(t)}=\Delta\bar{\mathbf r}^{(t-1)}+\mathbf c_{\bar r}^{(t)}.\tag{36}
 $$
 
-扰动向量服从各自独立的零均值高斯分布。式（37）将 $\Delta\boldsymbol\phi^{(2:T)}$ 的先验分解为各分量的初始概率及时间转移概率；其余三种离网格参数采用相同建模方式。
+扰动向量服从各自独立的零均值高斯分布。对于角度离网格向量，原文的时序先验因子分解为
+
+$
+p(\Delta\boldsymbol\phi^{(2:T)})
+=\prod_{u=1}^{N_U}p(\Delta\phi_u^{(2)})
+\prod_{t=3}^{T}p(\Delta\phi_u^{(t)}\mid\Delta\phi_u^{(t-1)}).\tag{37}
+$
+
+其余三类离网格参数 $\Delta\boldsymbol\tau$、$\Delta\bar{\boldsymbol\vartheta}$ 与 $\Delta\bar{\mathbf r}$ 采用类似的因子分解。
 
 ### D. 信道估计与跟踪的有源及无源波束成形设计
 
@@ -459,7 +504,20 @@ $$
 n^{(l)}=(k^{(l)}-1)\overline N_RN_U+(m^{(l)}-1)N_U+u^{(l)}.
 $$
 
-路径增益的模和相角给出 $\dot\nu_n$、$\dot\omega_n$。固定已识别的活跃支撑与增益后，多普勒频偏 $f_d$ 和离网格偏移 $\boldsymbol\Xi$ 通过最小化观测拟合残差来估计（原文式（42）），并用 Armijo 步长规则进行梯度下降：
+路径增益的模和相角给出 $\dot\nu_n$、$\dot\omega_n$。固定已识别的活跃支撑与增益后，通过以下最大似然对应的残差最小化问题估计 Doppler 频偏 $f_d$ 和离网格偏移 $\boldsymbol\Xi$：
+
+$
+\min_{f_d,\boldsymbol\Xi}
+\sum_{\bar k=1}^{\bar K}\sum_{p=1}^{P}
+\left\|
+\mathbf y_{k,p}
+-\sqrt{p_T}\,x_{k,p}\mathbf W_p^{\mathsf H}
+\mathbf a_B(\vartheta_B)\mathbf f_p^{\mathsf T}
+\dot{\mathbf R}_{k,p}\mathbf v_p
+\right\|_2^2.\tag{42}
+$
+
+其中 $\dot{\mathbf R}_{k,p}$ 是在当前活跃路径集合及幅相估计下重构的级联信道，依赖待优化的频偏与离网格参数。原文使用 Armijo 步长规则进行梯度下降：
 
 $$
 \begin{aligned}
