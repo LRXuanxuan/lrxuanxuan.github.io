@@ -150,54 +150,54 @@ $$
 
 定义时间相关的双射映射 $\psi_t$，其常微分方程为：
 
-$
+$$
 \frac{d\psi_t(\mathbf z)}{dt}
 =\mathbf v_t(\psi_t(\mathbf z)),\qquad
 \psi_1(\mathbf z)=\mathbf z.\tag{17}
-$
+$$
 
 $\mathbf v_t$ 是随时间变化的速度场。一个初始噪声样本 $\mathbf z_1\sim\mathcal N(0,\mathbf I)$ 被沿连续轨迹 $\mathbf z_t=\psi_t(\mathbf z_1)$ 传输；从 $t=1$ 积分至 $t=0$ 得到符合目标分布的信道样本 $\mathbf h=\mathbf z_0$。
 
 给定具有边缘速度场 $\mathbf v_t$ 的概率路径，通常可以将其用参数化网络 $\mathbf v_t^\vartheta$ 逼近，流匹配（Flow Matching，FM）目标为：
 
-$
+$$
 \mathcal L_{\rm FM}(\vartheta)=
 \mathbb E_{t,\mathbf z_t\sim p_t}
 \left[\|\mathbf v_t(\mathbf z_t)
 -\mathbf v_t^\vartheta(\mathbf z_t)\|_2^2\right].\tag{18}
-$
+$$
 
 但真实边缘速度场一般无法计算。采用更简单的条件概率路径 $p_t(\mathbf z_t\mid\mathbf h)$，可将边缘分布与速度场写成：
 
-$
+$$
 p_t(\mathbf z_t)
 =\int p_t(\mathbf z_t\mid\mathbf h)q(\mathbf h)d\mathbf h,\tag{19}
-$
+$$
 
-$
+$$
 \mathbf v_t(\mathbf z_t)
 =\mathbb E_{\mathbf h\sim p_t(\cdot\mid\mathbf z_t)}
 [\mathbf v_t(\mathbf z_t\mid\mathbf h)]
 =\int\mathbf v_t(\mathbf z_t\mid\mathbf h)
 \frac{p_t(\mathbf z_t\mid\mathbf h)q(\mathbf h)}
 {p_t(\mathbf z_t)}d\mathbf h.\tag{20}
-$
+$$
 
 由于未知数据分布 $q$，式 (20) 的积分仍难计算。条件流匹配（Conditional Flow Matching，CFM）改为直接拟合条件速度场：
 
-$
+$$
 \mathcal L_{\rm CFM}(\vartheta)=
 \mathbb E_{t,\mathbf h\sim q,\mathbf z_t\sim p_t(\cdot\mid\mathbf h)}
 \left[\|\mathbf v_t(\mathbf z_t\mid\mathbf h)
 -\mathbf v_t^\vartheta(\mathbf z_t)\|_2^2\right].\tag{21}
-$
+$$
 
 原文指出，CFM 与 FM 对网络参数的梯度相同，因而具有等价的优化目标。训练完成后，从高斯分布采样，再通过 Euler 等方法从 $t=1$ 积分到 $t=0$：
 
-$
+$$
 \mathbf z_{t-\Delta t}
 =\mathbf z_t-\mathbf v_t^\vartheta(\mathbf z_t)\Delta t.\tag{22}
-$
+$$
 
 由此通过调整网络函数评价次数（number of function evaluations，NFE），在生成质量与推断速度间权衡。
 
@@ -205,35 +205,35 @@ $
 
 **1）仿射条件流与最优传输。** 为具体实现式 (21)，作者选取仿射条件流，在信道样本 $\mathbf h\sim q$ 和噪声 $\mathbf z_1\sim\mathcal N(0,\mathbf I)$ 之间插值：
 
-$
+$$
 \mathbf z_t=\psi_t(\mathbf z_1\mid\mathbf h)
 =a_t\mathbf h+b_t\mathbf z_1.\tag{23}
-$
+$$
 
 边界条件要求 $a_0=1,b_0=0$，$a_1=0,b_1=1$。作者取线性最优传输形式 $a_t=1-t,b_t=t$：
 
-$
+$$
 \mathbf z_t=(1-t)\mathbf h+t\mathbf z_1,\tag{24}
-$
+$$
 
 其对应的条件速度场为：
 
-$
+$$
 \mathbf v_t(\mathbf z_t\mid\mathbf h)
 =\frac{da_t}{dt}\mathbf h+
 \frac{db_t}{dt}\mathbf z_1
 =\mathbf z_1-\mathbf h.\tag{25}
-$
+$$
 
 这里的“最优传输（OT）路径”指所采用的线性条件路径，原文认为其较直的轨迹有利于减少大步长数值求解的离散化误差；并非表示使用了求解数据—噪声总体最优耦合的单独训练算法。利用重参数化技巧，最终实际优化目标成为：
 
-$
+$$
 \mathcal L_{\rm CFM}(\vartheta)=
 \mathbb E_{t,\mathbf h\sim q,\mathbf z_1\sim p}
 \left[\left\|
 \mathbf v_t^\vartheta(\mathbf z_t)
 -(\mathbf z_1-\mathbf h)\right\|_2^2\right].\tag{26}
-$
+$$
 
 该目标仅需样本、高斯噪声、随机时间与向量回归，不需要在每次训练时积分 ODE。
 
@@ -241,13 +241,13 @@ $
 
 在每个小批量中，从离线信道数据集抽取 $B$ 个样本，对每个样本独立抽取 $t^{(i)}\sim U[0,1]$ 与 $\mathbf z_1^{(i)}\sim\mathcal N(0,\mathbf I)$，按照式 (24) 构造 $\mathbf z_{t^{(i)}}^{(i)}$。经验训练损失为：
 
-$
+$$
 \widehat{\mathcal L}_{\rm CFM}(\vartheta)
 =\frac1B\sum_{i=1}^{B}
 \left\|\mathbf v_{t^{(i)}}^\vartheta
 (\mathbf z_{t^{(i)}}^{(i)})
 -(\mathbf z_1^{(i)}-\mathbf h^{(i)})\right\|_2^2.\tag{27}
-$
+$$
 
 **算法 1：离线基于流的扩散模型训练。** 输入训练集、小批量大小 $B$ 与学习率 $\zeta$；循环执行样本抽取、均匀时间采样、高斯噪声采样及插值状态构造；计算式 (27)；用 SGD/Adam 更新 $\vartheta\leftarrow\vartheta-\zeta\nabla_\vartheta\widehat{\mathcal L}_{\rm CFM}$，直至收敛。
 
@@ -257,79 +257,79 @@ $
 
 **1）流分解。** 先省略用户下标。沿最优传输路径，式 (20) 中的瞬时边缘速度可以表示为给定中间状态的条件速度期望：
 
-$
+$$
 \mathbf v_t(\mathbf z_t)
 =\mathbb E[\mathbf z_1-\mathbf h\mid\mathbf z_t]
 =\widehat{\mathbf z}_{1\mid t}
 -\widehat{\mathbf h}_{0\mid t},\tag{28}
-$
+$$
 
 其中 $\widehat{\mathbf h}_{0\mid t}=\mathbb E[\mathbf h\mid\mathbf z_t]$，$\widehat{\mathbf z}_{1\mid t}=\mathbb E[\mathbf z_1\mid\mathbf z_t]$。再由条件均值的线性性得：
 
-$
+$$
 \mathbf z_t=(1-t)\widehat{\mathbf h}_{0\mid t}
 +t\widehat{\mathbf z}_{1\mid t}.\tag{29}
-$
+$$
 
 联立并以学习网络近似真实速度场，得到最优传输路径下的 Tweedie 形式：
 
-$
+$$
 \widehat{\mathbf h}_{0\mid t}
 =\mathbf z_t-t\mathbf v_t^\vartheta(\mathbf z_t),\tag{30}
-$
+$$
 
-$
+$$
 \widehat{\mathbf z}_{1\mid t}
 =\mathbf z_t+(1-t)\mathbf v_t^\vartheta(\mathbf z_t).\tag{31}
-$
+$$
 
 据此，从任何中间状态都可以近似提取“干净信道预测”及“噪声源预测”。将其代回 Euler 更新，得到：
 
-$
+$$
 \begin{aligned}
 \mathbf z_{t-\Delta t}
 &=\mathbf z_t-\mathbf v_t^\vartheta(\mathbf z_t)\Delta t\\
 &=[1-(t-\Delta t)]\widehat{\mathbf h}_{0\mid t}
 +(t-\Delta t)\widehat{\mathbf z}_{1\mid t}.
 \end{aligned}\tag{32}
-$
+$$
 
 这一分解的工程作用是：无需直接改写整个生成轨迹，只需在每个时间步对“干净信道预测”施加导频一致性约束，再按原有权重重组成下一中间状态。
 
 **2）对干净信道预测施加统一引导。** 恢复用户下标后，各用户的复信道预测通过实值逆映射拼接为：
 
-$
+$$
 \widehat{\mathbf H}_{0\mid t}
 =[f^{-1}(\widehat{\mathbf h}_{1,0\mid t}),
 \ldots,f^{-1}(\widehat{\mathbf h}_{K,0\mid t})].\tag{33}
-$
+$$
 
 测量一致性损失定义为：
 
-$
+$$
 \mathcal L_{\rm MC}
 =\frac12\left\|
 \mathbf Y_p-\boldsymbol\Omega_{\mathcal O}
 \widehat{\mathbf H}_{0\mid t}\mathbf P
 \right\|_F^2.\tag{34}
-$
+$$
 
 采用负梯度更新干净信道估计：
 
-$
+$$
 \widehat{\mathbf H}_{0\mid t}(\mathbf Y_p)
 =\widehat{\mathbf H}_{0\mid t}
 -\alpha_t\nabla_{\widehat{\mathbf H}_{0\mid t}}
 \mathcal L_{\rm MC},\tag{35}
-$
+$$
 
-$
+$$
 \nabla_{\widehat{\mathbf H}_{0\mid t}}\mathcal L_{\rm MC}
 =-\boldsymbol\Omega_{\mathcal O}^{H}
 \left(\mathbf Y_p-
 \boldsymbol\Omega_{\mathcal O}\widehat{\mathbf H}_{0\mid t}
 \mathbf P\right)\mathbf P^{H}.\tag{36}
-$
+$$
 
 再取更新矩阵第 $k$ 列，并经实值映射 $f$ 得到各用户在该步的引导结果（原文式 (37)）。
 
@@ -337,31 +337,31 @@ $
 
 第一，**梯度归一化**。生成初始阶段 $t\to1$ 时，预测信道不确定性大，梯度模长波动明显。于是作者将引导梯度除以 Frobenius 范数，令更新幅度主要受 $\alpha_t$ 控制：
 
-$
+$$
 \widehat{\mathbf H}_{0\mid t}(\mathbf Y_p)
 =\widehat{\mathbf H}_{0\mid t}
 -\alpha_t\frac{\nabla\mathcal L_{\rm MC}}
 {\|\nabla\mathcal L_{\rm MC}\|_F}.\tag{38}
-$
+$$
 
 第二，**多步内优化与插值**。单个流积分步内只修正一次通常不能充分满足测量约束。因此参考 DDS [45]，每个外部积分步执行 $N_{\rm iter}$ 次连续梯度更新（例如 3 次），再将导频引导结果与原先验预测插值：
 
-$
+$$
 \widehat{\mathbf H}_{0\mid t}^{\rm guided}
 =(1-\gamma_t)\widehat{\mathbf H}_{0\mid t}
 +\gamma_t\widehat{\mathbf H}_{0\mid t}(\mathbf Y_p).\tag{39}
-$
+$$
 
 设 $\gamma_t=t$：在高噪声早期加强测量一致性，接近 $t=0$ 时更多保留学习先验的结构。
 
 第三，**噪声随机性注入**。由于导频包含 AWGN，仅最小化测量残差可能过拟合噪声。作者在 Euler 步前修改源噪声预测：
 
-$
+$$
 \widehat{\mathbf z}_{k,1\mid t}^{\rm stoch}
 =\sqrt{1-\eta_t}\widehat{\mathbf z}_{k,1\mid t}
 +\sqrt{\eta_t}\boldsymbol\epsilon,\quad
 \boldsymbol\epsilon\sim\mathcal N(0,\mathbf I).\tag{40}
-$
+$$
 
 采用 $\eta_t=1-(t-\Delta t)$，使随机性随 $t\to0$ 增强；不过 Euler 分解中噪声分量的权重是 $t-\Delta t$，会在末端消失，因此作者认为这种处理能够抑制导频噪声过拟合而不明显损害最终估计。
 
@@ -379,17 +379,17 @@ $
 
 令 NFE $=1/\Delta t$、$N_O=\delta N$，则算法 2 一次运行的复杂度为：
 
-$
+$$
 O\!\left(\mathrm{NFE}\cdot N
 (KD_{\max}^2+N_{\rm iter}\delta K^2)\right).
-$
+$$
 
 运行 $S$ 次获取后验样本集合，总成本为：
 
-$
+$$
 O\!\left(S\cdot\mathrm{NFE}\cdot N
 (KD_{\max}^2+N_{\rm iter}\delta K^2)\right).
-$
+$$
 
 $S$ 次采样及同一次采样内各用户的前向计算均相互独立，可以批处理并行执行。
 
@@ -399,11 +399,11 @@ $S$ 次采样及同一次采样内各用户的前向计算均相互独立，可�
 
 当信道已完全已知时，第 II-C 节中的 Gibbs 分布退化为：
 
-$
+$$
 p_\kappa(\mathbf x\mid\widetilde{\mathbf H})
 =\frac1Z\exp\big(\kappa U(\mathbf x,\widetilde{\mathbf H})\big).
 \tag{41}
-$
+$$
 
 $\kappa>0$ 越大，高效用端口组合的概率权重越高；当 $\kappa\to\infty$ 时，分布集中在最大效用解 $\mathbf x^*(\widetilde{\mathbf H})$ 上。作者把这一极限用作训练目标，学习条件分布 $p_\phi(\mathbf x\mid\widetilde{\mathbf H})$，允许在线阶段对同一信道多次采样获得候选池，而不是只输出单个解。需要注意，实际训练**并不需要显式选择温度 $\kappa$**；这一 Gibbs 形式主要为训练目标提供概率解释。
 
@@ -411,49 +411,49 @@ $\kappa>0$ 越大，高效用端口组合的概率权重越高；当 $\kappa\to\
 
 端口配置是长度为 $N$ 的二元向量，故本文改用离散扩散过程。令 $q(\mathbf x)$ 为目标离散分布，反向生成是一条 $T$ 步马尔可夫链：
 
-$
+$$
 p_\phi(\mathbf x_{0:T})
 =p(\mathbf x_T)\prod_{t=1}^{T}
 p_\phi(\mathbf x_{t-1}\mid\mathbf x_t).\tag{42}
-$
+$$
 
 以独热编码 $\widetilde{\mathbf x}=[\mathbf 1-\mathbf x,\mathbf x]\in\{0,1\}^{N\times2}$ 表示二值状态，正向扩散每步通过类别分布（Cat）随机翻转元素：
 
-$
+$$
 q(\mathbf x_t\mid\mathbf x_{t-1})
 =\mathrm{Cat}(\mathbf x_t;\,
 p=\widetilde{\mathbf x}_{t-1}\mathbf Q_t),\tag{43}
-$
+$$
 
-$
+$$
 \mathbf Q_t=
 \begin{bmatrix}
 1-\beta_t & \beta_t\\
 \beta_t & 1-\beta_t
 \end{bmatrix}.\tag{44}
-$
+$$
 
 噪声时间表 $\beta_t\in(0,1)$ 被设置为使最终分布接近二值均匀随机状态。由马尔可夫性，边缘正向分布 $q(\mathbf x_t\mid\mathbf x_0)$ 可通过累积转移矩阵 $\overline{\mathbf Q}_t=\prod_{i=1}^{t}\mathbf Q_i$ 精确计算。
 
 反向去噪网络预测干净端口配置的分布 $p_\phi(\widehat{\mathbf x}_0\mid\mathbf x_t)$，由它对精确逆条件转移求和：
 
-$
+$$
 p_\phi(\mathbf x_{t-1}\mid\mathbf x_t)
 =\sum_{\widehat{\mathbf x}_0}
 q(\mathbf x_{t-1}\mid\mathbf x_t,\widehat{\mathbf x}_0)
 p_\phi(\widehat{\mathbf x}_0\mid\mathbf x_t).
 \tag{45}
-$
+$$
 
 贝叶斯公式给出 $q(\mathbf x_{t-1}\mid\mathbf x_t,\mathbf x_0)$ 的闭式表达（原文式 (46)），其中使用类别分布、累积转移矩阵及 Hadamard 乘积。为了学习上述逆过程，作者用负证据下界（ELBO）分解损失：各中间时间步的 KL 散度、一步重构的负对数似然以及末端先验匹配项（式 (47)）。由于最后一项对网络参数 $\phi$ 为常数，可忽略；二值变量的重构与中间 KL 项则对应预测干净二值状态的交叉熵，于是采用可计算的二元交叉熵代理损失：
 
-$
+$$
 \mathcal L_{\rm BCE}(\phi,\mathbf x_0)
 =\mathbb E_{t,\mathbf x_t}
 \left[-\sum_{n=1}^{N}
 \log p_\phi(\widehat x_{0,n}=x_{0,n}\mid\mathbf x_t)
 \right].\tag{48}
-$
+$$
 
 ### B. 监督学习式端口选择求解器
 
@@ -461,21 +461,21 @@ $
 
 参考 DIFUSCO [48]，条件训练目标表述为：
 
-$
+$$
 \min_\phi\ \mathbb E_{\widetilde{\mathbf H}}
 \big[D_{\rm KL}(\delta_{\mathbf x^*(\widetilde{\mathbf H})}
 \parallel p_\phi(\mathbf x\mid\widetilde{\mathbf H}))\big].
 \tag{49}
-$
+$$
 
 由于目标分布是点质量，等价于最小化最优标签的负对数似然：
 
-$
+$$
 \min_\phi\ \mathbb E_{\widetilde{\mathbf H}}
 \left[-\log p_\phi(
 \mathbf x^*(\widetilde{\mathbf H})\mid
 \widetilde{\mathbf H})\right].\tag{50}
-$
+$$
 
 由此可采用条件版本的 BCE 训练损失。
 
@@ -491,7 +491,7 @@ $
 
 为了减少离散扩散的生成开销，作者使用跳步采样：从 $T$ 个原始时间步中选一个更短的子序列 $\{\tau_i\}_{i=0}^{T'}$，$T'\ll T$，相应逆转移仍通过对预测干净掩码求和计算：
 
-$
+$$
 p_\phi(\mathbf x_{\tau_{i-1}}\mid
 \mathbf x_{\tau_i},\widehat{\mathbf H})
 =\sum_{\widehat{\mathbf x}_0}
@@ -500,7 +500,7 @@ q(\mathbf x_{\tau_{i-1}}\mid
 p_\phi(\widehat{\mathbf x}_0\mid
 \mathbf x_{\tau_i},\widehat{\mathbf H}).
 \tag{51}
-$
+$$
 
 最后一个步骤不再随机抽样，而将网络预测概率最大的 $M$ 个端口确定性地置 1，其余置 0，从而保证最终掩码满足 $\|\mathbf x\|_1=M$。中间状态允许暂时不满足端口数限制，最终通过 top-$M$ 投影恢复可行性。
 
@@ -512,10 +512,10 @@ $
 
 单次 U-Net 前向仍为 $O(ND_{\max}^2)$。生成 $C$ 个候选、各执行 $T'$ 次网络调用的成本为 $O(CT'ND_{\max}^2)$。评分及局部精化最多需评估 $C+N_rM(N-M)$ 个配置，每个配置利用 $S$ 个信道样本计算效用；一次效用计算的成本为 $O(M^3+M^2K)$。因而总复杂度为：
 
-$
+$$
 O\!\left(CT'ND_{\max}^2+
 S[C+N_rM(N-M)](M^3+M^2K)\right).
-$
+$$
 
 作者指出，所考虑的数值配置中，候选生成网络的前向传播占主要成本。
 
@@ -535,14 +535,14 @@ $
 
 除非另有说明，默认观测端口数 $N_O=121$、SNR $=20$ dB，每个点对 100 次 Monte Carlo 运行取平均，导频码本来自 Hadamard 矩阵。采用归一化均方误差：
 
-$
+$$
 \mathrm{NMSE}=
 \mathbb E\left[
 \frac{\|\widehat{\mathbf H}
 -\widetilde{\mathbf H}\|_F^2}
 {\|\widetilde{\mathbf H}\|_F^2}
 \right].\tag{52}
-$
+$$
 
 生成信道已归一化，故 SNR $=1/\sigma_n^2$。测量一致性指导每步执行 $N_{\rm iter}=3$ 次梯度更新，引导步长 $\alpha_t$ 对各测试工作点调定后保持固定；默认信道估计使用 $S=4$ 个后验样本的均值。
 
