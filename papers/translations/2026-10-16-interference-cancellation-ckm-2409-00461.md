@@ -570,17 +570,17 @@ $$
 b_{f_{\mathbf y_t}}(\bar\tau_{q,l})
 &\propto
 \mathcal M_{f_{\mathbf y_t}\to\bar\tau_{q,l}}\,
-\mathcal M_{\bar\tau_{q,l}\to f_{\mathbf y_t}},\tag{26a}\\
+\mathcal M_{\bar\tau_{q,l}\to f_{\mathbf y_t}},\quad\text{(26a)}\\
 &\propto\mathcal M_{f_{\mathbf y_t}\to\bar\tau_{q,l}}
 \prod_{j\ne t}\mathcal M_{f_{\mathbf y_j}\to\bar\tau_{q,l}}
-\,\mathcal M_{f_{\bar\tau_{q,l}}\to\bar\tau_{q,l}},\tag{26b}\\
+\,\mathcal M_{f_{\bar\tau_{q,l}}\to\bar\tau_{q,l}},\quad\text{(26b)}\\
 &\propto\operatorname{VM}(
 \bar\tau_{q,l};\mu_{\bar\tau_{q,l}\to f},
 \kappa_{\bar\tau_{q,l}\to f})
-p(\bar\tau_{q,l}),\tag{26c}\\
+p(\bar\tau_{q,l}),\quad\text{(26c)}\\
 &\propto\operatorname{VM}(
 \bar\tau_{q,l};\mu_{\bar\tau_{q,l}},\kappa_{\bar\tau_{q,l}}).
-\tag{26d}
+\quad\text{(26d)}
 \end{aligned}
 $$
 
@@ -641,12 +641,12 @@ b_{f_{\mathbf y_t}}(\boldsymbol\beta_t^{u{\rm I}})
 \mathcal{CN}\!\left(
 \boldsymbol\beta_t^{u{\rm I}};
 \boldsymbol\mu_{f_\beta\to\beta},
-\boldsymbol\Sigma_{f_\beta\to\beta}\right),\tag{29a}\\
+\boldsymbol\Sigma_{f_\beta\to\beta}\right),\quad\text{(29a)}\\
 &\propto\mathcal{CN}\!\left(
 \boldsymbol\beta_t^{u{\rm I}};
 \boldsymbol\mu_{\boldsymbol\beta_t^{u{\rm I}}},
 \boldsymbol\Sigma_{\boldsymbol\beta_t^{u{\rm I}}}
-\right).\tag{29b}
+\right).\quad\text{(29b)}
 \end{aligned}
 $$
 
@@ -843,8 +843,8 @@ $$
 \mathbb E[\boldsymbol\beta_t^{u{\rm I}}
 (\boldsymbol\beta_t^{u{\rm I}})^{\rm H}]
 \mathbb E[\boldsymbol\Psi_t\boldsymbol\Psi_t^{\rm H}])
-\Bigr),\tag{40a}
-\end{aligned}
+\Bigr),
+\end{aligned}\tag{40a}
 $$
 
 $$
@@ -1020,14 +1020,14 @@ $$
 +\mathbf w_t\right)
 \left(\sum_k\widetilde{\mathbf h}_{t,k}^{\rm I}
 +\mathbf w_t\right)^{\rm H}
-\right]\tag{46a}\\
+\right]\quad\text{(46a)}\\
 &=\sum_{k,l}\rho_{t,k,l}^{\rm I}
 \bigl(\mathbf b_{t,k,l}^{\rm I}
 (\mathbf b_{t,k,l}^{\rm I})^{\rm H}\bigr)
 \otimes
 \mathbb E[\mathbf s_{t,k,l}\mathbf s_{t,k,l}^{\rm H}]
 +\frac\gamma P\mathbf I\\
-&=\mathbf Q_t\otimes\mathbf I_N,\tag{46b}
+&=\mathbf Q_t\otimes\mathbf I_N,\quad\text{(46b)}
 \end{aligned}
 $$
 
@@ -1129,7 +1129,7 @@ $$
 \left(
 \mathbf A_q\boldsymbol\Sigma_q\mathbf A_q^{\rm H}
 +\widehat{\mathbf Q}_t\otimes\mathbf I_N
-\right)^{-1}\mathbf r_t,\tag{51a}\\
+\right)^{-1}\mathbf r_t,\quad\text{(51a)}\\
 &=\mathbf A_q
 \left(
 \mathbf A_q^{\rm H}
@@ -1140,7 +1140,7 @@ $$
 \mathbf A_q^{\rm H}
 (\widehat{\mathbf Q}_t^{-1}\otimes\mathbf I_N)
 \mathbf r_t.
-\tag{51b}
+\quad\text{(51b)}
 \end{aligned}
 $$
 
@@ -1168,13 +1168,13 @@ $$
 \mathbf A_q\\
 &=(\mathbf B_q\circledast_c\mathbf A_{f,q})^{\rm H}
 (\widehat{\mathbf Q}_t^{-1}\otimes\mathbf I_N)
-(\mathbf B_q\circledast_c\mathbf A_{f,q}),\tag{52a}\\
+(\mathbf B_q\circledast_c\mathbf A_{f,q}),\quad\text{(52a)}\\
 &=(\mathbf B_q^{\rm H}\circledast_r\mathbf A_{f,q}^{\rm H})
 \bigl((\widehat{\mathbf Q}_t^{-1}\mathbf B_q)
-\circledast_c\mathbf A_{f,q}\bigr),\tag{52b}\\
+\circledast_c\mathbf A_{f,q}\bigr),\quad\text{(52b)}\\
 &=(\mathbf B_q^{\rm H}\widehat{\mathbf Q}_t^{-1}
 \mathbf B_q)
-\odot(\mathbf A_{f,q}^{\rm H}\mathbf A_{f,q}),\tag{52c}
+\odot(\mathbf A_{f,q}^{\rm H}\mathbf A_{f,q}),\quad\text{(52c)}
 \end{aligned}
 $$
 
@@ -1252,13 +1252,13 @@ $$
 \widehat{\mathbf h}_t
 &=\mathbf A_q\boldsymbol\Sigma_q\mathbf A_q^{\rm H}
 (\mathbf A_q\boldsymbol\Sigma_q\mathbf A_q^{\rm H})^\dagger
-\mathbf r_t,\tag{57a}\\
+\mathbf r_t,\quad\text{(57a)}\\
 &=\mathbf A_q\boldsymbol\Sigma_q\mathbf V\mathbf D^{\rm H}
 (\mathbf D\mathbf V^{\rm H}
 \boldsymbol\Sigma_q\mathbf V\mathbf D^{\rm H})^\dagger
-\mathbf U^{\rm H}\mathbf h_t,\tag{57b}\\
+\mathbf U^{\rm H}\mathbf h_t,\quad\text{(57b)}\\
 &=\mathbf A_q\mathbf V\mathbf D^\dagger
-\mathbf U^{\rm H}\mathbf h_t.\tag{57c}
+\mathbf U^{\rm H}\mathbf h_t.\quad\text{(57c)}
 \end{aligned}
 $$
 
