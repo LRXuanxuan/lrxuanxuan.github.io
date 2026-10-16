@@ -850,8 +850,8 @@ $$
 \operatorname{tr}\bigl(
 (\mathbf h-\widehat{\mathbf h})
 (\mathbf h^{\rm H}-\widehat{\mathbf h}^{\rm H})
-\bigr)\right],\tag{65}
-\end{aligned}
+\bigr)\right],
+\end{aligned}\tag{65}
 $$
 
 $$
@@ -917,8 +917,8 @@ $$
 &\times(\mathbf h\mathbf h^{\rm H}
 +\widetilde{\mathbf n}\widetilde{\mathbf n}^{\rm H})
 (\mathbf C+\sigma^2(J/M)\mathbf I_M)^{-1}
-\mathbf C\Bigr)\Bigr],\tag{73}
-\end{aligned}
+\mathbf C\Bigr)\Bigr],
+\end{aligned}\tag{73}
 $$
 
 $$
@@ -993,8 +993,8 @@ $$
 \mathbb E[
 \operatorname{tr}(\mathbf W_{\rm sub}
 \mathbf n\mathbf n^{\rm H}\mathbf W_{\rm sub}^{\rm H})
-\mid\mathbf h]\Bigr],\tag{82}
-\end{aligned}
+\mid\mathbf h]\Bigr],
+\end{aligned}\tag{82}
 $$
 
 $$
@@ -1007,8 +1007,8 @@ $$
 &+\mathbb E[
 \operatorname{tr}(
 \mathbf V\mathbf V^{\rm H}\mathbf n\mathbf n^{\rm H}
-\mathbf V\mathbf V^{\rm H})]\Bigr),\tag{83}
-\end{aligned}
+\mathbf V\mathbf V^{\rm H})]\Bigr),
+\end{aligned}\tag{83}
 $$
 
 $$
@@ -1144,8 +1144,8 @@ $$
 \left\|\mathbf W_{\rm proj}
 (\widehat{\mathbf V}\widehat{\mathbf V}^{\rm H}
 -\mathbf V\mathbf V^{\rm H})
-\mathbf y\right\|^2,\tag{97}
-\end{aligned}
+\mathbf y\right\|^2,
+\end{aligned}\tag{97}
 $$
 
 $$
@@ -1218,8 +1218,8 @@ $$
 &(\widehat{\mathbf V}\widehat{\mathbf V}^{\rm H}
 -\mathbf V\mathbf V^{\rm H})\mathbf n\mathbf n^{\rm H}\\
 &\times(\widehat{\mathbf V}\widehat{\mathbf V}^{\rm H}
--\mathbf V\mathbf V^{\rm H})\Bigr],\tag{106}
-\end{aligned}
+-\mathbf V\mathbf V^{\rm H})\Bigr],
+\end{aligned}\tag{106}
 $$
 
 $$
