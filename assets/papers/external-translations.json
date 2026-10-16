@@ -1,6 +1,99 @@
 [
   {
     "date": "2026-10-16",
+    "slug": "2026-10-16-uw-otfs-2601-09364",
+    "title": "过采样 OTFS 唯一字信道估计｜中文译稿（校对中）",
+    "paper_ids": [
+      "86114af96c829ace"
+    ],
+    "source_arxiv_ids": [
+      "2601.09364"
+    ],
+    "url": "/papers/translations/2026-10-16-uw-otfs-2601-09364/",
+    "source_file": "2026-10-16-uw-otfs-2601-09364.md",
+    "scope": "摘要、引言及系统背景已译；正文公式、仿真与参考文献待补，未完成全文",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-16-uw-otfs-2601-09364.md",
+    "source_page_path": "papers/translations/2026-10-16-uw-otfs-2601-09364.md",
+    "external": true,
+    "primary_translation": true,
+    "qa_complete": false
+  },
+  {
+    "date": "2026-10-16",
+    "slug": "2026-10-16-phase-noise-message-passing-twc",
+    "title": "部分相干维纳相位噪声下的消息传递稀疏信道估计｜中文译稿（校对中）",
+    "paper_ids": [
+      "3d5e7096d44233e3"
+    ],
+    "source_arxiv_ids": [],
+    "url": "/papers/translations/2026-10-16-phase-noise-message-passing-twc/",
+    "source_file": "2026-10-16-phase-noise-message-passing-twc.md",
+    "scope": "摘要、引言、信道及观测模型已译；后续算法和附录待补，未完成全文",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-16-phase-noise-message-passing-twc.md",
+    "source_page_path": "papers/translations/2026-10-16-phase-noise-message-passing-twc.md",
+    "external": true,
+    "primary_translation": true,
+    "qa_complete": false
+  },
+  {
+    "date": "2026-10-16",
+    "slug": "2026-10-16-xlris-clra-2401-06966",
+    "title": "XL-RIS 多用户混合波束成形信道估计 CLRA-JO｜中文译稿（校对中）",
+    "paper_ids": [
+      "cb094c362cc496f4"
+    ],
+    "source_arxiv_ids": [
+      "2401.06966"
+    ],
+    "url": "/papers/translations/2026-10-16-xlris-clra-2401-06966/",
+    "source_file": "2026-10-16-xlris-clra-2401-06966.md",
+    "scope": "摘要、正文各节、主要公式、图表结论的中文译稿；部分公式及参考文献待逐项补全，未计入全文验收",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-16-xlris-clra-2401-06966.md",
+    "source_page_path": "papers/translations/2026-10-16-xlris-clra-2401-06966.md",
+    "external": true,
+    "primary_translation": true,
+    "qa_complete": false
+  },
+  {
+    "date": "2026-10-16",
+    "slug": "2026-10-16-hybrid-field-xlris-2608-00052",
+    "title": "混合场 XL-RIS 稀疏信道表示与恢复｜中文译稿（校对中）",
+    "paper_ids": [
+      "1c892b8b96990986"
+    ],
+    "source_arxiv_ids": [
+      "2608.00052"
+    ],
+    "url": "/papers/translations/2026-10-16-hybrid-field-xlris-2608-00052/",
+    "source_file": "2026-10-16-hybrid-field-xlris-2608-00052.md",
+    "scope": "摘要、引言与混合场系统模型已译；稀疏恢复算法与实验尚待补全",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-16-hybrid-field-xlris-2608-00052.md",
+    "source_page_path": "papers/translations/2026-10-16-hybrid-field-xlris-2608-00052.md",
+    "external": true,
+    "primary_translation": true,
+    "qa_complete": false
+  },
+  {
+    "date": "2026-10-16",
+    "slug": "2026-10-16-mimofas-two-stage-diffusion-2605-29679",
+    "title": "多用户 MIMO-FAS 两阶段生成式扩散：信道估计与端口选择｜中文译稿（校对中）",
+    "paper_ids": [
+      "4764027833b18444"
+    ],
+    "source_arxiv_ids": [
+      "2605.29679"
+    ],
+    "url": "/papers/translations/2026-10-16-mimofas-two-stage-diffusion-2605-29679/",
+    "source_file": "2026-10-16-mimofas-two-stage-diffusion-2605-29679.md",
+    "scope": "摘要、正文 I–VI、式 (1)–(52) 的主要公式、算法 1–4、表 I–II 和图 1–9 中文说明；部分公式、逐条参考文献与最终 QA 未完成",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-16-mimofas-two-stage-diffusion-2605-29679.md",
+    "source_page_path": "papers/translations/2026-10-16-mimofas-two-stage-diffusion-2605-29679.md",
+    "external": true,
+    "primary_translation": true,
+    "qa_complete": false
+  },
+  {
+    "date": "2026-10-16",
     "slug": "2026-10-16-difficulty-calibrated-flow-matching-2608-21286",
     "title": "DC-FM：面向条件流匹配的难度校准插值路径｜中文完整译稿（待逐式复核）",
     "paper_ids": [
