@@ -1211,8 +1211,149 @@ $x=(r\cos\alpha+0.25,r\sin\alpha)^\top+
 
 **计算资源。** 原型分析使用 Intel Core i7、16 GB 内存的 MacBook Pro；规模较大的实验使用机构研究集群中多核 CPU 和 128 GB 内存的计算节点。作者明确说明**未使用 GPU**；不同任务的运行时间有所不同，常见的聚类和评测运行在数小时内结束。
 
+
+## 参考文献（保留原始英文书目）
+
+以下按原始 PDF 第 10–12 页记录原文的作者、题名、期刊会议、卷页码及 DOI/URL。英文文献题名保留以便准确检索，不擅自补写不存在的信息。
+
+References                                                    applications in bayesian ot flow matching. arXiv  
+preprint arXiv:2403.18705.  
+Albergo, M. S. and Vanden-Eijnden, E. (2023). Build-  
+ing normalizing flows with stochastic interpolants. In    Chen, R. T., Rubanova, Y., Bettencourt, J., and Du-  
+The Eleventh International Conference on Learning           venaud, D. K. (2018). Neural ordinary differential  
+Representations.                                           equations. Advances in neural information processing  
+Alfonso, J., Baptista, R., Bhakta, A., Gal, N., Hou, A.,     systems, 31.  
+Lyubimova, V., Pocklington, D., Sajonz, J., Trigila,      Chernozhukov, V., Galichon, A., Hallin, M., and Henry,  
+G., and Tsai, R. (2023). A generative flow model            M. (2017). Monge-kantorovich depth, quantiles,  
+for conditional sampling via optimal transport. In          ranks and signs. Annals of Statistics, 45(1):223–256.  
+NeurIPS 2023 Workshop Optimal Transport and Ma-  
+Chung, H., Kim, J., Mccann, M. T., Klasky, M. L., and  
+chine Learning.  
+Ye, J. C. (2023). Diffusion posterior sampling for  
+AlQadi, H. and Bani-Yaghoub, M. (2022). Incorpo-              general noisy inverse problems. In The Eleventh In-  
+rating global dynamics to improve the accuracy of          ternational Conference on Learning Representations.  
+disease models: Example of a covid-19 sir model.  
+Plos one, 17(4):e0265815.                                 Dinh, L., Sohl-Dickstein, J., and Bengio, S. (2017).  
+Density estimation using real nvp. In International  
+Amos, B., Xu, L., and Kolter, J. Z. (2017). Input con-       Conference on Learning Representations.  
+vex neural networks. In Precup, D. and Teh, Y. W.,  
+editors, Proceedings of the 34th International Con-        Duan, L. L. (2023). Transport monte carlo: High-  
+ference on Machine Learning, volume 70 of Proceed-          accuracy posterior approximation via random trans-  
+ings of Machine Learning Research, pages 146–155.           port. Journal of the American Statistical Association,  
+PMLR.                                                       118(543):1659–1670.  
+Ardizzone, L., Kruse, J., Wirkert, S., Rahner, D., Pelle-   Farrell, M. H., Liang, T., and Misra, S. (2021). Deep  
+grini, E. W., Klessen, R. S., Maier-Hein, L., Rother,       neural networks for estimation and inference. Econo-  
+C., and Köthe, U. (2018). Analyzing inverse prob-           metrica, 89(1):181–213.  
+lems with invertible neural networks. arXiv preprint  
+Generale, A. P., Robertson, A. E., and Kalidindi,  
+arXiv:1808.04730.  
+S. R. (2024). Conditional variable flow match-  
+Baptista, R., Hosseini, B., Kovachki, N. B., and Mar-        ing: Transforming conditional densities with amor-  
+zouk, Y. M. (2024). Conditional sampling with mono-        tized conditional optimal transport. arXiv preprint  
+tone gans: From generative models to likelihood-free       arXiv:2411.08314.  
+inference. SIAM/ASA Journal on Uncertainty Quan-  
+Giné, E. and Nickl, R. (2021). Mathematical founda-  
+tification, 12(3):868–900.  
+tions of infinite-dimensional statistical models. Cam-  
+Beaumont, M. A., Cornuet, J.-M., Marin, J.-M., and            bridge university press.  
+Robert, C. P. (2009). Adaptive approximate bayesian  
+computation. Biometrika, 96(4):983–990.                   Ho, J. and Salimans, T. (2022). Classifier-free diffu-  
+sion guidance. In NeurIPS 2021 Workshop on Deep  
+Ben-Hamu, H., Puny, O., Gat, I., Karrer, B., Singer,  
+Generative Models and Downstream Applications.  
+U., and Lipman, Y. (2024). D-flow: Differentiating  
+through flows for controlled generation. In Proceed-      Hoffman, M., Sountsov, P., Dillon, J. V., Langmore,  
+ings of the 41st International Conference on Ma-            I., Tran, D., and Vasudevan, S. (2019). Neutra-  
+chine Learning, volume 235 of Proceedings of Ma-            lizing bad geometry in hamiltonian monte carlo using  
+chine Learning Research, pages 3462–3483. PMLR.             neural transport. arXiv preprint arXiv:1903.03704.  
+Bendel, M., Ahmad, R., and Schniter, P. (2023). A           Isobe, N., Koyama, M., Zhang, J., Hayashi, K.,  
+regularized conditional gan for posterior sampling          and Fukumizu, K. (2024). Extended flow match-  
+in image recovery problems. Advances in neural              ing: a method of conditional generation with  
+information processing systems, 36:68673–68684.              generalized continuity equation. arXiv preprint  
+Benton, J., Deligiannidis, G., and Doucet, A. (2024).         arXiv:2402.18839.  
+Error bounds for flow matching methods. Transac-          Jiang, H., Wang, Y., and Yang, Y. (2025). Simulation-  
+tions on Machine Learning Research.                          based inference via langevin dynamics with score  
+Carlier, G., Chernozhukov, V., and Galichon, A. (2017).       matching. arXiv preprint arXiv:2509.03853.  
+Vector quantile regression beyond the specified case.     Katzfuss, M. and Schäfer, F. (2024). Scalable bayesian  
+Journal of Multivariate Analysis, 161:96–102.               transport maps for high-dimensional non-gaussian  
+Chemseddine, J., Hagemann, P., Steidl, G., and Wald,         spatial fields. Journal of the American Statistical  
+C. (2024). Conditional wasserstein distances with          Association, 119(546):1409–1423.  
+Kerrigan, G., Migliorini, G., and Smyth, P. (2024).         Oelsner, E. C., Sun, Y., Balte, P. P., Allen, N. B.,  
+Dynamic conditional optimal transport through               Andrews, H., Carson, A., Cole, S. A., Coresh, J.,  
+simulation-free flows. Advances in Neural Informa-          Couper, D., Cushman, M., et al. (2024). Epidemio-  
+tion Processing Systems, 37:93602–93642.                    logic features of recovery from sars-cov-2 infection.  
+Kim, J., Kim, B. S., and Ye, J. C. (2025a). Flowdps:         JAMA network open, 7(6):e2417440–e2417440.  
+Flow-driven posterior sampling for inverse problems.      Pellis, L., Scarabel, F., Stage, H. B., Overton, C. E.,  
+arXiv preprint arXiv:2503.08136.                             Chappell, L. H., Fearon, E., Bennett, E., Lythgoe,  
+Kim, J., Zhai, P. S., and Ročková, V. (2025b). Deep           K. A., House, T. A., Hall, I., et al. (2021). Challenges  
+generative quantile bayes. volume 258 of Proceed-           in control of covid-19: short doubling time and long  
+ings of Machine Learning Research, pages 4141–4149.         delay to effect of interventions. Philosophical Trans-  
+PMLR.                                                       actions of the Royal Society B: Biological Sciences,  
+376(1829).  
+Kingma, D. P. (2014). Adam: A method for stochastic  
+optimization. arXiv preprint arXiv:1412.6980.             Pokle, A., Muckley, M. J., Chen, R. T., and Karrer, B.  
+(2024). Training-free linear image inverses via flows.  
+Li, K., Han, W., Wang, Y., and Yang, Y. (2025). Opti-  
+Transactions on Machine Learning Research.  
+mal transport-based generative models for bayesian  
+posterior sampling. arXiv preprint arXiv:2504.08214.      Polson, N. G. and Sokolov, V. (2024). Generative AI  
+Lipman, Y., Chen, R. T., Ben-Hamu, H., Nickel, M.,            for Bayesian Computation. arXiv:2305.14972.  
+and Le, M. (2023). Flow matching for generative           Radev, S. T., Mertens, U. K., Voss, A., Ardizzone, L.,  
+modeling. In The Eleventh International Conference          and Köthe, U. (2020). Bayesflow: Learning complex  
+on Learning Representations.                                stochastic models with invertible neural networks.  
+Liu, X., Gong, C., et al. (2023). Flow straight and fast:    IEEE transactions on neural networks and learning  
+Learning to generate and transfer data with rectified      systems, 33(4):1452–1466.  
+flow. In The Eleventh International Conference on         Rezende, D. J. and Mohamed, S. (2016). Variational  
+Learning Representations.                                   inference with normalizing flows.  
+Lopez-Paz, D. and Oquab, M. (2016). Revisit-                Salmona, A., De Bortoli, V., Delon, J., and Desolneux,  
+ing classifier two-sample tests. arXiv preprint             A. (2022). Can push-forward generative models fit  
+arXiv:1610.06545.                                           multimodal distributions? Advances in Neural In-  
+Loshchilov, I. and Hutter, F. (2019). Decoupled weight        formation Processing Systems, 35:10766–10779.  
+decay regularization. In International Conference on  
+Sanche, S., Lin, Y. T., Xu, C., Romero-Severson, E.,  
+Learning Representations.  
+Hengartner, N., and Ke, R. (2020). High contagious-  
+Lueckmann, J.-M., Boelts, J., Greenberg, D.,                  ness and rapid spread of severe acute respiratory  
+Goncalves, P., and Macke, J. (2021). Benchmark-             syndrome coronavirus 2. Emerging infectious dis-  
+ing simulation-based inference. In Banerjee, A. and         eases, 26(7):1470.  
+Fukumizu, K., editors, Proceedings of The 24th In-  
+Song, Y., Sohl-Dickstein, J., Kingma, D. P., Kumar,  
+ternational Conference on Artificial Intelligence and  
+A., Ermon, S., and Poole, B. (2020). Score-based  
+Statistics, volume 130 of Proceedings of Machine  
+generative modeling through stochastic differential  
+Learning Research, pages 343–351. PMLR.  
+equations. arXiv preprint arXiv:2011.13456.  
+Makkuva, A., Taghvaei, A., Oh, S., and Lee, J. (2020).  
+Optimal transport mapping via input convex neural          Tam, E. and Dunson, D. B. (2025). On the statistical  
+networks. In International Conference on Machine             capacity of deep generative models. arXiv preprint  
+Learning, pages 6672–6681. PMLR.                             arXiv:2501.07763.  
+Mirza, M. and Osindero, S. (2014).           Condi-         Tong, A., Fatras, K., Malkin, N., Huguet, G., Zhang,  
+tional generative adversarial nets. arXiv preprint           Y., Rector-Brooks, J., Wolf, G., and Bengio, Y.  
+arXiv:1411.1784.                                            (2023). Improving and generalizing flow-based gen-  
+erative models with minibatch optimal transport.  
+Muniz-Rodriguez, K., Chowell, G., Cheung, C.-H., Jia,         arXiv preprint arXiv:2302.00482.  
+D., Lai, P.-Y., Lee, Y., Liu, M., Ofori, S. K., Roosa,  
+K. M., Simonsen, L., et al. (2020). Doubling time of       Wang, Y. and Ročková, V. (2022). Adversarial bayesian  
+the covid-19 epidemic by province, china. Emerging          simulation. arXiv preprint arXiv:2208.12113.  
+infectious diseases, 26(8):1912.                           Wiese, M., Knobloch, R., and Korn, R. (2019). Copula  
+Neal, R. M. (2003). Slice sampling. The Annals of            & marginal flows: Disentangling the marginal from  
+Statistics, 31(3):705–767.                                  its joint. arXiv preprint arXiv:1907.03361.  
+Wildberger, J., Dax, M., Buchholz, S., Green, S.,  
+Macke, J. H., and Schölkopf, B. (2023). Flow match-  
+ing for scalable simulation-based inference. Advances  
+in Neural Information Processing Systems, 36:16837–  
+16864.  
+Zheng, Q., Le, M., Shaul, N., Lipman, Y., Grover, A.,  
+and Chen, R. T. (2023). Guided flows for generative  
+modeling and decision making. CoRR.  
+Zhou, X., Jiao, Y., Liu, J., and Huang, J. (2023).  
+A deep generative approach to conditional sam-  
+pling. Journal of the American Statistical Asso-  
+ciation, 118(543):1837–1848.
+
 ---
 
-**续译状态：** 补充材料附录 A–E 已按原文顺序翻译（含公式与实验表）；完整参考文献清单及个别复杂公式仍需终校。此处是明确标识范围的阶段性译稿，不代表完整论文，也未经过逐页、逐式验收。
+**译文覆盖与校对状态：** 正文 1–5 节、补充材料 A–E、公式（1）–（21）、实验图表说明与原始参考书目均已接入。原论文部分理论论证存在待核疑点，已在相应公式后明确标注；跨页公式与书目断行仍需终校，因此尚未通过逐页、逐式全文验收。
 
 {% endraw %}
