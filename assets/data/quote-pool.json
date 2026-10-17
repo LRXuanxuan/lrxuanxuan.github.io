@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "count": 1552,
+  "count": 1553,
   "quotes": [
     {
       "id": "b3faf27097cae9a98a228080e7ea5d2a57b4ffbc963b300cb013bb45e4dbaec7",
@@ -15026,7 +15026,7 @@
     },
     {
       "id": "1468ffd9bee5f9fabf5cfb5903c5506c8f58d5f7d986cdc74164f41b07789359",
-      "text": "I read the news today\n\n今天我读了新闻。",
+      "text": "I read the news today, oh boy\nAbout a lucky man who made the grade\nAnd though the news was rather sad\nWell, I just had to laugh\nI saw the photograph\n\n今天我读到一则新闻，天哪，\n说的是一个飞黄腾达的幸运儿。\n尽管那消息颇为悲伤，\n我却还是忍不住笑了出来。\n我看到了那张照片。",
       "book": "A Day in the Life",
       "author": "Lennon–McCartney",
       "chapter": "演唱：The Beatles｜专辑：Sgt. Pepper’s Lonely Hearts Club Band（发行：1967-06-01）｜首发：1967-06-01（专辑）",
@@ -15034,7 +15034,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "histories",
+      "aspect": "moth",
       "sourceType": "song"
     },
     {
@@ -19196,6 +19196,19 @@
       "quoteWeight": 1,
       "theme": "inspiration",
       "aspect": "heart",
+      "sourceType": "song"
+    },
+    {
+      "id": "a1d7c19e4f4ad4f3c5a46dd0a7f342b3aa712b1faec0afc8a06d08a8bee36e2b",
+      "text": "He blew his mind out in a car\nHe didn't notice that the lights had changed\nA crowd of people stood and stared\nThey'd seen his face before\nNobody was really sure if he was from the House of Lords\n\n他在车祸中丧了命，\n没注意到交通信号灯已经变了。\n一群人站在那里，怔怔地望着，\n他们以前见过他的面孔，\n却没人真正确定，他是不是上议院的贵族。",
+      "book": "A Day in the Life",
+      "author": "Lennon–McCartney",
+      "chapter": "演唱：The Beatles｜专辑：Sgt. Pepper’s Lonely Hearts Club Band（发行：1967-06-01）｜首发：1967-06-01（专辑）",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "winter",
       "sourceType": "song"
     }
   ]
