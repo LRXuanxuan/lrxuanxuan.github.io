@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "count": 1548,
+  "count": 1551,
   "quotes": [
     {
       "id": "b3faf27097cae9a98a228080e7ea5d2a57b4ffbc963b300cb013bb45e4dbaec7",
@@ -12842,7 +12842,7 @@
     },
     {
       "id": "bce363b43f90ebd72d5e82ddf57f57b84254081ff8ebb986c69a30ef98ef443a",
-      "text": "And flowers never bend\nWith the rainfall\n\n而花朵从不因雨水而低头。",
+      "text": "So I'll continue to continue to pretend\nThat my life will never end\nAnd the flowers never bend with the rainfall.\n\n于是我会继续、继续假装，\n假装我的生命永无尽头，\n假装花朵从不会被雨水压弯。",
       "book": "Flowers Never Bend with the Rainfall",
       "author": "Paul Simon",
       "chapter": "演唱：Simon & Garfunkel｜专辑：Parsley, Sage, Rosemary and Thyme（发行：1966-10-10）｜首发：1966-05（单曲 B 面）｜原版：Paul Simon 独唱首发：1965-06-23",
@@ -19144,6 +19144,45 @@
       "quoteWeight": 1,
       "theme": "scenery",
       "aspect": "nectar",
+      "sourceType": "song"
+    },
+    {
+      "id": "a931fcd6b81740e85b2d770c193e5fa64d81ca29d1f3eeb75cd48ad6207b9951",
+      "text": "Hey, sunshine,\nI haven't seen you in a long time.\nWhy don't you show your face and bend my mind?\n\n嘿，阳光，\n我已经很久没见到你了。\n何不露露脸，让我的思绪也转个弯？",
+      "book": "Cloudy",
+      "author": "Paul Simon、Bruce Woodley",
+      "chapter": "演唱：Simon & Garfunkel｜专辑：Parsley, Sage, Rosemary and Thyme（发行：1966-10-10）｜首发：1966-10-10",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "moth",
+      "sourceType": "song"
+    },
+    {
+      "id": "3e9a4f2c7d518b0e6f4a2d9c13e6b80f4cd502e1a7f938b65d0a91e3c4876f2b",
+      "text": "These clouds stick to the sky\nLike a floating question, \"Why?\"\nThey linger there to die.\nThey don't know where they're going and, my friend, neither do I.\n\n这些云黏在天空上，\n像一个漂浮着的疑问：“为什么？”\n它们久久不散，直到消逝。\n它们不知道自己要去哪里，朋友，我也一样。",
+      "book": "Cloudy",
+      "author": "Paul Simon、Bruce Woodley",
+      "chapter": "演唱：Simon & Garfunkel｜专辑：Parsley, Sage, Rosemary and Thyme（发行：1966-10-10）｜首发：1966-10-10",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "rose",
+      "sourceType": "song"
+    },
+    {
+      "id": "89c23e1b47d6a05f92e8c4415d70ba9631f6c2a8b49ed305ac78f0d21e6935b4",
+      "text": "The mirror on my wall\nCasts an image dark and small,\nBut I'm not sure at all it's my reflection.\nI am blinded by the light\nOf God, and truth and right,\nAnd I wander in the night without direction.\n\n墙上的镜子，\n映出一幅暗淡而渺小的影像，\n可我根本无法确定那是不是自己的倒影。\n我被光芒刺得睁不开眼，\n那是上帝、真理与正义的光，\n于是我在黑夜里漫无方向地游荡。",
+      "book": "Flowers Never Bend with the Rainfall",
+      "author": "Paul Simon",
+      "chapter": "演唱：Simon & Garfunkel｜专辑：Parsley, Sage, Rosemary and Thyme（发行：1966-10-10）｜首发：1966-05（单曲 B 面）｜原版：Paul Simon 独唱首发：1965-06-23",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "moth",
       "sourceType": "song"
     }
   ]
