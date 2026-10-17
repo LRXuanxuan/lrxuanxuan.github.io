@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "count": 1553,
+  "count": 1555,
   "quotes": [
     {
       "id": "b3faf27097cae9a98a228080e7ea5d2a57b4ffbc963b300cb013bb45e4dbaec7",
@@ -17822,7 +17822,7 @@
     },
     {
       "id": "6ab0f71014000000000000000000000000000000000000000000000000000117",
-      "text": "pretty lies\n\n美丽的谎言。",
+      "text": "Pretty lies,\nWhen you gonna realize they're only pretty lies?\nOnly pretty lies, just pretty lies.\n\n美丽的谎言。\n你什么时候才会明白，那不过是美丽的谎言？\n不过是美丽的谎言，仅仅是美丽的谎言。",
       "book": "The Last Time I Saw Richard",
       "author": "Joni Mitchell",
       "chapter": "演唱：Joni Mitchell｜专辑：Blue（发行：1971）｜首发：1971",
@@ -17835,7 +17835,7 @@
     },
     {
       "id": "6ab0f71014000000000000000000000000000000000000000000000000000118",
-      "text": "All good dreamers\n\n所有美好的梦想者。",
+      "text": "I'm gonna blow this damn candle out.\nI don't want nobody comin' over to my table.\nI got nothing to talk to anybody about.\nAll good dreamers pass this way some day.\n\n我要吹灭这该死的蜡烛。\n我不想让任何人走到我的桌边。\n我没有什么话想对任何人说。\n所有怀抱美梦的人，总有一天都会走过这里。",
       "book": "The Last Time I Saw Richard",
       "author": "Joni Mitchell",
       "chapter": "演唱：Joni Mitchell｜专辑：Blue（发行：1971）｜首发：1971",
@@ -17843,12 +17843,12 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "rose",
+      "aspect": "winter",
       "sourceType": "song"
     },
     {
       "id": "6ab0f71014000000000000000000000000000000000000000000000000000119",
-      "text": "my gorgeous wings\n\n我那绚丽的翅膀。",
+      "text": "Hidin' behind bottles in dark cafés, dark cafés.\nOnly a dark cocoon before I get my gorgeous wings and fly away.\nOnly a phase, these dark café days.\n\n躲在昏暗咖啡馆的酒瓶后面，昏暗的咖啡馆里。\n那不过是一只幽暗的茧；待我长出绚丽的翅膀，便会飞走。\n这些在昏暗咖啡馆里度过的日子，不过是一个阶段。",
       "book": "The Last Time I Saw Richard",
       "author": "Joni Mitchell",
       "chapter": "演唱：Joni Mitchell｜专辑：Blue（发行：1971）｜首发：1971",
@@ -19209,6 +19209,32 @@
       "quoteWeight": 1,
       "theme": "reflection",
       "aspect": "winter",
+      "sourceType": "song"
+    },
+    {
+      "id": "fc7488ec37fbad0e8924b06539f170dff21546e7a2ca8be71e03ca69b527041d",
+      "text": "\"You laugh,\" he said, \"you think you're immune.\nGo look at your eyes, they're full of moon.\nYou like roses and kisses and pretty men to tell you\nAll those pretty lies.\"\n\n“你笑吧，”他说，“你以为自己能幸免。\n去看看自己的眼睛吧，里面盛满月光。\n你喜欢玫瑰、亲吻，还有那些俊俏的男人，\n喜欢他们对你说的所有美丽谎言。”",
+      "book": "The Last Time I Saw Richard",
+      "author": "Joni Mitchell",
+      "chapter": "演唱：Joni Mitchell｜专辑：Blue（发行：1971）｜首发：1971",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "moth",
+      "sourceType": "song"
+    },
+    {
+      "id": "5f4a1e932c87db4e6a0fc2197eb2d848c71fd09b34aa85e2dcf6085d9e72b4c6",
+      "text": "Listen, they sing of love so sweet, love so sweet.\nWhen you gonna get yourself back on your feet?\nOh, and love can be so sweet, love so sweet.\n\n听啊，那些歌曲唱着爱情有多甜蜜，多么甜蜜。\n你什么时候才能重新振作起来？\n噢，爱情也可以如此甜蜜，如此甜蜜。",
+      "book": "The Last Time I Saw Richard",
+      "author": "Joni Mitchell",
+      "chapter": "演唱：Joni Mitchell｜专辑：Blue（发行：1971）｜首发：1971",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "inspiration",
+      "aspect": "heart",
       "sourceType": "song"
     }
   ]
