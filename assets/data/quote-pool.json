@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "count": 1543,
+  "count": 1544,
   "quotes": [
     {
       "id": "b3faf27097cae9a98a228080e7ea5d2a57b4ffbc963b300cb013bb45e4dbaec7",
@@ -19079,6 +19079,19 @@
       "quoteWeight": 1,
       "theme": "inspiration",
       "aspect": "heart",
+      "sourceType": "song"
+    },
+    {
+      "id": "8f037204cb5e163e57d6a8106748db421c9af64e10d358570a6e2b198c6efdd4",
+      "text": "All lies and jest,\nStill a man hears what he wants to hear\nAnd disregards the rest.\n\n尽是谎言与戏言，\n可人总是只听自己愿意听的话，\n对其余一切置若罔闻。",
+      "book": "The Boxer",
+      "author": "Paul Simon",
+      "chapter": "演唱：Simon & Garfunkel｜专辑：Bridge over Troubled Water（发行：1970-01-26）｜首发：1969-03-21（单曲）",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "lantern",
       "sourceType": "song"
     }
   ]
