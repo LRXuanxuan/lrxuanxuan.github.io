@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "count": 1540,
+  "count": 1543,
   "quotes": [
     {
       "id": "b3faf27097cae9a98a228080e7ea5d2a57b4ffbc963b300cb013bb45e4dbaec7",
@@ -13024,7 +13024,7 @@
     },
     {
       "id": "297725b7495e73b357397329276d9b2bfca71ce5489e48a2babde99da0ffd1d7",
-      "text": "The only living boy in New York\n\n纽约唯一活着的男孩。",
+      "text": "And here I am,\nThe only living boy in New York.\n\n而我依然留在这里，\n偌大的纽约，仿佛只剩下我一个人。",
       "book": "The Only Living Boy in New York",
       "author": "Paul Simon",
       "chapter": "演唱：Simon & Garfunkel｜专辑：Bridge over Troubled Water（发行：1970-01-26）｜首发：1970-01-26",
@@ -13037,7 +13037,7 @@
     },
     {
       "id": "d5929a762962ee5717187b44198cc4bba497e77f68e70ef98477c7ad969ee3ac",
-      "text": "Here I am\n\n我就在这里。",
+      "text": "Hey, I've got nothing to do today but smile.\nDe-doh-n-doh-de-doh.\nAnd here I am,\nThe only living boy in New York.\n\n嘿，今天我无事可做，唯有微笑。\n嘟—哆—嗯—哆—嘟—哆。\n而我依然留在这里，\n偌大的纽约，仿佛只剩下我一个人。",
       "book": "The Only Living Boy in New York",
       "author": "Paul Simon",
       "chapter": "演唱：Simon & Garfunkel｜专辑：Bridge over Troubled Water（发行：1970-01-26）｜首发：1970-01-26",
@@ -19035,6 +19035,45 @@
       "book": "Bridge over Troubled Water",
       "author": "Paul Simon",
       "chapter": "演唱：Simon & Garfunkel｜专辑：Bridge over Troubled Water（发行：1970-01-26）｜首发：1970-01-20（单曲）",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "inspiration",
+      "aspect": "heart",
+      "sourceType": "song"
+    },
+    {
+      "id": "1fa699d0f827735dd410cdef3e803f402a35e5635d607feefeff0029107572e4",
+      "text": "I get the news I need on the weather report.\nOh, I can gather all the news I need on the weather report.\n\n我需要的消息，天气预报就能告诉我。\n噢，我想知道的一切，都能从天气预报里得知。",
+      "book": "The Only Living Boy in New York",
+      "author": "Paul Simon",
+      "chapter": "演唱：Simon & Garfunkel｜专辑：Bridge over Troubled Water（发行：1970-01-26）｜首发：1970-01-26",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "moon",
+      "sourceType": "song"
+    },
+    {
+      "id": "d794a0295e4a8ab9f192fec84c89728d7a8272256d37137edbfa3a9d5a6d95c2",
+      "text": "Half of the time we're gone,\nBut we don't know where,\nAnd we don't know where.\n\n有一半的时间，我们仿佛不在这里，\n却不知道去了哪里，\n也不知道去了哪里。",
+      "book": "The Only Living Boy in New York",
+      "author": "Paul Simon",
+      "chapter": "演唱：Simon & Garfunkel｜专辑：Bridge over Troubled Water（发行：1970-01-26）｜首发：1970-01-26",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "rose",
+      "sourceType": "song"
+    },
+    {
+      "id": "5e2cc8796353447e6736aab360b7aa8db41d23c37aa82241fe05791264f9d451",
+      "text": "Tom, get your plane right on time.\nI know that you've been eager to fly now.\nHey, let your honesty shine, shine, shine now.\nDoh-n-doh-de-doh-n-doh.\nLike it shines on me (Here I am).\n\n汤姆，记得准时赶上飞机。\n我知道你早已渴望飞翔。\n嘿，让你的真诚闪耀吧，闪耀吧，闪耀吧！\n哆—嗯—哆—嘟—哆—嗯—哆。\n就像它照耀着我一样。（我就在这里。）",
+      "book": "The Only Living Boy in New York",
+      "author": "Paul Simon",
+      "chapter": "演唱：Simon & Garfunkel｜专辑：Bridge over Troubled Water（发行：1970-01-26）｜首发：1970-01-26",
       "readerLink": "",
       "weight": 1,
       "quoteWeight": 1,
