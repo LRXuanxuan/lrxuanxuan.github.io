@@ -89,6 +89,8 @@ def check_pool(pool: object) -> list[str]:
             errors.append(f"{label}.readerLink: current UI supports only weread.qq.com; use empty string otherwise")
         if "sourceType" in row and row["sourceType"] not in SOURCE_TYPES:
             errors.append(f"{label}.sourceType: invalid type")
+        if row.get("sourceType") == "song" and "〔歌意〕" in quote_text:
+            errors.append(f"{label}.text: song must not include 〔歌意〕 commentary")
         for field in ("weight", "quoteWeight"):
             value = row.get(field)
             if (isinstance(value, bool) or not isinstance(value, (float, int))

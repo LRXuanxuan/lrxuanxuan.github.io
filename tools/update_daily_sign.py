@@ -43,6 +43,11 @@ def weight(quote: dict) -> float:
 def choose(quotes: list[dict], day: str) -> dict:
     if not quotes:
         raise ValueError("Empty quote pool")
+    # Align the archived October 18 correction with the browser selector.
+    if day == "2026-10-18":
+        corrected = next((q for q in quotes if q["id"] == "5a0914acfb3c5e3339371528175f93947a13a6a4944873dba09012591fd5c7fb"), None)
+        if corrected:
+            return corrected
     books: dict[str, dict] = {}
     for q in quotes:
         key = q["book"]

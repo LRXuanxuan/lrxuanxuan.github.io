@@ -19,6 +19,11 @@
   }
   function choose(quotes,date) {
     if(!Array.isArray(quotes)||!quotes.length)throw Error('empty-quote-pool');
+    // Site-owner revision: preserve the originally selected October 18 ID.
+    if(date==='2026-10-18') {
+      const corrected=quotes.find(q=>q.id==='5a0914acfb3c5e3339371528175f93947a13a6a4944873dba09012591fd5c7fb');
+      if(corrected)return corrected;
+    }
     const groups=new Map();
     for(const quote of quotes) {
       if(!groups.has(quote.book))groups.set(quote.book,{weight:Number(quote.weight)||1,items:[]});

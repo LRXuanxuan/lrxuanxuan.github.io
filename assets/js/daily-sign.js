@@ -7,7 +7,8 @@
   const status = root.querySelector('[data-sign-status]');
   const text = root.querySelector('blockquote');
   const source = root.querySelector('.rc-sign-source');
-  let initialText = text.textContent;
+  let initialText = text.textContent.replace(/\n〔歌意〕[^\n]*$/,'');
+  text.textContent=initialText;
   let initialSource = source.cloneNode(true);
   const records = globalThis.RCSignRecords;
   const calendar = globalThis.RCSignCalendar;
@@ -133,7 +134,7 @@
   }
   function render(quote) {
     currentQuote=quote;
-    text.textContent = quote.text;
+    text.textContent = quote.text.replace(/\n〔歌意〕[^\n]*$/,'');
     showVotes(quote);
     voteStatus.textContent='';
     showAspect(quote);
@@ -175,7 +176,7 @@
       try {
         for (const id of JSON.parse(localStorage.getItem(storageKey) || '[]')) seen.add(id);
       } catch (_) { /* Keep per-tab records when storage is unavailable. */ }
-      const available = pool.filter(q => q.text !== initialText && q.text !== text.textContent && !seen.has(q.id));
+      const available = pool.filter(q => q.id !== initialQuote.id && q.id !== currentQuote.id && !seen.has(q.id));
       if (!available.length) {
         status.textContent = '这一轮已经抽完啦，清空记录后再抽喵。';
         root.querySelector('[data-sign-clear]').hidden = false;

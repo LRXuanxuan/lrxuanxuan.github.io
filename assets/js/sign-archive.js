@@ -50,7 +50,7 @@
     const seen=new Set();
     return combined.filter(row=>{
       if(!row||!row.text||!row.book||!['daily','redraw'].includes(row.kind)||!validDate(row.date)) return false;
-      const identity=[row.date,row.kind,row.text].join('\u0001');
+      const identity=[row.date,row.kind,row.id||row.text].join('\u0001');
       if(seen.has(identity)) return false;
       seen.add(identity);return true;
     });
@@ -90,7 +90,9 @@
       for(const quote of quotes) {
         const article=document.createElement('article');article.className='rc-archive-quote';
         const kind=document.createElement('span');kind.className='rc-archive-kind';kind.textContent=quote.kind==='daily'?'默认日签':quote.kind==='legacy'?'旧版重抽签':'重抽签';
-        const text=document.createElement('blockquote');text.textContent=quote.text;
+        const text=document.createElement('blockquote');
+        // Old browser-local records may retain prior editorial commentary.
+        text.textContent=quote.text.replace(/\n〔歌意〕[^\n]*$/,'');
         const source=document.createElement('p');
         if ((quote.chapter||'').startsWith('演唱：')) {
           const performer=((quote.chapter.match(/演唱：([^｜]+)/)||[])[1]||quote.author||'').trim();
