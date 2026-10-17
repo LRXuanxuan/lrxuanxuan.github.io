@@ -819,7 +819,7 @@ $$
 p(\nu\mid x)\propto
 \exp\left[-\tfrac12\left(\frac{\nu^2}{3^2}
 +e^{-\nu}x^2+\frac{\nu}{2}\right)\right].\tag{18}
-$
+$$
 
 > **原文式（18）核对：** 上式按 PDF 原样保留。但由正文式（14）的 $\nu\sim\mathcal N(0,3^2)$、$x\mid\nu\sim\mathcal N(0,e^\nu)$ 直接计算，
 >
