@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "count": 1551,
+  "count": 1552,
   "quotes": [
     {
       "id": "b3faf27097cae9a98a228080e7ea5d2a57b4ffbc963b300cb013bb45e4dbaec7",
@@ -19183,6 +19183,19 @@
       "quoteWeight": 1,
       "theme": "reflection",
       "aspect": "moth",
+      "sourceType": "song"
+    },
+    {
+      "id": "923d82bc72313ea089e4b7d614cad0c1fe573099adb8e629e17c2b6510546aaf",
+      "text": "It's no matter if you're born\nTo play the king or pawn,\nFor the line is thinly drawn 'tween joy and sorrow.\nAnd so my fantasy\nBecomes reality,\nAnd I must be what I must be and face tomorrow.\n\n无论你生来要扮演国王，\n还是一枚小卒，都无关紧要。\n因为欢乐与悲伤之间的界线如此模糊。\n于是我的幻想\n变成了现实，\n我也只能成为那个不得不成为的自己，直面明天。",
+      "book": "Flowers Never Bend with the Rainfall",
+      "author": "Paul Simon",
+      "chapter": "演唱：Simon & Garfunkel｜专辑：Parsley, Sage, Rosemary and Thyme（发行：1966-10-10）｜首发：1966-05（单曲 B 面）｜原版：Paul Simon 独唱首发：1965-06-23",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "inspiration",
+      "aspect": "heart",
       "sourceType": "song"
     }
   ]
