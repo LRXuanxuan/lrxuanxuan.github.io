@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "count": 1535,
+  "count": 1539,
   "quotes": [
     {
       "id": "b3faf27097cae9a98a228080e7ea5d2a57b4ffbc963b300cb013bb45e4dbaec7",
@@ -12790,7 +12790,7 @@
     },
     {
       "id": "34c9d72c9288947de477dec01078cab3cbc19416020f60ae3ec80a0d67d823a1",
-      "text": "Hello darkness, my old friend\n\n你好，黑暗，我的老朋友。",
+      "text": "Hello darkness, my old friend,\nI've come to talk with you again.\n\n你好，黑暗，我的老朋友，\n我又来与你交谈了。",
       "book": "The Sound of Silence",
       "author": "Paul Simon",
       "chapter": "演唱：Simon & Garfunkel｜专辑：Wednesday Morning, 3 A.M.（发行：1964-10-19）｜首发：1964-10-19（原声版）｜原版：电声单曲：1965-09-12",
@@ -12803,7 +12803,7 @@
     },
     {
       "id": "229327346b912bc1a60b53dddd2950c685d84d9c44c2670e6e5ffd91be9c711a",
-      "text": "People talking without speaking\n\n人们交谈，却未真正诉说。",
+      "text": "People talking without speaking,\nPeople hearing without listening,\nPeople writing songs that voices never share.\nNo one dared\nDisturb the sound of silence.\n\n人们交谈，却不曾真正诉说；\n人们倾听，却不曾真正听见；\n人们写下歌曲，却从未有人传唱。\n没有人敢\n惊扰这寂静之声。",
       "book": "The Sound of Silence",
       "author": "Paul Simon",
       "chapter": "演唱：Simon & Garfunkel｜专辑：Wednesday Morning, 3 A.M.（发行：1964-10-19）｜首发：1964-10-19（原声版）｜原版：电声单曲：1965-09-12",
@@ -18975,6 +18975,58 @@
       "quoteWeight": 1,
       "theme": "inspiration",
       "aspect": "heart",
+      "sourceType": "song"
+    },
+    {
+      "id": "46cd5722bde50895807b543e3158d7caa715f6143326cb0694e428994ad446fa",
+      "text": "\"Fools,\" said I, \"You do not know,\nSilence like a cancer grows.\nHear my words that I might teach you,\nTake my arms that I might reach you.\"\n\n“愚人们，”我说，“你们不明白，\n沉默如癌症一般蔓延。\n听听我的话吧，也许我能教导你们；\n握住我的双臂吧，也许我能触及你们。”",
+      "book": "The Sound of Silence",
+      "author": "Paul Simon",
+      "chapter": "演唱：Simon & Garfunkel｜专辑：Wednesday Morning, 3 A.M.（发行：1964-10-19）｜首发：1964-10-19（原声版）｜原版：电声单曲：1965-09-12",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "inspiration",
+      "aspect": "lantern",
+      "sourceType": "song"
+    },
+    {
+      "id": "c38d97355d2d3dccd19ac607e1c0e51c2aa1efe9d49ea81a1dc57f6776e58a3d",
+      "text": "But my words like silent raindrops fell,\nAnd echoed in the wells of silence.\n\n然而，我的话语像无声的雨滴落下，\n在寂静的深井中回响。",
+      "book": "The Sound of Silence",
+      "author": "Paul Simon",
+      "chapter": "演唱：Simon & Garfunkel｜专辑：Wednesday Morning, 3 A.M.（发行：1964-10-19）｜首发：1964-10-19（原声版）｜原版：电声单曲：1965-09-12",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "winter",
+      "sourceType": "song"
+    },
+    {
+      "id": "f974497f49f25ad682d440f200999c39484fa37b16b5beb5e5bc9f964727fd9c",
+      "text": "And the people bowed and prayed\nTo the neon god they made.\nAnd the sign flashed out its warning\nIn the words that it was forming.\n\n人们俯首祈祷，\n膜拜自己造出的霓虹之神。\n那招牌闪烁着警告，\n警告的字句正逐渐成形。",
+      "book": "The Sound of Silence",
+      "author": "Paul Simon",
+      "chapter": "演唱：Simon & Garfunkel｜专辑：Wednesday Morning, 3 A.M.（发行：1964-10-19）｜首发：1964-10-19（原声版）｜原版：电声单曲：1965-09-12",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "moth",
+      "sourceType": "song"
+    },
+    {
+      "id": "098e30bace69850e03faafd89a4c5f9747a431b0ef1d0ad2ee161904161ab97b",
+      "text": "And the sign said, \"The words of the prophets\nAre written on the subway walls\nAnd tenement halls\nAnd whispered in the sounds of silence.\"\n\n那招牌写道：“先知的话语\n写在地铁站的墙上，\n写在公寓楼的走廊里，\n又在寂静之声中被轻轻低语。”",
+      "book": "The Sound of Silence",
+      "author": "Paul Simon",
+      "chapter": "演唱：Simon & Garfunkel｜专辑：Wednesday Morning, 3 A.M.（发行：1964-10-19）｜首发：1964-10-19（原声版）｜原版：电声单曲：1965-09-12",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "lantern",
       "sourceType": "song"
     }
   ]
