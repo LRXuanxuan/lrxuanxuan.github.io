@@ -91,6 +91,13 @@ def check_pool(pool: object) -> list[str]:
             errors.append(f"{label}.sourceType: invalid type")
         if row.get("sourceType") == "song" and "〔歌意〕" in quote_text:
             errors.append(f"{label}.text: song must not include 〔歌意〕 commentary")
+        if row.get("sourceType") in {"song", "film"}:
+            lines = quote_text.split("\n")
+            first_chinese = next((j for j, line in enumerate(lines)
+                                  if re.search(r"[\u3400-\u9fff]", line)), -1)
+            if (first_chinese < 2 or lines[first_chinese - 1] != "" or
+                    (first_chinese > 2 and lines[first_chinese - 2] == "")):
+                errors.append(f"{label}.text: song/film requires one blank line before the Chinese translation")
         for field in ("weight", "quoteWeight"):
             value = row.get(field)
             if (isinstance(value, bool) or not isinstance(value, (float, int))

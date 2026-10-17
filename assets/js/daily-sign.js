@@ -7,7 +7,16 @@
   const status = root.querySelector('[data-sign-status]');
   const text = root.querySelector('blockquote');
   const source = root.querySelector('.rc-sign-source');
-  let initialText = text.textContent.replace(/\n〔歌意〕[^\n]*$/,'');
+  function formatBilingualText(value) {
+    const cleaned=String(value||'').replace(/\n〔歌意〕[^\n]*$/,'');
+    const lines=cleaned.split('\n');
+    const boundary=lines.findIndex(line=>/[\u3400-\u9fff]/.test(line));
+    if(boundary<=0||!lines.slice(0,boundary).some(line=>/[A-Za-z]/.test(line)))return cleaned;
+    let prefixEnd=boundary;
+    while(prefixEnd>0&&lines[prefixEnd-1]==='')prefixEnd--;
+    return [...lines.slice(0,prefixEnd),'',...lines.slice(boundary)].join('\n');
+  }
+  let initialText = formatBilingualText(text.textContent);
   text.textContent=initialText;
   let initialSource = source.cloneNode(true);
   const records = globalThis.RCSignRecords;
@@ -134,7 +143,7 @@
   }
   function render(quote) {
     currentQuote=quote;
-    text.textContent = quote.text.replace(/\n〔歌意〕[^\n]*$/,'');
+    text.textContent = formatBilingualText(quote.text);
     showVotes(quote);
     voteStatus.textContent='';
     showAspect(quote);
@@ -201,7 +210,7 @@
     currentQuote=initialQuote;
     showVotes(initialQuote);
     voteStatus.textContent='';
-    text.textContent = initialText;
+    text.textContent = formatBilingualText(initialText);
     showAspect(initialQuote);
     source.replaceChildren(...[...initialSource.childNodes].map(node => node.cloneNode(true)));
     reset.hidden = true;

@@ -10,6 +10,16 @@
   const status=root.querySelector('[data-archive-status]');
   const filter=root.querySelector('[data-archive-filter]');
   const voteTotal=root.querySelector('[data-votes-total]');
+  function formatBilingualText(value) {
+    const cleaned=String(value||'').replace(/\n〔歌意〕[^\n]*$/,'');
+    const lines=cleaned.split('\n');
+    const boundary=lines.findIndex(line=>/[\u3400-\u9fff]/.test(line));
+    if(boundary<=0||!lines.slice(0,boundary).some(line=>/[A-Za-z]/.test(line)))return cleaned;
+    let prefixEnd=boundary;
+    while(prefixEnd>0&&lines[prefixEnd-1]==='')prefixEnd--;
+    return [...lines.slice(0,prefixEnd),'',...lines.slice(boundary)].join('\n');
+  }
+
   function updateVoteSummary() {
     if(!votes||!voteTotal) return;
     const summary=votes.totals();
@@ -92,7 +102,7 @@
         const kind=document.createElement('span');kind.className='rc-archive-kind';kind.textContent=quote.kind==='daily'?'默认日签':quote.kind==='legacy'?'旧版重抽签':'重抽签';
         const text=document.createElement('blockquote');
         // Old browser-local records may retain prior editorial commentary.
-        text.textContent=quote.text.replace(/\n〔歌意〕[^\n]*$/,'');
+        text.textContent=formatBilingualText(quote.text);
         const source=document.createElement('p');
         if ((quote.chapter||'').startsWith('演唱：')) {
           const performer=((quote.chapter.match(/演唱：([^｜]+)/)||[])[1]||quote.author||'').trim();
