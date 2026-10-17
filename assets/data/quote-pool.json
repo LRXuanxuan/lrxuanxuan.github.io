@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "count": 1544,
+  "count": 1548,
   "quotes": [
     {
       "id": "b3faf27097cae9a98a228080e7ea5d2a57b4ffbc963b300cb013bb45e4dbaec7",
@@ -12985,7 +12985,7 @@
     },
     {
       "id": "59adfb52125d9700624681a4cf271b121e667241d864c32f5abf734caa6f1116",
-      "text": "I’d rather be a hammer than a nail\n\n我宁愿做锤子，而不是钉子。",
+      "text": "I'd rather be a hammer than a nail.\nYes, I would.\nIf I only could,\nI surely would.\n\n我宁愿做锤子，也不愿做钉子。\n是的，我愿意。\n只要我能做到，\n我一定会这样选择。",
       "book": "El Cóndor Pasa (If I Could)",
       "author": "Paul Simon（英文词）",
       "chapter": "演唱：Simon & Garfunkel｜专辑：Bridge over Troubled Water（发行：1970-01-26）｜首发：1970-01-26（Simon & Garfunkel 版）｜原版：原曲：Daniel Alomía Robles，1913 年",
@@ -19092,6 +19092,58 @@
       "quoteWeight": 1,
       "theme": "reflection",
       "aspect": "lantern",
+      "sourceType": "song"
+    },
+    {
+      "id": "f0812d4be0e2c936ad75520655feda7ef4c268631c237e94d816b5caac784f89",
+      "text": "I'd rather be a sparrow than a snail.\nYes, I would.\nIf I could,\nI surely would.\n\n我宁愿做一只麻雀，也不愿做一只蜗牛。\n是的，我愿意。\n如果我能做到，\n我一定会这样选择。",
+      "book": "El Cóndor Pasa (If I Could)",
+      "author": "Paul Simon（英文词）",
+      "chapter": "演唱：Simon & Garfunkel｜专辑：Bridge over Troubled Water（发行：1970-01-26）｜首发：1970-01-26（Simon & Garfunkel 版）｜原版：原曲：Daniel Alomía Robles，1913 年",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "inspiration",
+      "aspect": "rose",
+      "sourceType": "song"
+    },
+    {
+      "id": "3c48e7556723a85df864103dba5c10f44a9816d25faee9c734d571a08e266c2d",
+      "text": "Away, I'd rather sail away,\nLike a swan that's here and gone.\nA man gets tied up to the ground,\nHe gives the world its saddest sound,\nIts saddest sound.\n\n远去吧，我宁愿乘风远航，\n像天鹅一样，来过便又飞走。\n可人却被牢牢拴在大地上，\n于是向世界发出最悲伤的声音，\n那最悲伤的声音。",
+      "book": "El Cóndor Pasa (If I Could)",
+      "author": "Paul Simon（英文词）",
+      "chapter": "演唱：Simon & Garfunkel｜专辑：Bridge over Troubled Water（发行：1970-01-26）｜首发：1970-01-26（Simon & Garfunkel 版）｜原版：原曲：Daniel Alomía Robles，1913 年",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "rose",
+      "sourceType": "song"
+    },
+    {
+      "id": "a93d471e6c08fd324bc6e5811e7365ea9f0c41286df57b2ee051a7d3c4698fb7",
+      "text": "I'd rather be a forest than a street.\nYes, I would.\nIf I could,\nI surely would.\n\n我宁愿成为一片森林，也不愿成为一条街道。\n是的，我愿意。\n如果我能做到，\n我一定会这样选择。",
+      "book": "El Cóndor Pasa (If I Could)",
+      "author": "Paul Simon（英文词）",
+      "chapter": "演唱：Simon & Garfunkel｜专辑：Bridge over Troubled Water（发行：1970-01-26）｜首发：1970-01-26（Simon & Garfunkel 版）｜原版：原曲：Daniel Alomía Robles，1913 年",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "scenery",
+      "aspect": "nectar",
+      "sourceType": "song"
+    },
+    {
+      "id": "da291bee1548ebcbe11d12a875df510e1dd56c4a7762cc9017ebf0c876a9243b",
+      "text": "I'd rather feel the earth beneath my feet.\nYes, I would.\nIf I only could,\nI surely would.\n\n我宁愿双脚踏着泥土，感受脚下的大地。\n是的，我愿意。\n只要我能做到，\n我一定会这样选择。",
+      "book": "El Cóndor Pasa (If I Could)",
+      "author": "Paul Simon（英文词）",
+      "chapter": "演唱：Simon & Garfunkel｜专辑：Bridge over Troubled Water（发行：1970-01-26）｜首发：1970-01-26（Simon & Garfunkel 版）｜原版：原曲：Daniel Alomía Robles，1913 年",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "scenery",
+      "aspect": "nectar",
       "sourceType": "song"
     }
   ]
