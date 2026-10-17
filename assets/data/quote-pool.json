@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "count": 1539,
+  "count": 1540,
   "quotes": [
     {
       "id": "b3faf27097cae9a98a228080e7ea5d2a57b4ffbc963b300cb013bb45e4dbaec7",
@@ -12959,7 +12959,7 @@
     },
     {
       "id": "2e1d0dbba965a2de4d881733bfa5ec90dc0060a7e3f2f0b5bc4f6d8ef53ca4cb",
-      "text": "Like a bridge over troubled water\n\n仿佛架在汹涌水面上的一座桥。",
+      "text": "Like a bridge over troubled water,\nI will lay me down.\n\n像一座横跨汹涌水面的桥，\n我愿为你俯身横卧。",
       "book": "Bridge over Troubled Water",
       "author": "Paul Simon",
       "chapter": "演唱：Simon & Garfunkel｜专辑：Bridge over Troubled Water（发行：1970-01-26）｜首发：1970-01-20（单曲）",
@@ -12972,7 +12972,7 @@
     },
     {
       "id": "508c5f58d6769539b986bc1e42ade663781f0fe70378fde780e4093b8974c684",
-      "text": "Sail on, silvergirl\n\n继续航行吧，银色的姑娘。",
+      "text": "Sail on, silvergirl,\nSail on by.\nYour time has come to shine.\nAll your dreams are on their way.\nSee how they shine.\n\n继续航行吧，银色的姑娘，\n继续向前航行。\n属于你的闪耀时刻已经到来。\n你的所有梦想都已在路上，\n看啊，它们熠熠生辉。",
       "book": "Bridge over Troubled Water",
       "author": "Paul Simon",
       "chapter": "演唱：Simon & Garfunkel｜专辑：Bridge over Troubled Water（发行：1970-01-26）｜首发：1970-01-20（单曲）",
@@ -19027,6 +19027,19 @@
       "quoteWeight": 1,
       "theme": "reflection",
       "aspect": "lantern",
+      "sourceType": "song"
+    },
+    {
+      "id": "f2d19e060c6a4b37e811a2c93d5c720eb0f46187ba3e49905af2dd32194cf678",
+      "text": "When you're down and out,\nWhen you're on the street,\nWhen evening falls so hard,\nI will comfort you.\nI'll take your part.\n\n当你穷困潦倒，\n当你流落街头，\n当夜幕沉沉压下，\n我会安慰你，\n我会站在你这一边。",
+      "book": "Bridge over Troubled Water",
+      "author": "Paul Simon",
+      "chapter": "演唱：Simon & Garfunkel｜专辑：Bridge over Troubled Water（发行：1970-01-26）｜首发：1970-01-20（单曲）",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "inspiration",
+      "aspect": "heart",
       "sourceType": "song"
     }
   ]
