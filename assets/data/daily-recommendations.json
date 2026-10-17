@@ -338,6 +338,776 @@
           "惆怅"
         ],
         "note": "关于青春、工作与生活压力的短篇小说，被唱成了歌。"
+      },
+      {
+        "id": "s031",
+        "title": "The Boxer",
+        "creator": "Simon & Garfunkel",
+        "tags": [
+          "民谣",
+          "叙事",
+          "韧性"
+        ],
+        "note": "拳击手的故事越唱越像一份关于漂泊与坚持的个人证词。"
+      },
+      {
+        "id": "s032",
+        "title": "America",
+        "creator": "Simon & Garfunkel",
+        "tags": [
+          "公路",
+          "民谣",
+          "惆怅"
+        ],
+        "note": "从旅途中琐碎的对话出发，渐渐写到一个时代的迷惘。"
+      },
+      {
+        "id": "s033",
+        "title": "Bridge Over Troubled Water",
+        "creator": "Simon & Garfunkel",
+        "tags": [
+          "福音气质",
+          "陪伴",
+          "抒情"
+        ],
+        "note": "先是亲密的安慰，随后被歌声推向近乎恢宏的高度。"
+      },
+      {
+        "id": "s034",
+        "title": "Old Friends",
+        "creator": "Simon & Garfunkel",
+        "tags": [
+          "岁月",
+          "和声",
+          "怀旧"
+        ],
+        "note": "两个人在长椅上想象老去，短短几句便令人感到时光的重量。"
+      },
+      {
+        "id": "s035",
+        "title": "Kodachrome",
+        "creator": "Paul Simon",
+        "tags": [
+          "流行摇滚",
+          "怀旧",
+          "摄影"
+        ],
+        "note": "色彩鲜亮的曲风，与记忆和真实之间的小小争执相得益彰。"
+      },
+      {
+        "id": "s036",
+        "title": "Graceland",
+        "creator": "Paul Simon",
+        "tags": [
+          "世界音乐",
+          "旅途",
+          "和解"
+        ],
+        "note": "节奏轻快，叙事却不断触及人生失落与重新出发。"
+      },
+      {
+        "id": "s037",
+        "title": "Diamonds on the Soles of Her Shoes",
+        "creator": "Paul Simon",
+        "tags": [
+          "世界音乐",
+          "律动",
+          "合唱"
+        ],
+        "note": "人声与节奏相互追逐，细节越听越丰富。"
+      },
+      {
+        "id": "s038",
+        "title": "Common People",
+        "creator": "Pulp",
+        "tags": [
+          "英伦摇滚",
+          "阶级",
+          "讽刺"
+        ],
+        "note": "一首越唱越失控的阶级讽刺歌，愤怒也能有舞池的节拍。"
+      },
+      {
+        "id": "s039",
+        "title": "Disco 2000",
+        "creator": "Pulp",
+        "tags": [
+          "英伦流行",
+          "青春",
+          "怀旧"
+        ],
+        "note": "以一场未能实现的青春约定，唱出时间留下的距离。"
+      },
+      {
+        "id": "s040",
+        "title": "This Is Hardcore",
+        "creator": "Pulp",
+        "tags": [
+          "戏剧性",
+          "阴郁",
+          "艺术摇滚"
+        ],
+        "note": "缓慢而浮华的编曲，把声色犬马唱成近乎恐怖的空洞。"
+      },
+      {
+        "id": "s041",
+        "title": "Basketball Shoes",
+        "creator": "Black Country, New Road",
+        "tags": [
+          "后摇",
+          "长篇结构",
+          "爆发"
+        ],
+        "note": "仿佛把一出小型悲剧交给乐队演完，收束处格外汹涌。"
+      },
+      {
+        "id": "s042",
+        "title": "The Place Where He Inserted the Blade",
+        "creator": "Black Country, New Road",
+        "tags": [
+          "室内乐摇滚",
+          "合唱",
+          "情感"
+        ],
+        "note": "私人情绪与集体合唱彼此呼应，克制和失控只隔一步。"
+      },
+      {
+        "id": "s043",
+        "title": "Concorde",
+        "creator": "Black Country, New Road",
+        "tags": [
+          "意象",
+          "渐进",
+          "后摇"
+        ],
+        "note": "反复出现的意象和渐强的编排，让告别带着升空的幻觉。"
+      },
+      {
+        "id": "s044",
+        "title": "Both Sides, Now",
+        "creator": "Joni Mitchell",
+        "tags": [
+          "民谣",
+          "人生",
+          "回望"
+        ],
+        "note": "把云、爱情与人生依次放在两面看，简洁却耐得住年岁。"
+      },
+      {
+        "id": "s045",
+        "title": "A Case of You",
+        "creator": "Joni Mitchell",
+        "tags": [
+          "民谣",
+          "亲密",
+          "诗意"
+        ],
+        "note": "以锋利又亲昵的隐喻描画感情，没有刻意美化其中的矛盾。"
+      },
+      {
+        "id": "s046",
+        "title": "River",
+        "creator": "Joni Mitchell",
+        "tags": [
+          "钢琴",
+          "冬日",
+          "孤独"
+        ],
+        "note": "借用节日旋律的影子，让一段关系的悔意显得更加清冷。"
+      },
+      {
+        "id": "s047",
+        "title": "For the Roses",
+        "creator": "Joni Mitchell",
+        "tags": [
+          "创作",
+          "自省",
+          "民谣"
+        ],
+        "note": "从艺术家的视角审视名望、被观看和表达的代价。"
+      },
+      {
+        "id": "s048",
+        "title": "The Only Living Boy in New York",
+        "creator": "Simon & Garfunkel",
+        "tags": [
+          "城市",
+          "和声",
+          "孤独"
+        ],
+        "note": "轻盈的和声里藏着朋友远行之后的空落。"
+      },
+      {
+        "id": "s049",
+        "title": "The Boy with the Arab Strap",
+        "creator": "Belle & Sebastian",
+        "tags": [
+          "独立流行",
+          "群像",
+          "轻快"
+        ],
+        "note": "轻巧的旋律包裹着对青年群体的细致观察。"
+      },
+      {
+        "id": "s050",
+        "title": "If You're Feeling Sinister",
+        "creator": "Belle & Sebastian",
+        "tags": [
+          "独立流行",
+          "叙事",
+          "讽刺"
+        ],
+        "note": "用温柔又淘气的口吻，讲一个比表面更尖锐的故事。"
+      },
+      {
+        "id": "s051",
+        "title": "Piazza, New York Catcher",
+        "creator": "Belle & Sebastian",
+        "tags": [
+          "民谣",
+          "爱情",
+          "城市"
+        ],
+        "note": "地点、典故与私人记忆交错，像一封写得很长的明信片。"
+      },
+      {
+        "id": "s052",
+        "title": "Step",
+        "creator": "Vampire Weekend",
+        "tags": [
+          "独立流行",
+          "怀旧",
+          "细节"
+        ],
+        "note": "轻快外壳下塞满文化典故，越听越能发现旋律中的巧思。"
+      },
+      {
+        "id": "s053",
+        "title": "Hannah Hunt",
+        "creator": "Vampire Weekend",
+        "tags": [
+          "公路",
+          "叙事",
+          "情感"
+        ],
+        "note": "细微的日常叙事，最终被一次突然敞开的情绪打破。"
+      },
+      {
+        "id": "s054",
+        "title": "Oxford Comma",
+        "creator": "Vampire Weekend",
+        "tags": [
+          "独立摇滚",
+          "俏皮",
+          "语言"
+        ],
+        "note": "借一个标点符号制造幽默，也顺手调侃文化姿态。"
+      },
+      {
+        "id": "s055",
+        "title": "There Is a Light That Never Goes Out",
+        "creator": "The Smiths",
+        "tags": [
+          "英伦摇滚",
+          "浪漫",
+          "忧郁"
+        ],
+        "note": "把极端浪漫的幻想写成人人都能跟唱的旋律。"
+      },
+      {
+        "id": "s056",
+        "title": "The Queen Is Dead",
+        "creator": "The Smiths",
+        "tags": [
+          "讽刺",
+          "后朋克",
+          "政治"
+        ],
+        "note": "吉他一路疾驰，歌词对体制与文化身份毫不留情。"
+      },
+      {
+        "id": "s057",
+        "title": "Please, Please, Please, Let Me Get What I Want",
+        "creator": "The Smiths",
+        "tags": [
+          "短歌",
+          "祈愿",
+          "忧伤"
+        ],
+        "note": "极短的祈愿，却能把长久的失落压进旋律。"
+      },
+      {
+        "id": "s058",
+        "title": "Holland, 1945",
+        "creator": "Neutral Milk Hotel",
+        "tags": [
+          "独立摇滚",
+          "历史",
+          "爆发"
+        ],
+        "note": "热烈而粗粝的欢腾，始终与战争和死亡的阴影纠缠。"
+      },
+      {
+        "id": "s059",
+        "title": "Two-Headed Boy",
+        "creator": "Neutral Milk Hotel",
+        "tags": [
+          "原声吉他",
+          "超现实",
+          "抒情"
+        ],
+        "note": "只凭急促的吉他与人声，就能撑起一个怪诞又动人的世界。"
+      },
+      {
+        "id": "s060",
+        "title": "Oh Comely",
+        "creator": "Neutral Milk Hotel",
+        "tags": [
+          "长篇民谣",
+          "意识流",
+          "悲伤"
+        ],
+        "note": "充满跳跃意象的长歌，情绪始终保持异常强烈的连续性。"
+      },
+      {
+        "id": "s061",
+        "title": "Shine On You Crazy Diamond",
+        "creator": "Pink Floyd",
+        "tags": [
+          "前卫摇滚",
+          "追忆",
+          "长篇结构"
+        ],
+        "note": "用漫长的器乐铺陈与主题回返，为一位离去的伙伴留下纪念。"
+      },
+      {
+        "id": "s062",
+        "title": "Echoes",
+        "creator": "Pink Floyd",
+        "tags": [
+          "前卫摇滚",
+          "实验",
+          "海洋"
+        ],
+        "note": "从遥远的回声逐步展开，像一次穿越陌生景观的漫游。"
+      },
+      {
+        "id": "s063",
+        "title": "Time",
+        "creator": "Pink Floyd",
+        "tags": [
+          "概念专辑",
+          "时间",
+          "反思"
+        ],
+        "note": "钟声过后，一首歌突然把人的平庸日常变成严肃的问题。"
+      },
+      {
+        "id": "s064",
+        "title": "Wish You Were Here",
+        "creator": "Pink Floyd",
+        "tags": [
+          "原声吉他",
+          "怀念",
+          "疏离"
+        ],
+        "note": "音乐简朴，却把现代生活中的缺席感说得分外清楚。"
+      },
+      {
+        "id": "s065",
+        "title": "The Court of the Crimson King",
+        "creator": "King Crimson",
+        "tags": [
+          "前卫摇滚",
+          "史诗",
+          "奇幻"
+        ],
+        "note": "铜管般的厚重音色与寓言意象，共同搭起一座怪异宫殿。"
+      },
+      {
+        "id": "s066",
+        "title": "Epitaph",
+        "creator": "King Crimson",
+        "tags": [
+          "末世",
+          "抒情",
+          "管弦摇滚"
+        ],
+        "note": "面对混乱的时代，恢宏编排里仍透出明确的悲伤。"
+      },
+      {
+        "id": "s067",
+        "title": "Firth of Fifth",
+        "creator": "Genesis",
+        "tags": [
+          "前卫摇滚",
+          "器乐",
+          "结构"
+        ],
+        "note": "从钢琴引子到悠长的吉他独奏，乐器之间接力得精密漂亮。"
+      },
+      {
+        "id": "s068",
+        "title": "The Cinema Show",
+        "creator": "Genesis",
+        "tags": [
+          "前卫摇滚",
+          "神话",
+          "组曲"
+        ],
+        "note": "日常叙事忽然通向古典神话，后半段又化作器乐盛宴。"
+      },
+      {
+        "id": "s069",
+        "title": "Roundabout",
+        "creator": "Yes",
+        "tags": [
+          "前卫摇滚",
+          "贝斯",
+          "律动"
+        ],
+        "note": "复杂拍点与明亮旋律融合得非常自然，入门前卫摇滚也合适。"
+      },
+      {
+        "id": "s070",
+        "title": "And You and I",
+        "creator": "Yes",
+        "tags": [
+          "交响摇滚",
+          "田园",
+          "抒情"
+        ],
+        "note": "层层展开的音色仿佛在描画不断延伸的风景。"
+      },
+      {
+        "id": "s071",
+        "title": "The Great Curve",
+        "creator": "Talking Heads",
+        "tags": [
+          "放克",
+          "多重节奏",
+          "狂欢"
+        ],
+        "note": "吉他、人声和打击乐一同奔跑，节奏充满奇妙的张力。"
+      },
+      {
+        "id": "s072",
+        "title": "This Must Be the Place (Naive Melody)",
+        "creator": "Talking Heads",
+        "tags": [
+          "新浪潮",
+          "爱情",
+          "温柔"
+        ],
+        "note": "把家的概念写进简单循环的旋律，格外亲切。"
+      },
+      {
+        "id": "s073",
+        "title": "Station to Station",
+        "creator": "David Bowie",
+        "tags": [
+          "艺术摇滚",
+          "变形",
+          "长篇结构"
+        ],
+        "note": "从机械般的开场逐渐驶入律动，像音乐身份的一次迁徙。"
+      },
+      {
+        "id": "s074",
+        "title": "Five Years",
+        "creator": "David Bowie",
+        "tags": [
+          "末世",
+          "戏剧性",
+          "叙事"
+        ],
+        "note": "以倒计时式的末日新闻，逐渐累积近乎无法承受的情绪。"
+      },
+      {
+        "id": "s075",
+        "title": "Wuthering Heights",
+        "creator": "Kate Bush",
+        "tags": [
+          "文学改编",
+          "艺术流行",
+          "戏剧"
+        ],
+        "note": "借《呼啸山庄》的鬼魂视角，让奇特声线成为叙事本身。"
+      },
+      {
+        "id": "s076",
+        "title": "Cloudbusting",
+        "creator": "Kate Bush",
+        "tags": [
+          "艺术流行",
+          "父子",
+          "管弦编排"
+        ],
+        "note": "以孩童视角回看父亲的奇想与失去，旋律不断向前推进。"
+      },
+      {
+        "id": "s077",
+        "title": "Unravel",
+        "creator": "Björk",
+        "tags": [
+          "电子",
+          "亲密",
+          "极简"
+        ],
+        "note": "把离别写成线团松脱，安静的电子声响反而放大了情感。"
+      },
+      {
+        "id": "s078",
+        "title": "Jóga",
+        "creator": "Björk",
+        "tags": [
+          "电子",
+          "弦乐",
+          "壮阔"
+        ],
+        "note": "弦乐与电子节拍同时起伏，像把地质运动写成私人情书。"
+      },
+      {
+        "id": "s079",
+        "title": "Svefn-g-englar",
+        "creator": "Sigur Rós",
+        "tags": [
+          "后摇",
+          "空灵",
+          "缓慢"
+        ],
+        "note": "声音像从遥远空间传来，适合让思绪跟着漫长音符漂流。"
+      },
+      {
+        "id": "s080",
+        "title": "Hoppípolla",
+        "creator": "Sigur Rós",
+        "tags": [
+          "后摇",
+          "希望",
+          "钢琴"
+        ],
+        "note": "明亮的钢琴与逐步加入的乐队，把简单的喜悦写得壮观。"
+      },
+      {
+        "id": "s081",
+        "title": "Storm",
+        "creator": "Godspeed You! Black Emperor",
+        "tags": [
+          "后摇",
+          "史诗",
+          "渐进"
+        ],
+        "note": "长篇器乐从光亮走向不安，具有近乎电影配乐的叙事能力。"
+      },
+      {
+        "id": "s082",
+        "title": "Sleep",
+        "creator": "Godspeed You! Black Emperor",
+        "tags": [
+          "后摇",
+          "城市记忆",
+          "忧伤"
+        ],
+        "note": "一段关于城市往昔的录音，拉开规模庞大的器乐篇章。"
+      },
+      {
+        "id": "s083",
+        "title": "Your Hand in Mine",
+        "creator": "Explosions in the Sky",
+        "tags": [
+          "后摇",
+          "器乐",
+          "温柔"
+        ],
+        "note": "没有歌词，交错的吉他仍能把亲密与希望写得很具体。"
+      },
+      {
+        "id": "s084",
+        "title": "The Only Moment We Were Alone",
+        "creator": "Explosions in the Sky",
+        "tags": [
+          "后摇",
+          "动态",
+          "渐强"
+        ],
+        "note": "音量和密度不断变换，既有克制也有直截了当的爆发。"
+      },
+      {
+        "id": "s085",
+        "title": "Famous Prophets (Stars)",
+        "creator": "Car Seat Headrest",
+        "tags": [
+          "独立摇滚",
+          "长篇叙事",
+          "情感"
+        ],
+        "note": "反复出现的动机逐渐汇成一次激烈的情绪清算。"
+      },
+      {
+        "id": "s086",
+        "title": "Beach Life-in-Death",
+        "creator": "Car Seat Headrest",
+        "tags": [
+          "独立摇滚",
+          "长篇结构",
+          "青春"
+        ],
+        "note": "漫长而跳跃的自白，把青春的不安拆成几个戏剧段落。"
+      },
+      {
+        "id": "s087",
+        "title": "Fourth of July",
+        "creator": "Sufjan Stevens",
+        "tags": [
+          "独立民谣",
+          "亲情",
+          "死亡"
+        ],
+        "note": "近乎低声问答的母子对话，将告别写得平静又残酷。"
+      },
+      {
+        "id": "s088",
+        "title": "Chicago",
+        "creator": "Sufjan Stevens",
+        "tags": [
+          "独立流行",
+          "远行",
+          "合唱"
+        ],
+        "note": "管弦与合唱为出走添上光芒，却没有抹去其中的遗憾。"
+      },
+      {
+        "id": "s089",
+        "title": "John My Beloved",
+        "creator": "Sufjan Stevens",
+        "tags": [
+          "极简",
+          "信仰",
+          "亲密"
+        ],
+        "note": "在信仰语言与私人感情之间保留恰到好处的暧昧。"
+      },
+      {
+        "id": "s090",
+        "title": "Farewell Transmission",
+        "creator": "Songs: Ohia",
+        "tags": [
+          "独立摇滚",
+          "生命力",
+          "长篇"
+        ],
+        "note": "重复和迸发交替，像在废墟上固执地保持歌唱。"
+      },
+      {
+        "id": "s091",
+        "title": "The Lioness",
+        "creator": "Songs: Ohia",
+        "tags": [
+          "慢摇滚",
+          "阴郁",
+          "亲密"
+        ],
+        "note": "寥寥几种乐器营造出幽暗空间，人声的距离感格外鲜明。"
+      },
+      {
+        "id": "s092",
+        "title": "The Night They Drove Old Dixie Down",
+        "creator": "The Band",
+        "tags": [
+          "历史",
+          "民谣摇滚",
+          "叙事"
+        ],
+        "note": "以战后普通人的视角讲述大时代，值得同时留意叙事立场。"
+      },
+      {
+        "id": "s093",
+        "title": "The Weight",
+        "creator": "The Band",
+        "tags": [
+          "根源摇滚",
+          "群像",
+          "寓言"
+        ],
+        "note": "路上的一群古怪人物，组成一首旋律亲切的寓言。"
+      },
+      {
+        "id": "s094",
+        "title": "Waterloo Sunset",
+        "creator": "The Kinks",
+        "tags": [
+          "英伦流行",
+          "城市",
+          "温柔"
+        ],
+        "note": "站在泰晤士河畔看人来人往，写出一种温柔的旁观。"
+      },
+      {
+        "id": "s095",
+        "title": "Shangri-La",
+        "creator": "The Kinks",
+        "tags": [
+          "社会观察",
+          "英伦摇滚",
+          "讽刺"
+        ],
+        "note": "中产生活的安稳外壳下，是一份笑中带刺的阶层素描。"
+      },
+      {
+        "id": "s096",
+        "title": "The Village Green Preservation Society",
+        "creator": "The Kinks",
+        "tags": [
+          "怀旧",
+          "英伦流行",
+          "幽默"
+        ],
+        "note": "热热闹闹地守护种种旧事物，怀旧又带一点自我调侃。"
+      },
+      {
+        "id": "s097",
+        "title": "Vincent",
+        "creator": "Don McLean",
+        "tags": [
+          "民谣",
+          "艺术",
+          "悲悯"
+        ],
+        "note": "从梵高的画面与命运出发，写成一首细致而不喧哗的歌。"
+      },
+      {
+        "id": "s098",
+        "title": "American Pie",
+        "creator": "Don McLean",
+        "tags": [
+          "时代感",
+          "长篇叙事",
+          "民谣摇滚"
+        ],
+        "note": "一连串文化典故与音乐史片段，适合边听边查。"
+      },
+      {
+        "id": "s099",
+        "title": "Suzanne",
+        "creator": "Leonard Cohen",
+        "tags": [
+          "诗意",
+          "城市",
+          "民谣"
+        ],
+        "note": "宗教意象与都市里的亲密经验相互渗透，像一首朦胧的诗。"
+      },
+      {
+        "id": "s100",
+        "title": "Bird on the Wire",
+        "creator": "Leonard Cohen",
+        "tags": [
+          "自由",
+          "忏悔",
+          "民谣"
+        ],
+        "note": "用简洁的自白触碰自由、亏欠以及人际关系的重量。"
       }
     ],
     "book": [
