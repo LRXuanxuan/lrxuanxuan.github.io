@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "count": 1530,
+  "count": 1535,
   "quotes": [
     {
       "id": "b3faf27097cae9a98a228080e7ea5d2a57b4ffbc963b300cb013bb45e4dbaec7",
@@ -18909,6 +18909,71 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
+      "aspect": "heart",
+      "sourceType": "song"
+    },
+    {
+      "id": "f673c8233923a22233b8218a66136b7259a892fe13e0b15e70e61a2d852038fb",
+      "text": "Dirty old river, must you keep rolling\nFlowing into the night?\n\n浑浊的老河啊，你一定要不停奔流，\n一直流入夜色之中吗？",
+      "book": "Waterloo Sunset",
+      "author": "Ray Davies",
+      "chapter": "演唱：The Kinks｜专辑：Something Else by the Kinks（发行：1967-09-15）｜首发：1967-05-05（英国单曲）",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "scenery",
+      "aspect": "moon",
+      "sourceType": "song"
+    },
+    {
+      "id": "4cb4ee4c345831a056159df3f6446d285b1a4e425802b2dc24105d3f56f49b17",
+      "text": "But I don't need no friends,\nAs long as I gaze on\nWaterloo sunset,\nI am in paradise.\n\n可我不需要什么朋友，\n只要凝望着\n滑铁卢的落日，\n我便置身天堂。",
+      "book": "Waterloo Sunset",
+      "author": "Ray Davies",
+      "chapter": "演唱：The Kinks｜专辑：Something Else by the Kinks（发行：1967-09-15）｜首发：1967-05-05（英国单曲）",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "moon",
+      "sourceType": "song"
+    },
+    {
+      "id": "65accde3712d97565a0ffb04aac25a83f1f336d40e01ca182a313cafc526f11b",
+      "text": "Every day, I look at the world from my window,\nBut chilly, chilly is the evening time.\nWaterloo sunset's fine.\n\n每天，我都从窗口望着外面的世界，\n可每到傍晚，总是寒意阵阵。\n滑铁卢的落日真美。",
+      "book": "Waterloo Sunset",
+      "author": "Ray Davies",
+      "chapter": "演唱：The Kinks｜专辑：Something Else by the Kinks（发行：1967-09-15）｜首发：1967-05-05（英国单曲）",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "scenery",
+      "aspect": "moon",
+      "sourceType": "song"
+    },
+    {
+      "id": "d599bd479b119cca763383e319ce85271f744abdef0ef5d86012ae87abe545dd",
+      "text": "Millions of people swarming like flies 'round\nWaterloo underground.\nBut Terry and Julie cross over the river,\nWhere they feel safe and sound.\n\n千百万人如蝇群般熙攘，\n挤在滑铁卢地铁站四周。\n而特里与朱莉越过河去，\n在那里，他们平安无忧。",
+      "book": "Waterloo Sunset",
+      "author": "Ray Davies",
+      "chapter": "演唱：The Kinks｜专辑：Something Else by the Kinks（发行：1967-09-15）｜首发：1967-05-05（英国单曲）",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "heart",
+      "sourceType": "song"
+    },
+    {
+      "id": "c365b4966a83555741dcbe4f5dd996439d4b682d5c041fab1fa71cab32562ed3",
+      "text": "And they don't need no friends,\nAs long as they gaze on\nWaterloo Sunset,\nThey are in paradise.\n\n他们也不需要什么朋友，\n只要凝望着\n滑铁卢的落日，\n他们便置身天堂。",
+      "book": "Waterloo Sunset",
+      "author": "Ray Davies",
+      "chapter": "演唱：The Kinks｜专辑：Something Else by the Kinks（发行：1967-09-15）｜首发：1967-05-05（英国单曲）",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "inspiration",
       "aspect": "heart",
       "sourceType": "song"
     }
