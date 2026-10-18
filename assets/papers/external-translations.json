@@ -1,5 +1,94 @@
 [
   {
+    "date": "2026-10-19",
+    "slug": "2026-10-19-channel-charting-cotraining-tcomm2026",
+    "title": "共训练信道图半监督定位算法｜中文逐节译稿（校对中）",
+    "url": "/papers/translations/2026-10-19-channel-charting-cotraining-tcomm2026/",
+    "source_file": "2026-10-19-channel-charting-cotraining-tcomm2026.md",
+    "scope": "摘要、正文 I–VI、公式（1）–（22）、算法 1–2、图表及主要实验数据；参考书目与表 I–VIII 全量单元仍待补录，未通过全文 QA",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-19-channel-charting-cotraining-tcomm2026.md",
+    "source_page_path": "papers/translations/2026-10-19-channel-charting-cotraining-tcomm2026.md",
+    "paper_ids": [
+      "eb181bdf15229320"
+    ],
+    "source_arxiv_ids": [],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": true
+  },
+  {
+    "date": "2026-10-19",
+    "slug": "2026-10-19-los-nlos-iapm-tcomm2025",
+    "title": "LoS/NLoS 识别辅助的室内 MIMO 定位方法｜中文逐节译稿（校对中）",
+    "url": "/papers/translations/2026-10-19-los-nlos-iapm-tcomm2025/",
+    "source_file": "2026-10-19-los-nlos-iapm-tcomm2025.md",
+    "scope": "摘要、正文 I–VI、公式（1）–（38）、图表及主要实验数据；参考书目与表 I–VIII 全量单元仍待补录，未通过全文 QA",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-19-los-nlos-iapm-tcomm2025.md",
+    "source_page_path": "papers/translations/2026-10-19-los-nlos-iapm-tcomm2025.md",
+    "paper_ids": [
+      "c87cd5ee4b0a13ea"
+    ],
+    "source_arxiv_ids": [],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": true
+  },
+  {
+    "date": "2026-10-19",
+    "slug": "2026-10-19-improved-triplet-channel-charting-icc2025",
+    "title": "协方差特征改进 Triplet 信道图定位算法｜中文译稿（待终校）",
+    "url": "/papers/translations/2026-10-19-improved-triplet-channel-charting-icc2025/",
+    "source_file": "2026-10-19-improved-triplet-channel-charting-icc2025.md",
+    "scope": "摘要、正文 I–VI、公式（1）–（14）、算法 1、图 1–6、表 I–III、致谢与参考文献；逐表终校中",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-19-improved-triplet-channel-charting-icc2025.md",
+    "source_page_path": "papers/translations/2026-10-19-improved-triplet-channel-charting-icc2025.md",
+    "paper_ids": [
+      "330fe2a20548bae3"
+    ],
+    "source_arxiv_ids": [],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": true
+  },
+  {
+    "date": "2026-10-19",
+    "slug": "2026-10-19-3d-localization-assisted-isac-2311-16798",
+    "title": "三维非平稳定位辅助 ISAC 信道模型｜中文译稿（待终校）",
+    "url": "/papers/translations/2026-10-19-3d-localization-assisted-isac-2311-16798/",
+    "source_file": "2026-10-19-3d-localization-assisted-isac-2311-16798.md",
+    "scope": "摘要、正文 I–V、公式（1）–（28）、图 1–6、致谢与参考文献；原文逐式校对中",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-19-3d-localization-assisted-isac-2311-16798.md",
+    "source_page_path": "papers/translations/2026-10-19-3d-localization-assisted-isac-2311-16798.md",
+    "paper_ids": [
+      "b65ab8ecd9ff2ed4"
+    ],
+    "source_arxiv_ids": [
+      "2311.16798"
+    ],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": true
+  },
+  {
+    "date": "2026-10-19",
+    "slug": "2026-10-19-weighted-random-forest-indoor-2208-10007",
+    "title": "基于加权随机森林的 6G 室内定位算法｜中文译稿（待终校）",
+    "url": "/papers/translations/2026-10-19-weighted-random-forest-indoor-2208-10007/",
+    "source_file": "2026-10-19-weighted-random-forest-indoor-2208-10007.md",
+    "scope": "摘要、正文 I–V、公式（1）–（4）、算法 1–2、图 1–6、表 I–III、致谢与参考文献；原文逐式校对中",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-19-weighted-random-forest-indoor-2208-10007.md",
+    "source_page_path": "papers/translations/2026-10-19-weighted-random-forest-indoor-2208-10007.md",
+    "paper_ids": [
+      "fd1f49fccc8f85b4"
+    ],
+    "source_arxiv_ids": [
+      "2208.10007"
+    ],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": true
+  },
+  {
     "date": "2026-10-16",
     "slug": "2026-10-16-flow-matching-proximal-2602-12683",
     "title": "从近端算子视角理解流匹配｜中文全篇译稿（逐式校对中）",
