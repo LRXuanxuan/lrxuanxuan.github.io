@@ -13,7 +13,7 @@ toc: true
 
 **原题：** An Improved Triplet-Based Channel Charting Algorithm for Positioning via Covariance Feature  
 **作者：** Yang Wu、Yuhang Pan、Jianghan Ji（共同第一作者），Cheng-Xiang Wang、Junling Li、Chen Huang  
-**机构：** 东南大学移动通信国家重点实验室；紫金山实验室泛在通信研究中心。通讯作者：Cheng-Xiang Wang、Chen Huang。  
+**机构：** 东南大学移动通信全国重点实验室；紫金山实验室泛在通信研究中心。通讯作者：Cheng-Xiang Wang、Chen Huang。  
 **出处：** IEEE International Conference on Communications（ICC 2025），SAC Machine Learning for Communications and Networking Track，第 3852—3857 页。DOI: 10.1109/ICC52391.2025.11160825。  
 **译文范围：** 摘要、I—VI 节、式（1）—（14）、算法 1、图 1—6、表 I—III、致谢及参考文献 [1]—[19]。部分原文公式符号简写保留；原文没有给出的训练超参数不另行杜撰。
 
@@ -328,7 +328,7 @@ $$
 
 ## 致谢
 
-本研究得到国家自然科学基金（62394290、62394291）、中央高校基本科研业务费（2242022k60006）、东南大学移动通信国家重点实验室研究基金（2025A05）、中国科协青年人才托举工程（2022QNRC001）和东南大学科研启动基金（RF1028623062）的支持。
+本研究得到国家自然科学基金（62394290、62394291）、中央高校基本科研业务费（2242022k60006）、东南大学移动通信全国重点实验室研究基金（2025A05）、中国科协青年人才托举工程（2022QNRC001）和东南大学科研启动基金（RF1028623062）的支持。
 
 ## 参考文献
 
