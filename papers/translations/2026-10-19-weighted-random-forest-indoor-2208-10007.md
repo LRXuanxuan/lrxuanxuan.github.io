@@ -70,7 +70,7 @@ $$
 
 其中，$I_{\rm LoS}$ 为判断 LoS 路径是否存在的指示函数：存在时取 1，不存在时取 0；$\alpha_{\rm LoS}$、$\alpha_{\rm Ref}^{(p)}$、$\alpha_{\rm Sca}^{(q)}$ 和 $\alpha_{\rm Dif}^{(u)}$ 分别表示 LoS 路径、第 $p$ 条反射路径、第 $q$ 条散射路径和第 $u$ 条衍射路径的衰减幅度；相应的 $\tau_{\rm LoS}$、$\tau_{\rm Ref}^{(p)}$、$\tau_{\rm Sca}^{(q)}$ 和 $\tau_{\rm Dif}^{(u)}$ 分别表示这些路径的时延。该模型同时考虑 LoS、反射、散射和衍射路径，并已通过 0.06—1 THz 频段的实验测量验证了准确性。
 
-对式（1）进行傅里叶变换即可得到信道频率响应（channel frequency response，CFR）；随后对其进行离散采样。原文给出的采样关系可按其排版识读为 $t=\lceil\tau/T_s\rceil+kT_s$，其中 $T_s$ 为采样间隔，$\lceil\cdot\rceil$ 表示取整。这样得到以 OFDM 不同子载波频率为频点的 CFR 离散采样形式，即 CSI。**原文此处的取整括号排印不规整，而且式中时间量的写法可能存在量纲问题；译文保留原始关系，不自行改成另一个采样模型。**对于 OFDM，CSI 模型表示为
+对式（1）进行傅里叶变换即可得到信道频率响应（channel frequency response，CFR）；随后对其进行离散采样。原文的采样关系包含 $\tau/T_s$、取整方括号与 $k\cdot T_s$ 项，可依其主要符号近似转写为 $t=[(\tau/T_s)]+kT_s$。这里 $T_s$ 为采样间隔，原文将 $[\cdot]$ 称为取整（rounding）函数，**并未明确规定向上取整**。这样得到以 OFDM 不同子载波频率为频点的 CFR 离散采样形式，即 CSI。**原文此处的取整括号排印不规整，而且式中时间量的写法可能存在量纲问题；译文保留原始关系，不自行改成另一个采样模型。**对于 OFDM，CSI 模型表示为
 
 $$
 \mathbf Y=\mathbf H\mathbf X+\boldsymbol\zeta .\tag{2}
