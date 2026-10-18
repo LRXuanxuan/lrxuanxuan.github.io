@@ -1,0 +1,44 @@
+/* 五分钟表达训练：与页面现有卡片共用变量，不加载外部字体或框架。 */
+.rc-argument { margin-top:1rem; border:1px solid var(--main-border-color); border-radius:12px; background:var(--card-bg); }
+.rc-argument > summary { display:flex; align-items:center; gap:.7rem; padding:1rem 1.15rem; cursor:pointer; list-style:none; border-radius:12px; color:var(--heading-color); }
+.rc-argument > summary::-webkit-details-marker { display:none; }
+.rc-argument > summary::marker { content:""; }
+.rc-argument > summary:hover { background:var(--sidebar-hover-bg); }
+.rc-argument[open] .rc-argument-arrow { transform:rotate(90deg); }
+.rc-argument-arrow { color:var(--link-color); transition:transform .16s ease; }
+.rc-argument-heading { font-weight:700; font-size:1.08rem; }
+.rc-argument-hint { margin-left:auto; text-align:right; font-size:.77rem; color:var(--text-muted-color); }
+.rc-argument-body { padding:1rem 1.15rem 1.2rem; border-top:1px solid var(--main-border-color); }
+.rc-argument-intro,.rc-argument-note,.rc-argument-status,.rc-argument-save { color:var(--text-muted-color); font-size:.82rem; line-height:1.75; }
+.rc-argument-intro { margin:0 0 .85rem; }
+.rc-argument-card { border:1px solid var(--main-border-color); border-radius:10px; background:var(--main-bg); padding:1rem; }
+.rc-argument-date,.rc-argument-meta { color:var(--text-muted-color); font-size:.79rem; }
+.rc-argument-meta { margin-top:.45rem; }
+.rc-argument-prompt { font-size:1.03rem; font-weight:600; color:var(--heading-color); line-height:1.75; margin:.55rem 0 .75rem; }
+.rc-argument-guide { margin:0; font-size:.85rem; line-height:1.8; }
+.rc-argument-controls { display:flex; flex-wrap:wrap; align-items:center; gap:.7rem; margin:.9rem 0 .6rem; font-size:.84rem; }
+.rc-argument-controls label { display:inline-flex; align-items:center; gap:.35rem; margin:0; }
+.rc-argument button,.rc-argument select,.rc-argument textarea { background:var(--main-bg); color:var(--text-color); border:1px solid var(--btn-border-color); border-radius:8px; font:inherit; }
+.rc-argument button { padding:.4rem .68rem; cursor:pointer; }
+.rc-argument select { padding:.4rem .6rem; max-width:100%; }
+.rc-argument button:hover:not(:disabled) { border-color:var(--link-color); color:var(--link-color); }
+.rc-argument button:disabled { opacity:.55; cursor:default; }
+.rc-argument > summary:focus-visible,.rc-argument button:focus-visible,.rc-argument select:focus-visible,.rc-argument textarea:focus-visible { outline:2px solid var(--link-color); outline-offset:3px; }
+.rc-argument-draft-label { display:block; margin:1rem 0 .4rem; color:var(--heading-color); font-weight:600; font-size:.89rem; }
+.rc-argument textarea { display:block; width:100%; min-height:6.5rem; padding:.65rem .75rem; line-height:1.75; resize:vertical; font-size:.87rem; }
+.rc-argument-save { margin:.2rem 0 .65rem; }
+.rc-argument-status { min-height:1.2em; margin:.5rem 0 0; }
+.rc-argument-list { margin-top:.75rem; border-top:1px solid var(--main-border-color); padding-top:.7rem; }
+.rc-argument-list[hidden] { display:none; }
+.rc-argument-items { padding-left:1.5rem; margin:.5rem 0; }
+.rc-argument-items li { padding:.5rem 0; border-bottom:1px solid var(--main-border-color); }
+.rc-argument-items span { display:block; color:var(--text-muted-color); font-size:.75rem; }
+.rc-argument-items button { display:block; text-align:left; margin:.2rem 0; border:0; background:transparent; padding:.12rem 0; line-height:1.6; font-size:.87rem; }
+.rc-argument-note { margin:1rem 0 0; }
+@media(max-width:480px) {
+ .rc-argument > summary { flex-wrap:wrap; padding:.85rem .9rem; }
+ .rc-argument-hint { flex-basis:100%; margin-left:1.8rem; text-align:left; }
+ .rc-argument-body { padding:.85rem .9rem 1rem; }
+ .rc-argument-controls label { width:100%; justify-content:space-between; }
+}
+@media(prefers-reduced-motion:reduce) { .rc-argument-arrow { transition:none; } }
