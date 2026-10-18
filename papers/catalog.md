@@ -97,6 +97,36 @@ toc: true
 
 ## 推荐论文
 
+### 2026-10-19 · [A Channel Charting-Based Semi-Supervised Positioning Algorithm With Co-Training](/papers/items/eb181bdf15229320/)
+
+适合审视 CKM/WCM 提供的历史空间先验和当前 CSI 的信息贡献如何分离，以及先验失配该如何评估。
+
+[本篇日报](/papers/items/eb181bdf15229320/#paper-report)
+
+### 2026-10-19 · [A Novel LoS/NLoS Identification-Assisted Positioning Method for 6G Indoor MIMO Communications](/papers/items/c87cd5ee4b0a13ea/)
+
+针对具体传播机制设计轻量方法的范例，可用来反问生成网络相较简单估计器增加复杂度是否必要。
+
+[本篇日报](/papers/items/c87cd5ee4b0a13ea/#paper-report)
+
+### 2026-10-19 · [An Improved Triplet-Based Channel Charting Algorithm for Positioning via Covariance Feature](/papers/items/330fe2a20548bae3/)
+
+关注用结构化无线信道特征构造表征学习任务，而不只是更换一个生成式 backbone。
+
+[本篇日报](/papers/items/330fe2a20548bae3/#paper-report)
+
+### 2026-10-19 · [A Novel 3D Non-stationary Localization-assisted ISAC Channel Model](/papers/items/b65ab8ecd9ff2ed4/)
+
+可用于从几何散射体及可辨识性角度重审无线电环境地图构建，弥补纯图像式恢复缺少物理机制说明的问题。
+
+[本篇日报](/papers/items/b65ab8ecd9ff2ed4/#paper-report)
+
+### 2026-10-19 · [A Weighted Random Forest Based Positioning Algorithm for 6G Indoor Communications](/papers/items/fd1f49fccc8f85b4/)
+
+直接对应“1% RSS 采样率是否真的困难”：采样率与环境模型复杂度、离线训练信息量必须分开讨论。
+
+[本篇日报](/papers/items/fd1f49fccc8f85b4/#paper-report)
+
 ### 2026-10-18 · [Unique Word Channel Estimation for Oversampled OTFS](/papers/items/86114af96c829ace/)
 
 提醒高SNR误差地板可能来自前向波形模型，不必首先归因于生成先验能力。

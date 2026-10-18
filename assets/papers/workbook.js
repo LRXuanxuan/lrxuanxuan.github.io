@@ -98,7 +98,7 @@
     const head = el('tr');
     headers.forEach(header => { const th = el('th', header); th.scope = 'col'; head.append(th); });
     $('wt-grid').querySelector('thead').replaceChildren(head);
-    $('wt-source').textContent = `${data.source} · ${sheet.name} · ${headers.length} 列 · 最新推荐 ${data.latest_date} · 与工作簿更新同步`;
+    $('wt-source').textContent = `${data.source} · ${sheet.name} · ${headers.length} 列 · 最新推荐 ${data.latest_date} · ${data.manual_site_additions?.length ? '含网站端新增推荐（尚未回写源工作簿）' : '与工作簿更新同步'}`;
     [...new Set(records.map(r => r.date))].sort().reverse().forEach(date => {
       const option = el('option', date); option.value = date; $('wt-date').append(option);
     });

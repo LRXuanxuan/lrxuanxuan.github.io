@@ -23,7 +23,7 @@
   "sheets": [
     {
       "name": "每日论文推荐",
-      "count": 350,
+      "count": 355,
       "headers": [
         "日期",
         "标题",
@@ -45,8 +45,9 @@
       ]
     }
   ],
-  "total": 350,
+  "total": 355,
   "dates": {
+    "2026-10-19": 5,
     "2026-10-18": 5,
     "2026-10-17": 5,
     "2026-10-16": 5,
@@ -91,8 +92,236 @@
     "2026-07-12": 5,
     "2026-07-11": 5
   },
-  "latest_date": "2026-10-18",
+  "latest_date": "2026-10-19",
   "papers": [
+    {
+      "id": "eb181bdf15229320",
+      "date": "2026-10-19",
+      "title": "A Channel Charting-Based Semi-Supervised Positioning Algorithm With Co-Training",
+      "sheet": "每日论文推荐",
+      "row": 352,
+      "fields": {
+        "日期": "2026-10-19",
+        "标题": "A Channel Charting-Based Semi-Supervised Positioning Algorithm With Co-Training",
+        "内容": "结合信道地图提供的少量有标签位置数据与实际通信系统中的无标签 CSI，以协同训练实现定位；采用协方差特征和相异度度量减轻噪声与定时提前误差的影响。 证据：公开摘要介绍了由真实测量校准的射线追踪仿真，以及不同噪声条件下的定位方法比较；未核对原文具体性能数值。 证据边界：摘要级核查，不对联合训练细节、定量提升或跨场景泛化作超出证据的断言。",
+        "契合方向": "信道图谱（Channel Charting）、协同训练与半监督定位",
+        "推荐理由": "适合审视 CKM/WCM 提供的历史空间先验和当前 CSI 的信息贡献如何分离，以及先验失配该如何评估。",
+        "顶刊顶会/机构依据": "IEEE Transactions on Communications, 74: 9010–9025；正式发表",
+        "发表年份": "2026",
+        "论文下载链接": "https://doi.org/10.1109/TCOMM.2026.3693171",
+        "检索来源": "https://doi.org/10.1109/TCOMM.2026.3693171",
+        "筛选备注": "2026-10-19 武阳相关研究专题；摘要级核查，不对联合训练细节、定量提升或跨场景泛化作超出证据的断言。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "作者代码未核实；不将第三方实现视为原作者实现",
+        "反馈匹配": "协同训练两个分支、标签比例、协方差相异度、噪声与定时误差对照。",
+        "反馈权重说明": "适合审视 CKM/WCM 提供的历史空间先验和当前 CSI 的信息贡献如何分离，以及先验失配该如何评估。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-19/",
+      "report_section": "### 01. A Channel Charting-Based Semi-Supervised Positioning Algorithm With Co-Training\n\n作者：Yuhang Pan; Junling Li; Yang Wu; Jianghan Ji; Chen Huang; Cheng-Xiang Wang。\n\n发表：2026；IEEE Transactions on Communications, 74: 9010–9025。书目核验日期：2026-10-19。\n\n**研究方向：** 信道图谱（Channel Charting）、协同训练与半监督定位。\n\n**问题与方法：** 结合信道地图提供的少量有标签位置数据与实际通信系统中的无标签 CSI，以协同训练实现定位；采用协方差特征和相异度度量减轻噪声与定时提前误差的影响。\n\n**已有证据：** 公开摘要介绍了由真实测量校准的射线追踪仿真，以及不同噪声条件下的定位方法比较；未核对原文具体性能数值。\n\n**局限与核查范围：** 摘要级核查，不对联合训练细节、定量提升或跨场景泛化作超出证据的断言。\n\n**对当前研究的启发（本站分析）：** 适合审视 CKM/WCM 提供的历史空间先验和当前 CSI 的信息贡献如何分离，以及先验失配该如何评估。\n\n**进一步阅读：** 协同训练两个分支、标签比例、协方差相异度、噪声与定时误差对照。\n\n**来源：** [DOI/出版社](https://doi.org/10.1109/TCOMM.2026.3693171)。",
+      "report_entry_url": "/papers/reports/2026-10-19/#paper-eb181bdf15229320",
+      "paper_url": "/papers/items/eb181bdf15229320/",
+      "paper_report_url": "/papers/items/eb181bdf15229320/#paper-report",
+      "translations": [],
+      "links": [
+        "https://doi.org/10.1109/TCOMM.2026.3693171"
+      ],
+      "github": [],
+      "pdf_sources": [],
+      "hosted_pdfs": [],
+      "status": "正式发表",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/eb181bdf15229320/#paper-translation",
+      "full_translation_label": "中文译文（未录入）"
+    },
+    {
+      "id": "c87cd5ee4b0a13ea",
+      "date": "2026-10-19",
+      "title": "A Novel LoS/NLoS Identification-Assisted Positioning Method for 6G Indoor MIMO Communications",
+      "sheet": "每日论文推荐",
+      "row": 353,
+      "fields": {
+        "日期": "2026-10-19",
+        "标题": "A Novel LoS/NLoS Identification-Assisted Positioning Method for 6G Indoor MIMO Communications",
+        "内容": "通过 CSI 信道指纹特征、LoS/NLoS 识别模块和改进的加权随机森林解决复杂多径环境下的室内定位。 证据：机构库公开摘要明确说明使用实测信道与射线追踪合成数据，并报告相对传统指纹定位方法的精度及鲁棒性改善；本次不引述未经全文核查的提升百分比。 证据边界：需结合原文检查分类错误传播、训练测试场景隔离、推理开销与跨建筑适用性。",
+        "契合方向": "CSI 指纹、LoS/NLoS 识别与室内定位",
+        "推荐理由": "针对具体传播机制设计轻量方法的范例，可用来反问生成网络相较简单估计器增加复杂度是否必要。",
+        "顶刊顶会/机构依据": "IEEE Transactions on Communications, 73(12): 13578–13594；正式发表",
+        "发表年份": "2025",
+        "论文下载链接": "https://doi.org/10.1109/TCOMM.2025.3605449",
+        "检索来源": "https://doi.org/10.1109/TCOMM.2025.3605449",
+        "筛选备注": "2026-10-19 武阳相关研究专题；需结合原文检查分类错误传播、训练测试场景隔离、推理开销与跨建筑适用性。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "作者代码未核实；不将第三方实现视为原作者实现",
+        "反馈匹配": "最大接收功率路径指纹、LoS/NLoS 分类、加权森林、实测与仿真协议、定位误差指标。",
+        "反馈权重说明": "针对具体传播机制设计轻量方法的范例，可用来反问生成网络相较简单估计器增加复杂度是否必要。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-19/",
+      "report_section": "### 02. A Novel LoS/NLoS Identification-Assisted Positioning Method for 6G Indoor MIMO Communications\n\n作者：Yang Wu; Cheng-Xiang Wang; Chen Huang; Junling Li; Li Zhang; El-Hadi M. Aggoune; Yunfei Chen。\n\n发表：2025；IEEE Transactions on Communications, 73(12): 13578–13594。书目核验日期：2026-10-19。\n\n**研究方向：** CSI 指纹、LoS/NLoS 识别与室内定位。\n\n**问题与方法：** 通过 CSI 信道指纹特征、LoS/NLoS 识别模块和改进的加权随机森林解决复杂多径环境下的室内定位。\n\n**已有证据：** 机构库公开摘要明确说明使用实测信道与射线追踪合成数据，并报告相对传统指纹定位方法的精度及鲁棒性改善；本次不引述未经全文核查的提升百分比。\n\n**局限与核查范围：** 需结合原文检查分类错误传播、训练测试场景隔离、推理开销与跨建筑适用性。\n\n**对当前研究的启发（本站分析）：** 针对具体传播机制设计轻量方法的范例，可用来反问生成网络相较简单估计器增加复杂度是否必要。\n\n**进一步阅读：** 最大接收功率路径指纹、LoS/NLoS 分类、加权森林、实测与仿真协议、定位误差指标。\n\n**来源：** [DOI/出版社](https://doi.org/10.1109/TCOMM.2025.3605449)。",
+      "report_entry_url": "/papers/reports/2026-10-19/#paper-c87cd5ee4b0a13ea",
+      "paper_url": "/papers/items/c87cd5ee4b0a13ea/",
+      "paper_report_url": "/papers/items/c87cd5ee4b0a13ea/#paper-report",
+      "translations": [],
+      "links": [
+        "https://doi.org/10.1109/TCOMM.2025.3605449"
+      ],
+      "github": [],
+      "pdf_sources": [],
+      "hosted_pdfs": [],
+      "status": "正式发表",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/c87cd5ee4b0a13ea/#paper-translation",
+      "full_translation_label": "中文译文（未录入）"
+    },
+    {
+      "id": "330fe2a20548bae3",
+      "date": "2026-10-19",
+      "title": "An Improved Triplet-Based Channel Charting Algorithm for Positioning via Covariance Feature",
+      "sheet": "每日论文推荐",
+      "row": 354,
+      "fields": {
+        "日期": "2026-10-19",
+        "标题": "An Improved Triplet-Based Channel Charting Algorithm for Positioning via Covariance Feature",
+        "内容": "题录确认论文围绕协方差特征改进三元组式信道图谱定位。具体三元组生成、目标函数与训练结构仍需取得全文后确认。 证据：由 DBLP 目录核对题目、作者、ICC 2025 页码及 DOI；目前没有可靠全文材料支撑具体实验改善数字。 证据边界：本条为书目级记录，不推断未核实的网络结构、数据规模、指标或优劣排名。",
+        "契合方向": "基于协方差特征的 Triplet Channel Charting",
+        "推荐理由": "关注用结构化无线信道特征构造表征学习任务，而不只是更换一个生成式 backbone。",
+        "顶刊顶会/机构依据": "IEEE International Conference on Communications (ICC 2025), pp. 3852–3857；正式发表",
+        "发表年份": "2025",
+        "论文下载链接": "https://doi.org/10.1109/ICC52391.2025.11160825",
+        "检索来源": "https://doi.org/10.1109/ICC52391.2025.11160825",
+        "筛选备注": "2026-10-19 武阳相关研究专题；本条为书目级记录，不推断未核实的网络结构、数据规模、指标或优劣排名。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "作者代码未核实；不将第三方实现视为原作者实现",
+        "反馈匹配": "获取全文后核对 Triplet 构造与损失、协方差特征定义、性能与训练成本。",
+        "反馈权重说明": "关注用结构化无线信道特征构造表征学习任务，而不只是更换一个生成式 backbone。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-19/",
+      "report_section": "### 03. An Improved Triplet-Based Channel Charting Algorithm for Positioning via Covariance Feature\n\n作者：Yang Wu; Yuhang Pan; Jianghan Ji; Cheng-Xiang Wang; Junling Li; Chen Huang。\n\n发表：2025；IEEE International Conference on Communications (ICC 2025), pp. 3852–3857。书目核验日期：2026-10-19。\n\n**研究方向：** 基于协方差特征的 Triplet Channel Charting。\n\n**问题与方法：** 题录确认论文围绕协方差特征改进三元组式信道图谱定位。具体三元组生成、目标函数与训练结构仍需取得全文后确认。\n\n**已有证据：** 由 DBLP 目录核对题目、作者、ICC 2025 页码及 DOI；目前没有可靠全文材料支撑具体实验改善数字。\n\n**局限与核查范围：** 本条为书目级记录，不推断未核实的网络结构、数据规模、指标或优劣排名。\n\n**对当前研究的启发（本站分析）：** 关注用结构化无线信道特征构造表征学习任务，而不只是更换一个生成式 backbone。\n\n**进一步阅读：** 获取全文后核对 Triplet 构造与损失、协方差特征定义、性能与训练成本。\n\n**来源：** [DOI/出版社](https://doi.org/10.1109/ICC52391.2025.11160825)。",
+      "report_entry_url": "/papers/reports/2026-10-19/#paper-330fe2a20548bae3",
+      "paper_url": "/papers/items/330fe2a20548bae3/",
+      "paper_report_url": "/papers/items/330fe2a20548bae3/#paper-report",
+      "translations": [],
+      "links": [
+        "https://doi.org/10.1109/ICC52391.2025.11160825"
+      ],
+      "github": [],
+      "pdf_sources": [],
+      "hosted_pdfs": [],
+      "status": "正式发表",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/330fe2a20548bae3/#paper-translation",
+      "full_translation_label": "中文译文（未录入）"
+    },
+    {
+      "id": "b65ab8ecd9ff2ed4",
+      "date": "2026-10-19",
+      "title": "A Novel 3D Non-stationary Localization-assisted ISAC Channel Model",
+      "sheet": "每日论文推荐",
+      "row": 355,
+      "fields": {
+        "日期": "2026-10-19",
+        "标题": "A Novel 3D Non-stationary Localization-assisted ISAC Channel Model",
+        "内容": "构建定位辅助的三维非平稳 ISAC 几何随机模型（GBSM），利用回波感知信息和粒子滤波推断通信多径中首跳及末跳散射体位置。 证据：公开摘要报告了时延扩展、出发/到达方位角与俯仰角扩展的统计性质，并与射线追踪结果对比。 证据边界：验证主要针对信道统计量，不能直接声称能改善具体信道估计算法的 BER 或 NMSE。",
+        "契合方向": "定位辅助三维非平稳 ISAC 几何随机信道模型",
+        "推荐理由": "可用于从几何散射体及可辨识性角度重审无线电环境地图构建，弥补纯图像式恢复缺少物理机制说明的问题。",
+        "顶刊顶会/机构依据": "IEEE Wireless Communications and Networking Conference (WCNC 2023), pp. 1–6；正式发表",
+        "发表年份": "2023",
+        "论文下载链接": "https://arxiv.org/pdf/2311.16798",
+        "检索来源": "https://doi.org/10.1109/WCNC55385.2023.10118994",
+        "筛选备注": "2026-10-19 武阳相关研究专题；验证主要针对信道统计量，不能直接声称能改善具体信道估计算法的 BER 或 NMSE。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "作者代码未核实；不将第三方实现视为原作者实现",
+        "反馈匹配": "首末跳散射体定位步骤、粒子滤波状态模型、非平稳假设、与 RT 的统计比较。",
+        "反馈权重说明": "可用于从几何散射体及可辨识性角度重审无线电环境地图构建，弥补纯图像式恢复缺少物理机制说明的问题。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-19/",
+      "report_section": "### 04. A Novel 3D Non-stationary Localization-assisted ISAC Channel Model\n\n作者：Runruo Yang; Yang Wu; Jie Huang; Cheng-Xiang Wang。\n\n发表：2023；IEEE Wireless Communications and Networking Conference (WCNC 2023), pp. 1–6。书目核验日期：2026-10-19。\n\n**研究方向：** 定位辅助三维非平稳 ISAC 几何随机信道模型。\n\n**问题与方法：** 构建定位辅助的三维非平稳 ISAC 几何随机模型（GBSM），利用回波感知信息和粒子滤波推断通信多径中首跳及末跳散射体位置。\n\n**已有证据：** 公开摘要报告了时延扩展、出发/到达方位角与俯仰角扩展的统计性质，并与射线追踪结果对比。\n\n**局限与核查范围：** 验证主要针对信道统计量，不能直接声称能改善具体信道估计算法的 BER 或 NMSE。\n\n**对当前研究的启发（本站分析）：** 可用于从几何散射体及可辨识性角度重审无线电环境地图构建，弥补纯图像式恢复缺少物理机制说明的问题。\n\n**进一步阅读：** 首末跳散射体定位步骤、粒子滤波状态模型、非平稳假设、与 RT 的统计比较。\n\n**来源：** [DOI/出版社](https://doi.org/10.1109/WCNC55385.2023.10118994)；[预印本](https://arxiv.org/abs/2311.16798)；[作者版 PDF](https://arxiv.org/pdf/2311.16798)。",
+      "report_entry_url": "/papers/reports/2026-10-19/#paper-b65ab8ecd9ff2ed4",
+      "paper_url": "/papers/items/b65ab8ecd9ff2ed4/",
+      "paper_report_url": "/papers/items/b65ab8ecd9ff2ed4/#paper-report",
+      "translations": [],
+      "links": [
+        "https://doi.org/10.1109/WCNC55385.2023.10118994",
+        "https://arxiv.org/abs/2311.16798",
+        "https://arxiv.org/pdf/2311.16798"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2311.16798"
+      ],
+      "hosted_pdfs": [],
+      "status": "正式发表",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/b65ab8ecd9ff2ed4/#paper-translation",
+      "full_translation_label": "中文译文（未录入）"
+    },
+    {
+      "id": "fd1f49fccc8f85b4",
+      "date": "2026-10-19",
+      "title": "A Weighted Random Forest Based Positioning Algorithm for 6G Indoor Communications",
+      "sheet": "每日论文推荐",
+      "row": 356,
+      "fields": {
+        "日期": "2026-10-19",
+        "标题": "A Weighted Random Forest Based Positioning Algorithm for 6G Indoor Communications",
+        "内容": "使用 CSI 信道指纹特征与加权随机森林进行室内定位，射线追踪辅助生成室内指纹数据库。 证据：作者公开摘要称，在其仿真配置下以 0.2 m 间隔建库时，测试场景定位误差稳定在约 6 cm 内；不能外推至任意实测环境。 证据边界：数据库空间间隔不等价于在线随机观测率；应核查离线建库成本、场景变化、样本划分和误差定义。",
+        "契合方向": "CSI 指纹定位、加权随机森林、射线追踪建库",
+        "推荐理由": "直接对应“1% RSS 采样率是否真的困难”：采样率与环境模型复杂度、离线训练信息量必须分开讨论。",
+        "顶刊顶会/机构依据": "IEEE Vehicular Technology Conference (VTC-Fall 2022), pp. 1–6；正式发表",
+        "发表年份": "2022",
+        "论文下载链接": "https://arxiv.org/pdf/2208.10007",
+        "检索来源": "https://doi.org/10.1109/VTC2022-FALL57202.2022.10012921",
+        "筛选备注": "2026-10-19 武阳相关研究专题；数据库空间间隔不等价于在线随机观测率；应核查离线建库成本、场景变化、样本划分和误差定义。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "作者代码未核实；不将第三方实现视为原作者实现",
+        "反馈匹配": "0.2 m 指纹密度、场景设置、加权机制、模拟结果与实际部署成本。",
+        "反馈权重说明": "直接对应“1% RSS 采样率是否真的困难”：采样率与环境模型复杂度、离线训练信息量必须分开讨论。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-19/",
+      "report_section": "### 05. A Weighted Random Forest Based Positioning Algorithm for 6G Indoor Communications\n\n作者：Yang Wu; Yinghua Wang; Jie Huang; Cheng-Xiang Wang; Chen Huang。\n\n发表：2022；IEEE Vehicular Technology Conference (VTC-Fall 2022), pp. 1–6。书目核验日期：2026-10-19。\n\n**研究方向：** CSI 指纹定位、加权随机森林、射线追踪建库。\n\n**问题与方法：** 使用 CSI 信道指纹特征与加权随机森林进行室内定位，射线追踪辅助生成室内指纹数据库。\n\n**已有证据：** 作者公开摘要称，在其仿真配置下以 0.2 m 间隔建库时，测试场景定位误差稳定在约 6 cm 内；不能外推至任意实测环境。\n\n**局限与核查范围：** 数据库空间间隔不等价于在线随机观测率；应核查离线建库成本、场景变化、样本划分和误差定义。\n\n**对当前研究的启发（本站分析）：** 直接对应“1% RSS 采样率是否真的困难”：采样率与环境模型复杂度、离线训练信息量必须分开讨论。\n\n**进一步阅读：** 0.2 m 指纹密度、场景设置、加权机制、模拟结果与实际部署成本。\n\n**来源：** [DOI/出版社](https://doi.org/10.1109/VTC2022-FALL57202.2022.10012921)；[预印本](https://arxiv.org/abs/2208.10007)；[作者版 PDF](https://arxiv.org/pdf/2208.10007)。",
+      "report_entry_url": "/papers/reports/2026-10-19/#paper-fd1f49fccc8f85b4",
+      "paper_url": "/papers/items/fd1f49fccc8f85b4/",
+      "paper_report_url": "/papers/items/fd1f49fccc8f85b4/#paper-report",
+      "translations": [],
+      "links": [
+        "https://doi.org/10.1109/VTC2022-FALL57202.2022.10012921",
+        "https://arxiv.org/abs/2208.10007",
+        "https://arxiv.org/pdf/2208.10007"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2208.10007"
+      ],
+      "hosted_pdfs": [],
+      "status": "正式发表",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/fd1f49fccc8f85b4/#paper-translation",
+      "full_translation_label": "中文译文（未录入）"
+    },
     {
       "id": "86114af96c829ace",
       "date": "2026-10-18",
@@ -17549,6 +17778,17 @@
   ],
   "reports": [
     {
+      "date": "2026-10-19",
+      "url": "/papers/reports/2026-10-19/",
+      "source_file": "2026-10-19_每日前沿论文推荐.md",
+      "slug": "2026-10-19",
+      "covered_dates": [
+        "2026-10-19"
+      ],
+      "title": "10_19前沿论文推荐｜无线定位、信道图谱与 ISAC",
+      "download": "/assets/papers/reports/2026-10-19.md"
+    },
+    {
       "date": "2026-10-18",
       "url": "/papers/reports/2026-10-18/",
       "source_file": "2026-10-18_每日前沿论文推荐.md",
@@ -19287,7 +19527,7 @@
     "url": "/papers/table/",
     "source_sha256": "18e0a8168c2c1bc886c5aaacbe2dc72902ff8310d8c5fec019e25673a31e85a1",
     "sheet": "每日论文推荐",
-    "row_count": 350,
+    "row_count": 355,
     "headers": [
       "日期",
       "标题",
@@ -19309,5 +19549,15 @@
     ],
     "row_height_cm": 2,
     "order": "workbook_rows"
-  }
+  },
+  "manual_site_additions": [
+    {
+      "date": "2026-10-19",
+      "count": 5,
+      "scope": "Yang Wu related publications",
+      "workbook_persisted": false,
+      "source": "Verified DOI, abstracts, bibliography",
+      "note": "Manual website addition; original workbook unchanged"
+    }
+  ]
 }
