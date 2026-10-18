@@ -14,7 +14,7 @@ toc: true
 **原题：** A Channel Charting-Based Semi-Supervised Positioning Algorithm With Co-Training  
 **作者：** Yuhang Pan、Junling Li、Yang Wu、Jianghan Ji、Chen Huang、Cheng-Xiang Wang  
 **出处：** *IEEE Transactions on Communications*，第 74 卷，9010 页起，2026；DOI：10.1109/TCOMM.2026.3693171。论文于 2025 年 6 月 25 日收到，2026 年 4 月 23 日录用，5 月 13 日发表。早期版本部分内容发表于 IEEE ICC 2025（DOI：10.1109/ICC52391.2025.11160825）。  
-**译文状态：** 已按原文覆盖摘要、正文 I—VI 节、公式（1）—（22）、算法 1—2、图表说明与主要实验结果；参考文献英文书目仍待人工终校，暂不计入全文验收。
+**译文状态：** 已按原文覆盖摘要、正文 I—VI 节、公式（1）—（22）、算法 1—2、图表说明与主要实验结果；参考文献 42 条已补入中文题名与书目信息，逐式终校中，暂不计入全文验收。
 
 ## 摘要
 
@@ -615,8 +615,94 @@ $n$ 为样本数，$\mathbf y_i$ 和 $\widehat{\mathbf y}_i$ 分别为真实与�
 
 ---
 
-## 参考文献与校对说明
+## 参考文献（完整编号与中文题名）
 
-原论文参考文献编号延续至 [42]，涉及信道图、非相似度、半监督表示学习、DICHASUS 实测数据、Triplet 和共训练等研究。正文已保留原论文全部引用编号及公式编号。为避免英文书目的作者姓名、卷期、页码在未校对条件下出现错误，参考文献逐条著录请暂查阅 IEEE 原 PDF 文末 **REFERENCES**。此外，部分图中文字和英文书目尚未完成与原 PDF 的逐项对照，故该稿尚不能标记为“全文验收通过”。
+以下按原文 [1]—[42] 顺序翻译题名，保留作者姓名、发表来源、卷期、页码、年份以及必要的 DOI 等书目信息。
+
+[1] Y. Wu、Y. Pan、J. Ji、C.-X. Wang、J. Li、C. Huang，《利用协方差特征改进基于 Triplet 的信道图定位算法》，IEEE ICC，蒙特利尔，3852—3857，2025。
+
+[2] C.-X. Wang 等，《通向 6G：愿景、需求、关键技术与试验平台》，*IEEE Communications Surveys & Tutorials*，25(2)，905—974，2023。
+
+[3] C. Huang 等，《人工智能赋能的通信无线传播——第一部分：信道表征与天线—信道优化》，*IEEE Transactions on Antennas and Propagation*，70(6)，3939—3954，2022。
+
+[4] C. Huang 等，《人工智能赋能的通信无线传播——第二部分：场景识别与信道建模》，*IEEE Transactions on Antennas and Propagation*，70(6)，3955—3969，2022。
+
+[5] W. Yang、Y. Wang、J. Huang、C. Wang、C. Huang，《基于加权随机森林的 6G 室内通信定位算法》，IEEE VTC-Fall，1—6，2022。
+
+[6] P. Ferrand、M. Guillaud、C. Studer、O. Tirkkonen，《无线信道图构建：理论、实践与应用》，*IEEE Communications Magazine*，61(6)，124—130，2023。
+
+[7] C. Studer、S. Medjkouh、E. Gonultas、T. Goldstein、O. Tirkkonen，《信道图构建：利用信道状态信息定位无线电环境中的用户》，*IEEE Access*，6，47682—47698，2018。
+
+[8] J. Pihlajasalo、M. Koivisto、J. Talvitie、S. Ali-Löytty、M. Valkama，《面向 5G 网络的无监督多点信道图绝对定位》，IEEE VTC-Fall，维多利亚，1—5，2020。
+
+[9] L. Le Magoarou，《通过相位不敏感距离计算实现高效信道图构建》，*IEEE Wireless Communications Letters*，10(12)，2634—2638，2021。
+
+[10] P. Huang 等，《利用表征约束自编码器改进信道图构建》，IEEE SPAWC，戛纳，1—5，2019。
+
+[11] C. Geng、H. Huang、J. Langerman，《采用多输入多输出卷积自编码器的多点信道图构建》，IEEE/ION PLANS，波特兰，1022—1028，2020。
+
+[12] E. Lei、O. Castañeda、O. Tirkkonen、T. Goldstein、C. Studer，《用于无线定位与信道图构建的孪生神经网络》，Allerton Conference，蒙蒂塞洛，200—207，2019。
+
+[13] M. Stahlke、G. Yammine、T. Feigl、B. M. Eskofier、C. Mutschler，《利用鲁棒全局信道图进行室内定位：基于时间—距离的方法》，*IEEE Transactions on Machine Learning in Communications and Networking*，1，3—17，2023。
+
+[14] F. Euchner、P. Stephan、S. T. Brink，《利用经典无线信号源定位技术增强信道图构建》，Asilomar Conference，太平洋丛林市，1641—1647，2023。
+
+[15] P. Stephan、F. Euchner、S. T. Brink，《用于信道图构建的角度—时延轮廓和时间戳辅助非相似度度量》，*IEEE Transactions on Communications*，72(9)，5611—5625，2024。
+
+[16] P. Ferrand、A. Decurninge、L. G. Ordóñez、M. Guillaud，《基于 Triplet 的无线信道图构建：架构与实验》，*IEEE Journal on Selected Areas in Communications*，39(8)，2361—2373，2021。
+
+[17] P. Ferrand、A. Decurninge、M. Guillaud，《利用信道估计进行基于 DNN 的定位：特征设计及实验结果》，IEEE GLOBECOM，1—6，2020。
+
+[18] H. Al-Tous、P. Kazemi、C. Studer、O. Tirkkonen，《采用角度—时延—功率轮廓特征和推土机距离的信道图构建》，Asilomar Conference，1195—1201，2022。
+
+[19] P. Q. Viet、D. Romero，《隐式信道图构建及其在无人机辅助定位中的应用》，IEEE SPAWC，奥卢，1—5，2022。
+
+[20] S. Taner、V. Palhares、C. Studer，《真实世界坐标下的信道图构建》，IEEE GLOBECOM，吉隆坡，3940—3946，2023。
+
+[21] B. Rappaport、E. Gönültaş、J. Hoydis、M. Arnold、P. K. Srinath、C. Studer，《通过分离式 Triplet 损失和惯性正则项改进信道图构建》，ISWCS，柏林，1—6，2021。
+
+[22] M. Stahlke、G. Yammine、T. Feigl、B. M. Eskofier、C. Mutschler，《利用空间分布地图匹配进行基于速度的信道图构建》，*IEEE Journal of Indoor and Seamless Positioning and Navigation*，2，230—239，2024。
+
+[23] J. Deng、S. Medjkouh、N. Malm、O. Tirkkonen、C. Studer，《无线网络中的多点信道图构建》，Asilomar Conference，286—290，2018。
+
+[24] P. Agostini、Z. Utkovski、S. Stańczak、A. A. Memon、B. Zafar、M. Haardt，《不太深的信道图构建（N2D-CC）》，IEEE WCNC，2160—2165，2022。
+
+[25] T. Qi 等，《基于混合信道模型的新型 6G 动态信道地图》，*IEEE Transactions on Vehicular Technology*，75(2)，2628—2643，2026。
+
+[26] S. Chen 等，《基于信道地图、面向无蜂窝大规模 MIMO 通信的角度域多址接入》，*IEEE Journal of Selected Topics in Signal Processing*，19(2)，366—380，2025。
+
+[27] Y. Zeng、X. Xu，《借助信道知识地图迈向环境感知的 6G 通信》，*IEEE Wireless Communications*，28(3)，84—91，2021。
+
+[28] Y. Zeng 等，《关于利用信道知识地图实现 6G 环境感知通信的教程》，*IEEE Communications Surveys & Tutorials*，26(3)，1478—1519，2024。
+
+[29] Q. Zhang、W. Saad，《面向毫米波网络中信道图辅助物联网定位的半监督学习》，IEEE GLOBECOM，马德里，1—6，2021。
+
+[30] J. Deng、W. Shi、J. Hu、X. Jiao，《用于毫米波无线定位的半监督 t-SNE》，ICCC，成都，1015—1019，2021。
+
+[31] A. Blum、T. Mitchell，《通过共训练结合带标签与无标签数据》，第 11 届计算学习理论年会，92—100，1998。
+
+[32] C.-X. Wang、J. Huang、H. Wang、X. Gao、X. You、Y. Hao，《6G 无线信道测量和模型：趋势与挑战》，*IEEE Vehicular Technology Magazine*，15(4)，22—32，2020。
+
+[33] C.-X. Wang、Z. Lv、X. Gao、X. You、Y. Hao、H. Haas，《全频段、全场景 6G 几何随机信道模型的泛在无线信道建模理论与应用》，*IEEE Transactions on Vehicular Technology*，71(9)，9159—9173，2022。
+
+[34] C.-X. Wang、Z. Lv、Y. Chen、H. Haas，《6G 泛在信道模型的空时频统计特性完整研究》，*IEEE Transactions on Communications*，71(12)，7273—7287，2023。
+
+[35] F. Euchner、M. Gauger，《CSI 数据集 dichasus-cf0x：工业环境中的分布式天线布置，第 1 天》，DaRUS，斯图加特大学，第 3 版，2022；DOI：10.18419/darus-2854。
+
+[36] S. L. Salzberg，《比较分类器时应避免的陷阱及推荐方法》，*Data Mining and Knowledge Discovery*，1，317—328，1997。
+
+[37] Z.-H. Zhou、M. Li，《采用共训练式算法的半监督回归》，*IEEE Transactions on Knowledge and Data Engineering*，19(11)，1479—1493，2007。
+
+[38] W. Dai、X. Li、K.-T. Cheng，《基于不确定性一致性和贝叶斯神经网络变分模型集成的半监督深度回归》，AAAI，7304—7313，2023。
+
+[39] J. Venna、S. Kaski，《非线性投影方法中的邻域保持：实验研究》，ICANN，柏林，485—491，2001。
+
+[40] J. B. Kruskal，《通过优化非度量假设的拟合优度进行多维尺度分析》，*Psychometrika*，29(1)，1—27，1964。
+
+[41] L. McInnes、J. Healy、J. Melville，《UMAP：用于降维的均匀流形近似与投影》，*Statistics*，1050，6，2018（书目信息按原文保留）。
+
+[42] S. Taner、V. Palhares、C. Studer，《分布式 MIMO 下真实世界坐标中的信道图构建》，原文著录：*IEEE Transactions on Wireless Communications*，7286—7300，2024。
+
+**校对状态：** 中文正文及参考文献题名已覆盖。部分图中文字、表格及长公式仍需与原始 PDF 逐式校核，尚未计入全文质量验收。
 
 {% endraw %}
