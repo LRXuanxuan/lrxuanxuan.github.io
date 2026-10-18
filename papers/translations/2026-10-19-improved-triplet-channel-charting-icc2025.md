@@ -13,7 +13,7 @@ toc: true
 
 **原题：** An Improved Triplet-Based Channel Charting Algorithm for Positioning via Covariance Feature  
 **作者：** Yang Wu、Yuhang Pan、Jianghan Ji（共同第一作者），Cheng-Xiang Wang、Junling Li、Chen Huang  
-**机构：** 东南大学移动通信全国重点实验室；紫金山实验室泛在通信研究中心。通讯作者：Cheng-Xiang Wang、Chen Huang。  
+**机构：** 东南大学移动通信国家重点实验室；紫金山实验室泛在通信研究中心。通讯作者：Cheng-Xiang Wang、Chen Huang。  
 **出处：** IEEE International Conference on Communications（ICC 2025），SAC Machine Learning for Communications and Networking Track，第 3852—3857 页。DOI: 10.1109/ICC52391.2025.11160825。  
 **译文范围：** 摘要、I—VI 节、式（1）—（14）、算法 1、图 1—6、表 I—III、致谢及参考文献 [1]—[19]。部分原文公式符号简写保留；原文没有给出的训练超参数不另行杜撰。
 
@@ -47,11 +47,13 @@ toc: true
 
 ### A. 系统模型
 
-考虑基站（base station，BS）配备 64 单元通信阵列的多输入多输出（multiple-input multiple-output，MIMO）系统。该阵列采用双极化设计，包括 8 列单极化单元，每列具有 4 个信道；相邻信道间水平间距为 $d_h=0.5\lambda$，垂直间距为 $d_v=2.0\lambda$，其中 $\lambda$ 为波长。
+考虑基站（base station，BS）配备 64 单元毫米波通信阵列的多输入多输出（multiple-input multiple-output，MIMO）系统。该阵列采用双极化设计，包括 8 列单极化单元，每列具有 4 个信道；相邻信道间水平间距为 $d_h=0.5\lambda$，垂直间距为 $d_v=2.0\lambda$，其中 $\lambda$ 为波长。
 
 同时考虑工作于 3.5 GHz 频段的正交频分复用（orthogonal frequency-division multiplexing，OFDM）系统，子载波间隔为 30 kHz。由于使用 two-comb 探测参考信号（sounding reference signal，SRS）技术，SRS 资源元素（resource elements，REs）间的子载波间隔设置为 60 kHz。在 100 MHz 带宽内，SRS RE 原始数量为 1632。为降低数据处理负担，采用 4:1 降采样，使有效 SRS RE 数量降至 408，对应间隔增加到 240 kHz。
 
 通过调整参数，文献 [14] 提出的 6G 泛在信道模型（6G pervasive channel model，6GPCM）可用于研究未来 6G 全频段、全场景信道 [15]—[17]。参照 6GPCM，定义频域 CSI 矩阵 $\mathbf H\in\mathbb C^{N_T\times N_R\times N_{\rm sub}}$，其中 $N_T$ 为 UE 发送 SRS 使用的端口数，本系统取 2；$N_R$ 为 BS 接收天线数；$N_{\rm sub}$ 为子载波数量。
+
+*校对注：原文将基站阵列称为“毫米波通信阵列”，同时将 OFDM 工作频率设为 3.5 GHz；其“8 列、每列 4 信道”与“64 单元”的关系还涉及双极化计数。上述信息依原文译出，不自行修正系统参数。*
 
 该系统使用的数据集由华为技术有限公司提供，通过射线追踪生成，包含一系列用于复现不同真实场景条件的仿真。每个场景中，多个 UE 位于一个 BS 的覆盖范围内。每个场景共有 20,000 个数据点，其中 500 个为锚点。全部已知锚点及目标 UE 位于同一扇区内，到 BS 的最大距离为 200 m。
 
