@@ -5,7 +5,7 @@
     "title": "共训练信道图半监督定位算法｜中文逐节译稿（校对中）",
     "url": "/papers/translations/2026-10-19-channel-charting-cotraining-tcomm2026/",
     "source_file": "2026-10-19-channel-charting-cotraining-tcomm2026.md",
-    "scope": "摘要、正文 I–VI、公式（1）–（22）、算法 1–2、图表及主要实验数据；参考书目与表 I–VIII 全量单元仍待补录，未通过全文 QA",
+    "scope": "摘要、正文 I–VI、公式（1）–（22）、算法 1–2、图 1–17 说明、表 I–VIII 完整数据、42 条参考文献中文题名及作者简介；逐页逐式终校中，未通过全文 QA",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-19-channel-charting-cotraining-tcomm2026.md",
     "source_page_path": "papers/translations/2026-10-19-channel-charting-cotraining-tcomm2026.md",
     "paper_ids": [
@@ -22,7 +22,7 @@
     "title": "LoS/NLoS 识别辅助的室内 MIMO 定位方法｜中文逐节译稿（校对中）",
     "url": "/papers/translations/2026-10-19-los-nlos-iapm-tcomm2025/",
     "source_file": "2026-10-19-los-nlos-iapm-tcomm2025.md",
-    "scope": "摘要、正文 I–VI、公式（1）–（38）、图表及主要实验数据；参考书目与表 I–VIII 全量单元仍待补录，未通过全文 QA",
+    "scope": "摘要、正文 I–VI、公式（1）–（38）、图 1–15 说明、表 I–VIII 完整数据、58 条参考文献中文题名及作者简介；逐页逐式终校中，未通过全文 QA",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-19-los-nlos-iapm-tcomm2025.md",
     "source_page_path": "papers/translations/2026-10-19-los-nlos-iapm-tcomm2025.md",
     "paper_ids": [
@@ -39,7 +39,7 @@
     "title": "协方差特征改进 Triplet 信道图定位算法｜中文译稿（待终校）",
     "url": "/papers/translations/2026-10-19-improved-triplet-channel-charting-icc2025/",
     "source_file": "2026-10-19-improved-triplet-channel-charting-icc2025.md",
-    "scope": "摘要、正文 I–VI、公式（1）–（14）、算法 1、图 1–6、表 I–III、致谢与参考文献；逐表终校中",
+    "scope": "摘要、正文 I–VI、公式（1）–（14）、算法 1、图 1–6 说明、表 I–III、19 条参考文献；逐式终校中，未通过全文 QA",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-19-improved-triplet-channel-charting-icc2025.md",
     "source_page_path": "papers/translations/2026-10-19-improved-triplet-channel-charting-icc2025.md",
     "paper_ids": [
@@ -56,7 +56,7 @@
     "title": "三维非平稳定位辅助 ISAC 信道模型｜中文译稿（待终校）",
     "url": "/papers/translations/2026-10-19-3d-localization-assisted-isac-2311-16798/",
     "source_file": "2026-10-19-3d-localization-assisted-isac-2311-16798.md",
-    "scope": "摘要、正文 I–V、公式（1）–（28）、图 1–6、致谢与参考文献；原文逐式校对中",
+    "scope": "摘要、正文 I–V、公式（1）–（28）、图 1–6 说明、16 条参考文献及致谢；逐式终校中，未通过全文 QA",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-19-3d-localization-assisted-isac-2311-16798.md",
     "source_page_path": "papers/translations/2026-10-19-3d-localization-assisted-isac-2311-16798.md",
     "paper_ids": [
@@ -75,7 +75,7 @@
     "title": "基于加权随机森林的 6G 室内定位算法｜中文译稿（待终校）",
     "url": "/papers/translations/2026-10-19-weighted-random-forest-indoor-2208-10007/",
     "source_file": "2026-10-19-weighted-random-forest-indoor-2208-10007.md",
-    "scope": "摘要、正文 I–V、公式（1）–（4）、算法 1–2、图 1–6、表 I–III、致谢与参考文献；原文逐式校对中",
+    "scope": "摘要、正文 I–V、公式（1）–（4）、算法 1–2、图 1–6、表 I–III、20 条参考文献及致谢；逐式终校中，未通过全文 QA",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-19-weighted-random-forest-indoor-2208-10007.md",
     "source_page_path": "papers/translations/2026-10-19-weighted-random-forest-indoor-2208-10007.md",
     "paper_ids": [
