@@ -13,7 +13,7 @@ toc: true
 
 **原题：** A Novel 3D Non-stationary Localization-assisted ISAC Channel Model  
 **作者：** Runruo Yang、Yang Wu、Jie Huang、Cheng-Xiang Wang  
-**作者单位：** 东南大学信息科学与工程学院移动通信国家重点实验室；紫金山实验室。通讯作者：Jie Huang、Cheng-Xiang Wang。  
+**作者单位：** 东南大学信息科学与工程学院移动通信全国重点实验室；紫金山实验室。通讯作者：Jie Huang、Cheng-Xiang Wang。  
 **来源：** arXiv:2311.16798v1，2023 年 11 月 28 日，原 PDF 6 页。  
 **译文范围：** 摘要、正文 I—V 节、式（1）—（28）、图 1—6 说明、致谢及参考文献 [1]—[16]。原文公式中的部分符号及量纲存在待进一步核实之处，译文保持原貌并明确标识。
 
