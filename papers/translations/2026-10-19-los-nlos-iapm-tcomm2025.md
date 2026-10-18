@@ -684,8 +684,126 @@ IAPM 在动态条件下仍有一定退化，因为人员运动造成的 LoS/NLoS
 
 ---
 
-## 参考文献与校对说明
+## 参考文献（完整编号与中文题名）
 
-原论文包含近 60 条参考文献，覆盖无线导航、ISAC、毫米波信道建模、随机森林与深度学习定位。为避免改写英文书目信息中的作者、DOI、卷期和页码，本页面目前保留正文对应的原编号 [1]—[58]，正式书目请直接查阅原文末尾 **REFERENCES**。逐条书目和参考文献英文书目尚需补录，故本页面保持“逐节译稿（校对中）”状态，不宣称已经逐项通过全文翻译质量检查。
+以下对应原论文 [1]—[58]，逐条翻译题名并保留书目信息。IEEE、ITU-R 等专有名称使用原文缩写。
+
+[1] S. Kozhaya、Z. M. Kassas，《无线电导航的基础跟踪性能与设计考虑》，*IEEE Journal on Selected Areas in Communications*，42(9)，2395—2409，2024。
+
+[2] M. Neinavaie、Z. M. Kassas，《利用未知 OFDM 信号进行认知感知与导航：在地面 5G 和 Starlink 低轨卫星中的应用》，*IEEE Journal on Selected Areas in Communications*，42(1)，146—160，2024。
+
+[3] F. Liu 等，《通感一体化：迈向面向 6G 及未来的双功能无线网络》，*IEEE Journal on Selected Areas in Communications*，40(6)，1728—1767，2022。
+
+[4] C.-X. Wang 等，《通向 6G：愿景、需求、关键技术与试验平台》，*IEEE Communications Surveys & Tutorials*，25(2)，905—974，2023。
+
+[5] X. You 等，《迈向 6G 无线通信网络：愿景、使能技术与新范式转变》，*Science China Information Sciences*，64(1)，文章 110301，2020。
+
+[6] Z. Xiao、Y. Zeng，《面向 6G 的定位与通信一体化概述》，*Science China Information Sciences*，65(3)，文章 131301，2022。
+
+[7] ITU-R，《面向 2030 年及以后的 IMT 未来发展的框架与总体目标》，ITU 在线报告；原文链接：https://www.itu.int/md/R19-SG05-C-0131 。
+
+[8] C.-X. Wang、J. Bian、J. Sun、W. Zhang、M. Zhang，《5G 信道测量与模型综述》，*IEEE Communications Surveys & Tutorials*，20(4)，3142—3168，2018。
+
+[9] W. Ding、S. Chang、J. Li，《基于 RSS/AoA 混合测量的无线传感器网络新型加权定位方法》，*IEEE Access*，9，150677—150685，2021。
+
+[10] Z. Lin、T. Lv、P. T. Mathiopoulos，《毫米波大规模 MIMO 系统的三维室内定位》，*IEEE Transactions on Communications*，66(6)，2472—2486，2018。
+
+[11] M. Pan 等，《利用 5G 微微蜂窝基站进行室内定位的高效 DOA 与 TOA 联合估计》，*IEEE Transactions on Instrumentation and Measurement*，71，1—19，2022。
+
+[12] L. Chen、X. Zhou、F. Chen、L.-L. Yang、R. Chen，《利用 5G NR 信号的载波相位室内定位测距》，*IEEE Internet of Things Journal*，9(13)，10908—10919，2022。
+
+[13] Z. Liu、L. Chen、X. Zhou、N. Shen、R. Chen，《利用 LTE 信号进行多径跟踪以实现室内定位中的精确 TOA 估计》，*Geo-Spatial Information Science*，26(1)，31—43，2022。
+
+[14] Z. Liu、L. Chen、X. Zhou、Z. Jiao、G. Guo、R. Chen，《基于 5G 信号机器学习的室内定位到达时间估计》，*IEEE Internet of Things Journal*，10(11)，9782—9795，2023。
+
+[15] P. Bahl、V. N. Padmanabhan，《RADAR：基于室内无线射频的用户定位与跟踪系统》，IEEE INFOCOM，775—784，2000。
+
+[16] M. Zhou、X. Li、Y. Wang、S. Li、Y. Ding、W. Nie，《利用高斯核密度估计实现面向 6G 的多源信息融合室内定位》，*IEEE Internet of Things Journal*，8(20)，15117—15125，2021。
+
+[17] S. Huang 等，《用于 5G 物联网的卡尔曼滤波和泛克里金优化指纹室内定位》，*Wireless Communications and Mobile Computing*，2021，文章 9936706。
+
+[18] N. L. Dortz、F. Gain、P. Zetterberg，《采用概率分布比较的 Wi-Fi 指纹室内定位系统》，IEEE ICASSP，2301—2304，2012。
+
+[19] P. Chen、F. Liu、S. Gao、P. Li、X. Yang、Q. Niu，《利用信道状态信息实现基于智能手机的室内指纹定位》，*IEEE Access*，7，180609—180619，2019。
+
+[20] K. Wu、J. Xiao、Y. Yi、M. Gao、L. M. Ni，《FILA：细粒度室内定位》，IEEE INFOCOM，2210—2218，2012。
+
+[21] J. Torres-Sospedra、R. Montoliu、S. Trilles、Ó. Belmonte、J. Huerta，《Wi-Fi 指纹室内定位系统中距离和相似度测度的全面分析》，*Expert Systems with Applications*，42(23)，9263—9278，2015。
+
+[22] R. Zhou、Y. Yang、P. Chen，《用于室内定位的基于 RSS 变换的 WKNN》，*Sensors*，21(17)，5685，2021。
+
+[23] A. Chriki、H. Touati、H. Snoussi，《无线传感器网络中基于支持向量机的室内定位》，IWCMC，1144—1149，2017。
+
+[24] H. Li、J. Su、W. Liu、Y. Zhang、X. Zhou，《麻雀搜索算法优化的支持向量回归室内定位模型》，IDAACS，610—615，2021。
+
+[25] C. Huang 等，《人工智能赋能的通信无线传播——第一部分：信道表征与天线—信道优化》，*IEEE Transactions on Antennas and Propagation*，70(6)，3939—3954，2022。
+
+[26] C. Huang 等，《人工智能赋能的通信无线传播——第二部分：场景识别与信道建模》，*IEEE Transactions on Antennas and Propagation*，70(6)，3955—3969，2022。
+
+[27] M. Chen、U. Challita、W. Saad、C. Yin、M. Debbah，《面向无线网络的基于人工神经网络的机器学习：教程》，*IEEE Communications Surveys & Tutorials*，21(4)，3039—3071，2019。
+
+[28] K. B. Letaief、Y. Shi、J. Lu、J. Lu，《面向 6G 的边缘人工智能：愿景、使能技术与应用》，*IEEE Journal on Selected Areas in Communications*，40(1)，5—36，2022。
+
+[29] X. Wang、X. Wang、S. Mao，《利用 CSI 图像的深度卷积神经网络室内定位》，*IEEE Transactions on Network Science and Engineering*，7(1)，316—327，2020。
+
+[30] G. Cerar、A. Švigelj、M. Mohorčič、C. Fortuna、T. Javornik，《利用卷积神经网络改进基于 CSI 的大规模 MIMO 室内定位》，EuCNC/6G Summit，276—281，2021。
+
+[31] H. Arslantas、S. Okdem，《采用基于自编码器的卷积神经网络进行室内定位》，*IEEE Access*，12，46059—46066，2024。
+
+[32] S. Fan、Y. Wu、C. Han、X. Wang，《SIABR：用于超高精度太赫兹室内定位的结构化内部注意力双向循环深度学习方法》，*IEEE Journal on Selected Areas in Communications*，39(7)，2226—2240，2021。
+
+[33] X. Xu 等，《Swin-Loc：利用 MIMO ISAC 系统的基于 Transformer 的 CSI 指纹室内定位》，*IEEE Transactions on Vehicular Technology*，73(8)，11664—11679，2024。
+
+[34] L. Breiman，《随机森林》，*Machine Learning*，45，5—32，2001。
+
+[35] N. A. Maung Maung、B. Y. Lwi、S. Thida，《采用随机森林分类器增强的 RSS 指纹无线室内定位》，ICAIT，59—63，2020。
+
+[36] X. Guo、N. Ansari、L. Li、H. Li，《利用随机森林融合一组指纹实现室内定位》，*IEEE Internet of Things Journal*，5(6)，4686—4698，2018。
+
+[37] L. Calderoni、M. Ferrara、A. Franco、D. Maio，《在医院环境中使用随机森林分类器进行室内定位》，*Expert Systems with Applications*，42(1)，125—134，2015。
+
+[38] K. Gao、H. Wang、H. Lv、W. Liu，《通过信道频率响应迈向 5G NR 高精度室内定位：新范式与数据集生成方法》，*IEEE Journal on Selected Areas in Communications*，40(7)，2233—2247，2022。
+
+[39] Z. Yun、M. F. Iskander，《用于无线传播建模的射线追踪：原理与应用》，*IEEE Access*，3，1089—1100，2015。
+
+[40] S. Yang、C.-X. Wang、Y. Wang、J. Huang、Y. Zhou、E.-H.-M. Aggoune，《用于 6G 动态射线追踪信道建模的高效预处理方法》，*IEEE Transactions on Vehicular Technology*，74(5)，6941—6953，2025。
+
+[41] P.-H. Tseng、Y.-C. Chan、Y.-J. Lin、D.-B. Lin、N. Wu、T.-M. Wang，《使用信道冲激响应测量的射线追踪辅助指纹室内定位》，*IEEE Transactions on Instrumentation and Measurement*，66(5)，1032—1045，2017。
+
+[42] Y. Li、H. Li、B. Yu、J. Li，《基于 RT-ANN 的室内伪卫星定位 CSI 指纹方法》，*Future Internet*，14(8)，235，2022。
+
+[43] Z. Xing、J. Chen、Y. Tang，《盲校准条件下基于 RSS 定位的联合分割与子空间聚类》，IEEE GLOBECOM，5360—5365，2022。
+
+[44] Z. Xing、J. Chen，《无需位置标签构建基于室内区域的无线电地图》，*IEEE Transactions on Signal Processing*，72，2512—2526，2024。
+
+[45] Z. Xing、W. Zhao，《利用区域信道追踪实现无校准室内定位》，*IEEE Internet of Things Journal*，12(5)，5449—5461，2025。
+
+[46] Y. Wu、Y. Wang、J. Huang、C.-X. Wang、C. Huang，《面向 6G 室内通信的加权随机森林定位算法》，IEEE VTC-Fall，1—6，2022。
+
+[47] ITU-R，《约 100 MHz 以上无线电波传播中建筑材料和建筑结构的影响》，Recommendation ITU-R P.2040-3，2023；原文链接：https://www.itu.int/rec/R-REC-P.2040-3-202308-I/en 。
+
+[48] C.-X. Wang、J. Huang、H. Wang、X. Gao、X. You、Y. Hao，《6G 无线信道测量和模型：趋势与挑战》，*IEEE Vehicular Technology Magazine*，15(4)，22—32，2020。
+
+[49] C.-X. Wang、Z. Lv、X. Gao、X. You、Y. Hao、H. Haas，《面向全频段和全场景 6G GBSM 的泛在无线信道建模理论与应用》，*IEEE Transactions on Vehicular Technology*，71(9)，9159—9173，2022。
+
+[50] C.-X. Wang、Z. Lv、Y. Chen、H. Haas，《6G 泛在信道模型的空时频统计特性完整研究》，*IEEE Transactions on Communications*，71(12)，7273—7287，2023。
+
+[51] L. Zhang 等，《大型室内办公室环境中的多频无线信道测量与表征》，*IEEE Transactions on Antennas and Propagation*，71(6)，5221—5234，2023。
+
+[52] Y. Hu，《无线随机网络中的几何路径损耗分布：理论与应用》，*IEEE Transactions on Information Theory*，70(1)，244—255，2024。
+
+[53] Z. Zhou 等，《用于估计具有天线极化的宽带空间非平稳无线信道参数的新型 SAGE 算法》，*IEEE Transactions on Antennas and Propagation*，71(9)，7457—7472，2023。
+
+[54] Y. Li 等，《基于射线追踪的 6G 工业物联网场景信道建模与特性分析》，IEEE/CIC ICCC，大连，1—6，2023。
+
+[55] P. Tang、J. Zhang、A. F. Molisch、P. J. Smith、M. Shafi、L. Tian，《从单快照宽带测量估计时变衰落的莱斯 K 因子》，*IEEE Transactions on Vehicular Technology*，68(1)，49—63，2019。
+
+[56] C. Huang 等，《在动态环境下为 MIMO 系统启用机器学习的 LoS/NLoS 识别》，*IEEE Transactions on Wireless Communications*，19(6)，3643—3657，2020。
+
+[57] A. Benkessirat、N. Benblidia，《特征选择基础：概述与比较》，AICCSA，1—6，2019。
+
+[58] N. N. Thuy、S. Wongthanavasu，《面向高维混合决策表的新型特征选择方法》，*IEEE Transactions on Neural Networks and Learning Systems*，33(7)，3024—3037，2022。
+
+**译稿校对状态：** 已覆盖 58 条参考文献的中文题名及书目信息、八张实验数据表。部分原文公式的隐含假设、图中文字及作者简介仍在终校，未标记全文验收通过。
 
 {% endraw %}
