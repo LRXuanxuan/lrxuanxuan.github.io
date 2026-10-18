@@ -11,6 +11,12 @@ toc: true
 
 ## 中英文译文
 
+- [共训练信道图半监督定位算法｜中文译稿（校对中）](/papers/translations/2026-10-19-channel-charting-cotraining-tcomm2026/) · 正文 I—VI、公式（1）—（22）、算法 1—2、表 I—VIII、参考文献 42 条及作者简介；逐式校对中
+- [LoS/NLoS 识别辅助室内 MIMO 定位｜中文译稿（校对中）](/papers/translations/2026-10-19-los-nlos-iapm-tcomm2025/) · 正文 I—VI、公式（1）—（38）、表 I—VIII、参考文献 58 条及作者简介；逐式校对中
+- [协方差特征改进 Triplet 信道图定位｜中文译稿（校对中）](/papers/translations/2026-10-19-improved-triplet-channel-charting-icc2025/) · 正文 I—VI、公式、算法、表格及 19 条参考文献；逐式校对中
+- [三维非平稳定位辅助 ISAC 信道模型｜中文译稿（校对中）](/papers/translations/2026-10-19-3d-localization-assisted-isac-2311-16798/) · 正文 I—V、28 组公式、图表说明与 16 条参考文献；逐式校对中
+- [基于加权随机森林的 6G 室内定位算法｜中文译稿（校对中）](/papers/translations/2026-10-19-weighted-random-forest-indoor-2208-10007/) · 正文 I—V、算法 1—2、图表、4 组公式与 20 条参考文献；逐式校对中
+
 - [从近端算子视角理解流匹配｜中文全篇译稿（逐式校对中）](/papers/translations/2026-10-16-flow-matching-proximal-2602-12683/) · 摘要、正文 1–7、公式 1–53、命题及定理证明、实验与图 1–6、附录 A–G、参考文献 43 条均已译；逐式终校中，未计入已验收全文
 
 - [CKMImageNet：信道知识地图数据集｜中文译稿（全文校对中）](/papers/translations/2026-10-16-ckmimagenet-2504-09849/) · 摘要、正文 I–VI、公式（1）、图 1–10、表 I–II、41 条参考文献；逐页终校中；尚未通过全文 QA
