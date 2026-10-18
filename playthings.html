@@ -9,9 +9,44 @@ toc: false
 <link rel="stylesheet" href="{{ '/assets/css/sign-votes.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/tidbits.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/tarot.css' | relative_url }}?v=20261015">
+<link rel="stylesheet" href="{{ '/assets/css/argument-practice.css' | relative_url }}?v=20261018">
 <div class="rc-playthings">
   <p class="rc-playthings-lead">抽过的签，和偶尔心血来潮的小玩意，都放在这里喵。</p>
   <a class="rc-toy-link" href="{{ '/fortune/' | relative_url }}"><span aria-hidden="true">🎲</span><span><strong>照明之咪摇奖机</strong><small>去看看今天会摇到什么。</small></span><span aria-hidden="true">↗</span></a>
+
+  <details class="rc-argument" id="argument-practice"
+           data-rc-argument data-bank="{{ '/assets/data/argument-prompts.json' | relative_url }}">
+    <summary>
+      <span class="rc-argument-arrow" aria-hidden="true">▸</span>
+      <span class="rc-argument-heading" role="heading" aria-level="2">🗣️ 五分钟表达训练</span>
+      <span class="rc-argument-hint">100 道论述与辩驳题 · 每日换题 · 点击展开</span>
+    </summary>
+    <div class="rc-argument-body">
+      <p class="rc-argument-intro">每天试着用一分钟说结论、两分钟说理由，再用两分钟回听与修改。题目不设标准答案；优先练习准确表达、举例和说明边界。</p>
+      <div class="rc-argument-card">
+        <div class="rc-argument-date" data-argument-date>展开后显示今日题目（北京时间）</div>
+        <div class="rc-argument-meta"><span data-argument-category></span> · <span data-argument-type></span></div>
+        <p class="rc-argument-prompt" data-argument-prompt>正在准备题目……</p>
+        <p class="rc-argument-guide" data-argument-guide></p>
+      </div>
+      <div class="rc-argument-controls">
+        <button type="button" data-argument-today disabled>回到今日题目</button>
+        <button type="button" data-argument-random disabled>随机换题</button>
+        <button type="button" data-argument-copy disabled>复制题目</button>
+        <label>类型 <select data-argument-mode aria-label="随机选题类型"><option value="all">全部</option><option value="论述">论述</option><option value="辩驳">辩驳</option></select></label>
+        <label>主题 <select data-argument-category-filter aria-label="随机选题主题"><option value="all">全部主题</option></select></label>
+        <button type="button" data-argument-browse aria-expanded="false" disabled>浏览全部题目</button>
+      </div>
+      <label class="rc-argument-draft-label" for="rc-argument-draft">写几句自己的提纲（选填）</label>
+      <textarea id="rc-argument-draft" data-argument-draft maxlength="3000" placeholder="核心观点：&#10;理由或反例：&#10;适用范围／修正后的说法："></textarea>
+      <p class="rc-argument-save" data-argument-save>草稿仅在当前浏览器保存，不上传网络。</p>
+      <div class="rc-argument-list" data-argument-list hidden><div data-argument-results></div></div>
+      <p class="rc-argument-status" data-argument-status role="status" aria-live="polite"></p>
+      <p class="rc-argument-note">每日题目按北京时间零点自动轮换，100 天内不重复，之后循环；筛选只影响随机选题与题库浏览。练习草稿按题目分别存于本机，换设备不会自动同步。</p>
+      <noscript><p>启用 JavaScript 后即可使用每日换题和本地草稿。</p></noscript>
+    </div>
+  </details>
+
   <details class="rc-tarot" id="tarot" data-rc-tarot>
     <summary>
       <span class="rc-tarot-arrow" aria-hidden="true">▸</span>
@@ -91,3 +126,4 @@ toc: false
 <script src="{{ '/assets/js/sign-calendar.js' | relative_url }}?v=20261018-corrected" defer></script>
 <script src="{{ '/assets/js/sign-archive.js' | relative_url }}?v=20261018-bilingual-spacing" defer></script>
 <script src="{{ '/assets/js/tarot.js' | relative_url }}?v=20261015" defer></script>
+<script src="{{ '/assets/js/argument-practice.js' | relative_url }}?v=20261018" defer></script>
