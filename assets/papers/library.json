@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "source": "每日论文推荐.xlsx",
-  "source_sha256": "18e0a8168c2c1bc886c5aaacbe2dc72902ff8310d8c5fec019e25673a31e85a1",
+  "source_sha256": "005a41bd652733d855946bb381d1604d1ff6e0436c02208d17efec2ad8e604a5",
   "translation_progress": {
     "target": 315,
     "completed": 22,
@@ -19525,7 +19525,7 @@
   "pdf_mode": "links_only",
   "workbook_table": {
     "url": "/papers/table/",
-    "source_sha256": "18e0a8168c2c1bc886c5aaacbe2dc72902ff8310d8c5fec019e25673a31e85a1",
+    "source_sha256": "005a41bd652733d855946bb381d1604d1ff6e0436c02208d17efec2ad8e604a5",
     "sheet": "每日论文推荐",
     "row_count": 355,
     "headers": [
@@ -19555,9 +19555,9 @@
       "date": "2026-10-19",
       "count": 5,
       "scope": "Yang Wu related publications",
-      "workbook_persisted": false,
+      "workbook_persisted": true,
       "source": "Verified DOI, abstracts, bibliography",
-      "note": "Manual website addition; original workbook unchanged"
+      "note": "Saved to original workbook rows 352-356; reopened and verified 2026-10-19"
     }
   ]
 }
