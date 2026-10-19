@@ -103,6 +103,36 @@ toc: true
 
 ## 推荐论文
 
+### 2026-10-20 · [Channel Estimation in Cross-Frame OTFS System With Ultra-High Mobility](/papers/items/65fb4a2eb96bd703/)
+
+提醒先核验可辨识范围再比较生成重建；可先做无学习的单径/双径CRT混叠压力测试。
+
+[本篇日报](/papers/items/65fb4a2eb96bd703/#paper-report)
+
+### 2026-10-20 · [Scattering Environment Aware Joint Multi-user Channel Estimation and Localization with Spatially Reused Pilots](/papers/items/0cc90a52b1d2a72d/)
+
+可用作CKM→当前导频校正链路的系统基准：公平比较同总导频预算下的分组、NMSE与定位误差。
+
+[本篇日报](/papers/items/0cc90a52b1d2a72d/#paper-report)
+
+### 2026-10-20 · [Scene Reconstruction Using Ubiquitous Wireless Signals via Diffusion Posterior Inference Over physics-Grounded Representations](/papers/items/8c207944a2f41338/)
+
+最值得借鉴的是传播可见性监督和集合条件接口，可改为轻量环境token，并以消融判断是否超过普通CSI/坐标拼接。
+
+[本篇日报](/papers/items/8c207944a2f41338/#paper-report)
+
+### 2026-10-20 · [Completing Radio Map Tensors via Factor Diffusion Posterior Sampling](/papers/items/0df7b383b8d4f8ab/)
+
+当前最适合最小复现的一篇：先验证因子结构的跨源泛化，再考虑用Flow/CM替换采样器，能分离结构贡献与生成模型贡献。
+
+[本篇日报](/papers/items/0df7b383b8d4f8ab/#paper-report)
+
+### 2026-10-20 · [Conditional Mean Flows: Few-Step Densities for Simulation-Based Inference](/papers/items/93b1bdda4e6c5e02/)
+
+适合把低维传播参数或CKM统计作为密度目标，并验证相同预算下更多样本还是更多步更有效。
+
+[本篇日报](/papers/items/93b1bdda4e6c5e02/#paper-report)
+
 ### 2026-10-19 · [A Channel Charting-Based Semi-Supervised Positioning Algorithm With Co-Training](/papers/items/eb181bdf15229320/)
 
 适合审视 CKM/WCM 提供的历史空间先验和当前 CSI 的信息贡献如何分离，以及先验失配该如何评估。
