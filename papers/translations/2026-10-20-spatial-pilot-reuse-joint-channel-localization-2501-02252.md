@@ -427,6 +427,134 @@ $
 
 本文利用多用户环境的空间传播特征，提出双时间尺度的联合上行信道估计与定位方案。长时间尺度通过 TST-MUSIC 粗估散射体位置、DBSCAN 关联共享散射体、图着色与粒子群优化分配导频，以充分利用用户间信道空间近似正交的性质。短时间尺度则在经先验初始化的动态位置域网格上，使用 SEA-LD-TurboCE 的 Turbo 消息传递和 EM 更新，联合估计多个用户的信道与位置。通过对共享散射体结构的建模，所提方法旨在用更少的正交导频资源支持更多用户，并改善信道估计和定位精度。
 
+## 附录 A 补译：模块 B 的消息更新方程（41）–（46）
+
+模块 B 在原文图 4 所示的因子图上执行 sum-product（求和–乘积）消息传递。每个用户 $k$、位置网格 $q$ 的变量 $x_q^k$、局部支撑 $s_q^k$ 与全局支撑 $s_q$ 按所定义的概率因子连接；$\delta(\cdot)$ 为狄拉克冲激／离散质量符号。以下依照原文六个传播方向列出式（41）–（46），保留原始节点命名。
+
+**1）路径 $x_q^k\to f_q^k\to s_q^k\to\eta_q^k\to s_q$。** 从因子节点 $\eta_q^k$ 向全局支撑变量 $s_q$ 发送的消息为
+
+$
+\begin{aligned}
+\nu_{\eta_q^k\to s_q}(s_q)
+&=\sum_{s_q^k}\eta_q^k(s_q^k,s_q)\,
+\nu_{s_q^k\to\eta_q^k}(s_q^k)\\
+&=\pi_{s,q}^{k,\mathrm{in}}\delta(s_q-1)
++\left(1-\pi_{s,q}^{k,\mathrm{in}}\right)\delta(s_q),
+\end{aligned}\tag{41}
+$
+
+其中
+
+$
+\pi_{s,q}^{k,\mathrm{in}}=
+\left[1+\frac{1-\pi_{s_k,q}^{\mathrm{in}}}
+{1+2\pi_{s_k,q}^{\mathrm{in}}-\pi_{s_k,q}^{\mathrm{in}}-\rho_k}
+\right]^{-1},
+$
+
+且局部系数与支撑的输入概率项来自两种虚拟观测似然的比值：
+
+$
+\pi_{s_k,q}^{\mathrm{in}}=
+\left[
+1+
+\frac{\mathcal{CN}(0;x_{B,q}^{k,\mathrm{pri}},v_{B,q}^{k,\mathrm{pri}})}
+{\mathcal{CN}(0;x_{B,q}^{k,\mathrm{pri}},v_{B,q}^{k,\mathrm{pri}}+(\sigma_q^k)^2)}
+\right]^{-1}.
+$
+
+**原文排版校对提示：** 式（41）紧接其后的 $\pi_{s,q}^{k,\mathrm{in}}$ 分母在文本层的括号和 $\rho_k$ 位置不够清晰，可能存在排版或转录歧义。该中间式应以 PDF 原版为准，不能用它代替可执行代码中的归一化概率。
+
+**2）路径 $x_0^k\to f_0^k\to s_0^k\to h_0^k$。** 从 LOS 支撑变量到先验因子的消息为
+
+$
+\begin{aligned}
+\nu_{s_0^k\to h_0^k}(s_0^k)
+&=\nu_{f_0^k\to s_0^k}(s_0^k)\\
+&\propto\int\nu_{x_0^k\to f_0^k}(x_0^k)
+f_0^k(x_0^k,s_0^k)\,\mathrm d x_0^k\\
+&=\pi_{s_0^k}^{\mathrm{in}}\delta(s_0^k-1)
++\left(1-\pi_{s_0^k}^{\mathrm{in}}\right)\delta(s_0^k).
+\end{aligned}\tag{42}
+$
+
+这里
+
+$
+\pi_{s_0^k}^{\mathrm{in}}=
+\left[
+1+
+\frac{\mathcal{CN}(0;x_{B,0}^{k,\mathrm{pri}},v_{B,0}^{k,\mathrm{pri}})}
+{\mathcal{CN}(0;x_{B,0}^{k,\mathrm{pri}},v_{B,0}^{k,\mathrm{pri}}+(\sigma_0^k)^2)}
+\right]^{-1}.
+$
+
+**3）路径 $s_q\to h_q$。** 多个用户向共同散射体支撑提供的消息相乘，得到
+
+$
+\begin{aligned}
+\nu_{s_q\to h_q}(s_q)
+&\propto\prod_{k\in\mathcal K_q}\nu_{\eta_q^k\to s_q}(s_q)\\
+&=\pi_q^{\mathrm{in}}\delta(s_q-1)
++\left(1-\pi_q^{\mathrm{in}}\right)\delta(s_q),
+\end{aligned}\tag{43}
+$
+
+$
+\pi_q^{\mathrm{in}}=
+\frac{\prod_{k\in\mathcal K_q}\pi_{s,q}^{k,\mathrm{in}}}
+{\prod_{k\in\mathcal K_q}\pi_{s,q}^{k,\mathrm{in}}
++\prod_{k\in\mathcal K_q}(1-\pi_{s,q}^{k,\mathrm{in}})},
+$
+
+其中 $\mathcal K_q$ 是与全局支撑节点 $s_q$ 相连的用户集合（不包含先验因子 $h_q$）。
+
+**4）路径 $h_q\to s_q$。** 全局支撑的 Bernoulli 先验直接返回
+
+$
+\nu_{h_q\to s_q}(s_q)\propto h_q(s_q)
+=\lambda\delta(s_q-1)+(1-\lambda)\delta(s_q).\tag{44}
+$
+
+**5）路径 $s_q\to\eta_q^k\to s_q^k\to f_q^k\to x_q^k$。** 从稀疏混合因子到信道系数的返回消息为
+
+$
+\begin{aligned}
+\nu_{f_q^k\to x_q^k}(x_q^k)
+&\propto\sum_{s_q^k}
+\nu_{s_q^k\to f_q^k}(s_q^k)f_q^k(x_q^k,s_q^k)\\
+&=\pi_{s_k,q}^{\mathrm{out}}
+\mathcal{CN}(x_q^k;0,(\sigma_q^k)^2)
++\left(1-\pi_{s_k,q}^{\mathrm{out}}\right)\delta(x_q^k).
+\end{aligned}\tag{45}
+$
+
+其中 $\pi_{s_k,q}^{\mathrm{out}}=\rho_k\pi_{s,q}^{k,\mathrm{out}}$，且
+
+$
+\pi_{s,q}^{k,\mathrm{out}}=
+\frac{\lambda\displaystyle\prod_{\ell\in\mathcal K_q\setminus\{k\}}
+\pi_{s,q}^{\ell,\mathrm{in}}}
+{\lambda\displaystyle\prod_{\ell\in\mathcal K_q\setminus\{k\}}
+\pi_{s,q}^{\ell,\mathrm{in}}+
+(1-\lambda)\displaystyle\prod_{\ell\in\mathcal K_q\setminus\{k\}}
+(1-\pi_{s,q}^{\ell,\mathrm{in}})}.
+$
+
+**6）路径 $h_0^k\to s_0^k\to f_0^k\to x_0^k$。** LOS 系数的返回消息为
+
+$
+\begin{aligned}
+\nu_{f_0^k\to x_0^k}(x_0^k)
+&\propto\sum_{s_0^k}
+\nu_{s_0^k\to f_0^k}(s_0^k)f_0^k(x_0^k,s_0^k)\\
+&=\rho_0^k\mathcal{CN}(x_0^k;0,(\sigma_0^k)^2)
++(1-\rho_0^k)\delta(x_0^k).
+\end{aligned}\tag{46}
+$
+
+相应的近似后验 $\widehat p(x_q^k\mid\mathbf y)$ 再由式（36）中的输入与输出消息乘积归一化得到。该消息传递机制实现了两类信息交换：每个用户的局部稀疏支撑对全局公共散射体支撑提供证据，而全局支撑先验又通过式（45）反馈给单个用户的信道系数估计。
+
 ## 附录与未完成核验项
 
 原文附录 A 包含 SEA-LD-TurboCE 的模块 B 消息更新方程；原文正文第 III、V 节还包括较长的三层联合支撑概率式和 EM/消息传递推导，图表中包含数值曲线；参考文献与算法 1、2 的全部伪代码也需逐项核对。这些部分尚未形成可逐式验收的译文。**本页面目前为逐节译稿，不能标为完整全文。**
