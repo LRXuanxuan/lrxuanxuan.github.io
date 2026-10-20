@@ -5,7 +5,7 @@
     "title": "跨帧 OTFS 超高速移动信道估计｜中文逐节译稿（未通过全文 QA）",
     "url": "/papers/translations/2026-10-20-cross-frame-otfs-ultra-high-mobility/",
     "source_file": "2026-10-20-cross-frame-otfs-ultra-high-mobility.md",
-    "scope": "正文 I–VI、主要公式、算法 1、图表说明及附录主要推导已译；若干长公式、完整表格、参考文献与作者简介待核，未通过全文验收",
+    "scope": "摘要、正文 I–VI、主要公式（1）–（53）、算法 1、图 1–8 说明、表 I–V 数据、参考文献 [1]–[31] 及五位作者简介已译；逐句逐式终校未完成，未通过全文 QA",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-20-cross-frame-otfs-ultra-high-mobility.md",
     "source_page_path": "papers/translations/2026-10-20-cross-frame-otfs-ultra-high-mobility.md",
     "paper_ids": [],
