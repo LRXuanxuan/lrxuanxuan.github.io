@@ -401,6 +401,22 @@ $
 12. 若 $\|\boldsymbol\zeta^{(t+1)}-\boldsymbol\zeta^{(t)}\|\le\epsilon$，则退出外循环。
 13. 输出估计的 $\widehat{\boldsymbol\zeta}$、$\widehat{\mathbf x}=\mathbf x_B^{\rm post}$，以及全部用户、网格点的支撑后验 $\widehat p(s_q^k\mid\mathbf y,\widehat{\boldsymbol\zeta})$。
 
+### 表 I：因子图中各节点的概率分布与函数形式
+
+按原文第 20 页表 I 转录，$\mathcal{CN}(x;\mu,v)$ 为均值 $\mu$、方差 $v$ 的圆对称复高斯密度，$\delta$ 是点质量函数。为避免含嵌套长公式的宽表在窄屏溢出，将各行写成相同顺序的逐条定义。
+
+| 因子 | 所对应的分布 | 函数形式 |
+|---|---|---|
+| $g_0^k(x_{B,0}^{k,\mathrm{pri}},x_0^k)$ | $p(x_0^k\mid x_{B,0}^{k,\mathrm{pri}})$ | $\mathcal{CN}(x_0^k;x_{B,0}^{k,\mathrm{pri}},v_{B,0}^{k,\mathrm{pri}})$ |
+| $g_q^k(x_{B,q}^{k,\mathrm{pri}},x_q^k)$ | $p(x_q^k\mid x_{B,q}^{k,\mathrm{pri}})$ | $\mathcal{CN}(x_q^k;x_{B,q}^{k,\mathrm{pri}},v_{B,q}^{k,\mathrm{pri}})$ |
+| $f_0^k(x_0^k,s_0^k)$ | $p(x_0^k\mid s_0^k)$ | 原文此格排作 $\mathcal{CN}(x_q^k;x_{B,q}^{k,\mathrm{pri}},v_{B,q}^{k,\mathrm{pri}})$ |
+| $f_q^k(x_q^k,s_q^k)$ | $p(x_q^k\mid s_q^k)$ | $\delta(s_q^k)\delta(x_q^k)+\delta(s_q^k-1)\mathcal{CN}(x_q^k;0,(\sigma_q^k)^2)$ |
+| $\eta_q^k(s_q^k,s_q)$ | $p(s_q^k\mid s_q)$ | $\delta(s_q)\delta(s_q^k)+\delta(s_q-1)[\delta(s_q^k-1)\rho_k+\delta(s_q^k)(1-\rho_k)]$ |
+| $h_0^k(s_0^k)$ | $p(s_0^k)$ | $\delta(s_0^k-1)\rho_0^k+\delta(s_0^k)(1-\rho_0^k)$ |
+| $h_q(s_q)$ | $p(s_q)$ | $\delta(s_q-1)\lambda+\delta(s_q)(1-\lambda)$ |
+
+**原文表格异常：** $f_0^k$ 的“分布”列表示 $p(x_0^k\mid s_0^k)$，但相应“函数形式”列却印有与观测似然类似的 $\mathcal{CN}(\cdot;x_{B,q}^{k,\mathrm{pri}},v_{B,q}^{k,\mathrm{pri}})$，并未给出预期的含 $s_0^k$ 的 Bernoulli–Gaussian 因子。此处严格注明表中原有形式，不将推测的修正暗中写为原文。
+
 ## VI. 数值结果
 
 本节通过仿真考察散射体关联、用户分组、信道估计及定位性能，针对各阶段分别设置基线和消融对照。
