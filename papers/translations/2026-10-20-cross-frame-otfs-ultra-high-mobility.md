@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "跨帧 OTFS 超高速移动信道估计｜中文逐节译稿（未完成）"
+title: "跨帧 OTFS 超高速移动信道估计｜中文逐节译稿（逐式校对中）"
 permalink: /papers/translations/2026-10-20-cross-frame-otfs-ultra-high-mobility/
 math: true
 toc: true
@@ -14,7 +14,7 @@ toc: true
 **原题：** Channel Estimation in Cross-Frame OTFS System With Ultra-High Mobility  
 **作者：** Zhenyu Zhang、Qianli Wang、Gang Liu、Pingzhi Fan、FeiFei Gao  
 **来源：** IEEE Transactions on Wireless Communications，2026，DOI: 10.1109/TWC.2026.3668101。  
-**翻译进度：** 已译摘要、引言、系统模型主要段落、跨帧模型与部分估计方法；式（5）、（8）、（9）、（13）等复杂公式以及正文其余部分、仿真、附录和书目仍须逐页核对补全。本页面**不是完整全文译稿**。
+**翻译进度：** 已覆盖摘要、正文 I–VI、主要公式、算法 1、图 1–8、表 I–V 的说明及附录 A–B 的核心推导；部分长公式、完整表格及参考文献作者简介仍待逐页逐项终校，尚未通过完整全文 QA。
 
 ## 摘要
 
@@ -221,11 +221,305 @@ $$
 
 其中 $\beta$ 为对应网格偏移量，撇号表示采样函数在相应维度的偏导数。对于 OD 信道，额外相位矩阵 $\mathbf E_i$ 使各路径在时延维度的贡献不再连续，削弱既有估计方法所依赖的稀疏性。因此后续先沿多普勒维进行分解，再处理时延维及超范围补偿。
 
-### B. 跨帧与 OGSBI 估计（阶段性译稿）
+### B. 跨帧与 OGSBI 联合信道估计
 
-原文式（27）—（29）把接收矩阵沿多普勒维拆分，使每个多普勒网格点对应一个包含时延响应与额外相位的列向量。虽然各路径的相位矩阵未知，但此时可将列向量作为整体估计。对于两个子帧分别构造 $\mathbf D_1$、$\mathbf D_2$；同一路径的时延响应位置相同、多普勒位置不同，幅度和分数部分则相近。由此可以在两子帧之间匹配路径，随后利用 CRT 恢复 OD 参数。
+尽管式（28）中的附加相位矩阵 $\mathbf E_{n',m'}$ 未知，仍可以把其中的 $\mathbf d_{U,n'}$ 当作整体来处理。将 $N'$ 个列向量组合为矩阵 $\mathbf D$；跨帧设计得到的两个子帧分别记为 $\mathbf D_1$、$\mathbf D_2$。两子帧中，同一路径的时延位置一致，而其多普勒坐标不同。由于两子帧的分辨率一致，同一路径的幅值和分数参数也应相近，这便为路径对应提供了依据。求解式（27）因此可以分为以下六步。
 
-算法流程先利用 OGSBI 在多普勒维求取网格偏移与响应矩阵（式（30）、（31））；之后检测响应幅度峰值并沿幅度单调递减方向扩张形成候选区域；结合峰值幅度及分数多普勒匹配两个子帧中的同一路径；利用式（20）计算其超范围多普勒，并根据式（4）更新各采样点的状态矩阵；最终按不同 $\phi_i$ 值将信号分层，使每层中的额外相位结构一致。原文算法 1 给出了状态矩阵的计算细节，图 4 展示了分层过程。
+**步骤 1：在多普勒维进行分解。** 首先将接收符号改写为
 
-**待补译范围：** 第 IV 节剩余公式、算法 1 的逐行译文，以及后续仿真分析、结论、附录证明、全部参考文献。当前页面仅提供已完成核对的逐节初稿，不应作为全文完整性已验收版本。
+$$
+\mathbf Y_{\mathrm{DD}}
+=x[k_p,l_p]\widetilde{\mathbf U}(\boldsymbol\beta_{k_\nu})
+\mathbf D_U^H+\mathbf n_\nu.\tag{30}
+$$
+
+其中
+
+$$
+\begin{aligned}
+\widetilde{\mathbf U}(\boldsymbol\beta_{k_\nu})
+&=[\widetilde{\mathbf w}_\nu(\widetilde k_{\nu1}),\ldots,
+\widetilde{\mathbf w}_\nu(\widetilde k_{\nu N'})]\\
+&=\mathbf U_{\mathrm{DD}}(\widetilde{\mathbf k}_\nu)
++\operatorname{diag}(\boldsymbol\beta_{k_\nu})
+\mathbf U'_{\mathrm{DD}}(\widetilde{\mathbf k}_\nu).
+\end{aligned}\tag{31}
+$$
+
+$\mathbf U'_{\mathrm{DD}}$ 是 $\mathbf U_{\mathrm{DD}}$ 对相应多普勒参数的偏导数。未知量是多普勒维离网参数 $\boldsymbol\beta_{k_\nu}$ 和响应矩阵 $\mathbf D_U^H$。可使用文献 [17]、[27] 研究的 OGSBI 方法估计这些量。对图 3 所示两子帧，分别获得 $\widehat{\boldsymbol\beta}_{k_\nu,1}\in\mathbb R^{N'_{1}\times1}$、$\widehat{\mathbf D}_{U,1}\in\mathbb C^{l_m\times N'_1}$ 以及 $\widehat{\boldsymbol\beta}_{k_\nu,2}\in\mathbb R^{N'_{2}\times1}$、$\widehat{\mathbf D}_{U,2}\in\mathbb C^{l_m\times N'_2}$。其中 $N'_1,N'_2$ 表示两子帧在多普勒维的虚拟网格数，$l_m$ 表示最大时延。
+
+**步骤 2：选取同一路径的冲激。** 分别用 $\mathbf d_1$、$\mathbf d_2$ 表示 $|\mathbf D_{U,1}|$ 与 $|\mathbf D_{U,2}|$ 的相应幅值行（原文将其记为列，但后续算法通过同一时延行取值）。对其执行峰值检测和区域扩张：从各局部最大值沿左右方向扩张，将其相邻且幅度逐渐减小的点收入同一区域。扩张得到的峰值区域集合记为 $\mathcal K_{\mathrm{PEAK}1}$、$\mathcal K_{\mathrm{PEAK}2}$。如果两个候选峰的幅值足够接近，就视为来自同一路径的候选响应。
+
+**步骤 3：利用分数信息确定匹配点。** 对判定属于同一路径的两个峰值区域，在相应的分数多普勒估计之间搜索差值最小的一对点，以之作为跨帧匹配点；提取两点的范围内多普勒，利用式（20）通过中国剩余定理恢复超范围多普勒，再将估计结果补偿至两个峰值区域。没有被匹配的点被认为处于正常的范围内区域。原文这一步两处 $\widehat{\boldsymbol\beta}$ 的子帧下标存在重复书写，翻译根据前后定义保留其跨子帧比较的含义。
+
+**步骤 4：逐点计算 OD 状态。** 在两子帧的整个响应矩阵中重复步骤 2–3，获得每个采样点的 OD 参数。由此形成状态矩阵 $\widehat{\boldsymbol\Phi}_1\in\mathbb C^{l_m\times N'_1}$ 和 $\widehat{\boldsymbol\Phi}_2\in\mathbb C^{l_m\times N'_2}$：
+
+$$
+\widehat{\boldsymbol\Phi}_b=
+\begin{bmatrix}
+(\widehat\phi_{0,1})_b&(\widehat\phi_{0,2})_b&\cdots&(\widehat\phi_{0,N'_b})_b\\
+(\widehat\phi_{1,1})_b&(\widehat\phi_{1,2})_b&\cdots&(\widehat\phi_{1,N'_b})_b\\
+\vdots&\vdots&\ddots&\vdots\\
+(\widehat\phi_{l_m,1})_b&(\widehat\phi_{l_m,2})_b&\cdots&(\widehat\phi_{l_m,N'_b})_b
+\end{bmatrix},
+\qquad b=1,2.\tag{32}
+$$
+
+其中 $(\widehat\phi_{i,j})_b$ 是式（4）中 OD 整数参数的相应估计值。原文算法 1 给出了计算 $\widehat{\boldsymbol\Phi}_1$、$\widehat{\boldsymbol\Phi}_2$ 的具体程序，常数 $\lambda$ 是判断两个冲激是否属于同一路径的启发式阈值。例如，$\lambda=0.75$ 表示两峰的幅值需要足够接近。
+
+**算法 1：由两子帧响应矩阵和分数多普勒估计计算 OD 状态矩阵。**
+
+输入：$\widehat{\mathbf D}_{U,1}$、$\widehat{\boldsymbol\beta}_{k_\nu,1}$、$\widehat{\mathbf D}_{U,2}$、$\widehat{\boldsymbol\beta}_{k_\nu,2}$。输出：$\widehat{\boldsymbol\Phi}_1$、$\widehat{\boldsymbol\Phi}_2$。
+
+1. 将两个状态矩阵初始化为零。
+2. 对 $i=0,1,\ldots,l_m$，提取两子帧对应时延位置的幅值响应 $\mathbf d_1$ 与 $\mathbf d_2$。
+3. 在两组响应上进行峰值检测和区域扩张，取得两个峰值区域集合；按各区域的峰值幅度降序排列。
+4. 对两组峰值区域中的前 $\min(P_1,P_2)$ 个候选，计算局部峰值 $P_{L1}$、$P_{L2}$ 及位置 $V_1$、$V_2$。
+5. 若两峰幅值足够接近，且峰位置相距超过一个网格，则从其分数参数集合中寻找最接近的一对匹配点。
+6. 依据匹配点在两个子帧中的范围内多普勒位置，用式（20）计算 OD 多普勒，再由式（4）得到两个子帧的 $\widehat\phi_{i,1}$ 和 $\widehat\phi_{i,2}$。
+7. 将估计值写入相应峰值区域的 OD 状态矩阵。完成所有循环后返回两个矩阵。
+
+原文算法步骤 4、8、10 的索引和集合名称存在重复或不一致的印刷表述，因此上述为保持原有计算步骤的中文转述，尚不作为精确可执行伪代码。
+
+**步骤 5：接收信号分层。** 两个子帧分别进行处理。以子帧 1 为例，假设 $\widehat{\boldsymbol\Phi}_1$ 有 $\Psi_1$ 个不同的取值，即 $\widehat\phi_1,\ldots,\widehat\phi_{\Psi_1}$，则
+
+$$
+\mathbf D_{U,1}=
+\mathbf D_{U,11}+\mathbf D_{U,12}+\cdots+
+\mathbf D_{U,1\Psi_1}.\tag{33}
+$$
+
+$\mathbf D_{U,1i}$ 只保留 OD 参数等于 $\widehat\phi_i$ 的位置，其余位置均置零：
+
+$$
+D_{U,i}(p,q)=
+\begin{cases}
+D_U(p,q),&\widehat\Phi(p,q)=\widehat\phi_i,\\
+0,&\text{其他}.
+\end{cases}\tag{34}
+$$
+
+**图 4.** 跨帧 OTFS 信道估计示意图。在基本 DD 域中可能重叠的不同路径，经跨帧匹配后按 OD 状态分离，形成额外相位参数相同的独立层。
+
+**步骤 6：逐层估计信道。** 分层以后，分别估计各层的信道。将子帧 1 的第 $i$ 层写为 $\mathbf D_{U,1i}=[\mathbf d_{U,1},\ldots,\mathbf d_{U,N'}]$，其第 $n'$ 列满足
+
+$$
+\mathbf d_{U,n'}=
+\widehat{\mathbf E}_i\widetilde{\mathbf V}
+(\boldsymbol\beta_{l_\tau}|_{n=n'})
+\mathbf h_{U,n'}+\mathbf n_\nu(n'),\tag{35}
+$$
+
+其中
+
+$$
+\widehat{\mathbf E}_i=
+\operatorname{diag}\{e^{j2\pi m\widehat\phi_i/M_1}\}_{m=0}^{M_1-1}.\tag{36}
+$$
+
+然后，同样利用 OGSBI 估计时延维离网参数 $\widehat{\boldsymbol\beta}_{l_\tau}^{2D}$ 和信道幅值 $\widehat{\mathbf h}_{U,n'}$。依次求得每层的估计，再完成相位补偿和结果相加，即得到整体信道估计。分层和补偿能够缓解 OD 信道带来的稀疏结构破坏。
+
+本节为简便使用理想脉冲，但矩形脉冲等实际脉冲下所提方法仍可使用。理由是：第二节输入输出关系和命题针对任意脉冲推导；用于分数参数恢复的 OGSBI 本来就能推广到实际脉冲 [29]；CRT 所用的 DD 域冲激位置较少受到脉冲形状影响。
+
+### C. 计算复杂度分析
+
+假设两子帧参数近似相同，即 $N\approx N_1\approx N_2$、$M\approx M_1\approx M_2$，且虚拟网格数满足 $N'\ge N$、$M'\ge M$。所提方法包含三个主要计算部分。首先，式（30）中的多普勒维分解复杂度为 $O(N'^2N)$ [30]；其次，一次 CRT 运算复杂度为 $O(\log N)$ [26]，在最坏情况下每个 DD 点均要进行该运算，总复杂度为 $O(NM\log N)$；峰值匹配和分层不包含复杂矩阵运算，其复杂度忽略不计。最后，分层后每个 $\Phi$ 层的 OGSBI 复杂度为 $O(M'^2MN')$ [27]。综上，总复杂度为
+
+$$
+O(N'^2N)+O(NM\log N)+O(\Phi M'^2MN')
+=O(\Phi M'^2MN').
+$$
+
+$\Phi$ 是实际使用的层数，依据信道情况在 1 到 $M$ 之间变化。原文表 III 对比离网方法的复杂度，所提方法的复杂度位于 [17] 和 [27] 两种方法之间。
+
+## V. 仿真结果与讨论
+
+本节在 OD 信道下考察所提方法的估计性能。按照 [31]，分别在 $[-\nu_{\max},\nu_{\max}]$ 和 $[0,\tau_{\max}]$ 区间随机均匀生成多普勒与时延，取 $\tau_{\max}=2.6\times10^{-6}$ s；复增益 $h_i$ 按 [17] 设置。导频与数据的功率比为 30 dB，网格分辨率为 0.5，贝叶斯方法参数与 [27] 相同。
+
+相比范围内信道，OD 信道还包括 $e^{j2\pi l\phi_i/M}$ 这一额外相位项，故对完整 OD 信道响应定义 NMSE：
+
+$$
+\mathrm{NMSE}=
+\frac{\displaystyle
+\sum_{k,k'=0}^{N-1}\sum_{l,l'=0}^{M-1}
+\left|h_{w,\mathrm{OD}}(k,k',l,l')-\widehat h_{w,\mathrm{OD}}(k,k',l,l')\right|^2}
+{\displaystyle
+\sum_{k,k'=0}^{N-1}\sum_{l,l'=0}^{M-1}
+\left|h_{w,\mathrm{OD}}(k,k',l,l')\right|^2}.\tag{37}
+$$
+
+其中 $\widehat h_{w,\mathrm{OD}}$ 通过估计参数按式（53）构造，$h_{w,\mathrm{OD}}$ 则由真实信道参数生成。
+
+表 IV 给出基于 3GPP NR FR2 的主要配置。载频为 48.20 GHz、系统带宽为 3.48 MHz。对照方法采用单帧 Frame 0（60 个时隙、58 个子载波、60 kHz 子载波间隔）；所提方法由 Subframe 1（30 个时隙、58 个子载波、60 kHz 子载波间隔）和 Subframe 2（29 个时隙、60 个子载波、58 kHz 子载波间隔）组成，合计占用相同的时频资源。比较方法包括 [12] 的嵌入导频方案、[17] 的二维离网方法和 [27] 的 SBL 组合方法。所提方法报告两子帧 NMSE 的平均值；其他方法报告单帧 NMSE。所有仿真结果均对 1000 次独立试验取平均。
+
+### A. 最大多普勒增大时的 NMSE
+
+**图 5.** SNR = 20 dB 时，随最大多普勒增加的 NMSE 曲线；传播路径数为 1、3、5，最大多普勒从 4 kHz 增至 136 kHz，超过范围内阈值约 30 kHz 的数倍。
+
+当最大多普勒超过范围内阈值，即图中灰色虚线右侧时，所提方法的 NMSE 明显低于其他方法，因为它能够显式估计范围外信道响应。由于多普勒是在给定最大值内随机产生的，仿真实际上还包含部分路径范围内、部分路径范围外的混合情形，因此也检验了方法对混合信道的适用性。
+
+不过，在多普勒仍处于范围内时，所提方法偶尔不及传统方法。原因是噪声可能影响两个子帧的多普勒估计，从而使跨帧匹配选择错误的输入点。图中所提方法的性能波动也更显著，这是 CRT 的特性所致：输入点之间即使只有较小的对应误差，也可能造成范围外多普勒估计出现较大偏差。
+
+此外，不论在范围内还是范围外，多径数增加时所提方法性能都会下降。多径数越多，越容易发生不同路径在基本 DD 域同一位置叠加的情况（图 4 红色和绿色抽头重叠），从而使来自不同 OD 层的响应无法彻底分开，估计误差增大。
+
+### B. 随 SNR 增加的 NMSE 与 BER
+
+**图 6.** 最大多普勒 $\nu_{\max}=150$ kHz 下的 NMSE–SNR 曲线。  
+**图 7.** 相同设置下的 BER–SNR 曲线。
+
+SNR 从 −5 dB 增至 20 dB，最大多普勒 150 kHz，明显超出 30 kHz 阈值。发送数据采用 QPSK，接收端采用 DD 域 MMSE 检测 [24，第 6.3.1 节]。
+
+在严重 OD 信道中，所提方法的 NMSE 随 SNR 增大而逐渐改善，BER 随之下降，说明可以在 OD 信道中有效估计信道并支持可靠检测。高 SNR 条件下（例如 SNR ≥ 15 dB），3 径和 5 径的 NMSE 改善有限：此时加性噪声不再是主要误差源，多径分量之间的相互干扰形成性能限制。
+
+其他方法由于忽略 OD 的附加相位，在极端 OD 信道中的估计基本失效，对应 BER 接近 0.5，接收端无法进行有效检测。随着多径数增加，所提方法的 NMSE 和 BER 也会恶化，原因仍然是基本 DD 域重叠使逐层分离不够准确。
+
+### C. 带宽增加时的 NMSE
+
+**图 8.** 在扩展车辆 A（Extended Vehicular A，EVA）九径信道中，比较不同带宽下的 NMSE，最大多普勒 150 kHz，SNR = 20 dB。多普勒依据 Jakes 模型 [8] 生成。
+
+图中横坐标由改变子载波数来改变带宽。表 V 列出不同帧在各带宽下的子载波配置；对照方法使用 60 个时隙的单帧，所提方法采用 30、29 时隙的两个子帧，因此保持时频资源比较的公平性。其他配置与表 IV 相同。随着带宽增大，NMSE 得以改善：较大的带宽提高时延分辨率，既能更准确地估计时延，也能降低不同多径响应在基本 DD 域重叠的概率。
+
+## VI. 结论
+
+本文首先针对多载波波形引入超范围多普勒（OD）信道，并推导了此时 OTFS 的输入输出关系，说明 OD 条件下的接收信号可视为基本 DD 域中原信号的相位偏移叠加。针对该问题，提出新的跨帧 OTFS 信道估计方法。借助互素子帧配置，同一原始信道在两个子帧中呈现不同响应；通过离网分解并结合幅度和分数参数匹配同一路径的抽头，再利用 CRT 估计每个采样点的 OD 状态；在此基础上将 DD 域信号分层，把复杂 OD 信道估计转化为若干单层估计任务。
+
+仿真结果验证了所提方法在 OD 条件下的有效性。但是，当多径响应发生重叠时，仅凭接收子帧包含的信息可能不足以准确判定 OD 状态。这仍是有待解决的问题，作者指出通感一体化（ISAC）提供的感知信息可能成为一种解决途径。
+
+## 附录 A. 命题 1 的证明：OD 信道的 TF 域矩阵表达
+
+把 TF 域接收信号写为 $\mathbf Y_{\mathrm{TF}}\in\mathbb C^{M\times N}$，按路径和时隙分解：
+
+$$
+\mathbf Y_{\mathrm{TF}}=\sum_{i=1}^P[\mathbf y_{i,0},\mathbf y_{i,1},\ldots,\mathbf y_{i,N-1}].\tag{38}
+$$
+
+第 $i$ 条路径在时隙 $n$ 对应的列向量为
+
+$$
+\mathbf y_{i,n}=\mathbf F_M
+\begin{bmatrix}
+g_{\mathrm{rx}}(0)r_i[nM]\\
+g_{\mathrm{rx}}(T/M)r_i[nM+1]\\
+\vdots\\
+g_{\mathrm{rx}}(T(M-1)/M)r_i[nM+M-1]
+\end{bmatrix}.\tag{39}
+$$
+
+其中 $\mathbf F_M$ 是 $M$ 阶 DFT 矩阵，$g_{\mathrm{rx}}$ 表示接收滤波器；$r_i[q]$ 为第 $i$ 条路径在第 $q$ 个时刻的采样值。定义同一路径对应的范围内信号
+
+$$
+r_{i,\mathrm{in}}[q]=h_i s\!\left(\frac{T}{M}(q-l_i)\right)
+e^{j2\pi(q-l_i)\check k_i/(NM)},
+$$
+
+由式（5）得到
+
+$$
+r_i[q]=r_{i,\mathrm{in}}[q]
+e^{j2\pi q\phi_i/M}e^{-j2\pi l_i\phi_i/M}.\tag{40}
+$$
+
+将式（40）代入（39），利用矩阵 $\mathbf E_i=\operatorname{diag}\{e^{j2\pi m\phi_i/M}\}_{m=0}^{M-1}$ 与 DFT 的关系，可以将频域相位调制写成置换矩阵 $\mathbf\Pi^{\phi_i}$，这构成原文式（41）的长矩阵推导。范围内的对应向量为
+
+$$
+\mathbf y_{i,n,\mathrm{in}}=\mathbf F_M
+\begin{bmatrix}
+g_{\mathrm{rx}}(0)r_{i,\mathrm{in}}[nM]\\
+g_{\mathrm{rx}}(T/M)r_{i,\mathrm{in}}[nM+1]\\
+\vdots\\
+g_{\mathrm{rx}}(T(M-1)/M)r_{i,\mathrm{in}}[nM+M-1]
+\end{bmatrix}.\tag{42}
+$$
+
+于是有
+
+$$
+\mathbf y_{i,n}=
+e^{-j2\pi l_i\phi_i/M}e^{j2\pi n\phi_i}
+\mathbf\Pi^{\phi_i}\mathbf y_{i,n,\mathrm{in}}.\tag{43}
+$$
+
+推广到全部时隙和路径，得到正文命题 1 对应的矩阵关系：
+
+$$
+\mathbf Y_{\mathrm{TF}}=\sum_{i=1}^{P}
+e^{-j2\pi l_i\phi_i/M}\mathbf\Pi^{\phi_i}
+\mathbf Y_{\mathrm{TF,in},i}.\tag{44}
+$$
+
+## 附录 B. 命题 2 的证明：OD 信道 DD 域的输入输出关系
+
+接收端将离散时域信号串并变换为 $\mathbf R\in\mathbb C^{M\times N}$：
+
+$$
+\mathbf R=
+\begin{bmatrix}
+r[0]&r[M]&\cdots&r[M(N-1)]\\
+r[1]&r[M+1]&\cdots&r[M(N-1)+1]\\
+\vdots&\vdots&\ddots&\vdots\\
+r[M-1]&r[2M-1]&\cdots&r[MN-1]
+\end{bmatrix}.\tag{45}
+$$
+
+令 $\mathbf r_m$ 为第 $m$ 行，根据 [9]，DD 域接收信号可写成
+
+$$
+\mathbf Y_{\mathrm{DD}}=\mathbf G_{\mathrm{rx}}\mathbf R\mathbf F_N,\tag{46}
+$$
+
+其中 $\mathbf F_N$ 为 $N$ 阶 DFT 矩阵，$\mathbf G_{\mathrm{rx}}=\operatorname{diag}\{g_{\mathrm{rx}}(mT/M)\}_{m=0}^{M-1}$。令 $r_{i,\mathrm{in}}[q]$ 表示范围内部分，并构造对应的 $\mathbf R_{i,\mathrm{in}}$，则 OD 信道下
+
+$$
+\mathbf Y_{\mathrm{DD}}=
+\sum_{i=1}^{P}e^{-j2\pi l_i(\psi_i+\phi_i/M)}
+\mathbf E_i\mathbf G_{\mathrm{rx}}\mathbf R_{i,\mathrm{in}}\mathbf F_N,\tag{47}
+$$
+
+而范围内信道则满足
+
+$$
+\mathbf Y_{\mathrm{in}}=
+\sum_{i=1}^{P}\mathbf G_{\mathrm{rx}}\mathbf R_{i,\mathrm{in}}\mathbf F_N.\tag{48}
+$$
+
+根据 [9]，范围内 DD 域输入输出关系为
+
+$$
+y_{\mathrm{in}}[k,l]=
+\sum_{i=1}^{P}h_ie^{-j2\pi l_i\check k_i/(NM)}
+\sum_{k'=0}^{N-1}\sum_{l'=0}^{M-1}
+x[k',l']w(k-k'-\check k_i,l-l'-l_i).\tag{49}
+$$
+
+把式（49）中第 $i$ 条路径的贡献单独记为 $y'_{i,\mathrm{in}}[k,l]$，即可由矩阵关系（47）和（48）得出
+
+$$
+y[k,l]=\sum_{i=1}^{P}
+e^{-j2\pi l_i(\psi_i+\phi_i/M)}
+e^{j2\pi l\phi_i/M}y'_{i,\mathrm{in}}[k,l].\tag{51}
+$$
+
+进一步将范围内响应代入：
+
+$$
+y[k,l]=
+\sum_{k'=0}^{N-1}\sum_{l'=0}^{M-1}
+x[k',l']h_{w,\mathrm{OD}}(k,k',l,l'),\tag{52}
+$$
+
+其中
+
+$$
+h_{w,\mathrm{OD}}(k,k',l,l')=
+\sum_{i=1}^{P}e^{j2\pi l\phi_i/M}
+\widetilde h_i w(k-k'-\check k_i,l-l'-l_i),\quad
+\widetilde h_i=h_ie^{-j2\pi\tau_i\nu_i}.\tag{53}
+$$
+
+这就证明了正文命题 2。
+
+## 尚待逐页核验的内容
+
+本次已补充 IV 节的六步算法、复杂度分析、V 节全部仿真结论、VI 节结论以及附录 A–B 主要推导。仍须按原版逐项核对：一般脉冲下的长采样函数（13）、附录的长矩阵式（41）与路径中间表达式（50）、表 III 与 V 的全部数值、参考文献 [1]–[31] 的完整书目及作者简介。**上述缺项完成前，此页面不计为全文已验收。**
+
 {% endraw %}
