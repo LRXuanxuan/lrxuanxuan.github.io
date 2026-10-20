@@ -108,7 +108,18 @@ $$
 \mathbf a(\theta_Q,\phi_Q)]\in\mathbb C^{N\times Q}.\tag{6}
 $$
 
-第 $p$ 个子载波上，位置域字典还需要乘上取决于各网格点传播时延的频率相位向量 $\mathbf b_{k,p}(\boldsymbol\gamma,\mathbf p_{\mathrm{UE},k})$（原文式（7））。因此 NLOS 信道为
+第 $p$ 个子载波上，位置域字典还需要乘上取决于各网格点传播时延的频率相位向量 $\mathbf b_{k,p}(\boldsymbol\gamma,\mathbf p_{\mathrm{UE},k})$：
+
+$
+\mathbf b_{k,p}(\boldsymbol\gamma,\mathbf p_{\mathrm{UE},k})=
+\left[
+e^{-j2\pi pf_0\tau(\boldsymbol\gamma_1,\mathbf p_{\mathrm{UE},k})},
+\ldots,
+e^{-j2\pi pf_0\tau(\boldsymbol\gamma_Q,\mathbf p_{\mathrm{UE},k})}
+\right]^T\in\mathbb C^{Q\times1}.\tag{7}
+$
+
+。因此 NLOS 信道为
 
 $$
 \mathbf h_{k,p}^{\mathrm{NLOS}}=
@@ -165,6 +176,132 @@ $$
 
 $\omega_k$ 指示用户所属资源组。
 
+### 三层联合稀疏先验：公式（12）–（19）
+
+对于用户 $k$ 在位置域网格 $q$ 的稀疏信道系数，采用 Bernoulli–Gaussian 条件先验：
+
+$
+p(x_q^k\mid s_q^k)=
+\delta(s_q^k)\delta(x_q^k)
++\delta(s_q^k-1)\mathcal{CN}(x_q^k;0,(\sigma_q^k)^2),
+\qquad q\in\mathcal Q.\tag{12}
+$
+
+把全局支撑 $\mathbf s$ 与全部用户的个别支撑 $\mathbf s_1,\ldots,\mathbf s_K$ 结合，可得
+
+$
+p(\mathbf s,\mathbf s_1,\ldots,\mathbf s_K)
+=p(\mathbf s)\prod_{k\in\mathcal K}p(\mathbf s_k\mid\mathbf s)
+=p(\mathbf s)\prod_{k\in\mathcal K}\prod_{q\in\mathcal Q}
+p(s_q^k\mid s_q).\tag{13}
+$
+
+原论文式（14）给出的二元支撑条件分布为
+
+$
+\begin{aligned}
+p(s_q^k\mid s_q)
+={}&\delta(s_q+1)\delta(s_q^k+1)\\
+&+\delta(s_q-1)
+\left[\delta(s_q^k-1)\rho_k+
+\delta(s_q^k+1)(1-\rho_k)\right].
+\end{aligned}\tag{14}
+$
+
+**原文疑点：** 式（14）印出的多处 $\delta(s+1)$ 与其前文 $s\in\{0,1\}$ 的二值编码不相容；原文表 I 的相应概率因子改用 $\delta(s)$。因此这里保留原式排印，实际编程时应核对原作者所采用的支撑编码，不能直接照抄上式实现。
+
+全局支撑向量采用独立先验，其中 $p(s_q=1)=\lambda$：
+
+$
+p(\mathbf s)=\prod_{q\in\mathcal Q}p(s_q).\tag{15}
+$
+
+于是 NLOS 的联合先验为
+
+$
+\begin{aligned}
+&p(\mathbf s,\mathbf s_1,\ldots,\mathbf s_K,
+\mathbf x_1,\ldots,\mathbf x_K)\\
+={}&p(\mathbf s)
+\prod_{k\in\mathcal K}\prod_{q\in\mathcal Q}
+p(s_q^k\mid s_q)
+\prod_{k\in\mathcal K}\prod_{q\in\mathcal Q}
+p(x_q^k\mid s_q^k).
+\end{aligned}\tag{16}
+$
+
+LOS 系数使用独立 Bernoulli–Gaussian 先验，$s_0^k$ 是 LOS 是否存在的二值变量，$\rho_0^k$ 是 LOS 存在概率：
+
+$
+p(s_0^k)=\delta(s_0^k-1)\rho_0^k+
+\delta(s_0^k)(1-\rho_0^k),\tag{17}
+$
+
+$
+p(x_0^k\mid s_0^k)
+=\delta(s_0^k)\delta(x_0^k)+
+\delta(s_0^k-1)\mathcal{CN}(x_0^k;0,(\sigma_0^k)^2).\tag{18}
+$
+
+合并 LOS 与 NLOS 系数后的完整先验为
+
+$
+\begin{aligned}
+&p(\mathbf s,\mathbf s_1,\ldots,\mathbf s_K,
+\mathbf x_1,\ldots,\mathbf x_K,
+s_0^1,\ldots,s_0^K,x_0^1,\ldots,x_0^K)\\
+={}&p(\mathbf s,\mathbf s_1,\ldots,\mathbf s_K,
+\mathbf x_1,\ldots,\mathbf x_K)
+\prod_{k\in\mathcal K}p(s_0^k)
+\prod_{k\in\mathcal K}p(x_0^k\mid s_0^k).
+\end{aligned}\tag{19}
+$
+
+### 多用户导频复用的观测矩阵：公式（20）–（23）
+
+为表示所有子载波，分别构造用户 $k$ 的 NLOS 与 LOS 字典块：
+
+$
+\boldsymbol\Phi_{Q,k}=
+\begin{bmatrix}
+u_1\mathbf A(\boldsymbol\gamma)
+\operatorname{Diag}(\mathbf b_{k,1}(\boldsymbol\gamma,\mathbf p_{\mathrm{UE},k}))\\
+\vdots\\
+u_P\mathbf A(\boldsymbol\gamma)
+\operatorname{Diag}(\mathbf b_{k,P}(\boldsymbol\gamma,\mathbf p_{\mathrm{UE},k}))
+\end{bmatrix},\tag{20}
+$
+
+$
+\boldsymbol\Phi_{0,k}=
+\begin{bmatrix}
+u_1e^{-j2\pi f_0\tau_0(\mathbf p_{\mathrm{UE},k})}
+\mathbf a(\theta_{\mathrm{UE},k},\phi_{\mathrm{UE},k})\\
+\vdots\\
+u_Pe^{-j2\pi Pf_0\tau_0(\mathbf p_{\mathrm{UE},k})}
+\mathbf a(\theta_{\mathrm{UE},k},\phi_{\mathrm{UE},k})
+\end{bmatrix}.\tag{21}
+$
+
+当第 $g$ 组用户共享同一组导频时，组接收向量为
+
+$
+\mathbf y_g=\sum_{k\in\mathcal G_g}
+\left[\boldsymbol\Phi_k(\boldsymbol\gamma,\mathbf p_{\mathrm{UE},k})
+\mathbf x_k+\mathbf z_k\right],\tag{22}
+$
+
+其中 $\mathbf x_k=[x_0^k,x_1^k,\ldots,x_Q^k]^T$，$\boldsymbol\Phi_k=[\boldsymbol\Phi_{0,k},\boldsymbol\Phi_{Q,k}]$。不同组采用正交资源，可将全部组堆叠：
+
+$
+\mathbf y=[\mathbf y_1;\ldots;\mathbf y_G]
+=\boldsymbol\Phi\mathbf x+\mathbf z\in\mathbb C^{GNP\times1}.\tag{23}
+$
+
+其中 $\boldsymbol\Phi=\operatorname{BlockDiag}(\overline{\boldsymbol\Phi}_1,\ldots,\overline{\boldsymbol\Phi}_G)$，
+$\overline{\boldsymbol\Phi}_g=[\boldsymbol\Phi_k]_{k\in\mathcal G_g}$，
+$\mathbf x=[\mathbf x_1;\ldots;\mathbf x_K]$。由于测量矩阵还取决于未知位置，联合信道估计与定位对应含未知字典参数的逆问题。
+
 ### C. 短时间尺度问题
 
 短尺度模型使用三层联合稀疏先验：第一层是全局散射体支撑 $\mathbf s$，第二层是各用户支撑 $\mathbf s_k$，第三层是依支撑状态决定是否为零的信道系数 $\mathbf x_k$。当 $s_{kq}=0$ 时对应通道系数固定为零；当 $s_{kq}=1$ 时服从复高斯分布。重叠参数 $\rho_k$ 描述给定全局存在散射体的条件下，用户 $k$ 也具有该散射体的概率（原文式（12）–（16））。LOS 路径则另用 Bernoulli–Gaussian 分布建模（式（17）–（19））。
@@ -216,6 +353,18 @@ $$
 根据两个用户主要散射体的最小距离判断潜在互扰关系，以用户为顶点、近邻干扰为边建立用户图。若两用户共享导频会有较强空间干扰，则应尽量将其分配到不同组；如果其主要散射体空间上相距足够远，就允许共用导频。用户分组可转化为图着色或受约束分组优化问题。
 
 作者使用粒子群优化（PSO）寻找合适分组，并在算法 1 中给出粒子位置、速度、适应度、个体最优与全局最优的迭代更新步骤。最终目标是以有限数量的正交资源服务更多用户，同时将同组空间干扰限制在可分离范围内。由于用户环境的共享散射体位置在长时间尺度上相对稳定，不需要在每个短时信道估计时重新执行整套定位和分组。
+
+补充长时间尺度的散射体关联位置更新（原文式 27）：
+
+$
+\widehat{\boldsymbol\Xi}'[i]=
+\begin{cases}
+\overline{\boldsymbol\xi}_m,&i\in\mathcal C_m,\\
+\widehat{\boldsymbol\Xi}[i],&\text{其他}.
+\end{cases}\tag{27}
+$
+
+其中 $\overline{\boldsymbol\xi}_m$ 为第 $m$ 个共享散射体簇的均值，未归类的候选散射体位置保持不变。
 
 ### C 节补录：图着色的距离、速度及适应度（式 28–32）
 
