@@ -217,6 +217,65 @@ $$
 
 作者使用粒子群优化（PSO）寻找合适分组，并在算法 1 中给出粒子位置、速度、适应度、个体最优与全局最优的迭代更新步骤。最终目标是以有限数量的正交资源服务更多用户，同时将同组空间干扰限制在可分离范围内。由于用户环境的共享散射体位置在长时间尺度上相对稳定，不需要在每个短时信道估计时重新执行整套定位和分组。
 
+### C 节补录：图着色的距离、速度及适应度（式 28–32）
+
+建立 $K\times K$ 无向图邻接矩阵 $\mathbf E$，其主对角线为零，非对角元素满足
+
+$
+\mathbf E=\begin{bmatrix}
+0&E_{12}&\cdots&E_{1K}\\
+E_{21}&0&\cdots&E_{2K}\\
+\vdots&\vdots&\ddots&\vdots\\
+E_{K1}&E_{K2}&\cdots&0
+\end{bmatrix},\tag{28}
+$
+
+$
+E_{ij}=\begin{cases}
+1,&d_{i,j}<d_{\mathrm{adj}},\\
+0,&d_{i,j}\ge d_{\mathrm{adj}},
+\end{cases}\quad i\ne j.\tag{29}
+$
+
+其中 $d_{i,j}$ 是两个用户主要散射体集合之间的最小距离，$d_{\mathrm{adj}}$ 是判断是否构成邻接关系的距离阈值。较近的用户需要使用不同导频颜色，以降低复用时的干扰。
+
+在离散粒子群优化（PSO）中，第 $a$ 个粒子第 $k$ 个元素的整数位置与速度更新为
+
+$
+V_{a,k}^{(t+1)}=\operatorname{int}\!\left(V_{a,k}^{(t)}\right)+Z_1+Z_2,\tag{30}
+$
+
+$
+X_{a,k}^{(t+1)}=X_{a,k}^{(t)}+V_{a,k}^{(t+1)}.\tag{31}
+$
+
+这里 $Z_1,Z_2$ 是分别在 $[0,c_1(pbest_{a,k}-X_{a,k}^{(t)})]$ 和
+$[0,c_2(gbest_{a,k}-X_{a,k}^{(t)})]$ 之间均匀抽取的整数随机量，$\operatorname{int}$ 为舍入运算。对所有顶点，定义当 $X_{a,i}=X_{a,j}$ 时 $S_{ij}=1$，否则为零。适应度函数为
+
+$
+f_{\mathrm{fitness}}=
+\sum_{i=1}^{K}\sum_{j=1}^{K}E_{ij}S_{ij}
++\max(g-G,0),\tag{32}
+$
+
+其中 $g$ 为实际使用颜色数，$G$ 为目标用户组数。第一项惩罚邻接用户同色，第二项惩罚使用过多颜色。PSO 每次迭代的运算复杂度为 $O(K^2)$。
+
+**算法 1：基于 PSO 的图着色用户分组（原文逐行译文）**
+
+1. 输入全部用户散射体集合 $\widehat{\boldsymbol\xi}_k$、组数 $G$、阈值调整步长 $\Delta d_{\mathrm{adj}}$ 与收敛阈值 $\epsilon$。
+2. 依据式（28）以初始 $d_{\mathrm{adj}}^{(0)}$ 构造邻接矩阵 $\mathbf E$；初始化所有粒子的 $X_{a,k}^{(0)}=k$、$V_{a,k}^{(0)}$、个体最好位置 $pbest_{a,k}^{(0)}$、全局最好位置 $gbest_k^{(0)}$，置 $t=0$。
+3. 当实际颜色数 $g>G$ 时重复步骤 4–10。
+4. 当 $\|\mathbf {gbest}^{(t+1)}-\mathbf {gbest}^{(t)}\|\ge\epsilon$ 时，重复步骤 5–9。
+5. 使用式（30）更新每个粒子的速度。
+6. 使用式（31）更新每个粒子的位置。
+7. 用式（32）计算粒子的适应度。
+8. 如果新适应度优于上次结果，则更新 $pbest_{a,k}^{(t+1)}$ 和 $gbest_k^{(t+1)}$。
+9. 设置 $t\leftarrow t+1$ 并结束内层迭代。
+10. 将邻接距离改为 $d_{\mathrm{adj}}^{(t+1)}=d_{\mathrm{adj}}^{(t)}-\Delta d_{\mathrm{adj}}$，再依式（28）更新邻接矩阵；结束外层迭代。
+11. 输出导频分组 $\boldsymbol\omega=\mathbf{gbest}$。
+
+原文算法的 $t$ 下标及控制变量 $g$ 在内外循环中的关系需结合代码落实；此处按原算法顺序译出，不自行修改终止条件。
+
 ## V. 短时间尺度算法
 
 提出的 SEA-LD-TurboCE 交替计算信道后验与更新几何参数。作者借助 EM 方法，把估计分为 E 步和 M 步。E 步通过 Turbo 消息传递计算给定当前动态网格和用户位置时的近似后验；M 步使用这一后验更新网格点位置及用户位置，迭代直至收敛。
@@ -234,6 +293,113 @@ $$
 **算法 2.** SEA-LD-TurboCE 算法，包含初始化、E 步的模块交替和 M 步的几何更新。
 
 与传统 Turbo 稀疏估计不同，所提方法不仅使用位置域而非单纯角度域支撑，而且把共享散射体导致的多用户联合稀疏先验嵌入因子图，允许用户发送空间复用的非正交导频，从而在信道估计过程中同时利用多用户关联结构和导频复用条件。
+
+### 补录：Turbo 模块 A/B 与 EM 步的矩阵更新（式 33–40）
+
+**模块 A：LMMSE 与外信息。** 输入来自模块 B 的先验 $\mathbf x_A^{\rm pri},\mathbf V_A^{\rm pri}$ 及接收向量 $\mathbf y$，按原文式（33）求后验均值和协方差：
+
+$
+\begin{aligned}
+\mathbf x_A^{\rm post}
+&=\mathbf V_A^{\rm post}\left[
+(\mathbf V_A^{\rm pri})^{-1}\mathbf x_A^{\rm pri}
++\frac{\boldsymbol\Phi^H\mathbf y}{\sigma_z^2}\right],\\
+\mathbf V_A^{\rm post}
+&=\left[\frac{\boldsymbol\Phi^H\boldsymbol\Phi}{\sigma_z^2}
++(\mathbf V_A^{\rm pri})^{-1}\right]^{-1}.
+\end{aligned}\tag{33}
+$
+
+其中 $\boldsymbol\Phi$ 是由字典和导频构成的测量矩阵，$\sigma_z^2$ 为观测噪声方差。后验信息扣除先验信息后，得到传递给模块 B 的外信息：
+
+$
+\begin{aligned}
+\mathbf x_{A\to B}^{\rm ext}
+&=\mathbf V_{A\to B}^{\rm ext}\left[
+(\mathbf V_A^{\rm post})^{-1}\mathbf x_A^{\rm post}
+-(\mathbf V_A^{\rm pri})^{-1}\mathbf x_A^{\rm pri}\right],\\
+\mathbf V_{A\to B}^{\rm ext}
+&=\left[(\mathbf V_A^{\rm post})^{-1}
+-(\mathbf V_A^{\rm pri})^{-1}\right]^{-1}.
+\end{aligned}\tag{34}
+$
+
+**模块 B：联合支撑消息传递。** 把来自模块 A 的外信息等效为虚拟复 AWGN 测量：
+
+$
+\mathbf x_B^{\rm pri}=\mathbf x+\mathbf z,\tag{35}
+$
+
+其虚拟噪声协方差取 $\mathbf V_B^{\rm pri}=\mathbf V_{A\to B}^{\rm ext}$。因子图通过 $\mathbf x_{kq}\to f_q^k\to s_{kq}\to\eta_q^k\to s_q$ 等方向交换消息，得到各位置域系数及其支撑状态的近似边缘后验：
+
+$
+\widehat p(x_q^k\mid\mathbf y)\propto
+v_{f_q^k\to x_q^k}\,v_{x_q^k\to f_q^k},\tag{36}
+$
+
+$
+\widehat p(s_q^k=1\mid\mathbf y)=
+\frac{\pi_{s_k,q}^{\rm in}\pi_{s_k,q}^{\rm out}}
+{\pi_{s_k,q}^{\rm in}\pi_{s_k,q}^{\rm out}
++(1-\pi_{s_k,q}^{\rm in})(1-\pi_{s_k,q}^{\rm out})}.\tag{37}
+$
+
+其后验均值和方差逐元素为
+
+$
+\begin{aligned}
+x_{B,q}^{k,\rm post}
+&=\int x_q^k\,\widehat p(x_q^k\mid\mathbf y)\,\mathrm d x_q^k,\\
+v_{B,q}^{k,\rm post}
+&=\int |x_q^k-x_{B,q}^{k,\rm post}|^2
+\,\widehat p(x_q^k\mid\mathbf y)\,\mathrm d x_q^k.
+\end{aligned}\tag{38}
+$
+
+由此形成 $\mathbf x_B^{\rm post}$ 和块对角协方差 $\mathbf V_B^{\rm post}$，再减去输入先验，得到发回模块 A 的外信息：
+
+$
+\begin{aligned}
+\mathbf V_{B\to A}^{\rm ext}
+&=\left[(\mathbf V_B^{\rm post})^{-1}
+-(\mathbf V_B^{\rm pri})^{-1}\right]^{-1},\\
+\mathbf x_{B\to A}^{\rm ext}
+&=\mathbf V_{B\to A}^{\rm ext}\left[
+(\mathbf V_B^{\rm post})^{-1}\mathbf x_B^{\rm post}
+-(\mathbf V_B^{\rm pri})^{-1}\mathbf x_B^{\rm pri}\right].
+\end{aligned}\tag{39}
+$
+
+**M 步：位置参数更新。** 用 E 步得到的后验构造 EM 代理函数，原文式（40）记为
+
+$
+\begin{aligned}
+Q(\boldsymbol\zeta;\boldsymbol\zeta^{(t)})
+&=\int p(\mathbf x\mid\mathbf y,\boldsymbol\zeta^{(t)})
+\log\frac{p(\mathbf y,\mathbf x\mid\boldsymbol\zeta)}
+{p(\mathbf x\mid\mathbf y,\boldsymbol\zeta^{(t)})}\,\mathrm d\mathbf x\\
+&=-\|\mathbf y-\boldsymbol\Phi\mathbf x^{\rm post}\|_2^2
++\operatorname{tr}(\boldsymbol\Phi\mathbf V^{\rm post}\boldsymbol\Phi^H)+C.
+\end{aligned}\tag{40}
+$
+
+这里第二行依照原 PDF 排印保留了矩阵迹项的正号；由于与常见复高斯线性模型的 EM 期望残差展开符号可能不一致，**不得在未经原作者确认时将该符号自动“纠正”**。$\boldsymbol\zeta$ 包括动态位置网格和用户位置，M 步以梯度上升更新这些参数。
+
+**算法 2：SEA-LD-TurboCE（原文逐行译文）**
+
+1. 输入 $\mathbf y,\widehat{\boldsymbol\Xi},\mathbf P_{\rm UE}^{0}$，内外迭代上限 $I_{\rm in},I_{\rm out}$ 与阈值 $\epsilon$。
+2. 用细化散射体位置初始化动态网格 $\boldsymbol\gamma^0=\widehat{\boldsymbol\Xi}'$。
+3. 对 $t=1,\ldots,I_{\rm out}$：
+4. E 步：设置 $i_{\rm in}=1$、$\mathbf x_A^{\rm pri}=\mathbf0$ 并初始化 $\mathbf V_A^{\rm pri}$。
+5. 当 $i_{\rm in}\le I_{\rm in}$ 时：
+6. 设置 $i_{\rm in}\leftarrow i_{\rm in}+1$。
+7. 用式（33）、（34）更新 $\mathbf x_B^{\rm pri}=\mathbf x_{A\to B}^{\rm ext}$ 和 $\mathbf V_B^{\rm pri}=\mathbf V_{A\to B}^{\rm ext}$。
+8. 在因子图 $\mathcal G_B$ 上使用式（41）–（46）执行消息传递。
+9. 用式（36）、（37）求 $\widehat p(x_q^k\mid\mathbf y,\boldsymbol\zeta^{(t)})$ 和 $\widehat p(s_q^k\mid\mathbf y,\boldsymbol\zeta^{(t)})$。
+10. 通过式（38）、（39）更新 $\mathbf x_A^{\rm pri}=\mathbf x_{B\to A}^{\rm ext}$、$\mathbf V_A^{\rm pri}=\mathbf V_{B\to A}^{\rm ext}$；结束内循环。
+11. M 步：利用 E 步给出的 $\mathbf x_B^{\rm post}$、$\mathbf V_B^{\rm post}$ 计算 $Q$ 关于 $\boldsymbol\zeta$ 的梯度，并执行梯度上升更新 $\boldsymbol\zeta^{(t+1)}$。
+12. 若 $\|\boldsymbol\zeta^{(t+1)}-\boldsymbol\zeta^{(t)}\|\le\epsilon$，则退出外循环。
+13. 输出估计的 $\widehat{\boldsymbol\zeta}$、$\widehat{\mathbf x}=\mathbf x_B^{\rm post}$，以及全部用户、网格点的支撑后验 $\widehat p(s_q^k\mid\mathbf y,\widehat{\boldsymbol\zeta})$。
 
 ## VI. 数值结果
 
