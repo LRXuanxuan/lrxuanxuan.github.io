@@ -143,6 +143,47 @@ $$
 
 因此在理想条件下，不论选择何种时间网格，式（9）都等于 $\log p(\mathbf z\mid\mathbf x)$。证明见附录 A.1。
 
+### 核心训练目标的未录公式（6）与（7）
+
+原文通过 MeanFlow 恒等式构造一个瞬时速度预测，使用停止梯度算子 $\operatorname{sg}[\cdot]$ 隔离切向量的反向传播：
+
+$
+V_\psi=
+u_\psi(\mathbf z_s,s,t,\mathbf x)
+-(t-s)\operatorname{sg}\!\left[
+\frac{\mathrm d}{\mathrm ds}
+u_\psi(\mathbf z_s,s,t,\mathbf x)\right].\tag{6}
+$
+
+沿轨迹的全导数通过一次 Jacobian–vector product 计算，切向量为 $(\operatorname{sg}[\widehat v_\psi],1,0)$，其中 $\widehat v_\psi$ 是共享骨干网络的辅助速度头。主训练损失为
+
+$
+\mathcal L_{\mathrm{MF}}(\psi)
+=\mathbb E\left[
+w\|V_\psi-(\boldsymbol\epsilon-\mathbf z_0)\|_2^2
++\frac1d\|\widehat v_\psi-(\boldsymbol\epsilon-\mathbf z_0)\|_2^2
+\right].\tag{7}
+$
+
+其中 $d=\dim\mathbf z$，自适应权重定义为
+$w=\operatorname{sg}[(\|V_\psi-(\boldsymbol\epsilon-\mathbf z_0)\|_2^2+c)^{-p}]$。
+时间 $s,t$ 从幂律分布独立抽取，因此更经常接近数据端；一部分训练样本设置 $s=t$，从而退化为常规流匹配。
+
+### 两级似然对应的后验（10）
+
+平均流以少步映射得到廉价似然 $q_\psi^{(S_c)}$，同时利用辅助速度头作高精度 ODE 积分得到 $q_\psi^f$，据此构造两个不同的后验：
+
+$
+\begin{aligned}
+\pi_c(\theta)&\propto p(\theta)
+\prod_{n=1}^{N}q_\psi^{(S_c)}(y_n\mid\theta),\\
+\pi_f(\theta)&\propto p(\theta)
+\prod_{n=1}^{N}q_\psi^f(y_n\mid\theta).
+\end{aligned}\tag{10}
+$
+
+式（11）保证由可逆的粗略目标提议并经校正的链以精细目标 $\pi_f$ 为不变分布，而不是把两种近似似然直接相乘。
+
 ### 3.2 采样与后验推断
 
 采样时，从高斯噪声 $\mathbf z^{(S)}$ 出发，按同一网格逆向依次应用平均流映射：
@@ -211,6 +252,21 @@ Two moons 是具有二维参数和二维观测的双模态弯月形后验任务�
 
 作者使用随机流行病更新过程作为基准，其模型根据时间变化的再生数预测发病数量。该任务具有缺失的观测坐标，因此需要直接计算观测子集的边缘似然。通过掩蔽注意力，条件平均流可以针对不同缺失模式使用同一个模型估计相应边缘密度。实验表明，此结构在相关误差指标上优于所比较的正规化流。
 
+### 表 1：缺失观测下的似然估计及 MCMC（完整表）
+
+原文表 1 给出 10 个独立数据集上的**均值（样本标准差）**。$\widetilde y_t$ 是从学习到的似然模型中模拟生成的观测。与正规化流相比，掩蔽平均流的误差更小、有效样本量更高，但由于每次评估 Jacobian 成本更高，整体运行时间也更长。
+
+| 指标 | 条件平均流 | 正规化流 |
+|---|---:|---:|
+| NRMSE | **0.187 (0.008)** | 0.199 (0.009) |
+| 预测 RMSE：$\widetilde y_t$ | **0.055 (0.007)** | 0.159 (0.036) |
+| 预测 RMSE：$y_t$ | **0.060 (0.013)** | 0.125 (0.031) |
+| 有效样本量 ESS | **4,234 (247)** | 2,700 (629) |
+| Leapfrog 步数 | **121 (4)** | 480 (57) |
+| 总运行时间（秒） | 36,146 (6,157) | **1,624 (285)** |
+
+这一结果不能被概括为“条件平均流在所有设置下更快”：虽然少步平均流的网络调用次数较少，但高维目标每步计算完整 Jacobian 行列式及其梯度会很昂贵。
+
 ### 4.4 g-and-k 任务：增加样本数与增加步数的折中
 
 g-and-k 是常用的模拟式推断基准。作者比较在固定网络评估预算下，使用更多平均流步骤和使用更多 MCMC 样本的效果，并评估基于同一平均流模型的延迟接受 MCMC。
@@ -224,6 +280,42 @@ g-and-k 是常用的模拟式推断基准。作者比较在固定网络评估预
 但主要局限是高维条件下密度评估仍然昂贵：每步需要完整 Jacobian 及其对数行列式，计算开销通常随目标维度的三次方增长；用于 NUTS 的行列式梯度还涉及二阶导数。加之 Transformer 的单次前向成本，在流行病更新模型的高维任务中，尽管网络调用次数较少，整体 MCMC 仍可能慢于正规化流。循环损失只鼓励可逆，并不能严格保证可逆性，因此学得的密度未必完全归一化。此外，即使使用 200 步流匹配，近似似然在大量试验中的累积误差仍会造成区间覆盖率下降。
 
 作者认为，少步平均流密度除了服务 MCMC，还能用于自一致性训练目标及模型证据计算等需要重复密度评估的场景。
+
+### 附录 A：两个命题的完整逻辑条件与证明要点
+
+**命题 1 的假设范围。** 原文附录 A.1 明确列出 (A1)–(A4)，其中包括条件二阶矩有界、时间与样本分布的独立性、真实条件速度场足够光滑并在时间区间内定义适当可逆流，以及模型类可同时表示精确平均速度和瞬时速度。在未加权损失 $w=1$ 下，条件期望分解给出
+
+$
+\mathcal L_{\mathrm{MF}}=
+\left(1+\frac1d\right)\mathbb E\|Y-m\|_2^2+
+\mathbb E\|V_\psi-m\|_2^2+
+\frac1d\mathbb E\|\widehat v_\psi-m\|_2^2,
+$
+
+其中 $Y=\boldsymbol\epsilon-\mathbf z_0$，
+$m=v^\star(\mathbf z_s,s,\mathbf x)=\mathbb E[Y\mid\mathbf z_s,s,\mathbf x]$。
+精确模型使最后两项为零，所以总体最优解同时满足 $\widehat v_\psi=V_\psi=v^\star$。沿实际轨迹 $\mathbf z_\tau$ 可得
+
+$
+\frac{\mathrm d}{\mathrm d\tau}
+\Phi_\psi(\mathbf z_\tau;\tau,t,\mathbf x)
+=v^\star(\mathbf z_\tau,\tau,\mathbf x)-V_\psi(\mathbf z_\tau,\tau,t,\mathbf x)=0.
+$
+
+再使用 $\Phi_\psi(\mathbf z_t;t,t,\mathbf x)=\mathbf z_t$，可以证明学得的有限时间映射等于真实条件流映射。因此在可逆流的条件下，式（9）给出正确的条件密度。
+
+需要注意，原文指出当先验具有紧支撑或密度不连续时，$v^\star$ 可能在 $t=0$ 附近不满足 Lipschitz 条件，此时证明严格适用于截断时间区间 $[\delta,1]$ 并对应一个轻微平滑的目标分布，之后让 $\delta\to0$。另外，自适应权重 $w$ 依赖回归残差，严格总体最优识别的论证不直接适用于 $p>0$ 的加权损失；其经验用途是稳定训练。
+
+**命题 2 的掩码条件。** 随机保留坐标集合 $\mathcal O\subseteq\{1,\ldots,d\}$ 非空，且其抽样分布 $\pi$ 与 $(\mathbf z_0,\mathbf x,\boldsymbol\epsilon,s,t)$ 独立；网络在集合 $\mathcal O$ 上的输出仅依赖保留坐标 $\mathbf z_{\mathcal O}$，并且模型可同时表示所有训练掩码下的真实边缘速度。保留坐标上有
+
+$
+\mathbf z_{s,\mathcal O}
+=(1-s)\mathbf z_{0,\mathcal O}+s\boldsymbol\epsilon_{\mathcal O},
+\qquad\boldsymbol\epsilon_{\mathcal O}
+\sim\mathcal N(\mathbf0,\mathbf I_{|\mathcal O|}).
+$
+
+在每个独立掩码下，损失恰好是相应边缘目标的平均流损失；对掩码的加权求和不改变各项共同可实现的最优解，因此得到 $\log p(\mathbf z_{\mathcal O}\mid\mathbf x)$。如果掩码依赖于被掩去的值，此独立性不再成立，结论也不能直接照搬。
 
 ## 附录及参考文献待核
 
