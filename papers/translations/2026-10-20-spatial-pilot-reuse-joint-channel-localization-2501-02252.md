@@ -110,14 +110,14 @@ $$
 
 第 $p$ 个子载波上，位置域字典还需要乘上取决于各网格点传播时延的频率相位向量 $\mathbf b_{k,p}(\boldsymbol\gamma,\mathbf p_{\mathrm{UE},k})$：
 
-$
+$$
 \mathbf b_{k,p}(\boldsymbol\gamma,\mathbf p_{\mathrm{UE},k})=
 \left[
 e^{-j2\pi pf_0\tau(\boldsymbol\gamma_1,\mathbf p_{\mathrm{UE},k})},
 \ldots,
 e^{-j2\pi pf_0\tau(\boldsymbol\gamma_Q,\mathbf p_{\mathrm{UE},k})}
 \right]^T\in\mathbb C^{Q\times1}.\tag{7}
-$
+$$
 
 。因此 NLOS 信道为
 
@@ -180,25 +180,25 @@ $\omega_k$ 指示用户所属资源组。
 
 对于用户 $k$ 在位置域网格 $q$ 的稀疏信道系数，采用 Bernoulli–Gaussian 条件先验：
 
-$
+$$
 p(x_q^k\mid s_q^k)=
 \delta(s_q^k+1)\delta(x_q^k)
 +\delta(s_q^k-1)\mathcal{CN}(x_q^k;0,(\sigma_q^k)^2),
 \qquad q\in\mathcal Q.\tag{12}
-$
+$$
 
 把全局支撑 $\mathbf s$ 与全部用户的个别支撑 $\mathbf s_1,\ldots,\mathbf s_K$ 结合，可得
 
-$
+$$
 p(\mathbf s,\mathbf s_1,\ldots,\mathbf s_K)
 =p(\mathbf s)\prod_{k\in\mathcal K}p(\mathbf s_k\mid\mathbf s)
 =p(\mathbf s)\prod_{k\in\mathcal K}\prod_{q\in\mathcal Q}
 p(s_q^k\mid s_q).\tag{13}
-$
+$$
 
 原论文式（14）给出的二元支撑条件分布为
 
-$
+$$
 \begin{aligned}
 p(s_q^k\mid s_q)
 ={}&\delta(s_q+1)\delta(s_q^k+1)\\
@@ -206,19 +206,19 @@ p(s_q^k\mid s_q)
 \left[\delta(s_q^k-1)\rho_k+
 \delta(s_q^k+1)(1-\rho_k)\right].
 \end{aligned}\tag{14}
-$
+$$
 
 **原文疑点：** 式（12）和式（14）印出的多处 $\delta(s+1)$ 与其前文 $s\in\{0,1\}$ 的二值编码不相容；原文表 I 的相应概率因子改用 $\delta(s)$。因此这里保留原式排印，实际编程时应核对原作者所采用的支撑编码，不能直接照抄上式实现。
 
 全局支撑向量采用独立先验，其中 $p(s_q=1)=\lambda$：
 
-$
+$$
 p(\mathbf s)=\prod_{q\in\mathcal Q}p(s_q).\tag{15}
-$
+$$
 
 于是 NLOS 的联合先验为
 
-$
+$$
 \begin{aligned}
 &p(\mathbf s,\mathbf s_1,\ldots,\mathbf s_K,
 \mathbf x_1,\ldots,\mathbf x_K)\\
@@ -228,24 +228,24 @@ p(s_q^k\mid s_q)
 \prod_{k\in\mathcal K}\prod_{q\in\mathcal Q}
 p(x_q^k\mid s_q^k).
 \end{aligned}\tag{16}
-$
+$$
 
 LOS 系数使用独立 Bernoulli–Gaussian 先验，$s_0^k$ 是 LOS 是否存在的二值变量，$\rho_0^k$ 是 LOS 存在概率：
 
-$
+$$
 p(s_0^k)=\delta(s_0^k-1)\rho_0^k+
 \delta(s_0^k)(1-\rho_0^k),\tag{17}
-$
+$$
 
-$
+$$
 p(x_0^k\mid s_0^k)
 =\delta(s_0^k)\delta(x_0^k)+
 \delta(s_0^k-1)\mathcal{CN}(x_0^k;0,(\sigma_0^k)^2).\tag{18}
-$
+$$
 
 合并 LOS 与 NLOS 系数后的完整先验为
 
-$
+$$
 \begin{aligned}
 &p(\mathbf s,\mathbf s_1,\ldots,\mathbf s_K,
 \mathbf x_1,\ldots,\mathbf x_K,
@@ -255,13 +255,13 @@ s_0^1,\ldots,s_0^K,x_0^1,\ldots,x_0^K)\\
 \prod_{k\in\mathcal K}p(s_0^k)
 \prod_{k\in\mathcal K}p(x_0^k\mid s_0^k).
 \end{aligned}\tag{19}
-$
+$$
 
 ### 多用户导频复用的观测矩阵：公式（20）–（23）
 
 为表示所有子载波，分别构造用户 $k$ 的 NLOS 与 LOS 字典块：
 
-$
+$$
 \boldsymbol\Phi_{Q,k}=
 \begin{bmatrix}
 u_1\mathbf A(\boldsymbol\gamma)
@@ -270,9 +270,9 @@ u_1\mathbf A(\boldsymbol\gamma)
 u_P\mathbf A(\boldsymbol\gamma)
 \operatorname{Diag}(\mathbf b_{k,P}(\boldsymbol\gamma,\mathbf p_{\mathrm{UE},k}))
 \end{bmatrix},\tag{20}
-$
+$$
 
-$
+$$
 \boldsymbol\Phi_{0,k}=
 \begin{bmatrix}
 u_1e^{-j2\pi f_0\tau_0(\mathbf p_{\mathrm{UE},k})}
@@ -281,22 +281,22 @@ u_1e^{-j2\pi f_0\tau_0(\mathbf p_{\mathrm{UE},k})}
 u_Pe^{-j2\pi Pf_0\tau_0(\mathbf p_{\mathrm{UE},k})}
 \mathbf a(\theta_{\mathrm{UE},k},\phi_{\mathrm{UE},k})
 \end{bmatrix}.\tag{21}
-$
+$$
 
 当第 $g$ 组用户共享同一组导频时，组接收向量为
 
-$
+$$
 \mathbf y_g=\sum_{k\in\mathcal G_g}
 \left[\boldsymbol\Phi_k(\boldsymbol\gamma,\mathbf p_{\mathrm{UE},k})
 \mathbf x_k+\mathbf z_k\right],\tag{22}
-$
+$$
 
 其中 $\mathbf x_k=[x_0^k,x_1^k,\ldots,x_Q^k]^T$，$\boldsymbol\Phi_k=[\boldsymbol\Phi_{0,k},\boldsymbol\Phi_{Q,k}]$。不同组采用正交资源，可将全部组堆叠：
 
-$
+$$
 \mathbf y=[\mathbf y_1;\ldots;\mathbf y_G]
 =\boldsymbol\Phi\mathbf x+\mathbf z\in\mathbb C^{GNP\times1}.\tag{23}
-$
+$$
 
 其中 $\boldsymbol\Phi=\operatorname{BlockDiag}(\overline{\boldsymbol\Phi}_1,\ldots,\overline{\boldsymbol\Phi}_G)$，
 $\overline{\boldsymbol\Phi}_g=[\boldsymbol\Phi_k]_{k\in\mathcal G_g}$，
@@ -356,13 +356,13 @@ $$
 
 补充长时间尺度的散射体关联位置更新（原文式 27）：
 
-$
+$$
 \widehat{\boldsymbol\Xi}'[i]=
 \begin{cases}
 \overline{\boldsymbol\xi}_m,&i\in\mathcal C_m,\\
 \widehat{\boldsymbol\Xi}[i],&\text{其他}.
 \end{cases}\tag{27}
-$
+$$
 
 其中 $\overline{\boldsymbol\xi}_m$ 为第 $m$ 个共享散射体簇的均值，未归类的候选散射体位置保持不变。
 
@@ -370,42 +370,42 @@ $
 
 建立 $K\times K$ 无向图邻接矩阵 $\mathbf E$，其主对角线为零，非对角元素满足
 
-$
+$$
 \mathbf E=\begin{bmatrix}
 0&E_{12}&\cdots&E_{1K}\\
 E_{21}&0&\cdots&E_{2K}\\
 \vdots&\vdots&\ddots&\vdots\\
 E_{K1}&E_{K2}&\cdots&0
 \end{bmatrix},\tag{28}
-$
+$$
 
-$
+$$
 E_{ij}=\begin{cases}
 1,&d_{i,j}<d_{\mathrm{adj}},\\
 0,&d_{i,j}\ge d_{\mathrm{adj}},
 \end{cases}\quad i\ne j.\tag{29}
-$
+$$
 
 其中 $d_{i,j}$ 是两个用户主要散射体集合之间的最小距离，$d_{\mathrm{adj}}$ 是判断是否构成邻接关系的距离阈值。较近的用户需要使用不同导频颜色，以降低复用时的干扰。
 
 在离散粒子群优化（PSO）中，第 $a$ 个粒子第 $k$ 个元素的整数位置与速度更新为
 
-$
+$$
 V_{a,k}^{(t+1)}=\operatorname{int}\!\left(V_{a,k}^{(t)}\right)+Z_1+Z_2,\tag{30}
-$
+$$
 
-$
+$$
 X_{a,k}^{(t+1)}=X_{a,k}^{(t)}+V_{a,k}^{(t+1)}.\tag{31}
-$
+$$
 
 这里 $Z_1,Z_2$ 是分别在 $[0,c_1(pbest_{a,k}-X_{a,k}^{(t)})]$ 和
 $[0,c_2(gbest_{a,k}-X_{a,k}^{(t)})]$ 之间均匀抽取的整数随机量，$\operatorname{int}$ 为舍入运算。对所有顶点，定义当 $X_{a,i}=X_{a,j}$ 时 $S_{ij}=1$，否则为零。适应度函数为
 
-$
+$$
 f_{\mathrm{fitness}}=
 \sum_{i=1}^{K}\sum_{j=1}^{K}E_{ij}S_{ij}
 +\max(g-G,0),\tag{32}
-$
+$$
 
 其中 $g$ 为实际使用颜色数，$G$ 为目标用户组数。第一项惩罚邻接用户同色，第二项惩罚使用过多颜色。PSO 每次迭代的运算复杂度为 $O(K^2)$。
 
@@ -447,7 +447,7 @@ $$
 
 **模块 A：LMMSE 与外信息。** 输入来自模块 B 的先验 $\mathbf x_A^{\rm pri},\mathbf V_A^{\rm pri}$ 及接收向量 $\mathbf y$，按原文式（33）求后验均值和协方差：
 
-$
+$$
 \begin{aligned}
 \mathbf x_A^{\rm post}
 &=\mathbf V_A^{\rm post}\left[
@@ -457,11 +457,11 @@ $
 &=\left[\frac{\boldsymbol\Phi^H\boldsymbol\Phi}{\sigma_z^2}
 +(\mathbf V_A^{\rm pri})^{-1}\right]^{-1}.
 \end{aligned}\tag{33}
-$
+$$
 
 其中 $\boldsymbol\Phi$ 是由字典和导频构成的测量矩阵，$\sigma_z^2$ 为观测噪声方差。后验信息扣除先验信息后，得到传递给模块 B 的外信息：
 
-$
+$$
 \begin{aligned}
 \mathbf x_{A\to B}^{\rm ext}
 &=\mathbf V_{A\to B}^{\rm ext}\left[
@@ -471,31 +471,31 @@ $
 &=\left[(\mathbf V_A^{\rm post})^{-1}
 -(\mathbf V_A^{\rm pri})^{-1}\right]^{-1}.
 \end{aligned}\tag{34}
-$
+$$
 
 **模块 B：联合支撑消息传递。** 把来自模块 A 的外信息等效为虚拟复 AWGN 测量：
 
-$
+$$
 \mathbf x_B^{\rm pri}=\mathbf x+\mathbf z,\tag{35}
-$
+$$
 
 其虚拟噪声协方差取 $\mathbf V_B^{\rm pri}=\mathbf V_{A\to B}^{\rm ext}$。因子图通过 $\mathbf x_{kq}\to f_q^k\to s_{kq}\to\eta_q^k\to s_q$ 等方向交换消息，得到各位置域系数及其支撑状态的近似边缘后验：
 
-$
+$$
 \widehat p(x_q^k\mid\mathbf y)\propto
 v_{f_q^k\to x_q^k}\,v_{x_q^k\to f_q^k},\tag{36}
-$
+$$
 
-$
+$$
 \widehat p(s_q^k=1\mid\mathbf y)=
 \frac{\pi_{s_k,q}^{\rm in}\pi_{s_k,q}^{\rm out}}
 {\pi_{s_k,q}^{\rm in}\pi_{s_k,q}^{\rm out}
 +(1-\pi_{s_k,q}^{\rm in})(1-\pi_{s_k,q}^{\rm out})}.\tag{37}
-$
+$$
 
 其后验均值和方差逐元素为
 
-$
+$$
 \begin{aligned}
 x_{B,q}^{k,\rm post}
 &=\int x_q^k\,\widehat p(x_q^k\mid\mathbf y)\,\mathrm d x_q^k,\\
@@ -503,11 +503,11 @@ v_{B,q}^{k,\rm post}
 &=\int |x_q^k-x_{B,q}^{k,\rm post}|^2
 \,\widehat p(x_q^k\mid\mathbf y)\,\mathrm d x_q^k.
 \end{aligned}\tag{38}
-$
+$$
 
 由此形成 $\mathbf x_B^{\rm post}$ 和块对角协方差 $\mathbf V_B^{\rm post}$，再减去输入先验，得到发回模块 A 的外信息：
 
-$
+$$
 \begin{aligned}
 \mathbf V_{B\to A}^{\rm ext}
 &=\left[(\mathbf V_B^{\rm post})^{-1}
@@ -517,11 +517,11 @@ $
 (\mathbf V_B^{\rm post})^{-1}\mathbf x_B^{\rm post}
 -(\mathbf V_B^{\rm pri})^{-1}\mathbf x_B^{\rm pri}\right].
 \end{aligned}\tag{39}
-$
+$$
 
 **M 步：位置参数更新。** 用 E 步得到的后验构造 EM 代理函数，原文式（40）记为
 
-$
+$$
 \begin{aligned}
 Q(\boldsymbol\zeta;\boldsymbol\zeta^{(t)})
 &=\int p(\mathbf x\mid\mathbf y,\boldsymbol\zeta^{(t)})
@@ -530,7 +530,7 @@ Q(\boldsymbol\zeta;\boldsymbol\zeta^{(t)})
 &=-\|\mathbf y-\boldsymbol\Phi\mathbf x^{\rm post}\|_2^2
 +\operatorname{tr}(\boldsymbol\Phi\mathbf V^{\rm post}\boldsymbol\Phi^H)+C.
 \end{aligned}\tag{40}
-$
+$$
 
 这里第二行依照原 PDF 排印保留了矩阵迹项的正号；由于与常见复高斯线性模型的 EM 期望残差展开符号可能不一致，**不得在未经原作者确认时将该符号自动“纠正”**。$\boldsymbol\zeta$ 包括动态位置网格和用户位置，M 步以梯度上升更新这些参数。
 
@@ -598,7 +598,7 @@ $
 
 **1）路径 $x_q^k\to f_q^k\to s_q^k\to\eta_q^k\to s_q$。** 从因子节点 $\eta_q^k$ 向全局支撑变量 $s_q$ 发送的消息为
 
-$
+$$
 \begin{aligned}
 \nu_{\eta_q^k\to s_q}(s_q)
 &=\sum_{s_q^k}\eta_q^k(s_q^k,s_q)\,
@@ -606,33 +606,33 @@ $
 &=\pi_{s,q}^{k,\mathrm{in}}\delta(s_q-1)
 +\left(1-\pi_{s,q}^{k,\mathrm{in}}\right)\delta(s_q),
 \end{aligned}\tag{41}
-$
+$$
 
 其中
 
-$
+$$
 \pi_{s,q}^{k,\mathrm{in}}=
 \left[1+\frac{1-\pi_{s_k,q}^{\mathrm{in}}}
 {1+2\pi_{s_k,q}^{\mathrm{in}}-\pi_{s_k,q}^{\mathrm{in}}-\rho_k}
 \right]^{-1},
-$
+$$
 
 且局部系数与支撑的输入概率项来自两种虚拟观测似然的比值：
 
-$
+$$
 \pi_{s_k,q}^{\mathrm{in}}=
 \left[
 1+
 \frac{\mathcal{CN}(0;x_{B,q}^{k,\mathrm{pri}},v_{B,q}^{k,\mathrm{pri}})}
 {\mathcal{CN}(0;x_{B,q}^{k,\mathrm{pri}},v_{B,q}^{k,\mathrm{pri}}+(\sigma_q^k)^2)}
 \right]^{-1}.
-$
+$$
 
 **原文排版校对提示：** 式（41）紧接其后的 $\pi_{s,q}^{k,\mathrm{in}}$ 分母在文本层的括号和 $\rho_k$ 位置不够清晰，可能存在排版或转录歧义。该中间式应以 PDF 原版为准，不能用它代替可执行代码中的归一化概率。
 
 **2）路径 $x_0^k\to f_0^k\to s_0^k\to h_0^k$。** 从 LOS 支撑变量到先验因子的消息为
 
-$
+$$
 \begin{aligned}
 \nu_{s_0^k\to h_0^k}(s_0^k)
 &=\nu_{f_0^k\to s_0^k}(s_0^k)\\
@@ -641,49 +641,49 @@ f_0^k(x_0^k,s_0^k)\,\mathrm d x_0^k\\
 &=\pi_{s_0^k}^{\mathrm{in}}\delta(s_0^k-1)
 +\left(1-\pi_{s_0^k}^{\mathrm{in}}\right)\delta(s_0^k).
 \end{aligned}\tag{42}
-$
+$$
 
 这里
 
-$
+$$
 \pi_{s_0^k}^{\mathrm{in}}=
 \left[
 1+
 \frac{\mathcal{CN}(0;x_{B,0}^{k,\mathrm{pri}},v_{B,0}^{k,\mathrm{pri}})}
 {\mathcal{CN}(0;x_{B,0}^{k,\mathrm{pri}},v_{B,0}^{k,\mathrm{pri}}+(\sigma_0^k)^2)}
 \right]^{-1}.
-$
+$$
 
 **3）路径 $s_q\to h_q$。** 多个用户向共同散射体支撑提供的消息相乘，得到
 
-$
+$$
 \begin{aligned}
 \nu_{s_q\to h_q}(s_q)
 &\propto\prod_{k\in\mathcal K_q}\nu_{\eta_q^k\to s_q}(s_q)\\
 &=\pi_q^{\mathrm{in}}\delta(s_q-1)
 +\left(1-\pi_q^{\mathrm{in}}\right)\delta(s_q),
 \end{aligned}\tag{43}
-$
+$$
 
-$
+$$
 \pi_q^{\mathrm{in}}=
 \frac{\prod_{k\in\mathcal K_q}\pi_{s,q}^{k,\mathrm{in}}}
 {\prod_{k\in\mathcal K_q}\pi_{s,q}^{k,\mathrm{in}}
 +\prod_{k\in\mathcal K_q}(1-\pi_{s,q}^{k,\mathrm{in}})},
-$
+$$
 
 其中 $\mathcal K_q$ 是与全局支撑节点 $s_q$ 相连的用户集合（不包含先验因子 $h_q$）。
 
 **4）路径 $h_q\to s_q$。** 全局支撑的 Bernoulli 先验直接返回
 
-$
+$$
 \nu_{h_q\to s_q}(s_q)\propto h_q(s_q)
 =\lambda\delta(s_q-1)+(1-\lambda)\delta(s_q).\tag{44}
-$
+$$
 
 **5）路径 $s_q\to\eta_q^k\to s_q^k\to f_q^k\to x_q^k$。** 从稀疏混合因子到信道系数的返回消息为
 
-$
+$$
 \begin{aligned}
 \nu_{f_q^k\to x_q^k}(x_q^k)
 &\propto\sum_{s_q^k}
@@ -692,11 +692,11 @@ $
 \mathcal{CN}(x_q^k;0,(\sigma_q^k)^2)
 +\left(1-\pi_{s_k,q}^{\mathrm{out}}\right)\delta(x_q^k).
 \end{aligned}\tag{45}
-$
+$$
 
 其中 $\pi_{s_k,q}^{\mathrm{out}}=\rho_k\pi_{s,q}^{k,\mathrm{out}}$，且
 
-$
+$$
 \pi_{s,q}^{k,\mathrm{out}}=
 \frac{\lambda\displaystyle\prod_{\ell\in\mathcal K_q\setminus\{k\}}
 \pi_{s,q}^{\ell,\mathrm{in}}}
@@ -704,11 +704,11 @@ $
 \pi_{s,q}^{\ell,\mathrm{in}}+
 (1-\lambda)\displaystyle\prod_{\ell\in\mathcal K_q\setminus\{k\}}
 (1-\pi_{s,q}^{\ell,\mathrm{in}})}.
-$
+$$
 
 **6）路径 $h_0^k\to s_0^k\to f_0^k\to x_0^k$。** LOS 系数的返回消息为
 
-$
+$$
 \begin{aligned}
 \nu_{f_0^k\to x_0^k}(x_0^k)
 &\propto\sum_{s_0^k}
@@ -716,7 +716,7 @@ $
 &=\rho_0^k\mathcal{CN}(x_0^k;0,(\sigma_0^k)^2)
 +(1-\rho_0^k)\delta(x_0^k).
 \end{aligned}\tag{46}
-$
+$$
 
 相应的近似后验 $\widehat p(x_q^k\mid\mathbf y)$ 再由式（36）中的输入与输出消息乘积归一化得到。该消息传递机制实现了两类信息交换：每个用户的局部稀疏支撑对全局公共散射体支撑提供证据，而全局支撑先验又通过式（45）反馈给单个用户的信道系数估计。
 
