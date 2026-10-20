@@ -232,7 +232,54 @@ $$
 
 如果物理信道属性变化较慢，两个子帧经过的是同一个 OD 信道，但在式（4）中会对应不同的范围内多普勒抽头 $\check{k}_{1,i}$、$\check{k}_{2,i}$，从而产生不同的 DD 域响应位置。这种差异可用于反推真实多普勒。式（16）给出两个子帧各自的 DD 域输入—输出关系，其中 $M_1,N_1,M_2,N_2$ 分别为两个子帧的子载波数与时隙数；$x_1,y_1,x_2,y_2$ 为 DD 域发射及接收信号，$\phi_{1,i},\phi_{2,i}$ 和 $\check{k}_{1,i},\check{k}_{2,i}$ 为各子帧对应的超范围与范围内参数，而归一化时延 $l_i$ 相同。
 
+跨帧输入输出关系（原文式 16）逐项写为
+
+$
+\begin{aligned}
+y_1[k_1,l_1]
+={}&\sum_{k'=0}^{N_1-1}\sum_{l'=0}^{M_1-1}
+x_1[k',l']\sum_{i=1}^{P}
+e^{j2\pi l_1\phi_{1,i}/M_1}\widetilde h_{i,1}\,
+w(k_1-k'-\check k_{1,i},l_1-l'-l_i),\\
+y_2[k_2,l_2]
+={}&\sum_{k'=0}^{N_2-1}\sum_{l'=0}^{M_2-1}
+x_2[k',l']\sum_{i=1}^{P}
+e^{j2\pi l_2\phi_{2,i}/M_2}\widetilde h_{i,2}\,
+w(k_2-k'-\check k_{2,i},l_2-l'-l_i).
+\end{aligned}\tag{16}
+$
+
 为简化分析，假设理想脉冲成形且只发送一个导频，即两个子帧在导频坐标处均为 1，其他元素均为零。对于单条传播路径，其接收信号可写为多普勒维采样函数 $w_\nu$、时延维采样函数 $w_\tau$、路径增益与额外相位的乘积，详见原文式（17）、（18）。
+
+对第 $i$ 条路径，单位导频情况下的两个子帧分别满足
+
+$
+\begin{aligned}
+y_1[k_1,l_1]&=x_1[k_{p1},l_{p1}]
+e^{j2\pi l_1\phi_{1,i}/M_1}\widetilde h_{i,1}\,
+w_\nu(k_1,k_{p1},\check k_{1,i})w_\tau^H(l_1,l_{p1},l_i),\\
+y_2[k_2,l_2]&=x_2[k_{p2},l_{p2}]
+e^{j2\pi l_2\phi_{2,i}/M_2}\widetilde h_{i,2}\,
+w_\nu(k_2,k_{p2},\check k_{2,i})w_\tau^H(l_2,l_{p2},l_i).
+\end{aligned}\tag{17}
+$
+
+其中采样函数的两维分量分别为
+
+$
+\begin{aligned}
+w_\tau(l,l',l_i)
+&=e^{-j\pi(M-1)(-l+l'+l_i)/M}
+\frac{\sin[\pi(l-l'-l_i)]}
+{M\sin[\pi(l-l'-l_i)/M]},\\
+w_\nu(k,k',k_i)
+&=e^{-j\pi(N-1)(-k+k'+k_i)/N}
+\frac{\sin[\pi(k-k'-k_i)]}
+{N\sin[\pi(k-k'-k_i)/N]}.
+\end{aligned}\tag{18}
+$
+
+注意式（18）的 $M$、$N$ 分别指对应子帧的子载波数、时隙数；$w_\tau^H$ 在式（17）中与向量排列及共轭转置有关。
 
 当只有一条路径时，可通过接收信号的最大幅值位置确定两个子帧的范围内整数时延和多普勒：
 
@@ -261,7 +308,15 @@ $$
 
 ### A. OD 信道的离网模型
 
-对于单导频和理想脉冲，式（21）给出了 DD 域接收信号。相应矩阵模型为
+对于单导频和理想脉冲，式（21）给出了 DD 域接收信号。单导频的第 $i$ 条路径在 DD 域的贡献首先表示为
+
+$
+y[k,l]=x[k_p,l_p]\sum_{i=1}^{P}
+e^{j2\pi l\phi_i/M}\widetilde h_i
+w(k-k_p-\check k_i,l-l_p-l_i).\tag{21}
+$
+
+相应矩阵模型为
 
 $$
 \mathbf Y_{\mathrm{DD}}
@@ -271,7 +326,22 @@ $$
 \check{\mathbf V}_{\mathrm{DD}}^H. \tag{22}
 $$
 
-其中 $\mathbf E_i=\operatorname{diag}(e^{j2\pi(0)\phi_i/M},\ldots,e^{j2\pi(M-1)\phi_i/M})$。多普勒响应向量、时延响应向量和路径增益对角矩阵沿用 [27] 的定义（原文式（23））。$\check{\mathbf V}_{\mathrm{DD}}$ 包含时延和额外相位信息：
+其中 $\mathbf E_i=\operatorname{diag}(e^{j2\pi(0)\phi_i/M},\ldots,e^{j2\pi(M-1)\phi_i/M})$。多普勒响应向量、时延响应向量和路径增益对角矩阵沿用 [27] 的定义（原文式（23））。向量与矩阵逐项定义为
+
+$
+\begin{aligned}
+\mathbf w_\nu(k_{\nu i})
+&=[w_\nu(0,k_p,k_{\nu i}),\ldots,w_\nu(N-1,k_p,k_{\nu i})]^T,\\
+\mathbf w_\tau(l_{\tau i})
+&=[w_\tau(0,l_p,l_{\tau i}),\ldots,w_\tau(M-1,l_p,l_{\tau i})]^T,\\
+\mathbf U_{\mathrm{DD}}
+&=[\mathbf w_\nu(k_{\nu1}),\ldots,\mathbf w_\nu(k_{\nu P})],\\
+\mathbf H_{\mathrm{DD}}
+&=\operatorname{diag}\{\widetilde h_1,\ldots,\widetilde h_P\}.
+\end{aligned}\tag{23}
+$
+
+$\check{\mathbf V}_{\mathrm{DD}}$ 包含时延和额外相位信息：
 
 $$
 \check{\mathbf V}_{\mathrm{DD}}
@@ -279,7 +349,20 @@ $$
 \mathbf E_P\mathbf w_\tau(l_{\tau_P})]. \tag{24}
 $$
 
-按照文献 [17]、[27]，可将该模型扩展至多普勒和时延离散网格，得到原文式（25）。采样函数在两维的泰勒近似为
+按照文献 [17]、[27]，可将该模型扩展至多普勒和时延离散网格，得到原文式（25）。完整离网矩阵模型（原文式 25）为
+
+$
+\mathbf Y_{\mathrm{DD}}=
+x[k_p,l_p]\sum_{n'=1}^{N'}\sum_{m'=1}^{M'}
+\widetilde h_{n',m'}
+\widetilde{\mathbf w}_{\nu}(\widetilde k_{\nu n'})
+\widetilde{\mathbf w}_\tau(\widetilde l_{\tau m'})^H
+\mathbf E_{n',m'}.\tag{25}
+$
+
+其中 $N'$、$M'$ 分别为多普勒和时延两个方向的离散虚拟网格数。
+
+采样函数在两维的泰勒近似为
 
 $$
 \widetilde{\mathbf w}_\nu(\widetilde k_{\nu_{n'}})
@@ -294,6 +377,40 @@ $$
 $$
 
 其中 $\beta$ 为对应网格偏移量，撇号表示采样函数在相应维度的偏导数。对于 OD 信道，额外相位矩阵 $\mathbf E_i$ 使各路径在时延维度的贡献不再连续，削弱既有估计方法所依赖的稀疏性。因此后续先沿多普勒维进行分解，再处理时延维及超范围补偿。
+
+### 离网模型的多普勒分解（原文式 27–29）
+
+首先只在多普勒维进行离网分解，并将包含时延和附加相位的部分作为待估计整体：
+
+$
+\mathbf Y_{\mathrm{DD}}
+=x[k_p,l_p]\sum_{n'=1}^{N'}
+\widetilde{\mathbf w}_\nu(\widetilde k_{\nu n'})
+\left(
+\sum_{m'=1}^{M'}\widetilde h_{n',m'}
+\widetilde{\mathbf w}_\tau(\widetilde l_{\tau m',n'})^H
+\mathbf E_{n',m'}\right).\tag{27}
+$
+
+把内层求和记作 $\mathbf d_{U,n'}^H$，得到
+
+$
+\mathbf Y_{\mathrm{DD}}
+=x[k_p,l_p]\sum_{n'=1}^{N'}
+\widetilde{\mathbf w}_\nu(\widetilde k_{\nu n'})
+\mathbf d_{U,n'}^H+\mathbf n_\nu,\tag{28}
+$
+
+其中
+
+$
+\mathbf d_{U,n'}^H=
+\sum_{m'=1}^{M'}\widetilde h_{n',m'}
+\widetilde{\mathbf w}_\tau(\widetilde l_{\tau m',n'})^H
+\mathbf E_{n',m'}+\mathbf n_{\nu\tau}^H.\tag{29}
+$
+
+$\mathbf n_\nu$ 和 $\mathbf n_{\nu\tau}$ 分别代表相应分解阶段的残差或噪声项。这样，即使附加相位矩阵仍未知，也可以先在多普勒维提取整体响应，再利用跨帧匹配确定 OD 参数。
 
 ### B. 跨帧与 OGSBI 联合信道估计
 
