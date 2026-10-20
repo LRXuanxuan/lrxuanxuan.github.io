@@ -147,23 +147,23 @@ $$
 
 原文通过 MeanFlow 恒等式构造一个瞬时速度预测，使用停止梯度算子 $\operatorname{sg}[\cdot]$ 隔离切向量的反向传播：
 
-$
+$$
 V_\psi=
 u_\psi(\mathbf z_s,s,t,\mathbf x)
 -(t-s)\operatorname{sg}\!\left[
 \frac{\mathrm d}{\mathrm ds}
 u_\psi(\mathbf z_s,s,t,\mathbf x)\right].\tag{6}
-$
+$$
 
 沿轨迹的全导数通过一次 Jacobian–vector product 计算，切向量为 $(\operatorname{sg}[\widehat v_\psi],1,0)$，其中 $\widehat v_\psi$ 是共享骨干网络的辅助速度头。主训练损失为
 
-$
+$$
 \mathcal L_{\mathrm{MF}}(\psi)
 =\mathbb E\left[
 w\|V_\psi-(\boldsymbol\epsilon-\mathbf z_0)\|_2^2
 +\frac1d\|\widehat v_\psi-(\boldsymbol\epsilon-\mathbf z_0)\|_2^2
 \right].\tag{7}
-$
+$$
 
 其中 $d=\dim\mathbf z$，自适应权重定义为
 $w=\operatorname{sg}[(\|V_\psi-(\boldsymbol\epsilon-\mathbf z_0)\|_2^2+c)^{-p}]$。
@@ -173,14 +173,14 @@ $w=\operatorname{sg}[(\|V_\psi-(\boldsymbol\epsilon-\mathbf z_0)\|_2^2+c)^{-p}]$
 
 平均流以少步映射得到廉价似然 $q_\psi^{(S_c)}$，同时利用辅助速度头作高精度 ODE 积分得到 $q_\psi^f$，据此构造两个不同的后验：
 
-$
+$$
 \begin{aligned}
 \pi_c(\theta)&\propto p(\theta)
 \prod_{n=1}^{N}q_\psi^{(S_c)}(y_n\mid\theta),\\
 \pi_f(\theta)&\propto p(\theta)
 \prod_{n=1}^{N}q_\psi^f(y_n\mid\theta).
 \end{aligned}\tag{10}
-$
+$$
 
 式（11）保证由可逆的粗略目标提议并经校正的链以精细目标 $\pi_f$ 为不变分布，而不是把两种近似似然直接相乘。
 
@@ -285,22 +285,22 @@ g-and-k 是常用的模拟式推断基准。作者比较在固定网络评估预
 
 **命题 1 的假设范围。** 原文附录 A.1 明确列出 (A1)–(A4)，其中包括条件二阶矩有界、时间与样本分布的独立性、真实条件速度场足够光滑并在时间区间内定义适当可逆流，以及模型类可同时表示精确平均速度和瞬时速度。在未加权损失 $w=1$ 下，条件期望分解给出
 
-$
+$$
 \mathcal L_{\mathrm{MF}}=
 \left(1+\frac1d\right)\mathbb E\|Y-m\|_2^2+
 \mathbb E\|V_\psi-m\|_2^2+
 \frac1d\mathbb E\|\widehat v_\psi-m\|_2^2,
-$
+$$
 
 其中 $Y=\boldsymbol\epsilon-\mathbf z_0$，
 $m=v^\star(\mathbf z_s,s,\mathbf x)=\mathbb E[Y\mid\mathbf z_s,s,\mathbf x]$。
 精确模型使最后两项为零，所以总体最优解同时满足 $\widehat v_\psi=V_\psi=v^\star$。沿实际轨迹 $\mathbf z_\tau$ 可得
 
-$
+$$
 \frac{\mathrm d}{\mathrm d\tau}
 \Phi_\psi(\mathbf z_\tau;\tau,t,\mathbf x)
 =v^\star(\mathbf z_\tau,\tau,\mathbf x)-V_\psi(\mathbf z_\tau,\tau,t,\mathbf x)=0.
-$
+$$
 
 再使用 $\Phi_\psi(\mathbf z_t;t,t,\mathbf x)=\mathbf z_t$，可以证明学得的有限时间映射等于真实条件流映射。因此在可逆流的条件下，式（9）给出正确的条件密度。
 
@@ -308,12 +308,12 @@ $
 
 **命题 2 的掩码条件。** 随机保留坐标集合 $\mathcal O\subseteq\{1,\ldots,d\}$ 非空，且其抽样分布 $\pi$ 与 $(\mathbf z_0,\mathbf x,\boldsymbol\epsilon,s,t)$ 独立；网络在集合 $\mathcal O$ 上的输出仅依赖保留坐标 $\mathbf z_{\mathcal O}$，并且模型可同时表示所有训练掩码下的真实边缘速度。保留坐标上有
 
-$
+$$
 \mathbf z_{s,\mathcal O}
 =(1-s)\mathbf z_{0,\mathcal O}+s\boldsymbol\epsilon_{\mathcal O},
 \qquad\boldsymbol\epsilon_{\mathcal O}
 \sim\mathcal N(\mathbf0,\mathbf I_{|\mathcal O|}).
-$
+$$
 
 在每个独立掩码下，损失恰好是相应边缘目标的平均流损失；对掩码的加权求和不改变各项共同可实现的最优解，因此得到 $\log p(\mathbf z_{\mathcal O}\mid\mathbf x)$。如果掩码依赖于被掩去的值，此独立性不再成立，结论也不能直接照搬。
 
