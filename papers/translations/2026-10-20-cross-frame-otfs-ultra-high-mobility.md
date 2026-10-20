@@ -86,7 +86,7 @@ $$
 
 **补入式（5）：** 对带通采样频率 $f_s=M\Delta f$，第 $q$ 个采样点的接收信号为
 
-$
+$$
 \begin{aligned}
 r[q]
 ={}&\sum_{i=1}^{P}h_i
@@ -97,7 +97,7 @@ s\!\left(\frac{T}{M}(q-l_i)\right)
 e^{j2\pi q(\psi_i+\phi_i/M+\check{k}_i/(NM))}
 e^{-j2\pi l_i(\psi_i+\phi_i/M+\check{k}_i/(NM))}.
 \end{aligned}\tag{5}
-$
+$$
 
 这里 $q=0,\ldots,NM-1$。因为 $\psi_i$ 是整数，$\exp(j2\pi q\psi_i)=1$，因此可以从采样信号的时变相位中消去该整数带宽偏移项。
 
@@ -117,7 +117,7 @@ $$
 
 其中 $\boldsymbol\Pi\in\{0,1\}^{M\times M}$ 为下式循环置换矩阵：
 
-$
+$$
 \boldsymbol\Pi=\begin{bmatrix}
 0&0&\cdots&1\\
 1&0&\cdots&0\\
@@ -125,13 +125,13 @@ $
 \vdots&\ddots&\ddots&0\\
 0&\cdots&1&0
 \end{bmatrix}.\tag{7}
-$
+$$
 
 命题证明见附录 A。
 
 根据式（6），OD 信道的 TF 域接收信号可视为沿频率索引循环移位后的信号叠加，并附带额外相位项。**图 2** 给出了带通 OTFS 系统及该循环移位。令 $Y_{\mathrm{OD}}[n,m]$ 和 $Y_{\mathrm{in}}[n,m]$ 分别表示相应矩阵的第 $n$ 行、第 $m$ 列元素。基于文献 [8] 的交叉模糊函数 $A_{g_{\mathrm{rx}},g_{\mathrm{tx}}}(t,f)$，范围内信道的 TF 域关系为
 
-$
+$$
 \begin{aligned}
 Y_{\mathrm{in}}[n,m]
 ={}&\sum_{i=1}^{P}h_i
@@ -144,11 +144,11 @@ A_{g_{\mathrm{rx}},g_{\mathrm{tx}}}
 ((n-n')T-\tau_i)}
 e^{j2\pi\nu_{i,\mathrm{in}}n'T}.
 \end{aligned}\tag{8}
-$
+$$
 
 其中 $\nu_{i,\mathrm{in}}=\check{k}_i/(NT)$。利用命题 1，超范围信道接收信号对应的原文式（9）为
 
-$
+$$
 \begin{aligned}
 Y_{\mathrm{OD}}[n,m]
 ={}&\sum_{i=1}^{P}h_i
@@ -162,7 +162,7 @@ X[n',m']\\
 ((n-n')T-\tau_i)}
 e^{j2\pi\nu_{i,\mathrm{in}}n'T}.
 \end{aligned}\tag{9}
-$
+$$
 
 与式（8）比较，式（9）在每条传播路径上引入相位因子及频率索引的模 $M$ 循环移位。采用理想成形脉冲时，可化简为
 
@@ -208,13 +208,13 @@ $$
 
 其中 $\mathbf H_{\mathrm{OD}}\in\mathbb C^{MN\times MN}$ 为 OD 信道矩阵。其元素关系为
 
-$
+$$
 H_{\mathrm{OD}}(i,j)=
 h_{w,\mathrm{OD}}
 \left(\left\lfloor\frac{i}{M}\right\rfloor,
 \left\lfloor\frac{j}{M}\right\rfloor,
 [i]_M,[j]_M\right).\tag{15}
-$
+$$
 
 其中 $\lfloor\cdot\rfloor$ 为向下取整，$[\cdot]_M$ 表示模 $M$ 运算。
 
@@ -234,7 +234,7 @@ $$
 
 跨帧输入输出关系（原文式 16）逐项写为
 
-$
+$$
 \begin{aligned}
 y_1[k_1,l_1]
 ={}&\sum_{k'=0}^{N_1-1}\sum_{l'=0}^{M_1-1}
@@ -247,13 +247,13 @@ x_2[k',l']\sum_{i=1}^{P}
 e^{j2\pi l_2\phi_{2,i}/M_2}\widetilde h_{i,2}\,
 w(k_2-k'-\check k_{2,i},l_2-l'-l_i).
 \end{aligned}\tag{16}
-$
+$$
 
 为简化分析，假设理想脉冲成形且只发送一个导频，即两个子帧在导频坐标处均为 1，其他元素均为零。对于单条传播路径，其接收信号可写为多普勒维采样函数 $w_\nu$、时延维采样函数 $w_\tau$、路径增益与额外相位的乘积，详见原文式（17）、（18）。
 
 对第 $i$ 条路径，单位导频情况下的两个子帧分别满足
 
-$
+$$
 \begin{aligned}
 y_1[k_1,l_1]&=x_1[k_{p1},l_{p1}]
 e^{j2\pi l_1\phi_{1,i}/M_1}\widetilde h_{i,1}\,
@@ -262,11 +262,11 @@ y_2[k_2,l_2]&=x_2[k_{p2},l_{p2}]
 e^{j2\pi l_2\phi_{2,i}/M_2}\widetilde h_{i,2}\,
 w_\nu(k_2,k_{p2},\check k_{2,i})w_\tau^H(l_2,l_{p2},l_i).
 \end{aligned}\tag{17}
-$
+$$
 
 其中采样函数的两维分量分别为
 
-$
+$$
 \begin{aligned}
 w_\tau(l,l',l_i)
 &=e^{-j\pi(M-1)(-l+l'+l_i)/M}
@@ -277,7 +277,7 @@ w_\nu(k,k',k_i)
 \frac{\sin[\pi(k-k'-k_i)]}
 {N\sin[\pi(k-k'-k_i)/N]}.
 \end{aligned}\tag{18}
-$
+$$
 
 注意式（18）的 $M$、$N$ 分别指对应子帧的子载波数、时隙数；$w_\tau^H$ 在式（17）中与向量排列及共轭转置有关。
 
@@ -310,11 +310,11 @@ $$
 
 对于单导频和理想脉冲，式（21）给出了 DD 域接收信号。单导频的第 $i$ 条路径在 DD 域的贡献首先表示为
 
-$
+$$
 y[k,l]=x[k_p,l_p]\sum_{i=1}^{P}
 e^{j2\pi l\phi_i/M}\widetilde h_i
 w(k-k_p-\check k_i,l-l_p-l_i).\tag{21}
-$
+$$
 
 相应矩阵模型为
 
@@ -328,7 +328,7 @@ $$
 
 其中 $\mathbf E_i=\operatorname{diag}(e^{j2\pi(0)\phi_i/M},\ldots,e^{j2\pi(M-1)\phi_i/M})$。多普勒响应向量、时延响应向量和路径增益对角矩阵沿用 [27] 的定义（原文式（23））。向量与矩阵逐项定义为
 
-$
+$$
 \begin{aligned}
 \mathbf w_\nu(k_{\nu i})
 &=[w_\nu(0,k_p,k_{\nu i}),\ldots,w_\nu(N-1,k_p,k_{\nu i})]^T,\\
@@ -339,7 +339,7 @@ $
 \mathbf H_{\mathrm{DD}}
 &=\operatorname{diag}\{\widetilde h_1,\ldots,\widetilde h_P\}.
 \end{aligned}\tag{23}
-$
+$$
 
 $\check{\mathbf V}_{\mathrm{DD}}$ 包含时延和额外相位信息：
 
@@ -351,14 +351,14 @@ $$
 
 按照文献 [17]、[27]，可将该模型扩展至多普勒和时延离散网格，得到原文式（25）。完整离网矩阵模型（原文式 25）为
 
-$
+$$
 \mathbf Y_{\mathrm{DD}}=
 x[k_p,l_p]\sum_{n'=1}^{N'}\sum_{m'=1}^{M'}
 \widetilde h_{n',m'}
 \widetilde{\mathbf w}_{\nu}(\widetilde k_{\nu n'})
 \widetilde{\mathbf w}_\tau(\widetilde l_{\tau m'})^H
 \mathbf E_{n',m'}.\tag{25}
-$
+$$
 
 其中 $N'$、$M'$ 分别为多普勒和时延两个方向的离散虚拟网格数。
 
@@ -382,7 +382,7 @@ $$
 
 首先只在多普勒维进行离网分解，并将包含时延和附加相位的部分作为待估计整体：
 
-$
+$$
 \mathbf Y_{\mathrm{DD}}
 =x[k_p,l_p]\sum_{n'=1}^{N'}
 \widetilde{\mathbf w}_\nu(\widetilde k_{\nu n'})
@@ -390,25 +390,25 @@ $
 \sum_{m'=1}^{M'}\widetilde h_{n',m'}
 \widetilde{\mathbf w}_\tau(\widetilde l_{\tau m',n'})^H
 \mathbf E_{n',m'}\right).\tag{27}
-$
+$$
 
 把内层求和记作 $\mathbf d_{U,n'}^H$，得到
 
-$
+$$
 \mathbf Y_{\mathrm{DD}}
 =x[k_p,l_p]\sum_{n'=1}^{N'}
 \widetilde{\mathbf w}_\nu(\widetilde k_{\nu n'})
 \mathbf d_{U,n'}^H+\mathbf n_\nu,\tag{28}
-$
+$$
 
 其中
 
-$
+$$
 \mathbf d_{U,n'}^H=
 \sum_{m'=1}^{M'}\widetilde h_{n',m'}
 \widetilde{\mathbf w}_\tau(\widetilde l_{\tau m',n'})^H
 \mathbf E_{n',m'}+\mathbf n_{\nu\tau}^H.\tag{29}
-$
+$$
 
 $\mathbf n_\nu$ 和 $\mathbf n_{\nu\tau}$ 分别代表相应分解阶段的残差或噪声项。这样，即使附加相位矩阵仍未知，也可以先在多普勒维提取整体响应，再利用跨帧匹配确定 OD 参数。
 
@@ -715,7 +715,7 @@ $$
 
 原文式（13）并不采用理想脉冲近似，而是从发送与接收脉冲的互模糊函数出发，分别写出符号内及跨时隙项。按照原版第 12887 页底部公式逐项校对，其表达为
 
-$
+$$
 \begin{aligned}
 &w(k-k'-k_i,l-l'-l_i)\\
 ={}&\frac1{NM}\sum_{n=0}^{N-1}\sum_{m=0}^{M-1}
@@ -734,7 +734,7 @@ A_{g_{\rm rx},g_{\rm tx}}
 e^{-j2\pi n(k-k'-k_i)/N}
 e^{-j2\pi(ml-m'l'-m'l_i)/M}.
 \end{aligned}\tag{13}
-$
+$$
 
 其中 $A_{g_{\rm rx},g_{\rm tx}}$ 表示接收脉冲和发送脉冲的互模糊函数；$k,k'$ 为多普勒域网格坐标，$l,l'$ 为时延域网格坐标，$k_i,l_i$ 为路径归一化参数。第一项的 $m'$ 求和有 $m'\ne m$ 的排除约束，而第二项没有。保留这些限制对于一般脉冲模型非常重要。
 
@@ -742,7 +742,7 @@ $
 
 依据式（40），把范围内接收信号向量写成 $\mathbf v_{i,n}=[g_{\rm rx}(mT/M)r_{i,\rm in}[nM+m]]_{m=0}^{M-1}$。原文式（41）先将各元素的 $e^{j2\pi(nM+m)\phi_i/M}$ 分解为共同相位和逐样点的对角矩阵，再通过 DFT 的循环移位性质化简，其四段逐级等式可以紧凑地保持为
 
-$
+$$
 \begin{aligned}
 \mathbf y_{i,n}
 &=\mathbf F_M\left[
@@ -758,7 +758,7 @@ r_{i,\rm in}[nM+m]\right]_{m=0}^{M-1}\\
 &=e^{-j2\pi l_i\phi_i/M}
 \mathbf\Pi^{\phi_i}\mathbf F_M\mathbf v_{i,n}.
 \end{aligned}\tag{41}
-$
+$$
 
 上式中 $e^{j2\pi n\phi_i}=1$，因为 $n,\phi_i$ 都是整数。式（41）直接得到正文命题 1 所述的频率轴循环移位和额外相位。
 
@@ -766,12 +766,12 @@ $
 
 把范围内 DD 域响应的第 $i$ 条路径单独提出，可得到
 
-$
+$$
 y'_{i,\mathrm{in}}[k,l]=
 h_ie^{-j2\pi l_i\check k_i/(NM)}
 \sum_{k'=0}^{N-1}\sum_{l'=0}^{M-1}
 x[k',l']w(k-k'-\check k_i,l-l'-l_i).\tag{50}
-$
+$$
 
 原文式（51）随即对这些单径贡献施加 OD 相位，再把路径求和合并为新的 DD 域输入输出模型。
 
