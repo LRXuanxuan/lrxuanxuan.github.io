@@ -298,6 +298,105 @@ $
 
 **命题 4。** 在模型正确设定、表征 $\mathcal Z$ 对后验充分、各观测在给定真实场景条件下相互独立等假设下，对于 $i\notin\mathcal A$，后验边缘等于条件先验，新增观测不会直接降低该网格的不确定性；对 $i\in\mathcal A$，设 $n_i$ 为能够区分真实场景与该网格状态相反的候选场景的观测数，则其正确恢复概率随着 $n_i$ 增加而提高。该命题是带条件的极限论断，不是针对任何网络的无条件准确率保证。
 
+### 附录 A、B.4 与 D：传播阵列模型、联合似然和完整预训练损失（式 6、10–16）
+
+**附录 A：均匀线阵的空间响应（式 6）。** 对阵元间距为 $d$、波长为 $\lambda$、包含 $N$ 个阵元的均匀线阵，其方向响应为
+
+$
+\mathbf a(\vartheta)=
+\left[
+1,\
+e^{-j\frac{2\pi d}{\lambda}\sin\vartheta},\
+\ldots,\
+e^{-j\frac{2\pi d(N-1)}{\lambda}\sin\vartheta}
+\right]^{T}.\tag{6}
+$
+
+把该响应代入正文式（1）的传播路径求和式，即可得到每一收发天线对和子载波的信道系数；对带宽 $B$ 的时延分辨率近似为 $\Delta\tau=1/B$，对阵元数量 $N_{\mathrm{tx}}$ 的阵列，主视轴附近的角分辨率近似为 $\Delta\theta\approx2/N_{\mathrm{tx}}$。
+
+**附录 B.4：条件独立观测的联合后验（式 10）。** 如果已知场景 $\mathbf s$ 时，不同用户的信道测量条件独立，那么多次观测的联合后验为
+
+$
+p(\mathbf s\mid\mathcal O)\propto
+p(\mathbf s)\prod_{k=1}^{K}p(\mathbf H_k\mid\mathbf s).\tag{10}
+$
+
+增加观测使各条链路相容场景集合求交，从而收缩后验，但未被任何链路传播触及的网格仍具有非唯一性。
+
+**附录 D：基础模型的物理引导预训练目标（式 11–16）。** 首先，对被掩蔽的信道 token 集合 $\mathcal M_{\mathrm{ch}}$，计算重建误差：
+
+$
+\mathcal L_{\mathrm{ch}}=
+\frac{1}{|\mathcal M_{\mathrm{ch}}|}
+\sum_{i\in\mathcal M_{\mathrm{ch}}}
+\|\widehat{\mathbf h}_i-\mathbf h_i\|_2^2.\tag{11}
+$
+
+场景掩蔽只选择参与该链路传播的网格块 $\mathcal M_{\mathrm{scn}}\subseteq\mathfrak a_k$，并对二值占用标签 $o_i$ 应用交叉熵：
+
+$
+\mathcal L_{\mathrm{scn}}=
+-\frac1{|\mathcal M_{\mathrm{scn}}|}
+\sum_{i\in\mathcal M_{\mathrm{scn}}}
+\left[o_i\log\widehat o_i+
+(1-o_i)\log(1-\widehat o_i)\right].\tag{12}
+$
+
+接收机位置的掩蔽重建损失 $\mathcal L_{\mathrm{loc}}$ 由预测位置与真实位置的均方根误差定义，原文没有单独编号。
+
+对发射与接收阵列方向 $\Psi\in\{\mathrm{tx},\mathrm{rx}\}$，由 CSI 在相应天线方向上的复响应 $\mathbf H_n^{(\Psi)}$ 的 DFT 构造方向空间谱：
+
+$
+s_\Psi[b]=
+\left|
+\sum_{n=0}^{N_\Psi-1}
+H_n^{(\Psi)}e^{-j2\pi nb/N_\Psi}
+\right|^2,\qquad
+\Psi\in\{\mathrm{tx},\mathrm{rx}\}.\tag{13}
+$
+
+使用 Kullback–Leibler 散度对齐空间谱峰值，同时使用均方误差保持相对强度：
+
+$
+\mathcal L_\Psi=
+D_{\mathrm{KL}}\!\left(
+\operatorname{softmax}(\mathbf s_\Psi)
+\parallel
+\operatorname{softmax}(\widehat{\mathbf s}_\Psi)
+\right)+
+\lambda_{\mathrm{MSE}}
+\operatorname{MSE}(\widehat{\mathbf s}_\Psi,\mathbf s_\Psi).\tag{14}
+$
+
+这里 $\lambda_{\mathrm{MSE}}$ 是对原文 $\lambda$ 的语义化下标标注，不改变其含义。为使 PHYSC token 与传播相关场景块特征对齐，定义对比损失：
+
+$
+\mathcal L_{\mathrm{con}}=
+-\frac1N\sum_{i=1}^{N}
+\log\frac{
+\exp(\mathbf z_i^{\mathrm{physc}}\cdot
+\mathbf z_i^{\mathrm{scn}}/\tau)}
+{\displaystyle\sum_{j=1}^{N}
+w_{ij}\exp(\mathbf z_i^{\mathrm{physc}}\cdot
+\mathbf z_j^{\mathrm{scn}}/\tau)}.\tag{15}
+$
+
+其中 $\tau$ 是对比温度，$w_{ij}\in(0,1]$ 降低位置接近链路作为负样本的权重，以免惩罚实际拥有相似传播几何的样本。
+
+合并各预训练项目，得完整目标
+
+$
+\mathcal L_{\mathrm{pre}}=
+\lambda_{\mathrm{ch}}\mathcal L_{\mathrm{ch}}+
+\lambda_{\mathrm{scn}}\mathcal L_{\mathrm{scn}}+
+\lambda_{\mathrm{loc}}\mathcal L_{\mathrm{loc}}+
+\lambda_{\mathrm{spec}}
+(\mathcal L_{\mathrm{tx}}+\mathcal L_{\mathrm{rx}})+
+\lambda_{\mathrm{con}}\mathcal L_{\mathrm{con}}.\tag{16}
+$
+
+以上重建模块只用于第一阶段基础模型的自监督预训练，预训练完成后舍弃；第二阶段使用冻结的 PHYSC 条件表征训练场景后验扩散模型。
+
 ## 待校对的附录与参考文献
 
 原文附录 A–N 包括阵列模型、逆问题歧义的数学描述、PHOENIX 架构与预训练损失、扩散实现细节、共识理论证明和更多实验配置。**这些附录的长证明、全部参考文献、表 1–2 的非均值统计及更多图表尚未完整转写；因此本页面不应被标记为全文完成。**
