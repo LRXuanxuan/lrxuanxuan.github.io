@@ -84,6 +84,23 @@ $$
 
 这里 $M,N$ 分别是子载波数与时隙数。多普勒可以分解为超范围部分 $\phi_i$、范围内部分 $\check{k}_i$ 以及 $\psi_i$ 部分。由于 $\psi_i$ 对应信号带宽的整数倍，在采样频率 $f_s=M\Delta f$ 下不会影响接收信号，因而属于不可有效辨识部分。文中规定 $\psi_i\in\mathbb Z$、$\phi_i\in\{-M+1,\ldots,M-1\}$、$-N/2\leq\check{k}_i<N/2$，并有 $l_i\leq M-1$。$l_i$ 和 $\check{k}_i$ 均不要求为整数。
 
+**补入式（5）：** 对带通采样频率 $f_s=M\Delta f$，第 $q$ 个采样点的接收信号为
+
+$
+\begin{aligned}
+r[q]
+={}&\sum_{i=1}^{P}h_i
+s\!\left(\frac{T}{M}(q-l_i)\right)
+e^{j2\pi(q-l_i)(\psi_i+\phi_i/M+\check{k}_i/(NM))}\\
+={}&\sum_{i=1}^{P}h_i
+s\!\left(\frac{T}{M}(q-l_i)\right)
+e^{j2\pi q(\psi_i+\phi_i/M+\check{k}_i/(NM))}
+e^{-j2\pi l_i(\psi_i+\phi_i/M+\check{k}_i/(NM))}.
+\end{aligned}\tag{5}
+$
+
+这里 $q=0,\ldots,NM-1$。因为 $\psi_i$ 是整数，$\exp(j2\pi q\psi_i)=1$，因此可以从采样信号的时变相位中消去该整数带宽偏移项。
+
 **图 1：** DD 域超范围多普勒信道示意。真实多普勒域可看成范围内部分和多个超范围带的组合。采用带通采样 $f_s=M\Delta f$ 后，式（5）给出离散接收信号；$q=0,1,\ldots,NM-1$ 表示采样时刻。
 
 ### B. 超范围多普勒信道的 TF 域信号
@@ -98,9 +115,56 @@ $$
 \boldsymbol\Pi^{\phi_i}\mathbf Y_{\mathrm{TF,in}}. \tag{6}
 $$
 
-其中 $\boldsymbol\Pi\in\{0,1\}^{M\times M}$ 是循环置换矩阵，具体定义参见原文式（7）；命题证明见附录 A。
+其中 $\boldsymbol\Pi\in\{0,1\}^{M\times M}$ 为下式循环置换矩阵：
 
-根据式（6），OD 信道的 TF 域接收信号可视为沿频率索引循环移位后的信号叠加，并附带额外相位项。**图 2** 给出了带通 OTFS 系统及该循环移位。令 $Y_{\mathrm{OD}}[n,m]$ 和 $Y_{\mathrm{in}}[n,m]$ 分别表示相应矩阵的第 $n$ 行、第 $m$ 列元素。基于文献 [8] 的交叉模糊函数 $A_{g_{\mathrm{rx}},g_{\mathrm{tx}}}(t,f)$，可建立式（8）、（9）的具体输入—输出关系。采用理想成形脉冲时，可化简为
+$
+\boldsymbol\Pi=\begin{bmatrix}
+0&0&\cdots&1\\
+1&0&\cdots&0\\
+0&1&\ddots&\vdots\\
+\vdots&\ddots&\ddots&0\\
+0&\cdots&1&0
+\end{bmatrix}.\tag{7}
+$
+
+命题证明见附录 A。
+
+根据式（6），OD 信道的 TF 域接收信号可视为沿频率索引循环移位后的信号叠加，并附带额外相位项。**图 2** 给出了带通 OTFS 系统及该循环移位。令 $Y_{\mathrm{OD}}[n,m]$ 和 $Y_{\mathrm{in}}[n,m]$ 分别表示相应矩阵的第 $n$ 行、第 $m$ 列元素。基于文献 [8] 的交叉模糊函数 $A_{g_{\mathrm{rx}},g_{\mathrm{tx}}}(t,f)$，范围内信道的 TF 域关系为
+
+$
+\begin{aligned}
+Y_{\mathrm{in}}[n,m]
+={}&\sum_{i=1}^{P}h_i
+\sum_{n'=0}^{N-1}\sum_{m'=0}^{M-1}
+X[n',m']\,
+A_{g_{\mathrm{rx}},g_{\mathrm{tx}}}
+\left((n-n')T-\tau_i,
+(m-m')\Delta f-\nu_{i,\mathrm{in}}\right)\\
+&\times e^{j2\pi(\nu_{i,\mathrm{in}}+m'\Delta f)
+((n-n')T-\tau_i)}
+e^{j2\pi\nu_{i,\mathrm{in}}n'T}.
+\end{aligned}\tag{8}
+$
+
+其中 $\nu_{i,\mathrm{in}}=\check{k}_i/(NT)$。利用命题 1，超范围信道接收信号对应的原文式（9）为
+
+$
+\begin{aligned}
+Y_{\mathrm{OD}}[n,m]
+={}&\sum_{i=1}^{P}h_i
+e^{-j2\pi l_i\phi_i/M}e^{j2\pi n\phi_i}
+\sum_{n'=0}^{N-1}\sum_{m'=0}^{M-1}
+X[n',m']\\
+&\times A_{g_{\mathrm{rx}},g_{\mathrm{tx}}}
+\left((n-n')T-\tau_i,
+([m-\phi_i]_M-m')\Delta f-\nu_{i,\mathrm{in}}\right)\\
+&\times e^{j2\pi(\nu_{i,\mathrm{in}}+m'\Delta f)
+((n-n')T-\tau_i)}
+e^{j2\pi\nu_{i,\mathrm{in}}n'T}.
+\end{aligned}\tag{9}
+$
+
+与式（8）比较，式（9）在每条传播路径上引入相位因子及频率索引的模 $M$ 循环移位。采用理想成形脉冲时，可化简为
 
 $$
 Y_{\mathrm{OD}}[n,m]=\sum_{i=1}^{P}\widetilde h_i
@@ -142,7 +206,17 @@ $$
 =\mathbf H_{\mathrm{OD}}\operatorname{vec}(\mathbf X_{\mathrm{DD}}). \tag{14}
 $$
 
-其中 $\mathbf H_{\mathrm{OD}}\in\mathbb C^{MN\times MN}$ 为 OD 信道矩阵。其元素关系在原文式（15）中给出。
+其中 $\mathbf H_{\mathrm{OD}}\in\mathbb C^{MN\times MN}$ 为 OD 信道矩阵。其元素关系为
+
+$
+H_{\mathrm{OD}}(i,j)=
+h_{w,\mathrm{OD}}
+\left(\left\lfloor\frac{i}{M}\right\rfloor,
+\left\lfloor\frac{j}{M}\right\rfloor,
+[i]_M,[j]_M\right).\tag{15}
+$
+
+其中 $\lfloor\cdot\rfloor$ 为向下取整，$[\cdot]_M$ 表示模 $M$ 运算。
 
 已有估计方法 [12]、[17]、[27] 一般只恢复 $h_i,\check{k}_i,l_i$，忽略 OD 参数及额外相位项。更重要的是，额外相位使具有分数参数的采样点表现出不连续性，破坏估计结果的稀疏结构，故直接套用现有方法不再适用。为解决这一问题，可利用互素跨帧结构，让同一条 OD 路径在不同子帧的响应位置有所差异，据此估计并补偿超范围多普勒及额外相位。
 
