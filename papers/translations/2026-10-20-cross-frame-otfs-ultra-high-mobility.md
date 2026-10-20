@@ -14,7 +14,7 @@ toc: true
 **原题：** Channel Estimation in Cross-Frame OTFS System With Ultra-High Mobility  
 **作者：** Zhenyu Zhang、Qianli Wang、Gang Liu、Pingzhi Fan、FeiFei Gao  
 **来源：** IEEE Transactions on Wireless Communications，2026，DOI: 10.1109/TWC.2026.3668101。  
-**翻译进度：** 已覆盖摘要、正文 I–VI、主要公式、算法 1、图 1–8、表 I–V 的说明及附录 A–B 的核心推导；部分长公式、完整表格及参考文献作者简介仍待逐页逐项终校，尚未通过完整全文 QA。
+**翻译进度：** 已覆盖摘要、正文 I–VI、公式（1）–（53）的主要定义与推导、算法 1、图 1–8、表 I–V、参考文献 [1]–[31] 及五位作者简介；一般脉冲公式与部分附录公式已按排版稿补译，尚未完成逐句逐式独立终校，未通过完整全文 QA。
 
 ## 摘要
 
@@ -518,8 +518,193 @@ $$
 
 这就证明了正文命题 2。
 
-## 尚待逐页核验的内容
+## 补译：原文公式（13）、（41）、（50）与复杂度和带宽表
 
-本次已补充 IV 节的六步算法、复杂度分析、V 节全部仿真结论、VI 节结论以及附录 A–B 主要推导。仍须按原版逐项核对：一般脉冲下的长采样函数（13）、附录的长矩阵式（41）与路径中间表达式（50）、表 III 与 V 的全部数值、参考文献 [1]–[31] 的完整书目及作者简介。**上述缺项完成前，此页面不计为全文已验收。**
+### 一般脉冲的 DD 域采样函数：式（13）
+
+原文式（13）并不采用理想脉冲近似，而是从发送与接收脉冲的互模糊函数出发，分别写出符号内及跨时隙项。按照原版第 12887 页底部公式逐项校对，其表达为
+
+$
+\begin{aligned}
+&w(k-k'-k_i,l-l'-l_i)\\
+={}&\frac1{NM}\sum_{n=0}^{N-1}\sum_{m=0}^{M-1}
+\sum_{\substack{m'=0\\m'\ne m}}^{M-1}
+A_{g_{\rm rx},g_{\rm tx}}
+\left(-\frac{l_i}{M\Delta f},(m-m')\Delta f-\frac{k_i}{NT}\right)\\
+&\qquad\times
+e^{-j2\pi n(k-k'-k_i)/N}
+e^{-j2\pi(ml-m'l'-m'l_i)/M}\\
+&+\frac{e^{-j2\pi k'/N}}{NM}
+\sum_{n=0}^{N-1}\sum_{m=0}^{M-1}
+\sum_{m'=0}^{M-1}
+A_{g_{\rm rx},g_{\rm tx}}
+\left(T-\frac{l_i}{M\Delta f},(m-m')\Delta f-\frac{k_i}{NT}\right)\\
+&\qquad\times
+e^{-j2\pi n(k-k'-k_i)/N}
+e^{-j2\pi(ml-m'l'-m'l_i)/M}.
+\end{aligned}\tag{13}
+$
+
+其中 $A_{g_{\rm rx},g_{\rm tx}}$ 表示接收脉冲和发送脉冲的互模糊函数；$k,k'$ 为多普勒域网格坐标，$l,l'$ 为时延域网格坐标，$k_i,l_i$ 为路径归一化参数。第一项的 $m'$ 求和有 $m'\ne m$ 的排除约束，而第二项没有。保留这些限制对于一般脉冲模型非常重要。
+
+### 命题 1 证明中的中间变换：式（41）
+
+依据式（40），把范围内接收信号向量写成 $\mathbf v_{i,n}=[g_{\rm rx}(mT/M)r_{i,\rm in}[nM+m]]_{m=0}^{M-1}$。原文式（41）先将各元素的 $e^{j2\pi(nM+m)\phi_i/M}$ 分解为共同相位和逐样点的对角矩阵，再通过 DFT 的循环移位性质化简，其四段逐级等式可以紧凑地保持为
+
+$
+\begin{aligned}
+\mathbf y_{i,n}
+&=\mathbf F_M\left[
+g_{\rm rx}\left(\frac{mT}{M}\right)
+r_{i,\rm in}[nM+m]\,
+e^{j2\pi(nM+m)\phi_i/M}e^{-j2\pi l_i\phi_i/M}
+\right]_{m=0}^{M-1}\\
+&=e^{-j2\pi l_i\phi_i/M}\mathbf F_M
+\left[e^{j2\pi m\phi_i/M}
+g_{\rm rx}\left(\frac{mT}{M}\right)
+r_{i,\rm in}[nM+m]\right]_{m=0}^{M-1}\\
+&=e^{-j2\pi l_i\phi_i/M}\mathbf F_M\mathbf E_i\mathbf v_{i,n}\\
+&=e^{-j2\pi l_i\phi_i/M}
+\mathbf\Pi^{\phi_i}\mathbf F_M\mathbf v_{i,n}.
+\end{aligned}\tag{41}
+$
+
+上式中 $e^{j2\pi n\phi_i}=1$，因为 $n,\phi_i$ 都是整数。式（41）直接得到正文命题 1 所述的频率轴循环移位和额外相位。
+
+### 命题 2 证明中的单径分量：式（50）
+
+把范围内 DD 域响应的第 $i$ 条路径单独提出，可得到
+
+$
+y'_{i,\mathrm{in}}[k,l]=
+h_ie^{-j2\pi l_i\check k_i/(NM)}
+\sum_{k'=0}^{N-1}\sum_{l'=0}^{M-1}
+x[k',l']w(k-k'-\check k_i,l-l'-l_i).\tag{50}
+$
+
+原文式（51）随即对这些单径贡献施加 OD 相位，再把路径求和合并为新的 DD 域输入输出模型。
+
+### 表 III：不同离网方法的计算复杂度
+
+| 方法 | 复杂度 |
+|---|---|
+| 文献 [27] 的组合估计方法 | $O(N_0M_0^2M)$ |
+| 文献 [17] 的二维离网估计方法 | $O(N_0^2NM_0^2M)$ |
+| 所提跨帧分层方法 | $O(\Phi N_0M_0^2M)$，$\Phi\in[1,M]$ |
+
+这里 $N_0$、$M_0$ 表示复杂度比较中采用的虚拟离网维度，$\Phi$ 是分层个数。原文表 III 的这些符号与正文复杂度段落使用的 $N'$、$M'$ 记号并不完全一致，按原始表格保留，勿误解为实际时隙数。
+
+### 表 IV：仿真基本配置
+
+| 参数 | Frame 0 | Subframe 1 | Subframe 2 |
+|---|---:|---:|---:|
+| 载频 | 48.20 GHz | 48.20 GHz | 48.20 GHz |
+| 带宽 | 3.48 MHz | 3.48 MHz | 3.48 MHz |
+| 时隙数 | 60 | 30 | 29 |
+| 子载波数 | 58 | 58 | 60 |
+| 子载波间隔 | 60 kHz | 60 kHz | 58 kHz |
+| 帧时长 | 1 ms | 0.5 ms | 0.5 ms |
+| 距离分辨率 | 86 m | 86 m | 86 m |
+| 速度分辨率 | 11.2 km/h | 22.4 km/h | 22.4 km/h |
+| 可容忍速度 | ±674 km/h | ±674 km/h | ±652 km/h |
+
+跨帧组合的最大无模糊速度由两子帧的互素关系扩大到约 ±19500 km/h（原文表 IV 的合并配置）。
+
+### 表 V：不同带宽对应的子载波数
+
+| 带宽（MHz） | Frame 0 | Subframe 1 | Subframe 2 |
+|---:|---:|---:|---:|
+| 3.48 | 60 | 60 | 58 |
+| 10.44 | 180 | 180 | 174 |
+| 17.4 | 300 | 300 | 290 |
+| 24.36 | 420 | 420 | 406 |
+| 31.32 | 540 | 540 | 522 |
+| 38.28 | 660 | 660 | 638 |
+| 45.24 | 780 | 780 | 754 |
+| 52.2 | 900 | 900 | 870 |
+
+**原文数据不一致提示：** 同是 3.48 MHz，原文表 IV 把 Frame 0、Subframe 1、Subframe 2 的子载波数列成 58、58、60；表 V 则写成 60、60、58。上述两表按各自 PDF 原文分别转录，未自行校正；复现实验时应回查作者配置文件或向作者确认。
+
+## 参考文献
+
+以下逐项依据原文第 12894–12895 页，译出论文题名并保留作者、来源和页码。原始英文题名与更完整的索引信息以 IEEE 论文尾部书目为准。
+
+[1] R. Liu、H. Lin、H. Lee、F. Chaves、H. Lim、J. Sköld：《迈向 6G 的旅程之始：愿景与框架》，IEEE Communications Magazine，61(10): 8–9，2023。
+
+[2] Z. Zhang 等：《6G 无线网络：愿景、需求、架构与关键技术》，IEEE Vehicular Technology Magazine，14(3): 28–41，2019。
+
+[3] Y. Su、Y. Liu、Y. Zhou、J. Yuan、H. Cao、J. Shi：《宽带低地轨道卫星通信：体系结构与关键技术》，IEEE Wireless Communications，26(2): 55–61，2019。
+
+[4] R. He 等：《面向铁路的 5G：下一代铁路专用通信》，IEEE Communications Magazine，60(12): 130–136，2022。
+
+[5] T. Mao、L. Zhang、Z. Xiao、Z. Han、X.-G. Xia：《太赫兹频段临近空间通信：物理层视角》，IEEE Communications Magazine，62(2): 110–116，2024。
+
+[6] A. Saeed、O. Gurbuz、A. O. Bicen、M. A. Akkas：《太赫兹频段空中通信的可变带宽模型与容量分析》，IEEE Journal on Selected Areas in Communications，39(6): 1768–1784，2021。
+
+[7] R. Hadani 等：《正交时频空调制》，IEEE WCNC，1–6，2017。
+
+[8] P. Raviteja、K. T. Phan、Y. Hong、E. Viterbo：《正交时频空调制的干扰消除与迭代检测》，IEEE Transactions on Wireless Communications，17(10): 6501–6515，2018。
+
+[9] P. Raviteja、Y. Hong、E. Viterbo、E. Biglieri：《适用于缩减循环前缀 OTFS 的实际脉冲成形波形》，IEEE Transactions on Vehicular Technology，68(1): 957–961，2019。
+
+[10] G. D. Surabhi、R. M. Augustine、A. Chockalingam：《双扩展信道中未编码 OTFS 调制的分集特性》，IEEE Transactions on Wireless Communications，18(6): 3049–3063，2019。
+
+[11] S. Li、J. Yuan、W. Yuan、Z. Wei、B. Bai、D. W. K. Ng：《高速移动信道中编码 OTFS 系统的性能分析》，IEEE Transactions on Wireless Communications，20(9): 6033–6048，2021。
+
+[12] P. Raviteja、K. T. Phan、Y. Hong：《时延–多普勒信道中 OTFS 的嵌入式导频辅助信道估计》，IEEE Transactions on Vehicular Technology，68(5): 4906–4917，2019。
+
+[13] Y. Liang、P. Fan、Q. Wang、X. He：《双扩展信道中多天线 OTFS 的二维时延–多普勒导频与信道估计》，IEEE Transactions on Wireless Communications，23(7): 7612–7623，2024。
+
+[14] W. Yuan、S. Li、Z. Wei、J. Yuan、D. W. K. Ng：《采用叠加导频与数据传输方案的 OTFS 数据辅助信道估计》，IEEE Wireless Communications Letters，10(9): 1954–1958，2021。
+
+[15] W. Shen、L. Dai、J. An、P. Fan、R. W. Heath：《面向 OTFS 大规模 MIMO 的信道估计》，IEEE Transactions on Signal Processing，67(16): 4204–4217，2019。
+
+[16] F. Liu、Z. Yuan、Q. Guo、Z. Wang、P. Sun：《利用消息传递结构化稀疏恢复估计含分数多普勒偏移的 OTFS 信道》，IEEE Transactions on Wireless Communications，20(12): 7773–7785，2021。
+
+[17] Z. Wei、W. Yuan、S. Li、J. Yuan、D. W. K. Ng：《基于稀疏贝叶斯学习的 OTFS 离网信道估计》，IEEE Transactions on Wireless Communications，21(9): 7407–7426，2022。
+
+[18] X. Li、P. Fan、Q. Wang、Z. Liu：《OTFS 系统中双分数信道估计的网格演化方法》，IEEE Transactions on Vehicular Technology，74(2): 3486–3490，2025。
+
+[19] 3GPP：《NR：基站无线发射与接收》，TS 38.204，2025 年 9 月。
+
+[20] C.-X. Wang、J. Huang、H. Wang、X. Gao、X. You、Y. Hao：《6G 无线信道测量与建模：趋势和挑战》，IEEE Vehicular Technology Magazine，15(4): 22–32，2020。
+
+[21] A. Liao 等：《天地空一体化网络中基于太赫兹超大规模 MIMO 的航空通信》，IEEE Journal on Selected Areas in Communications，39(6): 1741–1767，2021。
+
+[22] S. K. Mohammed、R. Hadani、A. Chockalingam、R. Calderbank：《OTFS：时延–多普勒域的可预测性及其对通信与雷达感知的价值》，IEEE BITS the Information Theory Magazine，3(2): 7–31，2023。
+
+[23] P. Raviteja、K. T. Phan、Y. Hong、E. Viterbo：《基于正交时频空调制的雷达系统》，IEEE Radar Conference，1–6，2019。
+
+[24] Y. Hong、T. Thaj、E. Viterbo：《时延–多普勒通信》，Academic Press，纽约，2022。
+
+[25] F. Hlawatsch、M. Gerald：《快速时变信道中的无线通信》，Elsevier，阿姆斯特丹，2011。
+
+[26] Z. Zhang、Q. Wang、G. Liu、F. Gao、P. Fan：《基于中国剩余定理的跨帧 OTFS 参数估计》，IEEE Transactions on Wireless Communications，25: 2514–2527，原文书目记 2025。
+
+[27] Q. Wang、Y. Liang、Z. Zhang、P. Fan：《用于 OTFS 信道估计的二维离网分解与 SBL 组合方法》，IEEE Transactions on Wireless Communications，22(5): 3084–3098，2023。
+
+[28] J. W. Follin、F. C. Paddison、A. L. Maffett：《雷达散射截面闪烁统计》，Electromagnetics，4(2–3): 139–164，1984。
+
+[29] Y. Shan、F. Wang、Y. Hao、J. Yuan、J. Hua、Y. Xin：《采用网格演化的 OTFS 离网信道估计》，IEEE Transactions on Wireless Communications，23(8): 9549–9565，2024。
+
+[30] Q. Wang、P. Fan：《面向基于 OTFS 的通感一体化系统的多符号压缩感知模型》，IEEE GLOBECOM，2487–2492，2023。
+
+[31] S. Li、W. Yuan、Z. Wei、J. Yuan：《正交时频空调制的跨域迭代检测》，IEEE Transactions on Wireless Communications，21(4): 2227–2242，2022。
+
+## 作者简介
+
+**Zhenyu Zhang：** 2022 年获西南交通大学信息与通信工程硕士学位，目前在该校攻读博士学位；研究方向为高速移动无线通信与通感一体化。
+
+**Qianli Wang：** 2016 年和 2020 年分别获电子科技大学电子与通信工程硕士学位、信号与信息处理博士学位，现为西南交通大学副教授；研究方向包括估计理论、压缩感知、阵列信号处理、雷达传感器网络及高速移动无线通信。
+
+**Gang Liu：** 2010 年获四川大学电子信息工程学士学位，2015 年获北京邮电大学通信与信息系统博士学位，现为西南交通大学副教授、博士生导师。2013–2014 年曾在英属哥伦比亚大学和卡尔顿大学访问研究。研究方向包括下一代蜂窝网络、通感一体化、车联网和铁路无线通信。发表期刊与会议技术论文 60 余篇，获 2020 年卫星导航定位科学技术奖二等奖、2015 年北京邮电大学优秀博士论文奖、IEEE ICC 2014 最佳论文奖等奖项，曾担任相关 IEEE 会议组织者与期刊/会议审稿人。
+
+**Pingzhi Fan：** 1987 年获西南交通大学计算机科学硕士学位，1994 年获英国赫尔大学电子工程博士学位，现任西南交通大学杰出教授。曾任利兹大学访问教授、西南交大–利兹联合学院荣誉院长等；研究方向包括高速移动无线通信、多址接入、通感一体化、信号设计及编码。获 2018 年 IEEE VTS Jack Neubauer Memorial Award 等多项奖项，曾组织多场 IEEE 国际学术会议。
+
+**FeiFei Gao：** 2002 年获西安交通大学工学学士学位，2004 年获加拿大麦克马斯特大学硕士学位，2007 年获新加坡国立大学博士学位。2011 年加入清华大学自动化系，现任长聘教授；主要研究通信信号处理、阵列处理、凸优化及人工智能辅助通信。曾担任多场 IEEE 国际会议组织者及多本 IEEE 期刊编辑。
+
+## 全文校对说明
+
+本轮已对照原版补译一般脉冲下的采样函数（13）、附录长矩阵中间式（41）、单径表达式（50）、表 III–V、参考文献 [1]–[31] 及全部五位作者的简介，并保留原文表 IV 与表 V 之间的子载波数冲突。**由于尚未完成对正文全部长公式、全部图表数值及逐句的独立终校，仍不把本页计为通过完整全文 QA。**
 
 {% endraw %}
