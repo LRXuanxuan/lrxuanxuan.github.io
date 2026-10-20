@@ -1,5 +1,88 @@
 [
   {
+    "date": "2026-10-20",
+    "slug": "2026-10-20-cross-frame-otfs-ultra-high-mobility",
+    "title": "跨帧 OTFS 超高速移动信道估计｜中文逐节译稿（未通过全文 QA）",
+    "url": "/papers/translations/2026-10-20-cross-frame-otfs-ultra-high-mobility/",
+    "source_file": "2026-10-20-cross-frame-otfs-ultra-high-mobility.md",
+    "scope": "正文 I–VI、主要公式、算法 1、图表说明及附录主要推导已译；若干长公式、完整表格、参考文献与作者简介待核，未通过全文验收",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-20-cross-frame-otfs-ultra-high-mobility.md",
+    "source_page_path": "papers/translations/2026-10-20-cross-frame-otfs-ultra-high-mobility.md",
+    "paper_ids": [],
+    "source_arxiv_ids": [],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": false
+  },
+  {
+    "date": "2026-10-20",
+    "slug": "2026-10-20-spatial-pilot-reuse-joint-channel-localization-2501-02252",
+    "title": "散射环境感知的空间复用导频联合信道估计与定位｜中文译稿（未通过全文 QA）",
+    "url": "/papers/translations/2026-10-20-spatial-pilot-reuse-joint-channel-localization-2501-02252/",
+    "source_file": "2026-10-20-spatial-pilot-reuse-joint-channel-localization-2501-02252.md",
+    "scope": "摘要、正文 I–VII 主要内容、系统模型与算法机制已译；完整消息更新、实验图表、附录和参考文献仍待逐式验收",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-20-spatial-pilot-reuse-joint-channel-localization-2501-02252.md",
+    "source_page_path": "papers/translations/2026-10-20-spatial-pilot-reuse-joint-channel-localization-2501-02252.md",
+    "paper_ids": [],
+    "source_arxiv_ids": [
+      "2501.02252"
+    ],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": false
+  },
+  {
+    "date": "2026-10-20",
+    "slug": "2026-10-20-wireless-scene-reconstruction-2610-22120",
+    "title": "PHOENIX：物理表征与扩散后验无线场景重建｜中文译稿（未通过全文 QA）",
+    "url": "/papers/translations/2026-10-20-wireless-scene-reconstruction-2610-22120/",
+    "source_file": "2026-10-20-wireless-scene-reconstruction-2610-22120.md",
+    "scope": "摘要、正文 1–5、核心公式与主要实验结果已译；附录 A–N 与参考文献待完整翻译和校对",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-20-wireless-scene-reconstruction-2610-22120.md",
+    "source_page_path": "papers/translations/2026-10-20-wireless-scene-reconstruction-2610-22120.md",
+    "paper_ids": [],
+    "source_arxiv_ids": [
+      "2610.22120"
+    ],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": false
+  },
+  {
+    "date": "2026-10-20",
+    "slug": "2026-10-20-factordps-radio-map-2610-15980",
+    "title": "FactorDPS 无线电地图张量补全｜中文译稿（未通过全文 QA）",
+    "url": "/papers/translations/2026-10-20-factordps-radio-map-2610-15980/",
+    "source_file": "2026-10-20-factordps-radio-map-2610-15980.md",
+    "scope": "摘要、正文 I–VI 主要内容与模型、方法、理论和实验说明已译；复杂公式、全部图表、附录和参考文献待完整校核",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-20-factordps-radio-map-2610-15980.md",
+    "source_page_path": "papers/translations/2026-10-20-factordps-radio-map-2610-15980.md",
+    "paper_ids": [],
+    "source_arxiv_ids": [
+      "2610.15980"
+    ],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": false
+  },
+  {
+    "date": "2026-10-20",
+    "slug": "2026-10-20-conditional-mean-flows-2610-21657",
+    "title": "条件平均流：面向仿真推断的少步密度估计｜中文译稿（未通过全文 QA）",
+    "url": "/papers/translations/2026-10-20-conditional-mean-flows-2610-21657/",
+    "source_file": "2026-10-20-conditional-mean-flows-2610-21657.md",
+    "scope": "摘要、正文 1–5、主要公式、命题和实验论述已译；附录 A–E 和参考文献待完整翻译和校对",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-20-conditional-mean-flows-2610-21657.md",
+    "source_page_path": "papers/translations/2026-10-20-conditional-mean-flows-2610-21657.md",
+    "paper_ids": [],
+    "source_arxiv_ids": [
+      "2610.21657"
+    ],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": false
+  },
+  {
     "date": "2026-10-19",
     "slug": "2026-10-19-channel-charting-cotraining-tcomm2026",
     "title": "共训练信道图半监督定位算法｜中文逐节译稿（校对中）",
