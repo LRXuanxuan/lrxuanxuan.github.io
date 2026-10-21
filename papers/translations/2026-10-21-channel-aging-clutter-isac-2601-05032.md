@@ -29,6 +29,8 @@ toc: true
 
 **关键词：** 信道老化；杂波；ISAC；OFDM 雷达。
 
+**原文首页脚注（资助与作者单位）：** 研究受到瑞典战略研究基金会（Swedish Foundation for Strategic Research）的 SUCCESS 项目 FUS21-0026 支持；Gabor Fodor 还获得 SSF SAICOM 项目 FUS21-0004 资助。作者均来自瑞典皇家理工学院电气工程与计算机科学学院（EECS）；第一作者开展本研究期间在瑞典斯德哥尔摩 Ericsson Research 实习，Gabor Fodor 同时任职于 Ericsson Research。
+
 **资助与机构（原文首页脚注）：** 研究获瑞典战略研究基金会（Swedish Foundation for Strategic Research）SUCCESS 项目（FUS21-0026）支持；Gabor Fodor 获 SSF SAICOM 项目（FUS21-0004）支持。全部作者任职于瑞典皇家理工学院（KTH）电气工程与计算机科学学院（EECS）。第一作者在爱立信研究院（Ericsson Research）实习期间完成部分工作；Gabor Fodor 同时任职于爱立信研究院。
 
 ## I. 引言
