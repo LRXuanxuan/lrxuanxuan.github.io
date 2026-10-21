@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "信道老化与多普勒杂波对 OFDM ISAC 系统的影响｜中文译稿（翻译中）"
+title: "信道老化与多普勒杂波对 OFDM ISAC 系统的影响｜中文全篇译稿（待终校）"
 permalink: /papers/translations/2026-10-21-channel-aging-clutter-isac-2601-05032/
 math: true
 toc: true
@@ -28,6 +28,8 @@ toc: true
 进一步引入可控的不可分离程度，分析该流程对不可分离杂波的鲁棒性。结果突出了专用感知数据流的优势，表明所提杂波估计与抑制方法可承受中等程度的不可分离性。
 
 **关键词：** 信道老化；杂波；ISAC；OFDM 雷达。
+
+**资助与机构（原文首页脚注）：** 研究获瑞典战略研究基金会（Swedish Foundation for Strategic Research）SUCCESS 项目（FUS21-0026）支持；Gabor Fodor 获 SSF SAICOM 项目（FUS21-0004）支持。全部作者任职于瑞典皇家理工学院（KTH）电气工程与计算机科学学院（EECS）。第一作者在爱立信研究院（Ericsson Research）实习期间完成部分工作；Gabor Fodor 同时任职于爱立信研究院。
 
 ## I. 引言
 
@@ -180,7 +182,7 @@ $$
 
 其中 $\boldsymbol\mu_{i,v}=\mathbf G_{i,v}\mathbf s_{i,v}$ 是既无噪声也无杂波的回波。雷达接收机噪声 $\mathbf n_{i,v}^{r}$ 的元素也独立同分布，为零均值复高斯噪声。
 
-## III. 信道老化与杂波的影响刻画（已译部分）
+## III. 信道老化与杂波的影响刻画
 
 这一节刻画通信信道与观测杂波的协方差。受 3GPP 标准化簇延迟线（cluster delay-line）信道 [30] 启发，$\mathbf h_i$ 的空间协方差采用非各向同性多径模型，即由多个簇叠加形成，每个簇发出多条角度扩展较小的射线。
 
