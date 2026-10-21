@@ -208,6 +208,168 @@ f_{\rm BS}(\psi)=\frac{1}{N_{\rm UE}}
 {2\varsigma_{\rm UE}^{2}}\right]. \tag{11}
 $$
 
-这里 $\psi_{{\rm BS},n}$ 是 BS 视角下第 $n$ 个通信簇的角度；簇以角扩展 $\varsigma_{\rm UE}$ 反射入射信号。此处仅列出角扩展的基本模型，式（12）以后的推导、时域相关函数、杂波协方差因子及后续算法尚待补译。
+这里 $\psi_{{\rm BS},n}$ 是 BS 视角下第 $n$ 个通信簇的角度；簇以角扩展 $\varsigma_{\rm UE}$ 反射入射信号。全部通信簇从 BS 观察时位于相应的角度区间 $\Delta\psi_{\rm BS,k}$ 内。每个簇以角扩展 $\varsigma_{\rm UE}$ 反射入射信号。在小角扩展假设下，$\cos(\varsigma_{\rm UE})\approx1$ 且 $\sin(\varsigma_{\rm UE})\approx\varsigma_{\rm UE}$，$\mathbf C_{\rm BS}$ 的各元素可由 [39, 引理 2] 紧密近似为：
+
+$
+[\mathbf C_{\rm BS}]_{l,m}\approx
+\frac1{N_{\rm UE}}\sum_{n=1}^{N_{\rm UE}}
+A_{l,m}(\psi_{{\rm BS},n})
+\exp\!\left[-\frac{\pi^2}{2}
+((l-m)\cos\psi_{{\rm BS},n}\,\varsigma_{\rm UE})^2\right], \tag{12}
+$
+
+其中 $l,m=1,\ldots,M_{\rm BS}$，
+$A_{l,m}(\psi)=\exp[-j\pi(l-m)\sin\psi]$。信道随时间的演化建模为一阶 AR 过程，状态转移矩阵取标量乘单位矩阵。控制相关衰减的尺度因子设为
+$\zeta(i)=J_0(2\pi T f_D^{\rm UE}i)$，其中 $f_D^{\rm UE}$ 是 UE 多普勒频移，$J_0(\cdot)$ 是零阶第一类贝塞尔函数 [40]。使用多普勒决定时间相关衰减，是因为多普勒直接影响信道相干时间。后文分别使用 $\psi_{{\rm UE},n}$ 与 $\Delta\psi_{\rm UE}$ 表示从 UE 观察的第 $n$ 个通信簇角度及所有簇所占的角度范围。
+
+### B. 杂波特征刻画
+
+杂波来自少量强散射块，产生具有较窄角度／多普勒主瓣的反射回波（见图 3）。在此假设下，杂波协方差矩阵可近似分离为三个因子的 Kronecker 积：
+
+$
+\mathbb E[\mathbf c\mathbf c^H]
+=\delta_{\rm cl}^2\mathbf B
+\approx
+\sqrt[3]{\delta_{\rm cl}^2}\mathbf B_{\rm sp}
+\otimes
+\sqrt[3]{\delta_{\rm cl}^2}\mathbf B_t
+\otimes
+\sqrt[3]{\delta_{\rm cl}^2}\mathbf B_f. \tag{13}
+$
+
+雷达文献将其称为 Kronecker 可分离杂波模型 [23]、[41]、[42]。这里的可分离结构是一种近似，目的在于实现计算高效的处理。一种适用情景是“街道峡谷”，即两侧排列建筑的大型城市街道；杂波主要由建筑立面等扩展的近似平面产生，回波集中于相对局部的角度区间，多普勒与时延之间耦合较弱。文献 [43]、[44] 的两种实验装置也展示了杂波中可由散射块描述的主导成分。这里 $\mathbf B_{\rm sp},\mathbf B_t,\mathbf B_f$ 分别描述杂波角度、多普勒及距离分布。模型的重要优势，是白化、特征分解、矩阵求逆等操作可分别沿每个维度执行。
+
+**空间杂波协方差。** $\mathbf B_{\rm sp}$ 与式（12）的通信侧空间协方差采用相同数学模型。设杂波块角扩展为 $\varsigma_{\rm sp}$，同样利用小角度近似，得到：
+
+$
+[\mathbf B_{\rm sp}]_{l,m}\approx\frac1N\sum_{n=1}^{N}
+A_{l,m}(\psi_n)
+\exp\!\left[-\frac12
+(\pi(l-m)\cos\psi_n\,\varsigma_{\rm sp})^2\right]. \tag{14}
+$
+
+其中 $l,m=1,\ldots,M_{\rm BS}$，且 $A_{l,m}(\psi_n)=e^{-j\pi(l-m)\sin\psi_n}$。
+
+**时间杂波协方差。** 时间协方差在雷达分析中的作用不同于通信信道。矩阵 $\mathbf B_t$ 描述杂波多普勒特征，使之与目标多普勒区分。因此，它可像空间协方差一样，利用功率谱密度的反傅里叶变换构造：
+
+$
+\mathbf B_t=\int_{-\infty}^{+\infty}
+g(f)\mathbf b(f)\mathbf b(f)^H\,df. \tag{15}
+$
+
+$\mathbf b(f)=[1,e^{-j2\pi fT},\ldots,e^{-j2\pi fT(I-1)}]^\top\in\mathbb C^I$
+是多普勒导向矢量，$g(f)$ 是指示各频率增益的功率谱密度。假设不同杂波块近似独立，该谱建模为多个高斯分量的叠加：
+
+$
+g(f)=\frac1N\sum_{n=1}^{N}
+\frac1{\sqrt{2\pi}\varsigma_D}
+\exp\!\left[-\frac{(f-f_{D,n})^2}{2\varsigma_D^2}\right]. \tag{16}
+$
+
+其中 $f_{D,n}$ 是第 $n$ 个杂波块的多普勒频移，$\varsigma_D^2$ 是多普勒扩展方差。进一步令 $\varsigma_D=1/(2\pi T I_c)$，其中 $I_c$ 表示杂波时间相关性大于零时所持续的 OFDM 符号数量。
+
+**引理 1：** 在杂波块近似独立的假设下：
+
+$
+[\mathbf B_t]_{l,m}
+=\frac1N\sum_{n=1}^{N}D_{l,m}(f_{D,n})
+\exp\!\left[-\frac{(l-m)^2}{2I_c^2}\right], \tag{17}
+$
+
+其中 $l,m=1,\ldots,I$，
+$D_{l,m}(f_{D,n})=\exp[-j2\pi f_{D,n}T(l-m)]$。
+
+**证明：** 将式（16）代入式（15），得到 $N$ 个高斯谱与复指数乘积的积分。对指数项配方，将与积分变量 $f$ 无关的因子提出，得到式（18）所述分解：
+
+$
+\begin{aligned}
+[\mathbf B_t]_{l,m}
+={}&\frac1N\sum_{n=1}^{N}
+e^{-j2\pi f_{D,n}T(l-m)}
+e^{-2(\pi T(l-m)\varsigma_D)^2}\\
+&\times\int_{-\infty}^{+\infty}
+\frac1{\sqrt{2\pi}\varsigma_D}
+\exp\!\left[
+-\frac{(f-f_{D,n}-j2\pi\varsigma_D^2T(l-m))^2}
+{2\varsigma_D^2}\right]\,df.
+\end{aligned}\tag{18}
+$
+
+最后的高斯积分等于 1，代入 $\varsigma_D=1/(2\pi T I_c)$ 即得式（17）。原文式（18）的积分指数在排版提取中存在易混淆字符，本式按平方配方法重排；终校应以 PDF 公式图像为准。
+
+**频率杂波协方差。** 频率协方差是功率—时延谱的傅里叶变换：
+
+$
+\mathbf B_f=\int_{-\infty}^{+\infty}
+h(\tau)\mathbf d(\tau)\mathbf d(\tau)^H\,d\tau, \tag{19}
+$
+
+其中
+$\mathbf d(\tau)=[1,e^{j2\pi\Delta f\tau},\ldots,
+e^{j2\pi\Delta f\tau(V-1)}]^\top\in\mathbb C^V$
+是时延导向矢量；$h(\tau)$ 为功率时延轮廓。
+
+与点目标不同，杂波块是由多个散射体构成的扩展表面，其漫反射破坏了每个散射块在距离维度上的完全相干性，回波还受到多径影响。因此，除与前述相似的离散项外，$h(\tau)$ 还包含表征多径与漫反射的额外部分 $\widetilde h(\tau)$：
+
+$
+h(\tau)=\frac1N\sum_{n=1}^{N}
+\frac1{\sqrt{2\pi}\varsigma_\tau}
+\exp\!\left[-\frac{(\tau-\widetilde\tau_n)^2}
+{2\varsigma_\tau^2}\right]
++\widetilde h(\tau). \tag{20}
+$
+
+这里 $\widetilde r_n$ 为第 $n$ 个杂波块的中位距离，$\widetilde\tau_n=2\widetilde r_n/c$，$\varsigma_\tau$ 是杂波块的时延扩展。相应地将频率协方差分解为相干项和漫反射项：$\mathbf B_f=\overline{\mathbf B}_f+\widetilde{\mathbf B}_f$。
+
+**引理 2：** 在杂波块近似独立时，相干部分矩阵元素为：
+
+$
+[\overline{\mathbf B}_f]_{l,m}
+=\frac1N\sum_{n=1}^{N}
+E_{l,m}(\widetilde r_n)
+\exp[-2(\pi\Delta f(l-m)\varsigma_\tau)^2], \tag{21}
+$
+
+其中 $l,m=1,\ldots,V$，
+$E_{l,m}(\widetilde r_n)=
+e^{j2\pi\Delta f(2\widetilde r_n/c)(l-m)}$；
+漫反射部分建模为 Toeplitz 形式：
+
+$
+\widetilde{\mathbf B}_f
+=\chi\,\mathcal T
+\left(1,\mu_f^{\Delta f/B_{\rm cho}},\ldots,
+\mu_f^{(V-1)\Delta f/B_{\rm cho}}\right). \tag{22}
+$
+
+**证明：** 相干部分的计算与引理 1 相同。对于漫反射部分，假设 $\widetilde h(\tau)$ 沿时延 $\tau$ 的变化遵循一阶自回归（AR1）结构，因此对应的 $\widetilde{\mathbf B}_f$ 为 Toeplitz 矩阵 [45]。参数 $\mu_f<1$ 表示相关衰减程度，$B_{\rm cho}$ 是相干带宽，$\chi$ 是漫反射杂波相对于相干杂波的功率系数。
+
+### C. 对不可分离杂波的鲁棒性
+
+上述 Kronecker 可分离假设提供了便于处理的数学杂波模型，并允许按维度高效运算。然而，真实环境中杂波块存在不均匀性、系统校准误差，或杂波本身具有非平稳性，都可能造成不同维度之间的耦合。因此，引入可控的偏离程度，以检验所提雷达处理方法对不可分离杂波的鲁棒性。
+
+具体而言，杂波协方差改为可分离的名义部分与扰动部分的线性组合，堆叠的杂波向量服从：
+
+$
+\mathbf c\sim\mathcal{CN}
+\left(\mathbf0,(1-\epsilon)\delta_{\rm cl}^2\mathbf B
++\epsilon\mathbf Z\right). \tag{23}
+$
+
+其中 $\epsilon$ 表示杂波的不可分离程度。扰动矩阵仍单独表示为 $\mathbf Z=\mathbf Z_{\rm sp}\otimes\mathbf Z_t\otimes\mathbf Z_f$。这样能继续高效生成样本，但因一般有 $(\mathbf A\otimes\mathbf B)+(\mathbf C\otimes\mathbf D)\neq(\mathbf A+\mathbf C)\otimes(\mathbf B+\mathbf D)$，整体协方差已不再可分离。
+
+$\mathbf Z$ 的每个因子，都在相应名义协方差因子上施加特征向量旋转及特征值扰动，从而分别研究功率分布失配与子空间结构失配的影响。以时间因子为例：
+
+$
+\mathbf Z_t=\boldsymbol\Pi_t\mathbf U_t
+(\boldsymbol\Sigma_t+\eta_{\rm val}\widetilde{\boldsymbol\Sigma}_t)
+\mathbf U_t^H\boldsymbol\Pi_t^H\in\mathbb C^{I\times I}. \tag{24}
+$
+
+其中 $\mathbf U_t,\boldsymbol\Sigma_t$ 是名义时间协方差的特征分解结果，$\eta_{\rm val}$ 表示特征值扰动强度，$\widetilde{\boldsymbol\Sigma}_t$ 是由具有单位方差的复高斯随机变量构成对角项的矩阵；特征向量旋转矩阵取
+$\boldsymbol\Pi_t=\exp(\eta_{\rm vec}\widetilde{\boldsymbol\Pi})$，
+其中 $\widetilde{\boldsymbol\Pi}$ 为斜厄米矩阵，$\eta_{\rm vec}$ 控制特征向量旋转强度。空间和频率因子的构造同理。
+
+**待补：** 第 IV–VII 节的通信估计器、杂波处理、预编码与完整仿真结果。
 
 {% endraw %}
