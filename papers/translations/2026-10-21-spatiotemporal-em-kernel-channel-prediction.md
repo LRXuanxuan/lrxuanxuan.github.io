@@ -233,6 +233,145 @@ $$
 
 这里 $\boldsymbol\mu_{\mathcal L}$ 和 $\boldsymbol\mu_{\mathcal F}$ 是历史观测和未来信道位置上的均值；$\mathbf K_{\mathcal LL}$、$\mathbf K_{\mathcal LF}$、$\mathbf K_{\mathcal FL}$、$\mathbf K_{\mathcal FF}$ 分别表示历史—历史、历史—未来、未来—历史和未来—未来之间的核协方差矩阵，且 $\mathbf K_{\mathcal FL}=\mathbf K_{\mathcal LF}^H$。通过高斯后验公式即可构建预测的条件均值与协方差。
 
-**后续待补：** IV-B 高斯后验闭式结果、IV-C 的最大似然核参数学习、IV-D–IV-E GEM-KL 凸优化与算法、第 V–VI 节仿真和结论，以及文末参考文献、作者简介的全部内容。此处明确保留未译范围。
+首先，原文针对时隙内的实际使用还作出约定：可由相邻帧信道 $\mathbf h_t$ 和 $\mathbf h_{t+1}$ 决定第 $n$ 个时隙所使用的信道。例如在第 $t$ 帧，当 $0<n\le N_s/2$ 时，使用 $\mathbf h_t$；否则使用 $\mathbf h_{t+1}$。因此，第 IV 节需要准确求解式（7）。
+
+高斯过程回归中，$\mathbf K_{\mathcal LL}$ 的第 $(m,n)$ 个元素为 $k(\mathbf x_m,\mathbf x_n)$，其中 $m,n\in\{1,\ldots,L_N\}$；$\mathbf K_{\mathcal LF}\in\mathbb C^{L_N\times F_N}$ 表示历史与未来位置之间的核矩阵；$\mathbf K_{\mathcal FL}=\mathbf K_{\mathcal LF}^{H}\in\mathbb C^{F_N\times L_N}$；$\mathbf K_{\mathcal FF}\in\mathbb C^{F_N\times F_N}$ 表示未来位置之间的核矩阵。令 $\mathbf K_y=\mathbf K_{\mathcal LL}+\sigma_n^2\mathbf I_{L_N}$。根据复高斯后验公式 [52]，得到：
+
+$
+\begin{aligned}
+\boldsymbol\mu_{\mathcal F|\mathcal L}
+&=\boldsymbol\mu_{\mathcal F}
++\mathbf K_{\mathcal LF}^{H}\mathbf K_y^{-1}\mathbf y,\\
+\mathbf K_{\mathcal F|\mathcal L}
+&=\mathbf K_{\mathcal FF}
+-\mathbf K_{\mathcal LF}^{H}\mathbf K_y^{-1}\mathbf K_{\mathcal LF}.
+\end{aligned}\tag{13}
+$
+
+贝叶斯回归结果由 $\boldsymbol\mu_{\mathcal F|\mathcal L}$ 和 $\mathbf K_{\mathcal F|\mathcal L}$ 给出。
+
+**图 3：** 基于高斯过程回归的时域信道预测。GPR 预测器利用过去帧间信道的协方差矩阵（图中蓝色区域）以及过去帧与未来帧之间的协方差矩阵（红色区域），一次并行预测多个未来帧。
+
+因为先验为复高斯分布，GPR 预测器与最大后验（MAP）预测器相一致。由于贝叶斯最优性以及核函数参数可以灵活调整，GPR 广泛适用于各类估计和预测问题。核函数的可调性进一步扩展了 GPR 的应用范围；下一节介绍具体的核调节方法。
+
+*原文记号说明：式（13）的条件均值按论文原式保留。在非零均值 GPR 的通用写法中，通常出现观测中心化项 $\mathbf y-\boldsymbol\mu_{\mathcal L}$；论文公式未显式写出此项，此处不擅自改写。*
+
+### C. 核学习
+
+核函数 $k(\mathbf x,\mathbf x')$ 隐式编码高斯随机场 $f(\mathbf x)$ 的先验信息。通过允许更多参数设置，能够提升模型的可调性。选择合适的核参数，是构造有效回归模型的关键环节，并直接影响核函数重建高斯过程的准确程度。需要调整的参数通常称为**超参数**（hyperparameters）。设可调核函数 $k(\mathbf x,\mathbf x'\mid\boldsymbol\omega)$ 的超参数为 $\boldsymbol\omega\in\Omega\subset\mathbb R^{N_\omega}$，寻找 STEM 核最优超参数的过程称为核学习。
+
+需要为评价超参数是否合适指定准则。常用方法是最大似然（ML）：
+
+$
+\widehat{\boldsymbol\omega}_{\rm ML}
+=\arg\max_{\boldsymbol\omega\in\Omega}
+\ln p(\mathbf y\mid\boldsymbol\omega). \tag{14}
+$
+
+在给定超参数 $\boldsymbol\omega$ 时，导频观测 $\mathbf y$ 的概率密度函数为：
+
+$
+p(\mathbf y\mid\boldsymbol\omega)=
+\frac{1}{\pi^{L_N}\det\mathbf K_y}
+\exp(-\mathbf y^H\mathbf K_y^{-1}\mathbf y). \tag{15}
+$
+
+其中核矩阵 $\mathbf K_y(\boldsymbol\omega)$ 随超参数变化。对数似然函数可写为
+$\ell(\boldsymbol\omega\mid\mathbf y)
+=-\ln\det\mathbf K_y-\text{const}
+-\mathbf y^H\mathbf K_y^{-1}\mathbf y$。求解超参数的 ML 估计可以采用梯度下降、共轭梯度法或牛顿迭代，这些方法均需要对数似然对 $\boldsymbol\omega$ 的导数。
+
+记 $\mathbf g=\mathbf K_y^{-1}\mathbf y$，可得：
+
+$
+\frac{\partial\ell(\boldsymbol\omega\mid\mathbf y)}
+{\partial\omega_i}
+=\operatorname{tr}\left[
+(\mathbf g\mathbf g^H-\mathbf K_y^{-1})
+\frac{\partial\mathbf K_y}{\partial\omega_i}
+\right]. \tag{16}
+$
+
+其中 $\omega_i$ 是 $\boldsymbol\omega$ 的第 $i$ 个分量。对于复数超参数，需考虑 Wirtinger 导数
+$\frac12(\partial/\partial\omega_{i,\rm Re}-j\partial/\partial\omega_{i,\rm Im})$。原文说明式（16）仍可沿用。
+
+为了预测四维时空信道，专门设计 STEM 核的超参数。根据 IV-A 节，集中度参数 $\boldsymbol\delta$ 反映电磁波的传播方向与集中程度；再引入速度参数 $\mathbf v$，刻画用户移动造成的信道时变性；信道能量记为 $\zeta_h^2$。STEM 核关于 $\delta^{(m)}$、$v^{(m)}$ 和 $\zeta_h^2$ 的 Wirtinger 导数分别为：
+
+$
+\begin{aligned}
+\frac{\partial\mathbf K_{\rm STEM}}{\partial\delta^{(m)}}&=
+-\frac{\zeta_h^2}{S(\delta)}
+\left[
+\frac{S'(\delta)\delta^{(m)}}{S(\delta)\delta}
+\boldsymbol\Sigma(\boldsymbol\xi)
++j\frac{\partial\boldsymbol\Sigma(\boldsymbol\xi)}
+{\partial\xi^{(m)}}\right],\\
+\frac{\partial\mathbf K_{\rm STEM}}{\partial v^{(m)}}&=
+\frac{\zeta_h^2 k_0(t_p-t_q)}{S(\delta)}
+\frac{\partial\boldsymbol\Sigma(\boldsymbol\xi)}
+{\partial\xi^{(m)}},\\
+\frac{\partial\mathbf K_{\rm STEM}}{\partial(\zeta_h^2)}
+&=\frac{\boldsymbol\Sigma(\boldsymbol\xi)}{S(\delta)}.
+\end{aligned}\tag{17}
+$
+
+其中 $\delta=\|\boldsymbol\delta\|$，$\boldsymbol\xi=k_0\mathbf w$，
+$\mathbf w=\mathbf x_p-\mathbf x_q+\mathbf v(t_p-t_q)-j\boldsymbol\delta/k_0$。
+
+不同阶数的球贝塞尔函数满足导数关系：
+
+$
+\left(\frac1\xi\frac{d}{d\xi}\right)^a
+\left(\xi^{-b}j_b(\xi)\right)
+=(-1)^a\xi^{-b-a}j_{b+a}(\xi). \tag{18}
+$
+
+结合式（10）的相关函数，得到：
+
+$
+\begin{aligned}
+\frac{\partial\boldsymbol\Sigma(\boldsymbol\xi)}
+{\partial\xi^{(m)}}={}&
+\frac16[-4j_1(\xi)-2\xi^{-1}j_2(\xi)+j_3(\xi)]
+\widehat\xi^{(m)}\mathbf I_3\\
+&+\frac12[2j_1(\xi)+2\xi^{-1}j_2(\xi)-j_3(\xi)]
+\widehat\xi^{(m)}\widehat{\boldsymbol\xi}
+\widehat{\boldsymbol\xi}^{\top}\\
+&+\frac12[-2j_0(\xi)+j_2(\xi)]
+\left(\partial_m\widehat{\boldsymbol\xi}
+\widehat{\boldsymbol\xi}^{\top}
++\widehat{\boldsymbol\xi}\,
+\partial_m\widehat{\boldsymbol\xi}^{\top}\right).
+\end{aligned}\tag{19}
+$
+
+这里 $\partial_m=\partial/\partial\xi^{(m)}$，
+$\partial_m\widehat{\boldsymbol\xi}=\xi^{-1}(
+\widehat{\mathbf e}_m-\widehat\xi^{(m)}
+\widehat{\boldsymbol\xi})$，$\widehat{\mathbf e}_m$ 是仅第 $m$ 个分量为 1 的单位向量。联合式（16）与式（17），可得关于实变量的梯度：
+
+$
+\frac{\partial\ell}{\partial\delta^{(m)}}=
+2c\,\Re\left\{\operatorname{tr}
+\left[\frac{\partial\mathbf K_{\mathcal LL}}
+{\partial\delta^{(m)}}
+(\mathbf g\mathbf g^H-\mathbf K_y^{-1})\right]\right\},\tag{20}
+$
+
+以及：
+
+$
+\frac{\partial\ell}{\partial v^{(m)}}=
+2c\,\Re\left\{\operatorname{tr}
+\left[\frac{\partial\mathbf K_{\mathcal LL}}
+{\partial v^{(m)}}
+(\mathbf g\mathbf g^H-\mathbf K_y^{-1})\right]\right\}. \tag{21}
+$
+
+$\mathbf K_{\mathcal LL}$ 为 STEM 方法构造的信道相关矩阵。利用梯度上升等梯度优化算法，可以据此根据 ML 准则获得更优的核参数 $\boldsymbol\omega$。
+
+**备注 3：** 核方法为捕捉无线信道的时空相关性提供了有力框架 [49]。提出的 STEM 核将电磁信息论的物理认识编码进信道相关函数，实现较精确的信道响应建模。核学习进一步调节参数以优化核函数，从而提高 GPR 信道预测的准确性。
+
+**待补：** IV-D 网格化混合核与凸优化、IV-E 预测算法、复杂度分析、V–VI 节及附录。
 
 {% endraw %}
