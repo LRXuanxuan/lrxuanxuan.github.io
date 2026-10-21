@@ -370,6 +370,314 @@ $
 $\boldsymbol\Pi_t=\exp(\eta_{\rm vec}\widetilde{\boldsymbol\Pi})$，
 其中 $\widetilde{\boldsymbol\Pi}$ 为斜厄米矩阵，$\eta_{\rm vec}$ 控制特征向量旋转强度。空间和频率因子的构造同理。
 
-**待补：** 第 IV–VII 节的通信估计器、杂波处理、预编码与完整仿真结果。
+## IV. 通信信道估计
+
+下面针对通信信道构造估计器。根据第 II 节假设，UE 可即时向发射端反馈信道信息，使基站除接收端 CSI（CSIR）外也能得到所估计的发射端 CSI（CSIT）。这有利于专门分析已知时间相关性相对于块衰落假设的收益，而无需显式建模反馈机制。在实际系统中，可通过紧接下行导频后安排额外上行导频时隙提供 CSIT [46]；在 UE 移动速度适中时，上行与下行估计的变化轨迹将非常相似。该反馈机制的具体实现留待未来研究。另外假设 UE 信道的时空协方差矩阵已知。
+
+UE 的导频矩阵记为 $\mathbf P\in\mathbb C^{S\times\tau_p}$，每个相干块利用 $\tau_p$ 个子载波估计 UE 信道。假设在导频传输期间，同一相干块内所有子载波共用同一预编码矩阵，因此本小节省略子载波索引，推导任意相干块的估计器。考虑任意导频时隙 $\iota$，UE 在用于信道估计的全部 $\tau_p$ 个子载波上接收：
+
+$
+\mathbf Y_\iota
+=\alpha_{\rm UE}\mathbf H_\iota\mathbf F_\iota
+\mathbf P_\iota\mathbf P+\mathbf N_\iota
+\in\mathbb C^{M_{\rm UE}\times\tau_p}. \tag{25}
+$
+
+其中 $\mathbf N_\iota=[\mathbf n_{\iota,1},\ldots,
+\mathbf n_{\iota,\tau_p}]$。为了正确消除导频，要求
+$\mathbf P\mathbf P^H=\tau_p\mathbf I_S$，当 $\tau_p\ge S$ 时可以实现。信道估计阶段采用预编码传输以降低最短导频长度；若不进行预编码则必须满足 $\tau_p\ge M_{\rm BS}$ [47]。
+
+UE 对观测解扩，令
+$\widetilde{\mathbf Y}_\iota
+=\mathbf Y_\iota\mathbf P^H/\sqrt{\tau_p}
+=\alpha_{\rm UE}\sqrt{\tau_p}\mathbf H_\iota\mathbf F_\iota\mathbf P_\iota
++\widetilde{\mathbf N}_\iota$。将其向量化：
+
+$
+\widetilde{\mathbf y}_\iota
+=\operatorname{vec}(\widetilde{\mathbf Y}_\iota)
+=\alpha_{\rm UE}\sqrt{\tau_p}
+\breve{\mathbf F}_\iota\mathbf h_\iota+
+\widetilde{\mathbf n}_\iota
+\in\mathbb C^{SM_{\rm UE}}, \tag{26}
+$
+
+其中
+$\breve{\mathbf F}_\iota=(\mathbf F_\iota\mathbf P_\iota)^\top
+\otimes\mathbf I_{M_{\rm UE}}$
+以及 $\widetilde{\mathbf n}_\iota=\operatorname{vec}(\widetilde{\mathbf N}_\iota)$。
+
+为了估计数据时隙 $i$ 的信道，接收机可以利用最近导频以前的多次观测。假设除了最近一次导频，还使用之前 $p$ 次导频，即总观测数 $p_{\rm tot}=p+1$。将全部观测堆叠为
+$\widetilde{\mathbf y}_{p_{\rm tot}}
+=[\widetilde{\mathbf y}_\iota^\top,\ldots,
+\widetilde{\mathbf y}_{\iota-(p_{\rm tot}-1)(\Delta+1)}^\top]^\top$。
+以下引理给出 $i$ 时隙的信道估计。
+
+**引理 3：** 给定导频间隔 $\Delta$，$\mathbf h_i$ 的 MMSE 估计为：
+
+$
+\widehat{\mathbf h}_i
+=\mathbf A_i\widetilde{\mathbf y}_{p_{\rm tot}}
+\in\mathbb C^{M_{\rm BS}M_{\rm UE}}. \tag{27}
+$
+
+其中：
+
+$
+\mathbf A_i=
+\alpha_{\rm UE}\sqrt{\tau_p}\,
+\mathbf E_i\breve{\mathbf F}_{p_{\rm tot}}^H
+\boldsymbol{\mathcal A}_i^{-1}, \tag{28}
+$
+
+$
+\boldsymbol{\mathcal A}_i
+=\alpha_{\rm UE}^2\tau_p\,
+\breve{\mathbf F}_{p_{\rm tot}}\mathbf M_i
+\breve{\mathbf F}_{p_{\rm tot}}^H
++\sigma_{\rm UE}^2\mathbf I_{p_{\rm tot}SM_{\rm UE}}, \tag{29}
+$
+
+$
+\breve{\mathbf F}_{p_{\rm tot}}
+=\operatorname{blkdiag}\!\left(
+\breve{\mathbf F}_{\iota},\ldots,
+\breve{\mathbf F}_{\iota-(p_{\rm tot}-1)(\Delta+1)}
+\right), \tag{30}
+$
+
+$
+\mathbf E_i=
+[\zeta(\bar i),\ldots,
+\zeta(\bar i+(p_{\rm tot}-1)(\Delta+1))]\otimes\mathbf C, \tag{31}
+$
+
+$
+\mathbf M_i
+=\mathcal T([\zeta(0),\ldots,
+\zeta((p_{\rm tot}-1)(\Delta+1))])\otimes\mathbf C, \tag{32}
+$
+
+其中 $\bar i=i-\iota$ 表示当前数据时隙与最近导频时隙的差。为避免原文中相同的字母同时用于估计滤波矩阵与观测协方差，这里将式（29）的观测协方差记为 $\boldsymbol{\mathcal A}_i$，其含义与原文一致。
+
+**证明：** 将全部导频观测合并写成：
+
+$
+\widetilde{\mathbf y}_{p_{\rm tot}}
+=\alpha_{\rm UE}\sqrt{\tau_p}\,
+\breve{\mathbf F}_{p_{\rm tot}}\mathbf h_{p_{\rm tot}}
++\mathbf n_{p_{\rm tot}}
+\in\mathbb C^{SM_{\rm UE}p_{\rm tot}}, \tag{33}
+$
+
+其中：
+
+$
+\mathbf h_{p_{\rm tot}}
+=[\mathbf h_\iota^\top,\ldots,
+\mathbf h_{\iota-(p_{\rm tot}-1)(\Delta+1)}^\top]^\top,
+\tag{34}
+$
+
+$
+\mathbf n_{p_{\rm tot}}
+=[\mathbf n_\iota^\top,\ldots,
+\mathbf n_{\iota-(p_{\rm tot}-1)(\Delta+1)}^\top]^\top.
+\tag{35}
+$
+
+MMSE 估计器的典型形式 [48] 为：
+
+$
+\widehat{\mathbf h}_i
+=\mathbb E[\mathbf h_i\widetilde{\mathbf y}_{p_{\rm tot}}^H]
+\left(\mathbb E[\widetilde{\mathbf y}_{p_{\rm tot}}
+\widetilde{\mathbf y}_{p_{\rm tot}}^H]\right)^{-1}
+\widetilde{\mathbf y}_{p_{\rm tot}}. \tag{36}
+$
+
+利用已知时间相关结构 [49]，计算两个期望分别得到
+$\alpha_{\rm UE}\sqrt{\tau_p}\,\mathbf E_i\breve{\mathbf F}_{p_{\rm tot}}^H$ 和 $\boldsymbol{\mathcal A}_i$。代回式（36）即可得到引理。
+
+下面进一步刻画估计量的概率分布。
+
+**推论 1：** 信道估计 $\widehat{\mathbf h}_i$ 服从零均值圆对称复高斯分布 $\widehat{\mathbf h}_i\sim\mathcal{CN}(\mathbf0,\widehat{\boldsymbol\Xi}_i)$，其中：
+
+$
+\widehat{\boldsymbol\Xi}_i=
+\alpha_{\rm UE}^2\tau_p\,
+\mathbf E_i\breve{\mathbf F}_{p_{\rm tot}}^H
+\boldsymbol{\mathcal A}_i^{-1}
+\breve{\mathbf F}_{p_{\rm tot}}\mathbf E_i^H.
+$
+
+**推论 2：** 信道估计误差 $\widetilde{\mathbf h}_i
+=\widehat{\mathbf h}_i-\mathbf h_i$ 为零均值复高斯向量，协方差：
+
+$
+\widetilde{\boldsymbol\Xi}_i
+=\mathbf C-\widehat{\boldsymbol\Xi}_i
+\in\mathbb C^{M_{\rm BS}M_{\rm UE}\times
+M_{\rm BS}M_{\rm UE}}.
+$
+
+该估计器能够自然扩展到在子载波维度也采用 AR 老化结构的场景。若时频老化可以分离，可沿用引理 3 基于协方差的推导，得到同时适用于时间和频率上稀疏导频模式的扩展估计器。
+
+## V. 雷达信号处理
+
+本节介绍杂波估计与抑制流程。由感知观测出发，基站首先估计杂波二阶统计量并利用它抑制杂波，然后计算距离—角度（RA）和距离—速度（RV）图。这些图用于表示感知性能，后续可以在其上执行检测与参数估计。
+
+第一步利用杂波在各维度的稀疏结构估计二阶统计量；第二步使用感知杂波的匹配滤波（MF）消除发射符号影响；最后利用处理后的数据计算每条数据流的 RA 与 RV 图。由于假设目标缓慢变化，使用 $I$ 个时隙执行雷达处理。本文仅通过这些图评估杂波抑制能力和目标可辨识性。目标峰的位置、幅度和尖锐程度可作为检测及估计效果的指示，但不能替代正式的检测器或参数估计器；相关数学推导留待未来工作。
+
+*原文注：为便于数学处理，假设散射块数量 $N$、杂波功率 $\delta_{\rm cl}^2$ 以及 $\varsigma_{\rm sp},\varsigma_D,\varsigma_\tau$ 已知。这些量可从不含目标的距离—多普勒单元可靠估计，因此作者认为该假设不影响处理流程的实际适用性。*
+
+### A. 杂波协方差估计器
+
+Kronecker 可分离模型的一项优势是能够分别估计不同维度的协方差，降低总体计算复杂度。由于各协方差分量具有稀疏结构，可采用 MUSIC（MUltiple SIgnal Classification，多重信号分类）[50] 等子空间方法高效估计二阶统计量。
+
+雷达文献通常将感知观测收集成数据立方体
+$\mathbf Y=\{[\mathbf y_{1,v},\ldots,\mathbf y_{I,v}]\}_{v=1}^V
+\in\mathbb C^{M_{\rm BS}\times I\times V}$。
+通常接下来应使用恒虚警率（CFAR）掩膜 [51] 或 GoDec [52] 等目标清除方法，从数据中删除目标分量，避免将目标识别为杂波。
+
+不过，在这里的模型下，杂波子空间主导样本协方差。这是因为目标可视为点目标，而杂波在空间和时间上均有扩展，在多个距离—多普勒单元中具有更高的功率 [53]。目标仅表现为小的秩一扰动，而 MUSIC 对这类扰动较为鲁棒 [54]。因此，作者不使用显式目标清除也能够估计杂波协方差；但在非均匀杂波、扩展目标等更复杂场景中，目标清除仍然必要。
+
+空间样本协方差为：
+
+$
+\overline{\mathbf B}_{\rm sp}=
+\frac{\mathcal U_1(\mathbf Y)\mathcal U_1(\mathbf Y)^H}{IV}
+-\sigma^2\mathbf I_{M_{\rm BS}}
+\in\mathbb C^{M_{\rm BS}\times M_{\rm BS}}. \tag{37}
+$
+
+之后计算 MUSIC 伪谱
+$P_{\rm sp}(\psi)=1/[\mathbf a(\psi)^H
+\boldsymbol\Gamma_{\rm sp}\boldsymbol\Gamma_{\rm sp}^H\mathbf a(\psi)]$，
+其中 $\boldsymbol\Gamma_{\rm sp}$ 包含空间样本协方差最小的 $M_{\rm BS}-L$ 个特征值对应的噪声子空间特征向量。伪谱峰值给出各杂波块方向估计 $\widehat\psi_n$，将其代入式（14）得到估计空间协方差 $\widehat{\mathbf B}_{\rm sp}$。
+
+时间样本协方差同理：
+
+$
+\overline{\mathbf B}_t
+=\frac{\mathcal U_2(\mathbf Y)\mathcal U_2(\mathbf Y)^H}
+{M_{\rm BS}V}-\sigma^2\mathbf I_I
+\in\mathbb C^{I\times I}. \tag{38}
+$
+
+计算时间 MUSIC 伪谱
+$P_t(f_D)=1/[\mathbf b(f_D)^H
+\boldsymbol\Gamma_t\boldsymbol\Gamma_t^H\mathbf b(f_D)]$。
+其峰值代入式（17），得到 $\widehat{\mathbf B}_t$。
+
+频率样本协方差为：
+
+$
+\overline{\mathbf B}_f=
+\frac{\mathcal U_3(\mathbf Y)\mathcal U_3(\mathbf Y)^H}
+{M_{\rm BS}I}-\sigma^2\mathbf I_V
+\in\mathbb C^{V\times V}. \tag{39}
+$
+
+散射块中位距离同样可通过 MUSIC 估计。不过，漫反射成分 $\widetilde{\mathbf B}_f$ 破坏 MUSIC 所需的子空间正交条件。因此作者采用不显式考虑扩散的估计方法，并在数值实验中量化 $\widetilde{\mathbf B}_f$ 引起的性能损失。频率 MUSIC 伪谱为：
+
+$
+P_f(r)=\frac1{
+\mathbf d(2r/c)^H
+\boldsymbol\Gamma_f\boldsymbol\Gamma_f^H
+\mathbf d(2r/c)}.
+$
+
+### B. 感知杂波的匹配滤波
+
+接下来执行匹配滤波，消除发射符号对雷达信道估计的影响。将式（9）中的无噪、无杂波观测写为
+$\boldsymbol\mu_{i,v}=\boldsymbol\Phi_{i,v}\mathbf x_{i,v}$，
+其中 $\boldsymbol\Phi_{i,v}=
+[\boldsymbol\phi_{i,v,1},\ldots,\boldsymbol\phi_{i,v,S}]
+\in\mathbb C^{M_{\rm BS}\times S}$ 是经过预编码的雷达信道：
+
+$
+\boldsymbol\Phi_{i,v}=
+[\mathbf G_{i,v}\mathbf f_{i,v,1}\sqrt{\rho_{i,v,1}},
+\ldots,
+\mathbf G_{i,v}\mathbf f_{i,v,S}\sqrt{\rho_{i,v,S}}]. \tag{40}
+$
+
+由 $\boldsymbol\mu_{i,v}$ 的结构可知，直接将 $\mathbf y_{i,v}$ 右乘 $\mathbf x_{i,v}^{\dagger}$ 即可执行 MF，但这不会抑制杂波。由于杂波具有低秩结构，可通过白化减少其影响 [55]、[56]。具体地，对感知数据立方体 $\mathbf Y$ 和符号立方体 $\mathbf X$ 分别沿时间、频率维度进行白化；**不对白化空间维度**，以防误将目标信号一同消除。
+
+白化矩阵由校正了接收机噪声的协方差矩阵的逆平方根定义：
+
+$
+\ddot{\mathbf B}_t^{-1/2}
+=\widehat{\mathbf U}_t
+(\widehat{\boldsymbol\Sigma}_t+\sigma^2\mathbf I_I)^{-1/2}
+\widehat{\mathbf U}_t^H, \tag{41}
+$
+
+$
+\ddot{\mathbf B}_f^{-1/2}
+=\widehat{\mathbf U}_f
+(\widehat{\boldsymbol\Sigma}_f+\sigma^2\mathbf I_V)^{-1/2}
+\widehat{\mathbf U}_f^H. \tag{42}
+$
+
+其中 $\widehat{\mathbf U}_t,\widehat{\boldsymbol\Sigma}_t$ 和
+$\widehat{\mathbf U}_f,\widehat{\boldsymbol\Sigma}_f$ 分别为估计的时间、频率协方差因子的特征分解结果。借助可分离结构，两个维度可分别白化：
+
+$
+\mathbf Y'=\mathcal F_2\!\left[
+\mathcal U_2(\mathbf Y)\ddot{\mathbf B}_t^{-1/2}\right],
+\qquad
+\mathbf Y''=\mathcal F_3\!\left[
+\mathcal U_3(\mathbf Y')\ddot{\mathbf B}_f^{-1/2}\right]. \tag{43}
+$
+
+对符号立方体 $\mathbf X$ 执行同样步骤得到 $\mathbf X''$，再估计预编码雷达信道：
+
+$
+\widehat{\boldsymbol\Phi}_{i,v}
+=[\widehat{\boldsymbol\phi}_{i,v,1},\ldots,
+\widehat{\boldsymbol\phi}_{i,v,S}]
+=\{\mathbf Y''\}_{i,v}\{\mathbf X''\}_{i,v}^{\dagger}.
+$
+
+### C. 距离—角度及距离—速度图
+
+杂波抑制后，计算 RA 和 RV 图。图中的峰值指示目标角度、距离和速度，但本文并不执行显式参数估计。
+
+首先沿频率维度对估计雷达信道执行离散傅里叶变换（DFT）得到距离轮廓。第 $v'$ 个距离单元的轮廓为：
+
+$
+\mathbf r_{i,v',s}
+=\sum_{v=1}^{V}
+e^{-j2\pi vv'/V'}\,\widehat{\boldsymbol\phi}_{i,v,s}
+\in\mathbb C^{M_{\rm BS}}. \tag{44}
+$
+
+其中 $v'=1,\ldots,V'$，$V'\ge V$ 允许零填充，对应的时延量化分辨率为 $1/(\Delta f V')$。再对每个距离单元采用 MUSIC 估计角度轮廓。其样本协方差为：
+
+$
+\mathbf Q_{v',s}=\frac1I\sum_{i=1}^{I}
+\mathbf r_{i,v',s}\mathbf r_{i,v',s}^H
+\in\mathbb C^{M_{\rm BS}\times M_{\rm BS}}. \tag{45}
+$
+
+设 $\boldsymbol\Gamma_{v',s}$ 为 $\mathbf Q_{v',s}$ 的噪声子空间，则角度轮廓
+$P_{s,v'}(\theta)=1/[
+\mathbf a(\theta)^H\boldsymbol\Gamma_{v',s}
+\boldsymbol\Gamma_{v',s}^H\mathbf a(\theta)]$。
+
+为获得每个距离单元的速度轮廓，先将距离轮廓投影到该单元中 MUSIC 功率最大的角度 $\theta_{v'}^M$，随后沿时间维度执行逆 DFT：
+
+$
+q_{i',v',s}=\sum_{i=1}^{I}
+e^{j2\pi ii'/I'}
+\mathbf a(\theta_{v'}^M)^H\mathbf r_{i,v',s}. \tag{46}
+$
+
+将所有 $q_{i',v',s}$ 收集成矩阵，得到第 $s$ 条数据流的 RV 图
+$\mathbf V_s\in\mathbb C^{I'\times V'}$，其中 $I'\ge I$ 表示时间维度的零填充。
+
+**待补：** 第 VI 节预编码策略、第 VII 节完整数值结果、参考文献。
 
 {% endraw %}
