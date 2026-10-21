@@ -1,5 +1,98 @@
 [
   {
+    "date": "2026-10-21",
+    "slug": "2026-10-21-one-step-generative-csi-2609-17033",
+    "title": "一步生成式 CSI 预测｜中文逐节译稿（待终校）",
+    "url": "/papers/translations/2026-10-21-one-step-generative-csi-2609-17033/",
+    "source_file": "2026-10-21-one-step-generative-csi-2609-17033.md",
+    "scope": "摘要、正文 I–V、公式（1）–（17）、算法 1–2、图 1–4 说明、表 I–V 与参考文献 [1]–[14] 已译；未完成独立逐式终校",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-21-one-step-generative-csi-2609-17033.md",
+    "source_page_path": "papers/translations/2026-10-21-one-step-generative-csi-2609-17033.md",
+    "paper_ids": [
+      "efb1c2b897f3baec"
+    ],
+    "source_arxiv_ids": [
+      "2609.17033"
+    ],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": false
+  },
+  {
+    "date": "2026-10-21",
+    "slug": "2026-10-21-pnp-cf-2610-26000",
+    "title": "PnP-CF 共识流匹配逆问题求解器｜中文阶段性译稿",
+    "url": "/papers/translations/2026-10-21-pnp-cf-2610-26000/",
+    "source_file": "2026-10-21-pnp-cf-2610-26000.md",
+    "scope": "摘要、引言、背景、第 3 节算法与公式（1）–（9）、算法 1、部分实验分析及表 1；第 4 节后半、附录及参考文献待补",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-21-pnp-cf-2610-26000.md",
+    "source_page_path": "papers/translations/2026-10-21-pnp-cf-2610-26000.md",
+    "paper_ids": [
+      "c14464e6257e8788"
+    ],
+    "source_arxiv_ids": [
+      "2610.26000"
+    ],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": false
+  },
+  {
+    "date": "2026-10-21",
+    "slug": "2026-10-21-channel-aging-clutter-isac-2601-05032",
+    "title": "信道老化与多普勒杂波对 OFDM ISAC 的影响｜中文阶段性译稿",
+    "url": "/papers/translations/2026-10-21-channel-aging-clutter-isac-2601-05032/",
+    "source_file": "2026-10-21-channel-aging-clutter-isac-2601-05032.md",
+    "scope": "摘要、引言、系统模型及第 III 节开头，公式（1）–（11）；其余章节、附录和参考文献待补",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-21-channel-aging-clutter-isac-2601-05032.md",
+    "source_page_path": "papers/translations/2026-10-21-channel-aging-clutter-isac-2601-05032.md",
+    "paper_ids": [
+      "1524a18885ddaf9a"
+    ],
+    "source_arxiv_ids": [
+      "2601.05032"
+    ],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": false
+  },
+  {
+    "date": "2026-10-21",
+    "slug": "2026-10-21-dd-hsr-2509-25854",
+    "title": "高速铁路 DD 域信道测量与建模｜中文阶段性译稿",
+    "url": "/papers/translations/2026-10-21-dd-hsr-2509-25854/",
+    "source_file": "2026-10-21-dd-hsr-2509-25854.md",
+    "scope": "摘要、引言、第 II 节测量建模及第 III-A 节，公式（1）–（13）的主要内容；第 II 节长公式和后续实验、结论、参考文献待补",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-21-dd-hsr-2509-25854.md",
+    "source_page_path": "papers/translations/2026-10-21-dd-hsr-2509-25854.md",
+    "paper_ids": [
+      "44c51f88d1ab5473"
+    ],
+    "source_arxiv_ids": [
+      "2509.25854"
+    ],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": false
+  },
+  {
+    "date": "2026-10-21",
+    "slug": "2026-10-21-spatiotemporal-em-kernel-channel-prediction",
+    "title": "时空电磁核学习信道预测｜中文阶段性译稿",
+    "url": "/papers/translations/2026-10-21-spatiotemporal-em-kernel-channel-prediction/",
+    "source_file": "2026-10-21-spatiotemporal-em-kernel-channel-prediction.md",
+    "scope": "摘要、引言、第 II–III 节及第 IV 节开头的 STEM 核与 GPR，公式（1）–（12）；后续 GEM-KL 优化、实验及参考文献待补",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-21-spatiotemporal-em-kernel-channel-prediction.md",
+    "source_page_path": "papers/translations/2026-10-21-spatiotemporal-em-kernel-channel-prediction.md",
+    "paper_ids": [
+      "43ba737242163164"
+    ],
+    "source_arxiv_ids": [],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": false
+  },
+  {
     "date": "2026-10-20",
     "slug": "2026-10-20-cross-frame-otfs-ultra-high-mobility",
     "title": "跨帧 OTFS 超高速移动信道估计｜中文逐节译稿（未通过全文 QA）",
