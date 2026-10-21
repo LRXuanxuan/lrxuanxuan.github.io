@@ -588,6 +588,171 @@ $
 
 **备注 6：** 核学习虽然包含立方复杂度运算，但不需要每次执行信道预测时都重新学习核参数，因此平均时间意义下，所提方法的复杂度可以降低。
 
-**待补：** 原文表 I 的精确复杂度条目、V–VI 节、附录 A–B、参考文献和作者简介。
+**表 I：计算复杂度**
+
+| 方法 | 复杂度 |
+|---|---|
+| STEM-KL 核学习 | $\mathcal O(M_{\rm Siter}N_{\rm BS}^3L^3)$ |
+| GEM-KL 核学习 | $\mathcal O(M_{\rm Giter}N_kN_{\rm BS}^3L^3)$ |
+| GPR 未来信道预测 | $\mathcal O(N_{\rm BS}^2LF)$ |
+
+## V. 仿真结果
+
+本节展示 STEM-KL 与 GEM-KL 信道预测器的数值结果，并通过和传统方法对比，评价 GEM 协方差预测器的统计学习性能。
+
+### A. 仿真设置
+
+为了保证信道模型具有一定现实性，分别采用标准 3GPP TR 38.901 CDL 模型和射线追踪信道模型 [59]，评价不同预测算法。在 CDL 模型中采用标准 CDL-A 时延轮廓。
+
+系统设置如下：考虑 256 阵元天线阵列，中心位于 $(0,0,0)$，阵列沿 $x$ 轴排列；用户在 $xoz$ 平面移动。载波频率设为 $f_c=3.5$ GHz，天线间距为半波长。导频发送周期为 0.625 ms；天线极化方向单位向量 $\mathbf u=(0,1,0)^\top$。
+
+所有信道预测算法均使用归一化均方误差（NMSE）评价：
+
+$
+\mathrm{NMSE}=\mathbb E\left[
+\frac{\|\widehat{\mathbf h}_t-\mathbf h_t\|^2}
+{\|\mathbf h_t\|^2}\right]. \tag{36}
+$
+
+同时比较所提方法及基线算法的可达总速率：
+
+$
+R=\log_2\left(
+1+\frac{|\widehat{\mathbf w}^{H}\mathbf h|^2}
+{\sigma_h^2\|\widehat{\mathbf w}\|^2}
+\right), \tag{37}
+$
+
+其中 $\widehat{\mathbf w}=\widehat{\mathbf h}/\|\widehat{\mathbf h}\|$ 是合并向量。
+
+**STEM-KL 初始化：** 集中度参数 $\boldsymbol\delta$ 初始化为 $(0,0,0)$，代表无方向偏好的各向同性角功率谱，避免预先对散射几何作假设。速度 $\mathbf v$ 也初始化为 $(0,0,0)$。虽然形式简单，但这种初始化使算法能够从信道时间序列的多普勒变化中学习速度。
+
+**GEM-KL 初始化：** 使用 15 个子核构成网格，每个子核预先设定一组传播超参数。集中度网格 $\boldsymbol\delta_n$ 采用相对 $z$ 轴（用户运动平面）在 $-\pi/3$ 到 $\pi/3$ 范围均匀取样的五个方向，均取 $\|\boldsymbol\delta_n\|=10$，覆盖典型散射环境的方向性。速度方向候选为 $+x,-x,+z,-z$，通过似然函数选择合适的方向；速度幅值网格选择 54、27、0 km/h，共三个速度点。不同速度参数的子核加权组合，可以产生具有合适速度信息的协方差函数。为公平比较，各子核的初始权重相同，即 $c_n=1/15$。
+
+**基线算法：** “无预测”基线通过直接比较当前信道与未来信道计算 NMSE；AR 预测器依据文献 [21] 的自回归模型构造；PVEC 复现文献 [15] 的 Prony 向量预测方法。此外，图 7 还将提出的信道预测器与基于 LSTM [32]、Transformer [11] 的深度学习预测器比较。后两者使用 3GPP CDL 信道生成训练和验证数据。为提高泛化能力，用户速度在 72–108 km/h 之间随机选择，共生成 30,000 个训练样本，训练 SNR 在 0–10 dB 之间随机选择。
+
+### B. 多径 CDL 信道仿真
+
+本小节利用 Matlab 5G Toolbox 生成的 CDL-A 信道，比较传统信道预测方案与基于 STEM、GEM 的预测方案。
+
+首先使用过去两帧预测下一帧，即 $L=2,F=1$。图 5 和图 6 分别给出各方案 NMSE 与 SNR 的关系。最大多普勒对应的用户速度分别设为 36 km/h 和 72 km/h（多普勒约为 117 Hz、233 Hz）。仿真表明，在 $-10$ 到 15 dB 的 SNR 区间，所提核学习预测器显著优于传统方法，低 SNR 条件下优势尤其明显。GEM-KL 实现最低 NMSE。例如在 SNR 为 2.5 dB 时，GEM-KL 相比 AR 方法，在 36 km/h 与 72 km/h 两种速度下，分别取得约 5 dB 和 4.5 dB 的 NMSE 改善，其中速度标量 $v=\|\mathbf v\|$。
+
+就基线而言，PVEC 在计算复杂度上没有优势，预测准确率也较低：SNR=2.5 dB、速度为 36 km/h 时，NMSE 约为 $-5.2$ dB，因此所提方法在预测精度与计算量两方面均优于 PVEC。AR 的复杂度相对较低，因为它没有建模信道的空间相关性，但预测精度也很低，基本接近无预测方法。对于无线系统，这种准确程度往往不可接受。因此，在准确性—复杂度折中方面，所提方法比这些基线更适合信道预测。
+
+**图 5：** CDL 信道下，最大多普勒对应速度为 36 km/h 时，各种电磁核学习及传统预测方案的 NMSE—SNR 比较。**图 6：** 相同场景，最大速度改为 72 km/h 的 NMSE—SNR 比较。
+
+电磁核方案优于传统算法的主要原因在于，STEM-CF 协方差模型嵌入了电磁传播先验，使先验相关性更准确，从而提升预测性能。加入核学习后，模型可以从观测中确定更合适的超参数，更好地拟合实际相关函数。GEM-KL 又通过把集中度 $\boldsymbol\delta$ 与用户速度 $\mathbf v$ 的联合优化转换为已知网格核的权重优化，减轻直接学习的局部最优问题。多个子核的组合能够适配多径信道，从历史接收导频中学习更合适的电磁相关性模式，因此获得更稳定、准确的预测。
+
+为了评价随时间变化的预测性能，改用过去两帧并行预测未来五帧，即 $L=2,F=5$。图 7 给出 SNR=5 dB、速度为 72 km/h 时不同未来帧的 NMSE。与 AR、PVEC 相比，电磁核预测器明显更准确。虽然 Transformer 在该实验中超过了 STEM-KL，但 GEM-KL 仍表现最佳。以第二个未来帧为例，GEM-KL 相比 AR 改善约 3.4 dB NMSE，并优于 Transformer 约 0.74 dB。
+
+**图 7：** CDL 信道中，最大速度为 72 km/h 时，不同未来帧的 NMSE 随时间变化。
+
+还仿真预测器可达总速率随时间的变化，用于评价信道预测的通信收益。图中的理论上界“Perfect CSI”是假设已准确知道真实 CSI。图 8 在 SNR=5 dB、最大速度 72 km/h 时显示，STEM-KL 与 GEM-KL 在各未来时刻的可达总速率均高于其他预测算法，验证了所提方法的有效性。
+
+**图 8：** CDL 信道中，最大速度为 72 km/h 时的可达总速率随时间变化。
+
+此外，在不同用户速度下评价预测性能。速度从 20 m/s（72 km/h）增加至 100 m/s（360 km/h）。取 SNR=5 dB，使用过去两帧预测下一帧。图 9 显示，STEM-KL 和 GEM-KL 均明显优于基线，GEM-KL 在所有速度下都取得最低 NMSE。以速度为 216 km/h 的场景为例，GEM-KL 相比 AR 改善约 2.1 dB NMSE。
+
+**图 9：** CDL 信道中 NMSE 随用户移动速度变化。
+
+特别值得注意的是，当预测多个未来帧时，随着预测时间增长，基于 STEM 核的方法的 NMSE 上升更慢，表明性能更稳定。这是因为其能够并行预测多个时刻的信道，避免将前一帧预测误差传递到下一帧。综合图 5–9 可见，GEM-KL 能够更准确地预测未来信道，减轻用户移动对无线通信的不利影响。
+
+### C. 射线追踪信道仿真
+
+为了在更接近现实的场景中检验性能，选择文献 [59] 的射线追踪信道。基站与用户均位于香港，基站与用户之间的传播路径通过射线追踪获得。
+
+图 10 绘制不同方案 NMSE 随 SNR 的变化，设置 $L=2,F=1$。最大速度为 72 km/h（约 233 Hz 多普勒频移），可见在射线追踪场景中，几种基于 STEM 的预测方法均优于无预测、AR 与 PVEC，其中 GEM-KL 表现最好。例如 SNR=2.5 dB 时，GEM-KL 相比 AR 改善约 4.4 dB NMSE。
+
+**图 10：** 射线追踪信道中最大速度 72 km/h 时的 NMSE—SNR 比较。
+
+图 11 展示不同方法的 NMSE 随预测时间变化。当 SNR=5 dB、每帧时长为 0.75 ms 时，用过去两帧预测未来五帧。基于 GEM 核的并行预测在未来帧中同样表现最好。以第二个未来帧为例，GEM-KL 相比 AR 预测器改善约 4.2 dB NMSE。
+
+**图 11：** 射线追踪信道中，速度为 72 km/h 时的 NMSE 随时间变化。
+
+图 12 比较预测器的可达总速率。取 SNR=5 dB、帧时长 0.75 ms、最大速度 72 km/h，可见对于未来五帧，STEM-KL 和 GEM-KL 的可达总速率均高于传统预测算法，进一步说明方案有效。
+
+**图 12：** 射线追踪信道中，最大速度为 72 km/h 时的可达总速率随时间变化。
+
+最后，比较不同速度下的性能。用户速度在 72–360 km/h 之间变化，SNR=5 dB，用过去两帧预测下一帧。图 13 表明两种 STEM 核学习方案都优于基线，GEM-KL 在全部速度场景中获得最低 NMSE。以 60 m/s（216 km/h）为例，GEM-KL 相比 AR 改善约 2.7 dB NMSE。
+
+**图 13：** 射线追踪信道中 NMSE 随用户速度变化。
+
+射线追踪结果表明，STEM-KL 方法优于传统预测器有两个原因。一方面，电磁核比其他相关性表示更准确地描述信道时空相关性；另一方面，STEM-KL 能并行预测多个未来时刻，避免逐帧预测的误差累积。核学习可以找到更好的集中度 $\boldsymbol\delta$ 和移动速度 $\mathbf v$，使 STEM 核更准确地反映真实相关性。不过，梯度下降式学习依赖初始化，初始化不佳时会落入局部最优。GEM-KL 通过对不同网格点的核按学习权重组合，缓解超参数局部最优问题，因而性能更加稳定。在本文比较的方案中，GEM-KL 的 GPR 预测器整体表现最好。
+
+## VI. 结论
+
+本文针对 XL-MIMO 场景，通过时空电磁（STEM）核学习设计了高精度信道预测器。STEM 相关函数能够刻画无线信道的基本传播特性，适合作为包含物理先验信息的核函数。为拟合时变信道，设计了包括用户速度与电磁波集中度在内的超参数，并通过核学习估计这些参数。随后利用 GPR 预测未来信道。
+
+为进一步提高预测稳定性，提出 GEM-KL 预测器，将 STEM 核近似为多个 STEM 子核组成的网格化电磁混合核。多核方案也更加适合多径信道预测。最后，使用 CDL 与射线追踪信道开展数值测试，证明 STEM-KL 优于传统基线，其中 GEM-KL 的预测效果在比较方案中最好。未来将把 GEM-KL 用于更复杂的信道预测问题，例如频域宽带信道预测。
+
+## 附录 A. MM 算法替代函数证明
+
+利用 $\ln\det\mathbf K_{y,\rm Mix}(\mathbf c)$ 的凹性，可得其上界：
+
+$
+\begin{aligned}
+\ln\det\mathbf K_{y,\rm Mix}(\mathbf c)
+\le{}&\ln\det\mathbf K_{y,\rm Mix}^{(m)}\\
+&+\sum_{n=1}^{N_k}(c_n-c_n^{(m)})
+\left.\frac{\partial\ln\det\mathbf K_{y,\rm Mix}}
+{\partial c_n}\right|_{\mathbf c^{(m)}}.
+\end{aligned}\tag{38}
+$
+
+代入式（30）的梯度，上式可写成：
+
+$
+\begin{aligned}
+\ln\det\mathbf K_{y,\rm Mix}(\mathbf c)
+\le{}&\ln\det\mathbf K_{y,\rm Mix}^{(m)}\\
+&+2\Re\left[
+\sum_{n=1}^{N_k}(c_n-c_n^{(m)})
+\operatorname{tr}\big(\mathbf K_{\mathcal LL,n}
+(\mathbf K_{y,\rm Mix}^{(m)})^{-1}\big)\right].
+\end{aligned}\tag{39}
+$
+
+由于
+$\sum_{n=1}^{N_k}(c_n-c_n^{(m)})\mathbf K_{\mathcal LL,n}
+=\mathbf K_{y,\rm Mix}-\mathbf K_{y,\rm Mix}^{(m)}$，
+所以可化简为：
+
+$
+\begin{aligned}
+\ln\det\mathbf K_{y,\rm Mix}(\mathbf c)
+\le{}&\ln\det\mathbf K_{y,\rm Mix}^{(m)}\\
+&+2\Re\operatorname{tr}\left[
+(\mathbf K_{y,\rm Mix}^{(m)})^{-1}
+(\mathbf K_{y,\rm Mix}-\mathbf K_{y,\rm Mix}^{(m)})
+\right].
+\end{aligned}\tag{40}
+$
+
+将该上界代入 $\ell_r$，便得到式（31）的 MM 替代函数。证明完毕。
+
+## 附录 B. 计算复杂度公式说明
+
+STEM-KL 需要对速度参数 $\mathbf v$ 和集中度 $\boldsymbol\delta$ 迭代执行梯度优化。对 $N_{\rm BS}$ 根天线和 $L$ 个历史帧，其似然函数为：
+
+$
+\ell(\mathbf v,\boldsymbol\delta\mid\mathbf y)
+=\ln p(\mathbf y\mid\mathbf v,\boldsymbol\delta)
+=-\ln\det\mathbf K_y
+-\mathbf y^H\mathbf K_y^{-1}\mathbf y+\text{const}. \tag{41}
+$
+
+其中 $\mathbf K_y\in\mathbb C^{N_{\rm BS}L\times N_{\rm BS}L}$。每次迭代都需计算似然并执行矩阵求逆，其他计算的复杂度不高于求逆。若总迭代次数为 $M_{\rm Siter}$，则 STEM-KL 总复杂度为 $\mathcal O(M_{\rm Siter}N_{\rm BS}^3L^3)$。
+
+GEM-KL 无需交替优化速度与集中度参数，但需迭代优化 $N_k$ 个子核权重。每轮要计算 $N_k$ 次式（31）的替代函数，主要成本仍来自核矩阵求逆的立方复杂度。因此，GEM-KL 总计算复杂度为 $\mathcal O(M_{\rm Giter}N_kN_{\rm BS}^3L^3)$。
+
+核学习获得信道相关矩阵后，使用高斯后验预测
+$\widehat{\mathbf h}_{\mathcal F}=\mathbf K_{\mathcal FL}\mathbf K_y^{-1}\mathbf y$。
+在核学习过程中已计算 $\mathbf g=\mathbf K_y^{-1}\mathbf y$；
+由于 $\mathbf K_{\mathcal FL}\in\mathbb C^{N_{\rm BS}F\times N_{\rm BS}L}$ 且
+$\mathbf g\in\mathbb C^{N_{\rm BS}L\times1}$，
+GPR 预测阶段主要计算矩阵—向量乘积 $\mathbf K_{\mathcal FL}\mathbf g$，
+其复杂度为 $\mathcal O(N_{\rm BS}^2LF)$。
+
+**后续待补：** 原文参考文献 [1]–[59] 的书目信息及作者简介仍待逐页核对。
 
 {% endraw %}
