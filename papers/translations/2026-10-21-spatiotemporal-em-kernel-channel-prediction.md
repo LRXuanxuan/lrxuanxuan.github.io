@@ -237,7 +237,7 @@ $$
 
 高斯过程回归中，$\mathbf K_{\mathcal LL}$ 的第 $(m,n)$ 个元素为 $k(\mathbf x_m,\mathbf x_n)$，其中 $m,n\in\{1,\ldots,L_N\}$；$\mathbf K_{\mathcal LF}\in\mathbb C^{L_N\times F_N}$ 表示历史与未来位置之间的核矩阵；$\mathbf K_{\mathcal FL}=\mathbf K_{\mathcal LF}^{H}\in\mathbb C^{F_N\times L_N}$；$\mathbf K_{\mathcal FF}\in\mathbb C^{F_N\times F_N}$ 表示未来位置之间的核矩阵。令 $\mathbf K_y=\mathbf K_{\mathcal LL}+\sigma_n^2\mathbf I_{L_N}$。根据复高斯后验公式 [52]，得到：
 
-$
+$$
 \begin{aligned}
 \boldsymbol\mu_{\mathcal F|\mathcal L}
 &=\boldsymbol\mu_{\mathcal F}
@@ -246,7 +246,7 @@ $
 &=\mathbf K_{\mathcal FF}
 -\mathbf K_{\mathcal LF}^{H}\mathbf K_y^{-1}\mathbf K_{\mathcal LF}.
 \end{aligned}\tag{13}
-$
+$$
 
 贝叶斯回归结果由 $\boldsymbol\mu_{\mathcal F|\mathcal L}$ 和 $\mathbf K_{\mathcal F|\mathcal L}$ 给出。
 
@@ -262,19 +262,19 @@ $
 
 需要为评价超参数是否合适指定准则。常用方法是最大似然（ML）：
 
-$
+$$
 \widehat{\boldsymbol\omega}_{\rm ML}
 =\arg\max_{\boldsymbol\omega\in\Omega}
 \ln p(\mathbf y\mid\boldsymbol\omega). \tag{14}
-$
+$$
 
 在给定超参数 $\boldsymbol\omega$ 时，导频观测 $\mathbf y$ 的概率密度函数为：
 
-$
+$$
 p(\mathbf y\mid\boldsymbol\omega)=
 \frac{1}{\pi^{L_N}\det\mathbf K_y}
 \exp(-\mathbf y^H\mathbf K_y^{-1}\mathbf y). \tag{15}
-$
+$$
 
 其中核矩阵 $\mathbf K_y(\boldsymbol\omega)$ 随超参数变化。对数似然函数可写为
 $\ell(\boldsymbol\omega\mid\mathbf y)
@@ -283,21 +283,21 @@ $\ell(\boldsymbol\omega\mid\mathbf y)
 
 记 $\mathbf g=\mathbf K_y^{-1}\mathbf y$，可得：
 
-$
+$$
 \frac{\partial\ell(\boldsymbol\omega\mid\mathbf y)}
 {\partial\omega_i}
 =\operatorname{tr}\left[
 (\mathbf g\mathbf g^H-\mathbf K_y^{-1})
 \frac{\partial\mathbf K_y}{\partial\omega_i}
 \right]. \tag{16}
-$
+$$
 
 其中 $\omega_i$ 是 $\boldsymbol\omega$ 的第 $i$ 个分量。对于复数超参数，需考虑 Wirtinger 导数
 $\frac12(\partial/\partial\omega_{i,\rm Re}-j\partial/\partial\omega_{i,\rm Im})$。原文说明式（16）仍可沿用。
 
 为了预测四维时空信道，专门设计 STEM 核的超参数。根据 IV-A 节，集中度参数 $\boldsymbol\delta$ 反映电磁波的传播方向与集中程度；再引入速度参数 $\mathbf v$，刻画用户移动造成的信道时变性；信道能量记为 $\zeta_h^2$。STEM 核关于 $\delta^{(m)}$、$v^{(m)}$ 和 $\zeta_h^2$ 的 Wirtinger 导数分别为：
 
-$
+$$
 \begin{aligned}
 \frac{\partial\mathbf K_{\rm STEM}}{\partial\delta^{(m)}}&=
 -\frac{\zeta_h^2}{S(\delta)}
@@ -313,22 +313,22 @@ $
 \frac{\partial\mathbf K_{\rm STEM}}{\partial(\zeta_h^2)}
 &=\frac{\boldsymbol\Sigma(\boldsymbol\xi)}{S(\delta)}.
 \end{aligned}\tag{17}
-$
+$$
 
 其中 $\delta=\|\boldsymbol\delta\|$，$\boldsymbol\xi=k_0\mathbf w$，
 $\mathbf w=\mathbf x_p-\mathbf x_q+\mathbf v(t_p-t_q)-j\boldsymbol\delta/k_0$。
 
 不同阶数的球贝塞尔函数满足导数关系：
 
-$
+$$
 \left(\frac1\xi\frac{d}{d\xi}\right)^a
 \left(\xi^{-b}j_b(\xi)\right)
 =(-1)^a\xi^{-b-a}j_{b+a}(\xi). \tag{18}
-$
+$$
 
 结合式（10）的相关函数，得到：
 
-$
+$$
 \begin{aligned}
 \frac{\partial\boldsymbol\Sigma(\boldsymbol\xi)}
 {\partial\xi^{(m)}}={}&
@@ -343,30 +343,30 @@ $
 +\widehat{\boldsymbol\xi}\,
 \partial_m\widehat{\boldsymbol\xi}^{\top}\right).
 \end{aligned}\tag{19}
-$
+$$
 
 这里 $\partial_m=\partial/\partial\xi^{(m)}$，
 $\partial_m\widehat{\boldsymbol\xi}=\xi^{-1}(
 \widehat{\mathbf e}_m-\widehat\xi^{(m)}
 \widehat{\boldsymbol\xi})$，$\widehat{\mathbf e}_m$ 是仅第 $m$ 个分量为 1 的单位向量。联合式（16）与式（17），可得关于实变量的梯度：
 
-$
+$$
 \frac{\partial\ell}{\partial\delta^{(m)}}=
 2c\,\Re\left\{\operatorname{tr}
 \left[\frac{\partial\mathbf K_{\mathcal LL}}
 {\partial\delta^{(m)}}
 (\mathbf g\mathbf g^H-\mathbf K_y^{-1})\right]\right\},\tag{20}
-$
+$$
 
 以及：
 
-$
+$$
 \frac{\partial\ell}{\partial v^{(m)}}=
 2c\,\Re\left\{\operatorname{tr}
 \left[\frac{\partial\mathbf K_{\mathcal LL}}
 {\partial v^{(m)}}
 (\mathbf g\mathbf g^H-\mathbf K_y^{-1})\right]\right\}. \tag{21}
-$
+$$
 
 $\mathbf K_{\mathcal LL}$ 为 STEM 方法构造的信道相关矩阵。利用梯度上升等梯度优化算法，可以据此根据 ML 准则获得更优的核参数 $\boldsymbol\omega$。
 
@@ -380,7 +380,7 @@ $\mathbf K_{\mathcal LL}$ 为 STEM 方法构造的信道相关矩阵。利用梯
 
 为避免这种非凸／非凹函数的不便，可使用基于网格的方法 [53] 学习 STEM 核参数。定义 GEM 核 $\mathbf K_{\rm GEM}$ 为多个子核的组合，每个子核对应超参数空间中的一个网格点；在网格上预先选择若干固定的 $\boldsymbol\delta$ 和 $\mathbf v$，再用加权混合的方式组合多个 STEM 子核。假设共有 $N_k$ 个相关性子核，各自权重为 $c_n\in\mathbb R_+$，则：
 
-$
+$$
 \begin{aligned}
 &k_{\rm GEM}(\mathbf x_p,t_p;\mathbf x_q,t_q\mid\boldsymbol\omega)\\
 &\quad=
@@ -389,7 +389,7 @@ $
 \mathbf K_{\rm STEM}(\mathbf x_p,t_p;\mathbf x_q,t_q
 \mid\boldsymbol\omega_n)\right)\mathbf u_q.
 \end{aligned}\tag{22}
-$
+$$
 
 其中各子核对应网格点 $(\boldsymbol\delta_n,\mathbf v_n)$。预选的参数满足
 $\boldsymbol\delta_n\in\Delta\subset\mathbb R^3$、
@@ -397,54 +397,54 @@ $\mathbf v_n\in\mathcal V\subset\mathbb R^3$，
 $\boldsymbol\omega_n=\{\boldsymbol\delta_n,\mathbf v_n,c_n\}$；
 $\mathbf u\in\mathbb R^{3\times1}$ 为天线极化方向的单位矢量。混合核相关矩阵的元素为：
 
-$
+$$
 (\mathbf K_{\mathcal LL,\rm Mix})_{p,q}
 =k_{\rm GEM}(\mathbf x_p,t_p;\mathbf x_q,t_q\mid\boldsymbol\omega). \tag{23}
-$
+$$
 
 权重 $c_n$ 与相应子核呈线性关系，因此只需要优化不同网格点对应的权重 $\{c_n\}_{n=1}^{N_k}$，就可以在网格上获得近似最优的超参数组合。将权重组成向量 $\mathbf c=(c_1,\ldots,c_{N_k})$，并定义可行集
 $\mathcal C=\{\mathbf c\in\mathbb R_+^{N_k}\mid\sum_nc_n=1\}$。
 包含观测噪声的混合协方差矩阵可写为：
 
-$
+$$
 \mathbf K_{y,\rm Mix}
 =\mathbf K_{\mathcal LL,\rm Mix}+\sigma_h^2\mathbf I_{L_N}
 =\sum_{n=1}^{N_k}c_n\mathbf K_{\mathcal LL,n}
 +\sigma_h^2\mathbf I_{L_N}. \tag{24}
-$
+$$
 
 采用混合的网格化核能够提高 STEM 定义的高斯随机场对观测信道的拟合能力。从理论上看，由有限个子相关函数构成的混合核，可以表示任意入射电磁场的角功率谱。于是最大似然问题简化为：
 
-$
+$$
 \widehat{\mathbf c}_{\rm ML}
 =\arg\max_{\mathbf c\in\mathcal C}\ln p(\mathbf y\mid\mathbf c). \tag{25}
-$
+$$
 
 其对数似然函数为：
 
-$
+$$
 \ell(\{c_n\}_{n=1}^{N_k},\zeta^2\mid\mathbf y)
 =-\ln\det\mathbf K_{y,\rm Mix}
 -\mathbf y^H\mathbf K_{y,\rm Mix}^{-1}\mathbf y+\text{const}. \tag{26}
-$
+$$
 
 第一项表示模型复杂度，第二项表示数据拟合。为了去掉负号，定义
 $\ell_r(\mathbf c)=\ln\det\mathbf K_{y,\rm Mix}
 +\mathbf y^H\mathbf K_{y,\rm Mix}^{-1}\mathbf y$，
 将最大化问题改写为：
 
-$
+$$
 \widehat{\mathbf c}_{\rm ML}
 =\arg\min_{\mathbf c\in\mathcal C}
 \left(\ln\det\mathbf K_{y,\rm Mix}
 +\mathbf y^H\mathbf K_{y,\rm Mix}^{-1}\mathbf y\right). \tag{27}
-$
+$$
 
 其中，二次型 $\mathbf y^H\mathbf K_{y,\rm Mix}^{-1}\mathbf y$ 关于 $\mathbf K_{y,\rm Mix}$ 为凸函数；而 $\ln\det\mathbf K_{y,\rm Mix}$ 为凹函数。可以使用主化—最小化（majorization–minimization，MM）算法 [54]，以逐步最小化替代函数的迭代方式求解这种非凸非凹优化。
 
 主化步骤采用一阶泰勒展开，为凹函数设计上界替代函数。在当前迭代点 $\mathbf K_{y,\rm Mix}=\mathbf K_{y,\rm Mix}^{(m)}$（即 $\mathbf c=\mathbf c^{(m)}$）处线性化对数行列式函数，得到：
 
-$
+$$
 \begin{aligned}
 \ell_r(\mathbf K_{y,\rm Mix})\le{}&
 \mathbf y^H\mathbf K_{y,\rm Mix}^{-1}\mathbf y
@@ -454,28 +454,28 @@ $
 (\mathbf K_{y,\rm Mix}-\mathbf K_{y,\rm Mix}^{(m)})
 \right].
 \end{aligned}\tag{28}
-$
+$$
 
 其中 $\ell_{\rm CCV}(\mathbf K)=\ln\det\mathbf K$。其对核矩阵的 Wirtinger 导数为：
 
-$
+$$
 \frac{\partial\ell_{\rm CCV}}{\partial\mathbf K_{y,\rm Mix}}
 =(\mathbf K_{y,\rm Mix}^{-1})^*. \tag{29}
-$
+$$
 
 对权重 $c_n$ 的实变量导数为：
 
-$
+$$
 \frac{\partial\ell_{\rm CCV}}{\partial c_n}
 =2\Re\!\left[
 \operatorname{tr}\big(
 \mathbf K_{\mathcal LL,n}(\boldsymbol\omega_n)
 \mathbf K_{y,\rm Mix}^{-1}\big)\right]. \tag{30}
-$
+$$
 
 因此，MM 替代函数为：
 
-$
+$$
 \begin{aligned}
 \ell_s(\mathbf c\mid\mathbf c^{(m)})
 ={}&\mathbf y^H\mathbf K_{y,\rm Mix}^{-1}\mathbf y
@@ -485,21 +485,21 @@ $
 (\mathbf K_{y,\rm Mix}-\mathbf K_{y,\rm Mix}^{(m)})
 \right]\right\}.
 \end{aligned}\tag{31}
-$
+$$
 
 原文在附录 B 给出式（31）的推导证明。为降低矩阵求逆与行列式计算的复杂度，可以分别对当前与下一次混合核矩阵进行 Cholesky 分解，利用所得下三角矩阵高效求解。
 
 最小化步骤通过优化权重更新：
 
-$
+$$
 \widehat{\mathbf c}^{(m+1)}
 =\arg\min_{\mathbf c\in\mathcal C}
 \ell_s(\mathbf c\mid\mathbf c^{(m)}). \tag{32}
-$
+$$
 
 由于替代函数是凸的，求解可以利用其对权重的实变量导数：
 
-$
+$$
 \frac{\partial\ell_s}{\partial c_n}
 =2\Re\!\left[
 \operatorname{tr}\left(
@@ -507,16 +507,16 @@ $
 \big((\mathbf K_{y,\rm Mix}^{(m)})^{-1}
 -\mathbf g\mathbf g^H\big)
 \right)\right], \tag{33}
-$
+$$
 
 其中 $\mathbf g=\mathbf K_{y,\rm Mix}^{-1}\mathbf y$。MM 迭代的目标函数具有非增性：
 
-$
+$$
 \ell_r(\mathbf c^{(m+1)})
 \le\ell_s(\mathbf c^{(m+1)}\mid\mathbf c^{(m)})
 \le\ell_s(\mathbf c^{(m)}\mid\mathbf c^{(m)})
 =\ell_r(\mathbf c^{(m)}). \tag{34}
-$
+$$
 
 交替执行主化与最小化，可使目标函数单调改进，并将原非凸优化转换为每轮的凸权重学习子问题，在保留电磁物理约束的同时提高稳定性。这与用基函数字典近似复杂信号类似：每个子核都是时空相关性的一个“基”，GEM-KL 学习这些子核的最优混合，因此在作者的实验中能够优于直接 STEM-KL。
 
@@ -539,11 +539,11 @@ $
 
 设基站有 $N_{\rm BS}$ 根天线，空间位置为 $\{\mathbf x_n\}_{n=1}^{N_{\rm BS}}\subset\mathbb R^3$。考虑时刻 $t_i$ 天线 $a$ 的第 $m$ 个极化分量，与时刻 $t_j$ 天线 $b$ 的第 $n$ 个极化分量之间的时空相关性，令 $p=(a,m,i)$、$q=(b,n,j)$，则：
 
-$
+$$
 K_{p,q}=\mathbf u_p^\top
 \left[\mathbf K_{\rm GEM}(\mathbf x_p,t_p;\mathbf x_q,t_q)\right]
 \mathbf u_q. \tag{35}
-$
+$$
 
 其中 $\mathbf u_p$ 为极化方向的单位向量。利用式（35）可构造不同时空位置的信道相关矩阵。
 
@@ -608,20 +608,20 @@ $
 
 所有信道预测算法均使用归一化均方误差（NMSE）评价：
 
-$
+$$
 \mathrm{NMSE}=\mathbb E\left[
 \frac{\|\widehat{\mathbf h}_t-\mathbf h_t\|^2}
 {\|\mathbf h_t\|^2}\right]. \tag{36}
-$
+$$
 
 同时比较所提方法及基线算法的可达总速率：
 
-$
+$$
 R=\log_2\left(
 1+\frac{|\widehat{\mathbf w}^{H}\mathbf h|^2}
 {\sigma_h^2\|\widehat{\mathbf w}\|^2}
 \right), \tag{37}
-$
+$$
 
 其中 $\widehat{\mathbf w}=\widehat{\mathbf h}/\|\widehat{\mathbf h}\|$ 是合并向量。
 
@@ -689,7 +689,7 @@ $
 
 利用 $\ln\det\mathbf K_{y,\rm Mix}(\mathbf c)$ 的凹性，可得其上界：
 
-$
+$$
 \begin{aligned}
 \ln\det\mathbf K_{y,\rm Mix}(\mathbf c)
 \le{}&\ln\det\mathbf K_{y,\rm Mix}^{(m)}\\
@@ -697,11 +697,11 @@ $
 \left.\frac{\partial\ln\det\mathbf K_{y,\rm Mix}}
 {\partial c_n}\right|_{\mathbf c^{(m)}}.
 \end{aligned}\tag{38}
-$
+$$
 
 代入式（30）的梯度，上式可写成：
 
-$
+$$
 \begin{aligned}
 \ln\det\mathbf K_{y,\rm Mix}(\mathbf c)
 \le{}&\ln\det\mathbf K_{y,\rm Mix}^{(m)}\\
@@ -710,14 +710,14 @@ $
 \operatorname{tr}\big(\mathbf K_{\mathcal LL,n}
 (\mathbf K_{y,\rm Mix}^{(m)})^{-1}\big)\right].
 \end{aligned}\tag{39}
-$
+$$
 
 由于
 $\sum_{n=1}^{N_k}(c_n-c_n^{(m)})\mathbf K_{\mathcal LL,n}
 =\mathbf K_{y,\rm Mix}-\mathbf K_{y,\rm Mix}^{(m)}$，
 所以可化简为：
 
-$
+$$
 \begin{aligned}
 \ln\det\mathbf K_{y,\rm Mix}(\mathbf c)
 \le{}&\ln\det\mathbf K_{y,\rm Mix}^{(m)}\\
@@ -726,7 +726,7 @@ $
 (\mathbf K_{y,\rm Mix}-\mathbf K_{y,\rm Mix}^{(m)})
 \right].
 \end{aligned}\tag{40}
-$
+$$
 
 将该上界代入 $\ell_r$，便得到式（31）的 MM 替代函数。证明完毕。
 
@@ -734,12 +734,12 @@ $
 
 STEM-KL 需要对速度参数 $\mathbf v$ 和集中度 $\boldsymbol\delta$ 迭代执行梯度优化。对 $N_{\rm BS}$ 根天线和 $L$ 个历史帧，其似然函数为：
 
-$
+$$
 \ell(\mathbf v,\boldsymbol\delta\mid\mathbf y)
 =\ln p(\mathbf y\mid\mathbf v,\boldsymbol\delta)
 =-\ln\det\mathbf K_y
 -\mathbf y^H\mathbf K_y^{-1}\mathbf y+\text{const}. \tag{41}
-$
+$$
 
 其中 $\mathbf K_y\in\mathbb C^{N_{\rm BS}L\times N_{\rm BS}L}$。每次迭代都需计算似然并执行矩阵求逆，其他计算的复杂度不高于求逆。若总迭代次数为 $M_{\rm Siter}$，则 STEM-KL 总复杂度为 $\mathcal O(M_{\rm Siter}N_{\rm BS}^3L^3)$。
 
