@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "一步生成式 CSI 预测｜中文逐节译稿（待终校）"
+title: "一步生成式 CSI 预测｜中文全篇译稿（待终校）"
 permalink: /papers/translations/2026-10-21-one-step-generative-csi-2609-17033/
 math: true
 toc: true
