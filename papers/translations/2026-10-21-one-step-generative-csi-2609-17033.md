@@ -345,8 +345,14 @@ $$
 
 [9] M. Sattari, J. Aliakbari, A. G. i Amat, and T. Svensson, “CSI prediction using diffusion models,” IEEE Transactions on Wireless Communications, vol. 25, pp. 21418–21432, 2026.
 
-[10] M. Sattari, J. Aliakbari, A. G. i Amat, and T. Svensson, “CSI prediction using autoregressive conditional diffusion models,” 2026.
+[10] M. Sattari, J. Aliakbari, A. G. I. Amat, and T. Svensson, “CSI prediction using autoregressive conditional diffusion models,” in Proc. IEEE International Conference on Communications (ICC), 2026, pp. 1–6.
 
-[11]–[14] 书目信息尚待逐条对照原 PDF 终校；请以 [原文 PDF](https://arxiv.org/pdf/2609.17033) 为准。
+[11] J. Ho, A. Jain, and P. Abbeel, “Denoising diffusion probabilistic models,” in Advances in Neural Information Processing Systems (NeurIPS), vol. 33, 2020, pp. 6840–6851.
+
+[12] Y. Lipman, R. T. Q. Chen, H. Ben-Hamu, M. Nickel, and M. Le, “Flow matching for generative modeling,” 2023. https://arxiv.org/abs/2210.02747
+
+[13] Z. Geng, M. Deng, X. Bai, J. Z. Kolter, and K. He, “Mean flows for one-step generative modeling,” 2025. https://arxiv.org/abs/2505.13447
+
+[14] J. Hoydis, S. Cammerer, F. A. Aoudia, A. Vem, N. Binder, G. Marcus, and A. Keller, “Sionna: An open-source library for next-generation physical layer research,” 2023. https://arxiv.org/abs/2203.11854
 
 {% endraw %}
