@@ -215,7 +215,7 @@ $$
 
 需要注意，$\mathbf w=\mathbf x-\mathbf x'+\mathbf v(t-t')-j\boldsymbol\delta/k_0$ 同时包含空间和时间变量，因此所用核能够在满足电磁物理约束的前提下描述时空相关性。STEM-CF 可在随后讨论的高斯过程回归中作为先验。原文备注进一步强调：集中度 $\boldsymbol\delta$ 描述电磁波方向性，用户速度 $\mathbf v$ 控制多普勒引起的时间相关性，这些量使核函数具有明确的物理解释。
 
-### B. 高斯过程回归（已译部分）
+### B. 高斯过程回归
 
 高斯过程回归（Gaussian process regression，GPR）[51] 可根据高斯随机场的先验信息和观测数据进行预测。具体来说，对 $\operatorname{GRF}(\mu(\mathbf x),k(\mathbf x,\mathbf x'))$，根据含噪观测 $y_i=f(\mathbf x_i)+n_i$，$n_i\sim\mathcal{CN}(0,\sigma_n^2)$，预测后续 $F$ 个点上的函数值。对信道预测问题，历史观测数量为 $L_N=N_{\rm BS}L$，未来预测数量为 $F_N=N_{\rm BS}F$。
 
