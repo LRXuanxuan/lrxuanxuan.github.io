@@ -372,6 +372,222 @@ $\mathbf K_{\mathcal LL}$ 为 STEM 方法构造的信道相关矩阵。利用梯
 
 **备注 3：** 核方法为捕捉无线信道的时空相关性提供了有力框架 [49]。提出的 STEM 核将电磁信息论的物理认识编码进信道相关函数，实现较精确的信道响应建模。核学习进一步调节参数以优化核函数，从而提高 GPR 信道预测的准确性。
 
-**待补：** IV-D 网格化混合核与凸优化、IV-E 预测算法、复杂度分析、V–VI 节及附录。
+### D. 提出的网格化电磁混合核
+
+采用梯度优化核超参数，可能陷入局部最优。本节提出网格化电磁混合核（GEM），以获得更加全局化的学习结果。
+
+首先分析目标函数 $\ell(\boldsymbol\omega\mid\mathbf y)$，它也可看成核矩阵 $\mathbf K_y$ 的函数。不过，$\ell(\boldsymbol\omega\mid\mathbf y)$ 关于 $\mathbf K_y$ 既非凸也非凹，因此梯度优化难以找到全局最大值。再者，核矩阵依赖于超参数 $\boldsymbol\omega$，而其中的集中度 $\boldsymbol\delta$ 与速度 $\mathbf v$ 和 $\mathbf K_y$ 之间又没有线性关系，使目标函数与超参数之间的关系难以直接刻画。
+
+为避免这种非凸／非凹函数的不便，可使用基于网格的方法 [53] 学习 STEM 核参数。定义 GEM 核 $\mathbf K_{\rm GEM}$ 为多个子核的组合，每个子核对应超参数空间中的一个网格点；在网格上预先选择若干固定的 $\boldsymbol\delta$ 和 $\mathbf v$，再用加权混合的方式组合多个 STEM 子核。假设共有 $N_k$ 个相关性子核，各自权重为 $c_n\in\mathbb R_+$，则：
+
+$
+\begin{aligned}
+&k_{\rm GEM}(\mathbf x_p,t_p;\mathbf x_q,t_q\mid\boldsymbol\omega)\\
+&\quad=
+\mathbf u_p^{\top}
+\left(\sum_{n=1}^{N_k}c_n
+\mathbf K_{\rm STEM}(\mathbf x_p,t_p;\mathbf x_q,t_q
+\mid\boldsymbol\omega_n)\right)\mathbf u_q.
+\end{aligned}\tag{22}
+$
+
+其中各子核对应网格点 $(\boldsymbol\delta_n,\mathbf v_n)$。预选的参数满足
+$\boldsymbol\delta_n\in\Delta\subset\mathbb R^3$、
+$\mathbf v_n\in\mathcal V\subset\mathbb R^3$，
+$\boldsymbol\omega_n=\{\boldsymbol\delta_n,\mathbf v_n,c_n\}$；
+$\mathbf u\in\mathbb R^{3\times1}$ 为天线极化方向的单位矢量。混合核相关矩阵的元素为：
+
+$
+(\mathbf K_{\mathcal LL,\rm Mix})_{p,q}
+=k_{\rm GEM}(\mathbf x_p,t_p;\mathbf x_q,t_q\mid\boldsymbol\omega). \tag{23}
+$
+
+权重 $c_n$ 与相应子核呈线性关系，因此只需要优化不同网格点对应的权重 $\{c_n\}_{n=1}^{N_k}$，就可以在网格上获得近似最优的超参数组合。将权重组成向量 $\mathbf c=(c_1,\ldots,c_{N_k})$，并定义可行集
+$\mathcal C=\{\mathbf c\in\mathbb R_+^{N_k}\mid\sum_nc_n=1\}$。
+包含观测噪声的混合协方差矩阵可写为：
+
+$
+\mathbf K_{y,\rm Mix}
+=\mathbf K_{\mathcal LL,\rm Mix}+\sigma_h^2\mathbf I_{L_N}
+=\sum_{n=1}^{N_k}c_n\mathbf K_{\mathcal LL,n}
++\sigma_h^2\mathbf I_{L_N}. \tag{24}
+$
+
+采用混合的网格化核能够提高 STEM 定义的高斯随机场对观测信道的拟合能力。从理论上看，由有限个子相关函数构成的混合核，可以表示任意入射电磁场的角功率谱。于是最大似然问题简化为：
+
+$
+\widehat{\mathbf c}_{\rm ML}
+=\arg\max_{\mathbf c\in\mathcal C}\ln p(\mathbf y\mid\mathbf c). \tag{25}
+$
+
+其对数似然函数为：
+
+$
+\ell(\{c_n\}_{n=1}^{N_k},\zeta^2\mid\mathbf y)
+=-\ln\det\mathbf K_{y,\rm Mix}
+-\mathbf y^H\mathbf K_{y,\rm Mix}^{-1}\mathbf y+\text{const}. \tag{26}
+$
+
+第一项表示模型复杂度，第二项表示数据拟合。为了去掉负号，定义
+$\ell_r(\mathbf c)=\ln\det\mathbf K_{y,\rm Mix}
++\mathbf y^H\mathbf K_{y,\rm Mix}^{-1}\mathbf y$，
+将最大化问题改写为：
+
+$
+\widehat{\mathbf c}_{\rm ML}
+=\arg\min_{\mathbf c\in\mathcal C}
+\left(\ln\det\mathbf K_{y,\rm Mix}
++\mathbf y^H\mathbf K_{y,\rm Mix}^{-1}\mathbf y\right). \tag{27}
+$
+
+其中，二次型 $\mathbf y^H\mathbf K_{y,\rm Mix}^{-1}\mathbf y$ 关于 $\mathbf K_{y,\rm Mix}$ 为凸函数；而 $\ln\det\mathbf K_{y,\rm Mix}$ 为凹函数。可以使用主化—最小化（majorization–minimization，MM）算法 [54]，以逐步最小化替代函数的迭代方式求解这种非凸非凹优化。
+
+主化步骤采用一阶泰勒展开，为凹函数设计上界替代函数。在当前迭代点 $\mathbf K_{y,\rm Mix}=\mathbf K_{y,\rm Mix}^{(m)}$（即 $\mathbf c=\mathbf c^{(m)}$）处线性化对数行列式函数，得到：
+
+$
+\begin{aligned}
+\ell_r(\mathbf K_{y,\rm Mix})\le{}&
+\mathbf y^H\mathbf K_{y,\rm Mix}^{-1}\mathbf y
++\ell_{\rm CCV}(\mathbf K_{y,\rm Mix}^{(m)})\\
+&+\operatorname{tr}\!\left[
+\nabla\ell_{\rm CCV}(\mathbf K_{y,\rm Mix}^{(m)})^\top
+(\mathbf K_{y,\rm Mix}-\mathbf K_{y,\rm Mix}^{(m)})
+\right].
+\end{aligned}\tag{28}
+$
+
+其中 $\ell_{\rm CCV}(\mathbf K)=\ln\det\mathbf K$。其对核矩阵的 Wirtinger 导数为：
+
+$
+\frac{\partial\ell_{\rm CCV}}{\partial\mathbf K_{y,\rm Mix}}
+=(\mathbf K_{y,\rm Mix}^{-1})^*. \tag{29}
+$
+
+对权重 $c_n$ 的实变量导数为：
+
+$
+\frac{\partial\ell_{\rm CCV}}{\partial c_n}
+=2\Re\!\left[
+\operatorname{tr}\big(
+\mathbf K_{\mathcal LL,n}(\boldsymbol\omega_n)
+\mathbf K_{y,\rm Mix}^{-1}\big)\right]. \tag{30}
+$
+
+因此，MM 替代函数为：
+
+$
+\begin{aligned}
+\ell_s(\mathbf c\mid\mathbf c^{(m)})
+={}&\mathbf y^H\mathbf K_{y,\rm Mix}^{-1}\mathbf y
++\ln\det\mathbf K_{y,\rm Mix}^{(m)}\\
+&+2\Re\!\left\{\operatorname{tr}\left[
+(\mathbf K_{y,\rm Mix}^{(m)})^{-1}
+(\mathbf K_{y,\rm Mix}-\mathbf K_{y,\rm Mix}^{(m)})
+\right]\right\}.
+\end{aligned}\tag{31}
+$
+
+原文在附录 B 给出式（31）的推导证明。为降低矩阵求逆与行列式计算的复杂度，可以分别对当前与下一次混合核矩阵进行 Cholesky 分解，利用所得下三角矩阵高效求解。
+
+最小化步骤通过优化权重更新：
+
+$
+\widehat{\mathbf c}^{(m+1)}
+=\arg\min_{\mathbf c\in\mathcal C}
+\ell_s(\mathbf c\mid\mathbf c^{(m)}). \tag{32}
+$
+
+由于替代函数是凸的，求解可以利用其对权重的实变量导数：
+
+$
+\frac{\partial\ell_s}{\partial c_n}
+=2\Re\!\left[
+\operatorname{tr}\left(
+\mathbf K_{\mathcal LL,n}(\boldsymbol\omega_n)
+\big((\mathbf K_{y,\rm Mix}^{(m)})^{-1}
+-\mathbf g\mathbf g^H\big)
+\right)\right], \tag{33}
+$
+
+其中 $\mathbf g=\mathbf K_{y,\rm Mix}^{-1}\mathbf y$。MM 迭代的目标函数具有非增性：
+
+$
+\ell_r(\mathbf c^{(m+1)})
+\le\ell_s(\mathbf c^{(m+1)}\mid\mathbf c^{(m)})
+\le\ell_s(\mathbf c^{(m)}\mid\mathbf c^{(m)})
+=\ell_r(\mathbf c^{(m)}). \tag{34}
+$
+
+交替执行主化与最小化，可使目标函数单调改进，并将原非凸优化转换为每轮的凸权重学习子问题，在保留电磁物理约束的同时提高稳定性。这与用基函数字典近似复杂信号类似：每个子核都是时空相关性的一个“基”，GEM-KL 学习这些子核的最优混合，因此在作者的实验中能够优于直接 STEM-KL。
+
+**算法 1：GEM 核参数学习算法**
+
+输入子核数量 $N_k$；网格参数 $\{\boldsymbol\delta_n\}$、$\{\mathbf v_n\}$；历史导频 $\{y_\ell\}_{\ell=1}^{L_N}$；噪声方差 $\sigma_h^2$；最大迭代次数 $M_{\rm iter}$。输出各子核参数 $\{\boldsymbol\delta_n,\mathbf v_n,\widehat c_n\}_{n=1}^{N_k}$ 和能量估计 $\widehat{\zeta}^2$。
+
+1. 初始化各个权重 $c_n^{(0)}$ 与 Armijo–Goldstein 优化器的学习率，设置迭代索引 $m=0$。
+2. 将全部历史导频组成 $\mathbf y\in\mathbb C^{L_N\times1}$。
+3. 对 $m=1,\ldots,M_{\rm iter}$，根据式（22）–（24）构造 GEM 核矩阵 $\mathbf K_{y,\rm Mix}$。
+4. 计算 $\mathbf g=\mathbf K_{y,\rm Mix}^{-1}\mathbf y$。
+5. 遍历每个子核 $n=1,\ldots,N_k$：根据式（31）构造替代函数，根据式（33）求梯度，利用 Armijo–Goldstein 优化器更新 $c_n^{(m)}$，并据此更新核矩阵。
+6. 在全部迭代结束后，按原文算法中的能量更新规则计算 $\widehat{\zeta}^2$，返回网格参数及已学习的权重。
+
+对任意定义于 $m$ 维单位超球面 $\mathbb S^m$ 上的连续概率密度函数，已有研究 [55] 证明可以用有限个 $m$ 维 von Mises–Fisher 分布的混合，在 $L^\infty$ 意义下达到任意指定的正精度 $\varepsilon$。因此，入射电磁角功率密度可由有限个 STEM 相关函数混合进行任意精度近似。这正对应所提出的混合核方法。
+
+**备注 4：** GEM 核学习将超参数的获取转化为权重优化。每个网格点 $\boldsymbol\omega_n=(\mathbf v_n,\boldsymbol\delta_n)$ 具有物理解释，编码了用户移动和电磁波集中方向等传播特征。权重 $c_n$ 衡量第 $n$ 个子核与实际观测的关联程度，相当于对应网格点接近真实参数的相对重要性；混合核按这种关联程度汇聚全部子核。
+
+### E. GEM-KL 信道预测算法
+
+设基站有 $N_{\rm BS}$ 根天线，空间位置为 $\{\mathbf x_n\}_{n=1}^{N_{\rm BS}}\subset\mathbb R^3$。考虑时刻 $t_i$ 天线 $a$ 的第 $m$ 个极化分量，与时刻 $t_j$ 天线 $b$ 的第 $n$ 个极化分量之间的时空相关性，令 $p=(a,m,i)$、$q=(b,n,j)$，则：
+
+$
+K_{p,q}=\mathbf u_p^\top
+\left[\mathbf K_{\rm GEM}(\mathbf x_p,t_p;\mathbf x_q,t_q)\right]
+\mathbf u_q. \tag{35}
+$
+
+其中 $\mathbf u_p$ 为极化方向的单位向量。利用式（35）可构造不同时空位置的信道相关矩阵。
+
+**算法 2：信道相关矩阵构造**
+
+输入 GEM 超参数 $\boldsymbol\omega=\{\boldsymbol\delta_n,\mathbf v_n,\widehat c_n\}_{n=1}^{N_k}$，信道索引集合 $\mathcal P,\mathcal Q$ 及索引上下界。输出两组信道之间的相关矩阵 $\mathbf K_{\mathcal PQ}$。
+
+1. 初始化 $\mathbf K_{\mathcal PQ}\in\mathbb C^{|\mathcal P|\times|\mathcal Q|}$。
+2. 遍历 $p=p_{\min},\ldots,p_{\max}$ 及 $q=q_{\min},\ldots,q_{\max}$。
+3. 按式（9）、（22）计算相关核，再按天线极化方向得到矩阵元素 $K_{p,q}$。
+4. 返回 $\mathbf K_{\mathcal PQ}$。
+
+提出的基于 EIT 的 GPR 预测过程汇总于算法 3。基站接收历史时空坐标的带噪观测，并预测未来时刻的信道。未来及过去未观测到的信道均建模为高斯随机场。首先利用 GEM-KL 训练 STEM-CF，构造历史信道的自相关矩阵 $\mathbf K_y=\mathbf K_{\mathcal LL}+\sigma_n^2\mathbf I_L$，再计算历史和未来信道之间的相关矩阵，最后使用式（37）形式的预测器获得未来信道。完整流程见图 4。
+
+**算法 3：EIT-GEM 信道预测器**
+
+输入：历史索引 $\ell\in\mathcal L$、未来索引 $f\in\mathcal F$、接收导频 $\mathbf y_\ell$、GEM 超参数 $\boldsymbol\omega$、噪声方差 $\sigma_n^2$。输出预测信道 $\widehat{\mathbf h}_{\mathcal F}$。
+
+1. 按算法 1 学习 $\{\boldsymbol\delta_n,\mathbf v_n,\widehat c_n\}_{n=1}^{N_k}$。
+2. 按算法 2 计算历史信道相关矩阵 $\mathbf K_{\mathcal LL}$ 和历史—未来相关矩阵 $\mathbf K_{\mathcal FL}$。
+3. 设置 $\mathbf K_{y,\rm Mix}=\mathbf K_{\mathcal LL,\rm Mix}+\sigma_n^2\mathbf I_{L_N}$。
+4. 计算 $\mathbf g=\mathbf K_{y,\rm Mix}^{-1}\mathbf y$。
+5. 预测 $\widehat{\mathbf h}_{\mathcal F}=\mathbf K_{\mathcal FL}\mathbf g$，返回向量化的未来信道。
+
+该方法虽然针对单用户、单天线 UE 推导，但可直接扩展到多天线和多用户系统。多天线 UE 的信道矩阵可以向量化，在不改变基本电磁原理的条件下使用相同的时空电磁核 GPR 框架。多用户系统若采用正交导频，可以分别预测每个用户的信道；若非正交接入带来显著干扰，则可以根据共享环境因素（如位置、速度）联合建模跨用户信道相关性。
+
+对于用户速度变化的情况，可以周期性发送新的导频进行更新。STEM-KL 和 GEM-KL 都可以采用时间窗式预测，在每个时间窗内假设速度近似恒定——因为车联网等典型场景下速度的突然剧烈变化并不常见。每个预测窗口结束时，发射端发送新导频，使接收端能够更新 STEM-KL 中的速度参数 $\mathbf v$，或调整 GEM-KL 中的子核权重 $\mathbf c$。这种周期性导频更新机制在预测精度与导频开销之间取得折中；结合稀疏导频插入，可在速度变化的动态环境中保持性能与效率。
+
+**图 4：** GEM-KL 信道预测方案流程图，包括导频观测、核参数学习、相关矩阵构造与 GPR 预测。
+
+**备注 5：** 所提方案适用于多种 MIMO 配置，但特别适合 XL-MIMO。大量天线带来更大的空间域和更快的移动信道变化，增加预测困难；STEM 和 GEM 核学习使用由速度与集中度参数化的时空相关性，提供具有物理知识的预测方法。
+
+### F. 计算复杂度分析
+
+分析 STEM-KL、GEM-KL 和基于 GPR 的信道预测的计算复杂度。原文表 I 列出各算法复杂度，其中 $N_{\rm BS}$ 为基站天线数，$M_{\rm Siter}$ 和 $M_{\rm Giter}$ 分别为 STEM-KL、GEM-KL 的迭代次数，$N_k$ 为子核或基函数数目，$L$ 是用于训练的历史时隙数，$F$ 是预测时隙数；公式的进一步推导见附录 B。由于两种核学习都只需要较少迭代即可收敛，$M_{\rm Siter}$ 和 $M_{\rm Giter}$ 不必很大；所提方法也只需要少量历史信道，因此 $L$ 对复杂度的影响较小。
+
+为进一步降低核学习式信道预测的复杂度，特别是其矩阵求逆运算，可以采用：
+
+- **Cholesky 分解：** 信道相关矩阵半正定，可表示为 $\mathbf K=\mathbf L\mathbf L^H$，其中 $\mathbf L$ 为下三角矩阵，从而高效求解线性方程组、计算行列式。
+- **并行矩阵运算：** 可通过分治算法 [56]、分块算法以及 GPU 的大规模并行性 [57] 加速求逆与乘法。
+- **迭代近似逆：** 可采用 Neumann 级数和 Newton 迭代，避免直接三次复杂度求逆。对角带状 Newton 迭代（DBNI）[58] 利用 $\mathbf K_{y,\rm Mix}$ 的对角占优性，可将复杂度从立方降至平方。
+
+**备注 6：** 核学习虽然包含立方复杂度运算，但不需要每次执行信道预测时都重新学习核参数，因此平均时间意义下，所提方法的复杂度可以降低。
+
+**待补：** 原文表 I 的精确复杂度条目、V–VI 节、附录 A–B、参考文献和作者简介。
 
 {% endraw %}
