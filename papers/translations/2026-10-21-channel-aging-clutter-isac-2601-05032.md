@@ -15,7 +15,7 @@ toc: true
 **作者：** Steven Rivetti、Gabor Fodor、Emil Björnson、Mikael Skoglund  
 **机构：** 瑞典皇家理工学院（KTH）；部分作者与 Ericsson Research 有关。  
 **原文：** arXiv:2601.05032v5，2026 年 10 月 12 日，16 页。  
-**译文进度：** 已译摘要、引言、系统模型主体和第 III 节开头；公式（1）–（11）与原始系统参数说明。**后续第 III–VII 节及附录仍待逐页补译和校对，不属于已验收全文。**
+**译文进度：** 摘要、正文 I–VIII、公式（1）–（49）、表 II、图 1–22 的说明、引理与推论及 59 条参考文献已录入；仍待独立逐页逐式终校，不计入全文 QA。
 
 ## 摘要
 
@@ -887,6 +887,127 @@ $\kappa(\theta)=\|\boldsymbol\Pi^{(K)}\mathbf a(\theta)\|^2/
 
 未来研究将把模型扩展到多站 ISAC 场景，此时接收端不一定完全知道已发射的通信符号。多个 UE 同时存在时所产生耦合效应的系统性研究，超出当前研究范围，也留待未来工作。
 
-**待补：** 原文参考文献 [1]–[59] 的完整书目信息。
+
+## 参考文献（[1]–[59]，保留原作英文正式书目信息）
+
+[1] F. Liu, Y. Cui, C. Masouros, J. Xu, T. X. Han, Y. C. Eldar, and S. Buzzi, “Integrated sensing and communications: Towards dual-functional wireless networks for 6G and beyond,” IEEE journal on selected areas in communications, 2022.
+
+[2] N. Babu, C. Masouros, C. B. Papadias, and Y. C. Eldar, “Precoding for multi-cell ISAC: From coordinated beamforming to coordinated multipoint and bi-static sensing,” IEEE Transactions on Wireless Communications, vol. 23, no. 10, pp. 14 637–14 651, 2024.
+
+[3] M. F. Keskin, F. Jiang, F. Munier, G. Seco-Granados, and H. Wymeersch, “Optimal spatial signal design for mmwave positioning under imperfect synchronization,” IEEE Transactions on Vehicular Technology, vol. 71, no. 5, pp. 5558–5563, 2022.
+
+[4] X. Fang, W. Feng, Y. Chen, N. Ge, and Y. Zhang, “Joint communication and sensing toward 6G: Models and potential of using MIMO,” IEEE Internet of Things Journal, vol. 10, no. 5, pp. 4093–4116, 2023.
+
+[5] S. Rivetti, E. Bjornson, and M. Skoglund, “Secure spatial signal design ¨ for isac in a cell-free mimo network,” in 2024 IEEE Wireless Communications and Networking Conference (WCNC). IEEE, 2024, pp. 01–06.
+
+[6] A. Liu, Z. Huang, M. Li, Y. Wan, W. Li, T. X. Han, C. Liu, R. Du, D. K. P. Tan, J. Lu, Y. Shen, F. Colone, and K. Chetty, “A survey on fundamental limits of integrated sensing and communication,” IEEE Communications Surveys & Tutorials, vol. 24, no. 2, pp. 994–1034, 2022.
+
+[7] F. Liu, Y.-F. Liu, Y. Cui, C. Masouros, J. Xu, T. X. Han, S. Buzzi, Y. C. Eldar, and S. Jin, “Sensing with communication signals: From information theory to signal processing,” IEEE Journal on Selected Areas in Communications, pp. 1–1, 2025.
+
+[8] M. U. Baig, J. Vinogradova, G. Fodor, and C. Mollen, “Joint commu- ´ nication and sensing beamforming for passive object localization,” in WSA and SCC 2023; 26th Int. ITG Workshop on Smart Antennas and 13th Conf. on Systems, Communications, and Coding, 2023, pp. 1–6.
+
+[9] S. Rivetti, O. T. Demir, E. Bjornson, and M. Skoglund, “Clutter-aware target detection for ISAC in a millimeter-wave cell-free massive MIMO system,” arXiv preprint arXiv:2411.08759, 2024.
+
+[10] M. B. Salman, O. T. Demir, and E. Bj ¨ ornson, “When are sensing sym- ¨ bols required for ISAC?” IEEE Transactions on Vehicular Technology, vol. 73, no. 10, pp. 15 709–15 714, 2024.
+
+[11] K. T. Truong and R. W. Heath, “Effects of channel aging in massive MIMO systems,” Journal of Communications and Networks, vol. 15, no. 4, pp. 338–351, 2013.
+
+[12] G. Fodor, J. Vinogradova, P. Hammarberg, K. K. Nagalapur, Z. T. Qi, H. Do, R. Blasco, and M. U. Baig, “5G new radio for automotive, rail, and air transport,” IEEE Communications Magazine, vol. 59, no. 7, pp. 22–28, 2021.
+
+[13] C. Kong, C. Zhong, A. K. Papazafeiropoulos, M. Matthaiou, and Z. Zhang, “Sum-rate and power scaling of massive MIMO systems with channel aging,” IEEE transactions on communications, vol. 63, no. 12, pp. 4879–4893, 2015.
+
+[14] S. Fodor, G. Fodor, D. Gurg ¨ uno ¨ glu, and M. Telek, “Optimizing pilot ˘ spacing in MU-MIMO systems operating over aging channels,” IEEE Transactions on Communications, vol. 71, no. 6, pp. 3708–3720, 2023.
+
+[15] S. Daei, G. Fodor, M. Skoglund, and M. Telek, “Toward optimal pilot spacing and power control in multi-antenna systems operating over nonstationary Rician aging channels,” IEEE Transactions on Communications, vol. 73, no. 6, pp. 3761–3777, 2025.
+
+[16] E. Bjornson, M. Matthaiou, and M. Debbah, “Massive MIMO with non- ¨ ideal arbitrary arrays: Hardware scaling laws and circuit-aware design,” IEEE Transactions on Wireless Communications, vol. 14, no. 8, pp. 4353–4368, 2015.
+
+[17] J. Yuan, H. Q. Ngo, and M. Matthaiou, “Machine learning-based channel prediction in massive MIMO with channel aging,” IEEE Transactions on Wireless Communications, vol. 19, no. 5, pp. 2960–2973, 2020.
+
+[18] J. Chen, X. Wang, and Y.-C. Liang, “Impact of channel aging on dual-function radar-communication systems: Performance analysis and resource allocation,” IEEE Transactions on Communications, vol. 71, no. 8, pp. 4972–4987, 2023.
+
+[19] H. Luo, F. Gao, H. Lin, S. Ma, and H. V. Poor, “YOLO: An efficient Terahertz band integrated sensing and communications scheme with beam squint,” IEEE Transactions on Wireless Communications, vol. 23, no. 8, pp. 9389–9403, 2024.
+
+[20] Q. Lu, K. Yang, Z. Zhang, and T.-K. Truong, “MIMO OFDM robust transceiver design for clutter suppression in ISAC systems,” IEEE Transactions on Vehicular Technology, 2025.
+
+[21] J. Vinogradova and G. Fodor, “On target detection in the presence of clutter in joint communication and sensing cellular networks,” in 2023 16th International Conference on Signal Processing and Communication System (ICSPCS), 2023, pp. 01–10.
+
+[22] O. T. Demir and E. Bj ¨ ornson, “RIS-assisted ISAC: Precoding and ¨ phase-shift optimization for mono-static target detection,” arXiv preprint arXiv:2410.06855, 2024.
+
+[23] K. Greenewald, E. Zelnio, and A. H. Hero, “Robust SAR STAP via Kronecker decomposition,” IEEE Transactions on Aerospace and Electronic Systems, vol. 52, no. 6, pp. 2612–2625, 2016.
+
+[24] J. Ward, “Space-time adaptive processing for airborne radar,” in IEE Colloquium on Space-Time Adaptive Processing. IET, 1998, pp. 2–1.
+
+[25] T. L. Marzetta and H. Yang, Fundamentals of massive MIMO. Cambridge University Press, 2016.
+
+[26] S. Daei, M. Skoglund, and G. Fodor, “Improved downlink channel estimation in time-varying FDD massive MIMO systems,” in 2024 IEEE 25th International Workshop on Signal Processing Advances in Wireless Communications (SPAWC). IEEE, 2024, pp. 571–575.
+
+[27] S. D. Liyanaarachchi, T. Riihonen, C. B. Barneto, and M. Valkama, “Joint mimo communications and sensing with hybrid beamforming architecture and OFDM waveform optimization,” IEEE Transactions on Wireless Communications, 2023.
+
+[28] M. Bengtsson and P. Zetterberg, “Some notes on the Kronecker model,” EURASIP Journal on Wireless Communications and Networking, 2006.
+
+[29] Z. Wang, J. Zhang, B. Ai, C. Yuen, and M. Debbah, “Uplink performance of cell-free massive MIMO with multi-antenna users over jointlycorrelated Rayleigh fading channels,” IEEE Transactions on Wireless Communications, vol. 21, no. 9, pp. 7391–7406, 2022.
+
+[30] 3GPP, “Study on channel model for frequencies from 0.5 to 100 GHz,” 3GPP, Technical Specification (TS) 38.901, 09 2025, version 19.1.0.
+
+[31] K. T. Truong and R. W. Heath, “Effects of channel aging in massive MIMO systems,” Journal of Communications and Networks, vol. 15, no. 4, pp. 338–351, 2013.
+
+[32] H. Abeida, “Data-aided snr estimation in time-variant Rayleigh fading channels,” IEEE transactions on signal processing, vol. 58, no. 11, pp. 5496–5507, 2010.
+
+[33] D. Brunner, L. G. de Oliveira, C. Muth, S. Mandelli, M. Henninger, A. Diewald, Y. Li, M. B. Alabd, L. Schmalen, T. Zwick et al., “Bistatic OFDM-based ISAC with over-the-air synchronization: System concept and performance analysis,” IEEE Transactions on Microwave Theory and Techniques, vol. 73, no. 5, pp. 3016–3029, 2024.
+
+[34] Next G Alliance, “Channel measurements and modeling for joint/integrated communication and sensing, as well as 7–24 ghz communication,” ATIS, Tech. Rep., 2025. [Online]. Available: https://nextgalliance.org/white papers/channel-measurements-andmodeling-for-joint-integrated-communication-and-sensing-as-well-as7-24-ghz-communication/
+
+[35] M. I. Skolnik, Radar handbook. McGraw-Hill, 2008.
+
+[36] T. Duan, P. Shui, J. Wang, and S. Xu, “Analytical coherent detection in high-resolution dual-polarimetric sea clutter with independent inverse gamma textures,” Remote Sensing, vol. 16, no. 8, p. 1315, 2024.
+
+[37] O. T. Demir and E. Bj ¨ ornson, “Is channel estimation necessary to select ¨ phase-shifts for RIS-assisted massive MIMO?” IEEE Transactions on Wireless Communications, vol. 21, no. 11, pp. 9537–9552, 2022.
+
+[38] A. Abdi and M. Kaveh, “A space-time correlation model for multielement antenna systems in mobile fading channels,” IEEE Journal on Selected Areas in communications, vol. 20, no. 3, pp. 550–560, 2002.
+
+[39] O. T. Demir, E. Bj ¨ ornson, and L. Sanguinetti, “Channel modeling and ¨ channel estimation for holographic massive MIMO with planar arrays,” IEEE Wireless Communications Letters, vol. 11, no. 5, pp. 997–1001, 2022.
+
+[40] C.-X. Wang and M. Patzold, “Efficient simulation of multiple crosscorrelated Rayleigh fading channels,” in 14th IEEE Proceedings on Personal, Indoor and Mobile Radio Communications, 2003. PIMRC 2003., vol. 2. IEEE, 2003, pp. 1526–1530.
+
+[41] K. Greenewald, T. Tsiligkaridis, and A. O. Hero, “Kronecker sum decompositions of space-time data,” in 2013 5th IEEE International Workshop on Computational Advances in Multi-Sensor Adaptive Processing (CAMSAP). IEEE, 2013, pp. 65–68.
+
+[42] K. Werner, M. Jansson, and P. Stoica, “On estimation of covariance matrices with Kronecker product structure,” IEEE Transactions on Signal Processing, vol. 56, no. 2, pp. 478–491, 2008.
+
+[43] M. Henninger, S. Mandelli, A. Grudnitsky, T. Wild, and S. ten Brink, “CRAP: Clutter removal with acquisitions under phase noise,” in 2023 2nd International Conference on 6G Networking (6GNet). IEEE, 2023, pp. 1–8.
+
+[44] M. Henninger, S. Mandelli, A. Grudnitsky, and S. ten Brink, “CRAP part ii: Clutter removal with continuous acquisitions under phase noise,” in 2024 Joint European Conference on Networks and Communications & 6G Summit (EuCNC/6G Summit). IEEE, 2024, pp. 416–421.
+
+[45] P. J. Sherman, “On the eigenstructure of the ar (1) covariance,” in 2023 IEEE Statistical Signal Processing Workshop (SSP). IEEE, 2023, pp. 6–10.
+
+[46] E. B. Kama, J. Kim, and E. Bjornson, “Downlink pilots are essential ¨ for cell-free massive MIMO with multi-antenna users,” in 2024 IEEE Wireless Communications and Networking Conference (WCNC). IEEE, 2024, pp. 1–6.
+
+[47] Z. He, H. Shen, W. Xu, Y. C. Eldar, and X. You, “MSE-based training and transmission optimization for MIMO ISAC systems,” IEEE Transactions on Signal Processing, 2024.
+
+[48] S. M. Kay, Fundamentals of statistical signal processing: Practical algorithm development. Pearson Education, 2013, vol. 3.
+
+[49] G. Fodor, S. Fodor, and M. Telek, “Performance analysis of a linear MMSE receiver in time-variant Rayleigh fading channels,” IEEE Transactions on Communications, vol. 69, no. 6, pp. 4098–4112, 2021.
+
+[50] P. Stoica, R. L. Moses et al., Spectral analysis of signals. Pearson Prentice Hall Upper Saddle River, NJ, 2005, vol. 452.
+
+[51] H. Rohling, “Radar CFAR thresholding in clutter and multiple target situations,” IEEE transactions on aerospace and electronic systems, no. 4, pp. 608–621, 2007.
+
+[52] T. Zhou and D. Tao, “Godec: Randomized low-rank & sparse matrix decomposition in noisy case,” in Proceedings of the 28th International Conference on Machine Learning, ICML 2011, 2011.
+
+[53] M. A. Richards, J. A. Scheer, and W. A. Holm, Principles of modern radar: basic principles. IET, 2010.
+
+[54] P. Stoica and A. Nehorai, “MUSIC, maximum likelihood, and Cramer- ´ Rao bound,” IEEE Transactions on Acoustics, speech, and signal processing, vol. 37, no. 5, pp. 720–741, 2002.
+
+[55] M. Izquierdo, M. Hernandez, O. Graullera, and J. Anaya, “Signalto-noise ratio enhancement based on the whitening transformation of colored structural noise,” Ultrasonics, vol. 38, no. 1-8, pp. 500–502, 2000.
+
+[56] G. Sun, Z. He, F. Jia, and R. Li, “Kronecker product PCA for structured covariance matrix of airborne radar STAP,” in 2017 IEEE Radar Conference (RadarConf). IEEE, 2017, pp. 1015–1019.
+
+[57] I. Wajid, Y. C. Eldar, and A. Gershman, “Robust downlink beamforming using covariance channel state information,” in 2009 IEEE International Conference on Acoustics, Speech and Signal Processing. IEEE, 2009, pp. 2285–2288.
+
+[58] O. T. Demir, E. Bj ¨ ornson, L. Sanguinetti ¨ et al., “Foundations of usercentric cell-free massive MIMO,” Foundations and Trends® in Signal Processing, vol. 14, no. 3-4, pp. 162–472, 2021.
+
+[59] T.-H. Kim, H.-W. Jeon, J.-H. Shin, and Y.-D. Kang, “Improvement of detection ranges for targets in sidelobe clutter surroundings by sigmadelta stap for airborne radars,” Journal of Electromagnetic Engineering and Science, vol. 19, no. 4, pp. 234–238, 2019.
+
+**译稿校对状态：** 正文、公式、图表说明与参考文献已录入，尚未执行独立逐页逐式终校，不计入已验收全文。
 
 {% endraw %}
