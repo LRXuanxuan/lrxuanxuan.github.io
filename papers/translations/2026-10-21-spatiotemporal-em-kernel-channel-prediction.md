@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "用于信道预测的时空电磁核学习｜中文译稿（翻译中）"
+title: "用于信道预测的时空电磁核学习｜中文全篇译稿（待终校）"
 permalink: /papers/translations/2026-10-21-spatiotemporal-em-kernel-channel-prediction/
 math: true
 toc: true
@@ -15,7 +15,7 @@ toc: true
 **作者：** Jinke Li、Jieao Zhu、Linglong Dai  
 **机构：** 清华大学电子工程系、空间网络与通信全国重点实验室。  
 **来源：** IEEE Transactions on Wireless Communications，2026，Vol. 25；DOI: 10.1109/TWC.2025.3635412。  
-**译文范围：** 已译摘要、引言与现有工作、系统模型、问题表述、第 IV 节时空电磁相关核构造及高斯过程回归起始部分。后续核学习优化、GEM-KL 算法、全部实验、附录和参考文献仍待翻译校对，**不是已验收全文**。
+**译文范围：** 已译摘要、引言与现有工作、系统模型、问题表述、第 IV 节时空电磁相关核构造及高斯过程回归起始部分。正文 I–VI、附录 A–B、公式（1）–（41）、算法 1–3、复杂度表 I、图 1–13 的说明、59 条参考文献及作者简介均已录入，仍待独立逐式终校。
 
 ## 摘要
 
@@ -753,6 +753,135 @@ $\mathbf g\in\mathbb C^{N_{\rm BS}L\times1}$，
 GPR 预测阶段主要计算矩阵—向量乘积 $\mathbf K_{\mathcal FL}\mathbf g$，
 其复杂度为 $\mathcal O(N_{\rm BS}^2LF)$。
 
-**后续待补：** 原文参考文献 [1]–[59] 的书目信息及作者简介仍待逐页核对。
+
+## 参考文献（[1]–[59]，保留英文正式书目信息）
+
+[1] Z. Wang et al., “A tutorial on extremely large-scale MIMO for 6G: Fundamentals, signal processing, and applications,” IEEE Commun. Surveys Tuts., vol. 26, no. 3, pp. 1560–1605, Jan. 2024.
+
+[2] F. Rusek et al., “Scaling up MIMO: Opportunities and challenges with very large arrays,” IEEE Signal Process. Mag., vol. 30, no. 1, pp. 40–60, Jan. 2013.
+
+[3] H. Q. Ngo, E. G. Larsson, and T. L. Marzetta, “Energy and spectral efficiency of very large multiuser MIMO systems,” IEEE Trans. Commun., vol. 61, no. 4, pp. 1436–1449, Apr. 2013.
+
+[4] L. Lu, G. Y. Li, A. L. Swindlehurst, A. Ashikhmin, and R. Zhang, “An overview of massive MIMO: Benefits and challenges,” IEEE J. Sel. Topics Signal Process., vol. 8, no. 5, pp. 742–758, Oct. 2014.
+
+[5] Z. Xiao, Z. Zhang, Z. Chen, Z. Yang, C. Huang, and X. Chen, “From data-driven learning to physics-inspired inferring: A novel mobile MIMO channel prediction scheme based on neural ODE,” IEEE Trans. Wireless Commun., vol. 23, no. 7, pp. 7186–7199,Jul. 2024.
+
+[6] Y. Zhang, J. Zhang, and L. Yu, “Cluster-based fast time-varying MIMO channel fading prediction in the high-speed scenario,” IEEE Access, vol. 7, pp. 148692–148705, 2019.
+
+[7] Z. Zhang, Y. Zhang, J. Zhang, and F. Gao, “Adversarial trainingaided time-varying channel prediction for TDD/FDD systems,” China Commun., vol. 20, no. 6, pp. 100–115, Jun. 2023.
+
+[8] Radio Resource Control (RCC) Protocol Specification, document 3GPP TS 38.331, Jun. 2019.
+
+[9] L. Yuan, F. Zhou, Q. Wu, and D. W. K. Ng, “Channel predictionenhanced intelligent resource allocation for dynamic spectrumsharing networks,” in Proc. IEEE Int. Conf. Commun., Jun. 2024, pp. 2767–2772.
+
+[10] J. Zheng, J. Zhang, E. Björnson, and B. Ai, “Impact of channel aging on cell-free massive MIMO over spatially correlated channels,” IEEE Trans. Wireless Commun., vol. 20, no. 10, pp. 6451–6466,Oct. 2021.
+
+[11] H. Jiang, M. Cui, D. W. K. Ng, and L. Dai, “Accurate channel prediction based on transformer: Making mobility negligible,” IEEE J. Sel. Areas Commun., vol. 40, no. 9, pp. 2717–2732, Sep. 2022.
+
+[12] H. Lu et al., “A tutorial on near-field XL-MIMO communications toward 6G,” IEEE Commun. Surveys Tuts., vol. 26, no. 4, pp. 2213–2257,Apr. 2024.
+
+[13] F. Pena-Campos, R. Carrasco-Alvarez, O. Longoria-Gandara, and R. Parra-Michel, “Estimation of fast time-varying channels in OFDM systems using two-dimensional prolate,” IEEE Trans. Wireless Commun., vol. 12, no. 2, pp. 898–907, Feb. 2013.
+
+[14] I. C. Wong and B. L. Evans, “Sinusoidal modeling and adaptive channel prediction in mobile OFDM systems,” IEEE Trans. Signal Process., vol. 56, no. 4, pp. 1601–1615, Apr. 2008.
+
+[15] H. Yin, H. Wang, Y. Liu, and D. Gesbert, “Addressing the curse of mobility in massive MIMO with prony-based angular-delay domain channel predictions,” IEEE J. Sel. Areas Commun., vol. 38, no. 12, pp. 2903–2917, Dec. 2020.
+
+[16] Y. Shi, Z. Jiang, Y. Liu, Y. Wang, and S. Xu, “A compressive sensing based channel prediction scheme with uneven pilot design in mobile massive MIMO systems,” in Proc. 13th Int. Conf. Wireless Commun. Signal Process. (WCSP), Oct. 2021, pp. 1–6.
+
+[17] J. Lee, G.-T. Gil, and Y. H. Lee, “Channel estimation via orthogonal matching pursuit for hybrid MIMO systems in millimeter wave communications,” IEEE Trans. Commun., vol. 64, no. 6, pp. 2370–2386, Jun. 2016.
+
+[18] K. E. Baddour and N. C. Beaulieu, “Autoregressive modeling for fading channel simulation,” IEEE Trans. Wireless Commun., vol. 4, no. 4, pp. 1650–1662, Jul. 2005.
+
+[19] J. Yuan, H. Q. Ngo, and M. Matthaiou, “Machine learningbased channel prediction in massive MIMO with channel aging,” IEEE Trans. Wireless Commun., vol. 19, no. 5, pp. 2960–2973, May 2020.
+
+[20] L. Chen, M. Loschonsky, and L. M. Reindl, “Autoregressive modeling of mobile radio propagation channel in building ruins,” IEEE Trans. Microw. Theory Techn., vol. 60, no. 5, pp. 1478–1489, May 2012.
+
+[21] M. Yusuf et al., “Autoregressive modeling approach for non-stationary vehicular channel simulation,” IEEE Trans. Veh. Technol., vol. 71, no. 2, pp. 1124–1131, Feb. 2022.
+
+[22] D. Löschenbrand, M. Hofer, and T. Zemen, “Spectral efficiency of timevariant massive MIMO using Wiener prediction,” IEEE Commun. Lett., vol. 27, no. 4, pp. 1225–1229, Apr. 2023.
+
+[23] A. K. Papazafeiropoulos and T. Ratnarajah, “Deterministic equivalent performance analysis of time-varying massive MIMO systems,” IEEE Trans. Wireless Commun., vol. 14, no. 10, pp. 5795–5809, Oct. 2015.
+
+[24] L. Lindbom, M. Sternad, and A. Ahlen, “Tracking of timevarying mobile radio channels.1. the Wiener LMS algorithm,” IEEE      Trans.     Commun.,     vol. 49,    no. 12,    pp. 2207–2217, Aug. 2001.
+
+[25] Z. Qin, H. Yin, and W. Li, “Low-complexity eigenvector predictionbased precoding matrix prediction in massive MIMO with mobility,” 2023, arXiv:2308.12619.
+
+[26] K. T. Truong and R. W. Heath, “Effects of channel aging in massive MIMO systems,” J. Commun. Netw., vol. 15, no. 4, pp. 338–351, Aug. 2013.
+
+[27] S. Kashyap, C. Mollén, E. Björnson, and E. G. Larsson, “Performance analysis of (TDD) massive MIMO with Kalman channel prediction,” in Proc. IEEE Int. Conf. Acoust., Speech Signal Process. (ICASSP), Mar. 2017, pp. 3554–3558.
+
+[28] H. Kim, S. Kim, H. Lee, C. Jang, Y. Choi, and J. Choi, “Massive MIMO channel prediction: Kalman filtering vs. machine learning,” IEEE Trans. Commun., vol. 69, no. 1, pp. 518–528, Jan. 2021.
+
+[29] W. Jiang and H. D. Schotten, “Neural network-based fading channel prediction: A comprehensive overview,” IEEE Access, vol. 7, pp. 118112–118124, 2019.
+
+[30] J. M. J. Huttunen, D. Korpi, and M. Honkala, “DeepTx: Deep learning beamforming with channel prediction,” IEEE Trans. Wireless Commun., vol. 22, no. 3, pp. 1855–1867, Mar. 2023.
+
+[31] Y. Zhang, Y. Wu, A. Liu, X. Xia, T. Pan, and X. Liu, “Deep learning-based channel prediction for LEO satellite   massive     MIMO       communication      system,”     IEEE Wireless     Commun.       Lett.,  vol. 10,    no. 8,    pp. 1835–1839, Aug. 2021.
+
+[32] W. Jiang and H. D. Schotten, “Deep learning for fading channel prediction,” IEEE Open J. Commun. Soc., vol. 1, pp. 320–332, 2020.
+
+[33] I. Helmy, P. Tarafder, and W. Choi, “LSTM-GRU model-based channel prediction for one-bit massive MIMO system,” IEEE Trans. Veh. Technol., vol. 72, no. 8, pp. 11053–11057, Aug. 2023.
+
+[34] T. Zhou et al., “Transformer network based channel prediction for CSI feedback enhancement in AI-native air interface,” IEEE Trans. Wireless Commun., vol. 23, no. 9, pp. 11154–11167, Sep. 2024.
+
+[35] M. Bodini, M. W. Rivolta, and R. Sassi, “Opening the black box: Interpretability of machine learning algorithms in electrocardiography,” Phil. Trans. Roy. Soc. A, Math., Phys. Eng. Sci., vol. 379, no. 2212, Oct. 2021, Art. no. 20200253.
+
+[36] M. D. Migliore, “Horse (electromagnetics) is more important than horseman (information) for wireless transmission,” IEEE Trans.     Antennas     Propag.,    vol. 67,   no. 4,    pp. 2046–2055, Apr. 2019.
+
+[37] R. Li et al., “An electromagnetic information theory based model for efficient characterization of MIMO systems in complex space,” IEEE Trans. Antennas Propag., vol. 71, no. 4, pp. 3497–3508, Apr. 2023.
+
+[38] J. Zhu, X. Su, Z. Wan, L. Dai, and T. J. Cui, “The benefits of electromagnetic information theory for channel estimation,” in Proc. ICC - IEEE Int. Conf. Commun., Jun. 2024, pp. 4869–4874.
+
+[39] A. Pizzo, T. L. Marzetta, and L. Sanguinetti, “Spatiallystationary model for holographic MIMO small-scale fading,” IEEE J. Sel. Areas Commun., vol. 38, no. 9, pp. 1964–1979, Sep. 2020.
+
+[40] A. Pizzo, L. Sanguinetti, and T. L. Marzetta, “Fourier planewave series expansion for holographic MIMO communications,” IEEE Trans. Wireless Commun., vol. 21, no. 9, pp. 6890–6905, Sep. 2022.
+
+[41] J. Zhu, Z. Wan, L. Dai, M. Debbah, and H. V. Poor, “Electromagnetic information theory: Fundamentals, modeling, applications, and open problems,” IEEE Wireless Commun., vol. 31, no. 3, pp. 156–162, Jun. 2024.
+
+[42] S. Mumtaz, J. Rodriguez, and L. Dai, mmWave Massive MIMO: A Paradigm for 5G. New York, NY, USA: Academic, 2016.
+
+[43] L. Cheng, B. Henty, F. Bai, and D. D. Stancil, “Doppler spread and coherence time of rural and highway vehicle-to-vehicle channels at 5.9 GHz,” in Proc. IEEE Global Telecommun. Conf., Sep. 2008, pp. 1–6.
+
+[44] T. Gong, C. Huang, J. He, M. Di Renzo, M. Debbah, and C. Yuen, “A transmit-receive parameter separable electromagnetic channel model for LoS holographic MIMO,” in Proc. IEEE Global Commun. Conf.,Dec. 2023, pp. 5701–5706.
+
+[45] L. Wei et al., “Electromagnetic information theory for holographic MIMO communications,” 2024, arXiv:2405.10496.
+
+[46] Z. Wan, J. Zhu, and L. Dai, “Near-field channel modeling for electromagnetic information theory,” IEEE Trans. Wireless Commun., vol. 23, no. 12, pp. 18004–18018, Dec. 2024.
+
+[47] M. Chafii, L. Bariah, S. Muhaidat, and M. Debbah, “Twelve scientific challenges for 6G: Rethinking the foundations of communications theory,” IEEE Commun. Surveys Tuts., vol. 25, no. 2, pp. 868–904,Feb. 2023.
+
+[48] Z. Wan, J. Zhu, and L. Dai, “Electromagnetic information theory motivated near-field channel model,” in Proc. IEEE Int. Symp. Inf. Theory (ISIT), Jul. 2024, pp. 1800–1805.
+
+[49] J. Zhu, Z. Wan, L. Dai, and T. Jun Cui, “Electromagnetic information theory-based statistical channel model for improved channel estimation,” IEEE Trans. Inf. Theory, vol. 71, no. 3, pp. 1777–1793,Mar. 2025.
+
+[50] K. V. Mardia and S. A. M. El-Atoum, “Bayesian inference for the von mises-Fisher distribution,” Biometrika, vol. 63, no. 1, pp. 203–206,Apr. 1976.
+
+[51] E. Schulz, M. Speekenbrink, and A. Krause, “A tutorial on Gaussian process regression: Modelling, exploring, and exploiting functions,” J. Math. Psychol., vol. 85, pp. 1–16, Aug. 2018.
+
+[52] M. Wytock and J. Z. Kolter, “Sparse Gaussian conditional random fields: Algorithms, theory, and application to energy forecasting,” in Proc. Int. Conf. Mach. Learning., vol. 28, Mar. 2007, pp. 1265–1273.
+
+[53] F. Yin, L. Pan, T. Chen, S. Theodoridis, Z.-Q.-T. Luo, and A. M. Zoubir, “Linear multiple low-rank kernel based stationary Gaussian processes regression for time series,” IEEE Trans. Signal Process., vol. 68, pp. 5260–5275, 2020.
+
+[54] Y. Sun, P. Babu, and D. P. Palomar, “Majorization-minimization algorithms in signal processing, communications, and machine learning,” IEEE Trans. Signal Process., vol. 65, no. 3, pp. 794–816,Feb. 2017.
+
+[55] T. L. J. Ng and K.-K. Kwong, “Universal approximation on the hypersphere,” Commun. Statist. Theory Methods, vol. 51, no. 24, pp. 8694–8704, Dec. 2022.
+
+[56] C. Hsieh, A. Banerjee, I. S. Dhillon, and P. Ravikumar, “A divide-andconquer method for sparse inverse covariance estimation,” in Proc. Adv. Neural Inf. Process. Syst. (NIPS), vol. 25, Jan. 2012, pp. 2330–2338.
+
+[57] E. Abdul Fattah, H. Ltaief, H. Rue, and D. Keyes, “GPU-accelerated parallel selected inversion for structured matrices using sTiles,” 2025, arXiv:2504.19171.
+
+[58] C. Tang, C. Liu, L. Yuan, and Z. Xing, “High precision low complexity matrix inversion based on Newton iteration for data detection in the massive MIMO,” IEEE Commun. Lett., vol. 20, no. 3, pp. 490–493, Mar. 2016.
+
+[59] K. R. Schaubach, N. J. Davis, and T. S. Rappaport, “A ray tracing method for predicting path loss and delay spread in microcellular environments,” in Proc. 42nd VTS Conf. Frontiers Technol., Jun. 1992, pp. 932–935.
+
+## 作者简介
+
+**Jinke Li（李金科）：** 2023 年获得吉林大学通信工程学士学位，目前在清华大学电子工程系攻读硕士学位。研究兴趣包括超大规模 MIMO（XL-MIMO）、CSI 获取、电磁信息论（EIT）和近场通信。
+
+**Jieao Zhu（朱杰傲）：** 2021 年获得清华大学电子工程学士和应用数学理学学士学位，目前在清华大学电子工程系攻读博士学位。研究兴趣包括 EIT、可重构智能表面（RIS）和里德伯原子接收机。曾于 2018 年、2020 年获得本科生国家奖学金，2025 年获得博士研究生国家奖学金；2021 年获评北京市优秀毕业生。
+
+**Linglong Dai（戴凌龙）：** 2003 年获浙江大学学士学位，2006 年获中国电信科学技术研究院硕士学位（优秀），2011 年获清华大学博士学位（优秀）。2011—2013 年在清华大学电子工程系从事博士后研究；2013—2016 年任助理教授，2016—2022 年任副教授，自 2022 年起任教授。合著 *MmWave Massive MIMO: A Paradigm for 5G*（Academic Press，2016），发表 90 余篇 IEEE 期刊论文和 50 余篇 IEEE 会议论文，持有 20 余项授权专利。研究方向包括大规模 MIMO、RIS、毫米波与太赫兹通信、无线通信机器学习、近场通信及量子信息技术。曾获 IEEE ICC 2013、2014、2017、2018 和 IEEE VTC 2017-Fall 最佳论文奖，及清华大学 2011 年优秀博士毕业生奖、北京市 2012 年优秀博士学位论文奖、2013 年全国优秀博士学位论文提名、2014 年 URSI 青年科学家奖、2015 年 IEEE Transactions on Broadcasting 最佳论文奖、2016 年 Electronics Letters 最佳论文奖、2017 年国家优秀青年科学基金、IEEE ComSoc 亚太地区杰出青年研究者奖、2018 年 IEEE ComSoc 亚太地区杰出论文奖、2019 年 China Communications 最佳论文奖、2020 年 IEEE Access 最佳多媒体奖、IEEE 通信学会 Leonard G. Abraham 奖、2022 年 IEEE ICC 杰出演示奖、2023 年国家杰出青年科学基金，以及 2025 年 IEEE ComSoc Stephen O. Rice 奖。2020—2025 年被科睿唯安列为高被引学者，2022 年晋升 IEEE Fellow。
+
+**全文 QA 状态：** 主要章节、公式和书目已覆盖；仍需根据排版 PDF 对每条长公式、图表与术语完成独立逐项核对。
 
 {% endraw %}
