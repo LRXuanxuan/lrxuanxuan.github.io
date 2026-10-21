@@ -129,8 +129,8 @@
       "paper_report_url": "/papers/items/1524a18885ddaf9a/#paper-report",
       "translations": [
         {
-          "title": "信道老化与多普勒杂波对 OFDM ISAC 的影响｜中文阶段性译稿",
-          "scope": "摘要、引言、系统模型及第 III 节开头，公式（1）–（11）；其余章节、附录和参考文献待补",
+          "title": "OFDM ISAC 信道老化与多普勒杂波｜中文全篇译稿（待终校）",
+          "scope": "摘要、正文 I–VIII、公式（1）–（49）、引理及推论、图 1–22、表与参数、59 条参考文献已录入；独立逐式校对中",
           "url": "/papers/translations/2026-10-21-channel-aging-clutter-isac-2601-05032/"
         }
       ],
@@ -185,8 +185,8 @@
       "paper_report_url": "/papers/items/44c51f88d1ab5473/#paper-report",
       "translations": [
         {
-          "title": "高速铁路 DD 域信道测量与建模｜中文阶段性译稿",
-          "scope": "摘要、引言、第 II 节测量建模及第 III-A 节，公式（1）–（13）的主要内容；第 II 节长公式和后续实验、结论、参考文献待补",
+          "title": "高速铁路 DD 域测量与建模｜中文全篇译稿（待终校）",
+          "scope": "摘要、正文 I–VI、公式（1）–（21）、算法 1、TDDL-A/B/C 模型、图 1–10、表 I–VI、58 条参考文献已录入；独立逐式校对中",
           "url": "/papers/translations/2026-10-21-dd-hsr-2509-25854/"
         }
       ],
@@ -243,8 +243,8 @@
       "paper_report_url": "/papers/items/43ba737242163164/#paper-report",
       "translations": [
         {
-          "title": "时空电磁核学习信道预测｜中文阶段性译稿",
-          "scope": "摘要、引言、第 II–III 节及第 IV 节开头的 STEM 核与 GPR，公式（1）–（12）；后续 GEM-KL 优化、实验及参考文献待补",
+          "title": "时空电磁核学习信道预测｜中文全篇译稿（待终校）",
+          "scope": "摘要、正文 I–VI、附录 A–B、公式（1）–（41）、算法 1–3、图 1–13、表 I、59 条参考文献和作者简介已录入；独立逐式校对中",
           "url": "/papers/translations/2026-10-21-spatiotemporal-em-kernel-channel-prediction/"
         }
       ],
@@ -303,8 +303,8 @@
       "paper_report_url": "/papers/items/efb1c2b897f3baec/#paper-report",
       "translations": [
         {
-          "title": "一步生成式 CSI 预测｜中文逐节译稿（待终校）",
-          "scope": "摘要、正文 I–V、公式（1）–（17）、算法 1–2、图 1–4 说明、表 I–V 与参考文献 [1]–[14] 已译；未完成独立逐式终校",
+          "title": "一步生成式 CSI 预测｜中文全篇译稿（待终校）",
+          "scope": "摘要、正文 I–V、公式（1）–（17）、算法 1–2、图 1–4 说明、表 I–V、参考文献 14 条及资助说明已录入；独立逐式校对中",
           "url": "/papers/translations/2026-10-21-one-step-generative-csi-2609-17033/"
         }
       ],
@@ -361,8 +361,8 @@
       "paper_report_url": "/papers/items/c14464e6257e8788/#paper-report",
       "translations": [
         {
-          "title": "PnP-CF 共识流匹配逆问题求解器｜中文阶段性译稿",
-          "scope": "摘要、引言、背景、第 3 节算法与公式（1）–（9）、算法 1、部分实验分析及表 1；第 4 节后半、附录及参考文献待补",
+          "title": "PnP-CF 共识流匹配逆问题求解器｜中文全篇译稿（待终校）",
+          "scope": "摘要、正文 1–5、附录 A–H、公式（1）–（21）、算法 1、命题及证明、表 1–10、图 1–13 说明、31 条参考文献已录入；独立逐式校对中",
           "url": "/papers/translations/2026-10-21-pnp-cf-2610-26000/"
         }
       ],
@@ -18792,10 +18792,10 @@
     {
       "date": "2026-10-21",
       "slug": "2026-10-21-one-step-generative-csi-2609-17033",
-      "title": "一步生成式 CSI 预测｜中文逐节译稿（待终校）",
+      "title": "一步生成式 CSI 预测｜中文全篇译稿（待终校）",
       "url": "/papers/translations/2026-10-21-one-step-generative-csi-2609-17033/",
       "source_file": "2026-10-21-one-step-generative-csi-2609-17033.md",
-      "scope": "摘要、正文 I–V、公式（1）–（17）、算法 1–2、图 1–4 说明、表 I–V 与参考文献 [1]–[14] 已译；未完成独立逐式终校",
+      "scope": "摘要、正文 I–V、公式（1）–（17）、算法 1–2、图 1–4 说明、表 I–V、参考文献 14 条及资助说明已录入；独立逐式校对中",
       "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-21-one-step-generative-csi-2609-17033.md",
       "source_page_path": "papers/translations/2026-10-21-one-step-generative-csi-2609-17033.md",
       "paper_ids": [
@@ -18811,10 +18811,10 @@
     {
       "date": "2026-10-21",
       "slug": "2026-10-21-pnp-cf-2610-26000",
-      "title": "PnP-CF 共识流匹配逆问题求解器｜中文阶段性译稿",
+      "title": "PnP-CF 共识流匹配逆问题求解器｜中文全篇译稿（待终校）",
       "url": "/papers/translations/2026-10-21-pnp-cf-2610-26000/",
       "source_file": "2026-10-21-pnp-cf-2610-26000.md",
-      "scope": "摘要、引言、背景、第 3 节算法与公式（1）–（9）、算法 1、部分实验分析及表 1；第 4 节后半、附录及参考文献待补",
+      "scope": "摘要、正文 1–5、附录 A–H、公式（1）–（21）、算法 1、命题及证明、表 1–10、图 1–13 说明、31 条参考文献已录入；独立逐式校对中",
       "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-21-pnp-cf-2610-26000.md",
       "source_page_path": "papers/translations/2026-10-21-pnp-cf-2610-26000.md",
       "paper_ids": [
@@ -18830,10 +18830,10 @@
     {
       "date": "2026-10-21",
       "slug": "2026-10-21-channel-aging-clutter-isac-2601-05032",
-      "title": "信道老化与多普勒杂波对 OFDM ISAC 的影响｜中文阶段性译稿",
+      "title": "OFDM ISAC 信道老化与多普勒杂波｜中文全篇译稿（待终校）",
       "url": "/papers/translations/2026-10-21-channel-aging-clutter-isac-2601-05032/",
       "source_file": "2026-10-21-channel-aging-clutter-isac-2601-05032.md",
-      "scope": "摘要、引言、系统模型及第 III 节开头，公式（1）–（11）；其余章节、附录和参考文献待补",
+      "scope": "摘要、正文 I–VIII、公式（1）–（49）、引理及推论、图 1–22、表与参数、59 条参考文献已录入；独立逐式校对中",
       "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-21-channel-aging-clutter-isac-2601-05032.md",
       "source_page_path": "papers/translations/2026-10-21-channel-aging-clutter-isac-2601-05032.md",
       "paper_ids": [
@@ -18849,10 +18849,10 @@
     {
       "date": "2026-10-21",
       "slug": "2026-10-21-dd-hsr-2509-25854",
-      "title": "高速铁路 DD 域信道测量与建模｜中文阶段性译稿",
+      "title": "高速铁路 DD 域测量与建模｜中文全篇译稿（待终校）",
       "url": "/papers/translations/2026-10-21-dd-hsr-2509-25854/",
       "source_file": "2026-10-21-dd-hsr-2509-25854.md",
-      "scope": "摘要、引言、第 II 节测量建模及第 III-A 节，公式（1）–（13）的主要内容；第 II 节长公式和后续实验、结论、参考文献待补",
+      "scope": "摘要、正文 I–VI、公式（1）–（21）、算法 1、TDDL-A/B/C 模型、图 1–10、表 I–VI、58 条参考文献已录入；独立逐式校对中",
       "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-21-dd-hsr-2509-25854.md",
       "source_page_path": "papers/translations/2026-10-21-dd-hsr-2509-25854.md",
       "paper_ids": [
@@ -18868,10 +18868,10 @@
     {
       "date": "2026-10-21",
       "slug": "2026-10-21-spatiotemporal-em-kernel-channel-prediction",
-      "title": "时空电磁核学习信道预测｜中文阶段性译稿",
+      "title": "时空电磁核学习信道预测｜中文全篇译稿（待终校）",
       "url": "/papers/translations/2026-10-21-spatiotemporal-em-kernel-channel-prediction/",
       "source_file": "2026-10-21-spatiotemporal-em-kernel-channel-prediction.md",
-      "scope": "摘要、引言、第 II–III 节及第 IV 节开头的 STEM 核与 GPR，公式（1）–（12）；后续 GEM-KL 优化、实验及参考文献待补",
+      "scope": "摘要、正文 I–VI、附录 A–B、公式（1）–（41）、算法 1–3、图 1–13、表 I、59 条参考文献和作者简介已录入；独立逐式校对中",
       "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-21-spatiotemporal-em-kernel-channel-prediction.md",
       "source_page_path": "papers/translations/2026-10-21-spatiotemporal-em-kernel-channel-prediction.md",
       "paper_ids": [
