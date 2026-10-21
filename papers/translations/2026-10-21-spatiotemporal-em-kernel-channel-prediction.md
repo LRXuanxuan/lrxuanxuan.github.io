@@ -592,6 +592,8 @@ $$
 
 | 方法 | 复杂度 |
 |---|---|
+| AR 预测器 | $\mathcal O(N_{\rm BS}L^3F)$ |
+| PVEC 预测器 | $\mathcal O(N_{\rm BS}^3(L-1)^3)$ |
 | STEM-KL 核学习 | $\mathcal O(M_{\rm Siter}N_{\rm BS}^3L^3)$ |
 | GEM-KL 核学习 | $\mathcal O(M_{\rm Giter}N_kN_{\rm BS}^3L^3)$ |
 | GPR 未来信道预测 | $\mathcal O(N_{\rm BS}^2LF)$ |
