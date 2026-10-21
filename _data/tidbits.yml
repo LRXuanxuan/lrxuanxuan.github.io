@@ -1,3 +1,54 @@
+- slug: "duo-double-common-root"
+  added_at: "2026-10-21T21:37:00+08:00"
+  title: "Duo 与 double：二重唱为什么与双倍有关？"
+  english: "Duo and Double: A Shared Indo-European Root"
+  teaser: "二重唱 duo、双倍 double、通信里的 duplex，其实属于同一个古老的「二」词根家族。"
+  tags:
+    - "语言学"
+    - "英语词源"
+    - "通信术语"
+  body: |
+    看到 **duo**（二人组、二重唱），很容易联想到 **double**（双倍、双重）。这不是巧合：**二者确实同源，但 duo 并不是从 double 截下来的前三个字母**。严格说来，double 的前三个字母还是 `dou`，而不是 `duo`。
+
+    ### 共同的祖先：一个表示「二」的词根
+
+    语言学家重建的**原始印欧语**（Proto-Indo-European）词根 `*dwóh₁`，基本含义就是「二」。后来它在不同语言中形成了许多亲戚：
+
+    - **duo**：英语从法语或意大利语借入，往上可追溯至拉丁语 `duo`（二）。它常指二人组合；音乐中的 **duet** 则更明确地指二重唱或二重奏。
+    - **double**：英语经由中古英语、古法语 `doble`，追溯至拉丁语 `duplus`（两倍的）。它着重表示数量翻倍或双重结构。
+    - **two**：英语固有的「二」，来自日耳曼语的另一条演变路线；虽然拼写不同，却与拉丁语 `duo` 同出一源。
+
+    可以把其中两条路线简写成：
+
+    > 原始印欧语「二」 → 拉丁语 `duo` → 现代英语 `duo`  
+    > 原始印欧语「二」 → 拉丁语 `duplus` → 古法语 `doble` → 英语 `double`
+
+    所以准确说法是：**duo 与 double 是共享祖先的同源词，而不是一个由另一个直接缩写出来。**
+
+    ### 同一家族还有哪些熟面孔？
+
+    | 单词 | 常见含义 | 「二」体现在哪里 |
+    | --- | --- | --- |
+    | **duo** | 二人组、音乐组合 | 两个成员 |
+    | **duet** | 二重唱、二重奏 | 两人共同演出 |
+    | **dual** | 双重的、二元的 | 两个部分或性质 |
+    | **duplex** | 双工、双层住宅 | 双重结构或两个方向 |
+    | **duplicate** | 复制、复制品 | 再形成一份 |
+    | **double** | 双倍、加倍 | 数量为两倍 |
+
+    通信里尤其常见 **duplex（双工）**：**half-duplex（半双工）**允许双向通信但不能同时双向传输；**full-duplex（全双工）**允许两个方向同时传输。这个 `du-` 也属于「二」的词根家族。
+
+    最后一个小区别：**duo 往往强调「两个组成一组」，double 则更强调「两倍或双重」**。因此两人乐队可以叫 *a duo*，音量翻倍却应该说 *double the volume*。它们彼此相关，却不能随意互换。
+  sources:
+    - label: "Wiktionary：duo 的词源与用法"
+      url: "https://en.wiktionary.org/wiki/duo"
+    - label: "Wiktionary：double 的词源与演变"
+      url: "https://en.wiktionary.org/wiki/double"
+    - label: "法兰西学院词典：double 源自拉丁语 duplus"
+      url: "https://www.dictionnaire-academie.fr/article/A9D3109"
+    - label: "Wiktionary：duplex 的构词来源"
+      url: "https://en.wiktionary.org/wiki/duplex"
+
 - slug: "4g-5g-mobile-internet-everyday-life"
   added_at: "2026-10-19T22:27:00+08:00"
   title: "4G 改变了什么，5G 又改变了什么？"
