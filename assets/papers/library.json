@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "source": "每日论文推荐.xlsx",
-  "source_sha256": "ff474d68ba4bb0616034a02888a784be56f6a7a31c39727529006207e5b5511d",
+  "source_sha256": "770a6241a596a0c6584dc54c18e5c20e52e5563fe13fc18a7d3a746358bfce6b",
   "translation_progress": {
     "target": 315,
     "completed": 22,
@@ -23,7 +23,7 @@
   "sheets": [
     {
       "name": "每日论文推荐",
-      "count": 360,
+      "count": 365,
       "headers": [
         "日期",
         "标题",
@@ -45,8 +45,9 @@
       ]
     }
   ],
-  "total": 360,
+  "total": 365,
   "dates": {
+    "2026-10-21": 5,
     "2026-10-20": 5,
     "2026-10-19": 5,
     "2026-10-18": 5,
@@ -93,8 +94,268 @@
     "2026-07-12": 5,
     "2026-07-11": 5
   },
-  "latest_date": "2026-10-20",
+  "latest_date": "2026-10-21",
   "papers": [
+    {
+      "id": "1524a18885ddaf9a",
+      "date": "2026-10-21",
+      "title": "On the Impact of Channel Aging and Doppler-Affected Clutter on OFDM ISAC Systems",
+      "sheet": "每日论文推荐",
+      "row": 366,
+      "fields": {
+        "日期": "2026-10-21",
+        "标题": "On the Impact of Channel Aging and Doppler-Affected Clutter on OFDM ISAC Systems",
+        "内容": "作者：Rivetti, Steven; Fodor, Gabor; Björnson, Emil; Skoglund, Mikael。问题：慢时间信道老化与快时间非零多普勒杂波共同影响通信估计和ISAC感知，块衰落模型容易掩盖问题。 方法：非各向同性空间协方差与时变AR通信信道，融合历史导频构造aging-aware估计；杂波采用可分离Kronecker协方差，分量估计后白化抑制并生成距离—角度/速度图；额外分析非可分离扰动。 结果：v5的Figs6–10对比历史长度、导频间隔与50/100/500Hz多普勒：高速时历史增益衰减，低中速保留旧导频更有用。Figs20–22展示子空间扰动增大时目标可辨识性下降；在其设定的小扰动(ηvec≤−25dB、ε<0.5)仍能辨识目标。 局限：以仿真、已知统计及单UE主模型为主，即时反馈是假设，多UE只补NS投影验证；不等于完整多用户联合估计。网页摘要写exponential decay，当前v5 PDF摘要与Sec.III-A明确Bessel/J0相关，本介绍依据PDF并披露差异。此统计老化模型不能代替逐径几何一致ICI波形生成。",
+        "契合方向": "系统约束：历史导频、信道老化与多普勒杂波",
+        "推荐理由": "可检验历史窗口越长是否真更好，以及更多迭代带来的过期代价；需要同时报告实际时延与使用时刻CSI误差。",
+        "顶刊顶会/机构依据": "arXiv（作者披露投稿IEEE TWC）；在投（作者公开自述）；2026-01-08首稿，2026-10-12 v5。arXiv及KTH作者页称submitted IEEE TWC；截至核验未找到录用/正式DOI，不能计作TWC已发表。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2601.05032",
+        "检索来源": "https://arxiv.org/abs/2601.05032\nhttps://www.kth.se/profile/skoglund/",
+        "筛选备注": "理论启发或基线；应用或基线：ISAC和CSI aging；缺口：历史可靠度。；与既有阅读差异：相对单纯瞬时NMSE，新增历史信息何时失效、通信/感知功率分配及杂波结构失配；为可靠度控制和使用时刻评价提供系统压力测试。；证据：v5 PDF Sec.II/III-A、Lemma3、Figs6–10/20–22及Conclusion；16页；核验2026-10-21。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；已查arXiv、v5正文与KTH作者入口并检索GitHub精确标题/2601.05032；未找到本篇实现，不将其他作者ISAC仓库冒认。",
+        "反馈匹配": "相对单纯瞬时NMSE，新增历史信息何时失效、通信/感知功率分配及杂波结构失配；为可靠度控制和使用时刻评价提供系统压力测试。",
+        "反馈权重说明": "以连续条件、物理先验、历史导频、真实时延和校准为匹配依据；区分瞬时恢复、动态预测与系统验证。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-21/",
+      "report_section": "## 5. On the Impact of Channel Aging and Doppler-Affected Clutter on OFDM ISAC Systems\n\n**作者**：Rivetti, Steven; Fodor, Gabor; Björnson, Emil; Skoglund, Mikael。**年份/venue**：2026；arXiv（作者披露投稿IEEE TWC）。\n\n**发表状态**：在投（作者公开自述）。2026-01-08首稿，2026-10-12 v5。arXiv及KTH作者页称submitted IEEE TWC；截至核验未找到录用/正式DOI，不能计作TWC已发表。 核验2026-10-21。\n\n**方向与问题**：系统约束：历史导频、信道老化与多普勒杂波。慢时间信道老化与快时间非零多普勒杂波共同影响通信估计和ISAC感知，块衰落模型容易掩盖问题。\n\n**方法与独立机制**：非各向同性空间协方差与时变AR通信信道，融合历史导频构造aging-aware估计；杂波采用可分离Kronecker协方差，分量估计后白化抑制并生成距离—角度/速度图；额外分析非可分离扰动。\n\n**关键结果**：v5的Figs6–10对比历史长度、导频间隔与50/100/500Hz多普勒：高速时历史增益衰减，低中速保留旧导频更有用。Figs20–22展示子空间扰动增大时目标可辨识性下降；在其设定的小扰动(ηvec≤−25dB、ε<0.5)仍能辨识目标。\n\n**局限与迁移边界**：以仿真、已知统计及单UE主模型为主，即时反馈是假设，多UE只补NS投影验证；不等于完整多用户联合估计。网页摘要写exponential decay，当前v5 PDF摘要与Sec.III-A明确Bessel/J0相关，本介绍依据PDF并披露差异。此统计老化模型不能代替逐径几何一致ICI波形生成。\n\n**迁移类型与位置**：理论启发或基线；应用或基线：ISAC和CSI aging；缺口：历史可靠度。\n\n**与既有阅读差异**：相对单纯瞬时NMSE，新增历史信息何时失效、通信/感知功率分配及杂波结构失配；为可靠度控制和使用时刻评价提供系统压力测试。\n\n**推荐理由**：可检验历史窗口越长是否真更好，以及更多迭代带来的过期代价；需要同时报告实际时延与使用时刻CSI误差。\n\n**代码状态**：未发现公开代码。已查arXiv、v5正文与KTH作者入口并检索GitHub精确标题/2601.05032；未找到本篇实现，不将其他作者ISAC仓库冒认。\n\n**身份与证据**：arXiv:2601.05032；[来源1](https://arxiv.org/abs/2601.05032) [来源2](https://www.kth.se/profile/skoglund/)。\n\n[官方PDF/原文](https://arxiv.org/pdf/2601.05032)；[原文PDF](https://arxiv.org/pdf/2601.05032)。证据定位：v5 PDF Sec.II/III-A、Lemma3、Figs6–10/20–22及Conclusion；16页。\n\n全文可打开，标题核验通过；16页已缓存。job `6ac263239b343d8f9a2afd24` 已入队，要求 `gpt-6-luna / xhigh`。原worker发送及有界查询均返回找不到会话，未成功启动、未译完。[本篇全文翻译状态](https://lrxuanxuan.github.io/papers/items/1524a18885ddaf9a/#paper-translation)。预计本地路径：`本地资料：paper.md`。\n\n原文许可/权利政策：[https://creativecommons.org/licenses/by-sa/4.0/](https://creativecommons.org/licenses/by-sa/4.0/)。完成译稿可在原许可的署名、改动说明及同许可要求下公开。全部PDF只保留原文链接，不上传GitHub/网站。",
+      "report_entry_url": "/papers/reports/2026-10-21/#paper-1524a18885ddaf9a",
+      "paper_url": "/papers/items/1524a18885ddaf9a/",
+      "paper_report_url": "/papers/items/1524a18885ddaf9a/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2601.05032",
+        "https://arxiv.org/abs/2601.05032",
+        "https://www.kth.se/profile/skoglund/",
+        "https://lrxuanxuan.github.io/papers/items/1524a18885ddaf9a/#paper-translation",
+        "https://creativecommons.org/licenses/by-sa/4.0/"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2601.05032"
+      ],
+      "hosted_pdfs": [],
+      "status": "在投",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/1524a18885ddaf9a/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "44c51f88d1ab5473",
+      "date": "2026-10-21",
+      "title": "Delay-Doppler Domain Channel Measurements and Modeling in High-Speed Railways",
+      "sheet": "每日论文推荐",
+      "row": 365,
+      "fields": {
+        "日期": "2026-10-21",
+        "标题": "Delay-Doppler Domain Channel Measurements and Modeling in High-Speed Railways",
+        "内容": "作者：Zhou, Hao; Ma, Yiyan; Fei, Dan; Liu, Weirong; Zhang, Zhengyu; Yang, Mi; Ma, Guoyu; Lu, Yunlong; He, Ruisi; Wang, Guoyu; Li, Cheng; Song, Zhaohui; Ai, Bo。问题：统计准平稳时长与单径复系数近似不变时长经常混淆，导致高速传输帧和预测窗口设得过长。 方法：LTE-R实测CRS的LS估计经TF→DD变换，阈值筛选主径并估计off-grid时延/多普勒；以DD功率谱共线度识别准平稳区间，拟合逐径幅度分布并另量化quasi-invariant interval，构建TDDL-A/B/C。 结果：465MHz、5MHz带宽、15kHz SCS、371km/h，北京—沈阳乡村高架约1450m路线。Table V三类准平稳时长100.8/172.2/392ms，逐径系数不变区间通常更短且依路径/阈值变化。Table VI模型/实测TDDL-A RMS Doppler为11.91/12.51Hz；OTFS BER在准平稳窗口内较一致，2倍窗口出现偏差。 局限：亚GHz乡村高架实测不能直接替代28GHz城市MIMO。ICI在提取中近似为噪声，不是显式完整ICI逆求解。BER模型保真验证假设理想同步和完美CSI，不证明实际估计器/硬件性能；不能概括为所有路径仅ms不变。公开原始数据和代码未发现。",
+        "契合方向": "TWC实测数据：高铁延迟—多普勒统计与时间尺度",
+        "推荐理由": "直接支撑新journal对“准平稳≠瞬时CSI恒定”的问题定义；可先检查已有生成器的两类时长和传播统计。",
+        "顶刊顶会/机构依据": "IEEE Transactions on Wireless Communications, vol.25, pp.15725–15740, 2026；正式发表；Crossref卷页、arXiv journal-ref/DOI一致。首稿2025-09-30，公开作者版v2更新2026-06-09，共15页；与IEEE排版16页不同，不声称逐字相同。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2509.25854",
+        "检索来源": "https://arxiv.org/abs/2509.25854\nhttps://ieeexplore.ieee.org/document/11493649/\nhttps://doi.org/10.1109/TWC.2026.3684101\nhttps://api.crossref.org/works/10.1109/TWC.2026.3684101",
+        "筛选备注": "可改造工具；缺口：真实高速数据与慢/快时标；应用：时变生成器验收。；与既有阅读差异：相对昨天超范围OTFS观测设计和本地Bu阅读，本篇提供实际传播统计/时间窗口及可核验表格，帮助设计数据集真实性验收。；证据：作者版Sec.II/Algorithm1/TableI，Sec.III/IV/TableV，Sec.V/TablesVI/Fig9–10；15页；核验2026-10-21。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；已查arXiv/论文链接、作者公开入口和GitHub精确标题/2509.25854；未找到可归属于本篇的公开代码或原始数据下载，不把相关OTFS通用库当本篇实现。",
+        "反馈匹配": "相对昨天超范围OTFS观测设计和本地Bu阅读，本篇提供实际传播统计/时间窗口及可核验表格，帮助设计数据集真实性验收。",
+        "反馈权重说明": "以连续条件、物理先验、历史导频、真实时延和校准为匹配依据；区分瞬时恢复、动态预测与系统验证。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-21/",
+      "report_section": "## 4. Delay-Doppler Domain Channel Measurements and Modeling in High-Speed Railways\n\n**作者**：Zhou, Hao; Ma, Yiyan; Fei, Dan; Liu, Weirong; Zhang, Zhengyu; Yang, Mi; Ma, Guoyu; Lu, Yunlong; He, Ruisi; Wang, Guoyu; Li, Cheng; Song, Zhaohui; Ai, Bo。**年份/venue**：2026；IEEE Transactions on Wireless Communications, vol.25, pp.15725–15740, 2026。\n\n**发表状态**：正式发表。Crossref卷页、arXiv journal-ref/DOI一致。首稿2025-09-30，公开作者版v2更新2026-06-09，共15页；与IEEE排版16页不同，不声称逐字相同。 核验2026-10-21。\n\n**方向与问题**：TWC实测数据：高铁延迟—多普勒统计与时间尺度。统计准平稳时长与单径复系数近似不变时长经常混淆，导致高速传输帧和预测窗口设得过长。\n\n**方法与独立机制**：LTE-R实测CRS的LS估计经TF→DD变换，阈值筛选主径并估计off-grid时延/多普勒；以DD功率谱共线度识别准平稳区间，拟合逐径幅度分布并另量化quasi-invariant interval，构建TDDL-A/B/C。\n\n**关键结果**：465MHz、5MHz带宽、15kHz SCS、371km/h，北京—沈阳乡村高架约1450m路线。Table V三类准平稳时长100.8/172.2/392ms，逐径系数不变区间通常更短且依路径/阈值变化。Table VI模型/实测TDDL-A RMS Doppler为11.91/12.51Hz；OTFS BER在准平稳窗口内较一致，2倍窗口出现偏差。\n\n**局限与迁移边界**：亚GHz乡村高架实测不能直接替代28GHz城市MIMO。ICI在提取中近似为噪声，不是显式完整ICI逆求解。BER模型保真验证假设理想同步和完美CSI，不证明实际估计器/硬件性能；不能概括为所有路径仅ms不变。公开原始数据和代码未发现。\n\n**迁移类型与位置**：可改造工具；缺口：真实高速数据与慢/快时标；应用：时变生成器验收。\n\n**与既有阅读差异**：相对昨天超范围OTFS观测设计和本地Bu阅读，本篇提供实际传播统计/时间窗口及可核验表格，帮助设计数据集真实性验收。\n\n**推荐理由**：直接支撑新journal对“准平稳≠瞬时CSI恒定”的问题定义；可先检查已有生成器的两类时长和传播统计。\n\n**代码状态**：未发现公开代码。已查arXiv/论文链接、作者公开入口和GitHub精确标题/2509.25854；未找到可归属于本篇的公开代码或原始数据下载，不把相关OTFS通用库当本篇实现。\n\n**身份与证据**：arXiv:2509.25854；DOI:10.1109/TWC.2026.3684101；[来源1](https://arxiv.org/abs/2509.25854) [来源2](https://ieeexplore.ieee.org/document/11493649/) [来源3](https://doi.org/10.1109/TWC.2026.3684101) [来源4](https://api.crossref.org/works/10.1109/TWC.2026.3684101)。\n\n[官方PDF/原文](https://arxiv.org/pdf/2509.25854)；[原文PDF](https://arxiv.org/pdf/2509.25854)。证据定位：作者版Sec.II/Algorithm1/TableI，Sec.III/IV/TableV，Sec.V/TablesVI/Fig9–10；15页。\n\n全文可打开，标题核验通过；15页已缓存。job `55d3a848c631d4af5b6e0f9c` 已入队，要求 `gpt-6-luna / xhigh`。原worker发送及有界查询均返回找不到会话，未成功启动、未译完。[本篇全文翻译状态](https://lrxuanxuan.github.io/papers/items/44c51f88d1ab5473/#paper-translation)。预计本地路径：`本地资料：paper.md`。\n\n原文许可/权利政策：[https://arxiv.org/licenses/nonexclusive-distrib/1.0/](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)。当前全文版本未取得公开译文许可，完成稿仅本地；代码许可证不替代论文许可。全部PDF只保留原文链接，不上传GitHub/网站。",
+      "report_entry_url": "/papers/reports/2026-10-21/#paper-44c51f88d1ab5473",
+      "paper_url": "/papers/items/44c51f88d1ab5473/",
+      "paper_report_url": "/papers/items/44c51f88d1ab5473/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2509.25854",
+        "https://arxiv.org/abs/2509.25854",
+        "https://ieeexplore.ieee.org/document/11493649/",
+        "https://doi.org/10.1109/TWC.2026.3684101",
+        "https://api.crossref.org/works/10.1109/TWC.2026.3684101",
+        "https://lrxuanxuan.github.io/papers/items/44c51f88d1ab5473/#paper-translation",
+        "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2509.25854"
+      ],
+      "hosted_pdfs": [],
+      "status": "正式发表",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/44c51f88d1ab5473/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "43ba737242163164",
+      "date": "2026-10-21",
+      "title": "Spatio-Temporal Electromagnetic Kernel Learning for Channel Prediction",
+      "sheet": "每日论文推荐",
+      "row": 364,
+      "fields": {
+        "日期": "2026-10-21",
+        "标题": "Spatio-Temporal Electromagnetic Kernel Learning for Channel Prediction",
+        "内容": "作者：Li, Jinke; Zhu, Jieao; Dai, Linglong。问题：普通AR核难以表示移动场景的角向传播和时空相关；逐步预测还会传播误差。 方法：从电磁相关积分导出含速度v、角集中参数δ的STEM核，以复高斯过程得到未来信道均值/协方差；GEM将不同物理网格子核非负混合，并用MM代理优化权重，同时预测多个未来时刻。 结果：正式版Sec.V：3.5GHz、CDL与香港ray tracing场景；速度扫到360km/h。CDL中216km/h、SNR5dB时，相对AR报告2.1dB NMSE优势；ray tracing在72km/h、SNR2.5dB时约4.4dB优势。L=2历史帧、F=5预测帧的并行预测和sum-rate也有验证。 局限：窄带、单天线UE与高斯场假设，非任意动态地图/多模态联合建模。正式版明确原似然非凸，采用凸代理/MM子问题，不能宣传原问题全局凸。大协方差求逆及核学习有显著成本；宽带与实测泛化仍待扩展。",
+        "契合方向": "TWC物理先验：时空电磁核与贝叶斯并行信道预测",
+        "推荐理由": "有正式TWC全文和作者MATLAB代码，与现有MATLAB链路契合，能检验几何/核先验能否已解释新增收益。",
+        "顶刊顶会/机构依据": "IEEE Transactions on Wireless Communications, vol.25, pp.8114–8130, 2026；正式发表；Crossref注册卷页与作者论文列表J137及作者托管IEEE终版一致。最早arXiv为2024-12-23；本次采用2026正式17页版本，不能称2026新预印本。出版社页触发人机验证。",
+        "发表年份": "2026",
+        "论文下载链接": "https://oa.ee.tsinghua.edu.cn/dailinglong/publications/paper/Spatio-Temporal_Electromagnetic_Kernel_Learning_for_Channel_Prediction.pdf",
+        "检索来源": "https://arxiv.org/abs/2412.17414\nhttps://ieeexplore.ieee.org/document/11271115/\nhttps://doi.org/10.1109/TWC.2025.3635412\nhttps://api.crossref.org/works/10.1109/TWC.2025.3635412\nhttps://oa.ee.tsinghua.edu.cn/dailinglong/publications/publications.html",
+        "筛选备注": "可直接复现；理论深化：运动与空间先验；基线：物理核预测。；与既有阅读差异：相对坐标条件生成，给出可解释的时空协方差和解析不确定性；可作为残差flow前端物理预测及非深度学习强基线，避免把深网容量当唯一来源。；证据：正式PDF pp.8114–8130，Sec.IV-D/MM、Algorithms1–3、Sec.IV-F复杂度、Sec.V/Figs5–12；核验2026-10-21。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "https://oa.ee.tsinghua.edu.cn/dailinglong/publications/code/STEM-KL.zip",
+        "代码/数据状态": "完整开源实现；作者论文列表直接提供ZIP，已下载打开；含CDL/ray_tracing、GPR核/学习函数、sim_fig脚本和结果文件；抽查CDL/sim_fig_5.m与GPR/fit_GPR.m。未发现对应作者GitHub入口，网站保留真实作者ZIP链接，不造GitHub。未执行MATLAB。",
+        "反馈匹配": "相对坐标条件生成，给出可解释的时空协方差和解析不确定性；可作为残差flow前端物理预测及非深度学习强基线，避免把深网容量当唯一来源。",
+        "反馈权重说明": "以连续条件、物理先验、历史导频、真实时延和校准为匹配依据；区分瞬时恢复、动态预测与系统验证。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-21/",
+      "report_section": "## 3. Spatio-Temporal Electromagnetic Kernel Learning for Channel Prediction\n\n**作者**：Li, Jinke; Zhu, Jieao; Dai, Linglong。**年份/venue**：2026；IEEE Transactions on Wireless Communications, vol.25, pp.8114–8130, 2026。\n\n**发表状态**：正式发表。Crossref注册卷页与作者论文列表J137及作者托管IEEE终版一致。最早arXiv为2024-12-23；本次采用2026正式17页版本，不能称2026新预印本。出版社页触发人机验证。 核验2026-10-21。\n\n**方向与问题**：TWC物理先验：时空电磁核与贝叶斯并行信道预测。普通AR核难以表示移动场景的角向传播和时空相关；逐步预测还会传播误差。\n\n**方法与独立机制**：从电磁相关积分导出含速度v、角集中参数δ的STEM核，以复高斯过程得到未来信道均值/协方差；GEM将不同物理网格子核非负混合，并用MM代理优化权重，同时预测多个未来时刻。\n\n**关键结果**：正式版Sec.V：3.5GHz、CDL与香港ray tracing场景；速度扫到360km/h。CDL中216km/h、SNR5dB时，相对AR报告2.1dB NMSE优势；ray tracing在72km/h、SNR2.5dB时约4.4dB优势。L=2历史帧、F=5预测帧的并行预测和sum-rate也有验证。\n\n**局限与迁移边界**：窄带、单天线UE与高斯场假设，非任意动态地图/多模态联合建模。正式版明确原似然非凸，采用凸代理/MM子问题，不能宣传原问题全局凸。大协方差求逆及核学习有显著成本；宽带与实测泛化仍待扩展。\n\n**迁移类型与位置**：可直接复现；理论深化：运动与空间先验；基线：物理核预测。\n\n**与既有阅读差异**：相对坐标条件生成，给出可解释的时空协方差和解析不确定性；可作为残差flow前端物理预测及非深度学习强基线，避免把深网容量当唯一来源。\n\n**推荐理由**：有正式TWC全文和作者MATLAB代码，与现有MATLAB链路契合，能检验几何/核先验能否已解释新增收益。\n\n**代码状态**：完整开源实现。作者论文列表直接提供ZIP，已下载打开；含CDL/ray_tracing、GPR核/学习函数、sim_fig脚本和结果文件；抽查CDL/sim_fig_5.m与GPR/fit_GPR.m。未发现对应作者GitHub入口，网站保留真实作者ZIP链接，不造GitHub。未执行MATLAB。\n\n[作者实现入口](https://oa.ee.tsinghua.edu.cn/dailinglong/publications/code/STEM-KL.zip)。\n\n**身份与证据**：arXiv:2412.17414；DOI:10.1109/TWC.2025.3635412；[来源1](https://arxiv.org/abs/2412.17414) [来源2](https://ieeexplore.ieee.org/document/11271115/) [来源3](https://doi.org/10.1109/TWC.2025.3635412) [来源4](https://api.crossref.org/works/10.1109/TWC.2025.3635412) [来源5](https://oa.ee.tsinghua.edu.cn/dailinglong/publications/publications.html)。\n\n[官方PDF/原文](https://oa.ee.tsinghua.edu.cn/dailinglong/publications/paper/Spatio-Temporal_Electromagnetic_Kernel_Learning_for_Channel_Prediction.pdf)；[原文PDF](https://oa.ee.tsinghua.edu.cn/dailinglong/publications/paper/Spatio-Temporal_Electromagnetic_Kernel_Learning_for_Channel_Prediction.pdf)。证据定位：正式PDF pp.8114–8130，Sec.IV-D/MM、Algorithms1–3、Sec.IV-F复杂度、Sec.V/Figs5–12。\n\n全文可打开，标题核验通过；17页已缓存。job `fa178cd3c16a65fa1c8a363c` 已入队，要求 `gpt-6-luna / xhigh`。原worker发送及有界查询均返回找不到会话，未成功启动、未译完。[本篇全文翻译状态](https://lrxuanxuan.github.io/papers/items/43ba737242163164/#paper-translation)。预计本地路径：`本地资料：paper.md`。\n\n原文许可/权利政策：[https://www.ieee.org/publications/rights/rights-policies.html](https://www.ieee.org/publications/rights/rights-policies.html)。当前全文版本未取得公开译文许可，完成稿仅本地；代码许可证不替代论文许可。全部PDF只保留原文链接，不上传GitHub/网站。",
+      "report_entry_url": "/papers/reports/2026-10-21/#paper-43ba737242163164",
+      "paper_url": "/papers/items/43ba737242163164/",
+      "paper_report_url": "/papers/items/43ba737242163164/#paper-report",
+      "translations": [],
+      "links": [
+        "https://oa.ee.tsinghua.edu.cn/dailinglong/publications/paper/Spatio-Temporal_Electromagnetic_Kernel_Learning_for_Channel_Prediction.pdf",
+        "https://arxiv.org/abs/2412.17414",
+        "https://ieeexplore.ieee.org/document/11271115/",
+        "https://doi.org/10.1109/TWC.2025.3635412",
+        "https://api.crossref.org/works/10.1109/TWC.2025.3635412",
+        "https://oa.ee.tsinghua.edu.cn/dailinglong/publications/publications.html",
+        "https://oa.ee.tsinghua.edu.cn/dailinglong/publications/code/STEM-KL.zip",
+        "https://lrxuanxuan.github.io/papers/items/43ba737242163164/#paper-translation",
+        "https://www.ieee.org/publications/rights/rights-policies.html"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://oa.ee.tsinghua.edu.cn/dailinglong/publications/paper/Spatio-Temporal_Electromagnetic_Kernel_Learning_for_Channel_Prediction.pdf"
+      ],
+      "hosted_pdfs": [],
+      "status": "正式发表",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/43ba737242163164/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "efb1c2b897f3baec",
+      "date": "2026-10-21",
+      "title": "One-Step Generative CSI Prediction",
+      "sheet": "每日论文推荐",
+      "row": 363,
+      "fields": {
+        "日期": "2026-10-21",
+        "标题": "One-Step Generative CSI Prediction",
+        "内容": "作者：Sattari, Mehdi; Aliakbari, Javad; Amat, Alexandre Graell i; Svensson, Tommy。问题：从纯噪声生成未来CSI需要多步采样，在线延迟和分布过度自信会妨碍链路自适应。 方法：ConvLSTM由过去CSI产生条件特征Z和点预测μ；源样本为stop-gradient(μ)+σε，MeanFlow用JVP学习平均速度。FiLM注入时间对(r,t)，每个未来帧一次生成器评估，自回归滚动；辅助MSE训练μ。 结果：28GHz、16×1 MIMO、Sionna CDL-A–E、30kHz SCS、30历史/10预测帧、30–120km/h；约2.2M参数，batch256训练50k步。Table II在20dB输入SNR下μ-MeanFlow/μ-Diffusion NMSE为−10.6/−11.0dB，90%覆盖率0.73/0.18；仍未达到0.90。A40单用户单帧推理6.8ms(1NFE)对19.8ms(3NFE)。 局限：1NFE是每个生成样本/未来帧，不等于完整10帧、30个样本或端到端仅一次网络调用。历史CSI加性噪声代替实际导频获取，尚无地图、ICI和实测跨城验证；覆盖不足且AR误差累积。表II覆盖0.73、表III同档0.72略有差异，保留各表原值。",
+        "契合方向": "核心生成：有信息源分布、单步时序CSI预测与校准",
+        "推荐理由": "最贴合“传播预测＋残差flow”和推理延迟导致CSI变旧的期刊扩展；优先核验相同参数量和真实使用时刻。",
+        "顶刊顶会/机构依据": "arXiv（作者披露投稿IEEE WCNC 2027）；在投（作者公开自述）；2026-09-15 v1。arXiv comments写submitted to IEEE WCNC 2027；该披露截至核验日可能变化，未查到正式接收证据。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2609.17033",
+        "检索来源": "https://arxiv.org/abs/2609.17033",
+        "筛选备注": "可直接复现；缺口：因果历史与CSI aging；基线：低NFE生成预测。；与既有阅读差异：相对静态单切片KAP和昨天的Conditional Mean Flows，本篇直接预测未来复数CSI，以可预测均值为源并评估覆盖/速率CRPS；不是仅把扩散网络改名。；证据：PDF Sec.III/Algorithms1–2、Tables I–V、Figs2–4；6页；核验2026-10-21。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "https://github.com/MehdiSattari/meanflow-csi-prediction",
+        "代码/数据状态": "完整开源实现；论文p4脚注链接作者库；实际存在Sionna数据流、ConvLSTM/U-Net、meanflow.py/JVP、inference.py、训练/评估/校准/时延脚本及测试。README部分旧归一化备注与论文不一致，复现前锁定config和commit；未运行复现。",
+        "反馈匹配": "相对静态单切片KAP和昨天的Conditional Mean Flows，本篇直接预测未来复数CSI，以可预测均值为源并评估覆盖/速率CRPS；不是仅把扩散网络改名。",
+        "反馈权重说明": "以连续条件、物理先验、历史导频、真实时延和校准为匹配依据；区分瞬时恢复、动态预测与系统验证。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-21/",
+      "report_section": "## 2. One-Step Generative CSI Prediction\n\n**作者**：Sattari, Mehdi; Aliakbari, Javad; Amat, Alexandre Graell i; Svensson, Tommy。**年份/venue**：2026；arXiv（作者披露投稿IEEE WCNC 2027）。\n\n**发表状态**：在投（作者公开自述）。2026-09-15 v1。arXiv comments写submitted to IEEE WCNC 2027；该披露截至核验日可能变化，未查到正式接收证据。 核验2026-10-21。\n\n**方向与问题**：核心生成：有信息源分布、单步时序CSI预测与校准。从纯噪声生成未来CSI需要多步采样，在线延迟和分布过度自信会妨碍链路自适应。\n\n**方法与独立机制**：ConvLSTM由过去CSI产生条件特征Z和点预测μ；源样本为stop-gradient(μ)+σε，MeanFlow用JVP学习平均速度。FiLM注入时间对(r,t)，每个未来帧一次生成器评估，自回归滚动；辅助MSE训练μ。\n\n**关键结果**：28GHz、16×1 MIMO、Sionna CDL-A–E、30kHz SCS、30历史/10预测帧、30–120km/h；约2.2M参数，batch256训练50k步。Table II在20dB输入SNR下μ-MeanFlow/μ-Diffusion NMSE为−10.6/−11.0dB，90%覆盖率0.73/0.18；仍未达到0.90。A40单用户单帧推理6.8ms(1NFE)对19.8ms(3NFE)。\n\n**局限与迁移边界**：1NFE是每个生成样本/未来帧，不等于完整10帧、30个样本或端到端仅一次网络调用。历史CSI加性噪声代替实际导频获取，尚无地图、ICI和实测跨城验证；覆盖不足且AR误差累积。表II覆盖0.73、表III同档0.72略有差异，保留各表原值。\n\n**迁移类型与位置**：可直接复现；缺口：因果历史与CSI aging；基线：低NFE生成预测。\n\n**与既有阅读差异**：相对静态单切片KAP和昨天的Conditional Mean Flows，本篇直接预测未来复数CSI，以可预测均值为源并评估覆盖/速率CRPS；不是仅把扩散网络改名。\n\n**推荐理由**：最贴合“传播预测＋残差flow”和推理延迟导致CSI变旧的期刊扩展；优先核验相同参数量和真实使用时刻。\n\n**代码状态**：完整开源实现。论文p4脚注链接作者库；实际存在Sionna数据流、ConvLSTM/U-Net、meanflow.py/JVP、inference.py、训练/评估/校准/时延脚本及测试。README部分旧归一化备注与论文不一致，复现前锁定config和commit；未运行复现。\n\n[作者实现入口](https://github.com/MehdiSattari/meanflow-csi-prediction)。\n\n**身份与证据**：arXiv:2609.17033；[来源1](https://arxiv.org/abs/2609.17033)。\n\n[官方PDF/原文](https://arxiv.org/pdf/2609.17033)；[原文PDF](https://arxiv.org/pdf/2609.17033)。证据定位：PDF Sec.III/Algorithms1–2、Tables I–V、Figs2–4；6页。\n\n全文可打开，标题核验通过；6页已缓存。job `71460b27ca64aeb140de7c94` 已入队，要求 `gpt-6-luna / xhigh`。原worker发送及有界查询均返回找不到会话，未成功启动、未译完。[本篇全文翻译状态](https://lrxuanxuan.github.io/papers/items/efb1c2b897f3baec/#paper-translation)。预计本地路径：`本地资料：paper.md`。\n\n原文许可/权利政策：[https://arxiv.org/licenses/nonexclusive-distrib/1.0/](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)。当前全文版本未取得公开译文许可，完成稿仅本地；代码许可证不替代论文许可。全部PDF只保留原文链接，不上传GitHub/网站。",
+      "report_entry_url": "/papers/reports/2026-10-21/#paper-efb1c2b897f3baec",
+      "paper_url": "/papers/items/efb1c2b897f3baec/",
+      "paper_report_url": "/papers/items/efb1c2b897f3baec/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2609.17033",
+        "https://arxiv.org/abs/2609.17033",
+        "https://github.com/MehdiSattari/meanflow-csi-prediction",
+        "https://lrxuanxuan.github.io/papers/items/efb1c2b897f3baec/#paper-translation",
+        "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+      ],
+      "github": [
+        "https://github.com/MehdiSattari/meanflow-csi-prediction"
+      ],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2609.17033"
+      ],
+      "hosted_pdfs": [],
+      "status": "在投",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/efb1c2b897f3baec/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "c14464e6257e8788",
+      "date": "2026-10-21",
+      "title": "PnP-CF: A Consensus Flow-Matching Solver for General Inverse Problems",
+      "sheet": "每日论文推荐",
+      "row": 362,
+      "fields": {
+        "日期": "2026-10-21",
+        "标题": "PnP-CF: A Consensus Flow-Matching Solver for General Inverse Problems",
+        "内容": "作者：Kumar, Dibyanshu; Gregorova, Magda。问题：数据一致性更新会将样本移出flow中间概率路径；非线性及神经网络前向算子下这种失配更严重。 方法：ADMM式变量分裂、对偶残差累积和时间自适应随机/确定性混合回拉共同维持共识。线性数据子问题用共轭梯度，非线性可微算子用带回溯的梯度求解；无需穿过整个生成轨迹反传。 结果：CelebA/AFHQ-Cat各100幅测试图，多项线性及非线性任务。Table 1中CelebA相位恢复PSNR为30.33 dB，PnP-Flow为22.57 dB；但AFHQ非线性去模糊D-Flow的23.45 dB高于本法22.28 dB，不能说所有任务最优。Table 2：HDR/CelebA、batch4、25批平均，17.62s/0.30GB，D-Flow71.42s/13.34GB。 局限：无严格收敛保证；残差下降仅为经验共识证据。依赖可微前向模型，参数及迭代数随任务变化，100–500外迭代不能称低NFE。图像实验不证明复数CSI、ICI或后验校准性能。",
+        "契合方向": "核心求解：共识变量、flow轨迹回拉与非线性逆问题",
+        "推荐理由": "适合给KAP未来ICI/硬件非线性扩展提供求解器对照和共识残差诊断，先固定共享先验再改一个求解环节。",
+        "顶刊顶会/机构依据": "arXiv；PriGM Workshop @ NeurIPS 2026短版；已接受待刊（作者自述，workshop短版）；2026-10-19 v1。arXiv comments和PDF脚注称短版获PriGM Workshop接收；不是NeurIPS主会接收证明，长版为预印本。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2610.26000",
+        "检索来源": "https://arxiv.org/abs/2610.26000",
+        "筛选备注": "可改造工具；深化：FlowADMM机制与失配；缺口：非线性物理观测。；与既有阅读差异：深化已有FlowADMM阅读中的先验/求解器相互作用；新增的是非线性及learned operator验证与轨迹回拉分析，ADMM和对偶更新本身属于原框架，须保留原始归因。；证据：PDF Sec.3/Algorithm1，Sec.4/Table1–3，Appendix A–D/Table4/7/8；24页；核验2026-10-21。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "https://github.com/dibyanshu100/PnP_ConsensusFlow",
+        "代码/数据状态": "完整开源实现；论文直接链接作者仓库；静态核对pnpflow/methods/pnp_cf.py、任务/方法YAML、main.py、退化算子、权重下载脚本与依赖。具有线性/非线性及分割任务入口；本次未训练或运行复现。",
+        "反馈匹配": "深化已有FlowADMM阅读中的先验/求解器相互作用；新增的是非线性及learned operator验证与轨迹回拉分析，ADMM和对偶更新本身属于原框架，须保留原始归因。",
+        "反馈权重说明": "以连续条件、物理先验、历史导频、真实时延和校准为匹配依据；区分瞬时恢复、动态预测与系统验证。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-21/",
+      "report_section": "## 1. PnP-CF: A Consensus Flow-Matching Solver for General Inverse Problems\n\n**作者**：Kumar, Dibyanshu; Gregorova, Magda。**年份/venue**：2026；arXiv；PriGM Workshop @ NeurIPS 2026短版。\n\n**发表状态**：已接受待刊（作者自述，workshop短版）。2026-10-19 v1。arXiv comments和PDF脚注称短版获PriGM Workshop接收；不是NeurIPS主会接收证明，长版为预印本。 核验2026-10-21。\n\n**方向与问题**：核心求解：共识变量、flow轨迹回拉与非线性逆问题。数据一致性更新会将样本移出flow中间概率路径；非线性及神经网络前向算子下这种失配更严重。\n\n**方法与独立机制**：ADMM式变量分裂、对偶残差累积和时间自适应随机/确定性混合回拉共同维持共识。线性数据子问题用共轭梯度，非线性可微算子用带回溯的梯度求解；无需穿过整个生成轨迹反传。\n\n**关键结果**：CelebA/AFHQ-Cat各100幅测试图，多项线性及非线性任务。Table 1中CelebA相位恢复PSNR为30.33 dB，PnP-Flow为22.57 dB；但AFHQ非线性去模糊D-Flow的23.45 dB高于本法22.28 dB，不能说所有任务最优。Table 2：HDR/CelebA、batch4、25批平均，17.62s/0.30GB，D-Flow71.42s/13.34GB。\n\n**局限与迁移边界**：无严格收敛保证；残差下降仅为经验共识证据。依赖可微前向模型，参数及迭代数随任务变化，100–500外迭代不能称低NFE。图像实验不证明复数CSI、ICI或后验校准性能。\n\n**迁移类型与位置**：可改造工具；深化：FlowADMM机制与失配；缺口：非线性物理观测。\n\n**与既有阅读差异**：深化已有FlowADMM阅读中的先验/求解器相互作用；新增的是非线性及learned operator验证与轨迹回拉分析，ADMM和对偶更新本身属于原框架，须保留原始归因。\n\n**推荐理由**：适合给KAP未来ICI/硬件非线性扩展提供求解器对照和共识残差诊断，先固定共享先验再改一个求解环节。\n\n**代码状态**：完整开源实现。论文直接链接作者仓库；静态核对pnpflow/methods/pnp_cf.py、任务/方法YAML、main.py、退化算子、权重下载脚本与依赖。具有线性/非线性及分割任务入口；本次未训练或运行复现。\n\n[作者实现入口](https://github.com/dibyanshu100/PnP_ConsensusFlow)。\n\n**身份与证据**：arXiv:2610.26000；[来源1](https://arxiv.org/abs/2610.26000)。\n\n[官方PDF/原文](https://arxiv.org/pdf/2610.26000)；[原文PDF](https://arxiv.org/pdf/2610.26000)。证据定位：PDF Sec.3/Algorithm1，Sec.4/Table1–3，Appendix A–D/Table4/7/8；24页。\n\n全文可打开，标题核验通过；24页已缓存。job `1d2d615e595cd0ac143422f7` 已入队，要求 `gpt-6-luna / xhigh`。原worker发送及有界查询均返回找不到会话，未成功启动、未译完。[本篇全文翻译状态](https://lrxuanxuan.github.io/papers/items/c14464e6257e8788/#paper-translation)。预计本地路径：`本地资料：paper.md`。\n\n原文许可/权利政策：[https://creativecommons.org/licenses/by/4.0/](https://creativecommons.org/licenses/by/4.0/)。完成译稿可在原许可的署名、改动说明及同许可要求下公开。全部PDF只保留原文链接，不上传GitHub/网站。",
+      "report_entry_url": "/papers/reports/2026-10-21/#paper-c14464e6257e8788",
+      "paper_url": "/papers/items/c14464e6257e8788/",
+      "paper_report_url": "/papers/items/c14464e6257e8788/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2610.26000",
+        "https://arxiv.org/abs/2610.26000",
+        "https://github.com/dibyanshu100/PnP_ConsensusFlow",
+        "https://lrxuanxuan.github.io/papers/items/c14464e6257e8788/#paper-translation",
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "github": [
+        "https://github.com/dibyanshu100/PnP_ConsensusFlow"
+      ],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2610.26000"
+      ],
+      "hosted_pdfs": [],
+      "status": "已接受待刊",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/c14464e6257e8788/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
     {
       "id": "65fb4a2eb96bd703",
       "date": "2026-10-20",
@@ -18032,6 +18293,17 @@
   ],
   "reports": [
     {
+      "date": "2026-10-21",
+      "url": "/papers/reports/2026-10-21/",
+      "source_file": "2026-10-21_每日前沿论文推荐.md",
+      "slug": "2026-10-21",
+      "covered_dates": [
+        "2026-10-21"
+      ],
+      "title": "10_21前沿论文推荐",
+      "download": "/assets/papers/reports/2026-10-21.md"
+    },
+    {
       "date": "2026-10-20",
       "url": "/papers/reports/2026-10-20/",
       "source_file": "2026-10-20_每日前沿论文推荐.md",
@@ -19790,9 +20062,9 @@
   "pdf_mode": "links_only",
   "workbook_table": {
     "url": "/papers/table/",
-    "source_sha256": "ff474d68ba4bb0616034a02888a784be56f6a7a31c39727529006207e5b5511d",
+    "source_sha256": "770a6241a596a0c6584dc54c18e5c20e52e5563fe13fc18a7d3a746358bfce6b",
     "sheet": "每日论文推荐",
-    "row_count": 360,
+    "row_count": 365,
     "headers": [
       "日期",
       "标题",

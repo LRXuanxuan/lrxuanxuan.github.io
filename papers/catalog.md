@@ -103,6 +103,36 @@ toc: true
 
 ## 推荐论文
 
+### 2026-10-21 · [On the Impact of Channel Aging and Doppler-Affected Clutter on OFDM ISAC Systems](/papers/items/1524a18885ddaf9a/)
+
+可检验历史窗口越长是否真更好，以及更多迭代带来的过期代价；需要同时报告实际时延与使用时刻CSI误差。
+
+[本篇日报](/papers/items/1524a18885ddaf9a/#paper-report)
+
+### 2026-10-21 · [Delay-Doppler Domain Channel Measurements and Modeling in High-Speed Railways](/papers/items/44c51f88d1ab5473/)
+
+直接支撑新journal对“准平稳≠瞬时CSI恒定”的问题定义；可先检查已有生成器的两类时长和传播统计。
+
+[本篇日报](/papers/items/44c51f88d1ab5473/#paper-report)
+
+### 2026-10-21 · [Spatio-Temporal Electromagnetic Kernel Learning for Channel Prediction](/papers/items/43ba737242163164/)
+
+有正式TWC全文和作者MATLAB代码，与现有MATLAB链路契合，能检验几何/核先验能否已解释新增收益。
+
+[本篇日报](/papers/items/43ba737242163164/#paper-report)
+
+### 2026-10-21 · [One-Step Generative CSI Prediction](/papers/items/efb1c2b897f3baec/)
+
+最贴合“传播预测＋残差flow”和推理延迟导致CSI变旧的期刊扩展；优先核验相同参数量和真实使用时刻。
+
+[本篇日报](/papers/items/efb1c2b897f3baec/#paper-report)
+
+### 2026-10-21 · [PnP-CF: A Consensus Flow-Matching Solver for General Inverse Problems](/papers/items/c14464e6257e8788/)
+
+适合给KAP未来ICI/硬件非线性扩展提供求解器对照和共识残差诊断，先固定共享先验再改一个求解环节。
+
+[本篇日报](/papers/items/c14464e6257e8788/#paper-report)
+
 ### 2026-10-20 · [Channel Estimation in Cross-Frame OTFS System With Ultra-High Mobility](/papers/items/65fb4a2eb96bd703/)
 
 提醒先核验可辨识范围再比较生成重建；可先做无学习的单径/双径CRT混叠压力测试。
