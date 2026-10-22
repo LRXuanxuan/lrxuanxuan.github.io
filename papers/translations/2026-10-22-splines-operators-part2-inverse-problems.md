@@ -178,11 +178,47 @@ $\mathcal H'=\mathcal H_\phi'\oplus\mathcal N_p$。
 
 **定义 2.3（条件正性）。** 设 $\mathcal N_p$ 是 $\mathcal S'$ 中的有限维空间，并令 $\mathcal S_p$ 为其在 $\mathcal S$ 中的湮灭空间。连续算子 $A:\mathcal S\to\mathcal S'$ 若对全部非零 $\varphi\in\mathcal S_p$ 满足 $\langle A\varphi,\varphi\rangle>0$，则称为关于 $p$ 条件正定。若上述不等式对 $\mathcal S$ 中全部非零元素成立，则称为正定。后者比前者更强。
 
+
+**条件正定性和相应空间的原文公式。** 令 $\mathcal S_p=\{\varphi\in\mathcal S:p(\varphi)=0\}$ 为 $\mathcal N_p$ 的湮灭空间，则原文将定义 2.3 的两类正定性分别写为
+
+$
+\langle A\varphi,\varphi\rangle>0,\qquad
+\forall\,\varphi\in\mathcal S_p\setminus\{0\},\tag{14}
+$
+
+$
+\langle B\varphi,\varphi\rangle>0,\qquad
+\forall\,\varphi\in\mathcal S\setminus\{0\}.\tag{15}
+$
+
+对满足连续性和相应正定条件的算子，通过完备化定义
+
+$
+\mathcal H_A=(\mathcal S_p,|\cdot|_A),\tag{16}
+$
+
+$
+\dot{\mathcal H}_B=(\mathcal S,|\cdot|_B).\tag{17}
+$
+
+这里的空间首先以 Cauchy 列的等价类形式定义。它们能否作为 $\mathcal S'$ 的具体子空间，取决于可达零空间是否平凡：$\dot{\mathcal H}_B$ 的点号专门提醒读者其中可能存在需要取商的零范数等价类。
+
 **定义 2.4（可达零空间）。** 给定 $\mathcal S$ 上连续半范数 $q$，其可达零空间由能够在 $\mathcal S'$ 中表示为一列试验函数极限，同时该列函数的 $q$-半范数趋于零的全部广义函数组成。对正半定算子 $B$ 诱导的半范数，用 $\mathcal N_B$ 表示其可达零空间。这一概念用于判断抽象完备化究竟可视为 $\mathcal S'$ 的具体子空间，还是必须采用等价类构造。
 
 **定义 2.5（$p$-条件 Riesz 对）。** 对一对连续算子 $A,B:\mathcal S\to\mathcal S'$，要求 $A$ 关于 $p$ 条件正定、$B$ 正定，且满足两项条件：零空间匹配 $\mathcal N_B=\mathcal N_p$；以及由 $A,B$ 延拓得到的 Hilbert 空间之间存在互逆的等距同构。这使 $A$ 可以被解释为适当条件下 $B$ 的逆。
 
 **定义 2.6（样条容许算子）。** 设连续线性算子 $L:\mathcal S\to L_2$ 的正规算子为 $B=L^*L$。若存在 $A$ 使 $(A,B)$ 成为 $p$-条件 Riesz 对，并且由 $\|L\cdot\|_{L_2}$ 生成的齐次 Hilbert 空间与 $L_2$ 等距同构，则称 $L$ 为 $p$-容许（样条容许）算子。
+
+
+按照定义 2.6，$p$-条件 Riesz 对首先使齐次空间 $\dot{\mathcal H}_L$ 与如下对偶预空间等距同构：
+
+$
+\mathcal H_A=(\mathcal S_p,|\cdot|_A),
+\qquad |\psi|_A:=\sqrt{\langle A\psi,\psi\rangle},
+\quad \psi\in\mathcal S_p.\tag{18}
+$
+
+该同构由伴随算子 $L^*:L_2\to\mathcal H_A\hookrightarrow\mathcal S'$ 实现。因此，条件逆并不是对所有广义函数不加区别地求逆，而是在算子值域及其相容边界条件下构造的稳定右逆。
 
 条件逆算子、Green 算子及其伴随用于建立从 $L_2$ 到母空间的稳定右逆。不过，在存在非平凡零空间时，不能天真地使用未条件化的 Green 算子乘积 $G^*G$ 作为正规算子的逆，因为该组合可能在试验空间中发散；正确构造必须包括与边界泛函匹配的条件化步骤。
 
@@ -201,6 +237,49 @@ $$
 ## 3. 算子 $L$ 的母空间
 
 假设 $L$ 为 $p$-容许算子，$B=L^*L$，$(A,B)$ 为相应的条件 Riesz 对。给定关于零空间 $\mathcal N_p$ 的双正交系统 $(p,\phi)$，可以构造条件化 Gram 算子 $A_\phi$ 及扩展算子对。母空间 $\mathcal H_L$ 的结构可以用 $L$、其伴随 $L^*$ 及带边界条件的逆算子 $L_\phi^{-1}$ 表示。
+
+
+对于所选双正交系统 $(p,\phi)$，原文首先构造条件化 Gram 算子
+
+$
+A_\phi:=P_\phi^*AP_\phi:\mathcal S\longrightarrow\mathcal S'.\tag{19}
+$
+
+由此形成增广 Riesz 算子对
+
+$
+A_+:=A_\phi+R_p,\qquad B_+:=B+R_\phi,\tag{20}
+$
+
+其中 $B=L^*L$。两者生成相互对偶的 Hilbert–Gelfand 空间：
+
+$
+\mathcal H=(\mathcal S,|\cdot|_{A_+})
+=\mathcal H_A\oplus\mathcal N_\phi,\qquad
+\mathcal H'=(\mathcal S,|\cdot|_{B_+})
+=\mathcal H_A'\oplus\mathcal N_p.\tag{21}
+$
+
+母空间取第二个空间，即 $\mathcal H_L=\mathcal H'$。这也说明：零空间分量必须借助有限秩增广项处理，否则 $L^*L$ 不能直接提供全空间的 Hilbert 范数。
+
+与正规算子分解 $B=L^*L$ 对偶的精确条件化分解是
+
+$
+A_\phi=L_\phi^{-1}\circ L_\phi^{-1*}:
+\mathcal S\longrightarrow L_2\longrightarrow\mathcal S'.\tag{22}
+$
+
+其中，条件逆具体写为
+
+$
+L_\phi^{-1}
+:=A_\phi L^*
+=P_\phi^*G^*
+=(\operatorname{Id}-R_pR_\phi)G^*
+:L_2\longrightarrow\mathcal H_A'.\tag{23}
+$
+
+这里 $G^*=L^{-1}$ 是 Green 算子的伴随；等式后两项需要 $G$ 存在，首项 $A_\phi L^*$ 则不需要该条件。$L_\phi^{-1}$ 是满足 $\phi(f)=0$ 边界条件的唯一右逆。以上公式为定理 3.1 的母空间刻画提供必要准备。
 
 **定理 3.1（容许算子 $L$ 的母空间）。** $p$-容许算子 $L:\mathcal S\to L_2$ 可以连续延拓为 $L:\mathcal H_L\to L_2$。母空间具有以下性质：
 
@@ -231,8 +310,29 @@ $$
    =L_\phi^{-1}\{w\}+p,\tag{27}
    $$
    其中 $w=Lf$，$f^*=(L^*L)\{f\}$，$p\in\mathcal N_p$，因此将可由数据恢复的部分与零空间部分明确分离。
-6. **Riesz 映射。** 对母空间的 Riesz 算子有 $J_{\mathcal H_L}=L^*L+R_\phi$，其逆与 $A_\phi$ 及有限秩零空间项有关。
-7. **齐次部分。** 由半范数 $\|Lf\|_{L_2}$ 生成的齐次空间可识别为商空间 $\mathcal H_L/\mathcal N_p$，并与 $\mathcal H_{L,\phi}$ 等距同构；这一商空间的核心结构不依赖具体的双正交选择。
+6. **Riesz 映射。** 原文给出三个明确的 Riesz 映射：
+   $
+   J_{\mathcal H_L}=L^*L+R_\phi:
+   \mathcal H_L\longrightarrow\mathcal H_L',\tag{28}
+   $
+   $
+   J_{\mathcal H_L'}=J_{\mathcal H_L}^{-1}
+   =A_\phi+R_p:
+   \mathcal H_L'\longrightarrow\mathcal H_L,\tag{29}
+   $
+   $
+   J_{\mathcal H_A}=A_\phi:
+   \mathcal H_A\longrightarrow\mathcal H_A'
+   =\mathcal H_{L,\phi}.\tag{30}
+   $
+7. **齐次部分。** 由半范数 $\|Lf\|_{L_2}$ 生成的齐次空间可识别为商空间，并与带边界条件的补空间等距同构：
+   $
+   \dot{\mathcal H}_B
+   =(\mathcal S,\|L\cdot\|_{L_2})
+   =\mathcal H_L/\mathcal N_p
+   \simeq\mathcal H_{L,\phi}.\tag{31}
+   $
+   这一商空间的核心结构不依赖具体的双正交选择。
 
 这个定理说明，尽管样条正则项在零空间中退化，仍可通过有限维零空间的规范化与稳定条件逆算子建立完备且可用于求解逆问题的母空间。
 
