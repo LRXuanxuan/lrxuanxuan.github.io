@@ -451,6 +451,103 @@ $$
 
 由上述结构，可将目标函数改写为样条部分与零空间系数上的优化。数据保真项关于测量连续、下半连续、强制且凸，正则项控制样条分量，零空间的测量矩阵满列秩则控制其系数，从而保证良定性。定理的证明将无限维问题化为 Hilbert 空间中的有限测量插值，并应用 Riesz 表示定理得到式（43）。
 
+
+### 定理 4.3 的证明
+
+选取引理 4.4 构造的、与测量匹配的双正交系统 $(\widetilde{\boldsymbol\varphi},\mathbf p)$，由定理 3.1 可将任意 $f\in\mathcal H_L$ 唯一拆分为 $f=\widetilde f+\widetilde p$，其中 $\widetilde f\in\mathcal H_{L,\widetilde\varphi}$，$\widetilde p=\sum_{n=1}^{N_0}b_np_n\in\mathcal N_p$。根据引理 4.4，
+
+$
+\nu=Q\widetilde\nu+P\widetilde\varphi,\qquad
+\widetilde\nu=\widetilde Q^\top\nu\in\mathcal H_A^{M-N_0},
+\qquad \widetilde\varphi=\widetilde P^\top\nu.
+$
+
+利用 $\widetilde\varphi(\widetilde f)=0$、$\widetilde\nu(p)=0$ 和双正交性 $\widetilde\varphi(\sum b_np_n)=b$，有
+
+$
+\nu(f)
+=(Q\widetilde\nu+P\widetilde\varphi)
+(\widetilde f+\widetilde p)
+=Q\widetilde\nu(\widetilde f)+Pb.
+$
+
+同时，$\|Lf\|_{L_2}=\|L\widetilde f\|_{L_2}$。因此式（42）可以重写为
+
+$
+\begin{gathered}
+\min_{\widetilde f\in\mathcal H_{L,\widetilde\varphi},\,b\in\mathbb R^{N_0}}
+J(\widetilde f,b),\\
+J(\widetilde f,b)
+=E\!\left(y,Q\widetilde\nu(\widetilde f)+Pb\right)
++\lambda\|L\widetilde f\|_{L_2}^2.
+\end{gathered}\tag{49}
+$
+
+对固定 $\widetilde f$，由于 $P$ 满列秩，$b\mapsto J(\widetilde f,b)$ 是下半连续、强制且凸的。对固定 $b$，$\widetilde f\mapsto J(\widetilde f,b)$ 因测量连续而下半连续，且根据正则项的 Hilbert 空间范数性质具有相应的强制性与严格凸性；在原文所采用的条件下，因此存在唯一最小点 $(\widetilde f_\lambda,b_\lambda)$。
+
+设该最小点的测量输出为某个 $z_0\in\mathbb R^M$：
+
+$
+Q\widetilde\nu(\widetilde f_\lambda)+Pb_\lambda=z_0.\tag{50}
+$
+
+由于 $[Q\ P]$ 可逆，可直接恢复两个测量坐标：
+
+$
+\begin{bmatrix}
+\widetilde\nu(\widetilde f_\lambda)\\
+b_\lambda
+\end{bmatrix}
+=
+[Q\ P]^{-1}z_0
+=
+\begin{bmatrix}
+\widetilde Q^\top z_0\\
+\widetilde P^\top z_0
+\end{bmatrix}.\tag{51}
+$
+
+从而零空间系数是 $b_\lambda=\widetilde P^\top z_0$。而 $\widetilde f_\lambda$ 必须同时解决下列最小范数插值问题：
+
+$
+\widetilde f_\lambda=
+\underset{\widetilde f\in\mathcal H_{L,\widetilde\varphi}}{\operatorname{argmin}}
+\|L\widetilde f\|_{L_2},
+\quad\text{使得}\quad
+\widetilde\nu(\widetilde f)=\widetilde Q^\top z_0.
+\tag{52}
+$
+
+由于 $\|L\widetilde f\|_{L_2}$ 恰是 $\mathcal H_{L,\widetilde\varphi}$ 的范数，可应用 Hilbert 空间最小范数表示定理 4.1，获得
+
+$
+\widetilde f_\lambda
+=A_{\widetilde\varphi}\left\{
+\sum_{m=1}^{M-N_0}\widetilde a_m\widetilde\nu_m
+\right\}
+=\sum_{m=1}^{M-N_0}\widetilde a_m
+A_{\widetilde\varphi}\{\widetilde\nu_m\}.
+\tag{53}
+$
+
+于是定义 $\widetilde\psi_m=A_{\widetilde\varphi}\{\widetilde\nu_m\}$，再加回最优零空间项 $\sum b_np_n$，即得到表示式（43）。
+
+接下来导出传统的过参数化形式（44）。由命题 3.2，$A\{\widetilde f_\lambda^*\}\in\mathcal H_L$，并且 $A\{\widetilde f_\lambda^*\}-A_{\widetilde\varphi}\{\widetilde f_\lambda^*\}\in\mathcal N_p$，因此可以把这部分差异吸收到新的零空间系数中。同时，若 $\widetilde f_\lambda^*=\widetilde a^\top\widetilde\nu=\widetilde a^\top\widetilde Q^\top\nu=a^\top\nu$，则 $a=\widetilde Q\widetilde a$，自动满足 $P^\top a=P^\top\widetilde Q\widetilde a=0$。反过来，当 $P^\top a=0$ 时，也存在唯一 $\widetilde a=Q^\top a$，这正对应矩阵恒等式
+
+$
+\begin{bmatrix}\widetilde a\\0\end{bmatrix}
+=
+\begin{bmatrix}Q^\top\\P^\top\end{bmatrix}a
+\quad\Longleftrightarrow\quad
+a=[\widetilde Q\ \widetilde P]
+\begin{bmatrix}\widetilde a\\0\end{bmatrix}.
+\tag{54}
+$
+
+故两种参数化方式完全等价，证明完成。
+
+**两种参数化的意义。** 当 $\lambda\to0$ 或使用精确拟合的障碍损失时，恢复插值问题（1）；当 $\lambda\to\infty$，解退化为零空间 $\mathcal N_p$ 内的线性回归。经典形式（44）不需要选择边界泛函，却必须加上 $P^\top a=0$ 的正交条件。这些条件抵消核基函数在无穷远处的不适当趋势，确保解真正属于 $\mathcal H_L$。与之相对，适配形式（43）只使用本身属于 $\mathcal H_L$ 的基函数，因而在函数空间层面更稳定，并使后续广义高斯过程的随机表述保持良定。
+
 ### 4.2 与 RKHS 和传统样条的联系
 
 当 $L$ 具有相应的核 Green 算子，并且测量为采样泛函时，表示定理将广义样条与核方法直接联系起来。对于整数阶微分算子 $D^N$，母空间的零空间是低于 $N$ 次的多项式，条件逆的核部分对应分段多项式基。最终得到经典形式
@@ -462,6 +559,85 @@ f_\lambda(x)=
 $$
 
 即次数为 $2N-1$ 的多项式样条。采用分数阶微分算子 $D^\gamma$，$\gamma>1/2$，可以在非整数阶情况下得到分数样条。上述表明，经典多项式样条和广义核估计均属于统一的算子表示框架。
+
+
+### 4.2 中的再生核与 Green 函数结构
+
+当 Hilbert 空间 $\mathcal H$ 由 $\mathbb R^d$ 上的连续函数构成，且每个点采样泛函 $\delta_x\in\mathcal H'$ 有意义时，就可以将前面的理论与再生核 Hilbert 空间联系起来。如果零空间平凡，定理 3.1 的对称正定算子 $A$ 的 Schwartz 核（也称广义脉冲响应）为 $h:\mathbb R^d\times\mathbb R^d\to\mathbb R$，作用为
+
+$
+A\{\varphi\}(x)=
+\int_{\mathbb R^d}h(x,y)\varphi(y)\,dy.\tag{55}
+$
+
+若取 $M$ 个互异位置 $x_1,\ldots,x_M$ 上的测量 $\nu_m=\delta_{x_m}$，则 $\langle\nu_m,f\rangle=f(x_m)$，表示定理中的基函数成为
+
+$
+\psi_m=A\{\delta_{x_m}\}=h(\cdot,x_m),
+\qquad
+f_\lambda(x)=\sum_{m=1}^{M}a_mh(x,x_m).
+$
+
+这正是机器学习中的核估计形式。
+
+如果 $L$ 是线性时不变（linear shift-invariant，LSI）算子，那么相应 Green 算子与条件逆也具有卷积结构：
+
+$
+L^{-1}\{\varphi\}=\rho_L*\varphi,\qquad
+A=(L^*L)^{-1}:\varphi\mapsto\rho_{L^*L}*\varphi.
+$
+
+其中 $\rho_L=L^{-1}\{\delta\}$、$\rho_{L^*L}=(L^*L)^{-1}\{\delta\}$ 分别是 $L$ 和 $L^*L$ 的 Green 函数。LSI 算子在傅里叶域对角化，因此其条件逆的 Schwartz 核为
+
+$
+h_{\mathrm{LSI}}(x,y)=\rho(x-y),\qquad
+\rho=\mathcal F^{-1}\left\{\frac1{|\widehat L|^2}\right\}.
+\tag{56}
+$
+
+这里 $\widehat L(\omega)$ 为 $L$ 的频率响应，$\rho=\rho_{L^*L}$ 是正规算子 $L^*L$ 的对称 Green 函数。它的存在性和逆傅里叶变换的良定性来自 $L$ 的容许性。形式上，频率响应 $1/|\widehat L(\omega)|^2\ge0$ 表明逆算子具有半正定性；但要在通常意义下得到正定再生核，还需相应的可积性等条件。
+
+**导数算子的典型实例。** 对一阶微分算子 $D=d/dx$，频率响应为 $\widehat D(\omega)=i\omega$。相应的正规算子条件逆具有 Green 函数
+
+$
+\rho_{D^*D}(x)=-\frac12|x|
+=\mathcal F^{-1}\left\{\frac1{|\omega|^2}\right\}(x)
+$
+
+（这里逆傅里叶变换须按照广义函数和条件化的意义理解）。因此 $A_D\{\varphi\}(x)=-\frac12\int_\mathbb R|\tau|\varphi(x-\tau)\,d\tau$。对于零均值测试函数 $\widehat\varphi(0)=\int\varphi=0$，有
+
+$
+\langle A_D\varphi,\varphi\rangle
+=\int_\mathbb R\frac{|\widehat\varphi(\omega)|^2}{\omega^2}\,d\omega>0.
+$
+
+零均值条件消去了频率原点处的奇性。这一结构说明 $D$ 的条件正定逆与其常数零空间相适配，也解释了高阶微分算子的广义样条核。
+
+**表 1：样条理论中典型微分算子、Green 函数和双正交系统**
+
+| $L$ | $L$ 的 Green 函数 $\rho_L$ | $(L^*L)^{-1}$ 的 Green 函数 $\rho_{L^*L}$ | 零空间维数 $N_0$ |
+|---|---|---|---|
+| $D$ | $1_{[0,\infty)}(x)$ | $-\frac12|x|$ | 1 |
+| $D^m$，$m\in\mathbb N$ | $\frac{x_+^{m-1}}{(m-1)!}$ | $\frac{(-1)^m|x|^{2m-1}}{2(2m-1)!}$ | $m$ |
+| $D^\alpha$，$\alpha\in\mathbb R_+$ | $\frac{x_+^{\alpha-1}}{\Gamma(\alpha)}$ | $-\frac{|x|^{2\alpha-1}}{2\sin(\frac\pi2(2\alpha-1))\Gamma(2\alpha)}$ | $\left\lfloor\alpha+\frac12\right\rfloor$ |
+
+表注：表中 $x_+=\max(x,0)$。对 $D^m$ 的零空间基，可取 $p_n(x)=x^{n-1}/(n-1)!$，与之配对的边界泛函为 $\varphi_n=\delta^{(n-1)}$（其符号约定按原文），$n=1,\ldots,m$。分数阶导数 $D^\alpha$ 的傅里叶符号为 $(i\omega)^\alpha$。若 $\alpha$ 为半奇整数，常数因子变得奇异，Green 函数须引入对数因子，此类阶数不包含在表内。表中的边界泛函属于 $\mathcal H_L'$，但一般不属于 $\mathcal S$；它们正是定理 3.1 第 4 项允许的非普适系统。
+
+按照第一部分关于可达零空间的规则，对于 $\mathbb R^d$ 上阶数为 $\gamma$ 的算子，其有效零空间由次数不超过 $\lfloor\gamma-d/2\rfloor$ 的多项式构成。对 $d=1$、$\gamma=\alpha$，维数为 $\lfloor\alpha+1/2\rfloor$，当 $\alpha=m\in\mathbb N$ 时即为 $m$。
+
+**与 Bochner 定理的联系。** 对零空间平凡的核问题，平移不变核 $h_{\rm LSI}(x,y)=\rho(x-y)$ 是某个 Hilbert 空间的再生核，当且仅当 $\widehat\rho$ 是 $\mathbb R^d$ 上非负的有限 Radon 测度。这可视为 Bochner 定理在 RKHS 中的应用，也属于 Minlos 定理的一个特例。当 $\widehat\rho$ 有非负可测函数表示时，条件化简为 $\widehat\rho\in L_1(\mathbb R^d)$。
+
+**非平凡零空间与条件正定核。** 对 LSI 算子而言，有限维零空间来自频率响应 $\widehat L(\omega)$ 的有限个零点。例如，$D^n$ 的 $\widehat{D^n}(\omega)=(i\omega)^n$ 在 $\omega=0$ 有 $n$ 重零点，对应常数及其调制多项式。零点使 $1/|\widehat L(\omega)|^2$ 在频域产生奇性，破坏上述经典可积性准则，所以条件逆通常不能是通常意义下的正定核，但仍可能在广义函数意义下作为对称条件逆存在。此时应将经典逆傅里叶变换 $\mathcal F^{-1}:L_1\to C_0$ 推广为 $\mathcal F^{-1}:\mathcal S'\to\mathcal S'$，使其能处理奇性。
+
+一个 $p$-容许 LSI 算子可能有很多条件逆，其 Green 函数在零空间分量上有所不同；但通过规范逆傅里叶变换构造的条件逆是唯一的，并且对称。于是对于可接受的点测量，式（44）成为
+
+$
+f_\lambda(x)=
+\sum_{m=1}^{M}a_m\rho(x-x_m)
++\sum_{n=1}^{N_0}b_np_n(x).\tag{57}
+$
+
+其中，$p_n$ 是多项式或调制多项式零空间基；得到的函数是结点位于 $x_m$ 的 $L^*L$-样条。代入表 1 的 $L=D^N$，得到正文式（58）的 $2N-1$ 次多项式样条。对分数阶导数 $D^\gamma$（$\gamma>1/2$），当 $\gamma$ 非整数时得到分数样条。
 
 ### 4.3 精确离散化
 
