@@ -400,7 +400,7 @@ $$
 
 其中 $M_o=KM$，$N_o=KN$，$K$ 为整数过采样倍率；$P_M\in\mathbb C^{M_o\times M}$ 和 $P_N\in\mathbb C^{N_o\times N}$ 分别沿时延和多普勒轴执行居中零填充。对于时延轴，
 
-$
+$$
 P_M=
 \begin{bmatrix}
 0_{p_M\times M}\\
@@ -409,7 +409,7 @@ I_M\\
 \end{bmatrix},
 \qquad
 p_M=\left\lfloor\frac{M_o-M}{2}\right\rfloor.
-$
+$$
 
 $P_N$ 采用相同方式构造。之后在 $D_o$ 上应用式（25）或式（28）的检测规则。如需使用海面导频检测时延，也可对式（30）相关结果施加同类过采样，而多普勒仍由太阳导频检测。
 
@@ -587,10 +587,10 @@ $$
 
 如果用海面导频进行时延检测，式（30）相关运算只需 $L_a l_{\max}$ 次实数加法；太阳导频仍用于多普勒检测。复增益细化式（34）–（36）的运算以复数加法为主，复杂度为
 
-$
+$$
 N_I\left(L_aN+2L_a\widetilde L-L_a+
 \frac{\widetilde L^2-\widetilde L}{2}\right),
-$
+$$
 
 其中 $N_I$ 为迭代次数，作者指出一次迭代即可充分发挥作用。该过程不需要额外的复数乘法。
 
