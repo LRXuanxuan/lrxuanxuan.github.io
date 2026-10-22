@@ -110,12 +110,12 @@ $$
 
 上述两类预测器的完整数学形式如下。均匀时间尺度预测固定以间隔 $T_e$ 进行采样与输出：
 
-$
+$$
 \{\widehat{\mathbf h}(pT_e)\}_{p=1}^{P}
 =g_{\mathrm{uni}}\!\left(
 \{\widetilde{\mathbf h}((j-J)T_e)\}_{j=1}^{J}
 \right).\tag{5}
-$
+$$
 
 这里 $J$ 为历史信道估计长度，$P$ 为未来预测长度。式（6）则在输入端加入全部历史估计与未来预测的具体时间坐标，将网络推广至非均匀时间尺度。
 
@@ -174,23 +174,23 @@ $$
 
 对于引理 1，原文使用插值误差上界推导节点最优性。令 $h(t)$ 为待重建连续函数、$\widehat h(t)$ 为重建函数，在所考虑的 $N$ 次可微函数空间中，有
 
-$
+$$
 \|h(t)-\widehat h(t)\|_\infty
 \propto
 \max_{t\in[-1,1]}
 \left|\prod_{n=1}^{N}(t-t^{(n)})\right|,
 \quad t\in[-1,1].\tag{10}
-$
+$$
 
 由切比雪夫多项式的极小极大性质，
 
-$
+$$
 \{t_{\mathrm{che}}^{(n)}\}_{n=1}^N
 =
 \underset{\{t^{(n)}\}_{n=1}^{N}}{\operatorname{argmin}}
 \ \max_{t\in[-1,1]}
 \left|\prod_{n=1}^{N}(t-t^{(n)})\right|.\tag{11}
-$
+$$
 
 因此，在给定插值理论的误差控制形式下，切比雪夫根使最大误差界最小。这里的“最优”是这一函数重建准则下的最优，不意味着所有随机无线信道条件下都具有无条件最小的实际预测 NMSE。
 
@@ -218,13 +218,13 @@ $$
 
 原文给出的防止多普勒混叠所需最小插入导频数量，按式（14）的最小间隔与定理 1 合并，可写为
 
-$
+$$
 N\ge N_{\min}
 =\left\lceil
 \frac{\pi}
 {2\arccos\!\left(1-\frac{2c}{f_cvT_e}\right)}
 \right\rceil.\tag{13}
-$
+$$
 
 该表达式用于原有间隔尚需插入导频的情形；当原始估计间隔已经满足无混叠条件时，不需要因该公式的形式而强制增加导频。$\lceil\cdot\rceil$ 表示向上取整。
 
@@ -249,12 +249,12 @@ $$
 
 采用非均匀导频之后，历史估计时刻构成集合 $\mathcal T_{\mathrm{che}}=\{t_{\mathrm{che},j}\}_{j=1}^{\widetilde J}$，其中 $\widetilde J=J+(J-1)N$。相应的连续时间预测函数写为
 
-$
+$$
 \{\widehat{\mathbf h}(t_p)\}_{p=1}^{P}
 =g_{\mathrm{con}}\!\left(
 \{\widetilde{\mathbf h}(t_{\mathrm{che},j}),t_{\mathrm{che},j}\}_{j=1}^{\widetilde J},
 \{t_p\}_{p=1}^{P}\right).\tag{16}
-$
+$$
 
 因此，网络不仅需要编码历史 CSI，还必须能够直接处理不均匀时间间隔及任意未来预测时刻。
 
@@ -310,7 +310,7 @@ $$
 
 连续时间注意力的**完整定义**如下。对固定查询时刻 $\tau_{l_2}$，把全部候选键时刻的分数统一经过 softmax，并定义
 
-$
+$$
 \{c(\tau_{l_1},\tau_{l_2})\}_{l_1=1}^L=
 \begin{cases}
 \displaystyle
@@ -327,13 +327,13 @@ q_{l_2}(-t+\tau_{l_2})\,dt}
 \left(\frac{k_{l_1}^\top q_{l_2}}{\sqrt{d_o}}\right),
 &\tau_{l_2}=\tau_{l_1}.
 \end{cases}\tag{21}
-$
+$$
 
 这里 softmax 沿全部键的索引 $l_1$ 进行，分段条件针对各个键—查询时刻对分别选择相应的未归一化分数。当 $\tau_{l_2}\ne\tau_{l_1}$ 时，分数衡量查询轨迹 $q_{l_2}(t)$ 与键轨迹 $k_{l_1}(t)$ 在相隔时段内的对齐程度，除以 $\tau_{l_2}-\tau_{l_1}$ 是为避免分数主要由时间间隔长度决定；当两时刻相同时，退化为标准注意力的点积形式，保持连续性。
 
 式（21）中的积分可由梯形法或 Gauss–Legendre 求积近似：
 
-$
+$$
 \begin{aligned}
 &\int_0^{\tau_{l_2}-\tau_{l_1}}
 k_{l_1}(t+\tau_{l_1})^\top
@@ -342,13 +342,13 @@ q_{l_2}(-t+\tau_{l_2})\,dt\\
 k_{l_1}(\tau_{l_e}+\tau_{l_1})^\top
 q_{l_2}(-\tau_{l_e}+\tau_{l_2}).
 \end{aligned}\tag{22}
-$
+$$
 
 其中，$E$ 为积分点数，$\gamma_e$ 为权重，$\tau_{l_e}$ 为相应积分点。它们的取值由数值积分方案决定。轨迹值可以将相应时刻代入式（19）的插值函数得到。
 
 类似地，连续时间**值向量**采用在键时刻与查询时刻之间的平均时间影响：
 
-$
+$$
 \overline v_{l_1}(\tau_{l_2})=
 \begin{cases}
 \displaystyle
@@ -357,16 +357,16 @@ $
 &\tau_{l_2}\ne\tau_{l_1},\\[1em]
 v_{l_1},&\tau_{l_2}=\tau_{l_1}.
 \end{cases}\tag{23}
-$
+$$
 
 于是查询时刻 $\tau_{l_2}$ 的连续时间注意力输出为
 
-$
+$$
 o(\tau_{l_2})
 =\sum_{l_1=1}^{L}
 \overline v_{l_1}(\tau_{l_2})\,
 c(\tau_{l_1},\tau_{l_2}).\tag{24}
-$
+$$
 
 由于不同查询时刻的计算相互独立，与标准注意力类似，该操作仍支持并行实现。
 
@@ -392,7 +392,7 @@ $
 
 高频时间编码的定义可明确写为下式。标准 Transformer 的位置编码取序列的**顺序索引** $l$，而不是物理采样时刻：
 
-$
+$$
 [X_{\mathrm{pos}}]_{i,l}=
 \begin{cases}
 \displaystyle \sin\!\left(\frac{l-1}{10000^{i/d_i}}\right),
@@ -401,11 +401,11 @@ $
 &\text{否则},
 \end{cases}
 \quad i=0,\ldots,d_i-1.\tag{25}
-$
+$$
 
 这种方法通过顺序信息打破注意力机制的置换不变性，但不能表示不规则样本的实际时间间隔。所提出的高频时间编码直接使用观测时刻 $\tau_l$，并设置频率参数 $\omega_0$：
 
-$
+$$
 [X_{\mathrm{tem}}]_{i,l}=
 \begin{cases}
 \displaystyle \sin\!\left(\frac{\omega_0\tau_l}{10000^{i/d_i}}\right),
@@ -413,18 +413,18 @@ $
 \displaystyle \cos\!\left(\frac{\omega_0\tau_l}{10000^{i/d_i}}\right),
 &\text{否则}.
 \end{cases}\tag{26}
-$
+$$
 
 其中，$\omega_0$ 取相对较大的值，使编码随物理时间快速变化，形成预先指定的高频周期分量，以帮助注意力机制拟合高移动性信道的快速周期性动态。原文采用 $X=X_{\mathrm{tok}}+X_{\mathrm{tem}}$ 作为网络输入。
 
 在应用逐元素预测之前，将信道估计从空间域变换至角度域：
 
-$
+$$
 \widetilde{\mathbf h}_{A}(t_{\mathrm{che},j})
 =\mathbf F_A\widetilde{\mathbf h}(t_{\mathrm{che},j}),\qquad
 \mathbf F_A=\operatorname{diag}(\mathbf F_{\mathrm{DFT}},\mathbf F_{\mathrm{DFT}})
 \in\mathbb C^{M\times M},\tag{27}
-$
+$$
 
 其中，$\mathbf F_{\mathrm{DFT}}\in\mathbb C^{(M/2)\times(M/2)}$ 为 DFT 矩阵，$\mathbf F_A$ 对双极化方向采用块对角酉变换。角度域每个元素分别作为网络序列输入，但所有元素共用网络参数。
 
@@ -614,33 +614,33 @@ $
 
 需要证明，对全部正整数 $N$，
 
-$
+$$
 T_{\mathrm{che},\min}-T_{\mathrm{uni},\min}
 =\left[\frac12-\frac12\cos\!\left(\frac{\pi}{2N}\right)
 -\frac1{N+1}\right]T_e\le0.\tag{29}
-$
+$$
 
 令 $y=1/N$，则式（29）等价于
 
-$
+$$
 \Delta_{\min}(y)=
 \frac12-\frac12\cos\!\left(\frac{\pi y}{2}\right)
 -\frac{y}{y+1}\le0,\quad y\in(0,1],\tag{30}
-$
+$$
 
 且 $\Delta_{\min}(0)=\Delta_{\min}(1)=0$。求二阶导数得
 
-$
+$$
 \Delta_{\min}''(y)
 =\frac{\pi^2}{8}\cos\!\left(\frac{\pi y}{2}\right)
 +\frac{2}{(y+1)^3}.\tag{31}
-$
+$$
 
 因为 $\cos(\pi y/2)\ge0$ 在 $(0,1]$ 内成立，所以
 
-$
+$$
 \Delta_{\min}''(y)>0,\qquad y\in(0,1].\tag{32}
-$
+$$
 
 因此，$\Delta_{\min}$ 是该区间上的严格凸函数。结合两个端点的值都为零，得到内部函数值非正，故式（30）成立，推论 1 得证。
 
