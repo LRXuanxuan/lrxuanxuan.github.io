@@ -103,6 +103,36 @@ toc: true
 
 ## 推荐论文
 
+### 2026-10-23 · [Navigation with RF Cues: Embodied Perception Action under Multipath Uncertainty](/papers/items/c5e01298c0328f14/)
+
+可借鉴对齐仿真、RF缺失mask与历史记忆设计，评估地图先验错误时系统是否仍能稳定行动；不得假设现有Sheet2补出了AoA/AoD监督。
+
+[本篇日报](/papers/items/c5e01298c0328f14/#paper-report)
+
+### 2026-10-23 · [Two-Timescale Design for Rotatable-Antenna Systems With Imperfect CSI: Rate Analysis and Orientation Optimization](/papers/items/28c82c01455d353f/)
+
+为CKM慢先验—快速导频后验的系统接口提供参照；可先保持天线固定验证不同CE方法的真实速率排序。
+
+[本篇日报](/papers/items/28c82c01455d353f/#paper-report)
+
+### 2026-10-23 · [Site Geometry and Calibration Uncertainties in Digital Twin-enabled Channel Estimation](/papers/items/db37cdae3a25d2d0/)
+
+与10月22日期刊扩展讨论最贴近：先分析地图误差何时破坏观测推断，再决定条件flow/可靠性门控是否必要。
+
+[本篇日报](/papers/items/db37cdae3a25d2d0/#paper-report)
+
+### 2026-10-23 · [Deep Bayesian REFoCUS](/papers/items/77bd0ffe935aada3/)
+
+对HP欠定恢复很有启发：分开检查观测子空间、零空间样本变化和未用导频预测，而不只报告单点NMSE。
+
+[本篇日报](/papers/items/77bd0ffe935aada3/#paper-report)
+
+### 2026-10-23 · [Trajectory Stitching for Solving Inverse Problems with Flow-Based Models](/papers/items/61e3ca79d6c8dda8/)
+
+可在同一CKM条件flow与同一导频数据项上单独替换求解器，检查所谓增益是否来自优化/算力，适合当前期刊扩展的归因审查。
+
+[本篇日报](/papers/items/61e3ca79d6c8dda8/#paper-report)
+
 ### 2026-10-22 · [Synergizing Global Pattern Learning and Time Order Characterization in Mobile Channel Prediction: An RWKV-Based Approach](/papers/items/cd2b413146f4cf6d/)
 
 为期刊扩展加入非生成、因果且可递推的对照，先识别数据简化和真实运动分布差距；适合作为误差累积压力测试。

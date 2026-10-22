@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "source": "每日论文推荐.xlsx",
-  "source_sha256": "aa35dfb868f69f1adcd3a27f99d4c8fb3ccf8f6dc9aacec603008b518e816409",
+  "source_sha256": "bcc4f2315a3f771d8c6c10319a594f65280cde5bc0866f55405e928ccb16aeb1",
   "translation_progress": {
     "target": 315,
     "completed": 22,
@@ -23,7 +23,7 @@
   "sheets": [
     {
       "name": "每日论文推荐",
-      "count": 370,
+      "count": 375,
       "headers": [
         "日期",
         "标题",
@@ -45,8 +45,9 @@
       ]
     }
   ],
-  "total": 370,
+  "total": 375,
   "dates": {
+    "2026-10-23": 5,
     "2026-10-22": 5,
     "2026-10-21": 5,
     "2026-10-20": 5,
@@ -95,8 +96,264 @@
     "2026-07-12": 5,
     "2026-07-11": 5
   },
-  "latest_date": "2026-10-22",
+  "latest_date": "2026-10-23",
   "papers": [
+    {
+      "id": "c5e01298c0328f14",
+      "date": "2026-10-23",
+      "title": "Navigation with RF Cues: Embodied Perception Action under Multipath Uncertainty",
+      "sheet": "每日论文推荐",
+      "row": 376,
+      "fields": {
+        "日期": "2026-10-23",
+        "标题": "Navigation with RF Cues: Embodied Perception Action under Multipath Uncertainty",
+        "内容": "作者：Lu, Wenlihan; Li, Tianshun; Yang, Liuqing; Gao, Shijian。问题：NLoS多径使瞬时RF到达方向不等于目标方向，机器人还会遇到弱光与无可解析RF路径。 方法：Habitat与Sionna RT按动作生成对齐RGB-D、RSSI、MUSIC谱和位姿历史；预测目标方位分布及集中度κ，再送入场景记忆Transformer决策。MP3D语义网格赋ITU材料，坐标变换对齐。 结果：6页。27个未见场景/1350回合：SR0.546、SPL0.456，基线0.462/0.409，即相对18.2%/11.5%，不是百分点。去κ降至SR0.489，只用当前RF降至0.263；2.4GHz、1×2阵列、最多200动作。 局限：仿真室内导航，尚无实机和大阵列验证；浓度κ并不自动构成频率校准保证。RF无路径比例5.5%来自oracle轨迹统计，不能作为任意部署故障率。不是直接输出复数CSI的现成数据集。",
+        "契合方向": "无线数据/拓展：RF视觉几何、历史记忆与缺失模态",
+        "推荐理由": "可借鉴对齐仿真、RF缺失mask与历史记忆设计，评估地图先验错误时系统是否仍能稳定行动；不得假设现有Sheet2补出了AoA/AoD监督。",
+        "顶刊顶会/机构依据": "arXiv，2026-10-06 v1；预印本/状态未确认；arXiv身份及版本已核验；没有可核验的正式接收/发表说明，不按IEEE模板推断。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2610.08105",
+        "检索来源": "https://arxiv.org/abs/2610.08105",
+        "筛选备注": "可改造工具；缺口：缺失/噪声RF、多模态历史与下游闭环；拓展阅读。；PDF SecII–IV、TablesI–IV及结论",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；论文/摘要无作者实现入口，GitHub精确标题及编号检索无对应仓库；benchmark提出不等于已发布可下载数据。",
+        "反馈匹配": "相比静态无线图重建，动作改变下一次RF观测，独立价值是历史与不确定性的消融和闭环测试，而非普通扩散迁移。",
+        "反馈权重说明": "优先数学机制、失配边界和系统指标，区分求解器/先验/数据收益，不预设有效。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-23/",
+      "report_section": "## 5. Navigation with RF Cues: Embodied Perception Action under Multipath Uncertainty\n\n**作者**：Lu, Wenlihan; Li, Tianshun; Yang, Liuqing; Gao, Shijian。\n\n**方向/年份/venue**：无线数据/拓展：RF视觉几何、历史记忆与缺失模态；2026；arXiv，2026-10-06 v1。\n\n**发表核验（2026-10-23）**：预印本/状态未确认。arXiv身份及版本已核验；没有可核验的正式接收/发表说明，不按IEEE模板推断。\n\n**问题**：NLoS多径使瞬时RF到达方向不等于目标方向，机器人还会遇到弱光与无可解析RF路径。\n\n**方法**：Habitat与Sionna RT按动作生成对齐RGB-D、RSSI、MUSIC谱和位姿历史；预测目标方位分布及集中度κ，再送入场景记忆Transformer决策。MP3D语义网格赋ITU材料，坐标变换对齐。\n\n**关键结果**：6页。27个未见场景/1350回合：SR0.546、SPL0.456，基线0.462/0.409，即相对18.2%/11.5%，不是百分点。去κ降至SR0.489，只用当前RF降至0.263；2.4GHz、1×2阵列、最多200动作。\n\n**局限**：仿真室内导航，尚无实机和大阵列验证；浓度κ并不自动构成频率校准保证。RF无路径比例5.5%来自oracle轨迹统计，不能作为任意部署故障率。不是直接输出复数CSI的现成数据集。\n\n**迁移/笔记位置**：可改造工具；缺口：缺失/噪声RF、多模态历史与下游闭环；拓展阅读。\n\n**与既有阅读差异**：相比静态无线图重建，动作改变下一次RF观测，独立价值是历史与不确定性的消融和闭环测试，而非普通扩散迁移。\n\n**推荐理由**：可借鉴对齐仿真、RF缺失mask与历史记忆设计，评估地图先验错误时系统是否仍能稳定行动；不得假设现有Sheet2补出了AoA/AoD监督。\n\n**代码状态**：未发现公开代码。论文/摘要无作者实现入口，GitHub精确标题及编号检索无对应仓库；benchmark提出不等于已发布可下载数据。\n\n**身份**：arXiv:2610.08105。[证据1](https://arxiv.org/abs/2610.08105)\n\n[官方PDF](https://arxiv.org/pdf/2610.08105)；[原文PDF](https://arxiv.org/pdf/2610.08105)。全文6页；定位：PDF SecII–IV、TablesI–IV及结论。\n\n[本篇全文翻译状态](https://lrxuanxuan.github.io/papers/items/c5e01298c0328f14/#paper-translation)。job `2cb3b1ebbce0c754a68b3f12`，pending，指定gpt-6-luna/xhigh；原worker不可达，未启动/未译完。预计输出：`本地资料：paper.md`。\n\n[源许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)。当前只获原文分发入口许可，未获公开译文许可；完成稿先本地保存。PDF仅官方链接，不上传网站。",
+      "report_entry_url": "/papers/reports/2026-10-23/#paper-c5e01298c0328f14",
+      "paper_url": "/papers/items/c5e01298c0328f14/",
+      "paper_report_url": "/papers/items/c5e01298c0328f14/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2610.08105",
+        "https://arxiv.org/abs/2610.08105",
+        "https://lrxuanxuan.github.io/papers/items/c5e01298c0328f14/#paper-translation",
+        "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2610.08105"
+      ],
+      "hosted_pdfs": [],
+      "status": "预印本/状态未确认",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/c5e01298c0328f14/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "28c82c01455d353f",
+      "date": "2026-10-23",
+      "title": "Two-Timescale Design for Rotatable-Antenna Systems With Imperfect CSI: Rate Analysis and Orientation Optimization",
+      "sheet": "每日论文推荐",
+      "row": 375,
+      "fields": {
+        "日期": "2026-10-23",
+        "标题": "Two-Timescale Design for Rotatable-Antenna Systems With Imperfect CSI: Rate Analysis and Orientation Optimization",
+        "内容": "作者：Zheng, Ziyuan; Wu, Qingqing; Chen, Wen。问题：每相干块调整天线方向控制成本高，且最小信道误差未必对应最大用户速率。 方法：大时间尺度利用统计CSI优化每根天线球冠约束方向，小时间尺度用LMMSE估计更新MRC/wZF。分别推导MRC UatF速率下界和wZF统计代理，用带解析导数的投影梯度优化方向。 结果：13页。Proposition1给单用户纯LoS可独立对准的特殊情形；一般多用户情况下方向同时影响有效信号、估计误差和干扰。默认6GHz、2×4阵列、4用户、Tc200、导频长度K，3000独立实现平均；数值图检验统计代理与ergodic结果一致性。 局限：wZF代理不能称与真实遍历速率处处相等。正交导频τp=K、参数统计可用等前提需保留；尚无真实机械旋转时延/能耗硬件验证，不能直接套到高速移动快速变化地图。",
+        "契合方向": "无线系统约束：不完美CSI、速率界与统计/瞬时分离",
+        "推荐理由": "为CKM慢先验—快速导频后验的系统接口提供参照；可先保持天线固定验证不同CE方法的真实速率排序。",
+        "顶刊顶会/机构依据": "IEEE TWC，2026在线记录（卷期未定）；本次读2026-05-06作者预印本；Early Access；IEEE DOI 10.1109/TWC.2026.3744562及出版社注册Crossref journal-article/TWC/页1–1，无卷号；按在线Early Access记录，不写已编卷。Xplore页面本次无法读取具体上线日期，日期待核验。旧arXiv仍称submitted，已被较新IEEE DOI记录覆盖。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2605.04775",
+        "检索来源": "https://arxiv.org/abs/2605.04775\nhttps://doi.org/10.1109/twc.2026.3744562\nhttps://api.crossref.org/works/10.1109/twc.2026.3744562\nhttps://ieeexplore.ieee.org/document/11740805/",
+        "筛选备注": "理论启发或基线；应用/基线：把信道恢复收益落实为速率及控制预算。；PDF SecIII–VII、Proposition1、Eqs33/42和VII默认系统参数；IEEE Crossref在线记录",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；作者arXiv/PDF未列仓库，GitHub精确标题/编号检索无对应实现；不引用无关RA合集充当本篇代码。",
+        "反馈匹配": "相比阅读笔记中单次CE或预测NMSE排名，它区分统计动作与每块接收更新，说明估计指标和系统目标的偏差，避免只堆生成模型指标。",
+        "反馈权重说明": "优先数学机制、失配边界和系统指标，区分求解器/先验/数据收益，不预设有效。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-23/",
+      "report_section": "## 4. Two-Timescale Design for Rotatable-Antenna Systems With Imperfect CSI: Rate Analysis and Orientation Optimization\n\n**作者**：Zheng, Ziyuan; Wu, Qingqing; Chen, Wen。\n\n**方向/年份/venue**：无线系统约束：不完美CSI、速率界与统计/瞬时分离；2026；IEEE TWC，2026在线记录（卷期未定）；本次读2026-05-06作者预印本。\n\n**发表核验（2026-10-23）**：Early Access。IEEE DOI 10.1109/TWC.2026.3744562及出版社注册Crossref journal-article/TWC/页1–1，无卷号；按在线Early Access记录，不写已编卷。Xplore页面本次无法读取具体上线日期，日期待核验。旧arXiv仍称submitted，已被较新IEEE DOI记录覆盖。\n\n**问题**：每相干块调整天线方向控制成本高，且最小信道误差未必对应最大用户速率。\n\n**方法**：大时间尺度利用统计CSI优化每根天线球冠约束方向，小时间尺度用LMMSE估计更新MRC/wZF。分别推导MRC UatF速率下界和wZF统计代理，用带解析导数的投影梯度优化方向。\n\n**关键结果**：13页。Proposition1给单用户纯LoS可独立对准的特殊情形；一般多用户情况下方向同时影响有效信号、估计误差和干扰。默认6GHz、2×4阵列、4用户、Tc200、导频长度K，3000独立实现平均；数值图检验统计代理与ergodic结果一致性。\n\n**局限**：wZF代理不能称与真实遍历速率处处相等。正交导频τp=K、参数统计可用等前提需保留；尚无真实机械旋转时延/能耗硬件验证，不能直接套到高速移动快速变化地图。\n\n**迁移/笔记位置**：理论启发或基线；应用/基线：把信道恢复收益落实为速率及控制预算。\n\n**与既有阅读差异**：相比阅读笔记中单次CE或预测NMSE排名，它区分统计动作与每块接收更新，说明估计指标和系统目标的偏差，避免只堆生成模型指标。\n\n**推荐理由**：为CKM慢先验—快速导频后验的系统接口提供参照；可先保持天线固定验证不同CE方法的真实速率排序。\n\n**代码状态**：未发现公开代码。作者arXiv/PDF未列仓库，GitHub精确标题/编号检索无对应实现；不引用无关RA合集充当本篇代码。\n\n**身份**：arXiv:2605.04775；DOI:10.1109/twc.2026.3744562。[证据1](https://arxiv.org/abs/2605.04775) [证据2](https://doi.org/10.1109/twc.2026.3744562) [证据3](https://api.crossref.org/works/10.1109/twc.2026.3744562) [证据4](https://ieeexplore.ieee.org/document/11740805/)\n\n[官方PDF](https://arxiv.org/pdf/2605.04775)；[原文PDF](https://arxiv.org/pdf/2605.04775)。全文13页；定位：PDF SecIII–VII、Proposition1、Eqs33/42和VII默认系统参数；IEEE Crossref在线记录。\n\n[本篇全文翻译状态](https://lrxuanxuan.github.io/papers/items/28c82c01455d353f/#paper-translation)。job `bc549c64b1f4446a3572d036`，pending，指定gpt-6-luna/xhigh；原worker不可达，未启动/未译完。预计输出：`本地资料：paper.md`。\n\n[源许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)。当前只获原文分发入口许可，未获公开译文许可；完成稿先本地保存。PDF仅官方链接，不上传网站。",
+      "report_entry_url": "/papers/reports/2026-10-23/#paper-28c82c01455d353f",
+      "paper_url": "/papers/items/28c82c01455d353f/",
+      "paper_report_url": "/papers/items/28c82c01455d353f/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2605.04775",
+        "https://arxiv.org/abs/2605.04775",
+        "https://doi.org/10.1109/twc.2026.3744562",
+        "https://api.crossref.org/works/10.1109/twc.2026.3744562",
+        "https://ieeexplore.ieee.org/document/11740805/",
+        "https://lrxuanxuan.github.io/papers/items/28c82c01455d353f/#paper-translation",
+        "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2605.04775"
+      ],
+      "hosted_pdfs": [],
+      "status": "Early Access",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/28c82c01455d353f/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "db37cdae3a25d2d0",
+      "date": "2026-10-23",
+      "title": "Site Geometry and Calibration Uncertainties in Digital Twin-enabled Channel Estimation",
+      "sheet": "每日论文推荐",
+      "row": 374,
+      "fields": {
+        "日期": "2026-10-23",
+        "标题": "Site Geometry and Calibration Uncertainties in Digital Twin-enabled Channel Estimation",
+        "内容": "作者：Del Moro, Lorenzo; Linsalata, Francesco; Spagnolini, Umberto; Magarini, Maurizio。问题：数字孪生RT先验有位置误差和材料校准误差，两者为何对估计性能影响不同？ 方法：以RT路径构造低秩信道协方差；一阶微扰分别刻画位置对角度/时延的影响及EM参数对增益的影响，再推导低秩和MMSE估计NMSE。固定主导路径集合，显式传播几何Jacobian及相关误差。 结果：16页作者稿。Milan城市及Tallinn郊区/乡村Sionna RT0.18.0场景；格点指纹用于数据库，含车辆网格/SUMO的独立仿真用于性能评估。低SNR城市设置最高约10dB NMSE改善；小于1m位置误差时高SNR部分设置与基线相近，不能外推所有地图精度。 局限：核心是小误差、路径集合不变的一阶近似；路径出生/消失、遮挡突变或显著地图拓扑错误超出保证。材料误差相对鲁棒依赖其主要改变增益的模型，并非普遍不敏感。RT仿真不等于真实空口实验，也不是Doppler可辨识性证明。",
+        "契合方向": "无线地图：射线先验、协方差失配与误差理论",
+        "推荐理由": "与10月22日期刊扩展讨论最贴近：先分析地图误差何时破坏观测推断，再决定条件flow/可靠性门控是否必要。",
+        "顶刊顶会/机构依据": "IEEE TCOM 74:13423–13437（2026）；本次读arXiv作者版本；正式发表；IEEE DOI 10.1109/TCOMM.2026.3725321、出版社注册的Crossref journal-article/TCOM/74卷及页码核验；Xplore直接访问触发验证。arXiv缺journal-ref不能覆盖较新正式记录。作者稿与最终排版差异未逐行核对。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2607.09334",
+        "检索来源": "https://arxiv.org/abs/2607.09334\nhttps://doi.org/10.1109/tcomm.2026.3725321\nhttps://api.crossref.org/works/10.1109/tcomm.2026.3725321\nhttps://ieeexplore.ieee.org/document/11660482/",
+        "筛选备注": "可改造工具；缺口：地图失配如何转化为估计误差；深化：环境先验可信度。；PDF SecIII–V，尤其SecIV固定路径一阶模型、SecV数据划分/RT设置；IEEE注册元数据",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；arXiv/PDF未给实现仓库，精确标题和编号GitHub检索为0；未把Sionna依赖当作者实现。",
+        "反馈匹配": "相比既有WCM/CKM条件生成阅读，它直接给位置—角延—子空间—NMSE误差链，可作为不依赖神经生成器的强对照。",
+        "反馈权重说明": "优先数学机制、失配边界和系统指标，区分求解器/先验/数据收益，不预设有效。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-23/",
+      "report_section": "## 3. Site Geometry and Calibration Uncertainties in Digital Twin-enabled Channel Estimation\n\n**作者**：Del Moro, Lorenzo; Linsalata, Francesco; Spagnolini, Umberto; Magarini, Maurizio。\n\n**方向/年份/venue**：无线地图：射线先验、协方差失配与误差理论；2026；IEEE TCOM 74:13423–13437（2026）；本次读arXiv作者版本。\n\n**发表核验（2026-10-23）**：正式发表。IEEE DOI 10.1109/TCOMM.2026.3725321、出版社注册的Crossref journal-article/TCOM/74卷及页码核验；Xplore直接访问触发验证。arXiv缺journal-ref不能覆盖较新正式记录。作者稿与最终排版差异未逐行核对。\n\n**问题**：数字孪生RT先验有位置误差和材料校准误差，两者为何对估计性能影响不同？\n\n**方法**：以RT路径构造低秩信道协方差；一阶微扰分别刻画位置对角度/时延的影响及EM参数对增益的影响，再推导低秩和MMSE估计NMSE。固定主导路径集合，显式传播几何Jacobian及相关误差。\n\n**关键结果**：16页作者稿。Milan城市及Tallinn郊区/乡村Sionna RT0.18.0场景；格点指纹用于数据库，含车辆网格/SUMO的独立仿真用于性能评估。低SNR城市设置最高约10dB NMSE改善；小于1m位置误差时高SNR部分设置与基线相近，不能外推所有地图精度。\n\n**局限**：核心是小误差、路径集合不变的一阶近似；路径出生/消失、遮挡突变或显著地图拓扑错误超出保证。材料误差相对鲁棒依赖其主要改变增益的模型，并非普遍不敏感。RT仿真不等于真实空口实验，也不是Doppler可辨识性证明。\n\n**迁移/笔记位置**：可改造工具；缺口：地图失配如何转化为估计误差；深化：环境先验可信度。\n\n**与既有阅读差异**：相比既有WCM/CKM条件生成阅读，它直接给位置—角延—子空间—NMSE误差链，可作为不依赖神经生成器的强对照。\n\n**推荐理由**：与10月22日期刊扩展讨论最贴近：先分析地图误差何时破坏观测推断，再决定条件flow/可靠性门控是否必要。\n\n**代码状态**：未发现公开代码。arXiv/PDF未给实现仓库，精确标题和编号GitHub检索为0；未把Sionna依赖当作者实现。\n\n**身份**：arXiv:2607.09334；DOI:10.1109/tcomm.2026.3725321。[证据1](https://arxiv.org/abs/2607.09334) [证据2](https://doi.org/10.1109/tcomm.2026.3725321) [证据3](https://api.crossref.org/works/10.1109/tcomm.2026.3725321) [证据4](https://ieeexplore.ieee.org/document/11660482/)\n\n[官方PDF](https://arxiv.org/pdf/2607.09334)；[原文PDF](https://arxiv.org/pdf/2607.09334)。全文16页；定位：PDF SecIII–V，尤其SecIV固定路径一阶模型、SecV数据划分/RT设置；IEEE注册元数据。\n\n[本篇全文翻译状态](https://lrxuanxuan.github.io/papers/items/db37cdae3a25d2d0/#paper-translation)。job `00c76da2daba470a78042b9c`，pending，指定gpt-6-luna/xhigh；原worker不可达，未启动/未译完。预计输出：`本地资料：paper.md`。\n\n[源许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)。当前只获原文分发入口许可，未获公开译文许可；完成稿先本地保存。PDF仅官方链接，不上传网站。",
+      "report_entry_url": "/papers/reports/2026-10-23/#paper-db37cdae3a25d2d0",
+      "paper_url": "/papers/items/db37cdae3a25d2d0/",
+      "paper_report_url": "/papers/items/db37cdae3a25d2d0/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2607.09334",
+        "https://arxiv.org/abs/2607.09334",
+        "https://doi.org/10.1109/tcomm.2026.3725321",
+        "https://api.crossref.org/works/10.1109/tcomm.2026.3725321",
+        "https://ieeexplore.ieee.org/document/11660482/",
+        "https://lrxuanxuan.github.io/papers/items/db37cdae3a25d2d0/#paper-translation",
+        "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2607.09334"
+      ],
+      "hosted_pdfs": [],
+      "status": "正式发表",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/db37cdae3a25d2d0/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "77bd0ffe935aada3",
+      "date": "2026-10-23",
+      "title": "Deep Bayesian REFoCUS",
+      "sheet": "每日论文推荐",
+      "row": 373,
+      "fields": {
+        "日期": "2026-10-23",
+        "标题": "Deep Bayesian REFoCUS",
+        "内容": "作者：Penninga, Simon; van Sloun, Ruud。问题：超声发射编码秩亏时，线性解码只能压零不可观测成分，无法表达缺失通道的不确定性。 方法：对原始复数multistatic通道训练flow-matching先验，以已知发射编码和伴随REFoCUS构造DPS似然引导；在多种发射序列下采样，再评估通道域复相关及成像域质量。 结果：10页。TableI：146.7M参数、400000步、8张B200训练240小时。评估用1000步和8个后验样本；模拟采用引导0.35，in-vivo改为0.8。实测无完整multistatic真值，使用保留发射观测验证。Fig5对比含逐数据点oracle调参的Tikhonov。 局限：计算成本远高于线性法；不能称低NFE可直接部署。Fig3明确出现向训练模拟分布偏移、对比度被人为增强；零空间多样性不是已证明的后验校准。in-vivo无完整真值，且改变引导系数，因此不是完全固定超参的无适配迁移。",
+        "契合方向": "核心生成/拓展：复数通道逆问题、零空间与后验不确定性",
+        "推荐理由": "对HP欠定恢复很有启发：分开检查观测子空间、零空间样本变化和未用导频预测，而不只报告单点NMSE。",
+        "顶刊顶会/机构依据": "arXiv，2026-10-02 v1；预印本/状态未确认；项目页引用arXiv。另有IUS同名摘要检索线索，但不据同名摘要把这篇10页全文认定为已发表会议长文。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2610.03419",
+        "检索来源": "https://arxiv.org/abs/2610.03419\nhttps://swpenninga.github.io/deep-bayesian-refocus/",
+        "筛选备注": "理论启发或基线；深化：导频零空间恢复；缺口：可观测/不可观测方向的不确定性与失配。；PDF SecII–VI、TableI、Figs3–8；项目页与2026-10-23 GitHub递归tree",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "https://github.com/swpenninga/deep-bayesian-refocus",
+        "代码/数据状态": "作者预告/部分代码；作者项目页/仓库确实存在；递归tree仅LICENSE和docs静态交互结果，没有.py/.ipynb/训练配置，虽页脚称code released也不能标完整实现。公开数据另见项目页OpenH-RF链接。",
+        "反馈匹配": "与既有图像PnP阅读相比，直接在复数原始通道和可变编码上做物理后验，独立价值是零空间与held-out观测检验，不能把超声几何直接等同MIMO无线。",
+        "反馈权重说明": "优先数学机制、失配边界和系统指标，区分求解器/先验/数据收益，不预设有效。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-23/",
+      "report_section": "## 2. Deep Bayesian REFoCUS\n\n**作者**：Penninga, Simon; van Sloun, Ruud。\n\n**方向/年份/venue**：核心生成/拓展：复数通道逆问题、零空间与后验不确定性；2026；arXiv，2026-10-02 v1。\n\n**发表核验（2026-10-23）**：预印本/状态未确认。项目页引用arXiv。另有IUS同名摘要检索线索，但不据同名摘要把这篇10页全文认定为已发表会议长文。\n\n**问题**：超声发射编码秩亏时，线性解码只能压零不可观测成分，无法表达缺失通道的不确定性。\n\n**方法**：对原始复数multistatic通道训练flow-matching先验，以已知发射编码和伴随REFoCUS构造DPS似然引导；在多种发射序列下采样，再评估通道域复相关及成像域质量。\n\n**关键结果**：10页。TableI：146.7M参数、400000步、8张B200训练240小时。评估用1000步和8个后验样本；模拟采用引导0.35，in-vivo改为0.8。实测无完整multistatic真值，使用保留发射观测验证。Fig5对比含逐数据点oracle调参的Tikhonov。\n\n**局限**：计算成本远高于线性法；不能称低NFE可直接部署。Fig3明确出现向训练模拟分布偏移、对比度被人为增强；零空间多样性不是已证明的后验校准。in-vivo无完整真值，且改变引导系数，因此不是完全固定超参的无适配迁移。\n\n**迁移/笔记位置**：理论启发或基线；深化：导频零空间恢复；缺口：可观测/不可观测方向的不确定性与失配。\n\n**与既有阅读差异**：与既有图像PnP阅读相比，直接在复数原始通道和可变编码上做物理后验，独立价值是零空间与held-out观测检验，不能把超声几何直接等同MIMO无线。\n\n**推荐理由**：对HP欠定恢复很有启发：分开检查观测子空间、零空间样本变化和未用导频预测，而不只报告单点NMSE。\n\n**代码状态**：作者预告/部分代码。作者项目页/仓库确实存在；递归tree仅LICENSE和docs静态交互结果，没有.py/.ipynb/训练配置，虽页脚称code released也不能标完整实现。公开数据另见项目页OpenH-RF链接。\n\n[实际存在的作者仓库](https://github.com/swpenninga/deep-bayesian-refocus)。\n\n**身份**：arXiv:2610.03419。[证据1](https://arxiv.org/abs/2610.03419) [证据2](https://swpenninga.github.io/deep-bayesian-refocus/)\n\n[官方PDF](https://arxiv.org/pdf/2610.03419)；[原文PDF](https://arxiv.org/pdf/2610.03419)。全文10页；定位：PDF SecII–VI、TableI、Figs3–8；项目页与2026-10-23 GitHub递归tree。\n\n[本篇全文翻译状态](https://lrxuanxuan.github.io/papers/items/77bd0ffe935aada3/#paper-translation)。job `455fa7ca9b751b6d2cead6ff`，pending，指定gpt-6-luna/xhigh；原worker不可达，未启动/未译完。预计输出：`本地资料：paper.md`。\n\n[源许可](https://creativecommons.org/licenses/by/4.0/)。完成译文可按CC BY4署名、注明改动后分享。PDF仅官方链接，不上传网站。",
+      "report_entry_url": "/papers/reports/2026-10-23/#paper-77bd0ffe935aada3",
+      "paper_url": "/papers/items/77bd0ffe935aada3/",
+      "paper_report_url": "/papers/items/77bd0ffe935aada3/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2610.03419",
+        "https://arxiv.org/abs/2610.03419",
+        "https://swpenninga.github.io/deep-bayesian-refocus/",
+        "https://github.com/swpenninga/deep-bayesian-refocus",
+        "https://lrxuanxuan.github.io/papers/items/77bd0ffe935aada3/#paper-translation",
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "github": [
+        "https://github.com/swpenninga/deep-bayesian-refocus"
+      ],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2610.03419"
+      ],
+      "hosted_pdfs": [],
+      "status": "预印本/状态未确认",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/77bd0ffe935aada3/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "61e3ca79d6c8dda8",
+      "date": "2026-10-23",
+      "title": "Trajectory Stitching for Solving Inverse Problems with Flow-Based Models",
+      "sheet": "每日论文推荐",
+      "row": 372,
+      "fields": {
+        "日期": "2026-10-23",
+        "标题": "Trajectory Stitching for Solving Inverse Problems with Flow-Based Models",
+        "内容": "作者：Denker, Alexander; Kereta, Zeljko; Schönlieb, Carola-Bibiane; Eliasof, Moshe。问题：初始噪声优化需要贯穿整条ODE反传，显存高且梯度条件差。 方法：把flow轨迹切成K段，以各段端点为变量，用平方拼接罚项约束相邻段；另设终端重建变量做数据一致性。交替进行局部轨迹优化和观测更新，提供精确梯度与Jacobian-free近似。 结果：22页。Eq7给目标；Proposition4.1证明在正则性及步长条件下内循环目标下降、步长平方可和及聚点驻定。Table2：100次迭代、nt=12时D-Flow175.57秒，JFB且L=1为4.44秒；只是该小图像实验，不能换算无线加速比。图像恢复还比较去模糊、补全、超分和CT。 局限：并非精确后验采样器。JFB默认固定步长的经验稳定性不能直接继承精确梯度定理；需满足真目标充分下降等条件。网络激活显存之外仍有O(Kn)轨迹状态，不能称总显存与K无关；L=10时优势明显缩小。",
+        "契合方向": "核心求解：多重打靶、flow轨迹优化与数据一致性",
+        "推荐理由": "可在同一CKM条件flow与同一导频数据项上单独替换求解器，检查所谓增益是否来自优化/算力，适合当前期刊扩展的归因审查。",
+        "顶刊顶会/机构依据": "ICML 2026，PMLR306:24478–24499；本次读arXiv v2（2026-10-01）；正式发表；PMLR正式会议论文页面核验；arXiv首次2026-02-09，最新v2为10月1日，勿把更新日期写成首次发表。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2602.08538",
+        "检索来源": "https://arxiv.org/abs/2602.08538\nhttps://proceedings.mlr.press/v306/denker26a.html",
+        "筛选备注": "可改造工具；深化：FlowADMM/PnP的求解器与先验解耦；缺口：长轨迹优化成本。；PDF pp3–8 Eq7、Proposition4.1、Remark4.2、Tables1–3及附录C–E",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "作者预告/部分代码；PDF和PMLR Software均指向alexdenker/MS-Flow，但GitHub连接器/API及网页核验返回404；精确标题/编号检索无替代实现。报告作者声明，不能当完整开源。",
+        "反馈匹配": "相对阅读笔记的FlowADMM、PnPFlow与PnP-CM，它改写轨迹变量和约束，不是再训练一个条件生成器，也不同于昨天表征几何适配。",
+        "反馈权重说明": "优先数学机制、失配边界和系统指标，区分求解器/先验/数据收益，不预设有效。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-23/",
+      "report_section": "## 1. Trajectory Stitching for Solving Inverse Problems with Flow-Based Models\n\n**作者**：Denker, Alexander; Kereta, Zeljko; Schönlieb, Carola-Bibiane; Eliasof, Moshe。\n\n**方向/年份/venue**：核心求解：多重打靶、flow轨迹优化与数据一致性；2026；ICML 2026，PMLR306:24478–24499；本次读arXiv v2（2026-10-01）。\n\n**发表核验（2026-10-23）**：正式发表。PMLR正式会议论文页面核验；arXiv首次2026-02-09，最新v2为10月1日，勿把更新日期写成首次发表。\n\n**问题**：初始噪声优化需要贯穿整条ODE反传，显存高且梯度条件差。\n\n**方法**：把flow轨迹切成K段，以各段端点为变量，用平方拼接罚项约束相邻段；另设终端重建变量做数据一致性。交替进行局部轨迹优化和观测更新，提供精确梯度与Jacobian-free近似。\n\n**关键结果**：22页。Eq7给目标；Proposition4.1证明在正则性及步长条件下内循环目标下降、步长平方可和及聚点驻定。Table2：100次迭代、nt=12时D-Flow175.57秒，JFB且L=1为4.44秒；只是该小图像实验，不能换算无线加速比。图像恢复还比较去模糊、补全、超分和CT。\n\n**局限**：并非精确后验采样器。JFB默认固定步长的经验稳定性不能直接继承精确梯度定理；需满足真目标充分下降等条件。网络激活显存之外仍有O(Kn)轨迹状态，不能称总显存与K无关；L=10时优势明显缩小。\n\n**迁移/笔记位置**：可改造工具；深化：FlowADMM/PnP的求解器与先验解耦；缺口：长轨迹优化成本。\n\n**与既有阅读差异**：相对阅读笔记的FlowADMM、PnPFlow与PnP-CM，它改写轨迹变量和约束，不是再训练一个条件生成器，也不同于昨天表征几何适配。\n\n**推荐理由**：可在同一CKM条件flow与同一导频数据项上单独替换求解器，检查所谓增益是否来自优化/算力，适合当前期刊扩展的归因审查。\n\n**代码状态**：作者预告/部分代码。PDF和PMLR Software均指向alexdenker/MS-Flow，但GitHub连接器/API及网页核验返回404；精确标题/编号检索无替代实现。报告作者声明，不能当完整开源。\n\n**身份**：arXiv:2602.08538。[证据1](https://arxiv.org/abs/2602.08538) [证据2](https://proceedings.mlr.press/v306/denker26a.html)\n\n[官方PDF](https://arxiv.org/pdf/2602.08538)；[原文PDF](https://arxiv.org/pdf/2602.08538)。全文22页；定位：PDF pp3–8 Eq7、Proposition4.1、Remark4.2、Tables1–3及附录C–E。\n\n[本篇全文翻译状态](https://lrxuanxuan.github.io/papers/items/61e3ca79d6c8dda8/#paper-translation)。job `a107dcef48361e45404f2b56`，pending，指定gpt-6-luna/xhigh；原worker不可达，未启动/未译完。预计输出：`本地资料：paper.md`。\n\n[源许可](https://creativecommons.org/licenses/by/4.0/)。完成译文可按CC BY4署名、注明改动后分享。PDF仅官方链接，不上传网站。",
+      "report_entry_url": "/papers/reports/2026-10-23/#paper-61e3ca79d6c8dda8",
+      "paper_url": "/papers/items/61e3ca79d6c8dda8/",
+      "paper_report_url": "/papers/items/61e3ca79d6c8dda8/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2602.08538",
+        "https://arxiv.org/abs/2602.08538",
+        "https://proceedings.mlr.press/v306/denker26a.html",
+        "https://lrxuanxuan.github.io/papers/items/61e3ca79d6c8dda8/#paper-translation",
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2602.08538"
+      ],
+      "hosted_pdfs": [],
+      "status": "正式发表",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/61e3ca79d6c8dda8/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
     {
       "id": "cd2b413146f4cf6d",
       "date": "2026-10-22",
@@ -18583,6 +18840,17 @@
   ],
   "reports": [
     {
+      "date": "2026-10-23",
+      "url": "/papers/reports/2026-10-23/",
+      "source_file": "2026-10-23_每日前沿论文推荐.md",
+      "slug": "2026-10-23",
+      "covered_dates": [
+        "2026-10-23"
+      ],
+      "title": "10_23前沿论文推荐",
+      "download": "/assets/papers/reports/2026-10-23.md"
+    },
+    {
       "date": "2026-10-22",
       "url": "/papers/reports/2026-10-22/",
       "source_file": "2026-10-22_每日前沿论文推荐.md",
@@ -20456,9 +20724,9 @@
   "pdf_mode": "links_only",
   "workbook_table": {
     "url": "/papers/table/",
-    "source_sha256": "aa35dfb868f69f1adcd3a27f99d4c8fb3ccf8f6dc9aacec603008b518e816409",
+    "source_sha256": "bcc4f2315a3f771d8c6c10319a594f65280cde5bc0866f55405e928ccb16aeb1",
     "sheet": "每日论文推荐",
-    "row_count": 370,
+    "row_count": 375,
     "headers": [
       "日期",
       "标题",
