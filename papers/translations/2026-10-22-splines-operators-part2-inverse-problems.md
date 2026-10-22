@@ -132,6 +132,48 @@ $$
 
 由这种双正交结构还可以定义斜投影，将空间拆分为零空间方向与消去零空间方向的互补部分。零空间中的元素（如 Taylor 单项式）往往并不属于 $L_2$，因此不能直接在 $L_2$ 中正交化，这正是双正交构造的重要动机。
 
+**向量泛函和双正交系统的显式定义（原文式（8）–（13））。** 给定 $M$ 个线性独立泛函 $\nu_m\in\mathcal S'$，原文不仅定义它们张成的子空间 $\mathcal N_\nu=\operatorname{span}\{\nu_m\}_{m=1}^{M}$，还明确定义向量泛函
+$
+\nu:\varphi\longmapsto\nu(\varphi)
+=\big(\langle\nu_1,\varphi\rangle,\ldots,\langle\nu_M,\varphi\rangle\big)
+\in\mathbb R^M.\tag{8}
+$
+相应的对称有限秩算子为
+$
+R_\nu\{\varphi\}
+=\sum_{m=1}^{M}\nu_m\langle\nu_m,\varphi\rangle.\tag{9}
+$
+当 $\nu_m$ 自身属于适当的正则函数空间时，同一公式也可反向解释为从对偶空间到原空间的算子。
+
+命题 2.2 所给出的普适双正交系统 $(p,\phi)$ 满足 $\langle p_n,\phi_m\rangle=\delta_{m,n}$。其零空间 Hilbert 结构通过两个（半）内积具体定义为
+$
+\langle f_1,f_2\rangle_{R_\phi}
+=\sum_{n=1}^{N_0}
+\langle\phi_n,f_1\rangle\langle\phi_n,f_2\rangle,\tag{10}
+$
+$
+\langle\varphi_1,\varphi_2\rangle_{R_p}
+=\sum_{n=1}^{N_0}
+\langle p_n,\varphi_1\rangle\langle p_n,\varphi_2\rangle.\tag{11}
+$
+它们分别在 $\mathcal S'$ 与 $\mathcal S$ 上有定义，并在相应有限维子空间 $\mathcal N_p$ 与 $\mathcal N_\phi$ 上形成互为对偶的 Hilbert 结构。该方法也适用于一般的对偶 Hilbert–Gelfand 空间 $(\mathcal H,\mathcal H')$，因而可以构造不要求 $\phi\subset\mathcal S$ 的非普适双正交系统。
+
+选取满足 $p\subset\mathcal H'$、$\phi\subset\mathcal H$ 的双正交系统，对应的两个斜投影为
+$
+P_\phi=\operatorname{Id}-R_\phi R_p:
+\mathcal H\longrightarrow
+\mathcal H_p:=\{\varphi\in\mathcal H:p(\varphi)=0\},\tag{12}
+$
+$
+P_\phi^*=\operatorname{Id}-R_pR_\phi:
+\mathcal H'\longrightarrow
+\mathcal H_\phi':=\{f\in\mathcal H':\phi(f)=0\}.\tag{13}
+$
+两者互为伴随；相应的补投影 $\operatorname{Id}-P_\phi=R_\phi R_p$ 和 $\operatorname{Id}-P_\phi^*=R_pR_\phi$ 分别投影到有限维空间 $\mathcal N_\phi$ 与 $\mathcal N_p$。由此得到互补直和分解
+$\mathcal H=\mathcal H_p\oplus\mathcal N_\phi$ 和
+$\mathcal H'=\mathcal H_\phi'\oplus\mathcal N_p$。
+这些公式是后文将样条解的零空间部分与正则化部分明确拆开的代数基础。
+
 ### 2.3 样条容许算子
 
 **定义 2.3（条件正性）。** 设 $\mathcal N_p$ 是 $\mathcal S'$ 中的有限维空间，并令 $\mathcal S_p$ 为其在 $\mathcal S$ 中的湮灭空间。连续算子 $A:\mathcal S\to\mathcal S'$ 若对全部非零 $\varphi\in\mathcal S_p$ 满足 $\langle A\varphi,\varphi\rangle>0$，则称为关于 $p$ 条件正定。若上述不等式对 $\mathcal S$ 中全部非零元素成立，则称为正定。后者比前者更强。
