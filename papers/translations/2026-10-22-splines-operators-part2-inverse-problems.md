@@ -652,7 +652,60 @@ $$
 
 这对应逆问题中的 Tikhonov 正则化，也等同于统计学中的岭回归。此时表示定理仅有样条基展开 $f_\lambda=\sum_{m=1}^{M}a_m\psi_m$，$\psi_m=A\{\nu_m\}$；Gram 矩阵 $G$ 的元素为 $G_{m,n}=\langle\nu_m,\psi_n\rangle$，同时也是母空间基函数的内积。由于测量泛函线性独立，$G$ 对称正定，因此最小二乘问题具有唯一解，并可通过有限维线性代数计算。
 
-**4.3.2 一般非平凡零空间。** 对存在零空间的情况，使用条件化基和投影矩阵构造简化系统矩阵 $\widetilde G$，使其显式描述样条基的测量响应。原问题被精确化为无约束优化
+
+
+该情形下的闭式解就是熟知的岭回归估计器：
+
+$
+f_\lambda=\sum_{m=1}^{M}a_m\psi_m,\qquad
+a=(G+\lambda I)^{-1}y.\tag{60}
+$
+
+这一结果将在非平凡零空间的最小二乘推导中作为比较基准。后一情形的主要区别是，传统展开必须额外满足系数正交约束。
+
+**4.3.2 一般非平凡零空间。** 对存在零空间的情况，使用条件化基和投影矩阵构造简化系统矩阵 $\widetilde G$，使其显式描述样条基的测量响应。
+
+对测量适配基 $\widetilde\psi_m=A_{\widetilde\varphi}\{\widetilde\nu_m\}$，定义
+
+$
+[\widetilde G]_{m,n}
+:=\langle\widetilde\nu_m,\widetilde\psi_n\rangle
+=\langle\widetilde\nu_m,
+A_{\widetilde\varphi}\{\widetilde\nu_n\}\rangle,
+\qquad
+\widetilde\nu=\widetilde Q^\top\nu.\tag{61}
+$
+
+这里 $\widetilde G\in\mathbb R^{(M-N_0)\times(M-N_0)}$。由于 $\widetilde\nu_m$ 属于 $\mathcal H_A=\mathcal H_{L,\widetilde\varphi}'$，而 $A_{\widetilde\varphi}$ 是 $\mathcal H_A\to\mathcal H_{L,\widetilde\varphi}$ 的 Riesz 映射，故
+
+$
+\begin{aligned}
+[\widetilde G]_{m,n}
+&=\langle\widetilde\nu_m,\widetilde\nu_n\rangle_{\mathcal H_A}\\
+&=\langle\widetilde\nu_m,A\{\widetilde\nu_n\}\rangle\\
+&=\langle\widetilde\psi_m,\widetilde\psi_n
+\rangle_{\mathcal H_{L,\widetilde\varphi}}\\
+&=\langle L\widetilde\psi_m,L\widetilde\psi_n\rangle_{L_2}.
+\end{aligned}\tag{62}
+$
+
+因此，$\widetilde G$ 恰好是缩减基 $\widetilde\psi$ 的 Gram 矩阵，并且保证正定。对于 $f=\sum\widetilde a_m\widetilde\psi_m+\sum b_np_n$，
+
+$
+\|Lf\|_{L_2}^2=\widetilde a^\top\widetilde G\widetilde a,
+$
+
+所以正则项得到了完全精确的离散化。
+
+如果同时定义扩充系统矩阵 $G\in\mathbb R^{M\times M}$，$[G]_{m,n}=\langle\nu_m,A\{\nu_n\}\rangle$，则有
+
+$
+\widetilde G=\widetilde Q^\top G\widetilde Q.\tag{64}
+$
+
+它与 $\widetilde\psi=\widetilde Q^\top\psi$、$Q\widetilde G=G\widetilde Q$ 等关系相容，允许在约束参数化与无约束参数化之间切换。不同条件逆会导致 $G$ 的元素不同，但若 $P^\top a=0$，二次型 $a^\top Ga$ 的值与条件逆的选择无关。这进一步说明正交约束不是形式性的：违反该约束，连续域正则项 $\|Lf\|_{L_2}^2$ 的数值并不能再由 $a^\top Ga$ 正确表示，甚至可能发散。
+
+原问题被精确化为无约束优化
 
 $$
 \min_{(\widetilde a,b)\in\mathbb R^{M-N_0}\times\mathbb R^{N_0}}
@@ -702,6 +755,60 @@ P^\top&0
 $$
 
 这一系统提供了广义样条最小二乘拟合的直接数值解法，也说明如何由连续域的算子正则化精确地得到一个有限维线性系统。
+
+
+
+对条件化的无约束形式，取平方损失并对 $\widetilde a,b$ 求梯度，将其设为零。利用 $\widetilde G$ 可逆，原文推导得到
+
+$
+\begin{bmatrix}
+Q^\top Q+\lambda\widetilde G^{-1}&Q^\top P\\
+P^\top Q\widetilde G&P^\top P
+\end{bmatrix}
+\begin{bmatrix}\widetilde a\\b\end{bmatrix}
+=
+\begin{bmatrix}Q^\top\\P^\top\end{bmatrix}y.
+\tag{66}
+$
+
+进一步使用附录 B 的规范分解，使 $Q^\top P=0$、$Q^\top Q=I_{M-N_0}$，则系统完全解耦：
+
+$
+\widetilde a=(\widetilde G+\lambda I)^{-1}Q^\top y,\qquad
+b=(P^\top P)^{-1}P^\top y.\tag{67}
+$
+
+它的意义清楚：零空间系数 $b$ 是对数据在 $\mathcal N_p$ 上的最小二乘拟合，不依赖 $\lambda$；样条系数 $\widetilde a$ 则相当于对残余测量 $Q^\top y$ 执行岭回归。随着 $\lambda\to\infty$，有 $\widetilde a\to0$，恢复位于零空间内的线性回归。
+
+对过参数化目标式（68），其关于 $a$、$b$ 的偏导数分别为
+
+$
+\begin{aligned}
+\frac{\partial J_{\mathrm{LS}}}{\partial a}
+&=2G(Ga+Pb-y)+2\lambda Ga\\
+&=2G\big[(G+\lambda I)a+Pb-y\big],
+\end{aligned}\tag{71}
+$
+
+$
+\frac{\partial J_{\mathrm{LS}}}{\partial b}
+=2P^\top(Ga+Pb-y).\tag{72}
+$
+
+只要式（70）成立，将 $y=(G+\lambda I)a+Pb$ 代入上述两个导数，它们便都为零，同时也满足 $P^\top a=0$。由此验证了 KKT 最优条件。值得注意的是，相应的 KKT 乘子可以为零：式（71）中的梯度可分解出 $G$，所以式（70）的第一行单独使该梯度消失，无须由乘子补偿；第二行则实施正交约束。
+
+在 $N_0>0$ 时，过参数化形式有 $M+N_0$ 个未知数，却只有 $M$ 个观测分量，无约束问题可能拥有无穷多组等价最优系数。正交条件排除了冗余，使满足条件的系数唯一。式（70）相应的分块矩阵可逆，因为 $P$ 满列秩，且 $G+\lambda I$ 在 $P^\top a=0$ 的子空间上正定。
+
+当 $\lambda\to0$ 时，得广义插值解 $f_0\in\mathcal H_L$，它满足 $\nu(f_0)=y$；正交条件始终保留。其样条能量可以简化为
+
+$
+\|Lf_0\|_{L_2}^2
+=a(0)^\top Ga(0)
+=a(0)^\top(y-Pb(0))
+=a(0)^\top y.
+$
+
+另一极限 $\lambda\to\infty$ 时，$a(\infty)=0$，$b(\infty)=(P^\top P)^{-1}P^\top y$，即观测向量到 $\operatorname{range}(P)$ 的正交投影系数，和式（67）的第二个公式一致。
 
 ## 5. 结论
 
