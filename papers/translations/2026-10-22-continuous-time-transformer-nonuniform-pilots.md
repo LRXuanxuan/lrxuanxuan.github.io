@@ -389,44 +389,6 @@ $$
 
 
 
-高频时间编码的定义可明确写为下式。标准 Transformer 的位置编码取序列的**顺序索引** $l$，而不是物理采样时刻：
-
-$
-[X_{\mathrm{pos}}]_{i,l}=
-\begin{cases}
-\displaystyle \sin\!\left(\frac{l-1}{10000^{i/d_i}}\right),
-&i\ \text{为偶数},\\[4pt]
-\displaystyle \cos\!\left(\frac{l-1}{10000^{i/d_i}}\right),
-&\text{否则},
-\end{cases}
-\quad i=0,\ldots,d_i-1.\tag{25}
-$
-
-这种方法通过顺序信息打破注意力机制的置换不变性，但不能表示不规则样本的实际时间间隔。所提出的高频时间编码直接使用观测时刻 $\tau_l$，并设置频率参数 $\omega_0$：
-
-$
-[X_{\mathrm{tem}}]_{i,l}=
-\begin{cases}
-\displaystyle \sin\!\left(\frac{\omega_0\tau_l}{10000^{i/d_i}}\right),
-&i\ \text{为偶数},\\[4pt]
-\displaystyle \cos\!\left(\frac{\omega_0\tau_l}{10000^{i/d_i}}\right),
-&\text{否则}.
-\end{cases}\tag{26}
-$
-
-其中，$\omega_0$ 取相对较大的值，使编码随物理时间快速变化，形成预先指定的高频周期分量，以帮助注意力机制拟合高移动性信道的快速周期性动态。原文采用 $X=X_{\mathrm{tok}}+X_{\mathrm{tem}}$ 作为网络输入。
-
-在应用逐元素预测之前，将信道估计从空间域变换至角度域：
-
-$
-\widetilde{\mathbf h}_{A}(t_{\mathrm{che},j})
-=\mathbf F_A\widetilde{\mathbf h}(t_{\mathrm{che},j}),\qquad
-\mathbf F_A=\operatorname{diag}(\mathbf F_{\mathrm{DFT}},\mathbf F_{\mathrm{DFT}})
-\in\mathbb C^{M\times M},\tag{27}
-$
-
-其中，$\mathbf F_{\mathrm{DFT}}\in\mathbb C^{(M/2)\times(M/2)}$ 为 DFT 矩阵，$\mathbf F_A$ 对双极化方向采用块对角酉变换。角度域每个元素分别作为网络序列输入，但所有元素共用网络参数。
-
 ### B. 仿真结果
 
 **连续时间注意力与高频编码的验证。** 表 VI 显示，连续时间注意力优于标准注意力，说明它能够准确建模任意时间尺度上的相关性。当 $\omega_0=1$ 时，编码难以跟踪高移动性场景下的快速时间变化，预测性能较差；当 $\omega_0$ 为 10、30、50 时，高频时间编码有效改善性能，其中 30 最优。与不使用编码或采用一般位置编码的版本相比，高频时间编码也更有利于刻画快速周期性信道动态。
