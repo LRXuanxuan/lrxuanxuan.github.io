@@ -103,6 +103,36 @@ toc: true
 
 ## 推荐论文
 
+### 2026-10-22 · [Synergizing Global Pattern Learning and Time Order Characterization in Mobile Channel Prediction: An RWKV-Based Approach](/papers/items/cd2b413146f4cf6d/)
+
+为期刊扩展加入非生成、因果且可递推的对照，先识别数据简化和真实运动分布差距；适合作为误差累积压力测试。
+
+[本篇日报](/papers/items/cd2b413146f4cf6d/#paper-report)
+
+### 2026-10-22 · [Superimposed Sunscape Pilot Pattern for Channel Estimation in OTFS-Based ISAC](/papers/items/e5fa7705f06fee0c/)
+
+可用于验证flow的收益是否仍存在于实际导频功率、HPA和误检条件；应先推导相应观测算子，不能直接复用Y=HP+N闭式更新。
+
+[本篇日报](/papers/items/e5fa7705f06fee0c/#paper-report)
+
+### 2026-10-22 · [Continuous-Time Transformer-Based Channel Prediction With Non-Uniform Pilot Pattern](/papers/items/0420e0d84fe1b48f/)
+
+最适合把“连续条件”落实为有时间戳的真实导频接口；可先验证固定导频数时非均匀布局与ODE各自贡献，再接相同残差flow。
+
+[本篇日报](/papers/items/0420e0d84fe1b48f/#paper-report)
+
+### 2026-10-22 · [Splines and Operators: Part II - Resolution of Inverse Problems](/papers/items/bcad86491157992f/)
+
+可用作稀疏CKM/WCM标量图的连续域强基线，检查生成先验的收益是否超过经典核/样条及观测约束；同时校准零空间论证。
+
+[本篇日报](/papers/items/bcad86491157992f/#paper-report)
+
+### 2026-10-22 · [Semantic Latent Alignment for Flow Matching with Invertible Bi-Lipschitz Adapters](/papers/items/a854e827dbbdea38/)
+
+为CKM特征的可学习几何提供可归因对照：将训练侧坐标/统计/几何信息蒸馏成受控变换，再固定同一导频后验校正，避免无约束适配器破坏先验。
+
+[本篇日报](/papers/items/a854e827dbbdea38/#paper-report)
+
 ### 2026-10-21 · [On the Impact of Channel Aging and Doppler-Affected Clutter on OFDM ISAC Systems](/papers/items/1524a18885ddaf9a/)
 
 可检验历史窗口越长是否真更好，以及更多迭代带来的过期代价；需要同时报告实际时延与使用时刻CSI误差。

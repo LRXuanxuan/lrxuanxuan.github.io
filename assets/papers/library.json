@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "source": "每日论文推荐.xlsx",
-  "source_sha256": "770a6241a596a0c6584dc54c18e5c20e52e5563fe13fc18a7d3a746358bfce6b",
+  "source_sha256": "aa35dfb868f69f1adcd3a27f99d4c8fb3ccf8f6dc9aacec603008b518e816409",
   "translation_progress": {
     "target": 315,
     "completed": 22,
@@ -23,7 +23,7 @@
   "sheets": [
     {
       "name": "每日论文推荐",
-      "count": 365,
+      "count": 370,
       "headers": [
         "日期",
         "标题",
@@ -45,8 +45,9 @@
       ]
     }
   ],
-  "total": 365,
+  "total": 370,
   "dates": {
+    "2026-10-22": 5,
     "2026-10-21": 5,
     "2026-10-20": 5,
     "2026-10-19": 5,
@@ -94,8 +95,267 @@
     "2026-07-12": 5,
     "2026-07-11": 5
   },
-  "latest_date": "2026-10-21",
+  "latest_date": "2026-10-22",
   "papers": [
+    {
+      "id": "cd2b413146f4cf6d",
+      "date": "2026-10-22",
+      "title": "Synergizing Global Pattern Learning and Time Order Characterization in Mobile Channel Prediction: An RWKV-Based Approach",
+      "sheet": "每日论文推荐",
+      "row": 371,
+      "fields": {
+        "日期": "2026-10-22",
+        "标题": "Synergizing Global Pattern Learning and Time Order Characterization in Mobile Channel Prediction: An RWKV-Based Approach",
+        "内容": "作者：Wang, Zili; Chen, Zirui; Li, Ridong; Zhang, Zhaoyang; Yang, Zhaohui。问题：时序预测需要同时提取跨时隙共享结构与顺序信息；普通骨干迁移可能忽略历史相关性的衰减。 方法：复数CSI实虚联合输入，去除RWKV原语言tokenizer与LM head，以对称全连接投影接6个RWKV块。time mixing含可递推的指数时间衰减，channel mixing融合特征，MSE训练；块计算复杂度O(Nnd²)。 结果：DeepMIMO O1，3.5GHz、40MHz、32天线×32子载波，8步历史；静态空间邻点按恒速轨迹构造时序。TableIV在4万训练样本下RWKV/Transformer/LSTM NMSE为−9.13/−7.29/−4.84dB；对应相关性0.9536/0.9295/0.8629。自回归中RWKV和Transformer均第6步NMSE>1，RWKV初始优势逐步缩小。 局限：静态空间序列替代时间演化，不能证明真实Doppler/ICI/遮挡动态泛化；无地图先验或导频数据一致性。不同骨干层数/学习率不同，非严格等参等算力。正文声称4万样本相关性增益2.6–10.5个百分点，与TableIV差值2.41/9.07个百分点不一致，本报告保留表中原值并披露。O(Nnd²)不等于已测在线延迟。",
+        "契合方向": "ICC2026基线：时序因果归纳偏置、状态压缩与数据边界",
+        "推荐理由": "为期刊扩展加入非生成、因果且可递推的对照，先识别数据简化和真实运动分布差距；适合作为误差累积压力测试。",
+        "顶刊顶会/机构依据": "ICC 2026 – IEEE International Conference on Communications, pp.1–6；正式发表；IEEE Crossref DOI10.1109/ICC59461.2026.11588036为proceedings-article，日期2026-05-24，题名/作者与arXiv2026-06-15作者稿一致；arXiv上传日晚于正式会议。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2606.16170",
+        "检索来源": "https://arxiv.org/abs/2606.16170\nhttps://doi.org/10.1109/ICC59461.2026.11588036\nhttps://api.crossref.org/works/10.1109/ICC59461.2026.11588036\nhttps://ieeexplore.ieee.org/document/11588036/",
+        "筛选备注": "理论启发或基线；基线：轻量因果历史预测；缺口：真实时间序列验证。；与既有阅读差异：相对昨天可生成分布的单步CSI模型，本篇为确定性时序骨干对照，重点检验简单时间归纳偏置和空间代时数据是否已能解释收益，不宣传为新生成先验。；证据：PDF SecII–IV、Eqs5–11、TablesII–IV、Figs3–6；TableIV已渲染核对；核验2026-10-22。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；arXiv与6页作者稿无作者代码链接；GitHub精确标题、2606.16170及RWKV+channel prediction检索未找到本篇实现。通用RWKV仓库仅为骨干参考，不能冒充完整复现。",
+        "反馈匹配": "相对昨天可生成分布的单步CSI模型，本篇为确定性时序骨干对照，重点检验简单时间归纳偏置和空间代时数据是否已能解释收益，不宣传为新生成先验。",
+        "反馈权重说明": "以连续条件、几何/零空间、时间采样、导频观测、系统成本为匹配依据；保留现有三种子/同先验对照，分开验证机制。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-22/",
+      "report_section": "## 5. Synergizing Global Pattern Learning and Time Order Characterization in Mobile Channel Prediction: An RWKV-Based Approach\n\n**作者**：Wang, Zili; Chen, Zirui; Li, Ridong; Zhang, Zhaoyang; Yang, Zhaohui。\n\n**方向/年份/venue**：ICC2026基线：时序因果归纳偏置、状态压缩与数据边界；2026；ICC 2026 – IEEE International Conference on Communications, pp.1–6。\n\n**发表核验**：正式发表。IEEE Crossref DOI10.1109/ICC59461.2026.11588036为proceedings-article，日期2026-05-24，题名/作者与arXiv2026-06-15作者稿一致；arXiv上传日晚于正式会议。 核验日期2026-10-22。\n\n**问题**：时序预测需要同时提取跨时隙共享结构与顺序信息；普通骨干迁移可能忽略历史相关性的衰减。\n\n**方法**：复数CSI实虚联合输入，去除RWKV原语言tokenizer与LM head，以对称全连接投影接6个RWKV块。time mixing含可递推的指数时间衰减，channel mixing融合特征，MSE训练；块计算复杂度O(Nnd²)。\n\n**关键结果**：DeepMIMO O1，3.5GHz、40MHz、32天线×32子载波，8步历史；静态空间邻点按恒速轨迹构造时序。TableIV在4万训练样本下RWKV/Transformer/LSTM NMSE为−9.13/−7.29/−4.84dB；对应相关性0.9536/0.9295/0.8629。自回归中RWKV和Transformer均第6步NMSE>1，RWKV初始优势逐步缩小。\n\n**局限与审读边界**：静态空间序列替代时间演化，不能证明真实Doppler/ICI/遮挡动态泛化；无地图先验或导频数据一致性。不同骨干层数/学习率不同，非严格等参等算力。正文声称4万样本相关性增益2.6–10.5个百分点，与TableIV差值2.41/9.07个百分点不一致，本报告保留表中原值并披露。O(Nnd²)不等于已测在线延迟。\n\n**迁移类型/笔记位置**：理论启发或基线；基线：轻量因果历史预测；缺口：真实时间序列验证。\n\n**与既有阅读差异**：相对昨天可生成分布的单步CSI模型，本篇为确定性时序骨干对照，重点检验简单时间归纳偏置和空间代时数据是否已能解释收益，不宣传为新生成先验。\n\n**推荐理由**：为期刊扩展加入非生成、因果且可递推的对照，先识别数据简化和真实运动分布差距；适合作为误差累积压力测试。\n\n**代码状态**：未发现公开代码。arXiv与6页作者稿无作者代码链接；GitHub精确标题、2606.16170及RWKV+channel prediction检索未找到本篇实现。通用RWKV仓库仅为骨干参考，不能冒充完整复现。\n\n**身份与证据**：arXiv:2606.16170；DOI:10.1109/ICC59461.2026.11588036；[来源1](https://arxiv.org/abs/2606.16170) [来源2](https://doi.org/10.1109/ICC59461.2026.11588036) [来源3](https://api.crossref.org/works/10.1109/ICC59461.2026.11588036) [来源4](https://ieeexplore.ieee.org/document/11588036/)。\n\n[官方PDF/原文入口](https://arxiv.org/pdf/2606.16170)。证据定位：PDF SecII–IV、Eqs5–11、TablesII–IV、Figs3–6；TableIV已渲染核对。\n\n[原文PDF](https://arxiv.org/pdf/2606.16170)；取得完整可打开原文并完成方法/主要结果/局限分析。统一缓存保留全部分页源文本，复杂证明未声称全部独立复证。job `2dc1a02c40020c0bb73d5463` 已入队，指定 `gpt-6-luna / xhigh`；原worker发送/有界查询返回找不到会话，未成功启动、未译完。预计本地输出路径：`本地资料：paper.md`。\n\n[本篇全文翻译状态](https://lrxuanxuan.github.io/papers/items/cd2b413146f4cf6d/#paper-translation)。原文权利/许可：[https://arxiv.org/licenses/nonexclusive-distrib/1.0/](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)。本次未取得公开译文许可，完成稿仅本地，后续获授权再公开。全部PDF只保留官方原文链接，不上传网站。",
+      "report_entry_url": "/papers/reports/2026-10-22/#paper-cd2b413146f4cf6d",
+      "paper_url": "/papers/items/cd2b413146f4cf6d/",
+      "paper_report_url": "/papers/items/cd2b413146f4cf6d/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2606.16170",
+        "https://arxiv.org/abs/2606.16170",
+        "https://doi.org/10.1109/ICC59461.2026.11588036",
+        "https://api.crossref.org/works/10.1109/ICC59461.2026.11588036",
+        "https://ieeexplore.ieee.org/document/11588036/",
+        "https://lrxuanxuan.github.io/papers/items/cd2b413146f4cf6d/#paper-translation",
+        "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2606.16170"
+      ],
+      "hosted_pdfs": [],
+      "status": "正式发表",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/cd2b413146f4cf6d/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "e5fa7705f06fee0c",
+      "date": "2026-10-22",
+      "title": "Superimposed Sunscape Pilot Pattern for Channel Estimation in OTFS-Based ISAC",
+      "sheet": "每日论文推荐",
+      "row": 370,
+      "fields": {
+        "日期": "2026-10-22",
+        "标题": "Superimposed Sunscape Pilot Pattern for Channel Estimation in OTFS-Based ISAC",
+        "内容": "作者：Lianet Méndez-Monsanto; Andrés Reyes-Castro; Kun Chen-Hu; María Julia Fernández-Getino García; Ana García Armada。问题：嵌入导频占DD资源且高PAPR，叠加导频又受数据自干扰影响，传统SIC提高时延和计算成本。 方法：SISO ZP-OTFS中，sun结构检测整数/分数时延与Doppler，periodic sea结构通过均值抑制零均值数据/噪声并细化复增益。离线搜索数据功率β与sun长度Ls，在检测率/虚警/MSE/PAPR之间取舍；分数情形用过采样/插值。 结果：作者稿TableIII主仿真M=512、N=16、4GHz、15kHz、QPSK、4径；SecVI-A在5dB设计点选Ls=50、β=0.8，报告MSE约1e−4、PD=0.8、PFA<1e−6。Figs9–15比较MSE、BER、PAPR及分数DD；长sun缓解短sun高SNR误码平台。EP仍有最低MSE，Sunscape优势是综合开销/PAPR/复杂度权衡，不能称全面最优。 局限：仿真SISO系统，MIMO/多UE被作者列为未来工作；ZP设计转CP需重新处理sun/sea互扰与保护。均值消干扰依赖零均值等统计前提，有限帧有残差。复杂度表主要计复乘，实加/极坐标转换/过采样并非免费；不能把该表直接当端到端加速倍数。",
+        "契合方向": "TWC系统约束：低功率叠加导频、分数DD与ISAC/PAPR",
+        "推荐理由": "可用于验证flow的收益是否仍存在于实际导频功率、HPA和误检条件；应先推导相应观测算子，不能直接复用Y=HP+N闭式更新。",
+        "顶刊顶会/机构依据": "IEEE Transactions on Wireless Communications, vol.25, pp.16680–16696, 2026；正式发表；IEEE Crossref卷页、UC3M作者机构库/研究门户与postprint封面DOI一致。研究门户标May2026；本地18页包含1页权利封面及17页作者稿，不能称18页IEEE正文。",
+        "发表年份": "2026",
+        "论文下载链接": "https://e-archivo.uc3m.es/bitstreams/1e9bd3c4-e527-42f2-a7b1-33a8b6bf279c/download",
+        "检索来源": "https://ieeexplore.ieee.org/document/11513660/\nhttps://doi.org/10.1109/twc.2026.3689779\nhttps://api.crossref.org/works/10.1109/twc.2026.3689779\nhttps://researchportal.uc3m.es/display/act582917\nhttps://hdl.handle.net/10016/50289",
+        "筛选备注": "可改造工具；应用或基线：ISAC、导频/数据联合约束；缺口：PAPR与前端非线性。；与既有阅读差异：相对纯先验/估计器替换和昨天高铁DD统计，本篇把独立机制放在导频结构与接收统计处理，给新物理观测模型提供低复杂度非神经基线。；证据：作者正文SecII–VI，TableI/III，Algorithm1，Eq48/50，Figs5–15；本地PDF含版权封面；核验2026-10-22。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；已查论文/UC3M作者入口、全文及GitHub精确标题和sunscape+OTFS；未发现可归属于本篇的公开作者实现。相关通用OTFS库和他文baseline不作为本篇代码。",
+        "反馈匹配": "相对纯先验/估计器替换和昨天高铁DD统计，本篇把独立机制放在导频结构与接收统计处理，给新物理观测模型提供低复杂度非神经基线。",
+        "反馈权重说明": "以连续条件、几何/零空间、时间采样、导频观测、系统成本为匹配依据；保留现有三种子/同先验对照，分开验证机制。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-22/",
+      "report_section": "## 4. Superimposed Sunscape Pilot Pattern for Channel Estimation in OTFS-Based ISAC\n\n**作者**：Lianet Méndez-Monsanto; Andrés Reyes-Castro; Kun Chen-Hu; María Julia Fernández-Getino García; Ana García Armada。\n\n**方向/年份/venue**：TWC系统约束：低功率叠加导频、分数DD与ISAC/PAPR；2026；IEEE Transactions on Wireless Communications, vol.25, pp.16680–16696, 2026。\n\n**发表核验**：正式发表。IEEE Crossref卷页、UC3M作者机构库/研究门户与postprint封面DOI一致。研究门户标May2026；本地18页包含1页权利封面及17页作者稿，不能称18页IEEE正文。 核验日期2026-10-22。\n\n**问题**：嵌入导频占DD资源且高PAPR，叠加导频又受数据自干扰影响，传统SIC提高时延和计算成本。\n\n**方法**：SISO ZP-OTFS中，sun结构检测整数/分数时延与Doppler，periodic sea结构通过均值抑制零均值数据/噪声并细化复增益。离线搜索数据功率β与sun长度Ls，在检测率/虚警/MSE/PAPR之间取舍；分数情形用过采样/插值。\n\n**关键结果**：作者稿TableIII主仿真M=512、N=16、4GHz、15kHz、QPSK、4径；SecVI-A在5dB设计点选Ls=50、β=0.8，报告MSE约1e−4、PD=0.8、PFA<1e−6。Figs9–15比较MSE、BER、PAPR及分数DD；长sun缓解短sun高SNR误码平台。EP仍有最低MSE，Sunscape优势是综合开销/PAPR/复杂度权衡，不能称全面最优。\n\n**局限与审读边界**：仿真SISO系统，MIMO/多UE被作者列为未来工作；ZP设计转CP需重新处理sun/sea互扰与保护。均值消干扰依赖零均值等统计前提，有限帧有残差。复杂度表主要计复乘，实加/极坐标转换/过采样并非免费；不能把该表直接当端到端加速倍数。\n\n**迁移类型/笔记位置**：可改造工具；应用或基线：ISAC、导频/数据联合约束；缺口：PAPR与前端非线性。\n\n**与既有阅读差异**：相对纯先验/估计器替换和昨天高铁DD统计，本篇把独立机制放在导频结构与接收统计处理，给新物理观测模型提供低复杂度非神经基线。\n\n**推荐理由**：可用于验证flow的收益是否仍存在于实际导频功率、HPA和误检条件；应先推导相应观测算子，不能直接复用Y=HP+N闭式更新。\n\n**代码状态**：未发现公开代码。已查论文/UC3M作者入口、全文及GitHub精确标题和sunscape+OTFS；未发现可归属于本篇的公开作者实现。相关通用OTFS库和他文baseline不作为本篇代码。\n\n**身份与证据**：DOI:10.1109/twc.2026.3689779；[来源1](https://ieeexplore.ieee.org/document/11513660/) [来源2](https://doi.org/10.1109/twc.2026.3689779) [来源3](https://api.crossref.org/works/10.1109/twc.2026.3689779) [来源4](https://researchportal.uc3m.es/display/act582917) [来源5](https://hdl.handle.net/10016/50289)。\n\n[官方PDF/原文入口](https://e-archivo.uc3m.es/bitstreams/1e9bd3c4-e527-42f2-a7b1-33a8b6bf279c/download)。证据定位：作者正文SecII–VI，TableI/III，Algorithm1，Eq48/50，Figs5–15；本地PDF含版权封面。\n\n[原文PDF](https://e-archivo.uc3m.es/bitstreams/1e9bd3c4-e527-42f2-a7b1-33a8b6bf279c/download)；取得完整可打开原文并完成方法/主要结果/局限分析。统一缓存保留全部分页源文本，复杂证明未声称全部独立复证。job `bab88b98609d06f3f81c92bd` 已入队，指定 `gpt-6-luna / xhigh`；原worker发送/有界查询返回找不到会话，未成功启动、未译完。预计本地输出路径：`本地资料：paper.md`。\n\n[本篇全文翻译状态](https://lrxuanxuan.github.io/papers/items/e5fa7705f06fee0c/#paper-translation)。原文权利/许可：[https://www.ieee.org/publications/rights/](https://www.ieee.org/publications/rights/)。本次未取得公开译文许可，完成稿仅本地，后续获授权再公开。全部PDF只保留官方原文链接，不上传网站。",
+      "report_entry_url": "/papers/reports/2026-10-22/#paper-e5fa7705f06fee0c",
+      "paper_url": "/papers/items/e5fa7705f06fee0c/",
+      "paper_report_url": "/papers/items/e5fa7705f06fee0c/#paper-report",
+      "translations": [],
+      "links": [
+        "https://e-archivo.uc3m.es/bitstreams/1e9bd3c4-e527-42f2-a7b1-33a8b6bf279c/download",
+        "https://ieeexplore.ieee.org/document/11513660/",
+        "https://doi.org/10.1109/twc.2026.3689779",
+        "https://api.crossref.org/works/10.1109/twc.2026.3689779",
+        "https://researchportal.uc3m.es/display/act582917",
+        "https://hdl.handle.net/10016/50289",
+        "https://lrxuanxuan.github.io/papers/items/e5fa7705f06fee0c/#paper-translation",
+        "https://www.ieee.org/publications/rights/"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://e-archivo.uc3m.es/bitstreams/1e9bd3c4-e527-42f2-a7b1-33a8b6bf279c/download"
+      ],
+      "hosted_pdfs": [],
+      "status": "正式发表",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/e5fa7705f06fee0c/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "0420e0d84fe1b48f",
+      "date": "2026-10-22",
+      "title": "Continuous-Time Transformer-Based Channel Prediction With Non-Uniform Pilot Pattern",
+      "sheet": "每日论文推荐",
+      "row": 369,
+      "fields": {
+        "日期": "2026-10-22",
+        "标题": "Continuous-Time Transformer-Based Channel Prediction With Non-Uniform Pilot Pattern",
+        "内容": "作者：Yiliang Sang; Ke Ma; Lebin Yao; Pengyu Wang; Zhaocheng Wang; Zhu Han; Sheng Chen。问题：高速MIMO中均匀稀疏导频发生Doppler混叠，加密导频又提高开销；固定时间步预测难处理不规则采样。 方法：公开摘要给出Chebyshev多项式根构造非均匀导频，在Doppler主导且速度相对稳定条件下讨论最优性；continuous-time Transformer结合神经ODE注意力、高频时间编码和逐元素预测，支持不规则历史和任意查询时刻。 结果：公开摘要仅确认仿真中提高预测精度。作者公开库含训练/验证入口、3GPP/DeepMIMO测试说明、demo与模型权重下载指引；本次静态审计已核实这些入口。由于全文受限，不填未经核验的dB、复杂度、导频节省比例或精确实验配置。 局限：全文暂不可访问，待用户通过学校账号获取；当前介绍依据公开摘要/元数据，未完成全文核验。摘要最优性依赖稳定速度及Doppler主导假设，不能推广到动态遮挡/任意轨迹。代码存在不等于复现成功；ODE真实NFE与延迟需另测。",
+        "契合方向": "TWC系统约束：非均匀导频、连续查询时刻与Doppler混叠",
+        "推荐理由": "最适合把“连续条件”落实为有时间戳的真实导频接口；可先验证固定导频数时非均匀布局与ODE各自贡献，再接相同残差flow。",
+        "顶刊顶会/机构依据": "IEEE Transactions on Wireless Communications, vol.25, pp.12497–12513, 2026；正式发表；Crossref IEEE注册journal-article、TWC卷页与作者仓库/南安普顿机构库题名一致；IEEE页面人机验证，机构库PDF直接下载403。无可核验的精确发表日，保留2026。",
+        "发表年份": "2026",
+        "论文下载链接": "https://eprints.soton.ac.uk/510410/1/TW-Sep-25-2603.pdf",
+        "检索来源": "https://ieeexplore.ieee.org/document/11410066/\nhttps://doi.org/10.1109/twc.2026.3665056\nhttps://api.crossref.org/works/10.1109/twc.2026.3665056\nhttps://eprints.soton.ac.uk/510410/\nhttps://github.com/sangyl23/Continuous-Time-Transformer",
+        "筛选备注": "可直接复现；缺口：不规则导频与连续时间预测；应用或基线：高速移动。；与既有阅读差异：相对昨天单步MeanFlow的规则CSI历史与静态切片KAP，本篇优先改变观测时刻和连续查询机制。continuous-time模型不等于连续位置条件生成，也不等于已验证ICI。；证据：南安普顿作者PDF的公开索引摘要；Crossref卷页；作者仓库README及四个模型/评估源文件；核验2026-10-22。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "全文暂不可访问，待用户通过学校账号获取；当前介绍依据公开摘要/元数据，未完成全文核验；DOI:https://doi.org/10.1109/twc.2026.3665056；出版社:https://ieeexplore.ieee.org/document/11410066/",
+        "代码链接": "https://github.com/sangyl23/Continuous-Time-Transformer",
+        "代码/数据状态": "完整开源实现；论文机构库可检索文本列出的作者库；实际树223个文件，commit80fe38f7036b152385bb4b77564773d8d3066d38。已核train_code/eval_code、model_ODE.py、eval_ODE.py、demo_dataset、MATLAB预处理及表格/消融命令；大数据/权重需Tsinghua Cloud另取，未验证其下载或运行复现。",
+        "反馈匹配": "相对昨天单步MeanFlow的规则CSI历史与静态切片KAP，本篇优先改变观测时刻和连续查询机制。continuous-time模型不等于连续位置条件生成，也不等于已验证ICI。",
+        "反馈权重说明": "以连续条件、几何/零空间、时间采样、导频观测、系统成本为匹配依据；保留现有三种子/同先验对照，分开验证机制。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-22/",
+      "report_section": "## 3. Continuous-Time Transformer-Based Channel Prediction With Non-Uniform Pilot Pattern\n\n**作者**：Yiliang Sang; Ke Ma; Lebin Yao; Pengyu Wang; Zhaocheng Wang; Zhu Han; Sheng Chen。\n\n**方向/年份/venue**：TWC系统约束：非均匀导频、连续查询时刻与Doppler混叠；2026；IEEE Transactions on Wireless Communications, vol.25, pp.12497–12513, 2026。\n\n**发表核验**：正式发表。Crossref IEEE注册journal-article、TWC卷页与作者仓库/南安普顿机构库题名一致；IEEE页面人机验证，机构库PDF直接下载403。无可核验的精确发表日，保留2026。 核验日期2026-10-22。\n\n**问题**：高速MIMO中均匀稀疏导频发生Doppler混叠，加密导频又提高开销；固定时间步预测难处理不规则采样。\n\n**方法**：公开摘要给出Chebyshev多项式根构造非均匀导频，在Doppler主导且速度相对稳定条件下讨论最优性；continuous-time Transformer结合神经ODE注意力、高频时间编码和逐元素预测，支持不规则历史和任意查询时刻。\n\n**关键结果**：公开摘要仅确认仿真中提高预测精度。作者公开库含训练/验证入口、3GPP/DeepMIMO测试说明、demo与模型权重下载指引；本次静态审计已核实这些入口。由于全文受限，不填未经核验的dB、复杂度、导频节省比例或精确实验配置。\n\n**局限与审读边界**：全文暂不可访问，待用户通过学校账号获取；当前介绍依据公开摘要/元数据，未完成全文核验。摘要最优性依赖稳定速度及Doppler主导假设，不能推广到动态遮挡/任意轨迹。代码存在不等于复现成功；ODE真实NFE与延迟需另测。\n\n**迁移类型/笔记位置**：可直接复现；缺口：不规则导频与连续时间预测；应用或基线：高速移动。\n\n**与既有阅读差异**：相对昨天单步MeanFlow的规则CSI历史与静态切片KAP，本篇优先改变观测时刻和连续查询机制。continuous-time模型不等于连续位置条件生成，也不等于已验证ICI。\n\n**推荐理由**：最适合把“连续条件”落实为有时间戳的真实导频接口；可先验证固定导频数时非均匀布局与ODE各自贡献，再接相同残差flow。\n\n**代码状态**：完整开源实现。论文机构库可检索文本列出的作者库；实际树223个文件，commit80fe38f7036b152385bb4b77564773d8d3066d38。已核train_code/eval_code、model_ODE.py、eval_ODE.py、demo_dataset、MATLAB预处理及表格/消融命令；大数据/权重需Tsinghua Cloud另取，未验证其下载或运行复现。\n\n[作者GitHub实现](https://github.com/sangyl23/Continuous-Time-Transformer)。\n\n**身份与证据**：DOI:10.1109/twc.2026.3665056；[来源1](https://ieeexplore.ieee.org/document/11410066/) [来源2](https://doi.org/10.1109/twc.2026.3665056) [来源3](https://api.crossref.org/works/10.1109/twc.2026.3665056) [来源4](https://eprints.soton.ac.uk/510410/) [来源5](https://github.com/sangyl23/Continuous-Time-Transformer)。\n\n[官方PDF/原文入口](https://eprints.soton.ac.uk/510410/1/TW-Sep-25-2603.pdf)。证据定位：南安普顿作者PDF的公开索引摘要；Crossref卷页；作者仓库README及四个模型/评估源文件。\n\n全文暂不可访问，待用户通过学校账号获取；当前介绍依据公开摘要/元数据，未完成全文核验。本地PDF缺失，未建立伪全文、未入翻译队列；作者代码入口存在不改变全文受限状态。\n\n[本篇全文翻译状态](https://lrxuanxuan.github.io/papers/items/0420e0d84fe1b48f/#paper-translation)。原文权利/许可：[https://www.ieee.org/publications/rights/](https://www.ieee.org/publications/rights/)。本次未取得公开译文许可，完成稿仅本地，后续获授权再公开。全部PDF只保留官方原文链接，不上传网站。",
+      "report_entry_url": "/papers/reports/2026-10-22/#paper-0420e0d84fe1b48f",
+      "paper_url": "/papers/items/0420e0d84fe1b48f/",
+      "paper_report_url": "/papers/items/0420e0d84fe1b48f/#paper-report",
+      "translations": [],
+      "links": [
+        "https://eprints.soton.ac.uk/510410/1/TW-Sep-25-2603.pdf",
+        "https://ieeexplore.ieee.org/document/11410066/",
+        "https://doi.org/10.1109/twc.2026.3665056",
+        "https://api.crossref.org/works/10.1109/twc.2026.3665056",
+        "https://eprints.soton.ac.uk/510410/",
+        "https://github.com/sangyl23/Continuous-Time-Transformer",
+        "https://lrxuanxuan.github.io/papers/items/0420e0d84fe1b48f/#paper-translation",
+        "https://www.ieee.org/publications/rights/"
+      ],
+      "github": [
+        "https://github.com/sangyl23/Continuous-Time-Transformer"
+      ],
+      "pdf_sources": [
+        "https://eprints.soton.ac.uk/510410/1/TW-Sep-25-2603.pdf"
+      ],
+      "hosted_pdfs": [],
+      "status": "正式发表",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/0420e0d84fe1b48f/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "bcad86491157992f",
+      "date": "2026-10-22",
+      "title": "Splines and Operators: Part II - Resolution of Inverse Problems",
+      "sheet": "每日论文推荐",
+      "row": 368,
+      "fields": {
+        "日期": "2026-10-22",
+        "标题": "Splines and Operators: Part II - Resolution of Inverse Problems",
+        "内容": "作者：Unser, Michael。问题：连续场的有限测量拟合通常依赖人为网格；带非平凡零空间的正则化又易漏掉结构约束。 方法：在算子L的native Hilbert空间最小化凸数据项加λ||Lf||²。用P=ν(p)识别L的零空间，QR/SVD构造Q，使QᵀP=0、QᵀQ=I；测量适配基分离零空间与样条分量。最小二乘时b=(PᵀP)⁻¹Pᵀy，余量系数由缩减Gram矩阵的ridge系统求解。 结果：39页理论论文；Theorem3.1描述native空间，Lemma4.4给测量基分解，Sec4.3/Eqs63–70给精确有限维化与闭式最小二乘，Table1列普通/分数阶微分算子例子。没有实验NMSE/速度表，不虚构性能优势。 局限：理论要求算子可容许、测量连续且线性独立、P列满秩；无线复数变量和遮挡边界需重新建模。L的零空间与导频观测零空间不是同一对象。额外审读发现：Theorem4.3将一般凸损失及λ=0一并声称唯一，现有表述不足；需λ>0及零空间方向上的严格性等补充条件，不能原样引用其全范围唯一性。本次未独立复证全部证明。",
+        "契合方向": "核心求解理论：连续域拟合、测量适配基与零空间",
+        "推荐理由": "可用作稀疏CKM/WCM标量图的连续域强基线，检查生成先验的收益是否超过经典核/样条及观测约束；同时校准零空间论证。",
+        "顶刊顶会/机构依据": "arXiv，2026-10-10 v1；EPFL作者组预印本列表；预印本/状态未确认；arXiv与EPFL Biomedical Imaging Group列表均列为预印本；未发现期刊/会议正式接收证据。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2610.14920",
+        "检索来源": "https://arxiv.org/abs/2610.14920\nhttps://bigwww.epfl.ch/publications/",
+        "筛选备注": "理论启发或基线；理论深化：连续坐标场与观测一致性；基线：样条/核回归。；与既有阅读差异：相对生成后验采样与神经坐标编码，本篇提供可精确求解的线性连续场对照。测量适配只改变数值表示，不能自动得到多峰p(H|r,e,M)。；证据：PDF Sec3，Definition4.2/Theorem4.3/Lemma4.4，Sec4.3，Appendix B；Eqs60/63/67/70；核验2026-10-22。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；已核arXiv、全文、EPFL作者组论文列表及GitHub精确标题/arXiv ID；未发现属于本篇的公开实现，作者其他工具箱不冒认为本篇代码。",
+        "反馈匹配": "相对生成后验采样与神经坐标编码，本篇提供可精确求解的线性连续场对照。测量适配只改变数值表示，不能自动得到多峰p(H|r,e,M)。",
+        "反馈权重说明": "以连续条件、几何/零空间、时间采样、导频观测、系统成本为匹配依据；保留现有三种子/同先验对照，分开验证机制。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-22/",
+      "report_section": "## 2. Splines and Operators: Part II - Resolution of Inverse Problems\n\n**作者**：Unser, Michael。\n\n**方向/年份/venue**：核心求解理论：连续域拟合、测量适配基与零空间；2026；arXiv，2026-10-10 v1；EPFL作者组预印本列表。\n\n**发表核验**：预印本/状态未确认。arXiv与EPFL Biomedical Imaging Group列表均列为预印本；未发现期刊/会议正式接收证据。 核验日期2026-10-22。\n\n**问题**：连续场的有限测量拟合通常依赖人为网格；带非平凡零空间的正则化又易漏掉结构约束。\n\n**方法**：在算子L的native Hilbert空间最小化凸数据项加λ||Lf||²。用P=ν(p)识别L的零空间，QR/SVD构造Q，使QᵀP=0、QᵀQ=I；测量适配基分离零空间与样条分量。最小二乘时b=(PᵀP)⁻¹Pᵀy，余量系数由缩减Gram矩阵的ridge系统求解。\n\n**关键结果**：39页理论论文；Theorem3.1描述native空间，Lemma4.4给测量基分解，Sec4.3/Eqs63–70给精确有限维化与闭式最小二乘，Table1列普通/分数阶微分算子例子。没有实验NMSE/速度表，不虚构性能优势。\n\n**局限与审读边界**：理论要求算子可容许、测量连续且线性独立、P列满秩；无线复数变量和遮挡边界需重新建模。L的零空间与导频观测零空间不是同一对象。额外审读发现：Theorem4.3将一般凸损失及λ=0一并声称唯一，现有表述不足；需λ>0及零空间方向上的严格性等补充条件，不能原样引用其全范围唯一性。本次未独立复证全部证明。\n\n**迁移类型/笔记位置**：理论启发或基线；理论深化：连续坐标场与观测一致性；基线：样条/核回归。\n\n**与既有阅读差异**：相对生成后验采样与神经坐标编码，本篇提供可精确求解的线性连续场对照。测量适配只改变数值表示，不能自动得到多峰p(H|r,e,M)。\n\n**推荐理由**：可用作稀疏CKM/WCM标量图的连续域强基线，检查生成先验的收益是否超过经典核/样条及观测约束；同时校准零空间论证。\n\n**代码状态**：未发现公开代码。已核arXiv、全文、EPFL作者组论文列表及GitHub精确标题/arXiv ID；未发现属于本篇的公开实现，作者其他工具箱不冒认为本篇代码。\n\n**身份与证据**：arXiv:2610.14920；[来源1](https://arxiv.org/abs/2610.14920) [来源2](https://bigwww.epfl.ch/publications/)。\n\n[官方PDF/原文入口](https://arxiv.org/pdf/2610.14920)。证据定位：PDF Sec3，Definition4.2/Theorem4.3/Lemma4.4，Sec4.3，Appendix B；Eqs60/63/67/70。\n\n[原文PDF](https://arxiv.org/pdf/2610.14920)；取得完整可打开原文并完成方法/主要结果/局限分析。统一缓存保留全部分页源文本，复杂证明未声称全部独立复证。job `aaa9abc147b4aaaf1363ec7a` 已入队，指定 `gpt-6-luna / xhigh`；原worker发送/有界查询返回找不到会话，未成功启动、未译完。预计本地输出路径：`本地资料：paper.md`。\n\n[本篇全文翻译状态](https://lrxuanxuan.github.io/papers/items/bcad86491157992f/#paper-translation)。原文权利/许可：[https://creativecommons.org/licenses/by/4.0/](https://creativecommons.org/licenses/by/4.0/)。完成译稿可依原CC BY4许可署名、标注改动后分享。全部PDF只保留官方原文链接，不上传网站。",
+      "report_entry_url": "/papers/reports/2026-10-22/#paper-bcad86491157992f",
+      "paper_url": "/papers/items/bcad86491157992f/",
+      "paper_report_url": "/papers/items/bcad86491157992f/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2610.14920",
+        "https://arxiv.org/abs/2610.14920",
+        "https://bigwww.epfl.ch/publications/",
+        "https://lrxuanxuan.github.io/papers/items/bcad86491157992f/#paper-translation",
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2610.14920"
+      ],
+      "hosted_pdfs": [],
+      "status": "预印本/状态未确认",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/bcad86491157992f/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "a854e827dbbdea38",
+      "date": "2026-10-22",
+      "title": "Semantic Latent Alignment for Flow Matching with Invertible Bi-Lipschitz Adapters",
+      "sheet": "每日论文推荐",
+      "row": 367,
+      "fields": {
+        "日期": "2026-10-22",
+        "标题": "Semantic Latent Alignment for Flow Matching with Invertible Bi-Lipschitz Adapters",
+        "内容": "作者：Nützel, Felix; Dombrowski, Mischa; Hagen, Luca; Kainz, Bernhard。问题：重构质量相同的潜空间不一定同样容易训练生成器；单纯可逆映射仍可能拉伸/压扁重要方向。 方法：冻结原编码器/解码器，以训练集教师特征的线性CKA离线训练36,871参数可逆适配器。残差块与正交混合给出exp(−λ)至exp(λ)的双向距离界；整条参考flow路径及其噪声源经映射推前，速度用JVP变换，生成后数值逆映射回原解码器。λ=0.5来自训练集三元组距离比。 结果：17页，两个医学数据集、3个flow训练种子。Table1的CT-RATE CT-FID从20.23降至15.46，DINOv2 FID从186.9降至111.9；MIMIC-CXR CXR-FID种子标准差7.50降至0.69，但均值17.87仍劣于VA-VAE15.05。Table4端点插值15.94±6.69，整路径推前17.87±0.69，体现均值/稳定性取舍。逆映射0.69ms/样本、往返误差4.3e−6。 局限：只验证医学图像；教师必须携带任务相关结构，不能把医学教师直接用于CSI。证书覆盖适配器，未覆盖其后逐通道标准化；三元组λ下界只是必要条件。整路径推前会改变源分布，不能仅替换条件编码器却沿用旧采样。三种子不能保证普适稳定，也未证明无线后验校准。",
+        "契合方向": "核心生成：潜变量几何、语义先验与训练稳定性",
+        "推荐理由": "为CKM特征的可学习几何提供可归因对照：将训练侧坐标/统计/几何信息蒸馏成受控变换，再固定同一导频后验校正，避免无约束适配器破坏先验。",
+        "顶刊顶会/机构依据": "arXiv，2026-10-15 v1；预印本/状态未确认；arXiv无journal-ref或接收说明；未找到可核验的正式发表证据，不按模板推断投稿或接收。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2610.21332",
+        "检索来源": "https://arxiv.org/abs/2610.21332",
+        "筛选备注": "可改造工具；深化：连续条件/先验表征；缺口：跨域表征几何与稳定性。；与既有阅读差异：与阅读笔记中扩散/flow求解器主线及昨天PnP-CF不同，本篇固定生成目标和编解码器，单独考察潜坐标几何及全路径变换；不是新增观测求解器。；证据：PDF pp4–9，Eqs3–8，Tables1/4/7/8，Appendices A–C；关键表格已渲染核对；核验2026-10-22。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "作者预告/部分代码；PDF p10称代码随supplementary material提供；arXiv页与正文未给可核验作者仓库，GitHub精确arXiv ID/标题检索未找到对应实现。仅保留作者声明，不标完整开源。",
+        "反馈匹配": "与阅读笔记中扩散/flow求解器主线及昨天PnP-CF不同，本篇固定生成目标和编解码器，单独考察潜坐标几何及全路径变换；不是新增观测求解器。",
+        "反馈权重说明": "以连续条件、几何/零空间、时间采样、导频观测、系统成本为匹配依据；保留现有三种子/同先验对照，分开验证机制。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-22/",
+      "report_section": "## 1. Semantic Latent Alignment for Flow Matching with Invertible Bi-Lipschitz Adapters\n\n**作者**：Nützel, Felix; Dombrowski, Mischa; Hagen, Luca; Kainz, Bernhard。\n\n**方向/年份/venue**：核心生成：潜变量几何、语义先验与训练稳定性；2026；arXiv，2026-10-15 v1。\n\n**发表核验**：预印本/状态未确认。arXiv无journal-ref或接收说明；未找到可核验的正式发表证据，不按模板推断投稿或接收。 核验日期2026-10-22。\n\n**问题**：重构质量相同的潜空间不一定同样容易训练生成器；单纯可逆映射仍可能拉伸/压扁重要方向。\n\n**方法**：冻结原编码器/解码器，以训练集教师特征的线性CKA离线训练36,871参数可逆适配器。残差块与正交混合给出exp(−λ)至exp(λ)的双向距离界；整条参考flow路径及其噪声源经映射推前，速度用JVP变换，生成后数值逆映射回原解码器。λ=0.5来自训练集三元组距离比。\n\n**关键结果**：17页，两个医学数据集、3个flow训练种子。Table1的CT-RATE CT-FID从20.23降至15.46，DINOv2 FID从186.9降至111.9；MIMIC-CXR CXR-FID种子标准差7.50降至0.69，但均值17.87仍劣于VA-VAE15.05。Table4端点插值15.94±6.69，整路径推前17.87±0.69，体现均值/稳定性取舍。逆映射0.69ms/样本、往返误差4.3e−6。\n\n**局限与审读边界**：只验证医学图像；教师必须携带任务相关结构，不能把医学教师直接用于CSI。证书覆盖适配器，未覆盖其后逐通道标准化；三元组λ下界只是必要条件。整路径推前会改变源分布，不能仅替换条件编码器却沿用旧采样。三种子不能保证普适稳定，也未证明无线后验校准。\n\n**迁移类型/笔记位置**：可改造工具；深化：连续条件/先验表征；缺口：跨域表征几何与稳定性。\n\n**与既有阅读差异**：与阅读笔记中扩散/flow求解器主线及昨天PnP-CF不同，本篇固定生成目标和编解码器，单独考察潜坐标几何及全路径变换；不是新增观测求解器。\n\n**推荐理由**：为CKM特征的可学习几何提供可归因对照：将训练侧坐标/统计/几何信息蒸馏成受控变换，再固定同一导频后验校正，避免无约束适配器破坏先验。\n\n**代码状态**：作者预告/部分代码。PDF p10称代码随supplementary material提供；arXiv页与正文未给可核验作者仓库，GitHub精确arXiv ID/标题检索未找到对应实现。仅保留作者声明，不标完整开源。\n\n**身份与证据**：arXiv:2610.21332；[来源1](https://arxiv.org/abs/2610.21332)。\n\n[官方PDF/原文入口](https://arxiv.org/pdf/2610.21332)。证据定位：PDF pp4–9，Eqs3–8，Tables1/4/7/8，Appendices A–C；关键表格已渲染核对。\n\n[原文PDF](https://arxiv.org/pdf/2610.21332)；取得完整可打开原文并完成方法/主要结果/局限分析。统一缓存保留全部分页源文本，复杂证明未声称全部独立复证。job `21ef2270285b96fdb2215c2c` 已入队，指定 `gpt-6-luna / xhigh`；原worker发送/有界查询返回找不到会话，未成功启动、未译完。预计本地输出路径：`本地资料：paper.md`。\n\n[本篇全文翻译状态](https://lrxuanxuan.github.io/papers/items/a854e827dbbdea38/#paper-translation)。原文权利/许可：[https://creativecommons.org/licenses/by/4.0/](https://creativecommons.org/licenses/by/4.0/)。完成译稿可依原CC BY4许可署名、标注改动后分享。全部PDF只保留官方原文链接，不上传网站。",
+      "report_entry_url": "/papers/reports/2026-10-22/#paper-a854e827dbbdea38",
+      "paper_url": "/papers/items/a854e827dbbdea38/",
+      "paper_report_url": "/papers/items/a854e827dbbdea38/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2610.21332",
+        "https://arxiv.org/abs/2610.21332",
+        "https://lrxuanxuan.github.io/papers/items/a854e827dbbdea38/#paper-translation",
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2610.21332"
+      ],
+      "hosted_pdfs": [],
+      "status": "预印本/状态未确认",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/a854e827dbbdea38/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
     {
       "id": "1524a18885ddaf9a",
       "date": "2026-10-21",
@@ -18323,6 +18583,17 @@
   ],
   "reports": [
     {
+      "date": "2026-10-22",
+      "url": "/papers/reports/2026-10-22/",
+      "source_file": "2026-10-22_每日前沿论文推荐.md",
+      "slug": "2026-10-22",
+      "covered_dates": [
+        "2026-10-22"
+      ],
+      "title": "10_22前沿论文推荐",
+      "download": "/assets/papers/reports/2026-10-22.md"
+    },
+    {
       "date": "2026-10-21",
       "url": "/papers/reports/2026-10-21/",
       "source_file": "2026-10-21_每日前沿论文推荐.md",
@@ -20185,9 +20456,9 @@
   "pdf_mode": "links_only",
   "workbook_table": {
     "url": "/papers/table/",
-    "source_sha256": "770a6241a596a0c6584dc54c18e5c20e52e5563fe13fc18a7d3a746358bfce6b",
+    "source_sha256": "aa35dfb868f69f1adcd3a27f99d4c8fb3ccf8f6dc9aacec603008b518e816409",
     "sheet": "每日论文推荐",
-    "row_count": 365,
+    "row_count": 370,
     "headers": [
       "日期",
       "标题",
