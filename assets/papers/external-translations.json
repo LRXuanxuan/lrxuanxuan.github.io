@@ -2,7 +2,7 @@
   {
     "slug": "2026-10-22-otfs-sunscape-superimposed-pilots",
     "title": "OTFS-ISAC 叠加式 Sunscape 导频与信道估计｜中文部分译稿",
-    "scope": "18 页：摘要、正文 I–VII、主要公式（1）–（51）、表 I–III、算法 1、图 1–15 说明；英文参考文献与作者简介待补，终校未完成",
+    "scope": "18 页：摘要、正文 I–VII、主要公式（1）–（51）、表 I–III、算法 1、图 1–15 说明、英文参考文献 34 条及作者简介；终校未完成",
     "source_arxiv_ids": [],
     "date": "2026-10-22",
     "url": "/papers/translations/2026-10-22-otfs-sunscape-superimposed-pilots/",
@@ -19,7 +19,7 @@
   {
     "slug": "2026-10-22-continuous-time-transformer-nonuniform-pilots",
     "title": "非均匀导频连续时间 Transformer 信道预测｜中文部分译稿",
-    "scope": "16 页：摘要、正文 I–VI、连续时间注意力公式（21）–（27）、表 I–XI、图 1–9 说明与附录证明；原文参考文献尚未完整校录，逐式终校待完成",
+    "scope": "16 页：摘要、正文 I–VI、编号公式（1）–（32）主体、表 I–XI、图 1–9 说明、附录推论证明、英文参考文献 64 条已录入；终校未完成",
     "source_arxiv_ids": [],
     "date": "2026-10-22",
     "url": "/papers/translations/2026-10-22-continuous-time-transformer-nonuniform-pilots/",
@@ -36,7 +36,7 @@
   {
     "slug": "2026-10-22-splines-operators-part2-inverse-problems",
     "title": "样条与算子 II：逆问题求解｜中文理论译稿（未完）",
-    "scope": "39 页：摘要、正文 1–5 主要定理/推导、附录 A–B 证明及英文参考文献 43 条；正文部分长证明与核实例仍待补译",
+    "scope": "39 页：摘要、正文 1–5 的主要定理/推导及定理 3.1 全证明、命题 3.2 全证明、附录 A–B 证明与英文参考文献 43 条；第 2、4 节长证明与核例仍有遗漏",
     "source_arxiv_ids": [
       "2610.14920"
     ],
