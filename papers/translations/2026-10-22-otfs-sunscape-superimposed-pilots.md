@@ -13,7 +13,7 @@ toc: true
 **原题：** Superimposed Sunscape Pilot Pattern for Channel Estimation in OTFS-Based ISAC  
 **作者：** Lianet Méndez-Monsanto、Andrés Reyes-Castro、Kun Chen-Hu、María Julia Fernández-Getino García、Ana García Armada  
 **来源：** *IEEE Transactions on Wireless Communications*, 2026, 25:16680–16696；DOI: 10.1109/TWC.2026.3689779。上传 PDF 为 18 页后印本。  
-**译文进度：** 已录入摘要、I–VII 节理论与实验主体、公式（1）–（51）中的主要推导、表 I–III，以及图 1–15 的图注和结果说明；完整参考文献、作者简介及最终逐式校对仍待完成，**暂不标记为已验收全文**。  
+**译文进度：** 已录入摘要、I–VII 节理论与实验主体、公式（1）–（51）中的主要推导、表 I–III，以及图 1–15 的图注和结果说明；英文参考文献 34 条、作者简介已补录；最终逐式校对仍待完成，**暂不标记为已验收全文**。  
 **权利提示：** 上传的 IEEE 后印本声明仅许可个人使用，公开发布完整译作可能需取得相应许可。
 
 ## 摘要
@@ -747,3 +747,89 @@ $$
 因此，Sunscape 导频及其相关信道估计方法可为高速通信与高分辨率雷达感知的联合实现提供实用方案，是面向 6G 及后续 ISAC 系统的一种候选技术。
 
 > **终校状态：** 已补入第 VI–VII 节正文、图 5–15 的对应说明和表 III，形成 I–VII 节的主体译稿。参考文献清单、作者简介以及各公式和长表的最终逐项校对仍未完成，暂不标记为已验收全文。
+
+
+## 参考文献（保留原文英文书目）
+
+[1] J. Wang, N. Varshney, C. Gentile, S. Blandino, J. Chuang, and N. Golmie, “Integrated sensing and communication: Enabling techniques, applications, tools and data sets, standardization, and future directions,” *IEEE Internet Things J.*, vol. 9, no. 23, pp. 23416–23440, 2022.
+
+[2] F. Liu, C. Masouros, A. P. Petropulu, H. Griffiths, and L. Hanzo, “Joint radar and communication design: Applications, state-of-the-art, and the road ahead,” *IEEE Trans. Commun.*, vol. 68, no. 6, pp. 3834–3862, 2020.
+
+[3] Y. Ma, B. Ai, J. Yuan, S. Li, Q. Cheng, Z. Shi, W. Yuan, Z. Wei, A. Shafie, G. Ma, Y. Lu, M. Yang, and Z. Zhong, “Delay-doppler domain signal processing aided OFDM (DD-a-OFDM) for 6G and beyond,” 2025. [Online]. Available: https://arxiv.org/abs/2508.04253.
+
+[4] L. Gaudio, G. Colavolpe, and G. Caire, “OTFS vs. OFDM in the presence of sparsity: A fair comparison,” *IEEE Trans. Wirel. Commun.*, vol. 21, no. 6, pp. 4410–4423, 2022.
+
+[5] R. Hadani and A. Monk, “OTFS: A new generation of modulation addressing the challenges of 5G,” 2018.
+
+[6] P. Raviteja, K. T. Phan, and Y. Hong, “Embedded pilot-aided channel estimation for OTFS in delay–doppler channels,” *IEEE Trans. Veh. Technol.*, vol. 68, no. 5, pp. 4906–4917, 2019.
+
+[7] Y. Ma, G. Ma, N. Wang, Z. Zhong, and B. Ai, “OTFS-TSMA for massive internet of things in high-speed railway,” *IEEE Trans. Wirel. Commun.*, vol. 21, no. 1, pp. 519–531, 2022.
+
+[8] A. Orozco-Lugo, M. Lara, and D. McLernon, “Channel estimation using implicit training,” *IEEE Trans. Signal Process.*, vol. 52, no. 1, pp. 240–254, 2004.
+
+[9] H. B. Mishra, P. Singh, A. K. Prasad, and R. Budhiraja, “OTFS channel estimation and data detection designs with superimposed pilots,” *IEEE Trans. Wirel. Commun.*, vol. 21, no. 4, pp. 2258–2274, Apr. 2022.
+
+[10] V. Yogesh, S. Rao Mattu, and A. Chockalingam, “Iterative channel estimation/detection for DZT-OTFS using superimposed pilot frames,” in *IEEE VTC-Spring*, 2024, pp. 1–6.
+
+[11] W. Yuan, S. Li, Z. Wei, J. Yuan, and D. W. K. Ng, “Data-aided channel estimation for OTFS systems with a superimposed pilot and data transmission scheme,” *IEEE Wirel. Commun. Lett.*, vol. 10, no. 9, pp. 1954–1958, 2021.
+
+[12] C. Yang, J. Wang, Z. Pan, and S. Shimamoto, “Delay-doppler frequency domain-aided superimposing pilot OTFS channel estimation based on deep learning,” in *IEEE VTC-Fall*, 2022, pp. 1–6.
+
+[13] Y. Wu, C. Han, and Z. Chen, “DFT-spread orthogonal time frequency space system with superimposed pilots for terahertz integrated sensing and communication,” *IEEE Trans. Wirel. Commun.*, vol. 22, no. 11, pp. 7361–7376, 2023.
+
+[14] Y. Kanazawa, H. Iimori, C. Pradhan, S. Malomsoky, and N. Ishikawa, “Multiple superimposed pilots for accurate channel estimation in orthogonal time frequency space modulation,” in *IEEE VTC-Fall*, 2023, pp. 1–5.
+
+[15] F. Jesbin, S. Rao Mattu, and A. Chockalingam, “Sparse superimposed pilot based channel estimation in OTFS systems,” in *IEEE WCNC*, 2023, pp. 1–6.
+
+[16] S. Rao Mattu and A. Chockalingam, “Fractional delay-doppler channel estimation in OTFS with sparse superimposed pilots using RNNs,” in *IEEE VTC-Spring*, 2023, pp. 1–6.
+
+[17] M. Zhou, F. Chen, H. Yu, and J. Lu, “Iterative channel estimation for OTFS systems based on low-PAPR hybrid superimposed pilots,” *IEEE Commun. Lett.*, vol. 28, no. 8, pp. 1939–1943, 2024.
+
+[18] M. A. Sheikh, A. Rajoriya, P. Singh, and R. Budhiraja, “Bayesian learning-aided channel estimators for superimposed-pilot based OTFS systems,” *IEEE Trans. Commun.*, pp. 1–1, 2024.
+
+[19] F. Huang, Q. Guo, Y. Zhang, and Y. V. Zakharov, “Message passing-based joint channel estimation and signal detection for OTFS with superimposed pilots,” *IEEE Trans. Veh. Technol.*, vol. 73, no. 8, pp. 11531–11542, 2024.
+
+[20] S. Kumari, H. B. Mishra, and S. Mukhopadhyay, “Peak-to-average power ratio analysis for embedded pilot and superimposed pilot aided OTFS waveform,” in *IEEE GCON*, 2023, pp. 1–6.
+
+[21] A. Gao, H. Yu, and H. Wang, “OTFS channel estimation with superimposed pilots based on compressed sensing,” in *WCSP*, 2023, pp. 1114–1119.
+
+[22] R. Ouchikh, A. Alssa–El–Bey, T. Chonavel, and N. Lassami, “Optimal partially superimposed pilot pattern for OTFS communication,” in *IEEE VTC-Spring*, 2024, pp. 01–05.
+
+[23] Z. Chen, X. Zheng, and X. Chen, “Delay-wise superimposed pilot based compressed sensing channel estimation for OTFS systems,” in *IEEE VTC-Fall*, 2023, pp. 1–5.
+
+[24] L. Méndez-Monsanto, K. Chen-Hu, M. J. Fernández-Getino García, and A. García Armada, “Robust integrated sensing and communications in delay-doppler domain using superimposed training,” in *IEEE Globecom Wkshps*, 2023, pp. 1404–1409.
+
+[25] ——, “Deep learning-aided robust integrated sensing and communications with OTFS and superimposed training,” in *IEEE Meditcom*, 2023.
+
+[26] Y. Hong, T. Thaj, and E. Viterbo, *Delay-Doppler Communications: Principles and Applications*. Elsevier, 2022.
+
+[27] W. Shen, L. Dai, S. Han, I. Chih-Lin, and R. W. Heath, “Channel estimation for orthogonal time frequency space (OTFS) massive MIMO,” in *ICC*, 2019, pp. 1–6.
+
+[28] P. Priya, E. Viterbo, and Y. Hong, “Low complexity MRC detection for OTFS receiver with oversampling,” *IEEE Trans. Wirel. Commun.*, vol. 23, no. 2, pp. 1459–1473, 2024.
+
+[29] T. Bacchielli, L. Pucci, E. Paolini, and A. Giorgetti, “A low-complexity detector for OTFS-based sensing,” *IEEE Trans. Wirel. Commun.*, vol. 24, no. 6, pp. 5227–5240, 2025.
+
+[30] D. Chu, “Polyphase codes with good periodic correlation properties (corresp.),” *IEEE Trans. Inf. Theory*, vol. 18, no. 4, pp. 531–532, 1972.
+
+[31] Y. Jitsumatsu, “2D sinc interpolation-based fractional delay and doppler estimation using time and frequency shifted gaussian pulses,” in *ICAIIC*, 2025, pp. 0060–0065.
+
+[32] R. Maršálek, R. Zedka, E. Zöchmann, J. Vychodil, R. Závorka, G. Ghiaasi, and J. Blumenstein, “Persistent homology approach for human presence detection from 60 GHz OTFS transmissions,” *Sensors*, vol. 23, no. 4, 2023.
+
+[33] S. Verdú, “Spectral efficiency in the wideband regime,” *IEEE Trans. Inf. Theory*, vol. 48, no. 6, pp. 1319–1343, Jun. 2002.
+
+[34] J. E. Volder, “The CORDIC trigonometric computing technique,” *IEEE Trans. Comput.*, vol. EC-8, no. 3, pp. 330–334, 1959.
+
+
+
+## 作者简介（依据原文）
+
+**Lianet Méndez-Monsanto**（IEEE 学生会员）分别于 2021 年、2023 年从西班牙马德里卡洛斯三世大学（UC3M）获得电信工程学士学位及电信工程与先进通信技术双硕士学位，目前在该校信号理论与通信系攻读博士。她获得 2024 年西班牙电信工程师专业协会最佳硕士论文奖及 2025 年 IEEE MeditCom 最佳论文奖。其研究兴趣包括无线通信信号处理、信道估计、波形、ISAC，以及利用 AI/ML 改善这些系统。
+
+**Andrés Reyes-Castro**（IEEE 学生会员）在厄瓜多尔 EPN 大学获得电子与电信工程学士学位，并于西班牙马德里卡洛斯三世大学获得电信工程硕士学位，现于该校信号理论与通信系从事博士研究。研究涉及信号处理、通信波形及无线感知。
+
+**Kun Chen-Hu**（IEEE 高级会员）在马德里卡洛斯三世大学从事通信与信号处理研究，并同时任职于西班牙阿尔卡拉大学信号理论与通信系。研究主题涉及无线通信、信号处理及 ISAC。
+
+**María Julia Fernández-Getino García**（IEEE 会员）分别于 1996 年和 2001 年从马德里理工大学获得电信工程工程师学位和博士学位。她曾于贝尔实验室、瑞典隆德大学、意大利都灵理工大学及葡萄牙阿威罗大学进行学术访问，现任马德里卡洛斯三世大学教授。研究兴趣包括多载波通信、编码及无线系统信号处理。
+
+**Ana García Armada**（IEEE Fellow）是马德里卡洛斯三世大学的通信学者，曾在南安普顿大学进行学术活动，已发表 300 余篇会议与期刊论文，拥有 7 项专利。研究兴趣为无线通信信号处理，曾参与 IEEE Globecom 2021 组织并担任大会主席，获得 IEEE ComSoc 多项服务奖项及其他学术奖励。
+
