@@ -804,7 +804,7 @@ $$
 
 $
 \begin{bmatrix}
-Q^\top Q+\lambda\widetilde G^{-1}&Q^\top P\\
+Q^\top Q\widetilde G+\lambda I&Q^\top P\\
 P^\top Q\widetilde G&P^\top P
 \end{bmatrix}
 \begin{bmatrix}\widetilde a\\b\end{bmatrix}
