@@ -605,12 +605,12 @@ $$
 
 **证明。** 切比雪夫模式与均匀模式的最小估计间隔分别为
 
-$
+$$
 T_{\mathrm{che},\min}
 =\frac{T_e}{2}-\frac{T_e}{2}\cos\!\left(\frac{\pi}{2N}\right),
 \qquad
 T_{\mathrm{uni},\min}=\frac{T_e}{N+1}.
-$
+$$
 
 需要证明，对全部正整数 $N$，
 
