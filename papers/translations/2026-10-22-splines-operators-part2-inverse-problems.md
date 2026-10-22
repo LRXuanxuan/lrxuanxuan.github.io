@@ -343,52 +343,52 @@ $$
 
 **内积与嵌入（第 1、3 项）。** 增广算子 $B_+=B+R_\varphi$ 在 $\mathcal S$ 上正定，其诱导范数为
 
-$
+$$
 |f|_{B_+}^{2}=\|Lf\|_{L_2}^{2}+|\boldsymbol\varphi(f)|_2^{2}.
-$
+$$
 
 增广对 $(A_+,B_+)$ 是相容的 Riesz 对。第一部分的定理 2.5 因而说明，$\mathcal H_L=(\mathcal S,|\cdot|_{B_+})$ 是 Hilbert–Gelfand 空间，得到 $\mathcal S\overset d\hookrightarrow\mathcal H_L\overset d\hookrightarrow\mathcal S'$ 及由完备化给出的空间定义。对范数平方极化，再用 $B=L^*L$ 把 $\langle Bf,g\rangle$ 写成 $\langle Lf,Lg\rangle_{L_2}$，即得内积公式（24）。
 
 **直和分解（第 2 项）。** 根据第一部分定理 3.7 第 3 项，
 
-$
+$$
 \mathcal H_L=\mathcal H'_A\oplus\mathcal N_p
-$
+$$
 
 为正交直和。其无限维部分满足边界条件 $\boldsymbol\varphi(f)=0$，因为 $\mathcal H'_A\subset\mathcal S'_\varphi$。另一方面，条件逆 $L_\varphi^{-1}$ 把 $L_2$ 等距映射到 $\mathcal H'_A$，因此
 
-$
+$$
 \mathcal H_{L,\varphi}=\mathcal H'_A
 =L_\varphi^{-1}(L_2),
 \qquad
 \|f\|_{\mathcal H_{L,\varphi}}=\|Lf\|_{L_2}.
-$
+$$
 
 有限维分量恰是 $L$ 的有效零空间，因为连续延拓的 $L$ 消去 $\mathcal N_B=\mathcal N_p$，却不消去 $\mathcal H_L$ 中其他非零元素。
 
 **Riesz 映射（第 6 项）。** 第一部分定理 3.7 第 4 项说明，增广算子
 
-$
+$$
 A_+=A_\varphi+R_p,\qquad
 B_+=L^*L+R_\varphi
-$
+$$
 
 互为逆等距映射，分别是 $J_{\mathcal H'_L}$ 与 $J_{\mathcal H_L}$。由于对偶配对在式（21）的两组直和分解下具有分块对角结构，将 $A_+$ 限制在 $\mathcal H_A$，就得到
 
-$
+$$
 A_\varphi:\mathcal H_A\longrightarrow
 \mathcal H'_A=\mathcal H_{L,\varphi},
-$
+$$
 
 即 $\mathcal H_A$ 的 Riesz 映射。它的分解式 $A_\varphi=L_\varphi^{-1}L_\varphi^{-1*}$ 就是式（22）。
 
 **齐次部分（第 7 项）。** 由于 $|\varphi|_B=\|L\varphi\|_{L_2}$，齐次空间 $\dot{\mathcal H}_B$ 正是定义（17）的完备化。第一部分定理 3.6 的第 1 项指出，$P_\varphi^*$ 在 $\dot{\mathcal H}_B$ 与 $\mathcal H'_A=\mathcal H_{L,\varphi}$ 之间构成等距同构。此外，正交直和性质确保 $\mathcal H_L/\mathcal N_p$ 的商范数在 $f_0=P_\varphi^*f$ 处取得：
 
-$
+$$
 \min_{p\in\mathcal N_p}\|f+p\|_{\mathcal H_L}
 =\|f_0\|_{\mathcal H_L}
 =\|Lf\|_{L_2}.
-$
+$$
 
 由此可知 $\mathcal H_L/\mathcal N_p\simeq\mathcal H_{L,\varphi}\simeq\dot{\mathcal H}_B$ 等距。其与 $\mathcal H_A$ 的对偶关系以及 Riesz 映射 $\pi A$ 由定义 2.5 的第（ii）项给出；$\dot{\mathcal H}_B$、$\mathcal H_A$ 和 $\pi A$ 的构造均与 $\boldsymbol\varphi$ 的选取无关。
 
@@ -403,12 +403,12 @@ $$
 
 若两个范数在 $\mathcal S$ 上等价，则其完备化为同一拓扑空间。因此只需证明式（34）的双边界。上界来自对偶不等式（4）与 $\|Lf\|_{L_2}\le\|f\|_{\mathcal H_L}$：
 
-$
+$$
 \|f\|_{\widetilde{\mathcal H}_L}^2
 \le\left(1+\sum_{n=1}^{N_0}
 \|\widetilde\varphi_n\|_{\mathcal H'_L}^2\right)
 \|f\|_{\mathcal H_L}^2.
-$
+$$
 
 证明下界时，不能简单互换两套双正交系统，因为尚未建立范数等价性，就无法预先使用新对偶空间中的范数。应直接利用 $L$ 的结构。由第 1、2 项，$L:\mathcal H_L\to L_2$ 是有界满射，核为 $\mathcal N_p$，故诱导的商空间映射 $\mathcal H_L/\mathcal N_p\to L_2$ 是 Banach 空间间的连续双射。由有界逆定理，存在 $c_L$ 使
 
@@ -420,27 +420,27 @@ $$
 
 因为每个 $\widetilde\varphi_n$ 在 $\mathcal H_L$ 上连续，子空间
 
-$
+$$
 \mathcal H_{L,\widetilde\varphi}
 =\{f\in\mathcal H_L:
 \widetilde{\boldsymbol\varphi}(f)=0\}
-$
+$$
 
 是闭的；双正交性进一步确保它是 $\mathcal N_p$ 的拓扑补空间。在该补空间上，式（33）左侧的最小范数与元素自身的范数等价，所以存在 $c_L'$，使所有 $f_0\in\mathcal H_{L,\widetilde\varphi}$ 满足 $\|f_0\|_{\mathcal H_L}\le c_L'\|Lf_0\|_{L_2}$。
 
 将任意 $f$ 唯一分为 $f=f_0+\widetilde p$，其中
 
-$
+$$
 \widetilde p
 =\sum_{n=1}^{N_0}\widetilde p_n
 \langle\widetilde\varphi_n,f\rangle\in\mathcal N_p,
 \qquad
 f_0=f-\widetilde p\in\mathcal H_{L,\widetilde\varphi},
-$
+$$
 
 因 $Lf_0=Lf$，由三角不等式和 Cauchy–Schwarz 不等式，
 
-$
+$$
 \begin{aligned}
 \|f\|_{\mathcal H_L}
 &\le\|f_0\|_{\mathcal H_L}
@@ -450,7 +450,7 @@ $
 &\le\sqrt{(c_L')^2+C_{\widetilde p}^2}\,
 \|f\|_{\widetilde{\mathcal H}_L},
 \end{aligned}
-$
+$$
 
 其中 $C_{\widetilde p}=
 \left(\sum_{n=1}^{N_0}\|\widetilde p_n\|_{\mathcal H_L}^2\right)^{1/2}$。综合两个方向，存在正常数 $A_1,A_2$ 使
@@ -466,19 +466,19 @@ $A_2=(1+\sum_n\|\widetilde\varphi_n\|_{\mathcal H'_L}^2)^{1/2}$。
 
 **显式表示（第 5 项）。** 对任意 $f\in\mathcal H_L$，定义
 
-$
+$$
 w=Lf\in L_2,\qquad
 p=R_pR_\varphi f\in\mathcal N_p,\qquad
 f_0=P_\varphi^*f\in\mathcal H_{L,\varphi}.
-$
+$$
 
 由第一部分条件逆恒等式 $L_\varphi^{-1}L=P_\varphi^*$，得到 $f_0=L_\varphi^{-1}\{w\}$。再令 $f^*=Bf=L^*w\in L^*(L_2)=\mathcal H'_L$，结合式（23）中的 $L_\varphi^{-1}=A_\varphi L^*$，得到
 
-$
+$$
 A_\varphi\{f^*\}
 =A_\varphi L^*w
 =L_\varphi^{-1}\{w\}=f_0.
-$
+$$
 
 于是 $f=A_\varphi\{f^*\}+p=L_\varphi^{-1}\{w\}+p$，正是式（27）。由第 2 项直和分解及 $L,L^*$ 各自的单射性，三元组 $(w,f^*,p)$ 唯一。
 
@@ -516,10 +516,10 @@ $$
 
 先证充分性。若 $\nu\in\mathcal H_A$，则投影 $P_\varphi$ 在 $\mathcal H_A$ 上恒等，故
 
-$
+$$
 A_\varphi\{\nu\}
 =A\{\nu\}-R_pR_\varphi A\{\nu\}.
-$
+$$
 
 左侧由定理 3.1 第 5 项属于 $\mathcal H_{L,\varphi}$，右侧的第二项属于 $\mathcal N_p$，因此 $A\{\nu\}\in\mathcal H_{L,\varphi}\oplus\mathcal N_p=\mathcal H_L$。
 
@@ -643,20 +643,20 @@ $\mathcal N_\nu=\mathcal N_{\widetilde\nu}\oplus\mathcal N_{\widetilde\phi}$。
 
 选取引理 4.4 构造的、与测量匹配的双正交系统 $(\widetilde{\boldsymbol\varphi},\mathbf p)$，由定理 3.1 可将任意 $f\in\mathcal H_L$ 唯一拆分为 $f=\widetilde f+\widetilde p$，其中 $\widetilde f\in\mathcal H_{L,\widetilde\varphi}$，$\widetilde p=\sum_{n=1}^{N_0}b_np_n\in\mathcal N_p$。根据引理 4.4，
 
-$
+$$
 \nu=Q\widetilde\nu+P\widetilde\varphi,\qquad
 \widetilde\nu=\widetilde Q^\top\nu\in\mathcal H_A^{M-N_0},
 \qquad \widetilde\varphi=\widetilde P^\top\nu.
-$
+$$
 
 利用 $\widetilde\varphi(\widetilde f)=0$、$\widetilde\nu(p)=0$ 和双正交性 $\widetilde\varphi(\sum b_np_n)=b$，有
 
-$
+$$
 \nu(f)
 =(Q\widetilde\nu+P\widetilde\varphi)
 (\widetilde f+\widetilde p)
 =Q\widetilde\nu(\widetilde f)+Pb.
-$
+$$
 
 同时，$\|Lf\|_{L_2}=\|L\widetilde f\|_{L_2}$。因此式（42）可以重写为
 
@@ -759,20 +759,20 @@ $$
 
 若取 $M$ 个互异位置 $x_1,\ldots,x_M$ 上的测量 $\nu_m=\delta_{x_m}$，则 $\langle\nu_m,f\rangle=f(x_m)$，表示定理中的基函数成为
 
-$
+$$
 \psi_m=A\{\delta_{x_m}\}=h(\cdot,x_m),
 \qquad
 f_\lambda(x)=\sum_{m=1}^{M}a_mh(x,x_m).
-$
+$$
 
 这正是机器学习中的核估计形式。
 
 如果 $L$ 是线性时不变（linear shift-invariant，LSI）算子，那么相应 Green 算子与条件逆也具有卷积结构：
 
-$
+$$
 L^{-1}\{\varphi\}=\rho_L*\varphi,\qquad
 A=(L^*L)^{-1}:\varphi\mapsto\rho_{L^*L}*\varphi.
-$
+$$
 
 其中 $\rho_L=L^{-1}\{\delta\}$、$\rho_{L^*L}=(L^*L)^{-1}\{\delta\}$ 分别是 $L$ 和 $L^*L$ 的 Green 函数。LSI 算子在傅里叶域对角化，因此其条件逆的 Schwartz 核为
 
@@ -786,17 +786,17 @@ $$
 
 **导数算子的典型实例。** 对一阶微分算子 $D=d/dx$，频率响应为 $\widehat D(\omega)=i\omega$。相应的正规算子条件逆具有 Green 函数
 
-$
+$$
 \rho_{D^*D}(x)=-\frac12|x|
 =\mathcal F^{-1}\left\{\frac1{|\omega|^2}\right\}(x)
-$
+$$
 
 （这里逆傅里叶变换须按照广义函数和条件化的意义理解）。因此 $A_D\{\varphi\}(x)=-\frac12\int_\mathbb R|\tau|\varphi(x-\tau)\,d\tau$。对于零均值测试函数 $\widehat\varphi(0)=\int\varphi=0$，有
 
-$
+$$
 \langle A_D\varphi,\varphi\rangle
 =\int_\mathbb R\frac{|\widehat\varphi(\omega)|^2}{\omega^2}\,d\omega>0.
-$
+$$
 
 零均值条件消去了频率原点处的奇性。这一结构说明 $D$ 的条件正定逆与其常数零空间相适配，也解释了高阶微分算子的广义样条核。
 
@@ -878,9 +878,9 @@ $$
 
 因此，$\widetilde G$ 恰好是缩减基 $\widetilde\psi$ 的 Gram 矩阵，并且保证正定。对于 $f=\sum\widetilde a_m\widetilde\psi_m+\sum b_np_n$，
 
-$
+$$
 \|Lf\|_{L_2}^2=\widetilde a^\top\widetilde G\widetilde a,
-$
+$$
 
 所以正则项得到了完全精确的离散化。
 
@@ -988,12 +988,12 @@ $$
 
 当 $\lambda\to0$ 时，得广义插值解 $f_0\in\mathcal H_L$，它满足 $\nu(f_0)=y$；正交条件始终保留。其样条能量可以简化为
 
-$
+$$
 \|Lf_0\|_{L_2}^2
 =a(0)^\top Ga(0)
 =a(0)^\top(y-Pb(0))
 =a(0)^\top y.
-$
+$$
 
 另一极限 $\lambda\to\infty$ 时，$a(\infty)=0$，$b(\infty)=(P^\top P)^{-1}P^\top y$，即观测向量到 $\operatorname{range}(P)$ 的正交投影系数，和式（67）的第二个公式一致。
 
