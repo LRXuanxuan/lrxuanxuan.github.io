@@ -14,7 +14,7 @@ toc: true
 **作者：** Felix Nützel、Mischa Dombrowski、Luca Hagen、Bernhard Kainz  
 **机构：** 埃尔朗根—纽伦堡大学；帝国理工学院。  
 **版本：** arXiv:2610.21332v1（2026 年 10 月 15 日），17 页。  
-**进度：** 摘要、正文第 1–7 节、公式（1）–（8）、实验表 1–9、附录 A–C 的构造、命题及证明和图 1–5 的图注均已录入。参考文献完整书目信息尚待逐条校录；实验图像仅保留文字图注及原 PDF 链接，未将图像嵌入页面。仍待终校，**不标记为已验收全文**。
+**进度：** 摘要、正文第 1–7 节、公式（1）–（8）、实验表 1–9、附录 A–C 的构造、命题及证明和图 1–5 的图注均已录入。参考文献目录已按 PDF 原始英文书目信息补入（自动提取，仍待人工核对断行和链接）；实验图像仅保留文字图注及原 PDF 链接，未将图像嵌入页面。仍待终校，**不标记为已验收全文**。
 
 ## 摘要
 
@@ -284,6 +284,179 @@ MIMIC-CXR 上的流匹配训练为 10 个 epoch；CT-RATE 样本量较少，因�
 作者感谢埃尔朗根—纽伦堡大学国家高性能计算中心 NHR@FAU 在 NHR 项目 b180dc 下提供科研支持与高性能计算资源；NHR 由德国联邦和巴伐利亚州政府支持，其部分硬件由德国研究基金会 DFG 项目 440719683 资助。
 
 原文第 5.1 节提供了复现主要实验所需的设置；补充材料还提供代码、环境复现脚本和实验表格。适配器架构的细节见附录 A，主要论断的证明见附录 B。
+
+## 参考文献（保留原文英文书目）
+
+以下为原 PDF 的参考文献目录，保留英文作者、题名、会议/期刊及链接。PDF 的自动提取可能保留原版换行，正式引用时请核对原始 PDF。
+
+Alexander Alemi, Ben Poole, Ian Fischer, Joshua Dillon, Rif A. Saurous, and Kevin Murphy. Fixing
+a broken ELBO. In Jennifer Dy and Andreas Krause (eds.), Proceedings of the 35th International
+Conference on Machine Learning, volume 80 of Proceedings of Machine Learning Research,
+pp. 159–168. PMLR, 10–15 Jul 2018. URL https://proceedings.mlr.press/v80/
+alemi18a.html.
+Jens Behrmann, Will Grathwohl, Ricky T. Q. Chen, David Duvenaud, and Joern-Henrik Jacobsen.
+Invertible residual networks. In Kamalika Chaudhuri and Ruslan Salakhutdinov (eds.), Proceedings
+of the 36th International Conference on Machine Learning, volume 97 of Proceedings of Machine
+Learning Research, pp. 573–582. PMLR, 09–15 Jun 2019. URL https://proceedings.
+mlr.press/v97/behrmann19a.html.
+Black Forest Labs. Representation comparison. https://bfl.ai/research/
+representation-comparison, 2025. Accessed: 2026-09-15.
+Vanessa Bohm and Uro ¨ s Seljak. Probabilistic autoencoder. ˇ Transactions on Machine Learning
+Research, 2022. doi: 10.48550/ARXIV.2006.05479. URL https://openreview.net/
+forum?id=AEoYjvjKVA.
+Alican Bozkurt, Babak Esmaeili, Jean-Baptiste Tristan, Dana Brooks, Jennifer Dy, and Jan-Willem
+van de Meent. Rate-regularization and generalization in variational autoencoders. In Arindam
+Banerjee and Kenji Fukumizu (eds.), Proceedings of The 24th International Conference on Artifi￾cial Intelligence and Statistics, volume 130 of Proceedings of Machine Learning Research, pp.
+3880–3888. PMLR, 13–15 Apr 2021. URL https://proceedings.mlr.press/v130/
+bozkurt21a.html.
+Ricky T. Q. Chen, Jens Behrmann, David Kristjanson Duvenaud, and Jorn-Henrik Jacobsen. Residual ¨
+flows for invertible generative modeling. ArXiv, abs/1906.02735, 2019. URL https://api.
+semanticscholar.org/CorpusID:174801267.
+Noel C. F. Codella, Ying Jin, Shrey Jain, Yu Gu, Ho Hin Lee, Asma Ben Abacha, Alberto Santamaria￾Pang, Will Guyman, Naiteek Sangani, Sheng Zhang, Hoifung Poon, Stephanie Hyland, Shruthi
+Bannur, Javier Alvarez-Valle, Xue Li, John Garrett, Alan McMillan, Gaurav Rajguru, Madhu
+Maddi, Nilesh Vijayrania, Rehaan Bhimai, Nick Mecklenburg, Rupal Jain, Daniel Holstein, Naveen
+Gaur, Vijay Aski, Jenq-Neng Hwang, Thomas Lin, Ivan Tarapov, Matthew Lungren, and Mu Wei.
+Medimageinsight: An open-source embedding model for general domain medical imaging, 2024.
+URL https://arxiv.org/abs/2410.06542.
+Joseph Paul Cohen, Joseph D. Viviano, Paul Bertin, Paul Morrison, Parsa Torabian, Matteo Guarrera,
+Matthew P Lungren, Akshay Chaudhari, Rupert Brooks, Mohammad Hashir, and Hadrien Bertrand.
+TorchXRayVision: A library of chest X-ray datasets and models. In Medical Imaging with Deep
+Learning, 2022. URL https://github.com/mlmed/torchxrayvision.
+Corentin Dancette, Julien Khlaut, Antoine Saporta, Helene Philippe, Elodie Ferreres, Baptiste
+Callard, Theo Danielou, L ´ eo Alberge, L ´ eo Machado, Daniel Tordjman, et al. Curia: A multi-modal ´
+foundation model for radiology. arXiv preprint arXiv:2509.06830, 2025.
+Laurent Dinh, David Krueger, and Yoshua Bengio. Nice: Non-linear independent components
+estimation, 2015. URL https://arxiv.org/abs/1410.8516.
+Laurent Dinh, Jascha Sohl-Dickstein, and Samy Bengio. Density estimation using real NVP. In
+International Conference on Learning Representations, 2017. URL https://openreview.
+net/forum?id=HkpbnH9lx.
+Mischa Dombrowski, Weitong Zhang, Sarah Cechnicka, Hadrien Reynaud, and Bernhard Kainz.
+Image generation diversity issues and how to tame them. In Proceedings of the IEEE/CVF
+Conference on Computer Vision and Pattern Recognition (CVPR), pp. 3029–3039, June 2025.
+Mischa Dombrowski, Felix Nutzel, and Bernhard Kainz. The learnability gap in medical latent ¨
+diffusion, 2026. URL https://arxiv.org/abs/2605.17087.
+Conor Durkan, Artur Bekasov, Iain Murray, and George Papamakarios. Neural spline flows.
+In H. Wallach, H. Larochelle, A. Beygelzimer, F. d'Alche-Buc, E. Fox, and R. Gar- ´
+nett (eds.), Advances in Neural Information Processing Systems, volume 32. Curran Asso￾ciates, Inc., 2019. URL https://proceedings.neurips.cc/paper_files/paper/
+2019/file/7ac71d433f282034e088473244df8c02-Paper.pdf.
+Will Grathwohl, Ricky T. Q. Chen, Jesse Bettencourt, and David Duvenaud. Scalable reversible
+generative models with free-form continuous dynamics. In International Conference on Learning
+Representations, 2019. URL https://openreview.net/forum?id=rJxgknCcK7.
+Ibrahim Ethem Hamamci, Sezgin Er, Chenyu Wang, Furkan Almas, Ayse Gulnihan Simsek, Sevval Nil
+Esirgun, Irem Dogan, Omer Faruk Durugol, Benjamin Hou, Suprosanna Shit, et al. Generalist
+foundation models from a multimodal dataset for 3d computed tomography. Nature Biomedical
+Engineering, pp. 1–19, 2026.
+Martin Heusel, Hubert Ramsauer, Thomas Unterthiner, Bernhard Nessler, and Sepp Hochreiter.
+Gans trained by a two time-scale update rule converge to a local nash equilibrium, 2018. URL
+https://arxiv.org/abs/1706.08500.
+Gao Huang, Zhuang Liu, Laurens van der Maaten, and Kilian Q. Weinberger. Densely connected
+convolutional networks. In Proceedings of the IEEE Conference on Computer Vision and Pattern
+Recognition (CVPR), July 2017.
+Alistair E. W. Johnson, Tom J. Pollard, Seth J. Berkowitz, Nathan R. Greenbaum, Matthew P.
+Lungren, Catherine Y. Deng, Roger G. Mark, and Steven Horng. Mimic-cxr, a de-identified
+publicly available database of chest radiographs with free-text reports. Scientific Data, 6(1):317,
+2019. doi: 10.1038/s41597-019-0322-0.
+Diederik P. Kingma and Max Welling. Auto-encoding variational bayes. CoRR, abs/1312.6114, 2013.
+URL https://api.semanticscholar.org/CorpusID:216078090.
+Diederik P. Kingma, Tim Salimans, and Max Welling. Improved variational inference with inverse
+autoregressive flow. ArXiv, abs/1606.04934, 2016. URL https://api.semanticscholar.
+org/CorpusID:11514441.
+Durk P Kingma and Prafulla Dhariwal. Glow: Generative flow with invertible 1x1 convolu￾tions. In S. Bengio, H. Wallach, H. Larochelle, K. Grauman, N. Cesa-Bianchi, and R. Gar￾nett (eds.), Advances in Neural Information Processing Systems, volume 31. Curran Asso￾ciates, Inc., 2018. URL https://proceedings.neurips.cc/paper_files/paper/
+2018/file/d139db6a236200b21cc7f752979132d0-Paper.pdf.
+Simon Kornblith, Mohammad Norouzi, Honglak Lee, and Geoffrey Hinton. Similarity of neural
+network representations revisited. In Kamalika Chaudhuri and Ruslan Salakhutdinov (eds.),
+Proceedings of the 36th International Conference on Machine Learning, volume 97 of Proceedings
+of Machine Learning Research, pp. 3519–3529. PMLR, 09–15 Jun 2019. URL https://
+proceedings.mlr.press/v97/kornblith19a.html.
+Theodoros Kouzelis, Ioannis Kakogeorgiou, Spyros Gidaris, and Nikos Komodakis. EQ-VAE:
+Equivariance regularized latent space for improved generative image modeling. In Forty-second
+International Conference on Machine Learning, 2025. URL https://openreview.net/
+forum?id=UWhW5YYLo6.
+Yuheng Li, Yuan Gao, Haoyu Dong, Yuxiang Lai, Shansong Wang, Mojtaba Safari, James E. Baciak,
+and Xiaofeng Yang. Universal ct representations from anatomy to disease phenotype through
+agglomerative pretraining, 2026. URL https://arxiv.org/abs/2605.21906.
+Yaron Lipman, Ricky T. Q. Chen, Heli Ben-Hamu, Maximilian Nickel, and Matthew Le. Flow
+matching for generative modeling. In The Eleventh International Conference on Learning Repre￾sentations, 2023. URL https://openreview.net/forum?id=PqvMRDCJT9t.
+Xingchao Liu, Chengyue Gong, and qiang liu. Flow straight and fast: Learning to generate and transfer
+data with rectified flow. In The Eleventh International Conference on Learning Representations,
+2023. URL https://openreview.net/forum?id=XVjTT1nw5z.
+Miguel Monteiro, Fabio De Sousa Ribeiro, Nick Pawlowski, Daniel C. Castro, and Ben Glocker.
+Measuring axiomatic soundness of counterfactual image models. In The Eleventh International
+Conference on Learning Representations, 2023. URL https://openreview.net/forum?
+id=lZOUQQvwI3q.
+Maxime Oquab, Timothee Darcet, Theo Moutakanni, Huy V. Vo, Marc Szafraniec, Vasil Khalidov, ´
+Pierre Fernandez, Daniel Haziza, Francisco Massa, Alaaeldin El-Nouby, Russell Howes, Po-Yao
+Huang, Hu Xu, Vasu Sharma, Shang-Wen Li, Wojciech Galuba, Mike Rabbat, Mido Assran,
+Nicolas Ballas, Gabriel Synnaeve, Ishan Misra, Herve Jegou, Julien Mairal, Patrick Labatut,
+Armand Joulin, and Piotr Bojanowski. Dinov2: Learning robust visual features without supervision,
+2023.
+George Papamakarios, Theo Pavlakou, and Iain Murray. Masked autoregressive flow for density
+estimation. In I. Guyon, U. Von Luxburg, S. Bengio, H. Wallach, R. Fergus, S. Vishwanathan, and
+R. Garnett (eds.), Advances in Neural Information Processing Systems, volume 30. Curran Asso￾ciates, Inc., 2017. URL https://proceedings.neurips.cc/paper_files/paper/
+2017/file/6c1da886822c67822bcf3679d04369fa-Paper.pdf.
+Pranav Rajpurkar, Jeremy Irvin, Kaylie Zhu, Brandon Yang, Hershel Mehta, Tony Duan, Daisy
+Ding, Aarti Bagul, Curtis Langlotz, Katie Shpanskaya, Matthew P. Lungren, and Andrew Y. Ng.
+Chexnet: Radiologist-level pneumonia detection on chest x-rays with deep learning, 2017. URL
+https://arxiv.org/abs/1711.05225.
+Danilo Rezende and Shakir Mohamed. Variational inference with normalizing flows. In Francis Bach
+and David Blei (eds.), Proceedings of the 32nd International Conference on Machine Learning,
+volume 37 of Proceedings of Machine Learning Research, pp. 1530–1538, Lille, France, 07–09
+Jul 2015. PMLR. URL https://proceedings.mlr.press/v37/rezende15.html.
+Robin Rombach, Andreas Blattmann, Dominik Lorenz, Patrick Esser, and Bjorn Ommer. High- ¨
+resolution image synthesis with latent diffusion models. In Proceedings of the IEEE/CVF Confer￾ence on Computer Vision and Pattern Recognition (CVPR), pp. 10684–10695, June 2022.
+Pedro Sanchez and Sotirios A. Tsaftaris. Diffusion causal models for counterfactual estimation. In
+Bernhard Scholkopf, Caroline Uhler, and Kun Zhang (eds.), ¨ Proceedings of the First Conference
+on Causal Learning and Reasoning, volume 177 of Proceedings of Machine Learning Research,
+pp. 647–668. PMLR, 11–13 Apr 2022. URL https://proceedings.mlr.press/v177/
+sanchez22a.html.
+Andrew Sellergren, Sahar Kazemzadeh, Tiam Jaroensri, Atilla Kiraly, Madeleine Traverse, Timo
+Kohlberger, Shawn Xu, Fayaz Jamil, C´ıan Hughes, Charles Lau, Justin Chen, Fereshteh Mahvar,
+Liron Yatziv, Tiffany Chen, Bram Sterling, Stefanie Anna Baby, Susanna Maria Baby, Jeremy Lai,
+Samuel Schmidgall, Lu Yang, Kejia Chen, Per Bjornsson, Shashir Reddy, Ryan Brush, Kenneth
+Philbrick, Mercy Asiedu, Ines Mezerreg, Howard Hu, Howard Yang, Richa Tiwari, Sunny Jansen,
+Preeti Singh, Yun Liu, Shekoofeh Azizi, Aishwarya Kamath, Johan Ferret, Shreya Pathak, Nino
+Vieillard, Ramona Merhej, Sarah Perrin, Tatiana Matejovicova, Alexandre Rame, Morgane Riviere, ´
+Louis Rouillard, Thomas Mesnard, Geoffrey Cideron, Jean bastien Grill, Sabela Ramos, Edouard
+Yvinec, Michelle Casbon, Elena Buchatskaya, Jean-Baptiste Alayrac, Dmitry Lepikhin, Vlad
+Feinberg, Sebastian Borgeaud, Alek Andreev, Cassidy Hardin, Robert Dadashi, Leonard Hussenot, ´
+Armand Joulin, Olivier Bachem, Yossi Matias, Katherine Chou, Avinatan Hassidim, Kavi Goel,
+Clement Farabet, Joelle Barral, Tris Warkentin, Jonathon Shlens, David Fleet, Victor Cotruta,
+Omar Sanseviero, Gus Martins, Phoebe Kirk, Anand Rao, Shravya Shetty, David F. Steiner, Can
+Kirmizibayrak, Rory Pilgrim, Daniel Golden, and Lin Yang. Medgemma technical report, 2026.
+URL https://arxiv.org/abs/2507.05201.
+Jaskirat Singh, Xingjian Leng, Zongze Wu, Liang Zheng, Richard Zhang, Eli Shechtman, and Saining
+Xie. What matters for representation alignment: Global information or spatial structure? arXiv
+preprint arXiv:2512.10794, 2025.
+Ivan Skorokhodov, Sharath Girish, Benran Hu, Willi Menapace, Yanyu Li, Rameen Abdal, Sergey
+Tulyakov, and Aliaksandr Siarohin. Improving the diffusability of autoencoders. In Forty-second
+International Conference on Machine Learning, 2025. URL https://openreview.net/
+forum?id=2hEDcA7xy4.
+Ruigang Wang, Krishnamurthy Dj Dvijotham, and Ian Manchester. Monotone, bi-lipschitz, and
+polyak-Łojasiewicz networks. In Ruslan Salakhutdinov, Zico Kolter, Katherine Heller, Adrian
+Weller, Nuria Oliver, Jonathan Scarlett, and Felix Berkenkamp (eds.), Proceedings of the 41st
+International Conference on Machine Learning, volume 235 of Proceedings of Machine Learning
+Research, pp. 50379–50399. PMLR, 21–27 Jul 2024. URL https://proceedings.mlr.
+press/v235/wang24p.html.
+Zhisheng Xiao, Qing Yan, and Yali Amit. Generative latent flow. arXiv: Computer Vision and
+Pattern Recognition, 2019. URL https://api.semanticscholar.org/CorpusID:
+203702623.
+Wanghan Xu, Xiaoyu Yue, Zidong Wang, Yao Teng, Wenlong Zhang, Xihui Liu, Luping Zhou, Wanli
+Ouyang, and Lei Bai. Exploring representation-aligned latent space for better generation. arXiv
+preprint arXiv:2502.00359, 2025.
+Jingfeng Yao, Bin Yang, and Xinggang Wang. Reconstruction vs. generation: Taming optimization
+dilemma in latent diffusion models. 2025 IEEE/CVF Conference on Computer Vision and Pattern
+Recognition (CVPR), pp. 15703–15712, 2025. URL https://api.semanticscholar.
+org/CorpusID:275211938.
+Sihyun Yu, Sangkyung Kwak, Huiwon Jang, Jongheon Jeong, Jonathan Huang, Jinwoo Shin, and
+Saining Xie. Representation alignment for generation: Training diffusion transformers is easier
+than you think. In International Conference on Learning Representations, 2025.
+Richard Zhang, Phillip Isola, Alexei A Efros, Eli Shechtman, and Oliver Wang. The unreasonable
+effectiveness of deep features as a perceptual metric. In CVPR, 2018.
+Wentao Zhang, Yutong Zhang, Yuxin Zheng, and Wentao Mo. A general framework for activation
+function optimization based on mollification theory. Mathematics, 14(1), 2026. ISSN 2227-7390.
+doi: 10.3390/math14010072. URL https://www.mdpi.com/2227-7390/14/1/72.
+Boyang Zheng, Nanye Ma, Shengbang Tong, and Saining Xie. Diffusion transformers with represen￾tation autoencoders. In The Fourteenth International Conference on Learning Representations,
+2026. URL https://openreview.net/forum?id=0u1LigJaab.
 
 ## 附录 A. 适配器的构造
 
