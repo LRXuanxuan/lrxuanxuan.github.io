@@ -177,6 +177,21 @@ $$
 
 设计参数满足 $1\le L_s\le M-l_{\max}-1$、$L_y=L_s+l_{\max}$、$L_a=M-L_y$、$m_a=L_y$，并满足导频起始位置约束（13）。太阳与海面至少要在时延轴上间隔 $l_{\max}$ 个单元以避免相互干扰。将此导频网格依照式（1）与数据叠加，可实现资源开销为零的 ST，但数据有效 SNR 会略有下降。
 
+原文式（13）将 Sunscape 几何布局和整数约束集中写为
+
+$
+\begin{gathered}
+L_s,L_y,L_a\in\mathbb Z,\qquad
+1\le L_s\le M-l_{\max}-1,\\
+0\le m_s\le M-2,\qquad 0\le n_s\le N-1,\\
+L_y=L_s+l_{\max},\qquad 1\le L_y\le M-1,\\
+L_a=M-L_y,\qquad m_a=L_y,\qquad
+1\le L_a\le M-1.
+\end{gathered}\tag{13}
+$
+
+这里 $L_y$ 是包括太阳导频在内的“天空”区域长度，$L_a$ 是海面区域长度；上述约束保证天空与海面都位于 DD 网格之内，并为时延扩展留出保护间隔。
+
 **太阳导频。** 该结构是一列沿时延方向排列的孤立导频。由于 Zadoff–Chu（ZC）序列具有良好自相关性和恒包络，本文采用 ZC 序列构造：
 
 $$
