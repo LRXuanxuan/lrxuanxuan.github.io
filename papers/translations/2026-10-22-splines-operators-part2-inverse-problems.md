@@ -194,6 +194,202 @@ $$
 
 这个定理说明，尽管样条正则项在零空间中退化，仍可通过有限维零空间的规范化与稳定条件逆算子建立完备且可用于求解逆问题的母空间。
 
+
+### 定理 3.1 的证明
+
+先假设 $\boldsymbol\varphi\subset\mathcal S$，于是第一部分论文构造的增广算子对（20）适用。定理 3.1 的第 1–3、6、7 项是该部分已有结果在当前记号下的改写；第 4、5 项则需要补充证明。
+
+**内积与嵌入（第 1、3 项）。** 增广算子 $B_+=B+R_\varphi$ 在 $\mathcal S$ 上正定，其诱导范数为
+
+$
+|f|_{B_+}^{2}=\|Lf\|_{L_2}^{2}+|\boldsymbol\varphi(f)|_2^{2}.
+$
+
+增广对 $(A_+,B_+)$ 是相容的 Riesz 对。第一部分的定理 2.5 因而说明，$\mathcal H_L=(\mathcal S,|\cdot|_{B_+})$ 是 Hilbert–Gelfand 空间，得到 $\mathcal S\overset d\hookrightarrow\mathcal H_L\overset d\hookrightarrow\mathcal S'$ 及由完备化给出的空间定义。对范数平方极化，再用 $B=L^*L$ 把 $\langle Bf,g\rangle$ 写成 $\langle Lf,Lg\rangle_{L_2}$，即得内积公式（24）。
+
+**直和分解（第 2 项）。** 根据第一部分定理 3.7 第 3 项，
+
+$
+\mathcal H_L=\mathcal H'_A\oplus\mathcal N_p
+$
+
+为正交直和。其无限维部分满足边界条件 $\boldsymbol\varphi(f)=0$，因为 $\mathcal H'_A\subset\mathcal S'_\varphi$。另一方面，条件逆 $L_\varphi^{-1}$ 把 $L_2$ 等距映射到 $\mathcal H'_A$，因此
+
+$
+\mathcal H_{L,\varphi}=\mathcal H'_A
+=L_\varphi^{-1}(L_2),
+\qquad
+\|f\|_{\mathcal H_{L,\varphi}}=\|Lf\|_{L_2}.
+$
+
+有限维分量恰是 $L$ 的有效零空间，因为连续延拓的 $L$ 消去 $\mathcal N_B=\mathcal N_p$，却不消去 $\mathcal H_L$ 中其他非零元素。
+
+**Riesz 映射（第 6 项）。** 第一部分定理 3.7 第 4 项说明，增广算子
+
+$
+A_+=A_\varphi+R_p,\qquad
+B_+=L^*L+R_\varphi
+$
+
+互为逆等距映射，分别是 $J_{\mathcal H'_L}$ 与 $J_{\mathcal H_L}$。由于对偶配对在式（21）的两组直和分解下具有分块对角结构，将 $A_+$ 限制在 $\mathcal H_A$，就得到
+
+$
+A_\varphi:\mathcal H_A\longrightarrow
+\mathcal H'_A=\mathcal H_{L,\varphi},
+$
+
+即 $\mathcal H_A$ 的 Riesz 映射。它的分解式 $A_\varphi=L_\varphi^{-1}L_\varphi^{-1*}$ 就是式（22）。
+
+**齐次部分（第 7 项）。** 由于 $|\varphi|_B=\|L\varphi\|_{L_2}$，齐次空间 $\dot{\mathcal H}_B$ 正是定义（17）的完备化。第一部分定理 3.6 的第 1 项指出，$P_\varphi^*$ 在 $\dot{\mathcal H}_B$ 与 $\mathcal H'_A=\mathcal H_{L,\varphi}$ 之间构成等距同构。此外，正交直和性质确保 $\mathcal H_L/\mathcal N_p$ 的商范数在 $f_0=P_\varphi^*f$ 处取得：
+
+$
+\min_{p\in\mathcal N_p}\|f+p\|_{\mathcal H_L}
+=\|f_0\|_{\mathcal H_L}
+=\|Lf\|_{L_2}.
+$
+
+由此可知 $\mathcal H_L/\mathcal N_p\simeq\mathcal H_{L,\varphi}\simeq\dot{\mathcal H}_B$ 等距。其与 $\mathcal H_A$ 的对偶关系以及 Riesz 映射 $\pi A$ 由定义 2.5 的第（ii）项给出；$\dot{\mathcal H}_B$、$\mathcal H_A$ 和 $\pi A$ 的构造均与 $\boldsymbol\varphi$ 的选取无关。
+
+**范数等价性（第 4 项）。** 除原有双正交系统 $(\boldsymbol\varphi,\mathbf p)$ 外，再考虑 $(\widetilde{\boldsymbol\varphi},\widetilde{\mathbf p})$，其中 $\widetilde{\mathbf p}$ 是 $\mathcal N_p$ 的另一组基，$\widetilde\varphi_n\in\mathcal H'_L$，且 $\langle\widetilde\varphi_m,\widetilde p_n\rangle=\delta_{m,n}$。对应的新范数为
+
+$
+\|f\|_{\widetilde{\mathcal H}_L}
+=\left(\|Lf\|_{L_2}^2+
+\sum_{n=1}^{N_0}|\langle\widetilde\varphi_n,f\rangle|^2
+\right)^{1/2}.\tag{32}
+$
+
+若两个范数在 $\mathcal S$ 上等价，则其完备化为同一拓扑空间。因此只需证明式（34）的双边界。上界来自对偶不等式（4）与 $\|Lf\|_{L_2}\le\|f\|_{\mathcal H_L}$：
+
+$
+\|f\|_{\widetilde{\mathcal H}_L}^2
+\le\left(1+\sum_{n=1}^{N_0}
+\|\widetilde\varphi_n\|_{\mathcal H'_L}^2\right)
+\|f\|_{\mathcal H_L}^2.
+$
+
+证明下界时，不能简单互换两套双正交系统，因为尚未建立范数等价性，就无法预先使用新对偶空间中的范数。应直接利用 $L$ 的结构。由第 1、2 项，$L:\mathcal H_L\to L_2$ 是有界满射，核为 $\mathcal N_p$，故诱导的商空间映射 $\mathcal H_L/\mathcal N_p\to L_2$ 是 Banach 空间间的连续双射。由有界逆定理，存在 $c_L$ 使
+
+$
+\min_{p\in\mathcal N_p}\|f+p\|_{\mathcal H_L}
+\le c_L\|Lf\|_{L_2},
+\qquad f\in\mathcal H_L.\tag{33}
+$
+
+因为每个 $\widetilde\varphi_n$ 在 $\mathcal H_L$ 上连续，子空间
+
+$
+\mathcal H_{L,\widetilde\varphi}
+=\{f\in\mathcal H_L:
+\widetilde{\boldsymbol\varphi}(f)=0\}
+$
+
+是闭的；双正交性进一步确保它是 $\mathcal N_p$ 的拓扑补空间。在该补空间上，式（33）左侧的最小范数与元素自身的范数等价，所以存在 $c_L'$，使所有 $f_0\in\mathcal H_{L,\widetilde\varphi}$ 满足 $\|f_0\|_{\mathcal H_L}\le c_L'\|Lf_0\|_{L_2}$。
+
+将任意 $f$ 唯一分为 $f=f_0+\widetilde p$，其中
+
+$
+\widetilde p
+=\sum_{n=1}^{N_0}\widetilde p_n
+\langle\widetilde\varphi_n,f\rangle\in\mathcal N_p,
+\qquad
+f_0=f-\widetilde p\in\mathcal H_{L,\widetilde\varphi},
+$
+
+因 $Lf_0=Lf$，由三角不等式和 Cauchy–Schwarz 不等式，
+
+$
+\begin{aligned}
+\|f\|_{\mathcal H_L}
+&\le\|f_0\|_{\mathcal H_L}
++\|\widetilde p\|_{\mathcal H_L}\\
+&\le c_L'\|Lf\|_{L_2}
++C_{\widetilde p}|\widetilde{\boldsymbol\varphi}(f)|_2\\
+&\le\sqrt{(c_L')^2+C_{\widetilde p}^2}\,
+\|f\|_{\widetilde{\mathcal H}_L},
+\end{aligned}
+$
+
+其中 $C_{\widetilde p}=
+\left(\sum_{n=1}^{N_0}\|\widetilde p_n\|_{\mathcal H_L}^2\right)^{1/2}$。综合两个方向，存在正常数 $A_1,A_2$ 使
+
+$
+A_1\|f\|_{\mathcal H_L}
+\le\|f\|_{\widetilde{\mathcal H}_L}
+\le A_2\|f\|_{\mathcal H_L}.\tag{34}
+$
+
+具体可取 $A_1=((c_L')^2+C_{\widetilde p}^2)^{-1/2}$，
+$A_2=(1+\sum_n\|\widetilde\varphi_n\|_{\mathcal H'_L}^2)^{1/2}$。
+
+**显式表示（第 5 项）。** 对任意 $f\in\mathcal H_L$，定义
+
+$
+w=Lf\in L_2,\qquad
+p=R_pR_\varphi f\in\mathcal N_p,\qquad
+f_0=P_\varphi^*f\in\mathcal H_{L,\varphi}.
+$
+
+由第一部分条件逆恒等式 $L_\varphi^{-1}L=P_\varphi^*$，得到 $f_0=L_\varphi^{-1}\{w\}$。再令 $f^*=Bf=L^*w\in L^*(L_2)=\mathcal H'_L$，结合式（23）中的 $L_\varphi^{-1}=A_\varphi L^*$，得到
+
+$
+A_\varphi\{f^*\}
+=A_\varphi L^*w
+=L_\varphi^{-1}\{w\}=f_0.
+$
+
+于是 $f=A_\varphi\{f^*\}+p=L_\varphi^{-1}\{w\}+p$，正是式（27）。由第 2 项直和分解及 $L,L^*$ 各自的单射性，三元组 $(w,f^*,p)$ 唯一。
+
+**非普适双正交系统。** 对一般的 $(\widetilde{\mathbf p},\widetilde{\boldsymbol\varphi})$，只要求 $\widetilde{\boldsymbol\varphi}\subset\mathcal H'_L$。母空间及其拓扑已通过普适系统构造，第 4 项又证明由新泛函诱导的范数等价，因此全部结论仍然成立。唯一依赖具体选择的是第 2 项的直和分解：有限维分量 $\widetilde p$ 可能不同于原先的 $p$，但 $w=Lf$ 对所有分解都相同。
+
+### 命题 3.2：条件逆算子的值域
+
+前述母空间表示公式使用了条件化基。下面给出一个与基选择无关的结果。
+
+**命题 3.2。** 设 $L$ 为 $p$-容许算子，正规算子 $B=L^*L$ 的某个条件逆 $A$ 可连续延拓为 $A:\mathcal H'_L\to\mathcal S'$，并满足下述一致性条件：凡 $\varphi\in\mathcal S$ 且 $A\{\varphi\}\in\mathcal H_L$，
+
+$
+(L^*L)\{A\varphi\}=\varphi.\tag{35}
+$
+
+其中，$L^*L:\mathcal H_L\to\mathcal H_A$ 按定理 3.1 第 6 项理解。则
+
+$
+A\{\nu\}\in\mathcal H_L
+\iff \nu\in\mathcal H_A=L^*(L_2)
+\iff p(\nu)=0.\tag{36}
+$
+
+从而每个 $f\in\mathcal H_L$ 都有唯一分解
+
+$
+f=A\{f^*\}+p,\qquad
+f^*=(L^*L)\{f\}\in\mathcal H_A,\qquad
+p\in\mathcal N_p.\tag{37}
+$
+
+与定理 3.1 第 5 项相比，这一形式不涉及任何双正交系统。
+
+**证明。** 固定普适双正交系统 $(\boldsymbol\varphi,\mathbf p)$，使 $\mathcal H'_L=\mathcal H_A\oplus\mathcal N_\varphi$，其中 $\mathcal N_\varphi\subset\mathcal S$。另外，$\mathcal H_A=\{\nu\in\mathcal H'_L:p(\nu)=0\}$，这已经给出式（36）的第二个等价关系。
+
+先证充分性。若 $\nu\in\mathcal H_A$，则投影 $P_\varphi$ 在 $\mathcal H_A$ 上恒等，故
+
+$
+A_\varphi\{\nu\}
+=A\{\nu\}-R_pR_\varphi A\{\nu\}.
+$
+
+左侧由定理 3.1 第 5 项属于 $\mathcal H_{L,\varphi}$，右侧的第二项属于 $\mathcal N_p$，因此 $A\{\nu\}\in\mathcal H_{L,\varphi}\oplus\mathcal N_p=\mathcal H_L$。
+
+再证必要性。取任意非零 $\phi\in\mathcal N_\varphi$，反设 $A\{\phi\}\in\mathcal H_L$。一致性条件（35）给出 $\phi=(L^*L)\{A\phi\}$，而定理 3.1 第 5 项保证右侧属于 $\mathcal H_A$。这意味着 $\phi\in\mathcal H_A\cap\mathcal N_\varphi=\{0\}$，矛盾。对一般 $\nu\in\mathcal H'_L$，唯一写成 $\nu=\psi+\phi$，其中 $\psi\in\mathcal H_A$，$\phi\in\mathcal N_\varphi$。已经证明 $A\{\psi\}\in\mathcal H_L$；若再有 $A\{\nu\}\in\mathcal H_L$，则 $A\{\phi\}\in\mathcal H_L$，只可能 $\phi=0$，故 $\nu\in\mathcal H_A$。
+
+最后证明分解及唯一性。由定理 3.1 第 5 项，$f=A_\varphi\{f^*\}+q$，其中 $q\in\mathcal N_p$，$f^*=(L^*L)\{f\}$。而充分性的证明说明 $A_\varphi\{f^*\}=A\{f^*\}-p'$，$p'\in\mathcal N_p$，于是 $f=A\{f^*\}+(q-p')$，即式（37）。若存在两组表示 $A\{f_1^*\}+p_1=A\{f_2^*\}+p_2$，$f_1^*,f_2^*\in\mathcal H_A$，则 $A\{f_1^*-f_2^*\}\in\mathcal N_p$。两边作用 $L^*L$ 得 $f_1^*=f_2^*$，进而 $p_1=p_2$，故分解唯一。
+
+**备注 3.3。** 对 $\varphi\in\mathcal S_p$，一致性条件（35）根据第一部分定理 3.6 第 2 项自动成立；Green 型条件逆也满足该条件。尤其是 $L$ 平移不变时，第 4.2 节的规范傅里叶域逆满足更强的恒等式 $(L^*L)A=\mathrm{Id}$，从而保证（35）。
+
+**备注 3.4（逆算子恒等式的两种解释）。** 条件逆 $A$ 对 $B=L^*L$ 的逆性质有两种不同表述。其一是 $BA=\mathrm{Id}$ 在 $\mathcal S_p$ 上成立，此时 $B:\mathcal H_L\to\mathcal H_A$ 按规范 Hilbert 空间延拓理解，形式良定，所有条件逆都满足。其二是 Green 函数意义上的 $BA\{\varphi\}=\varphi$ 对全部 $\varphi\in\mathcal S$ 成立；由于一般 $A(\mathcal S)\not\subset\mathcal H_L$，必须解释 $B$ 在更大值域上的意义。规范做法是利用 $B$ 的对称性，通过转置延拓定义 $\langle\widetilde Bu,\psi\rangle=\langle u,B\psi\rangle$，条件是右侧对全部 $\psi\in\mathcal S$ 有意义。该延拓不依赖任意选择，并在 $\mathcal H_L$ 上与 Hilbert 延拓相容。
+
+
 ## 4. 母空间上的线性逆问题（主要结果）
 
 ### 4.1 广义变分样条
