@@ -14,7 +14,7 @@ toc: true
 **作者：** Yiliang Sang、Ke Ma、Lebin Yao、Pengyu Wang、Zhaocheng Wang、Zhu Han、Sheng Chen。  
 **机构：** 清华大学；休斯敦大学；南安普顿大学。  
 **来源：** 上传 PDF TW-Sep-25-2603.pdf，共 16 页。  
-**当前范围：** 已录入摘要、I–VI 节正文、公式（1）–（32）的主体内容、表 I–XI、图 1–9 说明与附录推论 1 证明；完整参考文献及部分原文细节尚待逐页终校，**暂不标记为已验收全文**。
+**当前范围：** 已录入摘要、I–VI 节正文、公式（1）–（32）的主体内容、表 I–XI、图 1–9 说明与附录推论 1 证明；64 条英文参考文献已补录，部分原文细节尚待逐页终校，**暂不标记为已验收全文**。
 
 ## 摘要
 
@@ -613,3 +613,136 @@ $
 因此，$\Delta_{\min}$ 是该区间上的严格凸函数。结合两个端点的值都为零，得到内部函数值非正，故式（30）成立，推论 1 得证。
 
 > **终校状态：** 已补入式（21）–（27）、（29）–（32）、表 VIII–XI、图 5–9 说明及附录证明。完整参考文献书目与逐页逐式核对仍未完成；不标记为已验收全文。
+
+
+
+## 参考文献（原文英文书目）
+
+[1] E. G. Larsson, O. Edfors, F. Tufvesson, and T. L. Marzetta, “Massive MIMO for next generation wireless systems,” *IEEE Commun. Mag.*, vol. 52, no. 2, pp. 186–195, Feb. 2014.
+
+[2] 5G PPP Architecture Working Group, “View on 5G architecture (Version 3.0),” 5G PPP Architecture Working Group, White Paper, Jun. 2019.
+
+[3] J. Yuan, H. Q. Ngo, and M. Matthaiou, “Machine learning-based channel prediction in massive MIMO with channel aging,” *IEEE Trans. Wireless Commun.*, vol. 19, no. 5, pp. 2960–2973, May 2020.
+
+[4] K. T. Truong and R. W. Heath, “Effects of channel aging in massive MIMO systems,” *J. Commun. Netw.*, vol. 15, no. 4, pp. 338–351, Aug. 2013.
+
+[5] X. Yu, D. Li, Z. Wang, and S. Sun, “An integrated new deep learning framework for reliable CSI acquisition in connected and autonomous vehicles,” *IEEE Netw.*, vol. 37, no. 4, pp. 216–222, Jul./Aug. 2023.
+
+[6] H. Kim, S. Kim, H. Lee, C. Jang, Y. Choi, and J. Choi, “Massive MIMO channel prediction: Kalman filtering vs. machine learning,” *IEEE Trans. Commun.*, vol. 69, no. 1, pp. 518–528, Jan. 2021.
+
+[7] C. Wu et al., “Channel prediction in high-mobility massive MIMO: From spatio-temporal autoregression to deep learning,” *IEEE J. Sel. Areas Commun.*, vol. 39, no. 7, pp. 1915–1930, Jul. 2021.
+
+[8] J. Vanderpypen and L. Schumacher, “MIMO channel prediction using ESPRIT based techniques,” in *Proc. PIMRC* (Athens, Greece), Sep. 2007, pp. 1–5.
+
+[9] H. Yin, H. Wang, Y. Liu, and D. Gesbert, “Addressing the curse of mobility in massive MIMO with Prony-based angular-delay domain channel predictions,” *IEEE J. Sel. Areas Commun.*, vol. 38, no. 12, pp. 2903–2917, Dec. 2020.
+
+[10] W. Jiang and H. D. Schotten, “Neural network-based fading channel prediction: A comprehensive overview,” *IEEE Access*, vol. 7, pp. 118112–118124, Sep. 2019.
+
+[11] W. Jiang and H. D. Schotten, “Deep learning for fading channel prediction,” *IEEE Open J. Commun. Soc.*, vol. 1, pp. 320–332, 2020.
+
+[12] H. Jiang, M. Cui, D. W. K. Ng, and L. Dai, “Accurate channel prediction based on transformer: Making mobility negligible,” *IEEE J. Sel. Areas Commun.*, vol. 40, no. 9, pp. 2717–2732, Sep. 2022.
+
+[13] S. Zhang, S. Zhang, Y. Mao, L. K. Yeung, B. Clerckx, and T. Q. S. Quek, “Transformer-based channel prediction for rate-splitting multiple access-enabled vehicle-to-everything communication,” *IEEE Trans. Wireless Commun.*, vol. 23, no. 10, pp. 12717–12730, Oct. 2024.
+
+[14] Y. Jin, Y. Wu, Y. Gao, S. Zhang, S. Xu, and C.-X. Wang, “LinFormer: A linear-based lightweight transformer architecture for time-aware MIMO channel prediction,” *IEEE Trans. Wireless Commun.*, vol. 24, no. 9, pp. 7177–7190, Sep. 2025.
+
+[15] O. Stenhammar, G. Fodor, and C. Fischione, “A comparison of neural networks for wireless channel prediction,” *IEEE Wireless Commun.*, vol. 31, no. 3, pp. 235–241, Jun. 2024.
+
+[16] Z. Xiao, Z. Zhang, C. Huang, X. Chen, C. Zhong, and M. Debbah, “C-GRBFnet: A physics-inspired generative deep neural network for channel representation and prediction,” *IEEE J. Sel. Areas Commun.*, vol. 40, no. 8, pp. 2282–2299, Aug. 2022.
+
+[17] Z. Chen, Z. Zhang, Z. Yang, C. Huang, and M. Debbah, “Channel deduction: A new learning framework to acquire channel from outdated samples and coarse estimate,” *IEEE J. Sel. Areas Commun.*, vol. 43, no. 3, pp. 944–958, Mar. 2025.
+
+[18] H. Zhou et al., “Informer: Beyond efficient transformer for long sequence time-series forecasting,” in *Proc. AAAI* (Vancouver, BC, Canada), Feb. 2021, pp. 11106–11115.
+
+[19] A. Zeng et al., “Are transformers effective for time series forecasting?” in *Proc. AAAI* (Washington, DC, USA), Feb. 2023, pp. 11121–11128.
+
+[20] Z. Chen, F. Gu, and R. Jiang, “Channel estimation method based on transformer in high dynamic environment,” in *Proc. WCSP* (Nanjing, China), Oct. 2020, pp. 817–822.
+
+[21] S. Singh, A. Trivedi, and D. Saxena, “Channel estimation for intelligent reflecting surface aided communication via graph transformer,” *IEEE Trans. Green Commun. Netw.*, vol. 8, no. 2, pp. 756–766, Jun. 2024.
+
+[22] H. Ju, S. Jeong, B. Lee, and B. Shim, “Transformer-based predictive channel estimation for mmWave massive MIMO systems,” in *Proc. VTC-Fall* (Washington, DC, USA), Oct. 2024, pp. 1–5.
+
+[23] J. Guo, G. Liu, Q. Wu, and P. Fan, “Parallel attention-based transformer for channel estimation in RIS-aided 6G wireless communications,” *IEEE Trans. Veh. Technol.*, vol. 73, no. 11, pp. 15927–15940, Nov. 2024.
+
+[24] Y. Cui et al., “Sensing-assisted high reliable communication: A transformer-based beamforming approach,” *IEEE J. Select. Topics Signal Process.*, vol. 18, no. 5, pp. 782–795, May 2024.
+
+[25] Y. Zhang, S. Li, D. Li, J. Zhu, and Q. Guan, “Transformer-based predictive beamforming for integrated sensing and communication in vehicular networks,” *IEEE Internet Things J.*, vol. 11, no. 11, pp. 20690–20705, Jun. 2024.
+
+[26] S. Zhang, S. Zhang, W. Yuan, and T. Q. S. Quek, “Transformer-empowered predictive beamforming for rate-splitting multiple access in non-terrestrial networks,” *IEEE Trans. Wireless Commun.*, vol. 23, no. 12, pp. 19776–19788, Dec. 2024.
+
+[27] J. Zhang et al., “Deep learning-empowered secure predictive beamforming design for integrated sensing and communications systems,” *IEEE Trans. Wireless Commun.*, vol. 24, no. 10, pp. 8565–8580, Oct. 2025.
+
+[28] Z. Xiao, Z. Zhang, Z. Chen, Z. Yang, and R. Jin, “Mobile MIMO channel prediction with ODE-RNN: A physics-inspired adaptive approach,” in *Proc. PIMRC* (Kyoto, Japan), Sep. 2022, pp. 1301–1307.
+
+[29] K. Ma, F. Zhang, W. Tian, and Z. Wang, “Continuous-time mmWave beam prediction with ODE-LSTM learning architecture,” *IEEE Wireless Commun. Lett.*, vol. 12, no. 1, pp. 187–191, Jan. 2023.
+
+[30] M. Cui, H. Jiang, Y. Chen, Y. Du, and L. Dai, “Continuous-time channel prediction based on tensor neural ordinary differential equation,” *China Commun.*, vol. 21, no. 1, pp. 163–174, Jan. 2024.
+
+[31] Z. Xiao, Z. Zhang, Z. Chen, Z. Yang, C. Huang, and X. Chen, “From data-driven learning to physics-inspired inferring: A novel mobile MIMO channel prediction scheme based on neural ODE,” *IEEE Trans. Wireless Commun.*, vol. 23, no. 7, pp. 7186–7199, Jul. 2024.
+
+[32] Z. Xiao, Y. Huang, Y. Xu, T. Jiao, and D. He, “ODE-Former for mobile channel prediction: A novel learning structure leveraging the physics continuity,” *IEEE Wireless Commun. Lett.*, vol. 14, no. 7, pp. 2184–2188, Jul. 2025.
+
+[33] Y. Sang, K. Ma, Z. Wang, and S. Chen, “Dual-band super-resolution channel prediction in high-mobility MIMO systems,” *IEEE Trans. Commun.*, vol. 73, no. 6, pp. 4409–4424, Jun. 2025.
+
+[34] Y. Nie et al., “A time series is worth 64 words: Long-term forecasting with transformers,” in *Proc. ICLR* (Kigali, Rwanda), May 2023.
+
+[35] “Continuous-time transformer for channel prediction,” implementation in the public domain, accessed 2025. https://github.com/sangyl23/Continuous-Time-Transformer.
+
+[36] *Study on channel model for frequencies from 0.5 to 100 GHz* (Release 17), 3GPP TR 38.901, 2022, version 17.0.0.
+
+[37] G. Liu, Z. Hu, L. Wang, H. Zhang, J. Xue, and M. Matthaiou, “A hypernetwork based framework for non-stationary channel prediction,” *IEEE Trans. Veh. Technol.*, vol. 73, no. 6, pp. 8338–8351, Jun. 2024.
+
+[38] L. Wang, G. Liu, J. Xue, and K.-K. Wong, “Channel prediction using ordinary differential equations for MIMO systems,” *IEEE Trans. Veh. Technol.*, vol. 72, no. 2, pp. 2111–2119, Feb. 2023.
+
+[39] V. Lesnikov, T. Naumovich, and A. Chastikov, “Dealiasing technique for processing of sub-Nyquist sampled bandpass analytic signals,” in *Proc. SIBCON* (Tomsk, Russia), May 2021, pp. 1–6.
+
+[40] *Radio resource control (RRC) protocol specification* (Release 15), 3GPP TS 38.331, 2019, version 15.6.0.
+
+[41] T. J. Rivlin, *Chebyshev Polynomials*. Mineola, NY: Courier Dover, 2020.
+
+[42] P. J. Davis, *Interpolation and Approximation*. New York, NY: Blaisdell, 1963.
+
+[43] E. W. Cheney and W. A. Light, *A Course in Approximation Theory*. Providence, RI: American Mathematical Society, 2009.
+
+[44] A. M. Dizqah, B. Lenzo, A. Sorniotti, P. Gruber, S. Fallah, and J. De Smet, “A fast and parametric torque distribution strategy for four-wheel-drive energy-efficient electric vehicles,” *IEEE Trans. Ind. Electron.*, vol. 63, no. 7, pp. 4367–4376, Jul. 2016.
+
+[45] R. Liu, X. Zhu, L. Liu, and B. Wu, “Personalized and common acceleration distribution characteristic of human driver,” in *Proc. ITSC* (Maui, HI, USA), Nov. 2018, pp. 1820–1825.
+
+[46] T. S. Rappaport, *Wireless Communications: Principles and Practice*, 2nd ed. Upper Saddle River, NJ: Prentice Hall, 2002.
+
+[47] X. Ma and Z. Gao, “Data-driven deep learning to design pilot and channel estimator for massive MIMO,” *IEEE Trans. Veh. Technol.*, vol. 69, no. 5, pp. 5677–5682, May 2020.
+
+[48] M. B. Mashhadi and D. Gündüz, “Pruning the pilots: Deep learning-based pilot design and channel estimation for MIMO-OFDM systems,” *IEEE Trans. Wireless Commun.*, vol. 20, no. 10, pp. 6315–6328, Oct. 2021.
+
+[49] R. T. Q. Chen et al., “Neural ordinary differential equations,” in *Proc. NeurIPS* (Montréal, QC, Canada), Dec. 2018, pp. 6572–6583.
+
+[50] Y. Rubanova, R. T. Q. Chen, and D. K. Duvenaud, “Latent ODEs for irregularly-sampled time series,” in *Proc. NeurIPS* (Vancouver, BC, Canada), Dec. 2019, pp. 5320–5330.
+
+[51] J. Morrill et al., “Neural rough differential equations for long time series,” in *Proc. ICML* (Vienna, Austria), Jul. 2021, pp. 7829–7838.
+
+[52] Y. Chen et al., “ContiFormer: Continuous-time transformer for irregular time series modeling,” in *Proc. NeurIPS* (New Orleans, LA, USA), Dec. 2023, pp. 47143–47175.
+
+[53] W. H. Press et al., *Numerical Recipes*. New York, NY: Cambridge University Press, 1986.
+
+[54] Y. Xiong et al., “Nyströmformer: A Nyström-based algorithm for approximating self-attention,” in *Proc. AAAI* (Vancouver, Canada), Feb. 2021, pp. 14138–14148.
+
+[55] K. Choromanski et al., “Rethinking attention with performers,” in *Proc. ICLR*, May 2021.
+
+[56] M. Raghu et al., “On the expressive power of deep neural networks,” in *Proc. ICML* (Sydney, Australia), Aug. 2017, pp. 2847–2854.
+
+[57] N. Rahaman et al., “On the spectral bias of neural networks,” in *Proc. ICML* (Long Beach, CA, USA), Jun. 2019, pp. 5301–5310.
+
+[58] B. Mildenhall, P. P. Srinivasan, M. Tancik, J. T. Barron, R. Ramamoorthi, and R. Ng, “NeRF: Representing scenes as neural radiance fields for view synthesis,” in *Proc. ECCV* (Glasgow, UK), Aug. 2020, pp. 405–421.
+
+[59] M. Tancik et al., “Fourier features let networks learn high frequency functions in low dimensional domains,” in *Proc. NeurIPS* (Vancouver, Canada), Dec. 2020, pp. 7537–7547.
+
+[60] P. Wang, K. Ma, Y. Bai, C. Sun, and Z. Wang, “Deep learning assisted mmWave beam prediction with flexible network architecture,” *IEEE Trans. Wireless Commun.*, vol. 24, no. 11, pp. 9435–9448, Nov. 2025.
+
+[61] A. N. Uwaechia and N. M. Mahyuddin, “A review on sparse channel estimation in OFDM system using compressed sensing,” *IETE Tech. Rev.*, vol. 34, no. 5, pp. 514–531, 2017.
+
+[62] H. Kang, Q. Hu, H. Chen, Q. Huang, Q. Zhang, and M. Cheng, “Cross-shaped separated spatial-temporal UNet transformer for accurate channel prediction,” in *Proc. IEEE INFOCOM* (Vancouver, Canada), May 2024, pp. 2079–2088.
+
+[63] S. Fan, H. Li, X. Liang, Z. Liu, X. Gu, and L. Zhang, “E2ENet: An end-to-end channel prediction neural network based on uplink pilot for FDD systems,” *IEEE Wireless Commun. Lett.*, vol. 13, no. 5, pp. 1285–1289, May 2024.
+
+[64] A. Alkhateeb, “DeepMIMO: A generic deep learning dataset for millimeter wave and massive MIMO applications,” in *Proc. ITA* (San Diego, CA, USA), Feb. 2019, pp. 1–8.
+
