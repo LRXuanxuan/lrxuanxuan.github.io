@@ -536,6 +536,22 @@ $
 
 ### 4.1 广义变分样条
 
+**Hilbert 空间最小范数拟合及 Lagrange 对偶（原文式（38）、（39））。** 给定 $z\in\mathbb R^M$、Hilbert 空间 $\mathcal H$ 和连续线性泛函 $\nu_1,\ldots,\nu_M\in\mathcal H'$，原文考虑下列原始—对偶问题：
+
+$
+\min_{f\in\mathcal H}\frac12\|f\|_{\mathcal H}^2,
+\quad\text{使得}\quad
+\langle\nu_m,f\rangle=z_m,\quad m=1,\ldots,M.\tag{38}
+$
+
+$
+\max_{\alpha\in\mathbb R^M}
+\left\{\alpha^\top z-\frac12
+\left\|\sum_{m=1}^{M}\alpha_m\nu_m\right\|_{\mathcal H'}^2\right\}.\tag{39}
+$
+
+若测量泛函线性独立，则两个问题均有唯一解。由 Riesz 映射，这些解之间的联系是式（40），从而将无限维等式约束问题转化为有限维无约束凹二次优化。具体证明见原文附录 A。
+
 **抽象表示定理（定理 4.1）。** 在适当 Hilbert 空间中，对有限个独立连续线性测量泛函，带范数正则项的凸数据拟合解可通过这些泛函的 Riesz 表示元有限展开。因此，原本无限维的最小化问题可以精确转换为有限维的优化问题。其基本桥梁是 Riesz 映射：
 
 $$
@@ -545,6 +561,17 @@ f_0=\sum_{m=1}^{M}a_m\nu_m^*.\tag{40}
 $$
 
 **定义 4.2（与 $L$ 相容的测量）。** 令 $\mathcal H_L$ 为 $p$-容许算子 $L$ 的母空间。若 $\nu=(\nu_1,\ldots,\nu_M):\mathcal H_L\to\mathbb R^M$ 满足：各 $\nu_m$ 线性独立且连续；测量零空间基得到的矩阵 $P=\nu(p)\in\mathbb R^{M\times N_0}$ 具有满列秩 $N_0$；则称 $\nu$ 与 $L$ 相容。秩条件意味着即使仅在 $\mathcal N_p$ 内进行最小二乘拟合，也存在唯一的最优零空间系数，正规方程中的 $P^\top P$ 可逆。
+
+零空间内最小二乘拟合的原文式（41）明确给出：
+
+$
+\min_{p\in\mathcal N_p}
+\sum_{m=1}^{M}|y_m-\langle\nu_m,p\rangle|^2
+=\min_{b\in\mathbb R^{N_0}}\|y-Pb\|_2^2.\tag{41}
+$
+
+由于 $P$ 满列秩，其正规矩阵 $P^\top P$ 可逆，故唯一的最优零空间系数为
+$b=(P^\top P)^{-1}P^\top y$。这一结论也是定义 4.2 的第二项条件为何必不可少的具体解释。
 
 **定理 4.3（广义变分样条的表示定理）。** 设 $L$ 为 $p$-容许算子、$\nu$ 为与 $L$ 相容的 $M$ 维线性测量算子，且 $M>N_0$。设数据保真项 $E:\mathbb R^M\times\mathbb R^M\to\mathbb R_{\ge0}\cup\{+\infty\}$ 关于第二变量下半连续、强制且凸。对固定数据 $y\in\mathbb R^M$ 及正则化参数 $\lambda$，考虑
 
@@ -590,6 +617,24 @@ $$
 $$
 
 其中，$\widetilde\nu=\widetilde Q^\top\nu$ 消去零空间方向，即 $\widetilde\nu(p)=0$；$\widetilde\phi=\widetilde P^\top\nu$ 则与零空间基双正交，即 $\widetilde\phi(p)=I_{N_0}$。这使测量空间分解为湮灭零空间的分量与其双正交补空间。
+
+原文还分别把上述两组新泛函明确编号为
+
+$
+\widetilde\nu=(\widetilde\nu_1,\ldots,\widetilde\nu_{M-N_0})
+=\widetilde Q^\top\nu
+\in(\mathcal N_\nu\cap\mathcal H_A)^{M-N_0},\tag{47}
+$
+
+$
+\widetilde\phi=(\widetilde\phi_1,\ldots,\widetilde\phi_{N_0})
+=\widetilde P^\top\nu
+\in(\mathcal N_\nu)^{N_0}.\tag{48}
+$
+
+其中 $\widetilde\nu(p)=0$（湮灭性），而
+$\widetilde\phi(p)=\widetilde P^\top P=I_{N_0}$（双正交性）。由此得到测量空间的直接和：
+$\mathcal N_\nu=\mathcal N_{\widetilde\nu}\oplus\mathcal N_{\widetilde\phi}$。
 
 由上述结构，可将目标函数改写为样条部分与零空间系数上的优化。数据保真项关于测量连续、下半连续、强制且凸，正则项控制样条分量，零空间的测量矩阵满列秩则控制其系数，从而保证良定性。定理的证明将无限维问题化为 Hilbert 空间中的有限测量插值，并应用 Riesz 表示定理得到式（43）。
 
