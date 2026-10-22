@@ -9,7 +9,9 @@
     "source_file": "2026-10-22-otfs-sunscape-superimposed-pilots.md",
     "source_page_path": "papers/translations/2026-10-22-otfs-sunscape-superimposed-pilots.md",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-22-otfs-sunscape-superimposed-pilots.md",
-    "paper_ids": [],
+    "paper_ids": [
+      "e5fa7705f06fee0c"
+    ],
     "qa_complete": false,
     "external": true,
     "primary_translation": false
@@ -24,7 +26,9 @@
     "source_file": "2026-10-22-continuous-time-transformer-nonuniform-pilots.md",
     "source_page_path": "papers/translations/2026-10-22-continuous-time-transformer-nonuniform-pilots.md",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-22-continuous-time-transformer-nonuniform-pilots.md",
-    "paper_ids": [],
+    "paper_ids": [
+      "0420e0d84fe1b48f"
+    ],
     "qa_complete": false,
     "external": true,
     "primary_translation": false
@@ -41,7 +45,9 @@
     "source_file": "2026-10-22-splines-operators-part2-inverse-problems.md",
     "source_page_path": "papers/translations/2026-10-22-splines-operators-part2-inverse-problems.md",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-22-splines-operators-part2-inverse-problems.md",
-    "paper_ids": [],
+    "paper_ids": [
+      "bcad86491157992f"
+    ],
     "qa_complete": false,
     "external": true,
     "primary_translation": false
@@ -59,7 +65,9 @@
     "source_file": "2026-10-22-semantic-latent-alignment-flow-matching.md",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-22-semantic-latent-alignment-flow-matching.md",
     "source_page_path": "papers/translations/2026-10-22-semantic-latent-alignment-flow-matching.md",
-    "paper_ids": [],
+    "paper_ids": [
+      "a854e827dbbdea38"
+    ],
     "external": true,
     "primary_translation": false
   },
@@ -76,7 +84,9 @@
     "source_file": "2026-10-22-rwkv-mobile-channel-prediction.md",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-22-rwkv-mobile-channel-prediction.md",
     "source_page_path": "papers/translations/2026-10-22-rwkv-mobile-channel-prediction.md",
-    "paper_ids": [],
+    "paper_ids": [
+      "cd2b413146f4cf6d"
+    ],
     "external": true,
     "primary_translation": false
   },
