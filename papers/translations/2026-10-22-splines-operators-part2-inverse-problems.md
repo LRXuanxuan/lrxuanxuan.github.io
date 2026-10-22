@@ -14,7 +14,7 @@ toc: true
 **作者：** Michael Unser  
 **机构：** 瑞士洛桑联邦理工学院（EPFL）生物医学成像组。  
 **来源：** arXiv:2610.14920v1，2026 年 10 月 10 日，39 页。  
-**当前范围：** 摘要、目录、第 1–5 节主要结论和推导、附录 A–B 的完整证明及致谢已录入。第 2–4 节部分长证明、具体核实例和参考文献书目仍有遗漏；**尚未通过全文逐式验收**。
+**当前范围：** 摘要、目录、第 1–5 节主要结论和推导、附录 A–B 的完整证明及致谢已录入。第 2–4 节部分长证明、具体核实例仍有部分长证明遗漏；参考文献书目已按 PDF 补录，但断行和拼写尚待终校；**尚未通过全文逐式验收**。
 
 ## 摘要
 
@@ -523,3 +523,105 @@ $$
 ## 致谢与说明
 
 作者在论文准备过程中使用 Anthropic 的 Claude 作为交互式助手，用于文字校对以及证明的检查与简化。全部结果均经作者自行核验，作者对论文内容承担全部责任。研究获得瑞士国家科学基金会（SNSF）项目 200020 219356 支持。
+
+
+## 参考文献（英文书目，按原 PDF）
+
+[1] I. J. Schoenberg. Spline functions and the problem of graduation. Pro￾ceedings of the National Academy of Sciences of the USA, 52(4):947–
+950, 1964.
+[2] C. de Boor and R. E. Lynch. On splines and their minimum properties.
+Journal of Mathematics and Mechanics, 15(6):953–969, 1966.
+[3] N. Aronszajn. Theory of reproducing kernels. Transactions of the
+American Mathematical Society, 68(3):337–404, 1950.
+[4] P. M. Anselone and P. J. Laurent. A general method for the con￾struction of interpolating or smoothing spline-functions. Numerische
+Mathematik, 12:66–82, 1968.
+[5] M. Atteia. Hilbertian Kernels and Spline Functions, volume 4 of Studies
+in Computational Mathematics. North-Holland, Amsterdam, 1992.
+[6] J. W. Jerome and L. L. Schumaker. On Lg-splines. Journal of Approx￾imation Theory, 2(1):29–49, 1969.
+[7] J. Duchon. Splines minimizing rotation-invariant semi-norms in Sobolev
+spaces. In W. Schempp and K. Zeller, editors, Constructive Theory of
+Functions of Several Variables, volume 571 of Lecture Notes in Mathe￾matics, pages 85–100. Springer, Berlin, 1977.
+[8] G. Wahba. Spline Models for Observational Data. Society for Industrial
+and Applied Mathematics, Philadelphia, 1990.
+[9] P. M. Prenter. Splines and Variational Methods. Wiley, New York,
+1975.
+[10] L. L. Schumaker. Spline Functions: Basic Theory. Cambridge Mathe￾matical Library. Cambridge University Press, Cambridge, 3rd edition,
+2007.
+[11] G. Kimeldorf and G. Wahba. Some results on Tchebycheffian
+spline functions. Journal of Mathematical Analysis and Applications,
+33(1):82–95, 1971.
+[12] B. Sch¨olkopf, R. Herbrich, and A. J. Smola. A generalized representer
+theorem. In D. Helmbold and B. Williamson, editors, Computational
+Learning Theory, pages 416–426. Springer Berlin Heidelberg, 2001.
+[13] T. Hofmann, B. Sch¨olkopf, and A. J. Smola. Kernel methods in machine
+learning. Annals of Statistics, 36(3):1171–1220, 2008.
+[14] A. Berlinet and C. Thomas-Agnan. Reproducing Kernel Hilbert Spaces
+in Probability and Statistics, volume 3. Kluwer Academic Boston, 2004.
+[15] H. Gupta, J. Fageot, and M. Unser. Continuous-domain solutions of
+linear inverse problems with Tikhonov versus generalized TV regular￾ization. IEEE Transactions on Signal Processing, 66(17):4670–4684,
+September 2018.
+[16] A. Badoual, J. Fageot, and M. Unser. Periodic splines and Gaussian
+processes for the resolution of linear inverse problems. IEEE Transac￾tions on Signal Processing, 66(22):6047–6061, November 2018.
+[17] M. Unser. A unifying representer theorem for inverse problems and ma￾chine learning. Foundations of Computational Mathematics, 21(4):941–
+960, September 2021.
+[18] A. E. Hoerl and R. W. Kennard. Ridge regression: Biased estimation
+for nonorthogonal problems. Technometrics, 12(1):55–67, 1970.
+[19] A. N. Tikhonov and V. Y. Arsenin. Solution of Ill-posed Problems.
+Winston & Sons, Washington, 1977.
+[20] C. Boyer, A. Chambolle, Y. De Castro, V. Duval, F. De Gournay, and
+P. Weiss. On representer theorems and convex regularization. SIAM
+Journal of Optimization, 29(2):1260–1281, 2019.
+[21] M. Unser and S. Aziznejad. Convex optimization in sums of Banach
+spaces. Applied and Computational Harmonic Analysis, 56:1–25, Jan￾uary 2022.
+[22] K. Bredies and M. Carioni. Sparsity of solutions for variational inverse
+problems with finite-dimensional data. Calculus of Variations and Par￾tial Differential Equations, 59(14):26, 2020.
+[23] R. Parhi and R. D. Nowak. Banach space representer theorems for neu￾ral networks and ridge splines. Journal of Machine Learning Research,
+22(43):1–40, 2021.
+[24] F. Bartolucci, E. De Vito, L. Rosasco, and S. Vigogna. Understanding
+neural networks with reproducing kernel Banach spaces. Applied and
+Computational Harmonic Analysis, 62:194–236, 2023.
+[25] R. Schaback. Native Hilbert spaces for radial basis functions I. In M. D.
+Buhmann, D. H. Mache, M. Felten, and M. W. M¨uller, editors, New
+Developments in Approximation Theory, volume 132 of International
+Series of Numerical Mathematics, pages 255–282. Birkh¨auser, Basel,
+1999.
+[26] R. Schaback. A unified theory of radial basis functions: Native Hilbert
+spaces for radial basis functions II. Journal of Computational and Ap￾plied Mathematics, 121(1–2):165–177, 2000.
+[27] H. Wendland. Scattered Data Approximation, volume 17 of Cambridge
+Monographs on Applied and Computational Mathematics. Cambridge
+University Press, Cambridge, 2005.
+[28] C. A. Micchelli. Interpolation of scattered data: Distance matrices and
+conditionally positive definite functions. Constructive Approximation,
+2(1):11–22, 1986.
+[29] G. E. Fasshauer and Q. Ye. Reproducing kernels of generalized Sobolev
+spaces via a Green function approach with distributional operators.
+Numerische Mathematik, 119(3):585–611, 2011.
+[30] M. Unser. Splines and operators: Part I—Admissibility and native
+spaces. Preprint, Ecole polytechnique f´ed´erale de Lausanne (EPFL), ´
+2026.
+[31] G. Kimeldorf and G. Wahba. A correspondence between Bayesian esti￾mation on stochastic processes and smoothing by splines. The Annals
+of Mathematical Statistics, 41(2):495–502, 1970.
+[32] E. Parzen. An approach to time series analysis. The Annals of Mathe￾matical Statistics, 32(4):951–989, December 1961.
+[33] T. Kailath. The innovations approach to detection and estimation the￾ory. Proceedings of the IEEE, 58(5):680–695, May 1970.
+[34] H. L. Weinert and T. Kailath. Stochastic interpretations and recursive
+algorithms for spline functions. Annals of Statistics, 2(4):787–794, 1974.
+[35] M. Scheuerer, R. Schaback, and M. Schlather. Interpolation of spatial
+data—A stochastic or a deterministic problem? European Journal of
+Applied Mathematics, 24(4):601–629, 2013.
+[36] M. Kanagawa, P. Hennig, D. Sejdinovic, and B. K. Sriperumbudur.
+Gaussian processes and kernel methods: A review on connections and
+equivalences. arXiv preprint arXiv:1807.02582, 2018.
+[37] M. Unser. Variational splines and generalized gaussian processes.
+Preprint, Ecole polytechnique f´ed´erale de Lausanne (EPFL), 2026. ´
+[38] M. Unser and P. D. Tafti. An Introduction to Sparse Stochastic Pro￾cesses. Cambridge University Press, 2014.
+[39] A. Grothendieck. Produits tensoriels topologiques et espaces nucl´eaires.
+Memoirs of the American Mathematical Society, 16:1–140, 1955.
+[40] A. Pietsch. Nuclear Locally Convex Spaces, volume 66 of Ergebnisse
+der Mathematik und ihrer Grenzgebiete. Springer, Berlin, 1972.
+[41] F. Tr`eves. Topological Vector Spaces, Distributions and Kernels. Dover
+Publications, Mineola, NY, 2006. Unabridged republication of the 1967
+Academic Press edition.
+[42] I. Ekeland and R. Temam. Convex Analysis and Variational Problems,
+volume 28 of Classics in Applied Mathematics. SIAM, 1999.
+[43] M. Unser and T. Blu. Fractional splines and wavelets. SIAM Review,
+42(1):43–67, March 2000.
