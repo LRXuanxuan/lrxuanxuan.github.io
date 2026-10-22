@@ -1,5 +1,39 @@
 [
   {
+    "date": "2026-10-22",
+    "slug": "2026-10-22-semantic-latent-alignment-flow-matching",
+    "title": "双 Lipschitz 适配器的 Flow Matching 语义潜空间对齐｜中文主体译稿（未完）",
+    "scope": "摘要、正文 1–7、公式（1）–（8）、表 1–8 及主要图注已录入；参考文献、附录证明、补充图表待补",
+    "source_arxiv_ids": [
+      "2610.21332"
+    ],
+    "qa_complete": false,
+    "url": "/papers/translations/2026-10-22-semantic-latent-alignment-flow-matching/",
+    "source_file": "2026-10-22-semantic-latent-alignment-flow-matching.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-22-semantic-latent-alignment-flow-matching.md",
+    "source_page_path": "papers/translations/2026-10-22-semantic-latent-alignment-flow-matching.md",
+    "paper_ids": [],
+    "external": true,
+    "primary_translation": false
+  },
+  {
+    "date": "2026-10-22",
+    "slug": "2026-10-22-rwkv-mobile-channel-prediction",
+    "title": "RWKV 移动信道预测｜中文全篇译稿（待终校）",
+    "scope": "6 页：摘要、正文 I–V、公式（1）–（11）、图 1–6 的图注、表 I–IV、致谢及 13 条参考文献已录入；尚待独立逐式终校",
+    "source_arxiv_ids": [
+      "2606.16170"
+    ],
+    "qa_complete": false,
+    "url": "/papers/translations/2026-10-22-rwkv-mobile-channel-prediction/",
+    "source_file": "2026-10-22-rwkv-mobile-channel-prediction.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-22-rwkv-mobile-channel-prediction.md",
+    "source_page_path": "papers/translations/2026-10-22-rwkv-mobile-channel-prediction.md",
+    "paper_ids": [],
+    "external": true,
+    "primary_translation": false
+  },
+  {
     "date": "2026-10-21",
     "slug": "2026-10-21-one-step-generative-csi-2609-17033",
     "title": "一步生成式 CSI 预测｜中文全篇译稿（待终校）",
