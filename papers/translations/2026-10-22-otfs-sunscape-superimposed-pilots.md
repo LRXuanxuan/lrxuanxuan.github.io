@@ -13,7 +13,7 @@ toc: true
 **原题：** Superimposed Sunscape Pilot Pattern for Channel Estimation in OTFS-Based ISAC  
 **作者：** Lianet Méndez-Monsanto、Andrés Reyes-Castro、Kun Chen-Hu、María Julia Fernández-Getino García、Ana García Armada  
 **来源：** *IEEE Transactions on Wireless Communications*, 2026, 25:16680–16696；DOI: 10.1109/TWC.2026.3689779。上传 PDF 为 18 页后印本。  
-**译文进度：** 摘要、I 节主要内容、II 节系统模型、III 节 Sunscape 导频设计及公式（1）–（22）、IV 节部分检测与增益估计已译；IV–VI 节剩余推导、复杂度表、图表数值、结论和参考文献尚未逐段译出。**本文件尚非全文翻译。**  
+**译文进度：** 已录入摘要、I–V 节理论和算法、公式（1）–（51）中的主要推导及表 I–II；第 VI 节性能曲线、VII 节结论、参考文献和作者简介尚待补译及逐式终校，**暂不标记为已验收全文**。  
 **权利提示：** 上传的 IEEE 后印本声明仅许可个人使用，公开发布完整译作可能需取得相应许可。
 
 ## 摘要
@@ -216,6 +216,23 @@ $$
 
 **图 3：** DD 域 Sunscape 叠加导频结构；不同颜色还表示不同符号相位。
 
+
+
+原文将式（17）的元素显式展开为
+
+$
+\mathbf X_p^{(\mathrm{DT})}[m,n]=
+\begin{cases}
+\displaystyle\sqrt{\frac{L_y}{L_s}}\,p_s[m],
+&m_s\le m\le m_s+L_s-1,\quad 0\le n\le N-1,\\[4pt]
+\sqrt N\,p_a[m],
+&m_a\le m\le M-1,\quad n=0,\\
+0,&\text{其余情况}.
+\end{cases}\tag{18}
+$
+
+这一等式直接说明：太阳导频沿时间方向在全部 $N$ 列重复，而海面导频仅集中在第零个时域多载波符号。
+
 ### B. Sunscape 导频的 PAPR 分析
 
 PAPR 衡量时域 OTFS 信号的峰值功率与平均功率之比：
@@ -324,6 +341,292 @@ $$
 
 给定检测得到的时延、多普勒及信道复增益粗估计，算法在平均信号中减去其他路径的重建贡献，依次细化每条路径的复增益。首先保留最强路径并减去其余路径的粗估贡献，获得残差信号；随后按照已检测到的时延与多普勒对齐，使用长度约为 $L_a$ 的样本再次平均，得到更精确的复增益。每估计完一条路径，即使用它的精估值取代初值，更新其他路径的残差计算。这样既利用海面周期性来平均零均值数据干扰与噪声，又避免传统多轮数据辅助 SIC 的成本。
 
+
+
+**整数网格检测的完整阈值规则。** 短太阳导频的抽头数量由二值检测结果求和：
+
+$
+\widetilde L=
+\sum_{l=0}^{l_{\max}}
+\sum_{k=-k_{\max}}^{k_{\max}-1}b[l,k],
+\quad
+|Y[m_s'+l,n_s+k]|^2
+\underset{\text{无抽头}}{\overset{\text{有抽头}}{\gtrless}}\gamma,
+\tag{25}
+$
+
+其中，$m_s\le m_s'\le L_s-1$。对于长太阳导频，则对相关矩阵执行同样的二值检测：
+
+$
+|C[l,k]|^2
+\underset{\text{无抽头}}{\overset{\text{有抽头}}{\gtrless}}\gamma,
+\qquad
+\widetilde L=\sum_{l=0}^{l_{\max}}
+\sum_{k=-k_{\max}}^{k_{\max}-1}b[l,k].
+\tag{28}
+$
+
+海面导频辅助的时延检测根据 $|C_a[l]|^2$ 与阈值比较：
+
+$
+|C_a[l]|^2
+\underset{\widetilde l_i\ne l}{\overset{\widetilde l_i=l}{\gtrless}}
+\gamma,\quad i=0,\ldots,\widetilde L-1.\tag{31}
+$
+
+**离网分数偏移的过采样矩阵。** 为精细检测非整数时延、多普勒，定义 $D=Y$（短太阳导频）或 $D=C$（长太阳导频；先零填充到 $M\times N$），然后构造
+
+$
+D_o=
+F_{M_o}^{\mathsf H}P_MF_MD\,
+F_N^{\mathsf H}P_N^{\mathsf H}F_{N_o}
+\in\mathbb C^{M_o\times N_o}.\tag{32}
+$
+
+其中 $M_o=KM$，$N_o=KN$，$K$ 为整数过采样倍率；$P_M\in\mathbb C^{M_o\times M}$ 和 $P_N\in\mathbb C^{N_o\times N}$ 分别沿时延和多普勒轴执行居中零填充。对于时延轴，
+
+$
+P_M=
+\begin{bmatrix}
+0_{p_M\times M}\\
+I_M\\
+0_{(M_o-M-p_M)\times M}
+\end{bmatrix},
+\qquad
+p_M=\left\lfloor\frac{M_o-M}{2}\right\rfloor.
+$
+
+$P_N$ 采用相同方式构造。之后在 $D_o$ 上应用式（25）或式（28）的检测规则。如需使用海面导频检测时延，也可对式（30）相关结果施加同类过采样，而多普勒仍由太阳导频检测。
+
+**增益细化的迭代表达式。** 为避免同时估计不同路径时互相污染，首先从平均向量 $\overline{\mathbf y}$ 中减去除最强抽头（$i=0$）之外的粗估路径贡献，得到
+
+$
+\mathbf y'_0=\overline{\mathbf y}-
+\sum_{r=1}^{\widetilde L-1}
+\widetilde g_r\Big(
+\boldsymbol\delta_{\widetilde k_r}[m-\widetilde l_r]
+\odot\mathbf p_a[m-\widetilde l_r]
+\Big).\tag{34}
+$
+
+其中，$\boldsymbol\delta_{\widetilde k_r}$ 是由该路径多普勒频移引起的、沿时延索引旋转的复指数向量，$\mathbf p_a[m-\widetilde l_r]$ 为按相应时延偏移后的海面导频。对当前抽头，从残差向量中计算新的复增益：
+
+$
+\widetilde g_i'=
+\frac{1}{L_a-\widetilde l_i}
+\sum_{r=0}^{L_a-\widetilde l_i-1}
+\frac{\mathbf y_i'[r]}{\boldsymbol\delta_{\widetilde k_i p}[r]},
+\quad i=0,\ldots,\widetilde L-1,\tag{35}
+$
+
+其中，$\boldsymbol\delta_{\widetilde k_i p}=
+\boldsymbol\delta_{\widetilde k_i}\odot
+\mathbf p_a[m-\widetilde l_i]$。完成第 $i$ 条路径的细化后，后续残差必须减去已细化路径和尚未细化路径的不同估计：
+
+$
+\begin{aligned}
+\mathbf y_i'=\overline{\mathbf y}
+&-\sum_{r=i+1}^{\widetilde L-1}\widetilde g_r
+\Big(\boldsymbol\delta_{\widetilde k_r}[m-\widetilde l_r]
+\odot\mathbf p_a[m-\widetilde l_r]\Big)\\
+&-\sum_{r=0}^{i-1}\widetilde g_r'
+\Big(\boldsymbol\delta_{\widetilde k_r}[m-\widetilde l_r]
+\odot\mathbf p_a[m-\widetilde l_r]\Big).
+\end{aligned}\tag{36}
+$
+
+以上表达式对应原文按路径依次剔除、重新估计的算法；由于数据和噪声均为零均值随机变量，沿海面导频平均可以减少干扰残留。对于分数时延，对平均向量、海面导频及参考多普勒向量统一过采样至长度 $L_{a,o}=KL_a$，然后在同一网格上使用式（34）–（36）。对于分数多普勒，由于海面导频在 DT 域只占据一个多载波符号 $n=0$，不会受到跨符号多普勒演化的影响，所观察到的多普勒作用仅表现为每时延单元上的相位旋转。
+
 **图 4：** Sunscape-OTFS 接收机框图；黄色模块处理太阳导频，蓝色模块处理海面导频。流程包括检测、粗增益估计、周期平均、路径扣除、精细估计，最后提供感知参数和通信均衡输入。
 
-> **待补译及终校：** 详细分数偏移矩阵式（32）、增益细化式（34）–（36）及其后理论分析、V 节复杂度/优化算法、VI 节全部性能图表、VII 节结论、完整参考文献与作者简介。当前仍是部分译文，不计入已完成全文。
+
+### C. 面向感知的目标检测概率分析
+
+考虑长太阳导频的相关检测。假设 $\mathcal H_0$ 表示不存在目标，$\mathcal H_1$ 表示存在目标。对某个时延—多普勒单元 $(l,k)$，相关输出建模为
+
+$
+C[l,k]=
+\begin{cases}
+V[l,k],&\mathcal H_0,\\
+g_i(1-\beta)\dfrac{NL_y}{L_s}|p_s|^2+V[l,k],
+&\mathcal H_1,
+\end{cases}\tag{37}
+$
+
+其中，$V[l,k]\sim\mathcal{CN}(0,\sigma_v^2)$ 表示相关之后的数据自干扰与噪声残留。由于目标/传播路径数量通常远小于 DD 网格大小，在 $MN$ 较大时，利用统计平均可以得到
+
+$
+\sigma_v^2=\frac{\beta+\sigma_z^2}{L_s},\qquad
+\frac1{MN}\sum_{k=0}^{N-1}\sum_{l=0}^{M-1}|C[l,k]|^2
+\xrightarrow[MN\to\infty]{}\sigma_v^2.\tag{38}
+$
+
+数据和噪声残留方差随相关长度 $L_s$ 增大而按比例减小。阈值可选择为大于残留标准差一定倍数：
+
+$
+\gamma>\gamma_l\sigma_v,\quad
+\gamma_l\in\mathbb R_{>0}.\tag{39}
+$
+
+这可以视为一种基础的恒虚警率（CFAR）检测形式。在存在杂波或非高斯干扰的感知场景中，可以按照目标虚警概率 $P_{\rm FA}$ 和训练单元数 $N_{\rm tc}$，使用
+
+$
+\gamma=N_{\rm tc}\left(P_{\rm FA}^{-1/N_{\rm tc}}-1\right).\tag{40}
+$
+
+实际检测规则仍是
+
+$
+E=|C[l,k]|^2
+\underset{\mathcal H_0}{\overset{\mathcal H_1}{\gtrless}}\gamma.\tag{41}
+$
+
+在原文高斯假设下，$E$ 服从两自由度中心卡方分布的缩放形式：
+
+$
+E\sim
+\begin{cases}
+\dfrac{\sigma_v^2}{2}\,\chi_2^2,
+&\mathcal H_0,\\[5pt]
+\dfrac{\sigma_v^2+\sigma_h^2(NL_y/L_s)(1-\beta)}{2}
+\,\chi_2^2,&\mathcal H_1.
+\end{cases}\tag{42}
+$
+
+因此，虚警概率与检测概率的闭式表达式为
+
+$
+P_{\rm FA}(\beta,L_s)
+=\exp\!\left(-\frac{\gamma L_s}{\beta+\sigma_z^2}\right),\tag{43}
+$
+
+$
+P_D(\beta,L_s)=
+\exp\!\left(
+-\frac{\gamma L_s}
+{\beta+\sigma_z^2+
+\sigma_h^2N(L_s+l_{\max})(1-\beta)}
+\right).\tag{44}
+$
+
+式（43）、（44）描述了太阳导频长度、功率分配与检测性能之间的相互作用。实际结果还受到 ZC 序列自相关旁瓣等因素影响，须结合仿真检验阈值设计与理想化分析是否一致。
+
+### D. 面向通信的复增益估计 MSE
+
+以下分析先假设时延和多普勒抽头已被正确检测，即 $\widetilde l_i=l_i$、$\widetilde k_i=k_i$。周期性海面导频在 DD 域使接收信号表现出周期变化的均值（循环平稳统计特性）。由于数据与噪声的均值均为零，大数定律意味着对足够多样本进行平均时，它们的贡献趋于零：
+
+$
+\sum_{q=0}^{MN-1}x_d[q]\xrightarrow[MN\to\infty]{}0,\qquad
+\sum_{q=0}^{MN-1}z[q]\xrightarrow[MN\to\infty]{}0.\tag{45}
+$
+
+据此，经过 $N$ 个多载波符号平均的接收向量渐近趋于由导频与信道产生的部分：
+
+$
+\overline y[m]\xrightarrow[N\to\infty]{}
+\sqrt{1-\beta}\sum_{i=0}^{L-1}
+g_i z^{k_i(m-l_i)}p_a[m-l_i].\tag{46}
+$
+
+原文进一步说明，对式（34）–（36）的残差再沿可用的 $L_a$ 个时延单元平均，在渐近条件下可以得到
+
+$
+\frac1{L_a}\sum_{r=0}^{L_a-1}
+\frac{y_i'[r]}{\delta_{\widetilde k_i p}[r]}
+\xrightarrow[L_a\to\infty]{}g_i.\tag{47}
+$
+
+因此，经过 $N L_a$ 个样本的相关平均之后，数据与噪声残留方差分别成为
+
+$
+\sigma_T^2=\sigma_d'^2+\sigma_z'^2,\quad
+\sigma_d'^2=\frac{\beta}{NL_a},\quad
+\sigma_z'^2=\frac{\sigma_z^2}{NL_a}.\tag{48}
+$
+
+对于已经正确检测的路径，以真实系数向量 $\mathbf g$ 和估计向量 $\widetilde{\mathbf g}$ 定义 MSE：
+
+$
+\mathrm{MSE}
+=\mathbb E\!\left[\|\mathbf g-\widetilde{\mathbf g}\|^2\right].\tag{49}
+$
+
+在上述条件下，原文给出 MSE 的下界
+
+$
+\mathrm{MSE}(\beta,L_s\mid
+\widetilde l_i=l_i,\widetilde k_i=k_i)
+\ge\sigma_T^2
+=\frac{\beta+\sigma_z^2}{NL_a}.\tag{50}
+$
+
+这说明对于已检测到的路径，海面导频长度 $L_a$ 是影响复增益估计 MSE 的关键参数。由于 $L_a=M-L_s-l_{\max}$，在固定 $M$ 和最大时延扩展的情况下，增大太阳导频长度通常会减小海面导频数量，从而提高复增益估计误差。注意，式（50）对单个正确检测的抽头给出误差分析；未检测与虚警的影响会进一步通过参数联合优化考虑。作者指出，在通信常见的 $SNR>0$ dB 范围内，此类错误在仿真中对最终 MSE 的影响很小。
+
+## V. 计算复杂度与参数设计
+
+### A. 接收端计算复杂度
+
+本节以复数乘法次数比较 Sunscape 与传统嵌入式导频及其他 ST 方法。由于所选导频单位模长，除以导频（或乘以其倒数）可以简化为极坐标相位处理中的实数加法；实际实现可以利用 CORDIC 算法进行极坐标转换。
+
+对于短太阳导频，检测式（25）需要对接收矩阵相关区域计算模值，约需要 $(2k_{\max}+1)(l_{\max}+L_s+1)$ 次复数乘法；复增益粗估计式（26）只需要 $2\widetilde L$ 次实数加法。对于长太阳导频，相关检测需要约 $2(l_{\max}+1)(2k_{\max}+1)L_s$ 次实数加法，对相关矩阵取模需要 $(2k_{\max}+1)(l_{\max}+1)$ 次复数乘法，并可同时由式（29）得到复增益粗估计。对于分数多普勒，过采样操作增大了 DFT 尺寸 $N_o$。
+
+如果用海面导频进行时延检测，式（30）相关运算只需 $L_a l_{\max}$ 次实数加法；太阳导频仍用于多普勒检测。复增益细化式（34）–（36）的运算以复数加法为主，复杂度为
+
+$
+N_I\left(L_aN+2L_a\widetilde L-L_a+
+\frac{\widetilde L^2-\widetilde L}{2}\right),
+$
+
+其中 $N_I$ 为迭代次数，作者指出一次迭代即可充分发挥作用。该过程不需要额外的复数乘法。
+
+**表 I：不同 OTFS 信道估计方法的复数乘法次数（依据原文）**
+
+| 方法 | 复数乘法次数 |
+|---|---|
+| Sunscape（本文） | $(2k_{\max}+1)(l_{\max}+1)$ |
+| Embedded Pilot [6] | $(2k_{\max}+1)(l_{\max}+1)+5L$ |
+| SP-NI / SP-I [9] | $(L^2MN+L^2+L)+O(L^3)+L(MN+1)+L^2+O(N_{\rm IR}MNLS)$ |
+| 迭代式 SP [19] | $O(N_{\rm IR}QMN\log(MN))$ |
+| 单导频 ST [13] | $O(N_{\rm IR}MN\log(MN))$ |
+| 部分导频 1 [21] | $O(N_{\rm IR}l_{\max}^2N^2P)+O(N_{\rm IR}N(2l_{\max}-1)LS)+O(N_{\rm IR}MNPS)$ |
+| 部分导频 2 [22] | $O((NM)^3)$ |
+
+原文的参考方案中，$S$ 为调制星座大小，$Q$ 为基扩展建模阶数，$N_{\rm IR}$ 是参考方案的迭代次数。与 EP 相比，Sunscape 的复数乘法代价相近，而具有更高的频谱效率和更低 PAPR；与需要 SIC 的 ST 方案相比，计算复杂度明显降低。
+
+### B. Sunscape 参数联合优化
+
+两项关键设计参数为太阳导频长度 $L_s$ 和分配给数据的功率比例 $\beta$。$L_s$ 决定检测性能和 PAPR，并通过 $L_a=M-L_s-l_{\max}$ 影响海面导频长度与增益细化 MSE。增大 $L_s$ 可以降低 PAPR，并改善相关检测；缩小 $L_s$ 可增大海面导频长度，改善复增益估计，但会使高功率太阳导频产生更高 PAPR。
+
+**表 II：太阳导频长度与性能折中**
+
+| 属性 | 短太阳导频 | 长太阳导频 |
+|---|---|---|
+| 长度 | $1\le L_s\le\lceil l_{\max}/(N-1)\rceil$ | $L_s>\lceil l_{\max}/(N-1)\rceil$ |
+| 抽头检测 | 接收信号直接阈值 | 相关检测 |
+| 海面导频数量 $L_a$ | 较多 | 较少 |
+| 增益估计 MSE | 较低 | 较高 |
+| PAPR | 较高 | 较低 |
+
+为同时优化增益 MSE 与目标检测能力，作者构造如下非凸混合整数问题：
+
+$
+\min_{\beta,L_s}\quad
+f_{\rm obj}(\beta,L_s)=
+\frac{\mathrm{MSE}(\beta,L_s)}
+{P_D(\beta,L_s)[1-P_{\rm FA}(\beta,L_s)]},\tag{51}
+$
+
+其约束包括：时域信号平均功率固定为 $P_{\max}$；叠加后 PAPR 不超过 $\mathrm{PAPR}_{\max}$；$L_s$ 为 $1$ 至 $M-l_{\max}-1$ 范围内的整数，$0\le\beta\le1$；$L_y$ 与 $L_a$ 的有效范围和隔离关系满足式（13）。分子鼓励较小的估计误差；分母同时奖励较高检测概率、惩罚虚警。
+
+由于 $L_s$ 为离散变量、$\beta$ 为连续变量，且目标非凸，无法直接给出闭式最优解。作者采用**离线两阶段穷举启发式搜索**：外层枚举候选 $\beta$，内层枚举有效的 $L_s$；每组候选先根据太阳—海面隔离关系计算 $L_y$、$L_a$，生成归一化导频、计算 PAPR 并排除超限候选，再利用式（50）、（44）、（43）分别计算 MSE、$P_D$、$P_{\rm FA}$，最后选择目标函数最小的一组。
+
+**算法 1：优化 $\beta$ 与 $L_s$**
+
+1. 输入候选集合 $\mathcal B$、$\mathcal L$、最大功率 $P_{\max}$、PAPR 上限、最大时延 $l_{\max}$ 和网格大小 $M$；初始化 $f_{\rm obj}=\infty$。
+2. 对每个 $\beta\in\mathcal B$，遍历每个 $L_s\in\mathcal L$。
+3. 计算 $L_y=L_s+l_{\max}$，若 $L_y>M$ 则跳过；令 $L_a=M-L_y$。
+4. 生成满足 $P_{\max}$ 的归一化导频信号 $\mathbf s_p$，计算当前 PAPR；超过上限则跳过。
+5. 根据式（50）、（44）、（43）求出 MSE、$P_D$ 和 $P_{\rm FA}$；计算 $f_{\rm obj}'=\mathrm{MSE}/[P_D(1-P_{\rm FA})]$。
+6. 若 $f_{\rm obj}'<f_{\rm obj}$，更新当前最优目标及 $(\beta^*,L_s^*)$，遍历结束后输出最优参数。
+
+该优化只需按固定业务场景（目标检测概率、虚警率、MSE、PAPR 限制及最大时延扩展）离线执行一次，无须在每个 OTFS 帧上实时搜索。
