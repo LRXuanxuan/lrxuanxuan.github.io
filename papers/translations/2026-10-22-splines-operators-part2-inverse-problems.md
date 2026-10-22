@@ -804,9 +804,9 @@ $
 
 | $L$ | $L$ 的 Green 函数 $\rho_L$ | $(L^*L)^{-1}$ 的 Green 函数 $\rho_{L^*L}$ | 零空间维数 $N_0$ |
 |---|---|---|---|
-| $D$ | $1_{[0,\infty)}(x)$ | $-\frac12|x|$ | 1 |
-| $D^m$，$m\in\mathbb N$ | $\frac{x_+^{m-1}}{(m-1)!}$ | $\frac{(-1)^m|x|^{2m-1}}{2(2m-1)!}$ | $m$ |
-| $D^\alpha$，$\alpha\in\mathbb R_+$ | $\frac{x_+^{\alpha-1}}{\Gamma(\alpha)}$ | $-\frac{|x|^{2\alpha-1}}{2\sin(\frac\pi2(2\alpha-1))\Gamma(2\alpha)}$ | $\left\lfloor\alpha+\frac12\right\rfloor$ |
+| $D$ | $1_{[0,\infty)}(x)$ | $-\frac12\lvert x\rvert$ | 1 |
+| $D^m$，$m\in\mathbb N$ | $\frac{x_+^{m-1}}{(m-1)!}$ | $\frac{(-1)^m\lvert x\rvert^{2m-1}}{2(2m-1)!}$ | $m$ |
+| $D^\alpha$，$\alpha\in\mathbb R_+$ | $\frac{x_+^{\alpha-1}}{\Gamma(\alpha)}$ | $-\frac{\lvert x\rvert^{2\alpha-1}}{2\sin(\frac\pi2(2\alpha-1))\Gamma(2\alpha)}$ | $\left\lfloor\alpha+\frac12\right\rfloor$ |
 
 表注：表中 $x_+=\max(x,0)$。对 $D^m$ 的零空间基，可取 $p_n(x)=x^{n-1}/(n-1)!$，与之配对的边界泛函为 $\varphi_n=\delta^{(n-1)}$（其符号约定按原文），$n=1,\ldots,m$。分数阶导数 $D^\alpha$ 的傅里叶符号为 $(i\omega)^\alpha$。若 $\alpha$ 为半奇整数，常数因子变得奇异，Green 函数须引入对数因子，此类阶数不包含在表内。表中的边界泛函属于 $\mathcal H_L'$，但一般不属于 $\mathcal S$；它们正是定理 3.1 第 4 项允许的非普适系统。
 
