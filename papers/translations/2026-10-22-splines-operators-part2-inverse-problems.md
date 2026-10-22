@@ -133,42 +133,42 @@ $$
 由这种双正交结构还可以定义斜投影，将空间拆分为零空间方向与消去零空间方向的互补部分。零空间中的元素（如 Taylor 单项式）往往并不属于 $L_2$，因此不能直接在 $L_2$ 中正交化，这正是双正交构造的重要动机。
 
 **向量泛函和双正交系统的显式定义（原文式（8）–（13））。** 给定 $M$ 个线性独立泛函 $\nu_m\in\mathcal S'$，原文不仅定义它们张成的子空间 $\mathcal N_\nu=\operatorname{span}\{\nu_m\}_{m=1}^{M}$，还明确定义向量泛函
-$
+$$
 \nu:\varphi\longmapsto\nu(\varphi)
 =\big(\langle\nu_1,\varphi\rangle,\ldots,\langle\nu_M,\varphi\rangle\big)
 \in\mathbb R^M.\tag{8}
-$
+$$
 相应的对称有限秩算子为
-$
+$$
 R_\nu\{\varphi\}
 =\sum_{m=1}^{M}\nu_m\langle\nu_m,\varphi\rangle.\tag{9}
-$
+$$
 当 $\nu_m$ 自身属于适当的正则函数空间时，同一公式也可反向解释为从对偶空间到原空间的算子。
 
 命题 2.2 所给出的普适双正交系统 $(p,\phi)$ 满足 $\langle p_n,\phi_m\rangle=\delta_{m,n}$。其零空间 Hilbert 结构通过两个（半）内积具体定义为
-$
+$$
 \langle f_1,f_2\rangle_{R_\phi}
 =\sum_{n=1}^{N_0}
 \langle\phi_n,f_1\rangle\langle\phi_n,f_2\rangle,\tag{10}
-$
-$
+$$
+$$
 \langle\varphi_1,\varphi_2\rangle_{R_p}
 =\sum_{n=1}^{N_0}
 \langle p_n,\varphi_1\rangle\langle p_n,\varphi_2\rangle.\tag{11}
-$
+$$
 它们分别在 $\mathcal S'$ 与 $\mathcal S$ 上有定义，并在相应有限维子空间 $\mathcal N_p$ 与 $\mathcal N_\phi$ 上形成互为对偶的 Hilbert 结构。该方法也适用于一般的对偶 Hilbert–Gelfand 空间 $(\mathcal H,\mathcal H')$，因而可以构造不要求 $\phi\subset\mathcal S$ 的非普适双正交系统。
 
 选取满足 $p\subset\mathcal H'$、$\phi\subset\mathcal H$ 的双正交系统，对应的两个斜投影为
-$
+$$
 P_\phi=\operatorname{Id}-R_\phi R_p:
 \mathcal H\longrightarrow
 \mathcal H_p:=\{\varphi\in\mathcal H:p(\varphi)=0\},\tag{12}
-$
-$
+$$
+$$
 P_\phi^*=\operatorname{Id}-R_pR_\phi:
 \mathcal H'\longrightarrow
 \mathcal H_\phi':=\{f\in\mathcal H':\phi(f)=0\}.\tag{13}
-$
+$$
 两者互为伴随；相应的补投影 $\operatorname{Id}-P_\phi=R_\phi R_p$ 和 $\operatorname{Id}-P_\phi^*=R_pR_\phi$ 分别投影到有限维空间 $\mathcal N_\phi$ 与 $\mathcal N_p$。由此得到互补直和分解
 $\mathcal H=\mathcal H_p\oplus\mathcal N_\phi$ 和
 $\mathcal H'=\mathcal H_\phi'\oplus\mathcal N_p$。
@@ -181,25 +181,25 @@ $\mathcal H'=\mathcal H_\phi'\oplus\mathcal N_p$。
 
 **条件正定性和相应空间的原文公式。** 令 $\mathcal S_p=\{\varphi\in\mathcal S:p(\varphi)=0\}$ 为 $\mathcal N_p$ 的湮灭空间，则原文将定义 2.3 的两类正定性分别写为
 
-$
+$$
 \langle A\varphi,\varphi\rangle>0,\qquad
 \forall\,\varphi\in\mathcal S_p\setminus\{0\},\tag{14}
-$
+$$
 
-$
+$$
 \langle B\varphi,\varphi\rangle>0,\qquad
 \forall\,\varphi\in\mathcal S\setminus\{0\}.\tag{15}
-$
+$$
 
 对满足连续性和相应正定条件的算子，通过完备化定义
 
-$
+$$
 \mathcal H_A=(\mathcal S_p,|\cdot|_A),\tag{16}
-$
+$$
 
-$
+$$
 \dot{\mathcal H}_B=(\mathcal S,|\cdot|_B).\tag{17}
-$
+$$
 
 这里的空间首先以 Cauchy 列的等价类形式定义。它们能否作为 $\mathcal S'$ 的具体子空间，取决于可达零空间是否平凡：$\dot{\mathcal H}_B$ 的点号专门提醒读者其中可能存在需要取商的零范数等价类。
 
@@ -212,11 +212,11 @@ $
 
 按照定义 2.6，$p$-条件 Riesz 对首先使齐次空间 $\dot{\mathcal H}_L$ 与如下对偶预空间等距同构：
 
-$
+$$
 \mathcal H_A=(\mathcal S_p,|\cdot|_A),
 \qquad |\psi|_A:=\sqrt{\langle A\psi,\psi\rangle},
 \quad \psi\in\mathcal S_p.\tag{18}
-$
+$$
 
 该同构由伴随算子 $L^*:L_2\to\mathcal H_A\hookrightarrow\mathcal S'$ 实现。因此，条件逆并不是对所有广义函数不加区别地求逆，而是在算子值域及其相容边界条件下构造的稳定右逆。
 
@@ -241,43 +241,43 @@ $$
 
 对于所选双正交系统 $(p,\phi)$，原文首先构造条件化 Gram 算子
 
-$
+$$
 A_\phi:=P_\phi^*AP_\phi:\mathcal S\longrightarrow\mathcal S'.\tag{19}
-$
+$$
 
 由此形成增广 Riesz 算子对
 
-$
+$$
 A_+:=A_\phi+R_p,\qquad B_+:=B+R_\phi,\tag{20}
-$
+$$
 
 其中 $B=L^*L$。两者生成相互对偶的 Hilbert–Gelfand 空间：
 
-$
+$$
 \mathcal H=(\mathcal S,|\cdot|_{A_+})
 =\mathcal H_A\oplus\mathcal N_\phi,\qquad
 \mathcal H'=(\mathcal S,|\cdot|_{B_+})
 =\mathcal H_A'\oplus\mathcal N_p.\tag{21}
-$
+$$
 
 母空间取第二个空间，即 $\mathcal H_L=\mathcal H'$。这也说明：零空间分量必须借助有限秩增广项处理，否则 $L^*L$ 不能直接提供全空间的 Hilbert 范数。
 
 与正规算子分解 $B=L^*L$ 对偶的精确条件化分解是
 
-$
+$$
 A_\phi=L_\phi^{-1}\circ L_\phi^{-1*}:
 \mathcal S\longrightarrow L_2\longrightarrow\mathcal S'.\tag{22}
-$
+$$
 
 其中，条件逆具体写为
 
-$
+$$
 L_\phi^{-1}
 :=A_\phi L^*
 =P_\phi^*G^*
 =(\operatorname{Id}-R_pR_\phi)G^*
 :L_2\longrightarrow\mathcal H_A'.\tag{23}
-$
+$$
 
 这里 $G^*=L^{-1}$ 是 Green 算子的伴随；等式后两项需要 $G$ 存在，首项 $A_\phi L^*$ 则不需要该条件。$L_\phi^{-1}$ 是满足 $\phi(f)=0$ 边界条件的唯一右逆。以上公式为定理 3.1 的母空间刻画提供必要准备。
 
@@ -311,27 +311,27 @@ $
    $$
    其中 $w=Lf$，$f^*=(L^*L)\{f\}$，$p\in\mathcal N_p$，因此将可由数据恢复的部分与零空间部分明确分离。
 6. **Riesz 映射。** 原文给出三个明确的 Riesz 映射：
-   $
+   $$
    J_{\mathcal H_L}=L^*L+R_\phi:
    \mathcal H_L\longrightarrow\mathcal H_L',\tag{28}
-   $
-   $
+   $$
+   $$
    J_{\mathcal H_L'}=J_{\mathcal H_L}^{-1}
    =A_\phi+R_p:
    \mathcal H_L'\longrightarrow\mathcal H_L,\tag{29}
-   $
-   $
+   $$
+   $$
    J_{\mathcal H_A}=A_\phi:
    \mathcal H_A\longrightarrow\mathcal H_A'
    =\mathcal H_{L,\phi}.\tag{30}
-   $
+   $$
 7. **齐次部分。** 由半范数 $\|Lf\|_{L_2}$ 生成的齐次空间可识别为商空间，并与带边界条件的补空间等距同构：
-   $
+   $$
    \dot{\mathcal H}_B
    =(\mathcal S,\|L\cdot\|_{L_2})
    =\mathcal H_L/\mathcal N_p
    \simeq\mathcal H_{L,\phi}.\tag{31}
-   $
+   $$
    这一商空间的核心结构不依赖具体的双正交选择。
 
 这个定理说明，尽管样条正则项在零空间中退化，仍可通过有限维零空间的规范化与稳定条件逆算子建立完备且可用于求解逆问题的母空间。
@@ -394,12 +394,12 @@ $
 
 **范数等价性（第 4 项）。** 除原有双正交系统 $(\boldsymbol\varphi,\mathbf p)$ 外，再考虑 $(\widetilde{\boldsymbol\varphi},\widetilde{\mathbf p})$，其中 $\widetilde{\mathbf p}$ 是 $\mathcal N_p$ 的另一组基，$\widetilde\varphi_n\in\mathcal H'_L$，且 $\langle\widetilde\varphi_m,\widetilde p_n\rangle=\delta_{m,n}$。对应的新范数为
 
-$
+$$
 \|f\|_{\widetilde{\mathcal H}_L}
 =\left(\|Lf\|_{L_2}^2+
 \sum_{n=1}^{N_0}|\langle\widetilde\varphi_n,f\rangle|^2
 \right)^{1/2}.\tag{32}
-$
+$$
 
 若两个范数在 $\mathcal S$ 上等价，则其完备化为同一拓扑空间。因此只需证明式（34）的双边界。上界来自对偶不等式（4）与 $\|Lf\|_{L_2}\le\|f\|_{\mathcal H_L}$：
 
@@ -412,11 +412,11 @@ $
 
 证明下界时，不能简单互换两套双正交系统，因为尚未建立范数等价性，就无法预先使用新对偶空间中的范数。应直接利用 $L$ 的结构。由第 1、2 项，$L:\mathcal H_L\to L_2$ 是有界满射，核为 $\mathcal N_p$，故诱导的商空间映射 $\mathcal H_L/\mathcal N_p\to L_2$ 是 Banach 空间间的连续双射。由有界逆定理，存在 $c_L$ 使
 
-$
+$$
 \min_{p\in\mathcal N_p}\|f+p\|_{\mathcal H_L}
 \le c_L\|Lf\|_{L_2},
 \qquad f\in\mathcal H_L.\tag{33}
-$
+$$
 
 因为每个 $\widetilde\varphi_n$ 在 $\mathcal H_L$ 上连续，子空间
 
@@ -455,11 +455,11 @@ $
 其中 $C_{\widetilde p}=
 \left(\sum_{n=1}^{N_0}\|\widetilde p_n\|_{\mathcal H_L}^2\right)^{1/2}$。综合两个方向，存在正常数 $A_1,A_2$ 使
 
-$
+$$
 A_1\|f\|_{\mathcal H_L}
 \le\|f\|_{\widetilde{\mathcal H}_L}
 \le A_2\|f\|_{\mathcal H_L}.\tag{34}
-$
+$$
 
 具体可取 $A_1=((c_L')^2+C_{\widetilde p}^2)^{-1/2}$，
 $A_2=(1+\sum_n\|\widetilde\varphi_n\|_{\mathcal H'_L}^2)^{1/2}$。
@@ -490,25 +490,25 @@ $
 
 **命题 3.2。** 设 $L$ 为 $p$-容许算子，正规算子 $B=L^*L$ 的某个条件逆 $A$ 可连续延拓为 $A:\mathcal H'_L\to\mathcal S'$，并满足下述一致性条件：凡 $\varphi\in\mathcal S$ 且 $A\{\varphi\}\in\mathcal H_L$，
 
-$
+$$
 (L^*L)\{A\varphi\}=\varphi.\tag{35}
-$
+$$
 
 其中，$L^*L:\mathcal H_L\to\mathcal H_A$ 按定理 3.1 第 6 项理解。则
 
-$
+$$
 A\{\nu\}\in\mathcal H_L
 \iff \nu\in\mathcal H_A=L^*(L_2)
 \iff p(\nu)=0.\tag{36}
-$
+$$
 
 从而每个 $f\in\mathcal H_L$ 都有唯一分解
 
-$
+$$
 f=A\{f^*\}+p,\qquad
 f^*=(L^*L)\{f\}\in\mathcal H_A,\qquad
 p\in\mathcal N_p.\tag{37}
-$
+$$
 
 与定理 3.1 第 5 项相比，这一形式不涉及任何双正交系统。
 
@@ -538,17 +538,17 @@ $
 
 **Hilbert 空间最小范数拟合及 Lagrange 对偶（原文式（38）、（39））。** 给定 $z\in\mathbb R^M$、Hilbert 空间 $\mathcal H$ 和连续线性泛函 $\nu_1,\ldots,\nu_M\in\mathcal H'$，原文考虑下列原始—对偶问题：
 
-$
+$$
 \min_{f\in\mathcal H}\frac12\|f\|_{\mathcal H}^2,
 \quad\text{使得}\quad
 \langle\nu_m,f\rangle=z_m,\quad m=1,\ldots,M.\tag{38}
-$
+$$
 
-$
+$$
 \max_{\alpha\in\mathbb R^M}
 \left\{\alpha^\top z-\frac12
 \left\|\sum_{m=1}^{M}\alpha_m\nu_m\right\|_{\mathcal H'}^2\right\}.\tag{39}
-$
+$$
 
 若测量泛函线性独立，则两个问题均有唯一解。由 Riesz 映射，这些解之间的联系是式（40），从而将无限维等式约束问题转化为有限维无约束凹二次优化。具体证明见原文附录 A。
 
@@ -564,11 +564,11 @@ $$
 
 零空间内最小二乘拟合的原文式（41）明确给出：
 
-$
+$$
 \min_{p\in\mathcal N_p}
 \sum_{m=1}^{M}|y_m-\langle\nu_m,p\rangle|^2
 =\min_{b\in\mathbb R^{N_0}}\|y-Pb\|_2^2.\tag{41}
-$
+$$
 
 由于 $P$ 满列秩，其正规矩阵 $P^\top P$ 可逆，故唯一的最优零空间系数为
 $b=(P^\top P)^{-1}P^\top y$。这一结论也是定义 4.2 的第二项条件为何必不可少的具体解释。
@@ -620,17 +620,17 @@ $$
 
 原文还分别把上述两组新泛函明确编号为
 
-$
+$$
 \widetilde\nu=(\widetilde\nu_1,\ldots,\widetilde\nu_{M-N_0})
 =\widetilde Q^\top\nu
 \in(\mathcal N_\nu\cap\mathcal H_A)^{M-N_0},\tag{47}
-$
+$$
 
-$
+$$
 \widetilde\phi=(\widetilde\phi_1,\ldots,\widetilde\phi_{N_0})
 =\widetilde P^\top\nu
 \in(\mathcal N_\nu)^{N_0}.\tag{48}
-$
+$$
 
 其中 $\widetilde\nu(p)=0$（湮灭性），而
 $\widetilde\phi(p)=\widetilde P^\top P=I_{N_0}$（双正交性）。由此得到测量空间的直接和：
@@ -660,7 +660,7 @@ $
 
 同时，$\|Lf\|_{L_2}=\|L\widetilde f\|_{L_2}$。因此式（42）可以重写为
 
-$
+$$
 \begin{gathered}
 \min_{\widetilde f\in\mathcal H_{L,\widetilde\varphi},\,b\in\mathbb R^{N_0}}
 J(\widetilde f,b),\\
@@ -668,19 +668,19 @@ J(\widetilde f,b)
 =E\!\left(y,Q\widetilde\nu(\widetilde f)+Pb\right)
 +\lambda\|L\widetilde f\|_{L_2}^2.
 \end{gathered}\tag{49}
-$
+$$
 
 对固定 $\widetilde f$，由于 $P$ 满列秩，$b\mapsto J(\widetilde f,b)$ 是下半连续、强制且凸的。对固定 $b$，$\widetilde f\mapsto J(\widetilde f,b)$ 因测量连续而下半连续，且根据正则项的 Hilbert 空间范数性质具有相应的强制性与严格凸性；在原文所采用的条件下，因此存在唯一最小点 $(\widetilde f_\lambda,b_\lambda)$。
 
 设该最小点的测量输出为某个 $z_0\in\mathbb R^M$：
 
-$
+$$
 Q\widetilde\nu(\widetilde f_\lambda)+Pb_\lambda=z_0.\tag{50}
-$
+$$
 
 由于 $[Q\ P]$ 可逆，可直接恢复两个测量坐标：
 
-$
+$$
 \begin{bmatrix}
 \widetilde\nu(\widetilde f_\lambda)\\
 b_\lambda
@@ -692,22 +692,22 @@ b_\lambda
 \widetilde Q^\top z_0\\
 \widetilde P^\top z_0
 \end{bmatrix}.\tag{51}
-$
+$$
 
 从而零空间系数是 $b_\lambda=\widetilde P^\top z_0$。而 $\widetilde f_\lambda$ 必须同时解决下列最小范数插值问题：
 
-$
+$$
 \widetilde f_\lambda=
 \underset{\widetilde f\in\mathcal H_{L,\widetilde\varphi}}{\operatorname{argmin}}
 \|L\widetilde f\|_{L_2},
 \quad\text{使得}\quad
 \widetilde\nu(\widetilde f)=\widetilde Q^\top z_0.
 \tag{52}
-$
+$$
 
 由于 $\|L\widetilde f\|_{L_2}$ 恰是 $\mathcal H_{L,\widetilde\varphi}$ 的范数，可应用 Hilbert 空间最小范数表示定理 4.1，获得
 
-$
+$$
 \widetilde f_\lambda
 =A_{\widetilde\varphi}\left\{
 \sum_{m=1}^{M-N_0}\widetilde a_m\widetilde\nu_m
@@ -715,13 +715,13 @@ $
 =\sum_{m=1}^{M-N_0}\widetilde a_m
 A_{\widetilde\varphi}\{\widetilde\nu_m\}.
 \tag{53}
-$
+$$
 
 于是定义 $\widetilde\psi_m=A_{\widetilde\varphi}\{\widetilde\nu_m\}$，再加回最优零空间项 $\sum b_np_n$，即得到表示式（43）。
 
 接下来导出传统的过参数化形式（44）。由命题 3.2，$A\{\widetilde f_\lambda^*\}\in\mathcal H_L$，并且 $A\{\widetilde f_\lambda^*\}-A_{\widetilde\varphi}\{\widetilde f_\lambda^*\}\in\mathcal N_p$，因此可以把这部分差异吸收到新的零空间系数中。同时，若 $\widetilde f_\lambda^*=\widetilde a^\top\widetilde\nu=\widetilde a^\top\widetilde Q^\top\nu=a^\top\nu$，则 $a=\widetilde Q\widetilde a$，自动满足 $P^\top a=P^\top\widetilde Q\widetilde a=0$。反过来，当 $P^\top a=0$ 时，也存在唯一 $\widetilde a=Q^\top a$，这正对应矩阵恒等式
 
-$
+$$
 \begin{bmatrix}\widetilde a\\0\end{bmatrix}
 =
 \begin{bmatrix}Q^\top\\P^\top\end{bmatrix}a
@@ -729,7 +729,7 @@ $
 a=[\widetilde Q\ \widetilde P]
 \begin{bmatrix}\widetilde a\\0\end{bmatrix}.
 \tag{54}
-$
+$$
 
 故两种参数化方式完全等价，证明完成。
 
@@ -752,10 +752,10 @@ $$
 
 当 Hilbert 空间 $\mathcal H$ 由 $\mathbb R^d$ 上的连续函数构成，且每个点采样泛函 $\delta_x\in\mathcal H'$ 有意义时，就可以将前面的理论与再生核 Hilbert 空间联系起来。如果零空间平凡，定理 3.1 的对称正定算子 $A$ 的 Schwartz 核（也称广义脉冲响应）为 $h:\mathbb R^d\times\mathbb R^d\to\mathbb R$，作用为
 
-$
+$$
 A\{\varphi\}(x)=
 \int_{\mathbb R^d}h(x,y)\varphi(y)\,dy.\tag{55}
-$
+$$
 
 若取 $M$ 个互异位置 $x_1,\ldots,x_M$ 上的测量 $\nu_m=\delta_{x_m}$，则 $\langle\nu_m,f\rangle=f(x_m)$，表示定理中的基函数成为
 
@@ -776,11 +776,11 @@ $
 
 其中 $\rho_L=L^{-1}\{\delta\}$、$\rho_{L^*L}=(L^*L)^{-1}\{\delta\}$ 分别是 $L$ 和 $L^*L$ 的 Green 函数。LSI 算子在傅里叶域对角化，因此其条件逆的 Schwartz 核为
 
-$
+$$
 h_{\mathrm{LSI}}(x,y)=\rho(x-y),\qquad
 \rho=\mathcal F^{-1}\left\{\frac1{|\widehat L|^2}\right\}.
 \tag{56}
-$
+$$
 
 这里 $\widehat L(\omega)$ 为 $L$ 的频率响应，$\rho=\rho_{L^*L}$ 是正规算子 $L^*L$ 的对称 Green 函数。它的存在性和逆傅里叶变换的良定性来自 $L$ 的容许性。形式上，频率响应 $1/|\widehat L(\omega)|^2\ge0$ 表明逆算子具有半正定性；但要在通常意义下得到正定再生核，还需相应的可积性等条件。
 
@@ -818,11 +818,11 @@ $
 
 一个 $p$-容许 LSI 算子可能有很多条件逆，其 Green 函数在零空间分量上有所不同；但通过规范逆傅里叶变换构造的条件逆是唯一的，并且对称。于是对于可接受的点测量，式（44）成为
 
-$
+$$
 f_\lambda(x)=
 \sum_{m=1}^{M}a_m\rho(x-x_m)
 +\sum_{n=1}^{N_0}b_np_n(x).\tag{57}
-$
+$$
 
 其中，$p_n$ 是多项式或调制多项式零空间基；得到的函数是结点位于 $x_m$ 的 $L^*L$-样条。代入表 1 的 $L=D^N$，得到正文式（58）的 $2N-1$ 次多项式样条。对分数阶导数 $D^\gamma$（$\gamma>1/2$），当 $\gamma$ 非整数时得到分数样条。
 
@@ -843,10 +843,10 @@ $$
 
 该情形下的闭式解就是熟知的岭回归估计器：
 
-$
+$$
 f_\lambda=\sum_{m=1}^{M}a_m\psi_m,\qquad
 a=(G+\lambda I)^{-1}y.\tag{60}
-$
+$$
 
 这一结果将在非平凡零空间的最小二乘推导中作为比较基准。后一情形的主要区别是，传统展开必须额外满足系数正交约束。
 
@@ -854,18 +854,18 @@ $
 
 对测量适配基 $\widetilde\psi_m=A_{\widetilde\varphi}\{\widetilde\nu_m\}$，定义
 
-$
+$$
 [\widetilde G]_{m,n}
 :=\langle\widetilde\nu_m,\widetilde\psi_n\rangle
 =\langle\widetilde\nu_m,
 A_{\widetilde\varphi}\{\widetilde\nu_n\}\rangle,
 \qquad
 \widetilde\nu=\widetilde Q^\top\nu.\tag{61}
-$
+$$
 
 这里 $\widetilde G\in\mathbb R^{(M-N_0)\times(M-N_0)}$。由于 $\widetilde\nu_m$ 属于 $\mathcal H_A=\mathcal H_{L,\widetilde\varphi}'$，而 $A_{\widetilde\varphi}$ 是 $\mathcal H_A\to\mathcal H_{L,\widetilde\varphi}$ 的 Riesz 映射，故
 
-$
+$$
 \begin{aligned}
 [\widetilde G]_{m,n}
 &=\langle\widetilde\nu_m,\widetilde\nu_n\rangle_{\mathcal H_A}\\
@@ -874,7 +874,7 @@ $
 \rangle_{\mathcal H_{L,\widetilde\varphi}}\\
 &=\langle L\widetilde\psi_m,L\widetilde\psi_n\rangle_{L_2}.
 \end{aligned}\tag{62}
-$
+$$
 
 因此，$\widetilde G$ 恰好是缩减基 $\widetilde\psi$ 的 Gram 矩阵，并且保证正定。对于 $f=\sum\widetilde a_m\widetilde\psi_m+\sum b_np_n$，
 
@@ -886,9 +886,9 @@ $
 
 如果同时定义扩充系统矩阵 $G\in\mathbb R^{M\times M}$，$[G]_{m,n}=\langle\nu_m,A\{\nu_n\}\rangle$，则有
 
-$
+$$
 \widetilde G=\widetilde Q^\top G\widetilde Q.\tag{64}
-$
+$$
 
 它与 $\widetilde\psi=\widetilde Q^\top\psi$、$Q\widetilde G=G\widetilde Q$ 等关系相容，允许在约束参数化与无约束参数化之间切换。不同条件逆会导致 $G$ 的元素不同，但若 $P^\top a=0$，二次型 $a^\top Ga$ 的值与条件逆的选择无关。这进一步说明正交约束不是形式性的：违反该约束，连续域正则项 $\|Lf\|_{L_2}^2$ 的数值并不能再由 $a^\top Ga$ 正确表示，甚至可能发散。
 
@@ -947,7 +947,7 @@ $$
 
 对条件化的无约束形式，取平方损失并对 $\widetilde a,b$ 求梯度，将其设为零。利用 $\widetilde G$ 可逆，原文推导得到
 
-$
+$$
 \begin{bmatrix}
 Q^\top Q\widetilde G+\lambda I&Q^\top P\\
 P^\top Q\widetilde G&P^\top P
@@ -956,31 +956,31 @@ P^\top Q\widetilde G&P^\top P
 =
 \begin{bmatrix}Q^\top\\P^\top\end{bmatrix}y.
 \tag{66}
-$
+$$
 
 进一步使用附录 B 的规范分解，使 $Q^\top P=0$、$Q^\top Q=I_{M-N_0}$，则系统完全解耦：
 
-$
+$$
 \widetilde a=(\widetilde G+\lambda I)^{-1}Q^\top y,\qquad
 b=(P^\top P)^{-1}P^\top y.\tag{67}
-$
+$$
 
 它的意义清楚：零空间系数 $b$ 是对数据在 $\mathcal N_p$ 上的最小二乘拟合，不依赖 $\lambda$；样条系数 $\widetilde a$ 则相当于对残余测量 $Q^\top y$ 执行岭回归。随着 $\lambda\to\infty$，有 $\widetilde a\to0$，恢复位于零空间内的线性回归。
 
 对过参数化目标式（68），其关于 $a$、$b$ 的偏导数分别为
 
-$
+$$
 \begin{aligned}
 \frac{\partial J_{\mathrm{LS}}}{\partial a}
 &=2G(Ga+Pb-y)+2\lambda Ga\\
 &=2G\big[(G+\lambda I)a+Pb-y\big],
 \end{aligned}\tag{71}
-$
+$$
 
-$
+$$
 \frac{\partial J_{\mathrm{LS}}}{\partial b}
 =2P^\top(Ga+Pb-y).\tag{72}
-$
+$$
 
 只要式（70）成立，将 $y=(G+\lambda I)a+Pb$ 代入上述两个导数，它们便都为零，同时也满足 $P^\top a=0$。由此验证了 KKT 最优条件。值得注意的是，相应的 KKT 乘子可以为零：式（71）中的梯度可分解出 $G$，所以式（70）的第一行单独使该梯度消失，无须由乘子补偿；第二行则实施正交约束。
 
