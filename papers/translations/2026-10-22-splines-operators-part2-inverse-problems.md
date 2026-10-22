@@ -14,7 +14,7 @@ toc: true
 **作者：** Michael Unser  
 **机构：** 瑞士洛桑联邦理工学院（EPFL）生物医学成像组。  
 **来源：** arXiv:2610.14920v1，2026 年 10 月 10 日，39 页。  
-**当前范围：** 摘要、目录、第 1 节引言、第 2 节主要定义及条件、第 3 节母空间定理、第 4 节表示定理与精确离散化主结果已译。原文大量逐项证明、具体核实例、附录 A–B 和完整参考文献尚需补齐。**不是完整全文译本，不可当作逐定理核对后的正式翻译。**
+**当前范围：** 摘要、目录、第 1–5 节主要结论和推导、附录 A–B 的完整证明及致谢已录入。第 2–4 节部分长证明、具体核实例和参考文献书目仍有遗漏；**尚未通过全文逐式验收**。
 
 ## 摘要
 
@@ -331,8 +331,195 @@ $$
 
 这一系统提供了广义样条最小二乘拟合的直接数值解法，也说明如何由连续域的算子正则化精确地得到一个有限维线性系统。
 
-## 5. 结论（内容待逐段核译）
+## 5. 结论
 
-上述框架把基于微分型算子的二次正则化、广义样条、RKHS 核估计和机器学习中的表示定理纳入同一理论，通过母空间的显式刻画与测量适配基，将无限维逆问题变为有限维优化。这个连接也为配套论文所研究的广义高斯过程 MMSE 估计提供了解析基础。
+本文提出的公式化框架和表示定理（定理 4.3）将插值、平滑样条、岭回归、Tikhonov 正则化及核估计统一为任意 $p$-容许算子的母空间上的同一类问题。所给假设明确划定了无限维问题的解能够被限制在有限维子空间中的范围：可接受的算子、最大搜索空间、容许测量和数据保真损失。第 4.3 节的精确离散化提供了统一的求解流程，当数据保真项为二次型时还能得到闭式解。
 
-> **待补译：** 第 2–4 节部分长证明、关于条件核和分数阶算子的具体推导、原文第 5 节完整措辞、附录 A–B 的全部证明、41 条参考文献。现有页面用于阅读主定义与核心结论，尚未达到“全文完整翻译”的验收标准。
+将这些问题统一到一个自洽框架有两方面好处。从概念上看，同一种机制——母空间的 Riesz 映射与条件化基之间的相互作用——同时解释了各种估计器为何具有特定的参数形式。从实际应用上看，一种实现方法即可覆盖整个问题类：使用者的具体工作缩减为确定式（43）中的基函数与式（61）规定的 Gram 矩阵，之后便是一般线性代数操作。
+
+最后，条件化参数化也是连接随机理论的桥梁。在该系列第三部分论文 [37] 中，这些广义样条将被识别为广义高斯过程的最小均方误差估计器，从而将 Kimeldorf 与 Wahba [31] 的经典对应关系推广到目前的普遍性水平。
+
+
+> **校对状态：** 已补译论文正式结论及附录 A–B 的全部证明与相应矩阵等式（73）–（77）；第 2–4 节的长证明及核实例仍有遗漏，参考文献列表尚未完整校录。本稿仍不标记为已验收全文。
+
+## 附录 A. 抽象表示定理
+
+为保持论述自洽，本附录证明以下经典表示定理：当 Hilbert 空间中的最小范数问题受到有限个线性约束时，其解位于这些约束泛函的 Riesz 表示元所张成的有限维子空间中。
+
+**定理 4.1 的证明。** 每个 $\nu_m\in\mathcal H'$ 都具有唯一的 Riesz 表示元 $\nu_m^*=J_{\mathcal H'}\{\nu_m\}\in\mathcal H$，满足
+
+$$
+\langle\nu_{m'},\nu_m^*\rangle
+=\langle\nu_{m'}^*,\nu_m^*\rangle_{\mathcal H}
+=\langle\nu_{m'},\nu_m\rangle_{\mathcal H'}
+=[G]_{m',m}.
+$$
+
+这里 $G\in\mathbb R^{M\times M}$ 是该系统的 Gram 矩阵。测量泛函线性独立保证 $G$ 正定且可逆。
+
+**Lagrange 函数与对偶性。** 对约束 $\nu(f)=z$ 引入乘子 $\lambda=(\lambda_m)\in\mathbb R^M$，写出式（38）的 Lagrange 函数：
+
+$$
+\begin{aligned}
+\mathcal L(f,\lambda)
+&=\frac12\|f\|_{\mathcal H}^2+
+\sum_{m=1}^{M}\lambda_m(z_m-\langle\nu_m,f\rangle)\\
+&=\frac12\Big\|f-\sum_{m=1}^{M}\lambda_m\nu_m^*\Big\|_{\mathcal H}^2
+-\frac12\Big\|\sum_{m=1}^{M}\lambda_m\nu_m^*\Big\|_{\mathcal H}^2
++\lambda^\top z.
+\end{aligned}
+$$
+
+第二个等号使用了 Riesz 表示性质 $\langle\nu_m,f\rangle=\langle\nu_m^*,f\rangle_{\mathcal H}$，并通过配方得到。对 $f\in\mathcal H$ 取下确界，在 $f=\sum_{m=1}^{M}\lambda_m\nu_m^*$ 处达到，得到对偶函数
+
+$$
+\inf_{f\in\mathcal H}\mathcal L(f,\lambda)
+=\lambda^\top z
+-\frac12\Big\|\sum_{m=1}^{M}\lambda_m\nu_m\Big\|_{\mathcal H'}^2
+=\lambda^\top z-\frac12\lambda^\top G\lambda.
+$$
+
+因此对偶准则就是正文式（39）。因为 $G$ 正定，这个二次型严格凹，其唯一最大点为 $a=G^{-1}z$。
+
+**原问题的求解。** 定义 $g_a=\sum_{m=1}^{M}a_m\nu_m^*$，其中 $a=G^{-1}z$。对于全部 $m'$，
+
+$$
+\langle\nu_{m'},g_a\rangle
+=\sum_{m=1}^{M}a_m[G]_{m',m}
+=z_{m'}.
+$$
+
+故可行集 $\mathcal A_z=\{f\in\mathcal H:\nu(f)=z\}$ 非空。令
+
+$$
+\mathcal H_0=\operatorname{span}\{\nu_m^*\}_{m=1}^{M},
+\quad
+\mathcal H_0^\perp
+=\{f\in\mathcal H:\langle\nu_m,f\rangle=0,\ m=1,\ldots,M\},
+$$
+
+则可行集具有仿射结构 $\mathcal A_z=g_a+\mathcal H_0^\perp$。任意可行点 $f=g_a+h$，其中 $h\in\mathcal H_0^\perp$，由勾股关系有
+
+$$
+\|f\|_{\mathcal H}^2
+=\|g_a\|_{\mathcal H}^2+\|f-g_a\|_{\mathcal H}^2.
+$$
+
+因此唯一的最小范数解是 $f_0=g_a$，其范数为
+
+$$
+\|f_0\|_{\mathcal H}^2=a^\top Ga=z^\top G^{-1}z.
+$$
+
+定理得证。
+
+## 附录 B. 测量空间的分解
+
+本附录首先证明引理 4.4，然后给出构造测量适配分解的实用方法。
+
+**引理 4.4 的证明。** 由于 $P$ 是满列秩的 $M\times N_0$ 矩阵，必存在互补矩阵 $Q\in\mathbb R^{M\times(M-N_0)}$，使拼接方阵 $[Q\ P]\in\mathbb R^{M\times M}$ 可逆。设
+
+$$
+\begin{bmatrix}\widetilde Q^\top\\
+\widetilde P^\top\end{bmatrix}
+=[Q\ \ P]^{-1}.
+$$
+
+由式（45）展开可得
+
+$$
+\begin{bmatrix}
+\widetilde Q^\top Q &\widetilde Q^\top P\\
+\widetilde P^\top Q &\widetilde P^\top P
+\end{bmatrix}
+=
+\begin{bmatrix}
+I_{M-N_0}&0\\
+0&I_{N_0}
+\end{bmatrix}.\tag{73}
+$$
+
+其次，按照式（47）和（48），定义新的测量泛函坐标：
+
+$$
+\begin{bmatrix}
+\widetilde\nu\\
+\widetilde\phi
+\end{bmatrix}
+=
+\begin{bmatrix}
+\widetilde Q^\top\\
+\widetilde P^\top
+\end{bmatrix}\nu.\tag{74}
+$$
+
+对其求逆，得到
+
+$$
+\nu=
+\begin{bmatrix}
+\widetilde Q^\top\\
+\widetilde P^\top
+\end{bmatrix}^{-1}
+\begin{bmatrix}
+\widetilde\nu\\
+\widetilde\phi
+\end{bmatrix}
+=[Q\ \ P]\begin{bmatrix}
+\widetilde\nu\\
+\widetilde\phi
+\end{bmatrix}.\tag{75}
+$$
+
+这正是正文的式（46）。利用这些定义和式（73），立即有
+
+$$
+\widetilde\nu(p)=\widetilde Q^\top\nu(p)=\widetilde Q^\top P=0
+$$
+
+（关于 $p$ 的正交性），以及
+
+$$
+\widetilde\phi(p)
+=\widetilde P^\top\nu(p)
+=\widetilde P^\top P=I_{N_0}
+$$
+
+（双正交性）。同理，$\widetilde Q^\top Q=Q^\top\widetilde Q=I_{M-N_0}$，且 $P^\top\widetilde P=I_{N_0}$。
+
+**测量适配基的一种规范构造。** 取
+
+$$
+\widetilde P=P(P^\top P)^{-1},\tag{76}
+$$
+
+满足 $\widetilde P^\top P=I_{N_0}$，且 $\operatorname{range}(\widetilde P)=\operatorname{range}(P)$。再选取 $P^\top$ 的零空间的一组正交归一基作为 $Q$ 的列，例如通过奇异值分解（SVD）或 QR 分解求得。于是
+
+$$
+Q^\top P=0,\qquad Q^\top Q=I_{M-N_0},
+\qquad \widetilde P^\top Q=(P^\top P)^{-1}P^\top Q=0.
+$$
+
+因此式（73）的四个条件均成立，并且可以直接取 $\widetilde Q=Q$，不需要对 $Q$ 再进行修正。
+
+这种选择之所以是规范的，是因为它使解的两个分量完全解耦。矩阵
+
+$$
+P\widetilde P^\top=P(P^\top P)^{-1}P^\top,
+\qquad
+QQ^\top=I_M-P(P^\top P)^{-1}P^\top
+$$
+
+分别是到 $\operatorname{range}(P)$ 和其正交补的正交投影。因此测量空间被正交分解为
+
+$$
+\mathbb R^M
+=\operatorname{range}(P)\oplus\operatorname{range}(P)^\perp.
+\tag{77}
+$$
+
+在这一构造中，$\widetilde\phi=\widetilde P^\top\nu$ 包含数据在零空间 $\mathcal N_p$ 上的最小二乘拟合分量；$\widetilde\nu=Q^\top\nu$ 则携带剩余测量信息。这正是正文第 4.3.3 节实现解耦所用的性质。
+
+## 致谢与说明
+
+作者在论文准备过程中使用 Anthropic 的 Claude 作为交互式助手，用于文字校对以及证明的检查与简化。全部结果均经作者自行核验，作者对论文内容承担全部责任。研究获得瑞士国家科学基金会（SNSF）项目 200020 219356 支持。
