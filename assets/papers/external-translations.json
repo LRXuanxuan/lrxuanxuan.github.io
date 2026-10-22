@@ -1,5 +1,52 @@
 [
   {
+    "slug": "2026-10-22-otfs-sunscape-superimposed-pilots",
+    "title": "OTFS-ISAC 叠加式 Sunscape 导频与信道估计｜中文部分译稿",
+    "scope": "摘要、I–III 节主体、公式（1）–（30）中的主要公式、IV 节部分算法；其余推导、复杂度、性能图表、结论和参考文献未补，非全文",
+    "source_arxiv_ids": [],
+    "date": "2026-10-22",
+    "url": "/papers/translations/2026-10-22-otfs-sunscape-superimposed-pilots/",
+    "source_file": "2026-10-22-otfs-sunscape-superimposed-pilots.md",
+    "source_page_path": "papers/translations/2026-10-22-otfs-sunscape-superimposed-pilots.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-22-otfs-sunscape-superimposed-pilots.md",
+    "paper_ids": [],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": false
+  },
+  {
+    "slug": "2026-10-22-continuous-time-transformer-nonuniform-pilots",
+    "title": "非均匀导频连续时间 Transformer 信道预测｜中文部分译稿",
+    "scope": "摘要、I–III 节、主要定理及公式，IV 节主要机制，V 节实验设置与部分表格；剩余公式、图表、附录、参考文献待补，非全文",
+    "source_arxiv_ids": [],
+    "date": "2026-10-22",
+    "url": "/papers/translations/2026-10-22-continuous-time-transformer-nonuniform-pilots/",
+    "source_file": "2026-10-22-continuous-time-transformer-nonuniform-pilots.md",
+    "source_page_path": "papers/translations/2026-10-22-continuous-time-transformer-nonuniform-pilots.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-22-continuous-time-transformer-nonuniform-pilots.md",
+    "paper_ids": [],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": false
+  },
+  {
+    "slug": "2026-10-22-splines-operators-part2-inverse-problems",
+    "title": "样条与算子 II：逆问题求解｜中文理论译稿（未完）",
+    "scope": "摘要、目录、引言、预备定义、母空间定理、表示定理、部分精确离散化；详细证明、附录、参考文献未补，非全文",
+    "source_arxiv_ids": [
+      "2610.14920"
+    ],
+    "date": "2026-10-22",
+    "url": "/papers/translations/2026-10-22-splines-operators-part2-inverse-problems/",
+    "source_file": "2026-10-22-splines-operators-part2-inverse-problems.md",
+    "source_page_path": "papers/translations/2026-10-22-splines-operators-part2-inverse-problems.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-22-splines-operators-part2-inverse-problems.md",
+    "paper_ids": [],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": false
+  },
+  {
     "date": "2026-10-22",
     "slug": "2026-10-22-semantic-latent-alignment-flow-matching",
     "title": "双 Lipschitz 适配器的 Flow Matching 语义潜空间对齐｜中文主体译稿（未完）",
