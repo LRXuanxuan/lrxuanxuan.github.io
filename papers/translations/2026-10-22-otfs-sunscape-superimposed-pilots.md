@@ -179,7 +179,7 @@ $$
 
 原文式（13）将 Sunscape 几何布局和整数约束集中写为
 
-$
+$$
 \begin{gathered}
 L_s,L_y,L_a\in\mathbb Z,\qquad
 1\le L_s\le M-l_{\max}-1,\\
@@ -188,7 +188,7 @@ L_y=L_s+l_{\max},\qquad 1\le L_y\le M-1,\\
 L_a=M-L_y,\qquad m_a=L_y,\qquad
 1\le L_a\le M-1.
 \end{gathered}\tag{13}
-$
+$$
 
 这里 $L_y$ 是包括太阳导频在内的“天空”区域长度，$L_a$ 是海面区域长度；上述约束保证天空与海面都位于 DD 网格之内，并为时延扩展留出保护间隔。
 
@@ -235,7 +235,7 @@ $$
 
 原文将式（17）的元素显式展开为
 
-$
+$$
 \mathbf X_p^{(\mathrm{DT})}[m,n]=
 \begin{cases}
 \displaystyle\sqrt{\frac{L_y}{L_s}}\,p_s[m],
@@ -244,7 +244,7 @@ $
 &m_a\le m\le M-1,\quad n=0,\\
 0,&\text{其余情况}.
 \end{cases}\tag{18}
-$
+$$
 
 这一等式直接说明：太阳导频沿时间方向在全部 $N$ 列重复，而海面导频仅集中在第零个时域多载波符号。
 
@@ -360,7 +360,7 @@ $$
 
 **整数网格检测的完整阈值规则。** 短太阳导频的抽头数量由二值检测结果求和：
 
-$
+$$
 \widetilde L=
 \sum_{l=0}^{l_{\max}}
 \sum_{k=-k_{\max}}^{k_{\max}-1}b[l,k],
@@ -368,35 +368,35 @@ $
 |Y[m_s'+l,n_s+k]|^2
 \underset{\text{无抽头}}{\overset{\text{有抽头}}{\gtrless}}\gamma,
 \tag{25}
-$
+$$
 
 其中，$m_s\le m_s'\le L_s-1$。对于长太阳导频，则对相关矩阵执行同样的二值检测：
 
-$
+$$
 |C[l,k]|^2
 \underset{\text{无抽头}}{\overset{\text{有抽头}}{\gtrless}}\gamma,
 \qquad
 \widetilde L=\sum_{l=0}^{l_{\max}}
 \sum_{k=-k_{\max}}^{k_{\max}-1}b[l,k].
 \tag{28}
-$
+$$
 
 海面导频辅助的时延检测根据 $|C_a[l]|^2$ 与阈值比较：
 
-$
+$$
 |C_a[l]|^2
 \underset{\widetilde l_i\ne l}{\overset{\widetilde l_i=l}{\gtrless}}
 \gamma,\quad i=0,\ldots,\widetilde L-1.\tag{31}
-$
+$$
 
 **离网分数偏移的过采样矩阵。** 为精细检测非整数时延、多普勒，定义 $D=Y$（短太阳导频）或 $D=C$（长太阳导频；先零填充到 $M\times N$），然后构造
 
-$
+$$
 D_o=
 F_{M_o}^{\mathsf H}P_MF_MD\,
 F_N^{\mathsf H}P_N^{\mathsf H}F_{N_o}
 \in\mathbb C^{M_o\times N_o}.\tag{32}
-$
+$$
 
 其中 $M_o=KM$，$N_o=KN$，$K$ 为整数过采样倍率；$P_M\in\mathbb C^{M_o\times M}$ 和 $P_N\in\mathbb C^{N_o\times N}$ 分别沿时延和多普勒轴执行居中零填充。对于时延轴，
 
@@ -415,30 +415,30 @@ $P_N$ 采用相同方式构造。之后在 $D_o$ 上应用式（25）或式（28
 
 **增益细化的迭代表达式。** 为避免同时估计不同路径时互相污染，首先从平均向量 $\overline{\mathbf y}$ 中减去除最强抽头（$i=0$）之外的粗估路径贡献，得到
 
-$
+$$
 \mathbf y'_0=\overline{\mathbf y}-
 \sum_{r=1}^{\widetilde L-1}
 \widetilde g_r\Big(
 \boldsymbol\delta_{\widetilde k_r}[m-\widetilde l_r]
 \odot\mathbf p_a[m-\widetilde l_r]
 \Big).\tag{34}
-$
+$$
 
 其中，$\boldsymbol\delta_{\widetilde k_r}$ 是由该路径多普勒频移引起的、沿时延索引旋转的复指数向量，$\mathbf p_a[m-\widetilde l_r]$ 为按相应时延偏移后的海面导频。对当前抽头，从残差向量中计算新的复增益：
 
-$
+$$
 \widetilde g_i'=
 \frac{1}{L_a-\widetilde l_i}
 \sum_{r=0}^{L_a-\widetilde l_i-1}
 \frac{\mathbf y_i'[r]}{\boldsymbol\delta_{\widetilde k_i p}[r]},
 \quad i=0,\ldots,\widetilde L-1,\tag{35}
-$
+$$
 
 其中，$\boldsymbol\delta_{\widetilde k_i p}=
 \boldsymbol\delta_{\widetilde k_i}\odot
 \mathbf p_a[m-\widetilde l_i]$。完成第 $i$ 条路径的细化后，后续残差必须减去已细化路径和尚未细化路径的不同估计：
 
-$
+$$
 \begin{aligned}
 \mathbf y_i'=\overline{\mathbf y}
 &-\sum_{r=i+1}^{\widetilde L-1}\widetilde g_r
@@ -448,7 +448,7 @@ $
 \Big(\boldsymbol\delta_{\widetilde k_r}[m-\widetilde l_r]
 \odot\mathbf p_a[m-\widetilde l_r]\Big).
 \end{aligned}\tag{36}
-$
+$$
 
 以上表达式对应原文按路径依次剔除、重新估计的算法；由于数据和噪声均为零均值随机变量，沿海面导频平均可以减少干扰残留。对于分数时延，对平均向量、海面导频及参考多普勒向量统一过采样至长度 $L_{a,o}=KL_a$，然后在同一网格上使用式（34）–（36）。对于分数多普勒，由于海面导频在 DT 域只占据一个多载波符号 $n=0$，不会受到跨符号多普勒演化的影响，所观察到的多普勒作用仅表现为每时延单元上的相位旋转。
 
@@ -459,46 +459,46 @@ $
 
 考虑长太阳导频的相关检测。假设 $\mathcal H_0$ 表示不存在目标，$\mathcal H_1$ 表示存在目标。对某个时延—多普勒单元 $(l,k)$，相关输出建模为
 
-$
+$$
 C[l,k]=
 \begin{cases}
 V[l,k],&\mathcal H_0,\\
 g_i(1-\beta)\dfrac{NL_y}{L_s}|p_s|^2+V[l,k],
 &\mathcal H_1,
 \end{cases}\tag{37}
-$
+$$
 
 其中，$V[l,k]\sim\mathcal{CN}(0,\sigma_v^2)$ 表示相关之后的数据自干扰与噪声残留。由于目标/传播路径数量通常远小于 DD 网格大小，在 $MN$ 较大时，利用统计平均可以得到
 
-$
+$$
 \sigma_v^2=\frac{\beta+\sigma_z^2}{L_s},\qquad
 \frac1{MN}\sum_{k=0}^{N-1}\sum_{l=0}^{M-1}|C[l,k]|^2
 \xrightarrow[MN\to\infty]{}\sigma_v^2.\tag{38}
-$
+$$
 
 数据和噪声残留方差随相关长度 $L_s$ 增大而按比例减小。阈值可选择为大于残留标准差一定倍数：
 
-$
+$$
 \gamma>\gamma_l\sigma_v,\quad
 \gamma_l\in\mathbb R_{>0}.\tag{39}
-$
+$$
 
 这可以视为一种基础的恒虚警率（CFAR）检测形式。在存在杂波或非高斯干扰的感知场景中，可以按照目标虚警概率 $P_{\rm FA}$ 和训练单元数 $N_{\rm tc}$，使用
 
-$
+$$
 \gamma=N_{\rm tc}\left(P_{\rm FA}^{-1/N_{\rm tc}}-1\right).\tag{40}
-$
+$$
 
 实际检测规则仍是
 
-$
+$$
 E=|C[l,k]|^2
 \underset{\mathcal H_0}{\overset{\mathcal H_1}{\gtrless}}\gamma.\tag{41}
-$
+$$
 
 在原文高斯假设下，$E$ 服从两自由度中心卡方分布的缩放形式：
 
-$
+$$
 E\sim
 \begin{cases}
 \dfrac{\sigma_v^2}{2}\,\chi_2^2,
@@ -506,23 +506,23 @@ E\sim
 \dfrac{\sigma_v^2+\sigma_h^2(NL_y/L_s)(1-\beta)}{2}
 \,\chi_2^2,&\mathcal H_1.
 \end{cases}\tag{42}
-$
+$$
 
 因此，虚警概率与检测概率的闭式表达式为
 
-$
+$$
 P_{\rm FA}(\beta,L_s)
 =\exp\!\left(-\frac{\gamma L_s}{\beta+\sigma_z^2}\right),\tag{43}
-$
+$$
 
-$
+$$
 P_D(\beta,L_s)=
 \exp\!\left(
 -\frac{\gamma L_s}
 {\beta+\sigma_z^2+
 \sigma_h^2N(L_s+l_{\max})(1-\beta)}
 \right).\tag{44}
-$
+$$
 
 式（43）、（44）描述了太阳导频长度、功率分配与检测性能之间的相互作用。实际结果还受到 ZC 序列自相关旁瓣等因素影响，须结合仿真检验阈值设计与理想化分析是否一致。
 
@@ -530,50 +530,50 @@ $
 
 以下分析先假设时延和多普勒抽头已被正确检测，即 $\widetilde l_i=l_i$、$\widetilde k_i=k_i$。周期性海面导频在 DD 域使接收信号表现出周期变化的均值（循环平稳统计特性）。由于数据与噪声的均值均为零，大数定律意味着对足够多样本进行平均时，它们的贡献趋于零：
 
-$
+$$
 \sum_{q=0}^{MN-1}x_d[q]\xrightarrow[MN\to\infty]{}0,\qquad
 \sum_{q=0}^{MN-1}z[q]\xrightarrow[MN\to\infty]{}0.\tag{45}
-$
+$$
 
 据此，经过 $N$ 个多载波符号平均的接收向量渐近趋于由导频与信道产生的部分：
 
-$
+$$
 \overline y[m]\xrightarrow[N\to\infty]{}
 \sqrt{1-\beta}\sum_{i=0}^{L-1}
 g_i z^{k_i(m-l_i)}p_a[m-l_i].\tag{46}
-$
+$$
 
 原文进一步说明，对式（34）–（36）的残差再沿可用的 $L_a$ 个时延单元平均，在渐近条件下可以得到
 
-$
+$$
 \frac1{L_a}\sum_{r=0}^{L_a-1}
 \frac{y_i'[r]}{\delta_{\widetilde k_i p}[r]}
 \xrightarrow[L_a\to\infty]{}g_i.\tag{47}
-$
+$$
 
 因此，经过 $N L_a$ 个样本的相关平均之后，数据与噪声残留方差分别成为
 
-$
+$$
 \sigma_T^2=\sigma_d'^2+\sigma_z'^2,\quad
 \sigma_d'^2=\frac{\beta}{NL_a},\quad
 \sigma_z'^2=\frac{\sigma_z^2}{NL_a}.\tag{48}
-$
+$$
 
 对于已经正确检测的路径，以真实系数向量 $\mathbf g$ 和估计向量 $\widetilde{\mathbf g}$ 定义 MSE：
 
-$
+$$
 \mathrm{MSE}
 =\mathbb E\!\left[\|\mathbf g-\widetilde{\mathbf g}\|^2\right].\tag{49}
-$
+$$
 
 在上述条件下，原文给出 MSE 的下界
 
-$
+$$
 \mathrm{MSE}(\beta,L_s\mid
 \widetilde l_i=l_i,\widetilde k_i=k_i)
 \ge\sigma_T^2
 =\frac{\beta+\sigma_z^2}{NL_a}.\tag{50}
-$
+$$
 
 这说明对于已检测到的路径，海面导频长度 $L_a$ 是影响复增益估计 MSE 的关键参数。由于 $L_a=M-L_s-l_{\max}$，在固定 $M$ 和最大时延扩展的情况下，增大太阳导频长度通常会减小海面导频数量，从而提高复增益估计误差。注意，式（50）对单个正确检测的抽头给出误差分析；未检测与虚警的影响会进一步通过参数联合优化考虑。作者指出，在通信常见的 $SNR>0$ dB 范围内，此类错误在仿真中对最终 MSE 的影响很小。
 
@@ -624,12 +624,12 @@ $
 
 为同时优化增益 MSE 与目标检测能力，作者构造如下非凸混合整数问题：
 
-$
+$$
 \min_{\beta,L_s}\quad
 f_{\rm obj}(\beta,L_s)=
 \frac{\mathrm{MSE}(\beta,L_s)}
 {P_D(\beta,L_s)[1-P_{\rm FA}(\beta,L_s)]},\tag{51}
-$
+$$
 
 其约束包括：时域信号平均功率固定为 $P_{\max}$；叠加后 PAPR 不超过 $\mathrm{PAPR}_{\max}$；$L_s$ 为 $1$ 至 $M-l_{\max}-1$ 范围内的整数，$0\le\beta\le1$；$L_y$ 与 $L_a$ 的有效范围和隔离关系满足式（13）。分子鼓励较小的估计误差；分母同时奖励较高检测概率、惩罚虚警。
 
