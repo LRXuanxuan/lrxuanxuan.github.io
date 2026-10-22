@@ -2,7 +2,7 @@
   {
     "slug": "2026-10-22-otfs-sunscape-superimposed-pilots",
     "title": "OTFS-ISAC 叠加式 Sunscape 导频与信道估计｜中文部分译稿",
-    "scope": "摘要、I–III 节主体、公式（1）–（30）中的主要公式、IV 节部分算法；其余推导、复杂度、性能图表、结论和参考文献未补，非全文",
+    "scope": "18 页：摘要、正文 I–VII、主要公式（1）–（51）、表 I–III、算法 1、图 1–15 说明；英文参考文献与作者简介待补，终校未完成",
     "source_arxiv_ids": [],
     "date": "2026-10-22",
     "url": "/papers/translations/2026-10-22-otfs-sunscape-superimposed-pilots/",
@@ -19,7 +19,7 @@
   {
     "slug": "2026-10-22-continuous-time-transformer-nonuniform-pilots",
     "title": "非均匀导频连续时间 Transformer 信道预测｜中文部分译稿",
-    "scope": "摘要、I–III 节、主要定理及公式，IV 节主要机制，V 节实验设置与部分表格；剩余公式、图表、附录、参考文献待补，非全文",
+    "scope": "16 页：摘要、正文 I–VI、连续时间注意力公式（21）–（27）、表 I–XI、图 1–9 说明与附录证明；原文参考文献尚未完整校录，逐式终校待完成",
     "source_arxiv_ids": [],
     "date": "2026-10-22",
     "url": "/papers/translations/2026-10-22-continuous-time-transformer-nonuniform-pilots/",
@@ -36,7 +36,7 @@
   {
     "slug": "2026-10-22-splines-operators-part2-inverse-problems",
     "title": "样条与算子 II：逆问题求解｜中文理论译稿（未完）",
-    "scope": "摘要、目录、引言、预备定义、母空间定理、表示定理、部分精确离散化；详细证明、附录、参考文献未补，非全文",
+    "scope": "39 页：摘要、正文 1–5 主要定理/推导、附录 A–B 证明及英文参考文献 43 条；正文部分长证明与核实例仍待补译",
     "source_arxiv_ids": [
       "2610.14920"
     ],
@@ -56,7 +56,7 @@
     "date": "2026-10-22",
     "slug": "2026-10-22-semantic-latent-alignment-flow-matching",
     "title": "双 Lipschitz 适配器的 Flow Matching 语义潜空间对齐｜中文主体译稿（未完）",
-    "scope": "摘要、正文 1–7、公式（1）–（8）、表 1–8 及主要图注已录入；参考文献、附录证明、补充图表待补",
+    "scope": "17 页：正文 1–7、公式（1）–（8）、附录 A–C 命题证明、表 1–9、图 1–5 说明及原英文参考文献；需核对断行与公式细节",
     "source_arxiv_ids": [
       "2610.21332"
     ],
@@ -75,7 +75,7 @@
     "date": "2026-10-22",
     "slug": "2026-10-22-rwkv-mobile-channel-prediction",
     "title": "RWKV 移动信道预测｜中文全篇译稿（待终校）",
-    "scope": "6 页：摘要、正文 I–V、公式（1）–（11）、图 1–6 的图注、表 I–IV、致谢及 13 条参考文献已录入；尚待独立逐式终校",
+    "scope": "6 页：摘要、正文 I–V、公式（1）–（11）、表 I–IV、图 1–6 图注及 13 条参考文献；逐段终校待完成",
     "source_arxiv_ids": [
       "2606.16170"
     ],
