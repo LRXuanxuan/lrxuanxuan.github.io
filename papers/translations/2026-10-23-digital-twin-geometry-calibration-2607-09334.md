@@ -14,7 +14,7 @@ toc: true
 **作者：** Lorenzo Del Moro、Francesco Linsalata、Umberto Spagnolini、Maurizio Magarini  
 **单位：** 米兰理工大学电子、信息与生物工程系（DEIB）  
 **版本：** arXiv:2607.09334v1，2026 年 7 月 10 日，16 页。  
-**状态与边界：** 已按原文翻译摘要、正文 I—VI、主要公式（1）—（38）、表 I—III 与图 1—6 的正文解释，并整理附录推导的符号关系。附录 A—B 的公式（39）—（59）及表 I—III 已补入；参考文献完整书目与部分正文叙述仍待逐段复核，不标记为已通过全文验收。本站不重复上传原 PDF、图像。
+**状态与边界：** 已按原文翻译摘要、正文 I—VI、主要公式（1）—（38）、表 I—III 与图 1—6 的正文解释，并整理附录推导的符号关系。附录 A—B 的公式（39）—（59）及表 I—III 已补入；33 条参考文献已依原始 PDF 补录；部分正文叙述和书目排版仍待逐段复核，不标记为已通过全文验收。本站不重复上传原 PDF、图像。
 
 ## 摘要
 
@@ -496,6 +496,70 @@ $$
 
 这表明在本文的一阶材料扰动模型下，几何路径保持不变，反射系数扰动主要通过各路径的增益传播到信道协方差的特征值结构。上述附录内容与正文式（18）–（32）的几何及电磁扰动分析互为支撑。
 
-## 参考文献
+## 参考文献（依原文逐条保留英文书目）
 
-全部英文参考书目见[原始 PDF](https://arxiv.org/pdf/2607.09334v1)末尾。由于书目及部分正文尚未逐段终校，此页仍标为“待终校”，不计入已验收的全文译文。
+[1] W. Jiang, B. Han, M. A. Habibi, and H. D. Schotten, “The road towards 6g: A comprehensive survey,” IEEE Open Journal of the Communications Society, vol. 2, pp. 334–366, 2021.
+
+[2] A. Brighente, M. Cerutti, M. Nicoli, S. Tomasin, and U. Spagnolini, “Estimation of wideband dynamic mmwave and thz channels for 5g systems and beyond,” IEEE Journal on Selected Areas in Communications, vol. 38, no. 9, pp. 2026–2040, 2020.
+
+[3] H. Xie, F. Gao, and S. Jin, “An overview of low-rank channel estimation for massive mimo systems,” IEEE Access, vol. 4, pp. 7313–7321, 2016.
+
+[4] M. Mizmizi, D. Tagliaferri, D. Badini, C. Mazzucco, and U. Spagnolini, “Channel estimation for 6g v2x hybrid systems using multi-vehicular learning,” IEEE Access, vol. 9, pp. 95 775– 95 790, 2021.
+
+[5] Y. Li, A. S. Madhukumar, Z. Chu, G. Zheng, C.-X. Wang, and K. Yang, “Wideband hybrid-field thz um-mimo channel estimation: A dual-attention-aided deep-unfolded bayesian learning approach,” IEEE Transactions on Communications, vol. 74, pp. 6523–6540, 2026.
+
+[6] Y. Li and A. S. Madhukumar, “Hybrid nearand far-field thz um-mimo channel estimation: A sparsifying matrix learningaided bayesian approach,” IEEE Transactions on Wireless Communications, vol. 24, no. 3, pp. 1881–1897, 2025.
+
+[7] Q. Li, M. El-Hajjar, C. Xu, J. An, C. Yuen, and L. Hanzo, “Stacked intelligent metasurface-based transceiver design for near-field wideband systems,” IEEE Transactions on Communications, vol. 73, no. 9, pp. 8125–8139, 2025.
+
+[8] A. Wei, Z. Wang, K. Fang, J. Zhang, Y. Dong, L. Yang, and Q. Li, “Near-field beam training design for stacked intelligent metasurface assisted communication systems,” IEEE Transactions on Vehicular Technology, pp. 1–6, 2026.
+
+[9] Y. Zeng, J. Chen, J. Xu, D. Wu, X. Xu, S. Jin, X. Gao, D. Gesbert, S. Cui, and R. Zhang, “A tutorial on environmentaware communications via channel knowledge map for 6g,” IEEE Communications Surveys & Tutorials, vol. 26, no. 3, pp. 1478–1519, 2024.
+
+[10] X. Lin, L. Kundu, C. Dick, E. Obiodu, T. Mostak, and M. Flaxman, “6g digital twin networks: From theory to practice,” IEEE Communications Magazine, vol. 61, no. 11, pp. 72–78, 2023.
+
+[11] L. Cazzella, F. Linsalata, D. Badini, M. Matteucci, M. Magarini, and U. Spagnolini, “High-fidelity rf mapping: Assessing environmental modeling in 6g network digital twins,” Computer Networks, p. 111797, 2025.
+
+[12] Y. Fang, S. Xu, C. Fang, S. He, C. Li, Y. Huang, and L. Yang, “High-fidelity digital twin channel modeling for risassisted wireless communication systems,” IEEE Transactions on Communications, vol. 74, pp. 6904–6921, 2026.
+
+[13] S. Kamioka, T. Yamazaki, and T. Miyoshi, “Implementation and evaluation of digital twin using lidar and 3d city models,” in 2025 1st International Conference on Consumer Technology (ICCT-Pacific), 2025, pp. 1–3.
+
+[14] C. Ruah, O. Simeone, J. Hoydis, and B. Al-Hashimi, “Calibrating wireless ray tracing for digital twinning using local phase error estimates,” IEEE Transactions on Machine Learning in Communications and Networking, vol. 2, pp. 1193–1215, 2024.
+
+[15] F. Ait Aoudia, J. Hoydis et al., “Sionna rt: Differentiable ray tracing for radio propagation modeling,” arXiv preprint arXiv:2303.xxxxx, 2023.
+
+[16] M. Zhu, L. Cazzella, F. Linsalata, M. Magarini, M. Matteucci, and U. Spagnolini, “Toward real-time digital twins of em environments: Computational benchmark for ray launching software,” IEEE Open Journal of the Communications Society, vol. 5, pp. 6291–6302, 2024.
+
+[17] Y. Wu, K. Zhang, and Y. Zhang, “Digital twin networks: A survey,” IEEE Internet of Things Journal, vol. 8, no. 18, pp. 13 789–13 804, 2021.
+
+[18] H. Luo and A. Alkhateeb, “Digital twin aided compressive sensing: Enabling sitespecific mimo hybrid precoding,” in 2024 58th Asilomar Conference on Signals, Systems, and Computers, 2024, pp. 17–21.
+
+[19] J. Morais and A. Alkhateeb, “Localization in digital twin mimo networks: A case for massive fingerprinting,” in 2024 IEEE International Conference on Communications Workshops (ICC Workshops), 2024, pp. 276–281.
+
+[20] H. Luo, S. Jiang, S. R. Khosravirad, and A. Alkhateeb, “Digital twin aided massive mimo csi feedback: Exploring the impact of twinning fidelity,” IEEE Transactions on Communications, vol. 73, no. 12, pp. 15 909–15 925, 2025.
+
+[21] S. Alikhani and A. Alkhateeb, “Digital twin aided channel estimation: Zone-specific subspace prediction and calibration,” in 2025 IEEE International Conference on Machine Learning for Communication and Networking (ICMLCN), 2025, pp. 1–6.
+
+[22] L. D. Moro, F. Linsalata, M. Mizmizi, M. Magarini, D. Badini, and U. Spagnolini, “Bayesian em digital twins channel estimation,” IEEE Wireless Communications Letters, vol. 14, no. 5, pp. 1326–1330, 2025.
+
+[23] L. Del Moro, F. Linsalata, M. Mizmizi, D. Badini, U. Spagnolini, and M. Magarini, “Channel estimation via digital twins with limited a priori knowledge,” in 2025 IEEE 36th International Symposium on Personal, Indoor and Mobile Radio Communications (PIMRC), 2025, pp. 1–6.
+
+[24] J. Hoydis, F. A. Aoudia, S. Cammerer, F. Euchner, M. Nimier- David, S. T. Brink, and A. Keller, “Learning radio environments by differentiable ray tracing,” IEEE Transactions on Machine Learning in Communications and Networking, vol. 2, pp. 1527– 1539, 2024.
+
+[25] O. Kanhere, H. Poddar, and T. S. Rappaport, “Calibration of nyuray for ray tracing using 28, 73, and 142 ghz channel measurements conducted in indoor, outdoor, and factory scenarios,” IEEE Transactions on Antennas and Propagation, vol. 73, no. 1, pp. 405–420, 2025.
+
+[26] M. Gao, X. Yang, M. Zhou, J. Cheng, J. Wang, and D. Niyato, “Uplink pilot allocation for csi-based single-site indoor positioning in mimo-ofdm isac systems,” IEEE Transactions on Communications, vol. 74, pp. 6734–6749, 2026.
+
+[27] E. Björnson and [字符待核]. Demir, Introduction to Multiple Antenna Communications and Reconfigurable Surfaces. Foundations and Trends in Signal Processing, 2024.
+
+[28] E. Björnson, L. Sanguinetti, and M. Debbah, “Massive mimo with imperfect channel covariance information,” in 2016 50th Asilomar Conference on Signals, Systems and Computers, 2016, pp. 974–978.
+
+[29] G. Bacci, A. Alberto D’Amico, and L. Sanguinetti, “Mmse channel estimation in large-scale mimo: Improved robustness with reduced complexity,” IEEE Transactions on Wireless Communications, vol. 23, no. 12, pp. 18 563–18 575, 2024.
+
+[30] F. Fuschini, S. Häfner, M. Zoli, R. Müller, E. M. Vitucci, D. Dupleich, M. Barbiroli, J. Luo, E. Schulz, V. Degli-Esposti, and R. S. Thomä, “Analysis of in-room mm-wave propagation: Directional channel measurements and ray tracing simulations,” Journal of Infrared, Millimeter, and Terahertz Waves, vol. 38, pp. 727–744, 2017.
+
+[31] International Telecommunications Union Radiocommunication Sector. P.2040 : Effects of Building Materials and Structures on Radiowave Propagation Above About 100 MHz. https://www. itu.int/rec/R-REC-P.2040/en.
+
+[32] P. A. Lopez, M. Behrisch, M. Bieker-Walz, J. Erdmann, Y.- P. Flötteröd, R. Hilbrich, L. Lücken, J. Rummel, P. Wagner, and E. Wießner, “Microscopic traﬀic simulation using sumo,” in 2018 21st International Conference on Intelligent Transportation Systems (ITSC). IEEE, 2018, pp. 2575–2582.
+
+[33] Y. Qiu, D. Wu, and Y. Zeng, “Ckm-based environment-aware pilot reuse and channel estimation,” in 2024 16th International Conference on Wireless Communications and Signal Processing (WCSP), 2024, pp. 169–174.
