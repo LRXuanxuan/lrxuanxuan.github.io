@@ -159,13 +159,13 @@ $$
 
 $$
 \begin{aligned}
-r_t={}&\alpha(d_{{\rm geo},t}-d_{{\rm geo},t+1})\\
+r_t={}&\alpha(d_{\mathrm{geo},t}-d_{\mathrm{geo},t+1})\\
 &+\beta\mathbb I[D_t=1\wedge\sigma_t=1]\\
 &-\eta\mathbb I[D_t=1\wedge\sigma_t=0].
 \end{aligned}\tag{15}
 $$
 
-$\alpha$、$\beta$、$\eta$ 分别是导航进度、成功终止和失败终止的正权重。设置较大的 $\beta$ 和较小的 $\eta$，突出成功导航，同时对失败施加适度惩罚。$d_{{\rm geo},t}=d_{\rm geo}(\mathbf p_t,\mathbf g)$，$D_t$ 指示任务结束，$\sigma_t=\mathbb I[a_t=\mathrm{STOP}\wedge d_{{\rm geo},t}<\epsilon]$ 是与式（3）对应的单步成功指示量。距离及成功信息仅用于训练，不作为策略输入。
+$\alpha$、$\beta$、$\eta$ 分别是导航进度、成功终止和失败终止的正权重。设置较大的 $\beta$ 和较小的 $\eta$，突出成功导航，同时对失败施加适度惩罚。$d_{\mathrm{geo},t}=d_{\rm geo}(\mathbf p_t,\mathbf g)$，$D_t$ 指示任务结束，$\sigma_t=\mathbb I[a_t=\mathrm{STOP}\wedge d_{\mathrm{geo},t}<\epsilon]$ 是与式（3）对应的单步成功指示量。距离及成功信息仅用于训练，不作为策略输入。
 
 采用近端策略优化（proximal policy optimization，PPO）[17]，在辅助方向预测目标的配合下最大化期望折扣导航回报。联合损失是
 
@@ -204,7 +204,7 @@ $$
 
 为刻画传播条件，分析从各起点到目标的最短路径专家轨迹。如果无法解析出任何传播路径，则 RF 观测无效；否则，若存在无障碍、零次交互的路径，则记为 LOS；其余记为 NLOS。专家轨迹中 27.4% 的观测为 LOS，67.1% 为 NLOS，5.5% 为无效（图 3a）。因此，即使沿最短路径移动，间接传播也占主导。
 
-在原方案允许的情况下，所有方法共用场景划分、动作空间、视觉编码器、训练观测和环境交互预算。评价指标包括 SR、SPL 与目标最终距离（distance to goal，DTG），后者定义为 $d_{{\rm geo},t_{\rm end}+1}$。SR、SPL 越大越好，DTG 越小越好。
+在原方案允许的情况下，所有方法共用场景划分、动作空间、视觉编码器、训练观测和环境交互预算。评价指标包括 SR、SPL 与目标最终距离（distance to goal，DTG），后者定义为 $d_{\mathrm{geo},t_{\rm end}+1}$。SR、SPL 越大越好，DTG 越小越好。
 
 ### B. 对比方法与结果
 
