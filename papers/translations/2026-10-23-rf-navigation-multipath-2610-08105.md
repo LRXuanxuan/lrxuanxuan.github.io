@@ -257,6 +257,42 @@ RSSI 梯度和 MUSIC-DOA 控制器成功率很低，SR 分别只有 0.002 和 0.
 
 本文提出一种面向 RF 信号源室内导航的多模态框架。Habitat–Sionna RT 基准通过为经过语义分割的 MP3D 场景网格赋予电磁属性，将具身导航与材料感知的无线传播仿真结合起来。它保留精细场景几何，并在机器人移动时生成空间对齐的视觉及 RF 观测。所提导航方法将不确定性感知的 RF 目标表示与多模态记忆相结合，以应对多径传播导致的不可靠方向线索。在 27 个未见场景上的实验表明，其导航成功率和路径效率优于评价中的基线。未来工作将着重于真实机器人验证，以及利用更大规模天线阵列提升角分辨率。
 
-## 参考文献
+## 参考文献（原文 18 条，题名中文翻译；刊物与作者保留原貌）
 
-原文列出 18 条参考文献 [1]—[18]。书目信息（作者、论文题名、刊物或会议、年份）保留英文原貌，可直接查看 [原始 PDF 第 6 页](https://arxiv.org/pdf/2610.08105v1#page=6)。中文正文中的文献序号与原文保持一致；书目暂不逐条翻译，以避免改动正式发表的英文题名。
+[1] C. Wu, Z. Yang, Z. Zhou, Y. Liu, and M. Liu，“减轻智能手机 Wi-Fi 室内定位中的大误差”，*IEEE Transactions on Vehicular Technology*, 66(7): 6246–6257, 2017。
+
+[2] W. Lu, S. Gao, M. Wen, Y. Liang, L. Yang, C.-B. Chae, and H. V. Poor，“用于主动无线电地图构建的贝叶斯驱动图推理”，*2025 Seventeenth International Conference on Wireless Communications and Signal Processing (WCSP)*, 2025。
+
+[3] M. Kotaru, K. Joshi, D. Bharadia, and S. Katti，“SpotFi：利用 Wi-Fi 实现分米级定位”，*ACM SIGCOMM 2015 Conference*, 2015。
+
+[4] F. de Ponte Müller, M. Schmidhammer, and S. Sand，“车载环境中的无线电感知：弱势道路使用者的鲁棒定位与跟踪”，*2023 IEEE 97th Vehicular Technology Conference (VTC2023-Spring)*, 2023。
+
+[5] S. Bi, J. Yu, Z. Yang, X. Lin, and Y. Wu，“无人机辅助通信与定位一体化的联合三维部署及资源分配”，*IEEE Wireless Communications Letters*, 12(10): 1672–1676, 2023。
+
+[6] M. Yin, A. Veldanda, A. Trivedi, J. Zhang, K. Pfeiffer, Y. Hu, S. Garg, E. Erkip, L. Righetti, and S. Rangan，“利用链路状态分类辅助的毫米波无线机器人导航”，arXiv:2110.14789, 2021。
+
+[7] T. Li, H. Lei, H. Guo, M. Yin, Y. Hu, Q. Zhu, and S. Rangan，“数字孪生增强的无线室内导航：通过零样本强化学习实现高效环境感知”，*IEEE Open Journal of the Communications Society*, 6: 2356–2372, 2025。
+
+[8] T. Li, H. Lei, M. Yin, and Y. Hu，“利用物理知识符号程序先验的强化学习实现零样本无线室内导航”，arXiv:2506.22365, 2025。
+
+[9] A. Arun, R. Ayyalasomayajula, W. Hunter, and D. Bharadia，“P2SLAM：面向室内机器人的基于方位信息的 Wi-Fi 同步定位与建图”，*IEEE Robotics and Automation Letters*, 7(2): 3326–3333, 2022。
+
+[10] A. Arun, W. Hunter, R. Ayyalasomayajula, and D. Bharadia，“WAIS：利用 Wi-Fi 实现资源高效的同步定位与建图”，*22nd Annual International Conference on Mobile Systems, Applications and Services (MobiSys)*, 2024。
+
+[11] K. Fang, A. Toshev, L. Fei-Fei, and S. Savarese，“面向长时程任务具身智能体的场景记忆 Transformer”，*IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*, 2019。
+
+[12] A. Chang, A. Dai, T. Funkhouser, M. Halber, M. Nießner, M. Savva, S. Song, A. Zeng, and Y. Zhang，“Matterport3D：从室内环境 RGB-D 数据中学习”，*International Conference on 3D Vision (3DV)*, 2017。
+
+[13] M. Savva, A. Kadian, O. Maksymets, Y. Zhao, E. Wijmans, B. Jain, J. Straub, J. Liu, V. Koltun, J. Malik, D. Parikh, and D. Batra，“Habitat：具身人工智能研究平台”，*IEEE/CVF International Conference on Computer Vision (ICCV)*, 2019。
+
+[14] J. Hoydis, F. Aït Aoudia, S. Cammerer, M. Nimier-David, N. Binder, G. Marcus, and A. Keller，“Sionna RT：用于无线电传播建模的可微射线追踪”，*IEEE Globecom Workshops (GC Wkshps)*, 2023。
+
+[15] J. Krantz, E. Wijmans, A. Majumdar, D. Batra, and S. Lee，“超越导航图：连续环境中的视觉—语言导航”，*European Conference on Computer Vision (ECCV)*, 2020。
+
+[16] R. O. Schmidt，“多个辐射源的定位与信号参数估计”，*IEEE Transactions on Antennas and Propagation*, 34(3): 276–280, 1986 年 3 月。
+
+[17] J. Schulman, F. Wolski, P. Dhariwal, A. Radford, and O. Klimov，“近端策略优化算法”，arXiv:1707.06347, 2017。
+
+[18] Y. Zeng, H. Wang, M. Liu, Y. Zhou, C. Gao, K. Chen, and G. Huang，“连续环境中的语义视听导航”，*IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*, 2026。
+
+> 说明：参考文献的中文标题为译名，正式检索请使用[原始 PDF](https://arxiv.org/pdf/2610.08105v1#page=6)中的英文标题。正文与公式仍保留待逐式终校状态。
