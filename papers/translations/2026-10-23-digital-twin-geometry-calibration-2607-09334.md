@@ -14,7 +14,7 @@ toc: true
 **作者：** Lorenzo Del Moro、Francesco Linsalata、Umberto Spagnolini、Maurizio Magarini  
 **单位：** 米兰理工大学电子、信息与生物工程系（DEIB）  
 **版本：** arXiv:2607.09334v1，2026 年 7 月 10 日，16 页。  
-**状态与边界：** 已按原文翻译摘要、正文 I—VI、主要公式（1）—（38）、表 I—III 与图 1—6 的正文解释，并整理附录推导的符号关系。附录 A—B 的逐式转录及英文参考文献条目尚待完整复核；不标记为已通过全文验收。本站不重复上传原 PDF、图像。
+**状态与边界：** 已按原文翻译摘要、正文 I—VI、主要公式（1）—（38）、表 I—III 与图 1—6 的正文解释，并整理附录推导的符号关系。附录 A—B 的公式（39）—（59）及表 I—III 已补入；参考文献完整书目与部分正文叙述仍待逐段复核，不标记为已通过全文验收。本站不重复上传原 PDF、图像。
 
 ## 摘要
 
@@ -228,6 +228,15 @@ $$\sigma_{h,\rm MMSE}^2=1-\frac{1}{\Gamma}\sum_{j=1}^r\sum_{k=1}^{\widehat r}\la
 
 MIMO-OFDM 的 UE 阵列为 ULA、BS 阵列为 UPA，阵元间隔 $\lambda/2$；升余弦根脉冲成形滚降因子为 0.2；采用 5G NR numerology $\mu=4$（子载波间隔 240 kHz），每时隙 14 个 OFDM 符号，时隙长度 62.5 微秒，每时隙发送一个导频 OFDM 符号。取 $M=100$，$T_{\rm ST}=6.25$ ms，$N_t=2$，$N_p=N_{\rm sc}/2$。
 
+**表 II：RT 仿真参数（原文全部参数）**
+
+| 参数 | 数值 | 参数 | 数值 |
+|---|---|---|---|
+| 载波频率 | 28 GHz | 网格 UE 高度 | 1.5 m |
+| 天线 UE 高度 | 0.2 m | 网格分辨率 | 2 × 2 m² |
+| SUMO 采样周期 | 0.1 s | RT 方法 | Fibonacci（SBR） |
+| 初始采样射线数 | $10^6$ | 相互作用类型 | 反射 |
+
 比较方法为 ML；从 100 个 ML 信道估计学习协方差的传统数据驱动 LR 和 MMSE；根据 UE 估计位置查找最近网格特征结构的指纹 LR/MMSE；以及拥有真实特征结构的理想 LR/MMSE。为隔离特征结构失配的作用，对所有相关基线将秩设为真实子空间维度；除 ML 和理想方法外，用 $M_w=1$ 个训练符号估计噪声功率。
 
 仿真中的路径增益扰动写为 $\Delta\Omega_p=\Omega_p\beta_p$，其中 $\beta_p\sim\mathcal N(0,\sigma_g^2)$；UE 位置扰动写为 $\Delta\mathbf p\sim\mathcal N(0,\sigma_p^2\mathbf I_3)$。$\sigma_g$ 是归一化相对增益扰动标准差，$\sigma_p$ 以米为单位。
@@ -240,7 +249,17 @@ $$\eta=\mathbb E\left[\frac{\operatorname{Tr}(\mathbf R(\boldsymbol\xi,\boldsymb
 
 此处相似性同时刻画子空间偏移和特征值谱失配，不能直接等同于纯子空间距离。
 
-**表 III（城区协方差相似指标）。** 对系统配置 $(N_r,N_{\rm sc})=(4,32),(8,64),(16,128)$：定位误差 $\sigma_p=0.1$ m 时，$\eta$ 均约为 1.000；$\sigma_p=1$ m 时依次为 1.000、0.995、0.991；$\sigma_p=10$ m 时依次为 0.976、0.934、0.882。仅施加增益扰动 $\sigma_g=0.1$ 时依次为 0.995、0.995、0.995；$\sigma_g=0.25$ 时为 0.970、0.965、0.960；$\sigma_g=0.5$ 时为 0.918、0.917、0.905。高维高分辨率系统对定位误差更敏感；增益扰动主要改变功率谱，指标仍保持相对较高。
+**表 III：城区环境中不同定位误差和路径增益扰动下的相似性指标 $\eta$（原文数值）**
+
+| $(N_r,N_{\rm sc})$ | $\sigma_p=0.1$ m | $\sigma_p=1$ m | $\sigma_p=10$ m | $\sigma_g=0.1$ | $\sigma_g=0.25$ | $\sigma_g=0.5$ |
+|---|---:|---:|---:|---:|---:|---:|
+| (4,32) | 1.000 | 1.000 | 0.976 | 0.995 | 0.970 | 0.918 |
+| (8,64) | 1.000 | 0.995 | 0.934 | 0.995 | 0.965 | 0.917 |
+| (16,128) | 1.000 | 0.991 | 0.882 | 0.995 | 0.960 | 0.905 |
+
+表中定位扰动列对应 $\sigma_g=0$，增益扰动列对应 $\sigma_p=0$，不应将两组误差当作同时施加。
+
+
 
 ### C. 扰动条件下的 NMSE
 
@@ -260,11 +279,213 @@ $$\eta=\mathbb E\left[\frac{\operatorname{Tr}(\mathbf R(\boldsymbol\xi,\boldsymb
 
 研究了由 RT 提取场景传播特征、重建信道协方差特征结构，再用于宽带 MIMO 低秩和 MMSE 信道估计时，数字孪生误差如何影响性能。通过一阶扰动模型证明：定位误差造成角度与时延的几何失配，从而改变信道子空间；材料电磁参数的标定误差主要改变特征值谱。LR 仅依赖子空间，因而对保持子空间的增益扰动具有固有鲁棒性；MMSE 同时依赖子空间与特征值，因而对两类误差都敏感。不同建筑密度与多径稀疏度的三类场景中，定位误差均为主要性能限制因素。后续研究方向包括大失配、三维场景重建误差、针对子空间畸变的自适应处理以及基于实测的验证。
 
-## 附录 A—B：公式校对提示
+## 附录 A. 空时传播特征的一阶近似（补齐原文式 39–45）
 
-**附录 A（几何角度灵敏度）。** 原文使用镜像坐标、距离范数及 `atan2`、`arcsin` 的一阶泰勒微分，依次得到式（18）—（26）的时延、方位与俯仰角梯度。上述正文已保留对应分布公式；附录 A 的辅助代数细节仍待逐式译录。
+本附录推导三维位移向量发生小扰动时，传播距离、方位角和俯仰角的一阶泰勒展开，这些结果用于正文中的几何失配模型。
 
-**附录 B（反射系数与路径增益灵敏度）。** 原文针对 TE/TM Fresnel 系数计算复介电常数偏导 $c_{p,k}$，再按 $\Omega_p^{(0)}\prod_k|\Gamma_{p,k}|^2$ 展开反射损耗乘积，得到式（30）—（32）的 $\alpha_{p,k}=2c_{p,k}/\Gamma_{p,k}$ 及增益方差。相关偏导的显式分式仍待逐项检查。
+设实值函数 $g:\mathbb R^3\to\mathbb R$，$\mathbf d=[d_1,d_2,d_3]^T$，扰动为 $\boldsymbol\epsilon\in\mathbb R^3$，则
+
+$
+g(\mathbf d+\boldsymbol\epsilon)
+=g(\mathbf d)+\nabla g(\mathbf d)^T\boldsymbol\epsilon+o(\|\boldsymbol\epsilon\|).
+\tag{39}
+$
+
+对于欧氏距离 $g(\mathbf d)=\|\mathbf d\|$，在 $\mathbf d\ne\mathbf 0$ 时逐坐标求导，有
+
+$
+\frac{\partial g(\mathbf d)}{\partial d_i}=\frac{d_i}{\|\mathbf d\|},\quad i=1,2,3.
+\tag{40}
+$
+
+因此，令 $\mathbf a=\mathbf d/\|\mathbf d\|$，得到
+
+$
+\|\mathbf d+\boldsymbol\epsilon\|
+\approx\|\mathbf d\|+\mathbf a^T\boldsymbol\epsilon.
+\tag{41}
+$
+
+对于方位角 $g(\mathbf d)=\operatorname{atan2}(d_2,d_1)$，在远离原点及其不连续支割线的局部可微区域内，令 $\rho^2=d_1^2+d_2^2$，$\mathbf a_\phi=[-d_2,d_1,0]^T$，则
+
+$
+\nabla g(\mathbf d)=\frac{1}{\rho^2}
+\begin{bmatrix}-d_2\\d_1\\0\end{bmatrix}
+=\frac{\mathbf a_\phi}{\rho^2},
+\tag{42}
+$
+
+$
+\operatorname{atan2}(d_2+\epsilon_2,d_1+\epsilon_1)
+\approx\operatorname{atan2}(d_2,d_1)
++\frac{\mathbf a_\phi^T\boldsymbol\epsilon}{\rho^2}.
+\tag{43}
+$
+
+对于俯仰角 $g(\mathbf d)=\arcsin(d_3/\|\mathbf d\|)$，当 $\mathbf d\ne 0$ 且 $d_1^2+d_2^2\ne0$ 时，令 $R^2=\|\mathbf d\|^2$、$\rho^2=d_1^2+d_2^2$、$\mathbf c=[-d_3d_1,-d_3d_2,d_1^2+d_2^2]^T$，则
+
+$
+\nabla g(\mathbf d)=\frac{1}{R^2\rho}
+\begin{bmatrix}-d_3d_1\\-d_3d_2\\d_1^2+d_2^2\end{bmatrix}
+=\frac{\mathbf c}{R^2\rho},
+\tag{44}
+$
+
+$
+g(\mathbf d+\boldsymbol\epsilon)
+\approx g(\mathbf d)+\frac{\mathbf c^T\boldsymbol\epsilon}{R^2\rho}.
+\tag{45}
+$
+
+这些展开仅是一阶局部近似；在方位角不可微点或俯仰角极点附近，不能直接套用对应梯度。
+
+## 附录 B. 材料扰动及其对路径增益的一阶传播（补齐原文式 46–59）
+
+### A. 反射系数的灵敏度
+
+把反射系数写为复相对介电常数 $\varepsilon\in\mathbb C$ 与入射角 $\theta\in[0,\pi/2]$ 的函数 $\Gamma(\varepsilon,\theta)$。原文定义第 $p$ 条传播路径、第 $k$ 次反射的材料灵敏度为
+
+$
+c_{p,k}=\left.\frac{\partial\Gamma(\varepsilon,\theta_{p,k})}
+{\partial\varepsilon}\right|_{\varepsilon=\varepsilon_{r,p,k}}.
+\tag{46}
+$
+
+对于横电（TE）极化，Fresnel 反射系数为
+
+$
+\Gamma^{\mathrm{TE}}(\varepsilon,\theta)=
+\frac{\cos\theta-\sqrt{\varepsilon-\sin^2\theta}}
+{\cos\theta+\sqrt{\varepsilon-\sin^2\theta}}.
+\tag{47}
+$
+
+令 $s(\varepsilon)=\sqrt{\varepsilon-\sin^2\theta}$，则 $\partial s/\partial\varepsilon=1/(2s)$。应用商法则得到
+
+$
+\frac{\partial\Gamma^{\mathrm{TE}}}{\partial\varepsilon}
+=-\frac{2\cos\theta}{[\cos\theta+s(\varepsilon)]^2}
+\frac{\partial s}{\partial\varepsilon}.
+\tag{48}
+$
+
+由此，第 $p$ 条路径第 $k$ 次反射的 TE 灵敏度为
+
+$
+c_{p,k}^{\mathrm{TE}}=
+-\frac{\cos\theta_{p,k}}
+{\sqrt{\varepsilon_{r,p,k}-\sin^2\theta_{p,k}}\,
+[\cos\theta_{p,k}+\sqrt{\varepsilon_{r,p,k}-\sin^2\theta_{p,k}}]^2}.
+\tag{49}
+$
+
+对于横磁（TM）极化，
+
+$
+\Gamma^{\mathrm{TM}}(\varepsilon,\theta)=
+\frac{\varepsilon\cos\theta-\sqrt{\varepsilon-\sin^2\theta}}
+{\varepsilon\cos\theta+\sqrt{\varepsilon-\sin^2\theta}}.
+\tag{50}
+$
+
+其导数为
+
+$
+\frac{\partial\Gamma^{\mathrm{TM}}}{\partial\varepsilon}
+=\frac{2\cos\theta\,s(\varepsilon)-2\varepsilon\cos\theta\,
+\frac{\partial s(\varepsilon)}{\partial\varepsilon}}
+{[\varepsilon\cos\theta+s(\varepsilon)]^2}.
+\tag{51}
+$
+
+相应的 TM 灵敏度为
+
+$
+c_{p,k}^{\mathrm{TM}}=
+\frac{\cos\theta_{p,k}\left[
+2\sqrt{\varepsilon_{r,p,k}-\sin^2\theta_{p,k}}
+-\dfrac{\varepsilon_{r,p,k}}{\sqrt{\varepsilon_{r,p,k}-\sin^2\theta_{p,k}}}
+\right]}
+{[\varepsilon_{r,p,k}\cos\theta_{p,k}
++\sqrt{\varepsilon_{r,p,k}-\sin^2\theta_{p,k}}]^2}.
+\tag{52}
+$
+
+一般极化情况下，可以将 TE 与 TM 分量组合为有效反射系数；原文强调，这应解释为有效参数化，而不必然是严格的物理分解。
+
+### B. 一阶路径增益扰动
+
+设路径 $p$ 有 $K_p$ 次反射，数字孪生预测的路径增益为
+
+$
+\widehat\Omega_p=\Omega_p^{(0)}
+\prod_{k=1}^{K_p}|\widehat\Gamma_{p,k}|^2.
+\tag{53}
+$
+
+以 $\widehat\Gamma_{p,k}\approx\Gamma_{p,k}+c_{p,k}\delta\varepsilon_{r,p,k}$ 作一阶展开，其模平方为
+
+$
+|\widehat\Gamma_{p,k}|^2=
+|\Gamma_{p,k}|^2+
+2\operatorname{Re}\{\Gamma_{p,k}^*c_{p,k}\delta\varepsilon_{r,p,k}\}
++|c_{p,k}|^2|\delta\varepsilon_{r,p,k}|^2.
+\tag{54}
+$
+
+在小扰动条件下忽略二阶项，得到
+
+$
+|\widehat\Gamma_{p,k}|^2\approx
+|\Gamma_{p,k}|^2+
+2\operatorname{Re}\{\Gamma_{p,k}^*c_{p,k}\delta\varepsilon_{r,p,k}\}.
+\tag{55}
+$
+
+代入所有反射损耗的乘积，并且只保留至多一个一阶扰动项：
+
+$
+\begin{aligned}
+\widehat\Omega_p\approx\;&
+\Omega_p^{(0)}\prod_{k=1}^{K_p}|\Gamma_{p,k}|^2\\
+&+\Omega_p^{(0)}\sum_{k=1}^{K_p}
+2\operatorname{Re}\{\Gamma_{p,k}^*c_{p,k}\delta\varepsilon_{r,p,k}\}
+\prod_{\substack{m=1\\m\ne k}}^{K_p}|\Gamma_{p,m}|^2.
+\end{aligned}\tag{56}
+$
+
+利用 $\Omega_p=\Omega_p^{(0)}\prod_m|\Gamma_{p,m}|^2$，可以整理为
+
+$
+\widehat\Omega_p\approx\Omega_p+
+\sum_{k=1}^{K_p}2\Omega_p
+\operatorname{Re}\left\{
+\frac{\Gamma_{p,k}^*}{|\Gamma_{p,k}|^2}
+c_{p,k}\delta\varepsilon_{r,p,k}
+\right\}.
+\tag{57}
+$
+
+在相关反射系数非零时，$\Gamma^*/|\Gamma|^2=1/\Gamma$，因此
+
+$
+\widehat\Omega_p\approx\Omega_p+
+\Omega_p\sum_{k=1}^{K_p}
+\operatorname{Re}\left\{\frac{2c_{p,k}}{\Gamma_{p,k}}
+\delta\varepsilon_{r,p,k}\right\}.
+\tag{58}
+$
+
+定义复灵敏度系数 $\alpha_{p,k}=2c_{p,k}/\Gamma_{p,k}$，最终得到
+
+$
+\widehat\Omega_p\approx\Omega_p+
+\Omega_p\sum_{k=1}^{K_p}\operatorname{Re}\{
+\alpha_{p,k}\delta\varepsilon_{r,p,k}\}.
+\tag{59}
+$
+
+这表明在本文的一阶材料扰动模型下，几何路径保持不变，反射系数扰动主要通过各路径的增益传播到信道协方差的特征值结构。上述附录内容与正文式（18）–（32）的几何及电磁扰动分析互为支撑。
 
 ## 参考文献
 
