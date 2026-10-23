@@ -11,6 +11,13 @@ toc: true
 
 ## 中英文译文
 
+- [不完美 CSI 下可旋转天线双时间尺度设计｜中文主体译稿（待终校）](/papers/translations/2026-10-23-rotatable-antennas-imperfect-csi-2605-04775/) · 正文 I–VIII、主要公式及图 1–10；长公式与书目待核
+- [数字孪生信道估计：几何与材料标定误差｜中文主体译稿（待终校）](/papers/translations/2026-10-23-digital-twin-geometry-calibration-2607-09334/) · 正文 I–VI、主要扰动/NMSE 推导及图表；附录长证明待补
+- [Deep Bayesian REFoCUS：超声多基地恢复｜中文主体译稿（待终校）](/papers/translations/2026-10-23-deep-bayesian-refocus-2610-03419/) · 正文 I–VII、算法与图表说明；参考书目与公式待核
+- [MS-Flow：流模型逆问题轨迹拼接｜中文主体译稿（附录待补）](/papers/translations/2026-10-23-ms-flow-2602-08538/) · 正文 1–7；附录 A–J 尚未全部翻译
+- [射频线索下的多径不确定性具身导航｜中文主体译稿（待终校）](/papers/translations/2026-10-23-rf-navigation-multipath-2610-08105/) · 正文 I–V、公式 1–16、主要图表；终校中
+
+
 - [共训练信道图半监督定位算法｜中文译稿（校对中）](/papers/translations/2026-10-19-channel-charting-cotraining-tcomm2026/) · 正文 I—VI、公式（1）—（22）、算法 1—2、表 I—VIII、参考文献 42 条及作者简介；逐式校对中
 - [LoS/NLoS 识别辅助室内 MIMO 定位｜中文译稿（校对中）](/papers/translations/2026-10-19-los-nlos-iapm-tcomm2025/) · 正文 I—VI、公式（1）—（38）、表 I—VIII、参考文献 58 条及作者简介；逐式校对中
 - [协方差特征改进 Triplet 信道图定位｜中文译稿（校对中）](/papers/translations/2026-10-19-improved-triplet-channel-charting-icc2025/) · 正文 I—VI、公式、算法、表格及 19 条参考文献；逐式校对中
