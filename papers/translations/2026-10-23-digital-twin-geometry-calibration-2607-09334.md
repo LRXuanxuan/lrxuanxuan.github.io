@@ -36,7 +36,16 @@ toc: true
 
 主要贡献为：（1）建立由三维场景和 RT 提取多径参数、重建协方差特征结构的 DT 辅助 LR/MMSE 估计框架；（2）推导 UE 定位误差引起的 AoA/AoD/时延一阶扰动和材料标定引起的路径增益一阶扰动；（3）通过 NMSE 解析说明 LR 估计对仅改变特征值、保持子空间的扰动不敏感，而定位误差导致子空间失配；（4）在城区、郊区与乡村三维 RT 场景验证该框架，低 SNR 下可相较基线改进至多 10 dB。
 
-**表 I（与相关工作的区别）。** 既有 RT-DT 构建研究侧重建模、协调和 RAN 优化；标定研究侧重匹配测量；定位、预编码及反馈研究不直接分析信道估计；文献 [21] 采用基于子空间的估计但无扰动分析；[22]、[23] 使用 DT-LR 估计但无失配分析；本工作同时考虑 LR/MMSE 估计和 DT 误差传播。
+**表 I：既有研究与所提框架的完整比较**
+
+| 参考文献 | 主要贡献 | 信道估计 | 扰动分析 |
+|---|---|---|---|
+| [10]、[11]、[15]–[17] | RT-DT 构建、建模保真度、编排及 RAN 优化 | 否 | 否 |
+| [14]、[24]、[25] | 使用实测标定 RT-DT | 否 | 否 |
+| [18]–[20] | DT 辅助定位、混合预编码及 CSI 反馈 | 否 | 否 |
+| [21] | 强化学习校准 DT 子空间 | 基于子空间 | 否 |
+| [22]、[23] | DT 生成信道先验用于估计 | LR | 否 |
+| 本研究 | DT 不确定性对 LR/MMSE 的扰动分析 | LR/MMSE | 是 |
 
 **记号。** $^*$、$^T$、$^H$ 和 $^\dagger$ 分别表示共轭、转置、共轭转置与 Moore–Penrose 伪逆；$\otimes$ 是 Kronecker 积，$\operatorname{diag}$ 构造对角矩阵，$\operatorname{vec}$ 表示向量化；$\operatorname{Tr}$、$\operatorname{rank}$ 与 $\operatorname{span}$ 分别表示迹、秩与列空间，$\mathbb E$ 为期望，$\mathcal N$ 与 $\mathcal{CN}$ 分别表示实与复高斯分布。
 
@@ -285,57 +294,57 @@ $$\eta=\mathbb E\left[\frac{\operatorname{Tr}(\mathbf R(\boldsymbol\xi,\boldsymb
 
 设实值函数 $g:\mathbb R^3\to\mathbb R$，$\mathbf d=[d_1,d_2,d_3]^T$，扰动为 $\boldsymbol\epsilon\in\mathbb R^3$，则
 
-$
+$$
 g(\mathbf d+\boldsymbol\epsilon)
 =g(\mathbf d)+\nabla g(\mathbf d)^T\boldsymbol\epsilon+o(\|\boldsymbol\epsilon\|).
 \tag{39}
-$
+$$
 
 对于欧氏距离 $g(\mathbf d)=\|\mathbf d\|$，在 $\mathbf d\ne\mathbf 0$ 时逐坐标求导，有
 
-$
+$$
 \frac{\partial g(\mathbf d)}{\partial d_i}=\frac{d_i}{\|\mathbf d\|},\quad i=1,2,3.
 \tag{40}
-$
+$$
 
 因此，令 $\mathbf a=\mathbf d/\|\mathbf d\|$，得到
 
-$
+$$
 \|\mathbf d+\boldsymbol\epsilon\|
 \approx\|\mathbf d\|+\mathbf a^T\boldsymbol\epsilon.
 \tag{41}
-$
+$$
 
 对于方位角 $g(\mathbf d)=\operatorname{atan2}(d_2,d_1)$，在远离原点及其不连续支割线的局部可微区域内，令 $\rho^2=d_1^2+d_2^2$，$\mathbf a_\phi=[-d_2,d_1,0]^T$，则
 
-$
+$$
 \nabla g(\mathbf d)=\frac{1}{\rho^2}
 \begin{bmatrix}-d_2\\d_1\\0\end{bmatrix}
 =\frac{\mathbf a_\phi}{\rho^2},
 \tag{42}
-$
+$$
 
-$
+$$
 \operatorname{atan2}(d_2+\epsilon_2,d_1+\epsilon_1)
 \approx\operatorname{atan2}(d_2,d_1)
 +\frac{\mathbf a_\phi^T\boldsymbol\epsilon}{\rho^2}.
 \tag{43}
-$
+$$
 
 对于俯仰角 $g(\mathbf d)=\arcsin(d_3/\|\mathbf d\|)$，当 $\mathbf d\ne 0$ 且 $d_1^2+d_2^2\ne0$ 时，令 $R^2=\|\mathbf d\|^2$、$\rho^2=d_1^2+d_2^2$、$\mathbf c=[-d_3d_1,-d_3d_2,d_1^2+d_2^2]^T$，则
 
-$
+$$
 \nabla g(\mathbf d)=\frac{1}{R^2\rho}
 \begin{bmatrix}-d_3d_1\\-d_3d_2\\d_1^2+d_2^2\end{bmatrix}
 =\frac{\mathbf c}{R^2\rho},
 \tag{44}
-$
+$$
 
-$
+$$
 g(\mathbf d+\boldsymbol\epsilon)
 \approx g(\mathbf d)+\frac{\mathbf c^T\boldsymbol\epsilon}{R^2\rho}.
 \tag{45}
-$
+$$
 
 这些展开仅是一阶局部近似；在方位角不可微点或俯仰角极点附近，不能直接套用对应梯度。
 
@@ -345,62 +354,62 @@ $
 
 把反射系数写为复相对介电常数 $\varepsilon\in\mathbb C$ 与入射角 $\theta\in[0,\pi/2]$ 的函数 $\Gamma(\varepsilon,\theta)$。原文定义第 $p$ 条传播路径、第 $k$ 次反射的材料灵敏度为
 
-$
+$$
 c_{p,k}=\left.\frac{\partial\Gamma(\varepsilon,\theta_{p,k})}
 {\partial\varepsilon}\right|_{\varepsilon=\varepsilon_{r,p,k}}.
 \tag{46}
-$
+$$
 
 对于横电（TE）极化，Fresnel 反射系数为
 
-$
+$$
 \Gamma^{\mathrm{TE}}(\varepsilon,\theta)=
 \frac{\cos\theta-\sqrt{\varepsilon-\sin^2\theta}}
 {\cos\theta+\sqrt{\varepsilon-\sin^2\theta}}.
 \tag{47}
-$
+$$
 
 令 $s(\varepsilon)=\sqrt{\varepsilon-\sin^2\theta}$，则 $\partial s/\partial\varepsilon=1/(2s)$。应用商法则得到
 
-$
+$$
 \frac{\partial\Gamma^{\mathrm{TE}}}{\partial\varepsilon}
 =-\frac{2\cos\theta}{[\cos\theta+s(\varepsilon)]^2}
 \frac{\partial s}{\partial\varepsilon}.
 \tag{48}
-$
+$$
 
 由此，第 $p$ 条路径第 $k$ 次反射的 TE 灵敏度为
 
-$
+$$
 c_{p,k}^{\mathrm{TE}}=
 -\frac{\cos\theta_{p,k}}
 {\sqrt{\varepsilon_{r,p,k}-\sin^2\theta_{p,k}}\,
 [\cos\theta_{p,k}+\sqrt{\varepsilon_{r,p,k}-\sin^2\theta_{p,k}}]^2}.
 \tag{49}
-$
+$$
 
 对于横磁（TM）极化，
 
-$
+$$
 \Gamma^{\mathrm{TM}}(\varepsilon,\theta)=
 \frac{\varepsilon\cos\theta-\sqrt{\varepsilon-\sin^2\theta}}
 {\varepsilon\cos\theta+\sqrt{\varepsilon-\sin^2\theta}}.
 \tag{50}
-$
+$$
 
 其导数为
 
-$
+$$
 \frac{\partial\Gamma^{\mathrm{TM}}}{\partial\varepsilon}
 =\frac{2\cos\theta\,s(\varepsilon)-2\varepsilon\cos\theta\,
 \frac{\partial s(\varepsilon)}{\partial\varepsilon}}
 {[\varepsilon\cos\theta+s(\varepsilon)]^2}.
 \tag{51}
-$
+$$
 
 相应的 TM 灵敏度为
 
-$
+$$
 c_{p,k}^{\mathrm{TM}}=
 \frac{\cos\theta_{p,k}\left[
 2\sqrt{\varepsilon_{r,p,k}-\sin^2\theta_{p,k}}
@@ -409,7 +418,7 @@ c_{p,k}^{\mathrm{TM}}=
 {[\varepsilon_{r,p,k}\cos\theta_{p,k}
 +\sqrt{\varepsilon_{r,p,k}-\sin^2\theta_{p,k}}]^2}.
 \tag{52}
-$
+$$
 
 一般极化情况下，可以将 TE 与 TM 分量组合为有效反射系数；原文强调，这应解释为有效参数化，而不必然是严格的物理分解。
 
@@ -417,34 +426,34 @@ $
 
 设路径 $p$ 有 $K_p$ 次反射，数字孪生预测的路径增益为
 
-$
+$$
 \widehat\Omega_p=\Omega_p^{(0)}
 \prod_{k=1}^{K_p}|\widehat\Gamma_{p,k}|^2.
 \tag{53}
-$
+$$
 
 以 $\widehat\Gamma_{p,k}\approx\Gamma_{p,k}+c_{p,k}\delta\varepsilon_{r,p,k}$ 作一阶展开，其模平方为
 
-$
+$$
 |\widehat\Gamma_{p,k}|^2=
 |\Gamma_{p,k}|^2+
 2\operatorname{Re}\{\Gamma_{p,k}^*c_{p,k}\delta\varepsilon_{r,p,k}\}
 +|c_{p,k}|^2|\delta\varepsilon_{r,p,k}|^2.
 \tag{54}
-$
+$$
 
 在小扰动条件下忽略二阶项，得到
 
-$
+$$
 |\widehat\Gamma_{p,k}|^2\approx
 |\Gamma_{p,k}|^2+
 2\operatorname{Re}\{\Gamma_{p,k}^*c_{p,k}\delta\varepsilon_{r,p,k}\}.
 \tag{55}
-$
+$$
 
 代入所有反射损耗的乘积，并且只保留至多一个一阶扰动项：
 
-$
+$$
 \begin{aligned}
 \widehat\Omega_p\approx\;&
 \Omega_p^{(0)}\prod_{k=1}^{K_p}|\Gamma_{p,k}|^2\\
@@ -452,11 +461,11 @@ $
 2\operatorname{Re}\{\Gamma_{p,k}^*c_{p,k}\delta\varepsilon_{r,p,k}\}
 \prod_{\substack{m=1\\m\ne k}}^{K_p}|\Gamma_{p,m}|^2.
 \end{aligned}\tag{56}
-$
+$$
 
 利用 $\Omega_p=\Omega_p^{(0)}\prod_m|\Gamma_{p,m}|^2$，可以整理为
 
-$
+$$
 \widehat\Omega_p\approx\Omega_p+
 \sum_{k=1}^{K_p}2\Omega_p
 \operatorname{Re}\left\{
@@ -464,29 +473,29 @@ $
 c_{p,k}\delta\varepsilon_{r,p,k}
 \right\}.
 \tag{57}
-$
+$$
 
 在相关反射系数非零时，$\Gamma^*/|\Gamma|^2=1/\Gamma$，因此
 
-$
+$$
 \widehat\Omega_p\approx\Omega_p+
 \Omega_p\sum_{k=1}^{K_p}
 \operatorname{Re}\left\{\frac{2c_{p,k}}{\Gamma_{p,k}}
 \delta\varepsilon_{r,p,k}\right\}.
 \tag{58}
-$
+$$
 
 定义复灵敏度系数 $\alpha_{p,k}=2c_{p,k}/\Gamma_{p,k}$，最终得到
 
-$
+$$
 \widehat\Omega_p\approx\Omega_p+
 \Omega_p\sum_{k=1}^{K_p}\operatorname{Re}\{
 \alpha_{p,k}\delta\varepsilon_{r,p,k}\}.
 \tag{59}
-$
+$$
 
 这表明在本文的一阶材料扰动模型下，几何路径保持不变，反射系数扰动主要通过各路径的增益传播到信道协方差的特征值结构。上述附录内容与正文式（18）–（32）的几何及电磁扰动分析互为支撑。
 
 ## 参考文献
 
-全部英文参考书目见[原始 PDF](https://arxiv.org/pdf/2607.09334v1)末尾。由于书目及附录尚未逐条终校，此页仍标为“待终校”，不计入已验收的全文译文。
+全部英文参考书目见[原始 PDF](https://arxiv.org/pdf/2607.09334v1)末尾。由于书目及部分正文尚未逐段终校，此页仍标为“待终校”，不计入已验收的全文译文。
