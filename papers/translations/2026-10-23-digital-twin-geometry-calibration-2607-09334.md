@@ -550,7 +550,7 @@ $$
 
 [26] M. Gao, X. Yang, M. Zhou, J. Cheng, J. Wang, and D. Niyato, “Uplink pilot allocation for csi-based single-site indoor positioning in mimo-ofdm isac systems,” IEEE Transactions on Communications, vol. 74, pp. 6734–6749, 2026.
 
-[27] E. Björnson and [字符待核]. Demir, Introduction to Multiple Antenna Communications and Reconfigurable Surfaces. Foundations and Trends in Signal Processing, 2024.
+[27] E. Björnson and Ö. T. Demir, Introduction to Multiple Antenna Communications and Reconfigurable Surfaces. Foundations and Trends in Signal Processing, 2024.
 
 [28] E. Björnson, L. Sanguinetti, and M. Debbah, “Massive mimo with imperfect channel covariance information,” in 2016 50th Asilomar Conference on Signals, Systems and Computers, 2016, pp. 974–978.
 
