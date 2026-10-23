@@ -144,7 +144,7 @@ $$\widehat{\mathbf h}_k=\boldsymbol\mu_k+\sqrt{\tau_pp_k^{\rm tr}}\mathbf R_k(\t
 
 定义信道估计误差（原文式 21）：
 
-$\widetilde{\mathbf h}_k(\mathbf F)\triangleq\mathbf h_k(\mathbf F)-\widehat{\mathbf h}_k(\mathbf F).\tag{21}$
+$$\widetilde{\mathbf h}_k(\mathbf F)\triangleq\mathbf h_k(\mathbf F)-\widehat{\mathbf h}_k(\mathbf F).\tag{21}$$
 
 高斯先验下，估计与误差独立，且
 
@@ -198,15 +198,19 @@ $$\bar R_{\rm sum}(\mathbf F)=\sum_{k\in\mathcal K}\bar R_k(\mathbf F).\tag{35}$
 
 原文的长时间尺度优化问题完整表述为
 
-$
-\begin{aligned}
+$$
 (\mathrm{P1}):\quad
-&\max_{\mathbf F}\quad \mathbb E_{\widehat{\mathbf H}}
-\left[\max_{\mathbf V(\widehat{\mathbf H})}\,
-\overline R_{\mathrm{sum}}(\mathbf F)\right],&&\tag{36a}\\
-&\mathrm{s.t.}\quad \mathbf F\in\mathcal F.&&\tag{36b}
-\end{aligned}
-$
+\max_{\mathbf F}
+\mathbb E_{\widehat{\mathbf H}}
+\left[\max_{\mathbf V(\widehat{\mathbf H})}
+\overline R_{\rm sum}(\mathbf F)\right].
+\tag{36a}
+$$
+
+$$
+\mathrm{s.t.}\quad \mathbf F\in\mathcal F.
+\tag{36b}
+$$
 
 该问题包括不可解析的期望、单位范数与角度限制以及非凹方向增益，是随机非凸问题。固定短期合并策略为 MRC 或 wZF，并推导仅依赖统计量的闭式速率代理后，可分别解
 
@@ -232,13 +236,13 @@ $$\boldsymbol\Sigma_{\widehat h,k}=\mathbb E[\widehat{\mathbf h}_k\widehat{\math
 
 MRC 的瞬时合并器为
 
-$
+$$
 \mathbf v_k^{\rm MRC}(\widehat{\mathbf H})\triangleq\widehat{\mathbf h}_k(\mathbf F).\tag{41}
-$
+$$
 
 代入 UatF 表达式后，利用无条件均值和总接收功率，可得
 
-$
+$$
 \overline\gamma_k^{\rm MRC}(\mathbf F)=
 \frac{p_k|\mathbb E[(\mathbf v_k^{\rm MRC})^H\mathbf h_k]|^2}
 {\sum_{i=1}^{K}p_i\mathbb E[|(\mathbf v_k^{\rm MRC})^H\mathbf h_i|^2]
@@ -264,16 +268,16 @@ $$I_k^{\rm MRC}=p_k\Phi_k+\sum_{i\ne k}p_i\Theta_{i,k}+\sigma^2\alpha_k.\tag{48}
 
 因此分别得到 MRC 的闭式 UatF SINR 与速率：
 
-$
+$$
 \overline\gamma_k^{\rm MRC}(\mathbf F)
 =\frac{p_k\alpha_k^2(\mathbf F)}{I_k^{\rm MRC}(\mathbf F)}.\tag{50}
-$
+$$
 
-$
+$$
 \overline R_k^{\rm MRC}(\mathbf F)
 =\eta\log_2\bigl(1+\overline\gamma_k^{\rm MRC}(\mathbf F)\bigr),\qquad
 \overline R_{\rm sum}^{\rm MRC}=\sum_{k=1}^{K}\overline R_k^{\rm MRC}.\tag{51}
-$
+$$
 
 由此可见，旋转同时影响相干信号合并能量 $\alpha_k$、误差引发的自干扰 $\Phi_k$、跨用户干扰 $\Theta_{i,k}$ 与合并后噪声。因此只按 NMSE 或有用信号功率设计指向，都未必能最大化速率。
 
@@ -285,29 +289,29 @@ $$\mathbf V_{\rm ZF}^H\widehat{\mathbf H}=\mathbf I_K.\tag{52}$$
 
 对每个满足 $\mathbf V^H\widehat{\mathbf H}=\mathbf I_K$ 的 wZF 型接收机，给定 $\widehat{\mathbf H}$ 时，各用户的信道均为 $\mathbf h_i=\widehat{\mathbf h}_i+\widetilde{\mathbf h}_i$，因而原文逐项列出
 
-$
+$$
 (\mathbf v_k^{\rm wZF})^H\mathbf h_k
 =1+(\mathbf v_k^{\rm wZF})^H\widetilde{\mathbf h}_k.\tag{53a}
-$
+$$
 
-$
+$$
 (\mathbf v_k^{\rm wZF})^H\mathbf h_i
 =(\mathbf v_k^{\rm wZF})^H\widetilde{\mathbf h}_i,\quad i\ne k.\tag{53b}
-$
+$$
 
-$
+$$
 \mathbb E[(\mathbf v_k^{\rm wZF})^H\mathbf h_k\mid\widehat{\mathbf H}]=1.\tag{53c}
-$
+$$
 
-$
+$$
 \operatorname{Var}[(\mathbf v_k^{\rm wZF})^H\mathbf h_k\mid\widehat{\mathbf H}]
 =(\mathbf v_k^{\rm wZF})^H\mathbf C_{e,k}\mathbf v_k^{\rm wZF}.\tag{53d}
-$
+$$
 
-$
+$$
 \mathbb E[|(\mathbf v_k^{\rm wZF})^H\mathbf h_i|^2\mid\widehat{\mathbf H}]
 =(\mathbf v_k^{\rm wZF})^H\mathbf C_{e,i}\mathbf v_k^{\rm wZF},\quad i\ne k.\tag{53e}
-$
+$$
 
 于是
 
@@ -349,69 +353,67 @@ $$\bar\gamma_k^{\rm wZF}=p_k\Big[\bar s_{k,k}-\bar{\mathbf s}_{k,-k}^H\overline{
 
 **备注 6：各向同性误差特例及其限制。** 如果人为令 $\mathbf C_{e,i}(\mathbf F)\approx\sigma_{e,i}^2(\mathbf F)\mathbf I_N$，则
 
-$
+$$
 \mathbf C_{e,i}(\mathbf F)\approx \sigma_{e,i}^2(\mathbf F)\mathbf I_N,\quad \forall i.\tag{62}
-$
+$$
 
 此时加权 ZF 的有效噪声成为标量倍数，条件 SINR 可化为
 
-$
+$$
 \overline\gamma_k^{\rm wZF}(\mathbf F,\widehat{\mathbf H})
 =\frac{p_k}{(\sigma^2+\sum_i p_i\sigma_{e,i}^2)
 [\mathbf G^{-1}(\mathbf F)]_{k,k}},\quad
 \mathbf G=\widehat{\mathbf H}^H\widehat{\mathbf H}.\tag{63}
-$
+$$
 
 原文进一步列出基于大规模 MIMO 矩匹配的近似（64）–（66），但明确指出 RA 旋转造成阵元增益不均匀，通常违背式（62）的各向同性前提。因此主方法采用式（59）–（61），而非将此特例作为通用结论。
 
 **推论 1：Schur 补揭示用户间耦合。** 按用户 $k$ 把统计 Gram 矩阵分块：
 
-$
+$$
 \overline{\mathbf S}=
 \begin{bmatrix}
 \overline s_{k,k}&\overline{\mathbf s}_{k,-k}^H\\
 \overline{\mathbf s}_{k,-k}&\overline{\mathbf S}_{-k,-k}
 \end{bmatrix}.\tag{67}
-$
+$$
 
 其中
 
-$
+$$
 \overline s_{k,k}
 =\boldsymbol\mu_k^H\mathbf Z^{-1}\boldsymbol\mu_k+
 \operatorname{tr}(\mathbf Z^{-1}\mathbf C_{\widehat h_k})
 =\|\mathbf Z^{-1/2}\boldsymbol\mu_k\|^2+
 \operatorname{tr}(\mathbf Z^{-1/2}\mathbf C_{\widehat h_k}\mathbf Z^{-1/2}),\tag{68}
-$
+$$
 
-$
+$$
 \overline{\mathbf s}_{k,-k}
 =\bigl[\boldsymbol\mu_i^H\mathbf Z^{-1}\boldsymbol\mu_k\bigr]_{i\ne k}.
 \tag{69}
-$
+$$
 
 于是 wZF 速率代理的 SINR 还可精确地写成
 
-$
+$$
 \overline\gamma_k^{\rm wZF}
 =p_k\left(\overline s_{k,k}-
 \overline{\mathbf s}_{k,-k}^H
 \overline{\mathbf S}_{-k,-k}^{-1}
 \overline{\mathbf s}_{k,-k}\right).\tag{70}
-$
+$$
 
 根据分块矩阵求逆的 Schur 补公式，
 
-$
+$$
 [\overline{\mathbf S}^{-1}]_{k,k}^{-1}
 =\overline s_{k,k}-\overline{\mathbf s}_{k,-k}^H
 \overline{\mathbf S}_{-k,-k}^{-1}
 \overline{\mathbf s}_{k,-k},\tag{71}
-$
+$$
 
 由此验证（70）。旋转一方面提升误差感知的有用项 $\overline s_{k,k}$，另一方面降低用户间耦合带来的减项，这解释了为何 wZF 与 MRC 倾向于不同的方向配置。
-
-## VI. 旋转优化：原文公式细节补录
 
 ### A. 信道统计量的导数
 
@@ -427,12 +429,12 @@ $$\frac{\partial\mu_{k,n}}{\partial[\mathbf f_n]_m}=\begin{cases}b\frac{\mu_{k,n
 
 同理，散射路径矩阵的第 $(n,q)$ 项在原文式（77）中明确定义为
 
-$
+$$
 [\mathbf B_k(\mathbf F)]_{n,q}=
 \sqrt{\frac{\varrho\sigma_qG_0}{4\pi r_{q,n}d_{q,k}}}
 [\mathbf f_n^T\mathbf s_{q,n}]_+^b
 e^{-j\frac{2\pi}{\lambda}(r_{q,n}+d_{q,k})}.\tag{77}
-$
+$$
 
 其导数满足
 
@@ -506,14 +508,14 @@ $$\nabla_{\mathbf f_n}\bar R_{\rm sum}^{\rm wZF}=\frac{\eta}{\ln 2}\sum_k\frac{\
 
 式（102）明确地把用户方向的三个坐标梯度堆叠为
 
-$
+$$
 \nabla_{\mathbf f_n}\overline R_{\rm sum}^{\rm BF}(\mathbf F)
 =\left[
 \frac{\partial\overline R_{\rm sum}^{\rm BF}}{\partial[\mathbf f_n]_x},
 \frac{\partial\overline R_{\rm sum}^{\rm BF}}{\partial[\mathbf f_n]_y},
 \frac{\partial\overline R_{\rm sum}^{\rm BF}}{\partial[\mathbf f_n]_z}
 \right]^T.\tag{102}
-$
+$$
 
 ### D. 球冠投影梯度上升
 
@@ -527,11 +529,11 @@ $$\widetilde{\mathbf f}_n^{(\ell+1)}=\frac{\mathbf f_n^{(\ell)}+\alpha^{(\ell)}\
 
 接着将其投影回球冠。若倾角不超过 $\theta_{\max}$，保持原值；否则定义截去法向分量的平面向量
 
-$
+$$
 \mathbf a_n^{(\ell+1)}
 \triangleq\widetilde{\mathbf f}_n^{(\ell+1)}
 -\bigl[(\widetilde{\mathbf f}_n^{(\ell+1)})^T\mathbf e_z\bigr]\mathbf e_z.\tag{106}
-$
+$$
 
 并采用
 
