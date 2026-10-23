@@ -14,7 +14,7 @@ toc: true
 **作者：** Ziyuan Zheng、Qingqing Wu、Wen Chen  
 **单位：** 上海交通大学集成电路学院  
 **来源：** arXiv:2605.04775v1，2026 年 5 月 6 日，13 页。  
-**校对说明：** 本页按原文 I—VIII 节组织，正文与图 1—10 已覆盖，并补入优化问题、MRC/wZF 关键遗漏公式及算法逐步过程；部分梯度仍使用等价微分形式，未做到全部逐式对应，需继续校对。参考文献书目未逐条转录，读者可通过原 PDF 查阅；尚未通过全文终校，不应将其视为经过逐字验收的版本。
+**校对说明：** 本页按原文 I—VIII 节组织，正文与图 1—10 已覆盖，并补入优化问题、MRC/wZF 关键遗漏公式及算法逐步过程；部分梯度仍使用等价微分形式，未做到全部逐式对应，需继续校对。31 条参考文献已依原始 PDF 逐条补录，部分正式题名排版仍待复核；尚未通过全文终校，不应将其视为经过逐字验收的版本。
 
 ## 摘要
 
@@ -591,6 +591,66 @@ Armijo 回溯令每一步的目标不下降；由于可行域紧致且目标连�
 
 研究了不完美 CSI 下采用 RA 阵列的上行多用户 MIMO。RA 旋转不仅是硬件波束指向改进；它通过改变莱斯信道均值与协方差，同时改变数据阶段有效信道、LMMSE 估计器及接收机所面对的残余干扰和有效噪声。基于这种耦合提出双时间尺度设计，在较慢尺度上按统计 CSI 优化阵元方向，在每个相干块中按瞬时估计更新 MRC 或 wZF 合并器；进一步推导 MRC 的闭式 UatF 长尺度速率指标和 wZF 的闭式统计代理，并利用球冠直积上的投影梯度算法解决非凸方向优化。结论包括：改善归一化估计质量一般不代表通信速率最优；单用户纯 LoS 问题存在闭式球冠投影解；MRC 与 wZF 偏好的旋转模式不同，前者主要利用信号强度聚合，后者更依赖考虑估计误差的用户分离。仿真验证了代理指标与双时间尺度设计的实际价值，尤其是在用户几何不利的多用户条件下。未来可推广至宽带系统、下行预编码，以及位置与方向联合可调的阵列。
 
-## 参考文献
+## 参考文献（依原文逐条保留英文书目）
 
-原文参考文献见[原始 PDF](https://arxiv.org/pdf/2605.04775v1)末尾；本译稿尚未逐条转录，不将未完成的书目校对标记为全文验收。
+[1] A. J. Paulraj et al., “An overview of MIMO communications–A key to gigabit wireless,” Proc. IEEE, vol. 92, no. 2, pp. 198–218, Feb. 2004.
+
+[2] D. Gesbert et al., “Shifting the MIMO paradigm,” IEEE Signal Process. Mag., vol. 24, no. 5, pp. 36–46, Sep. 2007.
+
+[3] L. Lu et al., “An overview of massive MIMO: Benefits and challenges,” IEEE J. Sel. Topics Signal Process., vol. 8, no. 5, pp. 742–758, Oct. 2014.
+
+[4] R. W. Heath et al., “An overview of signal processing techniques for millimeter wave MIMO systems,” IEEE J. Sel. Topics Signal Process., vol. 10, no. 3, pp. 436–453, Apr. 2016.
+
+[5] T. L. Marzetta, “Noncooperative cellular wireless with unlimited numbers of base station antennas,” IEEE Trans. Wireless Commun., vol. 9, no. 11, pp. 3590–3600, Nov. 2010.
+
+[6] W. Ma et al., “A survey on reconfigurable and movable antennas for wireless communications and sensing,” IEEE Commun. Surv. Tut., vol. 28, pp. 4842–4882, 2026.
+
+[7] Q. Wu and R. Zhang, “Towards smart and reconfigurable environment: Intelligent reflecting surface aided wireless network,” IEEE Commun. Mag., vol. 58, no. 1, pp. 106–112, Jan. 2020.
+
+[8] Q. Wu et al., “Intelligent reflecting surface-aided wireless communications: A tutorial,” IEEE Trans. Commun., vol. 69, no. 5, pp. 3313–3351, May 2021.
+
+[9] L. Zhu et al., “Movable-antenna enhanced multiuser communication via antenna position optimization,” IEEE Trans. Wireless Commun., vol. 23, no. 7, pp. 7214–7229, Jul. 2024.
+
+[10] K.-K. Wong et al., “Fluid antenna systems,” IEEE Trans. Wireless Commun., vol. 20, no. 3, pp. 1950–1962, Mar. 2021.
+
+[11] Q. Wu et al., “Integrating movable antennas and intelligent reflecting surfaces (MA-IRS): Fundamentals, practical solutions, and ISAC,” IEEE Wireless Commun., vol. 33, no. 1, pp. 155–163, Feb. 2026.
+
+[12] Y. Gao et al., “Joint transmitter and receiver design for movable antenna enhanced multicast communications,” IEEE Trans. Wireless Commun., vol. 23, no. 12, pp. 18186–18200, Dec. 2024.
+
+[13] H. Wang et al., “Throughput maximization for movable antenna systems with movement delay consideration,” IEEE Trans. on Wireless Commun., vol. 25, pp. 883–899, 2026.
+
+[14] X. Shao and R. Zhang, “6DMA enhanced wireless network with flexible antenna position and rotation: Opportunities and challenges,” IEEE Commun. Mag., vol. 63, no. 4, pp. 121–128, Apr. 2025.
+
+[15] X. Shao, Q. Jiang, and R. Zhang, “6D movable antenna based on user distribution: Modeling and optimization,” IEEE Trans. Wireless Commun., vol. 24, no. 1, pp. 355–370, Jan. 2025.
+
+[16] X. Peng et al., “Rotatable Antenna Enabled Spectrum Sharing: Joint Antenna Orientation and Beamforming Design,” IEEE Trans. Wireless Commun., vol. 25, pp. 15660-15674, 2026,
+
+[17] X. Peng et al., “Cell-free MIMO with rotatable antennas: When macro-diversity meets antenna directivity,” arXiv preprint: 2601.16543, https://arxiv.org/abs/2601.16543, 2026.
+
+[18] Z. Zheng et al., “Low-altitude ISAC with rotatable active and passive arrays”, arXiv preprint:2512.20987, 2025, http://arxiv.org/abs/2512.20987.
+
+[19] B. Zheng et al., “Rotatable antenna enabled wireless communication and sensing: Opportunities and challenges,” IEEE Wireless Commun., early access, doi: 10.1109/MWC.2025.3611919.
+
+[20] W. Ma, L. Zhu, and R. Zhang, “Compressed sensing based channel estimation for movable antenna communications,” IEEE Commun. Lett., vol. 27, no. 10, pp. 2747–2751, Oct. 2023.
+
+[21] A. Zheng et al., “Wireless communication with cross-linked rotatable antenna array: Architecture design and rotation optimization,” arXiv preprint: 2601.04862, 2026, http://arxiv.org/abs/2601.04862.
+
+[22] Y. Ye et al., “Fluid antenna-assisted MIMO transmission exploiting statistical CSI,” IEEE Commun. Lett., vol. 28, no. 1, pp. 223–227, Jan. 2024.
+
+[23] M.-M. Zhao et al., “Intelligent reflecting surface enhanced wireless networks: Two-timescale beamforming optimization,” IEEE Trans. Wireless Commun., vol. 20, no. 1, pp. 2–17, Jan. 2021.
+
+[24] Z. Zheng et al., “Two-timescale design for movable antenna-enabled multiuser MIMO systems,” IEEE Trans. Commun., vol. 73, no. 11, pp. 10554–10571, Nov. 2025.
+
+[25] L. Wu et al., “Channel estimation for multicell multiuser massive MIMO uplink over Rician fading channels,” IEEE Trans. Veh. Technol., vol. 66, no. 10, pp. 8872–8882, Oct. 2017.
+
+[26] Ö. Özdogan, E. Björnson, and E. G. Larsson, “Massive MIMO with spatially correlated Rician fading channels,” IEEE Trans. Commun., vol. 67, no. 5, pp. 3234–3250, May 2019.
+
+[27] E. Björnson et al., “Massive MIMO for maximal spectral efficiency: How many users and pilots should be allocated?” IEEE Trans. Wireless Commun., vol. 15, no. 2, pp. 1293–1308, Feb. 2016.
+
+[28] H. Q. Ngo et al., “Cell-free massive MIMO versus small cells,” IEEE Trans. Wireless Commun., vol. 16, no. 3, pp. 1834–1850, Mar. 2017.
+
+[29] C. Siriteanu et al., “MIMO zero-forcing detection analysis for correlated and estimated Rician fading,” IEEE Trans. Veh. Technol., vol. 61, no. 7, pp. 3087–3099, Sep. 2012.
+
+[30] A. Kammoun et al., “Asymptotic analysis of RZF in large-scale MU- MIMO systems over Rician channels,” IEEE Trans. Inf. Theory, vol. 65, no. 11, pp. 7268–7286, Nov. 2019.
+
+[31] N. S. Perović et al., “Achievable rate optimization for MIMO systems with reconfigurable intelligent surfaces,” IEEE Trans. Wireless Commun., vol. 20, no. 6, pp. 3865–3882, Jun. 2021.
