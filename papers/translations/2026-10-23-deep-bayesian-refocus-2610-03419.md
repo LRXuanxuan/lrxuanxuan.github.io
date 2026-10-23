@@ -14,7 +14,7 @@ toc: true
 **作者：** Simon W. Penninga、Ruud J. G. van Sloun  
 **单位：** 埃因霍温理工大学电气工程系  
 **来源：** arXiv:2610.03419v1，2026 年 10 月 2 日，10 页。  
-**译稿状态：** 正文 I—VII、公式（1）—（17）、算法 1、表 I、图 1—11 的说明已译；46 条文献的英文书目与原 PDF 对照，尚未逐条录入，算法 1 的 14 行已逐行补入；公式（17）和算法第 8—10 行之间的符号一致性仍需与实现核验。译稿不重复存储论文图片。
+**译稿状态：** 正文 I—VII、公式（1）—（17）、算法 1、表 I、图 1—11 的说明已译；46 条英文参考文献已按 PDF 第 10 页补录，算法 1 的 14 行已逐行补入；公式（17）和算法第 8—10 行之间的符号一致性仍需与实现核验。译稿不重复存储论文图片。
 
 ## 摘要
 
@@ -297,6 +297,96 @@ $$
 
 本文提出 Deep Bayesian REFoCUS，一种学习超声通道域深度生成先验的方法，可针对各种发射类型条件生成多基地数据并获得后验分布。仿真中该方法总体优于传统线性 REFoCUS 解码器，在活体数据上也得到有前景的结果。它在严重秩亏的反演任务中表现最好，而在反演精确时接近线性解码器的性能。尽管活体测量超出了训练分布，模型仍能将多基地数据结构化，使其足以生成有意义的重建图像。未来可以通过大规模采集活体数据、改进模型架构的泛化能力及加速计算，进一步提升性能。
 
-## 参考文献
+## 参考文献（原文 46 条，英文书目保留原貌）
 
-原文在第 10 页列出 46 条参考文献 [1]—[46]，涵盖经典 STA/REFoCUS、超声编码与波束形成、扩散／流匹配、数据集与认知超声。书目作者、正式英文篇名、卷期和页码以 [原文 PDF 第 10 页](https://arxiv.org/pdf/2610.03419v1#page=10) 为准。正文的引文序号保留不变。
+[1] G. Montaldo, M. Tanter, J. Bercoff, N. Benech, and M. Fink, “Coherent plane-wave compounding for very high frame rate ultrasonography and transient elastography,” IEEE Transactions on Ultrasonics, Ferroelectrics, and Frequency Control, vol. 56, no. 3, pp. 489–506, 2009.
+
+[2] M. Tanter and M. Fink, “Ultrafast imaging in biomedical ultrasound,” IEEE Transactions on Ultrasonics, Ferroelectrics, and Frequency Control, vol. 61, no. 1, pp. 102–119, 2014.
+
+[3] C. Papadacci, M. Pernot, M. Couade, M. Fink, and M. Tanter, “Highcontrast ultrafast imaging of the heart,” IEEE Transactions on Ultrasonics, Ferroelectrics, and Frequency Control, vol. 61, no. 2, pp. 288–301, 2014.
+
+[4] J. A. Jensen, S. I. Nikolov, K. L. Gammelmark, and M. H. Pedersen, “Synthetic aperture ultrasound imaging,” Ultrasonics, vol. 44, pp. e5– e15, 2006.
+
+[5] N. Bottenus, “Recovery of the complete data set from focused transmit beams,” IEEE Transactions on Ultrasonics, Ferroelectrics, and Frequency Control, vol. 65, no. 1, pp. 30–38, 2018.
+
+[6] R. Ali, C. D. Herickhoff, D. Hyun, J. J. Dahl, and N. Bottenus, “Extending retrospective encoding for robust recovery of the multistatic data set,” IEEE Transactions on Ultrasonics, Ferroelectrics, and Frequency Control, vol. 67, no. 5, pp. 943–956, 2020.
+
+[7] J. Ho, A. Jain, and P. Abbeel, “Denoising diffusion probabilistic models,” in Advances in Neural Information Processing Systems (NeurIPS), 2020.
+
+[8] Y. Song, J. Sohl-Dickstein, D. P. Kingma, A. Kumar, S. Ermon, and B. Poole, “Score-based generative modeling through stochastic differential equations,” in International Conference on Learning Representations (ICLR), 2021.
+
+[9] Y. Lipman, R. T. Q. Chen, H. Ben-Hamu, M. Nickel, and M. Le, “Flow matching for generative modeling,” in International Conference on Learning Representations (ICLR), 2023.
+
+[10] X. Liu, C. Gong, and Q. Liu, “Flow straight and fast: Learning to generate and transfer data with rectified flow,” in International Conference on Learning Representations (ICLR), 2023.
+
+[11] Y. Song, L. Shen, L. Xing, and S. Ermon, “Solving inverse problems in medical imaging with score-based generative models,” in International Conference on Learning Representations (ICLR), 2022.
+
+[12] B. Kawar, M. Elad, S. Ermon, and J. Song, “Denoising diffusion restoration models,” in Advances in Neural Information Processing Systems (NeurIPS), 2022.
+
+[13] J. Song, A. Vahdat, M. Mardani, and J. Kautz, “Pseudoinverse-guided diffusion models for inverse problems,” in International Conference on Learning Representations (ICLR), 2023.
+
+[14] H. Chung, J. Kim, M. T. McCann, M. L. Klasky, and J. C. Ye, “Diffusion posterior sampling for general noisy inverse problems,” in International Conference on Learning Representations (ICLR), 2023.
+
+[15] M. Karaman, P.-C. Li, and M. O’Donnell, “Synthetic aperture imaging for small scale systems,” IEEE Transactions on Ultrasonics, Ferroelectrics, and Frequency Control, vol. 42, no. 3, pp. 429–442, 1995.
+
+[16] M. O’Donnell, “Coded excitation system for improving the penetration of real-time phased-array imaging systems,” IEEE Transactions on Ultrasonics, Ferroelectrics, and Frequency Control, vol. 39, no. 3, pp. 341–351, 1992.
+
+[17] T. Misaridis and J. A. Jensen, “Use of modulated excitation signals in medical ultrasound. Part I: Basic concepts and expected benefits,” IEEE Transactions on Ultrasonics, Ferroelectrics, and Frequency Control, vol. 52, no. 2, pp. 177–191, 2005.
+
+[18] K. L. Gammelmark and J. A. Jensen, “Multielement synthetic transmit aperture imaging using temporal encoding,” IEEE Transactions on Medical Imaging, vol. 22, no. 4, pp. 552–563, 2003.
+
+[19] M.-H. Bae and M.-K. Jeong, “A study of synthetic-aperture imaging with virtual source elements in B-mode ultrasound imaging systems,” IEEE Transactions on Ultrasonics, Ferroelectrics, and Frequency Control, vol. 47, no. 6, pp. 1510–1519, 2000.
+
+[20] S. I. Nikolov and J. A. Jensen, “Virtual ultrasound sources in highresolution ultrasound imaging,” in Proc. SPIE Medical Imaging, vol. 4687, 2002, pp. 395–405.
+
+[21] R. Y. Chiao, L. J. Thomas, and S. D. Silverstein, “Sparse array imaging with spatially-encoded transmits,” in IEEE Ultrasonics Symposium Proceedings, vol. 2, 1997, pp. 1679–1682.
+
+[22] E. Tiran, T. Deffieux, M. Correia, D. Maresca, B.-F. Osmanski et al., “Multiplane wave imaging increases signal-to-noise ratio in ultrafast ultrasound imaging,” Physics in Medicine and Biology, vol. 60, no. 21, pp. 8549–8566, 2015.
+
+[23] S. R. Freeman, P.-C. Li, and M. O’Donnell, “Retrospective dynamic transmit focusing,” Ultrasonic Imaging, vol. 17, no. 3, pp. 173–196, 1995.
+
+[24] J. Liu, Q. He, and J. Luo, “A compressed sensing strategy for synthetic transmit aperture ultrasound imaging,” IEEE Transactions on Medical Imaging, vol. 36, no. 4, pp. 878–891, 2017.
+
+[25] J. Zhang, J. Liu, W. Fan, W. Qiu, and J. Luo, “Partial Hadamard encoded synthetic transmit aperture for high frame rate imaging with minimal 𝑙2norm least squares method,” Physics in Medicine and Biology, vol. 67, no. 10, p. 105002, 2022.
+
+[26] J. Zhang, L. Huang, and J. Luo, “Deep null space learning improves dataset recovery for high frame rate synthetic transmit aperture imaging,” IEEE Transactions on Ultrasonics, Ferroelectrics, and Frequency Control, vol. 70, no. 3, pp. 219–236, 2023.
+
+[27] Y. Chen, J. Liu, X. Luo, and J. Luo, “ApodNet: Learning for high frame rate synthetic transmit aperture ultrasound imaging,” IEEE Transactions on Medical Imaging, vol. 40, no. 11, pp. 3190–3204, 2021.
+
+[28] M. S. Albergo and E. Vanden-Eijnden, “Building normalizing flows with stochastic interpolants,” in International Conference on Learning Representations (ICLR), 2023.
+
+[29] G. Duffy et al., “High-throughput precision phenotyping of left ventricular hypertrophy with cardiovascular deep learning,” JAMA Cardiology, vol. 7, no. 4, pp. 386–395, 2022.
+
+[30] T. S. W. Stevens, W. L. van Nierop, B. Luijten, V. van de Schaft, O. Nolan, B. Federici, L. D. van Harten, S. W. Penninga, N. I. P. Schueler, and R. J. G. van Sloun, “zea: A toolbox for cognitive ultrasound imaging,” Journal of Open Source Software, vol. 11, no. 121, p. 9881, 2026.
+
+[31] A. Vaswani, N. Shazeer, N. Parmar, J. Uszkoreit, L. Jones, A. N. Gomez, Ł. Kaiser, and I. Polosukhin, “Attention is all you need,” in Advances in Neural Information Processing Systems (NeurIPS), 2017.
+
+[32] A. Henry, P. R. Dachapally, S. S. Pawar, and Y. Chen, “Query-key normalization for transformers,” in Findings of the Association for Computational Linguistics: EMNLP, 2020, pp. 4246–4253.
+
+[33] M. Dehghani et al., “Scaling vision transformers to 22 billion parameters,” in International Conference on Machine Learning (ICML), 2023, pp. 7480–7512.
+
+[34] O. Ronneberger, P. Fischer, and T. Brox, “U-net: Convolutional networks for biomedical image segmentation,” in Medical Image Computing and Computer-Assisted Intervention (MICCAI), 2015, pp. 234–241.
+
+[35] K. He, X. Zhang, S. Ren, and J. Sun, “Deep residual learning for image recognition,” in IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016, pp. 770–778.
+
+[36] M. Abadi et al., “Tensorflow: A system for large-scale machine learning,” in USENIX Symposium on Operating Systems Design and Implementation (OSDI), 2016, pp. 265–283.
+
+[37] R. E. Daigle, “Ultrasound imaging system with pixel oriented processing,” U.S. Patent 8 287 456 B2, Oct. 2012, Verasonics, Inc., Kirkland, WA, USA.
+
+[38] S. W. Penninga and R. J. G. van Sloun, “Tu/e cardiac plax multi-transmit rf,” OpenH-RF dataset, 2026.
+
+[39] G. Daras, K. Shah, Y. Dagan, A. Gollakota, A. G. Dimakis, and A. Klivans, “Ambient diffusion: Learning clean distributions from corrupted data,” in Advances in Neural Information Processing Systems (NeurIPS), 2023.
+
+[40] S. K. Aithal, P. Maini, Z. C. Lipton, and J. Z. Kolter, “Understanding hallucinations in diffusion models through mode interpolation,” in Advances in Neural Information Processing Systems (NeurIPS), 2024.
+
+[41] W. Peebles and S. Xie, “Scalable diffusion models with transformers,” in IEEE/CVF International Conference on Computer Vision (ICCV), 2023.
+
+[42] N. Yismaw, U. S. Kamilov, and M. S. Asif, “Gaussian is all you need: A unified framework for solving inverse problems via diffusion posterior sampling,” IEEE Transactions on Computational Imaging, vol. 11, pp. 1020–1030, 2025.
+
+[43] T. S. W. Stevens, O. Nolan, J.-L. Robert, and R. J. G. van Sloun, “Sequential posterior sampling with diffusion models,” in IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), 2025.
+
+[44] R. J. G. van Sloun, “Active inference and deep generative modeling for cognitive ultrasound,” IEEE Transactions on Ultrasonics, Ferroelectrics, and Frequency Control, vol. 71, no. 11, pp. 1478–1490, 2024.
+
+[45] W. L. van Nierop, O. Nolan, T. S. W. Stevens, and R. J. G. van Sloun, “Patient-adaptive echocardiography using cognitive ultrasound,” IEEE Transactions on Medical Imaging, vol. 45, no. 7, pp. 4034–4046, 2026.
+
+[46] O. Nolan, T. S. W. Stevens, W. L. van Nierop, and R. J. G. van Sloun, “Active diffusion subsampling,” Transactions on Machine Learning Research, 2025.
