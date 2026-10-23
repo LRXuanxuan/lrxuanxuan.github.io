@@ -14,7 +14,7 @@ toc: true
 **作者：** Simon W. Penninga、Ruud J. G. van Sloun  
 **单位：** 埃因霍温理工大学电气工程系  
 **来源：** arXiv:2610.03419v1，2026 年 10 月 2 日，10 页。  
-**译稿状态：** 正文 I—VII、公式（1）—（17）、算法 1、表 I、图 1—11 的说明已译；46 条文献的英文书目与原 PDF 对照，尚未逐条录入，公式（17）及算法第 8—10 行需特别逐式复核。译稿不重复存储论文图片。
+**译稿状态：** 正文 I—VII、公式（1）—（17）、算法 1、表 I、图 1—11 的说明已译；46 条文献的英文书目与原 PDF 对照，尚未逐条录入，算法 1 的 14 行已逐行补入；公式（17）和算法第 8—10 行之间的符号一致性仍需与实现核验。译稿不重复存储论文图片。
 
 ## 摘要
 
@@ -174,14 +174,24 @@ $$
 
 **图 1：** Deep Bayesian REFoCUS 后验采样过程。多基地数据以随机高斯噪声初始化；经发射波束形成得到的测量残差引导生成过程，神经网络步骤施加多基地先验统计，伴随引导步骤则逐步把生成结果推向观测约束。
 
-### 算法 1：Deep Bayesian REFoCUS
+### 算法 1：Deep Bayesian REFoCUS（原文 14 行逐行译录）
 
-输入：发射波束形成算子 $\mathcal A$、测量 $\mathbf y$、速度网络 $\mathbf v_\theta$、步数 $\Gamma$、后验样本数 $K$、引导系数 $\zeta$。设置递减时间表 $1=\mathcal T_0>\mathcal T_1>\cdots>\mathcal T_\Gamma=0$。
+1. **输入：** 发射波束形成算子 $\mathcal A$、测量 $\mathbf y$、速度网络 $\mathbf v_\theta$、步数 $\Gamma$、后验样本数 $K$ 和引导强度 $\zeta$。
+2. 设置递减时间序列 $1=\mathcal T_0>\mathcal T_1>\cdots>\mathcal T_\Gamma=0$。
+3. 对 $k=0,\ldots,K-1$ 执行后验样本循环。
+4. 令 $\mathbf x_{\mathcal T_0}\sim\mathcal N(\mathbf0,\mathbf I)$。
+5. 对 $\rho=0,\ldots,\Gamma-1$ 执行反向时间步循环。
+6. 计算净化预测 $\widehat{\mathbf x}_0\leftarrow\mathbf x_{\mathcal T_\rho}-\mathcal T_\rho\mathbf v_\theta(\mathbf x_{\mathcal T_\rho},\mathcal T_\rho)$。
+7. 计算残差 $\mathbf r\leftarrow\mathbf y-\mathcal A(\widehat{\mathbf x}_0)$，并置 $L\leftarrow\|\mathbf r\|_2^2$。
+8. 按原文算法行定义引导方向 $\nabla_{\mathbf x_{\mathcal T_\rho}}L\leftarrow\mathbf J_{\widehat{\mathbf x}_0}^{*}\mathcal A^*\mathbf r$。
+9. 更新 $\mathbf x_{\mathcal T_{\rho+1}}\leftarrow\mathbf x_{\mathcal T_\rho}+\dfrac{\zeta}{\sqrt{L+\varepsilon}}\nabla_{\mathbf x_{\mathcal T_\rho}}L$。
+10. 再进行流先验更新：$\mathbf x_{\mathcal T_{\rho+1}}\leftarrow\mathbf x_{\mathcal T_{\rho+1}}+\mathbf v_\theta(\mathbf x_{\mathcal T_\rho},\mathcal T_\rho)(\mathcal T_{\rho+1}-\mathcal T_\rho)$。
+11. 结束内层时间步循环。
+12. 保存样本 $\mathbf x^k\leftarrow\mathbf x_{\mathcal T_\Gamma}$。
+13. 结束外层后验样本循环。
+14. **返回：** $\{\mathbf x^0,\ldots,\mathbf x^{K-1}\}$，即从 $p(\mathbf x\mid\mathbf y)$ 近似抽取的后验样本。
 
-1. 对 $k=0,1,\ldots,K-1$：从 $\mathcal N(0,\mathbf I)$ 采样初值 $\mathbf x_{\mathcal T_0}$。
-2. 对 $\rho=0,1,\ldots,\Gamma-1$：估计 $\widehat{\mathbf x}_0\leftarrow\mathbf x_{\mathcal T_\rho}-\mathcal T_\rho\mathbf v_\theta(\mathbf x_{\mathcal T_\rho},\mathcal T_\rho)$；计算残差 $\mathbf r\leftarrow\mathbf y-\mathcal A(\widehat{\mathbf x}_0)$ 和 $L\leftarrow\|\mathbf r\|_2^2$。
-3. 利用 $\mathbf J_{\widehat{\mathbf x}_0}^*\mathcal A^*\mathbf r$ 取得残差反投影方向，按 $\zeta/\sqrt{L+\varepsilon}$ 归一化更新状态，再按 $\mathbf v_\theta(\mathbf x_{\mathcal T_\rho},\mathcal T_\rho)(\mathcal T_{\rho+1}-\mathcal T_\rho)$ 完成流先验步骤。
-4. 保存最终样本 $\mathbf x^k\leftarrow\mathbf x_{\mathcal T_\Gamma}$。全部重复后返回 $\{\mathbf x^0,\ldots,\mathbf x^{K-1}\}$，即近似后验样本。
+**算法一致性校对：** 上述第 8–10 行忠实保留原 PDF 中的引导方向和更新符号，不将其擅自等同于普通平方误差损失的严格梯度。原文式（17）把归一化分母写作对数似然相关项，而算法 1 则使用残差能量 $L$；两者在符号与含义上需要进一步查作者实现，不能在未经验证的情况下断言完全等价。
 
 ## IV. 实验设置
 
