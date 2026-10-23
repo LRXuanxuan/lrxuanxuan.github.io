@@ -368,7 +368,42 @@ $$
 \mathbf G=\widehat{\mathbf H}^H\widehat{\mathbf H}.\tag{63}
 $$
 
-原文进一步列出基于大规模 MIMO 矩匹配的近似（64）–（66），但明确指出 RA 旋转造成阵元增益不均匀，通常违背式（62）的各向同性前提。因此主方法采用式（59）–（61），而非将此特例作为通用结论。
+在各向同性误差这一**特例**下，原文引用大规模 MIMO 的矩匹配近似
+
+$$
+\mathbb E\bigl[[\mathbf G^{-1}(\mathbf F)]_{k,k}\bigr]
+\approx\frac{1}{(N-K)N\widehat\beta_k(\mathbf F)}
+[\widehat{\boldsymbol\Sigma}^{-1}(\mathbf F)]_{k,k}.
+\tag{64}
+$$
+
+$$
+\widehat{\boldsymbol\Sigma}(\mathbf F)=
+\widehat{\boldsymbol\Lambda}_1(\mathbf F)
++\frac{1}{N-K}
+\widehat{\boldsymbol\Lambda}_2(\mathbf F)
+\overline{\mathbf H}^{\,H}(\mathbf F)\overline{\mathbf H}(\mathbf F)
+\widehat{\boldsymbol\Lambda}_2(\mathbf F).
+\tag{65}
+$$
+
+从而获得近似
+
+$$
+\overline\gamma_k^{\rm wZF}(\mathbf F)\approx
+\frac{p_k(N-K)N\widehat\beta_k(\mathbf F)}
+{\bigl(\sigma^2+\sum_{i=1}^Kp_i\sigma_{e,i}^2(\mathbf F)\bigr)
+[\widehat{\boldsymbol\Sigma}^{-1}(\mathbf F)]_{k,k}}.
+\tag{66}
+$$
+
+其中 $\widehat\beta_k=\mathbb E[\|\widehat{\mathbf h}_k\|^2]/N$，
+$\overline{\mathbf h}_k=\sqrt N\,\boldsymbol\mu_k/\|\boldsymbol\mu_k\|$，
+$\overline{\mathbf H}=[\overline{\mathbf h}_1,\ldots,\overline{\mathbf h}_K]$，
+$\widehat{\boldsymbol\Omega}=\operatorname{diag}(\widehat\kappa_1,\ldots,\widehat\kappa_K)$，
+$\widehat\kappa_k=\|\boldsymbol\mu_k\|^2/\operatorname{tr}(\mathbf C_{\widehat h_k})$，
+$\widehat{\boldsymbol\Lambda}_1=(\widehat{\boldsymbol\Omega}+\mathbf I_K)^{-1}$，
+$\widehat{\boldsymbol\Lambda}_2=(\widehat{\boldsymbol\Omega}\widehat{\boldsymbol\Lambda}_1)^{1/2}$。当 $N=K$ 时该矩匹配公式的分母不适用；本论文主方法亦不依赖这些近似。由于 RA 旋转产生阵元相关的非各向同性误差，原文明确以式（59）–（61）作为主要统计代理，而非以式（64）–（66）取代主方法。
 
 **推论 1：Schur 补揭示用户间耦合。** 按用户 $k$ 把统计 Gram 矩阵分块：
 
