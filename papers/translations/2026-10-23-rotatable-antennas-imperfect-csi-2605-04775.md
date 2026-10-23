@@ -14,7 +14,7 @@ toc: true
 **作者：** Ziyuan Zheng、Qingqing Wu、Wen Chen  
 **单位：** 上海交通大学集成电路学院  
 **来源：** arXiv:2605.04775v1，2026 年 5 月 6 日，13 页。  
-**校对说明：** 本页按原文 I—VIII 节组织，保留主要推导、公式（1）—（107）的对应关系及图 1—10 的解释。部分极长矩阵展开采用与原式等价的微分记法，需要逐式比对 PDF。参考文献书目未逐条转录，读者可通过原 PDF 查阅；尚未通过全文终校，不应将其视为经过逐字验收的版本。
+**校对说明：** 本页按原文 I—VIII 节组织，正文与图 1—10 已覆盖，并补入优化问题、MRC/wZF 关键遗漏公式及算法逐步过程；部分梯度仍使用等价微分形式，未做到全部逐式对应，需继续校对。参考文献书目未逐条转录，读者可通过原 PDF 查阅；尚未通过全文终校，不应将其视为经过逐字验收的版本。
 
 ## 摘要
 
@@ -142,7 +142,11 @@ $$\widehat{\mathbf h}_k=\boldsymbol\mu_k+\sqrt{\tau_pp_k^{\rm tr}}\mathbf R_k(\t
 
 ### C. 估计误差统计
 
-定义 $\widetilde{\mathbf h}_k=\mathbf h_k-\widehat{\mathbf h}_k$（21）。高斯先验下，估计与误差独立，且
+定义信道估计误差（原文式 21）：
+
+$\widetilde{\mathbf h}_k(\mathbf F)\triangleq\mathbf h_k(\mathbf F)-\widehat{\mathbf h}_k(\mathbf F).\tag{21}$
+
+高斯先验下，估计与误差独立，且
 
 $$\widetilde{\mathbf h}_k\sim\mathcal{CN}(\mathbf0,\mathbf C_{e,k}),\tag{22}$$
 
@@ -192,7 +196,19 @@ $$\bar R_k(\mathbf F)=\eta\log_2\big(1+\bar\gamma_k(\mathbf F,\widehat{\mathbf H
 
 $$\bar R_{\rm sum}(\mathbf F)=\sum_{k\in\mathcal K}\bar R_k(\mathbf F).\tag{35}$$
 
-长时间尺度优化问题（P1）是在 $\mathbf F\in\mathcal F$ 的约束下，最大化对快衰落平均且对短期合并器优化的和速率（36a）—（36b）。该问题包括不可解析的期望、单位范数与角度限制以及非凹方向增益，是随机非凸问题。固定短期合并策略为 MRC 或 wZF，并推导仅依赖统计量的闭式速率代理后，可分别解
+原文的长时间尺度优化问题完整表述为
+
+$
+\begin{aligned}
+(\mathrm{P1}):\quad
+&\max_{\mathbf F}\quad \mathbb E_{\widehat{\mathbf H}}
+\left[\max_{\mathbf V(\widehat{\mathbf H})}\,
+\overline R_{\mathrm{sum}}(\mathbf F)\right],&&\tag{36a}\\
+&\mathrm{s.t.}\quad \mathbf F\in\mathcal F.&&\tag{36b}
+\end{aligned}
+$
+
+该问题包括不可解析的期望、单位范数与角度限制以及非凹方向增益，是随机非凸问题。固定短期合并策略为 MRC 或 wZF，并推导仅依赖统计量的闭式速率代理后，可分别解
 
 $$\text{(P2-MRC)}:\ \max_{\mathbf F\in\mathcal F}\sum_k\bar R_k^{\rm MRC}(\mathbf F),\qquad\text{(P2-wZF)}:\ \max_{\mathbf F\in\mathcal F}\sum_k\bar R_k^{\rm wZF}(\mathbf F).\tag{37}$$
 
@@ -214,7 +230,21 @@ $$\boldsymbol\Sigma_{\widehat h,k}=\mathbb E[\widehat{\mathbf h}_k\widehat{\math
 
 ### A. MRC 的闭式 UatF 表达式
 
-MRC 取 $\mathbf v_k^{\rm MRC}=\widehat{\mathbf h}_k$（41），以无条件期望构造 UatF SINR（42）。定义有用信号平均合并增益
+MRC 的瞬时合并器为
+
+$
+\mathbf v_k^{\rm MRC}(\widehat{\mathbf H})\triangleq\widehat{\mathbf h}_k(\mathbf F).\tag{41}
+$
+
+代入 UatF 表达式后，利用无条件均值和总接收功率，可得
+
+$
+\overline\gamma_k^{\rm MRC}(\mathbf F)=
+\frac{p_k|\mathbb E[(\mathbf v_k^{\rm MRC})^H\mathbf h_k]|^2}
+{\sum_{i=1}^{K}p_i\mathbb E[|(\mathbf v_k^{\rm MRC})^H\mathbf h_i|^2]
+-p_k|\mathbb E[(\mathbf v_k^{\rm MRC})^H\mathbf h_k]|^2
++\sigma^2\mathbb E[\|\mathbf v_k^{\rm MRC}\|^2]}.\tag{42}
+$定义有用信号平均合并增益
 
 $$\alpha_k=\mathbb E[\widehat{\mathbf h}_k^H\mathbf h_k]=\operatorname{tr}(\mathbf C_{\widehat h_k})+\|\boldsymbol\mu_k\|^2.\tag{43}$$
 
@@ -232,9 +262,18 @@ $$\Phi_k=\operatorname{tr}(\mathbf C_{\widehat h_k}^2)+2\boldsymbol\mu_k^H\mathb
 
 $$I_k^{\rm MRC}=p_k\Phi_k+\sum_{i\ne k}p_i\Theta_{i,k}+\sigma^2\alpha_k.\tag{48}$$
 
-因此得到 MRC 的闭式 UatF SINR 和速率：
+因此分别得到 MRC 的闭式 UatF SINR 与速率：
 
-$$\bar\gamma_k^{\rm MRC}=\frac{p_k\alpha_k^2}{I_k^{\rm MRC}},\qquad\bar R_k^{\rm MRC}=\eta\log_2(1+\bar\gamma_k^{\rm MRC}).\tag{50--51}$$
+$
+\overline\gamma_k^{\rm MRC}(\mathbf F)
+=\frac{p_k\alpha_k^2(\mathbf F)}{I_k^{\rm MRC}(\mathbf F)}.\tag{50}
+$
+
+$
+\overline R_k^{\rm MRC}(\mathbf F)
+=\eta\log_2\bigl(1+\overline\gamma_k^{\rm MRC}(\mathbf F)\bigr),\qquad
+\overline R_{\rm sum}^{\rm MRC}=\sum_{k=1}^{K}\overline R_k^{\rm MRC}.\tag{51}
+$
 
 由此可见，旋转同时影响相干信号合并能量 $\alpha_k$、误差引发的自干扰 $\Phi_k$、跨用户干扰 $\Theta_{i,k}$ 与合并后噪声。因此只按 NMSE 或有用信号功率设计指向，都未必能最大化速率。
 
@@ -244,7 +283,33 @@ $$\bar\gamma_k^{\rm MRC}=\frac{p_k\alpha_k^2}{I_k^{\rm MRC}},\qquad\bar R_k^{\rm
 
 $$\mathbf V_{\rm ZF}^H\widehat{\mathbf H}=\mathbf I_K.\tag{52}$$
 
-因为 $\mathbf h_i=\widehat{\mathbf h}_i+\widetilde{\mathbf h}_i$，已估计的跨用户干扰被消除，条件下剩余期望干扰为 $\mathbf v_k^H\mathbf C_{e,i}\mathbf v_k$（53a）—（53e），于是
+对每个满足 $\mathbf V^H\widehat{\mathbf H}=\mathbf I_K$ 的 wZF 型接收机，给定 $\widehat{\mathbf H}$ 时，各用户的信道均为 $\mathbf h_i=\widehat{\mathbf h}_i+\widetilde{\mathbf h}_i$，因而原文逐项列出
+
+$
+(\mathbf v_k^{\rm wZF})^H\mathbf h_k
+=1+(\mathbf v_k^{\rm wZF})^H\widetilde{\mathbf h}_k.\tag{53a}
+$
+
+$
+(\mathbf v_k^{\rm wZF})^H\mathbf h_i
+=(\mathbf v_k^{\rm wZF})^H\widetilde{\mathbf h}_i,\quad i\ne k.\tag{53b}
+$
+
+$
+\mathbb E[(\mathbf v_k^{\rm wZF})^H\mathbf h_k\mid\widehat{\mathbf H}]=1.\tag{53c}
+$
+
+$
+\operatorname{Var}[(\mathbf v_k^{\rm wZF})^H\mathbf h_k\mid\widehat{\mathbf H}]
+=(\mathbf v_k^{\rm wZF})^H\mathbf C_{e,k}\mathbf v_k^{\rm wZF}.\tag{53d}
+$
+
+$
+\mathbb E[|(\mathbf v_k^{\rm wZF})^H\mathbf h_i|^2\mid\widehat{\mathbf H}]
+=(\mathbf v_k^{\rm wZF})^H\mathbf C_{e,i}\mathbf v_k^{\rm wZF},\quad i\ne k.\tag{53e}
+$
+
+于是
 
 $$\bar\gamma_k^{\rm wZF}(\mathbf F,\widehat{\mathbf H})=\frac{p_k}{\mathbf v_k^H\mathbf Z(\mathbf F)\mathbf v_k},\tag{54}$$
 
@@ -282,6 +347,72 @@ $$\bar\gamma_k^{\rm wZF}=p_k\Big[\bar s_{k,k}-\bar{\mathbf s}_{k,-k}^H\overline{
 
 对 MRC 与 wZF，分别最大化其长尺度和速率代理，即原文（P3-MRC）、（P3-wZF）（72a）—（72b）。这些非凸目标依赖 $\boldsymbol\mu_k$、$\mathbf R_k$ 及 $\mathbf C_{e,k}$，但可行域为球冠直积 $\mathcal F=\prod_{n=1}^N\mathcal F_n$，适合投影梯度上升。
 
+**备注 6：各向同性误差特例及其限制。** 如果人为令 $\mathbf C_{e,i}(\mathbf F)\approx\sigma_{e,i}^2(\mathbf F)\mathbf I_N$，则
+
+$
+\mathbf C_{e,i}(\mathbf F)\approx \sigma_{e,i}^2(\mathbf F)\mathbf I_N,\quad \forall i.\tag{62}
+$
+
+此时加权 ZF 的有效噪声成为标量倍数，条件 SINR 可化为
+
+$
+\overline\gamma_k^{\rm wZF}(\mathbf F,\widehat{\mathbf H})
+=\frac{p_k}{(\sigma^2+\sum_i p_i\sigma_{e,i}^2)
+[\mathbf G^{-1}(\mathbf F)]_{k,k}},\quad
+\mathbf G=\widehat{\mathbf H}^H\widehat{\mathbf H}.\tag{63}
+$
+
+原文进一步列出基于大规模 MIMO 矩匹配的近似（64）–（66），但明确指出 RA 旋转造成阵元增益不均匀，通常违背式（62）的各向同性前提。因此主方法采用式（59）–（61），而非将此特例作为通用结论。
+
+**推论 1：Schur 补揭示用户间耦合。** 按用户 $k$ 把统计 Gram 矩阵分块：
+
+$
+\overline{\mathbf S}=
+\begin{bmatrix}
+\overline s_{k,k}&\overline{\mathbf s}_{k,-k}^H\\
+\overline{\mathbf s}_{k,-k}&\overline{\mathbf S}_{-k,-k}
+\end{bmatrix}.\tag{67}
+$
+
+其中
+
+$
+\overline s_{k,k}
+=\boldsymbol\mu_k^H\mathbf Z^{-1}\boldsymbol\mu_k+
+\operatorname{tr}(\mathbf Z^{-1}\mathbf C_{\widehat h_k})
+=\|\mathbf Z^{-1/2}\boldsymbol\mu_k\|^2+
+\operatorname{tr}(\mathbf Z^{-1/2}\mathbf C_{\widehat h_k}\mathbf Z^{-1/2}),\tag{68}
+$
+
+$
+\overline{\mathbf s}_{k,-k}
+=\bigl[\boldsymbol\mu_i^H\mathbf Z^{-1}\boldsymbol\mu_k\bigr]_{i\ne k}.
+\tag{69}
+$
+
+于是 wZF 速率代理的 SINR 还可精确地写成
+
+$
+\overline\gamma_k^{\rm wZF}
+=p_k\left(\overline s_{k,k}-
+\overline{\mathbf s}_{k,-k}^H
+\overline{\mathbf S}_{-k,-k}^{-1}
+\overline{\mathbf s}_{k,-k}\right).\tag{70}
+$
+
+根据分块矩阵求逆的 Schur 补公式，
+
+$
+[\overline{\mathbf S}^{-1}]_{k,k}^{-1}
+=\overline s_{k,k}-\overline{\mathbf s}_{k,-k}^H
+\overline{\mathbf S}_{-k,-k}^{-1}
+\overline{\mathbf s}_{k,-k},\tag{71}
+$
+
+由此验证（70）。旋转一方面提升误差感知的有用项 $\overline s_{k,k}$，另一方面降低用户间耦合带来的减项，这解释了为何 wZF 与 MRC 倾向于不同的方向配置。
+
+## VI. 旋转优化：原文公式细节补录
+
 ### A. 信道统计量的导数
 
 由于阵元 $n$ 的旋转仅影响 $\boldsymbol\mu_k$ 第 $n$ 项和 $\mathbf B_k$ 第 $n$ 行，可利用稀疏导数。对任意固定方向 $\mathbf s$，方向增益梯度为
@@ -294,7 +425,16 @@ $$\mu_{k,n}=\sqrt{\frac{\varrho G_0}{4\pi r_{k,n}^2}}[\mathbf f_n^T\mathbf s_{k,
 
 $$\frac{\partial\mu_{k,n}}{\partial[\mathbf f_n]_m}=\begin{cases}b\frac{\mu_{k,n}}{\mathbf f_n^T\mathbf s_{k,n}}[\mathbf s_{k,n}]_m,&\mathbf f_n^T\mathbf s_{k,n}>0,\\0,&\text{其他},\end{cases}\quad\frac{\partial\boldsymbol\mu_k}{\partial[\mathbf f_n]_m}=\boldsymbol\delta_n\frac{\partial\mu_{k,n}}{\partial[\mathbf f_n]_m}.\tag{75--76}$$
 
-同理，散射路径矩阵元素（77）的导数满足
+同理，散射路径矩阵的第 $(n,q)$ 项在原文式（77）中明确定义为
+
+$
+[\mathbf B_k(\mathbf F)]_{n,q}=
+\sqrt{\frac{\varrho\sigma_qG_0}{4\pi r_{q,n}d_{q,k}}}
+[\mathbf f_n^T\mathbf s_{q,n}]_+^b
+e^{-j\frac{2\pi}{\lambda}(r_{q,n}+d_{q,k})}.\tag{77}
+$
+
+其导数满足
 
 $$\frac{\partial[\mathbf B_k]_{n,q}}{\partial[\mathbf f_n]_m}=\begin{cases}b\frac{[\mathbf B_k]_{n,q}}{\mathbf f_n^T\mathbf s_{q,n}}[\mathbf s_{q,n}]_m,&\mathbf f_n^T\mathbf s_{q,n}>0,\\0,&\text{其他}.\end{cases}\tag{78}$$
 
@@ -364,7 +504,16 @@ $$d\bar\gamma_k^{\rm wZF}=\frac{p_k}{\Psi_k^2}[\overline{\mathbf S}^{-1}(d\overl
 
 $$\nabla_{\mathbf f_n}\bar R_{\rm sum}^{\rm wZF}=\frac{\eta}{\ln 2}\sum_k\frac{\nabla_{\mathbf f_n}\bar\gamma_k^{\rm wZF}}{1+\bar\gamma_k^{\rm wZF}}.\tag{101}$$
 
-式（102）是对坐标分量 $x,y,z$ 堆叠的常规欧氏梯度。
+式（102）明确地把用户方向的三个坐标梯度堆叠为
+
+$
+\nabla_{\mathbf f_n}\overline R_{\rm sum}^{\rm BF}(\mathbf F)
+=\left[
+\frac{\partial\overline R_{\rm sum}^{\rm BF}}{\partial[\mathbf f_n]_x},
+\frac{\partial\overline R_{\rm sum}^{\rm BF}}{\partial[\mathbf f_n]_y},
+\frac{\partial\overline R_{\rm sum}^{\rm BF}}{\partial[\mathbf f_n]_z}
+\right]^T.\tag{102}
+$
 
 ### D. 球冠投影梯度上升
 
@@ -376,7 +525,15 @@ $$\mathbf g_n^{(\ell)}=\big(\mathbf I_3-\mathbf f_n^{(\ell)}(\mathbf f_n^{(\ell)
 
 $$\widetilde{\mathbf f}_n^{(\ell+1)}=\frac{\mathbf f_n^{(\ell)}+\alpha^{(\ell)}\mathbf g_n^{(\ell)}}{\|\mathbf f_n^{(\ell)}+\alpha^{(\ell)}\mathbf g_n^{(\ell)}\|}.\tag{104}$$
 
-接着将其投影回球冠。若倾角不超过 $\theta_{\max}$，保持原值；否则设 $\mathbf a_n=\widetilde{\mathbf f}_n-(\widetilde{\mathbf f}_n^T\mathbf e_z)\mathbf e_z$（106），采用
+接着将其投影回球冠。若倾角不超过 $\theta_{\max}$，保持原值；否则定义截去法向分量的平面向量
+
+$
+\mathbf a_n^{(\ell+1)}
+\triangleq\widetilde{\mathbf f}_n^{(\ell+1)}
+-\bigl[(\widetilde{\mathbf f}_n^{(\ell+1)})^T\mathbf e_z\bigr]\mathbf e_z.\tag{106}
+$
+
+并采用
 
 $$\mathbf f_n^{(\ell+1)}=\begin{cases}\widetilde{\mathbf f}_n^{(\ell+1)},&\arccos(\widetilde{\mathbf f}_n^T\mathbf e_z)\le\theta_{\max},\\\cos\theta_{\max}\mathbf e_z+\sin\theta_{\max}\frac{\mathbf a_n}{\|\mathbf a_n\|},&\text{其他}.\end{cases}\tag{105}$$
 
@@ -386,7 +543,19 @@ $$\bar R_{\rm sum}^{\rm BF}(\mathbf F^{(\ell+1)})\ge\bar R_{\rm sum}^{\rm BF}(\m
 
 成立的最大值，其中 $0<\rho,c<1$。当 $\max_n\|\mathbf g_n^{(\ell)}\|\le\epsilon$ 或达到最大次数时终止。
 
-**算法 1（RA 旋转投影梯度上升）。** 输入满足约束的初始 $\mathbf F^{(0)}$、容差 $\epsilon$、最大迭代 $L_{\max}$ 和接收机类型；每轮先按式（91）或（101）计算速率梯度，按（103）取切方向；若符合停止准则则退出；否则按（107）回溯选步长，经（104）更新并由（105）投影；输出最终 $\mathbf F^\star$。
+**算法 1：RA 旋转的投影梯度上升（按原文逐步展开）。**
+
+1. **输入：** 可行初值 $\mathbf F^{(0)}\in\mathcal F$、终止容差 $\epsilon$、迭代上限 $L_{\max}$、接收机类型 $\mathrm{BF}\in\{\mathrm{MRC},\mathrm{wZF}\}$。
+2. 对 $\ell=0,1,\ldots,L_{\max}-1$ 迭代。
+3. 对全部 $n$，若 BF 为 MRC，使用式（91）求 $\nabla_{\mathbf f_n}\overline R_{\rm sum}^{\rm BF}(\mathbf F^{(\ell)})$；若 BF 为 wZF，则用式（101）。
+4. 按式（103）求单位球切空间中的上升方向 $\mathbf g_n^{(\ell)}$。
+5. 如果 $\max_n\|\mathbf g_n^{(\ell)}\|\le\epsilon$，跳出循环。
+6. 否则按照式（107）的 Armijo 回溯准则选择步长 $\alpha^{(\ell)}$。
+7. 按式（104）计算每个阵元的临时指向 $\widetilde{\mathbf f}_n^{(\ell+1)}$，再使用式（105）投影到对应球冠 $\mathcal F_n$。
+8. 汇总 $\mathbf F^{(\ell+1)}=[\mathbf f_1^{(\ell+1)},\ldots,\mathbf f_N^{(\ell+1)}]$，进入下一轮。
+9. **输出：** 最终方向配置 $\mathbf F^\star$。
+
+
 
 ### E. 收敛性与复杂度
 
