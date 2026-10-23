@@ -248,7 +248,9 @@ $$
 {\sum_{i=1}^{K}p_i\mathbb E[|(\mathbf v_k^{\rm MRC})^H\mathbf h_i|^2]
 -p_k|\mathbb E[(\mathbf v_k^{\rm MRC})^H\mathbf h_k]|^2
 +\sigma^2\mathbb E[\|\mathbf v_k^{\rm MRC}\|^2]}.\tag{42}
-$定义有用信号平均合并增益
+$$
+
+定义有用信号平均合并增益
 
 $$\alpha_k=\mathbb E[\widehat{\mathbf h}_k^H\mathbf h_k]=\operatorname{tr}(\mathbf C_{\widehat h_k})+\|\boldsymbol\mu_k\|^2.\tag{43}$$
 
