@@ -341,3 +341,146 @@ $$
 
 其中，$\widetilde{\mathbf n}_{q,i}=(\mathbf U^B_{NP})^H\mathbf n_{q,i}$ 仍然服从 $\mathcal{CN}(\mathbf 0,\sigma_q^2\mathbf I_{MP})$，因为 $\mathbf U^B_{NP}$ 是酉矩阵。
 
+## III. 基于 WCM 的先验分布构建（WCM-BASED PRIOR DISTRIBUTION CONSTRUCTION）
+
+### A. WCM 精度（WCM Precision）
+
+为了定量评估 WCM 预构建信道信息的准确性，定义一个称为余弦相似度的精度关键性能指标（Key Performance Indicator，KPI）：
+
+$$
+r_{\mathbf a}=\frac{\mathbf a^H\hat{\mathbf a}}{\|\mathbf a\|\|\hat{\mathbf a}\|}.\tag{31}
+$$
+
+其中，$\hat{\mathbf a}$ 是 WCM 提供的大尺度参数，$\mathbf a$ 是传输过程中的实际参数。尽管动态 WCM 无法在数字空间中完美复现实际传播环境，但它仍然可以通过在一定时间内积累信道信息，获得遍历意义上的结果。如图 3 所示，由此便能够近似获知某些关键参数，例如角度域或时延域中的信道功率分布。
+
+**图 3.** WCM 及其在关键信道参数先验分布构建中应用的示意图。
+
+### B. 复信道增益的先验分布构建（Prior Distribution Construction for Complex CGs）
+
+SBL 方法通过调节参数化先验分布来调整估计结果的稀疏性，并且能够通过分层马尔可夫模型引入先验知识 [19]。WCM 能够提供大量有助于高效信道估计的先验知识，例如反映不同域中功率分布和稀疏性的 PSD。尽管 WCM 提供的 PSD 只是近似结果，但它们仍然有助于提高贝叶斯学习的效率和精度，这一点将在后文得到证明。
+
+将 WCM 提供的、基于位置且与时间无关的角度–时延 PSD 记为 $\bar{\boldsymbol\Omega}_q(k)=\mathbb E\{\bar{\mathbf A}_{q,k}\odot(\bar{\mathbf A}_{q,k})^*\}$。由于多径分量是在复杂传播环境中随机生成的，因此可以认为它们彼此独立。由此，可以将 $\mathbf r_q$ 视为零均值复高斯随机向量，其分布为
+
+$$
+p(\mathbf r_q\mid\boldsymbol\gamma_q)
+=\mathcal{CN}\left(\mathbf r_q\mid\mathbf0,
+\operatorname{diag}(\boldsymbol\gamma_q)^{-1}\right).\tag{32}
+$$
+
+其中，$\boldsymbol\gamma_q=[\gamma_{q,s}]_{s=1,\ldots,MNP_\tau}$ 是精度向量，并作为惩罚项来控制 $\mathbf r_q$ 的稀疏性。由于 $\boldsymbol\gamma_q$ 中各元素是 $\mathbf r_q$ 中相应元素方差的倒数，因此当 $\gamma_{q,s}$ 趋于无穷大时，$[\mathbf r_q]_s$ 将趋于 0。$\boldsymbol\gamma_q$ 的条件先验写为
+
+$$
+p(\boldsymbol\gamma_q\mid\boldsymbol\omega_q)
+=\prod_{s=1}^{MNP_\tau}
+\Gamma(\gamma_{q,s};1+c^r_{1,q,s},c^r_{2,q,s}),\tag{33}
+$$
+
+其中，$\boldsymbol\omega_q=\operatorname{vec}([\bar{\boldsymbol\Omega}_q(k)]_{k=0,\ldots,P_\tau-1})$，$\Gamma(\gamma_{q,s};1+c^r_{1,q,s},c^r_{2,q,s})$ 是 Gamma 超先验，$c^r_{1,q,s}$ 和 $c^r_{2,q,s}$ 分别对应形状参数和速率参数。对于所有 $s\in\{1,2,\ldots,MNP_\tau\}$，有 $c^r_{1,q,s}>-1$ 和 $c^r_{2,q,s}>0$。本文采用三层马尔可夫模型，将来自 WCM 的先验信息引入 $\mathbf r_q$ 的参数化先验分布。如图 3 所示，$c^r_{1,q,s}$ 与 $c^r_{2,q,s}$ 之间的关系具体由 $\boldsymbol\omega_q$ 调节，即 $(c^r_{1,q,s}+1)/c^r_{2,q,s}=\omega_{q,s}^{-1}$。通常令 $c^r_{1,q,s}\to0$、$c^r_{2,q,s}\to0$，以获得更宽泛的超先验。
+
+### C. CFO 的先验分布构建（Prior Distribution Construction for CFOs）
+
+根据式（4），每条路径的多普勒频移由两个部分组成：表示路径方向的球面单位向量和 UE 速度。直接估计多径的方位角和俯仰角将导致过高的计算负担。由于通过 DFT 矩阵得到的路径在虚拟方向上的信道投影比值与路径角度密切相关，因此可以从角度域信道增益中提取多径角度。具有最大投影值的虚拟方向最接近实际路径方向。在固定的第 $b$ 个方位方向和第 $a$ 个俯仰方向上，式（15）中的 $\mathbf a^U_{l_q}$ 可以分解为
+
+$$
+\begin{aligned}
+\mathbf a^U_{l_q}((a-1)N_1+b)
+={}&([\mathbf U^U_{\mathrm{el}}]_{a,:}\mathbf u(\varphi^U_{l_q},N_2))
+([\mathbf U^U_{\mathrm{az}}]_{b,:}\mathbf u(\vartheta^U_{l_q},N_1))\\
+={}&\Upsilon\left(N_2,\frac{2a-1}{2N_2}+\varphi^U_{l_q}-0.5\right)
+\Upsilon\left(N_1,\frac{2b-1}{2N_1}+\vartheta^U_{l_q}-0.5\right).
+\end{aligned}\tag{34}
+$$
+
+其中，$\Upsilon(C,x)=\frac{\sin(C\pi x)}{\sqrt C\sin(\pi x)}e^{jx(C-1)}$，并且 $|\Upsilon(C,x)|$ 是一个关于 $x$ 的周期为 1 的周期函数。函数 $\Upsilon(C,x)$ 在单个周期内的幅度如图 4 所示。
+
+**图 4.** 函数 $\Upsilon$ 的幅度随 $x$ 的变化（$C=8$）。
+
+以等效俯仰角为例。如果 $\varphi^U_{l_q}$ 恰好落在某个固定的虚拟方向上，那么函数 $\Upsilon$ 的幅度可以达到最大值，如图 4 中的最佳情况所示。实际上，路径 $l_q$ 上角度域信道增益的两个最大幅度之间的比值由 $\varphi^U_{l_q}$ 决定。尽管在估计之前很难获得精确的信道增益矩阵 $\bar{\mathbf A}_{q,k}$，但仍然可以根据 WCM 提供的角度–时延 PSD，在统计意义上获得最可能的路径方向，而且这部分计算可以交由 WCM 完成，不会给在线估计带来额外的计算负担。
+
+定义 $[\bar{\mathbf A}'_{q,k}]_{m,n}=[\bar{\boldsymbol\Omega}_q(k)]_{m,n}^{1/2}$，以表示遍历意义下的角度–时延谱。假设多径功率集中于 $L'_q$ 个时延域网格点，其索引为 $\{k_{l_q}\mid l_q=0,\ldots,L'_q\}$，且 $k_{l_q}$ 属于 $\operatorname{supp}(\{\bar{\boldsymbol\Omega}_q(k)\}_{k=1,\ldots,P_\tau})$。令 $\bar a^{\max}_{q,k}$ 表示 $\bar{\mathbf A}'_{q,k}$ 中元素幅度的最大值，并假设它位于 $\bar{\mathbf A}'_{q,k}$ 的第 $c_{\max}$ 列。定义 $b_1=\operatorname{mod}(c_{\max}-1,N_1)+1$ 和 $a_1=\lfloor c_{\max}/N_1\rfloor+1$。在所有与最大幅度元素位于同一行、且列号属于集合 $\{N_1(a_1-1)+1,N_1(a_1-1)+2,\ldots,N_1a_1\}$ 的元素中，将第二大元素幅度记为 $\bar a^{\mathrm{az}}_{q,k}$，其列号记为 $c^{\mathrm{az}}_{\mathrm{submax}}$。进一步定义 $b_2=\operatorname{mod}(c^{\mathrm{az}}_{\mathrm{submax}}-1,N_1)+1$。如果前两个最大幅度相等，则 $b_1$ 取较小的编号，$b_2$ 取较大的编号。在所有与最大幅度元素位于同一行、且列号属于集合 $\{b_1,b_1+N_1,\ldots,b_1+(N_2-1)N_1\}$ 的元素中，将第二大元素幅度记为 $\bar a^{\mathrm{el}}_{q,k}$，其列号记为 $c^{\mathrm{el}}_{\mathrm{submax}}$。进一步定义 $a_2=\lfloor c^{\mathrm{el}}_{\mathrm{submax}}/N_1\rfloor+1$。如果前两个最大幅度相等，则 $a_1$ 取较小的编号，$a_2$ 取较大的编号。如果某条路径的实际方位角/俯仰角方向与某个固定的方位角/俯仰角方向一致，则有 $b_1=b_2$ / $a_1=a_2$。基于函数 $|\Upsilon(C,x)|$ 的周期性，可以得到以下定理。
+
+**定理 1：** 利用 WCM 提供的角度–时延 PSD 和上述关键元素索引，在网格点 $k=k_{l_q}$ 处，$\varphi'^{U}_{q,k}$ 和 $\vartheta'^{U}_{q,k}$ 可以写为
+
+$$
+\varphi'^{U}_{q,k}=
+\begin{cases}
+\frac{N_2-2a_1+1}{2N_2}-\frac{\eta_{\mathrm{el}}}{N_2(\eta_{\mathrm{el}}+1)},
+& a_1-a_2\in(-N_2+1,0]\ \text{或}\ a_1-a_2=N_2-1,\\
+\frac{N_2-2a_1+1}{2N_2}+\frac{\eta_{\mathrm{el}}}{N_2(\eta_{\mathrm{el}}+1)},
+& a_1-a_2\in(0,N_2-1)\ \text{或}\ a_1-a_2=-N_2+1.
+\end{cases}\tag{35}
+$$
+
+$$
+\vartheta'^{U}_{q,k}=
+\begin{cases}
+\frac{N_1-2b_1+1}{2N_1}-\frac{\eta_{\mathrm{az}}}{N_1(\eta_{\mathrm{az}}+1)},
+& b_1-b_2\in(-N_1+1,0]\ \text{或}\ b_1-b_2=N_1-1,\\
+\frac{N_1-2b_1+1}{2N_1}+\frac{\eta_{\mathrm{az}}}{N_1(\eta_{\mathrm{az}}+1)},
+& b_1-b_2\in(0,N_1-1)\ \text{或}\ b_1-b_2=-N_1+1.
+\end{cases}\tag{36}
+$$
+
+其中假设 $N_1$ 和 $N_2$ 非常大。这里，$\eta_{\mathrm{el}}=\bar a^{\mathrm{el}}_{q,k}/\bar a^{\max}_{q,k}$ 和 $\eta_{\mathrm{az}}=\bar a^{\mathrm{az}}_{q,k}/\bar a^{\max}_{q,k}$ 分别表示俯仰方向和方位方向上两个最大幅度之间的比值。
+
+**证明：** 详细推导见附录 A。■
+
+根据推断得到的 $\varphi'^{U}_{q,k}$ 和 $\vartheta'^{U}_{q,k}$，可以得到
+
+$$
+\hat{\mathbf r}'^{U}_{q,k}=
+\left[
+\sqrt{1-(\vartheta'^{U}_{q,k}\lambda_c/d^U_c)^2-(\varphi'^{U}_{q,k}\lambda_c/d^U_r)^2},
+\vartheta'^{U}_{q,k}\lambda_c/d^U_c,\varphi'^{U}_{q,k}\lambda_c/d^U_r
+\right]^T.\tag{37}
+$$
+
+随后通过 LCS-GCS 坐标转换，获得网格点 $k=k_{l_q}$ 处的 $\hat{\mathbf r}'^{U,\mathrm{GCS}}_{q,k}$。这种近似线性求解方法能够显著减轻计算负担。考虑振荡器频率失配以及上述参数的定位和计算误差，网格点 $k=k_{l_q}$ 处的 CFO 组成可以表示为
+
+$$
+\bar\nu_{q,k}=
+\begin{cases}
+(\hat{\mathbf r}'^{U,\mathrm{GCS}}_{q,k})^T\bar{\mathbf v}_q+n_{\nu,k},
+&k=k_0,\\
+(\hat{\mathbf r}'^{U,\mathrm{GCS}}_{q,k})^T\bar{\mathbf v}_q+\nu^S_{q,k}+n_{\nu,k},
+&k=k_1,\ldots,k_{L'_q}.
+\end{cases}\tag{38}
+$$
+
+其中，$n_{\nu,k}\sim\mathcal N(0,\sigma_{\nu,k}^2)$ 涵盖所有失配和误差。基于这种组成关系，可以获得准确的 CFO 先验分布，如以下定理所示。
+
+**定理 2：** 利用 WCM 提供的最可能路径方向和 UE 速度信息，CFO $\bar{\boldsymbol\nu}_q$ 的先验分布可以写为
+
+$$
+p(\bar{\boldsymbol\nu}_q;\bar{\boldsymbol\Omega}_q)=
+\prod_{k=0}^{P_{\mathrm{GI}}-1}f_q(\bar\nu_{q,k};\bar{\boldsymbol\Omega}_q).\tag{39}
+$$
+
+其中，函数 $f_q$ 定义为
+
+$$
+\begin{aligned}
+f_q(\bar\nu_{q,k};\bar{\boldsymbol\Omega}_q)
+=\begin{cases}
+\frac1{\sqrt{2\pi\sigma_{\nu,k}^2}}
+\exp\left(-\frac{(\bar\nu_{q,k}-C_{0,q}(k))^2}{2\sigma_{\nu,k}^2}\right),
+& k=k_0,\\[5pt]
+\frac{\zeta}{4v_{\mathrm{scatt}}}
+\left[
+Q\left(\frac{2v_{\mathrm{scatt}}-\bar\nu_{q,k}+C_{0,q}(k)}{\sigma_{\nu,k}}\right)
+-Q\left(\frac{C_{0,q}(k)-2v_{\mathrm{scatt}}-\bar\nu_{q,k}}{\sigma_{\nu,k}}\right)
+\right]\\
+\quad+\frac{1-\zeta}{2\sqrt{2\pi\sigma_{\nu,k}^2}}
+\exp\left(-\frac{(\bar\nu_{q,k}-C_{0,q}(k))^2}{2\sigma_{\nu,k}^2}\right),
+& k=k_1,\ldots,k_{L'_q},\\[5pt]
+\frac1{\sqrt{2\pi\sigma_{\nu,k}^2}}
+\exp\left(-\frac{\bar\nu_{q,k}^2}{2\sigma_{\nu,k}^2}\right),
+& \text{其他情况}.
+\end{cases}
+\end{aligned}\tag{40}
+$$
+
+其中，$C_{0,q}(k)=(\hat{\mathbf r}'^{U,\mathrm{GCS}}_{q,k})^T\bar{\mathbf v}_q$，且 $Q(x)=\frac1{\sqrt{2\pi}}\int_{-\infty}^{x}e^{-t^2/2}\,dt$。
+
+**证明：** 详细推导见附录 B。■
+
