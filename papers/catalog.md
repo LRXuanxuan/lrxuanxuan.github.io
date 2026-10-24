@@ -11,6 +11,8 @@ toc: true
 
 ## 中英文译文
 
+- [无线信道地图赋能的高移动性瞬时 CSI 获取｜中文全文译稿（逐式校对中）](/papers/translations/2026-10-24-wcm-instantaneous-csi-tcomm2026/) · 正文 I–VI、公式（1）–（87）、定理与算法、附录、图表、37 条参考文献及作者简介；待逐式终校
+
 - [UA-D-RME：不确定性感知去中心化无线电地图估计｜中文主体译稿（待终校）](/papers/translations/2026-10-24-ua-d-rme-2610-28293/) · 正文 I–VI、17 组公式、图注；尚待终校
 
 - [BCT：贝叶斯一致温度调节｜中文主体译稿（附录待补）](/papers/translations/2026-10-24-bct-bayes-consistent-tempering-2610-27641/) · 正文 1–6、公式 1–26、附录 A–G 主要推导及表格；书目待校

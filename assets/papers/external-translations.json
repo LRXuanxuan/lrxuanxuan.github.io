@@ -1,5 +1,20 @@
 [
   {
+    "slug": "2026-10-24-wcm-instantaneous-csi-tcomm2026",
+    "title": "高移动性场景 WCM 赋能瞬时 CSI 获取｜中文全文译稿（逐式校对中）",
+    "scope": "原文16页：摘要、正文I–VI、公式（1）–（87）、定理1–2、算法1、表I–II、图1–12图注、附录A–B、参考文献37条、作者简介和出版附注；译文结构完整，尚未完成逐式与公开传播许可核验。",
+    "source_arxiv_ids": [],
+    "date": "2026-10-24",
+    "url": "/papers/translations/2026-10-24-wcm-instantaneous-csi-tcomm2026/",
+    "source_file": "2026-10-24-wcm-instantaneous-csi-tcomm2026.md",
+    "source_page_path": "papers/translations/2026-10-24-wcm-instantaneous-csi-tcomm2026.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-24-wcm-instantaneous-csi-tcomm2026.md",
+    "paper_ids": [],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": false
+  },
+  {
     "slug": "2026-10-24-ua-d-rme-2610-28293",
     "title": "UA-D-RME：去中心化不确定性感知无线电地图估计｜中文主体译稿（待终校）",
     "scope": "原 PDF 6 页；正文 I–VI、公式（1）–（17）、图 1–4 说明与参考文献题录已译/列入；书目详细字段及公式尚待逐项终校。",
