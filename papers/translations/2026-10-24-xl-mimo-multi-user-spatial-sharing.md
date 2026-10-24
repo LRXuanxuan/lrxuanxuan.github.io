@@ -13,7 +13,7 @@ toc: true
 **原题：** Enhancing Near-Field XL-MIMO Channel Estimation via Multi-User Spatial Information Sharing  
 **作者：** Zirou Liu、Yinglei Teng、An Liu、Wenkang Xu、Yangliu Zhao、Vincent K. N. Lau  
 **期刊：** *IEEE Transactions on Wireless Communications*, Vol. 25, 2026，pp. 18700–18717。DOI: 10.1109/TWC.2026.3702238。  
-**译稿范围：** 摘要、引言、系统模型、极域表示、三层稀疏先验及多用户联合支撑、IF-VBI、消息传递、公共网格更新、VR 检测及算法 1 的主要公式已补到式（48）。**原文附录 A–B 的逐项证明、部分公式（38）展开、图 8–14 的全部分析及参考文献仍待补齐或终校。** 未计入全文验收。
+**译稿范围：** 摘要、引言、系统模型、极域表示、三层稀疏先验及多用户联合支撑、IF-VBI、消息传递、公共网格更新、VR 检测及算法 1 的主要公式已补到式（48）。**附录 A–B 的主要推导已补至式（56），图 6–14 的结论已译；部分式（38）、（50）–（51）的显式分式、参考文献及最终逐式复核仍待补齐。** 未计入全文验收。
 
 ## 摘要
 
@@ -613,6 +613,202 @@ $
 **图 5：** 近场信道矩阵（子阵列域—极域），仅展示活跃网格以便观察；共享网格对应多个用户共同散射路径，个体网格则描述用户独有路径。  
 **图 6：** NMSE 和 VR 失配比例的收敛性能。  
 **图 7：** 不同信噪比下的平均 NMSE 和 VR 失配比例。
+
+### A. 收敛行为
+
+图 6 展示在不同信噪比下，所提算法的信道 NMSE 与 VR 失配比例随迭代次数变化的情况。信道估计和 VR 检测都在有限迭代次数内趋于稳定；同时，即使观测条件较差，通过在用户之间共享支撑信息，所提方法也能在迭代过程中利用空间相关性抑制估计误差。独立先验基线因没有使用多用户联合支撑，在低信噪比下尤为不利。
+
+图中“收敛”对应数值误差随迭代趋于稳定；这与正文第 IV 节基于变分下界和模块交替优化的理论叙述相关，但并不自动意味着所求结果是非凸整体问题的全局最优解。
+
+### B. 信噪比的影响
+
+图 7 同时比较平均信道 NMSE 和 VR mismatch ratio。随着 SNR 提升，大部分方法的误差均下降；所提空间信息共享方法在不同信噪比下均具有较好性能，特别是低 SNR 时，联合支撑和二维 Markov 先验能够弥补稀疏、噪声较大观测的不足。Turbo-OAMP 只利用角度域的共享信息，而本文还共享距离和 VR 信息，因此在近场条件下具有更完整的结构先验。固定网格的 on-grid 消融通常受网格失配影响，说明公共极域网格动态更新的必要性。
+
+### C. 子阵列配置的影响
+
+图 8 研究每个子阵列天线数 $G$ 的变化。作者指出，在所考察的 $2^2$ 到 $2^6$ 根天线/子阵列范围内，可以把子阵列近似视为空间平稳单元。随着每个子阵列的天线数量增加，信道恢复精度通常提高：更多天线提供额外观测和信号冗余，增强抗噪性；更大的局部孔径也有助于提高空间分辨率，使算法更精确地捕获信道空间特征。与此同时，VR 检测所用的子阵列尺度也会改变，因而不应简单地把不同配置视为完全相同的测量问题。
+
+### D. 用户数量的影响
+
+图 9 分析相同散射环境中用户数的变化。用户数增加时，所提方法能够从不同用户中提取更多共享空间信息，信道估计因此改善。然而，当人数超过一定规模后，共享信息的边际增益逐渐下降，改善速度减缓，因为系统逐步达到可提取信息的上限。Turbo-OAMP 也能从额外信息冗余和角度域共享结构受益；Turbo-P-OMP 则是按用户独立处理，无法充分利用不同用户之间的公共散射体，因此改善较小。
+
+### E. 公共传播路径数量的影响
+
+图 10、11 研究公共路径数量。图 10 比较不同公共路径数量下各算法的平均 NMSE 和 VR 失配比例；图 11 则同时改变 SNR 和公共路径数量。随着用户共享的路径数增加，所提方法可以利用的联合支撑信息也随之增多。相比 Turbo-OAMP，本文方法同时利用方位角和距离域相关性，所以其性能改善更快且更明显。
+
+虽然 i.i.d. 先验未显式利用多用户共享的空间支撑，但由于仍与公共 VR 矩阵和公共网格配合，也能从额外空间信息中获得一定改善。共享路径增加对于低 SNR 下的提升尤其明显，因为此时观测质量不足，需要更充分利用结构先验。
+
+### F. 消融与参数设置
+
+图 12 的消融结果显示：同时使用多用户联合支撑和二维 Markov 先验的完整方法，在全 SNR 区间内效果最好。低 SNR 时，不设置联合支撑、但保留每用户二维 Markov 先验的变体（No-joint-support），优于仅使用独立先验的 i.i.d. 版本，表明二维 Markov 能有效捕获极域中的簇状稀疏性。高 SNR 时，观测本身已经包含足够信道信息，单独使用二维 Markov 先验的增益会减弱。
+
+图 13 在不同压缩比 CR 下比较算法。由于原文定义 $\mathrm{CR}=M/M_{\rm RF}$，较大的 CR 代表相对于天线数更少的 RF 链、也即更少观测。当 RF 链数量受限，VR 向量之间的耦合效应增强，估计表现下降；低 SNR 观测质量较差，因此对 RF 链不足尤为敏感。所提算法利用联合先验，在不同 CR 下仍能保持比较优势。
+
+图 14 分析二维 Markov 转移概率与生成信道时实际使用的概率之间存在失配时的敏感性。左右子图分别固定一类行/列 Markov 链而改变另一类，研究中度和严重失配。轻度失配对 NMSE 及收敛曲线影响较小，显示一定稳健性；严重失配则会损害两种方向上的性能。通过在 EM 结构中自适应更新转移概率，可有效减轻这类失配，使方法对动态环境更稳健。
+
+**图 6：** NMSE 与 VR mismatch ratio 随迭代变化。  
+**图 7：** SNR 对平均 NMSE 与 VR mismatch ratio 的影响。  
+**图 8：** 子阵列天线数的影响。  
+**图 9：** 用户数对平均 NMSE 与 VR mismatch ratio 的影响。  
+**图 10：** 公共路径数对平均 NMSE 与 VR mismatch ratio 的影响。  
+**图 11：** SNR 与公共路径数的交互影响。  
+**图 12：** 联合支撑与空间相关先验的消融实验。  
+**图 13：** 在不同压缩比下，SNR 与 NMSE 的关系。  
+**图 14：** 二维 Markov 转移概率设置对 NMSE 的影响。
+
+## VI. 结论
+
+本文针对近场多用户 XL-MIMO 提出信道估计方法。通过利用极域稀疏表示，采用三层结构化稀疏先验；多用户联合支撑把各用户信道耦合起来实现信息交换；使用二维 Markov 先验模拟联合支撑中的簇状稀疏结构，增强了对多用户空间结构的描述。基于这些思想，提出将 IF-VBI 与极域筛选结合的空间信息共享辅助框架，降低计算复杂度。仿真显示，所提方法通过利用不同用户之间共享的空间信息，在信道估计精度与运算复杂度方面均优于所列基线。未来可以研究更复杂的扩展散射体模型，使近场信道建模更接近真实物理环境，特别是宏观尺度散射体的几何尺寸对信道建模的影响。
+
+## 附录 A：B 部分消息传递算法的推导
+
+### A.1 式（35）的推导
+
+使用和积消息传递的因子到变量更新规则，因子 $u_{k,q}$ 向联合支撑 $\bar s_q$ 发送消息：
+
+$
+\begin{aligned}
+\mu_{u_{k,q}\to\bar s_q}
+&=\sum_{\sim\{\bar s_q\}}
+\mu_{s_{k,q}\to u_{k,q}}\,
+u_{k,q}(s_{k,q},\bar s_q)\\
+&\propto[(1-\pi_{k,q}^B)(1-\phi_{k,q})
++\pi_{k,q}^B\phi_{k,q}]\delta(\bar s_q-1)\\
+&\quad +(1-\pi_{k,q}^B)\delta(\bar s_q)\\
+&=\pi_{u_{k,q}\to\bar s_q}\delta(\bar s_q-1)
++(1-\pi_{u_{k,q}\to\bar s_q})\delta(\bar s_q).
+\end{aligned}\tag{49}
+$
+
+归一化后，
+
+$
+\pi_{u_{k,q}\to\bar s_q}
+=\frac{(1-\pi_{k,q}^B)(1-\phi_{k,q})+\pi_{k,q}^B\phi_{k,q}}
+{(1-\pi_{k,q}^B)(1-\phi_{k,q})+\pi_{k,q}^B\phi_{k,q}
++(1-\pi_{k,q}^B)},
+$
+
+它与正文式（36）等价。
+
+### A.2 式（37）、（39）的推导
+
+来自上、下方向的 Markov 消息通过汇聚所有用户的因子消息与另外三个相邻方向的消息生成。对于上方相邻节点 $\bar s_{q_a}$，需排除其向当前节点传递的回路消息，结合来自其余邻居的信念，再按转移概率 $p_{00}^c,p_{01}^c,p_{10}^c,p_{11}^c$ 求和，得到
+
+$
+\mu_q^a=\kappa_q^a\delta(\bar s_q-1)
++(1-\kappa_q^a)\delta(\bar s_q). \tag{50}
+$
+
+下方邻居同理，得到
+
+$
+\mu_q^b=\kappa_q^b\delta(\bar s_q-1)
++(1-\kappa_q^b)\delta(\bar s_q). \tag{51}
+$
+
+其中 $\kappa_q^a,\kappa_q^b$ 的显式分子、分母由所有用户活跃消息的乘积、其他三个方向的活跃消息乘积及对应 Markov 转移概率相乘构成；式（38）在正文给出归一化形式。左右两个方向沿行 Markov 链采用同样规则。
+
+将来自其他 $j\ne k$ 用户及四方向消息相乘，返回因子 $u_{k,q}$ 的联合支撑消息为
+
+$
+\begin{aligned}
+\mu_{\bar s_q\to u_{k,q}}
+&\propto
+\left[\prod_{j\ne k}\pi_{u_{j,q}\to\bar s_q}
+\prod_{i\in\{a,b,l,r\}}\kappa_q^i\right]\delta(\bar s_q-1)\\
+&\quad+
+\left[\prod_{j\ne k}(1-\pi_{u_{j,q}\to\bar s_q})
+\prod_{i\in\{a,b,l,r\}}(1-\kappa_q^i)\right]\delta(\bar s_q)\\
+&=\pi_{\bar s_q\to u_{k,q}}\delta(\bar s_q-1)
++(1-\pi_{\bar s_q\to u_{k,q}})\delta(\bar s_q).
+\end{aligned}\tag{52}
+$
+
+### A.3 式（41）的推导
+
+沿连接因子 $u_{k,q}$ 向用户特有支撑节点 $s_{k,q}$ 返回联合支撑信息：
+
+$
+\begin{aligned}
+\mu_{u_{k,q}\to s_{k,q}}
+&=\sum_{\sim\{s_{k,q}\}}
+\mu_{\bar s_q\to u_{k,q}}\,
+u_{k,q}(s_{k,q},\bar s_q)\\
+&=\pi_{\bar s_q\to u_{k,q}}\phi_{k,q}\delta(s_{k,q}-1)\\
+&\quad+\big[\pi_{\bar s_q\to u_{k,q}}(1-\phi_{k,q})
++(1-\pi_{\bar s_q\to u_{k,q}})\big]\delta(s_{k,q})\\
+&=\pi_{k,q}^A\delta(s_{k,q}-1)
++(1-\pi_{k,q}^A)\delta(s_{k,q}).
+\end{aligned}\tag{53}
+$
+
+即 $\pi_{k,q}^A=\pi_{\bar s_q\to u_{k,q}}\phi_{k,q}$。
+
+## 附录 B：网格更新的推导
+
+设 $\widetilde{\mathbf x}_k,\widetilde{\mathbf V},\widetilde\gamma_k$ 固定，利用线性运算构造有效观测矩阵 $\mathbf E_k$，使
+
+$
+\mathbf y_k=\mathbf E_k\mathbf B(\boldsymbol\Omega_{m,q})
++\widetilde{\mathbf n}_k.
+$
+
+$\mathbf E_k$ 与网格参数 $\boldsymbol\Omega$ 无关。第 $k$ 个用户的目标函数为
+$\mathcal L_k(\boldsymbol\Omega)
+=\widetilde\gamma_k\|\mathbf y_k-\mathbf E_k
+\mathbf B(\boldsymbol\Omega_{m,q})\|_2^2$；
+全体用户的联合梯度就是各 $\mathcal L_k$ 的梯度求和。
+
+针对实值角度参数 $\vartheta$，对平方残差展开并求导，有
+
+$
+\begin{aligned}
+\frac{\partial\mathcal L_k}{\partial\vartheta}
+={}&\left(\frac{\partial\mathbf B}{\partial\vartheta}\right)^H
+\mathbf E_k^H\widetilde\gamma_k
+(\mathbf E_k\mathbf B-\mathbf y_k)\\
+&+\big(\mathbf B^H\mathbf E_k^H-\mathbf y_k^H\big)
+\widetilde\gamma_k\mathbf E_k
+\frac{\partial\mathbf B}{\partial\vartheta}.
+\end{aligned}\tag{54}
+$
+
+将同样推导应用到倒数距离参数，
+
+$
+\begin{aligned}
+\frac{\partial\mathcal L_k}{\partial(1/r)}
+={}&\left(\frac{\partial\mathbf B}{\partial(1/r)}\right)^H
+\mathbf E_k^H\widetilde\gamma_k
+(\mathbf E_k\mathbf B-\mathbf y_k)\\
+&+\big(\mathbf B^H\mathbf E_k^H-\mathbf y_k^H\big)
+\widetilde\gamma_k\mathbf E_k
+\frac{\partial\mathbf B}{\partial(1/r)}.
+\end{aligned}\tag{55}
+$
+
+对向量化极域字典中第 $(m,q)$ 个元素，在 Fresnel 近似下其关于角度和倒数距离的导数分别为
+
+$
+\begin{aligned}
+\frac{\partial B_{m,q}}{\partial\vartheta_q}
+&=j\frac{2\pi}{\lambda}
+\left(p_m d+\frac{p_m^2d^2\vartheta_q}{r_q}\right)
+\exp\left[-j\frac{2\pi}{\lambda}\left(
+-p_md\vartheta_q+\frac{p_m^2d^2(1-\vartheta_q^2)}{2r_q}
+\right)\right],\\
+\frac{\partial B_{m,q}}{\partial(1/r_q)}
+&=-j\frac{\pi}{\lambda}p_m^2d^2(1-\vartheta_q^2)
+\exp\left[-j\frac{2\pi}{\lambda}\left(
+-p_md\vartheta_q+\frac{p_m^2d^2(1-\vartheta_q^2)}{2r_q}
+\right)\right].
+\end{aligned}\tag{56}
+$
+
+这些梯度供正文式（44）的 Armijo 步长搜索和交替网格更新使用。
+
+
 
 ## 尚待对照原版补齐
 
