@@ -101,7 +101,21 @@ t(n,\vartheta,r)=
 \frac{(n-1)^2d^2(1-\sin^2\vartheta)}{2r}}{c}. \tag{3}
 $$
 
-$\alpha_{m,k,l}$ 表示路径损耗，包含传播距离损耗与 THz 分子吸收效应。LoS 路径按照载频、距离、路径损耗指数和吸收系数 $\kappa(f_m)$ 建模；NLoS 复路径增益可写为
+$\alpha_{m,k,l}$ 表示路径损耗，包含传播距离损耗与 THz 分子吸收效应。LoS 与 NLoS 的分段路径增益在原文式（4）中写为
+
+$
+\alpha_{m,k,l}=
+\begin{cases}
+\displaystyle
+\left(\frac{c}{4\pi f_m r_{k,1}}\right)^{\xi/2}
+\exp\left[-\frac{\kappa(f_m)r_{k,1}}{2}\right],&l=1,\\
+\alpha_{m,k,l}^{\mathrm{NLoS}},&l=2,\ldots,L_k .
+\end{cases}\tag{4}
+$
+
+这里 $\xi$ 为路径损耗指数，$\kappa(f_m)$ 为分子吸收系数。指数采用的是**幅度衰减**，因此原论文把距离幂律指数和分子吸收指数都除以 2，而非直接采用功率衰减系数。
+
+LoS 路径按照载频、距离、路径损耗指数和吸收系数 $\kappa(f_m)$ 建模；NLoS 复路径增益可写为
 
 $$
 \alpha_{m,k,l}^{\rm NLoS}
@@ -510,6 +524,110 @@ PWMMSE 虽能获得较高频谱效率，但需要完整 CSI，并在大规模变
 例如，对 $N_t=512$、$B=10$ GHz、$f_c=100$ GHz 的系统，用户位于 $\vartheta=45^\circ$、$r=20$ m 时，如果要求 $\eta=0.8$，分析得出至少需要 35 个 FTTD。不过，从平均性能角度出发，所需 FTTD 数量可以显著减少，数值实验也验证了这一点。
 
 当固定时延恰好按目标位置的几何信息设置时，模拟波束赋形设计有闭式解；即便用户几何位置与设计点不一致，所提方法也具有一定稳健性。实际部署中，可沿时延差较大的位置安排 FTTD 配置，以扩大有效服务区域。
+
+### 模拟波束赋形的原文编号公式（45）–（54）
+
+本节在 LoS 主导下推导 FTTD 选择及相位补偿。假设第 $n$ 条 RF 链服务第 $k$ 个用户，将其 LoS 波束与接收信号记为
+
+$
+\begin{aligned}
+\overline y_{m,k}
+&=\mathbf h_{m,k}\boldsymbol\Theta_n\mathbf S_n\mathbf f_m x_m+n_{m,k}\\
+&=\alpha_{m,k}^{\mathrm{LoS}}e^{-j2\pi f_m r_{k,1}/c}
+\mathbf a(f_m,\vartheta_{k,1},r_{k,1})^T
+\boldsymbol\Theta_n\mathbf S_n\mathbf f_m x_m+n_{m,k}.
+\end{aligned}\tag{45}
+$
+
+$x_m$ 是第 $n$ 条 RF 链上的发射信号。后续省略用户 LoS 参数的下标。第 $m$ 个子载波的归一化**幅度阵列增益**为
+
+$
+G(f_m)=\frac1{N_t}
+\left|\mathbf a(f_m,\vartheta,r)^T
+\boldsymbol\Theta_n\mathbf S_n\mathbf f_m\right|. \tag{46}
+$
+
+理想情况下，$\boldsymbol\Theta_n\mathbf S_n\mathbf f_m$ 的每一项都应与 $\mathbf a$ 的相位共轭匹配。但 PS 与 FTTD 硬件难以在所有子载波上同时实现这一点，因此作者采用“FTTD 选时延 + PS 在中心频率处补相位”的近似设计。
+
+令 LoS 路径的相对时延范围为 $[\tau_{\min},\tau_{\max}]$（通常设 $\tau_{\min}=0$），将固定时延配置为
+
+$
+\tau_p=\left(p-\frac12\right)\Delta,\qquad
+\Delta=\frac{\tau_{\max}-\tau_{\min}}{P},
+\quad p=1,\ldots,P. \tag{47}
+$
+
+第 $p$ 个子阵列的中心天线相对时延为
+
+$
+t_p=t\!\left(\left(p-\frac12\right)\frac{N_t}{P}+\frac12,\,
+\vartheta,r\right),\quad p=1,\ldots,P. \tag{48}
+$
+
+该子阵列中第 $i$ 根天线的时延为
+
+$
+t_{p,i}=t\!\left(i+(p-1)\frac{N_t}{P},\vartheta,r\right),\
+p=1,\ldots,P,\quad i=1,\ldots,\frac{N_t}{P}. \tag{49}
+$
+
+每个子阵列从可用 FTTD 时延集合中选取最接近中心时延的值：
+
+$
+\widetilde\tau_p=
+\mathop{\arg\min}_{\tau\in\{\tau_1,\ldots,\tau_P\}}
+|\tau-t_p|. \tag{50}
+$
+
+开关矩阵的非零项由所选固定时延确定：
+
+$
+\mathbf S_n(p,q)=
+\begin{cases}1,&\widetilde\tau_p=\tau_q,\\0,&\text{其他},
+\end{cases}\qquad q=1,\ldots,P. \tag{51}
+$
+
+开关确定后，子阵列内部各天线仍存在时延差。因为 PS 不随频率变化，令其在中心频率 $f_c$ 处精确补偿剩余相位：
+
+$
+\boldsymbol\theta_{n,p}(i)=
+\exp[-j2\pi f_c(t_{p,i}-\widetilde\tau_p)]. \tag{52}
+$
+
+代入阵列增益，可以写成
+
+$
+\begin{aligned}
+G(f_m)
+&=\frac1{N_t}\left|
+\sum_{p=1}^{P}\sum_{i=1}^{N_t/P}
+e^{j2\pi(f_m-f_c)(t_{p,i}-\widetilde\tau_p)}
+\right|\\
+&=\frac1{N_t}\left|\sum_{p=1}^P
+e^{j2\pi(f_m-f_c)(t_p-\widetilde\tau_p)}
+\sum_{i=1}^{N_t/P}e^{j2\pi(f_m-f_c)(t_{p,i}-t_p)}
+\right|\\
+&\approx \Xi_P\left(\frac{2(f_m-f_c)\Delta}{P}\right)
+\Xi_{N_t/P}(\gamma_m).
+\end{aligned}\tag{53}
+$
+
+其中 $\gamma_m=(f_m-f_c)\sin\vartheta/f_c$，
+$\Xi_N(x)=\sin(N\pi x/2)/[N\sin(\pi x/2)]$ 是 Dirichlet sinc 函数。第一个近似把子阵列内时延差视为线性（因为子阵列孔径远小于整个阵列），第二个近似假定 $t_p-\widetilde\tau_p$ 均匀分布于 $[-\Delta/2,\Delta/2)$。按照式（49）–（52），有 $|t_p-\widetilde\tau_p|\le\Delta/2$。
+
+因此，当归一化阵列增益必须大于阈值 $0<\eta<1$ 时，所需 FTTD 的最小数量通过
+
+$
+\begin{aligned}
+&\min_P\quad P,\\
+&\mathrm{s.t.}\quad
+\Xi_P\left(\frac{2(f_m-f_c)\Delta}{P}\right)
+\Xi_{N_t/P}(\gamma_m)\ge\eta
+\end{aligned}\tag{54}
+$
+
+求解。原论文示例设 $N_t=512$、$B=10$ GHz、$f_c=100$ GHz、$\vartheta=45^\circ$、$r=20$ m、$\eta=0.8$，得到 $P\ge35$。如果只考察平均增益，实际可显著减少 FTTD 数量。
+
 
 ### B. 数字波束赋形设计
 
