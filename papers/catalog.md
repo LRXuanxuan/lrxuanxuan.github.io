@@ -11,6 +11,16 @@ toc: true
 
 ## 中英文译文
 
+- [UA-D-RME：不确定性感知去中心化无线电地图估计｜中文主体译稿（待终校）](/papers/translations/2026-10-24-ua-d-rme-2610-28293/) · 正文 I–VI、17 组公式、图注；尚待终校
+
+- [BCT：贝叶斯一致温度调节｜中文主体译稿（附录待补）](/papers/translations/2026-10-24-bct-bayes-consistent-tempering-2610-27641/) · 正文 1–6、核心公式；附录 A–G 待补
+
+- [Posterior Flow Matching｜中文主体译稿（附录待补）](/papers/translations/2026-10-24-posterior-flow-matching-2610-13994/) · 正文 1–6、主要理论及实验；长附录 A–H 待补
+
+- [近场 XL-MIMO 多用户信息共享信道估计｜中文主体译稿（待补齐）](/papers/translations/2026-10-24-xl-mimo-multi-user-spatial-sharing/) · 系统模型、极域、结构先验及方法主体；长公式待补
+
+- [近场太赫兹 FTTD 混合波束赋形｜中文主体译稿（待补齐）](/papers/translations/2026-10-24-fttd-near-field-thz-hybrid-beamforming/) · FC/SC、PWMMSE 和启发式方法；长公式待补
+
 - [不完美 CSI 下可旋转天线双时间尺度设计｜中文主体译稿（待终校）](/papers/translations/2026-10-23-rotatable-antennas-imperfect-csi-2605-04775/) · 正文 I–VIII、主要公式及图 1–10；长公式与书目待核
 - [数字孪生信道估计：几何与材料标定误差｜中文主体译稿（待终校）](/papers/translations/2026-10-23-digital-twin-geometry-calibration-2607-09334/) · 正文 I–VI、主要扰动/NMSE 推导及图表；附录长证明待补
 - [Deep Bayesian REFoCUS：超声多基地恢复｜中文主体译稿（待终校）](/papers/translations/2026-10-23-deep-bayesian-refocus-2610-03419/) · 正文 I–VII、算法与图表说明；参考书目与公式待核
