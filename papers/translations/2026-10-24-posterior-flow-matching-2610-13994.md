@@ -401,24 +401,24 @@ $$
 
 本节证明式（2）的连续性恒等式，以及式（3）后所陈述的梯度等价性。对于光滑且具有紧支撑的测试函数 $\psi$，参考插值给出
 
-$
+$$
 \frac{d}{dt}\mathbb E[\psi(X_t)]
 =\mathbb E[\nabla\psi(X_t)^\top V]
 =\mathbb E[\nabla\psi(X_t)^\top v(X_t,t)].
-$
+$$
 
 端点具有有限二阶矩意味着 $V$ 可积，再结合 $\psi$ 的有界梯度，允许沿参考路径求导。这正是连续性方程的弱形式。如果 ODE 流定义良好，密度演化唯一且初值为 $p_0$，其边缘分布便与参考路径一致。
 
 CFM 对应的边缘回归目标为
 
-$
+$$
 \mathcal L_{\rm FM}(\eta)=
 \frac12\mathbb E_{t,X_t}\|v_\eta(X_t,t)-v(X_t,t)\|^2. \tag{21}
-$
+$$
 
 两个目标采用相同且与模型参数无关的时间分布 $r$ 和参考插值。令 $D_\eta v_\eta$ 为关于参数的 Jacobian，输出坐标对应矩阵的行。在风险有限且允许交换求导与期望的条件下，
 
-$
+$$
 \begin{aligned}
 \nabla_\eta\mathcal L_{\rm CFM}
 &=\mathbb E[(D_\eta v_\eta)^\top(v_\eta-V)]\\
@@ -426,15 +426,15 @@ $
 &=\mathbb E[(D_\eta v_\eta)^\top(v_\eta-v)]
 =\nabla_\eta\mathcal L_{\rm FM}.
 \end{aligned}\tag{22}
-$
+$$
 
 网络量均在 $(X_t,t)$ 处计算。对这些输入取条件后，预测及其参数 Jacobian 固定，这解释了第二个等号。另一方面，将 $V-v_\eta$ 分解为 $(V-v)+(v-v_\eta)$，可得
 
-$
+$$
 \mathbb E\|V-v_\eta(X_t,t)\|^2
 =\mathbb E\|V-v(X_t,t)\|^2+
 \mathbb E\|v(X_t,t)-v_\eta(X_t,t)\|^2. \tag{23}
-$
+$$
 
 由于 $\mathbb E[V-v\mid X_t,t]=0$，交叉项消失。第一项不依赖预测器，第二项由条件均值最小化。式（22）、（23）从而证明第 3.1 节基于样本的训练方法是合理的，并刻画式（45）所恢复的速度目标。
 
@@ -442,27 +442,27 @@ $
 
 对于第 3.2 节的加噪过程，令数据端点 $X_1$ 与 $\overline X_0=X_1$ 对应，并从扰动核 $\overline p_{1-t}(\cdot\mid X_1)$ 抽取 $\overline X_{1-t}$。去噪分数匹配采用
 
-$
+$$
 \mathcal L_{\rm score}(\phi)=
 \frac12\mathbb E_{t,X_1,\overline X_{1-t}}
 \left[w(t)
 \left\|s_\phi(\overline X_{1-t},t)
 -\left.\nabla_x\log\overline p_{1-t}(x\mid X_1)\right|_{x=\overline X_{1-t}}\right\|^2
 \right], \tag{24}
-$
+$$
 
 其中 $X_1\sim p_{\rm data}$、时间分布固定，$w(t)>0$ 是预先指定的权重。对信号尺度 $\alpha_t$、累计噪声标准差 $\sigma_t>0$ 的高斯扰动核，
 
-$
+$$
 \overline p_{1-t}(x\mid x_1)=
 \mathcal N(x;\alpha_t x_1,\sigma_t^2 I),\qquad
 \nabla_x\log\overline p_{1-t}(x\mid x_1)=
 -\frac{x-\alpha_t x_1}{\sigma_t^2}. \tag{25}
-$
+$$
 
 累计扰动尺度 $\sigma_t$ 与瞬时噪声系数 $g(1-t)$ 具有不同作用。对正的边缘密度，在允许对混合积分求导的条件下，根据贝叶斯公式有
 
-$
+$$
 \begin{aligned}
 \overline s(x,1-t)
 &=\frac{\int\nabla_x\overline p_{1-t}(x\mid x_1)p_1(dx_1)}
@@ -471,19 +471,19 @@ $
 \nabla_x\log\overline p_{1-t}(x\mid X_1)
 \mid\overline X_{1-t}=x].
 \end{aligned}\tag{26}
-$
+$$
 
 假设上述导数、期望存在且平方风险有限，那么与式（23）相同的条件均值分解表明，去噪分数损失的无约束最优解是 $s_\phi(x,t)=\overline s(x,1-t)$，至少在训练时间分布的支撑集内成立。
 
 将高斯核式（25）代入式（26），得到
 
-$
+$$
 \overline s(x,1-t)=
 \frac{\alpha_t\mathbb E[X_1\mid\overline X_{1-t}=x]-x}{\sigma_t^2},
 \qquad
 \mathbb E[X_1\mid\overline X_{1-t}=x]
 =\frac{x+\sigma_t^2\overline s(x,1-t)}{\alpha_t}. \tag{27}
-$
+$$
 
 第二个恒等式要求 $\alpha_t\ne0$。这一关系提供表 1 中扩散模型的终点读数。
 
@@ -491,30 +491,30 @@ $
 
 这里推导供 FM 与 PFM 使用的式（8）。回到第 3.1 节相互独立的高斯线性插值，其密度为
 
-$
+$$
 p_t(x)=\int
 \mathcal N(x;tx_1,(1-t)^2I)\,p_1(dx_1).
-$
+$$
 
 使用式（26）的混合求导方法可得
 
-$
+$$
 s(x,t)=\mathbb E\left[-\frac{x-tX_1}{(1-t)^2}\,\middle|\,X_t=x\right]
 =\frac{t\mathbb E[X_1\mid X_t=x]-x}{(1-t)^2}. \tag{28}
-$
+$$
 
 对式（10）取条件期望，得到 $\mathbb E[X_1\mid X_t=x]=x+(1-t)v(x,t)$。代入式（28），便有
 
-$
+$$
 s(x,t)=\frac{t[x+(1-t)v(x,t)]-x}{(1-t)^2}
 =\frac{tv(x,t)-x}{1-t},
-$
+$$
 
 这就证明了式（8）。对应的学习分数满足
 
-$
+$$
 \widehat s_\theta-s=\frac{t}{1-t}(v_\theta-v), \tag{29}
-$
+$$
 
 将 $\theta$ 替换为 $\eta$ 对 FM 也成立。这些导出分数进入式（32）的 FM SDE 和式（19）的 PFM SDE。在固定外部生成条件下，也能得到附录 E.3 的对应恒等式。
 
@@ -522,45 +522,45 @@ $
 
 本节展开第 3.3 节式（7）。对 SDE $dY_t=b\,dt+B\,dW_t$，扩散张量 $a=BB^\top$ 对称且半正定。因为布朗增量的协方差是 $hI$，在局部正则性条件下，
 
-$
+$$
 \begin{aligned}
 \mathbb E[Y_{t+h}-Y_t\mid Y_t=x]&=hb(x,t)+o(h),\\
 \operatorname{Cov}(Y_{t+h}-Y_t\mid Y_t=x)&=ha(x,t)+o(h).
 \end{aligned}
-$
+$$
 
 密度方程为
 
-$
+$$
 \partial_t p_t=-\nabla_x\cdot(bp_t)
 +\frac12\sum_{i,j}\partial_{x_i}\partial_{x_j}(a_{ij}p_t). \tag{30}
-$
+$$
 
 对 $s=\nabla_x\log p_t$，由乘积法则，
 
-$
+$$
 \sum_j\partial_{x_j}(a_{ij}p_t)
 =\left[\sum_j\partial_{x_j}a_{ij}
 +\sum_ja_{ij}s_j\right]p_t
 =[(\nabla_x\cdot a)+as]_ip_t. \tag{31}
-$
+$$
 
 因此式（30）等价于
 
-$
+$$
 \partial_t p_t=-\nabla_x\cdot\left[
 \left(b-\tfrac12\nabla_x\cdot a-\tfrac12as\right)p_t\right].
-$
+$$
 
 括号中的项就是式（7）的概率流速度 $v$。反过来求解 $b$，便能从 ODE 构造 SDE。
 
 要证明相容性，设正密度路径 $p_t$ 在 $[0,T]$（$T<1$）上以速度 $v$ 满足连续性方程。选择 $a=BB^\top$，令 $b=v+(\nabla_x\cdot a+a\nabla_x\log p_t)/2$。假设系数与密度足够正则，ODE 和 SDE 适定，指定初值下密度演化唯一，并且无穷远衰减或边界条件排除边界概率通量。将式（31）代入，得到
 
-$
+$$
 -\nabla_x\cdot(bp_t)+
 \frac12\sum_{i,j}\partial_{x_i}\partial_{x_j}(a_{ij}p_t)
 =-\nabla_x\cdot(vp_t).
-$
+$$
 
 因此参考密度同时满足两个方程。由于初值相同且密度演化唯一，SDE 的边缘分布也等于 $p_t$。这证明了第 3.3 节使用的对应关系，但它只涉及单时刻的边缘分布，两种过程跨时间的联合分布可以不同。
 
@@ -570,16 +570,16 @@ $
 
 加噪密度 $\overline p_\tau$ 满足
 
-$
+$$
 \partial_\tau\overline p_\tau
 =-\nabla_x\cdot(f\overline p_\tau)
 +\tfrac12g(\tau)^2\Delta_x\overline p_\tau.
-$
+$$
 
 反转时间并使用 $\Delta_x\overline p_{1-t}
 =\nabla_x\cdot(\overline s(x,1-t)\overline p_{1-t})$，有
 
-$
+$$
 \begin{aligned}
 \partial_t\overline p_{1-t}
 &=\nabla_x\cdot(f\overline p_{1-t})
@@ -587,27 +587,27 @@ $
 &=-\nabla_x\cdot\big[
 (-f+\tfrac12g^2\overline s)\overline p_{1-t}\big],
 \end{aligned}
-$
+$$
 
 其中 $f,g,\overline s$ 在加噪时间 $1-t$ 计算。对该密度路径应用 A.5 节，可得概率流 ODE。选择 $a=g^2I$，相当于在速度中再增加 $g^2\overline s/2$，得到逆向 SDE。当分数准确、初始分布为加噪末端分布时，这两种动力学都重现 $\overline p_{1-t}$。将真实分数替换为 $s_\phi(x,t)$，便得到表 1 的扩散模型条目。
 
 对于 FM，附录 A.4 给出 $\widehat s_\eta=(tv_\eta-x)/(1-t)$。选取 $a=\kappa(t)I$，$\kappa(t)\ge0$，于是 $\nabla_x\cdot a=0$，$B=\sqrt\kappa I$：
 
-$
+$$
 dY_t=v_\eta(Y_t,t)\,dt,\qquad
 dY_t=[v_\eta+\tfrac12\kappa\widehat s_\eta](Y_t,t)\,dt
 +\sqrt{\kappa(t)}\,dW_t. \tag{32}
-$
+$$
 
 两者都从 $\mathcal N(0,I)$ 出发。当 $v_\eta=v$ 时，分数准确，附录 A.5 保证参考边缘分布；$\kappa=0$ 则恢复 ODE。数值离散 SDE 步骤见附录 G.3。
 
 对 $X_1=X_t+(1-t)V$ 取条件期望得到 FM 的终点均值读数。将式（27）的真实分数替换为 $s_\phi$，得到扩散对应读数：
 
-$
+$$
 \mu_\eta(x,t)=x+(1-t)v_\eta(x,t),\qquad
 \mu_\phi(x,t)=\frac{x+\sigma_t^2s_\phi(x,t)}{\alpha_t},
 \quad\alpha_t\ne0. \tag{33}
-$
+$$
 
 结合上述动力学即可恢复表 1 的基线条目。PFM 采用相同对应关系，但其扩散张量由附录 C.1 的后验决定，并根据附录 B.2 的关系提供附加方差读数。
 
@@ -619,13 +619,13 @@ $
 
 固定时间时，可获得的终点信息量和剩余条件不确定性满足
 
-$
+$$
 I(X_t;X_1)=H(X_1)-H(X_1\mid X_t). \tag{34}
-$
+$$
 
 令 $p(\cdot\mid X_t)$ 表示真实终点后验，并暂时省略固定时间。采用 KL 散度定义 $\operatorname{KL}(p\Vert q)=\mathbb E_p[\log(p/q)]$。在期望 NLL 中加减真实后验的对数密度：
 
-$
+$$
 \begin{aligned}
 \mathbb E[-\log q_\theta^x(X_1\mid X_t,t)]
 &=-\mathbb E\log p(X_1\mid X_t)+
@@ -634,14 +634,14 @@ $
 \mathbb E_{X_t}\operatorname{KL}
 \big(p(\cdot\mid X_t)\Vert q_\theta^x(\cdot\mid X_t,t)\big).
 \end{aligned}\tag{35}
-$
+$$
 
 从 $H(X_1)$ 中减去该恒等式，并利用 KL 非负性，得到正文式（9）的变分下界
 
-$
+$$
 I(X_t;X_1)\ge H(X_1)+
 \mathbb E\log q_\theta^x(X_1\mid X_t,t).
-$
+$$
 
 其间隙就是式（35）的期望后验 KL。只要模型几乎处处等于真实后验，就达到等号。参考路径已确定互信息，而后验拟合负责缩小近似间隙。下一节将相同目标转换到速度坐标。
 
@@ -649,37 +649,37 @@ $
 
 参考路径意味着仿射恒等式 $X_1=X_t+(1-t)V$。在固定 $(x,t)$、$t<1$ 时，映射 $x_1=x+(1-t)v$ 可逆，其 Jacobian 行列式为 $(1-t)^d$。因而诱导的终点密度为
 
-$
+$$
 q_\theta^x(x_1\mid x,t)=
 \frac{q_\theta((x_1-x)/(1-t)\mid x,t)}{(1-t)^d}. \tag{36}
-$
+$$
 
 取负对数得到
 
-$
+$$
 -\log q_\theta^x(X_1\mid X_t,t)
 =-\log q_\theta(V\mid X_t,t)+d\log(1-t). \tag{37}
-$
+$$
 
 最后一项与 $\theta$ 无关，因此第 4.1 节可以使用速度坐标定义学习目标。同一个仿射映射也决定式（15）的终点矩。
 
 对于具有有限二阶矩的任意真实条件分布，仿射变换还给出
 
-$
+$$
 \begin{aligned}
 \mathbb E[X_1\mid X_t=x]&=x+(1-t)v(x,t),\\
 \operatorname{Cov}(X_1\mid X_t=x)
 &=(1-t)^2\operatorname{Cov}(V\mid X_t=x).
 \end{aligned}\tag{38}
-$
+$$
 
 从仿射关系两边减去条件均值，中心化速度会乘上 $1-t$。取外积可证明完整协方差关系。命题 4.1 说明，对角模型在总体最优条件下保留此协方差的对角元素。
 
 在微分熵有限的条件下，同一 Jacobian 也决定熵的变化：
 
-$
+$$
 H(X_1\mid X_t)=H(V\mid X_t)+d\log(1-t). \tag{39}
-$
+$$
 
 观测状态引入的平移不改变条件熵，而缩放 $1-t$ 贡献了对数行列式。这就将互信息下界与速度坐标中的似然联系起来。
 
@@ -687,28 +687,28 @@ $
 
 模型 $q_\theta=\mathcal N(v_\theta,\Sigma_\theta)$ 采用正的对角协方差 $\Sigma_\theta=\operatorname{diag}\gamma_\theta$。施加仿射变换后仍为高斯：
 
-$
+$$
 q_\theta^x=\mathcal N(\mu_\theta,\Sigma_\theta^x),\quad
 \mu_\theta=x+(1-t)v_\theta,\quad
 \Sigma_\theta^x=(1-t)^2\Sigma_\theta.
-$
+$$
 
 这正是式（15）的模型分布矩。完整的速度负对数似然为
 
-$
+$$
 -\log q_\theta(V\mid X_t,t)=
 \tfrac12\left[(V-v_\theta)^\top\Sigma_\theta^{-1}(V-v_\theta)
 +\log\det\Sigma_\theta\right]+\tfrac d2\log(2\pi). \tag{40}
-$
+$$
 
 定义 $\mathcal L_{\rm PFM}
 =\mathbb E[-\log q_\theta(V\mid X_t,t)]-\tfrac d2\log(2\pi)$，即式（13）的目标。结合式（36）、（40），再对固定训练时间分布求平均，
 
-$
+$$
 \mathbb E[-\log q_\theta^x(X_1\mid X_t,t)]
 =\mathcal L_{\rm PFM}
 +d\mathbb E_t\log(1-t)+\tfrac d2\log(2\pi). \tag{41}
-$
+$$
 
 这里要求期望 NLL 有限且 $\log(1-t)$ 可积。在每个固定 $t<1$ 时，式（37）的逐点恒等式已给出参数无关的差。因此，最小化 $\mathcal L_{\rm PFM}$ 等价于最大化对训练时间分布 $r$ 平均后的式（9）变分下界。
 
@@ -720,53 +720,53 @@ $
 
 **命题 4.1 的证明。** 固定状态、时间和坐标 $i$，令 $m_i$、$\sigma_i^2>0$ 表示真实条件均值和方差。对于候选均值 $u_i$，
 
-$
+$$
 \mathbb E[(V_i-u_i)^2\mid X_t=x]
 =\mathbb E[(V_i-m_i)^2\mid X_t=x]+(m_i-u_i)^2,
-$
+$$
 
 因为中心化交叉项的期望为零。对于正的候选方差 $\gamma_i$，对应条件高斯风险为
 
-$
+$$
 R_i(u_i,\gamma_i)=
 \frac12\left[\frac{\sigma_i^2+(m_i-u_i)^2}{\gamma_i}
 +\log\gamma_i\right]. \tag{42}
-$
+$$
 
 对任意固定的 $\gamma_i>0$，唯一的均值最小值是 $u_i=m_i$。在该均值下，
 
-$
+$$
 \frac{\partial R_i}{\partial\gamma_i}
 =\frac{\gamma_i-\sigma_i^2}{2\gamma_i^2}.
-$
+$$
 
 当 $\gamma_i<\sigma_i^2$ 时导数为负，大于时为正，因此唯一方差最小值为 $\sigma_i^2$。对所有坐标求和即证明命题。该推导只涉及真实条件分布的一阶和二阶矩。
 
 对一个固定的有偏均值及正的残差二阶矩，优化式（42）的方差可得
 
-$
+$$
 \gamma_i=\mathbb E[(V_i-u_i)^2\mid X_t=x]
 =\sigma_i^2+(m_i-u_i)^2. \tag{43}
-$
+$$
 
 这提供附录 D.2 所用的残差解释。
 
 附录 H.1 中的实现会把对数方差限制在固定范围 $\ell_-<\ell_+$。对于对角协方差模型，风险在闭区间 $[e^{\ell_-},e^{\ell_+}]$ 上取得最优解。给定均值 $u_i$，方差导数的符号等于 $\gamma_i-\mathbb E[(V_i-u_i)^2\mid X_t=x]$ 的符号，因此
 
-$
+$$
 \gamma_i^\star(u_i)=
 \operatorname{clip}\left(
 \mathbb E[(V_i-u_i)^2\mid X_t=x],
 e^{\ell_-},e^{\ell_+}\right). \tag{44}
-$
+$$
 
 这里 $\operatorname{clip}(r,a,b)=\min\{b,\max\{a,r\}\}$。当均值可在每个 $(x,t)$ 自由优化时，最优均值仍为 $u_i^\star=m_i$，于是式（44）成为经过截断的真实条件方差 $\operatorname{clip}(\sigma_i^2,e^{\ell_-},e^{\ell_+})$。因此，在设定范围内仍然恢复条件矩，而范围外的值将被裁剪到边界。具体的平滑约束参数化见附录 G.1。
 
 将式（13）的全部方差固定为 1，去掉加权似然和对数行列式，剩下
 
-$
+$$
 \mathcal L_{\rm PFM}=\frac12\mathbb E\|V-v_\theta(X_t,t)\|^2. \tag{45}
-$
+$$
 
 这就是第 4.1 节提到的 FM 特例。结合似然坐标变换与条件矩恢复，说明单个 PFM 目标既能拟合生成所需的速度矩，也能拟合诊断所需的终点矩。
 
@@ -781,12 +781,12 @@ $
 
 式（17）是在当前状态处进行的局部矩阵计算。若布朗增量 $\Delta W\sim\mathcal N(0,hI)$，在该位置固定系数，那么
 
-$
+$$
 \operatorname{Cov}(B_\theta\Delta W\mid x,t)
 =h\lambda\Sigma_\theta,\qquad
 \operatorname{Cov}(\Sigma_\theta^{-1/2}B_\theta\Delta W\mid x,t)
 =h\lambda I.
-$
+$$
 
 因此第 $i$ 个坐标获得的噪声方差为 $h\lambda\gamma_{\theta,i}$。后验控制不同坐标的相对强度，而 $\lambda$ 将速度协方差转化为状态增量的协方差变化率。这解释了第 4.2 节逐分量分配噪声的做法。
 
@@ -794,27 +794,27 @@ $
 
 对于独立高斯参考路径，附录 A.4 推导的均值分数为 $\widehat s_\theta=(tv_\theta-x)/(1-t)$。将所选扩散张量与该分数、均值配对，得到式（19）的漂移：
 
-$
+$$
 b_\theta=v_\theta+\frac12\nabla_x\cdot a_\theta
 +\frac12a_\theta\widehat s_\theta. \tag{46}
-$
+$$
 
 正号修正来自 ODE–SDE 对应关系中对 SDE 漂移的求解。由于 $\lambda$ 只依赖时间，
 
-$
+$$
 (\nabla_x\cdot a_\theta)_i=
 \sum_j\partial_{x_j}[\lambda(t)\gamma_{\theta,i}\delta_{ij}]
 =\lambda(t)\partial_{x_i}\gamma_{\theta,i}.
-$
+$$
 
 令 $D_i=\partial_{x_i}\gamma_{\theta,i}$，则
 
-$
+$$
 b_{\theta,i}=v_{\theta,i}
 +\frac{\lambda(t)}2\left[
 D_i+\gamma_{\theta,i}\frac{tv_{\theta,i}-x_i}{1-t}
 \right]. \tag{47}
-$
+$$
 
 三项分别是输运、对空间变化协方差的修正、以及沿密度分数方向的修正。式（46）、（47）给出了第 4.2 节采样器的向量及坐标形式。
 
@@ -824,49 +824,49 @@ $
 
 命题 4.2 描述在精确相容动力学下，初始密度扰动如何演化。任取扩散张量 $a=BB^\top$，将漂移固定为 $b=v+(\nabla_x\cdot a+a\nabla_x\log p_t)/2$。参考密度 $p_t$ 和第二个密度 $\widetilde p_t$ 从各自初值出发，在相同系数下演化。满足命题中的光滑性、有限性和边界项消失条件时，首先建立一般恒等式：
 
-$
+$$
 \frac{d}{dt}\operatorname{KL}(\widetilde p_t\Vert p_t)
 =-\frac12\int\widetilde p_t
 \left(\nabla_x\log\frac{\widetilde p_t}{p_t}\right)^\top
 a\left(\nabla_x\log\frac{\widetilde p_t}{p_t}\right)dx\le0. \tag{48}
-$
+$$
 
 **命题 4.2 的证明。** 对 $\widetilde p_t$ 的扩散项应用式（31），得到
 
-$
+$$
 \sum_j\partial_{x_j}(a_{ij}\widetilde p_t)
 =[(\nabla_x\cdot a)+a\nabla_x\log\widetilde p_t]_i\widetilde p_t.
-$
+$$
 
 将共同的漂移代入 Fokker–Planck 方程，得到
 
-$
+$$
 \partial_t\widetilde p_t
 =-\nabla_x\cdot(v\widetilde p_t)
 +\frac12\nabla_x\cdot\left[
 a\widetilde p_t\nabla_x\log\frac{\widetilde p_t}{p_t}
 \right]. \tag{49}
-$
+$$
 
 参考密度满足 $\partial_t p_t=-\nabla_x\cdot(vp_t)$。对 KL 求导时，质量守恒使 $\partial_t\widetilde p_t$ 的积分为零，于是
 
-$
+$$
 \frac{d}{dt}\operatorname{KL}(\widetilde p_t\Vert p_t)
 =\int\log\frac{\widetilde p_t}{p_t}\partial_t\widetilde p_t\,dx
 -\int\frac{\widetilde p_t}{p_t}\partial_t p_t\,dx. \tag{50}
-$
+$$
 
 以下积分均在 $\mathbb R^d$ 上。根据命题 4.2 的正则与边界条件，分部积分后两个输运项抵消：
 
-$
+$$
 \int v^\top\widetilde p_t\nabla_x\log\frac{\widetilde p_t}{p_t}\,dx
 -\int v^\top p_t\nabla_x\frac{\widetilde p_t}{p_t}\,dx=0,
-$
+$$
 
 因为 $\widetilde p_t\nabla_x\log(\widetilde p_t/p_t)
 =p_t\nabla_x(\widetilde p_t/p_t)$。剩余项为
 
-$
+$$
 \begin{aligned}
 &\frac12\int\log\frac{\widetilde p_t}{p_t}
 \nabla_x\cdot\left[
@@ -876,13 +876,13 @@ a\widetilde p_t\nabla_x\log\frac{\widetilde p_t}{p_t}
 \left(\nabla_x\log\frac{\widetilde p_t}{p_t}\right)^\top
 a\left(\nabla_x\log\frac{\widetilde p_t}{p_t}\right)dx.
 \end{aligned}
-$
+$$
 
 半正定性保证结果非正，式（48）得证。将 $a=\lambda\operatorname{diag}\gamma_\theta$ 代入即得正文式（20）的逐坐标求和；当 $a=0$，只剩相互抵消的输运项，因此 ODE 下 KL 不变。
 
 对于各向同性的 FM，$a=\kappa I$，每个坐标权重均为 $\kappa(t)$；而 PFM 的权重为 $\lambda(t)\gamma_{\theta,i}(x,t)$。由此，式（18）的后验协方差决定了相对熵耗散在不同坐标方向的强度。当耗散项对时间可积时，式（48）还给出累计恒等式：
 
-$
+$$
 \begin{aligned}
 &\operatorname{KL}(\widetilde p_T\Vert p_T)
 +\frac12\int_0^T\int\widetilde p_t
@@ -890,7 +890,7 @@ $
 a\left(\nabla_x\log\frac{\widetilde p_t}{p_t}\right)dx\,dt\\
 &=\operatorname{KL}(\widetilde p_0\Vert p_0).
 \end{aligned}\tag{51}
-$
+$$
 
 ## 附录 D：后验诊断
 
@@ -900,26 +900,26 @@ $
 
 式（12）中的模型分布具有精确的模型矩：
 
-$
+$$
 \mathbb E_{q_\theta}[V\mid x,t]=v_\theta(x,t),\qquad
 \operatorname{Cov}_{q_\theta}(V\mid x,t)=\Sigma_\theta(x,t).
-$
+$$
 
 由附录 B.2 可得终点矩，命题 4.1 则给出这些矩的总体真实目标。
 
 在评价中，取一个未参与训练的数据端点 $X_1$，独立采样噪声 $X_0$，根据式（1）构造参考状态 $X_t$ 和速度目标 $V$。已知终点提供两种坐标下的残差：
 
-$
+$$
 e_i^v=V_i-v_{\theta,i}(X_t,t),\qquad
 e_i^x=X_{1,i}-\mu_{\theta,i}(X_t,t).
-$
+$$
 
 代入 $X_1=X_t+(1-t)V$ 和 $\mu_\theta=X_t+(1-t)v_\theta$，有 $e_i^x=(1-t)e_i^v$，因而
 
-$
+$$
 (X_{1,i}-\mu_{\theta,i}(X_t,t))^2
 =(1-t)^2(V_i-v_{\theta,i}(X_t,t))^2. \tag{52}
-$
+$$
 
 这是对每个参考样本对与任意预测均值都成立的精确恒等式，因此可以在终点坐标或速度坐标中进行同一残差比较。
 
@@ -927,11 +927,11 @@ $
 
 在固定 $(x,t)$ 下，令 $m_i$ 和 $\sigma_i^2$ 为真实条件速度均值和方差。由式（43），
 
-$
+$$
 \mathbb E[e_i^v\mid X_t=x]=m_i-v_{\theta,i},\qquad
 \mathbb E[(e_i^v)^2\mid X_t=x]
 =\sigma_i^2+(m_i-v_{\theta,i})^2.
-$
+$$
 
 因此，在均值准确时，平方残差度量条件方差；如果均值有偏，则还包含均值偏差的平方。
 
@@ -953,23 +953,23 @@ $
 
 令 $C\sim p_C$，在给定 $C=c$ 下数据端点分布为 $X_1\mid C=c\sim p_{\rm data}(\cdot\mid c)$。独立采样源端 $X_0\sim p_0=\mathcal N(0,I)$，于是联合分布为
 
-$
+$$
 p_C(dc)\,p_0(dx_0)\,p_{\rm data}(dx_1\mid c). \tag{53}
-$
+$$
 
 对每个样本对保留参考插值和速度目标：
 
-$
+$$
 X_t=(1-t)X_0+tX_1,\quad
 V=X_1-X_0,\quad
 p_t(\cdot\mid c)=\operatorname{Law}(X_t\mid C=c). \tag{54}
-$
+$$
 
 固定 $c$ 时，边缘速度是
 
-$
+$$
 v(x,t,c)=\mathbb E[V\mid X_t=x,C=c]. \tag{55}
-$
+$$
 
 在每个条件 $c$ 下重复附录 A.2 的条件期望计算，得 $\partial_t p_t(\cdot\mid c)+\nabla_x\cdot(p_t(\cdot\mid c)v(\cdot,t,c))=0$。对每个条件，$t=0$ 时源密度均为 $p_0$。仿射关系 $X_1=X_t+(1-t)V$ 对每个参考样本对都成立，为后续的后验对应提供基础。
 
@@ -977,51 +977,51 @@ $
 
 在固定 $t<1$ 时，观测 $C$ 之后参考状态提供的终点信息量为
 
-$
+$$
 I(X_t;X_1\mid C)=H(X_1\mid C)-H(X_1\mid X_t,C). \tag{56}
-$
+$$
 
 以 $q_\theta^x(x_1\mid x,t,c)$ 建模剩余终点后验。在条件熵、交叉熵有限且模型密度在真实后验支撑集上为正的条件下，附录 B.1 的分解可条件化为
 
-$
+$$
 \begin{aligned}
 \mathbb E[-\log q_\theta^x(X_1\mid X_t,t,C)]
 ={}&H(X_1\mid X_t,C)\\
 &+\mathbb E_{X_t,C}\operatorname{KL}
 \big(p(\cdot\mid X_t,C)\Vert q_\theta^x(\cdot\mid X_t,t,C)\big).
 \end{aligned}\tag{57}
-$
+$$
 
 从 $H(X_1\mid C)$ 中减去式（57），得到式（9）的条件变分下界：
 
-$
+$$
 I(X_t;X_1\mid C)\ge H(X_1\mid C)+
 \mathbb E\log q_\theta^x(X_1\mid X_t,t,C). \tag{58}
-$
+$$
 
 参考构造确定条件互信息；最小化条件后验 NLL 能够减小期望后验 KL，并收紧下界。
 
 固定 $(x,t,c)$ 时，仿射变量变换具有与 B.2 节相同的 Jacobian：
 
-$
+$$
 q_\theta^x(x_1\mid x,t,c)
 =\frac{q_\theta((x_1-x)/(1-t)\mid x,t,c)}{(1-t)^d}. \tag{59}
-$
+$$
 
 因此终点与速度 NLL 相差 $d\log(1-t)$，真实条件熵满足 $H(X_1\mid X_t,C)=H(V\mid X_t,C)+d\log(1-t)$。条件速度模型为
 
-$
+$$
 \begin{aligned}
 (v_\theta,\ell_\theta)&=F_\theta(x,t,c),\\
 \gamma_\theta&=\exp\ell_\theta,\qquad
 \Sigma_\theta=\operatorname{diag}\gamma_\theta,\\
 q_\theta(v\mid x,t,c)&=\mathcal N(v;v_\theta(x,t,c),\Sigma_\theta(x,t,c)).
 \end{aligned}\tag{60}
-$
+$$
 
 当 $t\sim r$ 独立于 $(C,X_0,X_1)$ 时，训练目标为
 
-$
+$$
 \begin{aligned}
 \mathcal L_{\rm PFM}^{C}
 &=\tfrac12\mathbb E[(V-v_\theta)^\top\Sigma_\theta^{-1}(V-v_\theta)
@@ -1030,32 +1030,32 @@ $
 \left(\frac{(V_i-v_{\theta,i})^2}{\gamma_{\theta,i}}
 +\log\gamma_{\theta,i}\right)\right].
 \end{aligned}\tag{61}
-$
+$$
 
 所有网络输出均在 $(X_t,t,C)$ 处计算。在 B.3 节相应的期望有限条件下，完整终点 NLL 为
 
-$
+$$
 \mathbb E[-\log q_\theta^x(X_1\mid X_t,t,C)]
 =\mathcal L_{\rm PFM}^{C}
 +d\mathbb E_t\log(1-t)+\frac d2\log(2\pi). \tag{62}
-$
+$$
 
 B.4 节的条件风险在每个 $(x,t,c)$ 处都适用。允许均值自由变化、方差为正且真实各坐标方差有限且严格为正时，最优解为
 
-$
+$$
 v_\theta(x,t,c)=v(x,t,c),\quad
 \gamma_{\theta,i}(x,t,c)
 =\operatorname{Var}(V_i\mid X_t=x,C=c). \tag{63}
-$
+$$
 
 将 $\Sigma_\theta=I$ 固定，式（61）退化为条件生成的 FM 目标 $\frac12\mathbb E\|V-v_\theta(X_t,t,C)\|^2$。算法 1 在训练中联合采样 $(C,X_1)$，再独立抽取 $X_0,t$，将 $C$ 传给两个后验输出头，通过同一个 NLL 更新模型。
 
 式（59）的仿射映射将速度矩转换为与式（15）对应的条件终点后验读数：
 
-$
+$$
 \mu_\theta(x,t,c)=x+(1-t)v_\theta(x,t,c),\quad
 \Sigma_\theta^x(x,t,c)=(1-t)^2\Sigma_\theta(x,t,c). \tag{64}
-$
+$$
 
 这些读数不需要额外输出头，并在两种采样器中均可使用。
 
@@ -1063,37 +1063,37 @@ $
 
 在一条生成轨迹中，固定 $C=c$。对独立高斯源，附录 A.4 应用于条件密度 $p_t(\cdot\mid c)$ 后有
 
-$
+$$
 s(x,t,c)=\nabla_x\log p_t(x\mid c)
 =\frac{tv(x,t,c)-x}{1-t},\quad
 \widehat s_\theta(x,t,c)
 =\frac{tv_\theta(x,t,c)-x}{1-t}. \tag{65}
-$
+$$
 
 均值定义初始状态为 $Y_0\sim\mathcal N(0,I)$ 的 ODE：
 
-$
+$$
 dY_t=v_\theta(Y_t,t,c)\,dt. \tag{66}
-$
+$$
 
 为利用学习的不确定性缩放随机扰动，对固定 $c$ 应用式（17）的后验归一化原则：
 
-$
+$$
 a_\theta(x,t,c)=\lambda(t)\Sigma_\theta(x,t,c),\quad
 B_\theta(x,t,c)=\sqrt{\lambda(t)}
 \operatorname{diag}\sqrt{\gamma_\theta(x,t,c)}. \tag{67}
-$
+$$
 
 由于增加扩散需要漂移修正，根据 ODE–SDE 对应关系，
 
-$
+$$
 \begin{aligned}
 b_\theta(x,t,c)
 &=v_\theta(x,t,c)+\tfrac12\nabla_x\cdot a_\theta(x,t,c)
 +\tfrac12a_\theta(x,t,c)\widehat s_\theta(x,t,c),\\
 dY_t&=b_\theta(Y_t,t,c)\,dt+B_\theta(Y_t,t,c)\,dW_t.
 \end{aligned}\tag{68}
-$
+$$
 
 全部空间导数都对 $x$ 计算，并保持条件 $c$ 不变；当 $\lambda\equiv0$，SDE 退化为式（66）。算法 2 和 3 在整个采样过程中始终以相同的 $c$ 评价各个场与读数。
 
@@ -1116,48 +1116,48 @@ $
 
 作为第 4.1 节直接速度预测的替代方法，使用终点网络 $F_\theta^x$ 输出
 
-$
+$$
 (\mu_\theta,\ell_\theta)=F_\theta^x(x,t),\quad
 \gamma_\theta=\exp\ell_\theta,\quad
 q_\theta^x=\mathcal N(\mu_\theta,(1-t)^2\operatorname{diag}\gamma_\theta). \tag{69}
-$
+$$
 
 这里 $\ell_\theta$ 表示速度的对数方差。逆用式（10）得到
 
-$
+$$
 v_\theta(x,t)=\frac{\mu_\theta(x,t)-x}{1-t},\quad
 V-v_\theta(X_t,t)=\frac{X_1-\mu_\theta(X_t,t)}{1-t}. \tag{70}
-$
+$$
 
 ### F.2 似然与条件矩
 
 将式（70）的残差代入式（13），得到
 
-$
+$$
 \mathcal L_{\rm PFM}^{x}
 =\frac12\mathbb E\left[
 \sum_i\left(
 \frac{(X_{1,i}-\mu_{\theta,i})^2}{(1-t)^2\gamma_{\theta,i}}
 +\log\gamma_{\theta,i}
 \right)\right]. \tag{71}
-$
+$$
 
 全部输出均在 $(X_t,t)$ 处计算。算法 1 可以直接使用终点网络及上述单样本损失。在附录 B.3 的有限期望条件下，完整目标满足
 
-$
+$$
 \mathbb E[-\log q_\theta^x(X_1\mid X_t,t)]
 =\mathcal L_{\rm PFM}^{x}
 +d\mathbb E_t\log(1-t)+\frac d2\log(2\pi). \tag{72}
-$
+$$
 
 因此式（41）与（72）对两种均值参数化表达相同的变量变换。将式（71）中的 $\gamma_\theta$ 固定为 1，就得到在终点参数化下权重为 $(1-t)^{-2}$ 的平方误差 FM，与速度坐标中的式（45）对应。
 
 下面将终点网络与命题 4.1 联系起来。对固定 $(x,t)$ 且 $t<1$，候选终点均值和速度均值之间的变换是一一对应的。因此，在命题 4.1 的矩条件下，式（71）的条件总体最优解为
 
-$
+$$
 \mu_\theta=\mathbb E[X_1\mid X_t=x],\qquad
 \gamma_{\theta,i}=\operatorname{Var}(V_i\mid X_t=x).
-$
+$$
 
 式（38）将该速度方差转换为终点对角协方差。
 
@@ -1165,24 +1165,24 @@ $
 
 将式（70）代入式（16），可得
 
-$
+$$
 \widehat s_\theta=\frac{t\mu_\theta-x}{(1-t)^2},\qquad
 a_\theta=\lambda\operatorname{diag}\gamma_\theta
 =\frac{\lambda(t)}{(1-t)^2}\Sigma_\theta^x. \tag{73}
-$
+$$
 
 使用这些场以及 $B_\theta=\sqrt\lambda\,\operatorname{diag}\sqrt{\gamma_\theta}$，采样器为
 
-$
+$$
 dY_t=\frac{\mu_\theta(Y_t,t)-Y_t}{1-t}\,dt,
-$
+$$
 
-$
+$$
 dY_t=\left[
 \frac{\mu_\theta-x}{1-t}+\frac12\nabla_x\cdot a_\theta
 +\frac12a_\theta\widehat s_\theta
 \right](Y_t,t)\,dt+B_\theta(Y_t,t)dW_t.
-$
+$$
 
 二者均从 $\mathcal N(0,I)$ 初始化。根据式（73）构造相关场后，可以按算法 2、3 进行离散化。
 
@@ -1202,19 +1202,19 @@ $
 
 由于 $\Sigma_\theta$ 为对角矩阵，逆矩阵的元素为 $\exp(-\ell_{\theta,i})$，对数行列式为 $\sum_i\ell_{\theta,i}$，式（13）可以写成
 
-$
+$$
 \mathcal L_{\rm PFM}
 =\frac12\mathbb E\sum_i
 \left[\exp(-\ell_{\theta,i})(V_i-v_{\theta,i})^2+\ell_{\theta,i}\right]. \tag{74}
-$
+$$
 
 方差头首先产生无约束输出 $\rho_{\theta,i}$，再经以下映射得到损失中使用的对数方差：
 
-$
+$$
 \ell_{\theta,i}=\ell_-+(\ell_+-\ell_-)\operatorname{sigmoid}(\rho_{\theta,i}),
 \qquad
 \gamma_{\theta,i}=\exp\ell_{\theta,i}. \tag{75}
-$
+$$
 
 当 $\rho_{\theta,i}$ 为有限值时，对应方差落在开区间内。式（44）的内部最优解能够取到，而边界最优解在 $\rho_{\theta,i}\to\pm\infty$ 时被渐近逼近。同一个受约束方差既用于似然、也用于扩散张量和终点读数。各任务的具体上下界见表 7。算法 1 对小批次的损失取平均，并通过上述映射和完整共享网络求导。
 
@@ -1231,43 +1231,43 @@ $
 
 对训练后的模型，ODE 直接使用 $v_\theta$。而 SDE 还需要 $\widehat s_\theta=(tv_\theta-x)/(1-t)$，以及在所选非负日程 $\lambda$ 下的 $a_\theta=\lambda(t)\operatorname{diag}\gamma_\theta$。附录 C.2 推导的相容漂移为
 
-$
+$$
 b_\theta=v_\theta+\frac{\lambda(t)}2(D+\gamma_\theta\odot\widehat s_\theta),
 \qquad D_i=\partial_{x_i}\gamma_{\theta,i}.
-$
+$$
 
 固定时间下，定义
 
-$
+$$
 (J_\gamma)_{ij}=\partial_{x_j}\gamma_{\theta,i},\quad
 D=\operatorname{diag}J_\gamma,\quad
 D_i=\gamma_{\theta,i}\partial_{x_i}\ell_{\theta,i}. \tag{76}
-$
+$$
 
 Jacobian 的行对应方差输出，列对应输入坐标。这里 $\operatorname{diag}$ 用于提取矩阵对角线，而在式（11）中对向量使用时则构造对角矩阵。附录 B.3 已说明 $J_\gamma$ 可以是稠密矩阵。
 
 **精确导数。** Jacobian–vector product（JVP）针对方向 $\zeta$ 计算 $J_\gamma\zeta$；vector–Jacobian product（VJP）按列向量记为 $J_\gamma^\top\zeta$。令 $e_i$ 是第 $i$ 个标准基向量，则
 
-$
+$$
 D_i=(J_\gamma e_i)_i=(J_\gamma^\top e_i)_i. \tag{77}
-$
+$$
 
 用全部 $d$ 个基方向即可精确得到对角线，而不必储存完整 Jacobian。
 
 **随机化导数。** 令 $\zeta^{(1)},\ldots,\zeta^{(m)}$ 为相互独立的 Rademacher 向量，每个坐标以相同概率取 $+1$ 或 $-1$。JVP 估计器为
 
-$
+$$
 \widehat D=\frac1m\sum_{k=1}^{m}
 \zeta^{(k)}\odot J_\gamma\zeta^{(k)}. \tag{78}
-$
+$$
 
 该估计器无偏，其坐标方差为
 
-$
+$$
 \mathbb E[\widehat D\mid x,t]=D,\quad
 \operatorname{Var}(\widehat D_i\mid x,t)
 =\frac1m\sum_{j\ne i}(J_\gamma)_{ij}^2. \tag{79}
-$
+$$
 
 将式（78）的 $J_\gamma\zeta$ 替换为 $J_\gamma^\top\zeta$ 即为 VJP 估计器，仍然无偏，但坐标方差变为 $m^{-1}\sum_{j\ne i}(J_\gamma)_{ji}^2$。附录 G.4 推导这些矩以及它们对采样更新的影响。
 
@@ -1277,9 +1277,9 @@ $
 
 将式（16）、（19）中的采样器离散化。令时间网格为 $0=t_0<\cdots<t_K=T$，$h_k=t_{k+1}-t_k$，初值 $y_0\sim\mathcal N(0,I)$。ODE 的 Euler 采样为
 
-$
+$$
 y_{k+1}=y_k+h_kv_\theta(y_k,t_k). \tag{80}
-$
+$$
 
 每步在时间区间起点评价均值，终止时间约定见附录 G.5。
 
@@ -1293,10 +1293,10 @@ $
 
 对于 SDE 采样，令 $\xi_k\sim\mathcal N(0,I)$ 在各步间相互独立，且独立于初始化。用 $\sqrt{h_k}\xi_k$ 表示布朗增量。Euler–Maruyama 更新为
 
-$
+$$
 y_{k+1}=y_k+h_kb_\theta(y_k,t_k)
 +\sqrt{h_k\lambda(t_k)\gamma_\theta(y_k,t_k)}\odot\xi_k. \tag{81}
-$
+$$
 
 布朗步长的协方差为 $h_ka_\theta(y_k,t_k)$。算法 3 根据同一组后验输出计算漂移，并按附录 G.2 采用精确或随机化的导数估计。
 
@@ -1311,11 +1311,11 @@ $
 
 **FM 采样。** 为得到表 1 的 FM 条目，在同一网格上对式（32）应用 Euler–Maruyama：
 
-$
+$$
 y_{k+1}=y_k+h_k
 \left[v_\eta(y_k,t_k)+\frac12\kappa(t_k)\widehat s_\eta(y_k,t_k)\right]
 +\sqrt{h_k\kappa(t_k)}\,\xi_k. \tag{82}
-$
+$$
 
 各步均使用附录 A.4 推导的速度和分数，$\xi_k$ 独立服从 $\mathcal N(0,I)$。预设扩散各向同性，没有空间导数项；当 $\kappa=0$ 时，退化为 FM ODE 的 Euler 离散化。
 
@@ -1323,36 +1323,36 @@ $
 
 先推导式（79）中估计器的矩，再量化算法 3 引入的额外随机性。对于固定 $(x,t)$ 下的一个探针，第 $i$ 个坐标误差展开为
 
-$
+$$
 \zeta_i(J_\gamma\zeta)_i-D_i
 =\sum_{j\ne i}(J_\gamma)_{ij}\zeta_i\zeta_j.
-$
+$$
 
 由于 Rademacher 变量相互独立，每项期望为零。又因为 $\zeta_i^2=1$，且对不同 $j,l$ 有 $\mathbb E[\zeta_j\zeta_l]=0$，平方的期望为
 
-$
+$$
 \mathbb E\left[\left(\sum_{j\ne i}
 (J_\gamma)_{ij}\zeta_i\zeta_j\right)^2\right]
 =\sum_{j\ne i}(J_\gamma)_{ij}^2.
-$
+$$
 
 对 $m$ 个独立探针平均会将方差除以 $m$，得到式（79）。VJP 探针的推导只需交换 Jacobian 的行与列。
 
 令 $\mathcal F_k$ 包含初始化以及第 $k$ 步之前的全部随机性，因此 $y_k$ 对 $\mathcal F_k$ 可测。当前步的探针独立于该历史及当前布朗向量 $\xi_k$。在式（81）中以 $\widehat D$ 替换 $D$，会引入额外误差
 
-$
+$$
 \varepsilon_k=\frac{h_k\lambda(t_k)}2
 [\widehat D(y_k,t_k)-D(y_k,t_k)]. \tag{83}
-$
+$$
 
 由式（79），JVP 版本满足
 
-$
+$$
 \mathbb E[\varepsilon_k\mid\mathcal F_k]=0,\quad
 \operatorname{Var}(\varepsilon_{k,i}\mid\mathcal F_k)
 =\frac{h_k^2\lambda(t_k)^2}{4m}
 \sum_{j\ne i}(J_\gamma(y_k,t_k))_{ij}^2. \tag{84}
-$
+$$
 
 VJP 探针将求和项换为 $(J_\gamma)_{ji}^2$。这刻画算法 3 因导数计算方法引入的单步额外随机性，可与布朗增量自身的随机性区分开来。
 
@@ -1362,24 +1362,24 @@ ODE 的 Euler 采样允许在 $T\le1$ 结束，但全部系数均在 $t_k<1$ 时
 
 对连续时间的终点性质，假设单个相容过程定义于 $[0,1)$，且对所有 $T<1$ 都满足附录 A.5 的条件。于是其在每个 $t<1$ 的分布均为 $p_t$。参考插值满足
 
-$
+$$
 X_t-X_1=(1-t)(X_0-X_1)\longrightarrow0
 \quad\text{几乎必然地，当 }t\uparrow1.
-$
+$$
 
 对任意有界连续测试函数 $\psi$，根据受控收敛定理，
 
-$
+$$
 \int\psi\,dp_t=\mathbb E[\psi(X_t)]
 \longrightarrow\mathbb E[\psi(X_1)]=\int\psi\,dp_{\rm data}.
-$
+$$
 
 这证明概率测度的弱收敛：
 
-$
+$$
 \operatorname{Law}(Y_t)=p_t\Rightarrow p_{\rm data},
 \qquad t\uparrow1. \tag{85}
-$
+$$
 
 
 ## 附录 H：补充实验
@@ -1440,7 +1440,7 @@ CIFAR-10 作为第 5.1 节图像生成比较的扩展，所评价的 SDE 获得�
 
 分子图及原子/键特征提供条件 $C$；生成任务预测原子坐标，且坐标质心固定在原点。对于 $N$ 个原子，令 $H$ 是维度为 $3(N-1)$ 的中心化子空间，$P$ 是其正交投影矩阵。等变网络预测已中心化的速度，并为每个原子预测一个正的、旋转不变的方差尺度 $\gamma_{\theta,i}^{\rm atom}$。将投影前协方差记为 $G_\theta$，则
 
-$
+$$
 \begin{aligned}
 P&=\left(I_N-\frac{\mathbf1\mathbf1^\top}{N}\right)\otimes I_3,\\
 G_\theta&=\operatorname{diag}_{i=1}^N
@@ -1448,29 +1448,29 @@ G_\theta&=\operatorname{diag}_{i=1}^N
 \Sigma_\theta&=PG_\theta P,\qquad
 \Sigma_\theta^x=(1-t)^2\Sigma_\theta .
 \end{aligned}\tag{86}
-$
+$$
 
 这里投影后的协方差取代式（12）的环境空间对角协方差。由于中心化将原子坐标耦合起来，投影会引入原子之间的相关性。参考噪声通过把标准高斯向量投影到 $H$ 产生；NLL 采用限制在 $H$ 上的协方差逆矩阵和行列式，并以 $3(N-1)$ 归一化。
 
 同样的后验驱动构造得到
 
-$
+$$
 \begin{aligned}
 a_\theta&=\lambda\Sigma_\theta,\qquad
 B_\theta=\sqrt\lambda\,PG_\theta^{1/2},\\
 b_\theta&=v_\theta+\tfrac12(\nabla_H\cdot a_\theta+a_\theta\widehat s_\theta),\\
 \widehat s_\theta&=\frac{tv_\theta-x}{1-t}\in H .
 \end{aligned}\tag{87}
-$
+$$
 
 其中 $\nabla_H$ 表示在中心化子空间内求导。漂移和噪声均留在 $H$，数值更新后重新中心化。式（86）–（87）将第 4.2–4.3 节的后验读数与相容漂移用于分子几何结构。
 
 为了计算式（87）的散度，令 $\gamma_\theta^{\rm pre}=\operatorname{diag}G_\theta\in\mathbb R^{3N}$ 收集投影前各坐标方差；每个原子的方差在三个坐标上重复。令 $J_{\rm pre}$ 表示固定时间和分子条件下，该向量对输入的 Jacobian。由于 $P$ 是常数，
 
-$
+$$
 \nabla_H\cdot a_\theta
 =\lambda(t)P\,\operatorname{diag}(J_{\rm pre}P).
-$
+$$
 
 附录 G.2 的对角提取方法适用于 $J_{\rm pre}P$，其 JVP 和 VJP 分别为 $J_{\rm pre}(P\zeta)$ 和 $PJ_{\rm pre}^\top\zeta$。将精确对角线或随机估计结果乘以 $\lambda(t)P$，即得到漂移所需散度。
 
@@ -1514,10 +1514,10 @@ GEOM-QM9 的覆盖率采用 0.5 Å 匹配阈值。性能指标包含手性校正
 
 PFM ODE 和 SDE 使用同一学习速度 $v_\theta$，但 SDE 额外利用 $\Sigma_\theta$ 分配噪声。为了在固定均值模型下评价这种分配方式，考虑各向同性的替代方案：将后验驱动张量改为 $a_{\rm iso}(t)=\kappa(t)I$，并按附录 H.1 使用相同标量日程 $\kappa(t)=\lambda(t)$。采用式（16）的相同导出分数 $\widehat s_\theta$，式（7）的对应关系给出
 
-$
+$$
 dY_t=\left[v_\theta(Y_t,t)+\frac{\kappa(t)}2\widehat s_\theta(Y_t,t)\right]dt
 +\sqrt{\kappa(t)}\,dW_t. \tag{88}
-$
+$$
 
 这种只依赖时间的张量空间散度为零。对于分子构象，附录 H.4 的中心化子空间 $H$ 内定义各向同性，即环境空间张量取 $\kappa(t)P$，噪声为 $\sqrt{\kappa(t)}P\,dW_t$。所有三个采样器都使用同一个已训练 PFM 模型，并按照附录 E 保持条件不变。因此，各向同性变体只改变 PFM 的采样方式，并不是另行训练的扩散模型。
 
