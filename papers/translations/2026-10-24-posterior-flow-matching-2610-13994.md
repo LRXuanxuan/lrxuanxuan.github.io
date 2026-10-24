@@ -362,7 +362,7 @@ $$
 
 以下英文书目对应原 PDF 第 10–15 页的参考文献，保持原作者、论文题名、出版资料与外部 URL，以便准确检索。出版信息以原论文为准。
 
-Panos Achlioptas, Olga Diamanti, Ioannis Mitliagkas, and Leonidas Guibas. Learning representations and generative models for 3D point clouds. In Proceedings of the 35th International Conference on Machine Learning, volume 80, pp. 40–49. PMLR, 2018. URL https: //proceedings.mlr.press/v80/achlioptas18a.html.
+Panos Achlioptas, Olga Diamanti, Ioannis Mitliagkas, and Leonidas Guibas. Learning representations and generative models for 3D point clouds. In Proceedings of the 35th International Conference on Machine Learning, volume 80, pp. 40–49. PMLR, 2018. URL https://proceedings.mlr.press/v80/achlioptas18a.html.
 
 Michael S. Albergo, Nicholas M. Boffi, and Eric Vanden-Eijnden. Stochastic Interpolants: A Unifying Framework for Flows and Diffusions. Journal of Machine Learning Research, 26(209):1–80, 2025. URL https://jmlr.org/papers/v26/23-1605.html.
 
@@ -370,15 +370,15 @@ Michael Samuel Albergo and Eric Vanden-Eijnden. Building normalizing flows with 
 
 Michael Samuel Albergo, Mark Goldstein, Nicholas Matthew Boffi, Rajesh Ranganath, and Eric Vanden-Eijnden. Stochastic interpolants with data-dependent couplings. In International Conference on Machine Learning, pp. 921–937. PMLR, 2024.
 
-Simon Axelrod and Rafael Gomez-Bombarelli. GEOM, energy-annotated molecular confor- ´ mations for property prediction and molecular generation. Scientific Data, 9:185, 2022. doi: 10.1038/s41597-022-01288-4. URL https://www.nature.com/articles/ s41597-022-01288-4.
+Simon Axelrod and Rafael Gomez-Bombarelli. GEOM, energy-annotated molecular confor- ´ mations for property prediction and molecular generation. Scientific Data, 9:185, 2022. doi: 10.1038/s41597-022-01288-4. URL https://www.nature.com/articles/s41597-022-01288-4.
 
 Fan Bao, Chongxuan Li, Jun Zhu, and Bo Zhang. Analytic-DPM: an Analytic Estimate of the Optimal Reverse Variance in Diffusion Probabilistic Models. In International Conference on Learning Representations, 2022. URL https://openreview.net/forum?id=0xiJLKH-ufZ.
 
-David Barber and Felix V. Agakov. The IM algorithm: A variational approach to information maximization. In Advances in Neural Information Processing Systems, volume 16, 2003. URL https://papers.nips.cc/paper_files/paper/2003/file/ a6ea8471c120fe8cc35a2954c9b9c595-Paper.pdf.
+David Barber and Felix V. Agakov. The IM algorithm: A variational approach to information maximization. In Advances in Neural Information Processing Systems, volume 16, 2003. URL https://papers.nips.cc/paper_files/paper/2003/file/a6ea8471c120fe8cc35a2954c9b9c595-Paper.pdf.
 
 Shengqu Cai, Eric Ryan Chan, Yunzhi Zhang, Leonidas Guibas, Jiajun Wu, and Gordon Wetzstein. Diffusion self-distillation for zero-shot customized image generation. In Proceedings of the Computer Vision and Pattern Recognition Conference, pp. 18434–18443, 2025.
 
-Angel X. Chang, Thomas Funkhouser, Leonidas Guibas, Pat Hanrahan, Qixing Huang, Zimo Li, Silvio Savarese, Manolis Savva, Shuran Song, Hao Su, Jianxiong Xiao, Li Yi, and Fisher Yu. ShapeNet: An information-rich 3D model repository, 2015. URL https://arxiv.org/ abs/1512.03012.
+Angel X. Chang, Thomas Funkhouser, Leonidas Guibas, Pat Hanrahan, Qixing Huang, Zimo Li, Silvio Savarese, Manolis Savva, Shuran Song, Hao Su, Jianxiong Xiao, Li Yi, and Fisher Yu. ShapeNet: An information-rich 3D model repository, 2015. URL https://arxiv.org/abs/1512.03012.
 
 Cheng Chi, Zhenjia Xu, Siyuan Feng, Eric Cousineau, Yilun Du, Benjamin Burchfiel, Russ Tedrake, and Shuran Song. Diffusion policy: Visuomotor policy learning via action diffusion. The International Journal of Robotics Research, 44(10-11):1684–1704, 2025. Friso de Kruiff, Dario Coscia, Max Welling, and Erik Bekkers. Flowing with Confidence. arXiv:2605.18472, 2026. URL https://arxiv.org/abs/2605.18472.
 
@@ -386,9 +386,9 @@ Michele De Vita and Vasileios Belagiannis. Diffusion Model Guided Sampling with 
 
 Jia Deng, Wei Dong, Richard Socher, Li-Jia Li, Kai Li, and Li Fei-Fei. ImageNet: A large-scale hierarchical image database. In IEEE Conference on Computer Vision and Pattern Recognition, pp. 248–255, 2009. doi: 10.1109/CVPR.2009.5206848. URL https://www.image-net. org/static_files/papers/imagenet_cvpr09.pdf.
 
-Alexey Dosovitskiy, Lucas Beyer, Alexander Kolesnikov, Dirk Weissenborn, Xiaohua Zhai, Thomas Unterthiner, Mostafa Dehghani, Matthias Minderer, Georg Heigold, Sylvain Gelly, Jakob Uszkoreit, and Neil Houlsby. An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale. In International Conference on Learning Representations, 2021. URL https: //openreview.net/forum?id=YicbFdNTTy.
+Alexey Dosovitskiy, Lucas Beyer, Alexander Kolesnikov, Dirk Weissenborn, Xiaohua Zhai, Thomas Unterthiner, Mostafa Dehghani, Matthias Minderer, Georg Heigold, Sylvain Gelly, Jakob Uszkoreit, and Neil Houlsby. An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale. In International Conference on Learning Representations, 2021. URL https://openreview.net/forum?id=YicbFdNTTy.
 
-Patrick Esser, Sumith Kulal, Andreas Blattmann, Rahim Entezari, Jonas Muller, Harry Saini, Yam ¨ Levi, Dominik Lorenz, Axel Sauer, Frederic Boesel, Dustin Podell, Tim Dockhorn, Zion English, and Robin Rombach. Scaling rectified flow transformers for high-resolution image synthesis. In Forty-first International Conference on Machine Learning, 2024. URL https: //openreview.net/forum?id=FPnUhsQJ5B.
+Patrick Esser, Sumith Kulal, Andreas Blattmann, Rahim Entezari, Jonas Muller, Harry Saini, Yam ¨ Levi, Dominik Lorenz, Axel Sauer, Frederic Boesel, Dustin Podell, Tim Dockhorn, Zion English, and Robin Rombach. Scaling rectified flow transformers for high-resolution image synthesis. In Forty-first International Conference on Machine Learning, 2024. URL https://openreview.net/forum?id=FPnUhsQJ5B.
 
 Pete Florence, Corey Lynch, Andy Zeng, Oscar A Ramirez, Ayzaan Wahid, Laura Downs, Adrian Wong, Johnny Lee, Igor Mordatch, and Jonathan Tompson. Implicit behavioral cloning. In Conference on robot learning, pp. 158–168. PMLR, 2022.
 
@@ -398,11 +398,11 @@ Pengsheng Guo and Alex Schwing. Variational rectified flow matching. In Forty-se
 
 Juyeop Han, Lukas Lao Beyer, and Sertac Karaman. Flow Matching with Uncertainty Quantification and Guidance. arXiv:2602.10326, 2026. URL https://arxiv.org/abs/2602.10326.
 
-Majdi Hassan, Nikhil Shenoy, Jungyoon Lee, Hannes Stark, Stephan Thaler, and Do- ¨ minique Beaini. ET-Flow: Equivariant Flow-Matching for Molecular Conformer Generation. In Advances in Neural Information Processing Systems, volume 37, pp. 128798–128824. Curran Associates, Inc., 2024. doi: 10.52202/079017-4091. URL https://proceedings.neurips.cc/paper_files/paper/2024/hash/ e8bd617e7dd0394ceadf37b4a7773179-Abstract-Conference.html.
+Majdi Hassan, Nikhil Shenoy, Jungyoon Lee, Hannes Stark, Stephan Thaler, and Do- ¨ minique Beaini. ET-Flow: Equivariant Flow-Matching for Molecular Conformer Generation. In Advances in Neural Information Processing Systems, volume 37, pp. 128798–128824. Curran Associates, Inc., 2024. doi: 10.52202/079017-4091. URL https://proceedings.neurips.cc/paper_files/paper/2024/hash/e8bd617e7dd0394ceadf37b4a7773179-Abstract-Conference.html.
 
 Martin Heusel, Hubert Ramsauer, Thomas Unterthiner, Bernhard Nessler, and Sepp Hochreiter. Gans trained by a two time-scale update rule converge to a local nash equilibrium. Advances in neural information processing systems, 30, 2017.
 
-Jonathan Ho, Ajay Jain, and Pieter Abbeel. Denoising Diffusion Probabilistic Models. In Advances in Neural Information Processing Systems, volume 33, pp. 6840–6851. Curran Associates, Inc., 2020. URL https://proceedings.neurips.cc/paper/2020/hash/ 4c5bcfec8584af0d967f1ab10179ca4b-Abstract.html.
+Jonathan Ho, Ajay Jain, and Pieter Abbeel. Denoising Diffusion Probabilistic Models. In Advances in Neural Information Processing Systems, volume 33, pp. 6840–6851. Curran Associates, Inc., 2020. URL https://proceedings.neurips.cc/paper/2020/hash/4c5bcfec8584af0d967f1ab10179ca4b-Abstract.html.
 
 Emiel Hoogeboom, Jonathan Heek, and Tim Salimans. simple diffusion: End-to-end diffusion for high resolution images. In International Conference on Machine Learning, pp. 13213–13232. PMLR, 2023.
 
@@ -428,7 +428,7 @@ Chieh-Hsin Lai, Yang Song, Dongjun Kim, Yuki Mitsufuji, and Stefano Ermon. The p
 
 Sangyun Lee, Zinan Lin, and Giulia Fanti. Improving the training of rectified flows. Advances in neural information processing systems, 37:63082–63109, 2024.
 
-Tianhong Li and Kaiming He. Back to Basics: Let Denoising Generative Models Denoise. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), pp. 36115–36125, 2026. URL https://openaccess.thecvf.com/content/ CVPR2026/html/Li_Back_to_Basics_Let_Denoising_Generative_Models_ Denoise_CVPR_2026_paper.html.
+Tianhong Li and Kaiming He. Back to Basics: Let Denoising Generative Models Denoise. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), pp. 36115–36125, 2026. URL https://openaccess.thecvf.com/content/CVPR2026/html/Li_Back_to_Basics_Let_Denoising_Generative_Models_ Denoise_CVPR_2026_paper.html.
 
 Yaron Lipman, Ricky T. Q. Chen, Heli Ben-Hamu, Maximilian Nickel, and Matt Le. Flow Matching for Generative Modeling. In International Conference on Learning Representations, 2023. URL https://openreview.net/forum?id=PqvMRDCJT9t.
 
@@ -446,13 +446,13 @@ Chenrui Ma. Transition flow matching. arXiv preprint arXiv:2603.15689, 2026.
 
 Chenrui Ma, Xi Xiao, Tianyang Wang, and Yanning Shen. Beyond editing pairs: Fine-grained instructional image editing via multi-scale learnable regions. arXiv preprint arXiv:2505.19352, 2025a.
 
-Chenrui Ma, Xi Xiao, Tianyang Wang, Xiao Wang, and Yanning Shen. Stochastic interpolants via conditional dependent coupling. arXiv preprint arXiv:2509.23122, 2025b. URL https: //arxiv.org/abs/2509.23122.
+Chenrui Ma, Xi Xiao, Tianyang Wang, Xiao Wang, and Yanning Shen. Stochastic interpolants via conditional dependent coupling. arXiv preprint arXiv:2509.23122, 2025b. URL https://arxiv.org/abs/2509.23122.
 
 Chenrui Ma, Xi Xiao, Tianyang Wang, Xiao Wang, and Yanning Shen. Learning Straight Flows: Variational Flow Matching for Efficient Generation. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), pp. 38154–38164, 2026a. URL https://openaccess.thecvf.com/content/CVPR2026/html/Ma_ Learning_Straight_Flows_Variational_Flow_Matching_for_Efficient_ Generation_CVPR_2026_paper.html.
 
-Chenrui Ma, Xi Xiao, Tianyang Wang, Xiao Wang, and Yanning Shen. CAD-VAE: Leveraging Correlation-Aware Latents for Comprehensive Fair Disentanglement. In Proceedings of the AAAI Conference on Artificial Intelligence, volume 40, pp. 7744–7754, 2026b. doi: 10. 1609/aaai.v40i10.37717. URL https://ojs.aaai.org/index.php/AAAI/article/ view/37717.
+Chenrui Ma, Xi Xiao, Tianyang Wang, Xiao Wang, and Yanning Shen. CAD-VAE: Leveraging Correlation-Aware Latents for Comprehensive Fair Disentanglement. In Proceedings of the AAAI Conference on Artificial Intelligence, volume 40, pp. 7744–7754, 2026b. doi: 10. 1609/aaai.v40i10.37717. URL https://ojs.aaai.org/index.php/AAAI/article/view/37717.
 
-Chenrui Ma, Xi Xiao, Lin Zhao, Tianyang Wang, Ferdinando Fioretto, and Yanning Shen. Drift Flow Matching. arXiv preprint arXiv:2605.17244, 2026c. URL https://arxiv.org/abs/ 2605.17244.
+Chenrui Ma, Xi Xiao, Lin Zhao, Tianyang Wang, Ferdinando Fioretto, and Yanning Shen. Drift Flow Matching. arXiv preprint arXiv:2605.17244, 2026c. URL https://arxiv.org/abs/2605.17244.
 
 Nanye Ma, Mark Goldstein, Michael S Albergo, Nicholas M Boffi, Eric Vanden-Eijnden, and Saining Xie. Sit: Exploring flow and diffusion-based generative models with scalable interpolant transformers. In European Conference on Computer Vision, pp. 23–40. Springer, 2024.
 
@@ -460,7 +460,7 @@ Hila Manor and Tomer Michaeli. On the Posterior Distribution in Denoising: Appli
 
 Shakir Mohamed and Danilo Jimenez Rezende. Variational information maximisation for intrinsically motivated reinforcement learning. In Advances in Neural Information Processing Systems, volume 28, 2015. URL https://arxiv.org/abs/1509.08731.
 
-Alexander Quinn Nichol and Prafulla Dhariwal. Improved denoising diffusion probabilistic models. In Marina Meila and Tong Zhang (eds.), Proceedings of the 38th International Conference on Machine Learning, volume 139 of Proceedings of Machine Learning Research, pp. 8162–8171. PMLR, 18–24 Jul 2021. URL https://proceedings.mlr.press/v139/ nichol21a.html.
+Alexander Quinn Nichol and Prafulla Dhariwal. Improved denoising diffusion probabilistic models. In Marina Meila and Tong Zhang (eds.), Proceedings of the 38th International Conference on Machine Learning, volume 139 of Proceedings of Machine Learning Research, pp. 8162–8171. PMLR, 18–24 Jul 2021. URL https://proceedings.mlr.press/v139/nichol21a.html.
 
 Aram-Alexandre Pooladian, Heli Ben-Hamu, Carles Domingo-Enrich, Brandon Amos, Yaron Lipman, and Ricky TQ Chen. Multisample flow matching: Straightening flows with minibatch couplings. In International Conference on Machine Learning, pp. 28100–28127. PMLR, 2023.
 
@@ -468,17 +468,17 @@ Ben Poole, Sherjil Ozair, Aaron van den Oord, Alex Alemi, and George Tucker. On 
 
 Charles R. Qi, Hao Su, Kaichun Mo, and Leonidas J. Guibas. PointNet: Deep learning on point sets for 3D classification and segmentation. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pp. 652–660, 2017. URL https://openaccess.thecvf.com/content_cvpr_2017/html/Qi_ PointNet_Deep_Learning_CVPR_2017_paper.html.
 
-Raghunathan Ramakrishnan, Pavlo O. Dral, Matthias Rupp, and O. Anatole von Lilienfeld. Quantum chemistry structures and properties of 134 kilo molecules. Scientific Data, 1: 140022, 2014. doi: 10.1038/sdata.2014.22. URL https://www.nature.com/articles/ sdata201422. 13
+Raghunathan Ramakrishnan, Pavlo O. Dral, Matthias Rupp, and O. Anatole von Lilienfeld. Quantum chemistry structures and properties of 134 kilo molecules. Scientific Data, 1: 140022, 2014. doi: 10.1038/sdata.2014.22. URL https://www.nature.com/articles/sdata201422. 13
 
 Robin Rombach, Andreas Blattmann, Dominik Lorenz, Patrick Esser, and Bjorn Ommer. High- ¨ Resolution Image Synthesis With Latent Diffusion Models. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), pp. 10684–10695, 2022. URL https://openaccess.thecvf.com/content/CVPR2022/html/Rombach_ High-Resolution_Image_Synthesis_With_Latent_Diffusion_Models_ CVPR_2022_paper.html.
 
 David E Rumelhart, Geoffrey E Hinton, and Ronald J Williams. Learning representations by backpropagating errors. nature, 323(6088):533–536, 1986.
 
-Olga Russakovsky, Jia Deng, Hao Su, Jonathan Krause, Sanjeev Satheesh, Sean Ma, Zhiheng Huang, Andrej Karpathy, Aditya Khosla, Michael Bernstein, Alexander C. Berg, and Li FeiFei. ImageNet large scale visual recognition challenge. International Journal of Computer Vision, 115(3):211–252, 2015. doi: 10.1007/s11263-015-0816-y. URL https://arxiv.org/ abs/1409.0575.
+Olga Russakovsky, Jia Deng, Hao Su, Jonathan Krause, Sanjeev Satheesh, Sean Ma, Zhiheng Huang, Andrej Karpathy, Aditya Khosla, Michael Bernstein, Alexander C. Berg, and Li FeiFei. ImageNet large scale visual recognition challenge. International Journal of Computer Vision, 115(3):211–252, 2015. doi: 10.1007/s11263-015-0816-y. URL https://arxiv.org/abs/1409.0575.
 
 Tim Salimans, Ian Goodfellow, Wojciech Zaremba, Vicki Cheung, Alec Radford, and Xi Chen. Improved techniques for training gans. Advances in neural information processing systems, 29, 2016.
 
-Yang Song, Jascha Sohl-Dickstein, Diederik P. Kingma, Abhishek Kumar, Stefano Ermon, and Ben Poole. Score-Based Generative Modeling through Stochastic Differential Equations. In International Conference on Learning Representations, 2021. URL https://arxiv.org/ abs/2011.13456.
+Yang Song, Jascha Sohl-Dickstein, Diederik P. Kingma, Abhishek Kumar, Stefano Ermon, and Ben Poole. Score-Based Generative Modeling through Stochastic Differential Equations. In International Conference on Learning Representations, 2021. URL https://arxiv.org/abs/2011.13456.
 
 George Stoica, Sayak Paul, Matthew Wallingford, Vivek Ramanujan, Abhay Nori, Winson Han, Ali Farhadi, Ranjay Krishna, and Judy Hoffman. Posterior Augmented Flow Matching. arXiv:2605.00825, 2026. URL https://arxiv.org/abs/2605.00825.
 
@@ -486,23 +486,23 @@ Philipp Tholke and Gianni De Fabritiis. TorchMD-NET: Equivariant transformers fo
 
 Alexander Tong, Kilian Fatras, Nikolay Malkin, Guillaume Huguet, Yanlei Zhang, Jarrid RectorBrooks, Guy Wolf, and Yoshua Bengio. Improving and Generalizing Flow-Based Generative Models with Minibatch Optimal Transport. Transactions on Machine Learning Research, 2024. URL https://openreview.net/forum?id=CD9Snc73AW.
 
-Fu-Yun Wang, Ling Yang, Zhaoyang Huang, Mengdi Wang, and Hongsheng Li. Rectified Diffusion: Straightness Is Not Your Need in Rectified Flow. In International Conference on Learning Representations, pp. 31420–31445, 2025. URL https://proceedings.iclr.cc/paper_files/paper/2025/hash/ 4df9a5e6bad9e64ebcea453e031142bb-Abstract-Conference.html.
+Fu-Yun Wang, Ling Yang, Zhaoyang Huang, Mengdi Wang, and Hongsheng Li. Rectified Diffusion: Straightness Is Not Your Need in Rectified Flow. In International Conference on Learning Representations, pp. 31420–31445, 2025. URL https://proceedings.iclr.cc/paper_files/paper/2025/hash/4df9a5e6bad9e64ebcea453e031142bb-Abstract-Conference.html.
 
-Andre Wibisono, Varun Jog, and Po-Ling Loh. Information and estimation in Fokker–Planck channels. In IEEE International Symposium on Information Theory, 2017. URL https: //arxiv.org/abs/1702.03656.
+Andre Wibisono, Varun Jog, and Po-Ling Loh. Information and estimation in Fokker–Planck channels. In IEEE International Symposium on Information Theory, 2017. URL https://arxiv.org/abs/1702.03656.
 
 Xi Xiao, Chenrui Ma, Yunbei Zhang, Chen Liu, Zhuxuanzi Wang, Yanshu Li, Lin Zhao, Guosheng Hu, Tianyang Wang, and Hao Xu. Not All Directions Matter: Towards Structured and Task-Aware Low-Rank Model Adaptation. In Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pp. 2132–2154. Association for Computational Linguistics, 2026. doi: 10.18653/v1/2026.acl-long.97. URL https://aclanthology.org/2026.acl-long.97/.
 
-Guandao Yang, Xun Huang, Zekun Hao, Ming-Yu Liu, Serge Belongie, and Bharath Hariharan. PointFlow: 3D point cloud generation with continuous normalizing flows. In Proceedings of the IEEE/CVF International Conference on Computer Vision, 2019. URL https://arxiv.org/ abs/1906.12320.
+Guandao Yang, Xun Huang, Zekun Hao, Ming-Yu Liu, Serge Belongie, and Bharath Hariharan. PointFlow: 3D point cloud generation with continuous normalizing flows. In Proceedings of the IEEE/CVF International Conference on Computer Vision, 2019. URL https://arxiv.org/abs/1906.12320.
 
 Sihyun Yu, Sangkyung Kwak, Huiwon Jang, Jongheon Jeong, Jonathan Huang, Jinwoo Shin, and Saining Xie. Representation Alignment for Generation: Training Diffusion Transformers Is Easier 14
 
-Than You Think. In International Conference on Learning Representations, pp. 87400–87442, 2025. URL https://proceedings.iclr.cc/paper_files/paper/2025/hash/ d9e42b4d7163931f3689d6d6fbaa11d0-Abstract-Conference.html.
+Than You Think. In International Conference on Learning Representations, pp. 87400–87442, 2025. URL https://proceedings.iclr.cc/paper_files/paper/2025/hash/d9e42b4d7163931f3689d6d6fbaa11d0-Abstract-Conference.html.
 
 Yichi Zhang, Yici Yan, Alex Schwing, and Zhizhen Zhao. Hierarchical rectified flow matching with mini-batch couplings. arXiv preprint arXiv:2507.13350, 2025a.
 
-Yichi Zhang, Yici Yan, Alex Schwing, and Zhizhen Zhao. Towards hierarchical rectified flow. In The Thirteenth International Conference on Learning Representations, 2025b. URL https: //openreview.net/forum?id=6F6qwdycgJ.
+Yichi Zhang, Yici Yan, Alex Schwing, and Zhizhen Zhao. Towards hierarchical rectified flow. In The Thirteenth International Conference on Learning Representations, 2025b. URL https://openreview.net/forum?id=6F6qwdycgJ.
 
-Boyang Zheng, Nanye Ma, Shengbang Tong, and Saining Xie. Diffusion Transformers with Representation Autoencoders. In International Conference on Learning Representations, pp. 35791– 35820, 2026. URL https://proceedings.iclr.cc/paper_files/paper/2026/ hash/3c4141c12660ad3625eb4ae845e0a6f9-Abstract-Conference.html.
+Boyang Zheng, Nanye Ma, Shengbang Tong, and Saining Xie. Diffusion Transformers with Representation Autoencoders. In International Conference on Learning Representations, pp. 35791– 35820, 2026. URL https://proceedings.iclr.cc/paper_files/paper/2026/hash/3c4141c12660ad3625eb4ae845e0a6f9-Abstract-Conference.html.
 
 ## 附录 A：记号与共同基础
 
