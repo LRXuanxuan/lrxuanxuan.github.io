@@ -13,7 +13,7 @@ toc: true
 **原题：** Posterior Flow Matching  
 **作者：** Chenrui Ma、Xi Xiao、Lin Zhao、Xinru Jiang、Tianyang Wang、Yanning Shen、Nando Fioretto  
 **版本：** arXiv:2610.13994v1，42 页（包含长篇附录）。  
-**译稿范围：** 摘要、正文第 1–6 节、核心公式（1）–（20）、图 1–7 的部分说明、主要数值表；**附录 A–B 已补入推导及公式（21）–（45）；附录 C–E 已补入公式（46）–（68）及证明；附录 F–H 尚未逐段翻译，全部参考文献题录请查原版**。不能视为完整 42 页全文翻译。
+**译稿范围：** 摘要、正文第 1–6 节、核心公式（1）–（20）、图 1–7 的部分说明、主要数值表；**附录 A–B 已补入推导及公式（21）–（45）；附录 C–E 已补入公式（46）–（68）及证明；附录 F–G 的数学与算法（69）–（85）已补；附录 H 的补充实验仍待逐段翻译，全部参考文献题录请查原版**。不能视为完整 42 页全文翻译。
 
 ## 摘要
 
@@ -1092,6 +1092,280 @@ $
 对于条件参考样本对，根据 E.1 节从独立噪声和带条件 $C$ 的数据端点构造 $X_t$。定义 $e_i^v=V_i-v_{\theta,i}(X_t,t,C)$ 和 $e_i^x=X_{1,i}-\mu_{\theta,i}(X_t,t,C)$，则逐点成立 $e_i^x=(1-t)e_i^v$。对附录 D.2 的残差恒等式同时以 $X_t$、$C$ 为条件，就得到相同的均值残差、方差—残差检验。评价采用未参与训练的数据端点；如需评价协方差拟合，则在相同的 $(X_t,t,C)$ 和共同预测均值下比较条件高斯 NLL。附录 H.4 将此方法用于分子构象。
 
 至此，第 4.1–4.3 节的后验学习、生成和诊断均扩展到条件情形。附录 H 将介绍不同任务如何提供生成条件。
+
+
+## 附录 F：终点均值参数化
+
+本附录提出直接预测终点均值，作为第 4.1 节的替代参数化。在相同参考路径上，由于 $X_1=X_t+(1-t)V$，对于 $t<1$，终点均值与速度均值可以互相转换。方差输出头仍然预测速度对数方差。下面定义该模型及其似然，确定条件矩学习目标，并构造第 4.2–4.3 节采样器及诊断所使用的场。
+
+### F.1 直接终点均值模型
+
+作为第 4.1 节直接速度预测的替代方法，使用终点网络 $F_\theta^x$ 输出
+
+$
+(\mu_\theta,\ell_\theta)=F_\theta^x(x,t),\quad
+\gamma_\theta=\exp\ell_\theta,\quad
+q_\theta^x=\mathcal N(\mu_\theta,(1-t)^2\operatorname{diag}\gamma_\theta). \tag{69}
+$
+
+这里 $\ell_\theta$ 表示速度的对数方差。逆用式（10）得到
+
+$
+v_\theta(x,t)=\frac{\mu_\theta(x,t)-x}{1-t},\quad
+V-v_\theta(X_t,t)=\frac{X_1-\mu_\theta(X_t,t)}{1-t}. \tag{70}
+$
+
+### F.2 似然与条件矩
+
+将式（70）的残差代入式（13），得到
+
+$
+\mathcal L_{\rm PFM}^{x}
+=\frac12\mathbb E\left[
+\sum_i\left(
+\frac{(X_{1,i}-\mu_{\theta,i})^2}{(1-t)^2\gamma_{\theta,i}}
++\log\gamma_{\theta,i}
+\right)\right]. \tag{71}
+$
+
+全部输出均在 $(X_t,t)$ 处计算。算法 1 可以直接使用终点网络及上述单样本损失。在附录 B.3 的有限期望条件下，完整目标满足
+
+$
+\mathbb E[-\log q_\theta^x(X_1\mid X_t,t)]
+=\mathcal L_{\rm PFM}^{x}
++d\mathbb E_t\log(1-t)+\frac d2\log(2\pi). \tag{72}
+$
+
+因此式（41）与（72）对两种均值参数化表达相同的变量变换。将式（71）中的 $\gamma_\theta$ 固定为 1，就得到在终点参数化下权重为 $(1-t)^{-2}$ 的平方误差 FM，与速度坐标中的式（45）对应。
+
+下面将终点网络与命题 4.1 联系起来。对固定 $(x,t)$ 且 $t<1$，候选终点均值和速度均值之间的变换是一一对应的。因此，在命题 4.1 的矩条件下，式（71）的条件总体最优解为
+
+$
+\mu_\theta=\mathbb E[X_1\mid X_t=x],\qquad
+\gamma_{\theta,i}=\operatorname{Var}(V_i\mid X_t=x).
+$
+
+式（38）将该速度方差转换为终点对角协方差。
+
+### F.3 生成动力学
+
+将式（70）代入式（16），可得
+
+$
+\widehat s_\theta=\frac{t\mu_\theta-x}{(1-t)^2},\qquad
+a_\theta=\lambda\operatorname{diag}\gamma_\theta
+=\frac{\lambda(t)}{(1-t)^2}\Sigma_\theta^x. \tag{73}
+$
+
+使用这些场以及 $B_\theta=\sqrt\lambda\,\operatorname{diag}\sqrt{\gamma_\theta}$，采样器为
+
+$
+dY_t=\frac{\mu_\theta(Y_t,t)-Y_t}{1-t}\,dt,
+$
+
+$
+dY_t=\left[
+\frac{\mu_\theta-x}{1-t}+\frac12\nabla_x\cdot a_\theta
++\frac12a_\theta\widehat s_\theta
+\right](Y_t,t)\,dt+B_\theta(Y_t,t)dW_t.
+$
+
+二者均从 $\mathcal N(0,I)$ 初始化。根据式（73）构造相关场后，可以按算法 2、3 进行离散化。
+
+### F.4 读数与参数化对应关系
+
+终点均值 $\mu_\theta$ 由网络直接预测，速度则由 $v_\theta=(\mu_\theta-x)/(1-t)$ 导出。方差输出分别在速度坐标中表示 $\Sigma_\theta=\operatorname{diag}\exp\ell_\theta$，在终点坐标中表示 $\Sigma_\theta^x=(1-t)^2\Sigma_\theta$。所以两种参数化都能提供第 4.3 节的后验读数。
+
+当两种均值参数化满足 $\mu_\theta(x,t)=x+(1-t)v_\theta(x,t)$，并使用相同的速度协方差场和日程 $\lambda(t)$ 时，得到的速度、分数、扩散张量和漂移完全相同。似然关系已由附录 B.3 证明，残差关系已由附录 D.1 证明。由此可见，正文采用直接速度预测，而附录 H.2 的 ImageNet 实现则采用直接终点均值预测，这两种参数化在动力学与似然上相对应。
+
+在条件生成中，使用附录 E.1 的参考构造，评价 $F_\theta^x(x,t,c)$。保持 $c$ 固定不改变仿射变换；似然对 $(C,X_1,X_0,t)$ 求平均，所得场用于附录 E.3–E.4 的条件采样与诊断。
+
+## 附录 G：训练与数值采样
+
+本附录将第 4.1–4.2 节的目标及连续动力学转为训练和采样算法。网络 $F_\theta(x,t)$ 输出速度均值 $v_\theta$ 与对数方差 $\ell_\theta$，其中 $\gamma_\theta=\exp\ell_\theta$、$\Sigma_\theta=\operatorname{diag}\gamma_\theta$。以下指定联合训练更新、SDE 漂移所需的方差导数，并离散化两种采样器；最后分析随机导数估计对单步采样的影响，并说明终止时间与输出约定。向量的乘法 $\odot$、指数和平方根都按元素计算。图 8 在图 1 的基础上补充应用读数，并将下述算法连接到附录 H 的任务实现。
+
+### G.1 训练更新
+
+由于 $\Sigma_\theta$ 为对角矩阵，逆矩阵的元素为 $\exp(-\ell_{\theta,i})$，对数行列式为 $\sum_i\ell_{\theta,i}$，式（13）可以写成
+
+$
+\mathcal L_{\rm PFM}
+=\frac12\mathbb E\sum_i
+\left[\exp(-\ell_{\theta,i})(V_i-v_{\theta,i})^2+\ell_{\theta,i}\right]. \tag{74}
+$
+
+方差头首先产生无约束输出 $\rho_{\theta,i}$，再经以下映射得到损失中使用的对数方差：
+
+$
+\ell_{\theta,i}=\ell_-+(\ell_+-\ell_-)\operatorname{sigmoid}(\rho_{\theta,i}),
+\qquad
+\gamma_{\theta,i}=\exp\ell_{\theta,i}. \tag{75}
+$
+
+当 $\rho_{\theta,i}$ 为有限值时，对应方差落在开区间内。式（44）的内部最优解能够取到，而边界最优解在 $\rho_{\theta,i}\to\pm\infty$ 时被渐近逼近。同一个受约束方差既用于似然、也用于扩散张量和终点读数。各任务的具体上下界见表 7。算法 1 对小批次的损失取平均，并通过上述映射和完整共享网络求导。
+
+**算法 1：联合后验训练。** 输入网络 $F_\theta$、数据分布、与参数无关的时间分布 $r$ 和优化器。重复直到达到指定训练预算：
+
+1. 从 $p_{\rm data}$ 采样一批数据端点 $X_1$；对批中每个样本独立采样 $X_0\sim\mathcal N(0,I)$、$t\sim r$。
+2. 构造 $X_t=(1-t)X_0+tX_1$ 和 $V=X_1-X_0$。
+3. 前向计算一次 $(v_\theta,\ell_\theta)=F_\theta(X_t,t)$，并对式（74）的被积项取批次平均。
+4. 对该损失反向传播，联合更新两个输出头与共享骨干的参数。
+
+输出训练后的参数 $\theta$。该模型同时提供均值、方差，以及以下采样器所需的导出分数。条件生成扩展见附录 E.2。
+
+### G.2 SDE 漂移的方差导数
+
+对训练后的模型，ODE 直接使用 $v_\theta$。而 SDE 还需要 $\widehat s_\theta=(tv_\theta-x)/(1-t)$，以及在所选非负日程 $\lambda$ 下的 $a_\theta=\lambda(t)\operatorname{diag}\gamma_\theta$。附录 C.2 推导的相容漂移为
+
+$
+b_\theta=v_\theta+\frac{\lambda(t)}2(D+\gamma_\theta\odot\widehat s_\theta),
+\qquad D_i=\partial_{x_i}\gamma_{\theta,i}.
+$
+
+固定时间下，定义
+
+$
+(J_\gamma)_{ij}=\partial_{x_j}\gamma_{\theta,i},\quad
+D=\operatorname{diag}J_\gamma,\quad
+D_i=\gamma_{\theta,i}\partial_{x_i}\ell_{\theta,i}. \tag{76}
+$
+
+Jacobian 的行对应方差输出，列对应输入坐标。这里 $\operatorname{diag}$ 用于提取矩阵对角线，而在式（11）中对向量使用时则构造对角矩阵。附录 B.3 已说明 $J_\gamma$ 可以是稠密矩阵。
+
+**精确导数。** Jacobian–vector product（JVP）针对方向 $\zeta$ 计算 $J_\gamma\zeta$；vector–Jacobian product（VJP）按列向量记为 $J_\gamma^\top\zeta$。令 $e_i$ 是第 $i$ 个标准基向量，则
+
+$
+D_i=(J_\gamma e_i)_i=(J_\gamma^\top e_i)_i. \tag{77}
+$
+
+用全部 $d$ 个基方向即可精确得到对角线，而不必储存完整 Jacobian。
+
+**随机化导数。** 令 $\zeta^{(1)},\ldots,\zeta^{(m)}$ 为相互独立的 Rademacher 向量，每个坐标以相同概率取 $+1$ 或 $-1$。JVP 估计器为
+
+$
+\widehat D=\frac1m\sum_{k=1}^{m}
+\zeta^{(k)}\odot J_\gamma\zeta^{(k)}. \tag{78}
+$
+
+该估计器无偏，其坐标方差为
+
+$
+\mathbb E[\widehat D\mid x,t]=D,\quad
+\operatorname{Var}(\widehat D_i\mid x,t)
+=\frac1m\sum_{j\ne i}(J_\gamma)_{ij}^2. \tag{79}
+$
+
+将式（78）的 $J_\gamma\zeta$ 替换为 $J_\gamma^\top\zeta$ 即为 VJP 估计器，仍然无偏，但坐标方差变为 $m^{-1}\sum_{j\ne i}(J_\gamma)_{ji}^2$。附录 G.4 推导这些矩以及它们对采样更新的影响。
+
+采样时模型参数保持固定，但关于当前状态的求导仍要保留方差场对全部输入的依赖。因此，SDE 需要在网络前向计算之外额外进行导数计算。
+
+### G.3 数值采样
+
+将式（16）、（19）中的采样器离散化。令时间网格为 $0=t_0<\cdots<t_K=T$，$h_k=t_{k+1}-t_k$，初值 $y_0\sim\mathcal N(0,I)$。ODE 的 Euler 采样为
+
+$
+y_{k+1}=y_k+h_kv_\theta(y_k,t_k). \tag{80}
+$
+
+每步在时间区间起点评价均值，终止时间约定见附录 G.5。
+
+**算法 2：PFM ODE 采样。** 输入已训练网络 $F_\theta$，以及在 $T\le1$ 终止的时间网格。采样 $y_0\sim\mathcal N(0,I)$，对 $k=0,\ldots,K-1$：
+
+1. 计算 $h_k=t_{k+1}-t_k$，并评价 $v_\theta(y_k,t_k)$。
+2. 如果需要后验诊断，还在该状态按式（15）记录 $\Sigma_\theta$、$\mu_\theta$ 与 $\Sigma_\theta^x$。
+3. 按式（80）更新状态。
+
+输出 $y_K$ 及所有已记录的后验读数。
+
+对于 SDE 采样，令 $\xi_k\sim\mathcal N(0,I)$ 在各步间相互独立，且独立于初始化。用 $\sqrt{h_k}\xi_k$ 表示布朗增量。Euler–Maruyama 更新为
+
+$
+y_{k+1}=y_k+h_kb_\theta(y_k,t_k)
++\sqrt{h_k\lambda(t_k)\gamma_\theta(y_k,t_k)}\odot\xi_k. \tag{81}
+$
+
+布朗步长的协方差为 $h_ka_\theta(y_k,t_k)$。算法 3 根据同一组后验输出计算漂移，并按附录 G.2 采用精确或随机化的导数估计。
+
+**算法 3：PFM SDE 采样。** 输入网络 $F_\theta$、日程 $\lambda$、导数计算方法，以及终点为 $T<1$ 的时间网格。采样 $y_0\sim\mathcal N(0,I)$，然后对 $k=0,\ldots,K-1$：
+
+1. 计算 $h_k=t_{k+1}-t_k$，评价 $(v_\theta,\ell_\theta)=F_\theta(y_k,t_k)$。
+2. 计算 $\gamma_\theta=\exp\ell_\theta$ 和 $\widehat s_\theta=(t_kv_\theta-y_k)/(1-t_k)$。
+3. 计算 $D_i=\partial_{y_i}\gamma_{\theta,i}$，或者通过新的随机探针估计 $\widehat D_i$；构造 $b_\theta=v_\theta+\lambda(t_k)(D+\gamma_\theta\odot\widehat s_\theta)/2$，如使用随机估计则以 $\widehat D$ 替换 $D$。
+4. 独立采样 $\xi_k\sim\mathcal N(0,I)$，根据式（81）更新；如需后验读数，则根据式（15）在当前已评价状态处记录。
+
+输出 $y_K$ 及记录的后验读数。当某步 $\lambda(t_k)=0$ 时直接使用式（80）。若 $\lambda\equiv0$，布朗项及两项漂移修正全部消失，算法 3 无须方差导数便退化为算法 2。二者使用第 4.1 节的同一个训练模型。
+
+**FM 采样。** 为得到表 1 的 FM 条目，在同一网格上对式（32）应用 Euler–Maruyama：
+
+$
+y_{k+1}=y_k+h_k
+\left[v_\eta(y_k,t_k)+\frac12\kappa(t_k)\widehat s_\eta(y_k,t_k)\right]
++\sqrt{h_k\kappa(t_k)}\,\xi_k. \tag{82}
+$
+
+各步均使用附录 A.4 推导的速度和分数，$\xi_k$ 独立服从 $\mathcal N(0,I)$。预设扩散各向同性，没有空间导数项；当 $\kappa=0$ 时，退化为 FM ODE 的 Euler 离散化。
+
+### G.4 导数估计的影响
+
+先推导式（79）中估计器的矩，再量化算法 3 引入的额外随机性。对于固定 $(x,t)$ 下的一个探针，第 $i$ 个坐标误差展开为
+
+$
+\zeta_i(J_\gamma\zeta)_i-D_i
+=\sum_{j\ne i}(J_\gamma)_{ij}\zeta_i\zeta_j.
+$
+
+由于 Rademacher 变量相互独立，每项期望为零。又因为 $\zeta_i^2=1$，且对不同 $j,l$ 有 $\mathbb E[\zeta_j\zeta_l]=0$，平方的期望为
+
+$
+\mathbb E\left[\left(\sum_{j\ne i}
+(J_\gamma)_{ij}\zeta_i\zeta_j\right)^2\right]
+=\sum_{j\ne i}(J_\gamma)_{ij}^2.
+$
+
+对 $m$ 个独立探针平均会将方差除以 $m$，得到式（79）。VJP 探针的推导只需交换 Jacobian 的行与列。
+
+令 $\mathcal F_k$ 包含初始化以及第 $k$ 步之前的全部随机性，因此 $y_k$ 对 $\mathcal F_k$ 可测。当前步的探针独立于该历史及当前布朗向量 $\xi_k$。在式（81）中以 $\widehat D$ 替换 $D$，会引入额外误差
+
+$
+\varepsilon_k=\frac{h_k\lambda(t_k)}2
+[\widehat D(y_k,t_k)-D(y_k,t_k)]. \tag{83}
+$
+
+由式（79），JVP 版本满足
+
+$
+\mathbb E[\varepsilon_k\mid\mathcal F_k]=0,\quad
+\operatorname{Var}(\varepsilon_{k,i}\mid\mathcal F_k)
+=\frac{h_k^2\lambda(t_k)^2}{4m}
+\sum_{j\ne i}(J_\gamma(y_k,t_k))_{ij}^2. \tag{84}
+$
+
+VJP 探针将求和项换为 $(J_\gamma)_{ji}^2$。这刻画算法 3 因导数计算方法引入的单步额外随机性，可与布朗增量自身的随机性区分开来。
+
+### G.5 终止时间与终点输出
+
+ODE 的 Euler 采样允许在 $T\le1$ 结束，但全部系数均在 $t_k<1$ 时计算。SDE 构造会评价含有 $(1-t)^{-1}$ 的分数，因此要求 $T<1$。两种算法均返回所选终止时间 $T$ 处的 $y_K$。当 $T<1$ 时，式（15）还提供终点均值读数 $\mu_\theta(y_K,T)$。
+
+对连续时间的终点性质，假设单个相容过程定义于 $[0,1)$，且对所有 $T<1$ 都满足附录 A.5 的条件。于是其在每个 $t<1$ 的分布均为 $p_t$。参考插值满足
+
+$
+X_t-X_1=(1-t)(X_0-X_1)\longrightarrow0
+\quad\text{几乎必然地，当 }t\uparrow1.
+$
+
+对任意有界连续测试函数 $\psi$，根据受控收敛定理，
+
+$
+\int\psi\,dp_t=\mathbb E[\psi(X_t)]
+\longrightarrow\mathbb E[\psi(X_1)]=\int\psi\,dp_{\rm data}.
+$
+
+这证明概率测度的弱收敛：
+
+$
+\operatorname{Law}(Y_t)=p_t\Rightarrow p_{\rm data},
+\qquad t\uparrow1. \tag{85}
+$
 
 ## 尚待补全的原文部分
 
