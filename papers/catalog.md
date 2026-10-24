@@ -13,15 +13,15 @@ toc: true
 
 - [无线信道地图赋能的高移动性瞬时 CSI 获取｜中文全文译稿（逐式校对中）](/papers/translations/2026-10-24-wcm-instantaneous-csi-tcomm2026/) · 正文 I–VI、公式（1）–（87）、定理与算法、附录、图表、37 条参考文献及作者简介；待逐式终校
 
-- [UA-D-RME：不确定性感知去中心化无线电地图估计｜中文主体译稿（待终校）](/papers/translations/2026-10-24-ua-d-rme-2610-28293/) · 正文 I–VI、17 组公式、图注；尚待终校
+- [UA-D-RME：去中心化不确定性感知无线电地图估计｜中文译稿（终校中）](/papers/translations/2026-10-24-ua-d-rme-2610-28293/) · 正文 I–VI、17 组公式、图注、20 条参考文献；逐式校对中
 
-- [BCT：贝叶斯一致温度调节｜中文主体译稿（附录待补）](/papers/translations/2026-10-24-bct-bayes-consistent-tempering-2610-27641/) · 正文 1–6、公式 1–26、附录 A–G 主要推导及表格；书目待校
+- [BCT：贝叶斯一致温度调节｜中文扩充译稿（终校中）](/papers/translations/2026-10-24-bct-bayes-consistent-tempering-2610-27641/) · 正文 1–6、公式 1–26、附录 A–G 及完整英文参考文献；正文表 1 待展开
 
-- [Posterior Flow Matching｜中文主体译稿（附录待补）](/papers/translations/2026-10-24-posterior-flow-matching-2610-13994/) · 正文 1–6、主要理论及实验；长附录 A–H 待补
+- [Posterior Flow Matching｜中文扩充译稿（终校中）](/papers/translations/2026-10-24-posterior-flow-matching-2610-13994/) · 正文 1–6、附录 A–H、88 组公式、算法及原文英文参考书目；逐式终校中
 
-- [近场 XL-MIMO 多用户信息共享信道估计｜中文主体译稿（待补齐）](/papers/translations/2026-10-24-xl-mimo-multi-user-spatial-sharing/) · 系统模型、极域、结构先验及方法主体；长公式待补
+- [近场 XL-MIMO 多用户空间共享信道估计｜中文扩充译稿（终校中）](/papers/translations/2026-10-24-xl-mimo-multi-user-spatial-sharing/) · 正文 I–VI、算法、主要公式 1–56、附录及 35 条参考文献；少数分式待校
 
-- [近场太赫兹 FTTD 混合波束赋形｜中文主体译稿（待补齐）](/papers/translations/2026-10-24-fttd-near-field-thz-hybrid-beamforming/) · FC/SC、PWMMSE 和启发式方法；长公式待补
+- [近场太赫兹 FTTD 混合波束赋形｜中文扩充译稿（终校中）](/papers/translations/2026-10-24-fttd-near-field-thz-hybrid-beamforming/) · FC/SC、PWMMSE、算法 1–4、图 1–15 和 40 条参考文献；表格待逐项核验
 
 - [不完美 CSI 下可旋转天线双时间尺度设计｜中文主体译稿（待终校）](/papers/translations/2026-10-23-rotatable-antennas-imperfect-csi-2605-04775/) · 正文 I–VIII、主要公式及图 1–10；长公式与书目待核
 - [数字孪生信道估计：几何与材料标定误差｜中文主体译稿（待终校）](/papers/translations/2026-10-23-digital-twin-geometry-calibration-2607-09334/) · 正文 I–VI、主要扰动/NMSE 推导及图表；附录长证明待补
