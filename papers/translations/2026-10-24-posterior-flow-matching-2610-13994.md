@@ -13,7 +13,7 @@ toc: true
 **原题：** Posterior Flow Matching  
 **作者：** Chenrui Ma、Xi Xiao、Lin Zhao、Xinru Jiang、Tianyang Wang、Yanning Shen、Nando Fioretto  
 **版本：** arXiv:2610.13994v1，42 页（包含长篇附录）。  
-**译稿范围：** 摘要、正文第 1–6 节、核心公式（1）–（20）、图 1–7 的部分说明、主要数值表；**附录 A–B 已补入推导及公式（21）–（45）；附录 C–H 与后续公式尚未逐段翻译，全部参考文献题录请查原版**。不能视为完整 42 页全文翻译。
+**译稿范围：** 摘要、正文第 1–6 节、核心公式（1）–（20）、图 1–7 的部分说明、主要数值表；**附录 A–B 已补入推导及公式（21）–（45）；附录 C–E 已补入公式（46）–（68）及证明；附录 F–H 尚未逐段翻译，全部参考文献题录请查原版**。不能视为完整 42 页全文翻译。
 
 ## 摘要
 
@@ -755,6 +755,343 @@ $
 $
 
 这就是第 4.1 节提到的 FM 特例。结合似然坐标变换与条件矩恢复，说明单个 PFM 目标既能拟合生成所需的速度矩，也能拟合诊断所需的终点矩。
+
+
+## 附录 C：后验驱动的动力学
+
+本附录推导第 4.2 节的 PFM SDE，并证明相对熵结果。令 $p_t$ 是由速度 $v$ 输运的参考密度，其分数为 $s=\nabla_x\log p_t$。PFM 预测 $v_\theta$ 与正对角协方差 $\Sigma_\theta=\operatorname{diag}\gamma_\theta$。使用协方差设置局部扩散尺度，再配套构建相容的漂移，最后推导在同一组系数下演化的两个密度之间的相对熵耗散恒等式。
+
+### C.1 从后验归一化到扩散张量
+
+式（17）的设计原则要求：以当前状态预测的速度后验标准差归一化各噪声坐标后，噪声各向同性，即 $\Sigma_\theta^{-1/2}a_\theta\Sigma_\theta^{-1/2}=\lambda(t)I$，其中 $\lambda(t)\ge0$。在固定 $(x,t)$ 处，正的对角协方差可逆。对等式两边左、右乘 $\Sigma_\theta^{1/2}$，得到 $a_\theta=\lambda\Sigma_\theta$。其矩阵平方根可以取 $B_\theta=\sqrt\lambda\,\operatorname{diag}\sqrt{\gamma_\theta}$，满足 $B_\theta B_\theta^\top=a_\theta$。
+
+式（17）是在当前状态处进行的局部矩阵计算。若布朗增量 $\Delta W\sim\mathcal N(0,hI)$，在该位置固定系数，那么
+
+$
+\operatorname{Cov}(B_\theta\Delta W\mid x,t)
+=h\lambda\Sigma_\theta,\qquad
+\operatorname{Cov}(\Sigma_\theta^{-1/2}B_\theta\Delta W\mid x,t)
+=h\lambda I.
+$
+
+因此第 $i$ 个坐标获得的噪声方差为 $h\lambda\gamma_{\theta,i}$。后验控制不同坐标的相对强度，而 $\lambda$ 将速度协方差转化为状态增量的协方差变化率。这解释了第 4.2 节逐分量分配噪声的做法。
+
+### C.2 相容漂移及其坐标表达式
+
+对于独立高斯参考路径，附录 A.4 推导的均值分数为 $\widehat s_\theta=(tv_\theta-x)/(1-t)$。将所选扩散张量与该分数、均值配对，得到式（19）的漂移：
+
+$
+b_\theta=v_\theta+\frac12\nabla_x\cdot a_\theta
++\frac12a_\theta\widehat s_\theta. \tag{46}
+$
+
+正号修正来自 ODE–SDE 对应关系中对 SDE 漂移的求解。由于 $\lambda$ 只依赖时间，
+
+$
+(\nabla_x\cdot a_\theta)_i=
+\sum_j\partial_{x_j}[\lambda(t)\gamma_{\theta,i}\delta_{ij}]
+=\lambda(t)\partial_{x_i}\gamma_{\theta,i}.
+$
+
+令 $D_i=\partial_{x_i}\gamma_{\theta,i}$，则
+
+$
+b_{\theta,i}=v_{\theta,i}
++\frac{\lambda(t)}2\left[
+D_i+\gamma_{\theta,i}\frac{tv_{\theta,i}-x_i}{1-t}
+\right]. \tag{47}
+$
+
+三项分别是输运、对空间变化协方差的修正、以及沿密度分数方向的修正。式（46）、（47）给出了第 4.2 节采样器的向量及坐标形式。
+
+当 $v_\theta$ 达到总体最优均值 $v$ 时，由式（29）可知 $\widehat s_\theta=s$。此时附录 A.5 的条件保证所选扩散张量具有与参考过程相同的边缘分布。令 $\lambda=0$ 将消除两种修正和布朗项，恢复式（16）。数值更新见附录 G.3。
+
+### C.3 相对熵耗散的证明
+
+命题 4.2 描述在精确相容动力学下，初始密度扰动如何演化。任取扩散张量 $a=BB^\top$，将漂移固定为 $b=v+(\nabla_x\cdot a+a\nabla_x\log p_t)/2$。参考密度 $p_t$ 和第二个密度 $\widetilde p_t$ 从各自初值出发，在相同系数下演化。满足命题中的光滑性、有限性和边界项消失条件时，首先建立一般恒等式：
+
+$
+\frac{d}{dt}\operatorname{KL}(\widetilde p_t\Vert p_t)
+=-\frac12\int\widetilde p_t
+\left(\nabla_x\log\frac{\widetilde p_t}{p_t}\right)^\top
+a\left(\nabla_x\log\frac{\widetilde p_t}{p_t}\right)dx\le0. \tag{48}
+$
+
+**命题 4.2 的证明。** 对 $\widetilde p_t$ 的扩散项应用式（31），得到
+
+$
+\sum_j\partial_{x_j}(a_{ij}\widetilde p_t)
+=[(\nabla_x\cdot a)+a\nabla_x\log\widetilde p_t]_i\widetilde p_t.
+$
+
+将共同的漂移代入 Fokker–Planck 方程，得到
+
+$
+\partial_t\widetilde p_t
+=-\nabla_x\cdot(v\widetilde p_t)
++\frac12\nabla_x\cdot\left[
+a\widetilde p_t\nabla_x\log\frac{\widetilde p_t}{p_t}
+\right]. \tag{49}
+$
+
+参考密度满足 $\partial_t p_t=-\nabla_x\cdot(vp_t)$。对 KL 求导时，质量守恒使 $\partial_t\widetilde p_t$ 的积分为零，于是
+
+$
+\frac{d}{dt}\operatorname{KL}(\widetilde p_t\Vert p_t)
+=\int\log\frac{\widetilde p_t}{p_t}\partial_t\widetilde p_t\,dx
+-\int\frac{\widetilde p_t}{p_t}\partial_t p_t\,dx. \tag{50}
+$
+
+以下积分均在 $\mathbb R^d$ 上。根据命题 4.2 的正则与边界条件，分部积分后两个输运项抵消：
+
+$
+\int v^\top\widetilde p_t\nabla_x\log\frac{\widetilde p_t}{p_t}\,dx
+-\int v^\top p_t\nabla_x\frac{\widetilde p_t}{p_t}\,dx=0,
+$
+
+因为 $\widetilde p_t\nabla_x\log(\widetilde p_t/p_t)
+=p_t\nabla_x(\widetilde p_t/p_t)$。剩余项为
+
+$
+\begin{aligned}
+&\frac12\int\log\frac{\widetilde p_t}{p_t}
+\nabla_x\cdot\left[
+a\widetilde p_t\nabla_x\log\frac{\widetilde p_t}{p_t}
+\right]dx\\
+&=-\frac12\int\widetilde p_t
+\left(\nabla_x\log\frac{\widetilde p_t}{p_t}\right)^\top
+a\left(\nabla_x\log\frac{\widetilde p_t}{p_t}\right)dx.
+\end{aligned}
+$
+
+半正定性保证结果非正，式（48）得证。将 $a=\lambda\operatorname{diag}\gamma_\theta$ 代入即得正文式（20）的逐坐标求和；当 $a=0$，只剩相互抵消的输运项，因此 ODE 下 KL 不变。
+
+对于各向同性的 FM，$a=\kappa I$，每个坐标权重均为 $\kappa(t)$；而 PFM 的权重为 $\lambda(t)\gamma_{\theta,i}(x,t)$。由此，式（18）的后验协方差决定了相对熵耗散在不同坐标方向的强度。当耗散项对时间可积时，式（48）还给出累计恒等式：
+
+$
+\begin{aligned}
+&\operatorname{KL}(\widetilde p_T\Vert p_T)
++\frac12\int_0^T\int\widetilde p_t
+\left(\nabla_x\log\frac{\widetilde p_t}{p_t}\right)^\top
+a\left(\nabla_x\log\frac{\widetilde p_t}{p_t}\right)dx\,dt\\
+&=\operatorname{KL}(\widetilde p_0\Vert p_0).
+\end{aligned}\tag{51}
+$
+
+## 附录 D：后验诊断
+
+本附录介绍第 4.3 节诊断的统计依据。独立噪声和数据端点定义 $X_t=(1-t)X_0+tX_1$ 与 $V=X_1-X_0$。PFM 模型预测速度均值 $v_\theta$ 和协方差 $\Sigma_\theta$；对应的终点读数是 $\mu_\theta=x+(1-t)v_\theta$ 与 $\Sigma_\theta^x=(1-t)^2\Sigma_\theta$。以下推导速度与终点坐标中的预测残差如何互相变换，解释矩检验、高斯 NLL 比较，并说明生成轨迹上这些读数的意义。
+
+### D.1 后验读数与残差变换
+
+式（12）中的模型分布具有精确的模型矩：
+
+$
+\mathbb E_{q_\theta}[V\mid x,t]=v_\theta(x,t),\qquad
+\operatorname{Cov}_{q_\theta}(V\mid x,t)=\Sigma_\theta(x,t).
+$
+
+由附录 B.2 可得终点矩，命题 4.1 则给出这些矩的总体真实目标。
+
+在评价中，取一个未参与训练的数据端点 $X_1$，独立采样噪声 $X_0$，根据式（1）构造参考状态 $X_t$ 和速度目标 $V$。已知终点提供两种坐标下的残差：
+
+$
+e_i^v=V_i-v_{\theta,i}(X_t,t),\qquad
+e_i^x=X_{1,i}-\mu_{\theta,i}(X_t,t).
+$
+
+代入 $X_1=X_t+(1-t)V$ 和 $\mu_\theta=X_t+(1-t)v_\theta$，有 $e_i^x=(1-t)e_i^v$，因而
+
+$
+(X_{1,i}-\mu_{\theta,i}(X_t,t))^2
+=(1-t)^2(V_i-v_{\theta,i}(X_t,t))^2. \tag{52}
+$
+
+这是对每个参考样本对与任意预测均值都成立的精确恒等式，因此可以在终点坐标或速度坐标中进行同一残差比较。
+
+### D.2 矩与似然检验
+
+在固定 $(x,t)$ 下，令 $m_i$ 和 $\sigma_i^2$ 为真实条件速度均值和方差。由式（43），
+
+$
+\mathbb E[e_i^v\mid X_t=x]=m_i-v_{\theta,i},\qquad
+\mathbb E[(e_i^v)^2\mid X_t=x]
+=\sigma_i^2+(m_i-v_{\theta,i})^2.
+$
+
+因此，在均值准确时，平方残差度量条件方差；如果均值有偏，则还包含均值偏差的平方。
+
+实际检验将参考状态按相同时刻及输入或预测方差分组。如果预测矩等于其条件目标，则在每组内平均后，均值残差为零，平均预测方差与平均平方残差一致。这样不需要在完全相同的连续状态重复观测，也能评价拟合的矩。对应终点残差只需将速度方差和平方残差同时乘以 $(1-t)^2$。第 5.2 节的方差—残差曲线便以此为基础。
+
+另一种互补检验是在共享预测均值下比较高斯 NLL。对相同参考状态评价不同协方差模型，能保持预测残差不变，使式（40）中的协方差加权残差项与对数行列式项联合反映各协方差的拟合质量。附录 H.4 在中心化坐标子空间中比较学习的分子协方差与仅依赖时间、在验证数据上拟合的协方差。
+
+### D.3 生成轨迹上的读数
+
+在访问状态 $Y_t=y$ 处，模型近似参考终点后验 $p(X_1\mid X_t=y)$。均值 $\mu_\theta(y,t)=y+(1-t)v_\theta(y,t)$ 预测终点，协方差 $\Sigma_\theta^x(y,t)=(1-t)^2\Sigma_\theta(y,t)$ 描述相容数据终点的离散程度。这两种读数在 ODE 和 SDE 采样时均可得到。第 5.2 节便在生成过程中用方差图与围绕预测均值的标准差等值线可视化这些读数。
+
+同一个速度协方差也决定 SDE 扩散张量 $a_\theta=\lambda(t)\Sigma_\theta$。因此 $(1-t)^2$ 负责把速度分散程度转换成终点分散程度，而 $\lambda(t)$ 控制采样时随机扰动的大小。附录 C.1 推导了此构造，上面的矩与似然检验则在具有已知终点的参考状态上评价后验读数。
+
+## 附录 E：条件生成
+
+本附录将第 4.1–4.3 节的后验学习、采样及诊断扩展到外部生成条件 $C$。先定义条件参考分布，再构建后验学习与终点读数、ODE/SDE 采样及相应诊断。条件可以是类别、观测或参考结构；在一条生成轨迹内保持不变，而所采样的端点对 $Z=(X_0,X_1)$ 定义参考插值。
+
+### E.1 条件参考构造
+
+令 $C\sim p_C$，在给定 $C=c$ 下数据端点分布为 $X_1\mid C=c\sim p_{\rm data}(\cdot\mid c)$。独立采样源端 $X_0\sim p_0=\mathcal N(0,I)$，于是联合分布为
+
+$
+p_C(dc)\,p_0(dx_0)\,p_{\rm data}(dx_1\mid c). \tag{53}
+$
+
+对每个样本对保留参考插值和速度目标：
+
+$
+X_t=(1-t)X_0+tX_1,\quad
+V=X_1-X_0,\quad
+p_t(\cdot\mid c)=\operatorname{Law}(X_t\mid C=c). \tag{54}
+$
+
+固定 $c$ 时，边缘速度是
+
+$
+v(x,t,c)=\mathbb E[V\mid X_t=x,C=c]. \tag{55}
+$
+
+在每个条件 $c$ 下重复附录 A.2 的条件期望计算，得 $\partial_t p_t(\cdot\mid c)+\nabla_x\cdot(p_t(\cdot\mid c)v(\cdot,t,c))=0$。对每个条件，$t=0$ 时源密度均为 $p_0$。仿射关系 $X_1=X_t+(1-t)V$ 对每个参考样本对都成立，为后续的后验对应提供基础。
+
+### E.2 学习条件速度后验
+
+在固定 $t<1$ 时，观测 $C$ 之后参考状态提供的终点信息量为
+
+$
+I(X_t;X_1\mid C)=H(X_1\mid C)-H(X_1\mid X_t,C). \tag{56}
+$
+
+以 $q_\theta^x(x_1\mid x,t,c)$ 建模剩余终点后验。在条件熵、交叉熵有限且模型密度在真实后验支撑集上为正的条件下，附录 B.1 的分解可条件化为
+
+$
+\begin{aligned}
+\mathbb E[-\log q_\theta^x(X_1\mid X_t,t,C)]
+={}&H(X_1\mid X_t,C)\\
+&+\mathbb E_{X_t,C}\operatorname{KL}
+\big(p(\cdot\mid X_t,C)\Vert q_\theta^x(\cdot\mid X_t,t,C)\big).
+\end{aligned}\tag{57}
+$
+
+从 $H(X_1\mid C)$ 中减去式（57），得到式（9）的条件变分下界：
+
+$
+I(X_t;X_1\mid C)\ge H(X_1\mid C)+
+\mathbb E\log q_\theta^x(X_1\mid X_t,t,C). \tag{58}
+$
+
+参考构造确定条件互信息；最小化条件后验 NLL 能够减小期望后验 KL，并收紧下界。
+
+固定 $(x,t,c)$ 时，仿射变量变换具有与 B.2 节相同的 Jacobian：
+
+$
+q_\theta^x(x_1\mid x,t,c)
+=\frac{q_\theta((x_1-x)/(1-t)\mid x,t,c)}{(1-t)^d}. \tag{59}
+$
+
+因此终点与速度 NLL 相差 $d\log(1-t)$，真实条件熵满足 $H(X_1\mid X_t,C)=H(V\mid X_t,C)+d\log(1-t)$。条件速度模型为
+
+$
+\begin{aligned}
+(v_\theta,\ell_\theta)&=F_\theta(x,t,c),\\
+\gamma_\theta&=\exp\ell_\theta,\qquad
+\Sigma_\theta=\operatorname{diag}\gamma_\theta,\\
+q_\theta(v\mid x,t,c)&=\mathcal N(v;v_\theta(x,t,c),\Sigma_\theta(x,t,c)).
+\end{aligned}\tag{60}
+$
+
+当 $t\sim r$ 独立于 $(C,X_0,X_1)$ 时，训练目标为
+
+$
+\begin{aligned}
+\mathcal L_{\rm PFM}^{C}
+&=\tfrac12\mathbb E[(V-v_\theta)^\top\Sigma_\theta^{-1}(V-v_\theta)
++\log\det\Sigma_\theta]\\
+&=\tfrac12\mathbb E\left[\sum_{i=1}^d
+\left(\frac{(V_i-v_{\theta,i})^2}{\gamma_{\theta,i}}
++\log\gamma_{\theta,i}\right)\right].
+\end{aligned}\tag{61}
+$
+
+所有网络输出均在 $(X_t,t,C)$ 处计算。在 B.3 节相应的期望有限条件下，完整终点 NLL 为
+
+$
+\mathbb E[-\log q_\theta^x(X_1\mid X_t,t,C)]
+=\mathcal L_{\rm PFM}^{C}
++d\mathbb E_t\log(1-t)+\frac d2\log(2\pi). \tag{62}
+$
+
+B.4 节的条件风险在每个 $(x,t,c)$ 处都适用。允许均值自由变化、方差为正且真实各坐标方差有限且严格为正时，最优解为
+
+$
+v_\theta(x,t,c)=v(x,t,c),\quad
+\gamma_{\theta,i}(x,t,c)
+=\operatorname{Var}(V_i\mid X_t=x,C=c). \tag{63}
+$
+
+将 $\Sigma_\theta=I$ 固定，式（61）退化为条件生成的 FM 目标 $\frac12\mathbb E\|V-v_\theta(X_t,t,C)\|^2$。算法 1 在训练中联合采样 $(C,X_1)$，再独立抽取 $X_0,t$，将 $C$ 传给两个后验输出头，通过同一个 NLL 更新模型。
+
+式（59）的仿射映射将速度矩转换为与式（15）对应的条件终点后验读数：
+
+$
+\mu_\theta(x,t,c)=x+(1-t)v_\theta(x,t,c),\quad
+\Sigma_\theta^x(x,t,c)=(1-t)^2\Sigma_\theta(x,t,c). \tag{64}
+$
+
+这些读数不需要额外输出头，并在两种采样器中均可使用。
+
+### E.3 后验驱动的 ODE 与 SDE
+
+在一条生成轨迹中，固定 $C=c$。对独立高斯源，附录 A.4 应用于条件密度 $p_t(\cdot\mid c)$ 后有
+
+$
+s(x,t,c)=\nabla_x\log p_t(x\mid c)
+=\frac{tv(x,t,c)-x}{1-t},\quad
+\widehat s_\theta(x,t,c)
+=\frac{tv_\theta(x,t,c)-x}{1-t}. \tag{65}
+$
+
+均值定义初始状态为 $Y_0\sim\mathcal N(0,I)$ 的 ODE：
+
+$
+dY_t=v_\theta(Y_t,t,c)\,dt. \tag{66}
+$
+
+为利用学习的不确定性缩放随机扰动，对固定 $c$ 应用式（17）的后验归一化原则：
+
+$
+a_\theta(x,t,c)=\lambda(t)\Sigma_\theta(x,t,c),\quad
+B_\theta(x,t,c)=\sqrt{\lambda(t)}
+\operatorname{diag}\sqrt{\gamma_\theta(x,t,c)}. \tag{67}
+$
+
+由于增加扩散需要漂移修正，根据 ODE–SDE 对应关系，
+
+$
+\begin{aligned}
+b_\theta(x,t,c)
+&=v_\theta(x,t,c)+\tfrac12\nabla_x\cdot a_\theta(x,t,c)
++\tfrac12a_\theta(x,t,c)\widehat s_\theta(x,t,c),\\
+dY_t&=b_\theta(Y_t,t,c)\,dt+B_\theta(Y_t,t,c)\,dW_t.
+\end{aligned}\tag{68}
+$
+
+全部空间导数都对 $x$ 计算，并保持条件 $c$ 不变；当 $\lambda\equiv0$，SDE 退化为式（66）。算法 2 和 3 在整个采样过程中始终以相同的 $c$ 评价各个场与读数。
+
+在精确条件速度和分数下，A.5 节的相容性证明在其正则条件下逐条件适用于 $p_t(\cdot\mid c)$，得到具有这些条件边缘分布的 ODE 和 SDE。同样，C.3 节命题 4.2 的证明在固定 $c$ 下也成立：对在相同精确条件系数下演化的两个密度，相对熵耗散按 $a_\theta(\cdot,t,c)$ 加权。
+
+### E.4 后验诊断
+
+在访问状态 $Y_t=y$ 处，式（64）的终点读数近似后验 $p(X_1\mid X_t=y,C=c)$ 的矩。它们描述与该参考状态和生成条件同时相容的数据终点。
+
+对于条件参考样本对，根据 E.1 节从独立噪声和带条件 $C$ 的数据端点构造 $X_t$。定义 $e_i^v=V_i-v_{\theta,i}(X_t,t,C)$ 和 $e_i^x=X_{1,i}-\mu_{\theta,i}(X_t,t,C)$，则逐点成立 $e_i^x=(1-t)e_i^v$。对附录 D.2 的残差恒等式同时以 $X_t$、$C$ 为条件，就得到相同的均值残差、方差—残差检验。评价采用未参与训练的数据端点；如需评价协方差拟合，则在相同的 $(X_t,t,C)$ 和共同预测均值下比较条件高斯 NLL。附录 H.4 将此方法用于分子构象。
+
+至此，第 4.1–4.3 节的后验学习、生成和诊断均扩展到条件情形。附录 H 将介绍不同任务如何提供生成条件。
 
 ## 尚待补全的原文部分
 
