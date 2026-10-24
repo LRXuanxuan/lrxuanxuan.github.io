@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "近场 XL-MIMO 多用户空间信息共享信道估计｜中文主体译稿（待补齐）"
+title: "近场 XL-MIMO 多用户空间信息共享信道估计｜中文扩充译稿（终校中）"
 permalink: /papers/translations/2026-10-24-xl-mimo-multi-user-spatial-sharing/
 math: true
 toc: true
@@ -13,7 +13,7 @@ toc: true
 **原题：** Enhancing Near-Field XL-MIMO Channel Estimation via Multi-User Spatial Information Sharing  
 **作者：** Zirou Liu、Yinglei Teng、An Liu、Wenkang Xu、Yangliu Zhao、Vincent K. N. Lau  
 **期刊：** *IEEE Transactions on Wireless Communications*, Vol. 25, 2026，pp. 18700–18717。DOI: 10.1109/TWC.2026.3702238。  
-**译稿范围：** 摘要、引言、系统模型、极域表示、三层稀疏先验及多用户联合支撑、IF-VBI、消息传递、公共网格更新、VR 检测及算法 1 的主要公式已补到式（48）。**附录 A–B 的主要推导已补至式（56），图 6–14 的结论已译；部分式（38）、（50）–（51）的显式分式、参考文献及最终逐式复核仍待补齐。** 未计入全文验收。
+**译稿范围：** 摘要、引言、系统模型、极域表示、三层稀疏先验及多用户联合支撑、IF-VBI、消息传递、公共网格更新、VR 检测及算法 1 的主要公式已补到式（48）。**附录 A–B 的主要推导已补至式（56），图 6–14 的结论、35 条英文参考文献已收录；式（38）、（50）–（51）的显式分式、算法原文逐行及数学记号仍待终校。** 未计入全文验收。
 
 ## 摘要
 
@@ -882,10 +882,10 @@ $
 
 [34] F. R. Kschischang, B. J. Frey, and H.-A. Loeliger, “Factor graphs and the sum-product algorithm,” IEEE Trans. Inf. Theory, vol. 47, no. 2, pp. 498–519, Feb. 2001.
 
-[35] T. Gao, P. Tang, L. Tian, H. Miao, and Z. Yuan, “A 3GPP-like channel simulation framework considering near-field spatial non-stationary characteristics of massive MIMO,” in Proc. IEEE Globecom Workshops (GC Wkshps), Dec. 2023, pp. 1493–1498. aded on October 24,2026 at 08:55:03 UTC from IEEE Xplore. Restrictions apply.
+[35] T. Gao, P. Tang, L. Tian, H. Miao, and Z. Yuan, “A 3GPP-like channel simulation framework considering near-field spatial non-stationary characteristics of massive MIMO,” in Proc. IEEE Globecom Workshops (GC Wkshps), Dec. 2023, pp. 1493–1498.
 
 ## 尚待对照原版补齐
 
-上传的 TWC 原文共 18 页，涉及复杂二维排版、联合先验及 IF-VBI 的多组长公式。**本稿还没有覆盖全部原文段落、式（20）之后的全部推导、算法 1 的每行步骤、图 8 以后全部实验以及附录证明和参考文献**。因此该页面明确标记为“主体译稿”，不能算作完整 18 页译文，更不能作为逐式复现依据。
+该 18 页 TWC 原文的正文 I–VI、原编号（1）–（56）的主要推导、仿真图 1–14 的文字说明、附录 A–B 与 35 条英文参考文献均已纳入本页。仍需逐字核对二维 Markov 消息的若干复杂归一化分式（尤其原式（38）、（50）–（51））、算法 1 的每行伪代码、若干原图的数值标注及物理符号。**本页面尚未通过逐页逐式终校，不能作为已验收的完整译本或严格复现的唯一依据。**
 
 研究使用时请核对[原 DOI 页面](https://doi.org/10.1109/TWC.2026.3702238)提供的 IEEE 原版 PDF。
