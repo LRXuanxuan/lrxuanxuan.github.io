@@ -34,7 +34,7 @@
   {
     "slug": "2026-10-24-bct-bayes-consistent-tempering-2610-27641",
     "title": "BCT：流语言模型贝叶斯一致温度调节｜中文主体译稿（附录待补）",
-    "scope": "原 PDF 19 页；正文 1–6、附录 A–G、公式（1）–（26）、补充表 2–7、完整英文参考文献已纳入；正文表 1 尚未逐行展开，逐式校验中。",
+    "scope": "原 PDF 19 页；正文 1–6、附录 A–G、公式（1）–（26）、完整表 1–7、英文参考文献均已收录；逐段术语及公式排版终校中。",
     "source_arxiv_ids": [
       "2610.27641"
     ],
@@ -51,7 +51,7 @@
   {
     "slug": "2026-10-24-posterior-flow-matching-2610-13994",
     "title": "Posterior Flow Matching｜中文主体译稿（长附录待补）",
-    "scope": "原 PDF 42 页；正文 1–6、附录 A–H、公式（1）–（88）、算法 1–3、表 1–10 的主要数据与六页英文书目已纳入；原图文字和逐式排版仍待终校。",
+    "scope": "原 PDF 42 页；正文 1–6、附录 A–H、公式（1）–（88）、算法 1–3、原文表 1–10 与六页英文书目已纳入；原图文字和逐式排版终校中。",
     "source_arxiv_ids": [
       "2610.13994"
     ],
@@ -68,7 +68,7 @@
   {
     "slug": "2026-10-24-xl-mimo-multi-user-spatial-sharing",
     "title": "近场 XL-MIMO 多用户空间共享信道估计｜中文主体译稿（待补齐）",
-    "scope": "原 PDF 18 页；正文 I–VI、IF-VBI、消息传递、公共网格、VR 恢复及算法 1，公式（1）–（56）的主要推导、35 条参考文献已纳入；部分复杂分式和原图细节待终校。",
+    "scope": "原 PDF 18 页；正文 I–VI、IF-VBI、消息传递、公共网格、VR 恢复及算法 1、公式（1）–（56）的主要推导、表 I 实测时间和 35 条参考文献已纳入；原算法细节待逐式核验。",
     "source_arxiv_ids": [],
     "date": "2026-10-24",
     "url": "/papers/translations/2026-10-24-xl-mimo-multi-user-spatial-sharing/",
@@ -83,7 +83,7 @@
   {
     "slug": "2026-10-24-fttd-near-field-thz-hybrid-beamforming",
     "title": "近场 THz 多用户 FTTD 混合波束赋形｜中文主体译稿（待补齐）",
-    "scope": "原 PDF 17 页；正文 I–VI、PWMMSE、FC/SC、低复杂度设计，公式（1）–（56）的主体、算法 1–4、图 1–15 及 40 条书目已纳入；实验表格数值和公式终校尚未完成。",
+    "scope": "原 PDF 17 页；正文 I–VI、PWMMSE、FC/SC、低复杂度设计、公式（1）–（56）的主体、算法 1–4、图 1–15、表 I–II 的数据和 40 条书目已纳入；逐式终校未结束。",
     "source_arxiv_ids": [],
     "date": "2026-10-24",
     "url": "/papers/translations/2026-10-24-fttd-near-field-thz-hybrid-beamforming/",
