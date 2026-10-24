@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "BCT：流语言模型的贝叶斯一致温度调节｜中文主体译稿（附录待补）"
+title: "BCT：流语言模型的贝叶斯一致温度调节｜中文译稿（待终校）"
 permalink: /papers/translations/2026-10-24-bct-bayes-consistent-tempering-2610-27641/
 math: true
 toc: true
@@ -14,7 +14,7 @@ toc: true
 **作者：** Daisuke Oba、Hiroki Furuta、Naoaki Okazaki  
 **单位：** 东京科学大学、AIST、NII LLMC  
 **版本：** arXiv:2610.27641v1，2026-10-20，19 页。  
-**覆盖状态：** 已译摘要、正文 1–6 节、主要公式（1）–（26）、附录 A–G 的公式及表 2–7，图 1–7 的说明；参考文献题录未完整誊录，正文表 1 仅展示重点行，仍待原 PDF 终校。本站不转载原图和 PDF。
+**覆盖状态：** 摘要、正文 1–6、附录 A–G、公式（1）–（26）、表 2–7、图 1–7 的文字说明及原文参考书目已收录；正文表 1 尚未完整展开，仍待逐句逐式核验。本站不转载原图和 PDF。
 
 ## 摘要
 
@@ -321,6 +321,45 @@ BCT 适用于那些可以推导或近似温度化条件桥及其采样动力学�
 
 本研究由日本产业技术综合研究所（AIST）与东京科学大学在 FRONTia 计划下开展。FRONTia 是由日本经济产业省（METI）和新能源产业技术综合开发机构（NEDO）牵头的国家计划，旨在开发用于 AI 机器人和物理 AI 的日本国产多模态基础模型。本工作还部分获得 JSPS KAKENHI 25H01137 项目及日本 JST K Program（JPMJKP24C3）资助。
 
+## 参考文献（原始英文题录）
+
+以下为论文第 10–12 页的原始英文参考书目，保留题名、作者和出版信息，按照源 PDF 的作者姓氏字母顺序排列。
+
+David H. Ackley, Geoffrey E. Hinton, and Terrence J. Sejnowski. A learning algorithm for Boltz￾mann machines. Cognitive Science, 9(1):147–169, 1985.
+ Marianne Arriola, Aaron Gokaslan, Justin T Chiu, Zhihan Yang, Zhixuan Qi, Jiaqi Han, Sub￾ham Sekhar Sahoo, and Volodymyr Kuleshov. Block diffusion: Interpolating between autore￾gressive and diffusion language models. In The Thirteenth International Conference on Learning Representations, 2025.
+ Jacob Austin, Daniel D. Johnson, Jonathan Ho, Daniel Tarlow, and Rianne van den Berg. Struc￾tured denoising diffusion models in discrete state-spaces. In Advances in Neural Information Processing Systems, 2021.
+ Iskander Azangulov and Leo Zhang. Sampling from flow language models via marginal-conditioned bridges. arXiv preprint arXiv:2605.13681, 2026.
+ Heli Ben-Hamu, Itai Gat, Daniel Severo, Niklas Nolte, and Brian Karrer. Accelerated sampling from masked diffusion models via entropy bounded unmasking, 2025. URL https://arxiv. org/abs/2505.24857. Samy Bengio, Oriol Vinyals, Navdeep Jaitly, and Noam Shazeer. Scheduled sampling for sequence prediction with recurrent neural networks. In Advances in Neural Information Processing Sys￾tems, 2015.
+ Jannis Chemseddine, Gregor Kornhardt, and Gabriele Steidl. Spherical flows for sampling categor￾ical data. arXiv preprint arXiv:2605.05629, 2026.
+ Mark Chen, Jerry Tworek, Heewoo Jun, Qiming Yuan, Henrique Ponde De Oliveira Pinto, Jared Kaplan, Harri Edwards, Yuri Burda, Nicholas Joseph, Greg Brockman, et al. Evaluating large language models trained on code. arXiv preprint arXiv:2107.03374, 2021.
+ Ricky T. Q. Chen and Yaron Lipman. Flow matching on general geometries. In The Twelfth Inter￾national Conference on Learning Representations, 2024.
+ Karl Cobbe, Vineet Kosaraju, Mohammad Bavarian, Mark Chen, Heewoo Jun, Lukasz Kaiser, Matthias Plappert, Jerry Tworek, Jacob Hilton, Reiichiro Nakano, et al. Training verifiers to solve math word problems. arXiv preprint arXiv:2110.14168, 2021.
+ Oscar Davis, Samuel Kessler, Mircea Petrache, ˙Ismail ˙Ilkan Ceylan, Michael Bronstein, and Avishek Joey Bose. Fisher flow matching for generative modeling over discrete data. In Ad￾vances in Neural Information Processing Systems, 2024.
+ Justin Deschenaux and Caglar Gulcehre. Language modeling with hyperspherical flows. arXiv preprint arXiv:2605.11125, 2026. 10
+ Sander Dieleman, Laurent Sartran, Arman Roshannai, Nikolay Savinov, Yaroslav Ganin, Pierre H. Richemond, Arnaud Doucet, Robin Strudel, Chris Dyer, Conor Durkan, Curtis Hawthorne, Remi ´ Leblond, Will Grathwohl, and Jonas Adler. Continuous diffusion for categorical data. arXiv preprint arXiv:2211.15089, 2022.
+ Yilun Du, Conor Durkan, Robin Strudel, Joshua B. Tenenbaum, Sander Dieleman, Rob Fergus, Jascha Sohl-Dickstein, Arnaud Doucet, and Will Grathwohl. Reduce, reuse, recycle: Compo￾sitional generation with energy-based diffusion models and MCMC. In Proceedings of the 40th International Conference on Machine Learning, volume 202 of Proceedings of Machine Learning Research, pp. 8489–8510, 2023.
+ Ishaan Gulrajani and Tatsunori B. Hashimoto. Likelihood-based diffusion language models. In Advances in Neural Information Processing Systems, volume 36, 2023.
+ Mohsin Hasan, Viktor Ohanesian, Artem Gazizov, Yoshua Bengio, Alan Aspuru-Guzik, Roberto ´ Bondesan, Marta Skreta, and Kirill Neklyudov. Discrete Feynman-Kac correctors. arXiv preprint arXiv:2601.10403, 2026.
+ Ari Holtzman, Jan Buys, Li Du, Maxwell Forbes, and Yejin Choi. The curious case of neural text degeneration. In International Conference on Learning Representations, 2020.
+ Keya Hu, Linlu Qiu, Yiyang Lu, Hanhong Zhao, Tianhong Li, Yoon Kim, Jacob Andreas, and Kaiming He. Elf: Embedded language flows. arXiv preprint arXiv:2605.10938, 2026.
+ Jaehyeong Jo and Sung Ju Hwang. Continuous diffusion model for language modeling. In Advances in Neural Information Processing Systems, 2025.
+ Jaeyeon Kim, Seunggeun Kim, Taekyun Lee, David Z. Pan, Hyeji Kim, Sham Kakade, and Sitan Chen. Fine-tuning masked diffusion for provable self-correction. In International Conference on Machine Learning, 2026.
+ Chanhyuk Lee, Jaehoon Yoo, Manan Agarwal, Sheel Shah, Jerry Huang, Aditi Raghunathan, Se￾unghoon Hong, Nicholas M Boffi, and Jinwoo Kim. Flow map language models: One-step lan￾guage modeling via continuous denoising. arXiv preprint arXiv:2602.16813, 2026.
+ Mingxiao Li, Tingyu Qu, Ruicong Yao, Wei Sun, and Marie-Francine Moens. Alleviating exposure bias in diffusion models through sampling with shifted time steps. In International Conference on Learning Representations, 2024.
+ Peizhuo Li, Emre Aksan, Alexandru-Eugen Ichim, Thabo Beeler, and Olga Sorkine-Hornung. Di￾versify diffusion with temperature sampling and variance-corrective time shifting. arXiv preprint arXiv:2607.10853, 2026.
+ Xiang Li, John Thickstun, Ishaan Gulrajani, Percy S Liang, and Tatsunori B Hashimoto. Diffusion￾lm improves controllable text generation. Advances in neural information processing systems, 35: 4328–4343, 2022.
+ Bingbin Liu, Sebastien Bubeck, Ronen Eldan, Janardhan Kulkarni, Yuanzhi Li, Anh Nguyen, Rachel Ward, and Yi Zhang. TinyGSM: achieving >80% on GSM8K with small language models. arXiv preprint arXiv:2312.09241, 2023.
+ Aaron Lou, Chenlin Meng, and Stefano Ermon. Discrete diffusion modeling by estimating the ratios of the data distribution. In International Conference on Machine Learning, 2024.
+ Shen Nie, Fengqi Zhu, Zebin You, Xiaolu Zhang, Jingyang Ou, Jun Hu, Jun Zhou, Yankai Lin, Ji-Rong Wen, and Chongxuan Li. Large language diffusion models. arXiv preprint arXiv:2502.09992, 2025.
+ Mang Ning, Enver Sangineto, Angelo Porrello, Simone Calderara, and Rita Cucchiara. Input per￾turbation reduces exposure bias in diffusion models. In International Conference on Machine Learning, 2023.
+ William Peebles and Saining Xie. Scalable diffusion models with transformers, 2023. URL https: //arxiv.org/abs/2212.09748. 11
+ Marc’Aurelio Ranzato, Sumit Chopra, Michael Auli, and Wojciech Zaremba. Sequence level train￾ing with recurrent neural networks. In International Conference on Learning Representations, 2016.
+ Subham Sahoo, Marianne Arriola, Yair Schiff, Aaron Gokaslan, Edgar Marroquin, Justin Chiu, Alexander Rush, and Volodymyr Kuleshov. Simple and effective masked diffusion language models. Advances in Neural Information Processing Systems, 37:130136–130184, 2024.
+ Subham Sekhar Sahoo, Justin Deschenaux, Aaron Gokaslan, Guanghan Wang, Justin T Chiu, and Volodymyr Kuleshov. The diffusion duality. In Forty-second International Conference on Ma￾chine Learning, 2025. URL https://openreview.net/forum?id=9P9Y8FOSOk. Jiaxin Shi, Kehang Han, Zhe Wang, Arnaud Doucet, and Michalis Titsias. Simplified and general￾ized masked diffusion for discrete data. Advances in neural information processing systems, 37: 103131–103167, 2024.
+ Marta Skreta, Tara Akhound-Sadegh, Viktor Ohanesian, Roberto Bondesan, Alan Aspuru-Guzik, ´ Arnaud Doucet, Rob Brekelmans, Alexander Tong, and Kirill Neklyudov. Feynman-Kac cor￾rectors in diffusion: Annealing, guidance, and product of experts. In Proceedings of the 42nd International Conference on Machine Learning, volume 267 of Proceedings of Machine Learn￾ing Research, pp. 55906–55949, 2025.
+ Hannes Stark, Bowen Jing, Chenyu Wang, Gabriele Corso, Bonnie Berger, Regina Barzilay, and Tommi Jaakkola. Dirichlet flow matching with applications to dna sequence design. In Proceed￾ings of the 41st International Conference on Machine Learning, pp. 46495–46513, 2024.
+ Yanbo Xu, Yu Wu, Sungjae Park, Zhizhuo Zhou, and Shubham Tulsiani. Temporal score rescaling for temperature sampling in diffusion and flow models. In International Conference on Machine Learning, 2026.
+
 ## 附录 A：序列
 
 对于联合终点分布为 $\pi(\mathbf x)$ 的序列 $\mathbf x=(x_1,\ldots,x_L)$，若条件桥按 token 位置分解，则第 $l$ 个位置的后验需要对其他位置边缘化：
@@ -568,4 +607,4 @@ $$
 | .2 | 31.71±.40 | .08±.11 | 32.05±.67 | 32.16±.40 | .02±.03 | 32.24±.28 | 33.24±1.12 |
 | .1 | 30.99±.55 | 0±0 | 26.63±.85 | 31.25±.42 | 0±0 | 28.49±.54 | 31.68±.53 |
 
-> **附录校对说明：** 附录 A–G 的主要文字、公式（19）–（26）及表 2–7 已补入。原论文参考文献题录尚未完整誊录到本站；正文表 1 尚未全部展开，少数数学公式排版仍需对照原 PDF 检查。
+> **附录校对说明：** 附录 A–G 的主要文字、公式（19）–（26）及表 2–7 已补入。原论文参考文献已收录；正文表 1 尚未全部展开，少数数学公式排版仍需对照原 PDF 检查。
