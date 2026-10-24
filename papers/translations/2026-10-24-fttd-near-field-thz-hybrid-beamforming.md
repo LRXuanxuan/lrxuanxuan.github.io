@@ -677,6 +677,38 @@ $$
 
 表 I 表明，启发式方法避免联合优化，计算复杂度明显更低。由于模拟端具有结构化连接方式，SC 的优化变量维度较低，CPU 耗时也小于 FC。
 
+
+**表 I：不同方案的复杂度与 CPU 运行时间。** 原文采用 Intel Core i7、16 GB RAM 工作站；只记录复杂度主导阶次，$I_{\rm out}$ 与 $I_{\rm in}$ 分别表示外、内层迭代次数。为便于数值核对，下表完整保留原文列出的 10 种方案及 CPU 时间。
+
+| 方案 | CPU 时间（ms） |
+|---|---:|
+| Fully-digital | 241.5 |
+| FC-PWMMSE | 543.1 |
+| SC-PWMMSE | 467.4 |
+| DS-FTTD | 48.0 |
+| FC-TTD | 3.2 |
+| SC-TTD | 5.0 |
+| FC-Heuristic | 3.7 |
+| SC-Heuristic | 3.2 |
+| FC-PS | 5.7 |
+| SC-PS | 7.9 |
+
+其中主要复杂度表达式包括：完全数字方案 $\mathcal O(I_{\rm out}MN_t^3)$；FC-PWMMSE 包含完全数字更新和内层惩罚优化，阶数为 $\mathcal O(I_{\rm out}(MN_t^3+I_{\rm in}(PN_{\rm RF})^2N_t))$；SC-PWMMSE 为 $\mathcal O(I_{\rm out}(MN_t^3+(PN_{\rm RF})^2))$。仅预先设计模拟部分的 TTD、PS 和启发式方法，其每轮主导复杂度都约为 $\mathcal O(I_{\rm out}(MN_{\rm RF}^3+KN_{\rm RF}^2))$。
+
+**表 II：各种混合架构的功率消耗公式。** $P_{\rm BB}$、$P_{\rm RF}$、$P_{\rm TTD}$、$P_{\rm FTTD}$、$P_{\rm PS}$、$P_{\rm SW}$ 分别表示基带、RF 链、可调真时延器、固定真时延器、移相器及开关的单元功耗，$P_t$ 为发送功率。
+
+| 架构 | 总功耗 |
+|---|---|
+| Fully-digital | $P_t+P_{\rm BB}+N_tP_{\rm RF}$ |
+| FC-TTD | $P_t+P_{\rm BB}+N_{\rm RF}P_{\rm RF}+PN_{\rm RF}P_{\rm TTD}+N_tN_{\rm RF}P_{\rm PS}$ |
+| FC-FTTD | $P_t+P_{\rm BB}+N_{\rm RF}P_{\rm RF}+PN_{\rm RF}P_{\rm FTTD}+PN_{\rm RF}P_{\rm SW}+N_tN_{\rm RF}P_{\rm PS}$ |
+| FC-PS | $P_t+P_{\rm BB}+N_{\rm RF}P_{\rm RF}+N_tN_{\rm RF}P_{\rm PS}$ |
+| SC-TTD | $P_t+P_{\rm BB}+N_{\rm RF}P_{\rm RF}+PN_{\rm RF}P_{\rm TTD}+N_tP_{\rm PS}$ |
+| SC-FTTD | $P_t+P_{\rm BB}+N_{\rm RF}P_{\rm RF}+PN_{\rm RF}P_{\rm FTTD}+PN_{\rm RF}P_{\rm SW}+N_tP_{\rm PS}$ |
+| SC-PS | $P_t+P_{\rm BB}+N_{\rm RF}P_{\rm RF}+N_tP_{\rm PS}$ |
+| DS-FTTD | $P_t+P_{\rm BB}+N_{\rm RF}P_{\rm RF}+PN_{\rm RF}P_{\rm FTTD}+N_tP_{\rm SW}$ |
+
+
 ### B. 启发式模拟波束赋形的性能评价
 
 首先考虑一个位于 $\vartheta=45^\circ,r=20$ m 的单用户，FTTD 固定延时按照该位置精确配置。图 3(a) 展示不同频率下归一化阵列增益。传统 PS-only 架构因空间宽带效应而出现严重增益损失，而 FTTD 辅助方案能够维持稳定增益。
