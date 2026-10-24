@@ -484,3 +484,411 @@ $$
 
 **证明：** 详细推导见附录 B。■
 
+## IV. 复信道增益与 CFO 联合估计（JOINT COMPLEX CG AND CFO ESTIMATION）
+
+### A. 模型重构与问题构建（Model Reformulation and Problem Generation）
+
+由式（28）中 $\widetilde{\mathbf H}^{\mathrm{ICI}}_{q,i}$ 的组成可知，$\widetilde{\mathbf H}^{\mathrm{ICI}}_{q,i}$ 由多径时延偏移 $\Delta\boldsymbol\tau_q=[\Delta\tau_{q,0},\ldots,\Delta\tau_{q,P_\tau-1}]^T$、CFO $\bar{\boldsymbol\nu}_q=[\bar\nu_{q,0},\ldots,\bar\nu_{q,P_\tau-1}]^T$，以及角度–时延域信道增益 $\bar{\mathbf A}_q=[(\bar{\mathbf A}_{q,0})^T,\ldots,(\bar{\mathbf A}_{q,P_\tau-1})^T]^T$ 决定。CTF $\widetilde{\mathbf H}_{q,i,p_1,p_2}$ 可以重新表述为
+
+$$
+\widetilde{\mathbf H}_{q,i,p_1,p_2}=
+\frac1P\mathbf Z_{q,i,p_1,p_2}\bar{\mathbf A}_q,\tag{41}
+$$
+
+$$
+\begin{aligned}
+\mathbf Z_{q,i,p_1,p_2}=\Big[
+&e^{-j\frac{2\pi}{P}(\bar\tau_0+\Delta\tau_{q,0})(p_2-1)}
+\xi^0_{q,i,p_1,p_2}(\bar\nu_{q,0})\mathbf I_M,\ldots,\\
+&e^{-j\frac{2\pi}{P}(\bar\tau_{P_\tau-1}+\Delta\tau_{q,P_\tau-1})(p_2-1)}
+\xi^{P_\tau-1}_{q,i,p_1,p_2}(\bar\nu_{q,P_\tau-1})\mathbf I_M
+\Big],
+\end{aligned}\tag{42}
+$$
+
+$$
+\xi^k_{q,i,p_1,p_2}(\bar\nu_{q,k})=
+\sum_{l=0}^{P-1}e^{jk_f\bar\nu_{q,k}(T_sl+(i-1)T_{\mathrm{symb}})}
+e^{j\frac{2\pi}{P}l(p_2-p_1)}.\tag{43}
+$$
+
+利用式（28）和式（41），式（30）可以重新写为
+
+$$
+\begin{aligned}
+\widetilde{\mathbf y}_{q,i}
+&=\widetilde{\mathbf H}^{\mathrm{ICI}}_{q,i}\bar{\mathbf s}_{q,i}+
+\widetilde{\mathbf n}_{q,i}\\
+&=\frac1P\mathbf K_{q,i}(\Delta\boldsymbol\tau_q,\bar{\boldsymbol\nu}_q)
+\mathbf r_q+\widetilde{\mathbf n}_{q,i}.
+\end{aligned}\tag{44}
+$$
+
+其中，$\mathbf r_q=\operatorname{vec}(\bar{\mathbf A}_q)$，
+
+$$
+\begin{aligned}
+\mathbf K_{q,i}(\Delta\boldsymbol\tau_q,\bar{\boldsymbol\nu}_q)=
+\big[&(\mathbf K_{q,i,1}(\Delta\boldsymbol\tau_q,\bar{\boldsymbol\nu}_q))^T,
+\ldots,
+(\mathbf K_{q,i,P}(\Delta\boldsymbol\tau_q,\bar{\boldsymbol\nu}_q))^T
+\big]^T,
+\end{aligned}\tag{45}
+$$
+
+$$
+\mathbf K_{q,i,p_1}(\Delta\boldsymbol\tau_q,\bar{\boldsymbol\nu}_q)
+=\sum_{p_2=1}^{P}(\bar{\mathbf s}_{q,i,p_2})^T
+\otimes\mathbf Z_{q,i,p_1,p_2},\tag{46}
+$$
+
+且 $\bar{\mathbf s}_{q,i}=[(\bar{\mathbf s}_{q,i,1})^T,\ldots,(\bar{\mathbf s}_{q,i,P})^T]^T$。通过拼接同一时间块内的导频符号，可以得到
+
+$$
+\widetilde{\mathbf y}_q=
+\frac1P\mathbf K_q(\Delta\boldsymbol\tau_q,\bar{\boldsymbol\nu}_q)
+\mathbf r_q+\widetilde{\mathbf n}_q,\tag{47}
+$$
+
+其中，$\widetilde{\mathbf y}_q=[\widetilde{\mathbf y}_{q,i}]_{i\in\mathcal I_P}$，$\mathbf K_q(\Delta\boldsymbol\tau_q,\bar{\boldsymbol\nu}_q)=[\mathbf K_{q,i}(\Delta\boldsymbol\tau_q,\bar{\boldsymbol\nu}_q)]_{i\in\mathcal I_P}$，$\widetilde{\mathbf n}_q=[\widetilde{\mathbf n}_{q,i}]_{i\in\mathcal I_P}$，并且 $\widetilde{\mathbf n}_q$ 仍然是一个零均值复高斯随机向量，其协方差矩阵为 $\sigma_q^2\mathbf I_{MPI_P}$。针对未知噪声功率，引入 Gamma 超先验 $\alpha_q\sim\Gamma(1+c^\alpha_1,c^\alpha_2)$，其中 $c^\alpha_1,c^\alpha_2\to0$，$c^\alpha_1>-1$，$c^\alpha_2>0$，且 $\alpha_q=\sigma_q^{-2}$ 表示噪声精度。
+
+可以看到，原始导频传输模型已经被转换为针对 $\mathbf r_q$ 的测量模型，而 $\mathbf r_q$ 是一个 $MNP_\tau$ 维的稀疏随机向量，表示角度–时延域中的信道增益。由于测量矩阵 $\mathbf K_q$ 中仍然包含未知随机变量——时延偏移 $\Delta\boldsymbol\tau_q$ 和 CFO $\bar{\boldsymbol\nu}_q$，因此式（47）实际上构成了一个参数化线性估计问题，无法直接通过匹配追踪等常规压缩感知算法求解。然而，借助 WCM，仍然可以在贝叶斯框架下恢复所关心的信道增益和 CFO。
+
+本文的目标是确定参数集（Parameter Set，PS）$\boldsymbol\Xi_q=\{\alpha_q,\Delta\boldsymbol\tau_q,\bar{\boldsymbol\nu}_q,\boldsymbol\gamma_q\}$，并利用 $\widetilde{\mathbf y}_q$ 和 $\mathbf K_q$ 恢复 $\mathbf r_q$。针对 $\boldsymbol\Xi_q$ 的最大后验概率（Maximum A Posteriori，MAP）估计器表示为
+
+$$
+\hat{\boldsymbol\Xi}_q=\arg\max_{\boldsymbol\Xi_q}
+\ln p(\boldsymbol\Xi_q,\widetilde{\mathbf y}_q).\tag{48}
+$$
+
+作为求解参数化线性估计问题的一种常用方法，本文采用最大化–最小化（Minorization-Maximization，MM）算法，通过适当设置代理函数，迭代获得最优参数集 $\boldsymbol\Xi_q$。
+
+### B. 稀疏信道增益恢复（Sparse CG Recovery）
+
+当参数集固定时，可以根据精度向量 $\boldsymbol\gamma_q$ 获得 $\mathbf r_q$ 的支撑集，记为 $\mathcal S^\gamma_q=\operatorname{supp}(\{\gamma^{-1}_{q,s}\}_{s=1,\ldots,MNP_\tau})$。考虑到最小均方误差（Minimum Mean Square Error，MMSE）方法在低信噪比（Signal-to-Noise Ratio，SNR）条件下具有更好的性能，本文采用 MMSE 方法，信道增益估计可以写为
+
+$$
+\begin{aligned}
+\left(\hat{\mathbf r}^{\mathrm{MMSE}}_q\right)_{\mathcal S^\gamma_q}
+={}&P\mathbf R_{rr,q}(\mathbf K^{\mathrm{spar}}_q)^H\\
+&\times\left(
+\mathbf K^{\mathrm{spar}}_q\mathbf R_{rr,q}
+(\mathbf K^{\mathrm{spar}}_q)^H+
+P^2\sigma_q^2\mathbf I_{MPI_P}
+\right)^{-1}\widetilde{\mathbf y}_q.
+\end{aligned}\tag{49}
+$$
+
+其中，$\mathbf R_{rr,q}=\operatorname{diag}((\boldsymbol\gamma_q)_{\mathcal S^\gamma_q})^{-1}$，$\mathbf K^{\mathrm{spar}}_q=(\mathbf K_q(\Delta\hat{\boldsymbol\tau}_q,\hat{\bar{\boldsymbol\nu}}_q))_{\mathcal S^\gamma_q}$，$\Delta\hat{\boldsymbol\tau}_q$ 和 $\hat{\bar{\boldsymbol\nu}}_q$ 是固定参数集中的参数。由于信道多径通常在时延域中稀疏分布，因此计算所涉及的矩阵维度能够大幅降低。
+
+### C. 基于 WCM 和 MM 算法的 SBL（WCM-Based SBL With MM Algorithms）
+
+根据式（47），$\widetilde{\mathbf y}_q$ 由信道和 AWGN 决定，因此可以将其视为一个复高斯随机向量，其分布为
+
+$$
+p(\widetilde{\mathbf y}_q\mid\mathbf r_q,\boldsymbol\Xi_q)=
+\frac{\exp\left(-\alpha_q
+\left\|\widetilde{\mathbf y}_q-\frac1P\mathbf K_q(\Delta\boldsymbol\tau_q,\bar{\boldsymbol\nu}_q)\mathbf r_q\right\|^2
+\right)}{(\pi\alpha_q^{-1})^{MPI_P}}.\tag{50}
+$$
+
+本文在 MM 算法中采用一个更易处理的下界来替代原始 EM 方法的 E 步，并在 M 步中最大化代理函数。根据 Jensen 不等式，对于任意给定的 $\dot{\boldsymbol\Xi}_q$，代理函数
+
+$$
+\mathcal U(\boldsymbol\Xi_q\mid\dot{\boldsymbol\Xi}_q)=
+\int p(\mathbf r_q\mid\widetilde{\mathbf y}_q,\dot{\boldsymbol\Xi}_q)
+\ln\frac{p(\mathbf r_q,\widetilde{\mathbf y}_q,\boldsymbol\Xi_q)}
+{p(\mathbf r_q\mid\widetilde{\mathbf y}_q,\dot{\boldsymbol\Xi}_q)}
+\,d\mathbf r_q\tag{51}
+$$
+
+在 $\dot{\boldsymbol\Xi}_q$ 处始终是实际目标函数 $\ln p(\boldsymbol\Xi_q,\widetilde{\mathbf y}_q)$ 的一个下界 [18]。因此，原始问题（48）可以通过求解
+
+$$
+\boldsymbol\Xi_q^{(t)}
+=\arg\max_{\boldsymbol\Xi_q}
+\mathcal U(\boldsymbol\Xi_q\mid\boldsymbol\Xi_q^{(t-1)})\tag{52}
+$$
+
+来处理。根据贝叶斯定理，可以得到 [17]
+
+$$
+p(\mathbf r_q\mid\widetilde{\mathbf y}_q,\boldsymbol\Xi_q)=
+\frac{\exp\left(-(\mathbf r_q-\boldsymbol\mu_q)^H
+\boldsymbol\Sigma_q^{-1}(\mathbf r_q-\boldsymbol\mu_q)\right)}
+{|\pi\boldsymbol\Sigma_q|},\tag{53}
+$$
+
+其中，均值和协方差矩阵分别写为
+
+$$
+\boldsymbol\mu_q(\boldsymbol\Xi_q)=
+\frac{\alpha_q}{P}\boldsymbol\Sigma_q(\boldsymbol\Xi_q)
+(\mathbf K_q(\Delta\boldsymbol\tau_q,\bar{\boldsymbol\nu}_q))^H
+\widetilde{\mathbf y}_q,\tag{54}
+$$
+
+$$
+\boldsymbol\Sigma_q(\boldsymbol\Xi_q)=
+\left(
+\frac{\alpha_q}{P^2}
+(\mathbf K_q(\Delta\boldsymbol\tau_q,\bar{\boldsymbol\nu}_q))^H
+\mathbf K_q(\Delta\boldsymbol\tau_q,\bar{\boldsymbol\nu}_q)
++\operatorname{diag}(\boldsymbol\gamma_q)
+\right)^{-1}.\tag{55}
+$$
+
+尽管问题（52）中的变量相互耦合，但仍然可以通过块坐标下降方法搜索最优解。
+
+**1）第 $t$ 次迭代中 $\bar{\boldsymbol\nu}_q$ 的更新：** 令 $\{\alpha_q,\Delta\boldsymbol\tau_q,\boldsymbol\gamma_q\}=\{\alpha_q^{(t-1)},\Delta\boldsymbol\tau_q^{(t-1)},\boldsymbol\gamma_q^{(t-1)}\}$，并令 $\dot{\boldsymbol\Xi}^{\nu}_q=\{\alpha_q^{(t-1)},\Delta\boldsymbol\tau_q^{(t-1)},\bar{\boldsymbol\nu}_q^{(t-1)},\boldsymbol\gamma_q^{(t-1)}\}$，则式（51）可以重新写为
+
+$$
+\begin{aligned}
+&\mathcal U(\alpha_q^{(t-1)},\Delta\boldsymbol\tau_q^{(t-1)},
+\bar{\boldsymbol\nu}_q,\boldsymbol\gamma_q^{(t-1)}
+\mid\dot{\boldsymbol\Xi}^{\nu}_q)\\
+&=\int p(\mathbf r_q\mid\widetilde{\mathbf y}_q,\dot{\boldsymbol\Xi}^{\nu}_q)
+\ln p(\widetilde{\mathbf y}_q\mid\mathbf r_q,\alpha_q^{(t-1)},
+\Delta\boldsymbol\tau_q^{(t-1)},\bar{\boldsymbol\nu}_q)d\mathbf r_q
++\ln p(\bar{\boldsymbol\nu}_q)\\
+&=-\alpha_q^{(t-1)}
+C_{1,q}(\Delta\boldsymbol\tau_q^{(t-1)},\bar{\boldsymbol\nu}_q,
+\dot{\boldsymbol\Xi}^{\nu}_q)
++\ln p(\bar{\boldsymbol\nu}_q),
+\end{aligned}\tag{56}
+$$
+
+$$
+\begin{aligned}
+C_{1,q}(\Delta\boldsymbol\tau_q,\bar{\boldsymbol\nu}_q,\dot{\boldsymbol\Xi}_q)
+={}&\frac1{P^2}\operatorname{tr}\Big(
+\mathbf K_q(\Delta\boldsymbol\tau_q,\bar{\boldsymbol\nu}_q)
+\boldsymbol\Sigma_q(\dot{\boldsymbol\Xi}_q)
+(\mathbf K_q(\Delta\boldsymbol\tau_q,\bar{\boldsymbol\nu}_q))^H\Big)\\
+&+\left\|
+\frac1P\mathbf K_q(\Delta\boldsymbol\tau_q,\bar{\boldsymbol\nu}_q)
+\boldsymbol\mu_q(\dot{\boldsymbol\Xi}_q)-\widetilde{\mathbf y}_q
+\right\|^2.
+\end{aligned}\tag{57}
+$$
+
+这里忽略了与 $\bar{\boldsymbol\nu}_q$ 无关的项。尽管 $\bar{\boldsymbol\nu}_q$ 在 $\mathbf K_q$ 中存在深度耦合，并且难以判断式（56）关于 $\bar{\boldsymbol\nu}_q$ 的凸性或凹性，但仍然可以沿着如下梯度寻找一个次优解：
+
+$$
+\mathbf g_{\nu,q}(\bar{\boldsymbol\nu}_q)=
+[g_{\nu,q,0}(\bar\nu_{q,0}),\ldots,g_{\nu,q,P_\tau-1}(\bar\nu_{q,P_\tau-1})]^T,\tag{58}
+$$
+
+其中，$g_{\nu,q,k}(\bar\nu_{q,k})$ 推导为
+
+$$
+\begin{aligned}
+g_{\nu,q,k}(\bar\nu_{q,k})
+={}&\mathcal B'^{\bar\nu}_{q,k}
+-2\alpha_q^{(t-1)}\sum_{i=1}^{I_P}\sum_{p_1=1}^{P}
+\operatorname{Re}[(\mathcal C^{\bar\nu}_{q,i,p_1})^H
+\mathcal C'^{\bar\nu}_{q,i,p_1,k}]\\
+&-\frac{2\alpha_q^{(t-1)}}{P^2}
+\sum_{i=1}^{I_P}\sum_{p_1=1}^{P}\sum_{n=1}^{N}
+\operatorname{Re}\left[
+\operatorname{vec}^T(\mathcal D^{\bar\nu}_{q,i,p_1,k+1,n})
+\operatorname{vec}(\mathcal K'^{\bar\nu}_{q,i,p_1,k+1,n})
+\right].
+\end{aligned}\tag{59}
+$$
+
+其中，各组成部分定义为
+
+$$
+\begin{aligned}
+\mathcal C^{\bar\nu}_{q,i,p_1}
+={}&\frac1P\sum_{n=1}^{N}\sum_{k=0}^{P_\tau-1}
+\sum_{p_2=1}^{P}
+[\bar{\mathbf s}_{q,i,p_2}]_n\xi^k_{q,i,p_1,p_2}(\bar\nu_{q,k})\\
+&\times e^{-j\frac{2\pi}{P}(\bar\tau_k+\Delta\tau_{q,k}^{(t-1)})(p_2-1)}
+\boldsymbol\mu_{q,k,n}(\dot{\boldsymbol\Xi}^{\nu}_q)
+-\widetilde{\mathbf y}_{q,i,p_1},
+\end{aligned}\tag{60}
+$$
+
+$$
+\begin{aligned}
+\mathcal C'^{\bar\nu}_{q,i,p_1,k}
+={}&\frac{jk_f}{P}\sum_{n=1}^{N}\sum_{p_2=1}^{P}
+\sum_{l=0}^{P-1}(T_sl+(i-1)T_{\mathrm{symb}})
+[\bar{\mathbf s}_{q,i,p_2}]_n\\
+&\times e^{-j\frac{2\pi}{P}
+((\bar\tau_k+\Delta\tau_{q,k}^{(t-1)})(p_2-1)+l(p_1-p_2))}
+e^{jk_f\bar\nu_{q,k}(T_sl+(i-1)T_{\mathrm{symb}})}
+\boldsymbol\mu_{q,k,n}(\dot{\boldsymbol\Xi}^{\nu}_q),
+\end{aligned}\tag{61}
+$$
+
+$$
+\begin{aligned}
+\mathcal D^{\bar\nu}_{q,i,p_1,k_1,n_1}
+={}&\sum_{n_2=1}^{N}\sum_{k_2=1}^{P_\tau}\sum_{p_2=1}^{P}
+[\bar{\mathbf s}_{q,i,p_2}]_{n_2}^{*}
+(\xi^{k_2-1}_{q,i,p_1,p_2}(\bar\nu_{q,k_2-1}))^*\\
+&\times e^{j\frac{2\pi}{P}
+(\bar\tau_{k_2-1}+\Delta\tau_{q,k_2-1}^{(t-1)})(p_2-1)}
+\boldsymbol\Sigma^T_{q,k_1,n_1,k_2,n_2}
+(\dot{\boldsymbol\Xi}^{\nu}_q),
+\end{aligned}\tag{62}
+$$
+
+$$
+\begin{aligned}
+\mathcal K'^{\bar\nu}_{q,i,p_1,k_1,n_1}
+={}&\sum_{p_2=1}^{P}\sum_{l=0}^{P-1}
+jk_f(T_sl+(i-1)T_{\mathrm{symb}})
+[\bar{\mathbf s}_{q,i,p_2}]_{n_1}\\
+&\times e^{-j\frac{2\pi}{P}
+((\bar\tau_{k_1-1}+\Delta\tau_{q,k_1-1}^{(t-1)})(p_2-1)+l(p_1-p_2))}
+e^{jk_f\bar\nu_{q,k_1-1}(T_sl+(i-1)T_{\mathrm{symb}})}\mathbf I_M,
+\end{aligned}\tag{63}
+$$
+
+以及
+
+$$
+\mathcal B'^{\bar\nu}_{q,k}=
+\begin{cases}
+\frac{C_{0,q}(k)-\bar\nu_{q,k}}{\sigma_\nu^2},&k=k_0,\\[4pt]
+\frac{
+\zeta\sigma_\nu^2
+\left[
+e^{-\frac{(\bar\nu_{q,k}+2v_{\mathrm{scatt}}-C_{0,q}(k))^2}{2\sigma_\nu^2}}
+-e^{-\frac{(\bar\nu_{q,k}-2v_{\mathrm{scatt}}-C_{0,q}(k))^2}{2\sigma_\nu^2}}
+\right]
+e^{\frac{(\bar\nu_{q,k}-C_{0,q}(k))^2}{2\sigma_\nu^2}}
++2v_{\mathrm{scatt}}(1-\zeta)(C_{0,q}(k)-\bar\nu_{q,k})
+}{
+\sqrt{2\pi}\zeta\sigma_\nu^3
+\left[
+Q\left(\frac{2v_{\mathrm{scatt}}-\bar\nu_{q,k}+C_{0,q}(k)}{\sigma_\nu}\right)
+-Q\left(\frac{-2v_{\mathrm{scatt}}-\bar\nu_{q,k}+C_{0,q}(k)}{\sigma_\nu}\right)
+\right]
+e^{\frac{(\bar\nu_{q,k}-C_{0,q}(k))^2}{2\sigma_\nu^2}}
++2v_{\mathrm{scatt}}\sigma_\nu^2(1-\zeta)
+},&k=k_1,\ldots,k_{L'_q},\\[8pt]
+-\frac{\bar\nu_{q,k}}{\sigma_\nu^2},&\text{其他情况}.
+\end{cases}\tag{64}
+$$
+
+并定义
+
+$$
+\widetilde{\mathbf y}_{q,i,p_1}=
+[\widetilde{\mathbf y}_{q,i}]_{(p_1-1)M+1:p_1M},\tag{65}
+$$
+
+$$
+\boldsymbol\mu_{q,k,n}(\dot{\boldsymbol\Xi}_q)=
+[\boldsymbol\mu_q(\dot{\boldsymbol\Xi}_q)]_{
+((n-1)P_\tau+k)M+1:((n-1)P_\tau+k+1)M},\tag{66}
+$$
+
+$$
+\boldsymbol\Sigma_{q,k_1,n_1,k_2,n_2}(\dot{\boldsymbol\Xi}_q)=
+[\boldsymbol\Sigma_q(\dot{\boldsymbol\Xi}_q)]_{
+\substack{
+((n_1-1)P_\tau+k_1-1)M+1:((n_1-1)P_\tau+k_1)M,\\
+((n_2-1)P_\tau+k_2-1)M+1:((n_2-1)P_\tau+k_2)M
+}}.\tag{67}
+$$
+
+参考 Barzilai 和 Borwein 提出的两点步长梯度方法，沿梯度上升方向搜索 $\bar\nu_{q,k}$ 的最优解，其步长为
+
+$$
+\varepsilon_\nu^{(t)}=
+\frac{
+(\bar{\boldsymbol\nu}_q^{(t-1)}-\bar{\boldsymbol\nu}_q^{(t-2)})^T
+(\mathbf g_{\nu,q}(\bar{\boldsymbol\nu}_q^{(t-1)})
+-\mathbf g_{\nu,q}(\bar{\boldsymbol\nu}_q^{(t-2)}))
+}{
+\|\mathbf g_{\nu,q}(\bar{\boldsymbol\nu}_q^{(t-1)})
+-\mathbf g_{\nu,q}(\bar{\boldsymbol\nu}_q^{(t-2)})\|^2
+},\tag{68}
+$$
+
+该步长由当前第 $t$ 次迭代与上一次迭代的信息共同确定。因此，第 $t$ 次迭代可以表示为
+
+$$
+\bar{\boldsymbol\nu}_q^{(t)}=
+\bar{\boldsymbol\nu}_q^{(t-1)}
++\varepsilon_\nu^{(t)}
+\mathbf g_{\nu,q}(\bar{\boldsymbol\nu}_q^{(t-1)}),\tag{69}
+$$
+
+并且 $\bar\nu_{q,k}$ 只能取区间 $[-v_q-2v_{\mathrm{scatt}},v_q+2v_{\mathrm{scatt}}]$ 内的值。
+
+**2）第 $t$ 次迭代中 $\alpha_q$ 的更新：** 类似地，令 $\{\Delta\boldsymbol\tau_q,\bar{\boldsymbol\nu}_q,\boldsymbol\gamma_q\}=\{\Delta\boldsymbol\tau_q^{(t-1)},\bar{\boldsymbol\nu}_q^{(t)},\boldsymbol\gamma_q^{(t-1)}\}$，并令 $\dot{\boldsymbol\Xi}^{\alpha}_q=\{\alpha_q^{(t-1)},\Delta\boldsymbol\tau_q^{(t-1)},\bar{\boldsymbol\nu}_q^{(t)},\boldsymbol\gamma_q^{(t-1)}\}$，则式（52）中的目标函数可以重新写为
+
+$$
+\begin{aligned}
+&\mathcal U(\alpha_q,\Delta\boldsymbol\tau_q^{(t-1)},\bar{\boldsymbol\nu}_q^{(t)},
+\boldsymbol\gamma_q^{(t-1)}\mid\dot{\boldsymbol\Xi}^{\alpha}_q)\\
+&=\int p(\mathbf r_q\mid\widetilde{\mathbf y}_q,\dot{\boldsymbol\Xi}^{\alpha}_q)
+\ln p(\widetilde{\mathbf y}_q\mid\mathbf r_q,\alpha_q,
+\Delta\boldsymbol\tau_q^{(t-1)},\bar{\boldsymbol\nu}_q^{(t)})
+\,d\mathbf r_q+\ln p(\alpha_q)\\
+&=(c^\alpha_1+MPI_P)\ln\alpha_q
+-\left[c^\alpha_2+
+C_{1,q}(\Delta\boldsymbol\tau_q^{(t-1)},\bar{\boldsymbol\nu}_q^{(t)},
+\dot{\boldsymbol\Xi}^{\alpha}_q)\right]\alpha_q.
+\end{aligned}\tag{70}
+$$
+
+这里去除了与 $\alpha_q$ 无关的项。由于式（70）是凹函数，根据最优性的一阶必要条件，$\alpha_q$ 的最优解可以写为
+
+$$
+\alpha_q^{(t)}=
+\frac{c^\alpha_1+MPI_P}{
+c^\alpha_2+
+C_{1,q}(\Delta\boldsymbol\tau_q^{(t-1)},\bar{\boldsymbol\nu}_q^{(t)},
+\dot{\boldsymbol\Xi}^{\alpha}_q)}.\tag{71}
+$$
+
+**3）第 $t$ 次迭代中 $\boldsymbol\gamma_q$ 的更新：** 令 $\{\alpha_q,\Delta\boldsymbol\tau_q,\bar{\boldsymbol\nu}_q\}=\{\alpha_q^{(t)},\Delta\boldsymbol\tau_q^{(t-1)},\bar{\boldsymbol\nu}_q^{(t)}\}$，并令 $\dot{\boldsymbol\Xi}^{\gamma}_q=\{\alpha_q^{(t)},\Delta\boldsymbol\tau_q^{(t-1)},\bar{\boldsymbol\nu}_q^{(t)},\boldsymbol\gamma_q^{(t-1)}\}$，则式（51）可以重新写为
+
+$$
+\begin{aligned}
+&\mathcal U(\alpha_q^{(t)},\Delta\boldsymbol\tau_q^{(t-1)},
+\bar{\boldsymbol\nu}_q^{(t)},\boldsymbol\gamma_q\mid
+\dot{\boldsymbol\Xi}^{\gamma}_q)\\
+&=\int p(\mathbf r_q\mid\widetilde{\mathbf y}_q,\dot{\boldsymbol\Xi}^{\gamma}_q)
+\ln p(\mathbf r_q\mid\boldsymbol\gamma_q)d\mathbf r_q+
+\ln p(\boldsymbol\gamma_q)\\
+&=\sum_{s=1}^{MNP_\tau}(c^r_{1,q,s}+1)\ln\gamma_{q,s}
+-\sum_{s=1}^{MNP_\tau}c^r_{2,q,s}\gamma_{q,s}\\
+&\quad-\operatorname{tr}\left(
+\operatorname{diag}(\boldsymbol\gamma_q)
+[\boldsymbol\Sigma_q(\dot{\boldsymbol\Xi}^{\gamma}_q)
++\boldsymbol\mu_q(\dot{\boldsymbol\Xi}^{\gamma}_q)
+\boldsymbol\mu_q(\dot{\boldsymbol\Xi}^{\gamma}_q)^H]
+\right).
+\end{aligned}\tag{72}
+$$
+
+这里忽略了与 $\boldsymbol\gamma_q$ 无关的项。同样，由于式（72）是凹函数，可以推导出其最大值点为
+
+$$
+\gamma_{q,s}^{(t)}=
+\frac{c^r_{1,q,s}+1}{
+c^r_{2,q,s}+
+[\boldsymbol\Sigma_q(\dot{\boldsymbol\Xi}^{\gamma}_q)
++\boldsymbol\mu_q(\dot{\boldsymbol\Xi}^{\gamma}_q)
+\boldsymbol\mu_q(\dot{\boldsymbol\Xi}^{\gamma}_q)^H]_{s,s}}.\tag{73}
+$$
+
+**算法 1　基于 WCM 的信道增益与 CFO 联合估计（WCM-Based Joint CG and CFO Estimation）**
+
+**输入：** $\widetilde{\mathbf y}_q$、$\{\bar{\mathbf s}_{q,i}\}_{i\in\mathcal I_P}$，以及来自 WCM 的 $\boldsymbol\omega_q$ 和 $C_{0,q}$。  
+**输出：** $\hat{\boldsymbol\Xi}_q$ 和 $\hat{\mathbf r}^{\mathrm{MMSE}}_q$。
+
+1. 分别根据 $C_{0,q}$ 和 $\boldsymbol\omega_q$ 初始化 $\bar{\boldsymbol\nu}_q$ 和 $\boldsymbol\gamma_q$。初始化 $\hat{\mathbf r}^{\mathrm{MMSE}}_q=\mathbf 0_{MNP_\tau}$、$\Delta\boldsymbol\tau_q=\mathbf0$、迭代计数器 $t=1$，并将 $\alpha_q$ 设置为任意常数。
+2. 根据式（69）更新 $\bar{\boldsymbol\nu}_q^{(t)}$，根据式（71）更新 $\alpha_q^{(t)}$，根据式（73）更新 $\boldsymbol\gamma_q^{(t)}$，并根据式（81）更新 $\Delta\boldsymbol\tau_q^{(t)}$。
+3. 重复步骤 2，直到满足停止准则或达到最大迭代次数。
+4. 根据估计得到的精度向量 $\hat{\boldsymbol\gamma}_q$ 获得支撑集 $\mathcal S^\gamma_q$，并利用 $\hat{\boldsymbol\Xi}_q$，根据式（49）恢复 $\hat{\mathbf r}^{\mathrm{MMSE}}_q$ 中的非零元素。
+
