@@ -810,6 +810,80 @@ $
 
 
 
+## 参考文献（英文原始题录）
+
+依据用户提供的 IEEE 原版 PDF，完整录入文末 35 条英文参考文献，避免翻译题名造成检索歧义。
+
+[1] M. Cui, Z. Wu, Y. Lu, X. Wei, and L. Dai, “Near-field MIMO communications for 6G: Fundamentals, challenges, potentials, and future directions,” IEEE Commun. Mag., vol. 61, no. 1, pp. 40–46, Jan. 2023.
+
+[2] Y. Liu, Z. Wang, J. Xu, C. Ouyang, X. Mu, and R. Schober, “Nearfield communications: A tutorial review,” IEEE Open J. Commun. Soc., vol. 4, pp. 1999–2049, 2023.
+
+[3] Z. Yuan, J. Zhang, Y. Ji, G. F. Pedersen, and W. Fan, “Spatial nonstationary near-field channel modeling and validation for massive MIMO systems,” IEEE Trans. Antennas Propag., vol. 71, no. 1, pp. 921–933, Jan. 2023.
+
+[4] Y. Zhao, K. Zheng, Y. Teng, A. Liu, and V. K. N. Lau, “Spatial information aided joint UL/DL channel tracking for massive MIMO system in HST environment,” IEEE Trans. Veh. Technol., vol. 73, no. 10, pp. 14794–14808, Oct. 2024.
+
+[5] S. Li, G. Cao, L. Jin, and H. Wu, “Channel estimation based on the PSS-MUSIC for millimeter-wave MIMO systems equipped with coprime arrays,” EURASIP J. Wireless Commun. Netw., vol. 2020, no. 1, pp. 1–11, Jan. 2020.
+
+[6] T. Lin, X. Yu, Y. Zhu, and R. Schober, “Channel estimation for IRS- assisted millimeter-wave MIMO systems: Sparsity-inspired approaches,” IEEE Trans. Commun., vol. 70, no. 6, pp. 4078–4092, Jun. 2022.
+
+[7] A. Hussain, A. Abdallah, and A. M. Eltawil, “Near-field channel estimation for ultra-massive MIMO antenna array with hybrid architecture,” in Proc. IEEE Wireless Commun. Netw. Conf. (WCNC), Apr. 2024, pp. 1–6.
+
+[8] L. L. Magoarou, A. L. Calvez, and S. Paquelet, “Massive MIMO channel estimation taking into account spherical waves,” in Proc. IEEE 20th Int. Workshop Signal Process. Adv. Wireless Commun. (SPAWC), Jul. 2019, pp. 1–5.
+
+[9] Y. Han, S. Jin, C.-K. Wen, and X. Ma, “Channel estimation for extremely large-scale massive MIMO systems,” IEEE Wireless Commun. Lett., vol. 9, no. 5, pp. 633–637, May 2020.
+
+[10] M. Cui and L. Dai, “Channel estimation for extremely large-scale MIMO: Far-field or near-field?,” IEEE Trans. Commun., vol. 70, no. 4, pp. 2663–2677, Apr. 2022.
+
+[11] Y. Zhu, H. Guo, and V. K. N. Lau, “Bayesian channel estimation in multi-user massive MIMO with extremely large antenna array,” IEEE Trans. Signal Process., vol. 69, pp. 5463–5478, 2021.
+
+[12] Y. Chen and L. Dai, “Non-stationary channel estimation for extremely large-scale MIMO,” IEEE Trans. Wireless Commun., vol. 23, no. 7, pp. 7683–7697, Jul. 2024.
+
+[13] J. Chen, P. Zhang, N. Ma, and X. Xu, “Hierarchical-block sparse Bayesian learning for spatial non-stationary massive MIMO channel estimation,” IEEE Wireless Commun. Lett., vol. 11, no. 5, pp. 888–892, May 2022.
+
+[14] A. Tang et al., “Joint visibility region and channel estimation for extremely large-scale MIMO systems,” IEEE Trans. Commun., vol. 72, no. 10, pp. 6087–6101, Oct. 2024.
+
+[15] J. N. Pisharody, A. Rajoriya, and R. Budhiraja, “Near-field channel estimation for XL-MIMO systems using variational Bayesian learning,” IEEE Trans. Wireless Commun., vol. 23, no. 9, pp. 10740–10756, Sep. 2024.
+
+[16] Y. Han, S. Jin, M. Matthaiou, T. Q. S. Quek, and C.-K. Wen, “Toward extra large-scale MIMO: New channel properties and low-cost designs,” IEEE Internet Things J., vol. 10, no. 16, pp. 14569–14594, Aug. 2023.
+
+[17] L. Qiao et al., “Sensing user’s activity, channel, and location with nearfield extra-large-scale MIMO,” IEEE Trans. Commun., vol. 72, no. 2, pp. 890–906, Feb. 2024.
+
+[18] F. Kulsoom, A. Vizziello, H. N. Chaudhry, and P. Savazzi, “Joint sparse channel recovery with quantized feedback for multi-user massive MIMO systems,” IEEE Access, vol. 8, pp. 11046–11060, 2020.
+
+[19] A. Liu, L. Lian, V. K. N. Lau, and X. Yuan, “Downlink channel estimation in multiuser massive MIMO with hidden Markovian sparsity,” IEEE Trans. Signal Process., vol. 66, no. 18, pp. 4796–4810, Sep. 2018.
+
+[20] M. J. Azizipour and K. Mohamed-Pour, “Channel estimation for FDD multi-user massive MIMO systems: A greedy approach based on user clustering,” IET Signal Process., vol. 13, no. 9, pp. 778–786, Dec. 2019.
+
+[21] Y. Bao, B. Yu, B. Yin, X. Luo, and X. Lu, “Resource allocation for joint communication and localization systems with MU-MIMO,” IEEE Access, vol. 10, pp. 124649–124662, 2022.
+
+[22] J. Dai, A. Liu, and V. K. N. Lau, “Joint channel estimation and user grouping for massive MIMO systems,” IEEE Trans. Signal Process., vol. 67, no. 3, pp. 622–637, Feb. 2019.
+
+[23] J.-C. Jiang and H.-M. Wang, “Grouping-based joint active user detection and channel estimation with massive MIMO,” IEEE Trans. Wireless Commun., vol. 21, no. 4, pp. 2305–2319, Apr. 2022.
+
+[24] X. Cheng, K. Xu, J. Sun, and S. Li, “Adaptive grouping sparse Bayesian learning for channel estimation in non-stationary uplink massive MIMO systems,” IEEE Trans. Wireless Commun., vol. 18, no. 8, pp. 4184–4198, Aug. 2019.
+
+[25] A. Rajoriya, R. Budhiraja, and L. Hanzo, “Centralized and decentralized channel estimation in FDD multi-user massive MIMO systems,” IEEE Trans. Veh. Technol., vol. 71, no. 7, pp. 7325–7342, Jul. 2022.
+
+[26] M. Delbari, G. C. Alexandropoulos, R. Schober, H. V. Poor, and V. Jamali, “Near-field multipath MIMO channel model for imperfect surface reflection,” 2024, arXiv:2409.17041.
+
+[27] W. Xu, A. Liu, M.-J. Zhao, and G. Caire, “Joint visibility region detection and channel estimation for XL-MIMO systems via alternating MAP,” IEEE Trans. Signal Process., vol. 72, pp. 4827–4842, 2024.
+
+[28] A. Liu, G. Liu, L. Lian, V. K. N. Lau, and M.-J. Zhao, “Robust recovery of structured sparse signals with uncertain sensing matrix: A turbo-VBI approach,” IEEE Trans. Wireless Commun., vol. 19, no. 5, pp. 3185–3198, May 2020.
+
+[29] W. Xu, Y. Xiao, A. Liu, M. Lei, and M.-J. Zhao, “Joint scattering environment sensing and channel estimation based on non-stationary Markov random field,” IEEE Trans. Wireless Commun., vol. 23, no. 5, pp. 3903–3917, May 2024.
+
+[30] D. G. Tzikas, A. C. Likas, and N. P. Galatsanos, “The variational approximation for Bayesian inference,” IEEE Signal Process. Mag., vol. 25, no. 6, pp. 131–146, Nov. 2008.
+
+[31] E. Fornasini, “2D Markov chains,” Linear Algebra its Appl., vol. 140, pp. 101–127, Oct. 1990.
+
+[32] H. Duan, L. Yang, J. Fang, and H. Li, “Fast inverse-free sparse Bayesian learning via relaxed evidence lower bound maximization,” IEEE Signal Process. Lett., vol. 24, no. 6, pp. 774–778, Jun. 2017.
+
+[33] J. Ziniel and P. Schniter, “Dynamic compressive sensing of time-varying signals via approximate message passing,” IEEE Trans. Signal Process., vol. 61, no. 21, pp. 5270–5284, Nov. 2013.
+
+[34] F. R. Kschischang, B. J. Frey, and H.-A. Loeliger, “Factor graphs and the sum-product algorithm,” IEEE Trans. Inf. Theory, vol. 47, no. 2, pp. 498–519, Feb. 2001.
+
+[35] T. Gao, P. Tang, L. Tian, H. Miao, and Z. Yuan, “A 3GPP-like channel simulation framework considering near-field spatial non-stationary characteristics of massive MIMO,” in Proc. IEEE Globecom Workshops (GC Wkshps), Dec. 2023, pp. 1493–1498. aded on October 24,2026 at 08:55:03 UTC from IEEE Xplore. Restrictions apply.
+
 ## 尚待对照原版补齐
 
 上传的 TWC 原文共 18 页，涉及复杂二维排版、联合先验及 IF-VBI 的多组长公式。**本稿还没有覆盖全部原文段落、式（20）之后的全部推导、算法 1 的每行步骤、图 8 以后全部实验以及附录证明和参考文献**。因此该页面明确标记为“主体译稿”，不能算作完整 18 页译文，更不能作为逐式复现依据。
