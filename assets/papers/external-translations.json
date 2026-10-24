@@ -2,17 +2,19 @@
   {
     "slug": "2026-10-24-wcm-instantaneous-csi-tcomm2026",
     "title": "高移动性场景 WCM 赋能瞬时 CSI 获取｜中文全文译稿（逐式校对中）",
-    "scope": "原文16页：摘要、正文I–VI、公式（1）–（87）、定理1–2、算法1、表I–II、图1–12图注、附录A–B、参考文献37条、作者简介和出版附注；译文结构完整，尚未完成逐式与公开传播许可核验。",
+    "scope": "原文16页，译文已并入对应历史论文 ID f997fa4fb49f2a25；含摘要、正文 I–VI、公式（1）–（87）、定理1–2、算法1、表I–II、图1–12图注、附录A–B、37条参考文献、作者简介；公式换行修复，逐式原文终校未完成。",
     "source_arxiv_ids": [],
     "date": "2026-10-24",
-    "url": "/papers/translations/2026-10-24-wcm-instantaneous-csi-tcomm2026/",
-    "source_file": "2026-10-24-wcm-instantaneous-csi-tcomm2026.md",
-    "source_page_path": "papers/translations/2026-10-24-wcm-instantaneous-csi-tcomm2026.md",
-    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-24-wcm-instantaneous-csi-tcomm2026.md",
-    "paper_ids": [],
+    "url": "/papers/items/f997fa4fb49f2a25/#paper-translation",
+    "source_file": "f997fa4fb49f2a25.md",
+    "source_page_path": "papers/items/f997fa4fb49f2a25.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/items/f997fa4fb49f2a25.md",
+    "paper_ids": [
+      "f997fa4fb49f2a25"
+    ],
     "qa_complete": false,
     "external": true,
-    "primary_translation": false
+    "primary_translation": true
   },
   {
     "slug": "2026-10-24-ua-d-rme-2610-28293",
