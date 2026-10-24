@@ -1115,3 +1115,119 @@ $$
 
 其中，前者可以通过随机变量变换方法计算，后者是均值为 $C_{0,q}(k)$ 的高斯分布。综合以上结果，便可以得到式（40）。
 
+## 参考文献（REFERENCES）
+
+[1] C.-X. Wang 等，“迈向 6G 之路：愿景、需求、关键技术与试验平台”，*IEEE Communications Surveys & Tutorials*，第 25 卷，第 2 期，第 905–974 页，2023 年第二季度。
+
+[2] C.-X. Wang、Y. Yang、J. Huang、X. Gao、T. J. Cui 和 L. Hanzo，“电磁信息论：6G 无线通信系统的基础与应用”，*IEEE Wireless Communications*，第 31 卷，第 5 期，第 279–286 页，2024 年 10 月。
+
+[3] C.-X. Wang 等，“面向电磁信息论赋能的 6G/B6G 三维连续空间无线信道的建模、容量研究、天线与系统设计”，*IEEE Communications Surveys & Tutorials*，第 28 卷，第 1–63 页，2026 年。
+
+[4] J. Wu 和 P. Fan，“高移动性无线通信综述：挑战、机遇与解决方案”，*IEEE Access*，第 4 卷，第 450–476 页，2016 年。
+
+[5] F. Luo，《面向未来无线通信的机器学习》，美国新泽西州霍博肯：Wiley，2019 年。
+
+[6] T. Roman 和 V. Koivunen，“具有恒模星座的 OFDM 系统中用于 CFO 盲估计的子空间方法”，发表于 *IEEE VTC 会议论文集*，第 2 卷，第 1253–1257 页，2005 年 6 月。
+
+[7] E. P. Simon、L. Ros、H. Hijazi 和 M. Ghogho，“极高移动性条件下通过 EM 算法实现 OFDM 系统的载波频率偏移与信道联合估计”，*IEEE Transactions on Signal Processing*，第 60 卷，第 2 期，第 754–765 页，2012 年 2 月。
+
+[8] H. Abdzadeh-Ziabari、W.-P. Zhu 和 M. N. S. Swamy，“OFDM 系统的定时、频率偏移和双选择性信道联合最大似然估计”，*IEEE Transactions on Vehicular Technology*，第 67 卷，第 3 期，第 2787–2791 页，2018 年 3 月。
+
+[9] P. Muneer 和 S. M. Sameer，“基于斜投影的高移动性 MIMO-OFDMA 上行链路中载波频率偏移与双选择性信道的迭代联合估计”，*IEEE Transactions on Vehicular Technology*，第 65 卷，第 9 期，第 7110–7121 页，2016 年 9 月。
+
+[10] E. P. Simon、H. Hijazi、L. Ros、M. Berbineau 和 P. Degauque，“快速时变车载环境中 OFDM 系统的载波频率偏移与信道复增益联合估计”，发表于 *IEEE ICC Workshops 会议论文集*，第 57 卷，第 1–5 页，2010 年 5 月。
+
+[11] H. Hijazi、A. Dakhlallah、S. A. Hajj、A. C. A. Ghouwayel 和 A. Dhayni，“通过粒子滤波实现 OFDM 系统中的 CFO 与时变信道联合估计”，发表于 *ICCIT 会议论文集*，第 57 卷，第 241–245 页，2013 年 6 月。
+
+[12] Y. Zhu、H. Guo 和 V. K. N. Lau，“具有超大规模天线阵列的多用户大规模 MIMO 中的贝叶斯信道估计”，*IEEE Transactions on Signal Processing*，第 69 卷，第 5463–5478 页，2021 年。
+
+[13] A. Liu、L. Lian、V. K. N. Lau 和 X. Yuan，“具有隐马尔可夫稀疏性的大规模多用户 MIMO 下行信道估计”，*IEEE Transactions on Signal Processing*，第 66 卷，第 18 期，第 4796–4810 页，2018 年 9 月。
+
+[14] P. Cheng 等，“双选择性信道下 OFDM 系统的信道估计：一种基于分布式压缩感知的方法”，*IEEE Transactions on Communications*，第 61 卷，第 10 期，第 4173–4185 页，2013 年 10 月。
+
+[15] Q. Qin、L. Gui、B. Gong、X. Ren 和 W. Chen，“双选择性信道下的结构化分布式压缩信道估计”，*IEEE Transactions on Broadcasting*，第 62 卷，第 3 期，第 521–531 页，2016 年 9 月。
+
+[16] B. Gong、L. Gui、Q. Qin、X. Ren 和 W. Chen，“基于分块分布式压缩感知的大规模 MIMO 系统双选择性信道估计与导频设计”，*IEEE Transactions on Vehicular Technology*，第 66 卷，第 10 期，第 9149–9161 页，2017 年 10 月。
+
+[17] M. E. Tipping，“稀疏贝叶斯学习与相关向量机”，*Journal of Machine Learning Research*，第 1 卷，第 211–244 页，2001 年 6 月。
+
+[18] J. Dai、A. Liu 和 V. K. N. Lau，“具有任意二维阵列几何结构的 FDD 大规模 MIMO 信道估计”，*IEEE Transactions on Signal Processing*，第 66 卷，第 10 期，第 2584–2599 页，2018 年 5 月。
+
+[19] G. Liu、A. Liu、R. Zhang 和 M. Zhao，“高移动性毫米波大规模 MIMO 的角度域选择性信道跟踪与多普勒补偿”，*IEEE Transactions on Wireless Communications*，第 20 卷，第 5 期，第 2902–2916 页，2021 年 5 月。
+
+[20] S. M. Kay，《统计信号处理：估计理论》，美国新泽西州上萨德尔河：Prentice-Hall，1993 年。
+
+[21] S. Chen 等，“面向无蜂窝大规模 MIMO 通信的基于信道地图的角度域多址接入”，*IEEE Journal of Selected Topics in Signal Processing*，第 19 卷，第 2 期，第 366–380 页，2025 年 3 月。
+
+[22] H. Sun 和 J. Chen，“用于频谱地图构建的集成插值与块项张量分解”，*IEEE Transactions on Signal Processing*，第 72 卷，第 3896–3911 页，2024 年。
+
+[23] X. Xu 和 Y. Zeng，“构建信道知识地图需要多少数据？”，*IEEE Transactions on Wireless Communications*，第 23 卷，第 10 期，第 13011–13021 页，2024 年 10 月。
+
+[24] J. Li、C.-X. Wang、C. Huang、T. Qi 和 T. Wu，“数字孪生在线信道建模：挑战、原则与应用”，*IEEE Vehicular Technology Magazine*，第 20 卷，第 1 期，第 94–103 页，2025 年 3 月。
+
+[25] T. Qi、C. Huang、J. Shi、J. Li、S. Chen 和 C. Wang，“面向 6G MIMO 通信的一种新型动态信道地图”，发表于 *IEEE ICCC 会议论文集*，第 809–814 页，2024 年 9 月。
+
+[26] S. Yang、C.-X. Wang、Y. Wang、J. Huang、Y. Zhou 和 E.-H.-M. Aggoune，“一种面向 6G 动态射线追踪信道建模的高效预处理方法”，*IEEE Transactions on Vehicular Technology*，第 74 卷，第 5 期，第 6941–6953 页，2025 年 5 月。
+
+[27] T. Qi 等，“一种基于混合信道模型的新型 6G 动态信道地图”，*IEEE Transactions on Vehicular Technology*，2025 年 8 月 26 日在线优先发表，DOI：10.1109/TVT.2025.3602807。
+
+[28] 《0.5 至 100 GHz 频率范围的信道模型研究（Release 19）》，技术报告 TR 38.901，2025 年 9 月。
+
+[29] W. Guo、W. Zhang、P. Mu、F. Gao 和 H. Lin，“高移动性宽带大规模 MIMO 通信：多普勒补偿、分析与缩放定律”，*IEEE Transactions on Wireless Communications*，第 18 卷，第 6 期，第 3177–3191 页，2019 年 6 月。
+
+[30] J. Ma、S. Zhang、H. Li、F. Gao 和 S. Jin，“面向时变大规模 MIMO 信道的稀疏贝叶斯学习：获取与跟踪”，*IEEE Transactions on Communications*，第 67 卷，第 3 期，第 1925–1938 页，2019 年 3 月。
+
+[31] C.-X. Wang、Z. Lv、X. Gao、X. You、Y. Hao 和 H. Haas，“普适无线信道建模理论及其在适用于所有频段和所有场景的 6G GBSM 中的应用”，*IEEE Transactions on Vehicular Technology*，第 71 卷，第 9 期，第 9159–9173 页，2022 年 9 月。
+
+[32] C. Wang 等，“一种面向标准化的增强型 6G 普适信道模型”，*中国科学：信息科学*，第 55 卷，第 6 期，第 1486 页，2025 年 6 月。
+
+[33] A. M. Sayeed，“多天线衰落信道的分解”，*IEEE Transactions on Signal Processing*，第 50 卷，第 10 期，第 2563–2579 页，2002 年 10 月。
+
+[34] B. Yang、K. B. Letaief、R. S. Cheng 和 Z. Cao，“基于参数化信道建模的多径衰落信道 OFDM 传输信道估计”，*IEEE Transactions on Communications*，第 49 卷，第 3 期，第 467–479 页，2001 年 3 月。
+
+[35] S. Chen、J. Zhang、E. Björnson、Ö. T. Demir 和 B. Ai，“通过稀疏大尺度衰落处理实现高能效无蜂窝大规模 MIMO”，*IEEE Transactions on Wireless Communications*，第 22 卷，第 12 期，第 9374–9389 页，2023 年 12 月。
+
+[36] E. Björnson、J. Hoydis 和 L. Sanguinetti，“大规模 MIMO 网络：频谱效率、能量效率与硬件效率”，*Foundations and Trends in Signal Processing*，第 11 卷，第 3–4 期，第 154–655 页，2017 年。
+
+[37] J. Wu 和 Y. R. Zheng，“双选择性衰落信道中的过采样正交频分复用”，*IEEE Transactions on Communications*，第 59 卷，第 3 期，第 815–822 页，2011 年 3 月。
+
+## 作者简介
+
+**Yinglan Bu（卜颖兰）** 于 2020 年获得中国郑州大学通信工程专业工学学士学位。目前正在中国东南大学信息科学与工程学院移动通信全国重点实验室攻读博士学位。其研究兴趣包括信道估计、最优化理论和 6G 无线通信。
+
+**Cheng-Xiang Wang（王承祥，IEEE Fellow）** 分别于 1997 年和 2000 年获得中国山东大学通信与信息系统专业理学学士和工学硕士学位，并于 2004 年获得丹麦奥尔堡大学无线通信专业博士学位。
+
+2000 年至 2001 年，他在德国汉堡工业大学担任研究助理；2004 年在德国慕尼黑西门子移动电话公司担任访问研究员；2001 年至 2005 年在挪威格里姆斯塔的阿格德大学担任研究员。2005 年至 2018 年，他任职于英国爱丁堡赫瑞-瓦特大学，并于 2011 年晋升为教授。自 2018 年起，他一直担任中国南京东南大学教授，目前担任信息科学与工程学院院长。他同时也是中国南京紫金山实验室泛在通信研究中心教授。他已出版 4 部著作、3 个图书章节，并在同行评审期刊和会议论文集中发表了 660 余篇论文，其中包括 31 篇高被引论文。他还在国际会议上作过 39 场受邀主旨报告或演讲，以及 23 场教程报告。目前的研究兴趣包括无线信道测量与建模、6G 无线通信网络和电磁信息论。
+
+王教授是欧洲科学院（Academia Europaea）和欧洲科学与艺术院（European Academy of Sciences and Arts，EASA）成员，也是爱丁堡皇家学会（Royal Society of Edinburgh，FRSE）和英国工程技术学会（IET）会士。他曾于 2019 年和 2020 年担任 IEEE 通信学会杰出讲师，并被科睿唯安认定为高被引科学家。2024 年，他获得 IEEE Neal Shepherd Memorial 最佳传播论文奖。他还获得过 19 项国际会议最佳论文奖，并在 30 余场国际会议中担任技术程序委员会主席或大会主席。目前，他担任 *IEEE Transactions on Wireless Communications* 执行编辑委员会成员。他曾担任超过 16 种国际期刊的编辑，包括 2007 年至 2009 年的 *IEEE Transactions on Wireless Communications*、2011 年至 2017 年的 *IEEE Transactions on Vehicular Technology*，以及 2015 年至 2017 年的 *IEEE Transactions on Communications*。他还曾担任 *IEEE Journal on Selected Areas in Communications*、*IEEE Transactions on Big Data* 和 *IEEE Transactions on Cognitive Communications and Networking* 的客座编辑。
+
+**Chen Huang（黄晨，IEEE Member）** 于 2021 年获得中国北京交通大学博士学位。2018 年至 2020 年，他曾在美国加利福尼亚州洛杉矶的南加州大学（University of Southern California，USC）和比利时新鲁汶的鲁汶天主教大学（Université Catholique de Louvain，UCL）担任访问学者。2021 年 4 月至 2023 年 4 月，他在中国南京紫金山实验室泛在通信研究中心，以及东南大学信息科学与工程学院移动通信全国重点实验室担任博士后研究人员。自 2023 年 4 月起，他担任紫金山实验室泛在通信研究中心副研究员，并担任东南大学信息科学与工程学院移动通信全国重点实验室校外导师。他已撰写或合作撰写 1 个图书章节、70 余篇期刊和会议论文，以及 17 项专利。他的研究兴趣包括 6G 信道测量、信道特性分析与建模、基于机器学习的信道预测和定位。他担任多个会议的技术程序委员会（Technical Program Committee，TPC）成员，包括 IEEE GLOBECOM、ICC、VTC-Fall 和 VTC-Spring。他曾入选中国科协青年人才托举工程、江苏省“333 高层次人才培养工程”以及江苏省优秀博士后计划。他先后五次获得 IEEE ICC 2025、IEEE/CIC ICCC 2024、IEEE ICCT 2023、WCSP 2018 和 IEEE/CIC ICCC 2018 的最佳论文奖。他担任 AI 信道建模子组和 IEEE P1499 标准工作组主席，并担任 *IEEE Transactions on Vehicular Technology* 副编辑。
+
+**Shuaifei Chen（陈帅飞，IEEE Member）** 分别于 2018 年和 2023 年获得中国北京交通大学通信工程专业学士学位和信息与通信工程专业博士学位。2019 年至 2020 年，他访问了瑞典林雪平大学通信系统系。2021 年至 2022 年，他访问了瑞典皇家理工学院（KTH）通信系统部门。目前，他担任中国南京紫金山实验室副研究员，同时也是中国南京东南大学信息科学与工程学院移动通信全国重点实验室的博士后研究人员。自 2025 年 1 月起，他担任东南大学校外导师。他的研究兴趣包括无线通信中的信号处理和资源分配、无蜂窝与超大规模 MIMO，以及数字孪生辅助的 6G 多天线技术。他还担任多个会议的技术程序委员会（TPC）成员，包括 IEEE ICC 和 IEEE GLOBECOM。2021 年，他被评为 *IEEE Transactions on Communications* 优秀审稿人；2023 年，被评为 *IEEE Communications Letters* 优秀审稿人。2024 年，他入选江苏省优秀博士后计划；2025 年，入选江苏省科协青年科技人才托举工程。他曾获得 IEEE ICC 2025 最佳论文奖。目前担任 *IEEE Open Journal of the Communications Society* 副编辑。
+
+**Junling Li（李俊玲，IEEE Member）** 分别于 2013 年和 2016 年获得中国天津大学学士学位和北京邮电大学硕士学位，并于 2020 年获得加拿大安大略省滑铁卢大学电子与计算机工程系博士学位。2020 年至 2022 年，她曾在深圳人工智能与机器人研究院（Shenzhen Institute of Artificial Intelligence and Robotics for Society，AIRS）、滑铁卢大学和香港中文大学（深圳）担任联合博士后研究员。目前，她担任中国南京东南大学移动通信全国重点实验室副教授。其研究兴趣包括数字孪生、信道建模、博弈论和基于机器学习的信道预测。她曾在 IEEE ICCC 2019、ICCT 2023 和 ICC 2025 获得最佳论文奖。
+
+**Jianghan Ji** 于 2023 年获得中国南京东南大学信息工程专业工学学士学位，目前正在该校移动通信全国重点实验室攻读硕士学位。其研究兴趣包括信道估计和信道地图。
+
+**Yunfei Chen（陈云飞，IEEE Fellow）** 分别于 1998 年和 2001 年获得中国上海交通大学电子工程专业工学学士和工学硕士学位，并于 2006 年获得加拿大阿尔伯塔省埃德蒙顿市阿尔伯塔大学博士学位。目前，他担任英国杜伦大学工程系教授。其研究兴趣包括无线通信、性能分析、雷达与通信联合设计、认知无线电、无线中继和能量采集。
+
+## 论文首页附注及出版信息
+
+**稿件历史：** 本文于 2025 年 4 月 14 日收到；分别于 2025 年 8 月 29 日和 2026 年 1 月 1 日修订；于 2026 年 1 月 28 日接收。论文于 2026 年 2 月 10 日正式发表，当前版本日期为 2026 年 2 月 19 日。
+
+**基金支持：** 本研究得到中国国家自然科学基金（National Natural Science Foundation of China，NSFC）项目 62394290、62394291 和 62394294，以及东南大学移动通信研究实验室科研基金项目 2026A05 的支持。
+
+负责协调本文同行评审并批准其发表的副编辑为 S. Majhi。（通讯作者：Cheng-Xiang Wang；Chen Huang。）
+
+Yinglan Bu、Cheng-Xiang Wang 和 Junling Li 任职于中国南京东南大学信息科学与工程学院移动通信研究实验室（邮编 211189），同时隶属于中国南京紫金山实验室（邮编 211111）。电子邮箱：ylbu@seu.edu.cn；chxwang@seu.edu.cn；junlingli@seu.edu.cn。
+
+Chen Huang 和 Shuaifei Chen 任职于中国南京紫金山实验室（邮编 211111），同时隶属于中国南京东南大学信息科学与工程学院移动通信研究实验室（邮编 211189）。电子邮箱：huangchen@pmlabs.com.cn；shuaifeichen@seu.edu.cn。
+
+Jianghan Ji 任职于中国南京东南大学信息科学与工程学院移动通信研究实验室（邮编 211189）。电子邮箱：ji_jh@seu.edu.cn。
+
+Yunfei Chen 任职于英国杜伦大学工程系，英国杜伦 DH1 3LE。电子邮箱：yunfei.chen@durham.ac.uk。
+
+**版权声明：** 0090-6778 © 2026 IEEE。保留所有权利，包括文本和数据挖掘以及人工智能和类似技术训练的相关权利。允许个人使用，但重新发表或再分发需要获得 IEEE 许可。更多信息参见 https://www.ieee.org/publications/rights/index.html。
+
+**下载许可声明：** 授权使用仅限于中国电子科技大学。该文件于 2026 年 5 月 20 日 02:59:58 UTC 从 IEEE Xplore 下载。适用相关使用限制。（此声明在原 PDF 各页页脚重复出现。）
+
