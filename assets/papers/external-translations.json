@@ -1,5 +1,86 @@
 [
   {
+    "slug": "2026-10-24-ua-d-rme-2610-28293",
+    "title": "UA-D-RME：去中心化不确定性感知无线电地图估计｜中文主体译稿（待终校）",
+    "scope": "原 PDF 6 页；正文 I–VI、公式（1）–（17）、图 1–4 说明与参考文献题录已译/列入；书目详细字段及公式尚待逐项终校。",
+    "source_arxiv_ids": [
+      "2610.28293"
+    ],
+    "date": "2026-10-24",
+    "url": "/papers/translations/2026-10-24-ua-d-rme-2610-28293/",
+    "source_file": "2026-10-24-ua-d-rme-2610-28293.md",
+    "source_page_path": "papers/translations/2026-10-24-ua-d-rme-2610-28293.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-24-ua-d-rme-2610-28293.md",
+    "paper_ids": [],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": false
+  },
+  {
+    "slug": "2026-10-24-bct-bayes-consistent-tempering-2610-27641",
+    "title": "BCT：流语言模型贝叶斯一致温度调节｜中文主体译稿（附录待补）",
+    "scope": "原 PDF 19 页；正文 1–6、公式（1）–（18）、图 1–5 主要说明、实验及局限已译；附录 A–G、补充表格和书目未完整译出。",
+    "source_arxiv_ids": [
+      "2610.27641"
+    ],
+    "date": "2026-10-24",
+    "url": "/papers/translations/2026-10-24-bct-bayes-consistent-tempering-2610-27641/",
+    "source_file": "2026-10-24-bct-bayes-consistent-tempering-2610-27641.md",
+    "source_page_path": "papers/translations/2026-10-24-bct-bayes-consistent-tempering-2610-27641.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-24-bct-bayes-consistent-tempering-2610-27641.md",
+    "paper_ids": [],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": false
+  },
+  {
+    "slug": "2026-10-24-posterior-flow-matching-2610-13994",
+    "title": "Posterior Flow Matching｜中文主体译稿（长附录待补）",
+    "scope": "原 PDF 42 页；正文 1–6、核心公式（1）–（20）、主要实验表和图示已译；附录 A–H、大量补充推导和书目尚未完整译出。",
+    "source_arxiv_ids": [
+      "2610.13994"
+    ],
+    "date": "2026-10-24",
+    "url": "/papers/translations/2026-10-24-posterior-flow-matching-2610-13994/",
+    "source_file": "2026-10-24-posterior-flow-matching-2610-13994.md",
+    "source_page_path": "papers/translations/2026-10-24-posterior-flow-matching-2610-13994.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-24-posterior-flow-matching-2610-13994.md",
+    "paper_ids": [],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": false
+  },
+  {
+    "slug": "2026-10-24-xl-mimo-multi-user-spatial-sharing",
+    "title": "近场 XL-MIMO 多用户空间共享信道估计｜中文主体译稿（待补齐）",
+    "scope": "原 PDF 18 页；摘要、引言、系统模型、极域稀疏先验与模块介绍已译；完整 IF-VBI 推导、算法、后续图表及证明待补。",
+    "source_arxiv_ids": [],
+    "date": "2026-10-24",
+    "url": "/papers/translations/2026-10-24-xl-mimo-multi-user-spatial-sharing/",
+    "source_file": "2026-10-24-xl-mimo-multi-user-spatial-sharing.md",
+    "source_page_path": "papers/translations/2026-10-24-xl-mimo-multi-user-spatial-sharing.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-24-xl-mimo-multi-user-spatial-sharing.md",
+    "paper_ids": [],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": false
+  },
+  {
+    "slug": "2026-10-24-fttd-near-field-thz-hybrid-beamforming",
+    "title": "近场 THz 多用户 FTTD 混合波束赋形｜中文主体译稿（待补齐）",
+    "scope": "原 PDF 17 页；摘要、引言、信道模型、FC/SC、PWMMSE 核心式及启发式算法 4 已译；部分长公式、算法 1–3、全部表格和书目待补。",
+    "source_arxiv_ids": [],
+    "date": "2026-10-24",
+    "url": "/papers/translations/2026-10-24-fttd-near-field-thz-hybrid-beamforming/",
+    "source_file": "2026-10-24-fttd-near-field-thz-hybrid-beamforming.md",
+    "source_page_path": "papers/translations/2026-10-24-fttd-near-field-thz-hybrid-beamforming.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-24-fttd-near-field-thz-hybrid-beamforming.md",
+    "paper_ids": [],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": false
+  },
+  {
     "slug": "2026-10-23-rotatable-antennas-imperfect-csi-2605-04775",
     "title": "可旋转天线双时间尺度设计与不完美 CSI｜中文扩充译稿（待终校）",
     "scope": "13 页：正文 I–VIII、速率代理与部分长公式、wZF 条件干扰及 Schur 补、投影梯度算法、图 1–10、31 条参考文献已补；部分原文子公式和实验叙述尚需逐段终校。",
