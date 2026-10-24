@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "source": "每日论文推荐.xlsx",
-  "source_sha256": "bcc4f2315a3f771d8c6c10319a594f65280cde5bc0866f55405e928ccb16aeb1",
+  "source_sha256": "89f8b4306bbaf410c70587a321a5abaf0463523fc69e0543b1ff9e0466885084",
   "translation_progress": {
     "target": 315,
     "completed": 22,
@@ -23,7 +23,7 @@
   "sheets": [
     {
       "name": "每日论文推荐",
-      "count": 375,
+      "count": 380,
       "headers": [
         "日期",
         "标题",
@@ -45,8 +45,9 @@
       ]
     }
   ],
-  "total": 375,
+  "total": 380,
   "dates": {
+    "2026-10-24": 5,
     "2026-10-23": 5,
     "2026-10-22": 5,
     "2026-10-21": 5,
@@ -96,8 +97,264 @@
     "2026-07-12": 5,
     "2026-07-11": 5
   },
-  "latest_date": "2026-10-23",
+  "latest_date": "2026-10-24",
   "papers": [
+    {
+      "id": "98ee8147d0091bcb",
+      "date": "2026-10-24",
+      "title": "Hybrid Beamforming Optimization for Near-Field Terahertz Multi-User System With FTTDs",
+      "sheet": "每日论文推荐",
+      "row": 381,
+      "fields": {
+        "日期": "2026-10-24",
+        "标题": "Hybrid Beamforming Optimization for Near-Field Terahertz Multi-User System With FTTDs",
+        "内容": "作者：Wenqiang Chu; Qiuyan Liu; Yanxia Cao; Yafeng Wang。问题：近场宽带THz空间宽带效应损害波束聚焦，连续可调TTD又有硬件和功耗成本。 方法：FTTD+相移器的全连接/子连接混合波束架构；PWMMSE罚函数加BCD优化频谱效率；低复杂度方案用LoS设计模拟波束、再用低维等效CSI优化数字波束。 结果：出版社公开摘要报告缓解空间宽带效应，FTTD比TTD架构能效高；有限FTTD预算下SC对阵列规模/带宽扩张更稳健。全文未读，不填写提升百分比、阵列或运行时数字。 局限：未核验硬件功率模型、算法收敛条件及LoS参数误差实验；不能把摘要仿真能效视为实机测量。低维CSI仍需获取，不能写免信道估计。",
+        "契合方向": "无线系统：近场THz、宽带波束偏斜、硬件/CSI预算",
+        "推荐理由": "用实际可控制的模拟/数字自由度定义预测目标B*，检验全信道恢复是否必要，衔接目标可预测性研究。",
+        "顶刊顶会/机构依据": "IEEE TWC25:23882–23898，2026；IEEE上线2026-09-14；正式发表；IEEE正式摘要页面及Crossref journal-article/TWC25卷页码核验，不是Early Access未编卷记录。",
+        "发表年份": "2026",
+        "论文下载链接": "https://ieeexplore.ieee.org/document/11690988/",
+        "检索来源": "https://doi.org/10.1109/twc.2026.3733666\nhttps://api.crossref.org/works/10.1109/twc.2026.3733666\nhttps://ieeexplore.ieee.org/document/11690988/",
+        "筛选备注": "理论启发或基线；应用/基线：CKM先验到可实现波束控制。；IEEE11690988正式摘要；Crossref元数据",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "全文暂不可访问，待用户通过学校账号获取；当前介绍依据公开摘要/元数据，未完成全文核验；DOI：https://doi.org/10.1109/twc.2026.3733666；出版社：https://ieeexplore.ieee.org/document/11690988/",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；IEEE摘要未给仓库，精确题名/FTTDs GitHub检索未找到本篇作者实现；2022 DS-FTTD是另一篇，不能冒充。",
+        "反馈匹配": "与笔记中的CE/NMSE排序不同，它改变硬件和CSI获取成本，提醒先验精度必须映射到宽带速率/能效。",
+        "反馈权重说明": "先分离结构先验、求解器和系统预算的收益；不把方差或单帧残差当全局可辨识证明。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-24/",
+      "report_section": "## 5. Hybrid Beamforming Optimization for Near-Field Terahertz Multi-User System With FTTDs\n\n**作者/年份/venue**：Wenqiang Chu; Qiuyan Liu; Yanxia Cao; Yafeng Wang；2026；IEEE TWC25:23882–23898，2026；IEEE上线2026-09-14。\n\n**方向及发表核验（2026-10-24）**：无线系统：近场THz、宽带波束偏斜、硬件/CSI预算；正式发表。IEEE正式摘要页面及Crossref journal-article/TWC25卷页码核验，不是Early Access未编卷记录。\n\n**问题**：近场宽带THz空间宽带效应损害波束聚焦，连续可调TTD又有硬件和功耗成本。\n\n**方法**：FTTD+相移器的全连接/子连接混合波束架构；PWMMSE罚函数加BCD优化频谱效率；低复杂度方案用LoS设计模拟波束、再用低维等效CSI优化数字波束。\n\n**关键结果**：出版社公开摘要报告缓解空间宽带效应，FTTD比TTD架构能效高；有限FTTD预算下SC对阵列规模/带宽扩张更稳健。全文未读，不填写提升百分比、阵列或运行时数字。\n\n**局限**：未核验硬件功率模型、算法收敛条件及LoS参数误差实验；不能把摘要仿真能效视为实机测量。低维CSI仍需获取，不能写免信道估计。\n\n**迁移类型**：理论启发或基线\n\n**相对阅读笔记位置**：应用/基线：CKM先验到可实现波束控制。\n\n**与既有阅读差异**：与笔记中的CE/NMSE排序不同，它改变硬件和CSI获取成本，提醒先验精度必须映射到宽带速率/能效。\n\n**推荐理由**：用实际可控制的模拟/数字自由度定义预测目标B*，检验全信道恢复是否必要，衔接目标可预测性研究。\n\n**代码状态**：未发现公开代码\n\n**代码审计**：IEEE摘要未给仓库，精确题名/FTTDs GitHub检索未找到本篇作者实现；2022 DS-FTTD是另一篇，不能冒充。\n\n**身份与一手证据**：10.1109/twc.2026.3733666；[来源1](https://doi.org/10.1109/twc.2026.3733666) [来源2](https://api.crossref.org/works/10.1109/twc.2026.3733666) [来源3](https://ieeexplore.ieee.org/document/11690988/)\n\n[官方原文/PDF入口](https://ieeexplore.ieee.org/document/11690988/)。\n\n**全文暂不可访问，待用户通过学校账号获取；当前介绍依据公开摘要/元数据，未完成全文核验**。未创建伪PDF或翻译任务。\n\n[本篇全文翻译/原文缺失状态](https://lrxuanxuan.github.io/papers/items/98ee8147d0091bcb/#paper-translation)。\n\n[源许可](https://www.ieee.org/publications/rights/)；未确认公开译文许可；取得/完成稿先本地保存。PDF只保留官方链接，不上传。",
+      "report_entry_url": "/papers/reports/2026-10-24/#paper-98ee8147d0091bcb",
+      "paper_url": "/papers/items/98ee8147d0091bcb/",
+      "paper_report_url": "/papers/items/98ee8147d0091bcb/#paper-report",
+      "translations": [],
+      "links": [
+        "https://ieeexplore.ieee.org/document/11690988/",
+        "https://doi.org/10.1109/twc.2026.3733666",
+        "https://api.crossref.org/works/10.1109/twc.2026.3733666",
+        "https://lrxuanxuan.github.io/papers/items/98ee8147d0091bcb/#paper-translation",
+        "https://www.ieee.org/publications/rights/"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://ieeexplore.ieee.org/document/11690988/"
+      ],
+      "hosted_pdfs": [],
+      "status": "正式发表",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/98ee8147d0091bcb/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "bb62444a71fbbc18",
+      "date": "2026-10-24",
+      "title": "Enhancing Near-Field XL-MIMO Channel Estimation via Multi-User Spatial Information Sharing",
+      "sheet": "每日论文推荐",
+      "row": 380,
+      "fields": {
+        "日期": "2026-10-24",
+        "标题": "Enhancing Near-Field XL-MIMO Channel Estimation via Multi-User Spatial Information Sharing",
+        "内容": "作者：Zirou Liu; Yinglei Teng; An Liu; Wenkang Xu; Yangliu Zhao; Vincent K. N. Lau。问题：球面波和空间非平稳耦合，逐用户独立估计难利用共享散射信息。 方法：联合支持刻画用户间结构稀疏性，二维Markov先验表示局部连续/共享突发稀疏；IF-VBI避免高维求逆，交替更新公共网格、信道和联合可见区域矩阵。 结果：公开摘要报告估计精度与计算效率改善；未访问全文，未填导频数量、具体NMSE、复杂度阶数或最优性条件。 局限：全文受限，近场字典、共享支持失配、网格优化保证和真实测量范围待原文核验。摘要中的full spatial-domain optimum不足以推断整个非凸问题全局最优。",
+        "契合方向": "无线信道：近场SnS、多用户联合支持、无求逆贝叶斯",
+        "推荐理由": "为期刊重构提供不依赖生成网络的强基线；先判断空间联合支持能解释多少收益，再决定flow必要性。",
+        "顶刊顶会/机构依据": "IEEE TWC25:18700–18717，2026，作者机构记录上线2026-06-17；正式发表；IEEE DOI及出版社注册Crossref journal-article/TWC25卷/页码、HKUST作者机构库交叉确认。Xplore访问触发验证。",
+        "发表年份": "2026",
+        "论文下载链接": "https://ieeexplore.ieee.org/document/11569832/",
+        "检索来源": "https://doi.org/10.1109/twc.2026.3702238\nhttps://api.crossref.org/works/10.1109/twc.2026.3702238\nhttps://ieeexplore.ieee.org/document/11569832/\nhttps://researchportal.hkust.edu.hk/en/publications/enhancing-near-field-xl-mimo-channel-estimation-via-multi-user-sp/",
+        "筛选备注": "理论启发或基线；基线/缺口：非生成式结构先验与多用户信息。；HKUST机构库公开摘要；Crossref及IEEE DOI",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "全文暂不可访问，待用户通过学校账号获取；当前介绍依据公开摘要/元数据，未完成全文核验；DOI：https://doi.org/10.1109/twc.2026.3702238；出版社：https://ieeexplore.ieee.org/document/11569832/",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；出版社/机构库未给仓库，精确题名GitHub/arXiv检索未找到对应作者实现；不将RIS合集当本篇代码。",
+        "反馈匹配": "与既有单用户条件flow不同，显式利用多用户共享支持和VR结构；与昨天DT误差分析互补。",
+        "反馈权重说明": "先分离结构先验、求解器和系统预算的收益；不把方差或单帧残差当全局可辨识证明。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-24/",
+      "report_section": "## 4. Enhancing Near-Field XL-MIMO Channel Estimation via Multi-User Spatial Information Sharing\n\n**作者/年份/venue**：Zirou Liu; Yinglei Teng; An Liu; Wenkang Xu; Yangliu Zhao; Vincent K. N. Lau；2026；IEEE TWC25:18700–18717，2026，作者机构记录上线2026-06-17。\n\n**方向及发表核验（2026-10-24）**：无线信道：近场SnS、多用户联合支持、无求逆贝叶斯；正式发表。IEEE DOI及出版社注册Crossref journal-article/TWC25卷/页码、HKUST作者机构库交叉确认。Xplore访问触发验证。\n\n**问题**：球面波和空间非平稳耦合，逐用户独立估计难利用共享散射信息。\n\n**方法**：联合支持刻画用户间结构稀疏性，二维Markov先验表示局部连续/共享突发稀疏；IF-VBI避免高维求逆，交替更新公共网格、信道和联合可见区域矩阵。\n\n**关键结果**：公开摘要报告估计精度与计算效率改善；未访问全文，未填导频数量、具体NMSE、复杂度阶数或最优性条件。\n\n**局限**：全文受限，近场字典、共享支持失配、网格优化保证和真实测量范围待原文核验。摘要中的full spatial-domain optimum不足以推断整个非凸问题全局最优。\n\n**迁移类型**：理论启发或基线\n\n**相对阅读笔记位置**：基线/缺口：非生成式结构先验与多用户信息。\n\n**与既有阅读差异**：与既有单用户条件flow不同，显式利用多用户共享支持和VR结构；与昨天DT误差分析互补。\n\n**推荐理由**：为期刊重构提供不依赖生成网络的强基线；先判断空间联合支持能解释多少收益，再决定flow必要性。\n\n**代码状态**：未发现公开代码\n\n**代码审计**：出版社/机构库未给仓库，精确题名GitHub/arXiv检索未找到对应作者实现；不将RIS合集当本篇代码。\n\n**身份与一手证据**：10.1109/twc.2026.3702238；[来源1](https://doi.org/10.1109/twc.2026.3702238) [来源2](https://api.crossref.org/works/10.1109/twc.2026.3702238) [来源3](https://ieeexplore.ieee.org/document/11569832/) [来源4](https://researchportal.hkust.edu.hk/en/publications/enhancing-near-field-xl-mimo-channel-estimation-via-multi-user-sp/)\n\n[官方原文/PDF入口](https://ieeexplore.ieee.org/document/11569832/)。\n\n**全文暂不可访问，待用户通过学校账号获取；当前介绍依据公开摘要/元数据，未完成全文核验**。未创建伪PDF或翻译任务。\n\n[本篇全文翻译/原文缺失状态](https://lrxuanxuan.github.io/papers/items/bb62444a71fbbc18/#paper-translation)。\n\n[源许可](https://www.ieee.org/publications/rights/)；未确认公开译文许可；取得/完成稿先本地保存。PDF只保留官方链接，不上传。",
+      "report_entry_url": "/papers/reports/2026-10-24/#paper-bb62444a71fbbc18",
+      "paper_url": "/papers/items/bb62444a71fbbc18/",
+      "paper_report_url": "/papers/items/bb62444a71fbbc18/#paper-report",
+      "translations": [],
+      "links": [
+        "https://ieeexplore.ieee.org/document/11569832/",
+        "https://doi.org/10.1109/twc.2026.3702238",
+        "https://api.crossref.org/works/10.1109/twc.2026.3702238",
+        "https://researchportal.hkust.edu.hk/en/publications/enhancing-near-field-xl-mimo-channel-estimation-via-multi-user-sp/",
+        "https://lrxuanxuan.github.io/papers/items/bb62444a71fbbc18/#paper-translation",
+        "https://www.ieee.org/publications/rights/"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://ieeexplore.ieee.org/document/11569832/"
+      ],
+      "hosted_pdfs": [],
+      "status": "正式发表",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/bb62444a71fbbc18/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "cc3bd2b79d24b3b9",
+      "date": "2026-10-24",
+      "title": "Uncertainty-Aware Distributed Radio Map Estimation in Decentralized Wireless Networks",
+      "sheet": "每日论文推荐",
+      "row": 379,
+      "fields": {
+        "日期": "2026-10-24",
+        "标题": "Uncertainty-Aware Distributed Radio Map Estimation in Decentralized Wireless Networks",
+        "内容": "作者：Yang, Dong; Yao, Zhuoyu; Wang, Yue; Zhang, Songyang; Li, Yingshu; Tian, Zhi; Cai, Zhipeng。问题：边缘节点样本稀疏且不均匀，全模型联邦交换成本高，局部地图边界不一致。 方法：DeepSets编码稀疏坐标/PSD与可选环境特征，Fourier坐标MLP解码cVAE；邻居只交换重叠锚点预测均值及方差，以逆方差加权共识并约束局部NLL和边界。 结果：6页。RadioMapSeer700场景，600/50/50场景划分，256×256、8节点、15%区域重叠、Q16、0.5%非均匀采样；每邻边每轮2Q=32实数。评价RMSE/NLL/90%PICP/MPIW；图示接近集中式，未从图猜精确数字。Theorem1只在过参数化/连通图/适当步长下到有界邻域。 局限：不能把有界邻域说成精确共识，泛化上界含经验风险/复杂度/边界项并非任意样本真值恢复。循环交换的相关性可能使精度求和过度自信，需独立校准实验；未交换原始数据不构成隐私证明。公开toy不能复现论文全数据指标。",
+        "契合方向": "无线地图/数据：连续坐标、稀疏观测、分布式不确定性",
+        "推荐理由": "可把地图输入从单点估计改成均值+方差，并用相同传输字节预算检验置信度融合是否真的有益。",
+        "顶刊顶会/机构依据": "arXiv，2026-10-20 v1；预印本/状态未确认；arXiv身份、六页PDF和版本核验；IEEE模板不作为录用证据。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2610.28293",
+        "检索来源": "https://arxiv.org/abs/2610.28293",
+        "筛选备注": "可改造工具；缺口：稀疏地图可信度与通信预算；应用：分布式CKM。；PDF SecIII–V、Eq9/12–17、Figs2–4；作者仓库README与tree",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "https://github.com/DongYang26/UA-D-RME",
+        "代码/数据状态": "作者预告/部分代码；论文脚注直连作者仓库；训练/模型/损失/评估/配置及90场景toy存在。README写完整约15GB数据下载To be updated，toy仅有限值测试，故整套论文复现材料仍不齐。未运行。",
+        "反馈匹配": "相对中央WCM/扩散图重建，价值是低维统计共识及不确定性指标；不是新的diffusion迁移，也不提供复数MIMO/AoA监督。",
+        "反馈权重说明": "先分离结构先验、求解器和系统预算的收益；不把方差或单帧残差当全局可辨识证明。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-24/",
+      "report_section": "## 3. Uncertainty-Aware Distributed Radio Map Estimation in Decentralized Wireless Networks\n\n**作者/年份/venue**：Yang, Dong; Yao, Zhuoyu; Wang, Yue; Zhang, Songyang; Li, Yingshu; Tian, Zhi; Cai, Zhipeng；2026；arXiv，2026-10-20 v1。\n\n**方向及发表核验（2026-10-24）**：无线地图/数据：连续坐标、稀疏观测、分布式不确定性；预印本/状态未确认。arXiv身份、六页PDF和版本核验；IEEE模板不作为录用证据。\n\n**问题**：边缘节点样本稀疏且不均匀，全模型联邦交换成本高，局部地图边界不一致。\n\n**方法**：DeepSets编码稀疏坐标/PSD与可选环境特征，Fourier坐标MLP解码cVAE；邻居只交换重叠锚点预测均值及方差，以逆方差加权共识并约束局部NLL和边界。\n\n**关键结果**：6页。RadioMapSeer700场景，600/50/50场景划分，256×256、8节点、15%区域重叠、Q16、0.5%非均匀采样；每邻边每轮2Q=32实数。评价RMSE/NLL/90%PICP/MPIW；图示接近集中式，未从图猜精确数字。Theorem1只在过参数化/连通图/适当步长下到有界邻域。\n\n**局限**：不能把有界邻域说成精确共识，泛化上界含经验风险/复杂度/边界项并非任意样本真值恢复。循环交换的相关性可能使精度求和过度自信，需独立校准实验；未交换原始数据不构成隐私证明。公开toy不能复现论文全数据指标。\n\n**迁移类型**：可改造工具\n\n**相对阅读笔记位置**：缺口：稀疏地图可信度与通信预算；应用：分布式CKM。\n\n**与既有阅读差异**：相对中央WCM/扩散图重建，价值是低维统计共识及不确定性指标；不是新的diffusion迁移，也不提供复数MIMO/AoA监督。\n\n**推荐理由**：可把地图输入从单点估计改成均值+方差，并用相同传输字节预算检验置信度融合是否真的有益。\n\n**代码状态**：作者预告/部分代码\n\n**代码审计**：论文脚注直连作者仓库；训练/模型/损失/评估/配置及90场景toy存在。README写完整约15GB数据下载To be updated，toy仅有限值测试，故整套论文复现材料仍不齐。未运行。\n\n**身份与一手证据**：2610.28293；[来源1](https://arxiv.org/abs/2610.28293)\n\n[官方原文/PDF入口](https://arxiv.org/pdf/2610.28293)。\n\n[实际存在的作者仓库](https://github.com/DongYang26/UA-D-RME)。\n\n[原文PDF](https://arxiv.org/pdf/2610.28293)，6页；PDF SecIII–V、Eq9/12–17、Figs2–4；作者仓库README与tree。\n\n[本篇全文翻译状态](https://lrxuanxuan.github.io/papers/items/cc3bd2b79d24b3b9/#paper-translation)。job `3d0d361b7ff01837f3fd0ce6` pending，gpt-6-luna/xhigh；原worker不可达，未启动。预计输出：`本地资料：paper.md`。\n\n[源许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)；未确认公开译文许可；取得/完成稿先本地保存。PDF只保留官方链接，不上传。",
+      "report_entry_url": "/papers/reports/2026-10-24/#paper-cc3bd2b79d24b3b9",
+      "paper_url": "/papers/items/cc3bd2b79d24b3b9/",
+      "paper_report_url": "/papers/items/cc3bd2b79d24b3b9/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2610.28293",
+        "https://arxiv.org/abs/2610.28293",
+        "https://github.com/DongYang26/UA-D-RME",
+        "https://lrxuanxuan.github.io/papers/items/cc3bd2b79d24b3b9/#paper-translation",
+        "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+      ],
+      "github": [
+        "https://github.com/DongYang26/UA-D-RME"
+      ],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2610.28293"
+      ],
+      "hosted_pdfs": [],
+      "status": "预印本/状态未确认",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/cc3bd2b79d24b3b9/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "565262b3a3a6c355",
+      "date": "2026-10-24",
+      "title": "BCT: Bayes-Consistent Tempering for Flow Language Models",
+      "sheet": "每日论文推荐",
+      "row": 378,
+      "fields": {
+        "日期": "2026-10-24",
+        "标题": "BCT: Bayes-Consistent Tempering for Flow Language Models",
+        "内容": "作者：Oba, Daisuke; Furuta, Hiroki; Okazaki, Naoaki。问题：只把denoiser概率做温度缩放，会同时改变端点分布与中间桥分布，却继续使用旧速度和旧训练状态。 方法：BCT-L将温度作为连续条件，训练于tempered bridge并在推断加入Bayes校正；BCT-P修改桥及其速度，BCT-E只修改端点、保留原桥。分别实例化到hyperspherical与vMF flow。 结果：19页。Table1，GSM8K1319题、1024NFE、三生成seed：S-arch在T=0.1下BCT-L27.0±1.0%，等训练预算Cont.standard17.5±0.5%；BCT-P此时3.9±0.5%。另有Sudoku180NFE和vMF五seed，提供matched continuation及Pass@K控制。 局限：是flow语言模型的分布一致性，不是无线后验正确性的现成定理；温度缩放不等于导频似然引导。对称桥的normalizer独立于token是部分简化条件；训练版另有2000更新和验证集λ选择。1024NFE不能称低复杂度。",
+        "契合方向": "核心理论/拓展：flow温度、训练推断失配与条件路径",
+        "推荐理由": "为“调整ρ/噪声/置信度就能得到正确后验”的直觉提供反例和公平对照设计；适合检查方差驱动校正的理论口径。",
+        "顶刊顶会/机构依据": "arXiv，2026-10-20 v1；预印本/状态未确认；arXiv日期/作者/PDF核验，作者项目页仍写coming soon；无正式发表证据。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2610.27641",
+        "检索来源": "https://arxiv.org/abs/2610.27641\nhttps://daioba.github.io/bct/",
+        "筛选备注": "理论启发或基线；拓展/深化：条件分布改变后，采样路径是否仍匹配。；PDF Sec2–4、Eq5–14、Table1、AppendicesB–G",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "作者预告/部分代码；PDF宣称代码/权重可用，但项目页Code(coming soon)指向占位锚点；精确标题/arXiv GitHub检索未找到作者实现。不能据论文声明标完整。",
+        "反馈匹配": "与既有引导权重调参阅读不同，独立贡献是端点—桥—速度的一致性；与当前KAP噪声调度相邻但不能直接照搬球面token公式。",
+        "反馈权重说明": "先分离结构先验、求解器和系统预算的收益；不把方差或单帧残差当全局可辨识证明。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-24/",
+      "report_section": "## 2. BCT: Bayes-Consistent Tempering for Flow Language Models\n\n**作者/年份/venue**：Oba, Daisuke; Furuta, Hiroki; Okazaki, Naoaki；2026；arXiv，2026-10-20 v1。\n\n**方向及发表核验（2026-10-24）**：核心理论/拓展：flow温度、训练推断失配与条件路径；预印本/状态未确认。arXiv日期/作者/PDF核验，作者项目页仍写coming soon；无正式发表证据。\n\n**问题**：只把denoiser概率做温度缩放，会同时改变端点分布与中间桥分布，却继续使用旧速度和旧训练状态。\n\n**方法**：BCT-L将温度作为连续条件，训练于tempered bridge并在推断加入Bayes校正；BCT-P修改桥及其速度，BCT-E只修改端点、保留原桥。分别实例化到hyperspherical与vMF flow。\n\n**关键结果**：19页。Table1，GSM8K1319题、1024NFE、三生成seed：S-arch在T=0.1下BCT-L27.0±1.0%，等训练预算Cont.standard17.5±0.5%；BCT-P此时3.9±0.5%。另有Sudoku180NFE和vMF五seed，提供matched continuation及Pass@K控制。\n\n**局限**：是flow语言模型的分布一致性，不是无线后验正确性的现成定理；温度缩放不等于导频似然引导。对称桥的normalizer独立于token是部分简化条件；训练版另有2000更新和验证集λ选择。1024NFE不能称低复杂度。\n\n**迁移类型**：理论启发或基线\n\n**相对阅读笔记位置**：拓展/深化：条件分布改变后，采样路径是否仍匹配。\n\n**与既有阅读差异**：与既有引导权重调参阅读不同，独立贡献是端点—桥—速度的一致性；与当前KAP噪声调度相邻但不能直接照搬球面token公式。\n\n**推荐理由**：为“调整ρ/噪声/置信度就能得到正确后验”的直觉提供反例和公平对照设计；适合检查方差驱动校正的理论口径。\n\n**代码状态**：作者预告/部分代码\n\n**代码审计**：PDF宣称代码/权重可用，但项目页Code(coming soon)指向占位锚点；精确标题/arXiv GitHub检索未找到作者实现。不能据论文声明标完整。\n\n**身份与一手证据**：2610.27641；[来源1](https://arxiv.org/abs/2610.27641) [来源2](https://daioba.github.io/bct/)\n\n[官方原文/PDF入口](https://arxiv.org/pdf/2610.27641)。\n\n[原文PDF](https://arxiv.org/pdf/2610.27641)，19页；PDF Sec2–4、Eq5–14、Table1、AppendicesB–G。\n\n[本篇全文翻译状态](https://lrxuanxuan.github.io/papers/items/565262b3a3a6c355/#paper-translation)。job `dbdf24e7c193e40b27b9050e` pending，gpt-6-luna/xhigh；原worker不可达，未启动。预计输出：`本地资料：paper.md`。\n\n[源许可](https://creativecommons.org/licenses/by/4.0/)；允许完成译稿按CC署名及改动披露分享。PDF只保留官方链接，不上传。",
+      "report_entry_url": "/papers/reports/2026-10-24/#paper-565262b3a3a6c355",
+      "paper_url": "/papers/items/565262b3a3a6c355/",
+      "paper_report_url": "/papers/items/565262b3a3a6c355/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2610.27641",
+        "https://arxiv.org/abs/2610.27641",
+        "https://daioba.github.io/bct/",
+        "https://lrxuanxuan.github.io/papers/items/565262b3a3a6c355/#paper-translation",
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2610.27641"
+      ],
+      "hosted_pdfs": [],
+      "status": "正式发表",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/565262b3a3a6c355/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "aabfbd0988a71bdc",
+      "date": "2026-10-24",
+      "title": "Posterior Flow Matching",
+      "sheet": "每日论文推荐",
+      "row": 377,
+      "fields": {
+        "日期": "2026-10-24",
+        "标题": "Posterior Flow Matching",
+        "内容": "作者：Ma, Chenrui; Xiao, Xi; Zhao, Lin; Jiang, Xinru; Wang, Tianyang; Shen, Yanning; Fioretto, Ferdinando。问题：FM只回归平均速度，不能直接读出当前状态对应的端点分散程度。 方法：共享主干同时预测速度均值和逐分量方差，以Gaussian NLL训练；端点均值为x+(1-t)v，端点方差为(1-t)^2Σ。SDE用学习方差分配噪声，并加入score及divergence漂移校正。 结果：42页，Eq13–20、Propositions4.1/4.2。理想连续动力学与正则条件下ODE/SDE保持参考边缘分布；Table4 ImageNet FID从PFM ODE24.45到SDE22.28，250步；Table2 PushT50步0.878到0.914。方差消融和端点残差诊断支持其读数意义。 局限：这里的posterior是p(X1|Xt,C)，不是自动得到导频观测p(H|Y)。对角Gaussian只恢复条件一二阶矩，不能表示全部多峰/相关结构；熵耗散结论不等于学习误差或离散化无误差。需要另加观测一致性和失配校准，也不是一步采样。",
+        "契合方向": "核心生成：连续条件、端点不确定性与ODE/SDE",
+        "推荐理由": "适合先在可解析复数Gaussian混合信道上检验方差，再决定是否用它驱动可靠性门控，避免把网络置信度当可辨识性。",
+        "顶刊顶会/机构依据": "arXiv预印本，首次2026-09-26，v1；预印本/状态未确认；arXiv版本及作者项目页确认预印本；未找到正式录用依据。PDF作者Nando Fioretto与元数据Ferdinando Fioretto为署名形式差异，保留来源。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2610.13994",
+        "检索来源": "https://arxiv.org/abs/2610.13994\nhttps://merry7cherry.github.io/posterior-flow-matching/",
+        "筛选备注": "可改造工具；深化：条件flow先验；缺口：不确定性读数与校准。；PDF pp3–9，Eq13/15/19/20、Tables2–6；附录A–H",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "https://github.com/merry7cherry/posterior-flow-matching",
+        "代码/数据状态": "完整开源实现；作者项目页绑定同名monorepo；静态核验四任务目录、训练/ODE/SDE/评估/诊断及配置存在。未提供预训练PFM权重；未运行作者实验，不保证论文数值复现。",
+        "反馈匹配": "相对既有FlowADMM/PnP-Flow和昨天MS-Flow，改变训练输出及随机动力学，而不是仅替换求解器；相对笔记中均值恢复，增加可检验的端点二阶矩。",
+        "反馈权重说明": "先分离结构先验、求解器和系统预算的收益；不把方差或单帧残差当全局可辨识证明。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-24/",
+      "report_section": "## 1. Posterior Flow Matching\n\n**作者/年份/venue**：Ma, Chenrui; Xiao, Xi; Zhao, Lin; Jiang, Xinru; Wang, Tianyang; Shen, Yanning; Fioretto, Ferdinando；2026；arXiv预印本，首次2026-09-26，v1。\n\n**方向及发表核验（2026-10-24）**：核心生成：连续条件、端点不确定性与ODE/SDE；预印本/状态未确认。arXiv版本及作者项目页确认预印本；未找到正式录用依据。PDF作者Nando Fioretto与元数据Ferdinando Fioretto为署名形式差异，保留来源。\n\n**问题**：FM只回归平均速度，不能直接读出当前状态对应的端点分散程度。\n\n**方法**：共享主干同时预测速度均值和逐分量方差，以Gaussian NLL训练；端点均值为x+(1-t)v，端点方差为(1-t)^2Σ。SDE用学习方差分配噪声，并加入score及divergence漂移校正。\n\n**关键结果**：42页，Eq13–20、Propositions4.1/4.2。理想连续动力学与正则条件下ODE/SDE保持参考边缘分布；Table4 ImageNet FID从PFM ODE24.45到SDE22.28，250步；Table2 PushT50步0.878到0.914。方差消融和端点残差诊断支持其读数意义。\n\n**局限**：这里的posterior是p(X1|Xt,C)，不是自动得到导频观测p(H|Y)。对角Gaussian只恢复条件一二阶矩，不能表示全部多峰/相关结构；熵耗散结论不等于学习误差或离散化无误差。需要另加观测一致性和失配校准，也不是一步采样。\n\n**迁移类型**：可改造工具\n\n**相对阅读笔记位置**：深化：条件flow先验；缺口：不确定性读数与校准。\n\n**与既有阅读差异**：相对既有FlowADMM/PnP-Flow和昨天MS-Flow，改变训练输出及随机动力学，而不是仅替换求解器；相对笔记中均值恢复，增加可检验的端点二阶矩。\n\n**推荐理由**：适合先在可解析复数Gaussian混合信道上检验方差，再决定是否用它驱动可靠性门控，避免把网络置信度当可辨识性。\n\n**代码状态**：完整开源实现\n\n**代码审计**：作者项目页绑定同名monorepo；静态核验四任务目录、训练/ODE/SDE/评估/诊断及配置存在。未提供预训练PFM权重；未运行作者实验，不保证论文数值复现。\n\n**身份与一手证据**：2610.13994；[来源1](https://arxiv.org/abs/2610.13994) [来源2](https://merry7cherry.github.io/posterior-flow-matching/)\n\n[官方原文/PDF入口](https://arxiv.org/pdf/2610.13994)。\n\n[实际存在的作者仓库](https://github.com/merry7cherry/posterior-flow-matching)。\n\n[原文PDF](https://arxiv.org/pdf/2610.13994)，42页；PDF pp3–9，Eq13/15/19/20、Tables2–6；附录A–H。\n\n[本篇全文翻译状态](https://lrxuanxuan.github.io/papers/items/aabfbd0988a71bdc/#paper-translation)。job `f76554550632f9a9fa842e4d` pending，gpt-6-luna/xhigh；原worker不可达，未启动。预计输出：`本地资料：paper.md`。\n\n[源许可](https://creativecommons.org/licenses/by/4.0/)；允许完成译稿按CC署名及改动披露分享。PDF只保留官方链接，不上传。",
+      "report_entry_url": "/papers/reports/2026-10-24/#paper-aabfbd0988a71bdc",
+      "paper_url": "/papers/items/aabfbd0988a71bdc/",
+      "paper_report_url": "/papers/items/aabfbd0988a71bdc/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2610.13994",
+        "https://arxiv.org/abs/2610.13994",
+        "https://merry7cherry.github.io/posterior-flow-matching/",
+        "https://github.com/merry7cherry/posterior-flow-matching",
+        "https://lrxuanxuan.github.io/papers/items/aabfbd0988a71bdc/#paper-translation",
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "github": [
+        "https://github.com/merry7cherry/posterior-flow-matching"
+      ],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2610.13994"
+      ],
+      "hosted_pdfs": [],
+      "status": "预印本/状态未确认",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/aabfbd0988a71bdc/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
     {
       "id": "c5e01298c0328f14",
       "date": "2026-10-23",
@@ -18840,6 +19097,17 @@
   ],
   "reports": [
     {
+      "date": "2026-10-24",
+      "url": "/papers/reports/2026-10-24/",
+      "source_file": "2026-10-24_每日前沿论文推荐.md",
+      "slug": "2026-10-24",
+      "covered_dates": [
+        "2026-10-24"
+      ],
+      "title": "10_24前沿论文推荐",
+      "download": "/assets/papers/reports/2026-10-24.md"
+    },
+    {
       "date": "2026-10-23",
       "url": "/papers/reports/2026-10-23/",
       "source_file": "2026-10-23_每日前沿论文推荐.md",
@@ -20724,9 +20992,9 @@
   "pdf_mode": "links_only",
   "workbook_table": {
     "url": "/papers/table/",
-    "source_sha256": "bcc4f2315a3f771d8c6c10319a594f65280cde5bc0866f55405e928ccb16aeb1",
+    "source_sha256": "89f8b4306bbaf410c70587a321a5abaf0463523fc69e0543b1ff9e0466885084",
     "sheet": "每日论文推荐",
-    "row_count": 375,
+    "row_count": 380,
     "headers": [
       "日期",
       "标题",

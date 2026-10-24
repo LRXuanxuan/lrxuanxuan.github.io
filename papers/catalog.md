@@ -110,6 +110,36 @@ toc: true
 
 ## 推荐论文
 
+### 2026-10-24 · [Hybrid Beamforming Optimization for Near-Field Terahertz Multi-User System With FTTDs](/papers/items/98ee8147d0091bcb/)
+
+用实际可控制的模拟/数字自由度定义预测目标B*，检验全信道恢复是否必要，衔接目标可预测性研究。
+
+[本篇日报](/papers/items/98ee8147d0091bcb/#paper-report)
+
+### 2026-10-24 · [Enhancing Near-Field XL-MIMO Channel Estimation via Multi-User Spatial Information Sharing](/papers/items/bb62444a71fbbc18/)
+
+为期刊重构提供不依赖生成网络的强基线；先判断空间联合支持能解释多少收益，再决定flow必要性。
+
+[本篇日报](/papers/items/bb62444a71fbbc18/#paper-report)
+
+### 2026-10-24 · [Uncertainty-Aware Distributed Radio Map Estimation in Decentralized Wireless Networks](/papers/items/cc3bd2b79d24b3b9/)
+
+可把地图输入从单点估计改成均值+方差，并用相同传输字节预算检验置信度融合是否真的有益。
+
+[本篇日报](/papers/items/cc3bd2b79d24b3b9/#paper-report)
+
+### 2026-10-24 · [BCT: Bayes-Consistent Tempering for Flow Language Models](/papers/items/565262b3a3a6c355/)
+
+为“调整ρ/噪声/置信度就能得到正确后验”的直觉提供反例和公平对照设计；适合检查方差驱动校正的理论口径。
+
+[本篇日报](/papers/items/565262b3a3a6c355/#paper-report)
+
+### 2026-10-24 · [Posterior Flow Matching](/papers/items/aabfbd0988a71bdc/)
+
+适合先在可解析复数Gaussian混合信道上检验方差，再决定是否用它驱动可靠性门控，避免把网络置信度当可辨识性。
+
+[本篇日报](/papers/items/aabfbd0988a71bdc/#paper-report)
+
 ### 2026-10-23 · [Navigation with RF Cues: Embodied Perception Action under Multipath Uncertainty](/papers/items/c5e01298c0328f14/)
 
 可借鉴对齐仿真、RF缺失mask与历史记忆设计，评估地图先验错误时系统是否仍能稳定行动；不得假设现有Sheet2补出了AoA/AoD监督。
