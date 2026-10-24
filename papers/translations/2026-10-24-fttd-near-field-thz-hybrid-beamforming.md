@@ -13,7 +13,7 @@ toc: true
 **原题：** Hybrid Beamforming Optimization for Near-Field Terahertz Multi-User System With FTTDs  
 **作者：** Wenqiang Chu、Qiuyan Liu、Yanxia Cao、Yafeng Wang  
 **期刊：** *IEEE Transactions on Wireless Communications*, Vol. 25, 2026，pp. 23882–23898。DOI: 10.1109/TWC.2026.3733666。  
-**译稿范围：** 摘要、引言、系统与信道模型、FC/SC 架构、PWMMSE 基本优化及启发式设计、重要实验条件与结论。**式（30）以后大量逐块优化子式、算法 1–3、数值表格全部数值以及原文附录/参考文献未完整翻译**。目前不是逐字完整的 17 页全文译本。
+**译稿范围：** 摘要、引言、系统与信道模型、FC/SC 架构、PWMMSE 与算法 1–3 的主要更新公式已补齐；启发式波束设计与实验结果已译。**后续部分数值表格、长公式的逐式校核、参考文献仍未全部完成**，不是逐字完整的 17 页全文译本。
 
 ## 摘要
 
@@ -287,6 +287,215 @@ $$
 ### C. SC 架构的求解
 
 SC 架构由于不同 RF 链只连接自身负责的天线子集，模拟网络具有更强的块对角结构。PWMMSE 仍通过类似的辅助完全数字变量、惩罚项和 BCD 方法进行优化，但可以利用连接结构显著降低求解维度，减少迭代计算量。该结构在有限 FTTD 数量的情况下，对能量效率和阵列扩展具有重要优势。
+
+### D. PWMMSE 的完整分块更新及三种算法（补齐原文式（25）–（44））
+
+**模拟 PS 与开关网络的子问题。** 固定其他变量时，模拟部分只在惩罚项中出现：
+
+$
+\min_{\boldsymbol\Theta,\mathbf S}\sum_{m=1}^{M}
+\|\mathbf W_m-\boldsymbol\Theta\mathbf S\mathbf F_m\mathbf D_m\|_F^2,
+\quad\mathrm{s.t.}\ (15b),(15c). \tag{25}
+$
+
+该子问题暂不施加功率约束（15d），因为 $\boldsymbol\Theta$ 和 $\mathbf S$ 同时受到严格结构约束并且不依赖频率，不一定能够同时满足所有子载波的功率限制。作者把功率约束只放到 $\mathbf D_m$ 的更新中。
+
+在 FC 架构中，不同 RF 链通过 $\boldsymbol\Theta$ 和 $\mathbf S$ 相互耦合。为分离组合约束，引入辅助矩阵 $\mathbf A=\boldsymbol\Theta\mathbf S$，将等式约束以惩罚项形式处理：
+
+$
+\begin{aligned}
+\min_{\boldsymbol\Theta,\mathbf A,\mathbf S}\quad&
+\sum_{m=1}^M\|\mathbf W_m-\mathbf A\mathbf F_m\mathbf D_m\|_F^2+
+\frac{\rho}{2}\|\mathbf A-\boldsymbol\Theta\mathbf S\|_F^2\\
+\mathrm{s.t.}\quad&(15b),(15c).
+\end{aligned}\tag{26}
+$
+
+$\rho>0$ 是强制 $\mathbf A=\boldsymbol\Theta\mathbf S$ 的惩罚系数。将 $\rho$ 逐步增大，可使求解结果逐渐符合等式约束。
+
+固定 $\boldsymbol\Theta$ 和 $\mathbf S$，优化 $\mathbf A$ 的无约束凸子问题为
+
+$
+\min_{\mathbf A}\sum_{m=1}^M
+\|\mathbf W_m-\mathbf A\mathbf F_m\mathbf D_m\|_F^2+
+\frac{\rho}{2}\|\mathbf A-\boldsymbol\Theta\mathbf S\|_F^2. \tag{27}
+$
+
+该问题的闭式解为
+
+$
+\begin{aligned}
+\mathbf A={}&
+\left[\sum_{m=1}^M\mathbf W_m(\mathbf F_m\mathbf D_m)^H+
+\frac{\rho}{2}\boldsymbol\Theta\mathbf S\right]\\
+&\times\left[
+\sum_{m=1}^M\mathbf F_m\mathbf D_m(\mathbf F_m\mathbf D_m)^H+
+\frac{\rho}{2}\mathbf I_{PN_{\rm RF}}
+\right]^{-1}.
+\end{aligned}\tag{28}
+$
+
+固定 $\mathbf A$，则优化 $\boldsymbol\Theta,\mathbf S$：
+
+$
+\min_{\boldsymbol\Theta,\mathbf S}
+\|\mathbf A-\boldsymbol\Theta\mathbf S\|_F^2,
+\quad\mathrm{s.t.}\ (15b),(15c). \tag{29}
+$
+
+根据 FC 结构，上述目标可写为
+
+$
+\begin{aligned}
+&\sum_{n=1}^{N_{\rm RF}}
+\|\mathbf A_n-\boldsymbol\Theta_n\mathbf S_n\|_F^2\\
+&=\sum_{n=1}^{N_{\rm RF}}\operatorname{Tr}
+\{\mathbf A_n\mathbf A_n^H+
+\boldsymbol\Theta_n\mathbf S_n(\boldsymbol\Theta_n\mathbf S_n)^H\}\\
+&\quad-2\sum_{n=1}^{N_{\rm RF}}
+\operatorname{Re}\{\operatorname{Tr}(\boldsymbol\Theta_n\mathbf S_n\mathbf A_n^H)\}.
+\end{aligned}\tag{30}
+$
+
+由于 $\operatorname{Tr}(\boldsymbol\Theta_n\mathbf S_n(\boldsymbol\Theta_n\mathbf S_n)^H)=N_t$ 与待优化变量无关，等价问题为
+
+$
+\max_{\boldsymbol\Theta,\mathbf S}
+\sum_{n=1}^{N_{\rm RF}}
+\operatorname{Re}\{\operatorname{Tr}(
+\boldsymbol\Theta_n\mathbf S_n\mathbf A_n^H)\},
+\quad\mathrm{s.t.}\ (15b),(15c). \tag{31}
+$
+
+令 $\mathbf A_n=[\mathbf A_{n,1}^T,\ldots,\mathbf A_{n,P}^T]^T$，利用每个子阵列对应一行开关选择，可将目标展开为
+
+$
+\sum_{n=1}^{N_{\rm RF}}\sum_{p=1}^{P}
+\operatorname{Re}\{\mathbf S_n(p,:)\mathbf A_{n,p}^H
+\boldsymbol\theta_{n,p}\}. \tag{32}
+$
+
+各子阵列的选择相互独立，可以逐一选取使投影幅值最大的固定时延：
+
+$
+\mathbf S_n(p,q)=
+\begin{cases}
+1,&q=\displaystyle\arg\max_i\|\mathbf A_{n,p}(:,i)\|_1,\\
+0,&\text{其他}.
+\end{cases}\tag{33}
+$
+
+对应的 PS 闭式相位对准为
+
+$
+\boldsymbol\theta_{n,p}
+=\exp\!\left(j\angle[
+\mathbf A_{n,p}\mathbf S_n(p,:)^T]\right). \tag{34}
+$
+
+因此 FC 架构能通过有限候选集合上的准确离散搜索和闭式相位补偿，同时更新开关与 PS，而无需放松二值变量、再进行取整。相对于 FTTD 数量 $P$，这种子问题优化具有线性复杂度。对固定 $\rho$，更新 $\mathbf A,\mathbf S,\boldsymbol\Theta$ 均不会使子问题目标增大；逐步提高 $\rho$ 进一步压低约束不满足程度。
+
+**算法 1：求解式（26）。** 输入 $\mathbf A,\boldsymbol\Theta,\mathbf S,\rho>0,c>1$。执行外循环：先内循环依次根据式（28）、（33）、（34）更新 $\mathbf A,\mathbf S,\boldsymbol\Theta$，直到式（26）目标的相对下降低于阈值；然后令 $\rho\leftarrow c\rho$；直到惩罚残差低于阈值。输出 $\mathbf A,\boldsymbol\Theta,\mathbf S$。
+
+**数字预编码子问题。** 在功率约束下最小化辅助全数字矩阵与混合矩阵的距离：
+
+$
+\min_{\mathbf D_m}
+\|\mathbf W_m-\boldsymbol\Theta\mathbf S\mathbf F_m\mathbf D_m\|_F^2,
+\quad\mathrm{s.t.}\ (15d). \tag{35}
+$
+
+无约束解为
+
+$
+\widetilde{\mathbf D}_m=
+[(\boldsymbol\Theta\mathbf S\mathbf F_m)^H
+\boldsymbol\Theta\mathbf S\mathbf F_m]^{-1}
+(\boldsymbol\Theta\mathbf S\mathbf F_m)^H\mathbf W_m. \tag{36}
+$
+
+原文给出的功率归一化更新为
+
+$
+\mathbf D_m=
+\frac{\sqrt{P_t}\,\widetilde{\mathbf D}_m}
+{\|\boldsymbol\Theta\mathbf S\mathbf F_m\widetilde{\mathbf D}_m\|_F}.
+\tag{37}
+$
+
+**算法 2：FC 架构的 PWMMSE。** 输入全部信道、固定时延和系统参数以及 $\lambda,\rho,c$；初始化 $\boldsymbol\mu_m,\boldsymbol\omega_m,\mathbf W_m,\mathbf A,\boldsymbol\Theta,\mathbf S,\mathbf D_m$；在外循环中依次以式（21）更新 $\boldsymbol\mu_m$、式（22）更新 $\boldsymbol\omega_m$、式（24）更新 $\mathbf W_m$、算法 1 更新 $\boldsymbol\Theta,\mathbf S$，再以式（37）更新 $\mathbf D_m$。当式（20）目标的相对增加小于阈值时退出，输出 $\boldsymbol\Theta,\mathbf S,\mathbf D_m$。由于各变量块均通过对应子问题的准确最优解更新，且发射功率约束使目标有上界，因此算法的目标值收敛并达到块坐标意义下的最优点。
+
+**SC 架构。** SC 网络的模拟矩阵具有块对角形式，使模拟子问题能够直接分解，无须引入 FC 方案中的 $\mathbf A$。固定其他变量，仍优化
+
+$
+\min_{\boldsymbol\Theta,\mathbf S}
+\|\mathbf W_m-\boldsymbol\Theta\mathbf S\mathbf F_m\mathbf D_m\|_F^2,
+\quad\mathrm{s.t.}\ (15b),(15c). \tag{38}
+$
+
+对于 SC，功率约束左侧等于 $(N_t/N_{\rm RF})\|\mathbf D_m\|_F^2$，与 $\boldsymbol\Theta,\mathbf S$ 无关。目标展开为
+
+$
+\begin{aligned}
+&\sum_{m=1}^M\operatorname{Tr}
+\{\mathbf W_m\mathbf W_m^H+
+\boldsymbol\Theta\mathbf S\mathbf F_m\mathbf D_m
+(\boldsymbol\Theta\mathbf S\mathbf F_m\mathbf D_m)^H\}\\
+&\quad-2\sum_{m=1}^M\operatorname{Re}\{\operatorname{Tr}(
+\boldsymbol\Theta\mathbf S\mathbf F_m\mathbf D_m\mathbf W_m^H)\}.
+\end{aligned}\tag{39}
+$
+
+利用 $\operatorname{Tr}[
+\boldsymbol\Theta\mathbf S\mathbf F_m\mathbf D_m
+(\boldsymbol\Theta\mathbf S\mathbf F_m\mathbf D_m)^H]
+=(N_t/N_{\rm RF})\operatorname{Tr}(\mathbf D_m\mathbf D_m^H)$，上述问题等价于
+
+$
+\max_{\boldsymbol\Theta,\mathbf S}
+\sum_{m=1}^M\operatorname{Re}\{\operatorname{Tr}(
+\boldsymbol\Theta\mathbf S\mathbf F_m\mathbf D_m\mathbf W_m^H)\},
+\quad\mathrm{s.t.}\ (15b). \tag{40}
+$
+
+将 $\mathbf W_m=[\mathbf W_{m,1}^T,\ldots,
+\mathbf W_{m,N_{\rm RF}}^T]^T$，并分块 $\mathbf D_m$，则式（40）目标可写成
+
+$
+\sum_{n=1}^{N_{\rm RF}}\sum_{p=1}^P
+\operatorname{Re}\{\mathbf S_n(p,:)\mathbf B_{n,p}^H
+\boldsymbol\theta_{n,p}\}. \tag{41}
+$
+
+其中
+
+$
+\mathbf B_n=
+\left[\sum_{m=1}^M
+\mathbf f_m\widetilde{\mathbf d}_{m,n}\mathbf W_{m,n}^H
+\right]^H
+=[\mathbf B_{n,1}^T,\ldots,\mathbf B_{n,P}^T]^T . \tag{42}
+$
+
+式（41）与 FC 的式（32）同形，区别仅在 $\mathbf A_{n,p}$ 被 $\mathbf B_{n,p}$ 替代，故有
+
+$
+\mathbf S_n(p,q)=
+\begin{cases}
+1,&q=\displaystyle\arg\max_i\|\mathbf B_{n,p}(:,i)\|_1,\\
+0,&\text{其他},
+\end{cases}\tag{43}
+$
+
+$
+\boldsymbol\theta_{n,p}=
+\exp\!\left(j\angle[
+\mathbf B_{n,p}\mathbf S_n(p,:)^T]\right). \tag{44}
+$
+
+**算法 3：SC 架构的 PWMMSE。** 初始化全部辅助变量和波束赋形器；每轮先按式（21）、（22）、（24）更新 $\boldsymbol\mu_m,\boldsymbol\omega_m,\mathbf W_m$，接着由式（43）、（44）更新 $\mathbf S,\boldsymbol\Theta$，然后由式（37）更新 $\mathbf D_m$。若式（20）目标的相对增加低于阈值，则停止并输出模拟/数字波束赋形器。SC 直接利用块结构分离子阵列优化，因而避免辅助变量及其惩罚迭代。
+
+在复杂度方面，SC 中更新 $\boldsymbol\Theta,\mathbf S$ 的复杂度均为 $O(MPKN_t)$；其余接收辅助量、全数字矩阵和数字矩阵的复杂度与 FC 相同。FC 中，$\boldsymbol\Theta,\mathbf S$ 更新规模为 $O(PN_{\rm RF}N_t)$；$\mathbf A$ 更新还涉及 $(PN_{\rm RF})$ 维矩阵求逆与其他矩阵乘积。
 
 ## IV. 低复杂度启发式波束赋形方法
 
