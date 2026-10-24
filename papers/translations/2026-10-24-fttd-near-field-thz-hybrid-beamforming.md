@@ -756,6 +756,90 @@ DS-FTTD 在 FC 中也具有较高能效，主要原因是省去了大型 PS 网�
 
 本文面向近场宽带 THz 多用户系统，研究采用 FTTD 与 PS 的 FC/SC 混合波束赋形。通过结合 WMMSE 等价变换和惩罚法，提出联合优化模拟与数字波束赋形的 PWMMSE 方案；进一步开发只需 LoS 几何信息和低维等效 CSI 的低复杂度启发式方案。数值分析表明，采用 FTTD 的架构可以有效缓解空间宽带效应，并在能量效率上优于传统基于 TTD 的设计。对于有限 FTTD 资源，SC 架构对扩大阵列规模及带宽具有更好的鲁棒性。
 
+## 参考文献（英文原始题录）
+
+以下 40 条参考文献依据用户提供的 IEEE PDF 逐条录入，保留英文题名以便准确检索。
+
+[1] S. Sharma, P. K. Singya, K. Deka, C. Adjih, and M. Sharma, “Terahertz communication: State-of-the-art and future directions,” IEEE Open J. Commun. Soc., vol. 6, pp. 6281–6322, 2025.
+
+[2] H. Zhang et al., “Terahertz sensing, communication, and networking: A survey,” IEEE Trans. Netw. Sci. Eng., vol. 13, pp. 501–521, 2026.
+
+[3] M. Parvini, M. Qurratulain Khan, P. Schulz, and G. Fettweis, “An optimized OFDM waveform design for 6G industrial networks,” IEEE Trans. Wireless Commun., vol. 23, no. 11, pp. 17324–17338, Nov. 2024.
+
+[4] W. Jiang et al., “Terahertz communications and sensing for 6G and beyond: A comprehensive review,” IEEE Commun. Surveys Tuts., vol. 26, no. 4, pp. 2326–2381, 4th Quart., 2024.
+
+[5] NGMN Alliance, ITU-R Framework for IMT-2030: Review and Future Direction, NGMN Alliance, Düsseldorf, Germany, 2024.
+
+[6] S. Thomas, J. Singh Virdi, A. Babakhani, and I. P. Roberts, “A survey on advancements in THz technology for 6G: Systems, circuits, antennas, and experiments,” IEEE Open J. Commun. Soc., vol. 6, pp. 1998–2016, 2025.
+
+[7] M. Parvini, B. Banerjee, M. Q. Khan, T. Mewes, A. Nimr, and G. Fettweis, “A tutorial on wideband XL-MIMO: Challenges, opportunities, and future trends,” IEEE Open J. Commun. Soc., vol. 6, pp. 5509–5534, 2025.
+
+[8] I. F. Akyildiz, C. Han, and S. Nie, “Combating the distance problem in the millimeter wave and terahertz frequency bands,” IEEE Commun. Mag., vol. 56, no. 6, pp. 102–108, Jun. 2018.
+
+[9] D. Zhang, Y. Wang, X. Li, and W. Xiang, “Hybridly connected structure for hybrid beamforming in mmWave massive MIMO systems,” IEEE Trans. Commun., vol. 66, no. 2, pp. 662–674, Feb. 2018.
+
+[10] D. Zhang, Y. Wang, and W. Xiang, “Leakage-based hybrid beamforming design for downlink multiuser mmWave MIMO systems,” in Proc. IEEE 28th Annu. Int. Symp. Pers., Indoor, Mobile Radio Commun. (PIMRC), Oct. 2017, pp. 1–5.
+
+[11] E. Björnson et al., “Towards 6G MIMO: Massive spatial multiplexing, dense arrays, and interplay between electromagnetics and processing,” 2024, arXiv:2401.02844.
+
+[12] Z. Wang et al., “Extremely large-scale MIMO: Fundamentals, challenges, solutions, and future directions,” IEEE Wireless Commun., vol. 31, no. 3, pp. 117–124, Jun. 2024.
+
+[13] Z. Wang et al., “A tutorial on extremely large-scale MIMO for 6G: Fundamentals, signal processing, and applications,” IEEE Commun. Surveys Tuts., vol. 26, no. 3, pp. 1560–1605, 3rd Quart., 2024.
+
+[14] Y. Zhang, Z. Yang, S. Yue, L. Liu, and B. Di, “Hybrid near-field and farfield XL-MIMO: How many users can be supported?” IEEE Commun. Lett., vol. 28, no. 10, pp. 2402–2406, Oct. 2024.
+
+[15] H. Lu et al., “A tutorial on near-field XL-MIMO communications toward 6G,” IEEE Commun. Surveys Tuts., vol. 26, no. 4, pp. 2213–2257, 2024.
+
+[16] Y. Chen, Y. Xiong, D. Chen, T. Jiang, S. X. Ng, and L. Hanzo, “Hybrid precoding for WideBand millimeter wave MIMO systems in the face of beam squint,” IEEE Trans. Wireless Commun., vol. 20, no. 3, pp. 1847–1860, Mar. 2021.
+
+[17] F. Gao, B. Wang, C. Xing, J. An, and G. Y. Li, “Wideband beamforming for hybrid massive MIMO terahertz communications,” IEEE J. Sel. Areas Commun., vol. 39, no. 6, pp. 1725–1740, Jun. 2021.
+
+[18] M. Longbrake, “True time-delay beamsteering for radar,” in Proc. IEEE Nat. Aerosp. Electron. Conf. (NAECON), Dayton, OH, USA, Jul. 2012, pp. 246–249.
+
+[19] M. Cui, L. Dai, Z. Wang, S. Zhou, and N. Ge, “Near-field rainbow: Wideband beam training for XL-MIMO,” IEEE Trans. Wireless Commun., vol. 22, no. 6, pp. 3899–3912, Jun. 2023.
+
+[20] M. Monemi, M. Amir Fallah, M. Rasti, O. Yazdani, O. L. A. Lopez, and M. Latva-aho, “Beam squint mitigation in wideband hybrid beamformers: Full-TTD, sparse-TTD, or non-TTD?” 2025, arXiv:2506.19381.
+
+[21] L. Dai, J. Tan, Z. Chen, and H. V. Poor, “Delay-phase precoding for wideband THz massive MIMO,” IEEE Trans. Wireless Commun., vol. 21, no. 9, pp. 7271–7286, Sep. 2022.
+
+[22] H. Ozen and G. M. Guvensen, “Interference and beam squint aware TTD-aided beamforming for dual wideband massive MIMO,” IEEE Wireless Commun. Lett., vol. 13, no. 1, pp. 64–68, Jan. 2024.
+
+[23] C. Zhang, X. Wang, R. Jiang, T. Liu, and Y. Xu, “Wideband beamforming in near-field uniform planar array systems under TTD constraints,” in Proc. 16th Int. Conf. Wireless Commun. Signal Process. (WCSP), Oct. 2024, pp. 637–642.
+
+[24] D. Q. Nguyen and T. Kim, “Joint delay and phase precoding under truetime delay constraints for THz massive MIMO,” in Proc. ICC - IEEE Int. Conf. Commun., May 2022, pp. 3496–3501.
+
+[25] D. Q. Nguyen and T. Kim, “Joint delay-phase precoding under true-time delay constraints in wideband sub-THz hybrid massive MIMO systems,” IEEE Trans. Commun., vol. 72, no. 10, pp. 6633–6646, Oct. 2024.
+
+[26] P.-H. Chang and T.-D. Chiueh, “Hybrid beamforming for wideband terahertz massive MIMO communications with low-resolution phase shifters and true-time-delay,” IEEE Trans. Wireless Commun., vol. 23, no. 7, pp. 8000–8012, Jul. 2024.
+
+[27] L. Yan, C. Han, T. Yang, and J. Yuan, “Dynamic-subarray with fixed-true-time-delay architecture for terahertz wideband hybrid beamforming,” in Proc. IEEE Global Commun. Conf. (GLOBECOM), Dec. 2021, pp. 1–6.
+
+[28] L. Yan, C. Han, and J. Yuan, “Energy-efficient dynamic-subarray with fixed true-time-delay design for terahertz wideband hybrid beamforming,” IEEE J. Sel. Areas Commun., vol. 40, no. 10, pp. 2840–2854, Oct. 2022.
+
+[29] Z. Wang, X. Mu, and Y. Liu, “Beamfocusing optimization for near-field wideband multi-user communications,” IEEE Trans. Commun., vol. 73, no. 1, pp. 555–572, Jan. 2025. Downloaded on October 24,2026 at 08:55:01 UTC from IEEE Xplore. Restrictions apply. IEEE TRANSACTIONS ON WIRELESS COMMUNICATIONS, VOL. 25, 2026
+
+[30] S. Tarboush et al., “TeraMIMO: A channel simulator for wideband ultramassive MIMO terahertz communications,” IEEE Trans. Veh. Technol., vol. 70, no. 12, pp. 12325–12341, Dec. 2021.
+
+[31] C. Zhang, H. Zhou, and Y.-C. Liang, “Near-field wideband beamforming for RIS-assisted THz communications with FTTDs,” IEEE Trans. Wireless Commun., vol. 24, no. 11, pp. 8969–8984, Nov. 2025.
+
+[32] Q. Shi, M. Razaviyayn, Z.-Q. Luo, and C. He, “An iteratively weighted MMSE approach to distributed sum-utility maximization for a MIMO interfering broadcast channel,” IEEE Trans. Signal Process., vol. 59, no. 9, pp. 4331–4340, Sep. 2011.
+
+[33] C. Wei, Z. Yang, J. Dang, P. Li, H. Wang, and X. Yu, “Accurate wideband channel estimation for THz massive MIMO systems,” IEEE Commun. Lett., vol. 27, no. 1, pp. 293–297, Jan. 2023.
+
+[34] Y. Zhang, X. Wu, and C. You, “Fast near-field beam training for extremely large-scale array,” IEEE Wireless Commun. Lett., vol. 11, no. 12, pp. 2625–2629, Dec. 2022.
+
+[35] K. Chen, C. Qi, C.-X. Wang, and G. Y. Li, “Beam training and tracking for extremely large-scale MIMO communications,” IEEE Trans. Wireless Commun., vol. 23, no. 5, pp. 5048–5062, May 2024.
+
+[36] K. Shen and W. Yu, “Fractional programming for communication systems—Part II: Uplink scheduling via matching,” IEEE Trans. Signal Process., vol. 66, no. 10, pp. 2631–2644, May 2018.
+
+[37] Y. Sun, P. Babu, and D. P. Palomar, “Majorization-minimization algorithms in signal processing, communications, and machine learning,” IEEE Trans. Signal Process., vol. 65, no. 3, pp. 794–816, Feb. 2017.
+
+[38] P. Li, W. Wu, Y. Shi, Y. Deng, P. Fay, and L. Liu, “Broadband THz switching with extremely low insertion loss and superior isolation,” in IEEE MTT-S Int. Microw. Symp. Dig., Jun. 2023, pp. 688–691.
+
+[39] A. Karakuzulu, M. H. Eissa, D. Kissinger, and A. Malignaggi, “Broadband 110–170 GHz true time delay circuit in a 130-nm SiGe BiCMOS technology,” in IEEE MTT-S Int. Microw. Symp. Dig., Aug. 2020, pp. 775–778.
+
+[40] L. Schmitz and O. Saalmann, “Ka-band true time delay in a 130-nm SiGe-BiCMOS technology for phased-array applications,” in Proc. 20th Eur. Microw. Integr. Circuits Conf. (EuMIC), Sep. 2025, pp. 359–362.
+
 ## 未完成内容清单
 
 这份 17 页 TWC 论文包含较长的分块优化推导、多个算法、复杂度表达式和多组实验图表。本译稿仍缺少**原文公式（30）–（54）的完整逐式翻译、部分基于惩罚方法的子问题推导、算法 1–3、后续所有实验图表的完整数值、原文 VI 节逐段译文以及参考文献**，不能计为全文完成。阅读和复现时应当与[原文 DOI](https://doi.org/10.1109/TWC.2026.3733666)对应 PDF 逐项核对。
