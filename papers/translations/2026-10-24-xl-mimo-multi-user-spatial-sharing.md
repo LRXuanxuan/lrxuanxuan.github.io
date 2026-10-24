@@ -13,7 +13,7 @@ toc: true
 **原题：** Enhancing Near-Field XL-MIMO Channel Estimation via Multi-User Spatial Information Sharing  
 **作者：** Zirou Liu、Yinglei Teng、An Liu、Wenkang Xu、Yangliu Zhao、Vincent K. N. Lau  
 **期刊：** *IEEE Transactions on Wireless Communications*, Vol. 25, 2026，pp. 18700–18717。DOI: 10.1109/TWC.2026.3702238。  
-**译稿范围：** 摘要、引言、系统模型、极域表示、三层稀疏先验及多用户联合支撑、空间信息共享框架与主要仿真结论；主要公式（1）–（19）及重要结果。**后续 IF-VBI 消息传递细节、VR 矩阵优化全部子式、附录证明以及原始参考文献尚未逐段补齐**。以下是主体译稿，不是逐字完整 18 页译本。
+**译稿范围：** 摘要、引言、系统模型、极域表示、三层稀疏先验及多用户联合支撑、IF-VBI、消息传递、公共网格更新、VR 检测及算法 1 的主要公式已补到式（48）。**原文附录 A–B 的逐项证明、部分公式（38）展开、图 8–14 的全部分析及参考文献仍待补齐或终校。** 未计入全文验收。
 
 ## 摘要
 
@@ -284,6 +284,316 @@ VR 反映空间网格点对各子阵列的可见状态。考虑其二值性、�
 
 **算法 1：** 空间信息共享辅助算法。原文包含分模块迭代、IF-VBI 消息更新、公共极域网格梯度更新和 VR 块检测的详细步骤；本译稿尚未逐行誊录完整伪代码与后续长公式，请以原始 PDF 为准。
 
+### D. MAP 目标与完整空间信息共享算法（原文式（20）–（48））
+
+**联合后验优化目标。** 由于联合支撑使多个用户的条件分布耦合，直接估计整个后验十分复杂。令 $\boldsymbol\xi_k=\{\mathbf x_k,\boldsymbol\rho_k,\mathbf s_k,\gamma_k\}$ 为用户 $k$ 的隐变量集合。作者寻求联合的最大后验（MAP）估计：
+
+$
+\widetilde{\boldsymbol\xi}_{1:K},\widetilde{\mathbf V},
+\widetilde{\boldsymbol\Omega}
+=\mathop{\arg\max}_{\boldsymbol\xi_{1:K},\mathbf V,\boldsymbol\Omega}
+\ln p(\mathbf Y,\mathbf V,\boldsymbol\xi_{1:K},\mathbf s;
+\boldsymbol\Omega). \tag{20}
+$
+
+引入统一的模块优化形式
+
+$
+\widetilde{\mathbf u}=\arg\max_{\mathbf u}f(\mathbf u),\tag{21}
+$
+
+$\mathbf u$ 分别取隐变量、极域网格与 VR 矩阵。三项子问题的目标为：信道估计最大化 $\ln p(\boldsymbol\xi_{1:K}\mid\mathbf Y;\boldsymbol\Omega,\mathbf V)$；公共网格最大化 $\ln p(\boldsymbol\Omega\mid\mathbf Y;\boldsymbol\xi_{1:K},\mathbf V)$；VR 则通过最小化联合观测残差解决。三个模块顺序迭代、彼此交换最新估计。
+
+**1）信道估计与 Turbo 交互。** 固定当前 $\widetilde{\mathbf V}$、$\widetilde{\boldsymbol\Omega}$，将等效观测矩阵写为
+
+$
+\widetilde{\mathbf H}
+=\mathbf A[\mathbf B(\widetilde{\boldsymbol\Omega})
+\odot\mathbf W(\widetilde{\mathbf V})],\qquad
+\mathbf y_k=\widetilde{\mathbf H}\mathbf x_k+\mathbf n_k. \tag{23}
+$
+
+传统 VBI 更新 $\mathbf x_k$ 时，协方差需要对 $Q\times Q$ 矩阵求逆，代价为 $O(Q^3)$。此外，联合因子图包含大量循环，直接使用和积消息传递常产生次优结果。因此作者采用 Turbo 结构，将因子图分为两个部分：A 部分处理各用户观测与局部稀疏后验，B 部分处理用户特有支撑和二维 Markov 联合支撑之间的关系。
+
+在 A 部分，为每个支撑 $s_{k,q}$ 引入来自 B 部分的外信息因子 $h^A_{k,q}$；在 B 部分，引入来自 A 部分的外信息因子 $h^B_{k,q}$。它们分别由消息定义：
+
+$
+h^A_{k,q}=\mu_{u_{k,q}\to s_{k,q}},\qquad
+h^B_{k,q}=\mu_{\eta_{k,q}\to s_{k,q}}. \tag{24}
+$
+
+一次 Turbo 迭代中，A 部分先以 $h^A$ 为先验执行 IF-VBI，得到近似后验边缘 $q(s_{k,q})$，再把不含该输入先验的外信息发给 B：
+
+$
+\mu_{\eta_{k,q}\to s_{k,q}}
+\propto \frac{q(s_{k,q})}{h^A_{k,q}},
+\qquad \forall k,q. \tag{25}
+$
+
+B 部分将该消息作为观测信息，经支撑图上的消息传递产生新的 $h^A$，如此循环至收敛。
+
+**2）A 部分：IF-VBI。** 对用户 $k$ 的隐变量集合 $\boldsymbol\xi_k$，采用均值场分解 $q(\boldsymbol\xi_k)=\prod_{i\in\mathcal I}q(\xi_k^i)$。变分后验通过最大化证据下界（ELBO）获得：
+
+$
+\begin{aligned}
+\arg\max_{q(\boldsymbol\xi_k)}\mathcal L(q_k)
+&=\arg\max_q\int q(\boldsymbol\xi_k)
+\ln\frac{p(\mathbf y_k,\boldsymbol\xi_k)}{q(\boldsymbol\xi_k)}
+\,d\boldsymbol\xi_k\\
+&=\arg\max_q\int q(\boldsymbol\xi_k)
+\ln\frac{p(\mathbf y_k\mid\mathbf x_k,\gamma_k)
+p(\boldsymbol\xi_k)}{q(\boldsymbol\xi_k)}
+\,d\boldsymbol\xi_k .
+\end{aligned}\tag{26}
+$
+
+固定其余因子的变分分布，单一因子的坐标更新为
+
+$
+q_i(\xi_k^i)=
+\frac{\exp\left(\langle\ln p(\mathbf y_k,\boldsymbol\xi_k)
+\rangle_{\prod_{j\ne i}q(\xi_k^j)}\right)}
+{\int\exp\left(\langle\ln p(\mathbf y_k,\boldsymbol\xi_k)
+\rangle_{\prod_{j\ne i}q(\xi_k^j)}\right)d\xi_k^i}. \tag{27}
+$
+
+直接更新 $q(\mathbf x_k)$ 所需协方差为
+$\big(\langle\gamma_k\rangle\widetilde{\mathbf H}^H\widetilde{\mathbf H}
++\operatorname{diag}\langle\boldsymbol\rho_k\rangle\big)^{-1}$。
+由于极域字典 $Q$ 很大，直接求逆不可承受。IF-VBI 通过引入辅助变量 $\mathbf z_k$ 和光滑二次上界来绕过它：
+
+$
+\begin{aligned}
+p(\mathbf y_k\mid\mathbf x_k,\gamma_k)
+&=\left(\frac{\gamma_k}{\pi}\right)^{M_{\rm RF}}
+e^{-\gamma_k\|\mathbf y_k-\widetilde{\mathbf H}\mathbf x_k\|_2^2}\\
+&\ge\left(\frac{\gamma_k}{\pi}\right)^{M_{\rm RF}}
+e^{-\gamma_k g(\mathbf x_k,\mathbf z_k)}
+=:\mathcal G(\mathbf y_k,\mathbf x_k,\gamma_k,\mathbf z_k).
+\end{aligned}\tag{28}
+$
+
+其中
+
+$
+\begin{aligned}
+g(\mathbf x_k,\mathbf z_k)
+={}&\|\mathbf y_k-\widetilde{\mathbf H}\mathbf z_k\|_2^2\\
+&+2\operatorname{Re}\{(\mathbf x_k-\mathbf z_k)^H
+\widetilde{\mathbf H}^H(\widetilde{\mathbf H}\mathbf z_k-\mathbf y_k)\}\\
+&+\tau\|\mathbf x_k-\mathbf z_k\|_2^2 .
+\end{aligned}\tag{29}
+$
+
+$\tau I_Q\succeq\widetilde{\mathbf H}^H\widetilde{\mathbf H}$；有效选择为 $\tau=\lambda_{\max}(\widetilde{\mathbf H}^H\widetilde{\mathbf H})$。代回式（26），得到放松的 ELBO：
+
+$
+\widetilde{\mathcal L}(q_k,\mathbf z_k)
+=\int q(\boldsymbol\xi_k)\ln
+\frac{\mathcal G(\mathbf y_k,\mathbf z_k,\mathbf x_k,\gamma_k)
+p(\boldsymbol\xi_k)}
+{\breve h(\mathbf z_k)q(\boldsymbol\xi_k)}
+\,d\boldsymbol\xi_k-\ln\breve h(\mathbf z_k)
+\le \mathcal L(q_k). \tag{30}
+$
+
+其中 $\breve h(\mathbf z_k)$ 为原文定义的归一化因子。该放松目标在交替更新中发挥二次替代函数的作用；更新变分因子可视为 EM 中的 E 步，更新辅助变量是 M 步。作者指出，在光滑性条件下，二次替代与真实目标的差异是有界且会消失的三阶余项，随着 $\mathbf z_k\to\mathbf x_k$ 趋于零。这支持算法朝真实 ELBO 的驻点渐近收敛，而不仅是替代目标的驻点。
+
+初始化时，支撑概率由来自 B 部分的伯努利消息给出：
+$\pi_{k,q}=\mu_{u_{k,q}\to s_{k,q}}(1)/
+[\mu_{u_{k,q}\to s_{k,q}}(1)+\mu_{u_{k,q}\to s_{k,q}}(0)]$。
+将 $\pi_{k,q}$ 与 Gamma 先验形状率参数加权，可得
+$\widetilde a_q=\pi_{k,q}a_q+(1-\pi_{k,q})\bar a_q$、
+$\widetilde b_q=\pi_{k,q}b_q+(1-\pi_{k,q})\bar b_q$；随后迭代更新这些先验参数。
+
+对于稀疏信号的变分分布，
+
+$
+\ln q(\mathbf x_k)\propto
+\langle\ln\mathcal G\rangle_{q(\gamma_k)}
++\langle\ln p(\mathbf x_k\mid\boldsymbol\rho_k)\rangle_{q(\boldsymbol\rho_k)} .
+\tag{31}
+$
+
+$q(\mathbf x_k)$ 为复高斯分布，其均值和协方差更新为
+
+$
+\begin{aligned}
+\boldsymbol\mu_k&=
+\boldsymbol\Sigma_k\langle\gamma_k\rangle
+\left[\widetilde{\mathbf H}^H
+(\mathbf y_k-\widetilde{\mathbf H}\mathbf z_k)+\tau\mathbf z_k\right],\\
+\boldsymbol\Sigma_k&=
+\left[\langle\gamma_k\rangle\tau I_Q+
+\operatorname{diag}\langle\boldsymbol\rho_k\rangle\right]^{-1}.
+\end{aligned}\tag{32}
+$
+
+式（32）虽形式上仍有逆矩阵，但被求逆矩阵**是对角矩阵**，故更新复杂度为线性阶。其他隐变量 $\boldsymbol\rho_k,\mathbf s_k,\gamma_k$ 的变分更新按相似方法得到，详细表达式复用原文引用 [28]。
+
+固定当前变分分布，更新辅助变量：
+
+$
+\mathbf z_k^{\rm new}
+=\arg\max_{\mathbf z_k}
+\left\langle
+\ln \mathcal G(\mathbf y_k,\mathbf z_k,\mathbf x_k,\gamma_k)
+p(\boldsymbol\xi_k)
+\right\rangle_{q(\boldsymbol\xi_k;\mathbf z_k^{\rm old})}. \tag{33}
+$
+
+令目标对 $\mathbf z_k$ 的导数为零，得到
+
+$
+\mathbf z_k^{\rm new}=\boldsymbol\mu_k. \tag{34}
+$
+
+这具有明确的贝叶斯解释：辅助变量匹配当前稀疏信号后验均值。
+
+**3）B 部分：多用户—空间联合支撑的消息传递。** 令 $\bar s_q$ 表示联合支撑变量，$\phi_{k,q}$ 表示给定联合支撑活跃时用户 $k$ 活跃的概率。定义 B 部分输入 $\pi^B_{k,q}=h^B_{k,q}(s_{k,q}=1)$ 和输出 $\pi^A_{k,q}=h^A_{k,q}(s_{k,q}=1)$。因子 $u_{k,q}$ 把用户独立支撑与联合支撑连接起来。沿 $u_{k,q}\to\bar s_q$ 的消息为伯努利形式：
+
+$
+\mu_{u_{k,q}\to\bar s_q}
+=\pi_{u_{k,q}\to\bar s_q}\delta(\bar s_q-1)
++[1-\pi_{u_{k,q}\to\bar s_q}]\delta(\bar s_q). \tag{35}
+$
+
+其中
+
+$
+\pi_{u_{k,q}\to\bar s_q}
+=\left[
+1+\frac{1-\pi^B_{k,q}}
+{1+2\pi^B_{k,q}\phi_{k,q}-\phi_{k,q}-\pi^B_{k,q}}
+\right]^{-1}. \tag{36}
+$
+
+为利用二维 Markov 性，联合支撑节点 $\bar s_q$ 与上、下、左、右相邻节点耦合。分别令 $\mu_q^a,\mu_q^b,\mu_q^l,\mu_q^r$ 为四个方向的入射伯努利消息，每个方向 $i\in\{a,b,l,r\}$ 均有
+
+$
+\mu_q^i=\kappa_q^i\delta(\bar s_q-1)
++(1-\kappa_q^i)\delta(\bar s_q), \tag{37}
+$
+
+其中 $\kappa_q^a,\kappa_q^b$ 的具体分式见原文式（38），另外两项以同一消息规则推得。它们不仅利用邻域 Markov 转移概率，而且综合所有用户传入的信息。
+
+融合其他用户以及四个邻居的消息，获得返回 $u_{k,q}$ 的联合支撑外信息：
+
+$
+\mu_{\bar s_q\to u_{k,q}}
+=\pi_{\bar s_q\to u_{k,q}}\delta(\bar s_q-1)
++[1-\pi_{\bar s_q\to u_{k,q}}]\delta(\bar s_q). \tag{39}
+$
+
+令 $P_1=\prod_{j\ne k}\pi_{u_{j,q}\to\bar s_q}
+\prod_{i\in\{a,b,l,r\}}\kappa_q^i$、
+$P_0=\prod_{j\ne k}(1-\pi_{u_{j,q}\to\bar s_q})
+\prod_{i\in\{a,b,l,r\}}(1-\kappa_q^i)$，则
+
+$
+\pi_{\bar s_q\to u_{k,q}}=\frac{P_1}{P_1+P_0}. \tag{40}
+$
+
+联合支撑反馈给用户支撑的消息为
+
+$
+\mu_{u_{k,q}\to s_{k,q}}
+=\pi^A_{k,q}\delta(s_{k,q}-1)
++(1-\pi^A_{k,q})\delta(s_{k,q}),\quad
+\pi^A_{k,q}=\pi_{\bar s_q\to u_{k,q}}\phi_{k,q}. \tag{41}
+$
+
+最终，联合支撑的近似边缘后验满足
+
+$
+p(\bar s_q\mid\mathbf Y,\mathbf V,\boldsymbol\Omega)
+=\pi_{\bar s_q}\delta(\bar s_q-1)
++(1-\pi_{\bar s_q})\delta(\bar s_q), \tag{42}
+$
+
+其中 $\pi_{\bar s_q}
+=\frac{\pi_{\bar s_q\to u_{k,q}}\pi_{u_{k,q}\to\bar s_q}}
+{\pi_{\bar s_q\to u_{k,q}}\pi_{u_{k,q}\to\bar s_q}
++(1-\pi_{\bar s_q\to u_{k,q}})
+(1-\pi_{u_{k,q}\to\bar s_q})}$。这一式子体现了同一联合网格点在多用户观测及空间 Markov 信息下逐渐形成后验共识的过程。
+
+**4）公共极域网格更新。** 固定已经估计得到的 $\widetilde{\mathbf x}_{1:K}$、$\widetilde\gamma_{1:K}$ 和 $\widetilde{\mathbf V}$，应跨所有用户联合更新极域网格 $\boldsymbol\Omega$，避免每个用户的独立字典产生失配。定义目标
+
+$
+\mathcal L(\boldsymbol\Omega)
+=\sum_{k=1}^{K}\widetilde\gamma_k
+\|\mathbf y_k-\mathbf A[
+\mathbf B(\boldsymbol\Omega)\odot\mathbf W(\widetilde{\mathbf V})]
+\widetilde{\mathbf x}_k\|_2^2+C. \tag{43}
+$
+
+$C$ 与网格无关。目标非凸，因此采用迭代梯度下降。在第 $i+1$ 次迭代：
+
+$
+\begin{aligned}
+\widetilde{\boldsymbol\vartheta}^{(i+1)}
+&=\widetilde{\boldsymbol\vartheta}^{(i)}
+-\epsilon_\vartheta\nabla_\vartheta
+\mathcal L(\widetilde{\boldsymbol\vartheta},
+\widetilde{\mathbf r}^{(i-1)}),\\
+\frac1{\widetilde{\mathbf r}^{(i+1)}}
+&=\frac1{\widetilde{\mathbf r}^{(i)}}
+-\epsilon_{1/r}\nabla_{1/r}
+\mathcal L(\widetilde{\boldsymbol\vartheta}^{(i)},
+\widetilde{\mathbf r}).
+\end{aligned}\tag{44}
+$
+
+步长 $\epsilon_\vartheta,\epsilon_{1/r}$ 根据 Armijo 准则动态选取。由于极域在 $1/r$ 上均匀采样，实际更新的是距离倒数而非距离本身；交替固定角度和距离相关变量，有助于稳定迭代。
+
+**5）联合 VR 矩阵检测。** 利用跨用户相同网格点的可见状态，给定 $\widetilde{\mathbf x}_{1:K}$ 和 $\widetilde{\boldsymbol\Omega}$ 后，把各用户观测共同整理为
+
+$
+\mathbf Y=\mathbf F\mathbf V_{q,n}+\widetilde{\mathbf n}, \tag{45}
+$
+
+其中 $\mathbf V_{q,n}\in\mathbb C^{NQ\times1}$ 由所有网格点在 $N$ 个子阵列上的 VR 指示值堆叠而成，$\mathbf F=[\mathbf F_1^T,\ldots,\mathbf F_K^T]^T$ 是相应等效测量矩阵。各用户噪声的协方差为
+$\operatorname{diag}(\widetilde\gamma_1^{-1}I_{M_{\rm RF}},\ldots,
+\widetilde\gamma_K^{-1}I_{M_{\rm RF}})$。
+
+由于稀疏信道估计中许多 $\widetilde x_{k,q}$ 近零，$\mathbf F$ 中有大量零列，直接求逆会病态。作者先进行极域筛选：以接近 2–3 倍噪声功率的阈值 $\epsilon$ 选择可能活跃的网格集合 $\Lambda$，只保留对应 VR 块的列。由于 VR 为二值实数，再把复数观测的实部与虚部堆叠，得到
+
+$
+\dot{\mathbf Y}=\dot{\mathbf F}\widetilde{\mathbf V}_{q,n}
++\dot{\mathbf n}. \tag{46}
+$
+
+点标记表示实值化后的量。利用 VR 块稀疏性，通过块正交匹配追踪（BOMP）求解
+
+$
+\min_{\widetilde{\mathbf V}_{q,n}}
+\|\dot{\mathbf Y}-\dot{\mathbf F}
+\widetilde{\mathbf V}_{q,n}\|_F^2. \tag{47}
+$
+
+每轮选择与当前残差 $\mathbf R$ 最相关的候选块：
+$i^\star=\arg\max_i\|\dot{\mathbf F}_i^H\mathbf R\|_2$；
+在已选块集合上以最小二乘更新系数。最终使用伪逆
+
+$
+\widetilde{\mathbf V}_{q,n}=
+\dot{\mathbf F}^{\dagger}\dot{\mathbf Y}, \tag{48}
+$
+
+再逐元素以 0.5 为阈值硬判决（大于等于 0.5 判可见，否则不可见）。文中指出 Group LASSO、Turbo-VBI 等方法也可解决此类子问题，这里选择 BOMP 是出于实现简单的考虑。
+
+**算法 1：空间信息共享辅助算法（23 行）。** 输入观测 $\mathbf Y$、初始极域网格 $\dot{\boldsymbol\Omega}$、停止阈值 $\epsilon$、内循环次数 $I_1,I_2$ 和外循环次数 $I_{\rm out}$。初始化 VR $\widetilde{\mathbf v}_q$ 和极域网格。在每轮外循环中，首先初始化 $\tau=\lambda_{\max}(\widetilde{\mathbf H}^H\widetilde{\mathbf H})$、$\mathbf z_k=\widetilde{\mathbf H}^H\mathbf y_k$。信道模块 A 反复按式（32）、（34）更新变分分布，直至收敛或达到 $I_1$ 次；把式（24）的外信息送到 B 部分，B 通过式（35）–（41）更新支撑消息，再由式（42）产生新的边缘后验传回 A。接下来按式（44）更新公共极域网格。最后初始化残差 $\mathbf R_0=\mathbf Y$，在 $I_2$ 轮以内或残差超过阈值时，按式（48）及 BOMP 更新 VR，并更新残差。外循环完成后返回 $\widetilde{\mathbf x}_{1:K}$、$\widetilde{\mathbf V}$、$\widetilde{\boldsymbol\Omega}$。
+
+**6）计算复杂度。** IF-VBI 的对角逆及矩阵乘积在每轮复杂度为 $O(KM_{\rm RF}Q)$；B 部分的消息传递为线性运算。公共网格更新复杂度同样为 $O(KM_{\rm RF}Q)$。联合 VR 的 BOMP 轮次复杂度为 $O(KM_{\rm RF}|\Lambda|N)$。令 $I_1,I_2$ 为信道模块和 VR 模块的内部迭代次数，则每轮外循环复杂度为
+
+$
+O\!\left(I_1KM_{\rm RF}Q+
+I_2KM_{\rm RF}|\Lambda|N+KM_{\rm RF}Q\right).
+$
+
+该表达式说明主导复杂度对用户数 $K$ 和网格数 $Q$ 为线性依赖；与之相比，Turbo-OAMP 存在 $O(Q^3)$ 项。具体比较和 CPU 运行时间在原文表 I 中列出。
+
+
 ## V. 仿真
 
 作者采用多组仿真比较所提方法与基线，包括：
@@ -294,7 +604,7 @@ VR 反映空间网格点对各子阵列的可见状态。考虑其二值性、�
 - **On-grid：** 固定极域网格的空间信息共享框架，用于消融动态网格更新的作用。
 - **I.i.d. prior：** 为每个用户设置独立先验，不进行多用户支撑信息共享，用于消融结构先验和共享机制。
 
-仿真采用高频 XL-MIMO 基站，配备 $M=512$ 根天线，载频 100 GHz，间距 $\lambda/2$，阵列划分为 $N=32$ 个子阵列；完整信道具有 SnS，子阵列内视为局部空间平稳。使用 100 MHz 工作带宽，用户发射功率归一为 1 W，并通过压缩比 $M_{\rm RF}/M$ 描述 RF 链采样规模。
+仿真采用高频 XL-MIMO 基站，配备 $M=512$ 根天线，载频 100 GHz，间距 $\lambda/2$，阵列划分为 $N=32$ 个子阵列；完整信道具有 SnS，子阵列内视为局部空间平稳。使用 100 MHz 工作带宽，用户发射功率归一为 1 W。**原论文将压缩比定义为 $\mathrm{CR}=M/M_{\rm RF}$**，不可误写为其倒数；信道生成采用 NF-SnS 模型。
 
 主要性能指标为跨用户的平均归一化均方误差（NMSE），以及 VR 矩阵的失配比例（mismatch ratio）。后者比较真实与估计 VR 的各元素状态，以评价二值可见区域恢复质量。算法复杂度还通过理论阶数和平均 CPU 时间评价，MATLAB R2018b 运行环境为 Intel Core i5-12500H 2.50 GHz 处理器的笔记本。
 
