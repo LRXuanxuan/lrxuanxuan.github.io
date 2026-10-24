@@ -13,7 +13,7 @@ toc: true
 **原题：** Posterior Flow Matching  
 **作者：** Chenrui Ma、Xi Xiao、Lin Zhao、Xinru Jiang、Tianyang Wang、Yanning Shen、Nando Fioretto  
 **版本：** arXiv:2610.13994v1，42 页（包含长篇附录）。  
-**译稿范围：** 摘要、正文第 1–6 节、核心公式（1）–（20）、图 1–7 的部分说明、主要数值表；**附录 A–H 与附录公式（21）以后未逐段翻译，全部参考文献题录请查原版**。不能视为完整 42 页全文翻译。
+**译稿范围：** 摘要、正文第 1–6 节、核心公式（1）–（20）、图 1–7 的部分说明、主要数值表；**附录 A–B 已补入推导及公式（21）–（45）；附录 C–H 与后续公式尚未逐段翻译，全部参考文献题录请查原版**。不能视为完整 42 页全文翻译。
 
 ## 摘要
 
@@ -342,6 +342,419 @@ $$
 ## AI 使用披露
 
 作者声明：在论文写作中使用大型语言模型润色语言并改善可读性；所有 AI 辅助的编辑均经作者审核，作者对最终内容承担全部责任。
+
+
+## 附录 A：记号与共同基础
+
+本附录给出第 3 节与第 4.2 节生成器比较所需的共同基础。对于 FM 与 PFM，相互独立的两个端点 $X_0\sim\mathcal N(0,I)$ 和 $X_1\sim p_{\rm data}$ 定义 $X_t=(1-t)X_0+tX_1$，速度目标为 $V=X_1-X_0$。以下首先确定条件均值是输运场，再推导扩散分数函数和终点读数，建立 ODE–SDE 对应关系，最后给出表 1 中各种基线的形式。
+
+**图 8：** PFM 的完整示意。（a）一个共享网络通过高斯负对数似然联合学习速度均值 $v_\theta$ 和对数方差 $\ell_\theta$，图中展示 $\gamma_\theta=\exp\ell_\theta$。（b）它们在采样状态 $(Y_t,t)$ 处分别定义 PFM ODE 和 SDE（式（16）、（19））；轨迹使用相同的检查点与初始粒子，噪声日程为 $\lambda(t)=\lambda_0(1-t)$。（c）应用于图像、点云、分子和机器人控制；式（15）给出图像和分子的终点均值与方差图，以及点云、动作的一倍标准差等值线。点云示例上行为 Chair，下行为 Airplane。
+
+### A.1 记号说明
+
+**表 6：** 正文主要记号。$d$ 表示状态维数，$I$ 表示单位矩阵；局部记号在相应附录中另行定义。
+
+| 符号 | 含义 |
+|---|---|
+| $X_0,X_1;Z$ | 噪声与数据端点；二者的配对定义参考路径 |
+| $X_t;Y_t;\overline X_\tau$ | FM/PFM 参考状态；生成过程；扩散加噪过程 |
+| $t;\tau=1-t;C$ | 生成时间、加噪时间和外部生成条件 |
+| $p_0;p_1=p_{\rm data}$ | 源分布与数据分布 |
+| $p_t;\overline p_\tau$ | FM/PFM 参考密度；扩散加噪密度 |
+| $V;v$ | 样本速度目标及其条件均值 |
+| $\eta;\phi;\theta$ | FM、扩散和 PFM 参数 |
+| $v_\eta;v_\theta$ | FM 速度预测与 PFM 速度均值 |
+| $q_\theta;q_\theta^x$ | 速度后验模型及终点后验模型 |
+| $F_\theta$ | 输出速度均值及对数方差的网络 |
+| $\ell_\theta;\gamma_\theta;\Sigma_\theta$ | 对数方差向量、逐分量方差向量和对角协方差 |
+| $\mathcal L_{\rm PFM};\mathcal L_{\rm CFM}$ | PFM 高斯 NLL 目标与 CFM 回归目标 |
+| $H;I(\cdot;\cdot)$ | 微分熵及互信息（给定 $C$ 时为条件互信息） |
+| $r$ | 训练时间采样分布 |
+| $s;\overline s;s_\phi$ | FM/PFM 分数、扩散加噪分数及其生成时间表示的预测器 |
+| $\widehat s_\eta;\widehat s_\theta$ | 由相应速度预测导出的分数 |
+| $b;b_\theta$ | 一般 SDE 漂移与 PFM 漂移 |
+| $B;a=BB^\top$ | 布朗噪声系数；扩散张量（协方差变化率） |
+| $B_\theta;a_\theta=\lambda\Sigma_\theta$ | PFM 的布朗噪声系数与后验驱动扩散张量 |
+| $f;g;W$ | 预设加噪漂移、标量噪声系数和标准布朗运动 |
+| $\kappa(t);\lambda(t)$ | FM 各向同性协方差变化率、PFM 后验协方差比例系数 |
+| $\widetilde p_t$ | 在同一精确相容动力学下、从不同初始分布演化的密度 |
+| $T$ | 积分终止时间 |
+| $\mu_\eta;\mu_\phi;\mu_\theta$ | FM、扩散、PFM 的终点均值读数 |
+| $\Sigma_\theta^x$ | PFM 终点后验的对角协方差 |
+| $\alpha_t;\sigma_t$ | 扩散核的信号幅度与累计噪声标准差 |
+
+### A.2 从条件流匹配到边缘流匹配
+
+本节证明式（2）的连续性恒等式，以及式（3）后所陈述的梯度等价性。对于光滑且具有紧支撑的测试函数 $\psi$，参考插值给出
+
+$
+\frac{d}{dt}\mathbb E[\psi(X_t)]
+=\mathbb E[\nabla\psi(X_t)^\top V]
+=\mathbb E[\nabla\psi(X_t)^\top v(X_t,t)].
+$
+
+端点具有有限二阶矩意味着 $V$ 可积，再结合 $\psi$ 的有界梯度，允许沿参考路径求导。这正是连续性方程的弱形式。如果 ODE 流定义良好，密度演化唯一且初值为 $p_0$，其边缘分布便与参考路径一致。
+
+CFM 对应的边缘回归目标为
+
+$
+\mathcal L_{\rm FM}(\eta)=
+\frac12\mathbb E_{t,X_t}\|v_\eta(X_t,t)-v(X_t,t)\|^2. \tag{21}
+$
+
+两个目标采用相同且与模型参数无关的时间分布 $r$ 和参考插值。令 $D_\eta v_\eta$ 为关于参数的 Jacobian，输出坐标对应矩阵的行。在风险有限且允许交换求导与期望的条件下，
+
+$
+\begin{aligned}
+\nabla_\eta\mathcal L_{\rm CFM}
+&=\mathbb E[(D_\eta v_\eta)^\top(v_\eta-V)]\\
+&=\mathbb E[(D_\eta v_\eta)^\top(v_\eta-\mathbb E[V\mid X_t,t])]\\
+&=\mathbb E[(D_\eta v_\eta)^\top(v_\eta-v)]
+=\nabla_\eta\mathcal L_{\rm FM}.
+\end{aligned}\tag{22}
+$
+
+网络量均在 $(X_t,t)$ 处计算。对这些输入取条件后，预测及其参数 Jacobian 固定，这解释了第二个等号。另一方面，将 $V-v_\eta$ 分解为 $(V-v)+(v-v_\eta)$，可得
+
+$
+\mathbb E\|V-v_\eta(X_t,t)\|^2
+=\mathbb E\|V-v(X_t,t)\|^2+
+\mathbb E\|v(X_t,t)-v_\eta(X_t,t)\|^2. \tag{23}
+$
+
+由于 $\mathbb E[V-v\mid X_t,t]=0$，交叉项消失。第一项不依赖预测器，第二项由条件均值最小化。式（22）、（23）从而证明第 3.1 节基于样本的训练方法是合理的，并刻画式（45）所恢复的速度目标。
+
+### A.3 扩散训练与条件分数
+
+对于第 3.2 节的加噪过程，令数据端点 $X_1$ 与 $\overline X_0=X_1$ 对应，并从扰动核 $\overline p_{1-t}(\cdot\mid X_1)$ 抽取 $\overline X_{1-t}$。去噪分数匹配采用
+
+$
+\mathcal L_{\rm score}(\phi)=
+\frac12\mathbb E_{t,X_1,\overline X_{1-t}}
+\left[w(t)
+\left\|s_\phi(\overline X_{1-t},t)
+-\left.\nabla_x\log\overline p_{1-t}(x\mid X_1)\right|_{x=\overline X_{1-t}}\right\|^2
+\right], \tag{24}
+$
+
+其中 $X_1\sim p_{\rm data}$、时间分布固定，$w(t)>0$ 是预先指定的权重。对信号尺度 $\alpha_t$、累计噪声标准差 $\sigma_t>0$ 的高斯扰动核，
+
+$
+\overline p_{1-t}(x\mid x_1)=
+\mathcal N(x;\alpha_t x_1,\sigma_t^2 I),\qquad
+\nabla_x\log\overline p_{1-t}(x\mid x_1)=
+-\frac{x-\alpha_t x_1}{\sigma_t^2}. \tag{25}
+$
+
+累计扰动尺度 $\sigma_t$ 与瞬时噪声系数 $g(1-t)$ 具有不同作用。对正的边缘密度，在允许对混合积分求导的条件下，根据贝叶斯公式有
+
+$
+\begin{aligned}
+\overline s(x,1-t)
+&=\frac{\int\nabla_x\overline p_{1-t}(x\mid x_1)p_1(dx_1)}
+{\overline p_{1-t}(x)}\\
+&=\mathbb E[
+\nabla_x\log\overline p_{1-t}(x\mid X_1)
+\mid\overline X_{1-t}=x].
+\end{aligned}\tag{26}
+$
+
+假设上述导数、期望存在且平方风险有限，那么与式（23）相同的条件均值分解表明，去噪分数损失的无约束最优解是 $s_\phi(x,t)=\overline s(x,1-t)$，至少在训练时间分布的支撑集内成立。
+
+将高斯核式（25）代入式（26），得到
+
+$
+\overline s(x,1-t)=
+\frac{\alpha_t\mathbb E[X_1\mid\overline X_{1-t}=x]-x}{\sigma_t^2},
+\qquad
+\mathbb E[X_1\mid\overline X_{1-t}=x]
+=\frac{x+\sigma_t^2\overline s(x,1-t)}{\alpha_t}. \tag{27}
+$
+
+第二个恒等式要求 $\alpha_t\ne0$。这一关系提供表 1 中扩散模型的终点读数。
+
+### A.4 高斯速度—分数恒等式
+
+这里推导供 FM 与 PFM 使用的式（8）。回到第 3.1 节相互独立的高斯线性插值，其密度为
+
+$
+p_t(x)=\int
+\mathcal N(x;tx_1,(1-t)^2I)\,p_1(dx_1).
+$
+
+使用式（26）的混合求导方法可得
+
+$
+s(x,t)=\mathbb E\left[-\frac{x-tX_1}{(1-t)^2}\,\middle|\,X_t=x\right]
+=\frac{t\mathbb E[X_1\mid X_t=x]-x}{(1-t)^2}. \tag{28}
+$
+
+对式（10）取条件期望，得到 $\mathbb E[X_1\mid X_t=x]=x+(1-t)v(x,t)$。代入式（28），便有
+
+$
+s(x,t)=\frac{t[x+(1-t)v(x,t)]-x}{(1-t)^2}
+=\frac{tv(x,t)-x}{1-t},
+$
+
+这就证明了式（8）。对应的学习分数满足
+
+$
+\widehat s_\theta-s=\frac{t}{1-t}(v_\theta-v), \tag{29}
+$
+
+将 $\theta$ 替换为 $\eta$ 对 FM 也成立。这些导出分数进入式（32）的 FM SDE 和式（19）的 PFM SDE。在固定外部生成条件下，也能得到附录 E.3 的对应恒等式。
+
+### A.5 Fokker–Planck 对应关系与边缘分布相容性
+
+本节展开第 3.3 节式（7）。对 SDE $dY_t=b\,dt+B\,dW_t$，扩散张量 $a=BB^\top$ 对称且半正定。因为布朗增量的协方差是 $hI$，在局部正则性条件下，
+
+$
+\begin{aligned}
+\mathbb E[Y_{t+h}-Y_t\mid Y_t=x]&=hb(x,t)+o(h),\\
+\operatorname{Cov}(Y_{t+h}-Y_t\mid Y_t=x)&=ha(x,t)+o(h).
+\end{aligned}
+$
+
+密度方程为
+
+$
+\partial_t p_t=-\nabla_x\cdot(bp_t)
++\frac12\sum_{i,j}\partial_{x_i}\partial_{x_j}(a_{ij}p_t). \tag{30}
+$
+
+对 $s=\nabla_x\log p_t$，由乘积法则，
+
+$
+\sum_j\partial_{x_j}(a_{ij}p_t)
+=\left[\sum_j\partial_{x_j}a_{ij}
++\sum_ja_{ij}s_j\right]p_t
+=[(\nabla_x\cdot a)+as]_ip_t. \tag{31}
+$
+
+因此式（30）等价于
+
+$
+\partial_t p_t=-\nabla_x\cdot\left[
+\left(b-\tfrac12\nabla_x\cdot a-\tfrac12as\right)p_t\right].
+$
+
+括号中的项就是式（7）的概率流速度 $v$。反过来求解 $b$，便能从 ODE 构造 SDE。
+
+要证明相容性，设正密度路径 $p_t$ 在 $[0,T]$（$T<1$）上以速度 $v$ 满足连续性方程。选择 $a=BB^\top$，令 $b=v+(\nabla_x\cdot a+a\nabla_x\log p_t)/2$。假设系数与密度足够正则，ODE 和 SDE 适定，指定初值下密度演化唯一，并且无穷远衰减或边界条件排除边界概率通量。将式（31）代入，得到
+
+$
+-\nabla_x\cdot(bp_t)+
+\frac12\sum_{i,j}\partial_{x_i}\partial_{x_j}(a_{ij}p_t)
+=-\nabla_x\cdot(vp_t).
+$
+
+因此参考密度同时满足两个方程。由于初值相同且密度演化唯一，SDE 的边缘分布也等于 $p_t$。这证明了第 3.3 节使用的对应关系，但它只涉及单时刻的边缘分布，两种过程跨时间的联合分布可以不同。
+
+### A.6 扩散与 FM 作为采样特例
+
+将以上密度构造用于扩散与 FM 基线，可以得到第 4.2 节与表 1 的比较结果。扩散使用指定的加噪场 $f,g$ 及分数预测 $s_\phi$；FM 使用独立高斯参考路径上的速度预测器 $v_\eta$。
+
+加噪密度 $\overline p_\tau$ 满足
+
+$
+\partial_\tau\overline p_\tau
+=-\nabla_x\cdot(f\overline p_\tau)
++\tfrac12g(\tau)^2\Delta_x\overline p_\tau.
+$
+
+反转时间并使用 $\Delta_x\overline p_{1-t}
+=\nabla_x\cdot(\overline s(x,1-t)\overline p_{1-t})$，有
+
+$
+\begin{aligned}
+\partial_t\overline p_{1-t}
+&=\nabla_x\cdot(f\overline p_{1-t})
+-\tfrac12 g^2\Delta_x\overline p_{1-t}\\
+&=-\nabla_x\cdot\big[
+(-f+\tfrac12g^2\overline s)\overline p_{1-t}\big],
+\end{aligned}
+$
+
+其中 $f,g,\overline s$ 在加噪时间 $1-t$ 计算。对该密度路径应用 A.5 节，可得概率流 ODE。选择 $a=g^2I$，相当于在速度中再增加 $g^2\overline s/2$，得到逆向 SDE。当分数准确、初始分布为加噪末端分布时，这两种动力学都重现 $\overline p_{1-t}$。将真实分数替换为 $s_\phi(x,t)$，便得到表 1 的扩散模型条目。
+
+对于 FM，附录 A.4 给出 $\widehat s_\eta=(tv_\eta-x)/(1-t)$。选取 $a=\kappa(t)I$，$\kappa(t)\ge0$，于是 $\nabla_x\cdot a=0$，$B=\sqrt\kappa I$：
+
+$
+dY_t=v_\eta(Y_t,t)\,dt,\qquad
+dY_t=[v_\eta+\tfrac12\kappa\widehat s_\eta](Y_t,t)\,dt
++\sqrt{\kappa(t)}\,dW_t. \tag{32}
+$
+
+两者都从 $\mathcal N(0,I)$ 出发。当 $v_\eta=v$ 时，分数准确，附录 A.5 保证参考边缘分布；$\kappa=0$ 则恢复 ODE。数值离散 SDE 步骤见附录 G.3。
+
+对 $X_1=X_t+(1-t)V$ 取条件期望得到 FM 的终点均值读数。将式（27）的真实分数替换为 $s_\phi$，得到扩散对应读数：
+
+$
+\mu_\eta(x,t)=x+(1-t)v_\eta(x,t),\qquad
+\mu_\phi(x,t)=\frac{x+\sigma_t^2s_\phi(x,t)}{\alpha_t},
+\quad\alpha_t\ne0. \tag{33}
+$
+
+结合上述动力学即可恢复表 1 的基线条目。PFM 采用相同对应关系，但其扩散张量由附录 C.1 的后验决定，并根据附录 B.2 的关系提供附加方差读数。
+
+## 附录 B：后验学习与坐标变换
+
+本附录给出第 4.1 节的学习论证：从终点信息到 PFM 目标所拟合的矩。相互独立的 $X_0\sim\mathcal N(0,I)$ 和 $X_1\sim p_{\rm data}$ 定义 $X_t=(1-t)X_0+tX_1$ 及 $V=X_1-X_0$。在固定 $t<1$ 时，使用 $q_\theta^x$ 拟合终点后验 $p(X_1\mid X_t)$。首先推导式（9）的信息下界，再把似然转换成速度坐标，最后证明命题 4.1。相关信息恒等式要求存在条件密度、所涉及的熵与交叉熵有限，并且模型密度在真实后验的支撑集上为正。
+
+### B.1 终点后验拟合与信息
+
+固定时间时，可获得的终点信息量和剩余条件不确定性满足
+
+$
+I(X_t;X_1)=H(X_1)-H(X_1\mid X_t). \tag{34}
+$
+
+令 $p(\cdot\mid X_t)$ 表示真实终点后验，并暂时省略固定时间。采用 KL 散度定义 $\operatorname{KL}(p\Vert q)=\mathbb E_p[\log(p/q)]$。在期望 NLL 中加减真实后验的对数密度：
+
+$
+\begin{aligned}
+\mathbb E[-\log q_\theta^x(X_1\mid X_t,t)]
+&=-\mathbb E\log p(X_1\mid X_t)+
+\mathbb E\log\frac{p(X_1\mid X_t)}{q_\theta^x(X_1\mid X_t,t)}\\
+&=H(X_1\mid X_t)+
+\mathbb E_{X_t}\operatorname{KL}
+\big(p(\cdot\mid X_t)\Vert q_\theta^x(\cdot\mid X_t,t)\big).
+\end{aligned}\tag{35}
+$
+
+从 $H(X_1)$ 中减去该恒等式，并利用 KL 非负性，得到正文式（9）的变分下界
+
+$
+I(X_t;X_1)\ge H(X_1)+
+\mathbb E\log q_\theta^x(X_1\mid X_t,t).
+$
+
+其间隙就是式（35）的期望后验 KL。只要模型几乎处处等于真实后验，就达到等号。参考路径已确定互信息，而后验拟合负责缩小近似间隙。下一节将相同目标转换到速度坐标。
+
+### B.2 速度和终点坐标
+
+参考路径意味着仿射恒等式 $X_1=X_t+(1-t)V$。在固定 $(x,t)$、$t<1$ 时，映射 $x_1=x+(1-t)v$ 可逆，其 Jacobian 行列式为 $(1-t)^d$。因而诱导的终点密度为
+
+$
+q_\theta^x(x_1\mid x,t)=
+\frac{q_\theta((x_1-x)/(1-t)\mid x,t)}{(1-t)^d}. \tag{36}
+$
+
+取负对数得到
+
+$
+-\log q_\theta^x(X_1\mid X_t,t)
+=-\log q_\theta(V\mid X_t,t)+d\log(1-t). \tag{37}
+$
+
+最后一项与 $\theta$ 无关，因此第 4.1 节可以使用速度坐标定义学习目标。同一个仿射映射也决定式（15）的终点矩。
+
+对于具有有限二阶矩的任意真实条件分布，仿射变换还给出
+
+$
+\begin{aligned}
+\mathbb E[X_1\mid X_t=x]&=x+(1-t)v(x,t),\\
+\operatorname{Cov}(X_1\mid X_t=x)
+&=(1-t)^2\operatorname{Cov}(V\mid X_t=x).
+\end{aligned}\tag{38}
+$
+
+从仿射关系两边减去条件均值，中心化速度会乘上 $1-t$。取外积可证明完整协方差关系。命题 4.1 说明，对角模型在总体最优条件下保留此协方差的对角元素。
+
+在微分熵有限的条件下，同一 Jacobian 也决定熵的变化：
+
+$
+H(X_1\mid X_t)=H(V\mid X_t)+d\log(1-t). \tag{39}
+$
+
+观测状态引入的平移不改变条件熵，而缩放 $1-t$ 贡献了对数行列式。这就将互信息下界与速度坐标中的似然联系起来。
+
+### B.3 高斯模型及其似然
+
+模型 $q_\theta=\mathcal N(v_\theta,\Sigma_\theta)$ 采用正的对角协方差 $\Sigma_\theta=\operatorname{diag}\gamma_\theta$。施加仿射变换后仍为高斯：
+
+$
+q_\theta^x=\mathcal N(\mu_\theta,\Sigma_\theta^x),\quad
+\mu_\theta=x+(1-t)v_\theta,\quad
+\Sigma_\theta^x=(1-t)^2\Sigma_\theta.
+$
+
+这正是式（15）的模型分布矩。完整的速度负对数似然为
+
+$
+-\log q_\theta(V\mid X_t,t)=
+\tfrac12\left[(V-v_\theta)^\top\Sigma_\theta^{-1}(V-v_\theta)
++\log\det\Sigma_\theta\right]+\tfrac d2\log(2\pi). \tag{40}
+$
+
+定义 $\mathcal L_{\rm PFM}
+=\mathbb E[-\log q_\theta(V\mid X_t,t)]-\tfrac d2\log(2\pi)$，即式（13）的目标。结合式（36）、（40），再对固定训练时间分布求平均，
+
+$
+\mathbb E[-\log q_\theta^x(X_1\mid X_t,t)]
+=\mathcal L_{\rm PFM}
++d\mathbb E_t\log(1-t)+\tfrac d2\log(2\pi). \tag{41}
+$
+
+这里要求期望 NLL 有限且 $\log(1-t)$ 可积。在每个固定 $t<1$ 时，式（37）的逐点恒等式已给出参数无关的差。因此，最小化 $\mathcal L_{\rm PFM}$ 等价于最大化对训练时间分布 $r$ 平均后的式（9）变分下界。
+
+**对角协方差。** 在固定 $(x,t)$ 下，模型满足 $\operatorname{Cov}_{q_\theta}(V_i,V_j\mid x,t)=0$（$i\ne j$）。它只需要 $d$ 个方差输出，而非完整对称协方差的 $d(d+1)/2$ 个条目。不过，每个方差输出仍取决于完整状态，因此当 $i\ne j$ 时，$\partial_{x_j}\gamma_{\theta,i}$ 不一定为零。被建模目标的条件协方差与预测方差场的 Jacobian 是不同对象：前者在本文中为对角形式，而后者可以是稠密矩阵。附录 G.2 计算 SDE 漂移所需的该输入 Jacobian 对角元素。
+
+### B.4 条件矩恢复的证明
+
+以下证明命题 4.1，并给出第 4.3 节诊断所使用的残差恒等式。
+
+**命题 4.1 的证明。** 固定状态、时间和坐标 $i$，令 $m_i$、$\sigma_i^2>0$ 表示真实条件均值和方差。对于候选均值 $u_i$，
+
+$
+\mathbb E[(V_i-u_i)^2\mid X_t=x]
+=\mathbb E[(V_i-m_i)^2\mid X_t=x]+(m_i-u_i)^2,
+$
+
+因为中心化交叉项的期望为零。对于正的候选方差 $\gamma_i$，对应条件高斯风险为
+
+$
+R_i(u_i,\gamma_i)=
+\frac12\left[\frac{\sigma_i^2+(m_i-u_i)^2}{\gamma_i}
++\log\gamma_i\right]. \tag{42}
+$
+
+对任意固定的 $\gamma_i>0$，唯一的均值最小值是 $u_i=m_i$。在该均值下，
+
+$
+\frac{\partial R_i}{\partial\gamma_i}
+=\frac{\gamma_i-\sigma_i^2}{2\gamma_i^2}.
+$
+
+当 $\gamma_i<\sigma_i^2$ 时导数为负，大于时为正，因此唯一方差最小值为 $\sigma_i^2$。对所有坐标求和即证明命题。该推导只涉及真实条件分布的一阶和二阶矩。
+
+对一个固定的有偏均值及正的残差二阶矩，优化式（42）的方差可得
+
+$
+\gamma_i=\mathbb E[(V_i-u_i)^2\mid X_t=x]
+=\sigma_i^2+(m_i-u_i)^2. \tag{43}
+$
+
+这提供附录 D.2 所用的残差解释。
+
+附录 H.1 中的实现会把对数方差限制在固定范围 $\ell_-<\ell_+$。对于对角协方差模型，风险在闭区间 $[e^{\ell_-},e^{\ell_+}]$ 上取得最优解。给定均值 $u_i$，方差导数的符号等于 $\gamma_i-\mathbb E[(V_i-u_i)^2\mid X_t=x]$ 的符号，因此
+
+$
+\gamma_i^\star(u_i)=
+\operatorname{clip}\left(
+\mathbb E[(V_i-u_i)^2\mid X_t=x],
+e^{\ell_-},e^{\ell_+}\right). \tag{44}
+$
+
+这里 $\operatorname{clip}(r,a,b)=\min\{b,\max\{a,r\}\}$。当均值可在每个 $(x,t)$ 自由优化时，最优均值仍为 $u_i^\star=m_i$，于是式（44）成为经过截断的真实条件方差 $\operatorname{clip}(\sigma_i^2,e^{\ell_-},e^{\ell_+})$。因此，在设定范围内仍然恢复条件矩，而范围外的值将被裁剪到边界。具体的平滑约束参数化见附录 G.1。
+
+将式（13）的全部方差固定为 1，去掉加权似然和对数行列式，剩下
+
+$
+\mathcal L_{\rm PFM}=\frac12\mathbb E\|V-v_\theta(X_t,t)\|^2. \tag{45}
+$
+
+这就是第 4.1 节提到的 FM 特例。结合似然坐标变换与条件矩恢复，说明单个 PFM 目标既能拟合生成所需的速度矩，也能拟合诊断所需的终点矩。
 
 ## 尚待补全的原文部分
 
