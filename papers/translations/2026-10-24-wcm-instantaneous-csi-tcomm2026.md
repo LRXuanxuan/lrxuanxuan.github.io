@@ -892,3 +892,226 @@ $$
 3. 重复步骤 2，直到满足停止准则或达到最大迭代次数。
 4. 根据估计得到的精度向量 $\hat{\boldsymbol\gamma}_q$ 获得支撑集 $\mathcal S^\gamma_q$，并利用 $\hat{\boldsymbol\Xi}_q$，根据式（49）恢复 $\hat{\mathbf r}^{\mathrm{MMSE}}_q$ 中的非零元素。
 
+**4）第 $t$ 次迭代中 $\Delta\boldsymbol\tau_q$ 的更新：** 现有一些获取多径时延的方法，例如文献 [34] 提出的旋转不变技术和时延跟踪模块。本文提出另一种解决方案，在同一个贝叶斯框架下联合估计多径参数。由于多径时延是随机且独立生成的，因此假设离网格时延偏移服从均匀分布，即 $\Delta\boldsymbol\tau_q$ 服从无信息先验分布 $\Delta\boldsymbol\tau_q\sim\mathcal U(\prod_{k=0}^{P_\tau-1}[0,\Delta\bar\tau_k])$。令 $\{\alpha_q,\bar{\boldsymbol\nu}_q,\boldsymbol\gamma_q\}=\{\alpha_q^{(t)},\bar{\boldsymbol\nu}_q^{(t)},\boldsymbol\gamma_q^{(t)}\}$，并令 $\dot{\boldsymbol\Xi}^{\tau}_q=\{\alpha_q^{(t)},\Delta\boldsymbol\tau_q^{(t-1)},\bar{\boldsymbol\nu}_q^{(t)},\boldsymbol\gamma_q^{(t)}\}$，则式（51）可以重新写为
+
+$$
+\begin{aligned}
+&\mathcal U(\alpha_q^{(t)},\Delta\boldsymbol\tau_q,
+\bar{\boldsymbol\nu}_q^{(t)},\boldsymbol\gamma_q^{(t)}
+\mid\dot{\boldsymbol\Xi}^{\tau}_q)\\
+&=\int p(\mathbf r_q\mid\widetilde{\mathbf y}_q,\dot{\boldsymbol\Xi}^{\tau}_q)
+\ln p(\widetilde{\mathbf y}_q\mid\mathbf r_q,\alpha_q^{(t)},
+\Delta\boldsymbol\tau_q,\bar{\boldsymbol\nu}_q^{(t)})\,d\mathbf r_q
++\ln p(\Delta\boldsymbol\tau_q)\\
+&=-\alpha_q^{(t)}C_{1,q}(\Delta\boldsymbol\tau_q,
+\bar{\boldsymbol\nu}_q^{(t)},\dot{\boldsymbol\Xi}^{\tau}_q).
+\end{aligned}\tag{74}
+$$
+
+这里去除了与 $\Delta\boldsymbol\tau_q$ 无关的项。与 $\bar{\boldsymbol\nu}_q$ 类似，$\Delta\boldsymbol\tau_q$ 也在测量矩阵中存在深度耦合，但仍然可以沿着梯度最小化 $C_{1,q}(\Delta\boldsymbol\tau_q,\bar{\boldsymbol\nu}_q^{(t)},\dot{\boldsymbol\Xi}^{\tau}_q)$，从而获得一个次优解。该梯度表示为
+
+$$
+\mathbf g_{\Delta\tau,q}(\Delta\boldsymbol\tau_q)=
+[g_{\Delta\tau,q,0}(\Delta\tau_{q,0}),\ldots,
+g_{\Delta\tau,q,P_\tau-1}(\Delta\tau_{q,P_\tau-1})]^T.\tag{75}
+$$
+
+可以推导得到
+
+$$
+\begin{aligned}
+g_{\Delta\tau,q,k}(\Delta\tau_{q,k})
+={}&2\sum_{i=1}^{I_P}\sum_{p_1=1}^{P}
+\operatorname{Re}[(\mathcal C^\tau_{q,i,p_1})^H
+\mathcal C'^\tau_{q,i,p_1,k}]\\
+&+\frac2{P^2}\sum_{p_1=1}^{P}\sum_{i=1}^{I_P}\sum_{n=1}^{N}
+\operatorname{Re}\left[
+\operatorname{vec}^T(\mathcal D^\tau_{q,i,p_1,k+1,n})
+\operatorname{vec}(\mathcal K'^\tau_{q,i,p_1,k+1,n})
+\right].
+\end{aligned}\tag{76}
+$$
+
+其中，各组成部分表示为
+
+$$
+\begin{aligned}
+\mathcal C^\tau_{q,i,p_1}
+={}&\frac1P\sum_{n=1}^{N}\sum_{k=0}^{P_\tau-1}
+\sum_{p_2=1}^{P}
+[\bar{\mathbf s}_{q,i,p_2}]_n
+\xi^k_{q,i,p_1,p_2}(\bar\nu_{q,k}^{(t)})\\
+&\times e^{-j\frac{2\pi}{P}(\bar\tau_k+\Delta\tau_{q,k})(p_2-1)}
+\boldsymbol\mu_{q,k,n}(\dot{\boldsymbol\Xi}^{\tau}_q)
+-\widetilde{\mathbf y}_{q,i,p_1},
+\end{aligned}\tag{77}
+$$
+
+$$
+\begin{aligned}
+\mathcal C'^\tau_{q,i,p_1,k}
+={}&-j\frac{2\pi}{P^2}\sum_{n=1}^{N}\sum_{p_2=1}^{P}
+(p_2-1)[\bar{\mathbf s}_{q,i,p_2}]_n
+\xi^k_{q,i,p_1,p_2}(\bar\nu_{q,k}^{(t)})\\
+&\times e^{-j\frac{2\pi}{P}(\bar\tau_k+\Delta\tau_{q,k})(p_2-1)}
+\boldsymbol\mu_{q,k,n}(\dot{\boldsymbol\Xi}^{\tau}_q),
+\end{aligned}\tag{78}
+$$
+
+$$
+\begin{aligned}
+\mathcal D^\tau_{q,i,p_1,k_1,n_1}
+={}&\sum_{k_2=1}^{P_\tau}\sum_{n_2=1}^{N}\sum_{p_2=1}^{P}
+[\bar{\mathbf s}_{q,i,p_2}]_{n_2}^{*}
+(\xi^{k_2-1}_{q,i,p_1,p_2}(\bar\nu_{q,k_2-1}^{(t)}))^*\\
+&\times e^{j\frac{2\pi}{P}
+(\bar\tau_{k_2-1}+\Delta\tau_{q,k_2-1})(p_2-1)}
+\boldsymbol\Sigma^T_{q,k_1,n_1,k_2,n_2}
+(\dot{\boldsymbol\Xi}^{\tau}_q),
+\end{aligned}\tag{79}
+$$
+
+$$
+\begin{aligned}
+\mathcal K'^\tau_{q,i,p_1,k_1,n_1}
+={}&-j\frac{2\pi}{P}\sum_{p_2=1}^{P}
+(p_2-1)[\bar{\mathbf s}_{q,i,p_2}]_{n_1}
+\xi^{k_1-1}_{q,i,p_1,p_2}(\bar\nu_{q,k_1-1}^{(t)})\\
+&\times e^{-j\frac{2\pi}{P}
+(\bar\tau_{k_1-1}+\Delta\tau_{q,k_1-1})(p_2-1)}\mathbf I_M.
+\end{aligned}\tag{80}
+$$
+
+于是，第 $t$ 次迭代对 $\Delta\boldsymbol\tau_q$ 的更新可以写为
+
+$$
+\Delta\boldsymbol\tau_q^{(t)}=
+\Delta\boldsymbol\tau_q^{(t-1)}
+-\varepsilon_\tau^{(t)}
+\mathbf g_{\Delta\tau,q}(\Delta\boldsymbol\tau_q^{(t-1)}),\tag{81}
+$$
+
+其中，步长定义为
+
+$$
+\varepsilon_\tau^{(t)}=
+\frac{(\Delta\boldsymbol\tau_q^{(t-1)}-\Delta\boldsymbol\tau_q^{(t-2)})^T
+(\mathbf g_{\Delta\tau,q}(\Delta\boldsymbol\tau_q^{(t-1)})
+-\mathbf g_{\Delta\tau,q}(\Delta\boldsymbol\tau_q^{(t-2)}))}
+{\|\mathbf g_{\Delta\tau,q}(\Delta\boldsymbol\tau_q^{(t-1)})
+-\mathbf g_{\Delta\tau,q}(\Delta\boldsymbol\tau_q^{(t-2)})\|^2}.\tag{82}
+$$
+
+由于 $\Delta\tau_{q,k}\in[0,1]$，如果 $\Delta\tau_{q,k}^{(t)}$ 低于下界或超过上界，则分别取其下界或上界。算法总结见算法 1。
+
+由于更新 $\bar{\boldsymbol\nu}_q^{(t)}$ 和 $\Delta\boldsymbol\tau_q^{(t)}$ 时计算步长需要前两次迭代的梯度，因此第一步的步长将设为相应取值区间的 $1/100$，其更新方向由梯度的正负号决定。
+
+### D. 收敛性与复杂度分析（Convergence and Complexity Analysis）
+
+在所提出算法的迭代过程中，目标似然函数随着 $t$ 的增加而非递减，因为作为下界的代理函数（51）在每次迭代中都是非递减的。事实上，它们只能逐渐逼近一个值为 0 的上界。为了验证所提出算法的收敛性，本文考察了收敛精度，其定义为目标函数值差 $\Delta\mathcal U^{(t)}=\mathcal U^{\mathrm{opt}}-\mathcal U^{(t)}$ 相对于“最优”函数值 $\mathcal U^{\mathrm{opt}}$ 的归一化结果 [35]。图 5 展示了经过 60 次蒙特卡罗测试后的平均收敛精度，即 $r_{\mathrm{conv}}=\mathbb E\{\Delta\mathcal U^{(t)}/\mathcal U^{\mathrm{opt}}\}$。结果表明，收敛精度可达到 $10^{-8}$，从而验证了所提出算法的正确性。此外，还可以发现，SNR 越高，收敛速度越慢，因为获得更高估计精度的结果需要更多次迭代。本文还仿真了所提出算法收敛时的迭代次数。如图 6 所示，所提出算法能够在 100 次迭代内收敛。
+
+**图 5.** 不同 SNR 设置下所提出算法的收敛性能。
+
+**图 6.** 收敛时迭代次数的累积分布函数（Cumulative Distribution Function，CDF）。
+
+所提出算法的计算复杂度主要来自参数集的更新。计算 $\boldsymbol\Sigma_q$ 的复杂度为 $\mathcal O(I_PM^3N^2P_\tau^2P)$。更新 $\boldsymbol\mu_q$、$\alpha_q$ 和 $\Delta\boldsymbol\tau_q$ 的复杂度与更新 $\boldsymbol\Sigma_q$ 相同，而更新 $\bar{\boldsymbol\nu}_q$ 和 $\boldsymbol\gamma_q$ 的复杂度分别为 $\mathcal O(I_PN^2P^2P_\tau)$ 和 $\mathcal O(MNP_\tau)$。通常将 $I_P$ 设为 1，因此所提出算法在 MIMO 系统中的总体复杂度为 $\mathcal O(I_PM^3N^2P_\tau^2P)$。表 II 给出了所提出算法与基线方法在复杂度和功能方面的比较，其中 $G_P$ 表示一个符号中的有效导频采样点数量。
+
+**表 II　复杂度与功能比较**
+
+| 算法 | 复杂度 | 功能 |
+|---|---|---|
+| 所提出的算法 | $\mathcal O(I_PM^3N^2P_\tau^2P)$ | 获取当前 CSI 和用于后续信道预测的多径参数 |
+| 传统 DCS 方法 | $\mathcal O(M^3N^2G_P(L_q)^3)$ | 获取当前 CSI，需要在每个符号中插入导频信号 |
+
+值得注意的是，尽管所提出算法的复杂度更高，但基于提取出的多径参数，可以在一个准静态时间块内进行高精度的基于模型的信道预测，从而有效延长信道探测周期，并且只需一个导频符号进行一次估计，便可获得整个时间块内的信道状态信息（Channel State Information，CSI）。因此，可以将所提出算法的计算复杂度分摊到各个符号上，使得单次信道获取的计算复杂度与传统方法相当。
+
+## V. 结果与分析（RESULTS AND ANALYSIS）
+
+本节分析所提出算法的性能，并将其与基线方法进行比较。采用文献 [28] 中的参数，对工作于 10 GHz 的厘米波信道进行仿真，并考虑农村宏小区场景。带宽 $f_s$ 设为 100 MHz，网格点数量 $P_\tau$ 设为 200，可调网格比例 $\eta_\tau$ 设为 0.9。噪声 PSD 设为 $-174$ dBm/Hz。采用归一化均方误差（Normalized Mean Square Error，NMSE）作为性能指标。在进行 $M_c$ 次蒙特卡罗测试的情况下，对 $\mathbf a$ 的估计 NMSE 计算为 $\operatorname{NMSE}_{\mathbf a}(\mathrm{dB})=10\lg(\frac1{MNM_c}\sum_{m_c=1}^{M_c}\frac{\|\hat{\mathbf a}_{m_c}-\mathbf a_{m_c}\|^2}{\|\mathbf a_{m_c}\|^2})$，其中，$\hat{\mathbf a}_{m_c}$ 和 $\mathbf a_{m_c}$ 分别表示第 $m_c$ 次估计值和真实值。考虑三种基线方法进行性能比较：DCS 方法 [16]、SBL 方法 [17]，以及具有完美参数集的 MMSE 方法 [36]。通过将准确的 CFO 和时延代入 $\mathbf K_q$，可以根据式（47）进行 MMSE 估计，从而获得一个最优基线。UE 速度设置在 150 km/h 至 350 km/h 之间，散射体移动性的均值 $\zeta$ 设置在 0.2 至 0.4 之间，其中 0.2 是标准 3GPP TR 38.901 [28] 建议的取值。最大杂波速度 $v_{\mathrm{scatt}}$ 设置在 1 m/s 至 21 m/s 之间，覆盖从步行到车辆运动的速度范围。采用正交相移键控（Quadrature Phase-Shift Keying，QPSK）进行 BER 性能比较。同时考虑 MMSE 和迫零（Zero-Forcing，ZF）均衡器。根据式（30）中的传输模型，将均衡器应用于整个信道矩阵 $\widetilde{\mathbf H}^{\mathrm{ICI}}_{q,i}$，以充分利用天线分集和多普勒分集增益。WCM 精度记为 $r_\omega$，表示 WCM 提供的角度–时延 PSD 与真实值之间的相似度。
+
+### A. NMSE 性能（NMSE Performance）
+
+图 7 展示了所提出算法与基线方法在 CTF 估计方面的 NMSE 性能比较。在不同的 SNR 设置下，无论 $r_\omega$ 等于 1 还是下降至 0.5，所提出的算法（结合 WCM 的 SBL）始终优于不使用 WCM 的 DCS 和 SBL。借助 WCM 提供的预构建信道信息，当 $r_\omega=1$ 时，所提出的基于 WCM 的算法可以将 CTF 估计误差降低至不使用 WCM 的 SBL 方法的 13% 以下。图 8 展示了信道增益和 CFO 估计的 NMSE 与基线方法的比较。当 $r_\omega=1$ 时，所提出算法的信道增益估计 NMSE 几乎与具有完美参数集的 MMSE 方法相同。此外，在不同 SNR 设置下，CFO 估计精度几乎相同。这是因为，在有限时域采样的条件下，如式（16）所示，由移动性引起的相位偏移是关于 CFO 的周期函数。收敛后获得的 CFO 只是一个等效最优解，其 NMSE 更多地取决于初始化，即 WCM 精度。值得注意的是，这种解对最终 CTF 估计的 NMSE 性能仅有轻微影响，因为所获得的 CFO 估计是一个等效最优解。
+
+**图 7.** 不同 SNR 下所提出算法和基线方法的 CTF 估计 NMSE（$v_q=350$ km/h、$\zeta=0.2$、$v_{\mathrm{scatt}}=1$ m/s）。
+
+**图 8.** 不同 SNR 下所提出算法和基线方法的复信道增益与 CFO 估计 NMSE（$v_q=350$ km/h、$\zeta=0.2$、$v_{\mathrm{scatt}}=1$ m/s、$r_\omega=1$）。
+
+图 9 还展示了不同移动性设置下的 CFO 估计性能。当最大杂波速度 $v_{\mathrm{scatt}}$ 增大时，CFO 的 NMSE 随之上升，并逐渐趋于平稳；随着运动散射体比例 $\zeta$ 的增大，CFO 估计精度也相应降低。这些现象均源于周围运动散射体不确定性的增加。$v_{\mathrm{scatt}}$ 和 $\zeta$ 的取值越大，传播环境中运动速度更快的散射体就越多。还可以注意到，当 UE 速度更高时，所提出算法能够获得更好的 CFO 估计结果。这是因为终端移动性引起的多普勒频移对 CFO 的贡献更大，而基于 WCM 的准确多普勒频移估计能够在更高 UE 速度下降低 CFO 的 NMSE。
+
+**图 9.** CFO 的 NMSE 随最大杂波速度的变化（SNR = 10 dB、$r_\omega=1$）。
+
+进一步研究 WCM 精度 $r_\omega$ 对 NMSE 性能的影响。如图 10 所示，当 WCM 精度下降时，所提出算法的 CFO 估计精度首先降低，随后保持在可接受的水平。尽管 CFO 估计精度受到初始化的影响，但在 CFO 先验分布中为计算误差设置的容余量，仍然使该算法能够适应不同的 WCM 精度。类似地，随着 WCM 精度降低，所提出算法的 CTF 估计精度起初略有下降，但在 WCM 精度降至 0.1 以下之前，仍然可以保持在良好水平。所提出算法表现出对不同 WCM 精度的良好适应性；在给定固定信道估计精度阈值的情况下，WCM 只需达到最低精度要求即可。例如，要使 CTF 的 NMSE 低于 $-24.3$ dB，仅要求 WCM 精度大于 0.4。CTF 估计受 WCM 精度下降的影响较小，因为 CFO 估计的最优解可能并不唯一，而 CTF 估计的最优解几乎是唯一的，因此受先验分布设置的影响较小。此外，比较图 10 和图 7 中 SNR = 10 dB、$r_\omega=1$ 时的结果，可以看到 UE 速度的增加对 CTF 的 NMSE 影响很小。由于估计得到的 CTF 矩阵包含 ICI 在内的全维信道信息，因此所提出算法对不同 UE 速度具有很强的鲁棒性。
+
+**图 10.** CTF 和 CFO 的 NMSE 随 WCM 精度的变化（$v_q=150$ km/h、$\zeta=0.2$、$v_{\mathrm{scatt}}=1$ m/s、SNR = 10 dB）。
+
+### B. BER 性能（BER Performance）
+
+除了 NMSE 之外，本文还比较和分析了所提出算法的 BER 性能。从图 11 可以看出，对于 MMSE 或 ZF 均衡器，在不同 WCM 精度下，所提出算法的 BER 始终低于不使用 WCM 的 SBL 方法，这表明了 WCM 带来的优势。当 $r_\omega=1$ 时，所提出算法的 BER 性能可以达到具有完美信道知识时的性能。所提出算法在低 SNR 条件下的 BER 性能也表现出对不同 WCM 精度的良好适应性。即使 WCM 精度下降至 0.5，与 $r_\omega=1$ 时相比，BER 性能的下降仍然非常有限。总体而言，当信道估计更加准确，即 WCM 精度更高时，MMSE 均衡器相对于 ZF 均衡器的优势更加明显。还可以发现，利用更加准确的信道先验信息能够获得更好的传输性能，尤其是在高 SNR 条件下。
+
+**图 11.** 不同 SNR 下所提出算法和基线方法采用（a）MMSE 均衡器和（b）ZF 均衡器时的 BER（$v_q=350$ km/h、$\zeta=0.2$、$v_{\mathrm{scatt}}=1$ m/s）。
+
+图 12 还研究了 WCM 精度对所提出算法 BER 性能的影响。随着 WCM 精度下降，BER 性能经历轻微下降，随后稳定在接近最优的水平，直到 WCM 精度降至 0.1 以下。所提出算法的 BER 性能始终优于不使用 WCM 的 SBL 方法。BER 性能随 WCM 精度变化的趋势与 CTF 的 NMSE 一致，因为在相同 SNR 条件下，BER 性能基本上由 CTF 估计精度决定。这些结果也反映出 WCM 提供的传播环境先验信息对于改善传输性能的重要意义，即使所提供的信息存在损失。此外，将图 12 的结果与图 11（b）中 SNR = 10 dB、$r_\omega=1$ 时的结果进行比较，可以发现，由于额外的多普勒分集增益 [37]，在更高速度下 BER 性能反而更好。例如，当 SNR = 10 dB 且 $r_\omega=1$ 时，150 km/h 下的 BER 为 0.0277，而 350 km/h 下的 BER 为 0.0251。
+
+**图 12.** 采用 ZF 均衡器时，所提出算法的 BER 随 WCM 精度的变化（$v_q=150$ km/h、$\zeta=0.2$、$v_{\mathrm{scatt}}=1$ m/s、SNR = 10 dB）。
+
+## VI. 结论（CONCLUSION）
+
+本文针对高移动性场景中的双选择性信道，提出了一种基于 WCM 的复信道增益与 CFO 联合估计算法。同时提出了一种基于 WCM 的复信道增益和 CFO 先验分布构建方法。基于非均匀离网格信道表示，利用 SBL 和 MM 算法，通过稀疏信号恢复对联合估计问题进行了分析和求解。仿真结果证明了所提出算法的优越性，表明它能够适应不同的 WCM 精度，并且在 NMSE 和 BER 性能方面均优于不使用 WCM 的 SBL 和 DCS。当 SNR = 10 dB 时，与不使用 WCM 的 SBL 相比，所提出算法能够将信道估计误差从 $-17.3$ dB 降低至 $-27.3$ dB，使估计精度提高十倍。研究表明，所提出算法能够有效提取多径参数，而这对于后续基于模型的信道预测是必需的。同时还表明，在获取全维信道信息时，所提出算法对不同 UE 速度具有很强的鲁棒性，并且由于额外的多普勒分集，在更高速度下甚至能够取得更好的 BER 性能。研究还验证了，利用更加准确的传播环境先验知识，可以获得更高的通信性能。
+
+## 附录 A　多径方向的计算（CALCULATION OF MULTIPATH DIRECTIONS）
+
+以等效方位角为例。具有最大幅度 $\bar a^{\max}_{q,k}$ 的虚拟方向最接近真实路径方向。如图 4 所示，两个虚拟方向之间的间隔固定为 $1/N_1$，因此可以推导得到
+
+$$
+d_1=\frac1\pi\arctan\left(
+\frac{\eta_{\mathrm{az}}\sin(\pi/N_1)}
+{1+\eta_{\mathrm{az}}\cos(\pi/N_1)}
+\right),\tag{83}
+$$
+
+其中，幅度比值为 $\eta_{\mathrm{az}}=|\bar a^{\mathrm{az}}_{q,k}/\bar a^{\max}_{q,k}|$。当 $N_1$ 变得很大时，式（83）可以简化为
+
+$$
+d_1\xrightarrow{N_1\to\infty}
+\frac{\eta_{\mathrm{az}}}{N_1(1+\eta_{\mathrm{az}})}.\tag{84}
+$$
+
+根据式（34）可知，$\vartheta^U_{q,k}$ 的实际值可以理解为虚拟方位方向相对于其原始位置 $(2b_1-1)/(2N_1)-0.5$ 的移动距离。由于 $\vartheta^U_{q,k}$ 的取值范围为 $[-0.5,0.5]$，因此当 $b_1<b_2$ 或 $b_1-b_2=N_1-1$ 时，$(2b_1-1)/(2N_1)+\vartheta^U_{l_q}-0.5$ 应等于负的 $d_1$；而当 $b_1>b_2$ 或 $b_1-b_2=-N_1+1$ 时，$(2b_1-1)/(2N_1)+\vartheta^U_{l_q}-0.5$ 应等于正的 $d_1$。由此便可得到式（36）。等效俯仰角 $\varphi^U_{q,k}$ 也以相同方式计算。
+
+## 附录 B　$\bar{\boldsymbol\nu}_q$ 的先验分布构建（PRIOR DISTRIBUTION CONSTRUCTION FOR $\bar{\boldsymbol\nu}_q$）
+
+对于 $k=k_0$，可以推导得到 $p(\bar\nu_{q,k_0};\bar{\boldsymbol\Omega}_q)=\mathcal N(\bar\nu_{q,k_0};C_{0,q}(k_0),\sigma_{\nu,k_0}^2)$。当 $k\notin\{k_0,\ldots,k_{L'_q}\}$ 时，有 $p(\bar\nu_{q,k};\bar{\boldsymbol\Omega}_q)=\mathcal N(\bar\nu_{q,k};C_{0,q}(k),\sigma_{\nu,k}^2)$。
+
+如果 $Z_{q,k}=\omega_{q,k}v_{q,k}$，可知 $Z_{q,k}\in[-v_{\mathrm{scatt}},v_{\mathrm{scatt}}]$，那么 $Z_{q,k}$ 的累积分布函数为
+
+$$
+\begin{aligned}
+F_{Z_{q,k}}(z_{q,k})
+={}&P(\omega_{q,k}=1)P(v_{q,k}\le z_{q,k})
++P(\omega_{q,k}=0)P(0\le z_{q,k})\\
+={}&\frac{z_{q,k}+v_{\mathrm{scatt}}}{2v_{\mathrm{scatt}}}\zeta
++(1-\zeta)\mathcal X(z_{q,k}).
+\end{aligned}\tag{85}
+$$
+
+其中，$\mathcal X$ 表示阶跃函数，且 $z_{q,k}\in[-v_{\mathrm{scatt}},v_{\mathrm{scatt}}]$。因此，$Z_{q,k}$ 的概率密度函数（Probability Density Function，PDF）可以写为
+
+$$
+p(Z_{q,k})=f_{Z_{q,k}}(z_{q,k})=
+\begin{cases}
+\frac{\zeta}{2v_{\mathrm{scatt}}}+(1-\zeta)\delta(z_{q,k}),
+&z_{q,k}\in[-v_{\mathrm{scatt}},v_{\mathrm{scatt}}],\\
+0,&\text{其他情况}.
+\end{cases}\tag{86}
+$$
+
+由于式（38）中的 $C_{0,q}(k)+n_{\nu,k}$ 和 $\nu^S_{q,k}$ 可以被视为相互独立，因此当 $k\in\{k_1,\ldots,k_{L'_q}\}$ 时，$p(\bar\nu_{q,k};\bar{\boldsymbol\Omega}_q)$ 可以计算为
+
+$$
+p(\bar\nu_{q,k};\bar{\boldsymbol\Omega}_q)=
+p(2Z_{q,k})*p(C_{0,q}(k)+n_{\nu,k}),\tag{87}
+$$
+
+其中，前者可以通过随机变量变换方法计算，后者是均值为 $C_{0,q}(k)$ 的高斯分布。综合以上结果，便可以得到式（40）。
+
