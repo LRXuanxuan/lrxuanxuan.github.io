@@ -848,7 +848,7 @@ DS-FTTD 在 FC 中也具有较高能效，主要原因是省去了大型 PS 网�
 
 [28] L. Yan, C. Han, and J. Yuan, “Energy-efficient dynamic-subarray with fixed true-time-delay design for terahertz wideband hybrid beamforming,” IEEE J. Sel. Areas Commun., vol. 40, no. 10, pp. 2840–2854, Oct. 2022.
 
-[29] Z. Wang, X. Mu, and Y. Liu, “Beamfocusing optimization for near-field wideband multi-user communications,” IEEE Trans. Commun., vol. 73, no. 1, pp. 555–572, Jan. 2025. Downloaded on October 24,2026 at 08:55:01 UTC from IEEE Xplore. Restrictions apply. IEEE TRANSACTIONS ON WIRELESS COMMUNICATIONS, VOL. 25, 2026
+[29] Z. Wang, X. Mu, and Y. Liu, “Beamfocusing optimization for near-field wideband multi-user communications,” IEEE Trans. Commun., vol. 73, no. 1, pp. 555–572, Jan. 2025.
 
 [30] S. Tarboush et al., “TeraMIMO: A channel simulator for wideband ultramassive MIMO terahertz communications,” IEEE Trans. Veh. Technol., vol. 70, no. 12, pp. 12325–12341, Dec. 2021.
 
