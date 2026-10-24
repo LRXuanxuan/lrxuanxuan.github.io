@@ -258,6 +258,19 @@ $$
 
 与标准生成模型的关系：FM 与 PFM 共享参考路径和总体速度目标；PFM 额外学习方差，以提供局部扩散尺度和终点诊断。原文表 1 将 FM、扩散与 PFM 放在同一个 ODE—SDE 对应关系下比较，表明 PFM 的附加信息并不要求更换参考路径。
 
+**表 1：FM、扩散与 PFM 的预测场、生成动力学及后验读数。** 式中各场在 $(Y_t,t)$ 处取值，扩散模型的 $f,g$ 使用加噪时间 $1-t$；$\dagger$ 表示由高斯扰动核导出的终点均值。
+
+| 模型与网络输出 | 采样方式 | 生成动力学 | 扩散张量 $a$ | 终点/后验读数 |
+|---|---|---|---|---|
+| FM：$v_\eta$ | ODE | $dY_t=v_\eta\,dt$ | $0$ | $v_\eta;\ \mu_\eta$ |
+| FM：$v_\eta$ | SDE | $dY_t=(v_\eta+\frac12\kappa\widehat s_\eta)dt+\sqrt{\kappa}\,dW_t$ | $\kappa I$ | $v_\eta;\ \mu_\eta$ |
+| Diffusion：$s_\phi$ | ODE | $dY_t=(-f+\frac12g^2s_\phi)dt$ | $0$ | $\mu_\phi^\dagger$ |
+| Diffusion：$s_\phi$ | SDE | $dY_t=(-f+g^2s_\phi)dt+g\,dW_t$ | $g^2I$ | $\mu_\phi^\dagger$ |
+| PFM：$v_\theta,\ell_\theta$ | ODE | $dY_t=v_\theta\,dt$ | $0$ | $(v_\theta,\Sigma_\theta);(\mu_\theta,\Sigma_\theta^x)$ |
+| PFM：$v_\theta,\ell_\theta$ | SDE | $dY_t=(v_\theta+\frac12\nabla_x\cdot a_\theta+\frac12a_\theta\widehat s_\theta)dt+B_\theta\,dW_t$ | $\lambda\Sigma_\theta$ | $(v_\theta,\Sigma_\theta);(\mu_\theta,\Sigma_\theta^x)$ |
+
+表中 FM 与 PFM 的参考路径及总体速度目标相同；只有 PFM 显式学习逐分量后验方差，并利用同一协方差同时执行终点诊断和自适应随机采样。完整推导见附录 A.6、B 与 C。
+
 ### 4.3 后验诊断
 
 式（15）的终点后验读数让两个采样器的演化预测变得可解释。在生成状态 $Y_t=y$ 下，这些量近似于参考终点后验 $p(X_1\mid X_t=y)$ 的矩。其均值描述预测终点，而协方差描述相容数据终点的分散程度。作者在图 2–5 中跨多个领域展示了这种解释。
