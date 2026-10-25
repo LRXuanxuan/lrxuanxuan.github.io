@@ -188,3 +188,88 @@ $$
 ---
 
 **译稿缺口：** 此页面尚未完成第三节逐式算法、第四节完整 R2BA 模型、第五节所有图表以及附录证明和参考文献的翻译；其中 IEEE 正式版共 16 页。当前页面不能冒充逐字逐句全文译文。论文版权归原权利人所有，公开传播许可依 IEEE 规定核验。
+
+
+## 补译：II. 系统模型中的信道增益与资源优化公式（原文第 3–4 页）
+
+在原文式（1）的几何多径信道模型中，第 $\ell$ 条路径的复信道增益写为
+
+$$
+\beta_{u,k,\ell}^{\tau}
+=\sqrt{\frac{p_{u,k,\ell}^{\tau}}{N_{\rm sc}}}
+\exp\left[j\left(\varphi_{u,k,\ell}^{\tau}
++\frac{2\pi kB}{N_{\rm sc}}\iota_{u,k,\ell}^{\tau}\right)\right].\tag{2}
+$$
+
+其中 $N_{\rm sc}$ 与 $L$ 分别为总子载波数和传播路径数，$B$ 为子载波带宽相关参数，$p_{u,k,\ell}^{\tau}$、$\varphi_{u,k,\ell}^{\tau}$、$\iota_{u,k,\ell}^{\tau}$ 分别为路径功率、相位及传播时延。接收和发送阵列响应向量由具体阵列架构决定。对于固定时间 $\tau$，用户相对位置、AoA、AoD、路径数量及路径复增益为用户专属条件随机变量。随着 MIMO-OFDM 规模扩大，直接获取完整信道的代价显著升高，传统 CSI 估计也难以直接满足数字孪生的需求。因此，本文旨在借助稀疏真实 CSI 数据，开发用户专属的小尺度信道生成模型 P2CGNet，并将其纳入信道数字孪生，以支持感兴趣位置（POI）处的 CSI 获取和下游优化任务。
+
+这里需要注意原文脚注中的范围限制：所构建的模型是**面向任务、通过测量同步更新的虚拟信道表示**，并非完整的物理机制级无线电数字孪生。它通过周期性稀疏 CSI 和位置测量更新虚拟信道状态，在给定空间及频率条件下生成瞬时 CSI。由于没有显式建模连续的时间演化，该框架更适合局部准静态场景；在具有显著多普勒效应的高移动性环境下，仍需要明确的时变信道模型。
+
+### B. 下游任务：联合资源块组分配与波束对准
+
+考虑多用户 MIMO-OFDM 下行单流传输，系统带宽被划分为若干子载波，并以物理资源块（physical resource block，PRB）组织资源。每个 PRB 由一个传输时间间隔和 $k_0$ 个子载波组成，是最小的分配单位。为降低实际 PRB 分配中的处理开销，将 PRB 进一步分组为资源块组（resource block group，RBG），每个 RBG 包含 $q_0$ 个 PRB，总数为 $Q$。在该任务中，作者关注极密集连接场景，为简化符号不再显式考虑时间索引。第 $q$ 个 RBG 上用户 $u$ 的信道 $\mathbf H_{u,q}\in\mathbb C^{N_r\times N_t}$ 由相应的代表子载波信道近似。
+
+假设所有用户均处于活动状态，基站使用与资源分配相关的等功率策略。用 $\mu_{u,q}\in\{0,1\}$ 表示二元资源块组分配决策；$\mu_{u,q}=1$ 表示第 $q$ 个 RBG 分配给用户 $u$，否则为零。设基站对该用户使用发送波束 $\mathbf w_u\in\mathbb C^{N_t\times1}$，用户使用接收波束 $\mathbf v_u\in\mathbb C^{N_r\times1}$，且两者在该用户所有已分配 RBG 上保持相同。单位功率符号为 $s$，则接收信号为
+
+$$
+y_{u,q}=\mu_{u,q}\left(
+\sqrt{p_{u,q}}\mathbf v_u^H\mathbf H_{u,q}\mathbf w_u s
++I_{u,q}\right).\tag{3}
+$$
+
+干扰与噪声项由其他用户的同频传输以及加性白高斯噪声组成：
+
+$$
+I_{u,q}=\sum_{u'\in\mathcal N_u\setminus\{u\}}
+\mu_{u',q}\sqrt{p_{u',q}}\,
+\mathbf v_u^H\mathbf H_{u,q}\mathbf w_{u'}s
++\mathbf v_u^H\mathbf n_{u,q}.\tag{4}
+$$
+
+其中 $\mathbf n_{u,q}\sim\mathcal{CN}(\mathbf0,\sigma^2\mathbf I)$。因此，第 $q$ 个 RBG 上用户 $u$ 的 SINR 为
+
+$$
+\gamma_{u,q}=
+\frac{\mu_{u,q}p_{u,q}
+|\mathbf v_u^H\mathbf H_{u,q}\mathbf w_u|^2}
+{\sum_{u'\in\mathcal N_u\setminus\{u\}}
+\mu_{u',q}p_{u',q}
+|\mathbf v_u^H\mathbf H_{u,q}\mathbf w_{u'}|^2+\sigma^2}.
+\tag{5}
+$$
+
+用户的可达速率由其分配到的 RBG 上的贡献求和得到：
+
+$$
+R_u=\sum_{q\in\mathcal Q}B_q\log_2(1+\gamma_{u,q}).\tag{6}
+$$
+
+其中 $B_q$ 为第 $q$ 个 RBG 的带宽。
+
+**2）优化问题表述。** 联合 RBGA 与 BA 的目的是在考虑频率选择性衰落的情况下，权衡用户吞吐率与公平性。作者采用 $\alpha$ 比例公平效用函数：
+
+$$
+U^\alpha(x)=
+\begin{cases}
+\dfrac{x^{1-\alpha}}{1-\alpha},&0\le\alpha<1,\\
+\log x,&\alpha=1.
+\end{cases}\tag{7}
+$$
+
+相应的联合优化问题为
+
+$$
+\begin{aligned}
+\mathrm{P0}:\quad&
+\max_{\{\mu_{u,q},\mathbf w_u,\mathbf v_u\}}
+\sum_{u\in\mathcal N_u}U^\alpha(R_u), &&\tag{8a}\\
+&\|\mathbf w_u\|_2=1,\quad \|\mathbf v_u\|_2=1,\quad
+&&\forall u,\tag{8b}\\
+&\mu_{u,q}\in\{0,1\},&&\forall u,q,\tag{8c}\\
+&R_u\ge R_0,&&\forall u.\tag{8d}
+\end{aligned}
+$$
+
+其中 $R_0$ 为活动用户的基本速率需求。作者指出问题 P0 为 NP-hard。为克服直接求解与完整 CSI 数据采样的成本，提出 R2BA 方法：使用 P2CGNet 与先验通信模型合成面向目标任务的训练数据，并采用分层图神经网络（HGNN）提取有效特征，从而支撑资源分配和波束对准。
+
+**校对备注：** 本节补录公式（2）–（8），但射频波束幅度约束的具体表达、发射功率分配的原文记号和含有下标的符号仍需结合正式 PDF 逐式终校。后续 P2CGNet 网络训练、理论证明、完整 R2BA 实现、全部实验和参考书目仍不完整。
