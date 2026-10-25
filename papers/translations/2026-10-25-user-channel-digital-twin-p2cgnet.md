@@ -13,7 +13,7 @@ toc: true
 **原题：** Generative AI-Empowered User-Specific Channel Digital Twin for Efficient Wireless Optimization  
 **作者：** Shaowen Xiong、Shiwen He、Guanghui Chen、Zhenyu Tao、Hongxin Lin、Yongming Huang  
 **来源：** *IEEE Transactions on Wireless Communications*, Vol. 25 (2026), DOI: 10.1109/TWC.2026.3714387。  
-**译稿状态（2026-10-25）：** 阶段性译稿，非全文。覆盖摘要、第一节、第二节问题表述、第三节生成模型的主要思想及公式、第四节下游任务的框架说明、第五节部分结论和第六节结论；未逐式翻译完整训练算法、全部实验图表、附录及参考文献。请以英文原文核对公式、定理和实验数据。本站未重复上传原始 PDF 或图片。
+**译稿状态（2026-10-25）：** 已扩充正文 I–VI、公式（1）–（38）、算法 1–2、实验与结果，并补入附录 A–C 中的公式（39）–（47）及主要推导；原文完整参数表、参考文献及部分证明细节仍待终校。**目前不是完整精校译本。**
 
 ## 摘要
 
