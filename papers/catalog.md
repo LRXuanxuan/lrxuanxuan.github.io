@@ -11,11 +11,11 @@ toc: true
 
 ## 中英文译文
 
-- [TwinPAS：数字孪生辅助毫米波 PAS 预测｜中文阶段性译稿](/papers/translations/2026-10-25-twinpas-mmwave-dtc/) · 摘要、引言、系统模型与部分数字孪生构建已译；分层网络、实验及书目待补，非全文
-- [VaN3Twin：Sionna RT 闭环 V2X 数字孪生｜中文阶段性译稿](/papers/translations/2026-10-25-van3twin-sionna-v2x/) · 摘要、引言、架构和路径请求机制已译；实测验证、共存实验及书目待补，非全文
-- [低 NFE 生成流的密度层面反向误差｜中文正文译稿（附录待补）](/papers/translations/2026-10-25-density-backward-error-2610-29475/) · 正文主要理论、公式与实验已译；附录 A–L、证明和书目未全部译，非全文
-- [Velocity Ambiguity Profiles：流匹配时间分辨贝叶斯风险｜中文正文译稿（附录待补）](/papers/translations/2026-10-25-velocity-ambiguity-profiles-2610-30107/) · 正文主要定义、定理和实验已译；原文 57 页的附录及书目待补，非全文
-- [P2CGNet：生成式 AI 用户专属信道数字孪生｜中文阶段性译稿](/papers/translations/2026-10-25-user-channel-digital-twin-p2cgnet/) · 摘要、引言、信道模型、生成网络思路及结论已译；细节算法、图表、附录待补，非全文
+- [TwinPAS：数字孪生辅助毫米波 PAS 预测｜正文扩充译稿（公式待精校）](/papers/translations/2026-10-25-twinpas-mmwave-dtc/) · III–V 节正文、信道投影/训练损失及公式（19）–（31）、仿真与消融已补；原表格与书目仍待终校
+- [VaN3Twin：Sionna RT 闭环 V2X 数字孪生｜正文扩充译稿（公式待精校）](/papers/translations/2026-10-25-van3twin-sionna-v2x/) · III–VI 节正文、同频共存公式（11）–（16）、算法 1 与实验表已补；表 VI、书目及终校待完成
+- [低 NFE 生成流的密度层面反向误差｜中文正文扩充译稿（附录待补）](/papers/translations/2026-10-25-density-backward-error-2610-29475/) · 主文理论定理与公式（1）–（38）已逐式补录、表 1 和附录 A 部分已补；其他附录证明与书目待终校
+- [Velocity Ambiguity Profiles：流匹配时间分辨贝叶斯风险｜中文正文扩充译稿（附录待补）](/papers/translations/2026-10-25-velocity-ambiguity-profiles-2610-30107/) · 正文公式（1）–（14）、定理边界与表 1–2、部分附录 A 已补；57 页附录逐式校对仍待完成
+- [P2CGNet：生成式 AI 用户专属信道数字孪生｜正文扩充译稿（终校中）](/papers/translations/2026-10-25-user-channel-digital-twin-p2cgnet/) · 方法公式（1）–（38）、算法 1–2、实验正文及附录 A–C 主要推导已补；原表 I–V、证明细节及书目仍待终校
 
 - [无线信道地图赋能的高移动性瞬时 CSI 获取｜中文全文译稿（逐式校对中）](/papers/items/f997fa4fb49f2a25/#paper-translation) · 正文 I–VI、公式（1）–（87）、定理与算法、附录、图表、37 条参考文献及作者简介；待逐式终校
 
