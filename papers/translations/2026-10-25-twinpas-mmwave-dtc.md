@@ -117,5 +117,110 @@ $$
 
 *后续的虚拟路径点坐标转换、信道嵌入、HCP-Net、信道投影、训练策略、仿真结果及参考文献尚未译入；本页面是明确标注进度的工作稿，不代表原论文全文。*
 
+
+## 补译：III-B 至 III-D 的信道嵌入与分层输入（原文第 5–7 页）
+
+### B. Sub-6 GHz 信道参数提取（续）
+
+设局部极大值的索引集合为 $\mathcal P$。将 $\mathcal P$ 中全部局部极大值按功率从高到低排序，选取前 $N_{\rm peak}$ 组索引。对第 $k$ 个峰值索引 $(k_i,k_j)$，其路径功率为 $\hat\alpha_{s,k}=[\hat{\mathbf H}_s^a]_{k_i,k_j}$，对应的仰角 AoA 和方位角 AoA 按原文式（11）从角度网格计算：
+
+$
+\begin{aligned}
+\hat\phi_{s,k}^{\mathrm{ele,A}}
+&=\frac{180}{\pi}\arccos\left(-1+\frac{2(k_i-1)}{N_{\rm sam,v}}\right),\\
+\hat t_k&=\frac{2(k_j-1)-N_{\rm sam,h}}
+{N_{\rm sam,h}\sin\bigl(\hat\phi_{s,k}^{\mathrm{ele,A}}\bigr)},\\
+\hat\phi_{s,k}^{\mathrm{az,A}}
+&=\frac{180}{\pi}\arcsin(\hat t_k).
+\end{aligned}\tag{11}
+$
+
+角度单位及三角函数使用的弧度、角度转换必须严格按原文实现；实际编码时需特别检查式（11）的量纲及自变量单位。将提取的 $N_{\rm peak}$ 组参数存入按功率降序排列的序列：
+
+$
+\hat{\mathcal S}_s=
+\bigl[
+(\hat\phi_{s,1}^{\mathrm{az,A}},\hat\phi_{s,1}^{\mathrm{ele,A}},\hat\alpha_{s,1}),
+\ldots,
+(\hat\phi_{s,N_{\rm peak}}^{\mathrm{az,A}},\hat\phi_{s,N_{\rm peak}}^{\mathrm{ele,A}},\hat\alpha_{s,N_{\rm peak}})
+\bigr].\tag{12}
+$
+
+其中 $\hat\alpha_{s,1}\ge \hat\alpha_{s,2}\ge\cdots\ge\hat\alpha_{s,N_{\rm peak}}$。sub-6 GHz 参数提取采用标准估计流程，但在数字孪生构建中，这些参数是不可替代的动态环境属性来源。
+
+### C. Sub-6 GHz 信道嵌入与数字孪生构建
+
+本小节提出跨模态的信道表示方法——信道嵌入（channel embedding，CE），通过将 sub-6 GHz 信道嵌入静态场景重建，实现视觉感知与 RF 数据的高效融合。每组功率和角度参数依次变换为三维坐标点。
+
+以第 $k$ 组参数 $(\hat\phi_{s,k}^{\mathrm{az,A}},\hat\phi_{s,k}^{\mathrm{ele,A}},\hat\alpha_{s,k})$ 为例，首先将归一化功率映射为虚拟距离：
+
+$
+\hat d_{s,k}=K_s^E\left(\frac{\hat\alpha_{s,k}}{\alpha_{s,\max}}\right)^{R_s^E}+O_s^E.\tag{13}
+$
+
+其中 $K_s^E$、$O_s^E$ 和 $R_s^E$ 分别为 sub-6 GHz 信道的缩放系数、偏置和指数系数；$\alpha_{s,\max}$ 为 sub-6 GHz 信道中的最大路径功率。这三个约束常数定义了从归一化路径功率到虚拟距离的非线性映射。具体而言，$K_s^E$ 控制整体距离缩放范围；$O_s^E$ 提供偏移，以避免功率很弱的路径全部聚集在基站附近；$R_s^E$ 控制非线性程度，从而影响强弱路径在三维嵌入空间中的分布。
+
+其次，通过球坐标转换，将方位角和仰角 AoA 表示为单位方向向量：
+
+$
+\hat{\mathbf u}_{s,k}=
+\begin{bmatrix}
+\cos\hat\phi_{s,k}^{\mathrm{az,A}}\sin\hat\phi_{s,k}^{\mathrm{ele,A}}\\
+\sin\hat\phi_{s,k}^{\mathrm{az,A}}\sin\hat\phi_{s,k}^{\mathrm{ele,A}}\\
+\cos\hat\phi_{s,k}^{\mathrm{ele,A}}
+\end{bmatrix}.\tag{14}
+$
+
+最后，以基站位置 $\mathbf p_{\rm BS}$ 为中心，得到第 $k$ 条路径对应的虚拟路径点坐标：
+
+$
+\hat{\mathbf p}_{s,k}=\mathbf p_{\rm BS}+\hat d_{s,k}\hat{\mathbf u}_{s,k}^{T}.\tag{15}
+$
+
+由此，序列 $\hat{\mathcal S}_s$ 中的全部 $N_{\rm peak}$ 组角度和功率参数被映射为坐标矩阵 $\hat{\mathbf P}_{s}^{xyz}\in\mathbb R^{N_{\rm peak}\times3}$。其中每行对应一个虚拟路径点，行顺序按其所对应的路径功率由高到低排列。需要强调：**虚拟路径点并不代表与传播路径相互作用的散射体真实物理位置**；这种表示的作用是将多径参数和三维点云编码到统一的几何空间。
+
+将所有虚拟路径点的材料属性统一标记为 $-1$，即可把 $\hat{\mathbf P}_{s}^{xyz}$ 扩展为 $\hat{\mathbf P}_s\in\mathbb R^{N_{\rm peak}\times6}$。再将其与静态场景重建矩阵 $\mathbf P_{\rm scene}$ 拼接，构建完整场景的数字孪生：
+
+$
+\mathbf P_{\rm Ful}=
+\begin{bmatrix}
+\mathbf P_{\rm scene}\\
+\hat{\mathbf P}_s
+\end{bmatrix}
+\in\mathbb R^{(n_{\rm scene}+N_{\rm peak})\times6}.\tag{16}
+$
+
+这种数字孪生在物理层运行，由视觉三维重建得到的静态场景部分，以及从 sub-6 GHz 信道参数估计得到的动态信道部分共同组成。静态场景保存物体几何和材料属性，动态信道反映随时间变化的传播特征；通过 CE 将二者融合，数字孪生可以同时支持 sub-6 GHz 感知与毫米波预测，形成面向多频段的传播环境表示。
+
+### D. 分层信道预测网络（HCP-Net）
+
+本小节介绍 HCP-Net，该网络利用物理场景的数字孪生预测毫米波 PAS，完整架构见图 5。无线信道建模表明，多径分量对整体信道的贡献与其功率有关。高功率主导路径对于波束赋形和链路建立非常重要，而弱路径则提供细粒度的角度多样性。不同传播路径在信道预测中的重要性存在差异。受这种物理层次结构启发，HCP-Net 采用分层编码器与解码器。
+
+在分层编码器中，首先按功率对 sub-6 GHz 多径分量分组，再将其嵌入三维点云，构建多分辨率数字孪生，以提取不同粒度的传播特征与物理环境交互特征。在金字塔解码器中，毫米波多径分量同样按功率分层，关键传播模式通过隐藏特征与预测结果，从深层向浅层逐级传递。为便于说明，作者将网络分为输入、输出和网络架构三个部分。
+
+**1）网络输入：多径下采样与多分辨率数字孪生构建。** 传播路径的功率决定其对信道重建的贡献，因此按功率进行下采样。重要性不同的 sub-6 GHz 虚拟路径点以分层方式与静态场景重建矩阵组合，形成不同层次的环境—信道融合特征。首先，完整场景数字孪生 $\mathbf P_{\rm Ful}$ 作为第一级输入。然后，选取功率最大的前 $\lceil N_{\rm peak}/k_s\rceil$ 条路径，与静态场景矩阵拼接，构成第二级输入：
+
+$
+\mathbf P_{\rm Maj}=
+\begin{bmatrix}
+\mathbf P_{\rm scene}\\
+[\hat{\mathbf P}_s]_{1:\lceil N_{\rm peak}/k_s\rceil,:}
+\end{bmatrix}
+\in\mathbb R^{(n_{\rm scene}+\lceil N_{\rm peak}/k_s\rceil)\times6}.\tag{17}
+$
+
+其中 $\lceil\cdot\rceil$ 表示向上取整。类似地，选取功率最大的前 $\lceil N_{\rm peak}/k_s^2\rceil$ 条路径，构成第三级数字孪生输入：
+
+$
+\mathbf P_{\rm Dom}=
+\begin{bmatrix}
+\mathbf P_{\rm scene}\\
+[\hat{\mathbf P}_s]_{1:\lceil N_{\rm peak}/k_s^2\rceil,:}
+\end{bmatrix}
+\in\mathbb R^{(n_{\rm scene}+\lceil N_{\rm peak}/k_s^2\rceil)\times6}.\tag{18}
+$
+
+如图 5 所示，$\mathbf P_{\rm Dom}$、$\mathbf P_{\rm Maj}$、$\mathbf P_{\rm Ful}$ 这三级输入，分别对应嵌入了不同重要性多径信息的静态场景。后续输出投影、网络层结构、训练策略及实验仍需继续逐段逐式补齐。
+
 ---
 **原文归属：** © 2026 IEEE。论文版权及再传播许可请以出版方要求为准。本站仅提供阶段性研究译稿，不包含原版 PDF、图像或扫描页。
