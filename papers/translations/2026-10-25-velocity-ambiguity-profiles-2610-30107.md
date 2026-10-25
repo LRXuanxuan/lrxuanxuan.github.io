@@ -112,7 +112,7 @@ $$
 
 其中下确界遍历固定时间 $t$ 下所有可测预测函数；$A_v(0)$ 在相应单侧极限存在时取 $A_v(0^+)$。第三种表达来自 $u_t=(x_t-a)/t$，因此在已知 $(x_t,c,t)$ 时，目标速度中的剩余不确定性完全来自原始动作 $a$ 的后验不确定性，再乘以 $1/t^2$。
 
-**命题 2（端点行为与非单调性）。** 在原文假设 A1 下，$A_v(0^+)$ 有限；对于后述各向同性高斯混合，$A_v(0^+)=d$。若 $\mathbb E\|a\|^2<\infty$，则 $A_v(1)=\operatorname{tr}\operatorname{Var}_{p_{\rm data}}(a)$。一般而言，$A_v(t)$ 并不必然随时间单调变化。直观来说，接近 $t=0$ 时，观测 $x_t$ 已接近数据样本 $a$；接近 $t=1$ 时，观测主要由噪声组成，几乎无法确定是哪一个数据样本生成了该观测。
+**命题 2（端点行为与非单调性）。** 在原文假设 A1 下，$A_v(0^+)$ 有限；对于后述各向同性高斯混合，$A_v(0^+)=d$。若 $\mathbb E\|a\|^2\lt \infty$，则 $A_v(1)=\operatorname{tr}\operatorname{Var}_{p_{\rm data}}(a)$。一般而言，$A_v(t)$ 并不必然随时间单调变化。直观来说，接近 $t=0$ 时，观测 $x_t$ 已接近数据样本 $a$；接近 $t=1$ 时，观测主要由噪声组成，几乎无法确定是哪一个数据样本生成了该观测。
 
 ### 3.2 解析示例：高斯混合模型
 
@@ -128,7 +128,7 @@ $$
 A_v(t)=\frac{d\sigma^2}{\sigma_t^2}
 +\frac{t^2}{\sigma_t^4}\,
 \mathbb E_{x_t}\left[
-\sum_{j<k}\gamma_j(x_t,t)\gamma_k(x_t,t)
+\sum_{j\lt k}\gamma_j(x_t,t)\gamma_k(x_t,t)
 \|\mu_j-\mu_k\|^2
 \right]. \tag{5}
 $$
@@ -305,14 +305,14 @@ VAP 通过将贝叶斯风险下界与可约超额误差分离，把流匹配的�
 
 ### A.1 定理 4 的假设
 
-**假设 A1。** 数据分布 $p_{\rm data}$ 的支撑集位于一个具有正 reach 的紧致 $d$ 维 $C^2$ 子流形 $\mathcal M\subset\mathbb R^D$ 上 [10]、[23]。在 $\mathcal M$ 的局部坐标下，密度满足 $0<c_\ell\le p_{\rm data}(a)\le c_u$。注意，当 $t>0$ 时，由于存在高斯噪声 $\varepsilon$，边缘分布 $p(x_t\mid t)$ 在完整 $D$ 维空间中具有支撑；但是，贝叶斯最优速度场 $v^\star(\cdot,t)$ 的正则性受到流形 $\mathcal M$ 的 $d$ 维内在结构控制（假设 A2）。
+**假设 A1。** 数据分布 $p_{\rm data}$ 的支撑集位于一个具有正 reach 的紧致 $d$ 维 $C^2$ 子流形 $\mathcal M\subset\mathbb R^D$ 上 [10]、[23]。在 $\mathcal M$ 的局部坐标下，密度满足 $0\lt c_\ell\le p_{\rm data}(a)\le c_u$。注意，当 $t>0$ 时，由于存在高斯噪声 $\varepsilon$，边缘分布 $p(x_t\mid t)$ 在完整 $D$ 维空间中具有支撑；但是，贝叶斯最优速度场 $v^\star(\cdot,t)$ 的正则性受到流形 $\mathcal M$ 的 $d$ 维内在结构控制（假设 A2）。
 
 **假设 A2。** 固定由有限个坐标图构成的图册，图域为 $Q_j\subset\mathbb R^d$，其固定紧致邻域为 $Q_j^+\supset Q_j$。对于 $t\in[\delta,1-\delta]$，令 $f_{t,j}:Q_j\to\mathbb R^D$ 为坐标图 $j$ 中贝叶斯速度场的坐标表示。固定有限平滑度 $s>0$，令 $m=\lceil s\rceil-1$，$\beta=s-m\in(0,1]$（当 $s$ 为整数时采用 $C^{s-1,1}$）。存在延拓 $\tilde f_{t,j}\in C^{m,\beta}(Q_j^+;\mathbb R^D)$，使得
 
 $$
 \sup_{t\in[\delta,1-\delta]}\max_j
 \|\tilde f_{t,j}\|_{C^{m,\beta}(Q_j^+;\mathbb R^D)}
-\le B_\delta<\infty.\tag{15}
+\le B_\delta\lt \infty.\tag{15}
 $$
 
 在这一紧致时间区间中，坐标图交叠、截断函数和边界 Gram 常数保持统一固定。这是对紧致局部基准的显式有限平滑度假设，并非全局环境空间上的界，也不能仅由高斯平滑推得，更不意味着 $s=\infty$。对于高斯混合模型，速度场是光滑的，因此在任意有界的分析邻域中，对每个固定有限 $s$ 都满足这一条件；但其参数型结果来自分离的有限维残差定理 5，而非直接应用该条件。
@@ -322,13 +322,13 @@ $$
 **假设 A4。** 对任意紧致子区间 $[\delta,1-\delta]\subset(0,1)$，速度模糊度剖面满足
 
 $$
-0<\sigma_\ell(\delta)\le A_v(t)\le\sigma_u(\delta)<\infty,\qquad
+0\lt \sigma_\ell(\delta)\le A_v(t)\le\sigma_u(\delta)\lt \infty,\qquad
 t\in[\delta,1-\delta].
 $$
 
 这是紧致区间上的正则性条件。当 $p_{\rm data}$ 具有有限二阶矩，并且区间内的条件速度问题非退化时，条件成立。它保证 $A_v(t)$ 不会在区间内消失或发散，从而可以获得时间分辨基准的区间一致控制。
 
-**假设 A5（统一噪声可比性）。** 对任意紧致子区间 $[\delta,1-\delta]\subset(0,1)$，存在仅依赖 $\delta$ 与 $p_{\rm data}$ 的常数 $0<c_n\le C_n$，使得对 $p_{x_t}$ 几乎处处的 $x_t$，
+**假设 A5（统一噪声可比性）。** 对任意紧致子区间 $[\delta,1-\delta]\subset(0,1)$，存在仅依赖 $\delta$ 与 $p_{\rm data}$ 的常数 $0\lt c_n\le C_n$，使得对 $p_{x_t}$ 几乎处处的 $x_t$，
 
 $$
 c_n A_v(t)\le
@@ -364,7 +364,7 @@ $$
 
 这一函数在 $t=\sigma^2/(1+\sigma^2)\in(0,1)$ 处取得最大值，因此先增加后减小，证明了一般情况下的非单调性。
 
-**（i）** 在假设 A1 下，$\mathcal M$ 紧致，因此存在 $R>0$ 使得 $\|a\|\le R$。当 $t\to0^+$ 时，后验密度 $p(a\mid x_t,t)$ 正比于 $p_{\rm data}(a)\varphi_D(x_t;(1-t)a,t^2I)$，并集中在最接近 $x_t/(1-t)$ 的流形点 $a^\star\in\mathcal M$ 周围、尺度为 $O(t/(1-t))$ 的邻域中。由于 $\mathcal M$ 是 $C^2$ 子流形，且 $p_{\rm data}$ 有正的上下界，在切空间上使用 Laplace 型论证可得 $\operatorname{tr}\operatorname{Var}[a\mid x_t,t]=O(t^2)$（对 $p_{x_t}$ 几乎处处）。因此 $A_v(t)=t^{-2}\mathbb E_{x_t}[\operatorname{tr}\operatorname{Var}(a\mid x_t,t)]=O(1)$，进而 $A_v(0^+)<\infty$。
+**（i）** 在假设 A1 下，$\mathcal M$ 紧致，因此存在 $R>0$ 使得 $\|a\|\le R$。当 $t\to0^+$ 时，后验密度 $p(a\mid x_t,t)$ 正比于 $p_{\rm data}(a)\varphi_D(x_t;(1-t)a,t^2I)$，并集中在最接近 $x_t/(1-t)$ 的流形点 $a^\star\in\mathcal M$ 周围、尺度为 $O(t/(1-t))$ 的邻域中。由于 $\mathcal M$ 是 $C^2$ 子流形，且 $p_{\rm data}$ 有正的上下界，在切空间上使用 Laplace 型论证可得 $\operatorname{tr}\operatorname{Var}[a\mid x_t,t]=O(t^2)$（对 $p_{x_t}$ 几乎处处）。因此 $A_v(t)=t^{-2}\mathbb E_{x_t}[\operatorname{tr}\operatorname{Var}(a\mid x_t,t)]=O(1)$，进而 $A_v(0^+)\lt \infty$。
 
 **补译范围说明：** 此处完整补入附录 A.1–A.3 的基本假设与证明段落；A.4 后续充分条件、内在维数讨论、定理 4 的主要极小最大证明及附录 B–F 仍需继续补译和逐式校对。
 
@@ -434,7 +434,7 @@ A_v(t)
 =&\underbrace{\frac{d\sigma^2}{\sigma_t^2}}_{\text{分量内模糊度}}\\
 &+\underbrace{\frac{t^2}{\sigma_t^4}
 \mathbb E_{x_t}\left[
-\sum_{j<k}\gamma_j(x_t,t)\gamma_k(x_t,t)
+\sum_{j\lt k}\gamma_j(x_t,t)\gamma_k(x_t,t)
 \|\boldsymbol\mu_j-\boldsymbol\mu_k\|_2^2
 \right]}_{\text{分量间模糊度}}.
 \end{aligned}\tag{5}
