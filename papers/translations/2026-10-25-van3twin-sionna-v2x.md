@@ -13,7 +13,7 @@ toc: true
 **原题：** VaN3Twin: the Multi-Technology V2X Digital Twin with Ray Tracing in the Loop  
 **作者：** Roberto Pegurri、Diego Gasco、Francesco Linsalata、Marco Rapelli、Eugenio Moro、Francesco Raviglione、Claudio Casetti  
 **来源：** *IEEE Transactions on Wireless Communications*, Vol. 25 (2026), pp. 16812–16827；DOI: 10.1109/TWC.2026.3685710。  
-**译稿状态（2026-10-25）：** 阶段性译稿，非全文。已翻译摘要、引言、贡献以及第二节的框架设计主要正文；第三节测量验证、第四节共存建模、第五节相关研究、第六节结论、表格和参考文献仍待逐段补齐。数学公式与工程参数以原 PDF 为准；本站未转载 PDF 或图像。
+**译稿状态（2026-10-25）：** 正文 I–VI 已补充框架设计、实测验证、多 RAT 同信道共存公式（1）–（16）、算法 1、主要实验表和相关研究；表 VI、全部书目及局部段落尚需逐段核验。**尚非逐句逐式终校完成的全文译稿。**
 
 ## 摘要
 
