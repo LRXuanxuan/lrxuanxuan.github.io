@@ -13,7 +13,7 @@ toc: true
 **原题：** Digital Twin Channel-Based mmWave Spatial Propagation Characteristics Prediction in 6G Multi-Band Communication Systems  
 **作者：** Zhen Zhang、Jianhua Zhang、Li Yu、Silu Xing、Kai Sun  
 **期刊：** *IEEE Transactions on Wireless Communications*, Vol. 25 (2026), DOI: 10.1109/TWC.2026.3693236。  
-**译稿状态（2026-10-25）：** 阶段性译稿，非全文。当前包含摘要、引言及系统模型、数字孪生构建的部分正文。第三节剩余算法细节、第四节完整实验、第五节结论、全部图表说明和参考文献尚待逐段翻译与核验。**请勿作为完整中文全文引用。** 原始公式应以论文 PDF 为准。本文未转载原始 PDF 和图片。
+**译稿状态（2026-10-25）：** 已扩充摘要和正文 I–V、信道投影、HCP-Net、式（1）–（31）及主要实验与消融；图表、参数表和参考文献尚需逐项对照 PDF 终校。当前为正文扩充译稿，**未达到逐句完整的全文验收标准**。本站未转载 PDF 原图。
 
 ## 摘要
 
