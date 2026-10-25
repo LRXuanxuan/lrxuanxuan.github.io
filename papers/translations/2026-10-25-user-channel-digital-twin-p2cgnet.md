@@ -273,3 +273,367 @@ $$
 其中 $R_0$ 为活动用户的基本速率需求。作者指出问题 P0 为 NP-hard。为克服直接求解与完整 CSI 数据采样的成本，提出 R2BA 方法：使用 P2CGNet 与先验通信模型合成面向目标任务的训练数据，并采用分层图神经网络（HGNN）提取有效特征，从而支撑资源分配和波束对准。
 
 **校对备注：** 本节补录公式（2）–（8），但射频波束幅度约束的具体表达、发射功率分配的原文记号和含有下标的符号仍需结合正式 PDF 逐式终校。后续 P2CGNet 网络训练、理论证明、完整 R2BA 实现、全部实验和参考书目仍不完整。
+
+
+## 正文补译：III. P2CGNet 的条件扩散推断、网络结构与算法
+
+### A. 用扩散模型学习无条件信道分布（公式补录）
+
+对任意实测信道 $\mathbf H_{x,q}^{0}\sim\mathcal H^{\rm samp}$，首先按式（9）进行 DFT 变换，得到波束域信道。P2CGNet 将波束域信道的实部、虚部分开处理。为方便表示，以下以 $\widetilde{\mathbf H}_{x,q}\in\mathbb R^{N_r\times N_t}$ 统指其中任一部分。
+
+在前向扩散中，逐步向干净信道添加高斯噪声。第 $t$ 步的转移概率为
+
+$$
+\hat q\bigl(\widetilde{\mathbf H}_{x,q}^t\mid
+\widetilde{\mathbf H}_{x,q}^{t-1}\bigr)
+=\mathcal N\left(
+\widetilde{\mathbf H}_{x,q}^t;\
+\sqrt{1-\rho_t}\,\widetilde{\mathbf H}_{x,q}^{t-1},\
+\rho_t\mathbf I\right). \tag{11}
+$$
+
+其中 $\rho_t\in[0,1)$ 是第 $t$ 步的噪声方差，可通过指定调度器产生。根据高斯分布的性质，可直接从干净样本构造任意噪声时刻的样本：
+
+$$
+\widetilde{\mathbf H}_{x,q}^t=
+\sqrt{\bar\nu_t}\,\widetilde{\mathbf H}_{x,q}^0+
+\sqrt{1-\bar\nu_t}\,\mathbf N_t,\quad
+\mathbf N_t\sim\mathcal N(\mathbf0,\mathbf I),\quad
+\bar\nu_t=\prod_{t'=1}^{t}\nu_{t'},\quad
+\nu_{t'}=1-\rho_{t'}. \tag{12}
+$$
+
+当扩散步数足够多，终端状态趋于标准高斯分布。反向去噪使用由神经网络参数化的近似转移分布：
+
+$$
+p_\theta\bigl(\widetilde{\mathbf H}_{x,q}^{t-1}\mid
+\widetilde{\mathbf H}_{x,q}^{t}\bigr)
+=\mathcal N\left(
+\widetilde{\mathbf H}_{x,q}^{t-1};\
+\widehat{\boldsymbol\mu}_{\theta}(\widetilde{\mathbf H}_{x,q}^{t},t),\
+\widehat\sigma_{\theta}(\widetilde{\mathbf H}_{x,q}^{t},t)\mathbf I
+\right). \tag{13}
+$$
+
+在实际实现中将方差固定为 $\widetilde\sigma$，均值可通过噪声预测网络 $\epsilon_\theta$ 重参数化：
+
+$$
+\widehat{\boldsymbol\mu}_{\theta}
+(\widetilde{\mathbf H}_{x,q}^{t},t)
+=\frac{1}{\sqrt{\nu_t}}\left[
+\widetilde{\mathbf H}_{x,q}^{t}
+-\frac{\rho_t}{\sqrt{1-\bar\nu_t}}
+\epsilon_\theta(\widetilde{\mathbf H}_{x,q}^{t},t)
+\right]. \tag{14}
+$$
+
+该网络以最小化添加噪声与预测噪声之间的平方误差进行训练：
+
+$$
+\mathcal L_{\rm SM}(\theta)
+=\mathbb E_{\widetilde{\mathbf H}_{x,q}^{0},\mathbf N_t,t}
+\left[\left\|
+\mathbf N_t-\epsilon_\theta(\widetilde{\mathbf H}_{x,q}^{t},t)
+\right\|_2^2\right]. \tag{15}
+$$
+
+### B. 条件后验推断（公式补录）
+
+无条件扩散只能学习总体信道分布，而 P2CGNet 需要根据用户位置 $x$ 和资源块索引 $q$ 生成服从 $p(\widehat{\mathbf H}_{x,q}\mid x,q)$ 的信道。文章基于概率流常微分方程，将条件去噪一步表示为
+
+$$
+\widetilde{\mathbf H}_{x,q}^{t-1}
+=\widetilde{\mathbf H}_{x,q}^{t}
+-\widetilde\sigma_t
+\nabla_{\widetilde{\mathbf H}_{x,q}^{t}}
+\log p(\widetilde{\mathbf H}_{x,q}^{t}\mid x,q). \tag{16}
+$$
+
+设真实条件得分对应的噪声项为
+$\widetilde{\mathbf G}_{x,q}^{t}
+=-\widetilde\sigma_t\nabla_{\widetilde{\mathbf H}^{t}}\log p(\widetilde{\mathbf H}^{t}\mid x,q)$。
+根据贝叶斯公式，将其分解为无条件先验得分和条件似然得分：
+
+$$
+\widetilde{\mathbf G}_{x,q}^{t}
+=-\widetilde\sigma_t
+\nabla_{\widetilde{\mathbf H}^{t}}\log p(\widetilde{\mathbf H}^{t})
+-\widetilde\sigma_t
+\nabla_{\widetilde{\mathbf H}^{t}}\log p(x,q\mid\widetilde{\mathbf H}^{t}). \tag{17}
+$$
+
+无条件网络与条件网络分别近似两种噪声得分：
+
+$$
+\epsilon_\theta(\widetilde{\mathbf H}^{t},t)
+\approx-\widetilde\sigma_t\nabla_{\widetilde{\mathbf H}^{t}}
+\log p(\widetilde{\mathbf H}^{t}), \tag{18}
+$$
+
+$$
+\epsilon_\theta(\widetilde{\mathbf H}^{t},x,q,t)
+\approx-\widetilde\sigma_t\nabla_{\widetilde{\mathbf H}^{t}}
+\log p(\widetilde{\mathbf H}^{t}\mid x,q). \tag{19}
+$$
+
+由两者差分可以近似条件分类器的得分：
+
+$$
+\begin{aligned}
+\widetilde{\mathbf G}_{x,q}^{t,0}
+&=\nabla_{\widetilde{\mathbf H}^{t}}
+\log p(\widetilde{\mathbf H}^{t}\mid x,q)
+-\nabla_{\widetilde{\mathbf H}^{t}}\log p(\widetilde{\mathbf H}^{t})\\
+&\approx-\frac1{\widetilde\sigma_t}
+\left[
+\epsilon_\theta(\widetilde{\mathbf H}^{t},x,q,t)
+-\epsilon_\theta(\widetilde{\mathbf H}^{t},t)
+\right].
+\end{aligned}\tag{20}
+$$
+
+引入引导系数 $\lambda$，得到无分类器引导（classifier-free guidance，CFG）噪声估计：
+
+$$
+\mathbf G_{x,q}^{t}
+=\lambda\epsilon_\theta(\widetilde{\mathbf H}^{t},x,q,t)
++(1-\lambda)\epsilon_\theta(\widetilde{\mathbf H}^{t},t). \tag{21}
+$$
+
+无条件网络刻画信道的整体统计规律，条件网络刻画特定位置和频率对应的信道特征。作者认为适当的混合有助于改善未见条件下的泛化，并给出**命题 1**：对于未见条件集合，在恰当选择 $\lambda'>0$ 时，CFG 得分估计的均方误差不超过仅使用条件网络的误差，
+
+$$
+\operatorname{MSE}_{\rm CF}(\lambda')
+\le \operatorname{MSE}_{\rm Cond}. \tag{22}
+$$
+
+原文**备注 1**建议将 $\lambda$ 限制于 $[0,1]$，使式（21）成为凸组合，并通过验证集交叉验证或网格搜索选取系数。
+
+为了减少去噪步骤，作者采用条件去噪扩散隐式模型（cDDIM）：从原有 $T$ 个时刻选取较短的子序列 $\{\varrho_s\}_{s=1}^{S}$，通过确定性的跨步递推恢复信道。
+
+**定理 1（少步 cDDIM）。** 对经过训练的 P2CGNet，给定扩散时刻子序列，可按
+
+$$
+\widetilde{\mathbf H}_{x,q}^{\varrho_{s-1}}
+=V_{\widetilde H}^{\varrho_s}\,
+\widetilde{\mathbf H}_{x,q}^{\varrho_s}
++V_G^{\varrho_s}\,\mathbf G_{x,q}^{\varrho_s},\tag{23}
+$$
+
+生成相邻采样时刻的信道，其中
+
+$$
+V_{\widetilde H}^{\varrho_s}=
+\sqrt{\frac{\bar\nu_{\varrho_{s-1}}}
+{\bar\nu_{\varrho_s}}},\qquad
+V_G^{\varrho_s}
+=\sqrt{1-\bar\nu_{\varrho_{s-1}}}
+-\sqrt{\frac{\bar\nu_{\varrho_{s-1}}
+(1-\bar\nu_{\varrho_s})}{\bar\nu_{\varrho_s}}}.
+$$
+
+原文采用等间隔的跳步子序列，也允许线性以外的采样策略。**命题 2**指出，少步采样要保持效果，需要选定的每个去噪时刻均有准确的噪声得分估计；若误差不趋近于零，少步生成的准确性无法保证。
+
+### C. P2CGNet 网络结构与训练、推理
+
+图 2 展示了整体架构：先将测得信道变换到波束域并加噪，然后由 Transformer 主干训练条件和无条件得分估计器，最后通过 CFG-cDDIM 反向去噪并进行逆 DFT。两种得分估计器共享同一网络，通过随机屏蔽位置与频率条件进行联合训练：
+
+$$
+\epsilon_\theta(\widetilde{\mathbf H}^{t},\cdot)
+=
+\epsilon_\theta\left(
+\widetilde{\mathbf H}^{t},
+x\,\mathbf1_{\widehat p_\epsilon>p_{\rm th}},
+q\,\mathbf1_{\widehat p_\epsilon>p_{\rm th}},t
+\right). \tag{24}
+$$
+
+其中 $\widehat p_\epsilon\sim\operatorname{Uniform}[0,1)$，$p_{\rm th}>0$ 控制条件屏蔽的概率。去噪时刻 $t$ 与资源块索引 $q$ 使用正弦位置编码，位置 $x$ 使用 MLP 编码。文章给出的正弦编码形式为
+
+$$
+\begin{aligned}
+\operatorname{sinp}(o,2i)
+&=\sin\!\left(\frac{o}{10000^{2i/z}}\right), &&\tag{25a}\\
+\operatorname{sinp}(o,2i+1)
+&=\cos\!\left(\frac{o}{10000^{2i/z}}\right), &&\tag{25b}\\
+\operatorname{SP}(o)
+&=[\operatorname{sinp}(o,0),\ldots,\operatorname{sinp}(o,z-1)].
+&&\tag{25c}
+\end{aligned}
+$$
+
+三个条件嵌入通过按元素相加融合：
+
+$$
+\mathbf f_{\rm fuse}
+=\mathcal E_x(x\mid\Theta)
+\oplus\mathcal E_q(\operatorname{SP}(q)\mid\Theta)
+\oplus\mathcal E_t(\operatorname{SP}(t)\mid\Theta). \tag{26}
+$$
+
+为了提取细粒度信道结构并降低注意力复杂度，将 $\widetilde{\mathbf H}_{x,q}$ 划分为 $N_{\rm sc}$ 个尺寸为 $H\times W$ 的子信道 patch。自注意力运算的主导复杂度从对整个信道使用时的 $O(N_t^2N_r^2d)$，降低为基于子信道 token 的 $O(N_{\rm sc}^2d)$；其中 $d$ 是注意力隐特征维数。随后多个 Transformer 块处理这些 patch 及融合条件。
+
+为了让条件调节作用于注意力和 MLP 两个子层，采用自适应层归一化（AdaLN）和残差连接。六组调节系数通过 MLP 生成：
+
+$$
+\boldsymbol\Upsilon=\mathcal G_{\rm Scale,Shift}
+(\mathbf f_{\rm fuse}\mid\Theta)
+=[\upsilon^1_{\rm scale},\upsilon^1_{\rm shift},
+\upsilon^2_{\rm scale},\upsilon^3_{\rm scale},
+\upsilon^2_{\rm shift},\upsilon^4_{\rm scale}]. \tag{27}
+$$
+
+单个 Transformer 块对 patch $i$ 的处理步骤为
+
+$$
+\begin{aligned}
+\mathbf f_{\rm sc}
+&=\mathcal E_{\rm sc}(\widetilde{\mathbf H}_{x,q,i}\mid\Theta)
+\oplus\mathcal E_{\rm sc,pos}(i\mid\Theta),
+&&\tag{28a}\\
+\mathbf f_{\rm sc,scale,shift}
+&=\operatorname{LN}(\mathbf f_{\rm sc})\odot
+(1+\upsilon^1_{\rm scale})\oplus\upsilon^1_{\rm shift},
+&&\tag{28b}\\
+\mathbf f'_{\rm sc}
+&=\upsilon^2_{\rm scale}\odot
+\operatorname{MHSA}(\mathbf f_{\rm sc,scale,shift})
+\oplus\mathbf f_{\rm sc},
+&&\tag{28c}\\
+\mathbf f'_{\rm sc,scale,shift}
+&=\operatorname{LN}(\mathbf f'_{\rm sc})\odot
+(1+\upsilon^3_{\rm scale})\oplus\upsilon^2_{\rm shift},
+&&\tag{28d}\\
+\mathbf f''_{\rm sc}
+&=\upsilon^4_{\rm scale}\odot
+\operatorname{MLP}(\mathbf f'_{\rm sc,scale,shift})
+\oplus\mathbf f'_{\rm sc}.
+&&\tag{28e}
+\end{aligned}
+$$
+
+其中 $\odot$ 表示逐元素乘法，$\oplus$ 表示相加，$\operatorname{LN}$ 为层归一化，$\operatorname{MHSA}$ 为多头自注意力。经过多层 Transformer 后，对所有 patch 执行反 patch 化，得到完整信道的噪声预测。
+
+**算法 1：P2CGNet 的训练。** 输入噪声调度 $\{\bar\nu_t\}_{t=1}^{T}$、训练信道集、批大小 $B$、屏蔽门限 $p_{\rm th}$ 和学习率。先由式（9）得到波束域数据集；在每个 epoch 随机选择批次，对每个样本抽取 $t$ 和标准高斯噪声，根据式（12）生成带噪样本；再抽取 $\widehat p_\epsilon$，以式（24）随机启用或屏蔽位置与频率条件；计算式（15）的噪声预测损失并作随机梯度下降，最终输出训练好的共享 $\epsilon_\theta$ 网络。
+
+**算法 2：P2CGNet 的推理。** 输入经过训练的网络、选定的跳步时刻序列 $\{\varrho_s\}$、噪声水平 $\{\bar\nu_{\varrho_s}\}$、CFG 系数 $\lambda$ 与目标位置和资源块索引。先初始化末端 $\widetilde{\mathbf H}_{x,q}^{\varrho_S}\sim\mathcal N(0,\mathbf I)$；随后按 $s=S,S-1,\ldots,1$ 迭代：分别计算有条件及无条件噪声预测，利用式（21）构造 CFG 得分，再用式（23）完成跨步去噪。结束后对生成的波束域信道执行 IDFT，输出天线域信道样本。
+
+## 正文补译：IV. R2BA 的测量模型、图神经网络与动态罚函数
+
+### A. 探测波束测量
+
+宽波束（probing beam，PB）测量包含隐式信道质量及环境信息，可供低开销的资源分配与波束管理。令 $\mathbf F_t^{\rm pb}\in\mathbb C^{N_t^{\rm pb}\times N_t}$ 和 $\mathbf F_r^{\rm pb}\in\mathbb C^{N_r^{\rm pb}\times N_r}$ 为发送、接收探测码本。基站周期性发送探测符号 $\mathbf s^{\rm pb}$，用户用接收感知波束测量对应功率。对用户 $u$ 的第 $q$ 个 RBG，组合接收信号为
+
+$$
+\mathbf Y_{u,q}=
+\sqrt{p_{\rm pb}}(\mathbf F_r^{\rm pb})^H
+\mathbf H_{u,q}\mathbf F_t^{\rm pb}
+\operatorname{diag}(\mathbf s^{\rm pb})
++(\mathbf F_r^{\rm pb})^H\mathbf N^{\rm pb}. \tag{29}
+$$
+
+$\mathbf N^{\rm pb}$ 为探测噪声矩阵；本文考虑 $N_t^{\rm pb}=N_r^{\rm pb}=N^{\rm pb}$，以降低反馈开销。用户从测量矩阵对角元素的幅度平方形成低维反馈：
+
+$$
+\mathbf Z_{u,q}=
+\operatorname{vec}\left[
+\operatorname{diag}\bigl(
+|\mathbf Y_{u,q}|\odot|\mathbf Y_{u,q}|
+\bigr)\right]
+\in\mathbb R^{N^{\rm pb}\times1}. \tag{30}
+$$
+
+所有用户的反馈合成张量 $\mathbf Z\in\mathbb R^{N_u\times Q\times N^{\rm pb}}$，送往基站完成资源调度和发射波束生成。
+
+### B. R2BA 的网络结构
+
+图 3 展示整体网络。RBGA 模块采用两级图神经网络：用户级干扰感知模块抽取同一 RBG 上其他用户的统计信息；RBG 级竞争感知模块再描述同一用户在其他资源块上的相互竞争。对用户 $u$、资源块 $q$，前者输出
+
+$$
+\widetilde{\mathbf z}_{u'\to u,q}^{\rm inter}
+=\frac1{N_u-1}\sum_{u'\in\mathcal N_u\setminus\{u\}}
+\mathcal E_{\rm pb}(\mathbf Z_{u',q}\mid\Theta). \tag{31}
+$$
+
+$\mathcal E_{\rm pb}$ 是 MLP 型 PB 编码器。将干扰信息和本用户的 PB 测量拼接后，计算资源块竞争表征：
+
+$$
+\widetilde{\mathbf z}_{u,q'\to q}^{\rm cont}
+=\frac1{Q-1}\sum_{q'\in\mathcal Q\setminus\{q\}}
+\mathcal E_{\rm inter}\!\left(
+\widetilde{\mathbf z}_{u'\to u,q'}^{\rm inter}
+\circledast\mathbf Z_{u,q'}\mid\Theta\right). \tag{32}
+$$
+
+其中 $\circledast$ 表示拼接。两类表征通过资源分配生成器得到连续的资源分配概率：
+
+$$
+\mu_{u,q}=
+\operatorname{Sigmoid}\!\left[
+\mathcal E_{\rm RBA}\left(
+\widetilde{\mathbf z}_{u'\to u,q}^{\rm inter}
+\circledast
+\widetilde{\mathbf z}_{u,q'\to q}^{\rm cont}
+\mid\Theta\right)\right].\tag{33}
+$$
+
+各 RBG 的分配概率组成用户向量
+
+$$
+\boldsymbol\mu_u=[\mu_{u,1},\ldots,\mu_{u,Q}]^T
+\in(0,1)^{Q\times1}. \tag{34}
+$$
+
+用分配概率加权激活 PB 测量后，基站和用户分别由 MLP 输出候选复波束；再跨 RBG 加权求平均，并实施恒模单位功率归一化：
+
+$$
+\begin{aligned}
+\mathbf W'_u
+&=\mathcal E_w^{\rm Re}(\mathbf Z'_u\mid\Theta)
++j\mathcal E_w^{\rm Im}(\mathbf Z'_u\mid\Theta),
+&&\tag{35a}\\
+\mathbf w'_u
+&=\frac{\sum_{q\in\mathcal Q}\mu_{u,q}\mathbf W'_{u,q}}
+{\sum_{q\in\mathcal Q}\mu_{u,q}},\quad
+\mathbf w_u=\frac{\mathbf w'_u}{|\mathbf w'_u|\sqrt{N_t}},
+&&\tag{35b}\\
+\mathbf V'_u
+&=\mathcal E_v^{\rm Re}(\mathbf Z'_u\mid\Theta)
++j\mathcal E_v^{\rm Im}(\mathbf Z'_u\mid\Theta),
+&&\tag{35c}\\
+\mathbf v'_u
+&=\frac{\sum_{q\in\mathcal Q}\mu_{u,q}\mathbf V'_{u,q}}
+{\sum_{q\in\mathcal Q}\mu_{u,q}},\quad
+\mathbf v_u=\frac{\mathbf v'_u}{|\mathbf v'_u|\sqrt{N_r}}.
+&&\tag{35d}
+\end{aligned}
+$$
+
+式（35b）、（35d）中的绝对值按元素计算，从而分别构成发射和接收的恒模向量。
+
+### C. 信道数字孪生驱动的模型优化
+
+仅依靠稀疏历史测量训练 R2BA，难以覆盖当前无线传播的变化；如果增加真实 CSI 采样密度，则会消耗大量无线资源。图 4 给出闭环优化：实际网络周期性采集稀疏 CSI 和位置测量，与信道数字孪生同步；训练好的 P2CGNet 在目标区域 $\Omega^{\rm intent}$ 上生成欠采样或预测位置的虚拟信道集合 $\mathcal H^{\rm intent}$；将其与实测集并成扩增集 $\mathcal H^{\rm aug}=\mathcal H^{\rm samp}\cup\mathcal H^{\rm intent}$；依式（29）生成对应 PB 测量，并在虚拟环境中训练或微调 R2BA；随后将更新后的 R2BA 部署到真实网络。
+
+为处理最低速率需求，原文采用在训练 epoch $e$ 更新惩罚权重 $w^{(e)}$ 的交替优化。首先固定权重训练 R2BA，使
+
+$$
+\max_{\{\mu_{u,q},\mathbf w_u,\mathbf v_u\}}
+\mathbb E_{u\sim\mathcal N_u,\ \mathbf H\sim\mathcal H^{\rm aug},\ \mathbf Z}
+\left[U^\alpha(R_u)-w^{(e)}\Delta_u^{\min}\right],
+\qquad
+\Delta_u^{\min}=[\min(R_0-R_u,0)]^2. \tag{36}
+$$
+
+然后固定当前模型输出，以违反最低速率约束的程度更新权重：
+
+$$
+w^{(e+1)}\gets w^{(e)}
++\varsigma_w\,\mathbb E_{u,\mathbf H,\mathbf Z}
+[\Delta_u^{\max}],\qquad
+\Delta_u^{\max}=[\max(R_0-R_u,0)]^2. \tag{37}
+$$
+
+两阶段交替执行，直至式（8a）的目标收敛。**原文核验提示：** 式（36）采用 $\min(R_0-R_u,0)$，而式（37）采用 $\max(R_0-R_u,0)$；这可能与通常惩罚速率约束违反的直觉不一致。此处严格保留原文写法，未擅自更正，建议后续核对论文勘误或实现代码。
+
+**本轮范围：** 补入第三节条件推断及网络的公式（11）–（28e）、算法 1–2，并补入第四节公式（29）–（37）与闭环训练逻辑。第五节完整结果仍需按图 5–17、表 I 及正文逐项核验，附录 A–C 的全部证明未完成逐式终校。
