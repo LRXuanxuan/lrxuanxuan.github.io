@@ -324,3 +324,325 @@ $$
 **数值实验协议。** 利用 256 条轨迹与 31 个噪声水平估计残差剖面。采用 128 步 Heun 轨迹提供精细参考；通过随机特征 Galerkin 求解近似加权梯度投影。对齐残差方向的小扰动使用相同精细求解器传播，以估计终端传播因子。正文表 1 的 FID 值全部使用 50,000 张生成图像，生成耗时不包含 FID 计算。稠密极限终点实验使用 1024 个匹配样本，表 A.1 使用独立的 5000 样本 FID 测试。
 
 **附录后续缺口：** B–O 节仍含大量解析构造、证明、表格与额外实验，尚未逐段转写和校对，因此本页仍不是完整译本。
+
+
+## 正文逐式补译：第 1–8 节遗漏的定义、定理与长公式
+
+### 1. 引言：数值缺陷与边缘分布误差
+
+扩散模型与流生成器通过数值积分时变速度场进行采样。对于给定密度路径 $p_t$，基准速度场 $v_t$ 满足连续性方程 $\partial_t p_t+\nabla\cdot(p_tv_t)=0$。有限网络求值次数（NFE）下的采样精度，不仅取决于速度模型与求解器的阶数，还取决于在何处使用有限预算。作者将三类设计变量分开：**求解器设计**决定更新公式，**时间网格设计**决定评价速度场的时刻，而**速度代表元设计**决定从生成相同连续边缘密度的不同速度场中，选择哪一个进行离散化。
+
+由于任意满足 $\nabla\cdot(p_tu_t)=0$ 的流场 $u_t$ 均不会改变连续边缘密度，$w=v+u$ 和 $v$ 可生成相同密度路径，但有限步数值映射未必具有相同误差。因此，研究数值轨迹的全部偏差可能高估对最终概率密度真正有影响的误差；有些偏差只使粒子发生旋转或无散度运动，并不在一阶上改变密度。
+
+设 $\Psi_h^w$ 是对 $w$ 进行单步数值更新的映射。若 $r$ 阶方法具有相应的修正方程（modified equation），则局部修正速度场可以展开为
+
+$$
+w_h=w+h^rE_r[w]+O(h^{r+1}).\tag{2}
+$$
+
+其中 $E_r[w]$ 是第一个非零修正微分。令 $P_{\nabla,p_t}$ 为带权 $L^2(p_t)$ 空间投影到梯度场子空间的算子，则单步推前分布的领先阶偏差为
+
+$$
+(\Psi_h^w)_\#p_t-p_{t+h}
+=-h^{r+1}\nabla\cdot(p_tE_r[w])+o(h^{r+1}).\tag{3}
+$$
+
+相应的二阶 Wasserstein 距离满足
+
+$$
+W_2\bigl((\Psi_h^w)_\#p_t,p_{t+h}\bigr)
+=h^{r+1}\|P_{\nabla,p_t}E_r[w]\|_{L^2(p_t)}
++o(h^{r+1}).\tag{4}
+$$
+
+这表明，数值误差中真正引起概率质量重新分布的，是经过带权梯度投影后的修正微分，而非全部轨迹误差。对于 Euler，领先阶修正微分为 $E_1[w]=-a[w]/2$，其中 $a[w]=\partial_tw+\nabla_ww$ 是沿速度场的加速度。
+
+作者据此提出两个相互独立的优化目标。第一个在连续密度路径不变的规范纤维中选择 $w=v+u$，最小化 Euler 的投影加速度；第二个在固定阶数与预算 $N$ 下，选择时间采样密度 $n(t)$，减少传播到终点的边缘密度误差。这不同于只优化终点样本误差的经验时间表搜索，也不同于改变求解器更新公式的高阶采样技术。
+
+### 3. 保持边缘密度不变的规范自由度
+
+分析空间取无边界平坦环面 $\mathbb T^d$、光滑紧致无边界流形，或满足适当衰减条件的 $\mathbb R^d$。假定 $p_t$ 正且归一化，有足够光滑性保障分部积分及后续恒等式成立。对于固定密度，定义螺线型规范类
+
+$$
+\mathcal U_{p_t}=
+\left\{u\in L^2(p_t):
+\int p_t\langle u,\nabla\varphi\rangle\,dx=0,\quad
+\forall\varphi\in\mathcal T\right\}.\tag{5}
+$$
+
+对于光滑流场，该条件等价于分布意义下的 $\nabla\cdot(p_tu)=0$。若 $v_t$ 已满足连续性方程，则任何 $u_t\in\mathcal U_{p_t}$ 都使 $w_t=v_t+u_t$ 满足同一方程：
+
+$$
+\partial_t p_t+\nabla\cdot(p_tw_t)=0.\tag{6}
+$$
+
+这是命题 1 的规范不变性，其证明直接来自散度算子的线性性。在标准衰减假设下，一维情况中 $\partial_x(p_tu_t)=0$ 推出 $p_tu_t=c(t)$，再由边界条件得到 $c(t)=0$；因此，非平凡规范优化本质上需要多维空间。
+
+### 4. 求解器感知的密度缺陷
+
+**定义 2（首个修正方程微分）。** 如果阶数为 $r$ 的方法在允许速度场类 $\mathcal A$ 上满足
+
+$$
+w_h=w+h^rE_r[w]+h^{r+1}\rho_h[w],\qquad
+\sup_{w\in\mathcal A,\ h\lt h_0}
+\|\rho_h[w]\|_{C_x^1}\lt\infty, \tag{7}
+$$
+
+则称其具有首个修正微分 $E_r[w]$。**定理 1**表明，这个修正方程对目标密度路径的连续性方程造成如下密度缺陷：
+
+$$
+\partial_t p_t+\nabla\cdot(p_tw_h)
+=h^r\nabla\cdot(p_tE_r[w])+O(h^{r+1}).\tag{8}
+$$
+
+对于单步更新，将速度扰动在长度 $h$ 的区间积分，即得到式（3）或原文式（9）。Euler 情形中，精确解展开为
+
+$$
+x(t+h)=x+hw_t(x)+\frac{h^2}{2}a[w](x,t)+O(h^3),\qquad
+a[w]=\partial_tw+\nabla_ww.
+$$
+
+因此，Euler 的修正速度场为
+
+$$
+E_1[w]=-\frac12a[w],\qquad
+w_h=w-\frac h2a[w]+O(h^2). \tag{10}
+$$
+
+密度缺陷专门化为
+
+$$
+\partial_t p_t+\nabla\cdot(p_tw_h)
+=-\frac h2\nabla\cdot(p_ta[w])+O(h^2). \tag{11}
+$$
+
+对于 midpoint 或 Heun 二阶方法，首个非零微分为 $E_2[w]$，在修正速度中以 $h^2$ 的量级出现。
+
+### 5. Wasserstein 几何与边缘密度有效误差
+
+在 $L^2(p_t)$ 上定义内积 $\langle r,s\rangle_{p_t}=\int p_t\langle r,s\rangle dx$，记梯度场的闭包为 $\mathcal G_{p_t}$。由规范的定义，可将流场正交分解为
+
+$$
+L^2(p_t)=\mathcal G_{p_t}\oplus\mathcal U_{p_t}. \tag{12}
+$$
+
+投影 $P_{\nabla,p_t}z=\nabla\varphi$ 的弱形式为
+
+$$
+\int p_t\langle\nabla\varphi,\nabla\psi\rangle dx
+=\int p_t\langle z,\nabla\psi\rangle dx, \tag{13}
+$$
+
+对应带权 Poisson 方程
+
+$$
+\nabla\cdot(p_t\nabla\varphi)=\nabla\cdot(p_tz). \tag{14}
+$$
+
+**定义 3（带权负 Sobolev 范数）。** 对均值为零的分布 $f$，定义
+
+$$
+\|f\|_{\dot H^{-1}(p_t)}
+=\sup_{\|\nabla\psi\|_{L^2(p_t)}\le1}
+\langle f,\psi\rangle. \tag{15}
+$$
+
+**命题 2** 说明：把任意向量场 $z$ 的螺线分量去掉，不改变密度散度；且散度的负 Sobolev 范数恰好等于其梯度投影的 $L^2(p_t)$ 范数。因而自然定义求解器感知的局部残差
+
+$$
+R_r[w](t)=\|P_{\nabla,p_t}E_r[w]\|_{L^2(p_t)}
+=\|\nabla\cdot(p_tE_r[w])\|_{\dot H^{-1}(p_t)}. \tag{17}
+$$
+
+**定理 2** 在附录 H 的正则 Wasserstein 坐标和一致性条件下给出
+
+$$
+W_2\bigl((\Psi_h^w)_\#p_t,p_{t+h}\bigr)
+=h^{r+1}R_r[w](t)+o(h^{r+1}). \tag{18}
+$$
+
+对 Euler，这相当于
+
+$$
+W_2\bigl((\mathrm{Id}+hw_t)_\#p_t,p_{t+h}\bigr)
+=\frac{h^2}{2}
+\|P_{\nabla,p_t}a[w]\|_{L^2(p_t)}+o(h^2). \tag{19}
+$$
+
+因此，基于固定求解器选取规范代表元的目标函数为
+
+$$
+B_r(w)=\frac12\int_0^1R_r[w](t)^2\,dt, \tag{20}
+$$
+
+而 Euler 情形定义
+
+$$
+B(w)=\frac12\int_0^1
+\|P_{\nabla,p_t}a[w]\|_{L^2(p_t)}^2dt,\qquad
+B_1(w)=B(w)/4. \tag{21}
+$$
+
+这不是对粒子轨迹曲率的简单惩罚。具有很大螺线分量的修正误差可能改变轨迹，却未必在领先阶改变边缘密度。
+
+### 6. 时间步长分配及误差传播
+
+考虑时刻 $t$ 的密度扰动传播到终点时，输运演化算子 $U_w(1,t)$ 在合适的源/目标空间上满足
+
+$$
+\|U_w(1,t)f\|_X\le K(1,t)\|f\|_Y. \tag{22}
+$$
+
+其中 $K(1,t)$ 是终端误差放大因子。**定理 3** 在可微性和修正方程条件下，将终端数值密度误差控制为
+
+$$
+\|p_1^{\rm num}-p_1\|_X
+\le\int_0^1K(1,t)\,h(t)^r\,
+\|\nabla\cdot(p_tE_r[w])\|_Y\,dt
++O(\|h\|_\infty^{r+1}). \tag{23}
+$$
+
+对于规范负 Sobolev 源空间 $Y=\dot H^{-1}(p_t)$，积分中的残差就是 $R_r(t)$。设 $W_r(t)=K(1,t)R_r(t)$，时间节点密度为 $n(t)$，使单位时间区间中有约 $n(t)\,dt$ 个步长，则 $h(t)\simeq n(t)^{-1}$；待最小化的首阶代理目标及预算约束为
+
+$$
+J_r[n]=\int_0^1W_r(t)n(t)^{-r}\,dt,\qquad
+\int_0^1n(t)\,dt=N. \tag{24}
+$$
+
+**定理 4（任意求解器阶数的时间分配）。** 对一般指数 $q>0$、正权重 $W(t)$，设 $\alpha=1/(q+1)$ 和 $Z=\int_0^1W(s)^\alpha ds$，最优节点密度为
+
+$$
+n^\star(t)=\frac{NW(t)^\alpha}{Z}. \tag{25}
+$$
+
+对任意 $N$ 步时间网格 $\pi=\{0=t_0\lt\cdots\lt t_N=1\}$，定义有限 $N$ 代理目标
+
+$$
+S_q(\pi)=\sum_{k=0}^{N-1}
+\left(\int_{t_k}^{t_{k+1}}W(t)^\alpha\,dt\right)^{q+1}. \tag{26}
+$$
+
+严格凸性给出
+
+$$
+S_q(\pi)\ge\frac{Z^{q+1}}{N^q}, \tag{27}
+$$
+
+且当所有分割区间具有相等的 $W^\alpha$ 质量时取等号：
+
+$$
+\int_0^{t_k}W(t)^\alpha dt=\frac{kZ}{N}. \tag{28}
+$$
+
+这里的有限 $N$ 精确最优性属于**已定义的代理目标 $S_q$**，不意味着该网格也精确最小化所有非线性终端误差。取 $q=r$，即得
+
+$$
+n^\star(t)\propto[K(1,t)R_r(t)]^{1/(r+1)}. \tag{29}
+$$
+
+因此 Euler、二阶、三阶方法分别使用 $1/2$、$1/3$、$1/4$ 次方；但仍需估计相应求解器的首个非零修正误差及传播因子。
+
+#### 6.1 误差剖面估计不准确时的退化
+
+若实际使用错误剖面 $\widetilde W(t)$ 构建时间表，令
+
+$$
+\rho(t)=\frac{W(t)^\alpha}{Z},\qquad
+\widehat\rho(t)=\frac{\widetilde W(t)^\alpha}{\widetilde Z},
+\quad \widetilde Z=\int_0^1\widetilde W(s)^\alpha ds. \tag{30}
+$$
+
+**定理 5（精确退化恒等式）** 证明，基于 $\widehat n=N\widehat\rho$ 得到的代理目标相对于最优值的比例为
+
+$$
+\frac{J_q^W[\widehat n]}{J_q^W[n^\star]}
+=\int_0^1\rho(t)^{q+1}\widehat\rho(t)^{-q}\,dt
+=\exp\!\bigl(qD_{q+1}(\rho\|\widehat\rho)\bigr). \tag{31}
+$$
+
+其中 $D_{q+1}$ 为 Rényi 散度。Euler 时 $q=1$，退化比例可精确表示为
+
+$$
+\frac{J_1^W[\widehat n]}{J_1^W[n^\star]}
+=1+\chi^2(\rho\|\widehat\rho). \tag{32}
+$$
+
+这说明影响时间表效果的关键是**归一化分配密度**是否匹配，而不是残差整体缩放量。受控 Euler 实验另使用得分–散度代理
+
+$$
+\widehat R_{\rm dens}(t)
+=\|p_t^{-1}\nabla\cdot(p_ta[w])\|_{L^2(p_t)}, \tag{33}
+$$
+
+在带权 Poincaré 条件下，该量可以上界控制相关几何量，但不与真正的 Wasserstein 投影残差完全相同。
+
+### 7. 规范代表元优化与离散极限
+
+Euler 的代表元优化问题为
+
+$$
+\min_{u\in\mathcal U_p}B(v+u),\qquad
+B(w)=\frac12\int_0^1\|P_{\nabla,p_t}a[w]\|_{L^2(p_t)}^2dt.
+\tag{34}
+$$
+
+可行方向是环境梯度的螺线投影，这使优化过程始终留在生成同一密度路径的速度场纤维中。为证明连续目标并非纯粹的启发式，把时间网格 $\pi$ 上的离散 Euler 单步 Wasserstein 误差构造为
+
+$$
+B_\pi(w)
+=\sum_{k=0}^{N-1}\frac{2}{h_k^3}
+W_2^2\Bigl(
+(\mathrm{Id}+h_kw_{t_k})_\#p_{t_k},\
+p_{t_{k+1}}
+\Bigr),
+\quad h_k=t_{k+1}-t_k. \tag{35}
+$$
+
+**定理 6（离散 Euler 规范目标的 Γ 极限）。** 假设允许集合 $\mathcal A\subset v+\mathcal U_p$ 在拓扑 $\tau$ 下紧致、局部 Wasserstein 展开在该集合上一致、余项有统一界且投影加速度的平方范数关于时间具有统一 Lipschitz 连续性，则
+
+$$
+\sup_{w\in\mathcal A}|B_\pi(w)-B(w)|
+\le C|\pi|\longrightarrow0. \tag{36}
+$$
+
+因此，$B_\pi$ 在 $\tau$ 下 Γ-收敛于 $B$；任何收敛的离散最小值解序列，其极限都是连续目标的最小值解。对于非紧致允许类，适当的正则项可保证等强制性并得到类似结论。
+
+对于高斯路径 $p_t=\mathcal N(0,\Sigma_t)$ 和线性速度 $w_t(x)=B_tx$，满足连续密度传输的条件以及领先阶 Euler 偏差为零的条件，分别化为两个矩阵方程：
+
+$$
+B_t\Sigma_t+\Sigma_t B_t^{\top}=\dot\Sigma_t,\qquad
+2B_t\Sigma_tB_t^{\top}=\ddot\Sigma_t. \tag{37}
+$$
+
+若 $\Sigma_t=s(t)^2I_d$，所有可行线性代表元具有 $B_t=(\dot s/s)I_d+A_t$ 的形式，其中 $A_t^\top=-A_t$；消除领先阶偏差要求
+
+$$
+A_t^2=-\frac{\ddot s(t)}{s(t)}I_d. \tag{38}
+$$
+
+当 $\ddot s/s>0$ 且维数为偶数时，可选满足 $J^\top=-J$、$J^2=-I$ 的旋转生成元，使非梯度速度代表元消除 Euler 的领先阶协方差偏差，单步 Wasserstein 误差从 $O(h^2)$ 改善到 $O(h^3)$。相反，经典最小动能梯度代表元不一定拥有最小 Euler 离散误差。这揭示了连续最优输运与有限步数值最优性之间的区别。
+
+### 8. CIFAR-10 EDM 中的固定 Euler 预算验证
+
+预训练 EDM 概率流 ODE 用噪声变量 $\sigma$ 表示：
+
+$$
+\frac{dx}{d\sigma}
+=f_\sigma(x)=\frac{x-D_\theta(x,\sigma)}{\sigma}.
+$$
+
+离线估计 Euler 修正微分、将其投影到随机特征 Wasserstein 梯度子空间、通过经验终端传播系数加权，再对平方根密度取分位点以确定步长。所有 Euler 方法在相同网络、更新公式、随机种子与 NFE 下进行比较。
+
+**表 1：预训练 CIFAR-10 EDM，FID-50k / 生成时间。**
+
+| 方法 | 8 NFE | 16 NFE | 20 NFE | 35 NFE |
+|---|---|---|---|---|
+| Euler/Ours | 16.4420 / 441.8 s | 6.9354 / 867.7 s | 5.5274 / 1084.0 s | 3.5285 / 1884.6 s |
+| Euler/log-$\sigma$ | 21.6984 / 442.2 s | 7.6153 / 867.4 s | 5.8316 / 1084.3 s | 3.5154 / 1884.7 s |
+| Euler/EDM-$\rho$ | 22.2181 / 441.8 s | 8.1022 / 867.2 s | 6.2264 / 1082.5 s | 3.7318 / 1885.4 s |
+| DPM++ | 8.0429 / 456.8 s | 2.6684 / 895.6 s | 2.3117 / 1114.4 s | 2.0205 / 1939.6 s |
+| EDM Heun | — | — | — | 1.8486 / 1901.2 s |
+
+表内生成时间不包括计算 FID 的耗时。作者指出：所提时间表在 8、16、20 NFE 下比 Euler/log-$\sigma$ 更优，35 NFE 时这一优势基本消失；DPM++、Heun 的较低 FID 则来自更高阶更新，与同一个 Euler 更新下的步长位置优化属于不同设计变量。附录 A 的密集网格实验进一步说明，所提方法只是更快接近同一个高 NFE Euler 极限，而不是改变渐近采样器。
+
+**说明：** 此次集中补齐正文定义、理论结果与公式（2）–（38）中原先缺失的部分，以及表 1 的完整数值。附录 B–O 中的推导、实现协议与长证明依然需要逐式处理，本页面尚非经全附录验收的完整译本。
