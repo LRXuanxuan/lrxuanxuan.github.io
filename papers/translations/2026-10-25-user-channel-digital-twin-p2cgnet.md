@@ -102,7 +102,7 @@ $$
 $$
 U^\alpha(x)=
 \begin{cases}
-(1-\alpha)^{-1}x^{1-\alpha}, & 0\le\alpha<1,\\
+(1-\alpha)^{-1}x^{1-\alpha}, & 0\le\alpha\lt 1,\\
 \log x, & \alpha=1.
 \end{cases} \tag{7}
 $$
@@ -251,7 +251,7 @@ $$
 $$
 U^\alpha(x)=
 \begin{cases}
-\dfrac{x^{1-\alpha}}{1-\alpha},&0\le\alpha<1,\\
+\dfrac{x^{1-\alpha}}{1-\alpha},&0\le\alpha\lt 1,\\
 \log x,&\alpha=1.
 \end{cases}\tag{7}
 $$
