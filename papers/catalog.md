@@ -122,6 +122,36 @@ toc: true
 
 ## 推荐论文
 
+### 2026-10-25 · [Generative AI-Empowered User-Specific Channel Digital Twin for Efficient Wireless Optimization](/papers/items/e9968b52681439f5/)
+
+作为已正式发表的位置条件生成/下游决策参照，用于设计生成误差、观测预算和实际谱效率分开报告的基线。
+
+[本篇日报](/papers/items/e9968b52681439f5/#paper-report)
+
+### 2026-10-25 · [Digital Twin Channel-Based mmWave Spatial Propagation Characteristics Prediction in 6G Multi-Band Communication Systems](/papers/items/e519698d9bbac949/)
+
+当前数据档案需要区分GCS路径方向、动态状态与设备阵列投影；其表示思路可启发条件模块，但没有全模态城市监督时只能用可获得模态做受控实验。
+
+[本篇日报](/papers/items/e519698d9bbac949/#paper-report)
+
+### 2026-10-25 · [VaN3Twin: The Multi-Technology V2X Digital Twin With Ray Tracing in the Loop](/papers/items/52a9d05cd84ac7c2/)
+
+直接服务当前Python/Sionna RT/HDF5数据规划，可借鉴运动同步和缓存接口，但应先做单/双径相干相位QA再采用缓存。
+
+[本篇日报](/papers/items/52a9d05cd84ac7c2/#paper-report)
+
+### 2026-10-25 · [Density-Level Backward Error for Low-NFE Generative Flows](/papers/items/8bc3053c71b66352/)
+
+现有KAP已有运行时间审计，最适合检验固定NFE与真实延迟下是否有收益；弱收益或离线成本太高也应保留。
+
+[本篇日报](/papers/items/8bc3053c71b66352/#paper-report)
+
+### 2026-10-25 · [Velocity Ambiguity Profiles: Time-Resolved Bayes-Risk Diagnostics for Flow Matching](/papers/items/ddbaca3c821d5664/)
+
+当前地图有限精度和缺失模态实验需要先判断条件信息不足还是训练不足；可以先在解析混合信道上验证诊断，再决定是否改变训练采样。
+
+[本篇日报](/papers/items/ddbaca3c821d5664/#paper-report)
+
 ### 2026-10-24 · [Hybrid Beamforming Optimization for Near-Field Terahertz Multi-User System With FTTDs](/papers/items/98ee8147d0091bcb/)
 
 用实际可控制的模拟/数字自由度定义预测目标B*，检验全信道恢复是否必要，衔接目标可预测性研究。
