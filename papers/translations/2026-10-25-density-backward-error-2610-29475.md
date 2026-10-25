@@ -108,7 +108,7 @@ $$
 
 $$
 w_h=w+h^rE_r[w]+h^{r+1}\rho_h[w],\qquad
-\sup_{w\in\mathcal A,\;h<h_0}\|\rho_h[w]\|_{C_x^1}<\infty, \tag{7}
+\sup_{w\in\mathcal A,\;h\lt h_0}\|\rho_h[w]\|_{C_x^1}<\infty, \tag{7}
 $$
 
 则称 $E_r[w]$ 为该方法的首个修正方程微分项。
