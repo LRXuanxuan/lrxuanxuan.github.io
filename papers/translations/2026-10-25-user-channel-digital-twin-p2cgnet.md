@@ -637,3 +637,159 @@ $$
 两阶段交替执行，直至式（8a）的目标收敛。**原文核验提示：** 式（36）采用 $\min(R_0-R_u,0)$，而式（37）采用 $\max(R_0-R_u,0)$；这可能与通常惩罚速率约束违反的直觉不一致。此处严格保留原文写法，未擅自更正，建议后续核对论文勘误或实现代码。
 
 **本轮范围：** 补入第三节条件推断及网络的公式（11）–（28e）、算法 1–2，并补入第四节公式（29）–（37）与闭环训练逻辑。第五节完整结果仍需按图 5–17、表 I 及正文逐项核验，附录 A–C 的全部证明未完成逐式终校。
+
+
+## 正文补译：V. 仿真结果与实验验证（原文第 9–14 页）
+
+### A. 仿真场景
+
+图 5 给出了仿真环境。作者采用开源 Sionna 射线追踪库构建具有多栋建筑的频率选择性衰落场景，并在不同区域随机布置用户位置，分别用于信道生成和下游资源优化。除非另外说明，每个物理资源块 PRB 含 $k_0=12$ 个子载波，每个子载波间隔为 60 kHz；135 个 PRB 被划分为 $Q=27$ 个资源块组 RBG，每组有 $q_0=5$ 个 PRB。实验运行于 Intel Core i7-13700K 和 NVIDIA GeForce RTX 4080 SUPER 工作站。其他通信系统配置列于原文表 I。
+
+### B. P2CGNet 信道生成性能
+
+作者从定量误差、生成可视化和推理时间三个方面比较不同信道生成方法。基线包括：取最近五个邻居的反距离加权插值 IDW-inter.；使用 12 近邻和线性核的径向基函数插值 RBF-inter.；可获得精确三维场景模型时的射线追踪；基于 U-Net 的条件 GAN（Chan-cGAN）；采用 U-Net 得分估计器的条件 DDIM（Chan-cDDIM）；以及本文采用 Transformer、无分类器引导和子信道 patch 的 P2CGNet。
+
+主要评价指标为信道归一化均方误差（NMSE，单位 dB）：
+
+$$
+\operatorname{NMSE}
+=10\log_{10}\!\left[
+\mathbb E_{x\sim\Omega,\ q\sim\mathcal Q}
+\left(\frac{\|\mathbf H'_{x,q}-\mathbf H_{x,q}\|_2^2}
+{\|\mathbf H_{x,q}\|_2^2}\right)
+\right]. \tag{38}
+$$
+
+其中 $\mathbf H'_{x,q}$ 是生成信道，$\mathbf H_{x,q}$ 是真实信道。作者以学习率 $10^{-4}$、批大小 256 训练 Chan-cDDIM 和 P2CGNet。对 P2CGNet，采用两个 Transformer 块，patch 尺寸 $2\times2$、训练噪声步数 $T=256$、条件屏蔽门限 $p_{\rm th}=0.1$。
+
+**图 6：训练收敛。** 以 1000 个位置的信道数据训练 P2CGNet，不同天线阵列架构下均能在约 7000 个 epoch 内稳定收敛。
+
+**图 7：去噪步数对 NMSE 与时延的影响。** 虽然 Chan-cDDIM 采用隐式扩散采样，但 U-Net 难以充分捕获高维信道、位置和频率偏移间的联合统计关系，因此减少去噪步数时噪声估计不稳定。P2CGNet 在减小步数时反而可以改善 NMSE，作者认为这是因为减少了多次迭代的噪声估计误差累积。后续实验默认 Chan-cDDIM 使用 $S=256$ 步，而 P2CGNet 使用 **$S=3$ 步**。
+
+**图 8：引导系数、patch 尺寸及骨干网络消融。** 对 1000 个训练样本、$4\times32$ 天线设置，最优性能出现在 $\lambda=0.8$ 和 $2\times2$ patch。相较只使用条件得分的 $\lambda=1$，适度融合无条件先验改善了信道生成；引导过弱或过强均有损稳定性。采用 Transformer 的 P2CGNet 在最佳设置下相对 Chan-cDDIM 取得约 **1.4 dB 的 NMSE 优势**，说明网络主干与合理 patch 划分共同起作用。
+
+**图 9：训练采样密度、天线规模与载频变化。** 两种经典空间插值方法表现较差；P2CGNet 在所测试设置中取得较好的 NMSE 和数据效率。随位置采样密度提高，各种方法的 NMSE 均下降。固定采样位置数为 1000 时，随载频增加的 NMSE 变化较平缓。在 ULA 和 UPA 两种阵列下，P2CGNet 均优于相应基线。不过 ULA 规模扩大时，其 NMSE 也出现下降趋势；作者将其归因于 0.5 m 天线间距削弱相关性，使只以基站中心位置作为条件的生成方式难以捕获所有天线相关变化。Chan-cDDIM 的 NMSE 随天线尺寸增大则出现明显恶化。
+
+**图 10：三组随机生成信道的可视化。** 在 5000 个训练样本下，P2CGNet 在天线域幅度及与真实信道的一致性方面均优于所比较的两种深度生成基线。Chan-cGAN 的 NMSE 可能接近其他方法，但其空间结构一致性较差，故后续不再把它作为主要基线。
+
+**图 11：频率插值和定位误差。** 在剩余 108 个 PRB 上进行 RBG 级别插值，P2CGNet 的 NMSE 接近已训练资源块上的表现，Chan-cDDIM 则明显退化。随位置误差增大，两者性能均下降，但 P2CGNet 在误差不超过约 2 m 时仍能保持可接受的生成性能。
+
+**表 II、表 III：复杂度与推理时延。** 在所测最大 $8\times128$ 天线阵列中，相比 Chan-cDDIM，P2CGNet 将 FLOPs、训练时间和训练 GPU 显存分别降低 **58.9%、78.0%、83.3%**。推理所需 CPU 内存略高，但差异不大。每信道的推理时延约 **1–3 ms**，与轻量 IDW 插值处于相近量级；Chan-cDDIM 与传统射线追踪随着阵列规模增加，推理时延上升更快。
+
+### C. 不同场景的泛化验证
+
+作者还在四个更接近真实部署的场景中验证：图 12 的两组射线追踪三维场景（etoile、munich）以及两组实际测量场景（Outdoor、Indoor）。四个场景基站高度依次为 50 m、50 m、10.09 m、1.42 m。室外和室内实测场景分别包含 983 和 1200 个测量位置。只有在具备三维场景模型的情况下，才能公平地应用射线追踪基线；对于实测数据中的载波相位误差、采样时钟偏差、用户朝向未知等校准困难，采用天线域幅度计算 NMSE。
+
+图 13 表明，P2CGNet 在四个场景中整体表现出较好的数据效率和 NMSE。etoile、munich 等覆盖面积较大的场景，位置到信道映射需要更高的空间测量密度；Outdoor、Indoor 等实际测量场景虽然覆盖范围较小，其他方法仍可能因测量不确定性和空间相关性降低而受限。在具有较为准确三维模型的 Indoor 场景中，射线追踪结果可以接近 Chan-cGAN；而在 Outdoor 场景，仅有建筑物的三维模型不足以生成准确的实测信道，体现了数据驱动模型在缺少完整场景模型时的适用价值。
+
+### D. 下游 R2BA 的端到端效果
+
+下游优化采用 15 个活动用户、27 个 RBG，基本速率要求 $R_0=5$ Mbps。学习方法以批大小 100 训练，R2BA 学习率 $10^{-4}$，比例公平参数 $\alpha=1$，动态罚系数更新率 $\varsigma_w$ 从 $\{0.1,0.01,0.001\}$ 中选取，初始罚系数 $w_0=1$。比较方法包括：使用完整 CSI 的迭代加权最小均方误差（WMMSE）；只用 MLP 合成波束的 MBA-FRB；联合 MLP 波束对准与分组的 MBA-MRB；本文图网络结构的 R2BA；以及用 CDL-C、Chan-cDDIM、P2CGNet 生成数据增强的 R2BA-Syn.-0、R2BA-Syn.-1、R2BA-Syn.-2。
+
+图 14 给出探测波束对数变化时的用户总数据率与速率要求违反情况。学习方法总体随 PB 对数增加而改善，但超过约 14 对后收益减少。PB 角分辨率较低、对数少于 16 时，纯 MLP 的 RBGA 难以刻画多用户间的同资源块干扰，MBA-MRB 可能反而差于不进行该类分组的 MBA-FRB。利用两级图网络推断用户级干扰与 RBG 竞争的 R2BA 表现更好。使用 P2CGNet 合成数据增强的 R2BA-Syn.-2 在不同 PB 对数下均优于使用 Chan-cDDIM 和 CDL-C 增强的版本；相比未增强的 R2BA，平均总数据率提升 **10.08%（约 900 Mbps）**，而 Chan-cDDIM 增强版本平均提升 3.26%（约 315 Mbps）。
+
+图 15 将生成信道转换到功率时延谱（PDP）、到达角（AoA）和出发角（AoD）分布进行对照。标准化 CDL-C 与该场景的实际分布差异较大，导致合成数据误导下游模型训练；Chan-cDDIM 与 P2CGNet 的统计分布更接近真实信道。不过 P2CGNet 的 PDP 仍有明显完善空间，说明时延域的生成保真度仍需改进。
+
+图 16 使用 Jain 公平性指数（JFI）评估用户公平程度，定义为
+
+$$
+\operatorname{JFI}
+=\frac{(\sum_{u=1}^{N_u}a_u)^2}{N_u\sum_{u=1}^{N_u}a_u^2},
+\qquad a_u=U^\alpha(R_u).
+$$
+
+WMMSE 的 JFI 较差，其余学习方法在速率效用上的公平性接近理想值，而直接按用户速率计算的公平性仍有限。最大化对数效用倾向在保障弱用户速率的同时，使具有更好信道的用户进一步获得更高数据率；如果希望更均衡，可以对每用户分配的 RBG 数量增加上界，或引入功率分配，但这些问题超出本文范围。
+
+**数字孪生同步过期实验（图 17）。** 15 个用户以 2 m/s 在区域内随机移动，28 GHz 下理论相干时间约 2.27 ms；实际 RBG 与波束分配每 10 ms 更新一次。孪生与真实网络之间的测量同步间隔设为 $t_{\rm sync}\in\{100,200,300,400,800\}$ ms，使用 16 对 PB。每次同步后，数字孪生根据真实测量校准，使用简单线性回归估计各用户短期运动趋势，并在一个同步区间中并行合成 $\lfloor t_{\rm sync}/t_{\rm allc}\rfloor$ 组信道，用于 R2BA 的在线微调。信道孪生校准及模型优化与真实网络异步进行；文中端到端延迟约为 19.90 ms，系统测试运行 40 s。
+
+图 17a 表明，R2BA-Syn.-2 的信道 NMSE 始终比 R2BA-Syn.-1 低约 3.3–3.4 dB，说明 P2CGNet 生成的虚拟信道更忠实；相比之下，低维 PB 增益 NMSE 的变化较小。图 17b 中，R2BA-Syn.-2 的平均总速率比 R2BA-Syn.-1、R2BA 和 WMMSE 分别提高约 6.0%、10.6%、35.8%。当同步间隔拉长至 800 ms，其总速率仍为 **9120.8 Mbps**，分别高于上述三种基线 6.2%、14.2%、20.2%。图 17c 中，R2BA-Syn.-2 的速率违背率接近零，而 R2BA-Syn.-1 在 800 ms 时上升至 0.0025。该实验说明，及时更新与更准确的生成模型能够缓解数字孪生的信道陈旧问题，但并不意味着已显式学习连续时变多径。
+
+## 附录 A–C：论证结构与长公式补录
+
+### 附录 A：命题 1 的证明
+
+令条件与无条件估计得分之差为
+
+$$
+\Delta_\epsilon(x,q,t)=
+\epsilon_\theta(\widetilde{\mathbf H}_{x,q}^{t},x,q,t)
+-\epsilon_\theta(\widetilde{\mathbf H}_{x,q}^{t},t).
+$$
+
+无分类器引导得分可重写为
+
+$$
+\mathbf G_{x,q}^{t}
+=\epsilon_\theta(\widetilde{\mathbf H}_{x,q}^{t},t)
++\lambda\Delta_\epsilon(x,q,t). \tag{39}
+$$
+
+作者将无条件噪声得分估计器近似看作无偏，即其期望接近总体波束域分布的得分。由此定义
+
+$$
+\operatorname{MSE}_{\rm CF}(\lambda)
+=\mathbb E_{(x,q)\sim\mathcal H^{\rm unsee}}
+\left[\|\mathbf G_{x,q}^{t}-\widetilde{\mathbf G}_{x,q}^{t}\|_2^2\right].\tag{41}
+$$
+
+结合式（17）和式（39），可将最小二乘目标转换为
+
+$$
+\operatorname{MSE}_{\rm CF}(\lambda)
+=\mathbb E_{(x,q)\sim\mathcal H^{\rm unsee}}
+\left[\|\lambda\Delta_\epsilon(x,q,t)
+-\widetilde{\mathbf G}_{x,q}^{t,0}\|_2^2\right].\tag{42}
+$$
+
+其中 $\operatorname{MSE}_{\rm Cond}=\operatorname{MSE}_{\rm CF}(1)$。右侧关于 $\lambda$ 是凸二次函数，只要 $\mathbb E\|\Delta_\epsilon\|^2>0$，便可以选取最优系数，其误差不会高于固定 $\lambda=1$ 的结果。需要强调：该存在性结论并不证明任意选取的 $\lambda$ 都优于条件网络。
+
+### 附录 B：定理 1 的证明
+
+作者考虑不额外注入随机噪声的去噪联合分布：
+
+$$
+p(\widetilde{\mathbf H}^{1:T}\mid\widetilde{\mathbf H}^{0})
+=p(\widetilde{\mathbf H}^{T}\mid\widetilde{\mathbf H}^{0})
+\prod_{t=2}^{T}
+p(\widetilde{\mathbf H}^{t-1}\mid
+\widetilde{\mathbf H}^{t},\widetilde{\mathbf H}^{0}).\tag{43}
+$$
+
+其中 $\widetilde{\mathbf H}^{T}\mid\widetilde{\mathbf H}^{0}$
+服从均值为 $\sqrt{\bar\nu_T}\widetilde{\mathbf H}^0$、协方差为 $(1-\bar\nu_T)I$ 的高斯分布。对 $t>1$，给出确定性条件高斯转移（零方差）：
+
+$$
+p(\widetilde{\mathbf H}^{t-1}\mid
+\widetilde{\mathbf H}^{t},\widetilde{\mathbf H}^{0})
+=\mathcal N\!\left(
+\vartheta_0\widetilde{\mathbf H}^{0}
++\vartheta_t\widetilde{\mathbf H}^{t},0
+\right). \tag{44}
+$$
+
+在前向边缘分布保持不变时，训练目标只依赖 $p(\widetilde{\mathbf H}^{t}\mid\widetilde{\mathbf H}^{0})$，因而推理可以选择比训练时刻更稀疏的子序列，而不需要重新训练。使用得分预测干净信道，再代回零方差条件转移，即得到正文式（23）的跳步递推。子序列末端 $\varrho_S$ 应足够接近 $T$，以便初始先验近似标准高斯噪声。
+
+### 附录 C：命题 2 的证明
+
+由于 cDDIM 的跳步递推是线性的，执行 $S$ 步后，输出可表示为初始噪声与每个时刻得分的线性组合：
+
+$$
+\widetilde{\mathbf H}_{x,q}^{0}
+=\eta\,\widetilde{\mathbf H}_{x,q}^{T}
++\sum_{s=1}^{S}\widetilde\gamma_{\varrho_s}
+\bigl(\widetilde{\mathbf G}_{x,q}^{\varrho_s}
++\Delta_{x,q}^{\varrho_s}\bigr), \tag{46}
+$$
+
+其中 $\Delta_{x,q}^{\varrho_s}=\mathbf G_{x,q}^{\varrho_s}-\widetilde{\mathbf G}_{x,q}^{\varrho_s}$ 为噪声得分估计误差，系数 $\eta$ 和 $\widetilde\gamma_{\varrho_s}$ 由固定噪声调度决定。累计误差为 $\Delta_{x,q}=\sum_s\widetilde\gamma_{\varrho_s}\Delta_{x,q}^{\varrho_s}$。利用三角不等式，
+
+$$
+\mathbb E\|\Delta_{x,q}\|
+\le \sum_{s=1}^{S}
+|\widetilde\gamma_{\varrho_s}|\,
+\mathbb E\|\Delta_{x,q}^{\varrho_s}\|. \tag{47}
+$$
+
+因此，当被选中的每个时刻均具有足够小的得分估计误差时，累计误差可以得到控制；反之，仅减少步数本身不能保证生成质量。对于不同的去噪步数 $S$，结论均需结合所选时刻的得分误差分析。
+
+**校对范围：** 第五节的主要实验段落、图 5–17 所陈述的趋势和关键定量结果已补入；附录 A–C 补录了主要长公式与证明思路。但表 I–V 的逐项数据复刻、附录式（40）、（45）的符号细节及完整参考文献仍未通过逐项终校。
