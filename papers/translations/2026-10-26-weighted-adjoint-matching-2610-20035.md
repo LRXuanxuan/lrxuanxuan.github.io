@@ -141,8 +141,12 @@ X_0\sim\mathcal N(0,I).\tag{6}
 \]
 可将其转换为具有相同时间边缘分布的 SDE：
 \[
-dX_t=\mathbf b^\gamma(X_t,t)\,dt
-+\gamma(t)\,dB_t,\tag{7}
+
+dX_t=b^\gamma(X_t,t)\,dt+\gamma(t)dB_t,\quad
+b^\gamma(x,t)=v(x,t)+\frac{\gamma(t)^2}{2}
+\nabla\log p_t(x).
+\tag{7}
+
 \]
 其中
 \[
@@ -198,16 +202,18 @@ p^{\rm base}(X_{[0,t]}\mid X_0)\right).\tag{13}
 \]
 **命题 1**：加权 SOC 问题等价于在固定初态的条件下最大化
 \[
+
 \begin{aligned}
-\mathbb E_{X_0\sim p_0}\Bigl[
+\max_{u\in\mathcal U}\;
+\mathbb E_{X_0\sim p_0}\Big[
 &a\,\mathbb E_{X^u\sim p^u(\cdot\mid X_0)}
 [r(X_1^u)]\\
-&-w(1)\,
-D_{\rm KL}\bigl(p^u(X\mid X_0)\Vert
-p^{\rm base}(X\mid X_0)\bigr)\\
-&+\int_0^1K_t(X_0)\,dw(t)
-\Bigr].\tag{14}
-\end{aligned}
+&-w(1)D_{\rm KL}
+\big(p^u(X\mid X_0)\Vert p^{\rm base}(X\mid X_0)\big)\\
+&+\int_0^1 K_t(X_0)\,dw(t)
+\Big].
+\end{aligned}\tag{14}
+
 \]
 其关键意义是：控制成本不仅约束终点分布，还约束**生成轨迹在不同时间区间上的偏离**。若 \(w\) 随时间下降，则 \(dw(t)\) 为负，前缀路径 KL 被额外惩罚，从而强制早期过程尽量接近原模型。
 
@@ -275,12 +281,15 @@ u_\theta(x,t)=\frac{2}{\gamma(t)}
 
 作者进一步在损失的时间积分里加入**正的稳定权重** \(\lambda(t)>0\)，得到
 \[
-\mathcal L_{\rm WAM}^{\lambda}(u)=
-\mathbb E\left[\frac12\int_0^1
-\lambda(t)\left\|
-u(X_t,t)+\frac{\gamma(t)}{w(t)}
-\widetilde a(t,X)
-\right\|^2dt\right].\tag{21}
+
+\mathcal L^\lambda_{\mathrm{WAM}}(u)
+=\mathbb E_{X\sim p^{\bar u}}
+\left[\frac12\int_0^1\lambda(t)
+\left\|u(X_t,t)+
+\frac{\gamma(t)}{w(t)}\widetilde a(t,X)
+\right\|^2dt\right].
+\tag{21}
+
 \]
 该权重只改变不同时间步在训练中的数值贡献，不改变函数空间中的最优临界点。选取 \(\lambda(t)=2t(1-t)\) 可抵消式 (20) 在端点附近产生的不稳定因子，使数值实现更稳定。作者利用离散化的随机微分方程和伴随 ODE，在成批的生成轨迹上估计该损失并对网络参数执行梯度下降；具体步骤见附录 D.5 的算法 1。
 
@@ -488,52 +497,23 @@ r(x)=1-\frac1d\sum_{i=1}^{d}x_i.
 
 为了根据生成阶段调节控制代价，引入正的时间权重函数 \(w:[0,1]\to\mathbb R_+^*\)，令随机最优控制目标为
 
-\[
-\min_{u\in\mathcal U}
-\mathbb E\left[
-\int_0^1\frac{w(t)}2
-\|u(X_t^u,t)\|^2dt
--ar(X_1^u)
-\right],\tag{10}
-\]
+（式（10）已在本页列出，此处不再重复列式。）
 
 其中状态过程满足
 
-\[
-dX_t^u=
-\big[b(X_t^u,t)+\gamma(t)u(X_t^u,t)\big]dt
-+\gamma(t)dB_t,\quad X_0^u\sim p_0.\tag{11}
-\]
+（式（11）已在本页列出，此处不再重复列式。）
 
 为涵盖分段常数在内的时间权重，作者假设 \(w\) 为有界变差函数，满足
 
-\[
-w(t)=w(0)+\int_0^t dw(s)
-=w(1)-\int_t^1 dw(s).\tag{12}
-\]
+（式（12）已在本页列出，此处不再重复列式。）
 
 用 \(p^u\) 和 \(p^{\rm base}\) 分别表示受控生成过程与基础生成过程的**整条轨迹概率分布**。定义给定初始条件 \(X_0\) 时，区间 \([0,t]\) 上的条件路径 KL 散度
 
-\[
-K_t(X_0)=D_{\rm KL}
-\big(p^u(X_{[0,t]}\mid X_0)
-\Vert p^{\rm base}(X_{[0,t]}\mid X_0)\big).\tag{13}
-\]
+（式（13）已在本页列出，此处不再重复列式。）
 
 **命题 1。** 在权重满足式（12）的条件下，式（10）的加权随机最优控制目标等价于：
 
-\[
-\begin{aligned}
-\max_{u\in\mathcal U}\;
-\mathbb E_{X_0\sim p_0}\Big[
-&a\,\mathbb E_{X^u\sim p^u(\cdot\mid X_0)}
-[r(X_1^u)]\\
-&-w(1)D_{\rm KL}
-\big(p^u(X\mid X_0)\Vert p^{\rm base}(X\mid X_0)\big)\\
-&+\int_0^1 K_t(X_0)\,dw(t)
-\Big].
-\end{aligned}\tag{14}
-\]
+（式（14）已在本页列出，此处不再重复列式。）
 
 这一结果表明，时间加权的二次控制代价可以重写为针对**生成过程所有前缀子路径**的 KL 正则化。当 \(w(t)\) 随时间下降时，\(dw(t)\) 为负，因而式（14）的积分项进一步惩罚受控过程在前期偏离基础过程的行为。
 
@@ -553,36 +533,19 @@ w(t)=
 
 作者沿用伴随匹配的随机最优控制框架。最优控制与值函数的梯度满足
 
-\[
-u^*(x,t)=-\frac{\gamma(t)}{w(t)}
-\nabla_x J(u^*,x,t),\tag{15}
-\]
+（式（15）已在本页列出，此处不再重复列式。）
 
 其中 \(J\) 是给定 \(X_t=x\) 时，从当前时刻到终点的预期控制代价与负奖励之和。通过定义伴随状态 \(a\)，将终点奖励对中间状态的梯度沿生成轨迹反向传播，最优控制还能表示为条件伴随期望：
 
-\[
-u^*(x,t)=-\frac{\gamma(t)}{w(t)}
-\mathbb E\big[a(t,X^{u^*},u^*)\mid X_t=x\big].\tag{17}
-\]
+（式（17）已在本页列出，此处不再重复列式。）
 
 在最优解处，伴随微分方程中一组与控制相关的导数项，其条件期望相互抵消。于是作者定义**简化伴随状态（lean adjoint）** \(\widetilde a\)，仅保留基础漂移的雅可比项：
 
-\[
-\frac{d}{dt}\widetilde a(t,X)
-=-\nabla_x b(X_t,t)^T\widetilde a(t,X),\tag{19}
-\]
+（式（19）已在本页列出，此处不再重复列式。）
 
 并令终点条件为 \(\widetilde a(1,X)=-a\nabla r(X_1)\)。相应的加权伴随匹配训练损失是
 
-\[
-\mathcal L_{\rm WAM}(u)
-=\mathbb E_{X\sim p^{\bar u}}\left[
-\frac12\int_0^1
-\left\|
-u(X_t,t)+\frac{\gamma(t)}{w(t)}
-\widetilde a(t,X)
-\right\|^2dt\right],\tag{18}
-\]
+（式（18）已在本页列出，此处不再重复列式。）
 
 其中 \(\bar u=\operatorname{stopgrad}(u)\)，表示在计算梯度时将采样过程中的控制值视作常数。因此，和原伴随匹配相比，新方法在损失的伴随目标中只增加了一个 \(1/w(t)\) 因子，并没有引入额外的伴随求解步骤。
 
@@ -634,13 +597,7 @@ Domingo-Enrich 与 Han [40] 进一步将伴随匹配推广到具有控制依赖�
 
 从数据样本 X\sim p_{\mathrm{target}}$ 出发，加噪的正向随机微分方程为
 
-\[
-d\overrightarrow X_\tau
-=-f(\tau)\overrightarrow X_\tau\,d\tau
-+g(\tau)\,dB_\tau,\qquad
-\overrightarrow X_0=X.
-\tag{4}
-\]
+（式（4）已在本页列出，此处不再重复列式。）
 
 其中 f,g$ 为连续非负函数。该线性 SDE 的任意时刻都可表示为原样本与高斯噪声的线性组合，即
 
@@ -680,19 +637,11 @@ d\overleftarrow X_t
 
 其中 \alpha_0=\beta_1=0$、\alpha_1=\beta_0=1$，\alpha_t$ 单调不减，\beta_t$ 单调不增。利用二次回归损失学习速度场 v$ 后，确定性生成过程满足
 
-\[
-dX_t=v(X_t,t)\,dt,\qquad X_0\sim\mathcal N(0,I).
-\tag{6}
-\]
+（式（6）已在本页列出，此处不再重复列式。）
 
 通过调整漂移并增加扩散项，还可构造与确定性流具有相同边缘分布的随机采样过程：
 
-\[
-dX_t=b^\gamma(X_t,t)\,dt+\gamma(t)dB_t,\quad
-b^\gamma(x,t)=v(x,t)+\frac{\gamma(t)^2}{2}
-\nabla\log p_t(x).
-\tag{7}
-\]
+（式（7）已在本页列出，此处不再重复列式。）
 
 流匹配速度场与得分函数之间有如下关系：
 
@@ -706,14 +655,7 @@ v(x,t)=\frac{\dot\alpha_t}{\alpha_t}x+
 
 因此，带随机扩散系数的流匹配过程本质上可以视作适当时间参数化的反向扩散过程。文献 [35] 的无记忆噪声日程为
 
-\[
-\gamma(t)=\sqrt{
-2\beta_t\left(
-\frac{\dot\alpha_t}{\alpha_t}\beta_t-\dot\beta_t
-\right)
-}.
-\tag{9}
-\]
+（式（9）已在本页列出，此处不再重复列式。）
 
 在这一选择下，反向 SDE 的联合分布具有特定的保真性质，生成轨迹两端 X_0,X_1$ 也相互独立：初始变量来自高斯噪声，终点变量来自目标分布。作者利用该过程来讨论：在某个时间之后，一个模式或类别是否已经由轨迹状态基本确定。
 
@@ -735,15 +677,7 @@ u_\theta(x,t)=\frac{2}{\gamma(t)}
 
 为此，论文在时间积分中再引入任意严格为正的**稳定化权重** \lambda(t)>0$：
 
-\[
-\mathcal L^\lambda_{\mathrm{WAM}}(u)
-=\mathbb E_{X\sim p^{\bar u}}
-\left[\frac12\int_0^1\lambda(t)
-\left\|u(X_t,t)+
-\frac{\gamma(t)}{w(t)}\widetilde a(t,X)
-\right\|^2dt\right].
-\tag{21}
-\]
+（式（21）已在本页列出，此处不再重复列式。）
 
 这个额外权重不改变函数空间中最优控制对应的临界点，但可以改变训练中的不同时间步尺度。取 \lambda(t)=2(1-t)t$ 可以抵消端点附近的发散因子，得到稳定的网络训练形式：
 
