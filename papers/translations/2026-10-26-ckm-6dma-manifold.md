@@ -485,4 +485,109 @@ D\operatorname{Log}(X)[\mathbf v]
 \]
 上述式 (47)–(54) 构成图 4 的切空间反向传播机制。正向计算图执行支撑杆和阵面旋转矩阵的复合；反向求导使用切向量、伴随算子和左雅可比逆，最终由指数映射将更新送回 SO(3)。与直接优化旋转矩阵九个元素相比，这更符合三维姿态的真实自由度和正交几何结构。
 
+## II. 系统模型（续译：累积运动状态与物理约束）
+
+### A. 6DMA 基站模型（续）
+
+在整个服务时域中，支撑杆的伸缩与旋转、阵面的自身旋转都具有**累积效应**，而不只是当前时隙的一次性位姿调整。令第 \(l\) 根杆在第 \(i\) 个时隙的伸缩比例为 \(\varsigma_l[i]\)，支撑杆旋转矩阵为 \(\mathbf R_l(\theta_l[i],\mathbf u_l[i])\)，阵面旋转矩阵为 \(\mathbf R_a(\theta_a[i],\mathbf u_a[i])\)。原文式（3）–（5）给出全局尺度、杆旋转和阵面旋转的累计表达：
+
+\[
+\varsigma_l^b[t]=\prod_{i=1}^{t}\varsigma_l[i].\tag{3}
+\]
+
+\[
+\mathbf R_l^b[t]=\prod_{i=1}^{t}\mathbf R_l(\theta_l[i],\mathbf u_l[i]).\tag{4}
+\]
+
+\[
+\mathbf R_a^s[t]=\prod_{i=1}^{t}\mathbf R_a(\theta_a[i],\mathbf u_a[i]).\tag{5}
+\]
+
+于是，杆末端（即阵面中心）的全局位置，以及该阵面第 \(n\) 个天线单元的全局位置分别为
+
+\[
+\mathbf q_l^b[t]=\varsigma_l^b[t]\mathbf R_l^b[t]\mathbf q_l^b[0],\tag{6}
+\]
+
+\[
+\mathbf q_{l,n}^b[t]=\mathbf q_l^b[t]+\mathbf R_a^s[t]\mathbf q_{a,n}^s[0].\tag{7}
+\]
+
+这里 \(\mathbf q_{a,n}^s[0]\) 表示天线单元在阵面局部坐标系中的初始位置。上述公式表明，第 \(t\) 时隙的天线坐标由此前所有控制动作共同决定，因而不能将各时隙的优化彼此割裂。
+
+### B. 物理运行约束
+
+#### 1. 防止信号反射的旋转约束
+
+为避免不同 6DMA 阵面之间出现相互反射，需要对阵面法向的朝向施加约束。用 \(\mathbf i_a^b[0]\) 表示初始外法向单位向量，则经连续旋转后的法向为
+
+\[
+\mathbf i_a^b[t]=\mathbf R_l^e[t]\mathbf i_a^b[0],\tag{8}
+\]
+
+其中累积旋转矩阵为
+
+\[
+\mathbf R_l^e[t]=\prod_{i=1}^{t}\left[\mathbf R_l(\theta_l[i],\mathbf u_l[i])\mathbf R_a(\theta_a[i],\mathbf u_a[i])\right].\tag{9}
+\]
+
+以阵面中心为基点、以其外法向为法向量，可构建超平面
+
+\[
+\left\{\mathbf q_x^b\mid
+(\mathbf i_a^b[t])^T\mathbf q_x^b
+=(\mathbf i_a^b[t])^T\mathbf q_l^b[t]
+\right\}.\tag{10}
+\]
+
+其背向外法向的闭半空间由下式确定：
+
+\[
+(\mathbf i_a^b[t])^T
+\big(\mathbf q_x^b-\mathbf q_l^b[t]\big)\le0.\tag{11}
+\]
+
+对于任意不同支撑杆 \(l\ne l'\)，用另一阵面中心替换 \(\mathbf q_x^b\)，即可得到防相互反射约束：
+
+\[
+(\mathbf i_a^b[t])^T
+\big(\mathbf q_{l'}^b[t]-\mathbf q_l^b[t]\big)\le0.\tag{12}
+\]
+
+此约束保证其他阵面中心不会位于当前阵面外法向一侧的开半空间中。
+
+#### 2. 机械结构约束
+
+为了降低支撑杆和阵面发生机械碰撞的风险，原文没有直接计算所有不共面杆段之间的最短欧氏距离，而是采用**几何角间隔**作为便于优化的间隙代理。首先，两根不同支撑杆之间的夹角至少为 \(\vartheta_1\)：
+
+\[
+\arccos\!\left(
+\frac{\mathbf q_l^b[t]\cdot\mathbf q_{l'}^b[t]}
+{\|\mathbf q_l^b[t]\|\,\|\mathbf q_{l'}^b[t]\|}
+\right)\ge \vartheta_1.\tag{13}
+\]
+
+其次，为防止阵面碰撞基站主体，其方向与基站初始外法向 \(\mathbf i^b[0]\) 之间应具有至少 \(\vartheta_2\) 的夹角：
+
+\[
+\arccos\!\left(
+\frac{\mathbf q_l^b[t]\cdot\mathbf i^b[0]}
+{\|\mathbf q_l^b[t]\|\,\|\mathbf i^b[0]\|}
+\right)\ge\vartheta_2.\tag{14}
+\]
+
+最后，为防止阵面与自身支撑杆发生碰撞，杆端方向和阵面法向之间的夹角至少为 \(\vartheta_3\)：
+
+\[
+\arccos\!\left(
+\frac{\mathbf q_l^b[t]\cdot\mathbf i_a^b[t]}
+{\|\mathbf q_l^b[t]\|\,\|\mathbf i_a^b[t]\|}
+\right)\ge\vartheta_3.\tag{15}
+\]
+
+这些约束以阵面中心为对象，而非逐一约束每个天线单元，从而减少约束数量和总体计算复杂度。作者也明确指出，这属于一种近似：通过半空间和角间隔联合限制，保证足够的物理间隙并抑制严重信号反射，但并非对所有复杂机械碰撞的精确几何求解。
+
+**原文图 3**：阵面伸缩、收缩及旋转过程中的约束示意。子图（a）描述电磁特性约束；子图（b）描述机械结构约束。
+
+
 {% endraw %}
