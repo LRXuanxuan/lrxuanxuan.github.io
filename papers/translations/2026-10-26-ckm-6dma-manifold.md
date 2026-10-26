@@ -118,8 +118,12 @@ toc: true
 \]
 以阵面中心 \(\mathbf q_l^b[t]\) 为经过点、\(\mathbf i_a^b[t]\) 为法向量的超平面满足
 \[
+
+\left\{\mathbf q_x^b\mid
 (\mathbf i_a^b[t])^T\mathbf q_x^b
-=(\mathbf i_a^b[t])^T\mathbf q_l^b[t].\tag{10}
+=(\mathbf i_a^b[t])^T\mathbf q_l^b[t]
+\right\}.\tag{10}
+
 \]
 其反向闭半空间由
 \[
@@ -188,20 +192,40 @@ e^{-j\frac{2\pi}{\lambda}(\mathbf f_{k,j}^b)^T\mathbf q_{l,N}^b}\right]^T .
 
 **上行通信模型。** 第 \(t\) 时隙的基站接收信号为
 \[
-\mathbf y[t]=\mathbf H[t]\mathbf s+\mathbf n,\tag{28}
+
+\mathbf y[t]=\mathbf H[t]\mathbf s+\mathbf n,
+\qquad
+\mathbf H[t]=[\mathbf h_1[t],\ldots,\mathbf h_K[t]]
+\in\mathbb C^{AN\times K}.
+\tag{28}
+
 \]
 其中 \(\mathbf H[t]=[\mathbf h_1[t],\ldots,\mathbf h_K[t]]
 \in\mathbb C^{AN\times K}\)，各 UE 具有相同的发射功率 \(p\)，接收噪声协方差为 \(\sigma^2\mathbf I_{AN}\)。在基站 CSI 完美、采用最优高斯信令和多用户联合解码的条件下，总频谱效率为
 \[
-C[t]=\log_2\det\!\left(
+
+\begin{aligned}
+C(\boldsymbol\varsigma[t],\mathbf R^b[t],\mathbf R^s[t])
+&=\log_2\det\left(
 \mathbf I_{AN}+\frac p{\sigma^2}
-\mathbf H[t]\mathbf H[t]^H\right).\tag{29}
+\sum_{k=1}^K\mathbf h_k[t]\mathbf h_k[t]^H
+\right)\\
+&=\log_2\det\left(
+\mathbf I_{AN}+\frac p{\sigma^2}
+\mathbf H[t]\mathbf H[t]^H
+\right).
+\end{aligned}\tag{29}
+
 \]
 
 **长期优化问题。** 作者以整个服务时域内各时隙频谱效率之和为优化目标：
 \[
+
 \max_{\boldsymbol\varsigma,\mathbf R^b,\mathbf R^s}
-\sum_{t=1}^{M}C[t].\tag{30a}
+\sum_{t=1}^{M}
+C(\boldsymbol\varsigma[t],\mathbf R^b[t],\mathbf R^s[t]).
+\tag{30a}
+
 \]
 约束包含：支撑杆及阵面的角速度不得超过 \(\omega_{b,\max}\)、\(\omega_{s,\max}\)；每时隙缩放系数位于 \([\varsigma_{\min},\varsigma_{\max}]\)；阵面中心到原点的距离位于 \([q_{b,\min},q_{b,\max}]\)；相邻时隙位移满足
 \[
@@ -216,19 +240,28 @@ SO(3)=\{\mathbf R\in\mathbb R^{3\times3}:
 \]
 把 \(\boldsymbol\Theta_l[t]=\theta_l[t]\mathbf u_l[t]\) 映射到李代数 \(\mathfrak{so}(3)\) 后，使用反对称矩阵
 \[
-[\boldsymbol\Theta]_\times=
+
+[\boldsymbol\Theta_l[t]]_\times=
 \begin{bmatrix}
-0&-\Theta_3&\Theta_2\\
-\Theta_3&0&-\Theta_1\\
--\Theta_2&\Theta_1&0
-\end{bmatrix}\tag{31}
+0&-\Theta_l^3[t]&\Theta_l^2[t]\\
+\Theta_l^3[t]&0&-\Theta_l^1[t]\\
+-\Theta_l^2[t]&\Theta_l^1[t]&0
+\end{bmatrix}
+\in\mathfrak{so}(3).
+\tag{31}
+
 \]
 实现 SO(3) 与切空间之间的转换。其指数映射采用
 \[
-\exp_{SO(3)}([\boldsymbol\Theta]_\times)
+
+\mathbf R_l[t]=
+\exp_{SO(3)}([\boldsymbol\Theta_l[t]]_\times)
 =\mathbf I_3+
-\frac{\sin\theta}{\theta}[\boldsymbol\Theta]_\times+
-\frac{1-\cos\theta}{\theta^2}[\boldsymbol\Theta]_\times^2.\tag{32}
+\frac{\sin\theta_l[t]}{\theta_l[t]}[\boldsymbol\Theta_l[t]]_\times
++\frac{1-\cos\theta_l[t]}{\theta_l[t]^2}
+[\boldsymbol\Theta_l[t]]_\times^2.
+\tag{32}
+
 \]
 相应的对数映射（对非奇异角度）为
 \[
@@ -420,13 +453,7 @@ g_{2,l,t}(\mathbf x)=
 \exp\left(\frac{g_i(\mathbf x)}{\mu}\right)\right).\tag{40}
 \]
 对整个目标加入上述惩罚，得到
-\[
-\min_{\mathbf x\in\mathcal M}P(\mathbf x;\boldsymbol\rho,\mu)
-=-f(\mathbf x)+
-\sum_{i\in\mathcal I_{\mathrm{6DMA}}}
-\rho_i\mu\log\left(1+
-e^{g_i(\mathbf x)/\mu}\right).\tag{41}
-\]
+（式（41）已在本页列出，此处不再重复列式。）
 其中 \(\mu>0\) 为全局平滑参数，\(\rho_i\) 为各约束的独立惩罚强度。随着 \(\mu\to0\)，光滑惩罚更加接近精确惩罚，但梯度数值稳定性可能下降；随着 \(\rho_i\to\infty\)，更强调满足约束，但易造成收敛缓慢或振荡。采用按约束分别调节的 \(\rho_i\)，正是为了适配不同量纲、不同尺度的安全和运动学要求。
 
 **李群上的加法与减法。** 对于群元素 \(X,Y\in\mathcal M\) 及李代数扰动向量 \(\boldsymbol\xi\)，一般欧氏加减法改为
@@ -506,27 +533,17 @@ D\operatorname{Log}(X)[\mathbf v]
 
 在整个服务时域中，支撑杆的伸缩与旋转、阵面的自身旋转都具有**累积效应**，而不只是当前时隙的一次性位姿调整。令第 \(l\) 根杆在第 \(i\) 个时隙的伸缩比例为 \(\varsigma_l[i]\)，支撑杆旋转矩阵为 \(\mathbf R_l(\theta_l[i],\mathbf u_l[i])\)，阵面旋转矩阵为 \(\mathbf R_a(\theta_a[i],\mathbf u_a[i])\)。原文式（3）–（5）给出全局尺度、杆旋转和阵面旋转的累计表达：
 
-\[
-\varsigma_l^b[t]=\prod_{i=1}^{t}\varsigma_l[i].\tag{3}
-\]
+（式（3）已在本页列出，此处不再重复列式。）
 
-\[
-\mathbf R_l^b[t]=\prod_{i=1}^{t}\mathbf R_l(\theta_l[i],\mathbf u_l[i]).\tag{4}
-\]
+（式（4）已在本页列出，此处不再重复列式。）
 
-\[
-\mathbf R_a^s[t]=\prod_{i=1}^{t}\mathbf R_a(\theta_a[i],\mathbf u_a[i]).\tag{5}
-\]
+（式（5）已在本页列出，此处不再重复列式。）
 
 于是，杆末端（即阵面中心）的全局位置，以及该阵面第 \(n\) 个天线单元的全局位置分别为
 
-\[
-\mathbf q_l^b[t]=\varsigma_l^b[t]\mathbf R_l^b[t]\mathbf q_l^b[0],\tag{6}
-\]
+（式（6）已在本页列出，此处不再重复列式。）
 
-\[
-\mathbf q_{l,n}^b[t]=\mathbf q_l^b[t]+\mathbf R_a^s[t]\mathbf q_{a,n}^s[0].\tag{7}
-\]
+（式（7）已在本页列出，此处不再重复列式。）
 
 这里 \(\mathbf q_{a,n}^s[0]\) 表示天线单元在阵面局部坐标系中的初始位置。上述公式表明，第 \(t\) 时隙的天线坐标由此前所有控制动作共同决定，因而不能将各时隙的优化彼此割裂。
 
@@ -536,38 +553,23 @@ D\operatorname{Log}(X)[\mathbf v]
 
 为避免不同 6DMA 阵面之间出现相互反射，需要对阵面法向的朝向施加约束。用 \(\mathbf i_a^b[0]\) 表示初始外法向单位向量，则经连续旋转后的法向为
 
-\[
-\mathbf i_a^b[t]=\mathbf R_l^e[t]\mathbf i_a^b[0],\tag{8}
-\]
+（式（8）已在本页列出，此处不再重复列式。）
 
 其中累积旋转矩阵为
 
-\[
-\mathbf R_l^e[t]=\prod_{i=1}^{t}\left[\mathbf R_l(\theta_l[i],\mathbf u_l[i])\mathbf R_a(\theta_a[i],\mathbf u_a[i])\right].\tag{9}
-\]
+（式（9）已在本页列出，此处不再重复列式。）
 
 以阵面中心为基点、以其外法向为法向量，可构建超平面
 
-\[
-\left\{\mathbf q_x^b\mid
-(\mathbf i_a^b[t])^T\mathbf q_x^b
-=(\mathbf i_a^b[t])^T\mathbf q_l^b[t]
-\right\}.\tag{10}
-\]
+（式（10）已在本页列出，此处不再重复列式。）
 
 其背向外法向的闭半空间由下式确定：
 
-\[
-(\mathbf i_a^b[t])^T
-\big(\mathbf q_x^b-\mathbf q_l^b[t]\big)\le0.\tag{11}
-\]
+（式（11）已在本页列出，此处不再重复列式。）
 
 对于任意不同支撑杆 \(l\ne l'\)，用另一阵面中心替换 \(\mathbf q_x^b\)，即可得到防相互反射约束：
 
-\[
-(\mathbf i_a^b[t])^T
-\big(\mathbf q_{l'}^b[t]-\mathbf q_l^b[t]\big)\le0.\tag{12}
-\]
+（式（12）已在本页列出，此处不再重复列式。）
 
 此约束保证其他阵面中心不会位于当前阵面外法向一侧的开半空间中。
 
@@ -575,30 +577,15 @@ D\operatorname{Log}(X)[\mathbf v]
 
 为了降低支撑杆和阵面发生机械碰撞的风险，原文没有直接计算所有不共面杆段之间的最短欧氏距离，而是采用**几何角间隔**作为便于优化的间隙代理。首先，两根不同支撑杆之间的夹角至少为 \(\vartheta_1\)：
 
-\[
-\arccos\!\left(
-\frac{\mathbf q_l^b[t]\cdot\mathbf q_{l'}^b[t]}
-{\|\mathbf q_l^b[t]\|\,\|\mathbf q_{l'}^b[t]\|}
-\right)\ge \vartheta_1.\tag{13}
-\]
+（式（13）已在本页列出，此处不再重复列式。）
 
 其次，为防止阵面碰撞基站主体，其方向与基站初始外法向 \(\mathbf i^b[0]\) 之间应具有至少 \(\vartheta_2\) 的夹角：
 
-\[
-\arccos\!\left(
-\frac{\mathbf q_l^b[t]\cdot\mathbf i^b[0]}
-{\|\mathbf q_l^b[t]\|\,\|\mathbf i^b[0]\|}
-\right)\ge\vartheta_2.\tag{14}
-\]
+（式（14）已在本页列出，此处不再重复列式。）
 
 最后，为防止阵面与自身支撑杆发生碰撞，杆端方向和阵面法向之间的夹角至少为 \(\vartheta_3\)：
 
-\[
-\arccos\!\left(
-\frac{\mathbf q_l^b[t]\cdot\mathbf i_a^b[t]}
-{\|\mathbf q_l^b[t]\|\,\|\mathbf i_a^b[t]\|}
-\right)\ge\vartheta_3.\tag{15}
-\]
+（式（15）已在本页列出，此处不再重复列式。）
 
 这些约束以阵面中心为对象，而非逐一约束每个天线单元，从而减少约束数量和总体计算复杂度。作者也明确指出，这属于一种近似：通过半空间和角间隔联合限制，保证足够的物理间隙并抑制严重信号反射，但并非对所有复杂机械碰撞的精确几何求解。
 
@@ -612,40 +599,17 @@ D\operatorname{Log}(X)[\mathbf v]
 
 考虑 K$ 个移动 UE 到 6DMA 基站的上行多址链路。第 t$ 个时隙的接收信号为
 
-\[
-\mathbf y[t]=\mathbf H[t]\mathbf s+\mathbf n,
-\qquad
-\mathbf H[t]=[\mathbf h_1[t],\ldots,\mathbf h_K[t]]
-\in\mathbb C^{AN\times K}.
-\tag{28}
-\]
+（式（28）已在本页列出，此处不再重复列式。）
 
 其中 \mathbf s=\sqrt p[s_1,\ldots,s_K]^T$ 是 UE 发送信号，p$ 表示所有 UE 相同的发射功率，各 s_k$ 的平均功率归一化为 1；\mathbf n\sim\mathcal{CN}(\mathbf0,\sigma^2\mathbf I_{AN})$ 是加性白高斯噪声。在基站具有完美 CSI、用户采用最优高斯输入、基站进行多用户联合解码的条件下，总频谱效率为
 
-\[
-\begin{aligned}
-C(\boldsymbol\varsigma[t],\mathbf R^b[t],\mathbf R^s[t])
-&=\log_2\det\left(
-\mathbf I_{AN}+\frac p{\sigma^2}
-\sum_{k=1}^K\mathbf h_k[t]\mathbf h_k[t]^H
-\right)\\
-&=\log_2\det\left(
-\mathbf I_{AN}+\frac p{\sigma^2}
-\mathbf H[t]\mathbf H[t]^H
-\right).
-\end{aligned}\tag{29}
-\]
+（式（29）已在本页列出，此处不再重复列式。）
 
 不同于固定位置天线，6DMA 系统的有效信道同时取决于阵面旋转、支撑杆转动以及支撑杆的伸缩变化。为在整个服务周期最大化性能，并保证稳定运行，论文将每个时隙的支撑杆伸缩量、支撑杆旋转以及阵面旋转参数联合优化，而不是逐时隙独立优化。
 
 原文式（30）将全部时隙的总频谱效率作为目标函数：
 
-\[
-\max_{\boldsymbol\varsigma,\mathbf R^b,\mathbf R^s}
-\sum_{t=1}^{M}
-C(\boldsymbol\varsigma[t],\mathbf R^b[t],\mathbf R^s[t]).
-\tag{30a}
-\]
+（式（30a）已在本页列出，此处不再重复列式。）
 
 相关约束包括：支撑杆角速度不大于 \omega_{b,\max}$（30b）；阵面角速度不大于 \omega_{s,\max}$（30c）；单时隙伸缩比例处于 [\varsigma_{\min},\varsigma_{\max}]$（30d）；所有阵面中心到基站中心的距离处于允许的工作范围（30e）；相邻时隙阵面中心位移不大于 q^b_{\Delta t}$（30f）；式（12）的朝向半空间约束（30g）；阵面之间、阵面与基站、阵面与自身支撑杆之间分别满足式（13）–（15）的最小角间隔约束（30h）–（30j）。
 
@@ -667,28 +631,11 @@ SO(3)=\{\mathbf R\in\mathbb R^{3\times3}:
 
 对于第 l$ 根杆，令旋转向量 \boldsymbol\Theta_l[t]=\theta_l[t]\mathbf u_l[t]$，其范数为旋转角 \theta_l[t]$。通过叉乘反对称矩阵映射 (\cdot)_\times$，得到李代数元素：
 
-\[
-[\boldsymbol\Theta_l[t]]_\times=
-\begin{bmatrix}
-0&-\Theta_l^3[t]&\Theta_l^2[t]\\
-\Theta_l^3[t]&0&-\Theta_l^1[t]\\
--\Theta_l^2[t]&\Theta_l^1[t]&0
-\end{bmatrix}
-\in\mathfrak{so}(3).
-\tag{31}
-\]
+（式（31）已在本页列出，此处不再重复列式。）
 
 将李代数元素通过指数映射转换为旋转矩阵，得到 Rodrigues 公式：
 
-\[
-\mathbf R_l[t]=
-\exp_{SO(3)}([\boldsymbol\Theta_l[t]]_\times)
-=\mathbf I_3+
-\frac{\sin\theta_l[t]}{\theta_l[t]}[\boldsymbol\Theta_l[t]]_\times
-+\frac{1-\cos\theta_l[t]}{\theta_l[t]^2}
-[\boldsymbol\Theta_l[t]]_\times^2.
-\tag{32}
-\]
+（式（32）已在本页列出，此处不再重复列式。）
 
 对给定旋转矩阵，逆向的对数映射为
 
@@ -724,11 +671,14 @@ SO(3)=\{\mathbf R\in\mathbb R^{3\times3}:
 
 首先，对简单的伸缩比例界限使用重参数化。将无约束变量 \varsigma_l^m[t]\in\mathbb R$ 映射到允许范围：
 
+（式（37）的另一表达，需逐式核对。）
 \[
+
 \varsigma_l[t]=\varsigma_{\min}
 +(\varsigma_{\max}-\varsigma_{\min})
 \frac1{1+e^{\varsigma_l^m[t]}}.
-\tag{37}
+
+
 \]
 
 其他几何和运动约束统一写成 g_i(\mathbf x)\le0$。例如，对杆角速度有
@@ -741,24 +691,13 @@ g_{2,l,t}(\mathbf x)=\omega_l[t]-\omega_{b,\max}\le0.
 
 接着使用连续可微的 log-sum-exp（LSE）近似替代正部惩罚：
 
-\[
-\sum_{i\in\mathcal I_{\rm6DMA}}
-\rho_i\mu\log\left(1+e^{g_i(\mathbf x)/\mu}\right),
-\tag{40}
-\]
+（式（40）已在本页列出，此处不再重复列式。）
 
 其中 \rho_i$ 是每一项约束独立的惩罚权重，\mu>0$ 为统一的平滑参数。较小的 \mu$ 更接近原来的非平滑惩罚，但梯度数值稳定性会降低；较大的 \rho_i$ 更强地推动解满足对应约束，却可能减慢收敛或造成振荡。鉴于不同约束的量纲和尺度差异显著，论文不对所有约束使用同一固定权重，而是逐项自适应调整。
 
 从而得到乘积流形上的平滑无约束问题：
 
-\[
-\min_{\mathbf x\in\mathcal M}
-P(\mathbf x;\boldsymbol\rho,\mu)
-=-f(\mathbf x)+
-\sum_{i\in\mathcal I_{\rm6DMA}}
-\rho_i\mu\log\left(1+e^{g_i(\mathbf x)/\mu}\right).
-\tag{41}
-\]
+（式（41）已在本页列出，此处不再重复列式。）
 
 其中 f(\mathbf x)$ 为总频谱效率目标。作者说明：忽略光滑近似造成的误差时，可以利用流形上的精确惩罚理论，在满足相应条件下用足够大的有限惩罚参数恢复原约束问题的局部解。
 
@@ -777,12 +716,7 @@ P(\mathbf x;\boldsymbol\rho,\mu)
 
 由此将传统方向导数推广到流形之间的映射：
 
-\[
-D f(\mathbf X)[\mathbf v]
-=\lim_{t\to0}
-\frac{f(t\mathbf v\oplus\mathbf X)\ominus f(\mathbf X)}{t}.
-\tag{44}
-\]
+（式（44）已在本页列出，此处不再重复列式。）
 
 选择输入、输出切空间中的正交基后，可形成类似传统 Jacobian 的矩阵（原文式（45））。当输入输出都是欧氏向量时，指数映射和对数映射退化为恒等变换，群运算退化为通常的加法；上述定义就恢复普通的方向导数。这让杆的标量尺度变量与阵面的旋转群变量可以通过一套计算图共同优化。
 
@@ -792,32 +726,32 @@ D f(\mathbf X)[\mathbf v]
 
 作者使用支持李群自动微分的 LieTorch 库构建计算图。对于一般映射 \mathbf Y=f(\mathbf X)$，损失的反向传播仍满足链式法则：
 
-\[
-\frac{\partial L}{\partial\mathbf X}
-=\frac{\partial L}{\partial\mathbf Y}
-\frac{\partial\mathbf Y}{\partial\mathbf X}
-=\frac{\partial L}{\partial\mathbf Y}\mathbf J.
-\tag{46}
-\]
+（式（46）已在本页列出，此处不再重复列式。）
 
 关键区别是，\mathbf J$ 对应的是输入输出切空间之间的微分，而非欧氏空间中旋转矩阵元素的无约束导数。
 
 李群乘法一般不满足交换律，因此梯度沿群乘积传播时需要伴随算子变换参考坐标系。对李群元素 \mathbf X$，其伴随映射满足
 
+（式（47）的另一表达，需逐式核对。）
 \[
+
 \mathbf X\circ\exp(\mathbf a)
 =\exp(\mathbf A_{\mathbf X}\mathbf a)\circ\mathbf X.
-\tag{47}
+
+
 \]
 
 对于 SO(3)$，伴随算子就是旋转矩阵自身，即 \mathbf A_{\mathbf X}=\mathbf X$。若 \mathbf Z=\mathbf X\circ\mathbf Y$，对前一因子作切空间扰动的微分是恒等映射，而对后一因子的扰动必须经 \mathbf A_{\mathbf X}$ 转换。对应的反向传播梯度为
 
+（式（50）的另一表达，需逐式核对。）
 \[
+
 \frac{\partial L}{\partial\mathbf X}
 =\frac{\partial L}{\partial\mathbf Z},\qquad
 \frac{\partial L}{\partial\mathbf Y}
 =\frac{\partial L}{\partial\mathbf Z}\mathbf A_{\mathbf X}.
-\tag{50}
+
+
 \]
 
 论文还给出了指数/对数映射切空间中的 Jacobian 关系，并通过左 Jacobian 的逆矩阵把旋转向量的普通偏导数转换为群元素上的切空间梯度，详见原文式（51）–（54）。这些关系可与 PyTorch 自动微分共同计算高维时空旋转序列的梯度。
@@ -828,39 +762,19 @@ D f(\mathbf X)[\mathbf v]
 
 作者因此采用两个阶段。**预热阶段**，依据各类约束违反程度的相对比例以及当前性能目标，对各约束项分配适度的初始权重，以保证不同惩罚项与目标函数具有可比较的尺度（式（55））。**正式优化阶段**，根据上一轮权重和本轮平滑违反量 V_i$ 逐项调整：
 
-\[
-\rho_i^w=
-\min\big(\rho_i^{w-1}(1+\gamma V_i),\rho_{\max}\big).
-\tag{56}
-\]
+（式（56）已在本页列出，此处不再重复列式。）
 
 同时逐步降低平滑参数：
 
-\[
-\mu_{w+1}=\max\{\mu_{\min},\varrho_\mu\mu_w\},
-\qquad 0<\varrho_\mu<1,
-\tag{57}
-\]
+（式（57）已在本页列出，此处不再重复列式。）
 
 并降低每个子问题的梯度容差：
 
-\[
-\epsilon_{w+1}
-=\max\{\epsilon_{\min},\varrho_\epsilon\epsilon_w\},
-\qquad0<\varrho_\epsilon<1.
-\tag{58}
-\]
+（式（58）已在本页列出，此处不再重复列式。）
 
 内层子问题使用切空间反向传播得到黎曼梯度，然后通过指数映射完成流形更新：
 
-\[
-\mathbf x_{s+1}
-=\exp\!\left[
--\varrho_x\nabla_{\delta_s}
-P(\mathbf x_s;\boldsymbol\rho_w,\mu_w)
-\right]\circ\mathbf x_s.
-\tag{59}
-\]
+（式（59）已在本页列出，此处不再重复列式。）
 
 内层迭代在达到预定最大次数或梯度范数低于当前容差 \epsilon_w$ 时停止。每次更新外层惩罚参数、平滑参数和梯度容差后，使用上一子问题的结果热启动下一子问题。外层在连续迭代的流形距离小于 d_{\min}$、容差降至 \epsilon_{\min}$ 且平滑参数降至 \mu_{\min}$ 时终止，相关条件为原文式（60）–（63）。
 
