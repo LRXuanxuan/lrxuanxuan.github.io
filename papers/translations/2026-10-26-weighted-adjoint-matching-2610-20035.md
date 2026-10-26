@@ -14,7 +14,7 @@ toc: true
 **原题**：Weighted Adjoint Matching: Finetuning Flow Matching Models with Time-Dependent Control Cost  
 **作者**：Eliot Beyler、Francis Bach  
 **来源**：arXiv:2610.20035v1，2026 年 10 月 14 日。  
-**翻译进度**：摘要、引言主要起始段落及部分基础数学公式已译。原 PDF 共 34 页，后续章节、全部附录和证明**尚未翻译**；此页不是完整译稿。
+**翻译进度（2026-10-26 更新）**：已补译正文 1–6 节的主要论述与核心公式，包括相关工作、随机微分方程、时变路径 KL、加权伴随匹配损失、数值稳定化和两组实验。正文仍待逐段对照、去重和公式终校；原 PDF 共 34 页，其中附录 A–E 尚未逐式完整翻译，**不得标为全文完成**。
 
 ## 摘要
 
