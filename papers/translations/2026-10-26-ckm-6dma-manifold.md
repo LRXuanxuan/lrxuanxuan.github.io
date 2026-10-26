@@ -14,7 +14,7 @@ toc: true
 **原题**：Channel Knowledge Map-Enabled 6D Movable Antenna Systems With Kinematic Constraints: A Manifold Optimization Approach  
 **作者**：Nan Cheng、Shuangyu Yang、Ruijin Sun、Zhisheng Yin、Xiaodan Shao、Weihua Zhuang、Xuemin Shen  
 **来源**：IEEE Transactions on Wireless Communications, Vol. 25, 2026，DOI: 10.1109/TWC.2025.3645480。  
-**翻译进度**：目前仅完成摘要、关键词、引言开篇以及系统模型部分段落。**此页不是全文译文，未通过全文 QA，不应计入全文完成量。** 后续章节、全部数学推导及图表尚未逐页翻译与校核。
+**翻译进度（2026-10-26 更新）**：已补译摘要、引言、运动学与信道模型、SO(3) 流形优化、运动约束、自适应惩罚算法以及主要仿真图表讨论。现有文件由分批补译片段构成，仍需按原文逐段去重、重排并逐式终校；**未通过全文 QA，不计入全文完成量**。
 
 ## 摘要
 
