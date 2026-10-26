@@ -1,5 +1,86 @@
 [
   {
+    "slug": "2026-10-26-weighted-adjoint-matching-2610-20035",
+    "title": "加权伴随匹配：时变控制代价下的流匹配微调｜中文译稿（未完成）",
+    "scope": "仅摘要、引言起始部分和基础公式已翻译；原文 34 页；实验与长附录未完成。",
+    "date": "2026-10-26",
+    "url": "/papers/translations/2026-10-26-weighted-adjoint-matching-2610-20035/",
+    "source_file": "2026-10-26-weighted-adjoint-matching-2610-20035.md",
+    "source_page_path": "papers/translations/2026-10-26-weighted-adjoint-matching-2610-20035.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-26-weighted-adjoint-matching-2610-20035.md",
+    "paper_ids": [],
+    "source_arxiv_ids": [
+      "2610.20035"
+    ],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": false
+  },
+  {
+    "slug": "2026-10-26-afdm-model-order-2610-09970",
+    "title": "AFDM 模型阶数自适应信道估计｜中文译稿（未完成）",
+    "scope": "仅摘要、引言开篇和系统模型起始部分已翻译；原文 13 页；完整算法、证明和仿真未完成。",
+    "date": "2026-10-26",
+    "url": "/papers/translations/2026-10-26-afdm-model-order-2610-09970/",
+    "source_file": "2026-10-26-afdm-model-order-2610-09970.md",
+    "source_page_path": "papers/translations/2026-10-26-afdm-model-order-2610-09970.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-26-afdm-model-order-2610-09970.md",
+    "paper_ids": [],
+    "source_arxiv_ids": [
+      "2610.09970"
+    ],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": false
+  },
+  {
+    "slug": "2026-10-26-otfs-overspread-doppler",
+    "title": "超扩展多普勒 OTFS 系统信道估计｜中文译稿（未完成）",
+    "scope": "仅摘要、引言开篇和系统模型起始部分已翻译；原文 13 页；两阶段算法、图表和实验未完成。",
+    "date": "2026-10-26",
+    "url": "/papers/translations/2026-10-26-otfs-overspread-doppler/",
+    "source_file": "2026-10-26-otfs-overspread-doppler.md",
+    "source_page_path": "papers/translations/2026-10-26-otfs-overspread-doppler.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-26-otfs-overspread-doppler.md",
+    "paper_ids": [],
+    "source_arxiv_ids": [],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": false
+  },
+  {
+    "slug": "2026-10-26-zak-otfs-duality-2610-16033",
+    "title": "Zak-OTFS 时延–多普勒对偶性与精确均衡｜中文译稿（未完成）",
+    "scope": "仅摘要、引言开篇和系统模型起始部分已翻译；原文 12 页；对偶证明、算法、实验和参考文献未完成。",
+    "date": "2026-10-26",
+    "url": "/papers/translations/2026-10-26-zak-otfs-duality-2610-16033/",
+    "source_file": "2026-10-26-zak-otfs-duality-2610-16033.md",
+    "source_page_path": "papers/translations/2026-10-26-zak-otfs-duality-2610-16033.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-26-zak-otfs-duality-2610-16033.md",
+    "paper_ids": [],
+    "source_arxiv_ids": [
+      "2610.16033"
+    ],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": false
+  },
+  {
+    "slug": "2026-10-26-ckm-6dma-manifold",
+    "title": "信道知识地图赋能的运动学约束 6DMA 系统｜中文译稿（未完成）",
+    "scope": "仅摘要、引言开篇和系统模型起始部分已翻译；原文 14 页；其余章节、公式、图表、参考文献未完成。",
+    "date": "2026-10-26",
+    "url": "/papers/translations/2026-10-26-ckm-6dma-manifold/",
+    "source_file": "2026-10-26-ckm-6dma-manifold.md",
+    "source_page_path": "papers/translations/2026-10-26-ckm-6dma-manifold.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-26-ckm-6dma-manifold.md",
+    "paper_ids": [],
+    "source_arxiv_ids": [],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": false
+  },
+  {
     "slug": "2026-10-24-wcm-instantaneous-csi-tcomm2026",
     "title": "高移动性场景 WCM 赋能瞬时 CSI 获取｜中文全文译稿（逐式校对中）",
     "scope": "原文16页，译文已并入对应历史论文 ID f997fa4fb49f2a25；含摘要、正文 I–VI、公式（1）–（87）、定理1–2、算法1、表I–II、图1–12图注、附录A–B、37条参考文献、作者简介；公式换行修复，逐式原文终校未完成。",
