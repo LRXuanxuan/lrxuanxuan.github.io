@@ -381,4 +381,108 @@ G_{k,j}^{a}(\mathbf R_l^e[t])
 
 特别说明：原文的最小角度约束 (14)–(15) 使用**有符号的点积**构造夹角，没有额外取绝对值。本次按照原 PDF 更正该排版，以免改变物理可行域。
 
+
+### 补校：原式 (37)–(54) 的惩罚光滑化与切空间反向传播
+
+**约束变换。** 对每时隙支撑杆伸缩因子 \(\varsigma_l[t]\)，采用 unconstrained 变量 \(\varsigma_l^m[t]\in\mathbb R\) 的 Sigmoid 型映射：
+\[
+\varsigma_l[t]=\varsigma^{\min}
++(\varsigma^{\max}-\varsigma^{\min})
+\frac{1}{1+\exp(\varsigma_l^m[t])},\quad\forall l\in\mathcal L.\tag{37}
+\]
+这样，无论迭代中的 \(\varsigma_l^m[t]\) 如何变化，伸缩因子都满足规定区间，不需要单独投影。对角速度上界条件 \(0\le\omega_l[t]\le\omega^{b,\max}\)，拆解为两条标准不等式
+\[
+g_{1,l,t}(\mathbf x)=-\omega_l[t]\le0,\tag{38}
+\]
+\[
+g_{2,l,t}(\mathbf x)=
+\omega_l[t]-\omega^{b,\max}\le0.\tag{39}
+\]
+其余状态相关约束按同样方式改写成 \(g_i(\mathbf x)\le0\)。如果直接使用 \(\max(0,g_i)\) 作为惩罚，零点不可微；因此以光滑的 log-sum-exp 替代：
+\[
+\sum_{i\in\mathcal I_{\mathrm{6DMA}}}
+\rho_i\mu\log\left(1+
+\exp\left(\frac{g_i(\mathbf x)}{\mu}\right)\right).\tag{40}
+\]
+对整个目标加入上述惩罚，得到
+\[
+\min_{\mathbf x\in\mathcal M}P(\mathbf x;\boldsymbol\rho,\mu)
+=-f(\mathbf x)+
+\sum_{i\in\mathcal I_{\mathrm{6DMA}}}
+\rho_i\mu\log\left(1+
+e^{g_i(\mathbf x)/\mu}\right).\tag{41}
+\]
+其中 \(\mu>0\) 为全局平滑参数，\(\rho_i\) 为各约束的独立惩罚强度。随着 \(\mu\to0\)，光滑惩罚更加接近精确惩罚，但梯度数值稳定性可能下降；随着 \(\rho_i\to\infty\)，更强调满足约束，但易造成收敛缓慢或振荡。采用按约束分别调节的 \(\rho_i\)，正是为了适配不同量纲、不同尺度的安全和运动学要求。
+
+**李群上的加法与减法。** 对于群元素 \(X,Y\in\mathcal M\) 及李代数扰动向量 \(\boldsymbol\xi\)，一般欧氏加减法改为
+\[
+\boldsymbol\xi\oplus X=\exp(\boldsymbol\xi)\circ X,\tag{42}
+\]
+\[
+X\ominus Y=\log(XY^{-1}).\tag{43}
+\]
+其中 \(\circ\) 为群乘法；式 (42) 把切空间增量映射回旋转群，式 (43) 把两个流形元素的差映射到李代数。
+
+**流形微分和雅可比。** 对从 \(\mathcal M\) 到 \(\mathcal M'\) 的可微函数 \(f\)，其沿切向量 \(\mathbf v\) 的微分定义为
+\[
+Df(X)[\mathbf v]=
+\lim_{\epsilon\to0}
+\frac{f(\epsilon\mathbf v\oplus X)\ominus f(X)}
+{\epsilon}.\tag{44}
+\]
+在切空间正交基 \(\{\mathbf e_j\}\) 上可由同样方式定义雅可比矩阵 \(\mathbf J\)（原式 (45)）。采用链式法则，
+\[
+\frac{\partial L}{\partial X}=
+\frac{\partial L}{\partial Y}
+\frac{\partial Y}{\partial X}
+=\frac{\partial L}{\partial Y}\mathbf J.\tag{46}
+\]
+若函数的变量属于普通欧氏空间，则指数和对数映射退化成恒等映射，上述公式也就退化成普通链式法则。因此，算法能够将尺度变量与旋转变量放在同一个可微计算图中处理。
+
+**群乘法的非交换性。** 在两个 SO(3) 群元素 \(X,Y\) 的复合 \(Z=X\circ Y\) 中，右侧扰动并不能直接写成左侧扰动，而须通过伴随算子 \(\mathcal A_X\)：
+\[
+X\circ\exp(\mathbf a)
+=\exp(\mathcal A_X\mathbf a)\circ X.\tag{47}
+\]
+对于 SO(3)，该算子恰好是旋转矩阵 \(X\)。因此，分别扰动两个输入，得到
+\[
+D_Zf(X)[\mathbf v]=\mathbf v,\tag{48}
+\]
+\[
+D_Zf(Y)[\mathbf v]=\mathcal A_X\mathbf v,\tag{49}
+\]
+反向传播梯度满足
+\[
+\frac{\partial L}{\partial X}=
+\frac{\partial L}{\partial Z},\qquad
+\frac{\partial L}{\partial Y}=
+\frac{\partial L}{\partial Z}\mathcal A_X.\tag{50}
+\]
+这一步保证梯度变换时正确考虑旋转矩阵乘法的顺序，而不是把两个旋转变量当作可交换的标量。
+
+**对数映射的微分。** 对 \(\boldsymbol\phi=\operatorname{Log}(X)\)，原文采用
+\[
+D\operatorname{Log}(X)[\mathbf v]
+=\lim_{\epsilon\to0}
+\frac{\operatorname{Log}(\exp(\epsilon\mathbf v)\circ X)
+-\operatorname{Log}(X)}{\epsilon}.\tag{51}
+\]
+由 Baker–Campbell–Hausdorff 公式，可以用左雅可比矩阵逆处理这类局部增量（式 (52)）。对于 SO(3)，
+\[
+\mathbf J_l^{-1}(\boldsymbol\phi)
+=\mathbf I_3-\frac12[\boldsymbol\phi]_\times+
+\left(
+\frac1{\|\boldsymbol\phi\|^2}
+-\frac{1+\cos\|\boldsymbol\phi\|}
+{2\|\boldsymbol\phi\|\sin\|\boldsymbol\phi\|}
+\right)[\boldsymbol\phi]_\times^2.\tag{53}
+\]
+因此，流形梯度可从李代数变量的梯度恢复为
+\[
+\frac{\partial L}{\partial X}
+=\frac{\partial L}{\partial\boldsymbol\phi}
+\mathbf J_l^{-1}(\boldsymbol\phi).\tag{54}
+\]
+上述式 (47)–(54) 构成图 4 的切空间反向传播机制。正向计算图执行支撑杆和阵面旋转矩阵的复合；反向求导使用切向量、伴随算子和左雅可比逆，最终由指数映射将更新送回 SO(3)。与直接优化旋转矩阵九个元素相比，这更符合三维姿态的真实自由度和正交几何结构。
+
 {% endraw %}
