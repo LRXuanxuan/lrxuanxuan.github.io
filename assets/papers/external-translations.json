@@ -2,7 +2,7 @@
   {
     "slug": "2026-10-26-weighted-adjoint-matching-2610-20035",
     "title": "加权伴随匹配：时变控制代价下的流匹配微调｜中文译稿（未完成）",
-    "scope": "仅摘要、引言起始部分和基础公式已翻译；原文 34 页；实验与长附录未完成。",
+    "scope": "原文34页；译稿已覆盖加权控制目标、路径KL理论、HJB/伴随匹配、MNIST和Gaussian实验及附录A-E的主要内容；长篇证明的逐式译文、全部表格及书目待补，全文QA未通过.",
     "date": "2026-10-26",
     "url": "/papers/translations/2026-10-26-weighted-adjoint-matching-2610-20035/",
     "source_file": "2026-10-26-weighted-adjoint-matching-2610-20035.md",
@@ -19,7 +19,7 @@
   {
     "slug": "2026-10-26-afdm-model-order-2610-09970",
     "title": "AFDM 模型阶数自适应信道估计｜中文译稿（未完成）",
-    "scope": "仅摘要、引言开篇和系统模型起始部分已翻译；原文 13 页；完整算法、证明和仿真未完成。",
+    "scope": "原文13页；译稿已覆盖离栅格原子、SAGE及模型阶数规则、单调性证明、仿真参数和结果；部分分段公式与表I、参考文献待终校，全文QA未通过。",
     "date": "2026-10-26",
     "url": "/papers/translations/2026-10-26-afdm-model-order-2610-09970/",
     "source_file": "2026-10-26-afdm-model-order-2610-09970.md",
@@ -36,7 +36,7 @@
   {
     "slug": "2026-10-26-otfs-overspread-doppler",
     "title": "超扩展多普勒 OTFS 系统信道估计｜中文译稿（未完成）",
-    "scope": "仅摘要、引言开篇和系统模型起始部分已翻译；原文 13 页；两阶段算法、图表和实验未完成。",
+    "scope": "原文13页；译稿已覆盖摘要、两阶段估计、频域配对、复杂度、卫星场景实验及附录算法说明；部分长公式与图表、书目待终校，全文QA未通过。",
     "date": "2026-10-26",
     "url": "/papers/translations/2026-10-26-otfs-overspread-doppler/",
     "source_file": "2026-10-26-otfs-overspread-doppler.md",
@@ -51,7 +51,7 @@
   {
     "slug": "2026-10-26-zak-otfs-duality-2610-16033",
     "title": "Zak-OTFS 时延–多普勒对偶性与精确均衡｜中文译稿（未完成）",
-    "scope": "仅摘要、引言开篇和系统模型起始部分已翻译；原文 12 页；对偶证明、算法、实验和参考文献未完成。",
+    "scope": "原文12页；译稿已覆盖摘要、精确离散模型、对偶定理、低复杂度均衡和关键实验/表III；部分公式、表I-II、完整图注及参考文献待逐项终校，全文QA未通过。",
     "date": "2026-10-26",
     "url": "/papers/translations/2026-10-26-zak-otfs-duality-2610-16033/",
     "source_file": "2026-10-26-zak-otfs-duality-2610-16033.md",
@@ -68,7 +68,7 @@
   {
     "slug": "2026-10-26-ckm-6dma-manifold",
     "title": "信道知识地图赋能的运动学约束 6DMA 系统｜中文译稿（未完成）",
-    "scope": "仅摘要、引言开篇和系统模型起始部分已翻译；原文 14 页；其余章节、公式、图表、参考文献未完成。",
+    "scope": "原文14页；译稿已覆盖摘要、系统运动学及主要约束、CKM信道建模、流形优化、算法流程和数值结果；仍缺若干长公式、表I及文献逐项核验，全文QA未通过。",
     "date": "2026-10-26",
     "url": "/papers/translations/2026-10-26-ckm-6dma-manifold/",
     "source_file": "2026-10-26-ckm-6dma-manifold.md",
