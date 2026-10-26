@@ -128,6 +128,36 @@ toc: true
 
 ## 推荐论文
 
+### 2026-10-27 · [Inter-Cell Interference Suppression for Channel Estimation and Data Detection in MIMO-OFDM Systems via Score-Based Variational Inference](/papers/items/6dc33cb34cd70f91/)
+
+可先用廉价oracle/估计协方差基线判断似然建模缺口，再决定是否值得引入昂贵score模块；重点是结构化观测而非泛化扩散迁移。
+
+[本篇日报](/papers/items/6dc33cb34cd70f91/#paper-report)
+
+### 2026-10-27 · [Sionna Bench: Towards Benchmarks in Wireless Communications](/papers/items/6939ae72452c3f3b/)
+
+当前可优先复用其接口契约与配对评估思路，先把LS/LMMSE/GMM等控制接进同一Y/P/noise，再考虑新增生成模块。
+
+[本篇日报](/papers/items/6939ae72452c3f3b/#paper-report)
+
+### 2026-10-27 · [Digital Twin-Assisted Measurement Design and Channel Statistics Prediction](/papers/items/b626385daa0ee464/)
+
+对当前Sionna数据方案最直接：历史地图与目标场景应分别生成，保留几何误差相关性；先以GP统计基线验证额外测量是否真有信息价值。
+
+[本篇日报](/papers/items/b626385daa0ee464/#paper-report)
+
+### 2026-10-27 · [Beyond Best-of-$k$: Prior-Consistent DAPS for Ambiguous Nonlinear Inverse Problems](/papers/items/39bb2162c4326c50/)
+
+适合后续含幅度观测、相位歧义或非线性物理算子的独立课题，也能提醒当前实验保留全部种子/失败率。不能把剪枝改善直接解释成更准的Bayes后验。
+
+[本篇日报](/papers/items/39bb2162c4326c50/#paper-report)
+
+### 2026-10-27 · [Conditional Flow Models Convert Epistemic Uncertainty into Apparent Aleatoric Variance](/papers/items/3f655527a43a9d52/)
+
+在把p(H|r,e,M)样本方差用于先验门控或导频预算前，先检验它是否校准、是否仅反映条件欠拟合。适合期刊扩展的独立诊断分支。
+
+[本篇日报](/papers/items/3f655527a43a9d52/#paper-report)
+
 ### 2026-10-26 · [Channel Knowledge Map-Enabled 6D Movable Antenna Systems With Kinematic Constraints: A Manifold Optimization Approach](/papers/items/f103ab005ecf4e09/)
 
 给新journal的期刊扩展提供独立系统评价路径：相同预测信息和求解预算下，比较myopic与causal horizon控制，而非只看即时NMSE。

@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "source": "每日论文推荐.xlsx",
-  "source_sha256": "8af5164e64732607b2d312045325ff1fa1f7d64adbf568e0a23af4ff1ca2a3da",
+  "source_sha256": "ac2ac7845430a12bda8d284ec3d5be94a63e91fd1b5d41665a60f5f606b63e23",
   "translation_progress": {
     "target": 315,
     "completed": 22,
@@ -23,7 +23,7 @@
   "sheets": [
     {
       "name": "每日论文推荐",
-      "count": 390,
+      "count": 395,
       "headers": [
         "日期",
         "标题",
@@ -45,8 +45,9 @@
       ]
     }
   ],
-  "total": 390,
+  "total": 395,
   "dates": {
+    "2026-10-27": 5,
     "2026-10-26": 5,
     "2026-10-25": 5,
     "2026-10-24": 5,
@@ -99,8 +100,282 @@
     "2026-07-12": 5,
     "2026-07-11": 5
   },
-  "latest_date": "2026-10-26",
+  "latest_date": "2026-10-27",
   "papers": [
+    {
+      "id": "6dc33cb34cd70f91",
+      "date": "2026-10-27",
+      "title": "Inter-Cell Interference Suppression for Channel Estimation and Data Detection in MIMO-OFDM Systems via Score-Based Variational Inference",
+      "sheet": "每日论文推荐",
+      "row": 396,
+      "fields": {
+        "日期": "2026-10-27",
+        "标题": "Inter-Cell Interference Suppression for Channel Estimation and Data Detection in MIMO-OFDM Systems via Score-Based Variational Inference",
+        "内容": "作者：Mingyang Yue; Xiaojun Yuan。问题：把强小区间干扰只视作平均有色噪声，会遗漏逐子载波干扰子空间和干扰符号未知性，影响信道估计与检测。 方法：显式分离干扰信道G与符号S的双线性结构；STMP估目标信道、RMP/score先验推断干扰信道，并嵌入LMMSE符号更新；再用逐子载波协方差重构做MMSE-IRC。 结果：Fig7在作者指定INR10dB、J4设置的BLER1e-1处，相对VBI-DSAE＋Ave-R报告约7dB SNR收益；Fig8/11显示低估干扰数时恢复近乎失效。TableIII/IV报告单realization CE约85.25秒GPU，RMP主导开销，不含解码。 局限：近似score/变分推断不等于精确Bayes后验；对干扰数低估及分布失配敏感。默认M30、D15，RMP约MDJ次score前向，另有MK；这里M与用户KAP内部平均M含义不同。85秒级平台结果不能直接当实时能力，跨CPU/GPU表格也不构成严格效率排名。",
+        "契合方向": "MIMO-OFDM；score prior；变分推断；双线性干扰",
+        "推荐理由": "可先用廉价oracle/估计协方差基线判断似然建模缺口，再决定是否值得引入昂贵score模块；重点是结构化观测而非泛化扩散迁移。",
+        "顶刊顶会/机构依据": "arXiv；预印本/状态未确认；arXiv v1为2026-10-11；未有可核验journal-ref/录用确认，IEEE双栏模板不作为发表证据。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2610.15455",
+        "检索来源": "https://arxiv.org/abs/2610.15455",
+        "筛选备注": "理论启发或基线；缺口：从白噪声Y=HP+N扩展到结构化未知干扰的likelihood，而非仅提高生成先验容量；适合后续独立接收机分支。；PDF SecII–V系统模型/Algorithm；pp11–14 SecVI/Fig7–11/TableII–IV；SecVI-J明确计算成本与非端到端时延。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；论文/arXiv无本篇作者实现入口；GitHub精确标题片段检索仅命中无关工程，2610.15455检索无对应仓库。证据：https://arxiv.org/abs/2610.15455；https://github.com/search?q=2610.15455&type=repositories。未把第三方相似项目标成作者代码。",
+        "反馈匹配": "区别于把干扰协方差当已知或把所有误差并入sigma，本篇显式维护干扰信道与符号，并把子空间估计传给检测器；不与无干扰Sionna Bench的增益混报。",
+        "反馈权重说明": "机制独立：先验可靠性/后验支持/地图统计/统一链路/结构干扰；不把不同信息量、采样预算或观测模型的差异归为网络收益。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-27/",
+      "report_section": "## 5. Inter-Cell Interference Suppression for Channel Estimation and Data Detection in MIMO-OFDM Systems via Score-Based Variational Inference\n\n**作者/年份/venue**：Mingyang Yue; Xiaojun Yuan；2026；arXiv。\n\n**方向与发表状态（2026-10-27核验）**：MIMO-OFDM；score prior；变分推断；双线性干扰；预印本/状态未确认。arXiv v1为2026-10-11；未有可核验journal-ref/录用确认，IEEE双栏模板不作为发表证据。\n\n**问题**：把强小区间干扰只视作平均有色噪声，会遗漏逐子载波干扰子空间和干扰符号未知性，影响信道估计与检测。\n\n**论文方法与作用机制**：显式分离干扰信道G与符号S的双线性结构；STMP估目标信道、RMP/score先验推断干扰信道，并嵌入LMMSE符号更新；再用逐子载波协方差重构做MMSE-IRC。\n\n**论文结果与证据边界**：Fig7在作者指定INR10dB、J4设置的BLER1e-1处，相对VBI-DSAE＋Ave-R报告约7dB SNR收益；Fig8/11显示低估干扰数时恢复近乎失效。TableIII/IV报告单realization CE约85.25秒GPU，RMP主导开销，不含解码。\n\n**局限与独立审计判断**：近似score/变分推断不等于精确Bayes后验；对干扰数低估及分布失配敏感。默认M30、D15，RMP约MDJ次score前向，另有MK；这里M与用户KAP内部平均M含义不同。85秒级平台结果不能直接当实时能力，跨CPU/GPU表格也不构成严格效率排名。\n\n**迁移类型**：理论启发或基线\n\n**研究接口与定位（迁移推断）**：缺口：从白噪声Y=HP+N扩展到结构化未知干扰的likelihood，而非仅提高生成先验容量；适合后续独立接收机分支。\n\n**与既有阅读差异**：区别于把干扰协方差当已知或把所有误差并入sigma，本篇显式维护干扰信道与符号，并把子空间估计传给检测器；不与无干扰Sionna Bench的增益混报。\n\n**推荐理由**：可先用廉价oracle/估计协方差基线判断似然建模缺口，再决定是否值得引入昂贵score模块；重点是结构化观测而非泛化扩散迁移。\n\n**代码状态**：未发现公开代码\n\n**代码审计**：论文/arXiv无本篇作者实现入口；GitHub精确标题片段检索仅命中无关工程，2610.15455检索无对应仓库。证据：https://arxiv.org/abs/2610.15455；https://github.com/search?q=2610.15455&type=repositories。未把第三方相似项目标成作者代码。\n\n**稳定身份与一手证据**：arXiv:2610.15455；[来源1](https://arxiv.org/abs/2610.15455)\n\n[官方PDF](https://arxiv.org/pdf/2610.15455)；[原文PDF](https://arxiv.org/pdf/2610.15455)（16页）。\n\n**全文定位**：PDF SecII–V系统模型/Algorithm；pp11–14 SecVI/Fig7–11/TableII–IV；SecVI-J明确计算成本与非端到端时延。\n\n[本篇全文翻译入口/真实状态](https://lrxuanxuan.github.io/papers/items/6dc33cb34cd70f91/#paper-translation)。job `dcd3ebd3b528bef3d5e19745` 已入队，指定gpt-6-luna/xhigh。原worker发送和有界确认均返回No Codex thread found，当前pending，未启动、未完成。\n\n[原文许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)；公开译文授权未确认，完成稿先保留本地。所有PDF仅保留本地及官方链接，不上传PDF或XLSX。",
+      "report_entry_url": "/papers/reports/2026-10-27/#paper-6dc33cb34cd70f91",
+      "paper_url": "/papers/items/6dc33cb34cd70f91/",
+      "paper_report_url": "/papers/items/6dc33cb34cd70f91/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2610.15455",
+        "https://arxiv.org/abs/2610.15455",
+        "https://github.com/search?q=2610.15455&type=repositories",
+        "https://arxiv.org/pdf/2610.15455)（16页",
+        "https://lrxuanxuan.github.io/papers/items/6dc33cb34cd70f91/#paper-translation",
+        "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+      ],
+      "github": [
+        "https://github.com/search?q=2610.15455&type=repositories"
+      ],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2610.15455"
+      ],
+      "hosted_pdfs": [],
+      "status": "预印本/状态未确认",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/6dc33cb34cd70f91/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "6939ae72452c3f3b",
+      "date": "2026-10-27",
+      "title": "Sionna Bench: Towards Benchmarks in Wireless Communications",
+      "sheet": "每日论文推荐",
+      "row": 395,
+      "fields": {
+        "日期": "2026-10-27",
+        "标题": "Sionna Bench: Towards Benchmarks in Wireless Communications",
+        "内容": "作者：Gian Marti; Jakob Hoydis; Fayçal Aït Aoudia; Sebastian Cammerer; Alexander Keller。问题：不同论文使用略异场景、导频和指标，单纯比较各自NMSE曲线难以归因，也可能误判对真实解码的作用。 方法：在同一多用户MIMO-OFDM链路实现10篇论文的20种估计器，统一数据/参数与评估接口，联合报告NMSE、coded BER和LDPC BLER；估计器可提供误差方差给LMMSE检测。公开代码含配对Monte Carlo种子、配置与资产manifest。 结果：论文TableI/II与Fig1–3对比线性、稀疏、latent和神经方法；所设3GPP UMi场景中，简单线性插值可胜过部分更复杂插值，并展示NMSE与下游指标排序不总一致。结果限于其统一设置，不推出某类方法普遍最优。 局限：UE速度3km/h、已知AWGN方差、无小区间干扰、pathloss/shadow fading关闭；Kronecker导频不等于完整5G NR DMRS，不能当高速移动/WCM/跨城RT基准。主文把复杂度留给后续，不能据该榜单声称低延迟。AI重实现不等于原作者代码或原论文结论，仍需逐方法适配审计。",
+        "契合方向": "MIMO-OFDM信道估计；公平基线；下游BER/BLER",
+        "推荐理由": "当前可优先复用其接口契约与配对评估思路，先把LS/LMMSE/GMM等控制接进同一Y/P/noise，再考虑新增生成模块。",
+        "顶刊顶会/机构依据": "arXiv；NVIDIA Research作者团队；预印本/状态未确认；arXiv v1为2026-10-19；官方Sionna文档和NVlabs作者仓库公开，未查到正式期刊/会议发表确认。机构归属不等于发表状态。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2610.27174",
+        "检索来源": "https://arxiv.org/abs/2610.27174\nhttps://nvlabs.github.io/sionna/bench/index.html\nhttps://github.com/NVlabs/sionna-bench\nhttps://github.com/NVlabs/sionna-bench/blob/main/src/sionna/bench/mimo_ofdm_chest/benchmarking/channel_estimation.py",
+        "筛选备注": "可直接复现；缺口：期刊扩展的统一物理链路、传统强基线和CSI到解码的实际效用；先作为外部可复现控制。；PDF pp2–4 SecII–III/TableI–II；pp5–7 SecIV/Fig1–3；AppendixA数据/训练预算；作者README和benchmarking/channel_estimation.py。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "https://github.com/NVlabs/sionna-bench",
+        "代码/数据状态": "完整开源实现；论文直链NVlabs官方仓库；静态核查统一评估、20方法目录、run_benchmark、资产生成/校验、测试和leaderboard。训练权重/拟合协方差未随源码打包，需prepare-assets重建；主体Apache2.0，RKHS为单独子模块许可。未安装运行或复现榜单。",
+        "反馈匹配": "区别于继续堆新网络，本篇提供共同测试问题和复现框架；不替代用户现有RT数据物理准入，也不改变KAP会议稿已有四格/子空间测试。",
+        "反馈权重说明": "机制独立：先验可靠性/后验支持/地图统计/统一链路/结构干扰；不把不同信息量、采样预算或观测模型的差异归为网络收益。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-27/",
+      "report_section": "## 4. Sionna Bench: Towards Benchmarks in Wireless Communications\n\n**作者/年份/venue**：Gian Marti; Jakob Hoydis; Fayçal Aït Aoudia; Sebastian Cammerer; Alexander Keller；2026；arXiv；NVIDIA Research作者团队。\n\n**方向与发表状态（2026-10-27核验）**：MIMO-OFDM信道估计；公平基线；下游BER/BLER；预印本/状态未确认。arXiv v1为2026-10-19；官方Sionna文档和NVlabs作者仓库公开，未查到正式期刊/会议发表确认。机构归属不等于发表状态。\n\n**问题**：不同论文使用略异场景、导频和指标，单纯比较各自NMSE曲线难以归因，也可能误判对真实解码的作用。\n\n**论文方法与作用机制**：在同一多用户MIMO-OFDM链路实现10篇论文的20种估计器，统一数据/参数与评估接口，联合报告NMSE、coded BER和LDPC BLER；估计器可提供误差方差给LMMSE检测。公开代码含配对Monte Carlo种子、配置与资产manifest。\n\n**论文结果与证据边界**：论文TableI/II与Fig1–3对比线性、稀疏、latent和神经方法；所设3GPP UMi场景中，简单线性插值可胜过部分更复杂插值，并展示NMSE与下游指标排序不总一致。结果限于其统一设置，不推出某类方法普遍最优。\n\n**局限与独立审计判断**：UE速度3km/h、已知AWGN方差、无小区间干扰、pathloss/shadow fading关闭；Kronecker导频不等于完整5G NR DMRS，不能当高速移动/WCM/跨城RT基准。主文把复杂度留给后续，不能据该榜单声称低延迟。AI重实现不等于原作者代码或原论文结论，仍需逐方法适配审计。\n\n**迁移类型**：可直接复现\n\n**研究接口与定位（迁移推断）**：缺口：期刊扩展的统一物理链路、传统强基线和CSI到解码的实际效用；先作为外部可复现控制。\n\n**与既有阅读差异**：区别于继续堆新网络，本篇提供共同测试问题和复现框架；不替代用户现有RT数据物理准入，也不改变KAP会议稿已有四格/子空间测试。\n\n**推荐理由**：当前可优先复用其接口契约与配对评估思路，先把LS/LMMSE/GMM等控制接进同一Y/P/noise，再考虑新增生成模块。\n\n**代码状态**：完整开源实现\n\n**代码审计**：论文直链NVlabs官方仓库；静态核查统一评估、20方法目录、run_benchmark、资产生成/校验、测试和leaderboard。训练权重/拟合协方差未随源码打包，需prepare-assets重建；主体Apache2.0，RKHS为单独子模块许可。未安装运行或复现榜单。\n\n**稳定身份与一手证据**：arXiv:2610.27174；[来源1](https://arxiv.org/abs/2610.27174) [来源2](https://nvlabs.github.io/sionna/bench/index.html) [来源3](https://github.com/NVlabs/sionna-bench) [来源4](https://github.com/NVlabs/sionna-bench/blob/main/src/sionna/bench/mimo_ofdm_chest/benchmarking/channel_estimation.py)\n\n[官方PDF](https://arxiv.org/pdf/2610.27174)；[原文PDF](https://arxiv.org/pdf/2610.27174)（9页）。\n\n**全文定位**：PDF pp2–4 SecII–III/TableI–II；pp5–7 SecIV/Fig1–3；AppendixA数据/训练预算；作者README和benchmarking/channel_estimation.py。\n\n[本篇全文翻译入口/真实状态](https://lrxuanxuan.github.io/papers/items/6939ae72452c3f3b/#paper-translation)。job `b07edf384a72e120be7ad42e` 已入队，指定gpt-6-luna/xhigh。原worker发送和有界确认均返回No Codex thread found，当前pending，未启动、未完成。\n\n[原文许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)；公开译文授权未确认，完成稿先保留本地。所有PDF仅保留本地及官方链接，不上传PDF或XLSX。",
+      "report_entry_url": "/papers/reports/2026-10-27/#paper-6939ae72452c3f3b",
+      "paper_url": "/papers/items/6939ae72452c3f3b/",
+      "paper_report_url": "/papers/items/6939ae72452c3f3b/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2610.27174",
+        "https://arxiv.org/abs/2610.27174",
+        "https://nvlabs.github.io/sionna/bench/index.html",
+        "https://github.com/NVlabs/sionna-bench",
+        "https://github.com/NVlabs/sionna-bench/blob/main/src/sionna/bench/mimo_ofdm_chest/benchmarking/channel_estimation.py",
+        "https://arxiv.org/pdf/2610.27174)（9页",
+        "https://lrxuanxuan.github.io/papers/items/6939ae72452c3f3b/#paper-translation",
+        "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+      ],
+      "github": [
+        "https://github.com/NVlabs/sionna-bench",
+        "https://github.com/NVlabs/sionna-bench/blob/main/src/sionna/bench/mimo_ofdm_chest/benchmarking/channel_estimation.py"
+      ],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2610.27174"
+      ],
+      "hosted_pdfs": [],
+      "status": "预印本/状态未确认",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/6939ae72452c3f3b/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "b626385daa0ee464",
+      "date": "2026-10-27",
+      "title": "Digital Twin-Assisted Measurement Design and Channel Statistics Prediction",
+      "sheet": "每日论文推荐",
+      "row": 394,
+      "fields": {
+        "日期": "2026-10-27",
+        "标题": "Digital Twin-Assisted Measurement Design and Channel Statistics Prediction",
+        "内容": "作者：Robin J. Williams; Mahmoud Saad Abouamer; Petar Popovski。问题：用理想几何/材料RT直接当真信道会偏差，而纯平稳核GP需要较密测量，如何从未校准地图提取可用的统计相关性并选测点？ 方法：随机化材料介电常数与建筑位置，在未校准Sionna DT中Monte Carlo生成位置间log功率分位数，矩匹配得到非平稳GP均值/协方差；融合少量真实统计测量，并按采样与剩余区域的互信息贪心选点。 结果：Munich场景1002个候选点、50个独立目标实现的Fig2–3显示，相对无几何GP与DT辅助平稳核，预测误差更低；25/35/45测点的rate CDF体现作者所设URLLC meta-probability约束。这里预测功率统计分位数，不是瞬时复CSI或未来Doppler。 局限：单场景仿真、无车辆/植被；有限MC协方差的数值处理及地图误差分布仍需检验。作者把I(y_A;t_(S\\A))概括成单调次模并给1-1/e保证，但分区MI在空集和全集均为0，一般不能全局单调；应核对噪声、候选域和预算假设，不能直接继承通用保证。GP高斯近似及其可靠性也不自动适用于跨城市失配。",
+        "契合方向": "CKM统计先验；不精确地图；主动测量；URLLC",
+        "推荐理由": "对当前Sionna数据方案最直接：历史地图与目标场景应分别生成，保留几何误差相关性；先以GP统计基线验证额外测量是否真有信息价值。",
+        "顶刊顶会/机构依据": "IEEE ICC Workshops 2026（TwinNetApp）；正式发表；作者Aalborg机构库正式会议条目给出2026-05-28、ICC Workshops、6页和IEEE DOI；arXiv2603.23787v1为03-24作者版本。本篇属于Workshop，不写作ICC主会或顶刊。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2603.23787",
+        "检索来源": "https://arxiv.org/abs/2603.23787\nhttps://vbn.aau.dk/en/publications/digital-twin-assisted-measurement-design-and-channel-statistics-p-2/\nhttps://doi.org/10.1109/ICCWorkshops63917.2026.11586702\nhttps://ieeexplore.ieee.org/document/11586702",
+        "筛选备注": "可改造工具；缺口：独立历史地图不确定性、少量真实观测修正、额外探测价值；可作为期刊扩展的统计经典基线。；PDF pp2–3 Eq2/GP模型及SecIV；pp4–5 Eq13–17；pp5–6 SecVI/Fig2–3。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；论文/arXiv/作者机构出版记录无本篇代码入口；GitHub精确标题片段和2603.23787搜索无对应作者仓库。证据：https://vbn.aau.dk/en/publications/digital-twin-assisted-measurement-design-and-channel-statistics-p-2/；https://github.com/search?q=2603.23787&type=repositories。",
+        "反馈匹配": "与按位置插值CKM、几何到复信道直接回归不同，本篇将不精确DT变成分布矩并用于测量设计；也不等于对单张地图加独立噪声后声称真实地图失配。",
+        "反馈权重说明": "机制独立：先验可靠性/后验支持/地图统计/统一链路/结构干扰；不把不同信息量、采样预算或观测模型的差异归为网络收益。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-27/",
+      "report_section": "## 3. Digital Twin-Assisted Measurement Design and Channel Statistics Prediction\n\n**作者/年份/venue**：Robin J. Williams; Mahmoud Saad Abouamer; Petar Popovski；2026；IEEE ICC Workshops 2026（TwinNetApp）。\n\n**方向与发表状态（2026-10-27核验）**：CKM统计先验；不精确地图；主动测量；URLLC；正式发表。作者Aalborg机构库正式会议条目给出2026-05-28、ICC Workshops、6页和IEEE DOI；arXiv2603.23787v1为03-24作者版本。本篇属于Workshop，不写作ICC主会或顶刊。\n\n**问题**：用理想几何/材料RT直接当真信道会偏差，而纯平稳核GP需要较密测量，如何从未校准地图提取可用的统计相关性并选测点？\n\n**论文方法与作用机制**：随机化材料介电常数与建筑位置，在未校准Sionna DT中Monte Carlo生成位置间log功率分位数，矩匹配得到非平稳GP均值/协方差；融合少量真实统计测量，并按采样与剩余区域的互信息贪心选点。\n\n**论文结果与证据边界**：Munich场景1002个候选点、50个独立目标实现的Fig2–3显示，相对无几何GP与DT辅助平稳核，预测误差更低；25/35/45测点的rate CDF体现作者所设URLLC meta-probability约束。这里预测功率统计分位数，不是瞬时复CSI或未来Doppler。\n\n**局限与独立审计判断**：单场景仿真、无车辆/植被；有限MC协方差的数值处理及地图误差分布仍需检验。作者把I(y_A;t_(S\\A))概括成单调次模并给1-1/e保证，但分区MI在空集和全集均为0，一般不能全局单调；应核对噪声、候选域和预算假设，不能直接继承通用保证。GP高斯近似及其可靠性也不自动适用于跨城市失配。\n\n**迁移类型**：可改造工具\n\n**研究接口与定位（迁移推断）**：缺口：独立历史地图不确定性、少量真实观测修正、额外探测价值；可作为期刊扩展的统计经典基线。\n\n**与既有阅读差异**：与按位置插值CKM、几何到复信道直接回归不同，本篇将不精确DT变成分布矩并用于测量设计；也不等于对单张地图加独立噪声后声称真实地图失配。\n\n**推荐理由**：对当前Sionna数据方案最直接：历史地图与目标场景应分别生成，保留几何误差相关性；先以GP统计基线验证额外测量是否真有信息价值。\n\n**代码状态**：未发现公开代码\n\n**代码审计**：论文/arXiv/作者机构出版记录无本篇代码入口；GitHub精确标题片段和2603.23787搜索无对应作者仓库。证据：https://vbn.aau.dk/en/publications/digital-twin-assisted-measurement-design-and-channel-statistics-p-2/；https://github.com/search?q=2603.23787&type=repositories。\n\n**稳定身份与一手证据**：arXiv:2603.23787；DOI:10.1109/ICCWorkshops63917.2026.11586702；[来源1](https://arxiv.org/abs/2603.23787) [来源2](https://vbn.aau.dk/en/publications/digital-twin-assisted-measurement-design-and-channel-statistics-p-2/) [来源3](https://doi.org/10.1109/ICCWorkshops63917.2026.11586702) [来源4](https://ieeexplore.ieee.org/document/11586702)\n\n[官方PDF](https://arxiv.org/pdf/2603.23787)；[原文PDF](https://arxiv.org/pdf/2603.23787)（6页）。\n\n**全文定位**：PDF pp2–3 Eq2/GP模型及SecIV；pp4–5 Eq13–17；pp5–6 SecVI/Fig2–3。\n\n[本篇全文翻译入口/真实状态](https://lrxuanxuan.github.io/papers/items/b626385daa0ee464/#paper-translation)。job `9d24a6a8eab62e0b657b1faf` 已入队，指定gpt-6-luna/xhigh。原worker发送和有界确认均返回No Codex thread found，当前pending，未启动、未完成。\n\n[原文许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)；公开译文授权未确认，完成稿先保留本地。所有PDF仅保留本地及官方链接，不上传PDF或XLSX。",
+      "report_entry_url": "/papers/reports/2026-10-27/#paper-b626385daa0ee464",
+      "paper_url": "/papers/items/b626385daa0ee464/",
+      "paper_report_url": "/papers/items/b626385daa0ee464/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2603.23787",
+        "https://arxiv.org/abs/2603.23787",
+        "https://vbn.aau.dk/en/publications/digital-twin-assisted-measurement-design-and-channel-statistics-p-2/",
+        "https://doi.org/10.1109/ICCWorkshops63917.2026.11586702",
+        "https://ieeexplore.ieee.org/document/11586702",
+        "https://github.com/search?q=2603.23787&type=repositories",
+        "https://arxiv.org/pdf/2603.23787)（6页",
+        "https://lrxuanxuan.github.io/papers/items/b626385daa0ee464/#paper-translation",
+        "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+      ],
+      "github": [
+        "https://github.com/search?q=2603.23787&type=repositories"
+      ],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2603.23787"
+      ],
+      "hosted_pdfs": [],
+      "status": "正式发表",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/b626385daa0ee464/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "39bb2162c4326c50",
+      "date": "2026-10-27",
+      "title": "Beyond Best-of-$k$: Prior-Consistent DAPS for Ambiguous Nonlinear Inverse Problems",
+      "sheet": "每日论文推荐",
+      "row": 393,
+      "fields": {
+        "日期": "2026-10-27",
+        "标题": "Beyond Best-of-$k$: Prior-Consistent DAPS for Ambiguous Nonlinear Inverse Problems",
+        "内容": "作者：Merve Kocabas; Benjamin A. Burns; Andreas Geiger; Kent Gauen; Sara Fridovich-Keil。问题：测量残差小的重建仍可能落在先验不支持的模式；用真实答案挑选best-of-k会掩盖这种失败。 方法：在DAPS单次运行中维护粒子包，用粒子去噪估计构造高斯混合近似；非线性likelihood的多井判据触发聚类，按多噪声尺度去噪一致性打分执行一次剪枝/替换。推断不访问ground truth；另有ODE调度和末端Langevin等改动。 结果：Table2的FFHQ phase retrieval中，倒置/颜色翻转率14.5%降至1.5%，faithful79.5%升至97.5%；ImageNet faithful38.5%到45%，但failed19.5%升至24.5%。Fig2 toy消除了虚假模式，却仍未恢复少数真后验模式的正确概率。 局限：是近似启发式采样，不保证精确后验或模式概率；数据更复杂时效果较弱。主表PC-DAPS平均4粒子、基线best-of-4口径不同，公平平均比较见AppendixA.6/Table4。Table5默认732 NFE按每粒子计，4粒子约2928次，尚须明确剪枝计费；不视为低NFE方法。线性A下Jensen使多井触发条件不成立，不能直接照搬到Y=HP+N。",
+        "契合方向": "PnP/扩散逆问题；非线性观测歧义；多粒子后验近似",
+        "推荐理由": "适合后续含幅度观测、相位歧义或非线性物理算子的独立课题，也能提醒当前实验保留全部种子/失败率。不能把剪枝改善直接解释成更准的Bayes后验。",
+        "顶刊顶会/机构依据": "arXiv；预印本/状态未确认；arXiv v1为2026-10-22；PDF标为Preprint，作者项目和仓库未给可核验的正式发表确认。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2610.31592",
+        "检索来源": "https://arxiv.org/abs/2610.31592\nhttps://github.com/voilalab/PC-DAPS\nhttps://github.com/voilalab/PC-DAPS/blob/main/cores/pcdaps.py",
+        "筛选备注": "可改造工具；深化：FlowADMM/PnP的残差与先验一致性分离；优先作后验失败诊断，非当前线性主模型的直接替代。；PDF pp4–7 Sec3–4/Eq8–9；pp8–10 Table1–2与discussion；pp16–19 Table4–5。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "https://github.com/voilalab/PC-DAPS",
+        "代码/数据状态": "完整开源实现；论文首注链接作者voilalab/PC-DAPS；静态核查README、cores/pcdaps.py、posterior_sample.py、configs、toy、下载脚本及MIT许可。README明确PRNG/GPU敏感，权重与数据需按脚本取得；未运行代码或复现论文数值。",
+        "反馈匹配": "与仅加数据近端、增加完整恢复采样次数或事后选最优输出不同，本篇在一轮采样内跨粒子纠错；粒子数K与用户KAP的迭代K、内部平均M含义不同。",
+        "反馈权重说明": "机制独立：先验可靠性/后验支持/地图统计/统一链路/结构干扰；不把不同信息量、采样预算或观测模型的差异归为网络收益。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-27/",
+      "report_section": "## 2. Beyond Best-of-$k$: Prior-Consistent DAPS for Ambiguous Nonlinear Inverse Problems\n\n**作者/年份/venue**：Merve Kocabas; Benjamin A. Burns; Andreas Geiger; Kent Gauen; Sara Fridovich-Keil；2026；arXiv。\n\n**方向与发表状态（2026-10-27核验）**：PnP/扩散逆问题；非线性观测歧义；多粒子后验近似；预印本/状态未确认。arXiv v1为2026-10-22；PDF标为Preprint，作者项目和仓库未给可核验的正式发表确认。\n\n**问题**：测量残差小的重建仍可能落在先验不支持的模式；用真实答案挑选best-of-k会掩盖这种失败。\n\n**论文方法与作用机制**：在DAPS单次运行中维护粒子包，用粒子去噪估计构造高斯混合近似；非线性likelihood的多井判据触发聚类，按多噪声尺度去噪一致性打分执行一次剪枝/替换。推断不访问ground truth；另有ODE调度和末端Langevin等改动。\n\n**论文结果与证据边界**：Table2的FFHQ phase retrieval中，倒置/颜色翻转率14.5%降至1.5%，faithful79.5%升至97.5%；ImageNet faithful38.5%到45%，但failed19.5%升至24.5%。Fig2 toy消除了虚假模式，却仍未恢复少数真后验模式的正确概率。\n\n**局限与独立审计判断**：是近似启发式采样，不保证精确后验或模式概率；数据更复杂时效果较弱。主表PC-DAPS平均4粒子、基线best-of-4口径不同，公平平均比较见AppendixA.6/Table4。Table5默认732 NFE按每粒子计，4粒子约2928次，尚须明确剪枝计费；不视为低NFE方法。线性A下Jensen使多井触发条件不成立，不能直接照搬到Y=HP+N。\n\n**迁移类型**：可改造工具\n\n**研究接口与定位（迁移推断）**：深化：FlowADMM/PnP的残差与先验一致性分离；优先作后验失败诊断，非当前线性主模型的直接替代。\n\n**与既有阅读差异**：与仅加数据近端、增加完整恢复采样次数或事后选最优输出不同，本篇在一轮采样内跨粒子纠错；粒子数K与用户KAP的迭代K、内部平均M含义不同。\n\n**推荐理由**：适合后续含幅度观测、相位歧义或非线性物理算子的独立课题，也能提醒当前实验保留全部种子/失败率。不能把剪枝改善直接解释成更准的Bayes后验。\n\n**代码状态**：完整开源实现\n\n**代码审计**：论文首注链接作者voilalab/PC-DAPS；静态核查README、cores/pcdaps.py、posterior_sample.py、configs、toy、下载脚本及MIT许可。README明确PRNG/GPU敏感，权重与数据需按脚本取得；未运行代码或复现论文数值。\n\n**稳定身份与一手证据**：arXiv:2610.31592；[来源1](https://arxiv.org/abs/2610.31592) [来源2](https://github.com/voilalab/PC-DAPS) [来源3](https://github.com/voilalab/PC-DAPS/blob/main/cores/pcdaps.py)\n\n[官方PDF](https://arxiv.org/pdf/2610.31592)；[原文PDF](https://arxiv.org/pdf/2610.31592)（25页）。\n\n**全文定位**：PDF pp4–7 Sec3–4/Eq8–9；pp8–10 Table1–2与discussion；pp16–19 Table4–5。\n\n[本篇全文翻译入口/真实状态](https://lrxuanxuan.github.io/papers/items/39bb2162c4326c50/#paper-translation)。job `67929937ff588300c280b36e` 已入队，指定gpt-6-luna/xhigh。原worker发送和有界确认均返回No Codex thread found，当前pending，未启动、未完成。\n\n[原文许可](https://creativecommons.org/licenses/by/4.0/)；许可允许完成后的署名/保留许可译文分享，仍须先通过全文QA。所有PDF仅保留本地及官方链接，不上传PDF或XLSX。",
+      "report_entry_url": "/papers/reports/2026-10-27/#paper-39bb2162c4326c50",
+      "paper_url": "/papers/items/39bb2162c4326c50/",
+      "paper_report_url": "/papers/items/39bb2162c4326c50/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2610.31592",
+        "https://arxiv.org/abs/2610.31592",
+        "https://github.com/voilalab/PC-DAPS",
+        "https://github.com/voilalab/PC-DAPS/blob/main/cores/pcdaps.py",
+        "https://arxiv.org/pdf/2610.31592)（25页",
+        "https://lrxuanxuan.github.io/papers/items/39bb2162c4326c50/#paper-translation",
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "github": [
+        "https://github.com/voilalab/PC-DAPS",
+        "https://github.com/voilalab/PC-DAPS/blob/main/cores/pcdaps.py"
+      ],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2610.31592"
+      ],
+      "hosted_pdfs": [],
+      "status": "正式发表",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/39bb2162c4326c50/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "3f655527a43a9d52",
+      "date": "2026-10-27",
+      "title": "Conditional Flow Models Convert Epistemic Uncertainty into Apparent Aleatoric Variance",
+      "sheet": "每日论文推荐",
+      "row": 392,
+      "fields": {
+        "日期": "2026-10-27",
+        "标题": "Conditional Flow Models Convert Epistemic Uncertainty into Apparent Aleatoric Variance",
+        "内容": "作者：Navodita Sharma; Abhishek Shetty; Max Simchowitz; Pulkit Agrawal。问题：连续条件依赖尚未学好时，生成样本的散布能否被解释成真实条件分布中的随机性？把样本方差直接当信道物理不确定性可能混入模型欠拟合。 方法：用对条件变量施加平滑正则的总体flow-matching模型解释邻近条件分布混合；在等效核分解、归一化和正则性假设下，推导对条件分布平均的协方差下界，包含真实条件协方差与条件均值偏差平方。另以合成回归和真实任务考察覆盖率。 结果：Theorem1给出Loewner序下的平均协方差关系；合成及策略评估、细胞扰动、行为克隆实验显示，欠拟合条件处方差更大，训练或数据增加后可下降。覆盖结果是实验现象，论文明确不提供正式预测覆盖保证。 局限：理论依赖Assumption5.1及A.1–A.3，不适用于任意神经网络训练，也不是逐位置必成立的界；过拟合后的验证覆盖可能下降。CSI存在真实多径随机性，必须用重复条件样本或解析分布把其与欠拟合区分，不能把大方差一律判为坏先验。",
+        "契合方向": "条件Flow Matching；认知不确定性；连续条件可靠性",
+        "推荐理由": "在把p(H|r,e,M)样本方差用于先验门控或导频预算前，先检验它是否校准、是否仅反映条件欠拟合。适合期刊扩展的独立诊断分支。",
+        "顶刊顶会/机构依据": "arXiv；预印本/状态未确认；arXiv v1为2026-10-21；未取得与本标题、作者和编号完整对应的录用或正式出版证据，保守记为预印本。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2610.29172",
+        "检索来源": "https://arxiv.org/abs/2610.29172\nhttps://navoditas.github.io/",
+        "筛选备注": "理论启发或基线；深化：连续位置条件先验及地图失配可靠性；补足条件样本方差的语义审计。；PDF pp6–7 Sec5 Eq5.1–5.5/Theorem1；pp7–10 Sec6–7；AppendixA假设与证明。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；论文/arXiv及作者主页未给本篇实现；GitHub精确标题片段与2610.29172检索均无对应仓库。证据：https://navoditas.github.io/；https://github.com/search?q=2610.29172&type=repositories。未运行复现。",
+        "反馈匹配": "区别于既有Posterior Flow Matching的端点矩预测、VAP的训练时速度歧义，本篇分析条件变量拟合不足如何污染生成分布方差；不是新增求解器或简单不确定性头。",
+        "反馈权重说明": "机制独立：先验可靠性/后验支持/地图统计/统一链路/结构干扰；不把不同信息量、采样预算或观测模型的差异归为网络收益。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-27/",
+      "report_section": "## 1. Conditional Flow Models Convert Epistemic Uncertainty into Apparent Aleatoric Variance\n\n**作者/年份/venue**：Navodita Sharma; Abhishek Shetty; Max Simchowitz; Pulkit Agrawal；2026；arXiv。\n\n**方向与发表状态（2026-10-27核验）**：条件Flow Matching；认知不确定性；连续条件可靠性；预印本/状态未确认。arXiv v1为2026-10-21；未取得与本标题、作者和编号完整对应的录用或正式出版证据，保守记为预印本。\n\n**问题**：连续条件依赖尚未学好时，生成样本的散布能否被解释成真实条件分布中的随机性？把样本方差直接当信道物理不确定性可能混入模型欠拟合。\n\n**论文方法与作用机制**：用对条件变量施加平滑正则的总体flow-matching模型解释邻近条件分布混合；在等效核分解、归一化和正则性假设下，推导对条件分布平均的协方差下界，包含真实条件协方差与条件均值偏差平方。另以合成回归和真实任务考察覆盖率。\n\n**论文结果与证据边界**：Theorem1给出Loewner序下的平均协方差关系；合成及策略评估、细胞扰动、行为克隆实验显示，欠拟合条件处方差更大，训练或数据增加后可下降。覆盖结果是实验现象，论文明确不提供正式预测覆盖保证。\n\n**局限与独立审计判断**：理论依赖Assumption5.1及A.1–A.3，不适用于任意神经网络训练，也不是逐位置必成立的界；过拟合后的验证覆盖可能下降。CSI存在真实多径随机性，必须用重复条件样本或解析分布把其与欠拟合区分，不能把大方差一律判为坏先验。\n\n**迁移类型**：理论启发或基线\n\n**研究接口与定位（迁移推断）**：深化：连续位置条件先验及地图失配可靠性；补足条件样本方差的语义审计。\n\n**与既有阅读差异**：区别于既有Posterior Flow Matching的端点矩预测、VAP的训练时速度歧义，本篇分析条件变量拟合不足如何污染生成分布方差；不是新增求解器或简单不确定性头。\n\n**推荐理由**：在把p(H|r,e,M)样本方差用于先验门控或导频预算前，先检验它是否校准、是否仅反映条件欠拟合。适合期刊扩展的独立诊断分支。\n\n**代码状态**：未发现公开代码\n\n**代码审计**：论文/arXiv及作者主页未给本篇实现；GitHub精确标题片段与2610.29172检索均无对应仓库。证据：https://navoditas.github.io/；https://github.com/search?q=2610.29172&type=repositories。未运行复现。\n\n**稳定身份与一手证据**：arXiv:2610.29172；[来源1](https://arxiv.org/abs/2610.29172) [来源2](https://navoditas.github.io/)\n\n[官方PDF](https://arxiv.org/pdf/2610.29172)；[原文PDF](https://arxiv.org/pdf/2610.29172)（30页）。\n\n**全文定位**：PDF pp6–7 Sec5 Eq5.1–5.5/Theorem1；pp7–10 Sec6–7；AppendixA假设与证明。\n\n[本篇全文翻译入口/真实状态](https://lrxuanxuan.github.io/papers/items/3f655527a43a9d52/#paper-translation)。job `da0408c8edac9a7ddc39aa98` 已入队，指定gpt-6-luna/xhigh。原worker发送和有界确认均返回No Codex thread found，当前pending，未启动、未完成。\n\n[原文许可](https://creativecommons.org/licenses/by/4.0/)；许可允许完成后的署名/保留许可译文分享，仍须先通过全文QA。所有PDF仅保留本地及官方链接，不上传PDF或XLSX。",
+      "report_entry_url": "/papers/reports/2026-10-27/#paper-3f655527a43a9d52",
+      "paper_url": "/papers/items/3f655527a43a9d52/",
+      "paper_report_url": "/papers/items/3f655527a43a9d52/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2610.29172",
+        "https://arxiv.org/abs/2610.29172",
+        "https://navoditas.github.io/",
+        "https://github.com/search?q=2610.29172&type=repositories",
+        "https://arxiv.org/pdf/2610.29172)（30页",
+        "https://lrxuanxuan.github.io/papers/items/3f655527a43a9d52/#paper-translation",
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "github": [
+        "https://github.com/search?q=2610.29172&type=repositories"
+      ],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2610.29172"
+      ],
+      "hosted_pdfs": [],
+      "status": "预印本/状态未确认",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/3f655527a43a9d52/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
     {
       "id": "f103ab005ecf4e09",
       "date": "2026-10-26",
@@ -19609,6 +19884,17 @@
   ],
   "reports": [
     {
+      "date": "2026-10-27",
+      "url": "/papers/reports/2026-10-27/",
+      "source_file": "2026-10-27_每日前沿论文推荐.md",
+      "slug": "2026-10-27",
+      "covered_dates": [
+        "2026-10-27"
+      ],
+      "title": "10_27前沿论文推荐",
+      "download": "/assets/papers/reports/2026-10-27.md"
+    },
+    {
       "date": "2026-10-26",
       "url": "/papers/reports/2026-10-26/",
       "source_file": "2026-10-26_每日前沿论文推荐.md",
@@ -21526,9 +21812,9 @@
   "pdf_mode": "links_only",
   "workbook_table": {
     "url": "/papers/table/",
-    "source_sha256": "8af5164e64732607b2d312045325ff1fa1f7d64adbf568e0a23af4ff1ca2a3da",
+    "source_sha256": "ac2ac7845430a12bda8d284ec3d5be94a63e91fd1b5d41665a60f5f606b63e23",
     "sheet": "每日论文推荐",
-    "row_count": 390,
+    "row_count": 395,
     "headers": [
       "日期",
       "标题",
