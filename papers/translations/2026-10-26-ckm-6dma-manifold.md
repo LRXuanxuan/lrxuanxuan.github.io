@@ -15,6 +15,7 @@ toc: true
 **作者**：Nan Cheng、Shuangyu Yang、Ruijin Sun、Zhisheng Yin、Xiaodan Shao、Weihua Zhuang、Xuemin Shen  
 **来源**：IEEE Transactions on Wireless Communications, Vol. 25, 2026，DOI: 10.1109/TWC.2025.3645480。  
 **翻译进度（2026-10-26 更新）**：已补译摘要、引言、运动学与信道模型、SO(3) 流形优化、运动约束、自适应惩罚算法以及主要仿真图表讨论。现有文件由分批补译片段构成，仍需按原文逐段去重、重排并逐式终校；**未通过全文 QA，不计入全文完成量**。
+**完整性与去重审计**：[2026-10-26 五篇译稿逐篇核查记录](/papers/qa/2026-10-26/)。已处理重复公式编号；表格、参考文献、部分公式与逐段原文终校仍未完成。
 
 ## 摘要
 
