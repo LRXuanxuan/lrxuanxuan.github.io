@@ -125,13 +125,13 @@ toc: true
 \]
 为防止阵面与基站主体发生碰撞，阵面中心方向与基站初始法线 \(\mathbf i^b[0]\) 之间的夹角不得小于 \(\vartheta_2\)：
 \[
-\arccos\frac{|\mathbf q_l^b[t]\cdot\mathbf i^b[0]|}
+\arccos\frac{\mathbf q_l^b[t]\cdot\mathbf i^b[0]}
 {\|\mathbf q_l^b[t]\|\,\|\mathbf i^b[0]\|}
 \geq\vartheta_2.\tag{14}
 \]
 同理，为防止阵面与其自身支撑杆碰撞，使用阵面当前法线 \(\mathbf i_a^b[t]\) 定义最小夹角 \(\vartheta_3\)：
 \[
-\arccos\frac{|\mathbf q_l^b[t]\cdot\mathbf i_a^b[t]|}
+\arccos\frac{\mathbf q_l^b[t]\cdot\mathbf i_a^b[t]}
 {\|\mathbf q_l^b[t]\|\,\|\mathbf i_a^b[t]\|}
 \geq\vartheta_3,\quad l=a.\tag{15}
 \]
@@ -298,5 +298,87 @@ P(\mathbf x_s;\boldsymbol\rho^w,\mu^w)\right)\circ\mathbf x_s.
 本文针对移动 UE 的主动跟踪问题，提出了利用 CKM 预测信道信息的 6DMA 基站长期轨迹优化方法。该方法以最大化服务时域内的总频谱效率为目标，明确建模 6DMA 的复合运动学关系，并纳入一组实际物理约束。为求解由此形成的非凸优化问题，作者提出在 SO(3) 李群上运行的流形优化框架，结合自适应惩罚和切空间反向传播。数值实验表明，该框架可以在满足工程运动限制的同时实现较高的频谱效率，其优势来自全时域规划而非独立快照优化。
 
 **此稿完整性说明**：目前已补充主要章节及算法、代表性公式和仿真解读，但原式 (18)–(26)、(37)–(55) 及部分初始旋转关系的逐式转写、表 I 数值、所有图表图注、参考文献逐条核验仍未完成；因此仍标记为「未通过全文验收」。
+
+
+### 补校：原式 (18)–(26) 的方向变换、方向图与信道叠加
+
+在阵面天线的局部坐标系中，来自 UE 的全局路径方向变换为
+\[
+\mathbf f_{k,j}^{a}[t]=-
+\bigl(\mathbf R_l^e[t]\bigr)^T\mathbf f_{k,j}^{b}[t]
+=\bigl[f_{k,j}^{a,x}[t],f_{k,j}^{a,y}[t],
+f_{k,j}^{a,z}[t]\bigr]^T.\tag{18}
+\]
+这里的负号来自将全局入射方向转换为阵面局部接收方向；旋转矩阵满足 \(\mathbf R^{-1}=\mathbf R^T\)。接着，由局部方向向量定义接收路径的俯仰角：
+\[
+\alpha_{k,j}^{a}[t]
+=\frac{\pi}{2}-\arccos\bigl(f_{k,j}^{a,z}[t]\bigr).\tag{19}
+\]
+方位角通过前两个方向分量计算：
+\[
+\beta_{k,j}^{a}[t]
+=\arccos\!\left(
+\frac{f_{k,j}^{a,x}[t]}
+{\sqrt{(f_{k,j}^{a,x}[t])^2+
+(f_{k,j}^{a,y}[t])^2}}\right)
+\eta\!\left(f_{k,j}^{a,y}[t]\right),\tag{20}
+\]
+其中
+\[
+\eta\!\left(f_{k,j}^{a,y}[t]\right)
+=\begin{cases}
+1,&f_{k,j}^{a,y}[t]\ge0,\\
+-1,&f_{k,j}^{a,y}[t]<0.
+\end{cases}\tag{21}
+\]
+因此，局部俯仰角和方位角既与 UE 的全局路径角度有关，也与阵面和支撑杆累积旋转相关。每个阵元的三维增益以 dBi 表示为
+\[
+g_{k,j}^a
+=g^{\max}-\min\bigl\{
+-\bigl[g_v(\alpha_{k,j}^{a})+
+g_h(\beta_{k,j}^{a})\bigr],F
+\bigr\},\tag{22}
+\]
+其中垂直和水平辐射方向图为
+\[
+g_v(\alpha_{k,j}^{a})
+=-\min\left\{
+12\left(\frac{\alpha_{k,j}^{a}}{\alpha_{3\mathrm{dB}}}\right)^2,S
+\right\},\tag{23}
+\]
+\[
+g_h(\beta_{k,j}^{a})
+=-\min\left\{
+12\left(\frac{\beta_{k,j}^{a}}{\beta_{3\mathrm{dB}}}\right)^2,F
+\right\}.\tag{24}
+\]
+原文采用 \(g^{\max}=8\,\mathrm{dBi}\)，
+\(\alpha_{3\mathrm{dB}}=\beta_{3\mathrm{dB}}=25^\circ\)，
+\(S=F=30\,\mathrm{dB}\)。
+把 dBi 增益转换至线性功率增益：
+\[
+G_{k,j}^{a}(\mathbf R_l^e[t])
+=10^{g_{k,j}^{a}
+(\alpha_{k,j}^{a}[t],\beta_{k,j}^{a}[t])/10}.\tag{25}
+\]
+上式中的局部接收角必须先由式 (18)–(21) 计算，不能简单地把全局 AOA 直接代入阵元方向图。
+
+把每个阵面的 \(N\) 维导向向量乘以路径相关的增益平方根，并依阵面索引堆叠，随后对所有 \(J_k\) 条传播路径叠加，得到
+\[
+\mathbf h_k(\boldsymbol\varsigma[t],
+\mathbf R^b[t],\mathbf R^s[t])
+=\sum_{j=1}^{J_k}\bar P_{k,j}[t]
+\begin{bmatrix}
+\sqrt{G_{k,j}^{1}(\mathbf R_1^e[t])}
+\mathbf v_{k,j}^{1}(\mathbf R_1^b[t],\mathbf R_1^s[t])\\
+\vdots\\
+\sqrt{G_{k,j}^{A}(\mathbf R_L^e[t])}
+\mathbf v_{k,j}^{A}(\mathbf R_L^b[t],\mathbf R_A^s[t])
+\end{bmatrix}
+\in\mathbb C^{AN\times1}.\tag{26}
+\]
+\(\bar P_{k,j}[t]\) 是第 \(k\) 个 UE 第 \(j\) 条路径在基站参考点处的传播增益系数。式 (26) 将 CKM 提供的路径属性和天线位姿决定的阵元方向响应分开：前者对应场景先验，后者则是可控的优化变量。
+
+特别说明：原文的最小角度约束 (14)–(15) 使用**有符号的点积**构造夹角，没有额外取绝对值。本次按照原 PDF 更正该排版，以免改变物理可行域。
 
 {% endraw %}
