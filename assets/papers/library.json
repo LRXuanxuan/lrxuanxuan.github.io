@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "source": "每日论文推荐.xlsx",
-  "source_sha256": "d518e5e8742869c04e99442f394226053a7921f51d417896537c3706be72df47",
+  "source_sha256": "8af5164e64732607b2d312045325ff1fa1f7d64adbf568e0a23af4ff1ca2a3da",
   "translation_progress": {
     "target": 315,
     "completed": 22,
@@ -23,7 +23,7 @@
   "sheets": [
     {
       "name": "每日论文推荐",
-      "count": 385,
+      "count": 390,
       "headers": [
         "日期",
         "标题",
@@ -45,8 +45,9 @@
       ]
     }
   ],
-  "total": 385,
+  "total": 390,
   "dates": {
+    "2026-10-26": 5,
     "2026-10-25": 5,
     "2026-10-24": 5,
     "2026-10-23": 5,
@@ -98,8 +99,262 @@
     "2026-07-12": 5,
     "2026-07-11": 5
   },
-  "latest_date": "2026-10-25",
+  "latest_date": "2026-10-26",
   "papers": [
+    {
+      "id": "f103ab005ecf4e09",
+      "date": "2026-10-26",
+      "title": "Channel Knowledge Map-Enabled 6D Movable Antenna Systems With Kinematic Constraints: A Manifold Optimization Approach",
+      "sheet": "每日论文推荐",
+      "row": 391,
+      "fields": {
+        "日期": "2026-10-26",
+        "标题": "Channel Knowledge Map-Enabled 6D Movable Antenna Systems With Kinematic Constraints: A Manifold Optimization Approach",
+        "内容": "作者：Nan Cheng; Shuangyu Yang; Ruijin Sun; Zhisheng Yin; Xiaodan Shao; Weihua Zhuang; Xuemin Shen。问题：逐时刻最优pose与事后截断动作可能把系统带到未来无法及时恢复的位置；地图预测收益必须通过可执行运动和使用时刻指标验证。 方法：把整个服务时域的6DMA位置/方向联合成长期sum spectral efficiency优化，包含角/伸缩速度、安全距离及物理限制。旋转位于SO(3)，切空间反向传播联合自适应惩罚、平滑与精度更新；CKM按预测UE位置查询未来信道。 结果：SecV基于WinProp RT、OpenStreetMap多环境、随机游走UE比较FPA、无约束/受限AO、LoS追踪、无CKM反应式manifold及KC-MO。Fig6–8显示目标与可行性权衡，所示0.1rad/slot例子中前瞻KC-MO保持角速度限制且接近理想方案。仅按图文确认趋势，不读取曲线编造百分比。 局限：使用预测位置与CKM信道，未给地图误差/预测误差的完整鲁棒保证；无实物执行器延迟/能耗实验。惩罚迭代的KKT结论有零容差极限、可行limit point和LICQ等条件，非全局最优或有限步严格可行保证；初始惩罚等参数未给统一固定值。其CKM含位置/AoA/path gain，不能假设当前Sheet2能提供完整联合监督。",
+        "契合方向": "CKM到控制；6D可移动天线；运动学约束与前瞻轨迹优化",
+        "推荐理由": "给新journal的期刊扩展提供独立系统评价路径：相同预测信息和求解预算下，比较myopic与causal horizon控制，而非只看即时NMSE。",
+        "顶刊顶会/机构依据": "IEEE Transactions on Wireless Communications；正式发表；作者大学主页直连正式PDF与Crossref一致：TWC vol25, pp8968–8981, 2026。PDF首页明确2025-12-26首次online、2026-01-12当前版本；不是2026-10月新稿，本日扩大2026正式期刊窗口选入未推荐的系统机制。",
+        "发表年份": "2026",
+        "论文下载链接": "https://m64he.github.io/paper_sshen/2026/cheng2026channel.pdf",
+        "检索来源": "https://ieeexplore.ieee.org/document/11314850/\nhttps://uwaterloo.ca/broadband-communications-research-lab/sshen/publications\nhttps://api.crossref.org/works/10.1109/TWC.2025.3645480",
+        "筛选备注": "理论启发或基线；应用：把CKM/生成信道的质量放到未来控制结果与可行性上验收。；正式PDF p1出版信息；SecIII–IV Eq55–63/Algorithm1；pp11–13 SecV TableI/Fig6–11。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；核对作者大学出版页及正式PDF，未给本篇实现；GitHub精确标题及6D kinematic antenna检索无对应仓库。LieTorch是通用依赖，不能据此标为本篇开源实现。",
+        "反馈匹配": "与昨日VaN3Twin系统仿真及TwinPAS统计预测不同，本篇优化可执行的整条天线运动轨迹；连续SO(3)解码不是位置条件生成分布的同义词。",
+        "反馈权重说明": "分开验证微调目标、参数可辨识性、均衡结构与系统控制；不以计时缺失稿声称低延迟。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-26/",
+      "report_section": "## 5. Channel Knowledge Map-Enabled 6D Movable Antenna Systems With Kinematic Constraints: A Manifold Optimization Approach\n\n**作者/年份/venue**：Nan Cheng; Shuangyu Yang; Ruijin Sun; Zhisheng Yin; Xiaodan Shao; Weihua Zhuang; Xuemin Shen；2026；IEEE Transactions on Wireless Communications。\n\n**方向与发表状态（2026-10-26核验）**：CKM到控制；6D可移动天线；运动学约束与前瞻轨迹优化；正式发表。作者大学主页直连正式PDF与Crossref一致：TWC vol25, pp8968–8981, 2026。PDF首页明确2025-12-26首次online、2026-01-12当前版本；不是2026-10月新稿，本日扩大2026正式期刊窗口选入未推荐的系统机制。\n\n**问题**：逐时刻最优pose与事后截断动作可能把系统带到未来无法及时恢复的位置；地图预测收益必须通过可执行运动和使用时刻指标验证。\n\n**方法与作用机制**：把整个服务时域的6DMA位置/方向联合成长期sum spectral efficiency优化，包含角/伸缩速度、安全距离及物理限制。旋转位于SO(3)，切空间反向传播联合自适应惩罚、平滑与精度更新；CKM按预测UE位置查询未来信道。\n\n**关键结果与证据边界**：SecV基于WinProp RT、OpenStreetMap多环境、随机游走UE比较FPA、无约束/受限AO、LoS追踪、无CKM反应式manifold及KC-MO。Fig6–8显示目标与可行性权衡，所示0.1rad/slot例子中前瞻KC-MO保持角速度限制且接近理想方案。仅按图文确认趋势，不读取曲线编造百分比。\n\n**局限与迁移风险**：使用预测位置与CKM信道，未给地图误差/预测误差的完整鲁棒保证；无实物执行器延迟/能耗实验。惩罚迭代的KKT结论有零容差极限、可行limit point和LICQ等条件，非全局最优或有限步严格可行保证；初始惩罚等参数未给统一固定值。其CKM含位置/AoA/path gain，不能假设当前Sheet2能提供完整联合监督。\n\n**迁移类型**：理论启发或基线\n\n**相对阅读笔记位置**：应用：把CKM/生成信道的质量放到未来控制结果与可行性上验收。\n\n**与既有阅读差异**：与昨日VaN3Twin系统仿真及TwinPAS统计预测不同，本篇优化可执行的整条天线运动轨迹；连续SO(3)解码不是位置条件生成分布的同义词。\n\n**推荐理由**：给新journal的期刊扩展提供独立系统评价路径：相同预测信息和求解预算下，比较myopic与causal horizon控制，而非只看即时NMSE。\n\n**代码状态**：未发现公开代码\n\n**代码审计**：核对作者大学出版页及正式PDF，未给本篇实现；GitHub精确标题及6D kinematic antenna检索无对应仓库。LieTorch是通用依赖，不能据此标为本篇开源实现。\n\n**身份与一手来源**：10.1109/twc.2025.3645480；[来源1](https://ieeexplore.ieee.org/document/11314850/) [来源2](https://uwaterloo.ca/broadband-communications-research-lab/sshen/publications) [来源3](https://api.crossref.org/works/10.1109/TWC.2025.3645480)\n\n[官方原文/PDF入口](https://m64he.github.io/paper_sshen/2026/cheng2026channel.pdf)；[原文PDF](https://m64he.github.io/paper_sshen/2026/cheng2026channel.pdf)（14页）。\n\n**全文证据定位**：正式PDF p1出版信息；SecIII–IV Eq55–63/Algorithm1；pp11–13 SecV TableI/Fig6–11。\n\n[本篇全文翻译入口/真实状态](https://lrxuanxuan.github.io/papers/items/f103ab005ecf4e09/#paper-translation)。job `bc3ebb2912e866e89d2967b6`，pending，指定gpt-6-luna/xhigh。已入队并尝试向原worker派发、有界确认，但接口返回No Codex thread found，未启动、未完成翻译。预期输出：`本地资料：paper.md`（尚未生成，不能当已完成链接）。\n\n[原文许可/权限证据](https://www.ieee.org/publications/rights/)；本次均未确认公开完整译文授权，完成稿先本地保存，后续明确授权后才公开全文译稿。PDF仅保留官方链接，均不上传GitHub/网站。",
+      "report_entry_url": "/papers/reports/2026-10-26/#paper-f103ab005ecf4e09",
+      "paper_url": "/papers/items/f103ab005ecf4e09/",
+      "paper_report_url": "/papers/items/f103ab005ecf4e09/#paper-report",
+      "translations": [],
+      "links": [
+        "https://m64he.github.io/paper_sshen/2026/cheng2026channel.pdf",
+        "https://ieeexplore.ieee.org/document/11314850/",
+        "https://uwaterloo.ca/broadband-communications-research-lab/sshen/publications",
+        "https://api.crossref.org/works/10.1109/TWC.2025.3645480",
+        "https://m64he.github.io/paper_sshen/2026/cheng2026channel.pdf)（14页",
+        "https://lrxuanxuan.github.io/papers/items/f103ab005ecf4e09/#paper-translation",
+        "https://www.ieee.org/publications/rights/"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://m64he.github.io/paper_sshen/2026/cheng2026channel.pdf"
+      ],
+      "hosted_pdfs": [],
+      "status": "正式发表",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/f103ab005ecf4e09/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "98e88faa323855d9",
+      "date": "2026-10-26",
+      "title": "Delay-Doppler Duality: Simplifying Exact Equalization of Zak-OTFS in Time or in Frequency",
+      "sheet": "每日论文推荐",
+      "row": 390,
+      "fields": {
+        "日期": "2026-10-26",
+        "标题": "Delay-Doppler Duality: Simplifying Exact Equalization of Zak-OTFS in Time or in Frequency",
+        "内容": "作者：Sheikh, Mudasir Ahmad; Calderbank, Robert。问题：Zak-OTFS容纳ICI后，全DD帧直接LMMSE代价随帧大小立方增长；固定选择时域或频域也可能浪费计算。 方法：用酉Zak变换及Fourier变换将DD模型改写成TD/FD循环带状形式，TD带宽由delay spread、FD带宽由Doppler spread控制；按有效信道两方向能量边缘选择更便宜的域，bordered Cholesky显式保留quasi-periodic wrap-around，重尾pulse用带状预条件PCG求精确系统。 结果：TableIII的M31/N37、n1147例子：直接DD-LMMSE约1e9复乘，Veh-A815Hz选择FD为5e4，Veh-A6kHz选择TD为1.3e5；Fig9全范围约600–20000倍算术计数减少。sinc重尾时4步PCG足够达到文中BER而解误差1e-3需10–15步；不能把4步说成任意精度精确解。 局限：数值采用perfect CSI、uncoded4QAM；本文不验证channel estimation。总复杂度O(n(logN+D^2))含带宽D依赖及变换，只有固定带宽条件下的近线性说法，非任意spread严格O(n)。截带会产生误差底，有限PCG有精度/延迟权衡；不直接等于当前Y=HP+N的矩阵结构。",
+        "契合方向": "结构化线性代数；Zak-OTFS；均衡复杂度与精度",
+        "推荐理由": "提醒把网络NFE与线性求解成本分开计量，先证明观测算子结构，再选精确带状求解或PCG；避免仅以采样步数声称低延迟。",
+        "顶刊顶会/机构依据": "arXiv；预印本/状态未确认；arXiv v1公开于2026-10-12；未查到正式接收/出版的一手确认，不以IEEE排版推断venue。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2610.16033",
+        "检索来源": "https://arxiv.org/abs/2610.16033",
+        "筛选备注": "理论启发或基线；深化：结构化求解与低NFE之外的总计算预算；作为波形级系统基线。；PDF SecIII–IV酉模型/带选择/边界Cholesky；pp9–12 TableI–III、Fig4–9及结论。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；arXiv/PDF无作者实现入口；GitHub精确标题及2610.16033检索均无对应仓库，未实跑数值。",
+        "反馈匹配": "上一篇解决观测到真实参数的别名，本篇在已知有效信道条件下加速数据均衡；二者既非同种OTFS，也不能直接拼接当已验证完整接收机。",
+        "反馈权重说明": "分开验证微调目标、参数可辨识性、均衡结构与系统控制；不以计时缺失稿声称低延迟。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-26/",
+      "report_section": "## 4. Delay-Doppler Duality: Simplifying Exact Equalization of Zak-OTFS in Time or in Frequency\n\n**作者/年份/venue**：Sheikh, Mudasir Ahmad; Calderbank, Robert；2026；arXiv。\n\n**方向与发表状态（2026-10-26核验）**：结构化线性代数；Zak-OTFS；均衡复杂度与精度；预印本/状态未确认。arXiv v1公开于2026-10-12；未查到正式接收/出版的一手确认，不以IEEE排版推断venue。\n\n**问题**：Zak-OTFS容纳ICI后，全DD帧直接LMMSE代价随帧大小立方增长；固定选择时域或频域也可能浪费计算。\n\n**方法与作用机制**：用酉Zak变换及Fourier变换将DD模型改写成TD/FD循环带状形式，TD带宽由delay spread、FD带宽由Doppler spread控制；按有效信道两方向能量边缘选择更便宜的域，bordered Cholesky显式保留quasi-periodic wrap-around，重尾pulse用带状预条件PCG求精确系统。\n\n**关键结果与证据边界**：TableIII的M31/N37、n1147例子：直接DD-LMMSE约1e9复乘，Veh-A815Hz选择FD为5e4，Veh-A6kHz选择TD为1.3e5；Fig9全范围约600–20000倍算术计数减少。sinc重尾时4步PCG足够达到文中BER而解误差1e-3需10–15步；不能把4步说成任意精度精确解。\n\n**局限与迁移风险**：数值采用perfect CSI、uncoded4QAM；本文不验证channel estimation。总复杂度O(n(logN+D^2))含带宽D依赖及变换，只有固定带宽条件下的近线性说法，非任意spread严格O(n)。截带会产生误差底，有限PCG有精度/延迟权衡；不直接等于当前Y=HP+N的矩阵结构。\n\n**迁移类型**：理论启发或基线\n\n**相对阅读笔记位置**：深化：结构化求解与低NFE之外的总计算预算；作为波形级系统基线。\n\n**与既有阅读差异**：上一篇解决观测到真实参数的别名，本篇在已知有效信道条件下加速数据均衡；二者既非同种OTFS，也不能直接拼接当已验证完整接收机。\n\n**推荐理由**：提醒把网络NFE与线性求解成本分开计量，先证明观测算子结构，再选精确带状求解或PCG；避免仅以采样步数声称低延迟。\n\n**代码状态**：未发现公开代码\n\n**代码审计**：arXiv/PDF无作者实现入口；GitHub精确标题及2610.16033检索均无对应仓库，未实跑数值。\n\n**身份与一手来源**：2610.16033；[来源1](https://arxiv.org/abs/2610.16033)\n\n[官方原文/PDF入口](https://arxiv.org/pdf/2610.16033)；[原文PDF](https://arxiv.org/pdf/2610.16033)（12页）。\n\n**全文证据定位**：PDF SecIII–IV酉模型/带选择/边界Cholesky；pp9–12 TableI–III、Fig4–9及结论。\n\n[本篇全文翻译入口/真实状态](https://lrxuanxuan.github.io/papers/items/98e88faa323855d9/#paper-translation)。job `e124be49283bb4b5075f65d1`，pending，指定gpt-6-luna/xhigh。已入队并尝试向原worker派发、有界确认，但接口返回No Codex thread found，未启动、未完成翻译。预期输出：`本地资料：paper.md`（尚未生成，不能当已完成链接）。\n\n[原文许可/权限证据](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)；本次均未确认公开完整译文授权，完成稿先本地保存，后续明确授权后才公开全文译稿。PDF仅保留官方链接，均不上传GitHub/网站。",
+      "report_entry_url": "/papers/reports/2026-10-26/#paper-98e88faa323855d9",
+      "paper_url": "/papers/items/98e88faa323855d9/",
+      "paper_report_url": "/papers/items/98e88faa323855d9/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2610.16033",
+        "https://arxiv.org/abs/2610.16033",
+        "https://arxiv.org/pdf/2610.16033)（12页",
+        "https://lrxuanxuan.github.io/papers/items/98e88faa323855d9/#paper-translation",
+        "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2610.16033"
+      ],
+      "hosted_pdfs": [],
+      "status": "预印本/状态未确认",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/98e88faa323855d9/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "a67500334e77fc04",
+      "date": "2026-10-26",
+      "title": "Channel Estimation for OTFS Systems With Overspread Doppler Shifts",
+      "sheet": "每日论文推荐",
+      "row": 389,
+      "fields": {
+        "日期": "2026-10-26",
+        "标题": "Channel Estimation for OTFS Systems With Overspread Doppler Shifts",
+        "内容": "作者：Preety Priya; Yi Hong; Emanuele Viterbo。问题：Doppler绝对值大于半个子载波间隔时，DD modulo产生混叠：同一aliased Doppler可对应多个真实频移，原有DD导频恢复不充分。 方法：在DD训练帧组合高功率pilot符号与cosine pilot；第1阶段恢复delay/aliased Doppler/gain，第2阶段利用接收时域到频域的谱峰识别实际Doppler，再阈值配对delay/gain，重估碰撞路径增益。 结果：公开作者版本SecIV在M512/N64、15kHz、4QAM条件下验证NMSE/BER；ScenarioA中SNRc12/17dB、DeltaSNR28dB时，BER约2e-5处离perfect CSI约1dB。原embedded pilot方案在其overspread设定失效。作者明确用额外训练开销换取解混叠能力。 局限：版本假设训练帧与随后数据帧参数不变，并采用窄带OTFS；不覆盖宽带频率依赖Doppler。阈值与pilot高功率需计入相同能量预算；不能只把DD模型的错误恢复归咎于生成器。正文已有spectral-efficiency代价，不能报告为无开销增益。",
+        "契合方向": "高Doppler可辨识性；OTFS导频设计；NTN场景",
+        "推荐理由": "为高速移动扩展建立必须报告的歧义/探测预算压力测试，区分地图先验推测与可辨识测量。",
+        "顶刊顶会/机构依据": "IEEE Transactions on Wireless Communications；正式发表；Crossref出版社存入的journal-article记录：TWC vol25, pp20734–20746, 2026，IEEE文档11627204。公开arXiv2608.12524v1为2026-08-12作者版本，14页；与正式13页页码不同，正文仍保留2025占位模板，不把模板日期当发表日期。正式具体在线日未核验。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2608.12524",
+        "检索来源": "https://ieeexplore.ieee.org/document/11627204/\nhttps://arxiv.org/abs/2608.12524\nhttps://api.crossref.org/works/10.1109/TWC.2026.3715542",
+        "筛选备注": "可改造工具；缺口：从WCM位置先验推进到观测模糊性的显式破除。；公开作者PDF SecII–III/Algorithm1；SecIII-C训练开销；pp7–10 SecIV TableI/Fig3–13。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；论文/arXiv无本篇作者仓库；GitHub按完整题名片段、OTFS overspread Doppler及2608.12524检索无对应实现；相邻overspread-delay代码不冒充本篇。",
+        "反馈匹配": "与AFDM的fractional参数细化及模型阶数估计不同，这里要解决模运算造成的真实Doppler别名；WCM先验能筛选但不能自动创造缺失观测。",
+        "反馈权重说明": "分开验证微调目标、参数可辨识性、均衡结构与系统控制；不以计时缺失稿声称低延迟。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-26/",
+      "report_section": "## 3. Channel Estimation for OTFS Systems With Overspread Doppler Shifts\n\n**作者/年份/venue**：Preety Priya; Yi Hong; Emanuele Viterbo；2026；IEEE Transactions on Wireless Communications。\n\n**方向与发表状态（2026-10-26核验）**：高Doppler可辨识性；OTFS导频设计；NTN场景；正式发表。Crossref出版社存入的journal-article记录：TWC vol25, pp20734–20746, 2026，IEEE文档11627204。公开arXiv2608.12524v1为2026-08-12作者版本，14页；与正式13页页码不同，正文仍保留2025占位模板，不把模板日期当发表日期。正式具体在线日未核验。\n\n**问题**：Doppler绝对值大于半个子载波间隔时，DD modulo产生混叠：同一aliased Doppler可对应多个真实频移，原有DD导频恢复不充分。\n\n**方法与作用机制**：在DD训练帧组合高功率pilot符号与cosine pilot；第1阶段恢复delay/aliased Doppler/gain，第2阶段利用接收时域到频域的谱峰识别实际Doppler，再阈值配对delay/gain，重估碰撞路径增益。\n\n**关键结果与证据边界**：公开作者版本SecIV在M512/N64、15kHz、4QAM条件下验证NMSE/BER；ScenarioA中SNRc12/17dB、DeltaSNR28dB时，BER约2e-5处离perfect CSI约1dB。原embedded pilot方案在其overspread设定失效。作者明确用额外训练开销换取解混叠能力。\n\n**局限与迁移风险**：版本假设训练帧与随后数据帧参数不变，并采用窄带OTFS；不覆盖宽带频率依赖Doppler。阈值与pilot高功率需计入相同能量预算；不能只把DD模型的错误恢复归咎于生成器。正文已有spectral-efficiency代价，不能报告为无开销增益。\n\n**迁移类型**：可改造工具\n\n**相对阅读笔记位置**：缺口：从WCM位置先验推进到观测模糊性的显式破除。\n\n**与既有阅读差异**：与AFDM的fractional参数细化及模型阶数估计不同，这里要解决模运算造成的真实Doppler别名；WCM先验能筛选但不能自动创造缺失观测。\n\n**推荐理由**：为高速移动扩展建立必须报告的歧义/探测预算压力测试，区分地图先验推测与可辨识测量。\n\n**代码状态**：未发现公开代码\n\n**代码审计**：论文/arXiv无本篇作者仓库；GitHub按完整题名片段、OTFS overspread Doppler及2608.12524检索无对应实现；相邻overspread-delay代码不冒充本篇。\n\n**身份与一手来源**：10.1109/twc.2026.3715542；[来源1](https://ieeexplore.ieee.org/document/11627204/) [来源2](https://arxiv.org/abs/2608.12524) [来源3](https://api.crossref.org/works/10.1109/TWC.2026.3715542)\n\n[官方原文/PDF入口](https://arxiv.org/pdf/2608.12524)；[原文PDF](https://arxiv.org/pdf/2608.12524)（14页）。\n\n**全文证据定位**：公开作者PDF SecII–III/Algorithm1；SecIII-C训练开销；pp7–10 SecIV TableI/Fig3–13。\n\n[本篇全文翻译入口/真实状态](https://lrxuanxuan.github.io/papers/items/a67500334e77fc04/#paper-translation)。job `b47468371d7e212867c5c3f9`，pending，指定gpt-6-luna/xhigh。已入队并尝试向原worker派发、有界确认，但接口返回No Codex thread found，未启动、未完成翻译。预期输出：`本地资料：paper.md`（尚未生成，不能当已完成链接）。\n\n[原文许可/权限证据](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)；本次均未确认公开完整译文授权，完成稿先本地保存，后续明确授权后才公开全文译稿。PDF仅保留官方链接，均不上传GitHub/网站。",
+      "report_entry_url": "/papers/reports/2026-10-26/#paper-a67500334e77fc04",
+      "paper_url": "/papers/items/a67500334e77fc04/",
+      "paper_report_url": "/papers/items/a67500334e77fc04/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2608.12524",
+        "https://ieeexplore.ieee.org/document/11627204/",
+        "https://arxiv.org/abs/2608.12524",
+        "https://api.crossref.org/works/10.1109/TWC.2026.3715542",
+        "https://arxiv.org/pdf/2608.12524)（14页",
+        "https://lrxuanxuan.github.io/papers/items/a67500334e77fc04/#paper-translation",
+        "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2608.12524"
+      ],
+      "hosted_pdfs": [],
+      "status": "正式发表",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/a67500334e77fc04/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "88ee728a26730659",
+      "date": "2026-10-26",
+      "title": "Model-Order-Adaptive Channel Estimation for AFDM Systems with Fractional Delay and Doppler",
+      "sheet": "每日论文推荐",
+      "row": 388,
+      "fields": {
+        "日期": "2026-10-26",
+        "标题": "Model-Order-Adaptive Channel Estimation for AFDM Systems with Fractional Delay and Doppler",
+        "内容": "作者：Wang, Ruizhe; Pan, Cunhua; Ren, Hong; Li, Shaohua; Wang, Jiangzhou。问题：路径数未知且分数时延引起AFDM频率回绕时，最大峰位置可能偏移，固定字典/固定路径数会遗漏弱径或错误拟合。 方法：双pilot初始化时延与支撑，多AFDM符号的因果pilot提供Doppler信息；对精确AFDM atom做粗到细SAGE和联合LS增益拟合，通过CFAR残差birth和conditional support pruning调路径数。目标是归一化残差平方加gamma_ord乘路径数。 结果：TableII使用M=1024、15GHz、30kHz子载波间隔、14符号、5–10路径、16QAM；300/600km/h对应4167/8333Hz。Fig2–6报告优于所实现基线的NMSE/BER与路径数表现；文中F1由5dB约0.35到30dB约0.94，匹配仅按effective-delay的1.5采样容差。Proposition1在规定birth/prune/LS及下降更新条件下保证惩罚目标非增。 局限：CFAR独立搜索cell近似在相关atom下只是近似标定；F1不等于delay/Doppler/gain全部精确恢复。MDVALSE为inspired实现，不能视为所有原方法的最优公平配置。数值验证是参数化仿真，非跨城市RT/实测；单调目标不保证全局最优或真实模型阶数。",
+        "契合方向": "高速移动；分数时延/Doppler；模型阶数自适应估计",
+        "推荐理由": "可检验KAP增益是否来自先验补信息，还是传统连续参数与模型阶数估计已能解释；先在相同导频/噪声/带宽下做对照。",
+        "顶刊顶会/机构依据": "arXiv；预印本/状态未确认；arXiv v1公开于2026-10-07；未见journal-ref/接收声明，IEEE样式不作为录用证据。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2610.09970",
+        "检索来源": "https://arxiv.org/abs/2610.09970",
+        "筛选备注": "可改造工具；缺口：给当前Sionna逐径监督、Doppler与未知弱径提供经典信号处理对照。；PDF pp5–9 SecIV–VI/Algorithm1–2/Proposition1；pp9–11 TableI–II及Fig2–6。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；论文/arXiv未提供可识别作者代码入口；GitHub精确标题片段及2610.09970检索无对应仓库；未声称完成复现。",
+        "反馈匹配": "区别于连续生成先验，本篇从有限pilot识别连续物理参数及路径数；与下一篇overspread Doppler解混叠不是同一问题。",
+        "反馈权重说明": "分开验证微调目标、参数可辨识性、均衡结构与系统控制；不以计时缺失稿声称低延迟。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-26/",
+      "report_section": "## 2. Model-Order-Adaptive Channel Estimation for AFDM Systems with Fractional Delay and Doppler\n\n**作者/年份/venue**：Wang, Ruizhe; Pan, Cunhua; Ren, Hong; Li, Shaohua; Wang, Jiangzhou；2026；arXiv。\n\n**方向与发表状态（2026-10-26核验）**：高速移动；分数时延/Doppler；模型阶数自适应估计；预印本/状态未确认。arXiv v1公开于2026-10-07；未见journal-ref/接收声明，IEEE样式不作为录用证据。\n\n**问题**：路径数未知且分数时延引起AFDM频率回绕时，最大峰位置可能偏移，固定字典/固定路径数会遗漏弱径或错误拟合。\n\n**方法与作用机制**：双pilot初始化时延与支撑，多AFDM符号的因果pilot提供Doppler信息；对精确AFDM atom做粗到细SAGE和联合LS增益拟合，通过CFAR残差birth和conditional support pruning调路径数。目标是归一化残差平方加gamma_ord乘路径数。\n\n**关键结果与证据边界**：TableII使用M=1024、15GHz、30kHz子载波间隔、14符号、5–10路径、16QAM；300/600km/h对应4167/8333Hz。Fig2–6报告优于所实现基线的NMSE/BER与路径数表现；文中F1由5dB约0.35到30dB约0.94，匹配仅按effective-delay的1.5采样容差。Proposition1在规定birth/prune/LS及下降更新条件下保证惩罚目标非增。\n\n**局限与迁移风险**：CFAR独立搜索cell近似在相关atom下只是近似标定；F1不等于delay/Doppler/gain全部精确恢复。MDVALSE为inspired实现，不能视为所有原方法的最优公平配置。数值验证是参数化仿真，非跨城市RT/实测；单调目标不保证全局最优或真实模型阶数。\n\n**迁移类型**：可改造工具\n\n**相对阅读笔记位置**：缺口：给当前Sionna逐径监督、Doppler与未知弱径提供经典信号处理对照。\n\n**与既有阅读差异**：区别于连续生成先验，本篇从有限pilot识别连续物理参数及路径数；与下一篇overspread Doppler解混叠不是同一问题。\n\n**推荐理由**：可检验KAP增益是否来自先验补信息，还是传统连续参数与模型阶数估计已能解释；先在相同导频/噪声/带宽下做对照。\n\n**代码状态**：未发现公开代码\n\n**代码审计**：论文/arXiv未提供可识别作者代码入口；GitHub精确标题片段及2610.09970检索无对应仓库；未声称完成复现。\n\n**身份与一手来源**：2610.09970；[来源1](https://arxiv.org/abs/2610.09970)\n\n[官方原文/PDF入口](https://arxiv.org/pdf/2610.09970)；[原文PDF](https://arxiv.org/pdf/2610.09970)（13页）。\n\n**全文证据定位**：PDF pp5–9 SecIV–VI/Algorithm1–2/Proposition1；pp9–11 TableI–II及Fig2–6。\n\n[本篇全文翻译入口/真实状态](https://lrxuanxuan.github.io/papers/items/88ee728a26730659/#paper-translation)。job `75e6602b52bc10aec8a9343f`，pending，指定gpt-6-luna/xhigh。已入队并尝试向原worker派发、有界确认，但接口返回No Codex thread found，未启动、未完成翻译。预期输出：`本地资料：paper.md`（尚未生成，不能当已完成链接）。\n\n[原文许可/权限证据](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)；本次均未确认公开完整译文授权，完成稿先本地保存，后续明确授权后才公开全文译稿。PDF仅保留官方链接，均不上传GitHub/网站。",
+      "report_entry_url": "/papers/reports/2026-10-26/#paper-88ee728a26730659",
+      "paper_url": "/papers/items/88ee728a26730659/",
+      "paper_report_url": "/papers/items/88ee728a26730659/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2610.09970",
+        "https://arxiv.org/abs/2610.09970",
+        "https://arxiv.org/pdf/2610.09970)（13页",
+        "https://lrxuanxuan.github.io/papers/items/88ee728a26730659/#paper-translation",
+        "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2610.09970"
+      ],
+      "hosted_pdfs": [],
+      "status": "预印本/状态未确认",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/88ee728a26730659/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "f1ed406c44bc7a88",
+      "date": "2026-10-26",
+      "title": "Weighted Adjoint Matching: Finetuning Flow Matching Models with Time-Dependent Control Cost",
+      "sheet": "每日论文推荐",
+      "row": 387,
+      "fields": {
+        "日期": "2026-10-26",
+        "标题": "Weighted Adjoint Matching: Finetuning Flow Matching Models with Time-Dependent Control Cost",
+        "内容": "作者：Beyler, Eliot; Bach, Francis。问题：按可微奖励微调flow时，统一KL正则仍可能把质量从低平均奖励模式搬到高奖励模式；提高奖励不等于保持条件分布或覆盖率。 方法：在随机生成过程的二次控制代价中引入正的时间权重w(t)，早期控制昂贵、后期较便宜；通过lean adjoint匹配学习控制。Proposition 1给出子路径KL等价表示，Proposition 2刻画函数空间临界点；使用memoryless SDE并加入独立数值稳定权重lambda(t)。 结果：Gaussian混合与MNIST验证奖励—模式平衡权衡。Sec5.2每模型生成50000样本：普通adjoint在奖励0.176时0/1类为18.0%/3.4%，加权法在奖励0.180时为10.5%/9.1%。这是近似奖励水平下的作者报告，不是CSI实验或同奖励严格配对。 局限：仅无条件toy/MNIST；粗到细时序不能直接套给复信道。stopgrad梯度下降没有目标单调下降或收敛保证，有限网络参数驻点弱于函数空间驻点。时间加权改变目标，不能把它作为无偏贝叶斯后验校正；若目标就是正确条件后验，观测导致的模式权重改变可能合理，不应强行保持先验模式。",
+        "契合方向": "生成流微调；随机最优控制；分布与模式保持",
+        "推荐理由": "先明确是追求物理似然后验，还是保留环境模式的任务奖励微调，再判断是否需要时间变化的约束；可用解析混合信道直接检验。",
+        "顶刊顶会/机构依据": "arXiv；预印本/状态未确认；arXiv v1公开于2026-10-14；未查到已接受或正式出版的一手确认，不推断在投。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2610.20035",
+        "检索来源": "https://arxiv.org/abs/2610.20035",
+        "筛选备注": "理论启发或基线；深化：生成流与后验校正阅读；补足奖励提升与分布保持的目标区分。；PDF pp5–8：Eq10–21、Proposition1–2、Fig3–4；AppendixD/E为推导与实验配置。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；论文/arXiv未给作者实现入口；GitHub按完整标题和2610.20035检索均无对应仓库。仅静态检索，未运行实现；不把其他adjoint项目当成本篇代码。",
+        "反馈匹配": "与昨日VAP的训练歧义诊断、Density-BEA的数值积分网格不同，本篇改变的是预训练模型的控制正则/微调目标；也不等同单纯最后几步加导频梯度。",
+        "反馈权重说明": "分开验证微调目标、参数可辨识性、均衡结构与系统控制；不以计时缺失稿声称低延迟。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-26/",
+      "report_section": "## 1. Weighted Adjoint Matching: Finetuning Flow Matching Models with Time-Dependent Control Cost\n\n**作者/年份/venue**：Beyler, Eliot; Bach, Francis；2026；arXiv。\n\n**方向与发表状态（2026-10-26核验）**：生成流微调；随机最优控制；分布与模式保持；预印本/状态未确认。arXiv v1公开于2026-10-14；未查到已接受或正式出版的一手确认，不推断在投。\n\n**问题**：按可微奖励微调flow时，统一KL正则仍可能把质量从低平均奖励模式搬到高奖励模式；提高奖励不等于保持条件分布或覆盖率。\n\n**方法与作用机制**：在随机生成过程的二次控制代价中引入正的时间权重w(t)，早期控制昂贵、后期较便宜；通过lean adjoint匹配学习控制。Proposition 1给出子路径KL等价表示，Proposition 2刻画函数空间临界点；使用memoryless SDE并加入独立数值稳定权重lambda(t)。\n\n**关键结果与证据边界**：Gaussian混合与MNIST验证奖励—模式平衡权衡。Sec5.2每模型生成50000样本：普通adjoint在奖励0.176时0/1类为18.0%/3.4%，加权法在奖励0.180时为10.5%/9.1%。这是近似奖励水平下的作者报告，不是CSI实验或同奖励严格配对。\n\n**局限与迁移风险**：仅无条件toy/MNIST；粗到细时序不能直接套给复信道。stopgrad梯度下降没有目标单调下降或收敛保证，有限网络参数驻点弱于函数空间驻点。时间加权改变目标，不能把它作为无偏贝叶斯后验校正；若目标就是正确条件后验，观测导致的模式权重改变可能合理，不应强行保持先验模式。\n\n**迁移类型**：理论启发或基线\n\n**相对阅读笔记位置**：深化：生成流与后验校正阅读；补足奖励提升与分布保持的目标区分。\n\n**与既有阅读差异**：与昨日VAP的训练歧义诊断、Density-BEA的数值积分网格不同，本篇改变的是预训练模型的控制正则/微调目标；也不等同单纯最后几步加导频梯度。\n\n**推荐理由**：先明确是追求物理似然后验，还是保留环境模式的任务奖励微调，再判断是否需要时间变化的约束；可用解析混合信道直接检验。\n\n**代码状态**：未发现公开代码\n\n**代码审计**：论文/arXiv未给作者实现入口；GitHub按完整标题和2610.20035检索均无对应仓库。仅静态检索，未运行实现；不把其他adjoint项目当成本篇代码。\n\n**身份与一手来源**：2610.20035；[来源1](https://arxiv.org/abs/2610.20035)\n\n[官方原文/PDF入口](https://arxiv.org/pdf/2610.20035)；[原文PDF](https://arxiv.org/pdf/2610.20035)（34页）。\n\n**全文证据定位**：PDF pp5–8：Eq10–21、Proposition1–2、Fig3–4；AppendixD/E为推导与实验配置。\n\n[本篇全文翻译入口/真实状态](https://lrxuanxuan.github.io/papers/items/f1ed406c44bc7a88/#paper-translation)。job `00f9b6b5365ac25d548dd2e8`，pending，指定gpt-6-luna/xhigh。已入队并尝试向原worker派发、有界确认，但接口返回No Codex thread found，未启动、未完成翻译。预期输出：`本地资料：paper.md`（尚未生成，不能当已完成链接）。\n\n[原文许可/权限证据](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)；本次均未确认公开完整译文授权，完成稿先本地保存，后续明确授权后才公开全文译稿。PDF仅保留官方链接，均不上传GitHub/网站。",
+      "report_entry_url": "/papers/reports/2026-10-26/#paper-f1ed406c44bc7a88",
+      "paper_url": "/papers/items/f1ed406c44bc7a88/",
+      "paper_report_url": "/papers/items/f1ed406c44bc7a88/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2610.20035",
+        "https://arxiv.org/abs/2610.20035",
+        "https://arxiv.org/pdf/2610.20035)（34页",
+        "https://lrxuanxuan.github.io/papers/items/f1ed406c44bc7a88/#paper-translation",
+        "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2610.20035"
+      ],
+      "hosted_pdfs": [],
+      "status": "在投",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/f1ed406c44bc7a88/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
     {
       "id": "e9968b52681439f5",
       "date": "2026-10-25",
@@ -19354,6 +19609,17 @@
   ],
   "reports": [
     {
+      "date": "2026-10-26",
+      "url": "/papers/reports/2026-10-26/",
+      "source_file": "2026-10-26_每日前沿论文推荐.md",
+      "slug": "2026-10-26",
+      "covered_dates": [
+        "2026-10-26"
+      ],
+      "title": "10_26前沿论文推荐",
+      "download": "/assets/papers/reports/2026-10-26.md"
+    },
+    {
       "date": "2026-10-25",
       "url": "/papers/reports/2026-10-25/",
       "source_file": "2026-10-25_每日前沿论文推荐.md",
@@ -21260,9 +21526,9 @@
   "pdf_mode": "links_only",
   "workbook_table": {
     "url": "/papers/table/",
-    "source_sha256": "d518e5e8742869c04e99442f394226053a7921f51d417896537c3706be72df47",
+    "source_sha256": "8af5164e64732607b2d312045325ff1fa1f7d64adbf568e0a23af4ff1ca2a3da",
     "sheet": "每日论文推荐",
-    "row_count": 385,
+    "row_count": 390,
     "headers": [
       "日期",
       "标题",

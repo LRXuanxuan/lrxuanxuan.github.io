@@ -128,6 +128,36 @@ toc: true
 
 ## 推荐论文
 
+### 2026-10-26 · [Channel Knowledge Map-Enabled 6D Movable Antenna Systems With Kinematic Constraints: A Manifold Optimization Approach](/papers/items/f103ab005ecf4e09/)
+
+给新journal的期刊扩展提供独立系统评价路径：相同预测信息和求解预算下，比较myopic与causal horizon控制，而非只看即时NMSE。
+
+[本篇日报](/papers/items/f103ab005ecf4e09/#paper-report)
+
+### 2026-10-26 · [Delay-Doppler Duality: Simplifying Exact Equalization of Zak-OTFS in Time or in Frequency](/papers/items/98e88faa323855d9/)
+
+提醒把网络NFE与线性求解成本分开计量，先证明观测算子结构，再选精确带状求解或PCG；避免仅以采样步数声称低延迟。
+
+[本篇日报](/papers/items/98e88faa323855d9/#paper-report)
+
+### 2026-10-26 · [Channel Estimation for OTFS Systems With Overspread Doppler Shifts](/papers/items/a67500334e77fc04/)
+
+为高速移动扩展建立必须报告的歧义/探测预算压力测试，区分地图先验推测与可辨识测量。
+
+[本篇日报](/papers/items/a67500334e77fc04/#paper-report)
+
+### 2026-10-26 · [Model-Order-Adaptive Channel Estimation for AFDM Systems with Fractional Delay and Doppler](/papers/items/88ee728a26730659/)
+
+可检验KAP增益是否来自先验补信息，还是传统连续参数与模型阶数估计已能解释；先在相同导频/噪声/带宽下做对照。
+
+[本篇日报](/papers/items/88ee728a26730659/#paper-report)
+
+### 2026-10-26 · [Weighted Adjoint Matching: Finetuning Flow Matching Models with Time-Dependent Control Cost](/papers/items/f1ed406c44bc7a88/)
+
+先明确是追求物理似然后验，还是保留环境模式的任务奖励微调，再判断是否需要时间变化的约束；可用解析混合信道直接检验。
+
+[本篇日报](/papers/items/f1ed406c44bc7a88/#paper-report)
+
 ### 2026-10-25 · [Generative AI-Empowered User-Specific Channel Digital Twin for Efficient Wireless Optimization](/papers/items/e9968b52681439f5/)
 
 作为已正式发表的位置条件生成/下游决策参照，用于设计生成误差、观测预算和实际谱效率分开报告的基线。
