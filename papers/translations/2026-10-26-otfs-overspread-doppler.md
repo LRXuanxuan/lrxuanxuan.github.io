@@ -14,7 +14,7 @@ toc: true
 **原题**：Channel Estimation for OTFS Systems With Overspread Doppler Shifts  
 **作者**：Preety Priya、Yi Hong、Emanuele Viterbo  
 **来源**：IEEE Transactions on Wireless Communications, Vol. 25, 2026，DOI: 10.1109/TWC.2026.3715542。  
-**翻译进度**：摘要、引言开篇和系统模型起始部分已译；完整算法、图表、推导、仿真及参考文献**尚未完成**。
+**翻译进度（2026-10-26 更新）**：已补译训练帧、DD 域与频域两阶段估计、实际多普勒配对、复杂度、PAPR、频谱效率及场景 A/B 主要实验图表；部分长公式、算法分支和段落仍需原文逐式终校，**不计入全文验收通过**。
 
 ## 摘要
 
