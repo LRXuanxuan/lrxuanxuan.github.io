@@ -1,5 +1,24 @@
 [
   {
+    "slug": "2026-10-27-sionna-bench-2610-27174",
+    "title": "Sionna Bench：迈向无线通信基准评测｜中文全篇译稿（待终校）",
+    "scope": "摘要、I–V 节、附录 A–B、图 1–3 说明、表 I–IV、公式（1）–（4）及 31 条参考文献已录入；待 PDF 逐段排版终校。",
+    "date": "2026-10-27",
+    "url": "/papers/translations/2026-10-27-sionna-bench-2610-27174/",
+    "source_file": "2026-10-27-sionna-bench-2610-27174.md",
+    "source_page_path": "papers/translations/2026-10-27-sionna-bench-2610-27174.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-27-sionna-bench-2610-27174.md",
+    "paper_ids": [
+      "6939ae72452c3f3b"
+    ],
+    "source_arxiv_ids": [
+      "2610.27174"
+    ],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": true
+  },
+  {
     "slug": "2026-10-27-dt-measurement-2603-23787",
     "title": "数字孪生辅助的测量设计与信道统计量预测｜中文全篇译稿（待终校）",
     "scope": "摘要、正文 I–VII、公式（1）–（19）、图注及 13 条参考文献已录入；PDF 逐页及数学排版终校进行中，暂不计入全文验收。",
