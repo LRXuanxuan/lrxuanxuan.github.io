@@ -1,5 +1,24 @@
 [
   {
+    "slug": "2026-10-27-dt-measurement-2603-23787",
+    "title": "数字孪生辅助的测量设计与信道统计量预测｜中文全篇译稿（待终校）",
+    "scope": "摘要、正文 I–VII、公式（1）–（19）、图注及 13 条参考文献已录入；PDF 逐页及数学排版终校进行中，暂不计入全文验收。",
+    "date": "2026-10-27",
+    "url": "/papers/translations/2026-10-27-dt-measurement-2603-23787/",
+    "source_file": "2026-10-27-dt-measurement-2603-23787.md",
+    "source_page_path": "papers/translations/2026-10-27-dt-measurement-2603-23787.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-27-dt-measurement-2603-23787.md",
+    "paper_ids": [
+      "b626385daa0ee464"
+    ],
+    "source_arxiv_ids": [
+      "2603.23787"
+    ],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": true
+  },
+  {
     "slug": "2026-10-26-weighted-adjoint-matching-2610-20035",
     "title": "加权伴随匹配：时变控制代价下的流匹配微调｜中文译稿（未完成）",
     "scope": "正文 1–6 节主要内容已分批补译：相关工作、生成 SDE、路径 KL、WAM 算法、MNIST/高斯实验及讨论；附录 A–E 未逐式完整翻译，正文仍需逐段终校，不是全文验收稿。",
