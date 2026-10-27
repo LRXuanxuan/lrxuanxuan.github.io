@@ -1,5 +1,24 @@
 [
   {
+    "slug": "2026-10-27-intercell-svi-2610-15455",
+    "title": "基于得分变分推断的 MIMO-OFDM 小区间干扰抑制｜正文初译（未完成）",
+    "scope": "已译摘要、I、II、III.A 及公式（1）–（18）；III.B–VII、附录和参考文献尚未逐段翻译，未计入全文完成量。",
+    "date": "2026-10-27",
+    "url": "/papers/translations/2026-10-27-intercell-svi-2610-15455/",
+    "source_file": "2026-10-27-intercell-svi-2610-15455.md",
+    "source_page_path": "papers/translations/2026-10-27-intercell-svi-2610-15455.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-27-intercell-svi-2610-15455.md",
+    "paper_ids": [
+      "6dc33cb34cd70f91"
+    ],
+    "source_arxiv_ids": [
+      "2610.15455"
+    ],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": true
+  },
+  {
     "slug": "2026-10-27-sionna-bench-2610-27174",
     "title": "Sionna Bench：迈向无线通信基准评测｜中文全篇译稿（待终校）",
     "scope": "摘要、I–V 节、附录 A–B、图 1–3 说明、表 I–IV、公式（1）–（4）及 31 条参考文献已录入；待 PDF 逐段排版终校。",
