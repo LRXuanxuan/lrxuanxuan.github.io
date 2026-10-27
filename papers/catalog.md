@@ -11,6 +11,13 @@ toc: true
 
 ## 中英文译文
 
+- [Sionna Bench：迈向无线通信基准评测｜中文全结构译稿（待终校）](/papers/translations/2026-10-27-sionna-bench-2610-27174/) · I–V、附录 A–B、表 I–IV、31 条参考文献；逐页、逐式 QA 待终校
+- [数字孪生辅助的测量设计与信道统计量预测｜中文全结构译稿（待终校）](/papers/translations/2026-10-27-dt-measurement-2603-23787/) · I–VII、公式（1）–（19）、13 条参考文献；逐页、逐式 QA 待终校
+- [PC-DAPS：先验一致退火后验采样｜中文全结构译稿（待终校）](/papers/translations/2026-10-27-pc-daps-2610-31592/) · 正文 1–6、附录 A.1–A.7、表 1–5、40 条参考文献；逐页、逐式 QA 待终校
+- [条件流模型的表观偶然方差｜中文全结构译稿（待终校）](/papers/translations/2026-10-27-cfm-variance-2610-29172/) · 正文 1–7、附录 A–C、理论证明、44 条参考文献；逐页、逐式 QA 待终校
+- [MIMO-OFDM 小区间干扰抑制：得分变分推断｜中文全结构译稿（待终校）](/papers/translations/2026-10-27-intercell-svi-2610-15455/) · 正文 I–VII、算法 1、式（1）–（70）、47 条参考文献；逐页、逐式 QA 待终校
+
+
 - [TwinPAS：数字孪生辅助毫米波 PAS 预测｜正文扩充译稿（公式待精校）](/papers/translations/2026-10-25-twinpas-mmwave-dtc/) · III–V 节正文、信道投影/训练损失及公式（19）–（31）、仿真与消融已补；原表格与书目仍待终校
 - [VaN3Twin：Sionna RT 闭环 V2X 数字孪生｜正文扩充译稿（公式待精校）](/papers/translations/2026-10-25-van3twin-sionna-v2x/) · III–VI 节正文、同频共存公式（11）–（16）、算法 1 与实验表已补；表 VI、书目及终校待完成
 - [低 NFE 生成流的密度层面反向误差｜中文正文扩充译稿（附录待补）](/papers/translations/2026-10-25-density-backward-error-2610-29475/) · 主文理论定理与公式（1）–（38）已逐式补录、表 1 和附录 A 部分已补；其他附录证明与书目待终校
