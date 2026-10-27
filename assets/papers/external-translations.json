@@ -1,5 +1,43 @@
 [
   {
+    "slug": "2026-10-27-cfm-variance-2610-29172",
+    "title": "条件流模型将认知不确定性转化为表观偶然方差｜中文正文译稿（附录待补）",
+    "scope": "已译摘要及 1–7 节正文主要段落、定理、定义、公式（3.1）–（5.5）和正文图说明；附录 A–C 及完整书目仍缺，不计入全文验收。",
+    "date": "2026-10-27",
+    "url": "/papers/translations/2026-10-27-cfm-variance-2610-29172/",
+    "source_file": "2026-10-27-cfm-variance-2610-29172.md",
+    "source_page_path": "papers/translations/2026-10-27-cfm-variance-2610-29172.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-27-cfm-variance-2610-29172.md",
+    "paper_ids": [
+      "3f655527a43a9d52"
+    ],
+    "source_arxiv_ids": [
+      "2610.29172"
+    ],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": true
+  },
+  {
+    "slug": "2026-10-27-pc-daps-2610-31592",
+    "title": "超越 Best-of-k：先验一致 PC-DAPS｜中文正文译稿（附录待补）",
+    "scope": "已译摘要、正文 1–6 节、式（1）–（13）、图注和表 2；表 1 仅节选，完整参考文献、附录 A.1–A.7 及图表未全译，不计入全文验收。",
+    "date": "2026-10-27",
+    "url": "/papers/translations/2026-10-27-pc-daps-2610-31592/",
+    "source_file": "2026-10-27-pc-daps-2610-31592.md",
+    "source_page_path": "papers/translations/2026-10-27-pc-daps-2610-31592.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-27-pc-daps-2610-31592.md",
+    "paper_ids": [
+      "39bb2162c4326c50"
+    ],
+    "source_arxiv_ids": [
+      "2610.31592"
+    ],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": true
+  },
+  {
     "slug": "2026-10-27-intercell-svi-2610-15455",
     "title": "基于得分变分推断的 MIMO-OFDM 小区间干扰抑制｜正文初译（未完成）",
     "scope": "已译摘要、I、II、III.A 及公式（1）–（18）；III.B–VII、附录和参考文献尚未逐段翻译，未计入全文完成量。",
