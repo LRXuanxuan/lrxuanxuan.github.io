@@ -138,6 +138,36 @@ toc: true
 
 ## 推荐论文
 
+### 2026-10-28 · [Equivalent Sampled Delay-Doppler (ESDD) Channel Models for ODDM Over Highly-Spread Channels](/papers/items/ff5a01c51d2d9c00/)
+
+约束当前新数据集中的信道表示与实际接收观测之间的边界，适合作为物理基线而非生成模型创新。
+
+[本篇日报](/papers/items/ff5a01c51d2d9c00/#paper-report)
+
+### 2026-10-28 · [DeepTelecom: A Differentiable Multimodal Framework for Channel Twinning in Dynamic Heterogeneous Wireless Environments](/papers/items/06021fa28a37037c/)
+
+与正在生成的96路线开发集直接相关，公开库与论文宣称的范围差异本身就是必须审计的证据边界。
+
+[本篇日报](/papers/items/06021fa28a37037c/#paper-report)
+
+### 2026-10-28 · [Contextual Flow Matching: Adaptive Step Selection in Flow Models for Efficient Visual Generation](/papers/items/758abaabb50a0fb8/)
+
+适合研究地图可靠性不同的样本是否应分配不同计算量，同时保留算法新增开销与尾部风险。
+
+[本篇日报](/papers/items/758abaabb50a0fb8/#paper-report)
+
+### 2026-10-28 · [Reconstruction-Aware Distribution Matching for Inverse Problems with Unpaired Data](/papers/items/5c75b583420eedff/)
+
+提醒先检查观测算子的反演敏感方向，避免将算子建模误差误归因为先验网络不足。
+
+[本篇日报](/papers/items/5c75b583420eedff/#paper-report)
+
+### 2026-10-28 · [Flow Matching with Uncertainty Quantification and Guidance](/papers/items/bb2ec5a42b895e00/)
+
+为地图失配后的风险排序提供可审计工具，同时明确展示保真度与覆盖之间的代价。
+
+[本篇日报](/papers/items/bb2ec5a42b895e00/#paper-report)
+
 ### 2026-10-27 · [Inter-Cell Interference Suppression for Channel Estimation and Data Detection in MIMO-OFDM Systems via Score-Based Variational Inference](/papers/items/6dc33cb34cd70f91/)
 
 可先用廉价oracle/估计协方差基线判断似然建模缺口，再决定是否值得引入昂贵score模块；重点是结构化观测而非泛化扩散迁移。
