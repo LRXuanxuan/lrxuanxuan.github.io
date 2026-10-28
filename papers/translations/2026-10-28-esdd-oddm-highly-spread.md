@@ -429,8 +429,129 @@ $$
 
 其中 $q_{\min}=\lfloor l_{\min}/M\rfloor$、$q_{\max}=\lceil l_{\max}/M\rceil$；规定当 $l$ 超出 $\mathcal L$ 时 $\dot V_{\kappa,l,m}=0$。多条具有不同 $l,b$ 的 ESDD 子信道，若折叠到相同 $(d,\kappa)$，就可能共同贡献到 $\ddot V_{\kappa,d,m,n}$，使该双重折叠信道系数同时依赖 $m$ 和 $n$。这一区别说明为何不能直接以原始物理路径的支撑集判断 ODDM 的有效信道结构。
 
-以上结果将 [29] 的 SRN 脉冲、矩形窗、欠扩展信道推广至一般脉冲和接收窗、离栅以及高度扩展信道情形。后续引理 2 进一步把折叠后的 ESDD 系数写成物理路径参数、脉冲模糊函数和接收窗谱的显式表达，并分析混叠、衰落和可预测性。
+以上结果将 [29] 的 SRN 脉冲、矩形窗、欠扩展信道推广至一般脉冲和接收窗、离栅以及高度扩展信道情形。后续引理 2 给出物理参数表示，下面进一步分析窗函数、折叠与可预测性。
+
+
+
+### C. 特殊情况：分段常数窗函数
+
+若接收窗 $w[k]$ 以 $M$ 为间隔分段恒定，即对所有 $m\in\mathcal M$ 和 $n'\in\mathcal N$，有 $w[m+n'M]=w_{n'}$，则式（43）的窗相关多普勒响应与 $m$ 无关：
+
+$$
+\zeta_m(\kappa,\kappa_p)=\zeta(\kappa,\kappa_p)
+\triangleq\frac1N\sum_{n'=0}^{N-1}
+w_{n'}e^{j2\pi n'(\kappa_p-\kappa)/N}.
+\tag{49}
+$$
+
+这一响应只取决于 $(\kappa,\kappa_p)$，由于它决定了多载波间干扰（ICI）模式，因此对于给定物理路径，ICI 模式在不同 ODDM 符号 $m$ 之间保持不变。矩形窗是分段常数窗的特殊情况，即 $w[k]=1$（$0\le k\le K-1$）。此时
+
+$$
+\zeta_m(\kappa,\kappa_p)=\zeta(\kappa,\kappa_p)
+=\frac1N\frac{1-e^{-j2\pi(\kappa-\kappa_p)}}
+{1-e^{-j\frac{2\pi}{N}(\kappa-\kappa_p)}}.
+\tag{50}
+$$
+
+该表达式为 Dirichlet 核。原文 [29] 已研究在欠扩展信道中使用这一矩形窗的特殊情况。分母为零的点按连续极限理解。
+
+### D. 特殊情况：低多普勒且 $\nu_pT_a$ 很小
+
+上述结果适用于一般多普勒频移。若物理路径多普勒 $\nu_p$ 与脉冲持续时间 $T_a$ 的乘积足够小，使 $a(\xi)$ 支撑集内的信道变化可以忽略，则近似有 $e^{j2\pi\nu_p\xi}\approx1$。式（14）的模糊函数因而可近似为只与时延有关的脉冲自相关：
+
+$$
+g(\tau,\nu_p)\approx g(\tau)
+\triangleq\int a^*(\xi)a(\xi+\tau)\,d\xi.
+$$
+
+相应地，窗口加权的有效时变抽头响应式（18）简化为
+
+$$
+h[l,k]\approx\rho_p g(lT_s-\tau_p)w[k]
+e^{j2\pi\nu_p(kT_s-\tau_p)}.
+\tag{51}
+$$
+
+与一般多普勒情况下时延和多普勒影响在 $g(\tau,\nu)$ 中耦合的情况不同，此时给定脉冲后，单条物理路径在时延抽头上的扩展只由其传播时延决定。于是前述 ESDD 系数与 IO 关系可通过以 $g(\tau)$ 代替 $g(\tau,\nu)$ 得到近似。由此，在收发机配置已知的条件下，ODDM 中的符号间干扰（ISI）可以仅根据物理信道的时延移位来刻画。
+
+### E. ESDD 信道的折叠
+
+进一步研究 ESDD 信道折叠现象。为突出主要机制，考虑矩形接收窗、采样间隔 $T_s$ 对应的 SRN 脉冲，以及一条时延 $\ell_p$、多普勒 $\kappa_p$ 都为整数的物理路径，并假设 $g((l-\ell_p)T_s,\nu_p)\approx g((l-\ell_p)T_s)$。此时 ESDD 模型中大量虚拟散射体消失，得到
+
+$$
+V_{b,l}=\rho_p\delta[l-\ell_p]\delta[b-\kappa_p].
+\tag{52}
+$$
+
+若 $\kappa_p\in\mathcal K$，多普勒移位位于 ODDM 的基本多普勒区间内，则多普勒折叠系数简化为
+
+$$
+\dot V_{\kappa,l,m}
+=\rho_p\delta[l-\ell_p]\delta[\kappa-\kappa_p].
+\tag{53}
+$$
+
+这一表达式不依赖符号索引 $m$。如果 $\kappa_p\notin\mathcal K$，多普勒频移超出基本区间，则从式（38）可知发生混叠：
+
+$$
+\dot V_{\kappa,l,m}
+=\rho_p e^{j2\pi\left\lfloor\kappa_p/N\right\rceil(m-l)/M}
+\delta[l-\ell_p]\delta[\kappa-[\kappa_p]_{\mathcal K}].
+\tag{54}
+$$
+
+其中原文使用最接近整数的折叠次数记号 $\lfloor\kappa_p/N\rceil$，$[\kappa_p]_{\mathcal K}$ 为折叠到基本多普勒区间的索引。例如 $\kappa_p=60$、$N=32$ 时，多普勒折叠次数为 2，折叠索引为 $-4$，所以 $\dot V_{\kappa,l,m}=\rho_p e^{j2\pi 2(m-l)/M}\delta[l-\ell_p]\delta[\kappa+4]$，它会随 $m$ 变化。
+
+对于低多普勒情形（53），若 $\ell_p\in\mathcal D$，即延时也位于基本延时区间内，则
+
+$$
+\ddot V_{\kappa,d,m,n}
+=\dot V_{\kappa,d,m}
+=\dot V_{\kappa,d}
+=\rho_p\delta[d-\ell_p]\delta[\kappa-\kappa_p].
+\tag{55}
+$$
+
+此时延时与多普勒都不发生折叠，物理路径参数可以直接从双重折叠系数中读出。相反，若 $\ell_p\notin\mathcal D$，延时折叠产生随子载波索引 $n$ 变化的相位：
+
+$$
+\ddot V_{\kappa,d,m,n}
+=\rho_p e^{-j2\pi\left\lfloor\ell_p/M\right\rceil n/N}
+\delta[d-[\ell_p]_{\mathcal D}]\delta[\kappa-\kappa_p].
+\tag{56}
+$$
+
+对于高多普勒但低时延情形（$\kappa_p\notin\mathcal K$、$\ell_p\in\mathcal D$），只有多普勒方向发生折叠：
+
+$$
+\ddot V_{\kappa,d,m,n}
+=\dot V_{\kappa,d,m}
+=\rho_p e^{j2\pi\left\lfloor\kappa_p/N\right\rceil(m-d)/M}
+\delta[d-\ell_p]\delta[\kappa-[\kappa_p]_{\mathcal K}].
+\tag{57}
+$$
+
+若时延和多普勒同时超出基本区间，则两次折叠引入的相位既依赖 $m$ 又依赖 $n$，如原文式（58）所示。这说明高时延–多普勒物理路径的参数并非简单丢失，而是编码在折叠后的索引以及相位随接收符号和子载波索引的变化中。这种结构可用于构造物理信道估计和感知方法。
+
+### F. ESDD 信道的衰落效应与可预测性
+
+上节讨论单条整数 DD 栅格路径的折叠，本节推广到含 $P$ 条路径的一般离栅物理信道。接收机如果了解双重折叠 ESDD 系数 $\ddot V_{\kappa,d,m,n}$，有利于设计 ODDM 检测算法，因此希望用低导频开销估计它们。然而，这组系数通常依赖 $(\kappa,d,m,n)$，在把 $m$ 视为时间索引、$n$ 视为频率索引时，可以理解为有效 DD 信道在时频域的变化。
+
+由式（58）及多径线性叠加可知：如果不同物理路径的栅格化等效散射体在折叠后不重合，则系数变化仅体现在相位上；当不同路径折叠到相同位置，其具有不同相位的贡献可能相长或相消，从而使等效系数幅度也变化，产生混叠所引起的衰落效应。因此，**决定有效信道随 $(m,n)$ 如何变化的，是 ESDD 等效信道的折叠结构，而不只是原始物理路径的 DD 支撑集。**
+
+单个 ODDM 帧至多提供 $MN$ 个数字样本用于观测，所以在没有先验知识时，通常无法通过一个帧直接估计全部可能的 $\ddot V_{\kappa,d,m,n}$。但可以利用式（45）的潜在参数模型，先估计物理路径参数 $(\rho_p,\ell_p,\kappa_p)$，再重建所需的折叠 ESDD 系数。若等效信道只有少数主导虚拟散射体，还可能利用其稀疏性降低估计开销。
+
+**引理 3：无噪声时直接利用嵌入式 DD 导频估计 ESDD 信道的一个充分条件。** 若信道的栅格化虚拟散射体完全限制在延时与多普勒的基本区域，即
+
+$$
+V_{b,l}=0,\qquad b\notin\mathcal K,\ \ l\notin\mathcal D,
+\tag{59}
+$$
+
+则延时和多普勒均不发生混叠或折叠，$\ddot V_{\kappa,d,m,n}=V_{\kappa,d}$ 不再随 $m,n$ 变化。只需估计任意给定 $(m,n)$ 处的相关系数，即可恢复完整 ESDD 信道。满足这一充分条件一般需要：（1）物理信道的 DD 扩展足够小；（2）发射脉冲支撑足够短，使式（14）的模糊函数对基本延时区间以外的抽头为零；（3）接收窗能将多普勒泄漏约束在基本区域内。若发生折叠，由于系数依赖 $m,n$，则不能未经额外建模就把某一符号的单次导频估计视为整个帧中不变的 ESDD 信道。
+
+**校对提示：** 式（54）、（56）、（57）的折叠次数采用“取整至最近整数”的记号，实际取值依赖原文定义的基本区间；端点和负数折叠时应遵循原文的模运算约定，不能用编程语言默认的四舍五入直接替换。
 
 ---
 
-**待完成：** 式（34）已按 PDF 三分支核对补入；第 IV 节后半、第 V–VI 节和参考文献仍需校对，qa_complete=false。
+**当前缺口：** IV-B 中式（40）–（48）的完整推导、式（58）的逐字符转写，以及第 V–VI 节和参考文献仍需补录；上述不能视为全文终校，qa_complete=false。
