@@ -295,7 +295,7 @@ N^{-1/2}e^{j2\pi \lfloor k/M\rfloor n/N},&[k]_M=m,\\
 0,&[k]_M\ne m.
 \end{cases}
 \quad k\in\mathcal B.
-\tag{31，等价分量形式}
+\tag{31}
 $$
 
 这里用分量表达复现原文式（31）的向量结构；原文按 $m$、$M-1$ 分组写出零元素和非零指数项。不同 $m$ 之间由时分正交性保证互不重叠；固定 $m$ 而不同 $n$ 时，由傅里叶正交性保证正交：
@@ -352,21 +352,30 @@ $$
 将式（35）应用于一般 ESDD 模型可描述高度扩展离栅信道中的 ODDM。原始 ESDD 模型最多具有 $LMN$ 条虚拟子信道。将 $MN$ 个输入符号与这些子信道叠加，得到等价的三种 DD 域 IO 形式：
 
 $$
-\begin{aligned}
-Y[m,n]
-&=\sum_{l\in\mathcal L}\sum_{b\in\mathcal B}
+Y[m,n]=
+\sum_{l\in\mathcal L}\sum_{b\in\mathcal B}
 V_{b,l}e^{j2\pi(m-l)b/(MN)}
 \Psi_{m,l,[n-b]_N}
-X[[m-l]_M,[n-b]_N],\tag{37a}\\
-&=\sum_{l\in\mathcal L}\sum_{\kappa\in\mathcal K}
+X[[m-l]_M,[n-b]_N].
+\tag{37a}
+$$
+
+$$
+Y[m,n]=
+\sum_{l\in\mathcal L}\sum_{\kappa\in\mathcal K}
 \dot V_{\kappa,l,m}e^{j2\pi(m-l)\kappa/(MN)}
 \Psi_{m,l,[n-\kappa]_N}
-X[[m-l]_M,[n-\kappa]_N],\tag{37b}\\
-&=\sum_{d\in\mathcal D}\sum_{\kappa\in\mathcal K}
+X[[m-l]_M,[n-\kappa]_N].
+\tag{37b}
+$$
+
+$$
+Y[m,n]=
+\sum_{d\in\mathcal D}\sum_{\kappa\in\mathcal K}
 \ddot V_{\kappa,d,m,n}e^{j2\pi(m-d)\kappa/(MN)}
 \Psi_{m,d,[n-\kappa]_N}
-X[[m-d]_M,[n-\kappa]_N].\tag{37c}
-\end{aligned}
+X[[m-d]_M,[n-\kappa]_N].
+\tag{37c}
 $$
 
 其中 $\mathcal K=\{-N/2,-N/2+1,\ldots,N/2-1\}$、$\mathcal D=\{-M/2,\ldots,M/2-1\}$ 为相应基本区间。式（37a）采用未折叠的 ESDD 系数 $V_{b,l}$，而 $[m-l]_M$、$[n-b]_N$ 显示延时与多普勒索引在输入–输出关系中发生的折叠。
