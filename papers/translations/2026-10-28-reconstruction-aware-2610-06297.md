@@ -439,6 +439,256 @@ $$
 **空间变化模糊。** 将 PSF 表示为 $n_h\times n_w$ 局部核构成的栅格，通过对图像块中心进行双线性插值获得对应核。材料的非负性、归一化、居中与色差锚定见附录 A。基线与本文采用同样的核参数化和约束。
 
 
+
+
+### C.3（续）盲超分辨率
+
+盲超分辨率不按照式（2）从独立干净数据集产生合成测量，而是对观测低分辨率图像裁剪施加 $A_\theta$，把由此获得的二次退化分布匹配到同一图像更小裁剪的分布，遵循 Bell-Kligler 等（2019）的跨尺度协议。重建分支则复原较小裁剪，并将结果与尺寸为其两倍的裁剪分布匹配，把后者当作干净样本。
+
+### C.4 初始化
+
+无约束算子参数随机初始化。结合附录 A.1 的 softplus–归一化参数化，得到弥散的初始核，不施加预设 PSF 形状。
+
+## 附录 D. 第 4 节的技术细节
+
+以下推导借鉴高斯去噪 MMSE 估计理论，特别是 Guo 等（2011）。定理 1 考虑标量信道
+
+$$
+Y_\rho=\sqrt\rho X+N,\qquad
+N\sim\mathcal N(0,1),\quad
+\mathbb E[X]=0,\quad\mathbb E[X^2]=1.
+\tag{31}
+$$
+
+$X$ 是干净信号的一个标量分量，$\rho$ 表示该分量经过正向算子和噪声后仍可观测的强度。候选信道参数取为
+
+$$
+\rho_\delta=\rho(1+\delta).
+\tag{32}
+$$
+
+为后续分析定义最小均方估计器
+
+$$
+\eta_\gamma(y)=\mathbb E[X\mid \sqrt\gamma X+N=y],
+\tag{33}
+$$
+
+重建分布
+
+$$
+Q_{\rho,\delta}=\operatorname{Law}\!\left(\eta_{\rho(1+\delta)}(Y_\rho)\right),
+\tag{34}
+$$
+
+及其重建风险
+
+$$
+R_\rho(\delta)=
+\mathbb E\!\left[\bigl(X-\eta_{\rho(1+\delta)}(Y_\rho)\bigr)^2\right].
+\tag{35}
+$$
+
+### D.1 测量侧敏感性与 Fisher 信息
+
+以 $p_\rho$ 表示 $P_\rho=\operatorname{Law}(\sqrt\rho X+N)$ 的密度。在平滑族 $\{P_\rho\}$ 中，KL 散度具有局部展开
+
+$$
+\operatorname{KL}(P_\rho\Vert P_{\rho+\Delta})
+=\frac12 J(\rho)\Delta^2+o(\Delta^2),
+\tag{36}
+$$
+
+其中 Fisher 信息为
+
+$$
+J(\rho)=
+\mathbb E_{Y_\rho}\!\left[
+\bigl(\partial_\rho\log p_\rho(Y_\rho)\bigr)^2\right].
+\tag{37}
+$$
+
+相对扰动对应 $\Delta=\rho\delta$，因此
+
+$$
+F_\rho''(0)=\rho^2J(\rho).
+\tag{38}
+$$
+
+低信噪比高斯信道的展开可以由高斯核直接推出：
+
+$$
+p_\rho(y)
+=\mathbb E[\varphi(y-\sqrt\rho X)]
+=\varphi(y)\left[1+\frac\rho2(y^2-1)+O(\rho^{3/2})\right],
+\tag{39}
+$$
+
+$\varphi$ 为标准高斯密度，所以
+
+$$
+\left.\partial_\rho\log p_\rho(y)\right|_{\rho=0}
+=\frac12(y^2-1),
+\tag{40}
+$$
+
+从而
+
+$$
+J(0)=\frac14\mathbb E[(N^2-1)^2]=\frac12.
+\tag{41}
+$$
+
+同一展开说明 $J(\rho)\to1/2$，因此
+
+$$
+F_\rho''(0)=\frac{\rho^2}{2}+o(\rho^2).
+\tag{42}
+$$
+
+### D.2 低信噪比 MMSE 估计器的界
+
+**引理 1。** 假定 $\mathbb E[X]=0$、$\mathbb E[X^2]=1$，且几乎处处 $|X|\le M$。令 $N\sim\mathcal N(0,1)$ 与 $X$ 独立。对于
+
+$$
+Y_\beta=\beta X+N,\qquad
+m_\beta(y)=\mathbb E[X\mid Y_\beta=y],
+$$
+
+存在仅依赖 $M$ 的常数 $C=C(M)$，使任何 $y\in\mathbb R$、$|\beta|\le1$ 都满足
+
+$$
+|m_\beta(y)-\beta y|\le C\beta^2(1+y^2),
+\tag{43}
+$$
+
+$$
+|\partial_\beta m_\beta(y)-y|\le C|\beta|(1+y^2),
+\tag{44}
+$$
+
+$$
+|\partial_\beta^2m_\beta(y)|\le C(1+y^2).
+\tag{45}
+$$
+
+**证明。** 令 $\varphi(t)=(2\pi)^{-1/2}e^{-t^2/2}$，则给定 $X=x$ 时，$Y_\beta$ 的条件密度为 $\varphi(y-\beta x)$。对有界可测函数 $f$，定义
+
+$$
+\mathbb E_{\beta,y}(f)
+:=\mathbb E[f(X)\mid Y_\beta=y]
+=\frac{\int f(x)\varphi(y-\beta x)\,P_X(dx)}
+{\int \varphi(y-\beta x)\,P_X(dx)}.
+\tag{46}
+$$
+
+记 $Z_\beta(y)=\int\exp(\beta xy-\beta^2x^2/2)\,P_X(dx)$，则
+
+$$
+\mathbb E_{\beta,y}(f)
+=\frac1{Z_\beta(y)}
+\int f(x)\exp\left(\beta xy-\frac{\beta^2x^2}{2}\right)P_X(dx).
+\tag{47}
+$$
+
+设 $h_{\beta,y}(x):=xy-\beta x^2$。对式（47）的分子、分母求导得
+
+$$
+\begin{aligned}
+\partial_\beta\mathbb E_{\beta,y}(f)
+&=\mathbb E_{\beta,y}(fh_{\beta,y})
+-\mathbb E_{\beta,y}(f)\mathbb E_{\beta,y}(h_{\beta,y})\\
+&=\operatorname{Cov}(f(X),h_{\beta,y}(X)\mid Y_\beta=y).
+\end{aligned}
+\tag{48}
+$$
+
+因为 $|X|\le M$，对固定 $y$ 和 $|\beta|\le1$，积分项及其导数均被可积分函数支配，因此可在积分号内求导。
+
+将 $f(X)=X$ 代入式（48），定义 $V_\beta(y)=\operatorname{Var}(X\mid Y_\beta=y)$、$K_\beta(y)=\operatorname{Cov}(X,X^2\mid Y_\beta=y)$，得到精确恒等式
+
+$$
+\partial_\beta m_\beta(y)=yV_\beta(y)-\beta K_\beta(y).
+\tag{49}
+$$
+
+再设 $a_{j,\beta}(y)=\mathbb E[X^j\mid Y_\beta=y]$，$j=1,2,3$。由于 $|X|\le M$，有 $|a_{j,\beta}|\le M^j$，并且由式（48）及 $|yX-\beta X^2|\le M|y|+M^2$，
+
+$$
+|\partial_\beta a_{j,\beta}(y)|
+\le C(1+|y|),\qquad j=1,2,3.
+\tag{50}
+$$
+
+注意 $V_\beta=a_{2,\beta}-a_{1,\beta}^2$、$K_\beta=a_{3,\beta}-a_{1,\beta}a_{2,\beta}$。调整常数 $C$ 后可得
+
+$$
+|K_\beta(y)|\le C,\qquad
+|\partial_\beta V_\beta(y)|+|\partial_\beta K_\beta(y)|
+\le C(1+|y|).
+\tag{51}
+$$
+
+对式（49）再求导，利用式（51）及 $|y|\le(1+y^2)/2$，即可证明式（45）。在 $\beta=0$ 时 $Y_0=N$ 与 $X$ 独立，故 $m_0(y)=0$、$V_0(y)=1$，以及 $\left.\partial_\beta m_\beta(y)\right|_{\beta=0}=y$。先对式（45）积分得到式（44），再积分一次得到式（43），证毕。
+
+### D.3 算子错误对重建的影响
+
+式（33）的后验均值是高斯信道的最小 MSE 估计器。由于 $\eta_\rho(Y_\rho)=\mathbb E[X\mid Y_\rho]$ 是 $X$ 在 $Y_\rho$ 可测函数空间上的 $L^2$ 正交投影，得到
+
+$$
+R_\rho(\delta)-R_\rho(0)
+=\mathbb E\!\left[
+\bigl(\eta_{\rho(1+\delta)}(Y_\rho)-\eta_\rho(Y_\rho)\bigr)^2
+\right].
+\tag{52}
+$$
+
+令 $b=\sqrt\rho$，并沿用前一节记号 $m_b(y)=\mathbb E[X\mid bX+N=y]$。引理 1 给出
+
+$$
+|m_b(y)-by|\le Cb^2(1+y^2).
+\tag{53}
+$$
+
+扰动后的幅度为 $b_\delta=b\sqrt{1+\delta}$，故
+
+$$
+\left.\partial_\delta m_{b_\delta}(y)\right|_{\delta=0}
+=\frac b2\,\partial_bm_b(y).
+\tag{54}
+$$
+
+在 $\delta=0$ 时式（52）的被积函数为零。由引理 1 及 $Y_\rho$ 的有限四阶矩，可在期望号内求二阶导，得
+
+$$
+\left.\frac{d^2}{d\delta^2}[R_\rho(\delta)-R_\rho(0)]
+\right|_{\delta=0}
+=\frac\rho2\,
+\mathbb E\!\left[(\partial_bm_b(Y_\rho))^2\right].
+\tag{55}
+$$
+
+由引理 1，$|\partial_bm_b(y)-y|\le Cb(1+y^2)$。取 $y=Y_\rho=N+bX$ 后，使用 $X$ 有界、$N$ 高斯以及三角不等式可得 $\|\partial_bm_b(Y_\rho)-N\|_2=O(b)$，因此期望 $\mathbb E[(\partial_bm_b(Y_\rho))^2]\to \mathbb E[N^2]=1$，最终
+
+$$
+\left.\frac{d^2}{d\delta^2}[R_\rho(\delta)-R_\rho(0)]
+\right|_{\delta=0}
+=\frac\rho2+o(\rho).
+\tag{56}
+$$
+
+### D.4 可观测干净侧目标的敏感性
+
+现在分析重建侧目标
+
+$$
+G_\rho(\delta)=W_2^2(Q_{\rho,\delta},P_X).
+\tag{57}
+$$
+
+其中 $P_X=\operatorname{Law}(X)$ 为干净分布。接下来研究在低 SNR 时，候选算子扰动如何影响该距离。
+
+
 ---
 
-**公式核查状态：** 已增补附录 A–C 的式（17）–（30），源于上传 PDF 第 15–18 页；附录 C 余下与 D 的式（31）–（69）、附录 E 式（70）尚未补入，qa_complete=false。
+**公式核查状态：** 已补入附录 D.1–D.4 的式（31）–（57）；还需补式（58）–（69）与附录 E 的式（70）。保留 qa_complete=false。
