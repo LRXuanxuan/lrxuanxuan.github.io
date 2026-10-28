@@ -60,7 +60,7 @@ $$
 记其分布为 $P_{Y,\theta}$。若 $D$ 表示分布差异，则传统测量侧匹配目标为
 
 $$
-F(\theta)=D(P_{Y,\theta}\Vert P_Y).
+F(\theta)\coloneqq D(P_{Y,\theta}\Vert P_Y).
 \tag{3}
 $$
 
@@ -68,7 +68,7 @@ $$
 
 $$
 L(\theta)=F(\theta)+\lambda G(\theta),\qquad
-G(\theta)=D(Q_\theta\Vert P_X).
+G(\theta)\coloneqq D(Q_\theta\Vert P_X).
 \tag{4}
 $$
 
@@ -146,7 +146,7 @@ $
 $$
 F_\rho(\delta)=\operatorname{KL}(P_\rho\Vert P_{\rho(1+\delta)}),
 \qquad
-P_\gamma=\operatorname{Law}(\sqrt\gamma X+N).
+P_\gamma\coloneqq\operatorname{Law}(\sqrt\gamma X+N).
 \tag{11}
 $$
 
