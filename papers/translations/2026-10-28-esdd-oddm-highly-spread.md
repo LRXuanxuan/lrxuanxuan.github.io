@@ -113,7 +113,7 @@ h(t,\tau)=\int_\nu V(\nu,\tau)e^{j2\pi\nu(t-\tau)}\,d\nu.
 $
 
 $
-V(\nu,\tau)=\sum_{p=1}^P\rho_p\delta(\tau-\tau_p)\delta(\nu-\nu_p).
+V(\nu,\tau)\triangleq\sum_{p=1}^P\rho_p\delta(\tau-\tau_p)\delta(\nu-\nu_p).
 \tag{9}
 $$
 
