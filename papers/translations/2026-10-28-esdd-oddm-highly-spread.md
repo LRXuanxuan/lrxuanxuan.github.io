@@ -69,7 +69,18 @@ $$
 $$
 \bar x[k]\triangleq\dot x\left([k]_M,\left\lfloor k/M\right\rfloor\right),\quad 0\le k<K.
 \tag{3}
-$$
+$
+
+为减轻相邻 ODDM 帧之间的帧间干扰，在该序列前面加长度 $L_{\mathrm{CP}}$ 的 CP、后面加长度 $L_{\mathrm{CS}}$ 的 CS，得到
+
+$
+x[k]=
+\begin{cases}
+\bar x[k+K],&k=-L_{\mathrm{CP}},-L_{\mathrm{CP}}+1,\ldots,-1,\\
+\bar x[k-K],&k=K,K+1,\ldots,K+L_{\mathrm{CS}}-1.
+\end{cases}
+\tag{4}
+$
 
 随后加入长度分别为 $L_{\rm CP}$ 和 $L_{\rm CS}$ 的循环前缀与循环后缀，并通过逐采样脉冲成形生成模拟信号：
 
@@ -92,23 +103,91 @@ $$
 $$
 h(t,\tau)=\sum_{p=1}^P\rho_p\delta(\tau-\tau_p)e^{j2\pi\nu_p(t-\tau_p)},
 \tag{7}
-$$
+$
 
-$$
+这一冲激响应也可写成物理扩展函数的多普勒积分：
+
+$
+h(t,\tau)=\int_\nu V(\nu,\tau)e^{j2\pi\nu(t-\tau)}\,d\nu.
+\tag{8}
+$
+
+$
 V(\nu,\tau)=\sum_{p=1}^P\rho_p\delta(\tau-\tau_p)\delta(\nu-\nu_p).
 \tag{9}
 $$
 
+接收机利用匹配滤波器 $a^*(-t)$ 形成 DD 域观测：
+
+$
+\begin{aligned}
+Y[m,n]
+&=\sum_{\dot n=0}^{N-1}\frac{1}{\sqrt N}
+e^{-j2\pi\frac{n\dot n}{N}}
+\left.(y(t)*a^*(-t))\right|_{t=\dot n T+mT_s}\\
+&=\sum_{\dot n=0}^{N-1}\frac{1}{\sqrt N}
+e^{-j2\pi\frac{n\dot n}{N}}
+\widetilde y[\dot nM+m].
+\end{aligned}
+\tag{10}
+$
+
 接收机先利用 $a^*(-t)$ 匹配滤波，在 $t=(\dot nM+m)T_s$ 采样，再经 DFT 获得 DD 域观测。进一步引入一般的数字接收窗 $w[k]$，得到 $y[k]=w[k]\widetilde y[k]$，以允许调节时域资源使用和抑制多载波干扰。
 
-## III. 栅格化时延–多普勒等效模型：部分公式
+## III. 栅格化时延–多普勒等效模型
 
-先考虑只有一条物理路径的情形。定义脉冲的模糊函数
+先考虑单条物理路径，式（6）简化为
+
+$
+y(t)=\rho_p x(t-\tau_p)e^{j2\pi\nu_p(t-\tau_p)}.
+\tag{11}
+$
+
+由于每个数字采样通过脉冲 $a(t-kT_s)$ 发射，代入式（5）得到
+
+$
+y(t)=\rho_p\sum_{k'=-L_{\mathrm{CP}}}^{K+L_{\mathrm{CS}}-1}
+x[k']a(t-k'T_s-\tau_p)e^{j2\pi\nu_p(t-\tau_p)}.
+\tag{12}
+$
+
+令匹配滤波器 $b(t)=a^*(-t)$，匹配滤波的连续时间输出可表示为
+
+$
+\begin{aligned}
+y_{\mathrm{MF}}(t)
+&=y(t)*b(t)
+=\int_\zeta y(\zeta)b(t-\zeta)\,d\zeta\\
+&=\rho_p\sum_{k'=-L_{\mathrm{CP}}}^{K+L_{\mathrm{CS}}-1}
+x[k']\int a(\zeta-k'T_s-\tau_p)
+e^{j2\pi\nu_p(\zeta-\tau_p)}a^*(\zeta-t)\,d\zeta\\
+&=\rho_p\sum_{k'=-L_{\mathrm{CP}}}^{K+L_{\mathrm{CS}}-1}
+x[k']e^{j2\pi\nu_p(t-\tau_p)}
+g(t-k'T_s-\tau_p,\nu_p).
+\end{aligned}
+\tag{13}
+$
+
+其中 $g$ 表示脉冲模糊函数。定义脉冲的模糊函数
 
 $$
 g(\tau,\nu)\triangleq\int a^*(\xi)a(\xi+\tau)e^{j2\pi\nu\xi}\,d\xi.
 \tag{14}
-$$
+$
+
+在 $t=kT_s$ 采样匹配滤波输出，可得
+
+$
+\begin{aligned}
+\widetilde y[k]
+&=\left.y_{\mathrm{MF}}(t)\right|_{t=kT_s}\\
+&=\rho_p\sum_{k'=-L_{\mathrm{CP}}}^{K+L_{\mathrm{CS}}-1}
+x[k']e^{j2\pi\nu_p(kT_s-\tau_p)}
+g(kT_s-k'T_s-\tau_p,\nu_p)\\
+&=\sum_{l=l_{\min}}^{l_{\max}}\widetilde h[l,k]x[k-l].
+\end{aligned}
+\tag{15}
+$
 
 匹配滤波与采样后的时变抽头响应为
 
@@ -839,4 +918,4 @@ $$
 
 ---
 
-**校对范围：** 第 III–IV 节和矩阵模型式（60）–（67）、均衡与互信息式（69）–（71）已补录。原文式（68）及早期公式（4）、（8）、（10）–（13）、（15）仍待逐式补齐；并非全文公式终校，qa_complete=false。
+**校对范围：** 第 III–IV 节和矩阵模型式（60）–（67）、均衡与互信息式（69）–（71）已补录。原文式（68）仍待逐式补齐；并非全文公式终校，qa_complete=false。
