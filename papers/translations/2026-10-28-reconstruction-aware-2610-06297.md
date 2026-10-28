@@ -689,6 +689,162 @@ $$
 其中 $P_X=\operatorname{Law}(X)$ 为干净分布。接下来研究在低 SNR 时，候选算子扰动如何影响该距离。
 
 
+
+
+### D.4（续）用分位数表示损失
+
+首先注意 MMSE 估计器关于观测 $y$ 单调不减。根据 Dytso 等（2023）的命题 1，
+
+$$
+\eta_\gamma'(y)
+=\sqrt\gamma\,\operatorname{Var}(X\mid\sqrt\gamma X+N=y)
+\ge0.
+\tag{58}
+$$
+
+沿用 $b=\sqrt\rho$ 和 $m_\beta(y)=\eta_{\beta^2}(y)$，令 $F_X,F_{Y_\rho}$ 分别为干净信号与观测的累积分布函数，定义广义分位函数
+
+$$
+x(u)=F_X^{-1}(u),\qquad
+y_b(u)=F_{Y_\rho}^{-1}(u).
+\tag{59}
+$$
+
+由于 $m_{b\sqrt{1+\delta}}$ 单调不减，应用于 $Y_\rho$ 的第 $u$ 个分位点，所得正是重建分布的第 $u$ 个分位点，因此几乎对所有 $u\in(0,1)$，
+
+$$
+F_{Q_{\rho,\delta}}^{-1}(u)
+=m_{b\sqrt{1+\delta}}(y_b(u)).
+\tag{60}
+$$
+
+由一维 Wasserstein 距离的分位数公式，
+
+$$
+G_\rho(\delta)=
+\int_0^1
+\left(x(u)-m_{b\sqrt{1+\delta}}(y_b(u))\right)^2\,du.
+\tag{61}
+$$
+
+该公式直接比较干净分布与重建分布的对应分位点。
+
+**低 SNR 分析。** 记 $z_\delta(u):=m_{b\sqrt{1+\delta}}(y_b(u))$，则 $G_\rho(\delta)=\|x-z_\delta\|_2^2$，$\|\cdot\|_2$ 是 $L^2(0,1)$ 范数。$y_b$ 依赖真实信道幅度 $b$，但不依赖 $\delta$。对 $\delta$ 使用链式法则，
+
+$$
+z'_0(u)=\frac b2\left.\partial_\beta m_\beta(y_b(u))\right|_{\beta=b},
+\qquad
+z''_0(u)=\frac{b^2}{4}
+\left.\partial_\beta^2m_\beta(y_b(u))\right|_{\beta=b}
+-\frac b4\left.\partial_\beta m_\beta(y_b(u))\right|_{\beta=b}.
+$$
+
+引理 1 的误差界，以及 $Y_\rho=N+bX$ 的四阶矩在 $b\to0$ 时一致有界，给出
+
+$$
+\begin{aligned}
+\|z_0-by_b\|_2&=O(b^2),\\
+\left\|z'_0-\frac b2y_b\right\|_2&=O(b^2),\\
+\left\|z''_0+\frac b4y_b\right\|_2&=O(b^2).
+\end{aligned}
+\tag{62}
+$$
+
+对式（61）直接求导：
+
+$$
+G_\rho'(0)=-2\int_0^1(x-z_0)z'_0\,du,
+\tag{63}
+$$
+
+$$
+G_\rho''(0)=
+2\int_0^1(z'_0)^2\,du
+-2\int_0^1(x-z_0)z''_0\,du.
+\tag{64}
+$$
+
+求导与积分交换由引理 1 及 $Y_\rho$ 的有限四阶矩保证。又因为 $\|x\|_2=1$、$\|y_b\|_2^2=1+b^2$，由式（62）和 Cauchy–Schwarz 不等式得到
+
+$$
+G_\rho'(0)=-bC_b+O(b^2),\qquad
+G_\rho''(0)=\frac b2C_b+O(b^2),
+\qquad
+C_b:=\int_0^1x(u)y_b(u)\,du.
+\tag{65}
+$$
+
+剩下的问题是 $C_b$ 仍取决于观测 SNR。令 $\Phi$ 为标准高斯分布函数。利用 $(Y_\rho,N)$ 这一耦合以及一维 Wasserstein 分位公式，
+
+$$
+\begin{aligned}
+\|y_b-\Phi^{-1}\|_2
+&=W_2(P_\rho,\mathcal N(0,1))\\
+&\le\left(\mathbb E[|bX|^2]\right)^{1/2}=b.
+\end{aligned}
+\tag{66}
+$$
+
+定义仅依赖干净分布的常量
+
+$$
+\kappa_X:=
+\int_0^1x(u)\Phi^{-1}(u)\,du
+=\int_0^1F_X^{-1}(u)\Phi^{-1}(u)\,du.
+\tag{67}
+$$
+
+因为 $\|x\|_2=1$，由 Cauchy–Schwarz 得到
+
+$$
+|C_b-\kappa_X|
+\le\|x\|_2\|y_b-\Phi^{-1}\|_2\le b.
+\tag{68}
+$$
+
+因此 $C_b=\kappa_X+O(b)$。式（67）的两个分位函数均单调不减、中心化且非恒定，因此 $\kappa_X>0$；Cauchy–Schwarz 给出 $\kappa_X\le1$，当且仅当 $X$ 为标准高斯变量时取等。
+
+**命题 1（干净侧目标敏感性）。** 在定理 1 假设下，$\rho\to0$ 时有
+
+$$
+G_\rho'(0)=-\kappa_X\sqrt\rho+O(\rho),
+\qquad
+G_\rho''(0)=\frac{\kappa_X}{2}\sqrt\rho+O(\rho).
+\tag{69}
+$$
+
+**证明。** 将式（68）代入式（65），再用 $b=\sqrt\rho$ 即可。
+
+## 附录 E. 实验设置与补充结果
+
+### E.1 实验设置
+
+每项任务首先固定仅测量匹配的参数配置，然后加入权重为 $\lambda=1$ 的重建分支，沿用相同设置。教师场是以 32 个基础通道、通道倍率 $(1,2,3,4)$、每个分辨率一个残差块和 32×32 分辨率注意力构建的条件 FM 网络。教师网络在每项任务的 $8\times10^6$ 幅图像上训练一次后冻结。辅助场具有相同架构，并由教师场初始化。
+
+算子学习使用 Adam：算子学习率 $3\times10^{-3}$，辅助场学习率 $10^{-4}$，批量大小 32，图像块大小 64×64；每次算子更新执行一次辅助场更新。DPIR 使用八次迭代，只有最后一次参与反向传播。式（8）取 $\epsilon=10^{-12}$，参数 EMA 衰减系数为 $\beta=0.999$。其他设置见原文表 3。
+
+### E.7 无偏重建目标
+
+默认目标 $G(\theta)$ 把真实退化测量的重建分布 $Q_\theta$ 与干净分布 $P_X$ 直接匹配。该分布目标在真算子处未必取到最小值。为构造真算子处的无偏目标，定义
+
+$$
+\widetilde G(\theta):=
+D(Q_\theta\Vert Q_\theta^{\mathrm{syn}}),
+\qquad
+Q_\theta^{\mathrm{syn}}:=
+\operatorname{Law}\!\left(R_\theta(A_\theta X+\varepsilon)\right),
+\quad X\sim P_X.
+\tag{70}
+$$
+
+其中 $Q_\theta=\operatorname{Law}(R_\theta(Y))$，$D$ 是附录 B 的加权 IKL。按照式（1）的测量模型，$A_{\theta^\star}X+\varepsilon$ 与 $Y$ 同分布，因此 $Q_{\theta^\star}=Q_{\theta^\star}^{\mathrm{syn}}$，使 $\widetilde G(\theta^\star)=0$；由 $D\ge0$ 可知真算子是 $\widetilde G$ 的一个极小值点，与所选重建器无关。
+
+两个目标的区别只在比较对象。$G$ 将真实测量的重建与干净图像比较，$\widetilde G$ 则与候选算子合成的测量经过同一重建器的图像比较。对能够保持干净分布的重建器（例如后验采样），若 $Q_\theta^{\mathrm{syn}}=P_X$，两者一致。
+
+实现 $\widetilde G$ 时，测量侧重建 $Z_1(\theta)=R_\theta(Y)$ 沿用式（6）估计梯度；但目标 $Q_\theta^{\mathrm{syn}}$ 随 $\theta$ 变化，不能用冻结教师场替代，而要使用第二个在线辅助流，训练样本为停止梯度后的 $R_\theta(A_\theta X+\varepsilon)$。每次算子更新因此需要第二次重建及第二次辅助流更新，所以无偏目标开销更高。其余设置不变。
+
+附录 E.2–E.6 包含任务算子的可视化、各项完整结果及拍摄样本；E.8 给出运行时间分析。图表说明与逐图数值仍需对照 PDF 补全。
+
 ---
 
-**公式核查状态：** 已补入附录 D.1–D.4 的式（31）–（57）；还需补式（58）–（69）与附录 E 的式（70）。保留 qa_complete=false。
+**公式覆盖状态：** Reconstruction-Aware 主文及附录编号式（1）–（70）已补齐。附录 E.2–E.8 的全部图表和其他未编号表达式尚未逐字核完；qa_complete=false。
