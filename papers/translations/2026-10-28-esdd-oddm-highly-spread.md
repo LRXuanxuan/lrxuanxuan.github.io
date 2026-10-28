@@ -874,7 +874,31 @@ $$
 \tag{67}
 $$
 
-块 $\mathbf H_{\mathrm{DD}}[m,\widetilde m]$ 的 $(n,\widetilde n)$ 元素由原文式（68）给出，其两种等价表示分别依赖双重折叠 ESDD 系数与物理信道参数。**式（68）仍待按照 PDF 双栏跨栏公式逐字符补录。**
+块 $\mathbf H_{\mathrm{DD}}[m,\widetilde m]$ 的 $(n,\widetilde n)$ 元素可用 DD 折叠系数表示，也可直接展开为物理路径参数：
+
+$
+\begin{aligned}
+[\mathbf H_{\mathrm{DD}}[m,\widetilde m]]_{n,\widetilde n}
+&=\ddot V_{[n-\widetilde n]_{\mathcal K},
+[m-\widetilde m]_{\mathcal D},m,n}
+e^{j2\pi\frac{
+(m-[m-\widetilde m]_{\mathcal D})[n-\widetilde n]_{\mathcal K}
+}{MN}}
+\Psi_{m,[m-\widetilde m]_{\mathcal D},\widetilde n}\\
+&=\sum_{p=1}^{P}
+\rho_p e^{j\frac{2\pi(m-\ell_p)\kappa_p}{NM}}
+\zeta_m([n-\widetilde n]_{\mathcal K},\kappa_p)
+\Psi_{m,[m-\widetilde m]_{\mathcal D},\widetilde n}\\
+&\qquad\times\left(
+\sum_{q=q_{\min}}^{q_{\max}}
+g\left((qM+[m-\widetilde m]_{\mathcal D}-\ell_p)T_s,\frac{\kappa_p}{NT}\right)
+e^{-j\frac{2\pi q\widetilde n}{N}}
+\right).
+\end{aligned}
+\tag{68}
+$
+
+本式按原文第 13 页底部跨栏公式核对了指数中的折叠索引、求和范围及相位符号。
 
 ## V. 数值示例：与公式直接相关的实验定义
 
@@ -918,4 +942,4 @@ $$
 
 ---
 
-**校对范围：** 第 III–IV 节和矩阵模型式（60）–（67）、均衡与互信息式（69）–（71）已补录。原文式（68）仍待逐式补齐；并非全文公式终校，qa_complete=false。
+**校对范围：** 第 III–IV 节和矩阵模型式（60）–（67）、均衡与互信息式（69）–（71）已补录。现有主编号式（1）–（71）已齐，但仍需逐字符复核与附加未编号公式校对；并非全文公式终校，qa_complete=false。
