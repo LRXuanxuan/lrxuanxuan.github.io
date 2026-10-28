@@ -14,7 +14,7 @@ toc: true
 **作者：** Thomas Ryckeboer、Giacomo Meanti、Julien Mairal（共同贡献）。  
 **原文：** https://arxiv.org/pdf/2610.06297v1（2026 年 10 月 5 日，32 页，含附录）。  
 **代码：** https://github.com/inria-thoth/reconstruction-aware-distribution-matching  
-**当前范围：** 摘要、引言、相关工作概览、方法及其主要公式、理论与核心实验数据。**附录、全部图表及部分正文尚未逐段翻译；非全文译稿，qa_complete=false。**
+**当前范围：** 正文与附录 A–E 的编号公式（1）–（70）均已补录，附有关键推导的中文说明。**附录 E 的部分图表、未编号数学表达式、参考文献与全文逐段逐字符终校仍未完成，qa_complete=false。**
 
 ## 摘要
 
