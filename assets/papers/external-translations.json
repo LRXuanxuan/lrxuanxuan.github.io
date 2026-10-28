@@ -2,7 +2,7 @@
   {
     "slug": "2026-10-28-esdd-oddm-highly-spread",
     "title": "高度扩展信道中 ODDM 的等效采样时延–多普勒信道模型｜中文译稿（未完成）",
-    "scope": "摘要、引言、系统模型和等效离散时间信道的部分推导；第 III 节余下及 IV–VI 节、图表和参考文献待补，非全文。",
+    "scope": "摘要、I–III 节主体、IV-A 与 IV-B 部分内容、公式（1）–（39）中的主要式已录入；式（34）、IV 余下、V–VI、附录/文献未补齐，qa_complete=false。",
     "date": "2026-10-28",
     "url": "/papers/translations/2026-10-28-esdd-oddm-highly-spread/",
     "source_file": "2026-10-28-esdd-oddm-highly-spread.md",
@@ -17,7 +17,7 @@
   {
     "slug": "2026-10-28-deeptelecom-2610-14545",
     "title": "DeepTelecom：动态异构无线环境中用于信道孪生的可微多模态框架｜中文译稿（未完成）",
-    "scope": "摘要、引言、框架概述以及场景重建与材料参数化的部分主要公式；第 V–X 节和参考文献待补，非全文。",
+    "scope": "正文 I–X 节及公式（1）–（33）、表 I–III 和主要图注已录入；引言仍需逐段终校，全部 51 条参考文献尚未录入，qa_complete=false。",
     "date": "2026-10-28",
     "url": "/papers/translations/2026-10-28-deeptelecom-2610-14545/",
     "source_file": "2026-10-28-deeptelecom-2610-14545.md",
@@ -34,7 +34,7 @@
   {
     "slug": "2026-10-28-coflow-2610-03202",
     "title": "上下文流匹配 COFLOW：用于高效视觉生成的自适应步数选择｜中文译稿（未完成）",
-    "scope": "摘要、引言、方法与定理的主要公式、算法 1、部分实验表格；相关工作、完整实验和附录待补，非全文。",
+    "scope": "摘要、引言、方法核心、实验第 4 节、结论第 5 节、表 1 和部分图注已录入；相关工作逐段终校与附录 A–B、参考文献未补齐，qa_complete=false。",
     "date": "2026-10-28",
     "url": "/papers/translations/2026-10-28-coflow-2610-03202/",
     "source_file": "2026-10-28-coflow-2610-03202.md",
@@ -51,7 +51,7 @@
   {
     "slug": "2026-10-28-reconstruction-aware-2610-06297",
     "title": "面向无配对数据逆问题的重建感知分布匹配｜中文译稿（未完成）",
-    "scope": "摘要、引言、主要方法与公式、部分理论和实验数值；剩余正文、图表及附录待补，非全文。",
+    "scope": "摘要、引言、核心方法、理论主要公式及定理、第 5–6 节、表 1–2、AI 使用声明与致谢已录入；相关工作、附录 A–E 和参考文献未完成，qa_complete=false。",
     "date": "2026-10-28",
     "url": "/papers/translations/2026-10-28-reconstruction-aware-2610-06297/",
     "source_file": "2026-10-28-reconstruction-aware-2610-06297.md",
@@ -68,7 +68,7 @@
   {
     "slug": "2026-10-28-ua-flow-2602-10326",
     "title": "具有不确定性量化与引导机制的流匹配 UA-Flow｜中文译稿（未完成）",
-    "scope": "摘要、背景、第 3 节的主要公式和部分实验数据；第 4 节余下、附录与图表待补，非全文。",
+    "scope": "摘要、第 1–3 节主要模型、第 4 节主实验、部分消融、第 5 节结论与表 1–4、7 已录入；附录 A–I 及参考文献未完成，qa_complete=false。",
     "date": "2026-10-28",
     "url": "/papers/translations/2026-10-28-ua-flow-2602-10326/",
     "source_file": "2026-10-28-ua-flow-2602-10326.md",
