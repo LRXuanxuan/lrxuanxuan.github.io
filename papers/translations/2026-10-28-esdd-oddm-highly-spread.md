@@ -436,6 +436,153 @@ $$
 
 
 
+### B.1. 物理路径到折叠 ESDD 系数的显式映射（式（40）–（48））
+
+原文引理 2 在式（37）基础上，利用物理路径的复增益、时延、多普勒、发射脉冲以及接收窗，推导两级折叠的显式表示。先考虑单条物理路径，将式（26）代入式（38），得到
+
+$
+\dot V_{\kappa,l,m}
+=\frac{1}{MN}\gamma_{l,p}
+e^{j\frac{2\pi(\kappa-\kappa_p)l}{MN}}
+\Theta_{m,\kappa,p}.
+\tag{40}
+$
+
+其中
+
+$
+\Theta_{m,\kappa,p}
+=\sum_{k'=0}^{MN-1}
+w[k']e^{j\frac{2\pi k'(\kappa_p-\kappa)}{MN}}
+\sum_{m'=0}^{M-1}
+e^{j\frac{2\pi m'(m-k')}{M}}.
+\tag{41}
+$
+
+对于整数 $k'$，内层和仅当 $[m-k']_M=0$ 时等于 $M$，其他情况为 0。因此
+
+$
+\Theta_{m,\kappa,p}
+=M e^{j\frac{2\pi m(\kappa_p-\kappa)}{NM}}
+\sum_{n'=0}^{N-1}
+w[m+n'M]e^{j\frac{2\pi n'(\kappa_p-\kappa)}{N}}.
+\tag{42}
+$
+
+定义窗口相关的多普勒响应
+
+$
+\zeta_m(\kappa,\kappa_p)
+\triangleq\frac1N
+\sum_{n'=0}^{N-1}
+w[m+n'M]e^{j\frac{2\pi n'(\kappa_p-\kappa)}{N}}.
+\tag{43}
+$
+
+利用式（21）的 $\gamma_{l,p}$，并对具有 $P$ 个离散物理散射体的信道叠加，**引理 2**给出多普勒折叠 ESDD 系数：
+
+$
+\dot V_{\kappa,l,m}
+=\sum_{p=1}^{P}
+\rho_p
+e^{j2\pi\frac{(m-\ell_p)\kappa_p-(m-l)\kappa}{MN}}
+\zeta_m(\kappa,\kappa_p)
+g\left((l-\ell_p)T_s,\frac{\kappa_p}{NT}\right),
+\quad \kappa\in\mathcal K,\ l\in\mathcal L,\ m\in\mathcal M.
+\tag{44}
+$
+
+进一步沿整数时延折叠，得到
+
+$
+\begin{aligned}
+\ddot V_{\kappa,d,m,n}
+&=\sum_{p=1}^{P}
+\rho_p
+e^{j2\pi\frac{(m-\ell_p)\kappa_p-(m-d)\kappa}{MN}}
+\zeta_m(\kappa,\kappa_p)
+\sum_{q=q_{\min}}^{q_{\max}}
+g\left((qM+d-\ell_p)T_s,\frac{\kappa_p}{NT}\right)
+e^{j\frac{2\pi q(\kappa-n)}{N}},\\
+&\qquad \kappa\in\mathcal K,\ d\in\mathcal D,\ m\in\mathcal M,\ n\in\mathcal N.
+\end{aligned}
+\tag{45}
+$
+
+这两个表达式指出：单个 ODDM 符号 $m$ 所见的多普勒折叠等效信道有最多 $LN$ 个虚拟散射体，而单个接收 DD 符号 $(m,n)$ 所见的双重折叠信道最多有 $MN$ 个虚拟散射体。延时折叠在 $l_{\min}< -M/2$ 或 $l_{\max}\ge M/2$ 时可能发生。
+
+将式（44）代回式（37），得到另一种 IO 写法，分别揭示窗口导致的载波间干扰（ICI）、脉冲模糊函数导致的符号间干扰（ISI），以及 CP/CS 的折叠相位：
+
+$
+\begin{aligned}
+Y[m,n]
+&=\sum_{l=l_{\min}}^{l_{\max}}
+\sum_{\kappa=-N/2}^{N/2-1}
+\sum_{p=1}^{P}
+\rho_p e^{j\frac{2\pi(m-\ell_p)\kappa_p}{NM}}
+\underbrace{\zeta_m(\kappa,\kappa_p)}_{\mathrm{ICI}}
+\underbrace{\Psi_{m,l,[n-\kappa]_N}}_{\mathrm{CP/CS\ phase\ shift}}
+\underbrace{g\left((l-\ell_p)T_s,\frac{\kappa_p}{NT}\right)}_{\mathrm{ISI}}
+X[[m-l]_M,[n-\kappa]_N]\\
+&=\sum_{d=-M/2}^{M/2-1}
+\sum_{\kappa=-N/2}^{N/2-1}
+\sum_{p=1}^{P}
+\rho_p e^{j\frac{2\pi(m-\ell_p)\kappa_p}{NM}}
+\zeta_m(\kappa,\kappa_p)\Psi_{m,d,[n-\kappa]_N}\\
+&\qquad\times
+\left(
+\sum_{q=q_{\min}}^{q_{\max}}
+g\left((qM+d-\ell_p)T_s,\frac{\kappa_p}{NT}\right)
+e^{j\frac{2\pi q(\kappa-n)}{N}}
+\right)
+X[[m-d]_M,[n-\kappa]_N].
+\end{aligned}
+\tag{46}
+$
+
+对于连续分布的物理散射体，以扩展函数 $V(\nu,\tau)$ 表示物理信道，则
+
+$
+y(t)=\int_{\nu}\int_{\tau}
+V(\nu,\tau)x(t-\tau)e^{j2\pi\nu(t-\tau)}
+\,d\tau\,d\nu+z(t).
+\tag{47}
+$
+
+此时三个层级的 ESDD 系数通过积分给出：
+
+$
+\begin{aligned}
+V_{b,l}
+&=\int_\nu\int_\tau V(\nu,\tau)
+\left(
+\frac1K\sum_{k'=0}^{K-1}
+w[k']e^{j\frac{2\pi}{K}k'(KT_s\nu-b)}
+\right)
+e^{j2\pi\frac{bl-K\nu\tau}{K}}
+g(lT_s-\tau,\nu)\,d\tau d\nu,
+&&b\in\mathcal B,\ l\in\mathcal L,\\[2pt]
+\dot V_{\kappa,l,m}
+&=\int_\nu\int_\tau V(\nu,\tau)
+\zeta_m(\kappa,NT\nu)
+e^{j2\pi\frac{m(NT\nu-\kappa)-MN\tau\nu+\kappa l}{MN}}
+g(lT_s-\tau,\nu)\,d\tau d\nu,
+&&\kappa\in\mathcal K,\ l\in\mathcal L,\ m\in\mathcal M,\\[2pt]
+\ddot V_{\kappa,d,m,n}
+&=\int_\nu\int_\tau V(\nu,\tau)
+\zeta_m(\kappa,NT\nu)
+e^{j2\pi\frac{m(NT\nu-\kappa)-MN\tau\nu+\kappa d}{MN}}
+\sum_{q=q_{\min}}^{q_{\max}}
+g((qM+d)T_s-\tau,\nu)
+e^{j\frac{2\pi q(\kappa-n)}{N}}
+\,d\tau d\nu,\\[-2pt]
+&\qquad\kappa\in\mathcal K,\ d\in\mathcal D,\ m\in\mathcal M,\ n\in\mathcal N.
+\end{aligned}
+\tag{48}
+$
+
+这组积分公式将连续物理时延–多普勒扩展函数映射到离散时间、单向多普勒折叠及双重 DD 折叠的有效系数。不同原始散射体可能在同一个等效抽头处产生相干叠加。
+
 ### C. 特殊情况：分段常数窗函数
 
 若接收窗 $w[k]$ 以 $M$ 为间隔分段恒定，即对所有 $m\in\mathcal M$ 和 $n'\in\mathcal N$，有 $w[m+n'M]=w_{n'}$，则式（43）的窗相关多普勒响应与 $m$ 无关：
@@ -576,4 +723,4 @@ $$
 
 ---
 
-**当前缺口：** IV-B 中式（40）–（48）的完整推导、第 V–VI 节和参考文献仍需补录；上述不能视为全文终校，qa_complete=false。
+**校对状态：** 已按 PDF 核对补入 IV-B 的式（40）–（48）。第 V–VI 节、附录证明和参考文献仍需补录；上述不能视为全文终校，qa_complete=false。
