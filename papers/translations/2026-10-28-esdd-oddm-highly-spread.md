@@ -271,6 +271,132 @@ $$
 
 **图 2：** ESDD 信道模型示意。$z^{-1}$ 表示单位时延，$V_{b,l}$ 表示整数多普勒 $b$、整数时延 $l$ 的虚拟子信道系数，$\operatorname{rect}[(k-K/2)/K]$ 表示截取 $k\in\mathcal B$ 的长度 $K$ 矩形窗。第 $(b,l)$ 条子信道先对 $x[k]$ 频移 $2\pi b/K$，再延迟 $l$ 个采样；等效地，也可先延迟、再以系数 $V_{b,l}e^{-j2\pi bl/K}$ 进行频移。
 
+
+
+## IV. 基于 ESDD 模型分析高度扩展离栅物理信道中的 ODDM
+
+本节利用第 III 节建立的离栅信道与整数 DD 栅格之间的等效关系，以及 ODDM 数字序列与栅格化离散时间信道之间的耦合，研究高度扩展、离栅物理信道中的 ODDM。为处理一般传播时延和具有一般支撑区间的脉冲 $a(t)$，允许有效信道出现负抽头时延 $l<0$。假定循环前缀（CP）和循环后缀（CS）足够长以避免帧间干扰，即
+
+$$
+L_{\mathrm{CP}}\ge\max\{0,l_{\max}\},\qquad
+L_{\mathrm{CS}}\ge\max\{0,-l_{\min}\}.
+$$
+
+同时要求 $l_{\max}-l_{\min}+1\le MN$，避免信道作用后 CS 和 CP 相互重叠。下面先分析数字 ODDM 波形如何与栅格化 DD 信道耦合，再利用 ESDD 模型建立更一般离栅物理信道的输入–输出关系。相较于 [29] 的 SRN 脉冲、矩形窗与欠扩展信道假设，这里的分析适用范围更广，还将解释 DD 域接收符号中可能出现的混叠效应。
+
+### A. ODDM 序列与离散时间栅格化 DD 信道的耦合
+
+根据式（2）–（5），数字化（近似）实现的 ODDM 使用每个信息符号 $X[m,n]$ 对应的一条唯一时域序列 $\{s_{m,n}[k]\}_{k=0}^{K-1}$。它在 $k=n'M+m$ 处取值 $(1/\sqrt N)e^{j2\pi n'n/N}$，其他时刻为零，$n'=0,\ldots,N-1$。等价地，其向量由每隔 $M$ 个元素出现的 $1,e^{j2\pi n/N},e^{j4\pi n/N},\ldots$ 组成，中间按 $m$ 插入零元素：
+
+$$
+s_{m,n}[k]=
+\begin{cases}
+N^{-1/2}e^{j2\pi \lfloor k/M\rfloor n/N},&[k]_M=m,\\
+0,&[k]_M\ne m.
+\end{cases}
+\quad k\in\mathcal B.
+\tag{31，等价分量形式}
+$$
+
+这里用分量表达复现原文式（31）的向量结构；原文按 $m$、$M-1$ 分组写出零元素和非零指数项。不同 $m$ 之间由时分正交性保证互不重叠；固定 $m$ 而不同 $n$ 时，由傅里叶正交性保证正交：
+
+$$
+\mathbf s_{m,n}\mathbf s_{m',n'}^H
+=\delta[m-m']\delta[n-n'].
+$$
+
+此外，序列对 $n$ 具有周期 $N$，即 $s_{m,n}=s_{m,n+N}$。一帧的传输序列可写为
+
+$$
+x[k]=\sum_{m=0}^{M-1}\sum_{n=0}^{N-1}
+X[m,n]s_{m,n}[k],\qquad k\in\mathcal B.
+\tag{32}
+$$
+
+随后在序列前后附加足够长的 CP/CS。
+
+为说明与栅格化信道之间的耦合，考虑仅传输一个符号 $X[\widetilde m,\widetilde n]$，并通过单条单位增益、整数延时 $l$ 与整数多普勒移位 $b$ 的虚拟子信道。对应发送序列为
+
+$$
+x[k]=X[\widetilde m,\widetilde n]\,
+s_{\widetilde m,\widetilde n}[k],\qquad k\in\mathcal B.
+\tag{33}
+$$
+
+图 3(a) 展示带循环扩展的发送序列。若 $\widetilde m+l$ 位于 $\mathcal M$ 内，接收序列直接变成另一条 ODDM 基序列，其索引为 $m=\widetilde m+l$、$n=[\widetilde n+b]_N$，并乘以与时间无关的相位因子。图 3(b) 示意此情况。若延时增大，使 $\widetilde m+l$ 超出 $\mathcal M$，接收窗会纳入 CP 或 CS 中的循环延拓分量，接收延时索引变为 $m=[\widetilde m+l]_M$，同时出现与延时折叠次数及原始子载波索引有关的额外相位。图 3(c)、(d) 展示了相应实例。
+
+因此，**一条栅格化 DD 子信道把一条 ODDM 基序列精确转换为另一条 ODDM 基序列，至多附加一个与采样时间无关的相位因子。** 这种性质可称为 ODDM 数字序列与 DD 信道的精细耦合（fine coupling）。不同延时 $l$ 如果折叠为同一个 $d=[l]_{\mathcal D}$，会产生延时混叠；不同多普勒移位如果折叠为相同的基本区间索引，也可能产生多普勒混叠。
+
+在足够长 CP/CS 条件下，对路径增益为 $\rho$、延时 $l$、多普勒 $b$ 的单条栅格化子信道，DD 域 IO 关系为
+
+$$
+Y[m,n]=
+\rho\,e^{j2\pi(m-l)b/(MN)}
+\Psi_{m,l,[n-b]_N}
+X[[m-l]_M,[n-b]_N],
+\tag{35}
+$$
+
+其中
+
+$$
+\Psi_{m,l,\widetilde n}
+=e^{j2\pi\lfloor(m-l)/M\rfloor\,\widetilde n/N}
+\tag{36}
+$$
+
+用于描述延时折叠引入的附加相位。式（35）对任意整数延时和多普勒移位成立，只要 CP 和 CS 足够长。
+
+### B. 高时延–多普勒扩展物理信道的 IO 关系
+
+将式（35）应用于一般 ESDD 模型可描述高度扩展离栅信道中的 ODDM。原始 ESDD 模型最多具有 $LMN$ 条虚拟子信道。将 $MN$ 个输入符号与这些子信道叠加，得到等价的三种 DD 域 IO 形式：
+
+$$
+\begin{aligned}
+Y[m,n]
+&=\sum_{l\in\mathcal L}\sum_{b\in\mathcal B}
+V_{b,l}e^{j2\pi(m-l)b/(MN)}
+\Psi_{m,l,[n-b]_N}
+X[[m-l]_M,[n-b]_N],\tag{37a}\\
+&=\sum_{l\in\mathcal L}\sum_{\kappa\in\mathcal K}
+\dot V_{\kappa,l,m}e^{j2\pi(m-l)\kappa/(MN)}
+\Psi_{m,l,[n-\kappa]_N}
+X[[m-l]_M,[n-\kappa]_N],\tag{37b}\\
+&=\sum_{d\in\mathcal D}\sum_{\kappa\in\mathcal K}
+\ddot V_{\kappa,d,m,n}e^{j2\pi(m-d)\kappa/(MN)}
+\Psi_{m,d,[n-\kappa]_N}
+X[[m-d]_M,[n-\kappa]_N].\tag{37c}
+\end{aligned}
+$$
+
+其中 $\mathcal K=\{-N/2,-N/2+1,\ldots,N/2-1\}$、$\mathcal D=\{-M/2,\ldots,M/2-1\}$ 为相应基本区间。式（37a）采用未折叠的 ESDD 系数 $V_{b,l}$，而 $[m-l]_M$、$[n-b]_N$ 显示延时与多普勒索引在输入–输出关系中发生的折叠。
+
+式（37b）定义第 $m$ 个 ODDM 符号的**多普勒折叠 ESDD 系数**：
+
+$$
+\dot V_{\kappa,l,m}
+=\sum_{m'=0}^{M-1}
+V_{\kappa+m'N,l}
+e^{j2\pi(m-l)m'/M},
+\quad \kappa\in\mathcal K,\ l\in\mathcal L.
+\tag{38}
+$$
+
+式（38）显示该系数可依赖于符号索引 $m$，但与子载波索引 $n$ 无关。最后式（37c）引入第 $m$ 个 ODDM 符号、第 $n$ 个子载波的**双重 DD 折叠 ESDD 系数**：
+
+$$
+\ddot V_{\kappa,d,m,n}
+=\sum_{q=q_{\min}}^{q_{\max}}
+\dot V_{\kappa,d+qM,m}
+e^{-j2\pi nq/N},
+\quad \kappa\in\mathcal K,\ d\in\mathcal D.
+\tag{39}
+$$
+
+其中 $q_{\min}=\lfloor l_{\min}/M\rfloor$、$q_{\max}=\lceil l_{\max}/M\rceil$；规定当 $l$ 超出 $\mathcal L$ 时 $\dot V_{\kappa,l,m}=0$。多条具有不同 $l,b$ 的 ESDD 子信道，若折叠到相同 $(d,\kappa)$，就可能共同贡献到 $\ddot V_{\kappa,d,m,n}$，使该双重折叠信道系数同时依赖 $m$ 和 $n$。这一区别说明为何不能直接以原始物理路径的支撑集判断 ODDM 的有效信道结构。
+
+以上结果将 [29] 的 SRN 脉冲、矩形窗、欠扩展信道推广至一般脉冲和接收窗、离栅以及高度扩展信道情形。后续引理 2 进一步把折叠后的 ESDD 系数写成物理路径参数、脉冲模糊函数和接收窗谱的显式表达，并分析混叠、衰落和可预测性。
+
 ---
 
-**校对状态：** 第 III 节整数时延/多普勒投影及式（19）–（30）已补入，后续第 IV–VI 节及附录、参考文献待完成；qa_complete=false。
+**待完成：** 式（34）原文为三分支的循环扩展序列，本页仅翻译了对应情况说明，尚未逐式录入；第 IV 节后半、第 V–VI 节和参考文献仍需校对，qa_complete=false。
