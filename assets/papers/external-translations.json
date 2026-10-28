@@ -51,7 +51,7 @@
   {
     "slug": "2026-10-28-reconstruction-aware-2610-06297",
     "title": "面向无配对数据逆问题的重建感知分布匹配｜中文译稿（未完成）",
-    "scope": "摘要、引言、核心方法、理论主要公式及定理、第 5–6 节、表 1–2、AI 使用声明与致谢已录入；相关工作、附录 A–E 和参考文献未完成，qa_complete=false。",
+    "scope": "已补入主文及附录的连续编号公式（1）–（70），含附录 A–E 的重要推导和证明；图表、未编号表达式、附录剩余段落及逐字符终校仍待验收，qa_complete=false。",
     "date": "2026-10-28",
     "url": "/papers/translations/2026-10-28-reconstruction-aware-2610-06297/",
     "source_file": "2026-10-28-reconstruction-aware-2610-06297.md",
@@ -68,7 +68,7 @@
   {
     "slug": "2026-10-28-ua-flow-2602-10326",
     "title": "具有不确定性量化与引导机制的流匹配 UA-Flow｜中文译稿（未完成）",
-    "scope": "主体第 1–5 节主要内容与公式（1）–（15）、实验表 1–4 和 7 已补录；附录 A–I、完整图表和参考文献未逐段完成，qa_complete=false。",
+    "scope": "已补入主文及附录的连续编号公式（1）–（73），含附录 A–E 的损失、方差传播、UCFG/APG 推导；图表、未编号表达式、附录 F–I 剩余段落及逐字符终校仍待验收，qa_complete=false。",
     "date": "2026-10-28",
     "url": "/papers/translations/2026-10-28-ua-flow-2602-10326/",
     "source_file": "2026-10-28-ua-flow-2602-10326.md",
