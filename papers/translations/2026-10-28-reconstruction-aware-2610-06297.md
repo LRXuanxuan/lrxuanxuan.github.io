@@ -358,7 +358,7 @@ $$
 \tag{24}
 $$
 
-利用 $s_{P_\theta}-s_Q=(v_{P_\theta}-v_Q)/(1-t)$、$\partial_\theta Z_t=tJ_\theta Z_1$，权重 $w(t)$ 与导数系数相抵消，得到正文式（6）。
+利用 $s_{P_\theta}-s_Q=\frac{t}{1-t}(v_{P_\theta}-v_Q)$、$\partial_\theta Z_t=tJ_\theta Z_1$，权重 $w(t)$ 与导数系数相抵消，得到正文式（6）。
 
 **教师场与辅助场。** 对固定目标分布 $Q$，用式（22）训练教师速度场 $v^{\mathrm{tc}}$ 后冻结。当前分布 $P_\theta$ 随参数变化，用同一 CFM 目标在线训练辅助速度场 $v^{\mathrm{aux}}$。因此，$v^{\mathrm{tc}}\approx v_Q$，$v^{\mathrm{aux}}\approx v_{P_\theta}$。
 
