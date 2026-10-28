@@ -289,16 +289,19 @@ $$
 根据式（2）–（5），数字化（近似）实现的 ODDM 使用每个信息符号 $X[m,n]$ 对应的一条唯一时域序列 $\{s_{m,n}[k]\}_{k=0}^{K-1}$。它在 $k=n'M+m$ 处取值 $(1/\sqrt N)e^{j2\pi n'n/N}$，其他时刻为零，$n'=0,\ldots,N-1$。等价地，其向量由每隔 $M$ 个元素出现的 $1,e^{j2\pi n/N},e^{j4\pi n/N},\ldots$ 组成，中间按 $m$ 插入零元素：
 
 $$
-s_{m,n}[k]=
-\begin{cases}
-N^{-1/2}e^{j2\pi \lfloor k/M\rfloor n/N},&[k]_M=m,\\
-0,&[k]_M\ne m.
-\end{cases}
-\quad k\in\mathcal B.
+\mathbf s_{m,n}
+=\frac{1}{\sqrt N}
+\left[
+\underbrace{0,\ldots,0}_{m},\ 1,\
+\underbrace{0,\ldots,0}_{M-1},\
+e^{j\frac{2\pi}{N}n},\
+\underbrace{0,\ldots,0}_{M-1},\
+e^{j\frac{2\pi}{N}2n},\ldots
+\right]^{\mathsf T}.
 \tag{31}
 $$
 
-这里用分量表达复现原文式（31）的向量结构；原文按 $m$、$M-1$ 分组写出零元素和非零指数项。不同 $m$ 之间由时分正交性保证互不重叠；固定 $m$ 而不同 $n$ 时，由傅里叶正交性保证正交：
+上式保留原文式（31）的向量写法，零元素分别按前置 $m$ 项及相邻采样脉冲间的 $M-1$ 项分组。不同 $m$ 之间由时分正交性保证互不重叠；固定 $m$ 而不同 $n$ 时，由傅里叶正交性保证正交：
 
 $$
 \mathbf s_{m,n}\mathbf s_{m',n'}^H
@@ -467,7 +470,7 @@ $$
 相应地，窗口加权的有效时变抽头响应式（18）简化为
 
 $$
-h[l,k]\approx\rho_p g(lT_s-\tau_p)w[k]
+h[l,k]=\rho_p g(lT_s-\tau_p)w[k]
 e^{j2\pi\nu_p(kT_s-\tau_p)}.
 \tag{51}
 $$
@@ -563,7 +566,7 @@ $
 **引理 3：无噪声时直接利用嵌入式 DD 导频估计 ESDD 信道的一个充分条件。** 若信道的栅格化虚拟散射体完全限制在延时与多普勒的基本区域，即
 
 $$
-V_{b,l}=0,\qquad b\notin\mathcal K,\ \ l\notin\mathcal D,
+V_{b,l}=0,\qquad \text{if }b\notin\mathcal K,\ l\notin\mathcal D.
 \tag{59}
 $$
 
