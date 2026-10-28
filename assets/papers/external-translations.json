@@ -1,5 +1,88 @@
 [
   {
+    "slug": "2026-10-28-esdd-oddm-highly-spread",
+    "title": "高度扩展信道中 ODDM 的等效采样时延–多普勒信道模型｜中文译稿（未完成）",
+    "scope": "摘要、引言、系统模型和等效离散时间信道的部分推导；第 III 节余下及 IV–VI 节、图表和参考文献待补，非全文。",
+    "date": "2026-10-28",
+    "url": "/papers/translations/2026-10-28-esdd-oddm-highly-spread/",
+    "source_file": "2026-10-28-esdd-oddm-highly-spread.md",
+    "source_page_path": "papers/translations/2026-10-28-esdd-oddm-highly-spread.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-28-esdd-oddm-highly-spread.md",
+    "paper_ids": [],
+    "source_arxiv_ids": [],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": true
+  },
+  {
+    "slug": "2026-10-28-deeptelecom-2610-14545",
+    "title": "DeepTelecom：动态异构无线环境中用于信道孪生的可微多模态框架｜中文译稿（未完成）",
+    "scope": "摘要、引言、框架概述以及场景重建与材料参数化的部分主要公式；第 V–X 节和参考文献待补，非全文。",
+    "date": "2026-10-28",
+    "url": "/papers/translations/2026-10-28-deeptelecom-2610-14545/",
+    "source_file": "2026-10-28-deeptelecom-2610-14545.md",
+    "source_page_path": "papers/translations/2026-10-28-deeptelecom-2610-14545.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-28-deeptelecom-2610-14545.md",
+    "paper_ids": [],
+    "source_arxiv_ids": [
+      "2610.14545"
+    ],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": true
+  },
+  {
+    "slug": "2026-10-28-coflow-2610-03202",
+    "title": "上下文流匹配 COFLOW：用于高效视觉生成的自适应步数选择｜中文译稿（未完成）",
+    "scope": "摘要、引言、方法与定理的主要公式、算法 1、部分实验表格；相关工作、完整实验和附录待补，非全文。",
+    "date": "2026-10-28",
+    "url": "/papers/translations/2026-10-28-coflow-2610-03202/",
+    "source_file": "2026-10-28-coflow-2610-03202.md",
+    "source_page_path": "papers/translations/2026-10-28-coflow-2610-03202.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-28-coflow-2610-03202.md",
+    "paper_ids": [],
+    "source_arxiv_ids": [
+      "2610.03202"
+    ],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": true
+  },
+  {
+    "slug": "2026-10-28-reconstruction-aware-2610-06297",
+    "title": "面向无配对数据逆问题的重建感知分布匹配｜中文译稿（未完成）",
+    "scope": "摘要、引言、主要方法与公式、部分理论和实验数值；剩余正文、图表及附录待补，非全文。",
+    "date": "2026-10-28",
+    "url": "/papers/translations/2026-10-28-reconstruction-aware-2610-06297/",
+    "source_file": "2026-10-28-reconstruction-aware-2610-06297.md",
+    "source_page_path": "papers/translations/2026-10-28-reconstruction-aware-2610-06297.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-28-reconstruction-aware-2610-06297.md",
+    "paper_ids": [],
+    "source_arxiv_ids": [
+      "2610.06297"
+    ],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": true
+  },
+  {
+    "slug": "2026-10-28-ua-flow-2602-10326",
+    "title": "具有不确定性量化与引导机制的流匹配 UA-Flow｜中文译稿（未完成）",
+    "scope": "摘要、背景、第 3 节的主要公式和部分实验数据；第 4 节余下、附录与图表待补，非全文。",
+    "date": "2026-10-28",
+    "url": "/papers/translations/2026-10-28-ua-flow-2602-10326/",
+    "source_file": "2026-10-28-ua-flow-2602-10326.md",
+    "source_page_path": "papers/translations/2026-10-28-ua-flow-2602-10326.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-28-ua-flow-2602-10326.md",
+    "paper_ids": [],
+    "source_arxiv_ids": [
+      "2602.10326"
+    ],
+    "qa_complete": false,
+    "external": true,
+    "primary_translation": true
+  },
+  {
     "slug": "2026-10-27-cfm-variance-2610-29172",
     "title": "条件流模型将认知不确定性转化为表观偶然方差｜中文全结构译稿（待终校）",
     "scope": "摘要、正文 1–7、附录 A–C、公式（A.1）–（A.43）、预测集合（B.1）–（B.4）、图 1–18 说明、表 B.1、44 条参考文献已录入；逐页逐式 QA 待终校。",
