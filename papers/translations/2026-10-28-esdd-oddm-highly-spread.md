@@ -325,6 +325,31 @@ $$
 
 图 3(a) 展示带循环扩展的发送序列。若 $\widetilde m+l$ 位于 $\mathcal M$ 内，接收序列直接变成另一条 ODDM 基序列，其索引为 $m=\widetilde m+l$、$n=[\widetilde n+b]_N$，并乘以与时间无关的相位因子。图 3(b) 示意此情况。若延时增大，使 $\widetilde m+l$ 超出 $\mathcal M$，接收窗会纳入 CP 或 CS 中的循环延拓分量，接收延时索引变为 $m=[\widetilde m+l]_M$，同时出现与延时折叠次数及原始子载波索引有关的额外相位。图 3(c)、(d) 展示了相应实例。
 
+上述三种情况的接收序列，可统一写成原文式（34）。令 $\tilde n=[\widetilde n+b]_N$；输入只传输一个符号 $X[\widetilde m,\widetilde n]$，经过整数 DD 移位 $(l,b)$、单位增益的栅格化子信道后，对于 $k\in\mathcal B$ 有
+
+$
+y[k]=
+\begin{cases}
+e^{j\frac{2\pi}{MN}\widetilde m b}
+X[\widetilde m,\widetilde n]\,
+s_{\widetilde m+l,\tilde n}[k],
+&0\le\widetilde m+l\le M-1,\\[4pt]
+e^{j\frac{2\pi}{MN}(\widetilde m-M)b}
+e^{-j\frac{2\pi}{N}\widetilde n}
+X[\widetilde m,\widetilde n]\,
+s_{\widetilde m+l-M,\tilde n}[k],
+&M\le\widetilde m+l\le2M-1,\\[4pt]
+e^{j\frac{2\pi}{MN}(\widetilde m+M)b}
+e^{j\frac{2\pi}{N}\widetilde n}
+X[\widetilde m,\widetilde n]\,
+s_{\widetilde m+l+M,\tilde n}[k],
+&-M\le\widetilde m+l\le-1.
+\end{cases}
+\tag{34}
+$
+
+中间和最后两个分支的额外相位分别来自循环扩展的接收分量。以上三分支与上传 PDF 第 8 页原始排版逐式核对过，但仅适用于图 3 所考虑的 $-M\le\widetilde m+l\le2M-1$ 情况；更一般的整数延迟由下述折叠相位表达式描述。
+
 因此，**一条栅格化 DD 子信道把一条 ODDM 基序列精确转换为另一条 ODDM 基序列，至多附加一个与采样时间无关的相位因子。** 这种性质可称为 ODDM 数字序列与 DD 信道的精细耦合（fine coupling）。不同延时 $l$ 如果折叠为同一个 $d=[l]_{\mathcal D}$，会产生延时混叠；不同多普勒移位如果折叠为相同的基本区间索引，也可能产生多普勒混叠。
 
 在足够长 CP/CS 条件下，对路径增益为 $\rho$、延时 $l$、多普勒 $b$ 的单条栅格化子信道，DD 域 IO 关系为
@@ -408,4 +433,4 @@ $$
 
 ---
 
-**待完成：** 式（34）原文为三分支的循环扩展序列，本页仅翻译了对应情况说明，尚未逐式录入；第 IV 节后半、第 V–VI 节和参考文献仍需校对，qa_complete=false。
+**待完成：** 式（34）已按 PDF 三分支核对补入；第 IV 节后半、第 V–VI 节和参考文献仍需校对，qa_complete=false。
