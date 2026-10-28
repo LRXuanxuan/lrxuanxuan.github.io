@@ -721,6 +721,122 @@ $$
 
 **校对提示：** 式（54）、（56）、（57）的折叠次数采用“取整至最近整数”的记号，实际取值依赖原文定义的基本区间；端点和负数折叠时应遵循原文的模运算约定，不能用编程语言默认的四舍五入直接替换。
 
+
+
+### G. 矩阵形式
+
+结合噪声，ODDM 也可在矩阵形式下描述。定义时域接收向量 $\mathbf y_{\mathrm T}=[y[0],\ldots,y[NM-1]]^{\mathsf T}$，将 DD 域发送符号按行堆叠为 $\mathbf x_{\mathrm{DD}}$，则
+
+$$
+\mathbf y_{\mathrm T}=\mathbf H_{\mathrm{T-DD}}\mathbf x_{\mathrm{DD}}+\mathbf z_{\mathrm T}.
+\tag{60}
+$$
+
+其中 $\mathbf H_{\mathrm{T-DD}}\triangleq\mathbf H_{\mathrm T}\mathbf\Pi(\mathbf I_M\otimes\mathbf F_N^H)$，$\mathbf F_N$ 为归一化 DFT 矩阵，$\mathbf\Pi\in\{0,1\}^{MN\times MN}$ 是描述 ODDM 采样交织的置换矩阵，其元素为
+
+$$
+[\mathbf\Pi]_{k,k'}=
+\begin{cases}
+1,& k'=[k]_M N+\lfloor k/M\rfloor,\\
+0,&\text{otherwise}.
+\end{cases}
+\tag{61}
+$$
+
+考虑收发机添加和移除 CP/CS 后，有效时域信道矩阵 $\mathbf H_{\mathrm T}$ 的大小为 $MN\times MN$，满足 $[\mathbf H_{\mathrm T}]_{k,k'}=h[[k-k']_{\widehat{\mathcal L}},k]$，$\widehat{\mathcal L}$ 是包含 $\mathcal L$ 的、具有 $MN$ 个连续整数的集合。对于 $P$ 条物理路径，式（18）的有效抽头为
+
+$$
+h[l,k]=\sum_{p=1}^P
+\rho_p w[k]g(lT_s-\tau_p,\nu_p)
+e^{j2\pi(k-\ell_p)\kappa_p/K}.
+\tag{62}
+$$
+
+定义窗函数加权的噪声 $z[k]=w[k]\widetilde z[k]$，而匹配滤波噪声样本为
+
+$$
+\widetilde z[k]=\int a^*(t-kT_s)z(t)\,dt.
+\tag{63}
+$$
+
+若连续噪声满足 $\mathbb E[z(t)]=0$ 及 $\mathbb E[z(t)z^*(t')]=\sigma_z^2\delta(t-t')$，则采样噪声相关性为
+
+$$
+\begin{aligned}
+\mathbb E[\widetilde z[k]\widetilde z^*[k']]
+&=\sigma_z^2\int a^*(\xi)a(\xi+(k-k')T_s)\,d\xi\\
+&=\sigma_z^2g((k-k')T_s).
+\end{aligned}
+\tag{64}
+$$
+
+从而未加窗的噪声协方差矩阵为 Toeplitz 矩阵 $\mathbf\Sigma_{\widetilde z}$，接收窗作用后的协方差为 $\mathbf\Sigma_{\mathrm T}=\mathbf W\mathbf\Sigma_{\widetilde z}\mathbf W^H$，其中 $\mathbf W\triangleq\operatorname{diag}\{w[0],\ldots,w[MN-1]\}$。
+
+DD 域的矩阵模型为
+
+$$
+\mathbf y_{\mathrm{DD}}=\mathbf H_{\mathrm{DD}}\mathbf x_{\mathrm{DD}}+\mathbf z_{\mathrm{DD}},
+\tag{65}
+$$
+
+$$
+\mathbf H_{\mathrm{DD}}
+=(\mathbf I_M\otimes\mathbf F_N^H)\mathbf\Pi^H
+\mathbf H_{\mathrm T}\mathbf\Pi
+(\mathbf I_M\otimes\mathbf F_N).
+\tag{66}
+$$
+
+其噪声协方差为 $\mathbf\Sigma_{\mathrm{DD}}=(\mathbf I_M\otimes\mathbf F_N^H)\mathbf\Pi^H\mathbf\Sigma_{\mathrm T}\mathbf\Pi(\mathbf I_M\otimes\mathbf F_N)$。基于 ESDD 模型，可把 $\mathbf H_{\mathrm{DD}}$ 写为包含 $M\times M$ 个块的矩阵：
+
+$$
+\mathbf H_{\mathrm{DD}}
+=\left[\mathbf H_{\mathrm{DD}}[m,\widetilde m]\right]_{0\le m\le M-1,\ 0\le \widetilde m\le M-1}.
+\tag{67}
+$$
+
+块 $\mathbf H_{\mathrm{DD}}[m,\widetilde m]$ 的 $(n,\widetilde n)$ 元素由原文式（68）给出，其两种等价表示分别依赖双重折叠 ESDD 系数与物理信道参数。**式（68）仍待按照 PDF 双栏跨栏公式逐字符补录。**
+
+## V. 数值示例：与公式直接相关的实验定义
+
+第 V 节分别展示等效信道支撑、误码率与互信息的数值结果。脉冲模型包括滚降系数为 $\beta$ 的平方根升余弦（SRRC）脉冲，以及标准差为 $\sigma$ 的高斯脉冲；窗函数考虑矩形窗、Hamming 窗，并以 99.9% 的等效信道能量覆盖定义显著支撑。
+
+### B. 误码率与互信息
+
+对平均符号功率归一化的 DD 域输入，可从时域模型式（60）或 DD 域模型式（65）构建线性最小均方误差（LMMSE）均衡器：
+
+$$
+\widehat{\mathbf x}_{\mathrm{DD}}
+=\left(\mathbf H_{\mathrm{T-DD}}^H\mathbf\Sigma_{\mathrm T}^{-1}
+\mathbf H_{\mathrm{T-DD}}+\mathbf I\right)^{-1}
+\mathbf H_{\mathrm{T-DD}}^H\mathbf\Sigma_{\mathrm T}^{-1}\mathbf y_{\mathrm T}.
+\tag{69}
+$$
+
+等价的 DD 域实现为
+
+$$
+\widehat{\mathbf x}_{\mathrm{DD}}
+=\left(\mathbf H_{\mathrm{DD}}^H\mathbf\Sigma_{\mathrm{DD}}^{-1}
+\mathbf H_{\mathrm{DD}}+\mathbf I\right)^{-1}
+\mathbf H_{\mathrm{DD}}^H\mathbf\Sigma_{\mathrm{DD}}^{-1}\mathbf y_{\mathrm{DD}}.
+\tag{70}
+$$
+
+原文指出，以上 LMMSE 均衡性能与接收窗 $w[k]$ 无关，但仍依赖发射脉冲 $a(t)$。对于零均值、单位平均功率的独立高斯输入，单位 DD 符号的平均互信息为
+
+$$
+\begin{aligned}
+\mathcal I
+&=\frac{\log\det\big(\mathbf H_{\mathrm{T-DD}}\mathbf H_{\mathrm{T-DD}}^H
++\mathbf\Sigma_{\mathrm T}\big)-\log\det(\mathbf\Sigma_{\mathrm T})}{MN}\\
+&=\frac{\log\det\big(\mathbf H_{\mathrm{DD}}\mathbf H_{\mathrm{DD}}^H
++\mathbf\Sigma_{\mathrm{DD}}\big)-\log\det(\mathbf\Sigma_{\mathrm{DD}})}{MN}.
+\end{aligned}
+\tag{71}
+$$
+
+
 ---
 
-**校对状态：** 已按 PDF 核对补入 IV-B 的式（40）–（48）。第 V–VI 节、附录证明和参考文献仍需补录；上述不能视为全文终校，qa_complete=false。
+**校对范围：** 第 III–IV 节和矩阵模型式（60）–（67）、均衡与互信息式（69）–（71）已补录。原文式（68）及早期公式（4）、（8）、（10）–（13）、（15）仍待逐式补齐；并非全文公式终校，qa_complete=false。
