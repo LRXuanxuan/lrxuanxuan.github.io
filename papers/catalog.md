@@ -138,6 +138,36 @@ toc: true
 
 ## 推荐论文
 
+### 2026-10-29 · [Piecewise Beam Training and Channel Estimation for RIS-Aided Near-Field Communications](/papers/items/dd5260fe96b96546/)
+
+为地图更新频率与导频开销提供可解释传统基线。
+
+[本篇日报](/papers/items/dd5260fe96b96546/#paper-report)
+
+### 2026-10-29 · [SateBeam: Beam-Aware Radio Map Estimation With Physics-Consistent Parametric Modeling for Unknown Multiple Satellites](/papers/items/14ef920bf7b7200b/)
+
+提供可审计传统物理稀疏基线与原始观测/查询隔离协议。
+
+[本篇日报](/papers/items/14ef920bf7b7200b/#paper-report)
+
+### 2026-10-29 · [Scaling Cheap Synthetic Pretraining Improves Indoor Radio-Map Prediction](/papers/items/9569fc4f58998595/)
+
+为当前数据预算选择提供负结果和规模—信息量边界。
+
+[本篇日报](/papers/items/9569fc4f58998595/#paper-report)
+
+### 2026-10-29 · [Geometry-Aided Channel Deduction with Partial Channel Estimates and Uncalibrated Digital Twin](/papers/items/8b234f06d4f6f9c9/)
+
+对当前粗地图/位置误差和导频一致性接口最直接。
+
+[本篇日报](/papers/items/8b234f06d4f6f9c9/#paper-report)
+
+### 2026-10-29 · [ProFlow: Zero-Shot Physics-Consistent Sampling via Proximal Flow Guidance](/papers/items/04f4e9392aea53cf/)
+
+为物理约束与观测修正提供明确可检验的优化接口。
+
+[本篇日报](/papers/items/04f4e9392aea53cf/#paper-report)
+
 ### 2026-10-28 · [Equivalent Sampled Delay-Doppler (ESDD) Channel Models for ODDM Over Highly-Spread Channels](/papers/items/ff5a01c51d2d9c00/)
 
 约束当前新数据集中的信道表示与实际接收观测之间的边界，适合作为物理基线而非生成模型创新。
