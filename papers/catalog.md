@@ -11,11 +11,11 @@ toc: true
 
 ## 中英文译文
 
-- [2026-10-29｜RIS 辅助近场通信的分段波束训练与信道估计](/papers/translations/2026-10-29-ris-piecewise-2501-02985/) · 正文 I–VI、式（1）–（57）；参考文献与终校待完成
-- [2026-10-29｜SateBeam：多卫星波束感知无线电地图估计](/papers/translations/2026-10-29-satebeam-2605-07763/) · 正文 I–VI、算法及表格；参考文献与终校待完成
-- [2026-10-29｜大规模廉价合成预训练改善室内无线电地图预测](/papers/translations/2026-10-29-cheap-synthetic-pretraining-2610-19015/) · 正文 1–8；附录 A–G 与书目待补
-- [2026-10-29｜未标定数字孪生辅助几何信道推断](/papers/translations/2026-10-29-geometry-aided-channel-2609-37277/) · 正文 I–V、表 I–IX；参考文献与终校待完成
-- [2026-10-29｜ProFlow：近端流引导的零样本物理一致性采样](/papers/translations/2026-10-29-proflow-2601-20227/) · 正文 1–6、式（1）–（29）、表 1–5；附录与书目待补
+- [2026-10-29｜RIS 辅助近场通信的分段波束训练与信道估计](/papers/translations/2026-10-29-ris-piecewise-2501-02985/) · 正文 I–VI、式（1）–（57）、表 I–IV、36 条参考文献已补；逐段逐式终校中
+- [2026-10-29｜SateBeam：多卫星波束感知无线电地图估计](/papers/translations/2026-10-29-satebeam-2605-07763/) · 正文 I–VI、式（1）–（21）、表 I–V、47 条参考文献已补；终校中
+- [2026-10-29｜大规模廉价合成预训练改善室内无线电地图预测](/papers/translations/2026-10-29-cheap-synthetic-pretraining-2610-19015/) · 正文 1–8、附录 A–G、表 1–8、作者—年份书目已补；终校中
+- [2026-10-29｜未标定数字孪生辅助几何信道推断](/papers/translations/2026-10-29-geometry-aided-channel-2609-37277/) · 正文 I–V、式（1）–（18）、表 I–IX、45 条参考文献已补；终校中
+- [2026-10-29｜ProFlow：近端流引导的零样本物理一致性采样](/papers/translations/2026-10-29-proflow-2601-20227/) · 正文 1–6、附录 A–C、表 1–5、55 条参考文献已补；硬约束数值实现说明已加入，终校中
 
 
 - [2026-10-27 五篇论文原文—译文审校记录：公式索引与修正明细](/papers/translation-qa-2026-10-27/) · 源 PDF 86 页、公式编号清单及待终校项
