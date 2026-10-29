@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "source": "每日论文推荐.xlsx",
-  "source_sha256": "2a606e0612a560b750cb3ace487cede30eceb32a3afaa34413f09c2e901eb6de",
+  "source_sha256": "55bac1c358c14dd628820d8753d5c4f83eff21c96f8bed831ec636a33db8be1c",
   "translation_progress": {
     "target": 315,
     "completed": 22,
@@ -23,7 +23,7 @@
   "sheets": [
     {
       "name": "每日论文推荐",
-      "count": 405,
+      "count": 410,
       "headers": [
         "日期",
         "标题",
@@ -45,8 +45,9 @@
       ]
     }
   ],
-  "total": 405,
+  "total": 410,
   "dates": {
+    "2026-10-30": 5,
     "2026-10-29": 5,
     "2026-10-28": 5,
     "2026-10-27": 5,
@@ -102,8 +103,263 @@
     "2026-07-12": 5,
     "2026-07-11": 5
   },
-  "latest_date": "2026-10-29",
+  "latest_date": "2026-10-30",
   "papers": [
+    {
+      "id": "6240e182618d1d29",
+      "date": "2026-10-30",
+      "title": "Joint Range and Doppler Estimation Using Spectrally Efficient FDM",
+      "sheet": "每日论文推荐",
+      "row": 411,
+      "fields": {
+        "日期": "2026-10-30",
+        "标题": "Joint Range and Doppler Estimation Using Spectrally Efficient FDM",
+        "内容": "作者：Michele Mirabella; Pasquale Di Viesti; Christos Masouros; Giorgio M. Vitetta。问题：SEFDM节约带宽同时引入ICI，目标检测与精细距离/速度恢复需考虑符号补偿和噪声变化。 方法：在含CP的同址SISO模型中构造二维复指数估计，先2D-FFT粗估计，再以近似ML的NMCR迭代细化；给出GLRT、CRLB和复杂度比较。 结果：论文各指定场景相对比较方法报告约15%–50%精度改善；1000次Monte Carlo。高移动下GLRT检测下降，QAM符号补偿引入非均匀噪声并导致高SNR偏离CRLB。复杂度/时间图多只计算细化阶段。 局限：静态/缓变与近似假设决定适用范围；不能据标题外推高速移动鲁棒性；单站SISO与已知发射数据，不等于多用户MIMO稀疏导频；未运行作者实现。",
+        "契合方向": "ISAC；距离-Doppler估计；非正交波形",
+        "推荐理由": "提供传统ML/CRLB基线及移动失效条件，避免只比较神经求解器而忽略似然模型错误。",
+        "顶刊顶会/机构依据": "IEEE TWC 25 (2026):11113–11127；正式发表；机构库标注VoR；正式PDF页首载2026-02-04发表、02-05当前版，DOI10.1109/TWC.2026.3658942。",
+        "发表年份": "2026",
+        "论文下载链接": "https://iris.unimore.it/retrieve/0426bb3f-bd3a-4d17-a7a1-2fc09d19316c/Joint_Range_and_Doppler_Estimation_Using_Spectrally_Efficient_FDM.pdf",
+        "检索来源": "https://iris.unimore.it/handle/11380/1396368\nhttps://doi.org/10.1109/TWC.2026.3658942",
+        "筛选备注": "理论启发或基线；把精确波形/ICI与异方差噪声作为后验似然的算子失配控制；支撑高速移动及ISAC接口，独立于改生成先验。；SecII模型；SecIII NMCR；SecIV及Fig3–11；TableI/II、QAM噪声说明。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；机构库及15页正式PDF未给论文代码；GitHub精确标题检索未发现作者实现；不拿通用SEFDM代码冒充NMCR复现。",
+        "反馈匹配": "相对此前OTFS/ODDM的调制或DD结构论文，本篇具体揭示SEFDM非正交代价、粗细两级ML与噪声补偿边界。",
+        "反馈权重说明": "机制互补；区分论文事实、迁移推断、待验证假设；不将功率图指标冒充复MIMO后验收益。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-30/",
+      "report_section": "## 5. Joint Range and Doppler Estimation Using Spectrally Efficient FDM\n\n**作者/年份/venue**：Michele Mirabella; Pasquale Di Viesti; Christos Masouros; Giorgio M. Vitetta；2026；IEEE TWC 25 (2026):11113–11127。\n\n**发表状态**：正式发表。机构库标注VoR；正式PDF页首载2026-02-04发表、02-05当前版，DOI10.1109/TWC.2026.3658942。\n\n**方向**：ISAC；距离-Doppler估计；非正交波形\n\n**问题**：SEFDM节约带宽同时引入ICI，目标检测与精细距离/速度恢复需考虑符号补偿和噪声变化。\n\n**论文方法**：在含CP的同址SISO模型中构造二维复指数估计，先2D-FFT粗估计，再以近似ML的NMCR迭代细化；给出GLRT、CRLB和复杂度比较。\n\n**结果及证据边界**：论文各指定场景相对比较方法报告约15%–50%精度改善；1000次Monte Carlo。高移动下GLRT检测下降，QAM符号补偿引入非均匀噪声并导致高SNR偏离CRLB。复杂度/时间图多只计算细化阶段。\n\n**局限与审计判断**：静态/缓变与近似假设决定适用范围；不能据标题外推高速移动鲁棒性；单站SISO与已知发射数据，不等于多用户MIMO稀疏导频；未运行作者实现。\n\n**迁移类型**：理论启发或基线\n\n**研究接口（迁移推断）**：把精确波形/ICI与异方差噪声作为后验似然的算子失配控制；支撑高速移动及ISAC接口，独立于改生成先验。\n\n**与既有阅读差异**：相对此前OTFS/ODDM的调制或DD结构论文，本篇具体揭示SEFDM非正交代价、粗细两级ML与噪声补偿边界。\n\n**推荐理由**：提供传统ML/CRLB基线及移动失效条件，避免只比较神经求解器而忽略似然模型错误。\n\n**代码状态**：未发现公开代码\n\n**代码证据**：机构库及15页正式PDF未给论文代码；GitHub精确标题检索未发现作者实现；不拿通用SEFDM代码冒充NMCR复现。\n\n**全文定位**：SecII模型；SecIII NMCR；SecIV及Fig3–11；TableI/II、QAM噪声说明。\n\n**稳定身份**：10.1109/twc.2026.3658942\n\n**一手来源**：[来源1](https://iris.unimore.it/handle/11380/1396368) [来源2](https://doi.org/10.1109/TWC.2026.3658942)\n\n[官方PDF](https://iris.unimore.it/retrieve/0426bb3f-bd3a-4d17-a7a1-2fc09d19316c/Joint_Range_and_Doppler_Estimation_Using_Spectrally_Efficient_FDM.pdf)；[原文PDF](https://iris.unimore.it/retrieve/0426bb3f-bd3a-4d17-a7a1-2fc09d19316c/Joint_Range_and_Doppler_Estimation_Using_Spectrally_Efficient_FDM.pdf)；15页。\n\n\n**代码入口**：未发现公开代码；精确标题/编号检索及官方全文为本次证据。\n\n[本篇全文翻译/真实状态](https://lrxuanxuan.github.io/papers/items/6240e182618d1d29/#paper-translation)：job `8796f95e494db44cc02aa124`已入队，固定gpt-6-luna/xhigh。原worker发送返回找不到会话，未启动/未完成。\n\n[原文许可](https://creativecommons.org/licenses/by/4.0/)：许可允许完成并保留署名/改动说明后的译文共享。PDF仅本地/官方链接，不上传PDF/XLSX。",
+      "report_entry_url": "/papers/reports/2026-10-30/#paper-6240e182618d1d29",
+      "paper_url": "/papers/items/6240e182618d1d29/",
+      "paper_report_url": "/papers/items/6240e182618d1d29/#paper-report",
+      "translations": [],
+      "links": [
+        "https://iris.unimore.it/retrieve/0426bb3f-bd3a-4d17-a7a1-2fc09d19316c/Joint_Range_and_Doppler_Estimation_Using_Spectrally_Efficient_FDM.pdf",
+        "https://iris.unimore.it/handle/11380/1396368",
+        "https://doi.org/10.1109/TWC.2026.3658942",
+        "https://lrxuanxuan.github.io/papers/items/6240e182618d1d29/#paper-translation)：job",
+        "https://creativecommons.org/licenses/by/4.0/)：许可允许完成并保留署名/改动说明后的译文共享"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://iris.unimore.it/retrieve/0426bb3f-bd3a-4d17-a7a1-2fc09d19316c/Joint_Range_and_Doppler_Estimation_Using_Spectrally_Efficient_FDM.pdf"
+      ],
+      "hosted_pdfs": [],
+      "status": "正式发表",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/6240e182618d1d29/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "c345ac36411ddda8",
+      "date": "2026-10-30",
+      "title": "Collaborative In-Context Learning for Indoor Radio Map Estimation",
+      "sheet": "每日论文推荐",
+      "row": 410,
+      "fields": {
+        "日期": "2026-10-30",
+        "标题": "Collaborative In-Context Learning for Indoor Radio Map Estimation",
+        "内容": "作者：Yuanzhe Peng; Jie Xu。问题：室内功率图监督成本高，私有布局难集中，示例数受上下文长度限制。 方法：各客户端用冻结大型自回归视觉模型和本地示例预测同一查询；按Tx向外ripple顺序预测，再用重要性权重聚合，不做任务参数更新。 结果：公开室内RME benchmark及消融支持多客户端和非均匀聚合优于所测ICL基线；不把图像功率图结果视为瞬时复CSI性能。 局限：理论使用简化线性一步更新、各向同性四阶矩/方差顺序及不相关误差；真实客户端相关性会削弱1/M收益。Proposition1印出的反序下界不等式与最小化解释不一致：方差[2,1]正序和4、反序5，所印>=5不成立；未据此宣称完整理论保证。隐私动机不等于差分隐私证明。",
+        "契合方向": "无线地图；上下文适配；多客户端聚合",
+        "推荐理由": "提供缺少集中标签时的轻量适配接口，同时保留理论公式与相关误差的关键审计边界。",
+        "顶刊顶会/机构依据": "IEEE BigData 2026 regular paper；已接受待刊；arXiv官方Comments作者明确Accepted as a regular paper；未发现正式论文集入口，不写正式发表。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2610.31702",
+        "检索来源": "https://arxiv.org/abs/2610.31702",
+        "筛选备注": "可改造工具；作为地图缺模态和无更新适配的独立工具；先做示例选择/客户端误差相关性控制，不替换核心复信道后验。；SecIII–IV流程；p5 Proposition1与Assumptions；p6聚合；SecVI实验/消融。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "Proposition1不等式疑有排版/推导错误，已给二维数值反例；不采用其为一般理论保证。",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；官方arXiv/10页全文未给作者实现；按精确标题、Poly-Ripple与2610.31702检索GitHub未见公开实现；通用LAVM不能算本篇完整代码。",
+        "反馈匹配": "相对单客户端Ripple和GCD随机prompt，本篇新增受限上下文下的多客户端预测聚合；与廉价预训练改变数据量不同。",
+        "反馈权重说明": "机制互补；区分论文事实、迁移推断、待验证假设；不将功率图指标冒充复MIMO后验收益。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-30/",
+      "report_section": "## 4. Collaborative In-Context Learning for Indoor Radio Map Estimation\n\n**作者/年份/venue**：Yuanzhe Peng; Jie Xu；2026；IEEE BigData 2026 regular paper。\n\n**发表状态**：已接受待刊。arXiv官方Comments作者明确Accepted as a regular paper；未发现正式论文集入口，不写正式发表。\n\n**方向**：无线地图；上下文适配；多客户端聚合\n\n**问题**：室内功率图监督成本高，私有布局难集中，示例数受上下文长度限制。\n\n**论文方法**：各客户端用冻结大型自回归视觉模型和本地示例预测同一查询；按Tx向外ripple顺序预测，再用重要性权重聚合，不做任务参数更新。\n\n**结果及证据边界**：公开室内RME benchmark及消融支持多客户端和非均匀聚合优于所测ICL基线；不把图像功率图结果视为瞬时复CSI性能。\n\n**局限与审计判断**：理论使用简化线性一步更新、各向同性四阶矩/方差顺序及不相关误差；真实客户端相关性会削弱1/M收益。Proposition1印出的反序下界不等式与最小化解释不一致：方差[2,1]正序和4、反序5，所印>=5不成立；未据此宣称完整理论保证。隐私动机不等于差分隐私证明。\n\n**迁移类型**：可改造工具\n\n**研究接口（迁移推断）**：作为地图缺模态和无更新适配的独立工具；先做示例选择/客户端误差相关性控制，不替换核心复信道后验。\n\n**与既有阅读差异**：相对单客户端Ripple和GCD随机prompt，本篇新增受限上下文下的多客户端预测聚合；与廉价预训练改变数据量不同。\n\n**推荐理由**：提供缺少集中标签时的轻量适配接口，同时保留理论公式与相关误差的关键审计边界。\n\n**代码状态**：未发现公开代码\n\n**代码证据**：官方arXiv/10页全文未给作者实现；按精确标题、Poly-Ripple与2610.31702检索GitHub未见公开实现；通用LAVM不能算本篇完整代码。\n\n**全文定位**：SecIII–IV流程；p5 Proposition1与Assumptions；p6聚合；SecVI实验/消融。\n\n**稳定身份**：2610.31702\n\n**一手来源**：[来源1](https://arxiv.org/abs/2610.31702)\n\n[官方PDF](https://arxiv.org/pdf/2610.31702)；[原文PDF](https://arxiv.org/pdf/2610.31702)；10页。\nProposition1不等式疑有排版/推导错误，已给二维数值反例；不采用其为一般理论保证。\n\n**代码入口**：未发现公开代码；精确标题/编号检索及官方全文为本次证据。\n\n[本篇全文翻译/真实状态](https://lrxuanxuan.github.io/papers/items/c345ac36411ddda8/#paper-translation)：job `60904591bb6355380e57a96c`已入队，固定gpt-6-luna/xhigh。原worker发送返回找不到会话，未启动/未完成。\n\n[原文许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：译文公开许可未确认，完成稿先本地保留。PDF仅本地/官方链接，不上传PDF/XLSX。",
+      "report_entry_url": "/papers/reports/2026-10-30/#paper-c345ac36411ddda8",
+      "paper_url": "/papers/items/c345ac36411ddda8/",
+      "paper_report_url": "/papers/items/c345ac36411ddda8/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2610.31702",
+        "https://arxiv.org/abs/2610.31702",
+        "https://lrxuanxuan.github.io/papers/items/c345ac36411ddda8/#paper-translation)：job",
+        "https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：译文公开许可未确认"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2610.31702"
+      ],
+      "hosted_pdfs": [],
+      "status": "正式发表",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/c345ac36411ddda8/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "f895aa710834c8a1",
+      "date": "2026-10-30",
+      "title": "Physically Accurate Differentiable Inverse Rendering for Radio Frequency Digital Twin",
+      "sheet": "每日论文推荐",
+      "row": 409,
+      "fields": {
+        "日期": "2026-10-30",
+        "标题": "Physically Accurate Differentiable Inverse Rendering for Radio Frequency Digital Twin",
+        "内容": "作者：Xingyu Chen; Xinyu Zhang; Kai Zheng; Xinmin Fang; Tzu-Mao Li; Chris Xiaoxuan Lu; Zhengxiong Li。问题：几何遮挡导致路径跳变，直接把图形渲染平滑技巧迁移到相干RF会破坏物理精度。 方法：利用边缘绕射过渡构造物理连续路径贡献；配合signal-domain transform surrogate缓解Fourier处理产生的非凸性，以RF测量优化几何与部署参数。 结果：论文展示实测驱动场景重建、感知适配和60GHz超表面部署；部署实验指定接收点RSS改善静态5.7dB、动态5.1dB，仅为该场景指标。 局限：几何/材料/散射模型及初始化仍制约逆问题；可微不保证全局可辨识；不能以RSS收益代替复H相位精度或跨城泛化；本次未运行CUDA代码。",
+        "契合方向": "可微射线追踪；RF数字孪生；物理算子校准",
+        "推荐理由": "对当前射线数据物理准入和相位/遮挡边界检查直接有用，不把模拟器宣传当作已验收数据。",
+        "顶刊顶会/机构依据": "ACM MobiCom 2026；正式发表；作者官网及UCSD正式作者PDF明确MobiCom’26、2026-10-26至30、23页、DOI10.1145/3795866.3796686；ACM入口本次不可达。内容阅读为arXiv v1，带旧Conference’17模板占位，不能单靠模板判断状态。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2603.18026",
+        "检索来源": "https://arxiv.org/abs/2603.18026\nhttps://rfdt.witwin.ai/\nhttps://xyzhang.ucsd.edu/papers/Xingyu.Chen_MobiCom26_RFDT.pdf\nhttps://doi.org/10.1145/3795866.3796686\nhttps://github.com/Asixa/Mini-Differentiable-RF-Digital-Twin",
+        "筛选备注": "可改造工具；放在p(H|r,e,M)之前的环境/算子校准与梯度QA；先单边缘AD/FD和相干相位控制，再考虑联合导频后验，属于独立数据/物理分支。；Sec3–4绕射与surrogate；Sec6梯度；Sec7应用；p13部署结果与结论。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "阅读arXiv v1作者稿；正式发表由作者官网及UCSD正式版PDF交叉核验，未逐式比较版本。",
+        "代码链接": "https://github.com/witwin-ai/witwin-channel",
+        "代码/数据状态": "作者预告/部分代码；官网已链接完整模拟器witwin-channel与概念demo；静态核验主库原生源码、AD测试、优化smoke和README(v0.4需NVIDIA)，但未找到论文全部实测数据/应用复现包，保守归类。旧demo明确minimal implementation，不误称唯一公开代码。",
+        "反馈匹配": "相对DeepTelecom的点散射近似与廉价合成预训练，本篇聚焦几何可见性、边缘绕射及实测逆渲染。",
+        "反馈权重说明": "机制互补；区分论文事实、迁移推断、待验证假设；不将功率图指标冒充复MIMO后验收益。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-30/",
+      "report_section": "## 3. Physically Accurate Differentiable Inverse Rendering for Radio Frequency Digital Twin\n\n**作者/年份/venue**：Xingyu Chen; Xinyu Zhang; Kai Zheng; Xinmin Fang; Tzu-Mao Li; Chris Xiaoxuan Lu; Zhengxiong Li；2026；ACM MobiCom 2026。\n\n**发表状态**：正式发表。作者官网及UCSD正式作者PDF明确MobiCom’26、2026-10-26至30、23页、DOI10.1145/3795866.3796686；ACM入口本次不可达。内容阅读为arXiv v1，带旧Conference’17模板占位，不能单靠模板判断状态。\n\n**方向**：可微射线追踪；RF数字孪生；物理算子校准\n\n**问题**：几何遮挡导致路径跳变，直接把图形渲染平滑技巧迁移到相干RF会破坏物理精度。\n\n**论文方法**：利用边缘绕射过渡构造物理连续路径贡献；配合signal-domain transform surrogate缓解Fourier处理产生的非凸性，以RF测量优化几何与部署参数。\n\n**结果及证据边界**：论文展示实测驱动场景重建、感知适配和60GHz超表面部署；部署实验指定接收点RSS改善静态5.7dB、动态5.1dB，仅为该场景指标。\n\n**局限与审计判断**：几何/材料/散射模型及初始化仍制约逆问题；可微不保证全局可辨识；不能以RSS收益代替复H相位精度或跨城泛化；本次未运行CUDA代码。\n\n**迁移类型**：可改造工具\n\n**研究接口（迁移推断）**：放在p(H|r,e,M)之前的环境/算子校准与梯度QA；先单边缘AD/FD和相干相位控制，再考虑联合导频后验，属于独立数据/物理分支。\n\n**与既有阅读差异**：相对DeepTelecom的点散射近似与廉价合成预训练，本篇聚焦几何可见性、边缘绕射及实测逆渲染。\n\n**推荐理由**：对当前射线数据物理准入和相位/遮挡边界检查直接有用，不把模拟器宣传当作已验收数据。\n\n**代码状态**：作者预告/部分代码\n\n**代码证据**：官网已链接完整模拟器witwin-channel与概念demo；静态核验主库原生源码、AD测试、优化smoke和README(v0.4需NVIDIA)，但未找到论文全部实测数据/应用复现包，保守归类。旧demo明确minimal implementation，不误称唯一公开代码。\n\n**全文定位**：Sec3–4绕射与surrogate；Sec6梯度；Sec7应用；p13部署结果与结论。\n\n**稳定身份**：2603.18026\n\n**一手来源**：[来源1](https://arxiv.org/abs/2603.18026) [来源2](https://rfdt.witwin.ai/) [来源3](https://xyzhang.ucsd.edu/papers/Xingyu.Chen_MobiCom26_RFDT.pdf) [来源4](https://doi.org/10.1145/3795866.3796686) [来源5](https://github.com/Asixa/Mini-Differentiable-RF-Digital-Twin)\n\n[官方PDF](https://arxiv.org/pdf/2603.18026)；[原文PDF](https://arxiv.org/pdf/2603.18026)；23页。\n阅读arXiv v1作者稿；正式发表由作者官网及UCSD正式版PDF交叉核验，未逐式比较版本。\n\n**代码入口**：[作者存档/仓库](https://github.com/witwin-ai/witwin-channel)\n\n[本篇全文翻译/真实状态](https://lrxuanxuan.github.io/papers/items/f895aa710834c8a1/#paper-translation)：job `eb7800c105c015eec17a4aa5`已入队，固定gpt-6-luna/xhigh。原worker发送返回找不到会话，未启动/未完成。\n\n[原文许可](https://creativecommons.org/licenses/by/4.0/)：许可允许完成并保留署名/改动说明后的译文共享。PDF仅本地/官方链接，不上传PDF/XLSX。",
+      "report_entry_url": "/papers/reports/2026-10-30/#paper-f895aa710834c8a1",
+      "paper_url": "/papers/items/f895aa710834c8a1/",
+      "paper_report_url": "/papers/items/f895aa710834c8a1/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2603.18026",
+        "https://arxiv.org/abs/2603.18026",
+        "https://rfdt.witwin.ai/",
+        "https://xyzhang.ucsd.edu/papers/Xingyu.Chen_MobiCom26_RFDT.pdf",
+        "https://doi.org/10.1145/3795866.3796686",
+        "https://github.com/Asixa/Mini-Differentiable-RF-Digital-Twin",
+        "https://github.com/witwin-ai/witwin-channel",
+        "https://lrxuanxuan.github.io/papers/items/f895aa710834c8a1/#paper-translation)：job",
+        "https://creativecommons.org/licenses/by/4.0/)：许可允许完成并保留署名/改动说明后的译文共享"
+      ],
+      "github": [
+        "https://github.com/witwin-ai/witwin-channel",
+        "https://github.com/Asixa/Mini-Differentiable-RF-Digital-Twin"
+      ],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2603.18026"
+      ],
+      "hosted_pdfs": [],
+      "status": "正式发表",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/f895aa710834c8a1/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "e29cff84d378a15a",
+      "date": "2026-10-30",
+      "title": "R\\`enyi-Regularized Flow-Based Variational Inference for Bayesian Calibration",
+      "sheet": "每日论文推荐",
+      "row": 408,
+      "fields": {
+        "日期": "2026-10-30",
+        "标题": "R\\`enyi-Regularized Flow-Based Variational Inference for Bayesian Calibration",
+        "内容": "作者：Exaucè Luweh Adjim Ngarti; Élise Arnaud; Léo Nicoletti; Victor Trappler; Arthur Vidard。问题：reverse-KL变分近似会遗漏彼此分离的后验模式，增加熵也不能保证双峰覆盖。 方法：在负ELBO中加入从先验p到近似q的Rényi散度，以梯度范数平衡自适应权重；用二维参数、10维观测的可网格积分模型对照HMC、flow与Gaussian mixture。 结果：Table3同架构配对参考下近坍缩比例0.50降至0.25；forward KL 4.912降至3.126，但reverse KL 2.401升至3.358、TV 0.554升至0.617。Table2的0.875基线用另一架构，不能与0.25直接归因比较。 局限：只在二维toy及少量随机种子上验证；选取阶数/梯度比例，仍有模式遗漏；加入先验覆盖项改变原Bayesian目标，不是精确后验保证；normalizing flow不同于straight-flow matching。",
+        "契合方向": "Normalizing flow；多峰后验；变分校准",
+        "推荐理由": "为多模态CKM后验与先验失配提供最小可计算反例，迫使同时报告覆盖和分布偏差。",
+        "顶刊顶会/机构依据": "arXiv cs.AI/stat.ML；预印本/状态未确认；2026-10-27上传；官方元数据未列录用。标题按arXiv原样保留Rènyi。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2610.37169",
+        "检索来源": "https://arxiv.org/abs/2610.37169",
+        "筛选备注": "理论启发或基线；独立双峰toy分支检查模式质量与覆盖率的交换；不把正则直接叠到当前已训练FlowADMM，不称低NFE方案。；p2 Eq2.5；p3 Eq3.2与自适应权重；p4–6 Table2/3；AppendixB/D。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；核对官方arXiv/全文及作者名、标题和2610.37169的GitHub精确检索；未见论文实现链接；其他Rényi-OT仓库不属于本篇。",
+        "反馈匹配": "相对PC-DAPS的候选剪枝、ProFlow的终点近端，这是训练目标和模式质量的审计视角。",
+        "反馈权重说明": "机制互补；区分论文事实、迁移推断、待验证假设；不将功率图指标冒充复MIMO后验收益。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-30/",
+      "report_section": "## 2. R\\`enyi-Regularized Flow-Based Variational Inference for Bayesian Calibration\n\n**作者/年份/venue**：Exaucè Luweh Adjim Ngarti; Élise Arnaud; Léo Nicoletti; Victor Trappler; Arthur Vidard；2026；arXiv cs.AI/stat.ML。\n\n**发表状态**：预印本/状态未确认。2026-10-27上传；官方元数据未列录用。标题按arXiv原样保留Rènyi。\n\n**方向**：Normalizing flow；多峰后验；变分校准\n\n**问题**：reverse-KL变分近似会遗漏彼此分离的后验模式，增加熵也不能保证双峰覆盖。\n\n**论文方法**：在负ELBO中加入从先验p到近似q的Rényi散度，以梯度范数平衡自适应权重；用二维参数、10维观测的可网格积分模型对照HMC、flow与Gaussian mixture。\n\n**结果及证据边界**：Table3同架构配对参考下近坍缩比例0.50降至0.25；forward KL 4.912降至3.126，但reverse KL 2.401升至3.358、TV 0.554升至0.617。Table2的0.875基线用另一架构，不能与0.25直接归因比较。\n\n**局限与审计判断**：只在二维toy及少量随机种子上验证；选取阶数/梯度比例，仍有模式遗漏；加入先验覆盖项改变原Bayesian目标，不是精确后验保证；normalizing flow不同于straight-flow matching。\n\n**迁移类型**：理论启发或基线\n\n**研究接口（迁移推断）**：独立双峰toy分支检查模式质量与覆盖率的交换；不把正则直接叠到当前已训练FlowADMM，不称低NFE方案。\n\n**与既有阅读差异**：相对PC-DAPS的候选剪枝、ProFlow的终点近端，这是训练目标和模式质量的审计视角。\n\n**推荐理由**：为多模态CKM后验与先验失配提供最小可计算反例，迫使同时报告覆盖和分布偏差。\n\n**代码状态**：未发现公开代码\n\n**代码证据**：核对官方arXiv/全文及作者名、标题和2610.37169的GitHub精确检索；未见论文实现链接；其他Rényi-OT仓库不属于本篇。\n\n**全文定位**：p2 Eq2.5；p3 Eq3.2与自适应权重；p4–6 Table2/3；AppendixB/D。\n\n**稳定身份**：2610.37169\n\n**一手来源**：[来源1](https://arxiv.org/abs/2610.37169)\n\n[官方PDF](https://arxiv.org/pdf/2610.37169)；[原文PDF](https://arxiv.org/pdf/2610.37169)；10页。\n\n\n**代码入口**：未发现公开代码；精确标题/编号检索及官方全文为本次证据。\n\n[本篇全文翻译/真实状态](https://lrxuanxuan.github.io/papers/items/e29cff84d378a15a/#paper-translation)：job `66929ae326dcfa52c634015e`已入队，固定gpt-6-luna/xhigh。原worker发送返回找不到会话，未启动/未完成。\n\n[原文许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：译文公开许可未确认，完成稿先本地保留。PDF仅本地/官方链接，不上传PDF/XLSX。",
+      "report_entry_url": "/papers/reports/2026-10-30/#paper-e29cff84d378a15a",
+      "paper_url": "/papers/items/e29cff84d378a15a/",
+      "paper_report_url": "/papers/items/e29cff84d378a15a/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2610.37169",
+        "https://arxiv.org/abs/2610.37169",
+        "https://lrxuanxuan.github.io/papers/items/e29cff84d378a15a/#paper-translation)：job",
+        "https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：译文公开许可未确认"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2610.37169"
+      ],
+      "hosted_pdfs": [],
+      "status": "预印本/状态未确认",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/e29cff84d378a15a/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "5a226e8ddeb62eac",
+      "date": "2026-10-30",
+      "title": "Predicting silent failures of learned inference under restricted access: what measurement physics and prior information explain",
+      "sheet": "每日论文推荐",
+      "row": 407,
+      "fields": {
+        "日期": "2026-10-30",
+        "标题": "Predicting silent failures of learned inference under restricted access: what measurement physics and prior information explain",
+        "内容": "作者：Mario Gianni。问题：低残差与看似正常的诊断可能同时遗漏错误真值和不覆盖的区间。 方法：把未检测且未覆盖定义为blind set；先建立正确线性Gaussian模型下的先验平均分解，再以局部VAE线性化构造事前排序分数；比较latent Laplace与ensemble Kalman inversion。 结果：240个预设错误的排序相关为0.79/0.84；后续对照未检出有界观测下学习分数超过物理基线的收益。最弱衰减时先验对排序有帮助，但Gaussian先验也有类似收益，trial层面不显著。 局限：分数不是校准概率；64×64、单VAE、同一批物体分片训练测试，真实CT参考但受限观测是模拟Gaussian噪声；17项标准未多重校正，不证明跨物体泛化。",
+        "契合方向": "秩亏逆问题；不确定性；物理可探测性",
+        "推荐理由": "直接审视低导频残差能否支持零空间恢复可信性，提供不利于学习先验优势的必要控制。",
+        "顶刊顶会/机构依据": "arXiv stat.ML；预印本/状态未确认；2026-10-20上传；arXiv未列录用信息。Zenodo DOI是代码数据身份，不是期刊发表证明。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2610.28155",
+        "检索来源": "https://arxiv.org/abs/2610.28155\nhttps://doi.org/10.5281/zenodo.23392686",
+        "筛选备注": "理论启发或基线；在当前导频算子及可观测/零空间分析后增加blind-error测试，不替换FlowADMM；优先服务期刊扩展可靠性证据。；p2–5定义/参考分解；p8–15实验及后续控制；p16局限和代码声明。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "代码存档Zenodo访问受限，完整性未核验；论文PDF可访问。",
+        "代码链接": "https://doi.org/10.5281/zenodo.23392686",
+        "代码/数据状态": "作者预告/部分代码；论文p16明确声明Zenodo包含代码、冻结预测与计划；本次Zenodo页面/API不可达(403)，未核验文件完整性，故保守归类，未运行。GitHub精确标题/编号检索未发现替代作者实现。",
+        "反馈匹配": "相对PosteriorBench及PC-DAPS，重点是事前预测诊断不报警的失败，且明确检验物理简单基线是否已解释收益。",
+        "反馈权重说明": "机制互补；区分论文事实、迁移推断、待验证假设；不将功率图指标冒充复MIMO后验收益。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-30/",
+      "report_section": "## 1. Predicting silent failures of learned inference under restricted access: what measurement physics and prior information explain\n\n**作者/年份/venue**：Mario Gianni；2026；arXiv stat.ML。\n\n**发表状态**：预印本/状态未确认。2026-10-20上传；arXiv未列录用信息。Zenodo DOI是代码数据身份，不是期刊发表证明。\n\n**方向**：秩亏逆问题；不确定性；物理可探测性\n\n**问题**：低残差与看似正常的诊断可能同时遗漏错误真值和不覆盖的区间。\n\n**论文方法**：把未检测且未覆盖定义为blind set；先建立正确线性Gaussian模型下的先验平均分解，再以局部VAE线性化构造事前排序分数；比较latent Laplace与ensemble Kalman inversion。\n\n**结果及证据边界**：240个预设错误的排序相关为0.79/0.84；后续对照未检出有界观测下学习分数超过物理基线的收益。最弱衰减时先验对排序有帮助，但Gaussian先验也有类似收益，trial层面不显著。\n\n**局限与审计判断**：分数不是校准概率；64×64、单VAE、同一批物体分片训练测试，真实CT参考但受限观测是模拟Gaussian噪声；17项标准未多重校正，不证明跨物体泛化。\n\n**迁移类型**：理论启发或基线\n\n**研究接口（迁移推断）**：在当前导频算子及可观测/零空间分析后增加blind-error测试，不替换FlowADMM；优先服务期刊扩展可靠性证据。\n\n**与既有阅读差异**：相对PosteriorBench及PC-DAPS，重点是事前预测诊断不报警的失败，且明确检验物理简单基线是否已解释收益。\n\n**推荐理由**：直接审视低导频残差能否支持零空间恢复可信性，提供不利于学习先验优势的必要控制。\n\n**代码状态**：作者预告/部分代码\n\n**代码证据**：论文p16明确声明Zenodo包含代码、冻结预测与计划；本次Zenodo页面/API不可达(403)，未核验文件完整性，故保守归类，未运行。GitHub精确标题/编号检索未发现替代作者实现。\n\n**全文定位**：p2–5定义/参考分解；p8–15实验及后续控制；p16局限和代码声明。\n\n**稳定身份**：2610.28155\n\n**一手来源**：[来源1](https://arxiv.org/abs/2610.28155) [来源2](https://doi.org/10.5281/zenodo.23392686)\n\n[官方PDF](https://arxiv.org/pdf/2610.28155)；[原文PDF](https://arxiv.org/pdf/2610.28155)；22页。\n代码存档Zenodo访问受限，完整性未核验；论文PDF可访问。\n\n**代码入口**：[作者存档/仓库](https://doi.org/10.5281/zenodo.23392686)\n\n[本篇全文翻译/真实状态](https://lrxuanxuan.github.io/papers/items/5a226e8ddeb62eac/#paper-translation)：job `93782749d8c453c1687facd4`已入队，固定gpt-6-luna/xhigh。原worker发送返回找不到会话，未启动/未完成。\n\n[原文许可](https://creativecommons.org/licenses/by/4.0/)：许可允许完成并保留署名/改动说明后的译文共享。PDF仅本地/官方链接，不上传PDF/XLSX。",
+      "report_entry_url": "/papers/reports/2026-10-30/#paper-5a226e8ddeb62eac",
+      "paper_url": "/papers/items/5a226e8ddeb62eac/",
+      "paper_report_url": "/papers/items/5a226e8ddeb62eac/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2610.28155",
+        "https://arxiv.org/abs/2610.28155",
+        "https://doi.org/10.5281/zenodo.23392686",
+        "https://lrxuanxuan.github.io/papers/items/5a226e8ddeb62eac/#paper-translation)：job",
+        "https://creativecommons.org/licenses/by/4.0/)：许可允许完成并保留署名/改动说明后的译文共享"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2610.28155"
+      ],
+      "hosted_pdfs": [],
+      "status": "预印本/状态未确认",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/5a226e8ddeb62eac/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
     {
       "id": "dd5260fe96b96546",
       "date": "2026-10-29",
@@ -20428,6 +20684,17 @@
   ],
   "reports": [
     {
+      "date": "2026-10-30",
+      "url": "/papers/reports/2026-10-30/",
+      "source_file": "2026-10-30_每日前沿论文推荐.md",
+      "slug": "2026-10-30",
+      "covered_dates": [
+        "2026-10-30"
+      ],
+      "title": "10_30前沿论文推荐",
+      "download": "/assets/papers/reports/2026-10-30.md"
+    },
+    {
       "date": "2026-10-29",
       "url": "/papers/reports/2026-10-29/",
       "source_file": "2026-10-29_每日前沿论文推荐.md",
@@ -22473,9 +22740,9 @@
   "pdf_mode": "links_only",
   "workbook_table": {
     "url": "/papers/table/",
-    "source_sha256": "2a606e0612a560b750cb3ace487cede30eceb32a3afaa34413f09c2e901eb6de",
+    "source_sha256": "55bac1c358c14dd628820d8753d5c4f83eff21c96f8bed831ec636a33db8be1c",
     "sheet": "每日论文推荐",
-    "row_count": 405,
+    "row_count": 410,
     "headers": [
       "日期",
       "标题",

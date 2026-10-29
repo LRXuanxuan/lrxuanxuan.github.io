@@ -148,6 +148,36 @@ toc: true
 
 ## 推荐论文
 
+### 2026-10-30 · [Joint Range and Doppler Estimation Using Spectrally Efficient FDM](/papers/items/6240e182618d1d29/)
+
+提供传统ML/CRLB基线及移动失效条件，避免只比较神经求解器而忽略似然模型错误。
+
+[本篇日报](/papers/items/6240e182618d1d29/#paper-report)
+
+### 2026-10-30 · [Collaborative In-Context Learning for Indoor Radio Map Estimation](/papers/items/c345ac36411ddda8/)
+
+提供缺少集中标签时的轻量适配接口，同时保留理论公式与相关误差的关键审计边界。
+
+[本篇日报](/papers/items/c345ac36411ddda8/#paper-report)
+
+### 2026-10-30 · [Physically Accurate Differentiable Inverse Rendering for Radio Frequency Digital Twin](/papers/items/f895aa710834c8a1/)
+
+对当前射线数据物理准入和相位/遮挡边界检查直接有用，不把模拟器宣传当作已验收数据。
+
+[本篇日报](/papers/items/f895aa710834c8a1/#paper-report)
+
+### 2026-10-30 · [R\`enyi-Regularized Flow-Based Variational Inference for Bayesian Calibration](/papers/items/e29cff84d378a15a/)
+
+为多模态CKM后验与先验失配提供最小可计算反例，迫使同时报告覆盖和分布偏差。
+
+[本篇日报](/papers/items/e29cff84d378a15a/#paper-report)
+
+### 2026-10-30 · [Predicting silent failures of learned inference under restricted access: what measurement physics and prior information explain](/papers/items/5a226e8ddeb62eac/)
+
+直接审视低导频残差能否支持零空间恢复可信性，提供不利于学习先验优势的必要控制。
+
+[本篇日报](/papers/items/5a226e8ddeb62eac/#paper-report)
+
 ### 2026-10-29 · [Piecewise Beam Training and Channel Estimation for RIS-Aided Near-Field Communications](/papers/items/dd5260fe96b96546/)
 
 为地图更新频率与导频开销提供可解释传统基线。
