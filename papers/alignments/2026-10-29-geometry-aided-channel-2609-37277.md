@@ -38,7 +38,7 @@ permalink: /papers/alignments/2026-10-29-geometry-aided-channel-2609-37277/
 
 **原文全文（PDF 文本层）：** I. INTRODUCTION A. Background Future wireless networks are envisioned to evolve toward unprecedented levels of connectivity, data rate, spectral effi-
 
-**译稿位置：** [源文件第 31 行](https://github.com/LRXuanxuan/lrxuanxuan.github.io/blob/main/papers/translations/2026-10-29-geometry-aided-channel-2609-37277.md#L31)；**译文候选全文：** 未来无线网络将朝着更高连接密度
+**译稿位置：** [源文件第 31 行](https://github.com/LRXuanxuan/lrxuanxuan.github.io/blob/main/papers/translations/2026-10-29-geometry-aided-channel-2609-37277.md#L31)；**译文候选全文：** 未来无线网络将朝着更高连接密度、数据速率、频谱效率及智能化程度发展，推动技术包括超大规模 MIMO [2]、太赫兹通信、可重构智能表面（RIS）、堆叠智能超表面（SIM）[3] 与通信感知一体化（ISAC）[4]。阵列尺寸增大和带宽扩展令信道维数快速上升，低导频开销获取高维 CSI 越来越困难。
 
 ### GCD-P0004 · 页内坐标 x=49, y=596.4
 
@@ -54,7 +54,7 @@ permalink: /papers/alignments/2026-10-29-geometry-aided-channel-2609-37277/
 
 **原文全文（PDF 文本层）：** ciency, and intelligence, enabled by a diverse range of emerging technologies, including extremely large-scale multipleinput multiple-output (MIMO) [2], terahertz communications, reconfigurable intelligent surfaces (RIS), stacked intelligent metasurfaces (SIM) [3], and integrated sensing and communication (ISAC) [4]. Along this evolution, the increasing scale of antenna arrays and wider transmission bandwidths are driving wireless channels toward higher dimensionality. Acquiring such high-dimensional channel state information (CSI) with low pilot overhead poses significant challenges. Since the physical environments experienced by channels under different subcarriers and antennas are similar, a subset of the CSI can be mapped to the entire CSI, thereby reducing pilot overhead. However, the complexity of electromagnetic (EM) propagation characteristics makes it difficult for traditional interpolation methods to achieve optimal performance. Some methods [5], [6] estimate path parameters using pilot measurements to obtain complete CSI, but they typically involve high computational complexity for parameter estimation. Deep learning excels at uncovering latent features and representing high-dimensional data, and has been applied to the field of channel estimation [7]. However, due to the dynamic and variable nature of wireless communication systems, such data-driven methods face challenges in terms of generalization. A key issue is whether deep neural networks can maintain their performance when channel propagation conditions change due to dynamic environmental variations or user mobility across different scenarios [8]. Additionally, the neural network should be able to adapt to diverse system configurations and variable pilot patterns. These factors directly influence the feasibility of learning methods to be deployed in real-world systems.
 
-**译稿位置：** [源文件第 33 行](https://github.com/LRXuanxuan/lrxuanxuan.github.io/blob/main/papers/translations/2026-10-29-geometry-aided-channel-2609-37277.md#L33)；**译文候选全文：** 由于不同天线和子载波对应的物理传播环境相似
+**译稿位置：** [源文件第 33 行](https://github.com/LRXuanxuan/lrxuanxuan.github.io/blob/main/papers/translations/2026-10-29-geometry-aided-channel-2609-37277.md#L33)；**译文候选全文：** 由于不同天线和子载波对应的物理传播环境相似，可用 CSI 的一个子集推断完整 CSI，从而降低导频开销。然而，复杂电磁传播机制使传统插值不容易取得最优性能。部分方法 [5]、[6] 从导频测量估计路径参数再重建 CSI，但参数估计往往需要较高复杂度。深度学习能够提取高维数据的潜在特征，已应用于信道估计 [7]；然而无线环境不断动态变化，数据驱动方法面临泛化问题：当传播条件因环境变化或用户跨场景移动而改变时，网络能否维持性能 [8]？同时，网络还应适应不同系统配置和导频图样。这些问题直接影响学习方法的实际部署。
 
 ### GCD-P0006 · 页内坐标 x=312, y=556.1
 
@@ -62,7 +62,7 @@ permalink: /papers/alignments/2026-10-29-geometry-aided-channel-2609-37277/
 
 **原文全文（PDF 文本层）：** B. Related Works 1) Pilot-Based Channel Estimation: Deep neural networks have been widely used for channel estimation. For example, [9], [10] employ convolutional neural network (CNN) to perform frequency domain interpolation, where pilot symbols are inserted into certain subcarriers. [11] employs multi-layer perceptron (MLP) to perform spatial domain extrapolation, using CSI of a subset of antennas to infer that of other antennas. [12] proposed complex-domain MLP-Mixer (CMixer), which employs physics-inspired design to map partial estimates from a subset of antennas and subcarriers to complete spatialfrequency domain CSI, outperforming MLP- and CNN-based approaches. These neural networks are typically tailored to specific pilot configurations. Recent studies [13]–[15] have explored the potential of diffusion models in channel estimation, using posterior sampling to support arbitrary pilot
 
-**译稿位置：** [源文件第 37 行](https://github.com/LRXuanxuan/lrxuanxuan.github.io/blob/main/papers/translations/2026-10-29-geometry-aided-channel-2609-37277.md#L37)；**译文候选全文：** 1）基于导频的信道估计
+**译稿位置：** [源文件第 37 行](https://github.com/LRXuanxuan/lrxuanxuan.github.io/blob/main/papers/translations/2026-10-29-geometry-aided-channel-2609-37277.md#L37)；**译文候选全文：** **1）基于导频的信道估计。** 神经网络已被广泛用于信道估计。例如，[9]、[10] 利用卷积神经网络（CNN）在频域插值，[11] 利用多层感知机（MLP）从部分天线 CSI 外推其他天线。文献 [12] 提出受物理结构启发的复数域 MLP-Mixer（CMixer），将部分天线—子载波估计映射为完整空频域 CSI，在多种情形下优于 MLP/CNN。这些网络通常只适用于特定导频配置。扩散模型 [13]–[15] 可通过后验采样支持任意导频设置，但在复杂多径条件下，仍需要足够导频才能保证估计质量。
 
 ## PDF 第 2 页 · 提取候选 9 项
 
