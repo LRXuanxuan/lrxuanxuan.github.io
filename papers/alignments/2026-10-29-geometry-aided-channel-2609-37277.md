@@ -6,7 +6,7 @@ permalink: /papers/alignments/2026-10-29-geometry-aided-channel-2609-37277/
 
 # GCD · 逐自然段原译定位表（初版）
 
-**原文 PDF：** 16 页。**提取正文候选：** 99 个；其中判定为正文的候选 89 项，图表/元数据等候选 10 项。**译稿正文分块：** 87 项。**建立译段候选：** 86 项；完全找不到同节译段 3 项；其中仅凭顺序猜测 26 项。
+**原文 PDF：** 16 页。**提取正文候选：** 99 个；其中判定为正文的候选 89 项，图表/元数据等候选 10 项。**译稿正文分块：** 87 项。**建立译段候选：** 89 项；初版 3 项父节歧义已定位实际子节；其中仅凭顺序猜测 26 项。
 
 [打开现有中文译稿](/papers/translations/2026-10-29-geometry-aided-channel-2609-37277/) · [返回完整核查记录](/papers/translation-qa-2026-10-29/)
 
@@ -34,11 +34,11 @@ permalink: /papers/alignments/2026-10-29-geometry-aided-channel-2609-37277/
 
 ### GCD-P0003 · 页内坐标 x=49, y=535.2
 
-**原文章节（自动识别）：** Index Terms—Channel acquisition, channel deduction, digital twin, ray tracing, cross-scenario g…。**目标译稿章节：** I. 引言。**状态：** 无同节译段：待补译定位。
+**原文章节（自动识别）：** Index Terms—Channel acquisition, channel deduction, digital twin, ray tracing, cross-scenario g…。**目标译稿章节：** A. 研究背景。**状态：** 已找到相邻子节/同节的译文候选（尚未逐句校验）。
 
 **原文全文（PDF 文本层）：** I. INTRODUCTION A. Background Future wireless networks are envisioned to evolve toward unprecedented levels of connectivity, data rate, spectral effi-
 
-**译文位置：** 未定位；必须根据原 PDF 查漏或检查跨段对应。
+**译稿位置：** [源文件第 31 行](https://github.com/LRXuanxuan/lrxuanxuan.github.io/blob/main/papers/translations/2026-10-29-geometry-aided-channel-2609-37277.md#L31)；**译文候选段首：** 未来无线网络将朝着更高连接密度
 
 ### GCD-P0004 · 页内坐标 x=49, y=596.4
 
@@ -50,19 +50,19 @@ permalink: /papers/alignments/2026-10-29-geometry-aided-channel-2609-37277/
 
 ### GCD-P0005 · 页内坐标 x=312, y=176.4
 
-**原文章节（自动识别）：** Index Terms—Channel acquisition, channel deduction, digital twin, ray tracing, cross-scenario g…。**目标译稿章节：** I. 引言。**状态：** 无同节译段：待补译定位。
+**原文章节（自动识别）：** Index Terms—Channel acquisition, channel deduction, digital twin, ray tracing, cross-scenario g…。**目标译稿章节：** A. 研究背景。**状态：** 已找到相邻子节/同节的译文候选（尚未逐句校验）。
 
 **原文全文（PDF 文本层）：** ciency, and intelligence, enabled by a diverse range of emerging technologies, including extremely large-scale multipleinput multiple-output (MIMO) [2], terahertz communications, reconfigurable intelligent surfaces (RIS), stacked intelligent metasurfaces (SIM) [3], and integrated sensing and communication (ISAC) [4]. Along this evolution, the increasing scale of antenna arrays and wider transmission bandwidths are driving wireless channels toward higher dimensionality. Acquiring such high-dimensional channel state information (CSI) with low pilot overhead poses significant challenges. Since the physical environments experienced by channels under different subcarriers and antennas are similar, a subset of the CSI can be mapped to the entire CSI, thereby reducing pilot overhead. However, the complexity of electromagnetic (EM) propagation characteristics makes it difficult for traditional interpolation methods to achieve optimal performance. Some methods [5], [6] estimate path parameters using pilot measurements to obtain complete CSI, but they typically involve high computational complexity for parameter estimation. Deep learning excels at uncovering latent features and representing high-dimensional data, and has been applied to the field of channel estimation [7]. However, due to the dynamic and variable nature of wireless communication systems, such data-driven methods face challenges in terms of generalization. A key issue is whether deep neural networks can maintain their performance when channel propagation conditions change due to dynamic environmental variations or user mobility across different scenarios [8]. Additionally, the neural network should be able to adapt to diverse system configurations and variable pilot patterns. These factors directly influence the feasibility of learning methods to be deployed in real-world systems.
 
-**译文位置：** 未定位；必须根据原 PDF 查漏或检查跨段对应。
+**译稿位置：** [源文件第 33 行](https://github.com/LRXuanxuan/lrxuanxuan.github.io/blob/main/papers/translations/2026-10-29-geometry-aided-channel-2609-37277.md#L33)；**译文候选段首：** 由于不同天线和子载波对应的物理传播环境相似
 
 ### GCD-P0006 · 页内坐标 x=312, y=556.1
 
-**原文章节（自动识别）：** Index Terms—Channel acquisition, channel deduction, digital twin, ray tracing, cross-scenario g…。**目标译稿章节：** I. 引言。**状态：** 无同节译段：待补译定位。
+**原文章节（自动识别）：** Index Terms—Channel acquisition, channel deduction, digital twin, ray tracing, cross-scenario g…。**目标译稿章节：** B. 相关工作。**状态：** 已找到相邻子节/同节的译文候选（尚未逐句校验）。
 
 **原文全文（PDF 文本层）：** B. Related Works 1) Pilot-Based Channel Estimation: Deep neural networks have been widely used for channel estimation. For example, [9], [10] employ convolutional neural network (CNN) to perform frequency domain interpolation, where pilot symbols are inserted into certain subcarriers. [11] employs multi-layer perceptron (MLP) to perform spatial domain extrapolation, using CSI of a subset of antennas to infer that of other antennas. [12] proposed complex-domain MLP-Mixer (CMixer), which employs physics-inspired design to map partial estimates from a subset of antennas and subcarriers to complete spatialfrequency domain CSI, outperforming MLP- and CNN-based approaches. These neural networks are typically tailored to specific pilot configurations. Recent studies [13]–[15] have explored the potential of diffusion models in channel estimation, using posterior sampling to support arbitrary pilot
 
-**译文位置：** 未定位；必须根据原 PDF 查漏或检查跨段对应。
+**译稿位置：** [源文件第 37 行](https://github.com/LRXuanxuan/lrxuanxuan.github.io/blob/main/papers/translations/2026-10-29-geometry-aided-channel-2609-37277.md#L37)；**译文候选段首：** 1）基于导频的信道估计
 
 ## PDF 第 2 页 · 提取候选 9 项
 
