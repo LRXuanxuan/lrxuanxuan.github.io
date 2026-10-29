@@ -6,7 +6,7 @@ permalink: /papers/alignments/2026-10-29-cheap-synthetic-pretraining-2610-19015/
 
 # SYNTHETIC · 逐自然段原译定位表（初版）
 
-**原文 PDF：** 25 页。**提取正文候选：** 111 个；其中判定为正文的候选 89 项，图表/元数据等候选 22 项。**译稿正文分块：** 68 项。**建立译段候选：** 83 项；完全找不到同节译段 6 项；其中仅凭顺序猜测 23 项。
+**原文 PDF：** 25 页。**提取正文候选：** 111 个；其中判定为正文的候选 85 项，图表/元数据等候选 26 项。**译稿正文分块：** 68 项。**建立译段候选：** 85 项；初版 6 项未定位已复核为 2 项译段、4 项图表文字；其中仅凭顺序猜测 23 项。
 
 [打开现有中文译稿](/papers/translations/2026-10-29-cheap-synthetic-pretraining-2610-19015/) · [返回完整核查记录](/papers/translation-qa-2026-10-29/)
 
@@ -726,47 +726,47 @@ permalink: /papers/alignments/2026-10-29-cheap-synthetic-pretraining-2610-19015/
 
 ### SYNTHETIC-P0074 · 页内坐标 x=108, y=481.8
 
-**原文章节（自动识别）：** References。**目标译稿章节：** 附录 C：不同骨干网络与预训练规模下的迁移。**状态：** 无同节译段：待补译定位。
+**原文章节（自动识别）：** References。**目标译稿章节：** 附录 C：不同骨干网络与预训练规模下的迁移。**状态：** 非正文候选：图中英文标注或附录节标题。
 
 **原文全文（PDF 文本层）：** C Transfer across backbones and pretraining scales
 
-**译文位置：** 未定位；必须根据原 PDF 查漏或检查跨段对应。
+**译文位置：** 非正文项目，不需要逐自然段译段对应；图中文字另行检查。
 
 ### SYNTHETIC-P0075 · 页内坐标 x=107.7, y=690.6
 
-**原文章节（自动识别）：** References。**目标译稿章节：** 附录 C：不同骨干网络与预训练规模下的迁移。**状态：** 无同节译段：待补译定位。
+**原文章节（自动识别）：** References。**目标译稿章节：** 附录 C：不同骨干网络与预训练规模下的迁移。**状态：** 已找到相邻子节/同节的译文候选（尚未逐句校验）。
 
 **原文全文（PDF 文本层）：** The first-epoch best ResNet101 scores in Table 3 reduce scratch error by 21.39%, 20.28%, 27.06%, 48.39%, and 45.46% for ICASSP T1/T2/T3 and MLSP 0.02/0.5, respectively. Comparing 128M directly with 2M, the corresponding reductions are 13.77%, 1.88%, 29.50%, 22.15%, and 16.07%.
 
-**译文位置：** 未定位；必须根据原 PDF 查漏或检查跨段对应。
+**译稿位置：** [源文件第 229 行](https://github.com/LRXuanxuan/lrxuanxuan.github.io/blob/main/papers/translations/2026-10-29-cheap-synthetic-pretraining-2610-19015.md#L229)；**译文候选段首：** 表 3 中 ResNet101 各任务
 
 ## PDF 第 14 页 · 提取候选 1 项
 
 ### SYNTHETIC-P0076 · 页内坐标 x=107.7, y=74.4
 
-**原文章节（自动识别）：** References。**目标译稿章节：** 附录 C：不同骨干网络与预训练规模下的迁移。**状态：** 无同节译段：待补译定位。
+**原文章节（自动识别）：** References。**目标译稿章节：** 附录 C：不同骨干网络与预训练规模下的迁移。**状态：** 已找到相邻子节/同节的译文候选（尚未逐句校验）。
 
 **原文全文（PDF 文本层）：** These are different comparisons: selected best scales, endpoint scaling, and leaderboard gains should not be conflated.
 
-**译文位置：** 未定位；必须根据原 PDF 查漏或检查跨段对应。
+**译稿位置：** [源文件第 229 行](https://github.com/LRXuanxuan/lrxuanxuan.github.io/blob/main/papers/translations/2026-10-29-cheap-synthetic-pretraining-2610-19015.md#L229)；**译文候选段首：** 表 3 中 ResNet101 各任务
 
 ## PDF 第 15 页 · 提取候选 4 项
 
 ### SYNTHETIC-P0077 · 页内坐标 x=369.1, y=121
 
-**原文章节（自动识别）：** References。**目标译稿章节：** 附录 C：不同骨干网络与预训练规模下的迁移。**状态：** 无同节译段：待补译定位。
+**原文章节（自动识别）：** References。**目标译稿章节：** 附录 C：不同骨干网络与预训练规模下的迁移。**状态：** 非正文候选：图中英文标注或附录节标题。
 
 **原文全文（PDF 文本层）：** ICASSP Task 1 ICASSP Task 2 ICASSP Task 3 MLSP rate 0.02 MLSP rate 0.5 per-task from-scratch RMSE (no synth pretrain)
 
-**译文位置：** 未定位；必须根据原 PDF 查漏或检查跨段对应。
+**译文位置：** 非正文项目，不需要逐自然段译段对应；图中文字另行检查。
 
 ### SYNTHETIC-P0078 · 页内坐标 x=174.5, y=383.6
 
-**原文章节（自动识别）：** References。**目标译稿章节：** 附录 C：不同骨干网络与预训练规模下的迁移。**状态：** 无同节译段：待补译定位。
+**原文章节（自动识别）：** References。**目标译稿章节：** 附录 C：不同骨干网络与预训练规模下的迁移。**状态：** 非正文候选：图中英文标注或附录节标题。
 
 **原文全文（PDF 文本层）：** ICASSP Task 1 ICASSP Task 2 ICASSP Task 3 MLSP rate 0.02 MLSP rate 0.5 observed mean across tasks power-law fit (2M–16M)
 
-**译文位置：** 未定位；必须根据原 PDF 查漏或检查跨段对应。
+**译文位置：** 非正文项目，不需要逐自然段译段对应；图中文字另行检查。
 
 ### SYNTHETIC-P0079 · 页内坐标 x=139.1, y=433.6
 
@@ -778,11 +778,11 @@ permalink: /papers/alignments/2026-10-29-cheap-synthetic-pretraining-2610-19015/
 
 ### SYNTHETIC-P0080 · 页内坐标 x=165.4, y=571.8
 
-**原文章节（自动识别）：** 0.98 0.98。**目标译稿章节：** 附录 C：不同骨干网络与预训练规模下的迁移。**状态：** 无同节译段：待补译定位。
+**原文章节（自动识别）：** 0.98 0.98。**目标译稿章节：** 附录 C：不同骨干网络与预训练规模下的迁移。**状态：** 非正文候选：图中英文标注或附录节标题。
 
 **原文全文（PDF 文本层）：** MAPE 32M–128M (first epoch): 3.33% MAPE 32M–256M (full extrapolation): 4.00% Fit uses only 2M–16M (first epoch); 192M and 256M are second-epoch extrapolation.
 
-**译文位置：** 未定位；必须根据原 PDF 查漏或检查跨段对应。
+**译文位置：** 非正文项目，不需要逐自然段译段对应；图中文字另行检查。
 
 ## PDF 第 16 页 · 提取候选 2 项
 
