@@ -460,4 +460,92 @@ $$
 
 这些探针表明模型在简化、受控场景上掌握了与物理规律相符的表示，却不能证明它对所有真实建筑和所有缺失传播效应都准确。
 
+
+## 参考文献（按原文保留英文题名与出处）
+
+本节来自 PDF 第 9–11 页的 References。采用逐行保留的方式避免误拆无编号的作者—年份书目；仍需对非标准字符与换行作终校。
+
+Joaquim Amândio Azevedo and Fábio Mendonça. A critical review of the propagation models  
+employed in LoRa systems. Sensors, 24(12):3877, 2024. doi: 10.3390/s24123877.  
+Stefanos Bakirtzis, Çagkan Yapar, Kehai Qiu, Ian Wassell, and Jie Zhang. Indoor radio map ˘  
+dataset. Dataset, IEEE DataPort, 2024. URL https://ieee-dataport.org/documents/  
+indoor-radio-map-dataset. DOI: 10.21227/c0ec-cw74.  
+Stefanos Bakirtzis, Çagkan Yapar, Kehai Qiu, Ian Wassell, and Jie Zhang. The first indoor pathloss ˘  
+radio map prediction challenge. In ICASSP 2025 - 2025 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), pages 1–2, 2025. doi: 10.1109/ICASSP49660.2025.  
+10889381.  
+Tom B. Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared Kaplan, Prafulla Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda Askell, Sandhini Agarwal,  
+Ariel Herbert-Voss, Gretchen Krueger, Tom Henighan, Rewon Child, Aditya Ramesh, Daniel M.  
+Ziegler, Jeffrey Wu, Clemens Winter, Christopher Hesse, Mark Chen, Eric Sigler, Mateusz Litwin,  
+Scott Gray, Benjamin Chess, Jack Clark, Christopher Berner, Sam McCandlish, Alec Radford,  
+Ilya Sutskever, and Dario Amodei. Language models are few-shot learners. In Advances in  
+Neural Information Processing Systems, volume 33, pages 1877–1901, 2020.  
+Bin Feng, Meng Zheng, Wei Liang, and Lei Zhang. IPP-Net: A generalizable deep neural network  
+model for indoor pathloss radio map prediction. In ICASSP 2025 - 2025 IEEE International  
+Conference on Acoustics, Speech and Signal Processing (ICASSP), pages 1–2. IEEE, 2025. doi:  
+10.1109/ICASSP49660.2025.10890663.  
+Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. Deep residual learning for image recognition. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition  
+(CVPR), pages 770–778, 2016. doi: 10.1109/CVPR.2016.90.  
+Jordan Hoffmann, Sebastian Borgeaud, Arthur Mensch, Elena Buchatskaya, Trevor Cai, Eliza  
+Rutherford, Diego de Las Casas, Lisa Anne Hendricks, Johannes Welbl, Aidan Clark, Thomas  
+Hennigan, Eric Noland, Katherine Millican, George van den Driessche, Bogdan Damoc, Aurelia Guy, Simon Osindero, Karén Simonyan, Erich Elsen, Oriol Vinyals, Jack Rae, and Laurent Sifre. An empirical analysis of compute-optimal large language model training. In Advances in Neural Information Processing Systems, volume 35, pages 30016–30030, 2022. doi:  
+10.52202/068431-2176.  
+Shengding Hu, Yuge Tu, Xu Han, Chaoqun He, Ganqu Cui, Xiang Long, Zhi Zheng, Yewei Fang,  
+Yuxiang Huang, Weilin Zhao, Xinrong Zhang, Zheng Leng Thai, Kaihuo Zhang, Chongyi Wang,  
+Yuan Yao, Chenyang Zhao, Jie Zhou, Jie Cai, Zhongwu Zhai, Ning Ding, Chao Jia, Guoyang  
+Zeng, Dahai Li, Zhiyuan Liu, and Maosong Sun. MiniCPM: Unveiling the potential of small  
+language models with scalable training strategies. arXiv preprint arXiv:2404.06395, 2024. URL  
+https://arxiv.org/abs/2404.06395.  
+Jared Kaplan, Sam McCandlish, Tom Henighan, Tom B. Brown, Benjamin Chess, Rewon Child,  
+Scott Gray, Alec Radford, Jeffrey Wu, and Dario Amodei. Scaling laws for neural language  
+models. arXiv preprint arXiv:2001.08361, 2020. URL https://arxiv.org/abs/2001.08361.  
+Siu Kwan Lam, Antoine Pitrou, and Stanley Seibert. Numba: A LLVM-based Python JIT compiler.  
+In Proceedings of the Second Workshop on the LLVM Compiler Infrastructure in HPC, pages 1–6,  
+2015. doi: 10.1145/2833157.2833162.  
+Ron Levie, Çagkan Yapar, Gitta Kutyniok, and Giuseppe Caire. RadioUNet: Fast radio map estima- ˘  
+tion with convolutional neural networks. IEEE Transactions on Wireless Communications, 20(6):  
+4001–4015, 2021. doi: 10.1109/TWC.2021.3054977.  
+Xiaojie Li, Songyang Zhang, Hang Li, Xiaoyang Li, Lexi Xu, Haigao Xu, Hui Mei, Guangxu  
+Zhu, Nan Qi, and Ming Xiao. RadioGAT: A joint model-based and data-driven framework for  
+multi-band radiomap reconstruction via graph attention networks. IEEE Transactions on Wireless  
+Communications, 23(11):17777–17792, 2024. doi: 10.1109/TWC.2024.3457157.  
+Ze Liu, Yutong Lin, Yue Cao, Han Hu, Yixuan Wei, Zheng Zhang, Stephen Lin, and Baining Guo.  
+Swin Transformer: Hierarchical vision transformer using shifted windows. In Proceedings of the  
+IEEE/CVF International Conference on Computer Vision (ICCV), pages 10012–10022, 2021. doi:  
+10.1109/ICCV48922.2021.00986.  
+Zhuang Liu, Hanzi Mao, Chao-Yuan Wu, Christoph Feichtenhofer, Trevor Darrell, and Saining Xie.  
+A ConvNet for the 2020s. In Proceedings of the IEEE/CVF Conference on Computer Vision and  
+Pattern Recognition (CVPR), pages 11976–11986, 2022. doi: 10.1109/CVPR52688.2022.01167.  
+Wenlihan Lu, Ziyi Lu, Jia Yan, and Shijian Gao. SIP2Net: Situational-aware indoor pathloss-map  
+prediction network for radio map generation. In ICASSP 2025 - 2025 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), pages 1–2. IEEE, 2025. doi:  
+10.1109/ICASSP49660.2025.10890319.  
+Ljupcho Milosheski, Kuon Akiyama, Blaž Bertalanic, Jernej Hribar, and Ryoichi Shinkuma. An ˇ  
+indoor radio mapping dataset combining 3D point clouds and RSSI. Dataset, 2025. URL https:  
+//zenodo.org/records/15791300. Version v1; record DOI: 10.5281/zenodo.15791300; allversion DOI: 10.5281/zenodo.15791299.  
+Rafayel Mkrtchyan, Edvard Ghukasyan, Khoren Petrosyan, Hrant Khachatrian, and Theofanis P.  
+Raptis. Vision transformers for efficient indoor pathloss radio map prediction. Electronics, 14  
+(10):1905, 2025. doi: 10.3390/electronics14101905.  
+Niklas Muennighoff, Alexander M. Rush, Boaz Barak, Teven Le Scao, Aleksandra Piktus, Nouamane Tazi, Sampo Pyysalo, Thomas Wolf, and Colin Raffel. Scaling data-constrained language models. Journal of Machine Learning Research, 26(53):1–66, 2025. URL https:  
+//jmlr.org/papers/v26/24-1000.html.  
+Khoren Petrosyan, Rafayel Mkrtchyan, Hrant Khachatrian, and Theofanis P. Raptis. U-Net for  
+indoor pathloss prediction from sparse measurements with physics-based features. In 2025 IEEE  
+35th International Workshop on Machine Learning for Signal Processing (MLSP), pages 1–6,  
+2025. doi: 10.1109/MLSP62443.2025.11204276.  
+Kehai Qiu, Stefanos Bakirtzis, Hui Song, Ian Wassell, and Jie Zhang. Deep learning-based path loss  
+prediction for outdoor wireless communication systems. In ICASSP 2023 - 2023 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), pages 1–2. IEEE, 2023.  
+doi: 10.1109/ICASSP49357.2023.10095501.  
+Jonathan Tremblay, Aayush Prakash, David Acuna, Mark Brophy, Varun Jampani, Cem Anil, Thang  
+To, Eric Cameracci, Shaad Boochoon, and Stan Birchfield. Training deep networks with synthetic  
+data: Bridging the reality gap by domain randomization. In Proceedings of the IEEE Conference  
+on Computer Vision and Pattern Recognition Workshops, pages 969–977, 2018.  
+Zhuang Wang, Qun Kong, Bingcai Wei, Liye Zhang, and Aikui Tian. Radio map construction  
+based on BERT for fingerprint-based indoor positioning system. EURASIP Journal on Wireless  
+Communications and Networking, 2023(1), 2023. doi: 10.1186/s13638-023-02247-2. Article  
+number 39.  
+Enze Xie, Wenhai Wang, Zhiding Yu, Anima Anandkumar, Jose M. Alvarez, and Ping Luo. SegFormer: Simple and efficient design for semantic segmentation with transformers. In Advances  
+in Neural Information Processing Systems, volume 34, pages 12077–12090. Curran Associates,  
+Inc., 2021.  
+Çagkan Yapar, Stefanos Bakirtzis, Andra Lutu, Ian Wassell, Jie Zhang, and Giuseppe Caire. The ˘  
+sampling-assisted pathloss radio map prediction competition. In 2025 IEEE 35th International  
+Workshop on Machine Learning for Signal Processing (MLSP), pages 1–6, 2025. doi: 10.1109/  
+MLSP62443.2025.11204278.
 {% endraw %}
