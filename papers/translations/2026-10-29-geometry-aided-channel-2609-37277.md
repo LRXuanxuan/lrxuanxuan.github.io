@@ -475,4 +475,99 @@ $$
 本文提出几何辅助信道推断 GCD 框架，从数字孪生中提取几何先验并与少量导频获得的粗略 CSI 估计融合。根据无线信道的物理结构，作者设计了场景提示的生成与随机增强方法；同时借鉴先进学习架构实现信道信息融合，并加入导频位置掩码以支持可变配置。实验表明，方法能以较低导频开销获取高质量 CSI，对存在误差的几何信息表现出鲁棒性，并具有较好的跨场景泛化能力。
 
 这项工作强调提示和预训练对无线通信模型的重要性。通过提供环境几何、导频图样、系统配置等必要且易获取的提示，可用多个场景中多样化的导频配置和硬件条件开展充分预训练，使模型学习具有一定普适性的知识。遵循电磁传播结构进行模态转换与网络架构设计，也有助于提高学习效率；这些认识可为未来无线模型设计提供参考。
+
+## 参考文献（原文英文书目）
+
+按照原 PDF 第 16 页整理，保留原编号 [1]–[45]；文献元数据未进行外部核验，排版细节仍待逐项终校。
+
+[1] H. Ruan, Z. Zhang, Z. Chen et al., “Geometry-aided channel deduction: A robust channel acquisition framework utilizing coarse scenario prompt,” in IEEE Int. Symp. Person. Indoor Mobile Radio Commun. (PIMRC), 2026 (accepted).
+
+[2] L. Lu, G. Y. Li, A. L. Swindlehurst et al., “An overview of massive MIMO: Benefits and challenges,” IEEE J. Sel. Top. Signal Process., vol. 8, no. 5, pp. 742–758, 2014.
+
+[3] J. Zhang, Q. Li, K. Fang et al., “Spherical stacked intelligent metasurfaces: A paradigm for full-space wave-domain processing,” IEEE Commun. Mag., 2026.
+
+[4] F. Liu, Y. Cui, C. Masouros et al., “Integrated sensing and communications: Toward dual-functional wireless networks for 6G and beyond,” IEEE J. Sel. Areas Commun., vol. 40, no. 6, pp. 1728–1767, 2022.
+
+[5] P. Schniter and A. Sayeed, “Channel estimation and precoder design for millimeter-wave communications: The sparse way,” in Asilomar Conf. Signals Syst. Comput. (ACSSC), 2014, pp. 273–277.
+
+[6] P. Schniter and S. Rangan, “Compressive phase retrieval via generalized approximate message passing,” IEEE Trans. Signal Process., vol. 63, no. 4, pp. 1043–1055, 2014.
+
+[7] Z. Zhang, J. Zhang, Y. Zhang et al., “AI-based time-, frequency- , and space-domain channel extrapolation for 6G: Opportunities and challenges,” IEEE Veh. Technol. Mag., vol. 18, no. 1, pp. 29–39, 2023.
+
+[8] Z. Chen, H. Ruan, Z. Zhang et al., “Analogical learning for crossscenario generalization: Framework and application to intelligent localization,” arXiv preprint arXiv:2504.08811, 2025.
+
+[9] P. Dong, H. Zhang, G. Y. Li et al., “Deep CNN-based channel estimation for mmWave massive MIMO systems,” IEEE J. Sel. Top. Signal Process., vol. 13, no. 5, pp. 989–1000, 2019.
+
+[10] L. Li, H. Chen, H.-H. Chang et al., “Deep residual learning meets OFDM channel estimation,” IEEE Wireless Commun. Lett., vol. 9, no. 5, pp. 615–618, 2019.
+
+[11] B. Lin, F. Gao, S. Zhang et al., “Deep learning-based antenna selection and CSI extrapolation in massive MIMO systems,” IEEE Trans. Wirel. Commun., vol. 20, no. 11, pp. 7669–7681, 2021.
+
+[12] Z. Chen, Z. Zhang, Z. Yang et al., “Channel mapping based on interleaved learning with complex-domain MLP-mixer,” IEEE Wireless Commun. Lett., vol. 13, no. 5, pp. 1369–1373, 2024.
+
+[13] X. Zhou, L. Liang, J. Zhang et al., “Generative diffusion models for high dimensional channel estimation,” IEEE Trans. Wirel. Commun., vol. 24, no. 7, pp. 5840–5854, 2025.
+
+[14] M. Arvinte and J. I. Tamir, “MIMO channel estimation using scorebased generative models,” IEEE Trans. Wirel. Commun., vol. 22, no. 6, pp. 3698–3713, 2022.
+
+[15] X. Fan, X. Zhou, L. Liang et al., “Low-complexity MIMO channel estimation with latent diffusion models,” arXiv preprint arXiv:2510.21386, 2025.
+
+[16] H. Jiang, M. Cui, D. W. K. Ng et al., “Accurate channel prediction based on transformer: Making mobility negligible,” IEEE J. Sel. Areas Commun., vol. 40, no. 9, pp. 2717–2732, 2022.
+
+[17] Z. Xiao, Z. Zhang, Z. Chen et al., “Mobile MIMO channel prediction with ODE-RNN: A physics-inspired adaptive approach,” in IEEE Int. Symp. Person. Indoor Mobile Radio Commun. (PIMRC), 2022, pp. 1301–1307.
+
+[18] Z. Xiao, Z. Zhang, C. Huang et al., “C-GRBFnet: A physics-inspired generative deep neural network for channel representation and prediction,” IEEE J. Sel. Areas Commun., vol. 40, no. 8, pp. 2282–2299, 2022.
+
+[19] B. Chatelier, V. Corlay, M. Crussiere et al., “Model-based learning for multi-antenna multi-frequency location-to-channel mapping,” IEEE J. Sel. Top. Signal Process., vol. 19, no. 3, pp. 520–535, 2025.
+
+[20] G. Liang, M. Yang, D. Liu et al., “Environment-aware channel inference via cross-modal flow: From multimodal sensing to wireless channels,” IEEE Trans. Mob. Comput., 2026.
+
+[21] J. Hoydis, F. A. Aoudia, S. Cammerer et al., “Learning radio environments by differentiable ray tracing,” IEEE Trans. Mach. Learn. Commun. Netw., vol. 2, pp. 1527–1539, 2024.
+
+[22] S. Jiang, Q. Qu, X. Pan et al., “Learnable wireless digital twins: Reconstructing electromagnetic field with neural representations,” IEEE Open J. Commun. Soc., vol. 6, pp. 1568–1590, 2025.
+
+[23] Z. An, L. Shangguan, J. Kaewell et al., “RadioTwin: A digital building material twin for wideband, cross-link, cross-band wireless channel prediction,” in IEEE Int. Symp. Dyn. Spectr. Access Networks (DySPAN), 2025, pp. 1–10.
+
+[24] X. Zhao, Z. An, Q. Pan et al., “NeRF2: Neural radio-frequency radiance fields,” in ACM Int. Conf. Mob. Comput. Netw. (MobiCom), 2023, pp. 1–15.
+
+[25] H. Lu, C. Vattheuer, B. Mirzasoleiman et al., “NeWRF: A deep learning framework for wireless radiation field reconstruction and channel prediction,” in Int. Conf. Mach. Learn. (ICML), 2024, pp. 33 147–33 159.
+
+[26] C. Wen, J. Tong, Y. Hu et al., “WRF-GS: Wireless radiation field reconstruction with 3D Gaussian splatting,” in IEEE Conf. Comput. Commun. (INFOCOM), 2025, pp. 1–10.
+
+[27] Z. Chen, Z. Zhang, Z. Yang et al., “Channel deduction: A new learning framework to acquire channel from outdated samples and coarse estimate,” IEEE J. Sel. Areas Commun., vol. 43, no. 3, pp. 944–958, 2025.
+
+[28] Z. Chen, Z. Zhang, Z. Xing et al., “Spatial channel deduction: Acquiring channel from approximate position and coarse estimate,” in IEEE Int. Symp. Person. Indoor Mobile Radio Commun. (PIMRC), 2025, pp. 1–6.
+
+[29] L. Shi, J. Zhang, L. Yu et al., “Can wireless environment information decrease pilot overhead: A channel prediction example,” IEEE Wireless Commun. Lett., vol. 14, no. 3, pp. 861–865, 2025.
+
+[30] Y. Cai, J. Zhang, L. Yu et al., “Digital twin channel-based CSI prediction: An environment-based subspace extraction approach for achieving low overhead and high robustness,” IEEE Trans. Veh. Technol., 2026.
+
+[31] H. Sun, L. Zhu, and R. Zhang, “Channel gain map estimation for wireless networks based on scatterer model,” IEEE Trans. Wirel. Commun., vol. 24, no. 8, pp. 7012–7028, 2025.
+
+[32] H. Sun, L. Zhu, J. Xu et al., “Channel gain map estimation based on 3-D virtual scatterer model,” IEEE Trans. Wirel. Commun., vol. 25, pp. 15 741–15 757, 2026.
+
+[33] A. Alkhateeb, S. Jiang, and G. Charan, “Real-time digital twins: Vision and research directions for 6G and beyond,” IEEE Commun. Mag., vol. 61, no. 11, pp. 128–134, 2023.
+
+[34] M. Zhu, L. Cazzella, F. Linsalata et al., “Toward real-time digital twins of EM environments: Computational benchmark for ray launching software,” IEEE Open J. Commun. Soc., vol. 5, pp. 6291–6302, 2024.
+
+[35] L. Del Moro, F. Linsalata, M. Mizmizi et al., “Bayesian EM digital twins channel estimation,” IEEE Wireless Commun. Lett., vol. 14, no. 5, pp. 1326–1330, 2025.
+
+[36] J. Wang, J. Zhang, Y. Zhang et al., “Radio environment knowledge pool for 6G digital twin channel,” IEEE Commun. Mag., vol. 63, no. 5, pp. 158–164, 2025.
+
+[37] Y. Zeng, J. Chen, J. Xu et al., “A tutorial on environment-aware communications via channel knowledge map for 6G,” IEEE Commun. Surv. Tutor., vol. 26, no. 3, pp. 1478–1519, 2024.
+
+[38] H. Asplund, J. Karlsson, F. Kronestedt et al., Advanced Antenna Systems for 5G Network Deployments: Bridging the Gap Between Theory and Practice. Academic Press, 2020.
+
+[39] H. Lee, H. Choi, H. Kim et al., “Downlink channel reconstruction for spatial multiplexing in massive MIMO systems,” IEEE Trans. Wirel. Commun., vol. 20, no. 9, pp. 6154–6166, 2021.
+
+[40] C. Ruah, O. Simeone, J. Hoydis et al., “Calibrating wireless ray tracing for digital twinning using local phase error estimates,” IEEE Trans. Mach. Learn. Commun. Netw., vol. 2, pp. 1193–1215, 2024.
+
+[41] Z. Chen, Z. Zhang, C. Liu et al., “Towards wireless native big AI model: the mission and approach differ from large language model,” Sci. China Inf. Sci., vol. 68, no. 7, p. 170303, 2025.
+
+[42] J. Hoydis, F. A¨ıt Aoudia, S. Cammerer et al., “Sionna RT: Differentiable ray tracing for radio propagation modeling,” in IEEE Globecom Workshops (GC Wkshps), 2023, pp. 317–321.
+
+[43] X. Meng and Y. Kabashima, “Diffusion model based posterior sampling for noisy linear inverse problems,” arXiv preprint arXiv:2211.12343, 2022.
+
+[44] W. Peebles and S. Xie, “Scalable diffusion models with transformers,” in IEEE/CVF Int. Conf. Comput. Vision (ICCV), 2023, pp. 4172–4182.
+
+[45] A. Alkhateeb, “DeepMIMO: A generic deep learning dataset for millimeter wave and massive MIMO applications,” arXiv preprint arXiv:1902.06435, 2019.
+
 {% endraw %}
