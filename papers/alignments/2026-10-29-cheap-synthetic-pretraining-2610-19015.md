@@ -738,7 +738,7 @@ permalink: /papers/alignments/2026-10-29-cheap-synthetic-pretraining-2610-19015/
 
 **原文全文（PDF 文本层）：** The first-epoch best ResNet101 scores in Table 3 reduce scratch error by 21.39%, 20.28%, 27.06%, 48.39%, and 45.46% for ICASSP T1/T2/T3 and MLSP 0.02/0.5, respectively. Comparing 128M directly with 2M, the corresponding reductions are 13.77%, 1.88%, 29.50%, 22.15%, and 16.07%.
 
-**译稿位置：** [源文件第 229 行](https://github.com/LRXuanxuan/lrxuanxuan.github.io/blob/main/papers/translations/2026-10-29-cheap-synthetic-pretraining-2610-19015.md#L229)；**译文候选全文：** 表 3 中 ResNet101 各任务
+**译稿位置：** [源文件第 229 行](https://github.com/LRXuanxuan/lrxuanxuan.github.io/blob/main/papers/translations/2026-10-29-cheap-synthetic-pretraining-2610-19015.md#L229)；**译文候选全文：** 表 3 中 ResNet101 各任务在首轮范围内所选最佳结果，相比从头训练分别降低误差 21.39%、20.28%、27.06%、48.39%、45.46%（对应 ICASSP T1/T2/T3、MLSP 0.02/0.5）。若直接比较 1.28 亿和 200 万检查点，则相应改善为 13.77%、1.88%、29.50%、22.15%、16.07%。这三种比较（所选最佳规模、端点规模变化、排行榜基线差值）具有不同参考点，不能混为一谈。
 
 ## PDF 第 14 页 · 提取候选 1 项
 
@@ -748,7 +748,7 @@ permalink: /papers/alignments/2026-10-29-cheap-synthetic-pretraining-2610-19015/
 
 **原文全文（PDF 文本层）：** These are different comparisons: selected best scales, endpoint scaling, and leaderboard gains should not be conflated.
 
-**译稿位置：** [源文件第 229 行](https://github.com/LRXuanxuan/lrxuanxuan.github.io/blob/main/papers/translations/2026-10-29-cheap-synthetic-pretraining-2610-19015.md#L229)；**译文候选全文：** 表 3 中 ResNet101 各任务
+**译稿位置：** [源文件第 229 行](https://github.com/LRXuanxuan/lrxuanxuan.github.io/blob/main/papers/translations/2026-10-29-cheap-synthetic-pretraining-2610-19015.md#L229)；**译文候选全文：** 表 3 中 ResNet101 各任务在首轮范围内所选最佳结果，相比从头训练分别降低误差 21.39%、20.28%、27.06%、48.39%、45.46%（对应 ICASSP T1/T2/T3、MLSP 0.02/0.5）。若直接比较 1.28 亿和 200 万检查点，则相应改善为 13.77%、1.88%、29.50%、22.15%、16.07%。这三种比较（所选最佳规模、端点规模变化、排行榜基线差值）具有不同参考点，不能混为一谈。
 
 ## PDF 第 15 页 · 提取候选 4 项
 
