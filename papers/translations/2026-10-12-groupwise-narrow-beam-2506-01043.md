@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "分组窄波束设计：混合波束成形系统的上行信道估计——中文译文"
+title: "分组窄波束设计：混合波束成形系统的上行信道估计——中文译文｜中文全文译文"
 permalink: /papers/translations/2026-10-12-groupwise-narrow-beam-2506-01043/
 math: true
 toc: true
@@ -559,5 +559,10 @@ $$
 [28] Jaeckel et al., “Quadriga: A 3-D multi-cell channel model with time evolution for enabling virtual field trials,” IEEE TAP, 2014.  
 [29] Tropp and Gilbert, “Signal recovery from random measurements via orthogonal matching pursuit,” IEEE TIT, 2007.  
 [30] Liu et al., “Robust recovery of structured sparse signals with uncertain sensing matrix: A Turbo-VBI approach,” IEEE TWC, 2020.
+
+
+---
+
+**登记（2026-10-30）：** 本篇按用户 2026-10-30 新口径登记为“可公开全文译文”——全文覆盖已录入；页内“校对中/未验收”等提示指逐句终校程度，不表示覆盖缺失。
 
 {% endraw %}

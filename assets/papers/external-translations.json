@@ -220,7 +220,9 @@
     "source_file": "2026-10-28-esdd-oddm-highly-spread.md",
     "source_page_path": "papers/translations/2026-10-28-esdd-oddm-highly-spread.md",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-28-esdd-oddm-highly-spread.md",
-    "paper_ids": [],
+    "paper_ids": [
+      "ff5a01c51d2d9c00"
+    ],
     "source_arxiv_ids": [],
     "qa_complete": false,
     "external": true,
@@ -301,7 +303,9 @@
     "source_file": "2026-10-28-ua-flow-2602-10326.md",
     "source_page_path": "papers/translations/2026-10-28-ua-flow-2602-10326.md",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-28-ua-flow-2602-10326.md",
-    "paper_ids": [],
+    "paper_ids": [
+      "bb2ec5a42b895e00"
+    ],
     "source_arxiv_ids": [
       "2602.10326"
     ],
@@ -566,7 +570,9 @@
     "source_file": "2026-10-24-bct-bayes-consistent-tempering-2610-27641.md",
     "source_page_path": "papers/translations/2026-10-24-bct-bayes-consistent-tempering-2610-27641.md",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-24-bct-bayes-consistent-tempering-2610-27641.md",
-    "paper_ids": [],
+    "paper_ids": [
+      "565262b3a3a6c355"
+    ],
     "qa_complete": false,
     "external": true,
     "primary_translation": false
@@ -583,7 +589,9 @@
     "source_file": "2026-10-24-posterior-flow-matching-2610-13994.md",
     "source_page_path": "papers/translations/2026-10-24-posterior-flow-matching-2610-13994.md",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-24-posterior-flow-matching-2610-13994.md",
-    "paper_ids": [],
+    "paper_ids": [
+      "aabfbd0988a71bdc"
+    ],
     "qa_complete": false,
     "external": true,
     "primary_translation": false
@@ -618,7 +626,9 @@
     "source_file": "2026-10-24-fttd-near-field-thz-hybrid-beamforming.md",
     "source_page_path": "papers/translations/2026-10-24-fttd-near-field-thz-hybrid-beamforming.md",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-24-fttd-near-field-thz-hybrid-beamforming.md",
-    "paper_ids": [],
+    "paper_ids": [
+      "98ee8147d0091bcb"
+    ],
     "qa_complete": false,
     "external": true,
     "primary_translation": false
@@ -635,7 +645,9 @@
     "source_file": "2026-10-23-rotatable-antennas-imperfect-csi-2605-04775.md",
     "source_page_path": "papers/translations/2026-10-23-rotatable-antennas-imperfect-csi-2605-04775.md",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-23-rotatable-antennas-imperfect-csi-2605-04775.md",
-    "paper_ids": [],
+    "paper_ids": [
+      "28c82c01455d353f"
+    ],
     "qa_complete": false,
     "external": true,
     "primary_translation": false
@@ -652,7 +664,9 @@
     "source_file": "2026-10-23-digital-twin-geometry-calibration-2607-09334.md",
     "source_page_path": "papers/translations/2026-10-23-digital-twin-geometry-calibration-2607-09334.md",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-23-digital-twin-geometry-calibration-2607-09334.md",
-    "paper_ids": [],
+    "paper_ids": [
+      "db37cdae3a25d2d0"
+    ],
     "qa_complete": false,
     "external": true,
     "primary_translation": false
@@ -691,7 +705,9 @@
     "source_file": "2026-10-23-ms-flow-2602-08538.md",
     "source_page_path": "papers/translations/2026-10-23-ms-flow-2602-08538.md",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-23-ms-flow-2602-08538.md",
-    "paper_ids": [],
+    "paper_ids": [
+      "61e3ca79d6c8dda8"
+    ],
     "qa_complete": false,
     "external": true,
     "primary_translation": false
@@ -708,7 +724,9 @@
     "source_file": "2026-10-23-rf-navigation-multipath-2610-08105.md",
     "source_page_path": "papers/translations/2026-10-23-rf-navigation-multipath-2610-08105.md",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-23-rf-navigation-multipath-2610-08105.md",
-    "paper_ids": [],
+    "paper_ids": [
+      "c5e01298c0328f14"
+    ],
     "qa_complete": false,
     "external": true,
     "primary_translation": false
@@ -924,7 +942,9 @@
     "scope": "正文及附录编号公式（1）–（53）、表 I–V、算法 1、参考文献与作者简介已录入；保留表格原文参数不一致提示；尚未完成独立逐句逐式终校",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-20-cross-frame-otfs-ultra-high-mobility.md",
     "source_page_path": "papers/translations/2026-10-20-cross-frame-otfs-ultra-high-mobility.md",
-    "paper_ids": [],
+    "paper_ids": [
+      "65fb4a2eb96bd703"
+    ],
     "source_arxiv_ids": [],
     "qa_complete": false,
     "external": true,
@@ -983,7 +1003,9 @@
     "scope": "编号公式（1）–（38）、FactorDPS 算法、可恢复性定理及完整表 I–XI 已录入；附录其他长证明、参考文献与独立终校待完成",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-20-factordps-radio-map-2610-15980.md",
     "source_page_path": "papers/translations/2026-10-20-factordps-radio-map-2610-15980.md",
-    "paper_ids": [],
+    "paper_ids": [
+      "0df7b383b8d4f8ab"
+    ],
     "source_arxiv_ids": [
       "2610.15980"
     ],
@@ -1000,7 +1022,9 @@
     "scope": "编号公式（1）–（11）、完整实验表 1 及补充表 S1–S6、两个命题要点已录入；附录其他证明、参考文献与独立终校待完成",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-20-conditional-mean-flows-2610-21657.md",
     "source_page_path": "papers/translations/2026-10-20-conditional-mean-flows-2610-21657.md",
-    "paper_ids": [],
+    "paper_ids": [
+      "93b1bdda4e6c5e02"
+    ],
     "source_arxiv_ids": [
       "2610.21657"
     ],
@@ -1854,7 +1878,9 @@
     "scope": "中文译稿（范围见原页面；未计入全文验收）",
     "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-d85362be1aed96a2.md",
     "source_page_path": "papers/translations/2026-10-12-d85362be1aed96a2.md",
-    "paper_ids": [],
+    "paper_ids": [
+      "d85362be1aed96a2"
+    ],
     "source_arxiv_ids": [],
     "external": true,
     "qa_complete": false
@@ -2511,6 +2537,278 @@
     "primary_translation": true,
     "coverage": "full",
     "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-07-29",
+    "slug": "2026-07-29-2607-20909",
+    "title": "RadioTrace：无需部署时微调的发射机感知扩散无线电地图估计｜中文全文译文",
+    "scope": "全文覆盖：正文 I—VI、附录 A、表 I—VIII、图 1—12；许可：arxiv；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。 参考文献以原文书目为入口（页内注明，未重录条目）。",
+    "url": "/papers/translations/2026-07-29-2607-20909/",
+    "source_file": "2026-07-29-2607-20909.md",
+    "source_page_path": "papers/translations/2026-07-29-2607-20909.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-07-29-2607-20909.md",
+    "paper_ids": [
+      "d3442bacafe52a2b"
+    ],
+    "source_arxiv_ids": [
+      "2607.20909"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-07-29",
+    "slug": "2026-07-29-2607-24872",
+    "title": "BRCL：发射端 MIMO CSI 表征的波束响应对比学习｜中文全文译文",
+    "scope": "全文覆盖：正文 I—VI、式 (1)—(52)、表 I—III、图 1—8；许可：arxiv；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。 参考文献 [1]—[51] 未逐条转录（页内注明依原 PDF 核对）。",
+    "url": "/papers/translations/2026-07-29-2607-24872/",
+    "source_file": "2026-07-29-2607-24872.md",
+    "source_page_path": "papers/translations/2026-07-29-2607-24872.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-07-29-2607-24872.md",
+    "paper_ids": [
+      "e759ecd4245bde17"
+    ],
+    "source_arxiv_ids": [
+      "2607.24872"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-12",
+    "slug": "2026-10-12-2604-07004-full-zh",
+    "title": "突发相位噪声下的信道估计与 LDPC 译码｜中文全文译文",
+    "scope": "全文覆盖：全文（含参考文献 45 条）；许可：arxiv；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-10-12-2604-07004-full-zh/",
+    "source_file": "2026-10-12-2604-07004-full-zh.md",
+    "source_page_path": "papers/translations/2026-10-12-2604-07004-full-zh.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-2604-07004-full-zh.md",
+    "paper_ids": [
+      "35a0a3cc7dd34973"
+    ],
+    "source_arxiv_ids": [
+      "2604.07004"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-12",
+    "slug": "2026-10-12-csi-refinenet-2607-23691",
+    "title": "CSI RefineNet：面向高速移动 OFDM 的软数据辅助迭代接收机（全文翻译）｜中文全文译文",
+    "scope": "全文覆盖：全文 6 页（含书目 22 条）；许可：arxiv；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-10-12-csi-refinenet-2607-23691/",
+    "source_file": "2026-10-12-csi-refinenet-2607-23691.md",
+    "source_page_path": "papers/translations/2026-10-12-csi-refinenet-2607-23691.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-csi-refinenet-2607-23691.md",
+    "paper_ids": [
+      "2b25f06314f93a0f"
+    ],
+    "source_arxiv_ids": [
+      "2607.23691"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-12",
+    "slug": "2026-10-12-dynamic-ckm-full-zh",
+    "title": "动态信道知识地图：基本原理、构建方法与应用——全文中译｜中文全文译文",
+    "scope": "全文覆盖：全文（含书目 15 条）；许可：arxiv；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-10-12-dynamic-ckm-full-zh/",
+    "source_file": "2026-10-12-dynamic-ckm-full-zh.md",
+    "source_page_path": "papers/translations/2026-10-12-dynamic-ckm-full-zh.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-dynamic-ckm-full-zh.md",
+    "paper_ids": [
+      "2b09701c969754d7"
+    ],
+    "source_arxiv_ids": [
+      "2607.17133",
+      "2511.04944",
+      "2510.26166",
+      "2512.23470"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-12",
+    "slug": "2026-10-12-encf-main",
+    "title": "面向隐式数据同化的集合控制流滤波：正文中文译稿｜中文全文译文",
+    "scope": "全文覆盖：正文与实验（第 1—20 页）；补充证明与书目见附录页；许可：arxiv；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。 附录页：2026-10-12-encf-appendix。",
+    "url": "/papers/translations/2026-10-12-encf-main/",
+    "source_file": "2026-10-12-encf-main.md",
+    "source_page_path": "papers/translations/2026-10-12-encf-main.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-encf-main.md",
+    "paper_ids": [
+      "5cc0d0d751befc62"
+    ],
+    "source_arxiv_ids": [
+      "2607.12975"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-12",
+    "slug": "2026-10-12-encf-appendix",
+    "title": "集合控制流滤波 EnCF：附录证明与实验细节中文译稿｜中文全文译文",
+    "scope": "全文覆盖：附录：补充证明与实验参数（第 24—26 页）；许可：arxiv；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。 与正文页配套。",
+    "url": "/papers/translations/2026-10-12-encf-appendix/",
+    "source_file": "2026-10-12-encf-appendix.md",
+    "source_page_path": "papers/translations/2026-10-12-encf-appendix.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-encf-appendix.md",
+    "paper_ids": [
+      "5cc0d0d751befc62"
+    ],
+    "source_arxiv_ids": [
+      "2607.12975",
+      "2606.28264"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-12",
+    "slug": "2026-10-12-groupwise-narrow-beam-2506-01043",
+    "title": "分组窄波束设计：混合波束成形系统的上行信道估计——中文译文｜中文全文译文",
+    "scope": "全文覆盖：正文、附录、表 I—III、书目 30 条；许可：arxiv；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-10-12-groupwise-narrow-beam-2506-01043/",
+    "source_file": "2026-10-12-groupwise-narrow-beam-2506-01043.md",
+    "source_page_path": "papers/translations/2026-10-12-groupwise-narrow-beam-2506-01043.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-groupwise-narrow-beam-2506-01043.md",
+    "paper_ids": [
+      "b05ee57ebc6710ed"
+    ],
+    "source_arxiv_ids": [
+      "2506.01043"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-12",
+    "slug": "2026-10-12-macs",
+    "title": "MACS：用于逆问题的测量感知一致性采样（全文中译）｜中文全文译文",
+    "scope": "全文覆盖：全文（含 62 条引文编号）；许可：arxiv；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。 完整英文参考文献表以原 PDF 为入口（页内注明）。",
+    "url": "/papers/translations/2026-10-12-macs/",
+    "source_file": "2026-10-12-macs.md",
+    "source_page_path": "papers/translations/2026-10-12-macs.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-macs.md",
+    "paper_ids": [
+      "be550448b3019c06"
+    ],
+    "source_arxiv_ids": [
+      "2510.02208"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-12",
+    "slug": "2026-10-12-radiovil-2608-16167",
+    "title": "RadioVIL：异常感知扩散模型用于无线电地图修复与零样本车辆定位（全文翻译）｜中文全文译文",
+    "scope": "全文覆盖：全文 6 页（含书目 12 条）；许可：arxiv；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-10-12-radiovil-2608-16167/",
+    "source_file": "2026-10-12-radiovil-2608-16167.md",
+    "source_page_path": "papers/translations/2026-10-12-radiovil-2608-16167.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-radiovil-2608-16167.md",
+    "paper_ids": [
+      "80e9a2d71a6acd36"
+    ],
+    "source_arxiv_ids": [
+      "2608.16167",
+      "2504.15623",
+      "2504.14298"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-13",
+    "slug": "2026-10-13-aug-rme-twc-2026",
+    "title": "AUG-RME：基于注意力与不确定性感知的无网格无线电地图估计｜中文全文译文",
+    "scope": "全文覆盖：全书结构（正文 I—VI、表 I—III、图 1—12、书目 52 条）；许可：arxiv+ieee_doi；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。 IEEE 正式版许可以 arXiv 预印本口径登记。",
+    "url": "/papers/translations/2026-10-13-aug-rme-twc-2026/",
+    "source_file": "2026-10-13-aug-rme-twc-2026.md",
+    "source_page_path": "papers/translations/2026-10-13-aug-rme-twc-2026.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-13-aug-rme-twc-2026.md",
+    "paper_ids": [
+      "3925171895fd3316"
+    ],
+    "source_arxiv_ids": [
+      "2411.01211",
+      "2504.21719"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv+ieee_doi",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-13",
+    "slug": "2026-10-13-fr3-uav-ckm-2610-06356",
+    "title": "FR3 无人机基站信道知识地图：数据集与机器学习建模｜中文全文译文",
+    "scope": "全文覆盖：全文（含书目 25 条；CC BY）；许可：cc_by；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-10-13-fr3-uav-ckm-2610-06356/",
+    "source_file": "2026-10-13-fr3-uav-ckm-2610-06356.md",
+    "source_page_path": "papers/translations/2026-10-13-fr3-uav-ckm-2610-06356.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-13-fr3-uav-ckm-2610-06356.md",
+    "paper_ids": [
+      "fa7f1bb2b6bb36bc"
+    ],
+    "source_arxiv_ids": [
+      "2610.06356",
+      "2605.17378"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "cc_by",
     "final_proofread_done": false
   }
 ]
