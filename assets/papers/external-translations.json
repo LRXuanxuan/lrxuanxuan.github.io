@@ -2934,5 +2934,181 @@
     "coverage": "full",
     "license": "arxiv",
     "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-08",
+    "slug": "2026-10-08-2609-26601-prediction-aware-structured-resource-control-for-partitioned-irs-assis",
+    "title": "面向分区 IRS 辅助移动物联网上行链路的预测感知结构化资源控制与半盲级联信道获取｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[28]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-10-08-2609-26601-prediction-aware-structured-resource-control-for-partitioned-irs-assis/",
+    "source_file": "2026-10-08-2609-26601-prediction-aware-structured-resource-control-for-partitioned-irs-assis.md",
+    "source_page_path": "papers/translations/2026-10-08-2609-26601-prediction-aware-structured-resource-control-for-partitioned-irs-assis.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-08-2609-26601-prediction-aware-structured-resource-control-for-partitioned-irs-assis.md",
+    "paper_ids": [
+      "a9958f412dc97b7a"
+    ],
+    "source_arxiv_ids": [
+      "2609.26601"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-08",
+    "slug": "2026-10-08-2609-15458-mobility-and-feedback-aware-multi-level-conflict-triggered-hybrid-beam",
+    "title": "面向多用户毫米波无人机系统的移动性与反馈感知多级冲突触发混合波束赋形｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[38]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-10-08-2609-15458-mobility-and-feedback-aware-multi-level-conflict-triggered-hybrid-beam/",
+    "source_file": "2026-10-08-2609-15458-mobility-and-feedback-aware-multi-level-conflict-triggered-hybrid-beam.md",
+    "source_page_path": "papers/translations/2026-10-08-2609-15458-mobility-and-feedback-aware-multi-level-conflict-triggered-hybrid-beam.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-08-2609-15458-mobility-and-feedback-aware-multi-level-conflict-triggered-hybrid-beam.md",
+    "paper_ids": [
+      "afeda7eb730cc0b0"
+    ],
+    "source_arxiv_ids": [
+      "2609.15458"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-08",
+    "slug": "2026-10-08-2609-22292-toward-mission-critical-isac-reliable-energy-aware-coordination-in-uav",
+    "title": "面向任务关键型 ISAC：无人机集群的可靠能量感知协同｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[16]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-10-08-2609-22292-toward-mission-critical-isac-reliable-energy-aware-coordination-in-uav/",
+    "source_file": "2026-10-08-2609-22292-toward-mission-critical-isac-reliable-energy-aware-coordination-in-uav.md",
+    "source_page_path": "papers/translations/2026-10-08-2609-22292-toward-mission-critical-isac-reliable-energy-aware-coordination-in-uav.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-08-2609-22292-toward-mission-critical-isac-reliable-energy-aware-coordination-in-uav.md",
+    "paper_ids": [
+      "2ecf8672a0c05fba"
+    ],
+    "source_arxiv_ids": [
+      "2609.22292"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-08",
+    "slug": "2026-10-08-2505-07991-near-field-beamfocusing-localization-and-channel-estimation-with-modul",
+    "title": "模块化线性阵列下的近场波束聚焦、定位与信道估计｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[36]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-10-08-2505-07991-near-field-beamfocusing-localization-and-channel-estimation-with-modul/",
+    "source_file": "2026-10-08-2505-07991-near-field-beamfocusing-localization-and-channel-estimation-with-modul.md",
+    "source_page_path": "papers/translations/2026-10-08-2505-07991-near-field-beamfocusing-localization-and-channel-estimation-with-modul.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-08-2505-07991-near-field-beamfocusing-localization-and-channel-estimation-with-modul.md",
+    "paper_ids": [
+      "ce9aab0defec4206"
+    ],
+    "source_arxiv_ids": [
+      "2505.07991"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-08",
+    "slug": "2026-10-08-2509-19335-csiyolo-an-intelligent-csi-based-scatter-sensing-framework-for-integra",
+    "title": "CSIYOLO：面向通感一体系统的智能 CSI 散射感知框架｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[41]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-10-08-2509-19335-csiyolo-an-intelligent-csi-based-scatter-sensing-framework-for-integra/",
+    "source_file": "2026-10-08-2509-19335-csiyolo-an-intelligent-csi-based-scatter-sensing-framework-for-integra.md",
+    "source_page_path": "papers/translations/2026-10-08-2509-19335-csiyolo-an-intelligent-csi-based-scatter-sensing-framework-for-integra.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-08-2509-19335-csiyolo-an-intelligent-csi-based-scatter-sensing-framework-for-integra.md",
+    "paper_ids": [
+      "2b5b5693450fd2ff"
+    ],
+    "source_arxiv_ids": [
+      "2509.19335"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-08",
+    "slug": "2026-10-08-2509-02088-environment-aware-channel-measurement-and-modeling-for-terahertz-monos",
+    "title": "太赫兹单站感知的环境感知信道测量与建模｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[41]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-10-08-2509-02088-environment-aware-channel-measurement-and-modeling-for-terahertz-monos/",
+    "source_file": "2026-10-08-2509-02088-environment-aware-channel-measurement-and-modeling-for-terahertz-monos.md",
+    "source_page_path": "papers/translations/2026-10-08-2509-02088-environment-aware-channel-measurement-and-modeling-for-terahertz-monos.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-08-2509-02088-environment-aware-channel-measurement-and-modeling-for-terahertz-monos.md",
+    "paper_ids": [
+      "1b6e3b6fd6c0db06"
+    ],
+    "source_arxiv_ids": [
+      "2509.02088"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-08",
+    "slug": "2026-10-08-2609-40090-ptno-training-neural-operators-with-noisy-monte-carlo-estimates-for-pa",
+    "title": "PTNO：用含噪蒙特卡洛估计训练神经算子求解粒子输运问题｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文 1—6 节、致谢、附录 A—P（表 3—35）、图 1—15 图注、表 1—35、参考文献 54 条（英文原条目）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-10-08-2609-40090-ptno-training-neural-operators-with-noisy-monte-carlo-estimates-for-pa/",
+    "source_file": "2026-10-08-2609-40090-ptno-training-neural-operators-with-noisy-monte-carlo-estimates-for-pa.md",
+    "source_page_path": "papers/translations/2026-10-08-2609-40090-ptno-training-neural-operators-with-noisy-monte-carlo-estimates-for-pa.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-08-2609-40090-ptno-training-neural-operators-with-noisy-monte-carlo-estimates-for-pa.md",
+    "paper_ids": [
+      "bc7e2cee19a2d09c"
+    ],
+    "source_arxiv_ids": [
+      "2609.40090"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-08",
+    "slug": "2026-10-08-2609-13729-a-variational-optimal-transport-operator-on-incompressible-flow",
+    "title": "不可压缩流上的变分最优传输算子｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[71]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-10-08-2609-13729-a-variational-optimal-transport-operator-on-incompressible-flow/",
+    "source_file": "2026-10-08-2609-13729-a-variational-optimal-transport-operator-on-incompressible-flow.md",
+    "source_page_path": "papers/translations/2026-10-08-2609-13729-a-variational-optimal-transport-operator-on-incompressible-flow.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-08-2609-13729-a-variational-optimal-transport-operator-on-incompressible-flow.md",
+    "paper_ids": [
+      "e8bdd417cfd6310c"
+    ],
+    "source_arxiv_ids": [
+      "2609.13729"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
   }
 ]
