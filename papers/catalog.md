@@ -13,7 +13,7 @@ toc: true
 
 - [2026-10-30 五篇论文翻译完整性记录](/papers/translation-qa-2026-10-30/) · 80 页、五个独立网页译稿；仅主体翻译，未通过全文逐段逐式终校
 
-- [2026-10-30｜SEFDM 联合距离与多普勒估计｜中文主体译稿（待补齐）](/papers/translations/2026-10-30-sefdm-range-doppler-twc2026/) · 已补NMCR算法、S0—S6场景、表I—II；Hessian长式、两个附录及书目尚未补完，全文QA未通过。
+- [2026-10-30｜SEFDM 联合距离与多普勒估计｜中文主体译稿（待补齐）](/papers/translations/2026-10-30-sefdm-range-doppler-twc2026/) · 已译NMCR、S0—S6、表I—II、附录B核心CRLB式（54）—（56）及20条完整书目；Hessian长式、附录A、附录B余下长式仍待补齐，qa_complete=false。
 - [2026-10-30｜POLY-RIPPLE 室内无线电地图协作式上下文学习｜中文主体译稿（待补齐）](/papers/translations/2026-10-30-poly-ripple-2610-31702/) · 已补理论式（11）—（19）、证明A—E、图4—11与40条书目；逐自然段与公式字符终校未签核。
 - [2026-10-30｜RFDT 可微射频逆渲染数字孪生｜中文主体译稿（待补齐）](/papers/translations/2026-10-30-rfdt-inverse-rendering-2603-18026/) · 已补边缘衍射与Dirichlet核主要公式；部分长式、附录证明、实验细节及书目待补。
 - [2026-10-30｜Rényi 正则化流式变分推断用于贝叶斯标定｜中文译稿（待终校）](/papers/translations/2026-10-30-renyi-regularized-flow-2610-37169/) · 正文1—5、附录A—D、主要图表及20条完整书目已录入；逐自然段终校仍待签核。

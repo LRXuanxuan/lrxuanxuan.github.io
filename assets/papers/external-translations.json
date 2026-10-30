@@ -3,7 +3,7 @@
     "date": "2026-10-30",
     "slug": "2026-10-30-sefdm-range-doppler-twc2026",
     "title": "SEFDM 联合距离与多普勒估计｜中文主体译稿（待补齐）",
-    "scope": "已补NMCR算法、S0—S6场景、表I—II；Hessian长式、两个附录及书目尚未补完，全文QA未通过。",
+    "scope": "已译NMCR、S0—S6、表I—II、附录B核心CRLB式（54）—（56）及20条完整书目；Hessian长式、附录A、附录B余下长式仍待补齐，qa_complete=false。",
     "url": "/papers/translations/2026-10-30-sefdm-range-doppler-twc2026/",
     "source_file": "2026-10-30-sefdm-range-doppler-twc2026.md",
     "source_page_path": "papers/translations/2026-10-30-sefdm-range-doppler-twc2026.md",
