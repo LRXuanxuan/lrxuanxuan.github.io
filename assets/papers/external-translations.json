@@ -3462,5 +3462,115 @@
     "coverage": "full",
     "license": "arxiv",
     "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-29",
+    "slug": "2026-09-29-2602-21469-d-flow-sgld-source-space-posterior-sampling-for-scientific-inverse-pro",
+    "title": "D-Flow SGLD：用流匹配进行科学逆问题的源空间后验采样｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[39]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-29-2602-21469-d-flow-sgld-source-space-posterior-sampling-for-scientific-inverse-pro/",
+    "source_file": "2026-09-29-2602-21469-d-flow-sgld-source-space-posterior-sampling-for-scientific-inverse-pro.md",
+    "source_page_path": "papers/translations/2026-09-29-2602-21469-d-flow-sgld-source-space-posterior-sampling-for-scientific-inverse-pro.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-29-2602-21469-d-flow-sgld-source-space-posterior-sampling-for-scientific-inverse-pro.md",
+    "paper_ids": [
+      "3aef3ac592639816"
+    ],
+    "source_arxiv_ids": [
+      "2602.21469"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-29",
+    "slug": "2026-09-29-2609-03343-learning-informative-prior-with-infinite-dimensional-continuous-normal",
+    "title": "用无限维连续归一化流学习贝叶斯逆问题的信息先验｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[57]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-29-2609-03343-learning-informative-prior-with-infinite-dimensional-continuous-normal/",
+    "source_file": "2026-09-29-2609-03343-learning-informative-prior-with-infinite-dimensional-continuous-normal.md",
+    "source_page_path": "papers/translations/2026-09-29-2609-03343-learning-informative-prior-with-infinite-dimensional-continuous-normal.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-29-2609-03343-learning-informative-prior-with-infinite-dimensional-continuous-normal.md",
+    "paper_ids": [
+      "4386e2c4091d2f81"
+    ],
+    "source_arxiv_ids": [
+      "2609.03343"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-29",
+    "slug": "2026-09-29-2412-19475-exploiting-dynamic-sparsity-for-near-field-spatially-non-stationary-xl",
+    "title": "利用动态稀疏性的近场空间非平稳 XL-MIMO 信道跟踪｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[35]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-29-2412-19475-exploiting-dynamic-sparsity-for-near-field-spatially-non-stationary-xl/",
+    "source_file": "2026-09-29-2412-19475-exploiting-dynamic-sparsity-for-near-field-spatially-non-stationary-xl.md",
+    "source_page_path": "papers/translations/2026-09-29-2412-19475-exploiting-dynamic-sparsity-for-near-field-spatially-non-stationary-xl.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-29-2412-19475-exploiting-dynamic-sparsity-for-near-field-spatially-non-stationary-xl.md",
+    "paper_ids": [
+      "c23c736745789ed9"
+    ],
+    "source_arxiv_ids": [
+      "2412.19475"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-29",
+    "slug": "2026-09-29-2511-18009-channel-estimation-for-ris-aided-mu-mimo-mmwave-systems-with-direct-ch",
+    "title": "含直达链路的 RIS 辅助多用户毫米波 MIMO 信道估计｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[35]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-29-2511-18009-channel-estimation-for-ris-aided-mu-mimo-mmwave-systems-with-direct-ch/",
+    "source_file": "2026-09-29-2511-18009-channel-estimation-for-ris-aided-mu-mimo-mmwave-systems-with-direct-ch.md",
+    "source_page_path": "papers/translations/2026-09-29-2511-18009-channel-estimation-for-ris-aided-mu-mimo-mmwave-systems-with-direct-ch.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-29-2511-18009-channel-estimation-for-ris-aided-mu-mimo-mmwave-systems-with-direct-ch.md",
+    "paper_ids": [
+      "1f795c2b723534e5"
+    ],
+    "source_arxiv_ids": [
+      "2511.18009"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-29",
+    "slug": "2026-09-29-2502-05808-positioning-aided-channel-estimation-for-multi-leo-satellite-cooperati",
+    "title": "多 LEO 卫星协作波束赋形的定位辅助信道估计｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[60]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-29-2502-05808-positioning-aided-channel-estimation-for-multi-leo-satellite-cooperati/",
+    "source_file": "2026-09-29-2502-05808-positioning-aided-channel-estimation-for-multi-leo-satellite-cooperati.md",
+    "source_page_path": "papers/translations/2026-09-29-2502-05808-positioning-aided-channel-estimation-for-multi-leo-satellite-cooperati.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-29-2502-05808-positioning-aided-channel-estimation-for-multi-leo-satellite-cooperati.md",
+    "paper_ids": [
+      "9e83716622f16a90"
+    ],
+    "source_arxiv_ids": [
+      "2502.05808"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
   }
 ]
