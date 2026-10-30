@@ -97,9 +97,9 @@ toc: true
 - [EPS：线性逆问题的精确后验分数估计｜中文全文译文](/papers/translations/2026-10-14-exact-posterior-score-2606-17048/) · 全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[54]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
 - [SIMCA：扩散与流匹配后验采样的引导权重校准｜中文全篇译稿（校对中）](/papers/translations/2026-10-13-simca-guidance-2610-03503/) · 原文全文结构译稿（校对中；未计入全文验收）
 - [RadioDiff-Inverse：面向 ISAC 无线电地图构建的扩散增强贝叶斯逆估计｜中文全篇译稿（校对中）](/papers/translations/2026-10-13-radiodiff-inverse-twc-2026/) · 中文译稿（校对中；IEEE公开传播许可待核验）
-- [FR3 无人机基站信道知识地图：数据集与机器学习建模｜中文全文译文](/papers/translations/2026-10-13-fr3-uav-ckm-2610-06356/) · 全文覆盖：全文（含书目 25 条；CC BY）；许可：cc_by；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
+- [FR3 无人机基站信道知识地图：数据集与机器学习建模｜中文全文译稿（校对中）](/papers/translations/2026-10-13-fr3-uav-ckm-2610-06356/) · 原文全文结构译稿（校对中；未计入全文验收）
 - [β-Flow：通过精确高斯条件化统一扩散与流后验采样｜中文全篇译稿（校对中）](/papers/translations/2026-10-13-beta-flow-2610-13812/) · 原文全文结构译稿（校对中；未计入全文验收）
-- [AUG-RME：基于注意力与不确定性感知的无网格无线电地图估计｜中文全文译文](/papers/translations/2026-10-13-aug-rme-twc-2026/) · 全文覆盖：全书结构（正文 I—VI、表 I—III、图 1—12、书目 52 条）；许可：arxiv+ieee_doi；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。 IEEE 正式版许可以 arXiv 预印本口径登记。
+- [AUG-RME：基于注意力与不确定性感知的无网格无线电地图估计｜中文全篇译稿（校对中）](/papers/translations/2026-10-13-aug-rme-twc-2026/) · 中文译稿（校对中；IEEE公开传播许可待核验）
 - [MultiPathFormer：面向多径无线传播的基础模型｜中文全文译文](/papers/translations/multipathformer/) · 全文中文译文（沿用原发布验收记录）
 - [HDPS：基于潜空间流匹配的混合域后验采样｜中文全文译文](/papers/translations/hdps/) · 全文中文译文（沿用原发布验收记录）
 - [Zero-Shot Frequency Generalization for Radio Map Prediction via Cross-Attention Physics-Residual Learning](/papers/items/f01eb39a8eaa1174/#paper-translation) · 全文中文译文（沿用原发布验收记录）
@@ -156,6 +156,13 @@ toc: true
 - [Improving Function Space Flow Matching with Kernel Optimal Transport](/papers/translations/2026-10-11-6ff624640482a6791a44bbf8/) · 全文中英文对照
 - [CSI-tuples-based 3D Channel Fingerprints Construction Assisted by MultiModal Learning](/papers/translations/2026-10-11-5a84a72a52125d7f34feaa47/) · 全文中英文对照
 - [PosteriorBench: From Point Estimates to Posterior Matching in Evaluating Generative Inverse Solvers](/papers/translations/2026-10-11-54a58fdbb99524ce3fd08d88/) · 全文中英文对照
+- [超越传输代价：流匹配与最优传输的路由差异｜中文全文译文](/papers/translations/2026-10-08-2610-05921-beyond-transport-cost-routing-differences-between-flow-matching-and-op/) · 全文覆盖：摘要、正文各节、结论、英文书目 [1]–[19]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
+- [LyapuFlow：用 Lyapunov 反馈控制生成流求解逆问题｜中文全文译文](/papers/translations/2026-10-08-2610-04326-lyapuflow-controlling-generative-flows-with-lyapunov-feedback-for-inve/) · 全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[44]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
+- [面向贝叶斯逆问题快速后验采样的流匹配｜中文全文译文](/papers/translations/2026-10-08-2610-02377-flow-matching-for-fast-posterior-sampling-in-bayesian-inverse-problems/) · 全文覆盖：摘要、正文各节、结论、附录 A—G、图 1—18 图注与表 1—4、英文书目 50 条（原文作者—年份键）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
+- [基于即插即用流匹配的低空无线电地图主动学习构建｜中文全文译文](/papers/translations/2026-10-08-2609-27486-active-learning-for-low-altitude-radio-map-construction-via-plug-and-p/) · 全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[37]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
+- [方向全变差正则隐式神经表示（DTV-INR）用于退化成像域中的连续超分辨｜中文全文译文](/papers/translations/2026-10-08-2609-25429-directional-total-variation-regularized-implicit-neural-representation/) · 全文覆盖：摘要、正文各节、结论、英文书目 [1]–[25]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
+- [AeroLat：面向去中心化无人机集群的信道感知潜空间语义通信｜中文全文译文](/papers/translations/2026-10-08-2609-16947-aerolat-channel-aware-latent-space-semantic-communication-for-decentra/) · 全文覆盖：摘要、正文各节、结论、英文书目 [1]–[27]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
+- [XL-MIMO 半无网格变分贝叶斯信道估计：近场建模与推断｜中文全文译文](/papers/translations/2026-10-08-2602-21449-semi-gridless-variational-bayes-channel-estimation-in-xl-mimo-near-fie/) · 全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[46]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
 - [Tweedie Moment Projected Diffusions for Inverse Problems](/papers/translations/2026-10-02-f69d81ae0d16b949c706baa6/) · 全文中英文对照
 - [BRCL：发射端 MIMO CSI 表征的波束响应对比学习｜中文全文译文](/papers/translations/2026-07-29-2607-24872/) · 全文覆盖：正文 I—VI、式 (1)—(52)、表 I—III、图 1—8；许可：arxiv；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。 参考文献 [1]—[51] 未逐条转录（页内注明依原 PDF 核对）。
 - [RadioTrace：无需部署时微调的发射机感知扩散无线电地图估计｜中文全文译文](/papers/translations/2026-07-29-2607-20909/) · 全文覆盖：正文 I—VI、附录 A、表 I—VIII、图 1—12；许可：arxiv；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。 参考文献以原文书目为入口（页内注明，未重录条目）。

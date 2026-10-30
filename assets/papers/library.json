@@ -4,8 +4,8 @@
   "source_sha256": "55bac1c358c14dd628820d8753d5c4f83eff21c96f8bed831ec636a33db8be1c",
   "translation_progress": {
     "target": 315,
-    "completed": 92,
-    "public_full_text": 80,
+    "completed": 99,
+    "public_full_text": 87,
     "local_only": 12,
     "status_counts": {
       "access_blocked": 3,
@@ -4954,8 +4954,8 @@
       "paper_report_url": "/papers/items/3925171895fd3316/#paper-report",
       "translations": [
         {
-          "title": "AUG-RME：基于注意力与不确定性感知的无网格无线电地图估计｜中文全文译文",
-          "scope": "全文覆盖：全书结构（正文 I—VI、表 I—III、图 1—12、书目 52 条）；许可：arxiv+ieee_doi；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。 IEEE 正式版许可以 arXiv 预印本口径登记。",
+          "title": "AUG-RME：基于注意力与不确定性感知的无网格无线电地图估计｜中文全篇译稿（校对中）",
+          "scope": "中文译稿（校对中；IEEE公开传播许可待核验）",
           "url": "/papers/translations/2026-10-13-aug-rme-twc-2026/"
         }
       ],
@@ -5067,8 +5067,8 @@
       "paper_report_url": "/papers/items/fa7f1bb2b6bb36bc/#paper-report",
       "translations": [
         {
-          "title": "FR3 无人机基站信道知识地图：数据集与机器学习建模｜中文全文译文",
-          "scope": "全文覆盖：全文（含书目 25 条；CC BY）；许可：cc_by；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+          "title": "FR3 无人机基站信道知识地图：数据集与机器学习建模｜中文全文译稿（校对中）",
+          "scope": "原文全文结构译稿（校对中；未计入全文验收）",
           "url": "/papers/translations/2026-10-13-fr3-uav-ckm-2610-06356/"
         }
       ],
@@ -6734,7 +6734,13 @@
       "report_entry_url": "/papers/reports/2026-10-08/#paper-6e625af6ef2508e0",
       "paper_url": "/papers/items/6e625af6ef2508e0/",
       "paper_report_url": "/papers/items/6e625af6ef2508e0/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-08-2602-21449-semi-gridless-variational-bayes-channel-estimation-in-xl-mimo-near-fie/",
+          "title": "XL-MIMO 半无网格变分贝叶斯信道估计：近场建模与推断｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[46]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2602.21449",
         "https://ieeexplore.ieee.org/document/11723278/",
@@ -6748,10 +6754,10 @@
       ],
       "hosted_pdfs": [],
       "status": "Early Access",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/6e625af6ef2508e0/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-08-2602-21449-semi-gridless-variational-bayes-channel-estimation-in-xl-mimo-near-fie/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "2ecf8672a0c05fba",
@@ -6878,7 +6884,13 @@
       "report_entry_url": "/papers/reports/2026-10-08/#paper-affccac6e46a2de7",
       "paper_url": "/papers/items/affccac6e46a2de7/",
       "paper_report_url": "/papers/items/affccac6e46a2de7/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-08-2609-16947-aerolat-channel-aware-latent-space-semantic-communication-for-decentra/",
+          "title": "AeroLat：面向去中心化无人机集群的信道感知潜空间语义通信｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[27]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.16947",
         "https://arxiv.org/abs/2609.16947"
@@ -6889,10 +6901,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/affccac6e46a2de7/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-08-2609-16947-aerolat-channel-aware-latent-space-semantic-communication-for-decentra/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "87aadaefe922670d",
@@ -6925,7 +6937,13 @@
       "report_entry_url": "/papers/reports/2026-10-08/#paper-87aadaefe922670d",
       "paper_url": "/papers/items/87aadaefe922670d/",
       "paper_report_url": "/papers/items/87aadaefe922670d/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-08-2609-25429-directional-total-variation-regularized-implicit-neural-representation/",
+          "title": "方向全变差正则隐式神经表示（DTV-INR）用于退化成像域中的连续超分辨｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[25]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.25429",
         "https://arxiv.org/abs/2609.25429"
@@ -6936,10 +6954,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/87aadaefe922670d/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-08-2609-25429-directional-total-variation-regularized-implicit-neural-representation/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "a9958f412dc97b7a",
@@ -7066,7 +7084,13 @@
       "report_entry_url": "/papers/reports/2026-10-08/#paper-b0be94b7c9394c6c",
       "paper_url": "/papers/items/b0be94b7c9394c6c/",
       "paper_report_url": "/papers/items/b0be94b7c9394c6c/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-08-2609-27486-active-learning-for-low-altitude-radio-map-construction-via-plug-and-p/",
+          "title": "基于即插即用流匹配的低空无线电地图主动学习构建｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[37]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.27486",
         "https://arxiv.org/abs/2609.27486"
@@ -7077,10 +7101,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/b0be94b7c9394c6c/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-08-2609-27486-active-learning-for-low-altitude-radio-map-construction-via-plug-and-p/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "8200a045c27a78d5",
@@ -7113,7 +7137,13 @@
       "report_entry_url": "/papers/reports/2026-10-08/#paper-8200a045c27a78d5",
       "paper_url": "/papers/items/8200a045c27a78d5/",
       "paper_report_url": "/papers/items/8200a045c27a78d5/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-08-2610-05921-beyond-transport-cost-routing-differences-between-flow-matching-and-op/",
+          "title": "超越传输代价：流匹配与最优传输的路由差异｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[19]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2610.05921",
         "https://arxiv.org/abs/2610.05921"
@@ -7124,10 +7154,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/8200a045c27a78d5/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-08-2610-05921-beyond-transport-cost-routing-differences-between-flow-matching-and-op/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "8af7f5b90a118edb",
@@ -7160,7 +7190,13 @@
       "report_entry_url": "/papers/reports/2026-10-08/#paper-8af7f5b90a118edb",
       "paper_url": "/papers/items/8af7f5b90a118edb/",
       "paper_report_url": "/papers/items/8af7f5b90a118edb/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-08-2610-04326-lyapuflow-controlling-generative-flows-with-lyapunov-feedback-for-inve/",
+          "title": "LyapuFlow：用 Lyapunov 反馈控制生成流求解逆问题｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[44]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2610.04326",
         "https://arxiv.org/abs/2610.04326"
@@ -7171,10 +7207,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/8af7f5b90a118edb/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-08-2610-04326-lyapuflow-controlling-generative-flows-with-lyapunov-feedback-for-inve/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "647afc788713a6de",
@@ -7257,7 +7293,13 @@
       "report_entry_url": "/papers/reports/2026-10-08/#paper-37453168222f4582",
       "paper_url": "/papers/items/37453168222f4582/",
       "paper_report_url": "/papers/items/37453168222f4582/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-08-2610-02377-flow-matching-for-fast-posterior-sampling-in-bayesian-inverse-problems/",
+          "title": "面向贝叶斯逆问题快速后验采样的流匹配｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录 A—G、图 1—18 图注与表 1—4、英文书目 50 条（原文作者—年份键）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2610.02377",
         "https://arxiv.org/abs/2610.02377"
@@ -7268,10 +7310,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/37453168222f4582/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-08-2610-02377-flow-matching-for-fast-posterior-sampling-in-bayesian-inverse-problems/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "07d1b455463c9f2c",
@@ -23197,10 +23239,10 @@
     },
     {
       "date": "2026-10-13",
-      "title": "FR3 无人机基站信道知识地图：数据集与机器学习建模｜中文全文译文",
+      "title": "FR3 无人机基站信道知识地图：数据集与机器学习建模｜中文全文译稿（校对中）",
       "url": "/papers/translations/2026-10-13-fr3-uav-ckm-2610-06356/",
       "slug": "2026-10-13-fr3-uav-ckm-2610-06356",
-      "scope": "全文覆盖：全文（含书目 25 条；CC BY）；许可：cc_by；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "scope": "原文全文结构译稿（校对中；未计入全文验收）",
       "source_page_path": "papers/translations/2026-10-13-fr3-uav-ckm-2610-06356.md",
       "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-13-fr3-uav-ckm-2610-06356.md",
       "paper_ids": [
@@ -23228,10 +23270,10 @@
     },
     {
       "date": "2026-10-13",
-      "title": "AUG-RME：基于注意力与不确定性感知的无网格无线电地图估计｜中文全文译文",
+      "title": "AUG-RME：基于注意力与不确定性感知的无网格无线电地图估计｜中文全篇译稿（校对中）",
       "url": "/papers/translations/2026-10-13-aug-rme-twc-2026/",
       "slug": "2026-10-13-aug-rme-twc-2026",
-      "scope": "全文覆盖：全书结构（正文 I—VI、表 I—III、图 1—12、书目 52 条）；许可：arxiv+ieee_doi；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。 IEEE 正式版许可以 arXiv 预印本口径登记。",
+      "scope": "中文译稿（校对中；IEEE公开传播许可待核验）",
       "source_page_path": "papers/translations/2026-10-13-aug-rme-twc-2026.md",
       "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-13-aug-rme-twc-2026.md",
       "paper_ids": [
@@ -24283,6 +24325,146 @@
       "paper_id": "2609.20794",
       "license_url": "",
       "download": "/assets/papers/translations/2026-10-11-54a58fdbb99524ce3fd08d88.md"
+    },
+    {
+      "date": "2026-10-08",
+      "slug": "2026-10-08-2610-05921-beyond-transport-cost-routing-differences-between-flow-matching-and-op",
+      "title": "超越传输代价：流匹配与最优传输的路由差异｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[19]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-08-2610-05921-beyond-transport-cost-routing-differences-between-flow-matching-and-op/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-08-2610-05921-beyond-transport-cost-routing-differences-between-flow-matching-and-op.md",
+      "paper_ids": [
+        "8200a045c27a78d5"
+      ],
+      "source_arxiv_ids": [
+        "2610.05921"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-08",
+      "slug": "2026-10-08-2610-04326-lyapuflow-controlling-generative-flows-with-lyapunov-feedback-for-inve",
+      "title": "LyapuFlow：用 Lyapunov 反馈控制生成流求解逆问题｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[44]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-08-2610-04326-lyapuflow-controlling-generative-flows-with-lyapunov-feedback-for-inve/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-08-2610-04326-lyapuflow-controlling-generative-flows-with-lyapunov-feedback-for-inve.md",
+      "paper_ids": [
+        "8af7f5b90a118edb"
+      ],
+      "source_arxiv_ids": [
+        "2610.04326"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-08",
+      "slug": "2026-10-08-2610-02377-flow-matching-for-fast-posterior-sampling-in-bayesian-inverse-problems",
+      "title": "面向贝叶斯逆问题快速后验采样的流匹配｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录 A—G、图 1—18 图注与表 1—4、英文书目 50 条（原文作者—年份键）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-08-2610-02377-flow-matching-for-fast-posterior-sampling-in-bayesian-inverse-problems/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-08-2610-02377-flow-matching-for-fast-posterior-sampling-in-bayesian-inverse-problems.md",
+      "paper_ids": [
+        "37453168222f4582"
+      ],
+      "source_arxiv_ids": [
+        "2610.02377"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-08",
+      "slug": "2026-10-08-2609-27486-active-learning-for-low-altitude-radio-map-construction-via-plug-and-p",
+      "title": "基于即插即用流匹配的低空无线电地图主动学习构建｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[37]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-08-2609-27486-active-learning-for-low-altitude-radio-map-construction-via-plug-and-p/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-08-2609-27486-active-learning-for-low-altitude-radio-map-construction-via-plug-and-p.md",
+      "paper_ids": [
+        "b0be94b7c9394c6c"
+      ],
+      "source_arxiv_ids": [
+        "2609.27486"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-08",
+      "slug": "2026-10-08-2609-25429-directional-total-variation-regularized-implicit-neural-representation",
+      "title": "方向全变差正则隐式神经表示（DTV-INR）用于退化成像域中的连续超分辨｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[25]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-08-2609-25429-directional-total-variation-regularized-implicit-neural-representation/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-08-2609-25429-directional-total-variation-regularized-implicit-neural-representation.md",
+      "paper_ids": [
+        "87aadaefe922670d"
+      ],
+      "source_arxiv_ids": [
+        "2609.25429"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-08",
+      "slug": "2026-10-08-2609-16947-aerolat-channel-aware-latent-space-semantic-communication-for-decentra",
+      "title": "AeroLat：面向去中心化无人机集群的信道感知潜空间语义通信｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[27]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-08-2609-16947-aerolat-channel-aware-latent-space-semantic-communication-for-decentra/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-08-2609-16947-aerolat-channel-aware-latent-space-semantic-communication-for-decentra.md",
+      "paper_ids": [
+        "affccac6e46a2de7"
+      ],
+      "source_arxiv_ids": [
+        "2609.16947"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-08",
+      "slug": "2026-10-08-2602-21449-semi-gridless-variational-bayes-channel-estimation-in-xl-mimo-near-fie",
+      "title": "XL-MIMO 半无网格变分贝叶斯信道估计：近场建模与推断｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[46]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-08-2602-21449-semi-gridless-variational-bayes-channel-estimation-in-xl-mimo-near-fie/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-08-2602-21449-semi-gridless-variational-bayes-channel-estimation-in-xl-mimo-near-fie.md",
+      "paper_ids": [
+        "6e625af6ef2508e0"
+      ],
+      "source_arxiv_ids": [
+        "2602.21449"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
     },
     {
       "date": "2026-10-02",
