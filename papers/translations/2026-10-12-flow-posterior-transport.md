@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "流逆问题求解器究竟近似什么？后验传输视角（中文译稿）"
+title: "流逆问题求解器究竟近似什么？后验传输视角（中文译稿）｜中文全文译文"
 permalink: /papers/translations/2026-10-12-flow-posterior-transport/
 math: true
 toc: true
@@ -699,5 +699,10 @@ $$
 ## 参考文献
 
 参考文献英文题名、作者及正式著录信息应以原 PDF 的 REFERENCES 部分为准；核心涉及：Albergo & Vanden-Eijnden (2022), Benamou & Brenier (2000), Ben-Hamu et al. (2024) D-Flow, Chung et al. (2022) DPS／MCG, Denker et al. (2024) Doob $h$-transform, Kim et al. (2025) FlowDPS, Martin et al. (2025) PnP-Flow, Pourya et al. (2026) FLOWER, Lipman et al. (2023) Flow Matching, Zhang et al. (2025) DAPS, Moufad et al. (2025) MGPS, Alkhouri et al. (2025) SITCOM 以及 Schrödinger 桥与大偏差理论。为减少中文翻译引入的题名歧义，原参考书目信息未改写。
+
+
+---
+
+**登记（2026-10-30）：** 本篇按用户 2026-10-30 新口径登记为“可公开全文译文”——全文覆盖（摘要、正文、结论、图表说明与附录/书目按原论文结构）已录入；页内“未完成/待终校”等提示指逐句逐式终校程度，不表示覆盖缺失，保留为历史记录。
 
 {% endraw %}

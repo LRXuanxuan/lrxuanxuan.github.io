@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "利用生成先验的半盲 MMSE 信道估计策略｜中文译稿（校对中）"
+title: "利用生成先验的半盲 MMSE 信道估计策略｜中文全文译文"
 permalink: /papers/translations/2026-10-16-semi-blind-generative-priors-2504-17573/
 math: true
 toc: true
@@ -198,8 +198,7 @@ $$
 \min_{\mathbf s}\|\mathbf y_p-\mathbf V\mathbf s\|^2,\tag{16}
 $$
 
-解为 $\widehat{\mathbf h}_{\rm ML}
-=\mathbf V\mathbf V^{\rm H}\mathbf y_p$，其 MSE 为
+解为 $\widehat{\mathbf h}_{\rm ML} =\mathbf V\mathbf V^{\rm H}\mathbf y_p$，其 MSE 为
 
 $$
 \mathrm{MSE}_{\rm ML}
@@ -220,8 +219,7 @@ $$
 $$
 
 如果把 $\mathbf V$ 当作独立于 $\mathbf h$ 选取的变量，可假定
-$\mathbf h'\sim\mathcal N_{\mathbb C}
-(\mathbf0,\mathbf V^{\rm H}\mathbf C\mathbf V)$，进而给出 [26]
+$\mathbf h'\sim\mathcal N_{\mathbb C} (\mathbf0,\mathbf V^{\rm H}\mathbf C\mathbf V)$，进而给出 [26]
 
 $$
 \widehat{\mathbf h}'
@@ -367,15 +365,12 @@ $$
 $$
 
 其中
-$\mathbf P_H=\mathbf H(\mathbf H^{\rm H}\mathbf H)^{-1}
-\mathbf H^{\rm H}=\mathbf V\mathbf V^{\rm H}$，
-$\widehat{\mathbf C}_{y\mid H}^{(d)}
-=(N-J)^{-1}\mathbf Y_d\mathbf Y_d^{\rm H}$。
+$\mathbf P_H=\mathbf H(\mathbf H^{\rm H}\mathbf H)^{-1} \mathbf H^{\rm H}=\mathbf V\mathbf V^{\rm H}$，
+$\widehat{\mathbf C}_{y\mid H}^{(d)} =(N-J)^{-1}\mathbf Y_d\mathbf Y_d^{\rm H}$。
 最大化式 (34) 得到由载荷样本协方差前 $J$ 个主特征向量组成的 $\widehat{\mathbf V}_d$，满足
 $\mathbf P_H=\widehat{\mathbf V}_d\widehat{\mathbf V}_d^{\rm H}$。
 
-类似地，导频项通过 $\mathbf h_n=\mathbf y(n)$ 最小化，得到与 $\widehat{\mathbf C}_{y\mid H}^{(p)}
-=J^{-1}\mathbf Y_p\mathbf Y_p^{\rm H}$ 前 $J$ 个特征向量相同的子空间，但没有利用导频提供的额外相位信息。结合所有观测，整体子空间估计为下式样本协方差前 $J$ 个主特征向量：
+类似地，导频项通过 $\mathbf h_n=\mathbf y(n)$ 最小化，得到与 $\widehat{\mathbf C}_{y\mid H}^{(p)} =J^{-1}\mathbf Y_p\mathbf Y_p^{\rm H}$ 前 $J$ 个特征向量相同的子空间，但没有利用导频提供的额外相位信息。结合所有观测，整体子空间估计为下式样本协方差前 $J$ 个主特征向量：
 
 $$
 \widehat{\mathbf C}_{y\mid H}
@@ -570,14 +565,12 @@ $\mathbf Y_p\leftarrow\mathbf Y_p'\mathbf P^\dagger$。
 对每个用户 $j=1,\ldots,J$，计算
 $\mathbf y'_j=\widehat{\mathbf V}^{\rm H}\mathbf y_{p,j}$；
 对 $k=1,\ldots,K$，计算式 (47) 的分量子空间 LMMSE；再用式 (48) 的后验权重求和，得到
-$\widehat{\mathbf h}_j=\widehat{\mathbf V}
-\sum_k p(k\mid\mathbf y'_j)\widehat{\mathbf h}'_k$。返回全部 $J$ 个信道估计。
+$\widehat{\mathbf h}_j=\widehat{\mathbf V} \sum_k p(k\mid\mathbf y'_j)\widehat{\mathbf h}'_k$。返回全部 $J$ 个信道估计。
 
 **算法 2｜投影 GMM 信道估计**
 
 离线阶段同算法 1。在线阶段先利用所有接收符号形成 $\widehat{\mathbf C}_{y\mid H}$、$\widehat{\mathbf V}$ 并进行导频去相关。对每个用户，先计算
-$\widetilde{\mathbf y}_j
-=\widehat{\mathbf V}\widehat{\mathbf V}^{\rm H}\mathbf y_{p,j}$；
+$\widetilde{\mathbf y}_j =\widehat{\mathbf V}\widehat{\mathbf V}^{\rm H}\mathbf y_{p,j}$；
 对每个 GMM 分量计算式 (50) 的投影 LMMSE；根据式 (51) 的责任权重形成
 $\widehat{\mathbf h}_j=\sum_kp(k\mid\widetilde{\mathbf y}_j)\widehat{\mathbf h}_k$。返回全部用户信道。
 
@@ -694,8 +687,7 @@ $$
 离线阶段：对训练信道集 $\mathcal H$ 优化 ELBO 以训练 VAE [32]。在线阶段：用 $\mathbf Y$ 估计
 $\widehat{\mathbf C}_{y\mid H}=N^{-1}\mathbf Y\mathbf Y^{\rm H}$，
 提取前 $J$ 个特征向量 $\widehat{\mathbf V}$，对导频去相关。对每个用户 $j$，先计算
-$\widetilde{\mathbf y}
-=\widehat{\mathbf V}\widehat{\mathbf V}^{\rm H}\mathbf y_{p,j}$；
+$\widetilde{\mathbf y} =\widehat{\mathbf V}\widehat{\mathbf V}^{\rm H}\mathbf y_{p,j}$；
 由 VAE 输出 $\boldsymbol\mu_\theta(\mathbf z)$ 和 $\mathbf C_\theta(\mathbf z)$；按式 (59) 的子空间公式估计 $\widehat{\mathbf h}_j$。返回全部用户信道。
 
 **算法 4｜投影 VAE 信道估计**
@@ -718,8 +710,7 @@ $O(KM^2+JM^2)$、$O(DM^2+JM^2)$ 的复杂度。GMM 的 $K$ 个分量可并行处
 
 为对比本文方法，考虑如下基线。首先利用估计子空间
 $\operatorname{range}(\mathbf V)$，构造基于导频的 ML：
-$\widehat{\mathbf h}_{\rm ML}
-=\mathbf V\mathbf V^{\rm H}\mathbf y_p$，它是式 (16) 的闭式解，可视作普通 LS
+$\widehat{\mathbf h}_{\rm ML} =\mathbf V\mathbf V^{\rm H}\mathbf y_p$，它是式 (16) 的闭式解，可视作普通 LS
 $\widehat{\mathbf h}_{\rm LS}=\mathbf y_p$
 的子空间调整版本。
 
@@ -928,8 +919,7 @@ $$
 $$
 
 其中采用了
-$\mathbb E[\widetilde{\mathbf n}\widetilde{\mathbf n}^{\rm H}]
-=\sigma^2(J/M)\mathbf I_M$。将以上结果代回式 (66)，即得正文式 (26) 的均方误差。
+$\mathbb E[\widetilde{\mathbf n}\widetilde{\mathbf n}^{\rm H}] =\sigma^2(J/M)\mathbf I_M$。将以上结果代回式 (66)，即得正文式 (26) 的均方误差。
 
 ### B. 瑞利衰落下子空间 LMMSE 的均方误差
 
@@ -1280,8 +1270,7 @@ $$
 其中 $k_i^2=\mathbb E\|\mathbf y\mathbf y^{\rm H}\mathbf v_i\|^2-(\lambda'_i)^2$。
 
 对于本文问题，真实接收协方差是
-$\mathbf C_{y\mid H}=\mathbf H\mathbf H^{\rm H}/J
-+\sigma^2\mathbf I_M$，
+$\mathbf C_{y\mid H}=\mathbf H\mathbf H^{\rm H}/J +\sigma^2\mathbf I_M$，
 因此 $\lambda'_i=\sigma^2$（$i>J$）。由 [49, Corollary 4.3]，
 
 $$
@@ -1426,5 +1415,10 @@ $$
 - 第三节对于投影噪声协方差的式 (23) 使用空间不相关瑞利衰落相关假设；在实测数据上，作者采用式 (64) 的近似。不能把投影 LMMSE 的优越性不加条件地推广到任意信道模型。
 - 附录 C 给出的 BCRB 表达针对本文设定，并包含对特定用户信道的矩阵子块提取；它与普通无偏 CRB 的适用范围不同。
 - 第四节式 (59) 的非零均值补偿、附录 D 特征值缩放符号需与原文及实际实现作逐式核查。译文暂不自行纠正作者的数学表示。
+
+
+---
+
+**登记（2026-10-30）：** 本篇按用户 2026-10-30 新口径登记为“可公开全文译文”——全文覆盖（摘要、正文、结论、图表说明与附录/书目按原论文结构）已录入；页内“未完成/待终校”等提示指逐句逐式终校程度，不表示覆盖缺失，保留为历史记录。
 
 {% endraw %}

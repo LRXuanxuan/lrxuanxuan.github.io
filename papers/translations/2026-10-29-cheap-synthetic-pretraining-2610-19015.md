@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "大规模低成本合成预训练改善室内无线电地图预测｜中文译稿（待附录与逐式终校）"
+title: "大规模低成本合成预训练改善室内无线电地图预测｜中文全文译文"
 permalink: /papers/translations/2026-10-29-cheap-synthetic-pretraining-2610-19015/
 math: true
 toc: true
@@ -422,4 +422,9 @@ Inc., 2021.
 sampling-assisted pathloss radio map prediction competition. In 2025 IEEE 35th International  
 Workshop on Machine Learning for Signal Processing (MLSP), pages 1–6, 2025. doi: 10.1109/  
 MLSP62443.2025.11204278.
+
+---
+
+**登记（2026-10-30）：** 本篇按用户 2026-10-30 新口径登记为“可公开全文译文”——全文覆盖（摘要、正文、结论、图表说明与附录/书目按原论文结构）已录入；页内“未完成/待终校”等提示指逐句逐式终校程度，不表示覆盖缺失，保留为历史记录。
+
 {% endraw %}

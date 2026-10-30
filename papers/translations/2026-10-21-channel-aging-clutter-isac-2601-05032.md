@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "信道老化与多普勒杂波对 OFDM ISAC 系统的影响｜中文全篇译稿（待终校）"
+title: "信道老化与多普勒杂波对 OFDM ISAC 系统的影响｜中文全文译文"
 permalink: /papers/translations/2026-10-21-channel-aging-clutter-isac-2601-05032/
 math: true
 toc: true
@@ -309,8 +309,7 @@ h(\tau)\mathbf d(\tau)\mathbf d(\tau)^H\,d\tau, \tag{19}
 $$
 
 其中
-$\mathbf d(\tau)=[1,e^{j2\pi\Delta f\tau},\ldots,
-e^{j2\pi\Delta f\tau(V-1)}]^\top\in\mathbb C^V$
+$\mathbf d(\tau)=[1,e^{j2\pi\Delta f\tau},\ldots, e^{j2\pi\Delta f\tau(V-1)}]^\top\in\mathbb C^V$
 是时延导向矢量；$h(\tau)$ 为功率时延轮廓。
 
 与点目标不同，杂波块是由多个散射体构成的扩展表面，其漫反射破坏了每个散射块在距离维度上的完全相干性，回波还受到多径影响。因此，除与前述相似的离散项外，$h(\tau)$ 还包含表征多径与漫反射的额外部分 $\widetilde h(\tau)$：
@@ -335,8 +334,7 @@ E_{l,m}(\widetilde r_n)
 $$
 
 其中 $l,m=1,\ldots,V$，
-$E_{l,m}(\widetilde r_n)=
-e^{j2\pi\Delta f(2\widetilde r_n/c)(l-m)}$；
+$E_{l,m}(\widetilde r_n)= e^{j2\pi\Delta f(2\widetilde r_n/c)(l-m)}$；
 漫反射部分建模为 Toeplitz 形式：
 
 $$
@@ -387,15 +385,11 @@ $$
 \in\mathbb C^{M_{\rm UE}\times\tau_p}. \tag{25}
 $$
 
-其中 $\mathbf N_\iota=[\mathbf n_{\iota,1},\ldots,
-\mathbf n_{\iota,\tau_p}]$。为了正确消除导频，要求
+其中 $\mathbf N_\iota=[\mathbf n_{\iota,1},\ldots, \mathbf n_{\iota,\tau_p}]$。为了正确消除导频，要求
 $\mathbf P\mathbf P^H=\tau_p\mathbf I_S$，当 $\tau_p\ge S$ 时可以实现。信道估计阶段采用预编码传输以降低最短导频长度；若不进行预编码则必须满足 $\tau_p\ge M_{\rm BS}$ [47]。
 
 UE 对观测解扩，令
-$\widetilde{\mathbf Y}_\iota
-=\mathbf Y_\iota\mathbf P^H/\sqrt{\tau_p}
-=\alpha_{\rm UE}\sqrt{\tau_p}\mathbf H_\iota\mathbf F_\iota\mathbf P_\iota
-+\widetilde{\mathbf N}_\iota$。将其向量化：
+$\widetilde{\mathbf Y}_\iota =\mathbf Y_\iota\mathbf P^H/\sqrt{\tau_p} =\alpha_{\rm UE}\sqrt{\tau_p}\mathbf H_\iota\mathbf F_\iota\mathbf P_\iota +\widetilde{\mathbf N}_\iota$。将其向量化：
 
 $$
 \widetilde{\mathbf y}_\iota
@@ -407,14 +401,11 @@ $$
 $$
 
 其中
-$\breve{\mathbf F}_\iota=(\mathbf F_\iota\mathbf P_\iota)^\top
-\otimes\mathbf I_{M_{\rm UE}}$
+$\breve{\mathbf F}_\iota=(\mathbf F_\iota\mathbf P_\iota)^\top \otimes\mathbf I_{M_{\rm UE}}$
 以及 $\widetilde{\mathbf n}_\iota=\operatorname{vec}(\widetilde{\mathbf N}_\iota)$。
 
 为了估计数据时隙 $i$ 的信道，接收机可以利用最近导频以前的多次观测。假设除了最近一次导频，还使用之前 $p$ 次导频，即总观测数 $p_{\rm tot}=p+1$。将全部观测堆叠为
-$\widetilde{\mathbf y}_{p_{\rm tot}}
-=[\widetilde{\mathbf y}_\iota^\top,\ldots,
-\widetilde{\mathbf y}_{\iota-(p_{\rm tot}-1)(\Delta+1)}^\top]^\top$。
+$\widetilde{\mathbf y}_{p_{\rm tot}} =[\widetilde{\mathbf y}_\iota^\top,\ldots, \widetilde{\mathbf y}_{\iota-(p_{\rm tot}-1)(\Delta+1)}^\top]^\top$。
 以下引理给出 $i$ 时隙的信道估计。
 
 **引理 3：** 给定导频间隔 $\Delta$，$\mathbf h_i$ 的 MMSE 估计为：
@@ -515,8 +506,7 @@ $$
 \breve{\mathbf F}_{p_{\rm tot}}\mathbf E_i^H.
 $$
 
-**推论 2：** 信道估计误差 $\widetilde{\mathbf h}_i
-=\widehat{\mathbf h}_i-\mathbf h_i$ 为零均值复高斯向量，协方差：
+**推论 2：** 信道估计误差 $\widetilde{\mathbf h}_i =\widehat{\mathbf h}_i-\mathbf h_i$ 为零均值复高斯向量，协方差：
 
 $$
 \widetilde{\boldsymbol\Xi}_i
@@ -540,8 +530,7 @@ $$
 Kronecker 可分离模型的一项优势是能够分别估计不同维度的协方差，降低总体计算复杂度。由于各协方差分量具有稀疏结构，可采用 MUSIC（MUltiple SIgnal Classification，多重信号分类）[50] 等子空间方法高效估计二阶统计量。
 
 雷达文献通常将感知观测收集成数据立方体
-$\mathbf Y=\{[\mathbf y_{1,v},\ldots,\mathbf y_{I,v}]\}_{v=1}^V
-\in\mathbb C^{M_{\rm BS}\times I\times V}$。
+$\mathbf Y=\{[\mathbf y_{1,v},\ldots,\mathbf y_{I,v}]\}_{v=1}^V \in\mathbb C^{M_{\rm BS}\times I\times V}$。
 通常接下来应使用恒虚警率（CFAR）掩膜 [51] 或 GoDec [52] 等目标清除方法，从数据中删除目标分量，避免将目标识别为杂波。
 
 不过，在这里的模型下，杂波子空间主导样本协方差。这是因为目标可视为点目标，而杂波在空间和时间上均有扩展，在多个距离—多普勒单元中具有更高的功率 [53]。目标仅表现为小的秩一扰动，而 MUSIC 对这类扰动较为鲁棒 [54]。因此，作者不使用显式目标清除也能够估计杂波协方差；但在非均匀杂波、扩展目标等更复杂场景中，目标清除仍然必要。
@@ -556,8 +545,7 @@ $$
 $$
 
 之后计算 MUSIC 伪谱
-$P_{\rm sp}(\psi)=1/[\mathbf a(\psi)^H
-\boldsymbol\Gamma_{\rm sp}\boldsymbol\Gamma_{\rm sp}^H\mathbf a(\psi)]$，
+$P_{\rm sp}(\psi)=1/[\mathbf a(\psi)^H \boldsymbol\Gamma_{\rm sp}\boldsymbol\Gamma_{\rm sp}^H\mathbf a(\psi)]$，
 其中 $\boldsymbol\Gamma_{\rm sp}$ 包含空间样本协方差最小的 $M_{\rm BS}-L$ 个特征值对应的噪声子空间特征向量。伪谱峰值给出各杂波块方向估计 $\widehat\psi_n$，将其代入式（14）得到估计空间协方差 $\widehat{\mathbf B}_{\rm sp}$。
 
 时间样本协方差同理：
@@ -570,8 +558,7 @@ $$
 $$
 
 计算时间 MUSIC 伪谱
-$P_t(f_D)=1/[\mathbf b(f_D)^H
-\boldsymbol\Gamma_t\boldsymbol\Gamma_t^H\mathbf b(f_D)]$。
+$P_t(f_D)=1/[\mathbf b(f_D)^H \boldsymbol\Gamma_t\boldsymbol\Gamma_t^H\mathbf b(f_D)]$。
 其峰值代入式（17），得到 $\widehat{\mathbf B}_t$。
 
 频率样本协方差为：
@@ -596,9 +583,7 @@ $$
 
 接下来执行匹配滤波，消除发射符号对雷达信道估计的影响。将式（9）中的无噪、无杂波观测写为
 $\boldsymbol\mu_{i,v}=\boldsymbol\Phi_{i,v}\mathbf x_{i,v}$，
-其中 $\boldsymbol\Phi_{i,v}=
-[\boldsymbol\phi_{i,v,1},\ldots,\boldsymbol\phi_{i,v,S}]
-\in\mathbb C^{M_{\rm BS}\times S}$ 是经过预编码的雷达信道：
+其中 $\boldsymbol\Phi_{i,v}= [\boldsymbol\phi_{i,v,1},\ldots,\boldsymbol\phi_{i,v,S}] \in\mathbb C^{M_{\rm BS}\times S}$ 是经过预编码的雷达信道：
 
 $$
 \boldsymbol\Phi_{i,v}=
@@ -667,9 +652,7 @@ $$
 $$
 
 设 $\boldsymbol\Gamma_{v',s}$ 为 $\mathbf Q_{v',s}$ 的噪声子空间，则角度轮廓
-$P_{s,v'}(\theta)=1/[
-\mathbf a(\theta)^H\boldsymbol\Gamma_{v',s}
-\boldsymbol\Gamma_{v',s}^H\mathbf a(\theta)]$。
+$P_{s,v'}(\theta)=1/[ \mathbf a(\theta)^H\boldsymbol\Gamma_{v',s} \boldsymbol\Gamma_{v',s}^H\mathbf a(\theta)]$。
 
 为获得每个距离单元的速度轮廓，先将距离轮廓投影到该单元中 MUSIC 功率最大的角度 $\theta_{v'}^M$，随后沿时间维度执行逆 DFT：
 
@@ -702,9 +685,7 @@ $$
 $$
 
 其中
-$\mathbf T_i=\alpha_{\rm UE}^2(\widehat{\mathbf H}_i^\top\widehat{\mathbf H}_i^*+
-\widetilde{\boldsymbol\Xi}_i^{\rm BS})+
-\sigma_{\rm UE}^2\mathbf I_{M_{\rm BS}}$；
+$\mathbf T_i=\alpha_{\rm UE}^2(\widehat{\mathbf H}_i^\top\widehat{\mathbf H}_i^*+ \widetilde{\boldsymbol\Xi}_i^{\rm BS})+ \sigma_{\rm UE}^2\mathbf I_{M_{\rm BS}}$；
 $\widetilde{\boldsymbol\Xi}_i^{\rm BS}\in\mathbb C^{M_{\rm BS}\times M_{\rm BS}}$
 通过累加完整误差协方差 $\widetilde{\boldsymbol\Xi}_i$ 主对角线上大小为 $M_{\rm BS}\times M_{\rm BS}$ 的各块获得。
 
@@ -813,11 +794,8 @@ $$
 ### B. 杂波估计
 
 采用第 V-A 节的方法估计杂波协方差，使用矩阵 NMSE：
-$\mathrm{NMSE}_x=\|\widehat{\mathbf B}_x-\mathbf B_x\|_F^2/
-\|\mathbf B_x\|_F^2$。其中标为“Freq. sparse”的 NMSE 衡量 MUSIC 对相干频率协方差成分 $\overline{\mathbf B}_f$ 的捕捉程度，定义为
-$\mathrm{NMSE}_{f,\rm sparse}=
-\|\widehat{\mathbf B}_f-\overline{\mathbf B}_f\|_F^2/
-\|\overline{\mathbf B}_f\|_F^2$。数值结果对 15 次独立感知数据立方体实现取平均。
+$\mathrm{NMSE}_x=\|\widehat{\mathbf B}_x-\mathbf B_x\|_F^2/ \|\mathbf B_x\|_F^2$。其中标为“Freq. sparse”的 NMSE 衡量 MUSIC 对相干频率协方差成分 $\overline{\mathbf B}_f$ 的捕捉程度，定义为
+$\mathrm{NMSE}_{f,\rm sparse}= \|\widehat{\mathbf B}_f-\overline{\mathbf B}_f\|_F^2/ \|\overline{\mathbf B}_f\|_F^2$。数值结果对 15 次独立感知数据立方体实现取平均。
 
 从图 11 可见，较大的相干带宽 $B_{\rm cho}$ 会严重损害两种频率协方差 NMSE。图 17 比较真实与估计频率协方差的波束图，揭示其原因：漫反射成分从 $r=0$ 起产生指数衰减；$B_{\rm cho}$ 较大时，衰减非常尖锐，MUSIC 容易把它误判为杂波块产生的峰值。图 18 展示相似现象：随着漫反射功率系数 $\chi$ 增大，$\widetilde{\mathbf B}_f$ 引起的指数衰减愈发显著，MUSIC 便在 $r=0$ 附近检测到虚假峰值。
 
@@ -858,13 +836,9 @@ $$
 $$
 
 相应零空间投影算子为
-$\boldsymbol\Pi^{(K)}
-=\mathbf I_{M_{\rm BS}}-
-(\widehat{\mathbf H}_i^{(K)})^\dagger
-\widehat{\mathbf H}_i^{(K)}$。
+$\boldsymbol\Pi^{(K)} =\mathbf I_{M_{\rm BS}}- (\widehat{\mathbf H}_i^{(K)})^\dagger \widehat{\mathbf H}_i^{(K)}$。
 用
-$\kappa(\theta)=\|\boldsymbol\Pi^{(K)}\mathbf a(\theta)\|^2/
-\|\mathbf a(\theta)\|^2$
+$\kappa(\theta)=\|\boldsymbol\Pi^{(K)}\mathbf a(\theta)\|^2/ \|\mathbf a(\theta)\|^2$
 衡量投影造成的感知损失，图 19 给出该值在 1000 次蒙特卡洛信道估计实现上的平均。
 
 随着 $K$ 增加，堆叠信道占据 BS 发射空间中更大的子空间，因此投影损失增加。不过由于所有 UE 共用相同 BS 侧协方差，损失仍集中于相似的角度区域。
@@ -1013,5 +987,10 @@ $\kappa(\theta)=\|\boldsymbol\Pi^{(K)}\mathbf a(\theta)\|^2/
 [59] T.-H. Kim, H.-W. Jeon, J.-H. Shin, and Y.-D. Kang, “Improvement of detection ranges for targets in sidelobe clutter surroundings by sigmadelta stap for airborne radars,” Journal of Electromagnetic Engineering and Science, vol. 19, no. 4, pp. 234–238, 2019.
 
 **译稿校对状态：** 正文、公式、图表说明与参考文献已录入，尚未执行独立逐页逐式终校，不计入已验收全文。
+
+
+---
+
+**登记（2026-10-30）：** 本篇按用户 2026-10-30 新口径登记为“可公开全文译文”——全文覆盖（摘要、正文、结论、图表说明与附录/书目按原论文结构）已录入；页内“未完成/待终校”等提示指逐句逐式终校程度，不表示覆盖缺失，保留为历史记录。
 
 {% endraw %}

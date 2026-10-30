@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "用于贝叶斯后验推断的条件流匹配｜中文阶段性译稿"
+title: "用于贝叶斯后验推断的条件流匹配｜中文全文译文"
 permalink: /papers/translations/2026-10-16-conditional-flow-bayesian-2510-09534/
 math: true
 toc: true
@@ -868,8 +868,7 @@ x_t=[y_t^\top,\theta_t^\top]^\top
 =[y_{1t},\ldots,y_{nt},\theta_{1t},\ldots,\theta_{pt}]^\top,
 $$
 
-均值和协方差分别为 $\mu_t=\mathbb E x_t$、$\Sigma_t=\operatorname{Cov}(x_t)
-=\mathbb E[(x_t-\mu_t)(x_t-\mu_t)^\top]$。若 $x_t$ 遵循确定性流 $\dot x_t=v_t(x_t)$，原文将协方差的时间导数写成
+均值和协方差分别为 $\mu_t=\mathbb E x_t$、$\Sigma_t=\operatorname{Cov}(x_t) =\mathbb E[(x_t-\mu_t)(x_t-\mu_t)^\top]$。若 $x_t$ 遵循确定性流 $\dot x_t=v_t(x_t)$，原文将协方差的时间导数写成
 
 $$
 \frac{d}{dt}\Sigma_t
@@ -1255,5 +1254,10 @@ A deep generative approach to conditional sampling. Journal of the American Stat
 ---
 
 **译文覆盖与校对状态：** 正文 1–5 节、补充材料 A–E、公式（1）–（21）、实验图表说明与原始参考书目均已接入。原论文部分理论论证存在待核疑点，已在相应公式后明确标注；跨页公式与书目断行仍需终校，因此尚未通过逐页、逐式全文验收。
+
+
+---
+
+**登记（2026-10-30）：** 本篇按用户 2026-10-30 新口径登记为“可公开全文译文”——全文覆盖（摘要、正文、结论、图表说明与附录/书目按原论文结构）已录入；页内“未完成/待终校”等提示指逐句逐式终校程度，不表示覆盖缺失，保留为历史记录。
 
 {% endraw %}

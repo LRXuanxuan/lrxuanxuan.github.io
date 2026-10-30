@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "近场 XL-MIMO 多用户空间信息共享信道估计｜中文扩充译稿（终校中）"
+title: "近场 XL-MIMO 多用户空间信息共享信道估计｜中文全文译文"
 permalink: /papers/translations/2026-10-24-xl-mimo-multi-user-spatial-sharing/
 math: true
 toc: true
@@ -358,8 +358,7 @@ q_i(\xi_k^i)=
 $
 
 直接更新 $q(\mathbf x_k)$ 所需协方差为
-$\big(\langle\gamma_k\rangle\widetilde{\mathbf H}^H\widetilde{\mathbf H}
-+\operatorname{diag}\langle\boldsymbol\rho_k\rangle\big)^{-1}$。
+$\big(\langle\gamma_k\rangle\widetilde{\mathbf H}^H\widetilde{\mathbf H} +\operatorname{diag}\langle\boldsymbol\rho_k\rangle\big)^{-1}$。
 由于极域字典 $Q$ 很大，直接求逆不可承受。IF-VBI 通过引入辅助变量 $\mathbf z_k$ 和光滑二次上界来绕过它：
 
 $
@@ -400,8 +399,7 @@ $
 其中 $\breve h(\mathbf z_k)$ 为原文定义的归一化因子。该放松目标在交替更新中发挥二次替代函数的作用；更新变分因子可视为 EM 中的 E 步，更新辅助变量是 M 步。作者指出，在光滑性条件下，二次替代与真实目标的差异是有界且会消失的三阶余项，随着 $\mathbf z_k\to\mathbf x_k$ 趋于零。这支持算法朝真实 ELBO 的驻点渐近收敛，而不仅是替代目标的驻点。
 
 初始化时，支撑概率由来自 B 部分的伯努利消息给出：
-$\pi_{k,q}=\mu_{u_{k,q}\to s_{k,q}}(1)/
-[\mu_{u_{k,q}\to s_{k,q}}(1)+\mu_{u_{k,q}\to s_{k,q}}(0)]$。
+$\pi_{k,q}=\mu_{u_{k,q}\to s_{k,q}}(1)/ [\mu_{u_{k,q}\to s_{k,q}}(1)+\mu_{u_{k,q}\to s_{k,q}}(0)]$。
 将 $\pi_{k,q}$ 与 Gamma 先验形状率参数加权，可得
 $\widetilde a_q=\pi_{k,q}a_q+(1-\pi_{k,q})\bar a_q$、
 $\widetilde b_q=\pi_{k,q}b_q+(1-\pi_{k,q})\bar b_q$；随后迭代更新这些先验参数。
@@ -511,10 +509,8 @@ $
 +[1-\pi_{\bar s_q\to u_{k,q}}]\delta(\bar s_q). \tag{39}
 $
 
-令 $P_1=\prod_{j\ne k}\pi_{u_{j,q}\to\bar s_q}
-\prod_{i\in\{a,b,l,r\}}\kappa_q^i$、
-$P_0=\prod_{j\ne k}(1-\pi_{u_{j,q}\to\bar s_q})
-\prod_{i\in\{a,b,l,r\}}(1-\kappa_q^i)$，则
+令 $P_1=\prod_{j\ne k}\pi_{u_{j,q}\to\bar s_q} \prod_{i\in\{a,b,l,r\}}\kappa_q^i$、
+$P_0=\prod_{j\ne k}(1-\pi_{u_{j,q}\to\bar s_q}) \prod_{i\in\{a,b,l,r\}}(1-\kappa_q^i)$，则
 
 $
 \pi_{\bar s_q\to u_{k,q}}=\frac{P_1}{P_1+P_0}. \tag{40}
@@ -537,11 +533,7 @@ p(\bar s_q\mid\mathbf Y,\mathbf V,\boldsymbol\Omega)
 +(1-\pi_{\bar s_q})\delta(\bar s_q), \tag{42}
 $
 
-其中 $\pi_{\bar s_q}
-=\frac{\pi_{\bar s_q\to u_{k,q}}\pi_{u_{k,q}\to\bar s_q}}
-{\pi_{\bar s_q\to u_{k,q}}\pi_{u_{k,q}\to\bar s_q}
-+(1-\pi_{\bar s_q\to u_{k,q}})
-(1-\pi_{u_{k,q}\to\bar s_q})}$。这一式子体现了同一联合网格点在多用户观测及空间 Markov 信息下逐渐形成后验共识的过程。
+其中 $\pi_{\bar s_q} =\frac{\pi_{\bar s_q\to u_{k,q}}\pi_{u_{k,q}\to\bar s_q}} {\pi_{\bar s_q\to u_{k,q}}\pi_{u_{k,q}\to\bar s_q} +(1-\pi_{\bar s_q\to u_{k,q}}) (1-\pi_{u_{k,q}\to\bar s_q})}$。这一式子体现了同一联合网格点在多用户观测及空间 Markov 信息下逐渐形成后验共识的过程。
 
 **4）公共极域网格更新。** 固定已经估计得到的 $\widetilde{\mathbf x}_{1:K}$、$\widetilde\gamma_{1:K}$ 和 $\widetilde{\mathbf V}$，应跨所有用户联合更新极域网格 $\boldsymbol\Omega$，避免每个用户的独立字典产生失配。定义目标
 
@@ -579,8 +571,7 @@ $
 $
 
 其中 $\mathbf V_{q,n}\in\mathbb C^{NQ\times1}$ 由所有网格点在 $N$ 个子阵列上的 VR 指示值堆叠而成，$\mathbf F=[\mathbf F_1^T,\ldots,\mathbf F_K^T]^T$ 是相应等效测量矩阵。各用户噪声的协方差为
-$\operatorname{diag}(\widetilde\gamma_1^{-1}I_{M_{\rm RF}},\ldots,
-\widetilde\gamma_K^{-1}I_{M_{\rm RF}})$。
+$\operatorname{diag}(\widetilde\gamma_1^{-1}I_{M_{\rm RF}},\ldots, \widetilde\gamma_K^{-1}I_{M_{\rm RF}})$。
 
 由于稀疏信道估计中许多 $\widetilde x_{k,q}$ 近零，$\mathbf F$ 中有大量零列，直接求逆会病态。作者先进行极域筛选：以接近 2–3 倍噪声功率的阈值 $\epsilon$ 选择可能活跃的网格集合 $\Lambda$，只保留对应 VR 块的列。由于 VR 为二值实数，再把复数观测的实部与虚部堆叠，得到
 
@@ -794,9 +785,7 @@ $
 $
 
 $\mathbf E_k$ 与网格参数 $\boldsymbol\Omega$ 无关。第 $k$ 个用户的目标函数为
-$\mathcal L_k(\boldsymbol\Omega)
-=\widetilde\gamma_k\|\mathbf y_k-\mathbf E_k
-\mathbf B(\boldsymbol\Omega_{m,q})\|_2^2$；
+$\mathcal L_k(\boldsymbol\Omega) =\widetilde\gamma_k\|\mathbf y_k-\mathbf E_k \mathbf B(\boldsymbol\Omega_{m,q})\|_2^2$；
 全体用户的联合梯度就是各 $\mathcal L_k$ 的梯度求和。
 
 针对实值角度参数 $\vartheta$，对平方残差展开并求导，有
@@ -928,3 +917,7 @@ $
 该 18 页 TWC 原文的正文 I–VI、原编号（1）–（56）的主要推导、仿真图 1–14 的文字说明、附录 A–B 与 35 条英文参考文献均已纳入本页。仍需逐字核对二维 Markov 消息的若干复杂归一化分式（尤其原式（50）–（51））、算法 1 的每行伪代码、若干原图的数值标注及物理符号。**本页面尚未通过逐页逐式终校，不能作为已验收的完整译本或严格复现的唯一依据。**
 
 研究使用时请核对[原 DOI 页面](https://doi.org/10.1109/TWC.2026.3702238)提供的 IEEE 原版 PDF。
+
+---
+
+**登记（2026-10-30）：** 本篇按用户 2026-10-30 新口径登记为“可公开全文译文”——全文覆盖（摘要、正文、结论、图表说明与附录/书目按原论文结构）已录入；页内“未完成/待终校”等提示指逐句逐式终校程度，不表示覆盖缺失，保留为历史记录。
