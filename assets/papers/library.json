@@ -4,8 +4,8 @@
   "source_sha256": "55bac1c358c14dd628820d8753d5c4f83eff21c96f8bed831ec636a33db8be1c",
   "translation_progress": {
     "target": 315,
-    "completed": 107,
-    "public_full_text": 95,
+    "completed": 115,
+    "public_full_text": 103,
     "local_only": 12,
     "status_counts": {
       "access_blocked": 3,
@@ -7837,7 +7837,13 @@
       "report_entry_url": "/papers/reports/2026-10-08-supplement/#paper-6aa6d5402e27413d",
       "paper_url": "/papers/items/6aa6d5402e27413d/",
       "paper_report_url": "/papers/items/6aa6d5402e27413d/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-05-2410-05803-a-radio-map-approach-for-reduced-pilot-csi-tracking-in-massive-mimo-ne/",
+          "title": "面向大规模 MIMO 网络导频 CSI 跟踪降本的无线电地图方法｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文 I—VI 节与 13 个小节、命题 1—5、算法 1—2、附录 A—D、表 I—V、图 1—10 图注、参考文献 33 条（英文原条目）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/abs/2410.05803"
       ],
@@ -7847,10 +7853,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/6aa6d5402e27413d/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-05-2410-05803-a-radio-map-approach-for-reduced-pilot-csi-tracking-in-massive-mimo-ne/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "333a12fc9310706e",
@@ -7883,7 +7889,13 @@
       "report_entry_url": "/papers/reports/2026-10-08-supplement/#paper-333a12fc9310706e",
       "paper_url": "/papers/items/333a12fc9310706e/",
       "paper_report_url": "/papers/items/333a12fc9310706e/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-05-2309-04014-channel-estimation-for-quantized-systems-based-on-conditionally-gaussi/",
+          "title": "基于条件高斯潜变量模型的量化系统信道估计｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[62]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/abs/2309.04014"
       ],
@@ -7893,10 +7905,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/333a12fc9310706e/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-05-2309-04014-channel-estimation-for-quantized-systems-based-on-conditionally-gaussi/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "1742760d5d60390b",
@@ -7929,7 +7941,13 @@
       "report_entry_url": "/papers/reports/2026-10-08-supplement/#paper-1742760d5d60390b",
       "paper_url": "/papers/items/1742760d5d60390b/",
       "paper_report_url": "/papers/items/1742760d5d60390b/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-05-2303-05736-cram-r-rao-bounds-for-near-field-sensing-with-extremely-large-scale-mi/",
+          "title": "超大规模 MIMO 近场感知的 Cramér–Rao 界｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[53]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/abs/2303.05736"
       ],
@@ -7939,10 +7957,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/1742760d5d60390b/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-05-2303-05736-cram-r-rao-bounds-for-near-field-sensing-with-extremely-large-scale-mi/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "d3b2f278ad439789",
@@ -7975,7 +7993,13 @@
       "report_entry_url": "/papers/reports/2026-10-08-supplement/#paper-d3b2f278ad439789",
       "paper_url": "/papers/items/d3b2f278ad439789/",
       "paper_report_url": "/papers/items/d3b2f278ad439789/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-05-2404-05076-performance-analysis-of-near-field-sensing-in-wideband-mimo-systems/",
+          "title": "宽带 MIMO 系统近场感知性能分析｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[45]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/abs/2404.05076"
       ],
@@ -7985,10 +8009,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/d3b2f278ad439789/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-05-2404-05076-performance-analysis-of-near-field-sensing-in-wideband-mimo-systems/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "1acaad49a2353e5b",
@@ -8021,7 +8045,13 @@
       "report_entry_url": "/papers/reports/2026-10-08-supplement/#paper-1acaad49a2353e5b",
       "paper_url": "/papers/items/1acaad49a2353e5b/",
       "paper_report_url": "/papers/items/1acaad49a2353e5b/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-05-2308-16130-near-field-3d-localization-via-mimo-radar-cram-r-rao-bound-analysis-an/",
+          "title": "MIMO 雷达近场三维定位：Cramér–Rao 界分析与估计器设计｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[38]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/abs/2308.16130"
       ],
@@ -8031,10 +8061,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/1acaad49a2353e5b/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-05-2308-16130-near-field-3d-localization-via-mimo-radar-cram-r-rao-bound-analysis-an/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "bf9c99bd8d106ad5",
@@ -8067,7 +8097,13 @@
       "report_entry_url": "/papers/reports/2026-10-08-supplement/#paper-bf9c99bd8d106ad5",
       "paper_url": "/papers/items/bf9c99bd8d106ad5/",
       "paper_report_url": "/papers/items/bf9c99bd8d106ad5/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-05-2310-17327-near-field-positioning-and-attitude-sensing-based-on-electromagnetic-p/",
+          "title": "基于电磁传播建模的近场定位与姿态感知｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[50]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/abs/2310.17327"
       ],
@@ -8077,10 +8113,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/bf9c99bd8d106ad5/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-05-2310-17327-near-field-positioning-and-attitude-sensing-based-on-electromagnetic-p/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "b63c4db5bb3e4f6d",
@@ -8113,7 +8149,13 @@
       "report_entry_url": "/papers/reports/2026-10-08-supplement/#paper-b63c4db5bb3e4f6d",
       "paper_url": "/papers/items/b63c4db5bb3e4f6d/",
       "paper_report_url": "/papers/items/b63c4db5bb3e4f6d/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-05-2502-10819-sensing-with-communication-signals-from-information-theory-to-signal-p/",
+          "title": "通感一体：从信息论到信号处理的通信信号感知｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[122]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/abs/2502.10819"
       ],
@@ -8123,10 +8165,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/b63c4db5bb3e4f6d/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-05-2502-10819-sensing-with-communication-signals-from-information-theory-to-signal-p/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "8d6aa431435d5cb5",
@@ -8844,7 +8886,13 @@
       "report_entry_url": "/papers/reports/2026-10-08-supplement/#paper-50d12cc7ed367df8",
       "paper_url": "/papers/items/50d12cc7ed367df8/",
       "paper_report_url": "/papers/items/50d12cc7ed367df8/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-04-2305-03855-robust-a-optimal-experimental-design-for-bayesian-inverse-problems/",
+          "title": "贝叶斯逆问题的鲁棒 A-最优实验设计｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[49]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/abs/2305.03855"
       ],
@@ -8854,10 +8902,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/50d12cc7ed367df8/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-04-2305-03855-robust-a-optimal-experimental-design-for-bayesian-inverse-problems/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "b35ad01081ff8480",
@@ -24666,6 +24714,166 @@
       ],
       "source_arxiv_ids": [
         "2505.07991"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-05",
+      "slug": "2026-10-05-2502-10819-sensing-with-communication-signals-from-information-theory-to-signal-p",
+      "title": "通感一体：从信息论到信号处理的通信信号感知｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[122]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-05-2502-10819-sensing-with-communication-signals-from-information-theory-to-signal-p/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-05-2502-10819-sensing-with-communication-signals-from-information-theory-to-signal-p.md",
+      "paper_ids": [
+        "b63c4db5bb3e4f6d"
+      ],
+      "source_arxiv_ids": [
+        "2502.10819"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-05",
+      "slug": "2026-10-05-2410-05803-a-radio-map-approach-for-reduced-pilot-csi-tracking-in-massive-mimo-ne",
+      "title": "面向大规模 MIMO 网络导频 CSI 跟踪降本的无线电地图方法｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文 I—VI 节与 13 个小节、命题 1—5、算法 1—2、附录 A—D、表 I—V、图 1—10 图注、参考文献 33 条（英文原条目）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-05-2410-05803-a-radio-map-approach-for-reduced-pilot-csi-tracking-in-massive-mimo-ne/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-05-2410-05803-a-radio-map-approach-for-reduced-pilot-csi-tracking-in-massive-mimo-ne.md",
+      "paper_ids": [
+        "6aa6d5402e27413d"
+      ],
+      "source_arxiv_ids": [
+        "2410.05803"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-05",
+      "slug": "2026-10-05-2404-05076-performance-analysis-of-near-field-sensing-in-wideband-mimo-systems",
+      "title": "宽带 MIMO 系统近场感知性能分析｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[45]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-05-2404-05076-performance-analysis-of-near-field-sensing-in-wideband-mimo-systems/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-05-2404-05076-performance-analysis-of-near-field-sensing-in-wideband-mimo-systems.md",
+      "paper_ids": [
+        "d3b2f278ad439789"
+      ],
+      "source_arxiv_ids": [
+        "2404.05076"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-05",
+      "slug": "2026-10-05-2310-17327-near-field-positioning-and-attitude-sensing-based-on-electromagnetic-p",
+      "title": "基于电磁传播建模的近场定位与姿态感知｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[50]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-05-2310-17327-near-field-positioning-and-attitude-sensing-based-on-electromagnetic-p/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-05-2310-17327-near-field-positioning-and-attitude-sensing-based-on-electromagnetic-p.md",
+      "paper_ids": [
+        "bf9c99bd8d106ad5"
+      ],
+      "source_arxiv_ids": [
+        "2310.17327"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-05",
+      "slug": "2026-10-05-2309-04014-channel-estimation-for-quantized-systems-based-on-conditionally-gaussi",
+      "title": "基于条件高斯潜变量模型的量化系统信道估计｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[62]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-05-2309-04014-channel-estimation-for-quantized-systems-based-on-conditionally-gaussi/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-05-2309-04014-channel-estimation-for-quantized-systems-based-on-conditionally-gaussi.md",
+      "paper_ids": [
+        "333a12fc9310706e"
+      ],
+      "source_arxiv_ids": [
+        "2309.04014"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-05",
+      "slug": "2026-10-05-2308-16130-near-field-3d-localization-via-mimo-radar-cram-r-rao-bound-analysis-an",
+      "title": "MIMO 雷达近场三维定位：Cramér–Rao 界分析与估计器设计｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[38]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-05-2308-16130-near-field-3d-localization-via-mimo-radar-cram-r-rao-bound-analysis-an/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-05-2308-16130-near-field-3d-localization-via-mimo-radar-cram-r-rao-bound-analysis-an.md",
+      "paper_ids": [
+        "1acaad49a2353e5b"
+      ],
+      "source_arxiv_ids": [
+        "2308.16130"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-05",
+      "slug": "2026-10-05-2303-05736-cram-r-rao-bounds-for-near-field-sensing-with-extremely-large-scale-mi",
+      "title": "超大规模 MIMO 近场感知的 Cramér–Rao 界｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[53]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-05-2303-05736-cram-r-rao-bounds-for-near-field-sensing-with-extremely-large-scale-mi/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-05-2303-05736-cram-r-rao-bounds-for-near-field-sensing-with-extremely-large-scale-mi.md",
+      "paper_ids": [
+        "1742760d5d60390b"
+      ],
+      "source_arxiv_ids": [
+        "2303.05736"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-04",
+      "slug": "2026-10-04-2305-03855-robust-a-optimal-experimental-design-for-bayesian-inverse-problems",
+      "title": "贝叶斯逆问题的鲁棒 A-最优实验设计｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[49]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-04-2305-03855-robust-a-optimal-experimental-design-for-bayesian-inverse-problems/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-04-2305-03855-robust-a-optimal-experimental-design-for-bayesian-inverse-problems.md",
+      "paper_ids": [
+        "50d12cc7ed367df8"
+      ],
+      "source_arxiv_ids": [
+        "2305.03855"
       ],
       "qa_complete": true,
       "external": true,
