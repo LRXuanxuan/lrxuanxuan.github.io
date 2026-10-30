@@ -230,6 +230,109 @@ $$
 
 本文研究将 SEFDM 作为 ISAC 感知波形，并在引入 CP 和慢时变假设的条件下，把多目标距离—多普勒估计转化为二维复指数参数估计。提出的 NMCR 使用周期图粗搜索与 Newton 型联合精化，实现比部分现有方法更有竞争力的精度—复杂度折中。SEFDM 的通信频谱效率优势与雷达感知性能之间需要结合子载波压缩系数、ICI、CP 开销及信道动态性共同评估。
 
+## III—IV 节补译：NMCR 算法、实验配置及图表
+
+### 近似最大似然目标与 Newton 精化
+
+在假定噪声为独立同方差圆对称复高斯变量的条件下，式（32）的似然为
+
+$
+p(\hat{\mathbf h}\mid\tilde{\mathbf a},\tilde{\mathbf f}_\tau,\tilde{\mathbf f}_\nu)
+=\frac{\exp\!\left[-\|\hat{\mathbf h}-\mathbf h(\tilde{\mathbf a},\tilde{\mathbf f}_\tau,\tilde{\mathbf f}_\nu)\|_2^2/\sigma_w^2\right]}{(\pi\sigma_w^2)^{MN}}.\tag{32}
+$
+
+最大似然估计通过式（33）最大化该似然，等价于式（34）—（35）最小化平方残差。对于给定的频率向量，复幅度的最优最小二乘估计为式（36）。然而，频率参数不存在简单闭式解，故作者在二维周期图粗估计基础上使用 Newton 方法。
+
+**命题 1：** 将频率向量记为 $\tilde{\mathbf f}=[\tilde{\mathbf f}_\tau^\top,\tilde{\mathbf f}_\nu^\top]^\top$。代价函数梯度的两个分量分别由幅度向量、残差 $(\hat{\mathbf h}-\mathbf B\tilde{\mathbf a})$ 及 $\mathbf B$ 对时延/多普勒频率的一阶偏导求得，并取实部（式（37））。Hessian 按时延—多普勒分块为
+
+$
+\ddot{\mathbf H}_{\mathcal L}
+=\begin{bmatrix}
+\mathbf T_{\tilde{\mathbf f}_\tau,\tilde{\mathbf f}_\tau}&
+\mathbf U_{\tilde{\mathbf f}_\tau,\tilde{\mathbf f}_\nu}\\
+\mathbf U_{\tilde{\mathbf f}_\tau,\tilde{\mathbf f}_\nu}^{\top}&
+\mathbf V_{\tilde{\mathbf f}_\nu,\tilde{\mathbf f}_\nu}
+\end{bmatrix}.\tag{38}
+$
+
+其中各子块的二阶偏导表达式在原文式（39）—（41）。$\dot{\mathbf B}_{\tilde f_x}$ 为按目标分别对一阶频率求导的矩阵，$\ddot{\mathbf B}_{\tilde f_x,\tilde f_y}$ 为相应的二阶偏导矩阵，满足交换关系 $\ddot{\mathbf B}_{\tilde f_x,\tilde f_y}=\ddot{\mathbf B}_{\tilde f_y,\tilde f_x}$。**式（37）、（39）—（41）尚待按原图完整恢复长矩阵表达式，不能以分块描述替代字符级译校。**
+
+**算法 1：Newton-Based Multiple Cisoid Refiner（NMCR）。** 输入观测 $\hat{\mathbf h}$、检测阈值 $\epsilon_{\mathrm{init}}$、2D-FFT 过采样因子 $(L_D,L_r)$、迭代阈值 $\epsilon_{\mathrm{it}}$、步长 $\mu$ 和最大迭代次数 $N_{\mathrm{it}}$。首先使用二维 FFT 对信号的时延—多普勒频谱做峰值检测，获得 $\hat L$、幅度初值、时延初值和多普勒初值，置迭代索引 $i=1$。检测阈值可由广义似然比检验（GLRT）设置，以抑制鬼峰；若目标过近导致谱峰重叠，可能误估 $\hat L$ 或初始化频率。
+
+每轮执行三步：（a）根据上一轮频率估计，通过式（36）重新计算复幅度 $\hat{\mathbf a}^{(i)}$；（b）通过梯度与 Hessian 进行频率更新
+
+$
+\hat{\mathbf f}^{(i)}
+=\hat{\mathbf f}^{(i-1)}
+-\mu[\ddot{\mathbf H}_{\mathcal L}(\hat{\mathbf a}^{(i)},\hat{\mathbf f}^{(i-1)})]^{-1}
+\nabla\mathcal L(\hat{\mathbf a}^{(i)},\hat{\mathbf f}^{(i-1)}).
+\tag{42}
+$
+
+（c）由式（43）计算代价改变量 $\Delta\mathcal L^{(i)}$，若超过阈值则增加迭代索引，并在 $i<N_{\mathrm{it}}$ 时继续。输出为 $\hat{\mathbf a}^{(i)}$、$\hat{\mathbf f}_\tau^{(i)}$、$\hat{\mathbf f}_\nu^{(i)}$ 及 $\hat L$。作者实验取步长 $\mu=1$，并指出若连续迭代缺乏显著下降，可以缩小步长。
+
+每轮精化的复杂度为 $O((L+L^2)MN)$。若粗初始化使用 2D-FFT，则
+
+$
+N_{\mathrm{2D-FFT}}=M_0N_0\log_2(M_0N_0)+M_0N_0+L\log_2 L,\quad
+M_0=ML_D,\quad N_0=NL_r.\tag{44}
+$
+
+$
+N_{\mathrm{NMCR}}=
+N_{\mathrm{2D-FFT}}+N_{\mathrm{it}}(L+L^2)MN.\tag{45}
+$
+
+### 六组场景与 S0 检测实验
+
+**S1：** 单目标 $L=1$，$A_0=1$；$R_0$ 在 5—45 m 均匀分布，$v_0$ 在 5—50 m/s 均匀分布，用来隔离多目标谱泄漏的影响。
+
+**S2：** 双目标，第一目标如 S1，第二目标 $A_1=0.8+0.2\bar\alpha A_0$、$R_1=R_0+\bar R R_{\mathrm{bin}}$、$v_1=v_0+\bar v v_{\mathrm{bin}}$，其中 $\bar\alpha\sim\mathcal U[0,1]$，实验选 $\bar R=\bar v=3$。距离和速度分辨率为
+
+$
+R_{\mathrm{bin}}=\frac{c}{2N\beta\Delta f},
+\qquad v_{\mathrm{bin}}=\frac{c\beta}{2Mf_cT_s}.\tag{46}
+$
+
+**S3：** 五目标；首目标范围为 $R_0\in[10,35]$ m、$v_0\in[30,50]$ m/s；其他 $\ell=1,\ldots,4$ 目标满足 $R_\ell=R_0+2\ell(\bar\alpha-0.5)R_{\mathrm{bin}}$、$v_\ell=v_0$，幅度按 Swerling-3 模型生成，为均值为 $A_0$ 的卡方分布。该情形模拟具有共同速度和紧密距离分布的扩展散射体。
+
+**S4：** 三目标；首目标如 S1，其余两个目标幅度 $A_\ell=A_0=1$，距离、速度按 S2 构造，但 $\bar R=1.25$、$\bar v=1.75$。SNR 固定 −5 dB，用于比较 NMCR、AP-ML、EM 的收敛稳定性。
+
+**S5：** 目标数 $L\in\{1,\ldots,8\}$；首目标如 S3，其余按 S2 构造但 $\bar R=\bar v=1$。SNR=−5 dB，研究随目标数增长的计算复杂度与执行时间。
+
+**S6：** 双目标，按 S2 生成但 $A_1=0.75$、$\bar R=\bar v=2$，SNR=0 dB，用于研究子载波压缩因子 $\beta$ 对感知的影响。
+
+**S0：** 单独评估 GLRT 初始化的检测概率 $P_D=\Pr(\hat L=L)$。采用 $L\in\{1,3,5\}$，首目标参数如 S3，速度在 $[0.9v_{\mathrm{mean}},1.1v_{\mathrm{mean}}]$ 均匀分布，其余按 S2 构造。两组实验分别使用 SNR∈[−25,10] dB、$v_{\mathrm{mean}}=50$ km/h，以及 SNR=0 dB、$v_{\mathrm{mean}}\in[50,1700]$ km/h。阈值按误警率 $P_{\mathrm{fa}}=10^{-3}$ 设定。
+
+所有场景的默认波形配置为 $N=64$、$M=32$、$T_s=40$ ns、$\beta=0.8$、$N_{\mathrm{cp}}=N/4$、RRC 滚降 $\alpha=0.15$、$f_c=78$ GHz、16-PSK；这对应 $\Delta f=390.625$ kHz、抑制子载波数 $N_{\mathrm{sc}}=10$，前五个场景 $R_{\mathrm{bin}}=7.5$ m 和 $v_{\mathrm{bin}}=18.7$ m/s。性能指标是距离 RMSE（m）、速度 RMSE（m/s）及其 Cramér–Rao 下界，所有误差对 $10^3$ 次 Monte Carlo 仿真取平均。
+
+**表 I：仿真算法参数（按原 PDF 第 9 页数值转录）。**
+
+| 参数 | 原文数值 |
+|---|---|
+| 初始估计来源 | 所有方法统一使用 2D-FFT 输出 |
+| 2D-FFT 过采样 | $L_D=4$、$L_r=4$ |
+| AP-ML/EM 精化网格 | $N_{\mathrm{FD}}=9$、$N_{\mathrm{Fr}}=9$ |
+| 2D-FFTi 插值阶数 | $I_D=7$、$I_r=7$ |
+| 2D-FFTi 插值网格 | $\bar M=256$、$\bar N=256$ |
+| NMCR 步长及迭代 | $\mu=1$、$N_{\mathrm{it}}=10$（未特别注明时） |
+| AP-ML 和 EM 迭代 | $N_{\mathrm{it}}=3$（未特别注明时） |
+| EM 混合系数 | $\beta_\ell^{(i)}=1$，$\ell=0,\ldots,\hat L-1$ |
+
+**表 II：频率精化复杂度的阶（与原文表格逐项核对）。** 所有四种方法的初始化都是 $N_{\mathrm{2D-FFT}}$（式（44））。
+
+| 算法 | 频率精化复杂度 |
+|---|---|
+| NMCR | $N_{\mathrm{it}}(L+L^2)MN$ |
+| 2D-FFTi | $2(I_DI_r+\bar M\bar N)+L\bar M\bar N$ |
+| AP-ML | $8N_{\mathrm{it}}(N_{\mathrm{FD}}+N_{\mathrm{Fr}})(L^2+L)(MN)^2$ |
+| EM | $LN_{\mathrm{it}}MN(4N_{\mathrm{FD}}N_{\mathrm{Fr}}+L)$ |
+
+作者以 MFLOPs 和秒数评估复杂度，执行时间在 i9 CPU、32 GB 内存的个人计算机上记录；2D-FFTi 使用 MATLAB R2024a 的二维样条插值。需要注意这些复杂度与耗时主要针对**频率精化阶段**，不应直接当作完整接收机的端到端开销。
+
+**原图 3：** S0 下 GLRT 检测概率随 SNR 与平均速度变化；$L\in\{1,3,5\}$，SNR 增大后检测趋近于 1，而高速目标和更多目标会削弱检测。**原图 4：** S1、16-PSK，五种算法距离和速度 RMSE（含 CRLB）；其余图 5—7 比较多目标 S2/S3 相关结果，图 8 讨论 S4 的迭代，图 9—10 分析复杂度和执行时间，图 11 分析 S6 的 $\beta$ 变化。各图曲线的逐点坐标仍须与 PDF 原图核实，不应用目测读数代替数表。
+
+
 ## 附录、引用与终校范围
 
 原文包含两个附录：**A. 对数似然代价函数的梯度与 Hessian**，**B. Cramér–Rao 下界的推导**；还包含参考文献和作者简介。本译稿尚未完整转录其偏导表达式、矩阵求导推导、CRLB 长公式与每个数值图的曲线配置，因此不应作为数值复现的唯一依据。严谨复现请逐式对照原 PDF 及论文 DOI。对原论文作者与 CC BY 4.0 授权的归属保留如上。
