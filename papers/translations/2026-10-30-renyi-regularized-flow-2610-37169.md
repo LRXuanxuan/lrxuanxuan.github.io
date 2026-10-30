@@ -12,9 +12,9 @@ toc: true
 # 用于贝叶斯标定的 Rényi 正则化流式变分推断
 
 **原题：** Rényi-Regularized Flow-Based Variational Inference for Bayesian Calibration  
-**作者：** Exaucé Luweh Adjim Ngarti、Elise Arnaud、Léo Nicoletti、Victor Trappler、Arthur Vidard。  
+**作者：** Exaucé Luweh Adjim Ngarti、Elise Arnaud、Léo Nicoletti、Victor Trappler、Arthur Vidard。**单位：** Univ. Grenoble Alpes / Inria / CNRS / LJK；Bull CEPP；Mines Saint-Étienne / LIMOS。**通讯作者：** Exaucé Luweh Adjim Ngarti（exaucengarti@gmail.com）。  
 **来源：** arXiv:2610.37169v1，2026 年 10 月 27 日，10 页。  
-**译校说明：** 下文按原文 1—5 节和附录 A—D 的顺序翻译，保留主要公式编号、实验参数与表格。参考书目保留英文信息。尚未完成 PDF 逐自然段和全部数学符号的字符级终校，不标记为已验收全文。
+**译校说明：** 下文按原文 1—5 节和附录 A—D 的顺序翻译，保留主要公式编号、实验参数与表格。参考书目保留完整英文出版信息并附中文题名。尚未完成 PDF 逐自然段和全部数学符号的字符级终校，不标记为已验收全文。
 
 ## 摘要
 
@@ -361,28 +361,47 @@ $$
 
 本项目得到法国高等教育与研究部通过 CIFRE 工业研究培训计划的支持，由 ANRT 管理，协议编号 2022/1801，并与 Bull 合作开展。项目获得 GENCI 在 IDRIS 的 Jean Zay 超算中心 CSL、A100、H100 分区的 HPC/AI 计算和存储资源，资助编号 AD010117241。
 
-**原文参考文献 [1]—[20]：** 为避免改变作者、年份与 DOI，以下保留原文书目题名及编号，详见 [原 PDF（arXiv）](https://arxiv.org/pdf/2610.37169)。
+**参考文献（原文 [1]—[20]，保留作者、卷页、年份与 DOI，并补充中文题名）：**
 
-[1] Blei et al., *Variational inference: A review for statisticians*, JASA, 2017.  
-[2] Brooks et al., *Handbook of Markov Chain Monte Carlo*, CRC, 2011.  
-[3] Chen et al., *GradNorm: Gradient normalization for adaptive loss balancing in deep multitask networks*, ICML, 2018.  
-[4] Cover and Thomas, *Differential Entropy*, 2005.  
-[5] Daudel et al., *Alpha-divergence variational inference meets importance weighted auto-encoders*, 2023.  
-[6] Dieng et al., *Variational inference via χ upper bound minimization*, NeurIPS, 2017.  
-[7] Dinh et al., *Density estimation using Real NVP*, 2016.  
-[8] Futami et al., *Variational inference based on robust divergences*, 2018.  
-[9] Geman and Geman, *Stochastic relaxation, Gibbs distributions, and the Bayesian restoration of images*, IEEE TPAMI, 1984.  
-[10] Hastings, *Monte Carlo sampling methods using Markov chains and their applications*, Biometrika, 1970.  
-[11] Hernandez-Lobato et al., *Black-box alpha divergence minimization*, ICML, 2016.  
-[12] Hoffman et al., *Stochastic variational inference*, JMLR, 2013.  
-[13] Jordan et al., *An introduction to variational methods for graphical models*, Machine Learning, 1999.  
-[14] Li and Turner, *Rényi divergence variational inference*, 2016.  
-[15] Neal, *MCMC using Hamiltonian dynamics*, 2011.  
-[16] Rezende and Mohamed, *Variational inference with normalizing flows*, ICML, 2015.  
-[17] Székely and Rizzo, *Energy statistics: A class of statistics based on distances*, 2013.  
-[18] Tikhonov and Glasko, *Use of the regularization method in non-linear problems*, 1965.  
-[19] Wang et al., *Variational inference with tail-adaptive f-divergence*, 2019.  
-[20] Wang et al., *Variational inference MPC using Tsallis divergence*, 2021.
+[1] D. M. Blei, A. Kucukelbir, and J. D. McAuliffe, “Variational inference: A review for statisticians”（《变分推断：面向统计学家的综述》）, *Journal of the American Statistical Association*, **112** (2017), pp. 859–877.
 
-**校对状态：** 正文与附录的主要论述、编号公式及数字表格已录入。参考文献在本页采用简写索引，非原文书目的逐字转写；公式、术语、分页自然段及图中文字仍待源 PDF 终校。因此本译稿不能作为已通过逐段逐式校对的全文。
+[2] S. Brooks, A. Gelman, G. Jones, and X.-L. Meng, *Handbook of Markov Chain Monte Carlo*（《马尔可夫链蒙特卡洛手册》）, CRC Press, 2011.
+
+[3] Z. Chen, V. Badrinarayanan, C.-Y. Lee, and A. Rabinovich, “GradNorm: Gradient normalization for adaptive loss balancing in deep multitask networks”（《GradNorm：深度多任务网络中用于自适应损失均衡的梯度归一化》）, *International Conference on Machine Learning*, PMLR, 2018, pp. 794–803.
+
+[4] T. M. Cover and J. A. Thomas, “Differential Entropy”（《微分熵》）, John Wiley & Sons, Ltd, 2nd ed., 2005, Chapter 8, pp. 243–259, DOI: [10.1002/047174882X.ch8](https://doi.org/10.1002/047174882X.ch8).
+
+[5] K. Daudel, J. Benton, Y. Shi, and A. Doucet, “Alpha-divergence variational inference meets importance weighted auto-encoders: Methodology and asymptotics”（《α 散度变分推断与重要性加权自编码器的结合：方法与渐近性质》）, arXiv:2210.06226, 2023.
+
+[6] A. B. Dieng, D. Tran, R. Ranganath, J. Paisley, and D. Blei, “Variational inference via χ upper bound minimization”（《通过最小化 χ 上界进行变分推断》）, *Advances in Neural Information Processing Systems*, **30** (2017).
+
+[7] L. Dinh, J. Sohl-Dickstein, and S. Bengio, “Density estimation using Real NVP”（《使用 Real NVP 进行密度估计》）, arXiv:1605.08803, 2016.
+
+[8] F. Futami, I. Sato, and M. Sugiyama, “Variational inference based on robust divergences”（《基于稳健散度的变分推断》）, arXiv:1710.06595, 2018.
+
+[9] S. Geman and D. Geman, “Stochastic relaxation, Gibbs distributions, and the Bayesian restoration of images”（《随机松弛、Gibbs 分布与图像的贝叶斯恢复》）, *IEEE Transactions on Pattern Analysis and Machine Intelligence*, **PAMI-6** (1984), pp. 721–741, DOI: [10.1109/TPAMI.1984.4767596](https://doi.org/10.1109/TPAMI.1984.4767596).
+
+[10] W. K. Hastings, “Monte Carlo sampling methods using Markov chains and their applications”（《使用马尔可夫链的蒙特卡洛采样方法及其应用》）, *Biometrika*, **57** (1970), pp. 97–109, DOI: [10.1093/biomet/57.1.97](https://doi.org/10.1093/biomet/57.1.97).
+
+[11] J. Hernandez-Lobato, Y. Li, M. Rowland, T. Bui, D. Hernandez-Lobato, and R. Turner, “Black-box alpha divergence minimization”（《黑箱 α 散度最小化》）, *Proceedings of the 33rd International Conference on Machine Learning*, PMLR, 2016, pp. 1511–1520.
+
+[12] M. D. Hoffman, D. M. Blei, C. Wang, and J. Paisley, “Stochastic variational inference”（《随机变分推断》）, *Journal of Machine Learning Research*, 2013.
+
+[13] M. I. Jordan, Z. Ghahramani, T. S. Jaakkola, and L. K. Saul, “An introduction to variational methods for graphical models”（《图模型变分方法导论》）, *Machine Learning*, **37** (1999), pp. 183–233.
+
+[14] Y. Li and R. E. Turner, “Rényi divergence variational inference”（《Rényi 散度变分推断》）, arXiv:1602.02311, 2016.
+
+[15] R. M. Neal, “MCMC using Hamiltonian dynamics”（《基于哈密顿动力学的 MCMC》）, in *Handbook of Markov Chain Monte Carlo*, S. Brooks, A. Gelman, G. Jones, and X.-L. Meng, eds., Chapman and Hall/CRC, 2011, Chapter 5, pp. 113–162.
+
+[16] D. Rezende and S. Mohamed, “Variational inference with normalizing flows”（《基于归一化流的变分推断》）, *International Conference on Machine Learning*, PMLR, 2015, pp. 1530–1538.
+
+[17] G. J. Székely and M. L. Rizzo, “Energy statistics: A class of statistics based on distances”（《能量统计量：一类基于距离的统计量》）, *Journal of Statistical Planning and Inference*, **143** (2013), pp. 1249–1272.
+
+[18] A. N. Tikhonov and V. B. Glasko, “Use of the regularization method in non-linear problems”（《正则化方法在非线性问题中的应用》）, *USSR Computational Mathematics and Mathematical Physics*, **5** (1965), pp. 93–107.
+
+[19] D. Wang, H. Liu, and Q. Liu, “Variational inference with tail-adaptive f-divergence”（《基于尾部自适应 f 散度的变分推断》）, arXiv:1810.11943, 2019.
+
+[20] Z. Wang, O. So, J. Gibson, B. Vlahov, M. S. Gandhi, G.-H. Liu, and E. A. Theodorou, “Variational inference MPC using Tsallis divergence”（《使用 Tsallis 散度的变分推断模型预测控制》）, arXiv:2104.00241, 2021.
+
+**校对状态：** 正文与附录的主要论述、编号公式及数字表格已录入。参考文献已依据原文第 9—10 页补齐作者、题名、来源及原始出版信息，并附中文题名；数学公式、图中文字以及原文自然段的双向逐条签核仍待最终验收。因此本译稿不能作为已通过逐段逐式校对的全文。
 {% endraw %}
