@@ -15,7 +15,7 @@ toc: true
 **作者：** Michele Mirabella、Pasquale Di Viesti、Christos Masouros、Giorgio M. Vitetta。  
 **期刊：** *IEEE Transactions on Wireless Communications*, Vol. 25, 2026, pp. 11113–11127；DOI: 10.1109/TWC.2026.3658942。  
 **版权声明：** 原 PDF 第 1 页注明 © 2026 The Authors，采用 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 授权。  
-**范围：** 已译摘要、信号模型、主要估计目标、算法框架和实验结论；Newton 迭代的完整推导、全部长公式、图表逐项数值、两项附录证明、参考书目与作者简介尚未逐段逐式完成，故当前是**主体译稿**。
+**范围：** 已译摘要、信号模型、主要估计目标、算法框架和实验结论；Newton 迭代的完整推导、全部长公式、图表逐项数值、附录 A 的偏导推导、附录 B 的长式和作者简介尚未逐段逐式完成（20 条书目已补录），故当前是**主体译稿**。
 
 ## 摘要
 
