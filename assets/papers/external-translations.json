@@ -3286,5 +3286,181 @@
     "coverage": "full",
     "license": "arxiv",
     "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-03",
+    "slug": "2026-10-03-2405-18527-task-driven-uncertainty-quantification-in-inverse-problems-via-conform",
+    "title": "逆问题中面向任务的共形预测不确定性量化｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[63]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-10-03-2405-18527-task-driven-uncertainty-quantification-in-inverse-problems-via-conform/",
+    "source_file": "2026-10-03-2405-18527-task-driven-uncertainty-quantification-in-inverse-problems-via-conform.md",
+    "source_page_path": "papers/translations/2026-10-03-2405-18527-task-driven-uncertainty-quantification-in-inverse-problems-via-conform.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-03-2405-18527-task-driven-uncertainty-quantification-in-inverse-problems-via-conform.md",
+    "paper_ids": [
+      "aea64912f5bf7b50"
+    ],
+    "source_arxiv_ids": [
+      "2405.18527"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-03",
+    "slug": "2026-10-03-2405-16749-dmplug-a-plug-in-method-for-solving-inverse-problems-with-diffusion-mo",
+    "title": "DMPlug：用扩散模型求解逆问题的即插即用方法｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[81]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-10-03-2405-16749-dmplug-a-plug-in-method-for-solving-inverse-problems-with-diffusion-mo/",
+    "source_file": "2026-10-03-2405-16749-dmplug-a-plug-in-method-for-solving-inverse-problems-with-diffusion-mo.md",
+    "source_page_path": "papers/translations/2026-10-03-2405-16749-dmplug-a-plug-in-method-for-solving-inverse-problems-with-diffusion-mo.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-03-2405-16749-dmplug-a-plug-in-method-for-solving-inverse-problems-with-diffusion-mo.md",
+    "paper_ids": [
+      "1e18e06c70407123"
+    ],
+    "source_arxiv_ids": [
+      "2405.16749"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-03",
+    "slug": "2026-10-03-2405-03854-provable-preconditioned-plug-and-play-approach-for-compressed-sensing",
+    "title": "压缩感知 MRI 重建的可证明预条件即插即用方法｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[72]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-10-03-2405-03854-provable-preconditioned-plug-and-play-approach-for-compressed-sensing/",
+    "source_file": "2026-10-03-2405-03854-provable-preconditioned-plug-and-play-approach-for-compressed-sensing.md",
+    "source_page_path": "papers/translations/2026-10-03-2405-03854-provable-preconditioned-plug-and-play-approach-for-compressed-sensing.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-03-2405-03854-provable-preconditioned-plug-and-play-approach-for-compressed-sensing.md",
+    "paper_ids": [
+      "6f8346f29fa83d16"
+    ],
+    "source_arxiv_ids": [
+      "2405.03854"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-03",
+    "slug": "2026-10-03-2411-16043-downlink-mimo-channel-estimation-from-bits-recoverability-and-algorith",
+    "title": "基于比特的下行 MIMO 信道估计：可恢复性与算法｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[61]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-10-03-2411-16043-downlink-mimo-channel-estimation-from-bits-recoverability-and-algorith/",
+    "source_file": "2026-10-03-2411-16043-downlink-mimo-channel-estimation-from-bits-recoverability-and-algorith.md",
+    "source_page_path": "papers/translations/2026-10-03-2411-16043-downlink-mimo-channel-estimation-from-bits-recoverability-and-algorith.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-03-2411-16043-downlink-mimo-channel-estimation-from-bits-recoverability-and-algorith.md",
+    "paper_ids": [
+      "18c3efcfd8721025"
+    ],
+    "source_arxiv_ids": [
+      "2411.16043"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-03",
+    "slug": "2026-10-03-2501-13472-radio-map-estimation-via-latent-domain-plug-and-play-denoising",
+    "title": "潜域即插即用去噪的无线电地图估计｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[59]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-10-03-2501-13472-radio-map-estimation-via-latent-domain-plug-and-play-denoising/",
+    "source_file": "2026-10-03-2501-13472-radio-map-estimation-via-latent-domain-plug-and-play-denoising.md",
+    "source_page_path": "papers/translations/2026-10-03-2501-13472-radio-map-estimation-via-latent-domain-plug-and-play-denoising.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-03-2501-13472-radio-map-estimation-via-latent-domain-plug-and-play-denoising.md",
+    "paper_ids": [
+      "1cbafcaa542d5384"
+    ],
+    "source_arxiv_ids": [
+      "2501.13472"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-04",
+    "slug": "2026-10-04-2310-15106-theoretical-analysis-of-the-radio-map-estimation-problem",
+    "title": "无线电地图估计问题的理论分析｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[36]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-10-04-2310-15106-theoretical-analysis-of-the-radio-map-estimation-problem/",
+    "source_file": "2026-10-04-2310-15106-theoretical-analysis-of-the-radio-map-estimation-problem.md",
+    "source_page_path": "papers/translations/2026-10-04-2310-15106-theoretical-analysis-of-the-radio-map-estimation-problem.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-04-2310-15106-theoretical-analysis-of-the-radio-map-estimation-problem.md",
+    "paper_ids": [
+      "dca1fee097b5038f"
+    ],
+    "source_arxiv_ids": [
+      "2310.15106"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-04",
+    "slug": "2026-10-04-2605-29097-geraf-neural-geometry-reconstruction-from-radio-frequency-signals",
+    "title": "GeRaF：从射频信号重建神经几何｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、图 1—? 图注与表、参考文献 68 条（英文原条目）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-10-04-2605-29097-geraf-neural-geometry-reconstruction-from-radio-frequency-signals/",
+    "source_file": "2026-10-04-2605-29097-geraf-neural-geometry-reconstruction-from-radio-frequency-signals.md",
+    "source_page_path": "papers/translations/2026-10-04-2605-29097-geraf-neural-geometry-reconstruction-from-radio-frequency-signals.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-04-2605-29097-geraf-neural-geometry-reconstruction-from-radio-frequency-signals.md",
+    "paper_ids": [
+      "fdb8bece62f0fa86"
+    ],
+    "source_arxiv_ids": [
+      "2605.29097"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-04",
+    "slug": "2026-10-04-2308-10542-learning-weakly-convex-regularizers-for-convergent-image-reconstructio",
+    "title": "学习弱凸正则项以构建收敛的图像重建算法｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、图注与表、参考文献 57 条（英文原条目）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-10-04-2308-10542-learning-weakly-convex-regularizers-for-convergent-image-reconstructio/",
+    "source_file": "2026-10-04-2308-10542-learning-weakly-convex-regularizers-for-convergent-image-reconstructio.md",
+    "source_page_path": "papers/translations/2026-10-04-2308-10542-learning-weakly-convex-regularizers-for-convergent-image-reconstructio.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-04-2308-10542-learning-weakly-convex-regularizers-for-convergent-image-reconstructio.md",
+    "paper_ids": [
+      "8bb134d0351d4de5"
+    ],
+    "source_arxiv_ids": [
+      "2308.10542"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
   }
 ]
