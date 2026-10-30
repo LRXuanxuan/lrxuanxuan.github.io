@@ -180,6 +180,133 @@ RF 感知神经网络往往随测试环境变化出现域偏移。常见测试�
 
 论文采用与 AutoMS 相似的实验条件：在约 50 平方米走廊中放置 60 GHz 802.11ad 接入点；固定设计的超表面具有 45° 方位反射角与 15° 俯仰反射角，包含约 10,000 个单元，尺寸为 13 × 13 平方厘米。优化空间包括沿墙体平移 ±3 m 和旋转 ±30°。图 18 展示场景、覆盖图及相对于超表面位移的覆盖梯度；图 19 比较 RSS 预测及动态场景结果。作者报告，对比仅调材料参数的 AutoMS，联合几何和材料标定能够降低接收功率误差。
 
+## 3.3 节补译：边缘过渡、二次可见性及导数
+
+原文首先比较三类楔边处理：传统几何光学使用二值 Heaviside 可见性函数，光滑三角面片使用 sigmoid 近似，而 RFDT 试图用一致性衍射理论（UTD）的边缘过渡函数同时保障场连续性与物理一致性。
+
+对于一条路径上某次镜面交互，传统判定要求反射点位于三角形内部。令重心坐标为 $(u,w)$，则
+
+$
+\mathbf p\in\triangle(\mathbf v_0,\mathbf v_1,\mathbf v_2)
+\iff (u\ge0)\land(w\ge0)\land(u+w\le1).\tag{3a}
+$
+
+对所有 $m$ 次反射接触执行二值判断，即得到路径权重 $W(\mathcal P)$（式（3））。这一函数在反射点跨过边界时突然从 1 变为 0；使用 $\sigma(ku)$、$\sigma(kw)$ 和 $\sigma(k(1-u-w))$ 组成的光滑面片函数（式（4））虽可求导，却会为三角面片外的虚假路径分配非零权重；小 $k$ 使几何过度光滑，大 $k$ 又导致不稳定梯度。
+
+**边缘衍射点与反射路径极限。** 令两个三角面 $\triangle_a$、$\triangle_b$ 在边 $E$ 处构成楔形。对满足反射定律的镜面路径，当反射点逼近边缘时，存在位于 $E$ 的唯一极限点 $\mathbf p^\star$，其入射和出射方向在相邻面上的反射角于极限意义下相等（原文式（5））。这个极限点与 UTD 的边缘衍射点相对应。作者借此论证：应由衍射过渡而非任意 sigmoid 处理镜面路径的连续消失。
+
+原文对衍射场的描述为
+
+$
+E_{\mathrm{diffract}}(L)
+=E_i(\mathbf p_d)\,D_{\mathrm{diffract}}\,A(L)e^{-jkL},
+\qquad A(L)=L^{-1/2}.\tag{6}
+$
+
+其中 $E_i$ 是衍射点入射电场，$D_{\mathrm{diffract}}$ 为楔边衍射系数，$k=2\pi/\lambda$，$L$ 为衍射点到观察点的传播长度。原文式（7）采用 UTD 楔边系数，由四个余切—过渡函数项组成，楔形尖锐度 $n=\pi/\alpha$，$\phi,\phi'$ 分别为观察与入射角，参数 $L_{a\pm}$、$L_{b\pm}$ 为有效路径距离。该长式尚需按原图完整转录，不应随意省略 $\mp$ 的四项组合。
+
+过渡函数采用式（8），$x=kL_a$。其 Fresnel 积分给出两类极限：$x\to\infty$ 时 $F(x)\to1$，恢复镜面反射；$x\to0$ 时 $F(x)\to0$，压低几何奇异项，使衍射成分主导，避免边缘处场强出现不连续。RFDT 将这一机制推广到传播路径中的多次交互，通过
+
+$
+W_{\mathrm{RFDT}}(\mathcal P)
+=\prod_{i=1}^{m}F(kL_a(\alpha_i)) \tag{11}
+$
+
+将每个交互处的边缘过渡相乘。这里原文对几何角 $\alpha$ 的使用与式（7）的楔角记号不同，需要参照原稿几何图理解。
+
+**主可见性与次可见性的区别。** 主可见性判定的是各镜面点是否落在其三角面范围内；次可见性判定的是一个原本合法的镜面反射段是否又遭到其他障碍物遮挡。RFDT 首先由候选路径搜索保留镜面路径；随后利用 BVH 遮挡测试寻找沿段的障碍物及其轮廓边，以此建立新的边缘衍射路径。
+
+对于某传播段与轮廓边的有符号净空 $\gamma$，传统模型是 $E^{\mathrm{GO}}=H(\gamma)E_a^{\mathrm{spec}}$，因此在 $\gamma=0$ 不连续。RFDT 改用 $w(\gamma)=F(kL_a)$ 逐渐衰减镜面场，并添加经过衍射点的场：
+
+$
+E_{\mathrm{total}}
+=w(\gamma)E_a^{\mathrm{spec}}+E_{\mathrm{diffract}}.\tag{9}
+$
+
+从两个楔面看，传统方法为 $E^E_{\mathrm{dire}}=H(\alpha)E_a+H(-\alpha)E_b$（式（12））；sigmoid 近似为 $E^E_{\mathrm{soft}}=\sigma(\triangle_a)E_a+\sigma(\triangle_b)E_b$（式（13））；RFDT 使用
+
+$
+E^E_{\mathrm{RFDT}}=F(x_a)E_a+F(x_b)E_b,\tag{14}
+$
+
+其中 $x_a=kL_aa_a$、$x_b=kL_ab_a$，系数 $a_a,a_b$ 为反射/边缘角距离的归一化几何因子。
+
+对顶点 $\mathbf v$ 求导时，乘积法则给出
+
+$
+\begin{aligned}
+\frac{\partial E^E}{\partial\mathbf v}
+={}&\frac{\partial F(x_a)}{\partial\mathbf v}E_a+
+F(x_a)\frac{\partial E_a}{\partial\mathbf v}\\
+&+\frac{\partial F(x_b)}{\partial\mathbf v}E_b+
+F(x_b)\frac{\partial E_b}{\partial\mathbf v}.
+\end{aligned}\tag{15}
+$
+
+而
+
+$
+\frac{\partial F(x)}{\partial\mathbf v}
+=F'(x)\frac{\partial x}{\partial\mathbf v}
+=F'(x)\frac{\partial(kL_a)}{\partial\mathbf v}.\tag{16}
+$
+
+几何导数由重新参数化镜像法中的矢量加法、点积和叉积等连续操作经自动微分计算，因此可以反向传播至三角形顶点坐标。每条路径的幅度与相位求导共同构成式（17）。
+
+## 4 节补译：Dirichlet 核代理与退火优化
+
+RF 系统的距离、角度估计会受到周期相位和多径相消造成的局部非凸性影响。即使采用 FMCW 或 OFDM 等宽带波形将时延分辨到 Fourier 域，有限带宽和采样点仍导致分辨率不足与旁瓣。MUSIC 等子空间高分辨谱方法虽然可降低旁瓣，却需要样本协方差特征分解，其梯度方差可能过高，不适合直接用于场景几何的稳定优化。
+
+RFDT 不使用任意的高斯平滑，而是利用有限长度正弦信号在矩形窗下 FFT 谱的 Dirichlet 核结构，构造路径级代理响应：
+
+$
+R(f)_s=\sum_i G_i(\tau_i,f)\,\alpha_i.\tag{18}
+$
+
+其核函数写为
+
+$
+G_i(\tau_i,f)=
+\left[\frac{\sin(N\pi r_i/2)}{N\sin(\pi r_i/2)}\right]^2,
+\qquad
+r_i=\frac{\tau_i-D(f)}{\sigma},\tag{19}
+$
+
+其中 $D(f)$ 将频率 bin 映射为时延，$N$ 为 FFT 点数，$\sigma$ 控制频率分辨率；当 $r_i\to0$ 时将 $G_i$ 定义为 1。由于单个多径可视作有限窗中的正弦分量，这个核同时保留主瓣与旁瓣的物理结构。
+
+在优化初期，代理响应暂时忽略各路径相位 $\phi_i$，降低相位周期性导致的局部极小值，以短期偏差换取较稳定的下降方向。随后，随迭代次数 $t$ 增大，以单调的 $\lambda(t)\in[0,1]$ 从代理谱逐渐过渡到精确 FFT 谱：
+
+$
+R(f)=\lambda(t)R_{\mathrm{FFT}}(f)+(1-\lambda(t))R(f)_s.
+\tag{20}
+$
+
+作者将其称为由粗到细的代理优化。需要注意，在退火终点使用精确 FFT 不等于保证非凸优化全局收敛，只意味着最终代价不再持续包含代理的初始平滑偏差。
+
+原文式（21）对 Dirichlet 核给出解析时延导数，并在式（22）写出
+
+$
+\frac{\partial R(f)_s}{\partial\tau_i}
+=\frac{\partial G_i}{\partial\tau_i}\alpha_i,\qquad
+\frac{\partial R(f)_s}{\partial\alpha_i}=G_i.\tag{22}
+$
+
+这些导数结合式（15）—（17）构成从射频距离谱到场景物理参数的端到端梯度路径。式（21）的全量三角函数导数仍待根据 PDF 字符级录入。
+
+## 5 节补译：优化闭环
+
+在可微 RF 追踪和谱域代理均就绪后，数字孪生参数可通过迭代最小化仿真输出与真实 RF 观测的偏差：
+
+$
+\boldsymbol\theta^\star
+=\arg\min_{\boldsymbol\theta}
+\mathcal L(\operatorname{RFDT}(\boldsymbol\theta),\mathbf y).
+\tag{23}
+$
+
+其中 $\boldsymbol\theta$ 表征几何、姿态、材料、运动与传感器配置，$\mathbf y$ 为观测。原文图 5 展示从场景初值开始模拟传播、计算损失、反向传播并更新参数的闭环。图 6 显示数字孪生代替隐式神经表示；图 7 显示数字孪生作为可训练物理模块增强神经网络。
+
+
 ## 附录范围和终校提示
 
 原 PDF 第 14—23 页包含参考文献、设备及仿真补充设置、理论证明、几何与材质求导、射线追踪实现细节以及附加结果。特别是附录 **D.1—D.3** 涉及零测度采样命题、楔边极限、UTD 过渡函数的渐近性质；**E.1—E.3** 涉及候选路径探索、材料及动态场景；**F.1—F.2** 涉及信号域代理及谱算法。相关证明和长公式目前未完整逐式译出，不能因为本页列出其题目就视为已完成。正式研读或复现请对照 [原 PDF](https://arxiv.org/pdf/2603.18026)。
