@@ -163,6 +163,26 @@
 }
 .rc-home .rc-card-pending { box-shadow: none; }
 
+/* Compact, text-only publication list. */
+.rc-home .rc-publications { list-style: none; padding: 0; margin: 0; display: grid; gap: .75rem; }
+.rc-home .rc-publication {
+  min-width: 0; padding: 1rem 1.2rem;
+  border: 1px solid var(--rc-border); border-radius: 12px; background: var(--card-bg);
+}
+.rc-home .rc-publication-meta {
+  color: var(--link-color); font-size: .78rem; font-weight: 600; margin: 0 0 .4rem;
+}
+.rc-home .rc-publication h3 {
+  color: var(--heading-color); font-size: .96rem; font-weight: 650;
+  line-height: 1.6; margin: 0 0 .4rem; overflow-wrap: anywhere;
+}
+.rc-home .rc-publication h3 a { color: inherit; text-decoration: none; }
+.rc-home .rc-publication h3 a:hover { color: var(--link-color); }
+.rc-home .rc-publication h3 span { font-size: .78rem; color: var(--link-color); }
+.rc-home .rc-publication > p:last-child {
+  color: var(--text-muted-color); font-size: .84rem; line-height: 1.7; margin: 0;
+}
+
 /* Random wandering: text-only discovery card. */
 .rc-home .rc-wander-panel {
   border: 1px solid var(--rc-border);
