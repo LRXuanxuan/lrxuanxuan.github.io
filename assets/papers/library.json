@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "source": "每日论文推荐.xlsx",
-  "source_sha256": "55bac1c358c14dd628820d8753d5c4f83eff21c96f8bed831ec636a33db8be1c",
+  "source_sha256": "667f6509c907b3f519f6fb8fb5bebd90ca35d9c2641539ec2bd83988638e4787",
   "translation_progress": {
     "target": 315,
     "completed": 22,
@@ -10,8 +10,8 @@
     "status_counts": {
       "access_blocked": 3,
       "complete": 18,
-      "pending": 287,
-      "incomplete": 6,
+      "pending": 292,
+      "incomplete": 1,
       "running": 1
     },
     "model": "gpt-6-luna",
@@ -23,7 +23,7 @@
   "sheets": [
     {
       "name": "每日论文推荐",
-      "count": 410,
+      "count": 415,
       "headers": [
         "日期",
         "标题",
@@ -45,8 +45,9 @@
       ]
     }
   ],
-  "total": 410,
+  "total": 415,
   "dates": {
+    "2026-10-31": 5,
     "2026-10-30": 5,
     "2026-10-29": 5,
     "2026-10-28": 5,
@@ -103,8 +104,257 @@
     "2026-07-12": 5,
     "2026-07-11": 5
   },
-  "latest_date": "2026-10-30",
+  "latest_date": "2026-10-31",
   "papers": [
+    {
+      "id": "fd7b24a313b46ea0",
+      "date": "2026-10-31",
+      "title": "Simulation-Efficient Double-Flow Neural Posterior Estimation for Agent-Based Models",
+      "sheet": "每日论文推荐",
+      "row": 416,
+      "fields": {
+        "日期": "2026-10-31",
+        "标题": "Simulation-Efficient Double-Flow Neural Posterior Estimation for Agent-Based Models",
+        "内容": "作者：Junyao Zhang; Jinglai Li; Junqi Tang。问题：昂贵模拟器限制神经后验估计训练对数量，如何用生成summary补足有限直接仿真预算。 方法：学习时序summary，条件normalizing flow生成summary，第二条件flow学习参数后验；比较混合与分阶段训练和真实/合成比例。 结果：两种Brock–Hommes设置中Mixed1:9使用1000直接模拟，对比SNPE10000，均值WASS/MMD²及记录运行时间降低；最大节省比例与最佳后验精度出现在不同分配。 局限：每设置仅一个模拟观测的重复拟合，有限MCMC参考；噪声设置中位数未优于基线，冻结surrogate后合成增广有好有坏；proposal修正不消除surrogate条件偏差，无无线实测证据。",
+        "契合方向": "仿真受限SBI；生成数据；后验可信度",
+        "推荐理由": "为射线追踪昂贵时的合成统计增广提供可检验方案及明确反例边界。",
+        "顶刊顶会/机构依据": "arXiv cs.MA；预印本/状态未确认；arXiv v1，2026-10-26；未发现出版社或作者明确录用证据。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2610.35442",
+        "检索来源": "https://arxiv.org/abs/2610.35442",
+        "筛选备注": "理论启发或基线；后续独立数据预算课题，仅尝试生成低维角延迟统计或summary；保留真实RT预算控制与独立观测SBC，不能将生成summary当新增物理射线真值。；Sec2–3，Sec4 Discussion，Appendix A混合分布及B/C预算与运行时间控制。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；论文/arXiv未发现作者仓库；精确标题/编号网络搜索无对应代码，GitHub API403限流，本次负检索非穷尽。",
+        "反馈匹配": "相对已有Cheap Synthetic环境数据扩大，本篇直接审视增广条件分布偏差和完整参数后验；不是Flow Matching，采用条件normalizing flow。",
+        "反馈权重说明": "机制互补；区分论文事实、迁移推断、待验证假设；不将功率图指标冒充复MIMO后验收益。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-31/",
+      "report_section": "## 5. Simulation-Efficient Double-Flow Neural Posterior Estimation for Agent-Based Models\n\n**作者/年份/venue**：Junyao Zhang; Jinglai Li; Junqi Tang；2026；arXiv cs.MA。\n\n**发表状态**：预印本/状态未确认。arXiv v1，2026-10-26；未发现出版社或作者明确录用证据。\n\n**方向**：仿真受限SBI；生成数据；后验可信度\n\n**问题**：昂贵模拟器限制神经后验估计训练对数量，如何用生成summary补足有限直接仿真预算。\n\n**论文方法**：学习时序summary，条件normalizing flow生成summary，第二条件flow学习参数后验；比较混合与分阶段训练和真实/合成比例。\n\n**结果及证据边界**：两种Brock–Hommes设置中Mixed1:9使用1000直接模拟，对比SNPE10000，均值WASS/MMD²及记录运行时间降低；最大节省比例与最佳后验精度出现在不同分配。\n\n**局限与审计判断**：每设置仅一个模拟观测的重复拟合，有限MCMC参考；噪声设置中位数未优于基线，冻结surrogate后合成增广有好有坏；proposal修正不消除surrogate条件偏差，无无线实测证据。\n\n**迁移类型**：理论启发或基线\n\n**研究接口（迁移推断）**：后续独立数据预算课题，仅尝试生成低维角延迟统计或summary；保留真实RT预算控制与独立观测SBC，不能将生成summary当新增物理射线真值。\n\n**与既有阅读差异**：相对已有Cheap Synthetic环境数据扩大，本篇直接审视增广条件分布偏差和完整参数后验；不是Flow Matching，采用条件normalizing flow。\n\n**推荐理由**：为射线追踪昂贵时的合成统计增广提供可检验方案及明确反例边界。\n\n**代码状态**：未发现公开代码\n\n**代码证据**：论文/arXiv未发现作者仓库；精确标题/编号网络搜索无对应代码，GitHub API403限流，本次负检索非穷尽。\n\n**全文定位**：Sec2–3，Sec4 Discussion，Appendix A混合分布及B/C预算与运行时间控制。\n\n**稳定身份**：2610.35442\n\n**一手来源**：[来源1](https://arxiv.org/abs/2610.35442)\n\n[官方PDF](https://arxiv.org/pdf/2610.35442)；[原文PDF](https://arxiv.org/pdf/2610.35442)；28页。\n\n\n**代码入口**：未发现公开代码；精确标题/编号检索及官方全文为本次证据。\n\n[本篇全文翻译/真实状态](https://lrxuanxuan.github.io/papers/items/fd7b24a313b46ea0/#paper-translation)：job `f5e7f0060444311e334e3fe0`已入队，固定gpt-6-luna/xhigh。原worker发送返回找不到会话，未启动/未完成。\n\n[原文许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：译文公开许可未确认，完成稿先本地保留。PDF仅本地/官方链接，不上传PDF/XLSX。",
+      "report_entry_url": "/papers/reports/2026-10-31/#paper-fd7b24a313b46ea0",
+      "paper_url": "/papers/items/fd7b24a313b46ea0/",
+      "paper_report_url": "/papers/items/fd7b24a313b46ea0/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2610.35442",
+        "https://arxiv.org/abs/2610.35442",
+        "https://lrxuanxuan.github.io/papers/items/fd7b24a313b46ea0/#paper-translation)：job",
+        "https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：译文公开许可未确认"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2610.35442"
+      ],
+      "hosted_pdfs": [],
+      "status": "预印本/状态未确认",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/fd7b24a313b46ea0/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "10de81d8e4c55488",
+      "date": "2026-10-31",
+      "title": "Near-Field Velocity Estimation and Doppler-Aware Localization in OFDM Massive MIMO",
+      "sheet": "每日论文推荐",
+      "row": 415,
+      "fields": {
+        "日期": "2026-10-31",
+        "标题": "Near-Field Velocity Estimation and Doppler-Aware Localization in OFDM Massive MIMO",
+        "内容": "作者：Qing Zhang; Dario Tagliaferri; Robbert Beerten; Zhuangzhuang Cui; Yang Miao; Sofie Pollin。问题：近场大孔径阵列的bistatic Doppler随天线位置变化，单一Doppler假设导致模型失配。 方法：constant-Doppler粗定位起始，交替闭式2×2 LS估计径向/横向速度与逐天线Doppler-aware空间模糊函数定位精化。 结果：KU Leuven 4Tx/64Rx测试床移动圆柱体实测定位误差0.268降至0.064 m；径向/横向速度误差0.032/0.069 m/s。有限4D网格MLE仅为具体实现基线。 局限：5页短文，单目标与受控近场测试；仿真20dB固定目标状态，4D MLE采用围绕真值的40^4有限网格。不能据此宣称优于连续最优MLE或高速多径CSI估计。",
+        "契合方向": "近场MIMO；Doppler空间变化；物理算子失配",
+        "推荐理由": "明确区分生成先验误差与观测算子误差，避免用更强生成模型掩盖模型不相容。",
+        "顶刊顶会/机构依据": "Asilomar 2026；已接受待刊；arXiv作者Comments明确Accepted by Asilomar 2026 for presentation；未核实正式proceedings，保持已接受待刊。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2608.05133",
+        "检索来源": "https://arxiv.org/abs/2608.05133",
+        "筛选备注": "理论启发或基线；独立物理算子控制：在相同信道和导频下比较公共Doppler与逐天线Doppler，不与新求解器或新先验同时变化。；SecII–III/Eq13–18，TableI–III及SecV测试床。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；论文与arXiv未给代码入口，精确标题/编号网络检索未发现作者实现；GitHub API本次受403限流，负检索不穷尽。",
+        "反馈匹配": "区别于昨日SEFDM波形ICI约束，本篇研究大孔径近场空间Doppler变化及横向速度。",
+        "反馈权重说明": "机制互补；区分论文事实、迁移推断、待验证假设；不将功率图指标冒充复MIMO后验收益。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-31/",
+      "report_section": "## 4. Near-Field Velocity Estimation and Doppler-Aware Localization in OFDM Massive MIMO\n\n**作者/年份/venue**：Qing Zhang; Dario Tagliaferri; Robbert Beerten; Zhuangzhuang Cui; Yang Miao; Sofie Pollin；2026；Asilomar 2026。\n\n**发表状态**：已接受待刊。arXiv作者Comments明确Accepted by Asilomar 2026 for presentation；未核实正式proceedings，保持已接受待刊。\n\n**方向**：近场MIMO；Doppler空间变化；物理算子失配\n\n**问题**：近场大孔径阵列的bistatic Doppler随天线位置变化，单一Doppler假设导致模型失配。\n\n**论文方法**：constant-Doppler粗定位起始，交替闭式2×2 LS估计径向/横向速度与逐天线Doppler-aware空间模糊函数定位精化。\n\n**结果及证据边界**：KU Leuven 4Tx/64Rx测试床移动圆柱体实测定位误差0.268降至0.064 m；径向/横向速度误差0.032/0.069 m/s。有限4D网格MLE仅为具体实现基线。\n\n**局限与审计判断**：5页短文，单目标与受控近场测试；仿真20dB固定目标状态，4D MLE采用围绕真值的40^4有限网格。不能据此宣称优于连续最优MLE或高速多径CSI估计。\n\n**迁移类型**：理论启发或基线\n\n**研究接口（迁移推断）**：独立物理算子控制：在相同信道和导频下比较公共Doppler与逐天线Doppler，不与新求解器或新先验同时变化。\n\n**与既有阅读差异**：区别于昨日SEFDM波形ICI约束，本篇研究大孔径近场空间Doppler变化及横向速度。\n\n**推荐理由**：明确区分生成先验误差与观测算子误差，避免用更强生成模型掩盖模型不相容。\n\n**代码状态**：未发现公开代码\n\n**代码证据**：论文与arXiv未给代码入口，精确标题/编号网络检索未发现作者实现；GitHub API本次受403限流，负检索不穷尽。\n\n**全文定位**：SecII–III/Eq13–18，TableI–III及SecV测试床。\n\n**稳定身份**：2608.05133\n\n**一手来源**：[来源1](https://arxiv.org/abs/2608.05133)\n\n[官方PDF](https://arxiv.org/pdf/2608.05133)；[原文PDF](https://arxiv.org/pdf/2608.05133)；5页。\n\n\n**代码入口**：未发现公开代码；精确标题/编号检索及官方全文为本次证据。\n\n[本篇全文翻译/真实状态](https://lrxuanxuan.github.io/papers/items/10de81d8e4c55488/#paper-translation)：job `5a1ddd772ed54f8c5683b016`已入队，固定gpt-6-luna/xhigh。原worker发送返回找不到会话，未启动/未完成。\n\n[原文许可](https://creativecommons.org/licenses/by/4.0/)：许可允许完成并保留署名/改动说明后的译文共享。PDF仅本地/官方链接，不上传PDF/XLSX。",
+      "report_entry_url": "/papers/reports/2026-10-31/#paper-10de81d8e4c55488",
+      "paper_url": "/papers/items/10de81d8e4c55488/",
+      "paper_report_url": "/papers/items/10de81d8e4c55488/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2608.05133",
+        "https://arxiv.org/abs/2608.05133",
+        "https://lrxuanxuan.github.io/papers/items/10de81d8e4c55488/#paper-translation)：job",
+        "https://creativecommons.org/licenses/by/4.0/)：许可允许完成并保留署名/改动说明后的译文共享"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2608.05133"
+      ],
+      "hosted_pdfs": [],
+      "status": "已接受待刊",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/10de81d8e4c55488/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "16a55e81fda01b8f",
+      "date": "2026-10-31",
+      "title": "RMSampler: Sparse Radio Map Reconstruction with Active Sampling and Diffusion Posterior Correction",
+      "sheet": "每日论文推荐",
+      "row": 414,
+      "fields": {
+        "日期": "2026-10-31",
+        "标题": "RMSampler: Sparse Radio Map Reconstruction with Active Sampling and Diffusion Posterior Correction",
+        "内容": "作者：Nan Cheng; Xiucheng Wang。问题：稀疏功率测量同时留下地图与未知干扰源位置不确定性，测量预算需兼顾两种不同量纲误差。 方法：扩散地图ensemble协方差与候选源位置后验组成归一化采样准则；独立重建ensemble以ESS约束选择robust likelihood power，末端最小失真投影满足测量及建筑约束。 结果：Fig8重庆实测端到端同重建器比较，随机采样RMSE3.54到优化2.73 dB；TableII相同uniform位置另比较重建方法，不能混用数值。固定网络，测量更新后验及残差系数。 局限：静态单源标量RSRP模型，无复MIMO相位或高速移动；有限ensemble重加权不能创造未覆盖模式。TableII中纯posterior重庆B16为5.37 dB，完整RMSampler3.08，最终收益不能全归于后验重加权；投影一致性不是后验校准。",
+        "契合方向": "无线地图；主动测量；扩散后验修正",
+        "推荐理由": "提供冻结生成模型后的测量利用接口，并给出采样位置与重建器分离归因的实测设计。",
+        "顶刊顶会/机构依据": "arXiv eess.SP；预印本/状态未确认；arXiv v1，2026-10-20；未发现出版社或作者明确录用证据。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2610.27464",
+        "检索来源": "https://arxiv.org/abs/2610.27464",
+        "筛选备注": "可改造工具；独立地图失配/导频选择课题：参考ESS控制权重退化，噪声导频改用复Gaussian似然，固定pilot能量、数量与整体生成预算。；SecIII–IV，Propositions1–5，SecV/TableII/Fig8。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；官方arXiv/全文未给作者实现入口；GitHub精确编号搜索0结果，标题网络检索未发现对应仓库。",
+        "反馈匹配": "相对既有UA-D-RME/PolyRipple等地图协作，核心是测量获取、有限ensemble后验与投影；不是普通WiFi diffusion迁移。",
+        "反馈权重说明": "机制互补；区分论文事实、迁移推断、待验证假设；不将功率图指标冒充复MIMO后验收益。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-31/",
+      "report_section": "## 3. RMSampler: Sparse Radio Map Reconstruction with Active Sampling and Diffusion Posterior Correction\n\n**作者/年份/venue**：Nan Cheng; Xiucheng Wang；2026；arXiv eess.SP。\n\n**发表状态**：预印本/状态未确认。arXiv v1，2026-10-20；未发现出版社或作者明确录用证据。\n\n**方向**：无线地图；主动测量；扩散后验修正\n\n**问题**：稀疏功率测量同时留下地图与未知干扰源位置不确定性，测量预算需兼顾两种不同量纲误差。\n\n**论文方法**：扩散地图ensemble协方差与候选源位置后验组成归一化采样准则；独立重建ensemble以ESS约束选择robust likelihood power，末端最小失真投影满足测量及建筑约束。\n\n**结果及证据边界**：Fig8重庆实测端到端同重建器比较，随机采样RMSE3.54到优化2.73 dB；TableII相同uniform位置另比较重建方法，不能混用数值。固定网络，测量更新后验及残差系数。\n\n**局限与审计判断**：静态单源标量RSRP模型，无复MIMO相位或高速移动；有限ensemble重加权不能创造未覆盖模式。TableII中纯posterior重庆B16为5.37 dB，完整RMSampler3.08，最终收益不能全归于后验重加权；投影一致性不是后验校准。\n\n**迁移类型**：可改造工具\n\n**研究接口（迁移推断）**：独立地图失配/导频选择课题：参考ESS控制权重退化，噪声导频改用复Gaussian似然，固定pilot能量、数量与整体生成预算。\n\n**与既有阅读差异**：相对既有UA-D-RME/PolyRipple等地图协作，核心是测量获取、有限ensemble后验与投影；不是普通WiFi diffusion迁移。\n\n**推荐理由**：提供冻结生成模型后的测量利用接口，并给出采样位置与重建器分离归因的实测设计。\n\n**代码状态**：未发现公开代码\n\n**代码证据**：官方arXiv/全文未给作者实现入口；GitHub精确编号搜索0结果，标题网络检索未发现对应仓库。\n\n**全文定位**：SecIII–IV，Propositions1–5，SecV/TableII/Fig8。\n\n**稳定身份**：2610.27464\n\n**一手来源**：[来源1](https://arxiv.org/abs/2610.27464)\n\n[官方PDF](https://arxiv.org/pdf/2610.27464)；[原文PDF](https://arxiv.org/pdf/2610.27464)；12页。\n\n\n**代码入口**：未发现公开代码；精确标题/编号检索及官方全文为本次证据。\n\n[本篇全文翻译/真实状态](https://lrxuanxuan.github.io/papers/items/16a55e81fda01b8f/#paper-translation)：job `5ddf0a9e9914c511e6b9df64`已入队，固定gpt-6-luna/xhigh。原worker发送返回找不到会话，未启动/未完成。\n\n[原文许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：译文公开许可未确认，完成稿先本地保留。PDF仅本地/官方链接，不上传PDF/XLSX。",
+      "report_entry_url": "/papers/reports/2026-10-31/#paper-16a55e81fda01b8f",
+      "paper_url": "/papers/items/16a55e81fda01b8f/",
+      "paper_report_url": "/papers/items/16a55e81fda01b8f/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2610.27464",
+        "https://arxiv.org/abs/2610.27464",
+        "https://lrxuanxuan.github.io/papers/items/16a55e81fda01b8f/#paper-translation)：job",
+        "https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：译文公开许可未确认"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2610.27464"
+      ],
+      "hosted_pdfs": [],
+      "status": "预印本/状态未确认",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/16a55e81fda01b8f/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "3f84682f0fb82697",
+      "date": "2026-10-31",
+      "title": "Preconditioned Flow Matching",
+      "sheet": "每日论文推荐",
+      "row": 413,
+      "fields": {
+        "日期": "2026-10-31",
+        "标题": "Preconditioned Flow Matching",
+        "内容": "作者：Shadab Ahamed; Eshed Gal; Md Shahriar Rahim Siddiqui; Simon Ghyselincks; Moshe Eliasof; Eldad Haber。问题：中间分布协方差病态使FM优先拟合大方差方向，低总loss仍可掩盖小特征值方向误差。 方法：先用可逆变换改善目标几何，再在变换空间训练FM，采样后逆变换；Gaussian和mixture模型分析条件数相关优化速率，比较ZCA/NF/FM预条件。 结果：Table1 MNIST，未预条件FID5.97，参数匹配基线5.42，NF预条件2.74；ZCA为4.20。Table2五图像数据集FID均改善；该事实不等于低NFE或通信NMSE保证。 局限：精确理论限Gaussian/mixture与规定优化模型，不是任意非线性网络全局收敛；额外训练和逆映射有成本及数值误差，参数匹配不等于所有端到端算力完全相等。",
+        "契合方向": "Flow Matching；协方差几何；低能量方向",
+        "推荐理由": "角延迟信道谱强各向异性，低能量路径可能被总loss遮蔽；ZCA可作为最小独立控制。",
+        "顶刊顶会/机构依据": "NeurIPS 2026 Main Track；已接受待刊；NeurIPS官方2026 Downloads列出题目；第一作者公开公告明确accepted，非凭PDF会议模板判定。当前阅读arXiv v3（2026-10-26）。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2603.02337",
+        "检索来源": "https://arxiv.org/abs/2603.02337\nhttps://neurips.cc/Downloads/2026",
+        "筛选备注": "可改造工具；独立先验训练分支：复信道实嵌入后用仅训练集估计的PSD白化；变换后必须同步观测算子和噪声模型，避免测试地图泄漏。；Theorems 3.1–4.1，Tables1–2，Appendix B/G及训练预算表9–10。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "作者仓库目前为项目展示页，尚无论文训练/评测实现。",
+        "代码链接": "https://github.com/ahxmeds/preconditioned-flow-matching",
+        "代码/数据状态": "作者预告/部分代码；论文链接作者仓库，main树45047353仅README/项目网页、图片及网页资产构建脚本；未见论文训练/采样/评测实现，不能标完整开源。",
+        "反馈匹配": "区别于昨日Rényi的模式覆盖目标修改：此文保持下游FM目标，改变回归路径几何；不预设对不可观测子空间必然有益。",
+        "反馈权重说明": "机制互补；区分论文事实、迁移推断、待验证假设；不将功率图指标冒充复MIMO后验收益。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-31/",
+      "report_section": "## 2. Preconditioned Flow Matching\n\n**作者/年份/venue**：Shadab Ahamed; Eshed Gal; Md Shahriar Rahim Siddiqui; Simon Ghyselincks; Moshe Eliasof; Eldad Haber；2026；NeurIPS 2026 Main Track。\n\n**发表状态**：已接受待刊。NeurIPS官方2026 Downloads列出题目；第一作者公开公告明确accepted，非凭PDF会议模板判定。当前阅读arXiv v3（2026-10-26）。\n\n**方向**：Flow Matching；协方差几何；低能量方向\n\n**问题**：中间分布协方差病态使FM优先拟合大方差方向，低总loss仍可掩盖小特征值方向误差。\n\n**论文方法**：先用可逆变换改善目标几何，再在变换空间训练FM，采样后逆变换；Gaussian和mixture模型分析条件数相关优化速率，比较ZCA/NF/FM预条件。\n\n**结果及证据边界**：Table1 MNIST，未预条件FID5.97，参数匹配基线5.42，NF预条件2.74；ZCA为4.20。Table2五图像数据集FID均改善；该事实不等于低NFE或通信NMSE保证。\n\n**局限与审计判断**：精确理论限Gaussian/mixture与规定优化模型，不是任意非线性网络全局收敛；额外训练和逆映射有成本及数值误差，参数匹配不等于所有端到端算力完全相等。\n\n**迁移类型**：可改造工具\n\n**研究接口（迁移推断）**：独立先验训练分支：复信道实嵌入后用仅训练集估计的PSD白化；变换后必须同步观测算子和噪声模型，避免测试地图泄漏。\n\n**与既有阅读差异**：区别于昨日Rényi的模式覆盖目标修改：此文保持下游FM目标，改变回归路径几何；不预设对不可观测子空间必然有益。\n\n**推荐理由**：角延迟信道谱强各向异性，低能量路径可能被总loss遮蔽；ZCA可作为最小独立控制。\n\n**代码状态**：作者预告/部分代码\n\n**代码证据**：论文链接作者仓库，main树45047353仅README/项目网页、图片及网页资产构建脚本；未见论文训练/采样/评测实现，不能标完整开源。\n\n**全文定位**：Theorems 3.1–4.1，Tables1–2，Appendix B/G及训练预算表9–10。\n\n**稳定身份**：2603.02337\n\n**一手来源**：[来源1](https://arxiv.org/abs/2603.02337) [来源2](https://neurips.cc/Downloads/2026)\n\n[官方PDF](https://arxiv.org/pdf/2603.02337)；[原文PDF](https://arxiv.org/pdf/2603.02337)；45页。\n作者仓库目前为项目展示页，尚无论文训练/评测实现。\n\n**代码入口**：[作者存档/仓库](https://github.com/ahxmeds/preconditioned-flow-matching)\n\n[本篇全文翻译/真实状态](https://lrxuanxuan.github.io/papers/items/3f84682f0fb82697/#paper-translation)：job `7378df3d69a01d42932fb2c8`已入队，固定gpt-6-luna/xhigh。原worker发送返回找不到会话，未启动/未完成。\n\n[原文许可](https://creativecommons.org/licenses/by/4.0/)：许可允许完成并保留署名/改动说明后的译文共享。PDF仅本地/官方链接，不上传PDF/XLSX。",
+      "report_entry_url": "/papers/reports/2026-10-31/#paper-3f84682f0fb82697",
+      "paper_url": "/papers/items/3f84682f0fb82697/",
+      "paper_report_url": "/papers/items/3f84682f0fb82697/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2603.02337",
+        "https://arxiv.org/abs/2603.02337",
+        "https://neurips.cc/Downloads/2026",
+        "https://github.com/ahxmeds/preconditioned-flow-matching",
+        "https://lrxuanxuan.github.io/papers/items/3f84682f0fb82697/#paper-translation)：job",
+        "https://creativecommons.org/licenses/by/4.0/)：许可允许完成并保留署名/改动说明后的译文共享"
+      ],
+      "github": [
+        "https://github.com/ahxmeds/preconditioned-flow-matching"
+      ],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2603.02337"
+      ],
+      "hosted_pdfs": [],
+      "status": "已接受待刊",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/3f84682f0fb82697/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "34ffbb5befb01a12",
+      "date": "2026-10-31",
+      "title": "Consecutive Posterior Fusion for Diffusive Recovery of Unobservable Image Structures",
+      "sheet": "每日论文推荐",
+      "row": 412,
+      "fields": {
+        "日期": "2026-10-31",
+        "标题": "Consecutive Posterior Fusion for Diffusive Recovery of Unobservable Image Structures",
+        "内容": "作者：Elena Morotti; Davide Evangelista; Elena Loli Piccolomini。问题：秩亏观测下，逐步去噪只使用当前校正，未利用相邻步零空间估计的误差关联。 方法：融合连续两次measurement-aware估计；在DDNM范围/零空间分解中保持测量确定分量，仅融合零空间；局部二次误差分析给出最优系数，实际采用任务相关时间调度。 结果：Table 1，30-view CT的PSNR从DDNM 31.06提高至32.40 dB；60-view从33.89至37.27 dB。5次初始化；不增加denoiser evaluations。 局限：理论最优系数依赖未知误差二阶量，推理不可直接计算；外推有效有相关性条件，实际调度不能当自适应最优。Mayo测试仅1名患者326张图；无复MIMO实验或完整后验校准。",
+        "契合方向": "PnP逆问题；零空间；固定NFE",
+        "推荐理由": "直接对应当前不可观测子空间收益的机制解释，可在冻结先验条件下研究相邻校正是否提供额外信息。",
+        "顶刊顶会/机构依据": "arXiv cs.CV；预印本/状态未确认；arXiv v1，2026-10-02；未发现出版社或作者明确录用证据。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2610.03261",
+        "检索来源": "https://arxiv.org/abs/2610.03261",
+        "筛选备注": "可改造工具；期刊扩展独立求解器分支；将复导频算子换入投影框架，噪声时保留软一致性，不把CT硬投影直接当精确Bayes后验。；Sec 3，Propositions 1–2，Eq 25–31；Sec 4.1及Table 1。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "代码作者预告录用后开放；当前未完成作者代码复现。",
+        "代码链接": "",
+        "代码/数据状态": "作者预告/部分代码；PDF Sec4明确写source code/config/checkpoint/partitions将于录用后开放（code-released-upon-acceptance）；精确标题及2610.03261检索未发现作者实现。",
+        "反馈匹配": "相对已有FlowADMM/dual反馈，新增相邻零空间估计融合；不重新建议已完成四格与M扫描。",
+        "反馈权重说明": "机制互补；区分论文事实、迁移推断、待验证假设；不将功率图指标冒充复MIMO后验收益。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-10-31/",
+      "report_section": "## 1. Consecutive Posterior Fusion for Diffusive Recovery of Unobservable Image Structures\n\n**作者/年份/venue**：Elena Morotti; Davide Evangelista; Elena Loli Piccolomini；2026；arXiv cs.CV。\n\n**发表状态**：预印本/状态未确认。arXiv v1，2026-10-02；未发现出版社或作者明确录用证据。\n\n**方向**：PnP逆问题；零空间；固定NFE\n\n**问题**：秩亏观测下，逐步去噪只使用当前校正，未利用相邻步零空间估计的误差关联。\n\n**论文方法**：融合连续两次measurement-aware估计；在DDNM范围/零空间分解中保持测量确定分量，仅融合零空间；局部二次误差分析给出最优系数，实际采用任务相关时间调度。\n\n**结果及证据边界**：Table 1，30-view CT的PSNR从DDNM 31.06提高至32.40 dB；60-view从33.89至37.27 dB。5次初始化；不增加denoiser evaluations。\n\n**局限与审计判断**：理论最优系数依赖未知误差二阶量，推理不可直接计算；外推有效有相关性条件，实际调度不能当自适应最优。Mayo测试仅1名患者326张图；无复MIMO实验或完整后验校准。\n\n**迁移类型**：可改造工具\n\n**研究接口（迁移推断）**：期刊扩展独立求解器分支；将复导频算子换入投影框架，噪声时保留软一致性，不把CT硬投影直接当精确Bayes后验。\n\n**与既有阅读差异**：相对已有FlowADMM/dual反馈，新增相邻零空间估计融合；不重新建议已完成四格与M扫描。\n\n**推荐理由**：直接对应当前不可观测子空间收益的机制解释，可在冻结先验条件下研究相邻校正是否提供额外信息。\n\n**代码状态**：作者预告/部分代码\n\n**代码证据**：PDF Sec4明确写source code/config/checkpoint/partitions将于录用后开放（code-released-upon-acceptance）；精确标题及2610.03261检索未发现作者实现。\n\n**全文定位**：Sec 3，Propositions 1–2，Eq 25–31；Sec 4.1及Table 1。\n\n**稳定身份**：2610.03261\n\n**一手来源**：[来源1](https://arxiv.org/abs/2610.03261)\n\n[官方PDF](https://arxiv.org/pdf/2610.03261)；[原文PDF](https://arxiv.org/pdf/2610.03261)；21页。\n代码作者预告录用后开放；当前未完成作者代码复现。\n\n**代码入口**：未发现公开代码；精确标题/编号检索及官方全文为本次证据。\n\n[本篇全文翻译/真实状态](https://lrxuanxuan.github.io/papers/items/34ffbb5befb01a12/#paper-translation)：job `acf5dbd9b9240b0c1e8ac23b`已入队，固定gpt-6-luna/xhigh。原worker发送返回找不到会话，未启动/未完成。\n\n[原文许可](https://creativecommons.org/publicdomain/zero/1.0/)：许可允许完成并保留署名/改动说明后的译文共享。PDF仅本地/官方链接，不上传PDF/XLSX。",
+      "report_entry_url": "/papers/reports/2026-10-31/#paper-34ffbb5befb01a12",
+      "paper_url": "/papers/items/34ffbb5befb01a12/",
+      "paper_report_url": "/papers/items/34ffbb5befb01a12/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2610.03261",
+        "https://arxiv.org/abs/2610.03261",
+        "https://lrxuanxuan.github.io/papers/items/34ffbb5befb01a12/#paper-translation)：job",
+        "https://creativecommons.org/publicdomain/zero/1.0/)：许可允许完成并保留署名/改动说明后的译文共享"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2610.03261"
+      ],
+      "hosted_pdfs": [],
+      "status": "预印本/状态未确认",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/34ffbb5befb01a12/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
     {
       "id": "6240e182618d1d29",
       "date": "2026-10-30",
@@ -20714,6 +20964,17 @@
   ],
   "reports": [
     {
+      "date": "2026-10-31",
+      "url": "/papers/reports/2026-10-31/",
+      "source_file": "2026-10-31_每日前沿论文推荐.md",
+      "slug": "2026-10-31",
+      "covered_dates": [
+        "2026-10-31"
+      ],
+      "title": "10_31前沿论文推荐",
+      "download": "/assets/papers/reports/2026-10-31.md"
+    },
+    {
       "date": "2026-10-30",
       "url": "/papers/reports/2026-10-30/",
       "source_file": "2026-10-30_每日前沿论文推荐.md",
@@ -22863,9 +23124,9 @@
   "pdf_mode": "links_only",
   "workbook_table": {
     "url": "/papers/table/",
-    "source_sha256": "55bac1c358c14dd628820d8753d5c4f83eff21c96f8bed831ec636a33db8be1c",
+    "source_sha256": "667f6509c907b3f519f6fb8fb5bebd90ca35d9c2641539ec2bd83988638e4787",
     "sheet": "每日论文推荐",
-    "row_count": 410,
+    "row_count": 415,
     "headers": [
       "日期",
       "标题",
