@@ -188,7 +188,7 @@ RF 感知神经网络往往随测试环境变化出现域偏移。常见测试�
 
 $
 \mathbf p\in\triangle(\mathbf v_0,\mathbf v_1,\mathbf v_2)
-\iff (u\ge0)\land(w\ge0)\land(u+w\le1).\tag{3a}
+\iff (u\ge0)\land(w\ge0)\land(u+w\le1).\tag{3}
 $
 
 对所有 $m$ 次反射接触执行二值判断，即得到路径权重 $W(\mathcal P)$（式（3））。这一函数在反射点跨过边界时突然从 1 变为 0；使用 $\sigma(ku)$、$\sigma(kw)$ 和 $\sigma(k(1-u-w))$ 组成的光滑面片函数（式（4））虽可求导，却会为三角面片外的虚假路径分配非零权重；小 $k$ 使几何过度光滑，大 $k$ 又导致不稳定梯度。
