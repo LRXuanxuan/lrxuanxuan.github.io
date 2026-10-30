@@ -333,6 +333,78 @@ $
 **原图 3：** S0 下 GLRT 检测概率随 SNR 与平均速度变化；$L\in\{1,3,5\}$，SNR 增大后检测趋近于 1，而高速目标和更多目标会削弱检测。**原图 4：** S1、16-PSK，五种算法距离和速度 RMSE（含 CRLB）；其余图 5—7 比较多目标 S2/S3 相关结果，图 8 讨论 S4 的迭代，图 9—10 分析复杂度和执行时间，图 11 分析 S6 的 $\beta$ 变化。各图曲线的逐点坐标仍须与 PDF 原图核实，不应用目测读数代替数表。
 
 
+## 附录 B：Cramér–Rao 下界（原式（54）—（59））
+
+本附录推导 $L$ 个目标的复增益、归一化时延、归一化多普勒频率联合估计中的 Cramér–Rao 下界（CRLB）。作者指出，OFDM 雷达已有类似推导，但 SEFDM 共址雷达的形式需要重新表述。考虑向量化观测式（24），令 $\tilde{\mathbf a}$、$\tilde{\mathbf f}_\tau$ 和 $\tilde{\mathbf f}_\nu$ 为候选参数，假设噪声 $\breve{\mathbf w}$ 的各元素独立且服从零均值、方差 $\sigma_w^2$ 的复高斯分布。各待估参数的 CRLB 是以下矩阵的对角元：
+
+$
+\mathbf V=\sigma_w^2\mathbf\Phi^{-1},\tag{54}
+$
+
+其中 $2L\times2L$ 的 Fisher 信息矩阵为
+
+$
+\mathbf\Phi=[\Phi_{i,j}],\qquad
+\Phi_{i,j}=2\Re\left\{
+\left(\frac{\partial\tilde{\mathbf h}}{\partial\tilde f_i}\right)^H
+\frac{\partial\tilde{\mathbf h}}{\partial\tilde f_j}
+\right\}.\tag{55}
+$
+
+这里 $\tilde{\mathbf h}=\mathbf h^\top(\tilde{\mathbf a},\tilde{\mathbf f}_\tau,\tilde{\mathbf f}_\nu)$ 表示模型的复向量行式，$\tilde{\mathbf f}=[\tilde{\mathbf f}_\tau^\top,\tilde{\mathbf f}_\nu^\top]^\top$ 有 $2L$ 维。为了计算 Fisher 矩阵，作者将一阶频率偏导组织为
+
+$
+\frac{\partial\tilde{\mathbf h}}{\partial\tilde{\mathbf f}}
+=[\mathbf P,\mathbf Q]^\top,\tag{56}
+$
+
+其中 $\mathbf P=[\tilde{\mathbf P}_0,\ldots,\tilde{\mathbf P}_{L-1}]$、$\mathbf Q=[\tilde{\mathbf Q}_0,\ldots,\tilde{\mathbf Q}_{L-1}]$ 为 $MN\times L$ 矩阵，分别收集时延和多普勒方向的偏导列。原文式（57）和式（58）给出基于复幅度和二维复指数向量的逐列构造，式（59）将 Fisher 矩阵写成 $\mathbf P$ 与 $\mathbf Q$ 的四个 Gram 分块。数值实验使用各随机目标参数的期望并据式（54）—（59）计算 CRLB。这里关于式（57）—（59）的逐字符矩阵构造**尚待补齐，不能将本段视为附录 B 已逐式终校**。
+
+## 参考文献（[1]—[20]）
+
+根据原 PDF 末尾参考文献页补录英文题名、作者与出版信息，括号内附中文题名：
+
+[1] J. A. Zhang et al. “An overview of signal processing techniques for joint communication and radar sensing”（《通信与雷达联合感知信号处理技术综述》）. *IEEE Journal of Selected Topics in Signal Processing*, 15(6):1295–1315, Nov. 2021.
+
+[2] Z. Wei et al. “Integrated sensing and communication signals toward 5G-A and 6G: A survey”（《面向 5G-A 与 6G 的感知通信一体化信号综述》）. *IEEE Internet of Things Journal*, 10(13):11068–11092, Jul. 2023.
+
+[3] I. Darwazeh and M. Rodrigues. “A spectrally efficient frequency division multiplexing based communications system”（《基于频谱高效频分复用的通信系统》）. *8th International OFDM Workshop (InOWo)*, Sep. 2003, pp. 70–74.
+
+[4] S. Isam, I. Kanaras, and I. Darwazeh. “A truncated SVD approach for fixed complexity spectrally efficient FDM receivers”（《用于固定复杂度频谱高效 FDM 接收机的截断 SVD 方法》）. *IEEE Wireless Communications and Networking Conference*, Mar. 2011, pp. 1584–1589.
+
+[5] S. Isam and I. Darwazeh. “Design and performance assessment of fixed complexity spectrally efficient FDM receivers”（《固定复杂度频谱高效 FDM 接收机的设计与性能评价》）. *IEEE 73rd Vehicular Technology Conference (VTC Spring)*, May 2011, pp. 1–5.
+
+[6] B. Yu et al. “Channel equalisation and data detection for SEFDM over frequency selective fading channels”（《频率选择性衰落信道下 SEFDM 的信道均衡与数据检测》）. *IET Communications*, 12(18):2315–2323, Oct. 2018.
+
+[7] Y. Ma, F. Tian, N. Wu, B. Li, and X. Ma. “A low-complexity receiver for multicarrier faster-than-Nyquist signaling over frequency selective channels”（《频率选择性信道下多载波超奈奎斯特信令的低复杂度接收机》）. *IEEE Communications Letters*, 24(1):81–85, Jan. 2020.
+
+[8] M. Mirabella, P. Di Viesti, and G. M. Vitetta. “A novel message passing algorithm for soft-output detection in faster-than-Nyquist multicarrier systems”（《面向多载波超奈奎斯特系统软输出检测的新型消息传递算法》）. *IEEE 26th International Workshop on Signal Processing Advances in Wireless Communications (SPAWC)*, Jul. 2025, pp. 1–5.
+
+[9] C. Sturm and W. Wiesbeck. “Waveform design and signal processing aspects for fusion of wireless communications and radar sensing”（《无线通信与雷达感知融合中的波形设计与信号处理》）. *Proceedings of the IEEE*, 99(7):1236–1259, Jul. 2011.
+
+[10] S. Mercier, S. Bidon, D. Roque, and C. Enderli. “Comparison of correlation-based OFDM radar receivers”（《基于相关处理的 OFDM 雷达接收机比较》）. *IEEE Transactions on Aerospace and Electronic Systems*, 56(6):4796–4813, Dec. 2020.
+
+[11] L. Zheng and X. Wang. “Super-resolution delay-Doppler estimation for OFDM passive radar”（《面向 OFDM 无源雷达的超分辨时延—多普勒估计》）. *IEEE Transactions on Signal Processing*, 65(9):2197–2210, May 2017.
+
+[12] R. Xie, D. Hu, K. Luo, and T. Jiang. “Performance analysis of joint range-velocity estimator with 2D-MUSIC in OFDM radar”（《OFDM 雷达中基于 2D-MUSIC 的联合距离—速度估计器性能分析》）. *IEEE Transactions on Signal Processing*, 69:4787–4800, 2021.
+
+[13] U. K. Singh, R. Mitra, V. Bhatia, and A. K. Mishra. “Target range estimation in OFDM radar system via kernel least mean square technique”（《采用核最小均方技术的 OFDM 雷达目标距离估计》）. *International Conference on Radar Systems*, 2017, p. 44.
+
+[14] F. Zhang, Z. Zhang, W. Yu, and T.-K. Truong. “Joint range and velocity estimation with intrapulse and intersubcarrier Doppler effects for OFDM-based RadCom systems”（《考虑脉冲内及子载波间多普勒效应的 OFDM 雷达通信系统联合距离与速度估计》）. *IEEE Transactions on Signal Processing*, 68:662–675, 2020.
+
+[15] Y. L. Sit, C. Sturm, and T. Zwick. “Doppler estimation in an OFDM joint radar and communication system”（《OFDM 联合雷达通信系统中的多普勒估计》）. *German Microwave Conference*, Mar. 2011, pp. 1–4.
+
+[16] M. Mirabella, P. D. Viesti, A. Davoli, and G. M. Vitetta. “Deterministic signal processing techniques for OFDM-based radar sensing: An overview”（《基于 OFDM 的雷达感知确定性信号处理技术综述》）. *IEEE Access*, 11:68872–68889, 2023.
+
+[17] M. Mirabella, P. D. Viesti, and G. M. Vitetta. “On the use of a two-dimensional cyclic prefix in OTFS modulation and its implications”（《OTFS 调制中二维循环前缀的使用及其影响》）. *IEEE Open Journal of the Communications Society*, 5:3340–3367, 2024.
+
+[18] B. Ottersten, M. Viberg, P. Stoica, and A. Nehorai. “Exact and large sample maximum likelihood techniques for parameter estimation and detection in array processing”（《阵列处理中用于参数估计和检测的精确与大样本最大似然技术》）. In *Radar Array Processing*, Springer, 1993, pp. 99–151.
+
+[19] M. Mirabella, P. Di Viesti, and G. M. Vitetta. “Deterministic algorithms for four-dimensional imaging in colocated MIMO OFDM-based radar systems”（《共址 MIMO-OFDM 雷达四维成像的确定性算法》）. *IEEE Open Journal of the Communications Society*, 4:1516–1543, 2023.
+
+[20] D. A. Shnidman. “Expanded Swerling target models”（《扩展 Swerling 目标模型》）. *IEEE Transactions on Aerospace and Electronic Systems*, 39(3):1059–1069, Jul. 2003.
+
+
 ## 附录、引用与终校范围
 
 原文包含两个附录：**A. 对数似然代价函数的梯度与 Hessian**，**B. Cramér–Rao 下界的推导**；还包含参考文献和作者简介。本译稿尚未完整转录其偏导表达式、矩阵求导推导、CRLB 长公式与每个数值图的曲线配置，因此不应作为数值复现的唯一依据。严谨复现请逐式对照原 PDF 及论文 DOI。对原论文作者与 CC BY 4.0 授权的归属保留如上。
