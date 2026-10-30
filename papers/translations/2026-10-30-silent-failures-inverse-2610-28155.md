@@ -292,6 +292,53 @@ $$
 原文还强调，即便校准斜率的区间包含 1、校准截距的区间包含 0，也只能说**没有检出失校准**，并不能证明评分是校准概率。其预设评分本身是按 VAE 局部线性化近似得到，明确不是概率意义上的 $P(\mathrm{blind}\mid\delta)$。
 
 
+## 原文参考文献（[1]—[16]）
+
+保留原稿作者、英文题名、发表信息和 DOI，同时为题名提供中文翻译。
+
+[1] A. N. Angelopoulos and S. Bates. “Conformal prediction: A gentle introduction”（《保形预测：入门导论》）. *Foundations and Trends in Machine Learning*, 16(4):494–591, 2023. DOI: 10.1561/2200000101.
+
+[2] T. B. Armstrong and M. Kolesár. “Sensitivity analysis using approximate moment condition models”（《使用近似矩条件模型的敏感性分析》）. *Quantitative Economics*, 12(1):77–108, 2021. DOI: 10.3982/QE1609.
+
+[3] S. Bhadra, V. A. Kelkar, F. J. Brooks, and M. A. Anastasio. “On hallucinations in tomographic image reconstruction”（《关于断层图像重建中的幻觉结构》）. *IEEE Transactions on Medical Imaging*, 40(11):3249–3260, 2021. DOI: 10.1109/TMI.2021.3077857.
+
+[4] A. Bora, A. Jalal, E. Price, and A. G. Dimakis. “Compressed sensing using generative models”（《使用生成模型的压缩感知》）. In *Proceedings of the 34th ICML*, PMLR 70, pp. 537–546, 2017.
+
+[5] A. P. Browning, J. A. Flegg, and R. J. Murphy. “A cautionary tale of model misspecification and identifiability”（《模型设定错误与可辨识性的警示案例》）. *Bulletin of Mathematical Biology*, 88:5, 2026. DOI: 10.1007/s11538-025-01573-4.
+
+[6] A. A. Emerick and A. C. Reynolds. “Ensemble smoother with multiple data assimilation”（《具有多次数据同化的集合平滑器》）. *Computers & Geosciences*, 55:3–15, 2013. DOI: 10.1016/j.cageo.2012.03.011.
+
+[7] M. Evans and H. Moshonov. “Checking for prior-data conflict”（《检验先验与数据之间的冲突》）. *Bayesian Analysis*, 1(4):893–914, 2006. DOI: 10.1214/06-BA129.
+
+[8] M. Gianni. “Detectability and coverage under restricted access: linear-Gaussian pilots of the blind set”（《受限访问条件下的可检测性与覆盖率：盲集的线性高斯预实验》）. *Zenodo*, Version 1.0 [technical note, code and data], 2026. DOI: 10.5281/zenodo.23190701.
+
+[9] S. Gugushvili, A. W. van der Vaart, and D. Yan. “Bayesian inverse problems with partial observations”（《部分观测条件下的贝叶斯逆问题》）. *Transactions of A. Razmadze Mathematical Institute*, 172(3, Part A):388–403, 2018. DOI: 10.1016/j.trmi.2018.09.002.
+
+[10] A. Hadji and B. Szabó. “Can we trust Bayesian uncertainty quantification from Gaussian process priors with squared exponential covariance kernel?”（《我们能相信平方指数协方差核的高斯过程先验所给出的贝叶斯不确定性量化吗？》）. *SIAM/ASA Journal on Uncertainty Quantification*, 9(1):185–230, 2021. DOI: 10.1137/19M1253010.
+
+[11] L. P. Hansen and T. J. Sargent. *Robustness*（《稳健性》）. Princeton University Press, 2008.
+
+[12] M. A. Iglesias, K. J. H. Law, and A. M. Stuart. “Ensemble Kalman methods for inverse problems”（《求解逆问题的集合卡尔曼方法》）. *Inverse Problems*, 29(4):045001, 2013. DOI: 10.1088/0266-5611/29/4/045001.
+
+[13] D. P. Kingma and M. Welling. “Auto-encoding variational Bayes”（《自编码变分贝叶斯》）. *ICLR*, 2014, arXiv:1312.6114.
+
+[14] M. B. Kiss, S. B. Coban, K. J. Batenburg, T. van Leeuwen, and F. Lucka. “2DeteCT – a large 2D expandable, trainable, experimental computed tomography dataset for machine learning”（《2DeteCT：面向机器学习的大规模可扩展可训练二维实验 CT 数据集》）. *Scientific Data*, 10:576, 2023. DOI: 10.1038/s41597-023-02484-6.
+
+[15] B. T. Knapik, A. W. van der Vaart, and J. H. van Zanten. “Bayesian inverse problems with Gaussian priors”（《高斯先验下的贝叶斯逆问题》）. *The Annals of Statistics*, 39(5):2626–2657, 2011. DOI: 10.1214/11-AOS920.
+
+[16] Y. Ovadia, E. Fertig, J. Ren, Z. Nado, D. Sculley, S. Nowozin, J. V. Dillon, B. Lakshminarayanan, and J. Snoek. “Can you trust your model’s uncertainty? Evaluating predictive uncertainty under dataset shift”（《可以相信模型的不确定性吗？数据集分布变化下的预测不确定性评估》）. *NeurIPS*, 32, 2019.
+
+## 附录 A 补译：证据与预注册规程
+
+**预先规定的分析计划。** 主实验的预测、决策准则、阈值以及结果解释在一份有日期的分析计划中固定。作者在观察任何实际试验结果之前，将预测文件通过 SHA-256 哈希锁定，并完成计划。相关计划、日期、哈希保存在项目日志及冻结记录中，但**没有提交到外部注册平台**，因此作者称其为“试验前预先规定并以哈希承诺”，而不是外部注册试验。
+
+主要偏离有两项：控制运行中发生的崩溃修复以及改为单线程库后重新运行，这两项均在观察结果之前完成；另有稍后发现的一项勘误：分析计划曾将解码器模型误差协方差描述为“秩 60 加对角项”，但实际冻结代码使用 16 参数功率谱模型。预定标准并不等于对零假设 $\rho<0.5$ 的形式化显著性检验。主实验冻结之前，学习式系统还需在没有加入扰动的测试切片上达到不超过 15% 的误警报以及不少于 85% 的决策量 $q$ 覆盖率。
+
+**稳健性研究。** 在该批试验进行之前，作者又制定带日期的修订计划。新增 H4：在可观测区域内，评分与超额盲率的相关系数至少为 0.3，且优于高斯基线；H5：在隐藏区 $R$，学习式评分相对于高斯基线对实际盲率有更小的平均绝对误差；H6：衰减观测条件下，超额盲率从最深区到中间环、再到较浅区逐级下降。附录表 7 给出 A1、A2、A3 的各条准则结果，必须将“met”和“not met”逐项保留。
+
+**事后分析的证据级别。** 七项事后分析计划在各自运算之前独立写定，但每份计划的设计者已经知道前一轮结果。因此，它们是有透明记录的序贯事后研究，而非原始实验前完全盲态固定的验证性结论。误差分类、基准切片与计算稳定性的限制均保留在作者的报告中，不能将后来的参数选择或评分变体重新解释为预注册成功。
+
+
 ## 附录与校对状态
 
 原 PDF 第 16—22 页含致谢、参考文献、预注册和分析计划细节、稳健性分析表 7—12、图 5 以及大量不同统计自助法（bootstrap）产生的置信区间。其中两向 bootstrap、误差块与 CT 切片块的抽样方式，对结论的统计解释十分关键。这些逐项数字与附录文字**尚未在本页完整逐格录入**，不可将本主体译稿视为附录已完成的全文。研究者应以 [原 PDF](https://arxiv.org/pdf/2610.28155) 为准核对特定统计量。
