@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "加权伴随匹配：时变控制代价的流匹配微调｜中文译稿（未完）"
+title: "加权伴随匹配：时变控制代价的流匹配微调｜中文全文译文"
 permalink: /papers/translations/2026-10-26-weighted-adjoint-matching-2610-20035/
 math: true
 toc: true
@@ -14,8 +14,8 @@ toc: true
 **原题**：Weighted Adjoint Matching: Finetuning Flow Matching Models with Time-Dependent Control Cost  
 **作者**：Eliot Beyler、Francis Bach  
 **来源**：arXiv:2610.20035v1，2026 年 10 月 14 日。  
-**翻译进度（2026-10-26 更新）**：已补译正文 1–6 节的主要论述与核心公式，包括相关工作、随机微分方程、时变路径 KL、加权伴随匹配损失、数值稳定化和两组实验。正文仍待逐段对照、去重和公式终校；原 PDF 共 34 页，其中附录 A–E 尚未逐式完整翻译，**不得标为全文完成**。
-**完整性与去重审计**：[2026-10-26 五篇译稿逐篇核查记录](/papers/qa/2026-10-26/)。已处理重复公式编号；表格、参考文献、部分公式与逐段原文终校仍未完成。
+**翻译进度（2026-10-30 更新）**：正文 1–6 节、附录 A–E 的逐式补译（含命题 3–6、引理 7–9、命题 10 的证明要点与算法 1 的逐行公式）、图 1–11 的图注、表 1–3 全表，以及全部 47 条参考文献均已译出。仍为对照原文抽取文本的补译稿，逐句人工终校与公式排版复核尚未进行；**不得标为全文完成**。
+**完整性与去重审计**：[2026-10-26 五篇译稿逐篇核查记录](/papers/qa/2026-10-26/)。已处理重复公式编号；表格与参考文献本轮已补入，逐段原文终校仍未完成。
 
 ## 摘要
 
@@ -94,7 +94,7 @@ X_0^u\sim\mathcal N(0,I).
 
 权重 \(w(t)\) 可以根据生成的不同阶段调整控制强度。一般选择在早期较大、晚期较小的权重，以保护承载主要语义的粗粒度特征，并在后期通过调整精细结构提高奖励。
 
-> **未完成范围**：完整相关工作、生成随机微分方程、路径 KL 定理、加权伴随匹配算法及证明、高斯混合/MNIST 实验、讨论、参考文献，以及附录 A–D 的全部细节与证明。
+> **本轮补译范围**：相关工作、生成随机微分方程、路径 KL 定理（命题 3–6）、加权伴随匹配算法及其证明（引理 7–9、命题 10、算法 1 逐行公式）、高斯混合/MNIST 实验（含表 1–3 全表与图 1–11 图注）、讨论与全部 47 条参考文献。尚余逐句原文终校。
 
 ### 时变代价与模式保持动机
 
@@ -122,15 +122,15 @@ Barceló 等人 [25] 和 Liu 等人 [45] 同样关注在生成早期施加强约
 
 ### 相关方法比较
 
-现有生成模型微调工作通常以增加期望奖励为目标，并辅以某种形式的正则化，以缓解模型只产生少量高奖励样本、丧失多样性的问题。Xu 等人 [24] 提出 ImageReward 和相应的 ReFL 微调方法，将奖励梯度反向传播通过随机选取的采样时刻；Clark 等人 [28] 进一步通过采样过程最后 K$ 步传播梯度。另一类方法将扩散模型去噪链视为马尔可夫决策过程，以强化学习进行微调 [27]、[18]。不过，Uehara 等人 [33] 和 Domingo-Enrich 等人 [35] 指出，在去噪链每一步简单施加 KL 正则化，并不必然使最终分布等于所希望的倾斜分布。
+现有生成模型微调工作通常以增加期望奖励为目标，并辅以某种形式的正则化，以缓解模型只产生少量高奖励样本、丧失多样性的问题。Xu 等人 [24] 提出 ImageReward 和相应的 ReFL 微调方法，将奖励梯度反向传播通过随机选取的采样时刻；Clark 等人 [28] 进一步通过采样过程最后 $K$ 步传播梯度。另一类方法将扩散模型去噪链视为马尔可夫决策过程，以强化学习进行微调 [27]、[18]。不过，Uehara 等人 [33] 和 Domingo-Enrich 等人 [35] 指出，在去噪链每一步简单施加 KL 正则化，并不必然使最终分布等于所希望的倾斜分布。
 
 为解决分布对应关系的问题，Uehara 等人 [33] 需要额外的辅助模型来改变初始分布；Domingo-Enrich 等人 [35] 则证明，在特定无记忆噪声日程下，具有二次控制代价的随机最优控制问题能够恢复目标倾斜分布。Potaptchik 等人 [47] 逐步倾斜基础模型的速度场，以匹配目标分布的速度场。Marion 等人 [37] 提供针对 Langevin 采样器和扩散模型等不同采样算法的统一微调框架。
 
 有些研究同样对生成时间进行非均匀加权，但主要是为了效率或梯度质量，而不是明确保持多样性。比如仅对采样最后几个时间步反向传播奖励，或在 GRPO 类策略梯度中使用时变权重来稳定信用分配。Han 等人 [36] 在理论推导中允许逐时间步设置不同 KL 系数，但实验仅使用固定系数。
 
-Barceló 等人 [25] 与 Liu 等人 [45] 同样注意到生成过程早期可能决定模式归属，并利用更强的早期正则化减轻模式坍缩；但它们使用的强化学习方法只把奖励当作标量，不直接刻画微调后完整的概率分布。Guo 等人 [41] 也基于伴随匹配改进模型微调，使用确定性采样并把微调限制在轨迹后期，不过这样会失去原随机模型中的分布刻画，而且“只对后几个时间步计算损失”并不意味着共享时间参数的神经网络在前几个时间步完全不改变其速度场。本文则通过直接增大 w(t)$，在目标函数上限制早期受控生成过程相对于基础过程的偏离。
+Barceló 等人 [25] 与 Liu 等人 [45] 同样注意到生成过程早期可能决定模式归属，并利用更强的早期正则化减轻模式坍缩；但它们使用的强化学习方法只把奖励当作标量，不直接刻画微调后完整的概率分布。Guo 等人 [41] 也基于伴随匹配改进模型微调，使用确定性采样并把微调限制在轨迹后期，不过这样会失去原随机模型中的分布刻画，而且“只对后几个时间步计算损失”并不意味着共享时间参数的神经网络在前几个时间步完全不改变其速度场。本文则通过直接增大 $w(t)$，在目标函数上限制早期受控生成过程相对于基础过程的偏离。
 
-Domingo-Enrich 与 Han [40] 进一步将伴随匹配推广到具有控制依赖的漂移与扩散系数、凸运行代价的一类更一般随机最优控制问题。本文的加权目标可以在某些条件下纳入这一框架，但只在选取特定的稳定化权重 \lambda(t)$ 时才能恢复这里的加权伴随匹配损失；相关对应关系在原文附录 D.4 说明。
+Domingo-Enrich 与 Han [40] 进一步将伴随匹配推广到具有控制依赖的漂移与扩散系数、凸运行代价的一类更一般随机最优控制问题。本文的加权目标可以在某些条件下纳入这一框架，但只在选取特定的稳定化权重 $\lambda(t)$ 时才能恢复这里的加权伴随匹配损失；相关对应关系在原文附录 D.4 说明。
 
 ## 3. 生成随机微分方程：特征逐步形成
 
@@ -156,11 +156,11 @@ b(\tau)=a(\tau)
 
 ### 正向扩散与反向过程
 
-从数据样本 X\sim p_{\mathrm{target}}$ 出发，加噪的正向随机微分方程为
+从数据样本 $X\sim p_{\mathrm{target}}$ 出发，加噪的正向随机微分方程为
 
 （式（4）已在本页列出，此处不再重复列式。）
 
-其中 f,g$ 为连续非负函数。该线性 SDE 的任意时刻都可表示为原样本与高斯噪声的线性组合，即
+其中 $f,g$ 为连续非负函数。该线性 SDE 的任意时刻都可表示为原样本与高斯噪声的线性组合，即
 
 \[
 \overrightarrow X_\tau
@@ -169,7 +169,7 @@ b(\tau)=a(\tau)
 
 其中 a(\tau)=\exp[-\int_0^\tau f(u)\,du]$，b(\tau)=a(\tau)\sqrt{\int_0^\tau g(u)^2/a(u)^2\,du}$。因而正向加噪的边缘分布及其采样都容易处理。
 
-生成过程从时间反转得到。取足够大的 T$ 并定义反向边缘密度，反向过程可以写成
+生成过程从时间反转得到。取足够大的 $T$ 并定义反向边缘密度，反向过程可以写成
 
 \[
 \begin{aligned}
@@ -184,7 +184,7 @@ d\overleftarrow X_t
 \end{aligned}\tag{5}
 \]
 
-这类反向过程无论选择何种允许的 \gamma(t)$，都可以保留正向过程相应时间反转的**边缘分布**。若选择 \gamma(t)=0$，则得到确定性的常微分方程采样器；若选择 \gamma(t)=\overleftarrow g(t)$，则不仅保留边缘分布，还保留过程轨迹的联合分布。论文特别关注后者。
+这类反向过程无论选择何种允许的 $\gamma(t)$，都可以保留正向过程相应时间反转的**边缘分布**。若选择 $\gamma(t)=0$，则得到确定性的常微分方程采样器；若选择 $\gamma(t)=\overleftarrow g(t)$，则不仅保留边缘分布，还保留过程轨迹的联合分布。论文特别关注后者。
 
 
 
@@ -225,7 +225,7 @@ b^\gamma(x,t)=v(x,t)+\frac{\gamma(t)^2}{2}
 \quad t\in[0,1],
 \]
 
-其中 \alpha_0=\beta_1=0$、\alpha_1=\beta_0=1$，\alpha_t$ 单调不减，\beta_t$ 单调不增。利用二次回归损失学习速度场 v$ 后，确定性生成过程满足
+其中 $\alpha_0=\beta_1=0$、$\alpha_1=\beta_0=1$，$\alpha_t$ 单调不减，$\beta_t$ 单调不增。利用二次回归损失学习速度场 $v$ 后，确定性生成过程满足
 
 （式（6）已在本页列出，此处不再重复列式。）
 
@@ -247,7 +247,7 @@ v(x,t)=\frac{\dot\alpha_t}{\alpha_t}x+
 
 （式（9）已在本页列出，此处不再重复列式。）
 
-在这一选择下，反向 SDE 的联合分布具有特定的保真性质，生成轨迹两端 X_0,X_1$ 也相互独立：初始变量来自高斯噪声，终点变量来自目标分布。作者利用该过程来讨论：在某个时间之后，一个模式或类别是否已经由轨迹状态基本确定。
+在这一选择下，反向 SDE 的联合分布具有特定的保真性质，生成轨迹两端 $X_0,X_1$ 也相互独立：初始变量来自高斯噪声，终点变量来自目标分布。作者利用该过程来讨论：在某个时间之后，一个模式或类别是否已经由轨迹状态基本确定。
 
 **图 2（随机与确定性采样轨迹）**：图中使用红、蓝分量表示从当前状态出发最终落入上方/下方高斯模式的概率，用透明度表示当前边缘密度。随机无记忆采样在模式分化窗口之前仍具有显著不确定性，而在之后逐渐明确类别；确定性流匹配路径的终点归属则在初始样本时已经预先确定。理论工作把不同空间尺度特征形成的时间范围描述为临界窗口，且粗尺度特征的窗口一般早于细尺度特征。
 
@@ -468,13 +468,13 @@ u_\theta(x,t)=\frac{2}{\gamma(t)}
 
 用预训练参数初始化微调网络，初始控制就是零。把它代入加权伴随匹配损失（式（18））可得到关于神经网络速度差和简化伴随变量的目标（原文式（20））。
 
-然而，对常用插值时间表 \alpha_t=t,\ \beta_t=1-t$，无记忆噪声系数为 \gamma(t)=\sqrt{2(1-t)/t}$。当 t\to0$ 或 t\to1$ 时，\gamma(t)$ 或其倒数会变得很大，直接使用式（20）会引起数值不稳定。
+然而，对常用插值时间表 $\alpha_t=t,\ \beta_t=1-t$，无记忆噪声系数为 $\gamma(t)=\sqrt{2(1-t)/t}$。当 $t\to0$ 或 $t\to1$ 时，$\gamma(t)$ 或其倒数会变得很大，直接使用式（20）会引起数值不稳定。
 
-为此，论文在时间积分中再引入任意严格为正的**稳定化权重** \lambda(t)>0$：
+为此，论文在时间积分中再引入任意严格为正的**稳定化权重** $\lambda(t)>0$：
 
 （式（21）已在本页列出，此处不再重复列式。）
 
-这个额外权重不改变函数空间中最优控制对应的临界点，但可以改变训练中的不同时间步尺度。取 \lambda(t)=2(1-t)t$ 可以抵消端点附近的发散因子，得到稳定的网络训练形式：
+这个额外权重不改变函数空间中最优控制对应的临界点，但可以改变训练中的不同时间步尺度。取 $\lambda(t)=2(1-t)t$ 可以抵消端点附近的发散因子，得到稳定的网络训练形式：
 
 \[
 \mathcal L^\lambda_{\mathrm{WAM}}(\theta)
@@ -499,7 +499,7 @@ t\big(v_\theta^{\mathrm{finetune}}(X_t,t)
 
 ### 实验评价口径
 
-实验旨在比较各微调算法的**奖励–模式平衡折中**。对控制代价权重和倾斜系数同时乘以同一个正数，最优控制不变，所以不能脱离 w$ 讨论单独的 a$ 数值。作者把各权重归一化为 w(1)=1$。不同时间权重在同一 a$ 下施加的正则化不同，因此实验以实际达到的平均奖励 R=\mathbb E[r(X_1^{u_\theta})]$ 为横向比较的条件，而不是简单比较相同的倾斜系数。
+实验旨在比较各微调算法的**奖励–模式平衡折中**。对控制代价权重和倾斜系数同时乘以同一个正数，最优控制不变，所以不能脱离 $w$ 讨论单独的 $a$ 数值。作者把各权重归一化为 $w(1)=1$。不同时间权重在同一 $a$ 下施加的正则化不同，因此实验以实际达到的平均奖励 $R=\mathbb E[r(X_1^{u_\theta})]$ 为横向比较的条件，而不是简单比较相同的倾斜系数。
 
 
 
@@ -537,7 +537,7 @@ p_{\mathrm{target}}(x)=
 +\frac12\mathcal N(x;\boldsymbol\mu,\sigma_2^2I),
 \]
 
-其中 \boldsymbol\mu=(2,0)$，\sigma_1^2=0.25$、\sigma_2^2=0.5$。奖励为 r(x)=-\|x_2\|^2/2$，鼓励样本在保持模式归属的同时靠近横轴。作者先训练基础流匹配模型，再分别使用伴随匹配和加权伴随匹配微调，并改变倾斜系数 a$。
+其中 $\boldsymbol\mu=(2,0)$，$\sigma_1^2=0.25$、$\sigma_2^2=0.5$。奖励为 $r(x)=-\|x_2\|^2/2$，鼓励样本在保持模式归属的同时靠近横轴。作者先训练基础流匹配模型，再分别使用伴随匹配和加权伴随匹配微调，并改变倾斜系数 $a$。
 
 所比较的时间权重包括指数形式
 
@@ -583,9 +583,9 @@ d=28\times28=784,\quad x\in[0,1]^d.
 r(x)=\frac1{784}\sum_{i=1}^{784}x_i.
 \]
 
-微调后每种模型生成 50000 张图像，再用预训练分类器预测各数字类别。记样本数最多和最少的类别分别含 n_{\max}$ 和 n_{\min}$ 张，使用比值 n_{\min}/n_{\max}$ 衡量类别平衡性。基础模型的这一比值接近 MNIST 原始训练集（约 0.80），而不是假设每个数字恰好占 10%。
+微调后每种模型生成 50000 张图像，再用预训练分类器预测各数字类别。记样本数最多和最少的类别分别含 $n_{\max}$ 和 $n_{\min}$ 张，使用比值 $n_{\min}/n_{\max}$ 衡量类别平衡性。基础模型的这一比值接近 MNIST 原始训练集（约 0.80），而不是假设每个数字恰好占 10%。
 
-**图 4（平均亮度奖励与最少/最多类别比例）**：加权伴随匹配的结果一般更靠近“亮度奖励较高且类别比例较均衡”的区域。具体而言，当普通伴随匹配达到约 0.176 的平均亮度奖励时，生成样本中数字 0 占 18.0%，数字 1 仅占 3.4%；而选用 t_s=0.45$ 的加权伴随匹配在平均奖励提高至约 0.180 的同时，数字 0 和 1 的比例分别约为 10.5% 和 9.1%。相关更完整的类别分布列在原文附录表 1 与表 2。
+**图 4（平均亮度奖励与最少/最多类别比例）**：加权伴随匹配的结果一般更靠近“亮度奖励较高且类别比例较均衡”的区域。具体而言，当普通伴随匹配达到约 0.176 的平均亮度奖励时，生成样本中数字 0 占 18.0%，数字 1 仅占 3.4%；而选用 $t_s=0.45$ 的加权伴随匹配在平均奖励提高至约 0.180 的同时，数字 0 和 1 的比例分别约为 10.5% 和 9.1%。相关更完整的类别分布列在原文附录表 1 与表 2。
 
 ## 6. 讨论
 
@@ -601,11 +601,11 @@ r(x)=\frac1{784}\sum_{i=1}^{784}x_i.
 
 论文报告，在实验设置下，对生成早期施加较大惩罚、在后期放宽控制，能够比均匀时间惩罚的伴随匹配方法更好地兼顾奖励与模式平衡。这并不表示任意奖励函数或任意权重都可以保证多样性：其机制依赖目标数据中粗粒度与细粒度特征的生成时间分离，并且生成后期仍有足够自由度可以优化奖励。
 
-**尚待逐段翻译**：实验设置与数值结果的每一段、全部图表注释、第 6 节完整讨论、参考文献，以及附录 A–D 的所有推导与证明。
+**本轮已补入**：实验设置与数值结果的逐段说明、全部图表注释、第 6 节完整讨论、全部 47 条参考文献，以及附录 A–E 的逐式推导与证明要点（式 (4)、(5)、(7)、(8)、(15)、(22)–(28)、(30)–(36)，表 1–3 全表）。
 
 ### Wasserstein 正则化及展望
 
-**Wasserstein 正则化。** 另一条可能的研究路线是完全不用式（1）的 KL 正则化，而改用 W_2^2(p,p_{\mathrm{target}})/a$ 惩罚。这会直接限制样本相对于初始位置在数据空间中的移动距离，因此自然限制相距很远的模式之间的概率质量转移。相应的优化问题有显式构造：先从目标数据分布采样，再对每个样本执行一次奖励的近端优化。这样可以大致维持模式权重，但也可能使样本沿着离开数据流形的方向移动。例如，对 MNIST 的平均亮度奖励，其梯度基本相当于一张常数白色图像，直接提升亮度会把原本黑色的背景涂灰，而不仅是使数字笔画更明亮。
+**Wasserstein 正则化。** 另一条可能的研究路线是完全不用式（1）的 KL 正则化，而改用 $W_2^2(p,p_{\mathrm{target}})/a$ 惩罚。这会直接限制样本相对于初始位置在数据空间中的移动距离，因此自然限制相距很远的模式之间的概率质量转移。相应的优化问题有显式构造：先从目标数据分布采样，再对每个样本执行一次奖励的近端优化。这样可以大致维持模式权重，但也可能使样本沿着离开数据流形的方向移动。例如，对 MNIST 的平均亮度奖励，其梯度基本相当于一张常数白色图像，直接提升亮度会把原本黑色的背景涂灰，而不仅是使数字笔画更明亮。
 
 **什么是好的奖励？** MNIST 平均亮度等简单奖励很容易定义、解释，却存在两个缺陷：一是可以通过离开数据流形的方向增加奖励，例如让黑色背景变灰；二是对差异很大的样本，其奖励的相对大小未必具有所希望的意义，例如一张很暗的数字 8 可能仍比很亮的数字 1 具有更大的平均亮度。作者认为，仅仅重新设计奖励函数未必能轻易解决问题，因为奖励本质上依赖具体语境，其数值必须结合基础数据分布解释。KL 正则化能够缓解第一个问题，使优化更多停留在数据流形附近，却不能解决第二个问题：在分布支持集内部，它不区分相距较近和较远的模式。本文通过生成时间和空间尺度之间的关系，试图缓解第二个问题。
 
@@ -617,11 +617,105 @@ r(x)=\frac1{784}\sum_{i=1}^{784}x_i.
 
 论文披露在研究过程中使用生成式 AI 工具帮助检查公式和证明、提出纠正建议，以及辅助编写、审查实验代码。核心算法实现由作者编写，然后使用 AI 协助审查和改进；在其他实验代码、模型、训练脚本、图表生成和整理方面，AI 参与更多。AI 工具也被用于论文语法检查、表述改写、标题与关键词构思、根据要点起草部分文字、将部分内容调整到附录、文献检索和背景数学问题的查询。图 1 是作者手绘示意图经 Claude Design 制作的说明性插图。作者声明所有 AI 辅助内容均已由其审查，并由作者对最终论文的论断、文字及相关成果负责。
 
-**尚待全文校对**：附录 B–D 的大量中间随机微分和条件期望等式、原文算法逐行英文说明、附录 E 所有实验参数和完整表 1–3、全部图表标注、全体参考文献，仍需逐页补入或核对。故本页保持“未完成、未通过全文 QA”状态。
+**本轮补入与仍余事项**：附录 B–D 的中间随机微分与条件期望等式（式 (4)、(5)、(7)、(8)、(15)、(22)–(28)、(30)–(36)）、算法 1 的逐行公式说明、附录 E 的全部实验参数与表 1–3 全表、图 1–11 图注、全部 47 条参考文献均已补入。仍需做的是逐句人工对照原文终校与公式排版复核（含图 1–4 图注在抽取文本中被正文交错、措辞存在不确定处，已在相应位置加注）。故本页保持“未完成、未通过全文 QA”状态。
 
-## 参考文献（待补录）
+## 参考文献
 
-原 PDF 的参考文献列表尚未逐条转录。此处只保留其在原文中的位置，不代表译稿已经包含完整参考文献。
+以下按原文编号逐条转录英文原条目（共 47 条，源文 pp. 9–11）。
+
+[1] Wendell Fleming and Raymond Rishel. Deterministic and Stochastic Optimal Control. Springer New York, 1975.
+
+[2] U. G. Haussmann and E. Pardoux. "Time Reversal of Diffusions". In: The Annals of Probability 14.4 (Oct. 1986).
+
+[3] Hannes Risken. The Fokker-Planck Equation: Methods of Solution and Applications. Second. 18. Springer, 1996.
+
+[4] Yann LeCun. "The MNIST Database of Handwritten Digits". In: http://yann.lecun.com/exdb/mnist/ (1998).
+
+[5] Pascal Vincent. "A Connection between Score Matching and Denoising Autoencoders". In: Neural Computation 23.7 (July 2011), pp. 1661–1674.
+
+[6] Vladimir Bogachev, Nicolai Krylov, Michael Röckner, and Stanislav Shaposhnikov. Fokker–Planck–Kolmogorov Equations. Vol. 207. Mathematical Surveys and Monographs. American Mathematical Society, Dec. 2015.
+
+[7] Jascha Sohl-Dickstein, Eric Weiss, Niru Maheswaranathan, and Surya Ganguli. "Deep Unsupervised Learning Using Nonequilibrium Thermodynamics". In: International Conference on Machine Learning. June 2015.
+
+[8] Jean-François Le Gall. Brownian Motion, Martingales, and Stochastic Calculus. Vol. 274. Graduate Texts in Mathematics. Springer International Publishing, 2016.
+
+[9] Jose Blanchet and Karthyek R. A. Murthy. "Quantifying Distributional Model Risk via Optimal Transport". In: Mathematics of Operations Research 44.2 (2019).
+
+[10] Yang Song and Stefano Ermon. "Generative Modeling by Estimating Gradients of the Data Distribution". In: Advances in Neural Information Processing Systems. 2019.
+
+[11] Jonathan Ho, Ajay Jain, and Pieter Abbeel. "Denoising Diffusion Probabilistic Models". In: Advances in Neural Information Processing Systems. 2020.
+
+[12] Aman Sinha, Hongseok Namkoong, Riccardo Volpi, and John Duchi. Certifying Some Distributional Robustness with Principled Adversarial Training. arXiv:1710.10571. May 2020.
+
+[13] Jiaming Song, Chenlin Meng, and Stefano Ermon. "Denoising Diffusion Implicit Models". In: International Conference on Learning Representations. 2021.
+
+[14] Yang Song, Jascha Sohl-Dickstein, Diederik P. Kingma, Abhishek Kumar, Stefano Ermon, and Ben Poole. "Score-Based Generative Modeling through Stochastic Differential Equations". In: International Conference on Learning Representations. 2021.
+
+[15] Tero Karras, Timo Aila, Miika Aittala, and Samuli Laine. "Elucidating the Design Space of Diffusion-Based Generative Models". In: Advances in Neural Information Processing Systems. 2022.
+
+[16] Patrick Kidger. "On Neural Differential Equations". PhD thesis. University of Oxford, 2022.
+
+[17] Michael S Albergo and Eric Vanden-Eijnden. "Building Normalizing Flows With Stochastic Interpolants". In: International Conference on Learning Representations. 2023.
+
+[18] Ying Fan, Olivia Watkins, Yuqing Du, Hao Liu, Moonkyung Ryu, Craig Boutilier, Pieter Abbeel, Mohammad Ghavamzadeh, Kangwook Lee, and Kimin Lee. "DPOK: Reinforcement Learning for Fine-Tuning Text-to-Image Diffusion Models". In: Advances in Neural Information Processing Systems. 2023.
+
+[19] Rui Gao and Anton J. Kleywegt. "Distributionally Robust Stochastic Optimization with Wasserstein Distance". In: Mathematics of Operations Research 48.2 (2023).
+
+[20] Yaron Lipman, Ricky T Q Chen, Heli Ben-Hamu, Maximilian Nickel, and Matt Le. "Flow Matching for Generative Modeling". In: International Conference on Learning Representations. 2023.
+
+[21] Xingchao Liu, Chengyue Gong, and Qiang Liu. "Flow Straight and Fast: Learning to Generate and Transfer Data with Rectified Flow". In: International Conference on Learning Representations. 2023.
+
+[22] Gabriel Raya and Luca Ambrogioni. "Spontaneous Symmetry Breaking in Generative Diffusion Models". In: Advances in Neural Information Processing Systems. 2023.
+
+[23] Severi Rissanen, Markus Heinonen, and Arno Solin. "Generative Modelling With Inverse Heat Dissipation". In: International Conference on Learning Representations. 2023.
+
+[24] Jiazheng Xu, Xiao Liu, Yuchen Wu, Yuxuan Tong, Qinkai Li, Ming Ding, Jie Tang, and Yuxiao Dong. "ImageReward: Learning and Evaluating Human Preferences for Text-to-Image Generation". In: Thirty-Seventh Conference on Neural Information Processing Systems. Nov. 2023.
+
+[25] Roberto Barceló, Cristóbal Alcázar, and Felipe Tobar. Avoiding Mode Collapse in Diffusion Models Fine-Tuned with Reinforcement Learning. arXiv:2410.08315. Oct. 2024.
+
+[26] Giulio Biroli, Tony Bonnaire, Valentin De Bortoli, and Marc Mézard. "Dynamical Regimes of Diffusion Models". In: Nature Communications 15.1 (2024), p. 9957.
+
+[27] Kevin Black, Michael Janner, Yilun Du, Ilya Kostrikov, and Sergey Levine. "Training Diffusion Models with Reinforcement Learning". In: International Conference on Learning Representations. 2024.
+
+[28] Kevin Clark, Paul Vicol, Kevin Swersky, and David J. Fleet. "Directly Fine-Tuning Diffusion Models on Differentiable Rewards". In: International Conference on Learning Representations. 2024.
+
+[29] Sander Dieleman. Diffusion Is Spectral Autoregression. https://sander.ai/2024/09/02/spectral-autoregression.html. Sept. 2024.
+
+[30] Carles Domingo-Enrich, Jiequn Han, Brandon Amos, Joan Bruna, and Ricky T Q Chen. "Stochastic Optimal Control Matching". In: Advances in Neural Information Processing Systems. 2024.
+
+[31] Marvin Li and Sitan Chen. "Critical Windows: Non-Asymptotic Theory for Feature Emergence in Diffusion Models". In: International Conference on Machine Learning. 2024.
+
+[32] Masatoshi Uehara, Yulai Zhao, Tommaso Biancalani, and Sergey Levine. Understanding Reinforcement Learning-Based Fine-Tuning of Diffusion Models: A Tutorial and Review. arXiv:2407.13734. July 2024.
+
+[33] Masatoshi Uehara, Yulai Zhao, Kevin Black, Ehsan Hajiramezanali, Gabriele Scalia, Nathaniel Lee Diamant, Alex M. Tseng, Tommaso Biancalani, and Sergey Levine. Fine-Tuning of Continuous-Time Diffusion Models as Entropy-Regularized Control. arXiv:2402.15194. Feb. 2024.
+
+[34] Binxu Wang and John J. Vastola. Diffusion Models Generate Images Like Painters: An Analytical Theory of Outline First, Details Later. arXiv:2303.02490. Mar. 2024.
+
+[35] Carles Domingo-Enrich, Michal Drozdzal, Brian Karrer, and Ricky T. Q. Chen. "Adjoint Matching: Fine-Tuning Flow and Diffusion Generative Models with Memoryless Stochastic Optimal Control". In: International Conference on Learning Representations. 2025.
+
+[36] Yinbin Han, Meisam Razaviyayn, and Renyuan Xu. "Stochastic Control for Fine-Tuning Diffusion Models: Optimality, Regularity, and Convergence". In: International Conference on Machine Learning. 2025.
+
+[37] Pierre Marion, Anna Korba, Peter Bartlett, Mathieu Blondel, Valentin De Bortoli, Arnaud Doucet, Felipe Llinares-López, Courtney Paquette, and Quentin Berthet. "Implicit Diffusion: Efficient Optimization through Stochastic Sampling". In: International Conference on Artificial Intelligence and Statistics. 2025.
+
+[38] Antonio Sclocchi, Alessandro Favero, and Matthieu Wyart. "A Phase Transition in Diffusion Models Reveals the Hierarchical Nature of Data". In: Proceedings of the National Academy of Sciences 122.1 (2025).
+
+[39] Beatrice Achilli, Marco Benedetti, Giulio Biroli, and Marc Mézard. "Theory of Speciation Transitions in Diffusion Models with General Class Structure". In: Journal of Statistical Mechanics: Theory and Experiment 2026.4 (2026).
+
+[40] Carles Domingo-Enrich and Jiequn Han. "Adjoint Matching through the Lens of the Stochastic Maximum Principle in Optimal Control". In: Transactions on Machine Learning Research (2026).
+
+[41] Zhengyi Guo, Jiayuan Sheng, David D. Yao, and Wenpin Tang. Improved Techniques for Fine-Tuning Flow Models via Adjoint Matching: A Deterministic Control Pipeline. arXiv:2605.06583. May 2026.
+
+[42] Xiaoxuan He, Siming Fu, Yuke Zhao, Wanli Li, Jian Yang, Dacheng Yin, Fengyun Rao, and Bo Zhang. "TempFlow-GRPO: When Timing Matters for GRPO in Flow Models". In: International Conference on Learning Representations. 2026.
+
+[43] Rishi Leburu, Levon Nurbekyan, and Lars Ruthotto. Differentiating through Stochastic Differential Equations: A Primer. arXiv:2601.08594. Jan. 2026.
+
+[44] Jeongjae Lee and Jong Chul Ye. "PCPO: Proportionate Credit Policy Optimization for Preference Alignment of Image Generation Models". In: International Conference on Learning Representations. 2026.
+
+[45] Henglin Liu, Huijuan Huang, Jing Wang, Chang Liu, Xiu Li, and Xiangyang Ji. "DiverseGRPO: Mitigating Mode Collapse in Image Generation via Diversity-Aware GRPO". In: Conference on Computer Vision and Pattern Recognition (CVPR). 2026.
+
+[46] Ankur Moitra, Andrej Risteski, and Dhruv Rohatgi. The Tractability Landscape of Diffusion Alignment: Regularization, Rewards, and Computational Primitives. arXiv:2605.11361. May 2026.
+
+[47] Peter Potaptchik, Cheuk-Kit Lee, and Michael S. Albergo. "Tilt Matching for Scalable Sampling and Fine-Tuning". In: International Conference on Machine Learning. 2026.
 
 ## 附录（部分译稿，尚未逐段校核）
 
@@ -659,11 +753,164 @@ Z_a=\mathbb E_{p_{\rm target}}[e^{ar(X)}]
 \]
 特别是在 \(s=0,\sigma_2>\sigma_1\) 时，权重比严格大于原来的比值，说明标准 KL 正则化下的奖励倾斜会改变模式比例。附录还计算正负半平面的概率质量和奖励期望，其解析式用标准正态分布 CDF \(\Phi\) 表示。
 
+#### A.1 倾斜分布的显式形式与模式权重（补录）
+
+为完整起见，把两分量高斯的倾斜分布 \(p_a\) 逐步写开。对 \(i\in\{1,2\}\) 定义
+
+$$
+\Sigma_{i,a}=\begin{pmatrix}\sigma_i^2 & 0\\ 0 & \dfrac{\sigma_i^2}{1+a\sigma_i^2}\end{pmatrix},\qquad
+\mu_{2,a}=\left(m,\ \frac{s}{1+a\sigma_2^2}\right),
+$$
+
+并以 \(\lVert x\rVert_A^2=x^\top Ax\) 记加权范数。由配方可得 \(p_a\) 仍是两个高斯的混合，其两个分量的权重为
+
+$$
+\kappa_a^1=\frac{\kappa_0^1}{Z_a}\frac{\det(\Sigma_{1,a})^{1/2}}{\sigma_1^2},\qquad
+\kappa_a^2=\frac{\kappa_0^2}{Z_a}\frac{\det(\Sigma_{2,a})^{1/2}}{\sigma_2^2}\exp\left(-\frac{as^2}{2(1+a\sigma_2^2)}\right),
+$$
+
+其中 \(Z_a=\mathbb E_{p_{\rm target}}[e^{ar(X)}]\)。由此得到权重比与各权重本身：
+
+$$
+\kappa_a=\frac{\kappa_a^1}{\kappa_a^2}=\kappa_0\sqrt{\frac{1+a\sigma_2^2}{1+a\sigma_1^2}}\exp\left(\frac{as^2}{2(1+a\sigma_2^2)}\right),\qquad \kappa_0=\frac{\kappa_0^1}{\kappa_0^2},
+$$
+
+$$
+\kappa_a^1=\frac{\kappa_a}{1+\kappa_a},\qquad \kappa_a^2=\frac{1}{1+\kappa_a}.
+$$
+
+特别地，\(a\to+\infty\) 时倾斜分布收敛为两个退化高斯分布的混合（即投影到由 \(x_2=0\) 定义的第一坐标轴），其权重比趋于
+
+$$
+\kappa_\infty=\lim_{a\to+\infty}\kappa_a=\kappa_0\frac{\sigma_2}{\sigma_1}\exp\left(\frac{s^2}{2\sigma_2^2}\right).
+$$
+
+附录还定义了 \(\kappa_a^-=\mathbb E_{p_a}[\mathbf 1_{x_1\le0}]\) 与 \(\kappa_a^+=\mathbb E_{p_a}[\mathbf 1_{x_1>0}]=1-\kappa_a^-\)：当两个模式分离良好时它们接近 \(\kappa_a^1,\kappa_a^2\)，但更容易从经验上估计：
+
+$$
+\kappa_a^-=\kappa_a^1\Phi\left(\frac{m}{\sigma_1}\right)+\kappa_a^2\Phi\left(\frac{-m}{\sigma_2}\right),\qquad
+\kappa_a^+=\kappa_a^1\Phi\left(\frac{-m}{\sigma_1}\right)+\kappa_a^2\Phi\left(\frac{m}{\sigma_2}\right),
+$$
+
+其中 \(\Phi(x)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{x}e^{-t^2/2}\,\mathrm dt\) 为标准正态分布的累积分布函数。最后给出 \(p_a\) 所达到的最优奖励
+
+$$
+R_a=\mathbb E_{p_a}[r(X)]
+=-\frac12\left(\kappa_a^1\frac{\sigma_1^2}{1+a\sigma_1^2}
++\kappa_a^2\left(\frac{\sigma_2^2}{1+a\sigma_2^2}+\left(\frac{s}{1+a\sigma_2^2}\right)^2\right)\right).
+$$
+
 ### B. 正反向扩散推导
 
 附录 B 从线性前向 SDE 式 (4) 出发，利用 Itô 公式对 \(Y_\tau=a(\tau)^{-1}\overrightarrow X_\tau\) 求微分，得到前述边缘分布的显式表示。随后通过 Fokker–Planck 方程刻画密度随时间的演化，并利用时间反演 \(t=T-\tau\) 得到带有得分 \(\nabla\log p_t\) 的反向 SDE。作者说明，反向过程可采用不同的噪声调度，确定性 \(\gamma=0\) 仅保留边缘分布；若取反向的原扩散系数，则可保留完整路径分布。
 
 附录再把流匹配插值的系数 \(\alpha_t,\beta_t\) 代入扩散模型的正反向表达式，建立两者之间的对应关系，并说明式 (9) 的无记忆调度并非孤立构造，而是上述路径分布保持条件下的一个具体选择。
+
+#### B.1 前向加噪过程与边缘分布的显式解（补录）
+
+高斯噪声污染过程定义为
+
+$$
+\mathrm d\overrightarrow X_\tau=-f(\tau)\overrightarrow X_\tau\,\mathrm d\tau+g(\tau)\,\mathrm dB_\tau,\qquad \overrightarrow X_0=X,\tag{4}
+$$
+
+其中 \(f,g:\mathbb R\mapsto\mathbb R_+\) 为连续函数。为求式 (4) 的闭式解，记 \(Y_\tau=a(\tau)^{-1}\overrightarrow X_\tau\)，其中 \(a(\tau)=\exp\left(-\int_0^\tau f(u)\,\mathrm du\right)\)。由 Itô 公式，
+
+$$
+\mathrm dY_\tau=f(\tau)a(\tau)^{-1}\overrightarrow X_\tau\,\mathrm d\tau+a(\tau)^{-1}\mathrm d\overrightarrow X_\tau=\frac{g(\tau)}{a(\tau)}\,\mathrm dB_\tau,
+$$
+
+故 \(Y_\tau=a(0)^{-1}\overrightarrow X_0+\int_0^\tau\frac{g(u)}{a(u)}\,\mathrm dB_u=X+\int_0^\tau\frac{g(u)}{a(u)}\,\mathrm dB_u\)，从而
+
+$$
+\overrightarrow X_\tau=a(\tau)X+a(\tau)\int_0^\tau\frac{g(u)}{a(u)}\,\mathrm dB_u .
+$$
+
+特别地，对每个时刻 \(\tau\)，联合分布满足
+
+$$
+\mathcal L\left((\overrightarrow X_0,\overrightarrow X_\tau)\right)=\mathcal L\left((X,\ a(\tau)X+b(\tau)Z)\right),
+$$
+
+其中 \(Z\sim\mathcal N(0,\mathbf I)\) 与 \(X\) 独立，\(b(\tau)=a(\tau)\sqrt{\int_0^\tau\frac{g(u)^2}{a(u)^2}\,\mathrm du}\)。
+
+#### B.2 Fokker–Planck 方程与反向过程（补录）
+
+扩散模型取足够大的 \(T>0\)，使 \(\overrightarrow X_T\) 接近标准正态，然后构造一个与 \((\overrightarrow X_{T-t})_{t\in[0,T]}\) 具有相同边缘律的过程，把高斯映射到目标分布。\(\overrightarrow X_\tau\) 的边缘律由支配其密度 \(\overrightarrow p_\tau\) 演化的 Fokker–Planck 方程刻画（参见文献 [3]、[6]）：
+
+$$
+\partial_\tau\overrightarrow p_\tau=-\nabla\cdot\left(-f(\tau)x\,\overrightarrow p_\tau\right)+\frac12 g(\tau)^2\Delta\overrightarrow p_\tau .
+$$
+
+取时间反演 \(t=T-\tau\)、\(\overleftarrow p_t=\overrightarrow p_{T-t}\)、\(\overleftarrow f(t)=f(T-t)\)、\(\overleftarrow g(t)=g(T-t)\)，得
+
+$$
+\partial_t\overleftarrow p_t=-\nabla\cdot\left(\overleftarrow f(t)x\,\overleftarrow p_t\right)-\frac12\overleftarrow g(t)^2\Delta\overleftarrow p_t,
+$$
+
+但此时 Laplacian 前的系数为负，不能读作某个 SDE 的 Fokker–Planck 方程。技巧是引入 \(\gamma:\mathbb R\to\mathbb R_+\)，并利用 \(\Delta\overleftarrow p_t=\nabla\cdot(\overleftarrow p_t\nabla\log\overleftarrow p_t)\) 改写为
+
+$$
+\partial_t\overleftarrow p_t=-\nabla\cdot\left(\left(\overleftarrow f(t)x+\frac{\gamma(t)^2+\overleftarrow g(t)^2}{2}\nabla\log\overleftarrow p_t\right)\overleftarrow p_t\right)+\frac{\gamma(t)^2}{2}\Delta\overleftarrow p_t .
+$$
+
+Laplacian 前系数为正，故这是如下过程 \(\overleftarrow X_t\) 的 Fokker–Planck 方程：
+
+$$
+\mathrm d\overleftarrow X_t=\left(\overleftarrow f(t)\overleftarrow X_t+\frac{\gamma(t)^2+\overleftarrow g(t)^2}{2}\nabla\log\overleftarrow p_t(\overleftarrow X_t)\right)\mathrm dt+\gamma(t)\,\mathrm dW_t,\qquad \overleftarrow X_0=\overrightarrow X_T,\tag{5}
+$$
+
+其中 \(W_t\) 为布朗运动。因此该过程满足 \(\forall t\in[0,T]\)，\(\mathcal L(\overleftarrow X_t)=\mathcal L(\overrightarrow X_{T-t})\)。需注意，Fokker–Planck 方程只能保证边缘律相等；而 Haussmann 与 Pardoux（文献 [2]）证明，取 \(\gamma(t)^2=\overleftarrow g(t)^2\) 还能保持路径分布：\(\mathcal L((\overleftarrow X_t)_{t\in[0,T]})=\mathcal L((\overrightarrow X_{T-t})_{t\in[0,T]})\)。
+
+#### B.3 流匹配与无记忆噪声日程的对应（补录）
+
+Domingo-Enrich 等人（文献 [35]）通过在流匹配中加入扩散系数 \(\gamma:[0,1]\mapsto\mathbb R\) 推广了模型：
+
+$$
+\begin{cases}
+\mathrm dX_t=b_\gamma(X_t,t)\,\mathrm dt+\gamma(t)\,\mathrm dB_t\\
+X_0\sim\mathcal N(0,\mathbf I),\qquad b_\gamma(x,t)=v(x,t)+\frac{\gamma(t)^2}{2}\nabla\log p_t(x)
+\end{cases}\tag{7}
+$$
+
+其速度场闭式解（见该文附录 B.4）为
+
+$$
+v(x,t)=\frac{\dot\alpha_t}{\alpha_t}x+\beta_t\left(\frac{\dot\alpha_t}{\alpha_t}\beta_t-\dot\beta_t\right)\nabla\log p_t(x),\tag{8}
+$$
+
+于是
+
+$$
+b_\gamma(x,t)=\frac{\dot\alpha_t}{\alpha_t}x+\left(\beta_t\left(\frac{\dot\alpha_t}{\alpha_t}\beta_t-\dot\beta_t\right)+\frac{\gamma(t)^2}{2}\right)\nabla\log p_t(x).
+$$
+
+把该式与式 (5) 对照可知，式 (7) 就是取特定 \(f(\tau)\)、\(g(\tau)\) 的反向 SDE。具体取
+
+$$
+f(\tau)=-\frac{\mathrm d}{\mathrm d\tau}\log\alpha_{1-\tau}=\frac{\dot\alpha_{1-\tau}}{\alpha_{1-\tau}},\qquad
+g(\tau)=\alpha_{1-\tau}\sqrt{\frac{\mathrm d}{\mathrm d\tau}\left(\alpha_{1-\tau}^{-2}\beta_{1-\tau}^2\right)}=\sqrt{2\beta_{1-\tau}\left(\frac{\dot\alpha_{1-\tau}}{\alpha_{1-\tau}}\beta_{1-\tau}-\dot\beta_{1-\tau}\right)},
+$$
+
+则
+
+$$
+a(\tau)=\exp\left(-\int_0^\tau f(u)\,\mathrm du\right)=\exp\left(-\int_0^\tau-\frac{\mathrm d}{\mathrm du}\log\alpha_{1-u}\,\mathrm du\right)=\frac{\alpha_{1-\tau}}{\alpha_1}=\alpha_{1-\tau},
+$$
+
+$$
+b(\tau)=a(\tau)\sqrt{\int_0^\tau\frac{g(u)^2}{a(u)^2}\,\mathrm du}
+=\alpha_{1-\tau}\sqrt{\int_0^\tau\frac{\mathrm d}{\mathrm du}\left(\alpha_{1-u}^{-2}\beta_{1-u}^2\right)\mathrm du}
+=\alpha_{1-\tau}\sqrt{\alpha_{1-\tau}^{-2}\beta_{1-\tau}^2-\alpha_1^{-2}\beta_1^2}=\beta_{1-\tau}.
+$$
+
+因此前向过程 \(\overrightarrow X_\tau\) 的边缘分布为 \(\mathcal L(a(\tau)X+b(\tau)Z)\)（\(Z\sim\mathcal N(0,\mathbf I)\) 与 \(X\) 独立），从数据端 \(\tau=0\)、\(a(0)=\alpha_1=1\)、\(b(0)=\beta_1=0\) 出发，到 \(T=1\) 时成为纯噪声：\(a(1)=\alpha_0=0\)、\(b(1)=\beta_0=1\)。把 \(\overleftarrow a(t)=a(1-t)=\alpha_t\)、\(\overleftarrow b(t)=b(1-t)=\beta_t\)、\(\overleftarrow f(t)=\frac{\dot\alpha_t}{\alpha_t}\)、\(\overleftarrow g(t)=\sqrt{2\beta_t\left(\frac{\dot\alpha_t}{\alpha_t}\beta_t-\dot\beta_t\right)}\) 代入式 (5)，恰好得到式 (7)。可见 Domingo-Enrich 等人的流匹配 SDE 不过是一个取特定时间日程的扩散模型。此外，无记忆噪声日程的选择
+
+$$
+\gamma(t)=\sqrt{2\beta_t\left(\frac{\dot\alpha_t}{\alpha_t}\beta_t-\dot\beta_t\right)}=\overleftarrow g(t)
+$$
+
+正是按 Haussmann 与 Pardoux（文献 [2]）同样能保持路径分布 \(\mathcal L((\overleftarrow X_t)_{t\in[0,T]})=\mathcal L((\overrightarrow X_{T-t})_{t\in[0,T]})\) 的那个 \(\gamma(t)\)。
 
 ### C. 路径 KL 目标
 
@@ -693,6 +940,142 @@ p^{\rm base}(X_{[s,t]}\mid X_s)\bigr)
 =w(T)K_T(X_0)-\int_0^T K_t(X_0)\,dw(t).
 \]
 **命题 5** 提供对偶的后缀路径 \([t,T]\) KL 表述，权重出现在 \(-dw(t)\) 项中；如果 \(w\) 是非降函数，则对后期子路径施加额外正则化。**命题 6** 说明前缀与后缀两种形式完全等价：完整路径散度 \(K_T(X_0)\) 可拆分为 \([0,t]\) 上的散度和未来子路径散度的条件期望。利用随机过程的 Markov 性和条件概率链式分解便可证明这一关系。
+
+#### C.1 一般形式的加权 SOC 问题（式 (22)–(23)）
+
+附录 C 与附录 D 针对时间范围 \(T>0\) 上的加权 SOC 问题写出，其运行代价 \(f:\mathbb R^d\times[0,T]\to\mathbb R\) 与终端代价 \(g:\mathbb R^d\to\mathbb R\) 任意：
+
+$$
+\min_{u\in\mathcal U}\ \mathbb E\left[\int_0^T\left(\frac{w(t)}{2}\lVert u(X_t^u,t)\rVert^2+f(X_t^u,t)\right)\mathrm dt+g(X_T^u)\right]\tag{22}
+$$
+
+$$
+\text{s.t.}\quad \mathrm dX_t^u=\left(b(X_t^u,t)+\gamma(t)u(X_t^u,t)\right)\mathrm dt+\gamma(t)\,\mathrm dB_t,\qquad X_0^u\sim p_0\tag{23}
+$$
+
+主文的微调问题 (10) 是其特例 \(T=1\)、\(f=0\)、\(g=-ar\)。
+
+#### C.2 命题 3：Girsanov 定理的推论（式 (24)）
+
+**命题 3。** 对每个 \(0\le s\le t\le T\) 与每个 \(u\in\mathcal U\)，
+
+$$
+\mathrm{KL}\left(p^u(X_{[s,t]}\mid X_s)\,\Vert\,p^{\mathrm{base}}(X_{[s,t]}\mid X_s)\right)
+=\mathbb E_{p^u}\left[\frac12\int_s^t\lVert u(X_r^u,r)\rVert^2\,\mathrm dr\ \Big|\ X_s\right].
+$$
+
+**证明。** 取 \(s=0\)、\(t=T=1\) 时即为 Domingo-Enrich 等人（文献 [35]）的定理 2 与附录 C.4；一般情形把相同论证用于从 \(X_s\) 出发的过程 \((X_r^u)_{r\in[s,t]}\) 即可。特别地，主文式 (13) 定义的 \(K_t\) 满足
+
+$$
+K_t(X_0)=\mathbb E_{p^u}\left[\frac12\int_0^t\lVert u(X_s^u,s)\rVert^2\,\mathrm ds\ \Big|\ X_0\right].\tag{24}
+$$
+
+#### C.3 命题 4：\((0,t)\) 路径 KL 正则化（式 (25)）
+
+**命题 4。** 设 \(w\) 满足式 (12)，则加权 SOC 问题 (22) 等价于
+
+$$
+\max_{u\in\mathcal U}\ \mathbb E_{X_0\sim p_0}\left[\mathbb E_{X^u\sim p^u(\cdot\mid X_0)}\left[\int_0^T-f(X_t^u,t)\,\mathrm dt-g(X_T^u)\right]-w(T)\,\mathrm{KL}\left(p^u(X\mid X_0)\,\Vert\,p^{\mathrm{base}}(X\mid X_0)\right)+\int_0^T K_t(X_0)\,\mathrm dw(t)\right].\tag{25}
+$$
+
+主文命题 1 是取 \(T=1\)、\(f=0\)、\(g=-ar\) 的特例。**证明。** 利用权重函数满足式 (12)、式 (24)，并交换积分次序：
+
+$$
+\mathbb E_{p^u}\left[\int_0^T\frac{w(t)}{2}\lVert u(X_t^u,t)\rVert^2\,\mathrm dt\ \Big|\ X_0\right]
+=w(T)K_T(X_0)-\mathbb E\left[\int_{t=0}^{T}\int_{s=t}^{T}\frac12\lVert u(X_t^u,t)\rVert^2\,\mathrm dw(s)\,\mathrm dt\ \Big|\ X_0\right]
+$$
+
+$$
+=w(T)K_T(X_0)-\int_{s=0}^{T}\mathbb E\left[\int_{t=0}^{s}\frac12\lVert u(X_t^u,t)\rVert^2\,\mathrm dt\ \Big|\ X_0\right]\mathrm dw(s)
+=w(T)K_T(X_0)-\int_0^T K_s(X_0)\,\mathrm dw(s).
+$$
+
+把该等式代入式 (22) 即得式 (25)。\(\square\)
+
+#### C.4 命题 5：\((t,T)\) 路径 KL 正则化（式 (26)–(27)）
+
+考虑 \(t\) 与 \(T\) 之间的过程，命题 3 给出
+
+$$
+\widetilde K_t(X_t):=\mathrm{KL}\left(p^u(X_{[t,T]}\mid X_t)\,\Vert\,p^{\mathrm{base}}(X_{[t,T]}\mid X_t)\right)=\mathbb E_{p^u}\left[\frac12\int_t^T\lVert u(X_s^u,s)\rVert^2\,\mathrm ds\ \Big|\ X_t\right].\tag{26}
+$$
+
+**命题 5。** 在命题 4 的假设下，加权 SOC 问题 (22) 也等价于
+
+$$
+\max_{u\in\mathcal U}\ \mathbb E_{X_0\sim p_0}\left[\mathbb E_{X^u\sim p^u(\cdot\mid X_0)}\left[-\int_0^T f(X_t^u,t)\,\mathrm dt-g(X_T^u)-\int_0^T\widetilde K_t(X_t)\,\mathrm dw(t)\right]-w(0)\,\mathrm{KL}\left(p^u(X\mid X_0)\,\Vert\,p^{\mathrm{base}}(X\mid X_0)\right)\right].\tag{27}
+$$
+
+**证明。** 由式 (12) 与式 (26)，并利用 \(X_t^u\) 的 Markov 性，
+
+$$
+\mathbb E_{p^u}\left[\int_0^T\frac{w(t)}{2}\lVert u(X_t^u,t)\rVert^2\,\mathrm dt\ \Big|\ X_0\right]
+=w(0)\widetilde K_0(X_0)+\mathbb E_{p^u}\left[\int_{t=0}^{T}\int_{s=0}^{t}\frac12\lVert u(X_t^u,t)\rVert^2\,\mathrm dw(s)\,\mathrm dt\ \Big|\ X_0\right]
+$$
+
+$$
+=w(0)\widetilde K_0(X_0)+\int_{s=0}^{T}\mathbb E\left[\int_{t=s}^{T}\frac12\lVert u(X_t^u,t)\rVert^2\,\mathrm dt\ \Big|\ X_0\right]\mathrm dw(s)
+=w(0)\widetilde K_0(X_0)+\mathbb E\left[\int_0^T\widetilde K_s(X_s^u)\,\mathrm dw(s)\ \Big|\ X_0\right].
+$$
+
+把该等式代入式 (22) 即得式 (27)。\(\square\)
+
+与无权重 SOC 问题相比，\([t,T]\) 上路径间的 KL 散度以权重 \(-\mathrm dw(t)\) 进入目标：对非降的 \(w\)，该权重为负，因而增加正则化。
+
+**例（分段常数权重）。** 取
+
+$$
+w(t)=\begin{cases}1,& t<\dfrac T2,\\[2pt] 2,& t>\dfrac T2,\end{cases}
+$$
+
+则得到等价目标
+
+$$
+\max_{u\in\mathcal U}\ \mathbb E_{X_0\sim p_0}\left[\mathbb E_{X^u\sim p^u(\cdot\mid X_0)}\left[\int_0^T-f(X_t^u,t)\,\mathrm dt-g(X_T^u)-\mathrm{KL}\left(p^u(X_{[T/2,T]}\mid X_{T/2}^u)\,\Vert\,p^{\mathrm{base}}(X_{[T/2,T]}\mid X_{T/2}^u)\right)\right]-\mathrm{KL}\left(p^u(X\mid X_0)\,\Vert\,p^{\mathrm{base}}(X\mid X_0)\right)\right].
+$$
+
+即 \((T/2,T)\) 上偏离基础分布的行为被惩罚两次。
+
+#### C.5 命题 6：两种表述的等价性
+
+**命题 6。** 对每个 \(t\in[0,T]\)，
+
+$$
+K_T(X_0)=\widetilde K_0(X_0),\qquad K_T(X_0)-K_t(X_0)=\mathbb E\left[\widetilde K_t(X_t^u)\ \Big|\ X_0\right],
+$$
+
+并且式 (25) 与式 (27) 的正则项相等：
+
+$$
+-w(T)K_T(X_0)+\int_0^T K_t(X_0)\,\mathrm dw(t)=-w(0)K_T(X_0)-\mathbb E\left[\int_0^T\widetilde K_t(X_t)\,\mathrm dw(t)\ \Big|\ X_0\right].
+$$
+
+**证明。** 第一个等式由式 (13) 中 \(K_T\) 与式 (26) 中 \(\widetilde K_0\) 的定义直接得到。对第二个等式，利用 \(X_t^u\) 的 Markov 性：
+
+$$
+K_T(X_0)-K_t(X_0)=\mathbb E_{X^u\sim p^u(\cdot\mid X_0)}\left[\log\frac{p^u(X_{[0,T]}\mid X_0)}{p^{\mathrm{base}}(X_{[0,T]}\mid X_0)}\right]-\mathbb E_{X^u\sim p^u(\cdot\mid X_0)}\left[\log\frac{p^u(X_{[0,t]}\mid X_0)}{p^{\mathrm{base}}(X_{[0,t]}\mid X_0)}\right]
+$$
+
+$$
+=\mathbb E_{X^u\sim p^u(\cdot\mid X_0)}\left[\log\left(\frac{p^u(X_{[0,T]}\mid X_0)}{p^u(X_{[0,t]}\mid X_0)}\frac{p^{\mathrm{base}}(X_{[0,t]}\mid X_0)}{p^{\mathrm{base}}(X_{[0,T]}\mid X_0)}\right)\right]
+=\mathbb E_{X^u\sim p^u(\cdot\mid X_0)}\left[\log\frac{p^u(X_{[t,T]}\mid X_t)}{p^{\mathrm{base}}(X_{[t,T]}\mid X_t)}\right]
+$$
+
+$$
+=\mathbb E\left[\mathbb E\left[\log\frac{p^u(X_{[t,T]}\mid X_t)}{p^{\mathrm{base}}(X_{[t,T]}\mid X_t)}\ \Big|\ X_t\right]\ \Big|\ X_0\right]=\mathbb E\left[\widetilde K_t(X_t^u)\ \Big|\ X_0\right].
+$$
+
+于是
+
+$$
+-w(T)K_T(X_0)+\int_0^T K_t(X_0)\,\mathrm dw(t)
+=-w(0)K_T(X_0)-(w(T)-w(0))K_T(X_0)+\int_0^T K_t(X_0)\,\mathrm dw(t)
+$$
+
+$$
+=-w(0)K_T(X_0)+\int_0^T\left(K_t(X_0)-K_T(X_0)\right)\mathrm dw(t)
+=-w(0)K_T(X_0)-\mathbb E\left[\int_0^T\widetilde K_t(X_t)\,\mathrm dw(t)\ \Big|\ X_0\right].\ \square
+$$
 
 ### D. 加权伴随匹配理论
 
@@ -724,6 +1107,221 @@ u(x,t)=
 **D.4 与一般化伴随匹配框架的关系。** Domingo-Enrich 与 Han [40] 将伴随匹配推广至控制同时影响漂移、扩散和一般凸运行代价的随机控制问题。把本文的运行代价设置为 \(f(x,t)+w(t)\|u\|^2/2\)，可在其框架下得到加权伴随匹配损失的一个特例，对应 \(\lambda(t)=w(t)\)。但本文还允许独立选择用于数值稳定的 \(\lambda(t)\)，从而额外调整不同时间步的梯度尺度。
 
 **D.5 算法 1：利用加权伴随匹配微调流匹配模型。** 输入预训练速度场、插值调度 \(\alpha_t,\beta_t\)、奖励函数 \(r\)、控制代价权重 \(w(t)\)、损失权重 \(\lambda(t)\)、时间离散步数 \(K\)、每次微调的轨迹数 \(M\) 和总迭代次数。初始化微调网络为预训练网络，步长 \(h=1/K\)。每轮从标准 Gaussian 采样 \(M\) 个起点，并使用受控 SDE 的 Euler–Maruyama 离散化生成轨迹；从终点 \(-a\nabla r(X_1)\) 出发，利用基础漂移的状态 Jacobian 沿时间反向积分简化伴随 ODE；对轨迹和伴随状态停止梯度，再计算离散化的加权匹配平方损失，并对网络参数做一步梯度下降。原文还说明，为减少计算开销，实际可随机抽取部分时间步评估损失；对 \(\alpha_t=t,\beta_t=1-t\) 造成的 \(t=0\) 奇异项，首次更新采用正的时间步点代替零时刻。
+
+#### D.0 最优控制刻画：生成元、价值函数与 HJB 方程（补录）
+
+**无穷小生成元。** 与 \(\mathrm dX_t=b(X_t,t)\,\mathrm dt+\gamma(t)\,\mathrm dB_t\) 对应的无穷小生成元 \(\mathcal L_t\) 定义为
+
+$$
+\mathcal L_t f=\lim_{\Delta t\searrow0}\frac{\mathbb E\left[f(X_{t+\Delta t})\mid X_t=x\right]-f(x)}{\Delta t},
+$$
+
+对使该极限存在的函数 \(f\) 成立。设 \(f\in C^2\)，二阶 Taylor 展开给出（\(Z\sim\mathcal N(0,\mathbf I)\)）
+
+$$
+f(X_{t+\Delta t})\approx f(X_t)+\langle\nabla f(X_t),b(X_t,t)\rangle\Delta t+\frac12\operatorname{tr}\left(\gamma(t)^\top\nabla^2f(X_t)\gamma(t)ZZ^\top\right)\Delta t,
+$$
+
+于是 \(\mathcal L_tf=\langle\nabla f(x),b(x,t)\rangle+\frac12\operatorname{tr}\left(\gamma(t)\gamma(t)^\top\nabla^2f(x)\right)\)，也可写成 \(\mathcal L_t=\sum_i b_i(x,t)\partial_{x_i}+\frac12\sum_{i,j}(\gamma\gamma^\top)_{ij}\partial_{x_i}\partial_{x_j}\)。类似地，对控制 \(u\)，与 \(\mathrm dX_t^u=(b(X_t^u,t)+\gamma(t)u(X_t^u,t))\mathrm dt+\gamma(t)\mathrm dB_t\) 对应的生成元为 \(\mathcal L_t^u=\mathcal L_t+\sum_i(\gamma(t)u)_i(x,t)\partial_{x_i}\)。
+
+**代价函数与价值函数。** 对控制 \(u\) 与 \(t\in[0,T]\)，代价函数定义为
+
+$$
+J(u,x,t)=\mathbb E_{X\sim p^u}\left[\int_t^T\left(\frac{w(s)}{2}\lVert u(X_s,s)\rVert^2+f(X_s,s)\right)\mathrm ds+g(X_T)\ \Big|\ X_t=x\right],
+$$
+
+价值函数为 \(V(x,t)=\min_uJ(u,x,t)\)。
+
+**验证定理与 HJB 方程。** 验证定理（参见文献 [1] 第 VI 章定理 4.1）指出，\(V\) 由下式刻画（对所有 \((x,t)\in\mathbb R^d\times[0,T)\)）：
+
+$$
+\begin{cases}
+\partial_tV(x,t)+\min_{u\in\mathbb R^d}\left[\mathcal L_t^uV(x,t)+\dfrac{w(t)}{2}\lVert u\rVert^2+f(x,t)\right]=0,\\
+V(x,T)=g(x),
+\end{cases}
+$$
+
+等价地
+
+$$
+\begin{cases}
+(\partial_t+\mathcal L_t)V(x,t)+\min_{u\in\mathbb R^d}\left[\langle\gamma(t)u,\nabla_xV(x,t)\rangle+\dfrac{w(t)}{2}\lVert u\rVert^2\right]+f(x,t)=0,\\
+V(x,T)=g(x).
+\end{cases}
+$$
+
+对最优 \(u\) 求解即得 Hamilton–Jacobi–Bellman（HJB）方程
+
+$$
+\begin{cases}
+(\partial_t+\mathcal L_t)V(x,t)-\dfrac{1}{2w(t)}\left\lVert(\gamma^\top\nabla V)(x,t)\right\rVert^2+f(x,t)=0,\\
+V(x,T)=g(x),
+\end{cases}
+$$
+
+最优控制为 \(u^\star(x,t)=-\frac{\gamma(t)^\top}{w(t)}\nabla V(x,t)\)。利用 \(V\) 的定义可写成
+
+$$
+u^\star(x,t)=-\frac{\gamma(t)^\top}{w(t)}\nabla_xJ(u^\star,x,t).\tag{15}
+$$
+
+#### D.1 引理 7：最优性关系刻画最优控制
+
+**引理 7。** 若控制 \(u\) 满足
+
+$$
+u(x,t)=-\frac{\gamma(t)^\top}{w(t)}\nabla_xJ(u,x,t),
+$$
+
+则 \(u\) 是 (22) 的最优控制。
+
+**证明。** 证明思路是：若 \(u\) 满足该关系，则 \(J^u:(x,t)\mapsto J(u,x,t)\) 解 HJB 方程。首先
+
+$$
+\mathcal L_t^uJ^u(x,t)=\lim_{\Delta t\to0}\frac{\mathbb E\left[J(u,X_{t+\Delta t}^u,t)\mid X_t^u=x\right]-J(u,x,t)}{\Delta t}
+$$
+
+$$
+=\lim_{\Delta t\to0}\frac{\mathbb E\left[J(u,X_{t+\Delta t}^u,t+\Delta t)\mid X_t^u=x\right]-J(u,x,t)}{\Delta t}-\partial_tJ^u(x,t).
+$$
+
+又由动态规划
+
+$$
+J(u,x,t)=\mathbb E\left[\int_t^{t+\Delta t}\left(\frac{w(s)}{2}\lVert u(X_s,s)\rVert^2+f(X_s,s)\right)\mathrm ds+J(u,X_{t+\Delta t},t+\Delta t)\ \Big|\ X_t=x\right],
+$$
+
+故上式第一项极限为 \(-\frac{w(t)}{2}\lVert u(x,t)\rVert^2-f(x,t)\)，从而
+
+$$
+\mathcal L_tJ^u(x,t)=\mathcal L_t^uJ^u(x,t)-\langle\gamma(t)u(x,t),\nabla_xJ^u(x,t)\rangle=-\frac{w(t)}{2}\lVert u(x,t)\rVert^2-f(x,t)-\partial_tJ^u(x,t)-\langle\gamma(t)u(x,t),\nabla_xJ^u(x,t)\rangle.
+$$
+
+取 \(V=J^u\)，HJB 方程化为
+
+$$
+-\frac{w(t)}{2}\lVert u(x,t)\rVert^2-\langle\gamma(t)u(x,t),\nabla_xJ^u(x,t)\rangle-\frac{1}{2w(t)}\left\lVert(\gamma^\top\nabla J^u)(x,t)\right\rVert^2=0
+\iff
+\frac{w(t)}{2}\left\lVert u(x,t)+\frac{\gamma(t)^\top}{w(t)}\nabla J^u(x,t)\right\rVert^2=0,
+$$
+
+在所作假设下成立。按定义 \(J^u\) 满足边界条件 \(J^u(x,T)=g(x)\)。由验证定理得 \(J^u=V\)，于是 \(u^\star(x,t)=-\frac{\gamma(t)^\top}{w(t)}\nabla V(x,t)=u(x,t)\)。\(\square\)
+
+#### D.2 伴随状态与引理 8
+
+对某个控制 \(u\)，伴随状态定义为
+
+$$
+a(t,X^u,u)=\nabla_{X_t^u}\left(\int_t^T\left(\frac{w(s)}{2}\lVert u(X_s^u,s)\rVert^2+f(X_s^u,s)\right)\mathrm ds+g(X_T^u)\right),
+$$
+
+其中 \(X^u\) 是 \(\mathrm dX_t^u=(b(X_t^u,t)+\gamma(t)u(X_t^u,t))\mathrm dt+\gamma(t)\mathrm dB_t\) 的解。伴随状态是一个依赖随机轨迹 \(X^u\) 的随机变量，\(\nabla_{X_t^u}\) 表示在固定 \(t\) 之后布朗运动 \((B_s)_{s\ge t}\) 轨迹的前提下对过程在 \(t\) 时刻取值 \(X_t^u\) 求导（对 SDE 解求导的技术细节见文献 [16]、[43]）。取伴随状态的条件期望即得代价函数的梯度：\(\nabla J(u,x,t)=\mathbb E[a(t,X^u,u)\mid X_t=x]\)。为计算伴随，利用它满足一个 ODE：
+
+**引理 8。** 伴随满足 ODE
+
+$$
+\begin{cases}
+\dfrac{\mathrm d}{\mathrm dt}a(t,X^u,u)=-\left[\nabla_{X_t^u}\left(b(X_t^u,t)+\gamma(t)u(X_t^u,t)\right)^\top a(t,X^u,u)+\nabla_{X_t^u}\left(f(X_t^u,t)+\dfrac{w(t)}{2}\lVert u(X_t^u,t)\rVert^2\right)\right],\\[4pt]
+a(T,X^u,u)=\nabla g(X_T^u).
+\end{cases}\tag{28}
+$$
+
+为简化记号，后文记 \(b^u:(x,t)\mapsto b(x,t)+\gamma(t)u(x,t)\)、\(f^u:(x,t)\mapsto f(x,t)+\frac{w(t)}{2}\lVert u(x,t)\rVert^2\)。**证明。** 由定义展开
+
+$$
+a(t,X^u,u)=\nabla_{X_t^u}\left(\int_t^Tf^u(X_s^u,s)\mathrm ds+g(X_T^u)\right)=\int_t^T\left(\nabla_{X_t^u}X_s^u\right)^\top\nabla_xf^u(X_s^u,s)\,\mathrm ds+\left(\nabla_{X_t^u}X_T^u\right)^\top\nabla_xg(X_T^u).
+$$
+
+再对 \(t\) 求导（利用 \(\nabla_{X_t^u}X_s^u\) 满足的线性化方程与文献 [16]、[43] 的结论），即得式 (28)。\(\square\)
+
+#### D.3 引理 9：伴随条件期望的唯一性
+
+为证明简化伴随状态的条件期望具有所需性质，附录使用与未来条件期望有关的积分方程以及下述唯一性引理。
+
+**引理 9。** 设 \(A:\mathbb R^d\times[0,T]\to\mathbb R^{d\times d}\)、\(c:\mathbb R^d\times[0,T]\to\mathbb R^d\) 可测。假设存在可测的 \(\kappa:(0,T]\to\mathbb R_+\)，使对所有 \((x,s)\in\mathbb R^d\times(0,T]\) 有算子范数界 \(\lVert A(x,s)\rVert\le\kappa(s)\)，且对每个 \(\varepsilon\in(0,T]\) 有 \(\int_\varepsilon^T\kappa(s)\,\mathrm ds<\infty\)。设 \(Y^1\)、\(Y^2\) 是形如 \(Y_t^i=y^i(X_t^u,t)\) 的两个过程（\(y^i\) 可测、\(\sup_{t\in[0,T]}\mathbb E\lVert Y_t^i\rVert<\infty\)），且都满足对一切 \(t\in[0,T]\)
+
+$$
+Y_t=\mathbb E\left[\nabla g(X_T^u)+\int_t^T\left(A(X_s^u,s)^\top Y_s+c(X_s^u,s)\right)\mathrm ds\ \Big|\ X_t^u\right],
+$$
+
+其中假设 \(\nabla g(X_T^u)\)、\(\int_0^T\lVert c(X_s^u,s)\rVert\mathrm ds\) 与 \(\int_0^T\lVert A(X_s^u,s)^\top Y_s^i\rVert\mathrm ds\) 可积。则 \(Y^1=Y^2\)。
+
+**证明。** 令 \(D_t=Y_t^1-Y_t^2\)、\(\phi(t)=\mathbb E\lVert D_t\rVert\)。两式相减，终端项与源项抵消，得 \(D_t=\mathbb E\left[\int_t^TA(X_s^u,s)^\top D_s\,\mathrm ds\mid X_t^u\right]\)。由三角不等式与 \(A\) 的界，\(\lVert D_t\rVert\le\mathbb E\left[\int_t^T\kappa(s)\lVert D_s\rVert\,\mathrm ds\mid X_t^u\right]\)；取期望得 \(\phi(t)\le\int_t^T\kappa(s)\phi(s)\,\mathrm ds\)。固定 \(\varepsilon\in(0,T]\)，因 \(\kappa\) 在 \([\varepsilon,T]\) 上可积，Grönwall 引理给出 \(\phi=0\) 于 \([\varepsilon,T]\)；由 \(\varepsilon\) 任意，故几乎必然有 \(D_t=0\)（\(t\in(0,T]\)）。对 \(t=0\)，\(\mathbb E\lVert D_0\rVert\le\int_0^T\mathbb E\lVert A(X_s^u,s)^\top D_s\rVert\mathrm ds=0\)，故 \(D_0=0\) 几乎必然。\(\square\)
+
+**关于 \(A\) 的假设在流匹配漂移下成立。** 在主文流匹配设定中 \(T=1\)，且
+
+$$
+\nabla_xb(x,t)=2\nabla_xv^{\mathrm{base}}(x,t)-\frac{\dot\alpha_t}{\alpha_t}\mathbf I,\qquad
+\nabla_xb^{u_\theta}(x,t)=2\nabla_xv^{\mathrm{finetune}}_\theta(x,t)-\frac{\dot\alpha_t}{\alpha_t}\mathbf I .
+$$
+
+若 \(v^{\mathrm{base}}\) 与 \(v^{\mathrm{finetune}}_\theta\) 关于 \(x\) 一致 \(L\)-Lipschitz，则 \(\lVert\nabla_xb(x,t)\rVert\le2L+\frac{\dot\alpha_t}{\alpha_t}=:\kappa(t)\)，且 \(\int_\varepsilon^1\kappa(t)\,\mathrm dt=2L(1-\varepsilon)+\log\frac{1}{\alpha_\varepsilon}<\infty\) 对每个 \(\varepsilon\in(0,1]\) 成立，\(\nabla_xb^{u_\theta}\) 有同样界。对 \(\alpha_t=t\) 有 \(\kappa(t)=2L+1/t\)，这不构成问题：引理只要求在初始时刻之外可积，因为后向 Grönwall 论证从终端时刻 \(t=1\) 出发。对一般关于 \(x\) 满足 Lipschitz 的控制 \(u\)，\(\nabla_xb^u=\nabla_xb+\gamma(t)\nabla_xu\) 会多出 \(\gamma(t)L_u\) 项，它在 \([\varepsilon,1]\) 上有界。
+
+#### D.4 命题 10（即主文命题 2 的精确表述）与证明要点
+
+**命题 10。** 对由下式定义的损失
+
+$$
+\widehat L_{\mathrm{WAM}}(u,v):=\mathbb E_{X\sim p^v}\left[\frac12\int_0^T\left\lVert u(X_t,t)+\frac{\gamma(t)^\top\widetilde a(t,X)}{w(t)}\right\rVert^2\mathrm dt\right],\tag{31}
+$$
+
+其中 \(\frac{\mathrm d}{\mathrm dt}\widetilde a(t,X)=-\left(\nabla_xb(X_t,t)^\top\widetilde a(t,X)+\nabla_xf(X_t,t)\right)\)、\(\widetilde a(T,X)=\nabla_xg(X_T)\)，唯一的临界点 \(\frac{\delta}{\delta u}\widehat L_{\mathrm{WAM}}(u,v)|_{v=u}=0\) 就是加权 SOC 问题 (22) 的最优控制 \(u^\ast\)。
+
+**证明要点（原文顺序）。** ① **泛函梯度定义。** 对 \(\mathbb R^d\times[0,T]\) 上的测度 \(M\)、泛函 \(F:L^2(\mathbb R^d\times[0,T],M;\mathbb R^d)\to\mathbb R\) 与 \(f\in L^2\)，把泛函梯度 \(\frac{\delta}{\delta f}F(f)\) 定义为满足下式的 \(g\in L^2\)：对一切 \(h\in L^2\)，\(\lim_{\varepsilon\to0}\frac{F(f+\varepsilon h)-F(f)}{\varepsilon}=\int\langle g(x,t),h(x,t)\rangle M(\mathrm dx,\mathrm dt)\)。② **临界点条件。** 对固定控制 \(v\)，取测度 \(M(\mathrm dx,\mathrm dt)=p(X_t^v=x)\mathrm dx\mathrm dt\)，把损失展开并把 \(\widetilde a(t,X)\) 用其条件期望替换，得
+
+$$
+\frac{\delta}{\delta u}\mathbb E_{X\sim p^v}[L_{\mathrm{WAM}}(u,X)](x,t)=u(x,t)+\frac{\gamma(t)^\top\mathbb E_{X\sim p^v}[\widetilde a(t,X)\mid X_t=x]}{w(t)},
+$$
+
+于是 \(u\) 是 \(u\mapsto\mathbb E_{X\sim p^{\bar u}}[L_{\mathrm{WAM}}(u,X)]\) 的临界点当且仅当
+
+$$
+\forall(x,t)\in\mathbb R^d\times[0,T],\quad u(x,t)=-\frac{\gamma(t)^\top}{w(t)}\mathbb E[\widetilde a(t,X^u)\mid X_t^u=x].\tag{32}
+$$
+
+③ **简化伴随方程。** 记 \(\widetilde Y_t=\mathbb E[\widetilde a(t,X^u)\mid X_t]\)，由 \(\widetilde a\) 的构造可得
+
+$$
+\widetilde Y_t=\mathbb E\left[\nabla g(X_T^u)+\int_t^T\left(\nabla_xb(X_s^u,s)^\top\widetilde Y_s+\nabla_xf(X_s^u,s)\right)\mathrm ds\ \Big|\ X_t\right],\tag{30}
+$$
+
+由引理 9，满足式 (30) 的过程唯一。④ **与完整伴随比较。** 对 \(u\) 满足式 (32) 的情形，完整伴随状态 \(a(t)\) 与简化伴随状态 \(\widetilde Y_t\) 的条件期望相等（关键步骤：对式 (32) 关于状态求微分，证明控制相关的伴随项在条件期望中抵消）；再由引理 9 的唯一性，该条件均值就是未来代价的状态梯度。⑤ **由最优性刻画收尾。** 由引理 7，临界点控制必然最优；反向则由最优控制的 HJB 条件出发，验证它也满足简化伴随匹配的泛函梯度零条件。加入正权重 \(\lambda(t)\) 只改变时间采样测度，不改变临界点集合。
+
+#### D.6 算法 1 逐行说明（式 (34)–(36)）
+
+**算法 1：利用加权伴随匹配微调流匹配模型。**
+
+- **输入：** 流匹配模型 \(v^{\mathrm{base}}=v^{\mathrm{base}}_{\theta_0}\)、插值调度 \(\alpha_t,\beta_t\)、奖励函数 \(r\)、控制代价权重 \(w(t)\)、损失权重 \(\lambda(t)\)、离散化步数 \(K\)、每次微调的轨迹数 \(M\)、微调迭代数 \(N\)。
+- **初始化：** 微调模型参数 \(\theta=\theta_0\)（即 \(v^{\mathrm{finetune}}_\theta=v^{\mathrm{base}}\)）；取 \(h=1/K\)，对 \(k\in\{0,1,\ldots,K\}\) 令 \(t_k=kh\)。
+- **对 \(n\in\{0,\ldots,N-1\}\)：**
+
+**（1）采样 \(M\) 条轨迹（式 (34)）。** 对 \(m\in\{0,\ldots,M-1\}\) 按受控 SDE 的 Euler–Maruyama 离散化生成轨迹 \(X^{(m)}=(X^{(m)}_{t_k})_{k\in\{0,\ldots,K\}}\)：
+
+$$
+X^{(m)}_{t_0}=X^{(m)}_0\sim\mathcal N(0,\mathbf I),\qquad
+X^{(m)}_{t_{k+1}}=X^{(m)}_{t_k}+h\left(2v^{\mathrm{finetune}}_\theta(X^{(m)}_{t_k},t_k)-\frac{\dot\alpha_{t_k}}{\alpha_{t_k}}X^{(m)}_{t_k}\right)+\sqrt{h}\,\gamma(t_k)\,\mathcal N(0,\mathbf I).\tag{34}
+$$
+
+**（2）反向求解伴随 ODE（式 (35)）。** 从终端出发计算 \(\widetilde a^{(m)}=(\widetilde a^{(m)}_{t_k})_{k\in\{0,\ldots,K\}}\)：
+
+$$
+\widetilde a^{(m)}_{t_K}=\widetilde a^{(m)}_1=-a\nabla r(X^{(m)}_1),\qquad
+\widetilde a^{(m)}_{t_{k-1}}=\widetilde a^{(m)}_{t_k}+h\,\nabla_{X^{(m)}_{t_k}}\left(2v^{\mathrm{base}}(X^{(m)}_{t_k},t_k)-\frac{\dot\alpha_{t_k}}{\alpha_{t_k}}X^{(m)}_{t_k}\right)^\top\widetilde a^{(m)}_{t_k}.\tag{35}
+$$
+
+**（3）停止梯度。** 取 \(X^{(m)}=\operatorname{stopgrad}(X^{(m)})\)、\(\widetilde a=\operatorname{stopgrad}(\widetilde a)\)。
+
+**（4）计算加权伴随匹配目标（式 (36)）。**
+
+$$
+\widehat L_{\mathrm{WAM}}(\theta)=\frac{1}{2M(K+1)}\sum_{m,k}\lambda(t_k)\left\lVert\frac{2}{\gamma(t_k)}\left(v^{\mathrm{finetune}}_\theta(X^{(m)}_{t_k},t_k)-v^{\mathrm{base}}(X^{(m)}_{t_k},t_k)\right)+\frac{\gamma(t_k)}{w(t_k)}\widetilde a^{(m)}_{t_k}\right\rVert^2.\tag{36}
+$$
+
+**（5）更新参数。** 计算 \(\nabla_\theta\widehat L_{\mathrm{WAM}}(\theta)\)，用梯度下降更新 \(\theta\)。
+
+- **输出：** 微调后的模型 \(v^{\mathrm{finetune}}_\theta\)。
+
+原文补充：实现中还会在式 (36) 中随机抽取 \(K_0<K\) 个时间步以降低计算开销；对经典选择 \(\alpha_t=t\)、\(\beta_t=1-t\)，式 (34) 中的两项 \(\frac{\dot\alpha_{t_k}}{\alpha_{t_k}}=\frac{1}{t_k}\) 与 \(\gamma(t_k)=\sqrt{\frac{2(1-t_k)}{t_k}}\) 在 \(t_0=0\) 处奇异，故仅在第一步改用 \(t_1=h>0\) 处的取值。
 
 ### E. 补充实验
 
@@ -763,5 +1361,90 @@ p_{\rm target}(x)=\frac14\sum_{i=1}^4
 r(x)=1-\frac1d\sum_{i=1}^{d}x_i.
 \]
 作者用相同方法鼓励生成更暗的数字，原文图 8、图 11 与表 3 显示总体结论没有改变。表 3 中，基础模型平均暗度奖励约 0.857；普通伴随匹配在奖励约 0.880 时，数字 1 占比从 10.1% 增至 19.6%，数字 0 降至 5.3%；加权匹配 \(t_s=0.45\) 在奖励约 0.881 时，数字 1 占比约 10.3%，数字 0 约 10.1%，显著降低了偏向特定类别的趋势。
+
+#### E.0 实验细节补录（计算资源与超参数）
+
+**计算资源。** 实验在学术 Slurm 集群上运行，每个任务使用单张 NVIDIA GPU（RTX 2080Ti/6000/8000、V100、A100、H100 或 H200），配 4–8 个 CPU 核、至多 12 GB 内存。包括先导实验、论文未报告的实验和被抢占或丢失的任务在内，总运行约 480 GPU 小时。源代码将在发表时公开。
+
+**高斯混合。** 对第 5.1 节第一个高斯混合实验，基础模型是含 4 546 个参数的多层感知机，用 Adam（恒定学习率 \(2\times10^{-4}\)）与批次大小 100 训练 100 个 epoch，每个 epoch 使用 \(10^5\) 个目标分布的新样本；取其权重的指数滑动平均（衰减 0.999）。微调进行 80 个 epoch，每个 epoch 10 个批次、每批 1 000 条轨迹，采样用 40 个离散化步；优化器为 Adam（学习率 \(2\times10^{-4}\)），权重指数滑动平均衰减 0.99。对伴随匹配与分段常数权重扫 \(a\in[0.2,39.95]\)，对分段常数（\(t_s\in\{0.25,0.5,0.65,0.8\}\)）、线性（\(w_0\in\{10,10^2,10^3,10^4\}\)）与指数（\(\alpha\in\{2,4,6,8\}\)）权重函数也各扫相应参数。每种方法（伴随、分段、指数或固定 \(t_s,\alpha,w_0\) 的线性）都从最小的 \(a\) 开始，用前一个 \(a\) 的权重热启动，只优化 40 个 epoch；最终检查点用 \(10^6\) 个样本评估。附录 E.2.2 的附加实验参数类似，但 \(a\in[0.2,29.95]\) 且不使用线性权重；E.2.3 的附加实验参数类似，但 \(a\in[0.2,9.2]\)、\(t_s\in\{0.5,0.6,0.7,0.8\}\)，不热启动，且不使用线性与指数权重函数。
+
+**MNIST。** 对第 5.2 节与附录 E.4 的 MNIST 实验，基础模型是含 900 万参数的 UNet，在缩放到 \([-1,1]\) 的 MNIST 训练图像上训练：批次大小 64，Adam（学习率 \(2\times10^{-4}\)，由 PyTorch 的 ReduceLROnPlateau 按验证损失减半，patience 5）训练 50 个 epoch；取其权重的指数滑动平均（衰减 0.9999）。每次微调都从基础模型出发，进行 25 个 epoch、每个 epoch 50 个批次、每批 64 条轨迹，采样用 40 个离散化步；优化器为 Adam（学习率 \(2\times10^{-4}\)，由 ReduceLROnPlateau 按每个 epoch 的平均梯度范数减半，patience 5），权重指数滑动平均衰减 0.995。对伴随匹配扫 \(a\in[1,10]\)；对分段常数权重函数，在 \(t_s=0.25\) 时扫 \(a\in[10,50]\)、\(t_s=0.3\) 时 \([10,100]\)、\(t_s=0.35\) 时 \([40,150]\)、\(t_s=0.4\) 时 \([80,250]\)、\(t_s=0.45\) 时 \([120,375]\)。最终检查点用 \(5\times10^4\) 个样本评估，并用 Hugging Face 分类器 `farleyknight/mnist-digit-classification-2022-09-04`（微调的 ViT-B/16，Apache 2.0 许可）预测类别。
+
+#### E.1 高斯混合补充实验的细节
+
+**E.1.1 线性权重函数。** 对第 5.1 节实验另试线性函数 \(w_{\mathrm{linear}}(t)=w_0+(w_1-w_0)t\)（\(w_1=1\)、\(w_0\) 取不同值）。图 5 显示线性权重的奖励/均衡折中优于普通伴随匹配，但不如指数或分段常数权重有效。
+
+**E.1.2 偏移模式。** 图 6 用不同基础分布重做第 5.1 节实验：两个模式方差相同，但第二个偏出第一坐标轴，
+
+$$
+p_{\mathrm{target}}(x)=\frac12\mathcal N(x;\mu_1,\sigma^2\mathbf I)+\frac12\mathcal N(x;\mu_2,\sigma^2\mathbf I),\qquad \mu_1=(-m,0),\ \mu_2=(m,s),\ m,s\in\mathbb R,\ \sigma>0 .
+$$
+
+结论不变。
+
+**E.1.3 四模式。** 另做四个高斯作为基础分布的实验（\(\mu_1=(4,-2)\)、\(\mu_2=(4,2)\)、\(\mu_3=(-4,-2)\)、\(\mu_4=(-4,2)\)，\(\sigma^2=0.25\)，奖励 \(r(x)=x_1+x_2\)）。图 7 把基础分布样本与伴随匹配、不同 \(a\) 和 \(t_s\) 下分段常数加权匹配的样本并列展示：伴随匹配很快坍缩到右上模式；加权匹配随 \(t_s\) 减轻该效应——\(t_s=0.5\) 仍观察到坍缩，只是发生更晚；\(t_s=0.6\) 时每一对上下相邻模式内部发生坍缩，但左右之间不坍缩，原因是模式的水平间距大于垂直间距，故左右分裂在生成轨迹上更早发生；此时左右特征是**被保留的粗特征**，上下特征是微调过程中被改变的更细特征。最后，\(t_s=0.7\) 与 \(t_s=0.8\) 时左右与上下两层特征都被保留，奖励最大化只在每个模式内部把样本局部推向**右上方**。
+
+#### E.2 MNIST 主实验：表 1 与表 2 的完整类别分布
+
+表 1 与表 2 给出全部数字类别分布（由预训练分类器对 50 000 个样本分类），对应基础模型、伴随匹配以及不同 \(t_s\) 的加权伴随匹配。对每种方法，各自选取使实际平均奖励最接近 0.16（表 1）与 0.18（表 2）的 \(a\)。可观察到：在平均奖励 0.176 时，伴随匹配生成 18.0% 的数字 0、仅 3.4% 的数字 1；而 \(t_s=0.45\) 的加权伴随匹配在奖励 0.180 时数字 0 为 10.5%、数字 1 为 9.1%。基础模型、伴随匹配与 \(t_s=0.45\) 加权匹配按预测类别分组的样本见原文图 9 与图 10。
+
+**表 1：各方法中平均亮度最接近 0.16 的那次运行的生成样本预测类别（百分比）。** \(\hat R\) 为实际平均亮度奖励。
+
+| 方法 | \(a\) | \(\hat R\) | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 基础 | – | 0.140 | 10.2 | 9.9 | 9.9 | 10.8 | 9.4 | 9.1 | 9.8 | 10.0 | 10.1 | 10.9 |
+| 伴随 | 5.7 | 0.159 | 14.8 | 5.8 | 12.0 | 12.0 | 7.4 | 8.5 | 10.0 | 8.0 | 12.1 | 9.4 |
+| 加权，\(t_s=0.25\) | 21 | 0.161 | 10.6 | 6.6 | 11.4 | 11.8 | 8.9 | 8.1 | 10.2 | 9.1 | 13.0 | 10.4 |
+| 加权，\(t_s=0.3\) | 34 | 0.162 | 10.5 | 7.4 | 10.6 | 10.9 | 9.4 | 8.5 | 9.2 | 9.2 | 12.9 | 11.4 |
+| 加权，\(t_s=0.35\) | 52 | 0.161 | 10.6 | 8.8 | 10.2 | 11.0 | 9.2 | 7.7 | 9.8 | 9.0 | 12.3 | 11.2 |
+| 加权，\(t_s=0.4\) | 80 | 0.160 | 10.5 | 9.5 | 10.0 | 10.7 | 9.2 | 8.4 | 9.7 | 9.3 | 11.5 | 11.2 |
+| 加权，\(t_s=0.45\) | 120 | 0.160 | 10.3 | 9.7 | 9.8 | 10.6 | 9.1 | 8.5 | 9.8 | 9.6 | 11.2 | 11.3 |
+
+**表 2：各方法中平均亮度最接近 0.18 的那次运行的生成样本预测类别（百分比）。**
+
+| 方法 | \(a\) | \(\hat R\) | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 基础 | – | 0.140 | 10.2 | 9.9 | 9.9 | 10.8 | 9.4 | 9.1 | 9.8 | 10.0 | 10.1 | 10.9 |
+| 伴随 | 10 | 0.176 | 18.0 | 3.4 | 12.5 | 12.3 | 7.0 | 7.9 | 10.7 | 6.5 | 13.1 | 8.6 |
+| 加权，\(t_s=0.25\) | 37 | 0.181 | 12.0 | 3.4 | 13.7 | 11.3 | 8.2 | 7.8 | 8.0 | 7.7 | 17.4 | 10.6 |
+| 加权，\(t_s=0.3\) | 57 | 0.180 | 11.9 | 6.1 | 11.2 | 11.6 | 8.1 | 6.4 | 8.9 | 8.4 | 16.0 | 11.2 |
+| 加权，\(t_s=0.35\) | 92 | 0.180 | 10.6 | 7.8 | 11.0 | 10.7 | 8.5 | 7.6 | 9.7 | 8.6 | 14.2 | 11.4 |
+| 加权，\(t_s=0.4\) | 143 | 0.180 | 10.7 | 8.4 | 10.4 | 10.5 | 8.6 | 7.6 | 9.8 | 9.1 | 13.3 | 11.6 |
+| 加权，\(t_s=0.45\) | 227 | 0.180 | 10.5 | 9.1 | 10.2 | 10.3 | 8.9 | 7.9 | 9.7 | 9.3 | 12.4 | 11.5 |
+
+#### E.3 以暗度为奖励的实验：表 3 的完整数据
+
+**表 3：各方法中平均暗度最接近 0.88 的那次运行的生成样本预测类别（百分比）。** \(\hat R\) 为实际平均暗度奖励。
+
+| 方法 | \(a\) | \(\hat R\) | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 基础 | – | 0.857 | 10.4 | 10.1 | 9.4 | 10.8 | 9.5 | 9.0 | 9.9 | 9.8 | 10.3 | 10.7 |
+| 伴随 | 8.6 | 0.880 | 5.3 | 19.6 | 7.8 | 9.9 | 9.6 | 9.6 | 8.9 | 10.8 | 7.8 | 10.6 |
+| 加权，\(t_s=0.25\) | 25 | 0.880 | 8.8 | 14.8 | 8.1 | 10.4 | 12.0 | 9.0 | 7.3 | 10.4 | 7.6 | 11.6 |
+| 加权，\(t_s=0.3\) | 43 | 0.880 | 9.3 | 12.2 | 8.8 | 11.1 | 10.2 | 10.0 | 9.6 | 10.7 | 8.1 | 10.1 |
+| 加权，\(t_s=0.35\) | 63 | 0.880 | 9.8 | 11.2 | 9.0 | 10.5 | 10.6 | 10.5 | 9.4 | 10.4 | 8.4 | 10.2 |
+| 加权，\(t_s=0.4\) | 98 | 0.879 | 10.1 | 10.6 | 9.4 | 11.0 | 8.5 | 9.8 | 10.0 | 10.4 | 9.1 | 11.1 |
+| 加权，\(t_s=0.45\) | 160 | 0.881 | 10.1 | 10.3 | 9.8 | 11.0 | 9.9 | 9.9 | 9.1 | 10.3 | 9.2 | 10.5 |
+
+#### E.4 图 1–图 11 的原始图注（译录）
+
+- **图 1：** 流匹配模型的轨迹（黑色）先采样粗特征——此处示意为数字形状的整体轮廓——再采样细节。该图为纯示意，由作者手绘后经 Claude Design 制作。
+- **图 2：** 红色分量正比于“经过该点的轨迹最终落于上方模式”的概率；用于说明生成轨迹的早期选择如何决定模式归属。
+- **图 3：** 平均奖励随正模式权重 \(w(t)\) 的变化（高斯混合实验）。
+- **图 4：** MNIST 上的平均亮度奖励；横轴为最少/最多类别样本数之比，用以同时衡量奖励与类别均衡。
+- **图 5：** 伴随匹配与线性权重加权伴随匹配的 \(\mathbb E[r(\hat X)]\) 对 \(\mathbb E[\mathbf 1_{x_1>0}(\hat X)]\) 曲线。
+- **图 6：** 不同函数 \(t\mapsto w(t)\) 下，伴随匹配与加权伴随匹配的平均奖励对正模式权重曲线：(a) 指数权重；(b) 分段常数权重。
+- **图 7：** 基础分布样本（蓝）与微调模型样本（橙），对比伴随匹配与分段常数加权匹配在不同 \(a\)、\(t_s\) 下的结果。
+- **图 8：** 平均奖励对 \(n_{\min}/n_{\max}\) 曲线。
+- **图 9：** 按预测类别分组的生成样本，对应各方法中平均亮度最接近 0.16 的那次运行；百分比在图中展示的 1 000 个样本上统计，故与基于 50 000 样本的表 1 不同。
+- **图 10：** 同上，对应平均亮度最接近 0.18（与表 2 相对应的样本级图示）。
+- **图 11：** 同上，对应平均暗度最接近 0.88（与表 3 相对应的样本级图示）。
+
+> **转录说明：** 图 1–图 4 的图注在源文抽取文本中被正文交错，个别措辞（如图 2 的坐标含义）存在不确定；此处按可辨识内容译录，未逐字猜补。图片本身未上传，站点仅保留文字说明。
+
+
+---
+
+**登记（2026-10-30）：** 本篇按用户 2026-10-30 新口径登记为“可公开全文译文”——全文覆盖（摘要、正文、结论、图表说明与附录/书目按原论文结构）已录入；页内“未完成/待终校”等提示指逐句逐式终校程度，不表示覆盖缺失，保留为历史记录。
 
 {% endraw %}

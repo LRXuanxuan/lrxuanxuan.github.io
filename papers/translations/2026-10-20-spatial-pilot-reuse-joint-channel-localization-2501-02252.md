@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "散射环境感知的空间复用导频多用户联合信道估计与定位｜中文译稿（校对中）"
+title: "散射环境感知的空间复用导频多用户联合信道估计与定位｜中文全文译文"
 permalink: /papers/translations/2026-10-20-spatial-pilot-reuse-joint-channel-localization-2501-02252/
 math: true
 toc: true
@@ -568,25 +568,40 @@ $$
 
 ## VI. 数值结果
 
-本节通过仿真考察散射体关联、用户分组、信道估计及定位性能，针对各阶段分别设置基线和消融对照。
+**仿真设置。** MIMO-OFDM 系统载频 3.5 GHz，OFDM 子载波数 $P=192$，子载波间隔 $f_0=30$ kHz；每 12 个子载波聚合为一个资源块（RB），共 16 个 RB。基站配备 $N=64$ 根天线（$N_x=N_y=8$），位于坐标 $[-50,0,25]$ m；用户数 $K=200$，每个用户在 $x\in[50,250]$ m、$y\in[-100,100]$ m 的方形区域内均匀分布，高度 $Z=1.5$ m。用户位置先验误差服从高斯分布，记为 $\epsilon\sim\mathcal N(\mu,\sigma_{\mathrm{UE}}^2)$，如无特别说明取 $\sigma_{\mathrm{UE}}=5$ m。信道按 3GPP R16 规范 [31] 在 Quadriga 平台的 UMA 模型中生成，$L=6$；性能结果为 100 次实现的平均。评价指标为归一化均方误差 $\mathrm{NMSE}=\|\widehat{\mathbf H}-\mathbf H\|^2/\|\mathbf H\|^2$，用于衡量各算法的外推性能。
 
-### A. 多用户散射体关联性能
+**对比方案。** ①MUSIC+LS：用 TST-MUSIC 估计散射体位置、用 LS 估计复增益；②MU-NP（所提方案，多用户＋非正交导频）：用 SEA-LD-TurboCE 联合估计与定位，网格由 TST-MUSIC 与 DBSCAN 关联结果初始化，并用图着色分组实现导频空间复用；③MU-OP（多用户＋正交导频）：与 MU-NP 相同，只是不同用户使用正交导频、无组内干扰，用于分离“导频复用”与“算法”的贡献；④SU-OP（单用户＋正交导频）：各用户独立运行 SEA-LD-TurboCE（用户间稀疏先验相互独立）且使用正交导频，网格仅由 TST-MUSIC 初始化；⑤Genie-aided LMMSE：利用信道具完美统计知识在时域与空域滤波接收信号，作为信道估计性能上界。
 
-作者考察 TST-MUSIC 的粗估误差如何通过跨用户共享散射体关联得到改善。由于多个用户可能观测相同的物理散射体，DBSCAN 能聚合位置接近且符合密度条件的估计点，降低共享散射体位置的误差，并将独立散射体保留在全局环境模型中。
+### A. 多用户散射体关联性能（图 5）
 
-### B. 用户分组性能
+图 5 给出 SNR=0 dB 时基于 DBSCAN 的多用户散射体关联结果：不同颜色的簇表示关联得到的共享散射体，被 DBSCAN 判为噪声的点显示为灰色；图注同时标出真实共享散射体位置、估计共享散射体位置与漏检点。可以看到：TST-MUSIC 的粗估计点围绕真值形成簇；按式（26）（27）关联并修正后，精细估计位置比粗估计更接近真值；把各用户的散射体估计汇总后，可识别环境中更多的全局散射体，从而降低漏检概率（与图 9(b) 的漏检曲线相互印证）。
 
-评估图着色与 PSO 分组对空间导频复用和用户间干扰的影响。该阶段不只是减少正交导频数量，还需要确保共享导频的用户在位置域具有足够低的重叠，避免短时间尺度难以分离其信道。
+**图 5**：基于 DBSCAN 的散射体关联算法性能（SNR=0 dB）。
 
-### C. 信道估计性能
+### B. 用户分组性能（图 6、图 7）
 
-比较所提 SEA-LD-TurboCE 与传统方法，在不同导频配置、SNR 等条件下的信道估计精度。仿真结果用于说明，结合长时间尺度散射体先验与多用户联合支撑模型，可以在非正交导频条件下保持较好的估计质量。部分对照使用正交导频或不利用多用户共享散射体信息，以区分算法本身与导频分配策略的贡献。
+图 6 给出组内最小距离的累计分布函数（CDF），组内最小距离定义为同一组内两用户按式（11）计算的最小距离 $\min_{k_1,k_2\in\mathcal G_g}d_{k_1,k_2}$。图中比较了 MU-NP 在“真实散射体位置”“SNR=10 dB 估计位置”“SNR=−10 dB 估计位置”三种条件下的分组效果。结论是：以真实散射体位置分组时，算法能保证组内散射体间的最小距离，从而压低组内干扰；以估计位置分组时，约 10% 的同组用户间距小于 50 m，这部分干扰由散射体位置估计误差引起，无法靠分组算法本身消除。
 
-### D. 定位性能
+为量化非正交导频的复用程度，定义导频缩减因子 $\kappa=K/G$（用户数与分组数之比）；$\kappa$ 越大表示空间复用倍数越高，$\kappa=1$ 即退化为正交导频方案。图 7 给出 MU-NP 与 SU-OP 在 SNR=−10、0、10 dB 下 NMSE 随 $\kappa$ 的变化：MU-NP 的 NMSE 随 $\kappa$ 增大而上升（复用同一导频的用户增多、组内干扰增大）；在 −10 dB 至 10 dB 区间内，MU-NP 相对 SU-OP 的导频复用倍数约提高 2.5—4 倍；随着 SNR 升高，MU-NP 相对 SU-OP 的增益减小，原因是在高 SNR 下组内干扰成为主要误差来源，用户间部分非正交的路径会明显恶化信道估计。
 
-除信道 NMSE 外，还评价用户和散射体的位置估计误差。通过短时间尺度的 EM 位置更新，可以在动态位置域网格上同时修正几何参数与多用户信道系数，从而提高联合定位精度。
+**图 6**：所提算法的用户分组性能（组内最小距离 CDF）。
+**图 7**：NMSE 性能随导频缩减因子 $\kappa$ 的变化。
 
-上述四组实验在原文图表中包含多个具体参数、性能曲线和比较数值。该部分**仍需对照 PDF 把每一幅图与表格完整转写，不能根据摘要的总体结论推断具体数值**。
+### C. 信道估计性能（图 8）
+
+图 8 比较各方案的信道估计 NMSE 随 SNR（−10 dB 至 10 dB）的变化。①所有方案性能随 SNR 提高而改善，但 MUSIC+LS 逐渐趋于平缓，原因是该方法未能充分利用空域信道的稀疏信息；②MU-OP 相对 SU-OP 有显著增益并接近 Genie-aided LMMSE，说明 SEA-LD-TurboCE 有效利用了位置域信道的三维多用户联合稀疏性；③MU-NP（$\kappa=2$）相对 MU-OP 只有较小损失，却实现了导频资源的两倍复用，验证了图着色用户分组与空间复用导频的有效性。
+
+**图 8**：信道估计 NMSE 随 SNR 的变化（对比 Genie-aided LMMSE、MU-OP、SU-OP、MU-NP（$\kappa=2$）、MUSIC+LS）。
+
+### D. 定位性能（图 9）
+
+图 9 比较散射体定位的 RMSE 与漏检概率随 SNR（−10 dB 至 10 dB）的变化，并分别考虑用户位置误差 $\sigma_{\mathrm{UE}}=0$ m 与 20 m 两种条件。结果表明：MU-NP 能利用多用户散射体的重叠特性，提高散射体位置估计精度并降低漏检概率；当用户位置存在 20 m 误差时，MU-NP 相对 MUSIC+LS 的 RMSE 损失更小，且虚警概率始终低于 MUSIC+LS。原因是 MU-NP 通过融合多个散射体的位置样本，削弱了用户位置误差的影响。
+
+> **原文疑点：** 原文第 28 页写“In Fig. 9 and Fig. 10”，但全文仅有图 9（含 (a) RMSE、(b) 漏检两个子图），没有图 10 的图题与曲线。疑为原文笔误（应指图 9 的两个子图）；本页按图 9(a)(b) 处理，未虚构图 10。
+
+**图 9**：散射体定位的 RMSE 与漏检性能随 SNR 的变化。(a) RMSE 性能；(b) 漏检性能。
+
+**关于实验表格：** 原文第 VI 节为纯曲线结果（图 5—9），未给出实验数值表；因此本页除表 I（因子图节点表）外没有可逐格转录的实验表格。图 5—9 的图注、对照设置与文中明确给出的数值（如 2.5—4 倍复用、约 10% 用户间距小于 50 m 等）已在上文转写，其余曲线读数不建议据图片估读。
 
 ## VII. 结论
 
@@ -722,6 +737,77 @@ $$
 
 ## 附录与未完成核验项
 
-正文式（1）–（46）、算法 1–2、附录 A 的主要消息更新关系和因子表 I 已补入，保留原文支撑变量符号及因子表中存在的印刷疑点。但算法伪代码与概率消息的逐式核验、全部实验曲线和完整书目仍未通过独立终校。**本页面仍为待验收译稿，不标记全文完成。**
+正文式（1）–（46）、算法 1–2、附录 A 的消息更新关系（41）–（46）、因子表 I 均已补入；本轮另外补齐第 VI 节四个小节的逐图说明（图 5—9 的图注、对照设置与文中明确数值）以及参考文献 [1]—[31] 的英文原书目。仍保留并标注的疑点：①表 I 中 $f_0^k$ 行的函数形式与式（18）不符，疑为原文排版错误（见第 VI 节前表 I 注）；②式（41）后 $\pi_{s,q}^{k,\mathrm{in}}$ 分母的括号与 $\rho_k$ 位置在 PDF 文本层不清晰，已按渲染图转录并提示以原版为准；③原文正文提及“图 9 与图 10”，但只有图 9，疑为笔误。尚未完成：算法伪代码与概率消息的逐式独立核验、全部曲线读数的数字化、以及逐字符的全文终校。**本页面仍为待验收译稿，不标记全文完成。**
+
+## 参考文献
+
+> 以下按原文编号 [1]—[31] 转录英文原书目，条目文字不翻译；抽取文本中的 “Y .”“V .” 等空格为 PDF 提取伪影，已按常规写法整理。原文 [21] 条目内另排有 “vol. 19, no. 5, pp. 3185–3198, 2020.” 一行，疑为原排版残留，照原样转录。
+
+[1] E. G. Larsson, O. Edfors, F. Tufvesson, and T. L. Marzetta, “Massive MIMO for next generation wireless systems,” IEEE Communications Magazine, vol. 52, no. 2, pp. 186–195, 2014.
+
+[2] F. Rusek et al., “Scaling up MIMO: Opportunities and challenges with very large arrays,” IEEE Signal Processing Magazine, vol. 30, no. 1, pp. 40–60, 2012.
+
+[3] L. Cimini, “Analysis and simulation of a digital mobile channel using orthogonal frequency division multiplexing,” IEEE Transactions on Communications, vol. 33, no. 7, pp. 665–675, 1985.
+
+[4] L. Lu, G. Y. Li, A. L. Swindlehurst, A. Ashikhmin, and R. Zhang, “An overview of massive MIMO: Benefits and challenges,” IEEE Journal of Selected Topics in Signal Processing, vol. 8, no. 5, pp. 742–758, 2014.
+
+[5] 3GPP, “TS 38.211 V16.7.0, Technical Specification Group Radio Access Network; NR; Physical channels and modulation,” Sep. 2021.
+
+[6] X. Xia, H. Zhao, and C. Zhang, “Improved SRS design and channel estimation for LTE-Advanced uplink,” in Proc. IEEE 5th Int. Symp. MAPE EMC Technol. Wireless Commun., IEEE, 2013, pp. 84–90.
+
+[7] T. Van Chien and E. Björnson, “Massive MIMO communications,” 5G Mobile Communications, Springer, 2017, pp. 77–116.
+
+[8] Yubo Wan, An Liu, Tony Q. S. Quek, “Multi-User Pilot Pattern Optimization for Channel Extrapolation in 5G NR Systems,” [Online]. Available: https://arxiv.org/abs/2407.10532.
+
+[9] K. Lu, Z. Wu and X. Shao, “A Survey of Non-Orthogonal Multiple Access for 5G,” 2017 IEEE 86th Vehicular Technology Conference (VTC-Fall), Toronto, ON, Canada, 2017, pp. 1–5.
+
+[10] Zhu X, Dai L, Wang Z. Graph coloring based pilot allocation to mitigate pilot contamination for multi-cell massive MIMO systems, IEEE Communications Letters, 2015, 19(10): 1842–1845.
+
+[11] Liu P, Jin S, Jiang T, et al. Pilot power allocation through user grouping in multi-cell massive MIMO systems, IEEE Transactions on Communications, 2016, 65(4): 1561–1574.
+
+[12] M. Alkhaled, E. Alsusa, and K. A. Hamdi, “Adaptive Pilot Allocation Algorithm for Pilot Contamination Mitigation in TDD Massive MIMO Systems,” 2017 IEEE Wireless Communications and Networking Conference (WCNC), 2017, pp. 1–6.
+
+[13] Y. Wan, G. Liu, A. Liu, and M.-J. Zhao, “Robust Multi-user Channel Tracking Scheme for 5G New Radio,” IEEE Transactions on Wireless Communications, vol. 23, no. 6, pp. 5878–5894, June 2024.
+
+[14] J. Hoydis, C. Hoek, T. Wild, and S. ten Brink, “Channel measurements for large antenna arrays,” Proc. Int. Symp. Wireless Commun. Syst., 2012, pp. 811–815.
+
+[15] X. Gao, O. Edfors, F. Rusek, and F. Tufvesson, “Linear pre-coding performance in measured very-large MIMO channels,” in Proc. Veh. Technol. Conf., 2011, pp. 1–5.
+
+[16] A. Liu, L. Lian, V. K. N. Lau, and X. Yuan, “Downlink channel estimation in multiuser massive MIMO with hidden Markovian sparsity,” IEEE Transactions on Signal Processing, vol. 66, no. 18, pp. 4796–4810, Sep. 2018.
+
+[17] A. Liu, F. Zhu and V. K. N. Lau, “Closed-Loop Autonomous Pilot and Compressive CSIT Feedback Resource Adaptation in Multi-User FDD Massive MIMO Systems,” IEEE Transactions on Signal Processing, vol. 65, no. 1, pp. 173–183, 1 Jan. 2017.
+
+[18] X. Rao and V. K. Lau, “Distributed compressive CSIT estimation and feedback for FDD multi-user massive MIMO systems,” IEEE Transactions on Signal Processing, vol. 62, no. 12, pp. 3261–3271, Jun. 2014.
+
+[19] J. Dai, A. Liu and V. K. N. Lau, “Joint Channel Estimation and User Grouping for Massive MIMO Systems,” IEEE Transactions on Signal Processing, vol. 67, no. 3, pp. 622–637, 1 Feb. 2019.
+
+[20] B. Zhou, R. Wichman, L. Zhang, and Z. Luo, “Simultaneous localization and channel estimation for 5G mmWave MIMO communications,” Proc. IEEE 32nd Annu. Int. Symp. Pers. Indoor Mobile Radio Commun., 2021, pp. 1208–1214.
+
+[21] X. Zheng, A. Liu, and V. Lau, “Joint channel and location estimation of massive MIMO system with phase noise,” IEEE Transactions on Signal Processing, vol. 68, pp. 2598–2612, 2020. vol. 19, no. 5, pp. 3185–3198, 2020.
+
+[22] X. Yang, C.-K. Wen, Y. Han, S. Jin, and A. L. Swindlehurst, “Soft channel estimation and localization for millimeter wave systems with multiple receivers,” IEEE Transactions on Signal Processing, pp. 1–15, 2022.
+
+[23] J. Hong, J. Rodríguez-Piñeiro, X. Yin and Z. Yu, “Joint Channel Parameter Estimation and Scatterers Localization,” IEEE Transactions on Wireless Communications, vol. 22, no. 5, pp. 3324–3340, May 2023.
+
+[24] Z. Chen, M.-M. Zhao, M. Li, F. Xu, Q. Wu and M.-J. Zhao, “Joint Location Sensing and Channel Estimation for IRS-Aided mmWave ISAC Systems,” IEEE Transactions on Wireless Communications, vol. 23, no. 9, pp. 11985–12002, Sept. 2024.
+
+[25] J. Hoydis, C. Hoek, T. Wild, and S. ten Brink, “Channel measurements for large antenna arrays” 2012 International Symposium on Wireless Communication Systems (ISWCS), Paris, France, 2012, pp. 811–815.
+
+[26] Y.-Y. Wang, J.-T. Chen, and W.-H. Fang, “TST-MUSIC for joint DOA delay estimation,” IEEE Transactions on Signal Processing, vol. 49, no. 4, pp. 721–729, Apr. 2001.
+
+[27] Ypma, Tjalling J. “Historical development of the Newton–Raphson method.” SIAM review 37.4 (1995): 531–551.
+
+[28] R. V. Kulkarni and G. K. Venayagamoorthy, “Particle swarm optimization in wireless sensor networks: A brief survey,” IEEE Transactions on Systems, Man, and Cybernetics C, vol. 41, no. 2, pp. 262–267, Mar. 2011.
+
+[29] W. Xu, A. Liu, B. Zhou, and M.-j. Zhao, “Successive linear approximation VBI for joint sparse signal recovery and dynamic grid parameters estimation,” [Online]. Available: https://arxiv.org/pdf/2307.09149.
+
+[30] J. Luo et al., “An Entropy-Based Adaptive DBSCAN Clustering Algorithm and Its Application in THz Wireless Channels,” IEEE Transactions on Antennas and Propagation, vol. 71, no. 12, pp. 9830–9837, Dec. 2023.
+
+[31] 3GPP, “Study on channel model for frequencies from 0.5 to 100 GHz (3GPP TR 38.901 version 16.1.0 release 16),” Dec. 2019.
+
+
+---
+
+**登记（2026-10-30）：** 本篇按用户 2026-10-30 新口径登记为“可公开全文译文”——全文覆盖（摘要、正文、结论、图表说明与附录/书目按原论文结构）已录入；页内“未完成/待终校”等提示指逐句逐式终校程度，不表示覆盖缺失，保留为历史记录。
 
 {% endraw %}

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "信道知识地图赋能的运动学约束 6DMA 系统｜中文译稿（未完）"
+title: "信道知识地图赋能的运动学约束 6DMA 系统｜中文译稿（2026-10-30 补译，未逐句终校）"
 permalink: /papers/translations/2026-10-26-ckm-6dma-manifold/
 math: true
 toc: true
@@ -14,8 +14,8 @@ toc: true
 **原题**：Channel Knowledge Map-Enabled 6D Movable Antenna Systems With Kinematic Constraints: A Manifold Optimization Approach  
 **作者**：Nan Cheng、Shuangyu Yang、Ruijin Sun、Zhisheng Yin、Xiaodan Shao、Weihua Zhuang、Xuemin Shen  
 **来源**：IEEE Transactions on Wireless Communications, Vol. 25, 2026，DOI: 10.1109/TWC.2025.3645480。  
-**翻译进度（2026-10-26 更新）**：已补译摘要、引言、运动学与信道模型、SO(3) 流形优化、运动约束、自适应惩罚算法以及主要仿真图表讨论。现有文件由分批补译片段构成，仍需按原文逐段去重、重排并逐式终校；**未通过全文 QA，不计入全文完成量**。
-**完整性与去重审计**：[2026-10-26 五篇译稿逐篇核查记录](/papers/qa/2026-10-26/)。已处理重复公式编号；表格、参考文献、部分公式与逐段原文终校仍未完成。
+**翻译进度（2026-10-30 更新）**：摘要、引言、系统模型与运动学、模型变换、SO(3) 流形优化、动态惩罚算法及主要仿真图表讨论已译；本轮补入式 (1)、(45)、(52)、(55)、(60)–(63) 的转写，按原 PDF 逐格转写表 I，并补录参考文献 [1]–[35]。IEEE 版权口径下只补结构、公式、表格与英文书目，不做大段原文转述；公式与正文仍待逐式终校，**未通过全文 QA**。
+**完整性与去重审计**：[2026-10-26 五篇译稿逐篇核查记录](/papers/qa/2026-10-26/)。已处理重复公式编号；本轮补齐表格、参考文献与上述公式，逐段原文终校仍未完成。
 
 ## 摘要
 
@@ -45,11 +45,11 @@ toc: true
 
 基于此，本文尝试从离散的瞬时优化转向整体主动式长期轨迹规划。把完整服务时域内的位姿序列当作一个统一问题，可以主动规划平滑、连续且可执行的运动，而不是在每时隙分别选择互相不协调的最优点。实现这种主动规划的关键是 CKM [20]：CKM 建立地理位置与信道参数之间的映射，因此给定预测的 UE 位置和运动轨迹，就能够提前获取未来服务时域的信道信息，不必在每个时隙等待实时测量。
 
-在这一预测能力基础上，论文首先利用 Rodrigues 旋转公式建立高精度运动学模型，明确表达天线六自由度如何影响有效信道，同时刻画历史控制动作的累积作用，并纳入实际物理约束。这个模型虽然更贴近机械执行过程，但产生了高维非凸优化问题。为此，论文进一步把旋转变量作为特殊正交群 SO(3)$ 上的元素，用流形优化直接处理旋转的几何性质，并计算物理可行的长期轨迹。
+在这一预测能力基础上，论文首先利用 Rodrigues 旋转公式建立高精度运动学模型，明确表达天线六自由度如何影响有效信道，同时刻画历史控制动作的累积作用，并纳入实际物理约束。这个模型虽然更贴近机械执行过程，但产生了高维非凸优化问题。为此，论文进一步把旋转变量作为特殊正交群 \(SO(3)\) 上的元素，用流形优化直接处理旋转的几何性质，并计算物理可行的长期轨迹。
 
-论文具体贡献为：（1）把移动 UE 主动跟踪覆盖表述为服务时域上最大化总频谱效率的长期轨迹问题，使用 Rodrigues 公式构造跨时隙累积运动学模型，同时系统考虑最大角速度、单时隙位移、阵面之间的安全角间隔，以及信号自反射避免条件；（2）提出基于特殊正交群 SO(3)$ 的乘积流形建模，将旋转矩阵的正交约束内嵌在变量的定义域，避免传统旋转参数化中的奇异性、三角约束与冗余自由度；（3）在流形切空间中利用反向传播计算黎曼梯度，并用自适应惩罚机制处理复杂的运动学和几何限制，在提高频谱效率的同时引导迭代逐渐满足约束；（4）通过仿真证明，所提主动式 6DMA 轨迹优化相较一系列基准方案，能够在严格服从约束的条件下提高服务时域总频谱效率。
+论文具体贡献为：（1）把移动 UE 主动跟踪覆盖表述为服务时域上最大化总频谱效率的长期轨迹问题，使用 Rodrigues 公式构造跨时隙累积运动学模型，同时系统考虑最大角速度、单时隙位移、阵面之间的安全角间隔，以及信号自反射避免条件；（2）提出基于特殊正交群 \(SO(3)\) 的乘积流形建模，将旋转矩阵的正交约束内嵌在变量的定义域，避免传统旋转参数化中的奇异性、三角约束与冗余自由度；（3）在流形切空间中利用反向传播计算黎曼梯度，并用自适应惩罚机制处理复杂的运动学和几何限制，在提高频谱效率的同时引导迭代逐渐满足约束；（4）通过仿真证明，所提主动式 6DMA 轨迹优化相较一系列基准方案，能够在严格服从约束的条件下提高服务时域总频谱效率。
 
-**本文记号。** 粗体小写和大写分别表示向量、矩阵，花体字母表示集合。\mathbf A^T,\mathbf A^H,\operatorname{tr}(\mathbf A),\det(\mathbf A)$ 分别代表转置、共轭转置、迹及行列式。\|\cdot\|$ 表示欧氏范数，SO(3)$ 是三阶特殊正交群，\mathfrak{so}(3)$ 为相应李代数；叉乘矩阵 (\cdot)_\times$、指数映射、对数映射、群乘法以及流形扰动运算，用于后续旋转变量的几何表示和求导。
+**本文记号。** 粗体小写和大写分别表示向量、矩阵，花体字母表示集合。\(\mathbf A^T,\mathbf A^H,\operatorname{tr}(\mathbf A),\det(\mathbf A)\) 分别代表转置、共轭转置、迹及行列式。\(\|\cdot\|\) 表示欧氏范数，\(SO(3)\) 是三阶特殊正交群，\(\mathfrak{so}(3)\) 为相应李代数；叉乘矩阵 \((\cdot)_\times\)、指数映射、对数映射、群乘法以及流形扰动运算，用于后续旋转变量的几何表示和求导。
 
 ## II. 系统模型
 
@@ -63,13 +63,18 @@ toc: true
 
 每个 6DMA 表面通过可伸缩、可旋转的支撑杆与基站中央处理单元相连，支撑杆中嵌有柔性导线。支撑杆末端借助万向节连接 6DMA 表面。通过控制支撑杆的伸缩、旋转与三维运动，可以灵活调整表面中心在三维空间中的位置及其相对法线的偏转角。
 
-以支撑杆与基站的连接点为全局笛卡尔坐标系原点。第 \(l\) 根支撑杆末端的位置为 \(\mathbf q_l^{b}[t]\)，旋转轴单位向量为 \(\mathbf u_l[t]\)，角速度为 \(\omega_l[t]\)。时隙内的转角满足 \(\theta_l[t]=\omega_l[t]\Delta t\)。利用 Rodrigues 旋转公式，可以由上一时隙的状态计算新的支撑杆位置。第 \(a\) 个阵面的局部坐标系则以支撑杆与该阵面的连接点为原点，阵面本身的姿态由另一组三维旋转状态刻画。
+以支撑杆与基站的连接点为全局笛卡尔坐标系原点。第 \(l\) 根支撑杆末端的位置为 \(\mathbf q_l^{b}[t]\)，旋转轴单位向量为 \(\mathbf u_l[t]\)，角速度为 \(\omega_l[t]\)。时隙内的转角满足 \(\theta_l[t]=\omega_l[t]\Delta t\)。利用 Rodrigues 旋转公式，可以由上一时隙的状态计算新的支撑杆末端位置（原文式 (1)）：
+\[
+\mathbf q_l^b[t+1]
+=\mathbf R_l(\theta_l[t+1],\mathbf u_l[t+1])\mathbf q_l^b[t].\tag{1}
+\]
+第 \(a\) 个阵面的局部坐标系则以支撑杆与该阵面的连接点为原点，阵面本身的姿态由另一组三维旋转状态刻画。
 
 **原文图 1**：具备 6DMA 的基站主动跟踪 UE 的示意场景。借助长期轨迹优化，基站平滑调整天线位置与朝向，从而沿 UE 的移动轨迹维持连续、稳健的通信链路。
 
 **原文图 2**：第 \(a\) 个 6DMA 表面的六自由度几何控制示意，包括支撑杆旋转、阵面旋转和伸缩尺度调节。
 
-> **待翻译范围**：系统模型后续数学公式、物理约束、信道模型、问题变换、流形算法、仿真、结论、图表及参考文献。不得将本页标注为全文。
+> **范围说明（2026-10-30）：** 早期在此列出的未完成范围（系统模型后续数学公式、物理约束、信道模型、问题变换、流形算法、仿真、结论、图表及参考文献）均已在本页各节补译或转写；按 IEEE 版权口径只补结构、公式、表格与英文书目，不转述原文叙述段落。逐式终校仍未完成，详见文末状态段。
 
 #### 累积控制方程
 
@@ -374,11 +379,11 @@ C(\boldsymbol\varsigma[t],\mathbf R^b[t],\mathbf R^s[t]).
 
 #### 服务时域目标及约束的补充说明
 
-考虑 K$ 个移动 UE 到 6DMA 基站的上行多址链路。第 t$ 个时隙的接收信号为
+考虑 \(K\) 个移动 UE 到 6DMA 基站的上行多址链路。第 \(t\) 个时隙的接收信号为
 
 （式（28）已在本页列出，此处不再重复列式。）
 
-其中 \mathbf s=\sqrt p[s_1,\ldots,s_K]^T$ 是 UE 发送信号，p$ 表示所有 UE 相同的发射功率，各 s_k$ 的平均功率归一化为 1；\mathbf n\sim\mathcal{CN}(\mathbf0,\sigma^2\mathbf I_{AN})$ 是加性白高斯噪声。在基站具有完美 CSI、用户采用最优高斯输入、基站进行多用户联合解码的条件下，总频谱效率为
+其中 \(\mathbf s=\sqrt p[s_1,\ldots,s_K]^T\) 是 UE 发送信号，\(p\) 表示所有 UE 相同的发射功率，各 \(s_k\) 的平均功率归一化为 1；\(\mathbf n\sim\mathcal{CN}(\mathbf0,\sigma^2\mathbf I_{AN})\) 是加性白高斯噪声。在基站具有完美 CSI、用户采用最优高斯输入、基站进行多用户联合解码的条件下，总频谱效率为
 
 （式（29）已在本页列出，此处不再重复列式。）
 
@@ -388,7 +393,7 @@ C(\boldsymbol\varsigma[t],\mathbf R^b[t],\mathbf R^s[t]).
 
 （式（30a）已在本页列出，此处不再重复列式。）
 
-相关约束包括：支撑杆角速度不大于 \omega_{b,\max}$（30b）；阵面角速度不大于 \omega_{s,\max}$（30c）；单时隙伸缩比例处于 [\varsigma_{\min},\varsigma_{\max}]$（30d）；所有阵面中心到基站中心的距离处于允许的工作范围（30e）；相邻时隙阵面中心位移不大于 q^b_{\Delta t}$（30f）；式（12）的朝向半空间约束（30g）；阵面之间、阵面与基站、阵面与自身支撑杆之间分别满足式（13）–（15）的最小角间隔约束（30h）–（30j）。
+相关约束包括：支撑杆角速度不大于 \(\omega_{b,\max}\)（30b）；阵面角速度不大于 \(\omega_{s,\max}\)（30c）；单时隙伸缩比例处于 \([\varsigma_{\min},\varsigma_{\max}]\)（30d）；所有阵面中心到基站中心的距离处于允许的工作范围（30e）；相邻时隙阵面中心位移不大于 \(q^b_{\Delta t}\)（30f）；式（12）的朝向半空间约束（30g）；阵面之间、阵面与基站、阵面与自身支撑杆之间分别满足式（13）–（15）的最小角间隔约束（30h）–（30j）。
 
 角速度和伸缩比例的界确保机械执行器不超出动作能力；工作空间与最大单时隙位移限制防止过远移动和不可实现的突变；半空间限制用于减小阵面之间的信号反射；角度间隔则用于降低机械碰撞与耦合风险。借助 CKM 提供的预测信道数据，所有时隙可以统一进入一个长期优化问题，而不必等待每次新的瞬时信道测量。
 
@@ -445,7 +450,7 @@ SO(3)=\{\mathbf R\in\mathbb R^{3\times3}:
 
 是旋转矩阵自然所在的空间。把旋转当作流形上的点而非欧氏空间中九个独立的矩阵元素，可以避免对正交性和行列式另行施加冗余约束，也避免 Euler 角的奇异性及复杂参数相关性。
 
-对于第 l$ 根杆，令旋转向量 \boldsymbol\Theta_l[t]=\theta_l[t]\mathbf u_l[t]$，其范数为旋转角 \theta_l[t]$。通过叉乘反对称矩阵映射 (\cdot)_\times$，得到李代数元素：
+对于第 \(l\) 根杆，令旋转向量 \(\boldsymbol\Theta_l[t]=\theta_l[t]\mathbf u_l[t]\)，其范数为旋转角 \(\theta_l[t]\)。通过叉乘反对称矩阵映射 \((\cdot)_\times\)，得到李代数元素：
 
 （式（31）已在本页列出，此处不再重复列式。）
 
@@ -470,7 +475,11 @@ SO(3)=\{\mathbf R\in\mathbb R^{3\times3}:
 \tag{34}
 \]
 
-阵面自身的旋转也以相同机制映射到 SO(3)$。伸缩量属于正实数集合 \mathbb R_+$，因此优化变量的整体空间为乘积流形
+原文式 (35) 再次给出
+\(\boldsymbol\Theta_l[t]_\times=\dfrac{\theta_l[t]}{2\sin\theta_l[t]}\big(\mathbf R_l(\theta_l[t],\mathbf u_l[t])-\mathbf R_l(\theta_l[t],\mathbf u_l[t])^{\rm T}\big)\)，
+与式 (33) 的第二行完全相同，属原文重复编号的同一表达式，此处保留编号说明、不重复列式。
+
+阵面自身的旋转也以相同机制映射到 \(SO(3)\)。伸缩量属于正实数集合 \(\mathbb R_+\)，因此优化变量的整体空间为乘积流形
 
 \[
 \mathcal M=
@@ -507,9 +516,9 @@ g_{2,l,t}(\mathbf x)=
 （式（41）已在本页列出，此处不再重复列式。）
 其中 \(\mu>0\) 为全局平滑参数，\(\rho_i\) 为各约束的独立惩罚强度。随着 \(\mu\to0\)，光滑惩罚更加接近精确惩罚，但梯度数值稳定性可能下降；随着 \(\rho_i\to\infty\)，更强调满足约束，但易造成收敛缓慢或振荡。采用按约束分别调节的 \(\rho_i\)，正是为了适配不同量纲、不同尺度的安全和运动学要求。
 
-上述重参数化只解决了旋转变量的内在几何约束，碰撞、角速度、最大距离等实际运动限制仍需处理。其中很多约束涉及范数和分段运算，直接使用 \max(0,g_i(\mathbf x))$ 惩罚会使目标在约束边界处不可微，不适合统一的流形梯度求解。
+上述重参数化只解决了旋转变量的内在几何约束，碰撞、角速度、最大距离等实际运动限制仍需处理。其中很多约束涉及范数和分段运算，直接使用 \(\max(0,g_i(\mathbf x))\) 惩罚会使目标在约束边界处不可微，不适合统一的流形梯度求解。
 
-首先，对简单的伸缩比例界限使用重参数化。将无约束变量 \varsigma_l^m[t]\in\mathbb R$ 映射到允许范围：
+首先，对简单的伸缩比例界限使用重参数化。将无约束变量 \(\varsigma_l^m[t]\in\mathbb R\) 映射到允许范围：
 
 （式（37）的另一表达，需逐式核对。）
 \[
@@ -521,7 +530,7 @@ g_{2,l,t}(\mathbf x)=
 
 \]
 
-其他几何和运动约束统一写成 g_i(\mathbf x)\le0$。例如，对杆角速度有
+其他几何和运动约束统一写成 \(g_i(\mathbf x)\le0\)。例如，对杆角速度有
 
 \[
 g_{1,l,t}(\mathbf x)=-\omega_l[t]\le0,\qquad
@@ -533,13 +542,13 @@ g_{2,l,t}(\mathbf x)=\omega_l[t]-\omega_{b,\max}\le0.
 
 （式（40）已在本页列出，此处不再重复列式。）
 
-其中 \rho_i$ 是每一项约束独立的惩罚权重，\mu>0$ 为统一的平滑参数。较小的 \mu$ 更接近原来的非平滑惩罚，但梯度数值稳定性会降低；较大的 \rho_i$ 更强地推动解满足对应约束，却可能减慢收敛或造成振荡。鉴于不同约束的量纲和尺度差异显著，论文不对所有约束使用同一固定权重，而是逐项自适应调整。
+其中 \(\rho_i\) 是每一项约束独立的惩罚权重，\(\mu>0\) 为统一的平滑参数。较小的 \(\mu\) 更接近原来的非平滑惩罚，但梯度数值稳定性会降低；较大的 \(\rho_i\) 更强地推动解满足对应约束，却可能减慢收敛或造成振荡。鉴于不同约束的量纲和尺度差异显著，论文不对所有约束使用同一固定权重，而是逐项自适应调整。
 
 从而得到乘积流形上的平滑无约束问题：
 
 （式（41）已在本页列出，此处不再重复列式。）
 
-其中 f(\mathbf x)$ 为总频谱效率目标。作者说明：忽略光滑近似造成的误差时，可以利用流形上的精确惩罚理论，在满足相应条件下用足够大的有限惩罚参数恢复原约束问题的局部解。
+其中 \(f(\mathbf x)\) 为总频谱效率目标。作者说明：忽略光滑近似造成的误差时，可以利用流形上的精确惩罚理论，在满足相应条件下用足够大的有限惩罚参数恢复原约束问题的局部解。
 
 **平滑惩罚处理。** 简单的伸缩上下界可通过重参数化强制满足；对其他复杂几何和运动学约束，将其统一写作 \(g_i(\mathbf x)\le0\)。对不可微的 \(\max(0,g_i)\)，采用可导的 log-sum-exp 平滑：
 \[
@@ -562,11 +571,11 @@ P(\mathbf x;\boldsymbol\rho,\mu)
 
 **切空间与梯度。** 一般欧氏空间中的加减法不适用于 SO(3) 群元，需要通过指数映射、对数映射以及群乘法定义局部增量。在流形 \(\mathcal M\) 上，函数 \(f:\mathcal M\rightarrow\mathcal M'\) 的微分描述了输入切空间的微小扰动如何传播到输出切空间。作者据此建立雅可比矩阵，使标准反向传播中的链式法则可以推广到混合欧氏变量与李群变量的计算图。
 
-实现依托 LieTorch：前向传播在 SO(3) 上执行旋转复合，反向传播则在三维切空间计算梯度，不直接对九个欧氏矩阵元素独立优化。由于旋转群乘法不可交换，计算梯度时需要引入伴随算子。对于 SO(3)，伴随算子对应旋转矩阵本身；对数映射的梯度还需要左雅可比逆，以保持扰动的局部几何一致性。这些内容对应原式 (42)–(54)，其完整微分式仍待逐项抄录。
+实现依托 LieTorch：前向传播在 SO(3) 上执行旋转复合，反向传播则在三维切空间计算梯度，不直接对九个欧氏矩阵元素独立优化。由于旋转群乘法不可交换，计算梯度时需要引入伴随算子。对于 SO(3)，伴随算子对应旋转矩阵本身；对数映射的梯度还需要左雅可比逆，以保持扰动的局部几何一致性。这些内容对应原式 (42)–(54)，其中式 (45)、(52) 等关键微分式已在本页列出，其余逐项公式仍需与原文逐步核对。
 
 ### A. 切空间与梯度
 
-论文不采用直接把李群变量嵌入欧氏空间、再对矩阵元素求梯度的方案，而是在流形切空间进行反向传播。对 \mathbf X,\mathbf Y\in\mathcal M$ 和切向量 \boldsymbol\xi$ 定义局部扰动与差：
+论文不采用直接把李群变量嵌入欧氏空间、再对矩阵元素求梯度的方案，而是在流形切空间进行反向传播。对 \(\mathbf X,\mathbf Y\in\mathcal M\) 和切向量 \(\boldsymbol\xi\) 定义局部扰动与差：
 
 \[
 \boldsymbol\xi\oplus\mathbf X
@@ -585,15 +594,15 @@ P(\mathbf x;\boldsymbol\rho,\mu)
 
 ### B. 李群计算图和反向传播
 
-**图 4（李群嵌入计算图）**：以某个时隙的支撑杆旋转矩阵为例，前向传播在 SO(3)$ 上产生姿态，反向传播并不对整个九元素矩阵施加无约束更新，而是在对应的李代数切空间中计算梯度。优化器给出的更新向量仍位于切空间，随后经指数映射返回 SO(3)$，产生新的合法旋转矩阵。
+**图 4（李群嵌入计算图）**：以某个时隙的支撑杆旋转矩阵为例，前向传播在 \(SO(3)\) 上产生姿态，反向传播并不对整个九元素矩阵施加无约束更新，而是在对应的李代数切空间中计算梯度。优化器给出的更新向量仍位于切空间，随后经指数映射返回 \(SO(3)\)，产生新的合法旋转矩阵。
 
-作者使用支持李群自动微分的 LieTorch 库构建计算图。对于一般映射 \mathbf Y=f(\mathbf X)$，损失的反向传播仍满足链式法则：
+作者使用支持李群自动微分的 LieTorch 库构建计算图。对于一般映射 \(\mathbf Y=f(\mathbf X)\)，损失的反向传播仍满足链式法则：
 
 （式（46）已在本页列出，此处不再重复列式。）
 
-关键区别是，\mathbf J$ 对应的是输入输出切空间之间的微分，而非欧氏空间中旋转矩阵元素的无约束导数。
+关键区别是，\(\mathbf J\) 对应的是输入输出切空间之间的微分，而非欧氏空间中旋转矩阵元素的无约束导数。
 
-李群乘法一般不满足交换律，因此梯度沿群乘积传播时需要伴随算子变换参考坐标系。对李群元素 \mathbf X$，其伴随映射满足
+李群乘法一般不满足交换律，因此梯度沿群乘积传播时需要伴随算子变换参考坐标系。对李群元素 \(\mathbf X\)，其伴随映射满足
 
 （式（47）的另一表达，需逐式核对。）
 \[
@@ -604,7 +613,7 @@ P(\mathbf x;\boldsymbol\rho,\mu)
 
 \]
 
-对于 SO(3)$，伴随算子就是旋转矩阵自身，即 \mathbf A_{\mathbf X}=\mathbf X$。若 \mathbf Z=\mathbf X\circ\mathbf Y$，对前一因子作切空间扰动的微分是恒等映射，而对后一因子的扰动必须经 \mathbf A_{\mathbf X}$ 转换。对应的反向传播梯度为
+对于 \(SO(3)\)，伴随算子就是旋转矩阵自身，即 \(\mathbf A_{\mathbf X}=\mathbf X\)。若 \(\mathbf Z=\mathbf X\circ\mathbf Y\)，对前一因子作切空间扰动的微分是恒等映射，而对后一因子的扰动必须经 \(\mathbf A_{\mathbf X}\) 转换。对应的反向传播梯度为
 
 （式（50）的另一表达，需逐式核对。）
 \[
@@ -637,7 +646,15 @@ Df(X)[\mathbf v]=
 \frac{f(\epsilon\mathbf v\oplus X)\ominus f(X)}
 {\epsilon}.\tag{44}
 \]
-在切空间正交基 \(\{\mathbf e_j\}\) 上可由同样方式定义雅可比矩阵 \(\mathbf J\)（原式 (45)）。采用链式法则，
+在切空间正交基 \(\{\mathbf e_j\}\) 上可由同样方式定义雅可比矩阵 \(\mathbf J\)（原式 (45)）：
+\[
+J_{ij}=\lim_{t\to0}
+\frac{\left\langle
+f(t\mathbf e_j\oplus X)\ominus f(X),\,
+\mathbf e_i'
+\right\rangle}{t},\tag{45}
+\]
+其中 \(\langle\cdot,\cdot\rangle\) 为输出流形 \(\mathcal M'\) 切空间上的内积。采用链式法则，
 \[
 \frac{\partial L}{\partial X}=
 \frac{\partial L}{\partial Y}
@@ -674,7 +691,13 @@ D\operatorname{Log}(X)[\mathbf v]
 \frac{\operatorname{Log}(\exp(\epsilon\mathbf v)\circ X)
 -\operatorname{Log}(X)}{\epsilon}.\tag{51}
 \]
-由 Baker–Campbell–Hausdorff 公式，可以用左雅可比矩阵逆处理这类局部增量（式 (52)）。对于 SO(3)，
+由 Baker–Campbell–Hausdorff 公式，可以用左雅可比矩阵逆处理这类局部增量（式 (52)）：
+\[
+\lim_{\boldsymbol\phi\to0}
+\operatorname{Log}\!\left(\exp(\delta\boldsymbol\xi)\exp(\boldsymbol\phi)\right)
+\approx\boldsymbol\phi+\mathbf J_l^{-1}(\boldsymbol\phi)\,\delta\boldsymbol\phi.\tag{52}
+\]
+对于 SO(3)，
 \[
 \mathbf J_l^{-1}(\boldsymbol\phi)
 =\mathbf I_3-\frac12[\boldsymbol\phi]_\times+
@@ -717,9 +740,16 @@ P(\mathbf x_s;\boldsymbol\rho^w,\mu^w)\right)\circ\mathbf x_s.
 
 **原文算法 1：采用动态惩罚调整的流形频谱效率优化。** 输入为初始位姿及伸缩参数 \(\mathbf x_0\in\mathcal M\)、惩罚权重 \(\boldsymbol\rho_0\)、平滑参数 \(\mu_0\)、梯度容差 \(\epsilon_0\)、两种收缩因子、最低平滑度与最低容差、相邻迭代距离阈值、学习率和内外层最大迭代次数。首先初始化 \(\mathbf x,\boldsymbol\rho,\mu,\epsilon\)。外层循环设置热启动点；内层反复进行 SO(3) 对数映射、黎曼梯度计算及指数映射更新；达到内层终止条件后，更新惩罚参数、平滑因子与容差；最后在外层收敛或达到最大次数时返回优化后的 6DMA 控制参数。与逐时隙重新计算位姿相比，该算法把整条轨迹作为一组耦合变量联合求解。
 
-对受约束的流形优化，惩罚权重需要兼顾“先找到频谱效率较高的区域”和“最后满足全部物理约束”。如果一开始就把所有 \rho_i$ 设得极大，目标可能病态并收敛缓慢；若权重过小，又可能长期停留在不可执行的轨迹附近。
+对受约束的流形优化，惩罚权重需要兼顾“先找到频谱效率较高的区域”和“最后满足全部物理约束”。如果一开始就把所有 \(\rho_i\) 设得极大，目标可能病态并收敛缓慢；若权重过小，又可能长期停留在不可执行的轨迹附近。
 
-作者因此采用两个阶段。**预热阶段**，依据各类约束违反程度的相对比例以及当前性能目标，对各约束项分配适度的初始权重，以保证不同惩罚项与目标函数具有可比较的尺度（式（55））。**正式优化阶段**，根据上一轮权重和本轮平滑违反量 V_i$ 逐项调整：
+作者因此采用两个阶段。**预热阶段**，依据各类约束违反程度的相对比例以及当前性能目标，对各约束项分配适度的初始权重，以保证不同惩罚项与目标函数具有可比较的尺度（原文式 (55)）：
+\[
+\rho_w^i=\max\!\left(\rho_{\min},\min\!\left(
+\frac{V^i f(\mathbf x_w)}
+{\displaystyle\sum_{i'\in\mathcal I_{\rm 6DMA}}V^{i'}},
+\rho_{\max}\right)\right),\tag{55}
+\]
+其中 \(V^i=\mu_w\log\!\left(1+\exp(g_i(\mathbf x_w)/\mu_w)\right)\) 为第 \(i\) 个约束的光滑违反量，\(f(\mathbf x_w)\) 为当前目标函数值。**正式优化阶段**，根据上一轮权重和本轮平滑违反量 \(V_i\) 逐项调整：
 
 （式（56）已在本页列出，此处不再重复列式。）
 
@@ -735,7 +765,21 @@ P(\mathbf x_s;\boldsymbol\rho^w,\mu^w)\right)\circ\mathbf x_s.
 
 （式（59）已在本页列出，此处不再重复列式。）
 
-内层迭代在达到预定最大次数或梯度范数低于当前容差 \epsilon_w$ 时停止。每次更新外层惩罚参数、平滑参数和梯度容差后，使用上一子问题的结果热启动下一子问题。外层在连续迭代的流形距离小于 d_{\min}$、容差降至 \epsilon_{\min}$ 且平滑参数降至 \mu_{\min}$ 时终止，相关条件为原文式（60）–（63）。
+内层迭代在达到预定最大次数或梯度范数低于当前容差 \(\epsilon_w\) 时停止。每次更新外层惩罚参数、平滑参数和梯度容差后，使用上一子问题的结果热启动下一子问题。外层在连续迭代的流形距离小于 \(d_{\min}\)、容差降至 \(\epsilon_{\min}\) 且平滑参数降至 \(\mu_{\min}\) 时终止，相关条件即原文式 (60)–(63)：
+\[
+\left\|\nabla_{\delta_w}P(\mathbf x_w,\boldsymbol\rho^w,\mu^w)\right\|\le\epsilon_w\tag{60}
+\]
+（内层子问题近似求解），
+\[
+d(\mathbf x_w,\mathbf x_{w+1})<d_{\min},\tag{61}
+\]
+\[
+\epsilon_w\le\epsilon_{\min},\tag{62}
+\]
+\[
+\mu^w\le\mu_{\min}\tag{63}
+\]
+（外层终止）。
 
 **算法 1（动态惩罚调整的流形频谱效率优化）。** 输入为初始乘积流形状态、各项初始惩罚权重、初始平滑参数、初始梯度容差、衰减因子、最小允许值、距离阈值、学习率以及内外循环上限。每轮外循环从当前点启动内层流形梯度优化，按照对数映射计算切空间坐标、反向传播计算梯度、指数映射更新旋转状态；内层收敛后更新当前解、平滑参数、惩罚权重和梯度容差，重复直至满足终止条件，输出全部时隙的优化控制参数。
 
@@ -745,7 +789,30 @@ P(\mathbf x_s;\boldsymbol\rho^w,\mu^w)\right)\circ\mathbf x_s.
 
 ### 总体结果
 
-原文表 I 汇总仿真参数；图 6–11 检查优化收敛、随时间变化的累计频谱效率、最大瞬时角速度，以及性能关于 UE 数量、阵面数量和最大角速度的关系。完整表格数值仍待从原 PDF 逐格校对。
+原文表 I 汇总仿真参数（本轮已按原表逐格转写，见表 I）；图 6–11 检查优化收敛、随时间变化的累计频谱效率、最大瞬时角速度，以及性能关于 UE 数量、阵面数量和最大角速度的关系。
+
+**表 I：关键仿真参数（原文 TABLE I，第 11 页）**
+
+| 符号 | 参数说明 | 取值 |
+|---|---|---|
+| **系统与通信参数** | | |
+| \(\Delta t\) | 时隙长度 | 0.5 s |
+| \(p\) | 每个 UE 的发射功率 | 200 mW |
+| \(\lambda\) | 载波波长 | 0.125 m |
+| \(\sigma^2\) | 平均噪声功率 | -50 dBm |
+| — | UE–BS 初始距离范围 | 20 m – 200 m |
+| — | UE 移动速度 | 1–6 m/s |
+| **6DMA 机械约束** | | |
+| \(J_k\) | 接收信道路径数 | 2 |
+| \(N\) | 每个 6DMA 阵面的天线数 | 4 |
+| \([\varsigma^{\min},\varsigma^{\max}]\) | 最小/最大伸缩比例 | [0.95, 1.05] |
+| \([q^{b,\min},q^{b,\max}]\) | 支撑杆长度范围 | [0.8, 1.5] m |
+| \(q_l^{b,\Delta t}\) | 单时隙内阵面最大位移 | 0.3 m |
+| \(\vartheta_1\) | 任意两个 6DMA 阵面之间的最小夹角 | \(\pi/15\ \mathrm{rad}\) |
+| \(\vartheta_2\) | 阵面与基站结构之间的最小夹角 | \(\pi/8\ \mathrm{rad}\) |
+| \(\vartheta_3\) | 阵面与其支撑杆之间的最小夹角 | \(\pi/12\ \mathrm{rad}\) |
+
+表中数值按原表逐格转写；按 IEEE 版权口径只转录表格数据与符号，不转述原文叙述段落。原文对 \(J_k\) 的说明为 “Number of receive channel paths”。
 
 作者使用的对照方案如下：
 
@@ -778,20 +845,94 @@ CKM 通过智能射线追踪构建；城市地图来自 OpenStreetMap，包括�
 
 **图 6（约束违反率和频谱效率随优化迭代变化）**：预热期较小的惩罚权重使算法广泛探索解空间，频谱效率快速上升，短暂约束违反率也会增加。进入正式优化阶段后，惩罚权重增大，约束违反率快速下降，频谱效率仅发生可控的小幅退让。结果表明，自适应惩罚机制能够把优化从“追求高性能”逐步引导到“兼顾高性能与物理可行”的轨迹区域。
 
-**图 7（随时隙累积的总频谱效率）与图 8（每时隙峰值瞬时角速度）**：固定 K=2,A=2$、最大角速度为 0.1 rad/slot。FPA 与只依照视距几何指向的 I-LT 无法充分适应真实多径结构，因此性能受限。KC-WCKMMO 在开始阶段尚可，但之后因局部短视调整陷入运动学上难以恢复的差位姿，性能明显下降。忽略运动学限制的 I-AO 在理论性能上很强，但需要现实执行器难以达到的角速度；直接线性缩放 AO 运动的 KC-AO 甚至可能差于固定基线。所提 KC-MO 则在不违反物理约束的同时，获得接近 I-AO 的总频谱效率。
+**图 7（随时隙累积的总频谱效率）与图 8（每时隙峰值瞬时角速度）**：固定 \(K=2,A=2\)、最大角速度为 0.1 rad/slot。FPA 与只依照视距几何指向的 I-LT 无法充分适应真实多径结构，因此性能受限。KC-WCKMMO 在开始阶段尚可，但之后因局部短视调整陷入运动学上难以恢复的差位姿，性能明显下降。忽略运动学限制的 I-AO 在理论性能上很强，但需要现实执行器难以达到的角速度；直接线性缩放 AO 运动的 KC-AO 甚至可能差于固定基线。所提 KC-MO 则在不违反物理约束的同时，获得接近 I-AO 的总频谱效率。
 
 **图 9（总频谱效率与 UE 数量）**：用户数量增加时，多用户分集使各方案的总频谱效率总体提高。KC-MO 相对于反应式 KC-WCKMMO 的优势随用户数增大而拉大，因为更复杂的信道使过去局部错误位姿造成的代价更加突出。I-LT 和 KC-AO 的性能变化不够规律。另一方面，KC-MO 增益相对于用户数也逐渐趋缓；作者据此指出，主动轨迹规划尤其适合对少量目标提供高质量覆盖的场景，而不意味着用户越多相对优势就无限增加。
 
 **图 10（总频谱效率与 6DMA 阵面数量）**：增加阵面通常提高性能，但不同方法利用新增自由度的效率不同。I-LT 和 KC-AO 的改善幅度较小或不规律。KC-MO 与 KC-WCKMMO 的差距并不随阵面数量单调变化：当阵面较少、空间资源受限时，长期规划尤为重要；随着阵面增多，即使短视方法也有更多自由度找到可用位姿，性能差距可能缩小。这表明 KC-MO 的价值之一是提高受限空间资源的利用效率。
 
-**图 11（总频谱效率与最大允许角速度）**：随着 \omega_{\max}$ 增大，KC-MO 性能提高但增益逐渐减小，说明当执行器已经足够敏捷、能够追踪主要信道变化时，进一步提高最大速度收益有限。KC-WCKMMO 的性能则更接近线性增长，需要不断依靠更大的运动能力补偿之前短视动作带来的损失。KC-AO 依旧较差且波动明显，因为其简单轨迹截断方式没有形成连贯、有效的整体运动序列。作者认为，这表明所提方法能够以中等运动能力获得较高性能，有助于避免过度配置昂贵执行机构。
+**图 11（总频谱效率与最大允许角速度）**：随着 \(\omega_{\max}\) 增大，KC-MO 性能提高但增益逐渐减小，说明当执行器已经足够敏捷、能够追踪主要信道变化时，进一步提高最大速度收益有限。KC-WCKMMO 的性能则更接近线性增长，需要不断依靠更大的运动能力补偿之前短视动作带来的损失。KC-AO 依旧较差且波动明显，因为其简单轨迹截断方式没有形成连贯、有效的整体运动序列。作者认为，这表明所提方法能够以中等运动能力获得较高性能，有助于避免过度配置昂贵执行机构。
 
 ## VI. 结论
 
-面向移动 UE 的主动跟踪覆盖，论文提出利用 CKM 提供的预测信道信息，对 6DMA 基站在整个服务时域内的运动轨迹进行长期联合优化。模型同时考虑支撑杆转动与伸缩、阵面姿态变化、角速度与位移限制，以及阵面之间、阵面与基站之间的物理安全约束。在数学求解方面，通过把三维旋转表示为 SO(3)$ 李群元素，在切空间中进行反向传播与流形梯度更新，并采用动态惩罚权重和平滑化处理复杂非凸约束。仿真表明，相比固定天线、每时隙独立优化和反应式流形优化，该方法能够更有效利用可移动天线的时空自由度，在满足机械可执行条件的前提下提高服务时域内的总频谱效率。
+面向移动 UE 的主动跟踪覆盖，论文提出利用 CKM 提供的预测信道信息，对 6DMA 基站在整个服务时域内的运动轨迹进行长期联合优化。模型同时考虑支撑杆转动与伸缩、阵面姿态变化、角速度与位移限制，以及阵面之间、阵面与基站之间的物理安全约束。在数学求解方面，通过把三维旋转表示为 \(SO(3)\) 李群元素，在切空间中进行反向传播与流形梯度更新，并采用动态惩罚权重和平滑化处理复杂非凸约束。仿真表明，相比固定天线、每时隙独立优化和反应式流形优化，该方法能够更有效利用可移动天线的时空自由度，在满足机械可执行条件的前提下提高服务时域内的总频谱效率。
 
-## 参考文献（待补录）
+## 参考文献
 
-原 PDF 的参考文献列表尚未逐条转录。此处只保留其在原文中的位置，不代表译稿已经包含完整参考文献。
+下列 35 条参考文献按原论文编号转录自 PDF 第 14 页（REFERENCES），保留英文原书目信息（题名、作者、期刊/会议、卷期页、年份），条目文字未作翻译。
+
+[1] R. Sun et al., “A comprehensive survey of knowledge-driven deep learning for intelligent wireless network optimization in 6G,” IEEE Commun. Surveys Tuts., early access, May 29, 2025, doi: 10.1109/COMST.2025.3574765.
+
+[2] R. Sun, N. Cheng, C. Li, F. Chen, and W. Chen, “Knowledge-driven deep learning paradigms for wireless network optimization in 6G,” IEEE Netw., vol. 38, no. 2, pp. 70–78, Mar. 2024.
+
+[3] C. Wang, Z. Li, K.-K. Wong, R. Murch, C.-B. Chae, and S. Jin, “AI-empowered fluid antenna systems: Opportunities, challenges, and future directions,” IEEE Wireless Commun., vol. 31, no. 5, pp. 34–41, Oct. 2024.
+
+[4] L. Zhu, W. Ma, and R. Zhang, “Movable antennas for wireless communication: Opportunities and challenges,” IEEE Commun. Mag., vol. 62, no. 6, pp. 114–120, Jun. 2024.
+
+[5] C. Dou, Y. Wu, L. Qian, K.-K. Wong, and T. Q. S. Quek, “Fluid antenna empowered integration of sensing, communications and computing with hybrid multi-task offloading,” IEEE Wireless Commun. Lett., vol. 14, no. 8, pp. 2521–2525, Aug. 2025.
+
+[6] X. Shao, Q. Jiang, and R. Zhang, “6D movable antenna based on user distribution: Modeling and optimization,” IEEE Trans. Wireless Commun., vol. 24, no. 1, pp. 355–370, Jan. 2025.
+
+[7] X. Shao and R. Zhang, “6DMA enhanced wireless network with flexible antenna position and rotation: Opportunities and challenges,” IEEE Commun. Mag., vol. 63, no. 4, pp. 121–128, Apr. 2025.
+
+[8] X. Shao et al., “A tutorial on six-dimensional movable antenna for 6G networks: Synergizing positionable and rotatable antennas,” 2025, arXiv:2503.18240.
+
+[9] W. Ma, L. Zhu, and R. Zhang, “MIMO capacity characterization for movable antenna systems,” IEEE Trans. Wireless Commun., vol. 23, no. 4, pp. 3392–3407, Apr. 2024.
+
+[10] L. Zhu, W. Ma, B. Ning, and R. Zhang, “Movable-antenna enhanced multiuser communication via antenna position optimization,” IEEE Trans. Wireless Commun., vol. 23, no. 7, pp. 7214–7229, Jul. 2024.
+
+[11] G. Hu et al., “Fluid antennas-enabled multiuser uplink: A low-complexity gradient descent for total transmit power minimization,” 2023, arXiv:2312.05763.
+
+[12] W. Lyu, S. Yang, Y. Xiu, Z. Zhang, C. Assi, and C. Yuen, “Movable antenna enabled integrated sensing and communication,” IEEE Trans. Wireless Commun., vol. 24, no. 4, pp. 2862–2875, Apr. 2025.
+
+[13] S. Peng et al., “Joint antenna position and beamforming optimization with self-interference mitigation in movable antenna aided ISAC system,” in Proc. IEEE Wireless Commun. Netw. Conf. (WCNC), Mar. 2025, pp. 1–6.
+
+[14] Z. Feng, Y. Zhao, K. Yu, and D. Li, “Movable antenna empowered physical layer security without Eve’s CSI: Joint optimization of beamforming and antenna positions,” 2024, arXiv:2405.16062.
+
+[15] X. Shao, R. Zhang, Q. Jiang, J. Park, T. Q. S. Quek, and R. Schober, “Distributed channel estimation and optimization for 6D movable antenna: Unveiling directional sparsity,” IEEE J. Sel. Topics Signal Process., vol. 19, no. 2, pp. 349–365, Mar. 2025.
+
+[16] Z. Xiao, X. Pi, L. Zhu, X.-G. Xia, and R. Zhang, “Multiuser communications with movable-antenna base station: Joint antenna positioning, receive combining, and power control,” IEEE Trans. Wireless Commun., vol. 23, no. 12, pp. 19744–19759, Dec. 2024.
+
+[17] J. Wu et al., “Low-altitude wireless networks: A comprehensive survey,” 2025, arXiv:2509.11607.
+
+[18] A. C. P. K. Siriwardhana, J. Yuan, and Z. Shen, “Optimizing handover mechanism in vehicular networks using deep learning and optimization techniques,” Comput. Netw., vol. 270, Oct. 2025, Art. no. 111488.
+
+[19] X. Shao, R. Zhang, Q. Jiang, and R. Schober, “6D movable antenna enhanced wireless network via discrete position and rotation optimization,” IEEE J. Sel. Areas Commun., vol. 43, no. 3, pp. 674–687, Mar. 2025.
+
+[20] Y. Zeng et al., “A tutorial on environment-aware communications via channel knowledge map for 6G,” IEEE Commun. Surveys Tuts., vol. 26, no. 3, pp. 1478–1519, 3rd Quart., 2024.
+
+[21] J. S. Dai, “Euler–Rodrigues formula variations, quaternion conjugation and intrinsic connections,” Mechanism Mach. Theory, vol. 92, pp. 144–152, Oct. 2015.
+
+[22] Technical Specification Group Radio Access Network; Study on 3D Channel Model for LTE, document TR 36.873 V12.4.0, 3GPP, Dec. 2017.
+
+[23] L. Zhu, W. Ma, and R. Zhang, “Modeling and performance analysis for movable antenna enabled wireless communications,” IEEE Trans. Wireless Commun., vol. 23, no. 6, pp. 6234–6250, Jun. 2024.
+
+[24] D. Wu, Y. Zeng, S. Jin, and R. Zhang, “Environment-aware hybrid beamforming by leveraging channel knowledge map,” IEEE Trans. Wireless Commun., vol. 23, no. 5, pp. 4990–5005, May 2024.
+
+[25] D. Tse and P. Viswanath, Fundamentals of Wireless Communication. Cambridge, U.K.: Cambridge Univ. Press, 2005.
+
+[26] H. Sato, Riemannian Optimization and Its Applications, vol. 670. Cham, Switzerland: Springer, 2021.
+
+[27] N. Boumal, An Introduction to Optimization on Smooth Manifolds. Cambridge, U.K.: Cambridge Univ. Press, 2023.
+
+[28] C. Chen and O. L. Mangasarian, “Smoothing methods for convex inequalities and linear complementarity problems,” Math. Program., vol. 71, no. 1, pp. 51–69, Nov. 1995.
+
+[29] C. Liu and N. Boumal, “Simple algorithms for optimization on Riemannian manifolds with constraints,” Appl. Math. Optim., vol. 82, no. 3, pp. 949–981, Dec. 2020.
+
+[30] Z. Teed and J. Deng, “Tangent space backpropagation for 3D transformation groups,” in Proc. IEEE/CVF Conf. Comput. Vis. Pattern Recognit. (CVPR), Jun. 2021, pp. 10333–10342.
+
+[31] J. Sola, J. Deray, and D. Atchuthan, “A micro lie theory for state estimation in robotics,” 2018, arXiv:1812.01537.
+
+[32] T. D. Barfoot, State Estimation for Robotics. Cambridge, U.K.: Cambridge Univ. Press, 2024.
+
+[33] T. Rautiainen, G. Wolfle, and R. Hoppe, “Verifying path loss and delay spread predictions of a 3D ray tracing propagation model in urban environment,” in Proc. IEEE 56th Veh. Technol. Conf., vol. 4, Feb. 2002, pp. 2470–2474.
+
+[34] OpenStreetMap Contributors. (2017). Planet Dump. [Online]. Available: https://www.openstreetmap.org
+
+[35] R. Hoppe, G. Wolfle, and U. Jakobus, “Wave propagation and radio network planning software WinProp added to the electromagnetic solver package FEKO,” in Proc. Int. Appl. Comput. Electromagn. Soc. Symp. Italy (ACES), Mar. 2017, pp. 1–2.
+
+**书目转录说明：** 条目文字按 PDF 原样转写，未翻译、未补造 DOI；[22] 为 3GPP 技术报告条目，原文即无作者名；[31] 的 “micro lie theory” 为原文小写写法；[33]、[35] 中作者姓氏的连字 “fl” 已按正常拼写合并。
+
+**本页状态（2026-10-30）：** 摘要、正文 I–VI、表 I 与参考文献 [1]–[35] 已覆盖；公式 (1)、(45)、(52)、(55)、(60)–(63) 已补入，式 (35) 为原文对式 (33) 的重复编号（已加注）。仍待逐式核对全篇公式、补齐图 6–11 的曲线数据点并逐句终校正文。按 IEEE 版权口径，本页为“结构 + 公式 + 表格 + 英文书目”的补齐稿，不含大段原文转述。
 
 {% endraw %}

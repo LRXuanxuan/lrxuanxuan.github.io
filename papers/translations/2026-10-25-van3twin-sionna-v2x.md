@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "VaN3Twin：射线追踪闭环下的多技术 V2X 数字孪生｜中文译稿（未完成）"
+title: "VaN3Twin：射线追踪闭环下的多技术 V2X 数字孪生｜中文译稿（2026-10-30 补译，未逐句终校）"
 permalink: /papers/translations/2026-10-25-van3twin-sionna-v2x/
 math: true
 toc: true
@@ -13,7 +13,7 @@ toc: true
 **原题：** VaN3Twin: the Multi-Technology V2X Digital Twin with Ray Tracing in the Loop  
 **作者：** Roberto Pegurri、Diego Gasco、Francesco Linsalata、Marco Rapelli、Eugenio Moro、Francesco Raviglione、Claudio Casetti  
 **来源：** *IEEE Transactions on Wireless Communications*, Vol. 25 (2026), pp. 16812–16827；DOI: 10.1109/TWC.2026.3685710。  
-**译稿状态（2026-10-25）：** 正文 I–VI 已补充框架设计、实测验证、多 RAT 同信道共存公式（1）–（16）、算法 1、主要实验表和相关研究；表 VI、全部书目及局部段落尚需逐段核验。**尚非逐句逐式终校完成的全文译稿。**
+**译稿状态（2026-10-25）：** 正文 I–VI 已补充框架设计、实测验证、多 RAT 同信道共存公式（1）–（16）、算法 1、主要实验表和相关研究；本轮补入表 VI 逐单元格转录、末页结论后续语句、原文脚注 5、致谢及参考文献 [1]—[70] 英文原书目。**尚非逐句逐式终校完成的全文译稿。**
 
 ## 摘要
 
@@ -321,15 +321,182 @@ $
 
 数字孪生可用于对物理系统状态进行建模，并通过仿真观察其随时间的演化。针对 V2X 网络，来自现实的车辆与环境数据被持续导入孪生模型，模型计算结果可进一步反馈至实际车联网，从而形成闭环。数字孪生也能够在部署前重建环境、移动性或历史数据，以研究不同网络配置下的演化；在混合模式中，还可向真实系统引入实时通信的虚拟节点，降低实验成本。VaN3Twin 的原生仿真/仿真器模式同样支持这一能力。已有 RAVEN 平台将车载数据与环境上下文结合，预测车辆位置与信道，优化毫米波多跳车联网的干扰和容量；云端辅助驾驶数字孪生则在云侧处理决策并向车辆返回执行建议。TuST 利用真实交通数据重建都灵全城移动性，其他工作利用真实轨迹或地铁站行人流建立数字孪生，用于无线仿真。
 
-**表 VI：** 论文对 WiLabV2XSim、LTEV2VSim、Jayaweera 等、Veins、Rusca 等、Gaugel 等、ns3sionna、DT-CoVeSS、ms-van3t 与 VaN3Twin 的 RAT 支持、DSRC/C-V2X 共存、射线追踪、V2X 完整协议栈和开源状态进行对照。VaN3Twin 同时具备多 RAT、共存、闭环 Sionna RT、ETSI 全协议栈和开源能力。
+**表 VI：V2X 框架与 VaN3Twin 的对照（重点为共存与射线追踪集成，按原表逐格转录）。** 表中 ✓ 表示支持，✗ 表示不支持，∼ 表示部分支持（括号内为原文注释）。
+
+| 框架／研究 | 支持的 RAT | DSRC 与 C-V2X 共存 | 射线追踪 | V2X 完整协议栈实现 | 开源 |
+| --- | --- | --- | --- | --- | --- |
+| WiLabV2XSim [33] | IEEE 802.11p、LTE-V2X、NR-V2X | ✓ | ✗ | ✗ | ✓ |
+| LTEV2VSim [34] | IEEE 802.11p、LTE-V2X | ✗ | ✗ | ✗ | ✓ |
+| Jayaweera 等 [35] | IEEE 802.11p、LTE-V2X | ∼（基于 MATLAB 的数值结果） | ✗ | ✗ | ✗ |
+| Veins [36] | IEEE 802.11p、LTE-V2X [37] | ✗ | ✗（可如 [38] 那样潜在集成） | ✓（ETSI 协议栈需 Artery [39]） | ✓ |
+| Rusca 等 [40] | 与接入技术无关的单 RAT | ✗ | ✓（MATLAB RT） | ✗ | ✓ |
+| Gaugel 等 [41] | 与接入技术无关的单 RAT | ✗ | ∼（离线 RT 轨迹） | ✗ | ✗ |
+| ns3sionna [42] | IEEE 802.11 | ✗ | ✓（闭环 Sionna RT） | ✗ | ✓ |
+| DT-CoVeSS [43] | C-V2X | ✗ | ✓（定制的 Sionna RT） | ∼（支持 SAE J3161 与 IEEE 1609.2） | ✓ |
+| ms-van3t [16], [44] | IEEE 802.11p、LTE、LTE-V2X、NR-V2X | ✗ | ✗ | ✓（支持多个版本的 ETSI 协议栈 [16]） | ✓ |
+| VaN3Twin | IEEE 802.11p、LTE、LTE-V2X、NR-V2X | ✓ | ✓（闭环 Sionna RT） | ✓（支持多个版本的 ETSI 协议栈 [16]） | ✓ |
+
+由表 VI 可见：VaN3Twin 是表中同时具备多 RAT 支持、DSRC/C-V2X 共存、闭环 Sionna RT、ETSI 全协议栈与开源状态的方案。
 
 ## VI. 结论（正文补译）
 
 本文提出可扩展的 V2X 网络数字孪生 VaN3Twin，将开源射线追踪器 Sionna RT 纳入 ms-van3t 的完整协议栈仿真闭环，提供高保真传播建模、多通信技术仿真以及时频级干扰跟踪。实验表明，传统随机模型可能输出过度简化甚至误导性的结果：与 VaN3Twin 的射线模型相比，基于 SINR 的分组接收判定在普通场景存在最高约 49% 的差异，频繁发生 NLoSv 时扩大至约 60%。真实环境验证说明，射线追踪降低了传播层和应用层的误差，乡村分组接收 DR 改善约 49.3%，复杂城市环境改善约 70.8%。
 
-该框架可用于特定场景验证、大规模异构技术共存研究、标准化支持和新特性的安全预部署测试，例如 3GPP Release 18 引入的机器学习调度、增强 NR-V2X 侧链路与改进定位；还可用来产生训练 AI 模型的数据和支持网络规划。作者计划将更多物理层操作（如波形生成和多天线处理）卸载到 GPU，以减少抽象化处理、提高仿真速度与精度，并系统研究不同 RAT 的共存问题。
+该框架可用于特定场景验证、大规模异构技术共存研究、标准化支持和新特性的安全预部署测试，例如 3GPP Release 18 [70] 引入的机器学习调度、增强 NR-V2X 侧链路与改进定位；还可用来产生训练 AI 模型的数据和支持网络规划。
 
-**校对状态：** 本轮补齐第三节后半、第四节公式（11）–（16）及算法 1、表 II–V、第 V 节主题正文和第 VI 节主要段落。第五节表 VI 的逐单元格复刻、参考文献、末页结论后续语句及逐字逐式终校仍待完成；本页不冒充全文精校。
+**未来工作（原文末页续译）：** 作者计划把更多物理层功能——例如波形生成与多天线系统——卸载到 GPU，以减少对抽象化的依赖，从而提高仿真速度并可能提高精度。此外，未来工作将系统分析计算性能与仿真精度之间的折中，例如调节射线追踪参数（交互类型、最大交互深度）以及让网络数字孪生（NDT）的更新速率适配不同环境的动态特性。另一条可行的未来方向是评估能否利用通用软件无线电外设（USRP）硬件及相关软件（如 OpenAirInterface 或 srsRAN）开展额外的 C-V2X 现场测试，以便把 VaN3Twin 的输出与真实测量数据进一步对比；随着兼容硬件进入市场，这些测试也将使用专用的 C-V2X 芯片组进行。最后，未来工作还包括更深入地研究 VaN3Twin 的实时能力，并利用其仿真（emulation）模式与真实联网车辆对接。
+
+> **原文脚注 5：** VaN3Twin 及其仿真配置文件、用于采集本文结果的射线追踪场景，均可在 GitHub 仓库 https://github.com/DriveX-devs/VaN3Twin 获取。
+
+## 致谢（ACKNOWLEDGMENTS，按原文补译）
+
+本出版物属于 PNRR-NGEU 项目，获得 MUR - DM 117/2023 资助。本文在欧盟“下一代欧盟”（NextGenerationEU）意大利国家复苏与韧性计划（NRRP）框架下获得支持，参与“未来通信”（Telecommunications of the Future）伙伴计划（PE00000001，项目“RESTART”，结构性项目 6GWINET）。本研究亦在 MOST——可持续交通国家研究中心（Sustainable Mobility National Research Center）内开展，并获欧盟 Next-GenerationEU 资助（PNRR，MISSIONE 4 COMPONENTE 2，INVESTIMENTO 1.4，D.D. 1033 17/06/2022，CN00000023）。
+
+## 参考文献
+
+> 以下按原文编号 [1]—[70] 转录英文原书目，条目文字不翻译；PDF 抽取文本中的 “V .”“W AN”“¨” 等为提取伪影，已按常规写法整理（如 V.、WAN、ö/é 等变音字母），书目内容未改动。原文 [54] 与 [52]、[58] 与 [31] 内容重复，系原文排版如此，照原样转录。
+
+[1] S. Abuelsamid. (2018) Toyota Has Big Plans To Get Cars Talking To Each Other And Infrastructure In The U.S. [Online]. Available: https://www.forbes.com/sites/samabuelsamid/2018/04/16/toyota-launches-aggressive-v2x-communications-roll-out-from-2021/
+
+[2] B. M. Masini, A. Bazzi, and A. Zanella, “A survey on the roadmap to mandate on board connectivity and enable V2V-based vehicular sensor networks,” Sensors, vol. 18, no. 7, p. 2207, 2018.
+
+[3] 5G Automotive Association, “An assessment of LTE-V2X (PC5) and 802.11 p direct communications technologies for improved road safety in the EU,” 5G Automotive Association, Tech. Rep., December, 2017.
+
+[4] C-Roads Platform. (2024) Webinar: From Vision to Reality - Operational C-ITS Services. [Online]. Available: https://www.c-roads.eu/platform/about/news/News/entry/show/webinar-from-vision-to-reality-operational-c-its-services.html
+
+[5] M. Lucarelli. (2023) Auto, cycling and tech innovators launch Coalition for Cyclist Safety based on V2X deployments. [Online]. Available: https://media.audiusa.com/releases/586
+
+[6] Euro NCAP. (2022) Mercedes-Benz Car-to-X Communication.
+
+[7] Ford Media Center. (2019) Ford Accelerates Connectivity Strategy in China; Targets Production of First C-V2X-Equipped Vehicle in 2021.
+
+[8] A. Bazzi, A. Zanella, I. Sarris, and V. Martinez, “Co-channel coexistence: Let ITS-G5 and sidelink C-V2X make peace,” in 2020 IEEE MTT-S International Conference on Microwaves for Intelligent Mobility (ICMIM). IEEE, 2020, pp. 1–4.
+
+[9] P. Roux and V. Mannoni, “Performance evaluation for co-channel coexistence between ITS-G5 and LTE-V2X,” in 2020 IEEE 92nd Vehicular Technology Conference (VTC2020-Fall). IEEE, 2020, pp. 1–5.
+
+[10] CAR 2 CAR Communication Consortium, “White paper on Additional Investigation of ITS-G5 and Sidelink LTE-V2X Co-Channel Coexistence Methods,” White Paper, Tech. Rep., 2022.
+
+[11] M. Rapelli, F. Raviglione, and C. Casetti, “OScar: An ETSI-Compliant C-ITS Stack for Field-Testing with Embedded Hardware Devices,” in 2024 22nd Mediterranean Communication and Computer Networking Conference (MedComNet). IEEE, 2024, pp. 1–4.
+
+[12] S. Roongpraiwan, Z. Li, T. Yu, and K. Sakaguchi, “Digital twin-enabled blockage-aware dynamic mmwave multi-hop v2x communication,” 2025. [Online]. Available: https://arxiv.org/abs/2503.03590
+
+[13] R. Pegurri, F. Linsalata, E. Moro, J. Hoydis, and U. Spagnolini, “Toward digital network twins: Integrating sionna RT in ns-3 for 6G Multi-RAT networks simulations,” in IEEE INFOCOM WKSHPS: Digital Twins over NextG Wireless Networks (DTWIN 2025) (INFOCOM DTWIN 2025), London, United Kingdom (Great Britain), May 2025, p. 5.88.
+
+[14] G. F. Riley and T. R. Henderson, The ns-3 Network Simulator. Berlin, Heidelberg: Springer Berlin Heidelberg, 2010, pp. 15–34. [Online]. Available: https://doi.org/10.1007/978-3-642-12331-3_2
+
+[15] J. Hoydis, S. Cammerer, F. Ait Aoudia, A. Vem, N. Binder, G. Marcus, and A. Keller, “Sionna: An Open-Source Library for Next-Generation Physical Layer Research,” arXiv preprint, Mar. 2022.
+
+[16] F. Raviglione, C. R. Carletti, M. Malinverno, C. Casetti, and C. Chiasserini, “ms-van3t: An integrated multi-stack framework for virtual validation of V2X communication and services,” Computer Communications, vol. 217, pp. 70–86, 2024. [Online]. Available: https://www.sciencedirect.com/science/article/pii/S0140366424000227
+
+[17] P. A. Lopez, M. Behrisch, L. Bieker-Walz, J. Erdmann, Y.-P. Flötteröd, R. Hilbrich, L. Lücken, J. Rummel, P. Wagner, and E. Wießner, “Microscopic traffic simulation using sumo,” in The 21st IEEE International Conference on Intelligent Transportation Systems. IEEE, 2018. [Online]. Available: https://elib.dlr.de/124092/
+
+[18] A. Dosovitskiy, G. Ros, F. Codevilla, A. Lopez, and V. Koltun, “Carla: An open urban driving simulator,” in Conference on robot learning. PMLR, 2017, pp. 1–16.
+
+[19] “Traci,” https://sumo.dlr.de/docs/TraCI.html.
+
+[20] OpenStreetMap contributors, “Planet dump retrieved from https://planet.osm.org,” https://www.openstreetmap.org, 2017.
+
+[21] M. Lecci, P. Testolina, M. Polese, M. Giordani, and M. Zorzi, “Accuracy versus complexity for mmwave ray-tracing: A full stack perspective,” IEEE Transactions on Wireless Communications, vol. 20, no. 12, pp. 7826–7841, 2021.
+
+[22] Google Maps Data, ©2025 Airbus, Maxar Technologies. [Online]. Available: https://www.google.com/maps
+
+[23] PC Engines, “APU2E4 System board schema.” [Online]. Available: https://www.pcengines.ch/apu2e4.htm
+
+[24] ArduSimple, “simpleRTK2B Fusion description and specifications.” [Online]. Available: https://www.ardusimple.com/product/simplertk2b-fusion/
+
+[25] F. Raviglione, M. Malinverno, and C. Casetti, “Open source platform for IEEE 802.11 p NICs evaluation,” in 2019 IEEE 20th International Symposium on "A World of Wireless, Mobile and Multimedia Networks" (WoWMoM). IEEE, 2019, pp. 1–3.
+
+[26] MobileMark, “MGW-313 description and specifications.” [Online]. Available: https://www.mobilemark.com/product/smwg-313-2xdsrc-gns/
+
+[27] ITU-R P.2040-1, “Effects of building materials and structures on radiowave propagation above about 100 MHz,” Jul. 2015.
+
+[28] G. Liu and L. Kong, “Simulation of video streaming over wireless networks with ns-3,” 2023. [Online]. Available: https://arxiv.org/abs/2302.14196
+
+[29] “3GPP TR 36.885: Study on LTE-based V2X Services,” 3rd Generation Partnership Project (3GPP), Technical Report 36.885, 2016, version 14.0.0. [Online]. Available: https://www.3gpp.org
+
+[30] “3GPP TR 38.901: Study on channel model for frequencies from 0.5 to 100 GHz,” 3rd Generation Partnership Project (3GPP), Technical Report 38.901, 2017, version 14.0.0. [Online]. Available: https://www.3gpp.org
+
+[31] Z. Ali, S. Lagén, L. Giupponi, and R. Rouil, “3gpp nr v2x mode 2: Overview, models and system-level evaluation,” IEEE Access, vol. 9, pp. 89 554–89 579, 2021.
+
+[32] M. Drago, T. Zugno, M. Polese, M. Giordani, and M. Zorzi, “Millicar: An ns-3 module for mmwave nr v2x networks,” in Proceedings of the 2020 Workshop on ns-3, 2020, pp. 9–16.
+
+[33] V. Todisco, S. Bartoletti, C. Campolo, A. Molinaro, A. O. Berthet, and A. Bazzi, “Performance analysis of sidelink 5g-v2x mode 2 through an open-source simulator,” IEEE Access, vol. 9, pp. 145 648–145 661, 2021.
+
+[34] A. Bazzi, G. Cecchini, M. Menarini, B. M. Masini, and A. Zanella, “Survey and perspectives of vehicular wi-fi versus sidelink cellular-v2x in the 5g era,” Future Internet, vol. 11, no. 6, 2019. [Online]. Available: https://www.mdpi.com/1999-5903/11/6/122
+
+[35] S. Jayaweera, S. Manosha, N. Rajatheva, and M. Latva-aho, “Co-existence of its-g5 and c-v2x at an urban road intersection,” in 2021 Joint European Conference on Networks and Communications & 6G Summit (EuCNC/6G Summit), 2021, pp. 253–258.
+
+[36] C. Sommer, R. German, and F. Dressler, “Bidirectionally Coupled Network and Road Traffic Simulation for Improved IVC Analysis,” IEEE Transactions on Mobile Computing, vol. 10, no. 1, pp. 3–15, January 2011.
+
+[37] B. McCarthy and A. O’Driscoll, “Opencv2x mode 4: A simulation extension for cellular vehicular communication networks,” in 2019 IEEE 24th International Workshop on Computer Aided Modeling and Design of Communication Links and Networks (CAMAD), 2019, pp. 1–6.
+
+[38] A. Ruz-Nieto, E. Egea-Lopez, J.-M. Molina-García-Pardo, and J. Santa, “A 3D simulation framework with ray-tracing propagation for LoRaWAN communication,” Internet of Things, vol. 24, p. 100964, 2023. [Online]. Available: https://www.sciencedirect.com/science/article/pii/S2542660523002871
+
+[39] R. Riebl, H.-J. Günther, C. Facchi, and L. Wolf, “Artery: Extending veins for vanet applications,” in 2015 International Conference on Models and Technologies for Intelligent Transportation Systems (MT-ITS), 2015, pp. 450–456.
+
+[40] R. Rusca, F. Raviglione, C. Casetti, P. Giaccone, and F. Restuccia, “Mobile RF Scenario Design for Massive-Scale Wireless Channel Emulators,” in 2023 Joint European Conference on Networks and Communications & 6G Summit (EuCNC/6G Summit), 2023, pp. 675–680.
+
+[41] T. Gaugel, L. Reichardt, J. Mittag, T. Zwick, and H. Hartenstein, “Accurate simulation of wireless vehicular networks based on ray tracing and physical layer simulation,” in High Performance Computing in Science and Engineering’11: Transactions of the High Performance Computing Center, Stuttgart (HLRS) 2011. Springer, 2012, pp. 619–630.
+
+[42] A. Zubow, Y. Pilz, S. Rösler, and F. Dressler, “Ns3 meets Sionna: Using Realistic Channels in Network Simulation,” arXiv, cs.NI 2412.20524, 12 2024.
+
+[43] G. Twardokus and H. Rahbari, “DT-CoVeSS: Advancing NextG C-V2X Security Evaluation through High-Fidelity Digital Twinning,” in IEEE INFOCOM WKSHPS: Digital Twins over NextG Wireless Networks (DTWIN 2025) (INFOCOM DTWIN 2025), London, United Kingdom (Great Britain), May 2025.
+
+[44] M. Malinverno, F. Raviglione, C. Casetti, C.-F. Chiasserini, J. Mangues-Bafalluy, and M. Requena-Esteso, “A multi-stack simulation framework for vehicular applications testing,” in Proceedings of the 10th ACM Symposium on Design and Analysis of Intelligent Vehicular Networks and Applications, ser. DIVANet ’20. New York, NY, USA: Association for Computing Machinery, 2020, p. 17–24. [Online]. Available: https://doi.org/10.1145/3416014.3424603
+
+[45] B. Williams, Automated Driving Levels, 2021, pp. 19–41.
+
+[46] L. Cazzella, F. Linsalata, M. Magarini, M. Matteucci, and U. Spagnolini, “A multi-modal simulation framework to enable digital twin-based v2x communications in dynamic environments,” in 2024 IEEE 100th Vehicular Technology Conference (VTC2024-Fall), 2024, pp. 1–6.
+
+[47] V. Vukadinovic, K. Bakowski, P. Marsch, I. D. Garcia, H. Xu, M. Sybis, P. Sroka, K. Wesolowski, D. Lister, and I. Thibault, “3gpp c-v2x and ieee 802.11p for vehicle-to-vehicle communications in highway platooning scenarios,” Ad Hoc Networks, vol. 74, pp. 17–29, 2018. [Online]. Available: https://www.sciencedirect.com/science/article/pii/S157087051830057X
+
+[48] R. Molina-Masegosa, J. Gozalvez, and M. Sepulcre, “Comparison of IEEE 802.11p and LTE-V2X: An Evaluation With Periodic and Aperiodic Messages of Constant and Variable Size,” IEEE Access, vol. 8, pp. 121 526–121 548, 2020.
+
+[49] E. Moradi-Pari, D. Tian, M. Bahramgiri, S. Rajab, and S. Bai, “Dsrc versus lte-v2x: Empirical performance analysis of direct vehicular communication technologies,” IEEE Transactions on Intelligent Transportation Systems, vol. 24, no. 5, pp. 4889–4903, 2023.
+
+[50] F. Raviglione, M. Malinverno, S. Feraco, G. Avino, C. Casetti, C. F. Chiasserini, N. Amati, and J. Widmer, “Experimental assessment of ieee 802.11-based v2i communications,” in Proceedings of the 18th ACM Symposium on Performance Evaluation of Wireless Ad Hoc, Sensor, & Ubiquitous Networks, ser. PE-WASUN ’21. New York, NY, USA: Association for Computing Machinery, 2021, p. 33–40. [Online]. Available: https://doi.org/10.1145/3479240.3488506
+
+[51] P. Testolina, M. Polese, J. M. Jornet, T. Melodia, and M. Zorzi, “Modeling Interference for the Coexistence of 6G Networks and Passive Sensing Systems,” IEEE Transactions on Wireless Communications, vol. 23, no. 8, pp. 9220–9234, 2024.
+
+[52] V. Maglogiannis, D. Naudts, S. Hadiwardoyo, D. van den Akker, J. Marquez-Barja, and I. Moerman, “Experimental v2x evaluation for c-v2x and its-g5 technologies in a real-life highway environment,” IEEE Transactions on Network and Service Management, vol. 19, no. 2, pp. 1521–1538, 2022.
+
+[53] M. Elloumi, M. Z. Hassan, and G. Kaddoum, “Spectrum sharing in internet-of-vehicles networks: Digital twin-empowered proactive interference management approach,” IEEE Transactions on Network and Service Management, pp. 1–1, 2025.
+
+[54] V. Maglogiannis, D. Naudts, S. Hadiwardoyo, D. van den Akker, J. Marquez-Barja, and I. Moerman, “Experimental v2x evaluation for c-v2x and its-g5 technologies in a real-life highway environment,” IEEE Transactions on Network and Service Management, vol. 19, no. 2, pp. 1521–1538, 2022.
+
+[55] A. Bazzi, S. Bartoletti, A. Zanella, and V. Martinez, “Performance analysis of ieee 802.11p preamble insertion in c-v2x sidelink signals for co-channel coexistence,” Vehicular Communications, vol. 45, p. 100710, 2024. [Online]. Available: https://www.sciencedirect.com/science/article/pii/S2214209623001407
+
+[56] M. H. Manshaei, M. Krunz, and A. Yousseef, “Performance evaluation of dsrc and c-v2x coexistence in the 5.895-5.925 ghz spectrum,” in 2024 International Conference on Computing, Networking and Communications (ICNC), 2024, pp. 862–867.
+
+[57] F. Eckermann, M. Kahlert, and C. Wietfeld, “Performance Analysis of C-V2X Mode 4 Communication Introducing an Open-Source C-V2X Simulator,” in 2019 IEEE 90th Vehicular Technology Conference (VTC2019-Fall), 2019, pp. 1–5.
+
+[58] Z. Ali, S. Lagén, L. Giupponi, and R. Rouil, “3gpp nr v2x mode 2: Overview, models and system-level evaluation,” IEEE Access, vol. 9, pp. 89 554–89 579, 2021.
+
+[59] A. Varga and R. Hornig, “An overview of the omnet++ simulation environment,” in Proceedings of the 1st International Conference on Simulation Tools and Techniques for Communications, Networks and Systems & Workshops, ser. Simutools ’08. Brussels, BEL: ICST (Institute for Computer Sciences, Social-Informatics and Telecommunications Engineering), 2008.
+
+[60] P. Kyösti, J. Meinilä, L. Hentila, X. Zhao, T. Jämsä, C. Schneider, M. Narandzic, M. Milojević, A. Hong, J. Ylitalo, V.-M. Holappa, M. Alatossava, R. Bultitude, Y. Jong, and T. Rautiainen, “WINNER II channel models,” IST-4-027756 WINNER II D1.1.2 V1.2, 02 2008.
+
+[61] E. Egea-Lopez, J. M. Molina-Garcia-Pardo, M. Lienard, and P. Degauque, “Opal: An open source ray-tracing propagation simulator for electromagnetic characterization,” PLOS ONE, vol. 16, no. 11, pp. 1–19, 11 2021. [Online]. Available: https://doi.org/10.1371/journal.pone.0260060
+
+[62] The MathWorks, Inc. (2024) Ray Tracing for Wireless Communications. [Online]. Available: https://www.mathworks.com/help/comm/ug/ray-tracing-for-wireless-communications.html
+
+[63] M. Zhu, L. Cazzella, F. Linsalata, M. Magarini, M. Matteucci, and U. Spagnolini, “Toward real-time digital twins of em environments: Computational benchmark for ray launching software,” IEEE Open Journal of the Communications Society, 2024.
+
+[64] Remcom Wireless InSite. [Online]. Available: https://www.remcom.com/wireless-insite-em-propagation-software
+
+[65] M. Elloumi, G. Kaddoum, M. Zoheb Hassan, and B. Selim, “Digital-twin-empowered interference management for multihop internet of vehicles networks over millimeter wave bands,” IEEE Internet of Things Journal, vol. 12, no. 11, pp. 17 807–17 827, 2025.
+
+[66] Z. Wang, X. Liao, X. Zhao, K. Han, P. Tiwari, M. J. Barth, and G. Wu, “A digital twin paradigm: Vehicle-to-cloud based advanced driver assistance systems,” in 2020 IEEE 91st Vehicular Technology Conference (VTC2020-Spring), 2020, pp. 1–6.
+
+[67] M. Rapelli, C. Casetti, and G. Gagliardi, “Tust: from raw data to vehicular traffic simulation in turin,” in 2019 IEEE/ACM 23rd International Symposium on Distributed Simulation and Real Time Applications (DS-RT), 2019, pp. 1–8.
+
+[68] ——, “Vehicular traffic simulation in the city of turin from raw data,” IEEE Transactions on Mobile Computing, vol. 21, no. 12, pp. 4656–4666, 2022.
+
+[69] M. Rapelli, G. S. Pannu, F. Dressler, and C. Casetti, “Content sharing in pedestrian-based micro clouds,” in 2022 IEEE 95th Vehicular Technology Conference: (VTC2022-Spring), 2022, pp. 1–6.
+
+[70] 3rd Generation Partnership Project. (2022) 3GPP Release 18. [Online]. Available: https://www.3gpp.org/release18
+
+**校对状态：** 本轮在既有译稿基础上补齐：第 V 节表 VI 的逐单元格转录、第 VI 节末页结论后续语句（未来工作）、原文脚注 5、致谢段落，以及参考文献 [1]—[70] 的英文原书目。正文 I–VI、第三节的真实数据验证、公式（1）–（16）、算法 1 与表 I–V 均沿用既有译文（已在前轮补入）；逐句逐式与 PDF 的终校仍未完成，本页不冒充全文精校。
 
 ---
 **原文归属：** © 2026 IEEE。版权及再传播许可以出版方和机构知识库声明为准。未在本站重复上传原文 PDF、图像或扫描页。

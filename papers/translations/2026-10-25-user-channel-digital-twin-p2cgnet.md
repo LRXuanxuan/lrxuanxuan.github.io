@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "生成式 AI 赋能的用户专属信道数字孪生｜中文译稿（未完成）"
+title: "生成式 AI 赋能的用户专属信道数字孪生｜中文译稿（2026-10-30 补译，未逐句终校）"
 permalink: /papers/translations/2026-10-25-user-channel-digital-twin-p2cgnet/
 math: true
 toc: true
@@ -13,7 +13,7 @@ toc: true
 **原题：** Generative AI-Empowered User-Specific Channel Digital Twin for Efficient Wireless Optimization  
 **作者：** Shaowen Xiong、Shiwen He、Guanghui Chen、Zhenyu Tao、Hongxin Lin、Yongming Huang  
 **来源：** *IEEE Transactions on Wireless Communications*, Vol. 25 (2026), DOI: 10.1109/TWC.2026.3714387。  
-**译稿状态（2026-10-25）：** 已扩充正文 I–VI、公式（1）–（38）、算法 1–2、实验与结果，并补入附录 A–C 中的公式（39）–（47）及主要推导；原文完整参数表、参考文献及部分证明细节仍待终校。**目前不是完整精校译本。**
+**译稿状态（2026-10-30）：** 已扩充正文 I–VI、公式（1）–（47）、算法 1–2、实验与结果、附录 A–C 及证明细节；本轮补入原文表 I 仿真参数的逐格转录与全部 44 条英文参考文献。表 II–V 仍为关键数值概述，逐句人工终校未做。**目前不是完整精校译本。**
 
 ## 摘要
 
@@ -187,7 +187,7 @@ $$
 
 ---
 
-**译稿缺口：** 此页面尚未完成第三节逐式算法、第四节完整 R2BA 模型、第五节所有图表以及附录证明和参考文献的翻译；其中 IEEE 正式版共 16 页。当前页面不能冒充逐字逐句全文译文。论文版权归原权利人所有，公开传播许可依 IEEE 规定核验。
+**页面状态：** 正文 I–VI、式（1）–（47）、算法 1–2、表 I 与 44 条参考文献已译出；表 II–V 仅按关键数值概述，图 1–17 仅保留中文图注，逐句人工终校未做。其中 IEEE 正式版共 16 页。当前页面不声明为逐字逐句全文译文。论文版权归原权利人所有，公开传播许可依 IEEE 规定核验。
 
 
 ## 补译：II. 系统模型中的信道增益与资源优化公式（原文第 3–4 页）
@@ -350,8 +350,12 @@ $$
 $$
 
 设真实条件得分对应的噪声项为
-$\widetilde{\mathbf G}_{x,q}^{t}
-=-\widetilde\sigma_t\nabla_{\widetilde{\mathbf H}^{t}}\log p(\widetilde{\mathbf H}^{t}\mid x,q)$。
+
+$$
+\widetilde{\mathbf G}_{x,q}^{t}
+=-\widetilde\sigma_t\nabla_{\widetilde{\mathbf H}^{t}}\log p(\widetilde{\mathbf H}^{t}\mid x,q).
+$$
+
 根据贝叶斯公式，将其分解为无条件先验得分和条件似然得分：
 
 $$
@@ -636,7 +640,7 @@ $$
 
 两阶段交替执行，直至式（8a）的目标收敛。**原文核验提示：** 式（36）采用 $\min(R_0-R_u,0)$，而式（37）采用 $\max(R_0-R_u,0)$；这可能与通常惩罚速率约束违反的直觉不一致。此处严格保留原文写法，未擅自更正，建议后续核对论文勘误或实现代码。
 
-**本轮范围：** 补入第三节条件推断及网络的公式（11）–（28e）、算法 1–2，并补入第四节公式（29）–（37）与闭环训练逻辑。第五节完整结果仍需按图 5–17、表 I 及正文逐项核验，附录 A–C 的全部证明未完成逐式终校。
+**前一轮范围（2026-10-25）：** 补入第三节条件推断及网络的公式（11）–（28e）、算法 1–2，并补入第四节公式（29）–（37）与闭环训练逻辑。本页已在 2026-10-30 补入表 I 逐格转录、44 条参考文献与附录 A–C 证明细节；表 II–V 的逐格数据与逐句终校仍余。
 
 
 ## 正文补译：V. 仿真结果与实验验证（原文第 9–14 页）
@@ -644,6 +648,21 @@ $$
 ### A. 仿真场景
 
 图 5 给出了仿真环境。作者采用开源 Sionna 射线追踪库构建具有多栋建筑的频率选择性衰落场景，并在不同区域随机布置用户位置，分别用于信道生成和下游资源优化。除非另外说明，每个物理资源块 PRB 含 $k_0=12$ 个子载波，每个子载波间隔为 60 kHz；135 个 PRB 被划分为 $Q=27$ 个资源块组 RBG，每组有 $q_0=5$ 个 PRB。实验运行于 Intel Core i7-13700K 和 NVIDIA GeForce RTX 4080 SUPER 工作站。其他通信系统配置列于原文表 I。
+
+**表 I：仿真参数（原表逐格转录）。** 表中“16, 16×1 ULA/4×4 UPA”这类条目的含义为：总阵元数 $N$，以及对应的 ULA 与 UPA 排布方式。
+
+| 参数 | 取值 |
+|---|---|
+| 环境区域（Environment Region） | $140\ \mathrm{m}\times100\ \mathrm{m}$ |
+| 采样位置数 $\lvert\Omega^{\mathrm{samp}}\rvert$ | 1000–5000 |
+| 下游测试区域（Downstream Test Region） | $70\ \mathrm{m}\times20\ \mathrm{m}$ |
+| 带宽（Bandwidth） | 100 MHz |
+| 载波频率（Carrier Frequency） | 2.4/3.5/28/58 GHz |
+| 天线间距（Antenna Spacing） | 0.5 m |
+| 基站天线 $N_{\mathrm{t}}$ | 16，16×1 ULA／4×4 UPA；32，32×1 ULA／4×8 UPA；64，64×1 ULA／8×8 UPA；128，128×1 ULA／8×16 UPA |
+| 用户天线 $N_{\mathrm{r}}$ | 2，2×1 ULA；4，4×1 ULA／2×2 UPA；8，8×1 ULA／2×4 UPA |
+
+> **转录说明：** 源 PDF 的表体为版式化排版，`pypdf`/PyMuPDF 的文本抽取均未取到表体文字；上表是依据源 PDF 第 9 页（p. 20455）该表的渲染图像逐格人工转录的，数值与 ULA／UPA 排布均照录。
 
 ### B. P2CGNet 信道生成性能
 
@@ -819,3 +838,128 @@ $$
 $$
 
 将式（45）代入零方差的条件转移式（44），即可得到正文的跨步采样公式（23）。这里需要 $\varrho_S$ 充分接近扩散终端 $T$，以确保从标准高斯先验开始反向生成具有合理的近似依据。
+
+### 附录 A–C 证明细节补录（2026-10-30）
+
+**附录 A 补充：$\operatorname{MSE}_{\rm CF}(\lambda)$ 的凸性与最优系数。** 原文把式（41）的 $\operatorname{MSE}_{\rm CF}(\lambda)$ 定义为无分类器引导得分 $\mathbf G^t_{x,q}$ 与真实得分 $\widetilde{\mathbf G}^t_{x,q}$ 之间的均方误差，并用式（17）与式（39）把它改写为对 $\widetilde{\mathbf G}^{t,\prime}_{x,q}$ 的二次型（式（42））。由此得到三点：
+
+1. $\operatorname{MSE}_{\rm Cond}=\operatorname{MSE}_{\rm CF}(1)$，即纯条件得分对应的误差；
+2. $\operatorname{MSE}_{\rm CF}(\lambda)$ 关于 $\lambda$ 是**凸二次函数**；
+3. 由于存在 $x,q\in\widetilde{\mathcal H}^{\rm unsee}$、$t\in\mathcal T$ 使 $\mathbb E_{\{x,q\}\sim\mathcal H^{\rm unsee}}[\lVert\Delta_\epsilon(x,q,t)\rVert^2]>0$，故存在 $\lambda'>0$ 使 $\operatorname{MSE}_{\rm CF}(\lambda')\le\operatorname{MSE}_{\rm Cond}$；而 $\lambda^\ast=\arg\min_\lambda\operatorname{MSE}_{\rm CF}(\lambda)$，在 $\lambda^\ast=1$ 处 $\operatorname{MSE}_{\rm CF}(\lambda')=\operatorname{MSE}_{\rm Cond}$。
+
+> **原文疑点：** 源 PDF 该段末句（"Note that ... holds at $\lambda^\ast=1$ with $\lambda^\ast=\arg\min_\lambda\operatorname{MSE}_{\rm CF}(\lambda)$"）表述较为含混：按凸二次函数的形式，最小点未必恰在 $\lambda=1$，且"存在 $\lambda'$ 使误差不高于条件误差"与"$\lambda^\ast=1$"并不等价。此处照录原文论断并加注，未擅自改动。
+
+**附录 B 补充：$\vartheta_0$、$\vartheta_t$ 的显式定义与边缘分布依据。** 式（44）中的两个系数为
+
+$$
+\vartheta_0=\sqrt{\bar\nu_{t-1}}-\frac{\sqrt{\bar\nu_t}\,(1-\bar\nu_{t-1})}{\sqrt{1-\bar\nu_t}},\qquad
+\vartheta_t=\frac{\sqrt{1-\bar\nu_{t-1}}}{\sqrt{1-\bar\nu_t}},
+$$
+
+其中 $\bar\nu_t$ 为（前向）噪声日程的累积系数。原文指出，根据文献 [32] 的 Lemma 1，前向边缘分布 $p(\widetilde{\mathbf H}^{t}\mid\widetilde{\mathbf H}^{0})=\mathcal N(\sqrt{\bar\nu_t}\widetilde{\mathbf H}^0,(1-\bar\nu_t)\mathbf I)$ 成立；由于训练目标式（15）只依赖这些边缘分布 $p(\widetilde{\mathbf H}^t\mid\widetilde{\mathbf H}^0)$、$t\in\mathcal T$，只要边缘不变，就可以在**不重新训练**的前提下选用更小的反向去噪步数来加速推断。原文进一步假设选取子序列 $\{\varrho_s\}_{s=1}^{S}\subset\mathcal T$，并给出由得分估计恢复干净信道的式（45）；再把它代入式（44）即得以均值采样方式导出的跳步递推（式（23））。还需 $p(\widetilde{\mathbf H}^T\mid\widetilde{\mathbf H}^0)$ 中的 $\varrho_S$ 接近 $T$，以便使用先验 $p(\widetilde{\mathbf H}^T)=\mathcal N(\mathbf 0,\mathbf I)$。
+
+**附录 C 补充：累计误差的比例关系与 $\sup$ 论证。** 由式（46）可把第 $q$ 个 RBG、相对位置 $x$ 处的去噪输出写成初始噪声与各时刻（含误差的）得分之线性组合。累计误差 $\Delta_{x,q}=\sum_{s=1}^{S}\widetilde\gamma_{\varrho_s}\Delta^{\varrho_s}_{x,q}$ 完全由各步误差 $\Delta^{\varrho_s}_{x,q}$ 决定，因为 $\eta$ 与 $\widetilde\gamma_{\varrho_s}$ 由确定的 $\{\bar\nu_{\varrho_s}\}_{s=1}^{S}$ 决定。由三角不等式得式（47），并进一步有
+
+$$
+\mathbb E_{\{x,q\}\sim\mathcal H^{\rm samp}}\left[\lVert\Delta_{x,q}\rVert\right]\ \propto\ \mathbb E_{\{x,q\}\sim\mathcal H^{\rm samp}}\left[\lVert\Delta^{\varrho_s}_{x,q}\rVert\right],\qquad \forall s=1,\cdots,S .
+$$
+
+由此：若每个被选时刻都满足 $\mathbb E\lVert\Delta^{\varrho_s}_{x,q}\rVert\to0$（$s=1,\cdots,S$），则累计误差 $\mathbb E\lVert\Delta_{x,q}\rVert\to0$；反之，若某个被选时刻的 $\mathbb E\lVert\Delta^{\varrho_s}_{x,q}\rVert\gg0$，则推理性能无法保证，因为 $\sup\mathbb E\lVert\Delta_{x,q}\rVert\propto\mathbb E\lVert\Delta^{\varrho_s}_{x,q}\rVert$（$\forall s$）。该结论对任意去噪步数 $S$ 都成立。
+
+## 参考文献
+
+原文为 IEEE 编号引用制，以下按原编号逐条转录英文原条目（共 44 条，源文 pp. 15–16）。按版权口径，本页不转录作者简介。
+
+[1] Y. Huang, "Challenges and opportunities of sub-6 GHz integrated sensing and communications for 5G-advanced and beyond," Chin. J. Electron., vol. 33, no. 2, pp. 323–325, Mar. 2024.
+
+[2] X. You, Y. Huang, C. Zhang, J. Wang, H. Yin, and H. Wu, "When AI meets sustainable 6G," Sci. China Inf. Sci., vol. 68, no. 1, Jan. 2025, Art. no. 110301.
+
+[3] A. Alkhateeb, S. Jiang, and G. Charan, "Real-time digital twins: Vision and research directions for 6G and beyond," IEEE Commun. Mag., vol. 61, no. 11, pp. 128–134, Nov. 2023.
+
+[4] Z. Tao, W. Xu, Y. Huang, X. Wang, and X. You, "Wireless network digital twin for 6G: Generative AI as a key enabler," IEEE Wireless Commun., vol. 31, no. 4, pp. 24–31, Aug. 2024.
+
+[5] H. Chai, H. Wang, T. Li, and Z. Wang, "Generative AI-driven digital twin for mobile networks," IEEE Netw., vol. 38, no. 5, pp. 84–92, Sep. 2024.
+
+[6] S. Xiong, Y. Huang, S. He, and C. Zhang, "Enhancing radio resource management in RAN slicing by diffusion model and digital twin," IEEE Trans. Commun., vol. 73, no. 12, pp. 15295–15311, Dec. 2025.
+
+[7] Y. Cao et al., "Advancing ubiquitous wireless connectivity through channel twinning," 2024, arXiv:2406.12268.
+
+[8] Y. Zeng et al., "A tutorial on environment-aware communications via channel knowledge map for 6G," IEEE Commun. Surveys Tuts., vol. 26, no. 3, pp. 1478–1519, 3rd Quart., 2024.
+
+[9] X. Xu and Y. Zeng, "How much data is needed for channel knowledge map construction?" IEEE Trans. Wireless Commun., vol. 23, no. 10, pp. 13011–13021, Oct. 2024.
+
+[10] G. Kim, R. Jin, W. Funk, S.-J. Kim, and H. Lim, "Multiantenna channel map estimation using deep spatial interpolation," in Proc. IEEE Int. Conf. Acoust., Speech, Signal Process. Workshops (ICASSPW), Apr. 2024, pp. 790–794.
+
+[11] Q. Chen, M. Huang, and J. Yang, "REM-Net+: 3D radio environment map construction guided by radio propagation model," IEEE Trans. Veh. Technol., vol. 75, no. 4, pp. 6351–6362, Apr. 2026.
+
+[12] Y. Wang, S. Sun, N. Liu, L. Xu, and L. Wang, "Two-stage radio map construction with real environments and sparse measurements," IEEE Wireless Commun. Lett., vol. 14, no. 4, pp. 969–973, Apr. 2025.
+
+[13] X. Zhao, Z. An, Q. Pan, and L. Yang, "NeRF2: Neural radio-frequency radiance fields," in Proc. 29th Annu. Int. Conf. Mobile Comput. Netw., Oct. 2023, pp. 1–15.
+
+[14] H. Lu, C. Vattheuer, B. Mirzasoleiman, and O. Abari, "NeWRF: A deep learning framework for wireless radiation field reconstruction and channel prediction," 2024, arXiv:2403.03241.
+
+[15] C. Wen, J. Tong, Y. Hu, Z. Lin, and J. Zhang, "Neural representation for wireless radiation field reconstruction: A 3D Gaussian splatting approach," 2024, arXiv:2412.04832.
+
+[16] Z. Li et al., "Wideband RF radiance field modeling using frequency-embedded 3D Gaussian splatting," 2025, arXiv:2505.20714.
+
+[17] E. Balevi, A. Doshi, A. Jalal, A. Dimakis, and J. G. Andrews, "High dimensional channel estimation using deep generative networks," IEEE J. Sel. Areas Commun., vol. 39, no. 1, pp. 18–30, Jan. 2021.
+
+[18] M. Arvinte and J. I. Tamir, "MIMO channel estimation using score-based generative models," IEEE Trans. Wireless Commun., vol. 22, no. 6, pp. 3698–3713, Jun. 2023.
+
+[19] Z. Chen, H. Shin, and A. Nallanathan, "Generative diffusion model-based variational inference for MIMO channel estimation," IEEE Trans. Commun., vol. 73, no. 10, pp. 9254–9269, Oct. 2025.
+
+[20] X. Zhou, L. Liang, J. Zhang, P. Jiang, Y. Li, and S. Jin, "Generative diffusion models for high dimensional channel estimation," IEEE Trans. Wireless Commun., vol. 24, no. 7, pp. 5840–5854, Jul. 2025.
+
+[21] B. Zhou, X. Yang, S. Ma, F. Gao, and G. Yang, "Low-overhead channel estimation via 3D extrapolation for TDD mmWave massive MIMO systems under high-mobility scenarios," IEEE Trans. Wireless Commun., vol. 24, no. 4, pp. 2797–2813, Apr. 2025.
+
+[22] B. Chatelier, V. Corlay, M. Crussière, and L. Le Magoarou, "Model-based learning for multi-antenna multi-frequency location-to-channel mapping," IEEE J. Sel. Topics Signal Process., vol. 19, no. 3, pp. 520–535, Apr. 2025.
+
+[23] X. Xu, X. Mu, Y. Liu, H. Xing, Y. Liu, and A. Nallanathan, "Generative artificial intelligence for mobile communications: A diffusion model perspective," IEEE Commun. Mag., vol. 63, no. 7, pp. 98–105, Jul. 2025.
+
+[24] F. Euchner, J. Sanzi, M. Henninger, and S. Ten Brink, "GAN-based massive MIMO channel model trained on measured data," in Proc. 27th Int. Workshop Smart Antennas (WSA), Mar. 2024, pp. 109–116.
+
+[25] Z. Liu et al., "Leveraging self-supervised learning for MIMO-OFDM channel representation and generation," 2024, arXiv:2407.07702.
+
+[26] T. Lee, J. Park, H. Kim, and J. G. Andrews, "Generating high dimensional user-specific wireless channels using diffusion models," 2024, arXiv:2409.03924.
+
+[27] P. Ferrand, M. Guillaud, C. Studer, and O. Tirkkonen, "Wireless channel charting: Theory, practice, and applications," IEEE Commun. Mag., vol. 61, no. 6, pp. 124–130, Jun. 2023.
+
+[28] S. He et al., "An overview on the application of graph neural networks in wireless networks," IEEE Open J. Commun. Soc., vol. 2, pp. 2547–2565, 2021.
+
+[29] S. He, S. Xiong, W. Zhang, Y. Yang, J. Ren, and Y. Huang, "GBLinks: GNN-based beam selection and link activation for ultra-dense D2D mmWave networks," IEEE Trans. Commun., vol. 70, no. 5, pp. 3451–3466, May 2022.
+
+[30] S. He, S. Xiong, Z. An, W. Zhang, Y. Huang, and Y. Zhang, "An unsupervised deep unrolling framework for constrained optimization problems in wireless networks," IEEE Trans. Wireless Commun., vol. 21, no. 10, pp. 8552–8564, Oct. 2022.
+
+[31] Y. Heng and J. G. Andrews, "Grid-free MIMO beam alignment through site-specific deep learning," IEEE Trans. Wireless Commun., vol. 23, no. 2, pp. 908–921, Feb. 2024.
+
+[32] J. Song, C. Meng, and S. Ermon, "Denoising diffusion implicit models," 2020, arXiv:2010.02502.
+
+[33] J. Ho, A. Jain, and P. Abbeel, "Denoising diffusion probabilistic models," in Proc. Adv. Neural Inf. Process. Syst., vol. 33, 2020, pp. 6840–6851.
+
+[34] J. Ho and T. Salimans, "Classifier-free diffusion guidance," 2022, arXiv:2207.12598.
+
+[35] O. Ronneberger, P. Fischer, and T. Brox, "U-Net: Convolutional networks for biomedical image segmentation," 2015, arXiv:1505.04597.
+
+[36] A. Vaswani et al., "Attention is all you need," in Proc. Adv. Neural Inf. Process. Syst., vol. 30, 2017, pp. 1–11.
+
+[37] A. Dosovitskiy et al., "An image is worth 16 × 16 words: Transformers for image recognition at scale," 2020, arXiv:2010.11929.
+
+[38] J. Hoydis et al., "Sionna: An open-source library for next-generation physical layer research," 2022, arXiv:2203.11854.
+
+[39] J. Hoydis et al., "Sionna RT: Differentiable ray tracing for radio propagation modeling," in Proc. IEEE Globecom Workshops (GC Wkshps), Dec. 2023, pp. 317–321.
+
+[40] G. Y. Lu and D. W. Wong, "An adaptive inverse-distance weighting spatial interpolation technique," Comput. Geosci., vol. 34, no. 9, pp. 1044–1055, Sep. 2008.
+
+[41] T. Du and T. Wilna, "Radial basis function interpolation," Ph.D. dissertation, Stellenbosch Univ., Stellenbosch, South Africa, 2008.
+
+[42] F. Euchner and M. Gauger, "CSI Dataset dichasus-dxxx-complete: Outdoor—Three arrays distributed along the facade," Inst. Telecommun., Univ. Stuttgart (DaRUS), Stuttgart, Germany, Tech. Rep. DARUS-3153, ver. 1, 2022, doi: 10.18419/darus-3153.
+
+[43] F. Euchner et al., "CSI Dataset dichasus-dcxx: Institute hallway with known 3D model, distributed antennas," DaRUS, Inst. Telecommun., Univ. Stuttgart, Stuttgart, Germany, Tech. Rep. DARUS-3831, ver. 1, 2023, doi: 10.18419/darus-3831.
+
+[44] R. Jain, D. M. W. Chiu, and W. R. Hawe, "A quantitative measure of fairness and discrimination," Eastern Res. Lab., Digit. Equip. Corp., Hudson, MA, vol. 21, no. 1, p. 2022, 1984.
+
+## 本轮补齐与仍余事项
+
+本轮（2026-10-30）在该页已有正文 I–VI、式（1）—（47）与附录 A–C 主公式的基础上补入：① 原文**表 I：仿真参数**的逐格转录（源 PDF 第 9 页，p. 20455；表体为排版对象、文本抽取取不到，按渲染图像人工转录并标注）；② 全部 **44 条英文参考文献**（源文 pp. 15–16）；③ 附录 A 的凸性与最优系数论证、附录 B 的 $\vartheta_0/\vartheta_t$ 显式定义与"边缘不变即可跳步"的依据、附录 C 的累计误差比例关系与 $\sup$ 论证，并对原文附录 A 末句的含混表述加注"原文疑点"。
+
+仍余：① 表 II–V（复杂度、推理时延、四场景泛化与下游端到端结果）仅按正文关键数值概述，未逐格转录；② 图 1–17 原始图像未转录（站点不上传图像，仅保留中文图注与关键数值）；③ 逐句人工终校未做；④ 该论文为 IEEE 版权（DOI 10.1109/TWC.2026.3714387），**公开再传播许可需另行核验**，本页按既有做法只补结构、公式、表格与英文书目，未新增作者简介等纯原文转述内容。因此本页仍标为"未完成"。

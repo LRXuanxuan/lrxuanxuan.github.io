@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "PHOENIX：基于物理表征与扩散后验推断的无线场景重建｜中文译稿（校对中）"
+title: "PHOENIX：基于物理表征与扩散后验推断的无线场景重建｜中文全文译文"
 permalink: /papers/translations/2026-10-20-wireless-scene-reconstruction-2610-22120/
 math: true
 toc: true
@@ -14,7 +14,7 @@ toc: true
 **原题：** Scene Reconstruction Using Ubiquitous Wireless Signals via Diffusion Posterior Inference over Physics-Grounded Representations  
 **作者：** Vahid Yazdnian、Yasaman Ghasempour（普林斯顿大学）  
 **版本：** arXiv:2610.22120v1，2026 年 10 月 15 日，共 24 页。  
-**译文状态：** 正文 1–5 节、核心数学定义及主要实验结论已译。附录 A–N、参考文献及部分原始数据未完成逐项翻译与验收。**本稿不是已通过 QA 的完整全文译文**。
+**译文状态：** 正文 1–5 节、附录 A–N 与全部参考文献均已译出（其中附录 C–N、F.1／F.2 证明与 29 条英文书目于 2026-10-30 补入）。仍为对照原文抽取文本的补译稿，逐句人工终校与图表数值复核尚未进行。**本稿不声明为已通过 QA 的完整全文译文**。
 
 ## 摘要
 
@@ -276,6 +276,12 @@ $$
 
 四个值依次代表阻挡、反射或绕射、被有效路径穿越的自由空间，以及不参与也不阻挡有效路径。注意 $\rho_k(i)$ 取决于链路几何，不只是网格自身的占用状态。
 
+对命题 1 的补充说明：该下界一般并不取等号。它只枚举了与 $\mathbf s^\star$ 在 $\mathfrak a_k$ 之外不同的场景；B.2 与 B.3 所述的歧义会贡献进一步在 $\mathfrak a_k$ 内部不同的成员。对观测集合聚合后，$\mathfrak a_k^c$ 被替换为 $\mathcal A^c$，于是 $|\mathcal S(\mathcal O)|\ge2^{|\mathcal A^c|}$：残余非唯一性在任何路径都未触及的网格数上呈指数增长。
+
+**交互序列的混叠。** 不同的相互作用序列可以产生相同的路径参数。来自一个表面的单次镜面反射，与来自另外两个表面的连续两次反射，可能给出相同的总时延以及相同的出发角与到达角；此时两个场景对路径求和式的贡献完全相同。这里结构所扮演的角色本身不同（不同的网格在反射），但场景仍是传播等价的。该机制在几何使参数恰好重合时（例如对称布局）严格成立，否则近似成立，并与附录 B.2 的有限分辨率歧义叠加。
+
+**占据不等于遮挡。** 一个网格可以已被占据，却仍然不能阻挡某条链路的视距段：基站与用户位于不同高度，直达射线会从低于该处射线高度的结构上方通过；而二维占据网格只记录“此处有建筑”，不记录建筑是否高到足以截断射线。因此某个网格可以属于某次观测的传播相关集合（它位于链路所用的一条路径上），而该次测量仍然不包含反对其被占据的证据：无阻挡信道与“射线从上方掠过的结构”同样相容。
+
 ### 附录 F：共识读出的采样误差界
 
 **命题 3。** 令 $\widehat{\mathbf s}^{(1)},\dots,\widehat{\mathbf s}^{(M)}$ 为从学习后验 $p_\theta(\cdot\mid\mathcal Z)$ 独立抽取的二值占用样本，令 $\pi_i^\theta=p_\theta(s_i=1\mid\mathcal Z)$。逐网格后验概率估计 $\widehat\pi_i$ 满足 Hoeffding 不等式：
@@ -297,6 +303,61 @@ $$
 并且 $\widehat\pi_i(1-\widehat\pi_i)\to\operatorname{Var}_\theta(s_i\mid\mathcal Z)$。上述结果要求样本独立且来自学得后验；它说明样本共识能稳定估计**模型自身**的边缘占用概率，并不自动证明模型后验等于真实后验。
 
 **命题 4。** 在模型正确设定、表征 $\mathcal Z$ 对后验充分、各观测在给定真实场景条件下相互独立等假设下，对于 $i\notin\mathcal A$，后验边缘等于条件先验，新增观测不会直接降低该网格的不确定性；对 $i\in\mathcal A$，设 $n_i$ 为能够区分真实场景与该网格状态相反的候选场景的观测数，则其正确恢复概率随着 $n_i$ 增加而提高。该命题是带条件的极限论断，不是针对任何网络的无条件准确率保证。
+
+#### F.1 命题 3 的证明
+
+固定某个网格 $i$。每个样本 $\widehat s_i^{(m)}$ 是参数为 $\pi_i^\theta=p_\theta(s_i=1\mid\mathcal Z)$ 的伯努利变量；由于每条反向轨迹由独立噪声驱动，样本相互独立。
+
+**(a) 集中性。** 变量有界于 $[0,1]$，Hoeffding 不等式即给出上文式（17）；再由强大数定律，$M\to\infty$ 时 $\widehat\pi_i\to\pi_i^\theta$。
+
+**(b) 判决。** 共识 $\widehat s_i^{\mathrm{cons}}=\mathbf1[\widehat\pi_i>1/2]$ 与 $\mathbf1[\pi_i^\theta>1/2]$ 不同，只可能发生在 $\widehat\pi_i$ 落到 $1/2$ 的另一侧，这要求 $|\widehat\pi_i-\pi_i^\theta|\ge|\pi_i^\theta-1/2|$。在上文式（17）中取 $\varepsilon=|\pi_i^\theta-1/2|$，即得上文式（18）。极限 $\mathbf1[\pi_i^\theta>1/2]$ 正是 $p_\theta$ 下网格 $i$ 在 0–1 损失下的贝叶斯判决，即使逐网格汉明误差期望最小的判决：对伯努利后验，最优判决取更可能的值。
+
+**(c) 方差。** 映射 $x\mapsto x(1-x)$ 连续，由连续映射定理，$\widehat\pi_i(1-\widehat\pi_i)\to\pi_i^\theta(1-\pi_i^\theta)=\operatorname{Var}_\theta[s_i\mid\mathcal Z]$。
+
+**两点注记。** 第一，式（18）表明所需样本数按 $1/(\pi_i^\theta-1/2)^2$ 增长：边缘概率接近 $1/2$ 的网格正是需要大量抽样才能稳定、也是样本分歧最大的网格——估计的不稳定与它所反映的歧义是同一现象。第二，该命题针对的是**学得的**后验：抽样只是提取已编码在 $p_\theta$ 中的判决，自身不增加信息。
+
+#### F.2 命题 4 的证明
+
+作者不假设每个被覆盖网格都有统一的信息缺口，而是直接用“哪些观测能区分竞争假设”来定义相关计数。
+
+**定义 1（区分性观测）。** 若 $\mathcal F(\mathbf s,\mathbf p_k)\ne\mathcal F(\mathbf s',\mathbf p_k)$，即两个场景对链路 $k$ 诱导出不同的路径参数，则称观测 $k$ 区分场景 $\mathbf s,\mathbf s'$。对网格 $i$，记 $n_i$ 为能够区分 $\mathbf s^\star$ 与“在网格 $i$ 上不同的备选场景”的观测数。
+
+两类 $X_k=0$ 的情形被该定义天然排除：$i\notin\mathfrak a_k$ 的观测对网格 $i$ 不变；对该场景对“角色退化”的观测虽覆盖该网格，却按命题 2 在两个假设下诱导相同路径参数。两者都无需额外假设，且一般有 $n_i\le|\{k:i\in\mathfrak a_k\}|$。
+
+假设：
+
+- **（A1）模型正确设定。** $p_\theta(\cdot\mid\mathcal Z)=p(\cdot\mid\mathcal O)$，且 $\mathcal Z$ 对 $\mathbf s$ 充分。
+- **（A2）前向不变性。** $p(\mathcal O\mid\mathbf s)$ 只通过 $\mathbf s_{\mathcal A}$ 依赖 $\mathbf s$。
+- **（A3）条件独立。** 给定 $\mathbf s$ 时各观测相互独立。
+- **（A4）正则性。** 对数似然比 $X_k$ 为次指数变量，其矩母函数在原点附近存在。
+
+**(i) 不可观测网格。** 令 $i\notin\mathcal A$。将先验分解为 $p(\mathbf s)=p(\mathbf s_{\mathcal A})p(\mathbf s_{\mathcal A^c}\mid\mathbf s_{\mathcal A})$，并把（A2）代入贝叶斯公式，得到式（2）的分解，其中观测 $\mathcal O$ 不出现在第二个因子中。边缘化得 $\pi_i=p(s_i=1\mid\mathbf s_{\mathcal A})$：网格 $i$ 的信念完全由以场景可观测部分为条件的先验提供。随着数据使 $p(\mathbf s_{\mathcal A}\mid\mathcal O)$ 变尖，网格 $i$ 的方差收敛到先验条件方差 $\operatorname{Var}_{\mathrm{prior}}[s_i\mid\mathbf s_{\mathcal A}^\star]$，这是测量无法降低的下界。该结论在下述两种情形下都成立。
+
+**(ii) 可观测网格。** 前向映射对**物理**场景（网格几何、建筑高度、材质属性，射线追踪据此计算传播）是确定的，但占据网格 $\mathbf s$ 是这一描述的粗粒度投影。记物理场景为 $\mathrm{g}$，许多 $\mathrm{g}$ 与同一网格相容且产生不同信道；因此进入后验的似然是边缘分布
+
+$$
+p(\mathbf H_k\mid\mathbf s)=\int p(\mathbf H_k\mid\mathrm{g})\,p(\mathrm{g}\mid\mathbf s)\,d\mathrm{g},\tag{19}
+$$
+
+即使仿真器本身无噪，它也是对信道实现的密度而非点质量，故下文的 KL 散度有定义。令 $\delta_i>0$ 表示在 $n_i$ 计及的区分性观测上、对网格 $i$ 处于竞争关系的备选场景 $\mathbf s'$ 取的最小散度 $\mathrm{KL}\!\left(p(\mathbf H_k\mid\mathbf s^\star)\,\|\,p(\mathbf H_k\mid\mathbf s')\right)$；区分性保证 $\delta_i>0$。由（A3），$\mathbf s^\star$ 与该备选场景之间的对数后验几率分解为
+
+$$
+L=\log\frac{p(\mathbf s^\star\mid\mathcal O)}{p(\mathbf s'\mid\mathcal O)}
+=\underbrace{\log\frac{p(\mathbf s^\star)}{p(\mathbf s')}}_{=:L_0}+\sum_{k=1}^{K}X_k,\qquad
+X_k=\log\frac{p(\mathbf H_k\mid\mathbf s^\star)}{p(\mathbf H_k\mid\mathbf s')},\tag{20}
+$$
+
+其中每个非区分性观测 $X_k\equiv0$，只留下 $n_i$ 个非零项。在真值下取期望有 $\mathbb E[X_k]\ge\delta_i$，故漂移 $\mathbb E[\sum_k X_k]\ge n_i\delta_i$ 随 $n_i$ 线性增长，而由独立性，和的标准差按 $O(\sqrt{n_i})$ 增长。网格 $i$ 上出错要求 $L\le0$，即和至少低于其均值 $n_i\delta_i+L_0$。Chernoff 界给出，对适当 $\lambda>0$，
+
+$$
+\Pr\!\left[\sum_k X_k+L_0\le0\right]
+\le e^{\lambda L_0}\prod_{k\ \text{区分性}}\mathbb E\!\left[e^{-\lambda X_k}\right]
+\le e^{-c\,n_i\delta_i},\tag{21}
+$$
+
+其中常数 $c>0$ 取决于次指数参数，当 $n_i$ 足够大时 $L_0$ 被吸收。结合（A1）与命题 3，共识以随 $n_i\delta_i$ 衰减的误差恢复 $s_i^\star$。
+
+**注记。** 式（19）中的随机性源于问题本身，而不是测量噪声的产物：占据网格并不决定建筑高度、立面材质与亚网格几何，而这些都会塑造信道，因此一个网格的占据只在**分布意义上**约束所观测信道。这与附录 B.3 讨论的同一表征缺口有关：一条链路可能完全从被占据网格的上方通过。它也界定了任何数据量所能达到的极限，因为 $\delta_i$ 受网格未指定的物理场景部分限制，这也是第 4.4 节精度随观测累积仍饱和在 1 以下的原因之一。决定某个网格恢复的量是 $n_i$，即真正区分该处竞争假设的观测数，它同时排除了未覆盖观测与角色退化观测。因此角色退化不会终止恢复，只会减少有效信息观测数；只有当部署中的每条链路对某对在网格处不同的场景都不具区分性时，该网格才无法恢复。关于（A1）：扩散模型只在数据与容量极限下相合，有限规模下并不成立，因此该命题描述的是理想后验，实证问题是 $p_\theta$ 逼近它的程度；与以原始信道为条件的解码器对比，检验的正是该假设的“充分性”一半。关于（A2）：真实传播会把弱能量泄漏到主导路径之外，实践中 $\mathcal A$ 的边界是软的，$\mathcal A^c$ 上的集中是慢的而不是严格不存在。
 
 ### 附录 A、B.4 与 D：传播阵列模型、联合似然和完整预训练损失（式 6、10–16）
 
@@ -397,8 +458,226 @@ $$
 
 以上重建模块只用于第一阶段基础模型的自监督预训练，预训练完成后舍弃；第二阶段使用冻结的 PHYSC 条件表征训练场景后验扩散模型。
 
-## 待校对的附录与参考文献
+**预训练解码器（附录 D 末段）。** 沿用掩蔽自编码的做法，一个轻量 Transformer 解码器接收已编码的可见 token，以及代表缺失输入的可学习 token，并预测相应的信道值、场景占用与位置。它只在预训练阶段使用，之后丢弃。
 
-原文附录 A–N 包含阵列模型、逆问题非唯一性证明、PHOENIX 预训练目标、扩散实现和额外实验。本轮已补入编号式（1）–（18）及完整实验表 1–3，但附录其他长篇推导、全部参考文献和补充实验图还没有逐字终校，因此**仍不标记为全文完成**。
+### 附录 C：基础模型架构与 token 化
+
+**信道 token 化。** CSI 张量由实部／虚部转换为幅度与相位 $(a_{t,r,s},\phi_{t,r,s})$。对每个发射天线 $t$、接收天线 $r$ 以及由 $n_{\mathrm{sc}}$ 个相邻子载波构成的组 $g$，一个信道 token 由相应的幅度与相位值拼接而成：$x^{\mathrm{ch}}_{t,r,g}=[a_{t,r,g,1:n_{\mathrm{sc}}}\parallel\phi_{t,r,g,1:n_{\mathrm{sc}}}]\in\mathbb R^{2n_{\mathrm{sc}}}$，共 $N_{\mathrm{ch}}=N_{\mathrm{tx}}N_{\mathrm{rx}}N_{\mathrm{sc}}/n_{\mathrm{sc}}$ 个 token。每个 token 经可学习线性投影与层归一化映射到共享嵌入维 $d$。该设计保留完整的发射与接收天线分辨率（每个天线对携带不同空间信息），同时以分组子载波紧凑表示局部频率结构。
+
+**场景与位置 token 化。** 高度图 $S\in\mathbb R^{N\times N}$ 被划分为不重叠的 $p\times p$ patch，展平后同样投影，得到 $(N/p)^2$ 个场景 token。接收机位置经单层线性层投影为一个位置 token。
+
+**物理来源的位置与模态嵌入。** token 化捕捉内容而不含物理来源。对信道 token，沿发射、接收与子载波三个轴分别用正弦编码表示位置并拼接：$e^{\mathrm{ch}}_{t,r,g}=[\mathrm{PE}_{\mathrm{tx}}(t)\parallel\mathrm{PE}_{\mathrm{rx}}(r)\parallel\mathrm{PE}_{\mathrm{sc}}(g)]$，既保留阵列的空间结构，也保留信道的频率结构。对场景 patch，把 patch 相对基站的归一化距离与方位角的正弦特征输入两层 MLP，使每个 token 携带其与参考位置的几何关系。可学习模态嵌入 $m(i)\in\{m_{\mathrm{ch}},m_{\mathrm{scn}},m_{\mathrm{loc}}\}$ 标识 token 类型。最终的输入 token 是三者之和：token 包含什么、物理上来自何处、属于哪种模态。
+
+**编码器。** 由于信道 token 数量远多于场景与位置 token，轻量预编码器块先只处理信道 token，在 $(t,r,g)$ 三个轴上使用旋转位置嵌入，以在跨模态融合前捕捉相邻天线与频率之间的局部相关性；绝对编码保留给后续阶段。随后所有 token 拼接为单一序列，以 [PHYSC] 为前缀，交给带合并 token 自注意力的单流 Transformer 处理，使全部模态从第一层起即可交互。二值注意力掩码实现正文所述的非对称性：[PHYSC] 对所有 token 都是无约束的查询，但在所有位置都被排除为键，因此它可以从序列读取信息，而没有任何 token 从它读取。
+
+### 附录 E：扩散解码器细节
+
+**噪声日程。** 采用余弦日程 $\bar\alpha_t=f(t)/f(0)$，其中
+
+$$
+f(t)=\cos^2\!\left(\frac{t/T+\varsigma}{1+\varsigma}\cdot\frac{\pi}{2}\right),
+$$
+
+偏移 $\varsigma=0.008$，$\beta_t=1-\bar\alpha_t/\bar\alpha_{t-1}$ 截断在 0.999 以保证数值稳定。
+
+**去噪器。** 每个块包含：作用于网格 token、受时间步调制的自注意力；对条件集合的普通交叉注意力；受时间步调制的前馈网络。调制采用自适应层归一化方案：时间步嵌入为每个块产生 shift、scale 与 gate 参数，gate 初始化为零，使每个块初始时是恒等映射。交叉注意力不做调制，因为可变大小的条件集合不像标量时间步那样自然折叠为单一的全局调制向量。线性适配器把编码器嵌入维映射到解码器宽度，输出头零初始化。
+
+**条件丢弃。** 训练时以概率 $p_{\mathrm{drop}}=0.15$ 把整个条件集合替换为可学习的空嵌入。作者把它作为正则项，防止模型过度依赖某一特定条件配置；采样时直接使用条件预测，不加引导。
+
+**采样器。** 从 $\mathbf x_T\sim\mathcal N(0,\mathbf I)$ 出发做祖先采样。每一步先把干净场景估计 $\widehat{\mathbf x}_0=(\mathbf x_t-\sqrt{1-\bar\alpha_t}\,\epsilon_\theta(\mathbf x_t,t,\mathcal Z))/\sqrt{\bar\alpha_t}$ 截断到 $[-1,1]$，再构造后验均值，以稳定二值目标在 $t=0$ 处的轨迹。$M$ 条轨迹各由独立噪声驱动，最后一步按符号二值化——这正是附录 F 的集中性结果成立的条件。
+
+### 附录 G：数据集与训练细节
+
+**数据集。** 作者用 Sionna RT（Hoydis et al., 2023）在 200 个城市、超过 11,000 个室外城市场景上仿真信道，每个场景覆盖 200 m × 200 m 区域，三维建筑几何由 OpenStreetMap（OpenStreetMap contributors, 2023）经 Geo2SigMap 流程（Li et al., 2024）提取。仿真载频 5.8 GHz，带宽 100 MHz，128 个子载波。基站配备 $N_{\mathrm{tx}}=32$ 元均匀线阵，高度 15 m，每个环境服务 2,000 个以上随机放置的用户，每个用户配备 $N_{\mathrm{rx}}=8$ 元均匀线阵，高度 1.5 m。数据集包含 3,000 万以上样本，每个样本由复信道张量、用户位置和建筑高度图组成。占据网格在 $20\times20$ 网格、即 $\Delta R=10$ m 上获得，其网格与基础模型的场景 patch 一致。传播相关集合按附录 A 所述由射线追踪记录。
+
+**基础模型预训练。** 编码器为 12 层 Transformer，嵌入维 512，上下文窗口 2,450 token，约 6,000 万可训练参数。预训练使用式（16）的目标和渐进式掩蔽组合比例；在 32 块 NVIDIA L40 GPU 上训练 9,600 GPU 小时、48 个 epoch，处理约 8,820 亿 token。
+
+**扩散解码器训练。** 去噪器深度 6、宽度 192、6 个注意力头、MLP 比 4，用线性适配器把 512 维编码器嵌入映射到解码器宽度。由于编码器冻结，其 [PHYSC] 嵌入按场景最多 2,000 次观测一次性提取并缓存，因此解码器训练不经过编码器的前向或反向。扩散步数 $T=1000$，余弦日程见附录 E，条件丢弃概率 $p_{\mathrm{drop}}=0.15$。为用单一模型服务任意观测数，每个训练步的观测数从 $[K_{\min},K_{\max}]=[100,500]$ 均匀重抽，并在批次内的各场景间共享。训练用 AdamW，学习率 $10^{-4}$、权重衰减 $10^{-4}$，第一个 epoch 从 $0.1\times$ 基础学习率线性预热后余弦衰减，梯度范数截断 1.0；8 块 GPU、每 GPU 32 个场景，训练 100 个 epoch、每个 500 步。采样用条件预测、不加引导，共识由 $M=32$ 个样本形成。
+
+**评测。** 全部模型在 671 个留出测试环境上评测。对每个场景，观测在扫描最大值 $K=1000$ 处一次性载入，更小的 $K$ 使用同一序列的前缀，因此各扫描点的观测集是嵌套的，$K$ 之间的差异反映新增观测而不是重采样。每个模型对各场景的逐观测编码只计算一次并在扫描点间复用；每个 $K$ 只重复融合步骤，或对两个扩散模型重复反向扩散采样。
+
+### 附录 H：Marginal Prob. + FM 的逐观测解码器与置信度融合（式 22–24）
+
+**逐观测解码器。** 该变体完整复用预训练模型，包括预训练阶段的轻量解码器。每次观测在高度图输入被完全掩蔽的条件下编码，解码器仅根据信道和位置预测每个场景 patch 的占据：
+
+$$
+q_{k,i}=\sigma\!\left(g_\psi(f_\phi(\mathbf H_k,\mathbf p_k))_i\right),\tag{22}
+$$
+
+即仅由观测 $k$ 支持的占据信念。与 Diffusion + FM 不同，这里编码器不冻结：$\phi$ 与 $\psi$ 在下述目标下联合微调。
+
+**置信度塑形目标。** 令 $\mathfrak a_k$ 为观测 $k$ 的传播相关集合，$\partial\mathfrak a_k$ 为距 $\mathfrak a_k$ 一步（8 连通）但不在其中的网格，$u_k=(\mathfrak a_k\cup\partial\mathfrak a_k)^c$ 为其余网格。记 $\mathrm{BCE}_\beta(q,s)=-[\beta s\log q+(1-s)\log(1-q)]$ 为类别平衡交叉熵，$\beta=(1-\rho)/\rho$，$\rho$ 为场景中占据网格的比例，截断到 $[0.01,0.99]$。训练目标为
+
+$$
+\mathcal L_{\mathrm{marg}}=
+\frac{1}{|\mathfrak a_k|}\sum_{i\in\mathfrak a_k}\mathrm{BCE}_\beta(q_{k,i},s_i)
+-\lambda_c\frac{1}{|\mathfrak a_k|}\sum_{i\in\mathfrak a_k}|2q_{k,i}-1|
++\lambda_n\frac{1}{|\partial\mathfrak a_k|}\sum_{i\in\partial\mathfrak a_k}\mathrm{BCE}_\beta(q_{k,i},s_i)
++\lambda_u\frac{1}{|u_k|}\sum_{i\in u_k}\left(q_{k,i}-\frac12\right)^2.\tag{23}
+$$
+
+第一项拟合该观测真正约束的网格占据；第二项奖励在这些网格上给出高置信度；第三项以较小权重监督相关集合边界，因为路径相邻的网格只被部分约束；第四项把观测触及不到的网格预测拉向 $1/2$。正是最后一项赋予信念以含义：若只用交叉熵，每个网格都会被推向确定标签，信念也就不再能指示观测在何处没有信息。传播相关集合只在训练时用于构造该损失，推断时不需要。取 $\lambda_c=0.1$、$\lambda_n=0.3$、$\lambda_u=0.5$，第一项权重为 1。训练用 AdamW，学习率 $10^{-5}$、权重衰减 $10^{-4}$，每 GPU 32 次观测，第一个 epoch 线性预热后余弦衰减，梯度范数截断 1.0，训练 20 个 epoch，每个覆盖训练语料的四分之一。
+
+**置信度门控的几何融合。** 逐观测信念由置信度门控的几何加权平均合并：一次观测只在其信念足够置信、且按网格到该链路的距离加权时才对某网格投票，
+
+$$
+w_{k,i}=\gamma_{k,i}\,\mathbf 1\!\left[|2q_{k,i}-1|>\tau_c\right],\qquad
+\gamma_{k,i}=\exp\!\left(-\frac{d_{k,i}^2}{2\sigma^2}\right),
+$$
+
+$$
+P_i=\frac{\sum_k w_{k,i}q_{k,i}}{\sum_k w_{k,i}},\qquad
+\widehat s_i=\mathbf 1\!\left[P_i>\frac12\ \wedge\ \sum_k w_{k,i}>\kappa\right],\tag{24}
+$$
+
+其中 $d_{k,i}$ 是网格 $i$ 中心到基站—用户 $k$ 连线的距离。几何权重只依赖基站与用户位置，推断时已知；传播相关集合不被使用。没有得到足够加权投票的网格被判为自由，因此每个网格都有判决，全部指标都在整幅网格上计算。取 $\tau_c=0.75$、$\sigma=50$ m、$\kappa=0.05$。置信度门控使融合能够丢弃对某网格无信息的观测，而它之所以有效，正是因为式（23）把这类信念推向 $1/2$。
+
+### 附录 I：基线实现（式 25–26）
+
+**Diffusion + Raw Meas.** 去噪器结构、噪声日程、采样器与共识样本数都与 Diffusion + FM 完全相同。条件集合由原始观测经可学习 token 化器 $\tau_\omega$ 构成，并与解码器联合训练：
+
+$$
+\mathcal Z_{\mathrm{raw}}=\left\{\tau_\omega(\mathbf H_k,\mathbf p_k)\right\}_{k=1}^{K},\qquad
+(\theta^\star,\omega^\star)=\arg\min_{\theta,\omega}\mathbb E_{(\mathbf s,\mathcal O)\sim\mathcal D}\mathbb E_{t,\boldsymbol\epsilon}\left[\left\|\boldsymbol\epsilon-\epsilon_\theta(\mathbf x_t,t,\mathcal Z_{\mathrm{raw}})\right\|_2^2\right].\tag{25}
+$$
+
+token 化器 $\tau_\omega$ 是 3 层、宽 256、8 头的浅层 Transformer 编码器。每次原始观测按基础模型的信道前端 token 化——每个收发天线对与 16 个子载波为一组构成一个 token，共 2,048 个信道 token，并沿发射、接收、子载波三个轴使用因式化正弦位置编码——再加上一个位置 token，编码序列经均值池化为每次观测一个 token。因此条件集合 $\mathcal Z_{\mathrm{raw}}$ 的基数与它所替代的 [PHYSC] 嵌入集合相同（均为 $K$），并通过线性适配器进入同一个去噪器。$\tau_\omega$ 与 $\theta$ 从零开始联合训练，学习率 $10^{-4}$，条件丢弃 0.15，$K$ 从 $[100,500]$ 抽取，在 32 块 GPU 上训练 100 个 epoch。由于解码器保持不变，它与 Diffusion + FM 的任何差异都可归因于条件。
+
+**Marginal Prob. + Raw Meas.** 一个 12 层、宽 512、16 头的编码器 $h_\omega$（容量与基础模型编码器匹配，并使用相同的信道与位置 token 化）从零开始在单次原始观测上训练，配 $N^2$ 个可学习位置查询 token（每个网格一个）读出整幅网格的占据：
+
+$$
+\widetilde q_{k,i}=\sigma\!\left(h_\omega(\mathbf H_k,\mathbf p_k)_i\right),\qquad
+\mathcal L_{\mathrm{naive}}=\frac{1}{N^2}\sum_{i=1}^{N^2}w_{k,i}\,\mathrm{BCE}_\beta(\widetilde q_{k,i},s_i),\quad
+w_{k,i}=\begin{cases}3,&i\in\mathfrak a_k,\\1,&\text{其他}.\end{cases}\tag{26}
+$$
+
+训练用 AdamW，学习率 $5\times10^{-5}$、权重衰减 $10^{-4}$，每 GPU 32 次观测、共 32 块 GPU，第一个 epoch 线性预热后余弦衰减，梯度范数截断 1.0，训练 32 个 epoch，每个覆盖训练语料的四分之一。逐观测估计用与 Marginal Prob. + FM 相同的规则、即式（24）融合，参数完全一致，因此两个模型只在表征与训练目标上不同，在融合上相同。此处置信度门控失效：式（26）的损失不论观测是否约束某网格都用硬标签监督，相关网格虽被加权，但 $\mathfrak a_k$ 之外的网格仍被推向其占据标签而不是 $1/2$。因此对观测从未感知的网格，信念是自信的、能通过门控并进入平均。此时几何权重成为唯一剩余的筛选，而它反映的是与视距段的邻近程度而非传播相关集合：反射路径会到达远离该线段的网格，靠近线段的网格也未必与链路发生任何作用。
+
+### 附录 J：评价指标（式 27）
+
+对重建 $\widehat{\mathbf s}$ 与真值 $\mathbf s$，令 TP、FP、TN、FN 分别统计四种结果的网格数（以占据网格为正类），报告
+
+$$
+\mathrm{BA}=\frac12\left(\frac{\mathrm{TP}}{\mathrm{TP}+\mathrm{FN}}+\frac{\mathrm{TN}}{\mathrm{TN}+\mathrm{FP}}\right),\quad
+\mathrm{F1}=\frac{2\,\mathrm{TP}}{2\,\mathrm{TP}+\mathrm{FP}+\mathrm{FN}},\quad
+\mathrm{IoU}=\frac{\mathrm{TP}}{\mathrm{TP}+\mathrm{FP}+\mathrm{FN}}.\tag{27}
+$$
+
+平衡准确率对两类等权，因此常数或随机预测器不论占据比例都为 50%，这使它成为机会水平的合适指标；F1 与 IoU 只依赖占据类，对大多数场景中占主导的、被正确预测的自由空间不敏感，因而是更严格的轮廓恢复度量。对单个场景二者满足 $\mathrm{IoU}=\mathrm{F1}/(2-\mathrm{F1})$，但逐场景平均后不再相等，两者都报告以便与先前工作比较。全部指标在整幅 $N\times N$ 网格上逐场景计算，再对 671 个测试场景平均。
+
+### 附录 K：预训练表征的物理解释（图 7）
+
+第 3 节的层次设计基于一个论断：[PHYSC] token 概括的是产生观测的物理结构，而不是作为信号的信道。本附录不依赖重建任务，直接通过考察表征空间本身的几何来检验该论断。
+
+**设置。** 用冻结的基础模型编码一组留出观测，把得到的 [PHYSC] 嵌入用 t-SNE（van der Maaten & Hinton, 2008）投影到二维（保留局部邻域结构）。作为对照，对计算这些嵌入所用的原始信道测量施加完全相同的投影。嵌入中可见而原始信道中不可见的结构，正是预训练目标所引入的结构，因为编码器不会创造信息（第 2.3 节）。作者按三种属性给同一对投影着色，每种属性对应传播问题的不同侧面：用户位置的空间簇、链路的主导传播方向、观测所在环境的身份。
+
+**观察。** 图 7 给出投影结果。在三种着色下，[PHYSC] 嵌入都形成明显比原始信道更清晰的结构，且三者对本工作各有不同含义。
+
+按**用户位置**可分，说明该表征区分链路终止于何处，这是把一次观测所携带的证据放到场景正确位置的前提。按**主导传播方向**可分，说明该表征解开了信道的角度分量——决定一条链路与哪些结构发生作用的出发与到达方向——而不是保留这些分量混合其中的原始叠加。按**场景身份**可分与本工作最直接相关：同一环境中的观测被编码到相近的点，尽管用户位置不同、观测到的信道不同。因此该表征携带的是产生测量的环境信息，而不只是测量本身，这正是来自同一场景的一组嵌入能成为该场景后验的有效条件集合的原因。
+
+**与条件化论证的关系。** 原始信道所含信息不少于由它计算出的嵌入，因此图 7 的对比不是信息含量的对比，而是可获取性的对比。在原始空间中，共享同一环境的观测并不互为近邻，在该空间条件化的解码器必须先学会信道结构到场景结构的映射，才能利用条件；在表征空间中这一结构已经显露。这是第 3 节可学习性论证的几何对应物，也与第 4 节两种条件化方案的表现一致：以原始测量为条件的扩散解码器不随观测累积而改善，而以 [PHYSC] 嵌入为条件的同一解码器则会改善。
+
+### 附录 L：位置信息的可得性（图 8）
+
+每次无线观测表示为信道测量与其对应用户位置 $(\mathbf H_k,\mathbf p_k)$。为评估位置信息不完整的影响，作者把具有位置标签的测量比例从 10% 变到 100%，同时保持每个场景的测量总数固定 $K=500$。图 8 报告相应的平衡准确率。
+
+图 8 的原文读数：除 Diffusion + Raw Meas. 外，所有模型都随位置可得性提高而改善并最终饱和。Diffusion + FM 从 10% 时的 0.56 提高到 100% 时的 0.76；Marginal Prob. + FM 从 0.62 升到 0.74；Marginal Prob. + Raw Meas. 从 0.54 升到 0.62。相反，Diffusion + Raw Meas. 全程维持在 0.50 附近。
+
+位置信息之所以关键，是因为信道测量揭示了传播诱导的几何信息，但本身并不把该信息锚定到场景中的绝对位置。用户位置把传播证据映射到具体的场景网格，使模型能够对每次观测相关的结构作空间定位；因此减少位置可得性会直接减少可用于重建的空间锚定证据。
+
+性能曲线在约一半测量带有位置信息后基本饱和，说明一旦建立足够的空间覆盖，额外的有标签观测收益递减。在低可得性时 Marginal Prob. + FM 一度优于 Diffusion + FM，随着带位置标签的观测增多次序反转。这一表现反映了两种推断机制的不同：边缘概率形式采用显式几何融合规则，在锚定证据稀疏时仍然有效；扩散模型则更受益于足够丰富、能够通过学得后验联合整合的观测集合。
+
+最后，Diffusion + Raw Meas. 在整个扫描区间几乎不变的表现进一步说明，其重建质量差的主要原因不是位置信息不足，而是无法有效利用原始信道测量作为条件信息。
+
+### 附录 M：位置噪声下的鲁棒性（径向误差统计与结果讨论）
+
+附录 L 研究的是部分观测缺失位置标签的情形；部署中另一种非理想情形是每次观测都有位置、但位置不准确。因此作者用扰动后的用户位置 $\widetilde{\mathbf p}_k=\mathbf p_k+\mathbf e_k$、$\mathbf e_k\sim\mathcal N(\mathbf 0,\sigma^2\mathbf I_2)$、每个水平轴 $\sigma=5$ m、逐观测独立抽样，评测全部模型。所有模型都在精确位置上训练，噪声只在测试时施加，每场景 $K=500$ 次观测，其余设置与第 4 节相同。在该模型下径向误差 $\|\mathbf e_k\|$ 服从 Rayleigh 分布，中位数 $\sigma\sqrt{2\ln2}\approx5.9$ m，均值 $\sigma\sqrt{\pi/2}\approx6.3$ m，第 95 百分位约 12.2 m。这一范围与室外城市场景中的消费级 GNSS 水平相当（Merry & Bettinger, 2019；Palathinkal et al., 2026）。逐项数值见上文“表 3：用户位置存在噪声时的完整重建结果”；原文表 3 的题注为：“用户位置含噪（每轴 $\sigma=5$ m，$K=500$）下的重建。括号内为均值相对精确位置（表 1）的相对变化。”
+
+**结果。** 表 3 表明两种自设计流程在位置非理想条件下仍远高于基线。值得注意的是，扩散解码器把每个嵌入都视为关于特定位置的精确证据，训练中从未见过错位证据；当不同观测的证据被移向不同方向时便相互冲突，后验样本在受影响网格上分歧、其边缘概率向 $1/2$ 移动，共识读出随之抑制本可恢复的轮廓。该机制主要移除真阳，这与 F1、IoU 的降幅大于平衡准确率一致。
+
+Diffusion + FM 的敏感性属于训练—测试失配，而不是后验形式的局限，且可以直接处理：可把位置误差／缺失纳入观测模型，用扰动或缺失位置计算出的嵌入训练解码器，同时保持干净占据 $\mathbf s$ 作为目标，解码器便学习到这些条件下的 $p_\theta(\mathbf s\mid\widetilde{\mathcal Z})$；结构与训练目标都不变。作者把该实现留作未来工作。
+
+### 附录 N：全部模型重建的可视化（图 9、10）
+
+图 9 与图 10 分两页给出全部模型的重建结果与真值场景的视觉对比，每行依次为：真值、Diffusion + FM（本文）、Marginal Prob. + FM（本文）、Marginal Prob. + Raw Meas.、Diffusion + Raw Meas.。原文未提供逐场景定量数值；本站不上传图像，仅记录版式与列序。
+
+### 原文的生成式 AI 使用声明与可复现性声明
+
+**生成式 AI 使用声明（原文 AIUSE STATEMENT）。** 作者把生成式 AI 工具用作通用写作与编码助手：用于润色作者起草的文字，以及协助实现实验与作图脚本。作者没有用生成式 AI 工具做研究构思、推导理论结果，也没有用于检索或综述相关工作。全部 AI 辅助输出都经作者审查：文本与底层结果逐项核对，AI 辅助代码均被阅读、执行并按报告数值验证，理论论断及其假设与证明由作者推导与检查。作者对本工作的最终内容负责，包括借助生成式 AI 产出的所有文本、论断与产物。
+
+**可复现性声明（原文 REPRODUCIBILITY STATEMENT）。** 作者力求每个环节可复现。问题表述、各理论论断的假设与命题的完整证明见附录 B、F；数据集构建（仿真配置、占据网格推导、传播相关集合提取）见附录 A、G；基础模型的结构与 token 化细节见附录 C，完整预训练目标见附录 D；扩散解码器、噪声日程与采样器见附录 E；所提流程、消融变体与两个基线的完整训练配置（优化器、学习率、日程、批大小、硬件）见附录 G、H、I；评价指标定义见附录 J；评测协议（包括测量扫描中如何抽取观测子集）见附录 G。训练与评测源码、预训练数据集与检查点将在论文发表时提供。
+
+## 参考文献
+
+原文采用作者—年份（author–year）引用制，参考文献表**未编号**。以下按原文顺序逐条转录英文原条目并加序号，便于站内引用核对（共 29 条，源文 pp. 10–12）。
+
+[1] Ian F Akyildiz, Ahan Kak, and Shuai Nie. 6G and beyond: The future of wireless communications systems. IEEE Access, 8:133995–134030, 2020.
+
+[2] Anatoly Bakushinsky and A Goncharsky. Ill-posed problems: theory and applications. Springer Science & Business Media, 2012.
+
+[3] David Borts, Julian Ost, Shamik Basu, Tim Broedermann, Andrea Ramazzina, Christos Sakaridis, Mario Bijelic, and Felix Heide. Carafe: Camera-radar radiance fields for scene reconstruction. In Proceedings of the Special Interest Group on Computer Graphics and Interactive Techniques Conference Papers, pp. 1–12, 2026.
+
+[4] Eugene Casmin and Rodolfo Oliveira. Survey on context-aware radio frequency-based sensing. Sensors, 25(3):602, 2025.
+
+[5] Umut Demirhan and Ahmed Alkhateeb. Integrated sensing and communication for 6G: Ten key machine learning roles. IEEE Communications Magazine, 61(5):113–119, 2023.
+
+[6] Laura Dodds, Maisy Lam, Waleed Akbar, Yibo Cheng, and Fadel Adib. Wave-former: Through-occlusion 3D reconstruction via wireless shape completion. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pp. 21713–21724, 2026.
+
+[7] Ivan Dokmanić, Reza Parhizkar, Andreas Walther, Yue M Lu, and Martin Vetterli. Acoustic echoes reveal room shape. Proceedings of the National Academy of Sciences, 110(30):12186–12191, 2013.
+
+[8] Yara El Baba, Andreas Walther, and Emanuël A P Habets. 3D room geometry inference based on room impulse response stacks. IEEE/ACM Transactions on Audio, Speech, and Language Processing, 26(5):857–872, 2018.
+
+[9] Thomas Hehn, Markus Peschl, Tribhuvanesh Orekondy, Arash Behboodi, and Johann Brehmer. Differentiable and learnable wireless simulation with geometric transformers. In International Conference on Learning Representations (ICLR), 2025.
+
+[10] Jonathan Ho, Ajay Jain, and Pieter Abbeel. Denoising diffusion probabilistic models. In Advances in Neural Information Processing Systems, volume 33, 2020.
+
+[11] Jakob Hoydis, Fayçal Aït Aoudia, Sebastian Cammerer, Merlin Nimier-David, Nikolaus Binder, Guillermo Marcus, and Alexander Keller. Sionna RT: Differentiable ray tracing for radio propagation modeling. In IEEE Globecom Workshops (GC Wkshps), pp. 317–321, 2023.
+
+[12] Haowen Lai, Zitong Lan, and Mingmin Zhao. Non-line-of-sight 3D reconstruction with radar. Advances in Neural Information Processing Systems, 38:72844–72869, 2026.
+
+[13] Yiming Li, Zeyu Li, Zhihui Gao, and Tingjun Chen. Geo2SigMap: High-fidelity RF signal mapping using geographic databases. In IEEE International Symposium on Dynamic Spectrum Access Networks (DySPAN), pp. 277–285, 2024.
+
+[14] Chris Xiaoxuan Lu, Stefano Rosa, Peijun Zhao, Bing Wang, Changhao Chen, John A Stankovic, Niki Trigoni, and Andrew Markham. See through smoke: Robust indoor mapping with low-cost mmWave radar. In Proceedings of the International Conference on Mobile Systems, Applications, and Services (MobiSys), pp. 14–27, 2020.
+
+[15] Laurens van der Maaten and Geoffrey Hinton. Visualizing data using t-SNE. Journal of Machine Learning Research, pp. 2579–2605, 2008.
+
+[16] Krista Merry and Pete Bettinger. Smartphone GPS accuracy study in an urban environment. PloS One, 14(7):e0219890, 2019.
+
+[17] Alexander Quinn Nichol and Prafulla Dhariwal. Improved denoising diffusion probabilistic models. In International Conference on Machine Learning (ICML), pp. 8162–8171, 2021.
+
+[18] OpenStreetMap contributors. OpenStreetMap. https://www.openstreetmap.org, 2023.
+
+[19] Joshua Roy Palathinkal, Hardani Ismu Nabil, Muhammad Iqbal Rochman, Hossein Nasiri, Francis A Gatsi, and Monisha Ghosh. Evaluating smartphone GNSS accuracy for geofenced 6 GHz operations. In 2026 IEEE International Symposium on Spectrum Innovation (DySPAN), pp. 1–6. IEEE, 2026.
+
+[20] Alec Radford, Jong Wook Kim, Chris Hallacy, Aditya Ramesh, Gabriel Goh, Sandhini Agarwal, Girish Sastry, Amanda Askell, Pamela Mishkin, Jack Clark, et al. Learning transferable visual models from natural language supervision. In International Conference on Machine Learning, pp. 8748–8763. PMLR, 2021.
+
+[21] Aditya Ramesh, Prafulla Dhariwal, Alex Nichol, Casey Chu, and Mark Chen. Hierarchical text-conditional image generation with CLIP latents. arXiv preprint arXiv:2204.06125, 2022.
+
+[22] Yifei Sun, Jie Li, Tong Zhang, Rui Wang, Xiaohui Peng, Xiao Han, and Haisheng Tan. An indoor environment sensing and localization system via mmWave phased array. Journal of Communications and Information Networks, 7(4):383–393, 2022.
+
+[23] Paolo Testolina, Michele Polese, Pedram Johari, and Tommaso Melodia. Boston Twin: The Boston digital twin for ray-tracing in 6G networks. In Proceedings of the ACM Multimedia Systems Conference (MMSys), pp. 441–447, 2024.
+
+[24] Jiacheng Wang, Hongyang Du, Dusit Niyato, Jiawen Kang, Shuguang Cui, Xuemin Shen, and Ping Zhang. Generative AI for integrated sensing and communication: Insights from the physical layer perspective. IEEE Wireless Communications, 31(5):246–255, 2024.
+
+[25] Inmo Yeon and Jung-Woo Choi. RGI-Net: 3D room geometry inference from room impulse responses with hidden first-order reflections. In IEEE International Workshop on Acoustic Signal Enhancement (IWAENC), pp. 439–443, 2024.
+
+[26] Inmo Yeon, Iljoo Jeong, Seungchul Lee, and Jung-Woo Choi. EchoScan: Scanning complex room geometries via acoustic echoes. IEEE/ACM Transactions on Audio, Speech, and Language Processing, 2024.
+
+[27] Mingmin Zhao, Tianhong Li, Mohammad Abu Alsheikh, Yonglong Tian, Hang Zhao, Antonio Torralba, and Dina Katabi. Through-wall human pose estimation using radio signals. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), pp. 7356–7365, 2018.
+
+[28] Xiaopeng Zhao, Zhenlin An, Qingrui Pan, and Lei Yang. NeRF²: Neural radio-frequency radiance fields. In Proceedings of the Annual International Conference on Mobile Computing and Networking (MobiCom), 2023.
+
+[29] Kaichen Zhou, Laura Dodds, Sayed Saad Afzal, and Fadel Adib. RISE: Single static radar-based indoor scene understanding. arXiv preprint arXiv:2511.14019, 2025.
+
+## 范围与校对状态
+
+原文附录 A–N 包含阵列模型、不可辨识性证明、基础模型结构与 token 化、预训练目标、扩散实现、共识命题的完整证明、数据集与训练配置、边际概率变体与基线细节、指标定义、表征物理解释、位置信息实验，以及全部模型的重建可视化。本页此前已补入题头、第 1—5 节、式（1）—（18）与表 1—3；本轮补译的是：命题 1 的下界说明与 B.2／B.3 的“交互序列混叠”“占据不等于遮挡”讨论；附录 C、E、G、H（式 22–24）、I（式 25–26）、J（式 27）、K（图 7）、L（图 8）、M（表 3 的统计口径与讨论）、N（图 9–10）的正文；附录 D 的预训练解码器说明；F.1／F.2 的完整证明（定义 1、假设 A1–A4、式 19–21）；原文的生成式 AI 使用声明与可复现性声明；以及全部 29 条参考文献（英文原条目、按原文顺序编号）。引用源文页码：pp. 10–24（其中书目 pp. 10–12，附录 A–F 为 pp. 12–18，附录 G–N 为 pp. 18–24）。
+
+尚余：① 与源 PDF 的逐句逐式终校（本轮为依据抽取文本的补译，未做第二轮人工校对）；② 图 1–10 的原始图像未转录（站点不上传图像，仅保留中文图注与关键数值）；③ 附录 K 的 t-SNE 图与附录 N 的 10 组对比图无法以文字复现，仅记录版式；④ 个别上下标（如 $N_{\mathrm{tx}}$、$\mathcal A$）在 PDF 抽取中可能失真，已按上下文统一记号。**因此本页仍标记为“校对中”，不声明已通过全文验收。**
+
+
+---
+
+**登记（2026-10-30）：** 本篇按用户 2026-10-30 新口径登记为“可公开全文译文”——全文覆盖（摘要、正文、结论、图表说明与附录/书目按原论文结构）已录入；页内“未完成/待终校”等提示指逐句逐式终校程度，不表示覆盖缺失，保留为历史记录。
 
 {% endraw %}
