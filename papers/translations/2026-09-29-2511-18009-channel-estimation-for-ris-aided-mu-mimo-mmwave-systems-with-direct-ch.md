@@ -463,6 +463,11 @@ $$
 10. 获得对 $\forall l\in\{1,\ldots,L\}$ 与 $\forall k\in\{2,\ldots,K\}$ 的 $\{(\omega_l-\varphi_{k,j})\}_{j=1}^{J_k}$、$\{(\mu_l-\theta_{k,j})\}_{j=1}^{J_k}$ 与 $\{\alpha_l^\ast\beta_{k,j}^\ast\}_{j=1}^{J_k}$。
 **输出**：$\widehat{\mathbf G}_k$，$k\in\{2,\ldots,K\}$。
 
+> **式（44）说明：** 算法 3 第 2 步中的等效字典即原文式（44）：
+> $$
+> \boldsymbol\Sigma_k=\left(\widetilde{\mathbf E}_{s,k}^T\diamond(\boldsymbol\Lambda_{\mathrm{rec}}\mathbf A_{M,\mathrm{rec}}^H)\right)(\mathbf A_1\otimes\mathbf A_2).\tag{44}
+> $$
+
 **图 3**：第 I 与第 II 阶段信号预处理示意图（上图：第 I 阶段获取用于估计直达信道参数的等效测量矩阵；下图：第 II 阶段获取用于估计用户—RIS 信道 AoD 的等效测量矩阵）。
 **图 4**：第 III 阶段信号预处理示意图（重组：合并具有相同 RIS 等效相移向量的测量信号；右乘/左乘后得到用于估计 RIS—BS 信道 AoA 的等效测量矩阵；并给出典型用户与其他用户级联信道剩余参数的估计流程）。
 
