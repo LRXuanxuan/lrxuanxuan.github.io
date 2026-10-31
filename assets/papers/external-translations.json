@@ -22,8 +22,8 @@
   {
     "date": "2026-10-31",
     "slug": "2026-10-31-rmsampler-2610-27464",
-    "title": "RMSampler：主动采样与扩散后验校正的稀疏无线电地图重建｜中文部分译稿",
-    "scope": "原文 12 页；摘要、引言、相关工作、核心系统模型与采样/后验校正理论已翻译；实验后半、部分公式与完整参考文献尚待补齐，非全文。",
+    "title": "RMSampler：主动采样与扩散后验校正的稀疏无线电地图重建｜中文全文译稿",
+    "scope": "原文 12 页；摘要、正文 I–VI、公式（1）–（30）、定理与命题、表 I–II、图 1–8 图注及英文参考文献 [1]–[41] 已录入；逐字符、逐图及排版终校尚未完成。",
     "url": "/papers/translations/2026-10-31-rmsampler-2610-27464/",
     "source_file": "2026-10-31-rmsampler-2610-27464.md",
     "source_page_path": "papers/translations/2026-10-31-rmsampler-2610-27464.md",
@@ -34,8 +34,8 @@
     ],
     "qa_complete": false,
     "external": true,
-    "primary_translation": false,
-    "coverage": "partial",
+    "primary_translation": true,
+    "coverage": "full",
     "license": "arxiv",
     "final_proofread_done": false
   },
