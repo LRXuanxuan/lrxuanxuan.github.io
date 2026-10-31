@@ -540,26 +540,28 @@ $$
 
 ### 表 II：Groningen 与 Dutch 上不同图学习模型的 AUC 与福利比较（原 PDF 第 11 页）
 
-| 方法 | AUC | Wel(S) | x 下的 Wel(S) | log(1+x) 下的 Wel(S) | x(1−x) 下的 Wel(S) |
-|---|---|---|---|---|---|
-| **Groningen 数据集** | | | | | |
-| GL-NG ($f(x)=x$) | 0.6357 | 27.7721 | 8.7035 | 5.9668 | |
-| GL-NG ($f(x)=\log(1+x)$) | 0.6207 | 26.5906 | 8.6225 | 5.9557 | |
-| GL-NG ($g(x)=x(1-x)$) | 0.6201 | 26.5722 | 8.6432 | 5.9739 | |
-| Linear Approx | 0.5354 | 20.0577 | 7.5192 | 5.4005 | |
-| Smooth-GL [6] | 0.5354 | 20.0566 | 7.5190 | 5.4003 | |
-| QuadGame-GL [62] | 0.5490 | 14.5312 | 5.7325 | 4.2091 | |
-| SpecTemp [12] | 0.4890 | 19.7591 | 7.4576 | 5.3658 | |
-| Glasso [4] | 0.5617 | 16.6454 | 6.4513 | 4.6939 | |
-| **Dutch 数据集** | | | | | |
-| GL-NG ($f(x)=x$) | 0.6127 | 21.3681 | 6.7664 | 4.6940 | |
-| GL-NG ($f(x)=\log(1+x)$) | 0.6159 | 22.5223 | 6.9465 | 4.7810 | |
-| GL-NG ($g(x)=x(1-x)$) | 0.6186 | 23.0427 | 7.0260 | 4.8187 | |
-| Linear Approx | 0.6186 | 21.4615 | 6.7831 | 4.7030 | |
-| Smooth-GL [6] | 0.5840 | 18.6902 | 6.3571 | 4.6357 | |
-| QuadGame-GL [62] | 0.6048 | 18.3942 | 5.9083 | 4.1413 | |
-| SpecTemp [12] | 0.4828 | 20.6126 | 6.6480 | 4.6357 | |
-| Glasso [4] | 0.5786 | 18.1852 | 5.3394 | 2.7934 | |
+| 方法 | AUC | Wel(S) by $x$ | Wel(S) by $\log(1+x)$ | Wel(S) by $x(1-x)$ |
+|---|---|---|---|---|
+| **Groningen 数据集** | | | | |
+| GL-NG ($f(x)=x$) | **0.6357** | **27.7721** | **8.7035** | 5.9668 |
+| GL-NG ($f(x)=\log(1+x)$) | 0.6207 | 26.5906 | 8.6225 | 5.9557 |
+| GL-NG ($g(x)=x(1-x)$) | 0.6201 | 26.5722 | 8.6432 | **5.9739** |
+| Linear Approx | 0.5354 | 20.0577 | 7.5192 | 5.4005 |
+| Smooth-GL [6] | 0.5354 | 20.0566 | 7.5190 | 5.4003 |
+| QuadGame-GL [62] | 0.5490 | 14.5312 | 5.7325 | 4.2091 |
+| SpecTemp [12] | 0.4890 | 19.7591 | 7.4576 | 5.3658 |
+| Glasso [4] | 0.5617 | 16.6454 | 6.4513 | 4.6939 |
+| **Dutch 数据集** | | | | |
+| GL-NG ($f(x)=x$) | 0.6127 | 21.3681 | 6.7664 | 4.6940 |
+| GL-NG ($f(x)=\log(1+x)$) | 0.6159 | 22.5223 | 6.9465 | 4.7810 |
+| GL-NG ($g(x)=x(1-x)$) | **0.6186** | **23.0427** | **7.0260** | **4.8187** |
+| Linear Approx | **0.6186** | 21.4615 | 6.7831 | 4.7030 |
+| Smooth-GL [6] | 0.5840 | 18.6902 | 6.3571 | 4.6357 |
+| QuadGame-GL [62] | 0.6048 | 18.3942 | 5.9083 | 4.1413 |
+| SpecTemp [12] | 0.4828 | 20.6126 | 6.6480 | 4.6357 |
+| Glasso [4] | 0.5786 | 18.1852 | 5.3394 | 2.7934 |
+
+> **原文疑点（表 II 表头）：** PDF 中该表表头为 "AUC | Wel(S) by | $x$ | $\log(1+x)$ | $x(1-x)$"，即 AUC 列与三种交互函数下的福利值列（每行共 4 个数值）。原文表头排版（"Wel(S) by" 跨列）易被误读为另有独立的 "Wel(S)" 列；此处按 PDF 实际列结构与文字坐标逐格核对后转录。
 
 ### 表 III：印度村庄数据 [63] 中所学图的社会福利增益（原 PDF 第 12 页）
 
@@ -673,6 +675,512 @@ $$
 
 考察两种情形即得所述 $S^{\star}_{ij}$ 表达式。
 
+### C. 命题 5 的证明
+
+注意对任意 $S\in\mathcal S_{\mathrm{nd}}$ 与 $i\in\mathcal V$ 有 $y_i=\sum_{j=1,j\neq i}^{N}S_{ij}\frac{y_j^2}{y_j^2+1}$。先注意到基本不等式 $(1+e^{-\sigma y})^{-1}\leq(\sigma y/4)+(1/2)$ 对任意 $y\geq0$ 成立。由于 $y$ 满足（GL-GENE）中的约束，有
+
+$$
+\begin{aligned}
+\Phi(S;y)&=\|SX+P\|_F^2+\beta\|S\|_F^2-\lambda\mathbf 1^{\top}\frac{\mathbf 1}{\mathbf 1+e^{-\sigma y}}\\
+&\geq\|SX+P\|_F^2+\beta\|S\|_F^2-\sigma\lambda\mathbf 1^{\top}y/4-N\lambda/2.
+\end{aligned}
+$$
+
+对 $y\geq0$，由于 $\frac{y^2}{1+y^2}\leq\frac12y$，由（14）可推出
+
+$$
+y_i=\sum_{j\neq i}S_{ij}\frac{y_j^2}{y_j^2+1}\leq\left(\frac{Sy}{2}\right)_i=\sum_{j\neq i}\frac{(S^2)_{ij}y_j^2/2}{y_j^2+1}\leq\left(\frac{S^2\mathbf 1}{2}\right)_i.
+$$
+
+结合上述下界即证得命题。
+
+### D. 命题 6 的证明
+
+对任意 $S\in\mathcal S_{\mathrm{nd}}$，定义
+
+$$
+R_i:=\sum_{j=1}^{N}S_{ij},\qquad C_i:=\sum_{j=1}^{N}S_{ji},\qquad i\in[N].
+$$
+
+则 $\sum_{i=1}^{N}R_i=\sum_{i=1}^{N}C_i=a$，且
+
+$$
+\mathbf 1^{\top}S^2\mathbf 1=\sum_{i,j,\ell}S_{i\ell}S_{\ell j}=\sum_{\ell=1}^{N}\left(\sum_{i=1}^{N}S_{i\ell}\right)\left(\sum_{j=1}^{N}S_{\ell j}\right)=\sum_{\ell=1}^{N}C_\ell R_\ell.
+$$
+
+此外，由于 $\operatorname{diag}(S)=0$ 且 $S\geq0$，有
+
+$$
+R_\ell+C_\ell=\sum_{j\neq\ell}S_{\ell j}+\sum_{i\neq\ell}S_{i\ell}\leq\sum_{i,j}S_{ij}=a,\qquad\forall\ell\in[N].
+$$
+
+由此得到
+
+$$
+C_\ell R_\ell\leq\frac{(C_\ell+R_\ell)^2}{4}\leq\frac{a(C_\ell+R_\ell)}{4},\qquad\forall\ell\in[N].\tag{22}
+$$
+
+对 $\ell$ 求和得
+
+$$
+\mathbf 1^{\top}S^2\mathbf 1=\sum_{\ell=1}^{N}C_\ell R_\ell\leq\frac{a}{4}\sum_{\ell=1}^{N}(C_\ell+R_\ell)=\frac{a^2}{2}.\tag{23}
+$$
+
+于是每个可行 $S$ 都满足 $\mathbf 1^{\top}S^2\mathbf 1\leq a^2/2$。当
+
+$$
+S_{i^{\star}j^{\star}}=S_{j^{\star}i^{\star}}=\frac{a}{2},\quad S_{ij}=0\ \text{其他},\quad i^{\star}\neq j^{\star}
+$$
+
+时取等号，故最大化点 $S^{\star}$ 的值为 $a^2/2$。进一步，（23）取等号意味着对每个 $\ell\in[N]$，（22）都取等号，即
+
+$$
+C_\ell R_\ell=\frac{(C_\ell+R_\ell)^2}{4}=\frac{a(C_\ell+R_\ell)}{4},\qquad\forall\ell\in[N].
+$$
+
+因此对每个 $\ell\in[N]$ 有 $C_\ell=R_\ell=0$ 或 $C_\ell=R_\ell=\frac a2$。令 $T:=\{\ell\in[N]:R_\ell=a/2\}$。由于 $\sum_{\ell=1}^{N}R_\ell=a$ 且对 $\ell\in[N]$ 有 $R_\ell\in\{0,a/2\}$，得 $|T|=2$。因此可写 $T=\{i^{\star},j^{\star}\}$（$i^{\star}\neq j^{\star}$）。对 $\ell\notin T$，$S^{\star}$ 的第 $\ell$ 行与第 $\ell$ 列都为零。因此唯一可能的非零元是 $S^{\star}_{i^{\star}j^{\star}}$ 与 $S^{\star}_{j^{\star}i^{\star}}$，行和约束给出
+
+$$
+S^{\star}_{i^{\star}j^{\star}}=S^{\star}_{j^{\star}i^{\star}}=\frac{a}{2}.
+$$
+
+其余元素全为零。命题得证。
+
+## 附录 B：定理 1 的证明（原 PDF 第 15—17 页）
+
+### A. H1—H5 的推论
+
+我们先证明 H1—H5 蕴含如下命题：
+
+**命题 7.** 在 H1—H5 下，以下结论成立：
+- **(S1)** 对任意 $S\in\mathcal S$，方程 $Y(y;S)=0$ 存在唯一解 $y^{\star}(S)$。
+- **(S2)** 存在 $\tilde B>0$，使任意 $S\in\mathcal S$ 有 $\|y^{\star}(S)\|_2\leq\tilde B$；且 $y^{\star}(S)$ 关于 $S\in\mathcal S$ 是 $L_y$-Lipschitz 的（某常数 $L_y$）。
+- **(S3)** 对任意 $B>0$，存在 $L_{\hat\Phi}>0$，使梯度映射 $\hat\nabla\Phi(\cdot)$ 在 $\{(S;y):S\in\mathcal S,\ y\in\mathcal Y,\ \|y\|_2\leq B\}$ 上关于 $(S;y)$ 是 $L_{\hat\Phi}$-Lipschitz 的。
+- **(S4)** 梯度 $\nabla\ell(S)$ 关于 $S\in\mathcal S$ 是 $L_\ell$-Lipschitz 的。
+
+**证明.** 分以下几步。**H2 与 H3 ⟹ (S1)：** 验证 $Y(\cdot;S)=0$ 在 $\mathcal Y$ 中有唯一解。注意 H3 沿任意 $y_1,y_2\in\mathcal Y$ 之间的线段应用并结合 Taylor 展开，意味着
+
+$$
+(1-\mu_y)\|v\|_2^2\leq v^{\top}J_yY(y;S)v\ \ \forall v\in\mathbb R^N,\qquad \|J_yY(y;S)\|_2\leq1+\mu_y\tag{24}
+$$
+
+对任意 $y\in\mathcal Y$、$S\in\mathcal S$ 成立。第一个不等式说明 $J_yY(y;S)$ 的对称部分严格正定，故 $J_yY(y;S)$ 在 $\mathcal Y\times\mathcal S$ 上处处可逆，其最小奇异值至少为 $1-\mu_y$。结合 H2 与 $Y(\cdot;S)$ 的强单调性，即知对任意 $S\in\mathcal S$，$Y(\cdot;S)=0$ 在 $\mathcal Y$ 中有唯一解，得 (S1)。
+
+**H1、H2、H3、H5 ⟹ (S2)：** 由 (S1)，$y^{\star}(S)$ 有定义；由（24），$J_yY\neq0$。故由隐函数定理，$y^{\star}(S)$ 关于 $S\in\mathcal S$ 连续。由于 $\mathcal S$ 紧，存在 $\tilde B$ 使 $\|y^{\star}(S)\|_2\leq\tilde B$。接着证明 $y^{\star}(\cdot)$ 在 $\mathcal S$ 上的 Lipschitz 性。取 $\bar y=y^{\star}(S)$，隐函数定理给出
+
+$$
+J_Sy^{\star}(S)=-J_yY(\bar y;S)^{-1}J_{SY}(\bar y;S).
+$$
+
+分别界定 $J_Sy^{\star}(\cdot)$ 中的各项。由 $\|y^{\star}(S)\|_2\leq\tilde B$，H5 表明对任意 $S_0,S\in\mathcal S$ 有
+
+$$
+\begin{aligned}
+\|J_{SY}(\bar y;S)\|_F&\leq\|J_{SY}(\bar y_0;S_0)\|_F+L_Y\|S-S_0\|_F+L_Y\|\bar y-\bar y_0\|_2\\
+&\leq\|J_{SY}(\bar y_0;S_0)\|_F+L_YD+2L_Y\tilde B.\tag{25}
+\end{aligned}
+$$
+
+这里 $\bar y_0:=y^{\star}(S_0)$，$D$ 为紧集 $\mathcal S$ 的直径。由于由（24）有 $\|J_yY(y;S)^{-1}\|_2\leq1/(1-\mu_y)$，结合（25）可见对任意 $S\in\mathcal S$ 有
+
+$$
+\|J_Sy^{\star}(S)\|_F\leq L_y:=\frac{\|J_{SY}(\bar y_0;S_0)\|_F+L_YD+2L_Y\tilde B}{1-\mu_y}.
+$$
+
+这说明 $y^{\star}(S)$ 关于 $S\in\mathcal S$ 是 $L_y$-Lipschitz 的。
+
+**H1—H5 ⟹ (S3)：** 对任意 $B>0$，H4 表明给定 $S_0\in\mathcal S$、$y_0\in\mathcal Y\cap\{y:\|y\|_2\leq B\}$，对任意 $S\in\mathcal S$ 与 $y\in\mathcal Y\cap\{y:\|y\|_2\leq B\}$ 有
+
+$$
+\|\nabla_y\Phi(S;y)\|_F\leq M_\Phi:=\|\nabla\Phi(S_0;y_0)\|_F+(2B+D)L_\Phi.
+$$
+
+类似地，H5 表明对任意 $(S;y)$ 与给定 $(S_0;y_0)\in\{(S;y):S\in\mathcal S,\ y\in\mathcal Y,\ \|y\|_2\leq B\}$ 有
+
+$$
+\|J_{SY}(y;S)\|_F\leq M_Y:=\|JY(y_0;S_0)\|_F+(2B+D)L_Y.
+$$
+
+结合（24）与三角不等式，可得对任意 $(S_1;y_1),(S_2;y_2)\in\{(S;y):S\in\mathcal S,\ y\in\mathcal Y,\ \|y\|_2\leq B\}$ 有
+
+$$
+\left\|\hat\nabla\Phi(S_1;y_1)-\hat\nabla\Phi(S_2;y_2)\right\|_F\leq L_{\hat\Phi}\left\|(S_1;y_1)-(S_2;y_2)\right\|_F,
+$$
+
+其中 $L_{\hat\Phi}:=L_\Phi+\frac{M_\Phi L_Y(1+\mu_y)+M_YL_\Phi(1+\mu_y)+M_\Phi M_YL_Y}{(1-\mu_y)^2}$。这建立了 (S3)。
+
+**(S2) 与 (S3) ⟹ (S4)：** 注意 $\nabla\ell(S)=\hat\nabla\Phi(S;y^{\star}(S))$。对任意 $S_1,S_2\in\mathcal S$，取 $\bar y_i=y^{\star}(S_i)$（$i=1,2$），则
+
+$$
+\|\nabla\ell(S_1)-\nabla\ell(S_2)\|_F\leq L_{\hat\Phi}\left(\|\bar y_1-\bar y_2\|_2+\|S_1-S_2\|_F\right)\leq L_{\hat\Phi}(L_y+1)\|S_1-S_2\|_F,
+$$
+
+其中 $L_{\hat\Phi}$ 为 (S3) 中取 $B=\tilde B$ 时的 Lipschitz 常数。因此 $\nabla\ell(S)$ 关于 $S\in\mathcal S$ 是 $L_\ell$-Lipschitz 的，其中 $L_\ell:=L_{\hat\Phi}(L_y+1)$。$\square$
+
+### B. 定理 1 的证明
+
+为简洁起见，记 $\bar y^k:=y^{\star}(S^k)$、$\mu_g:=1-\mu_y$、$L_g:=1+\mu_y$。先分别刻画下层与上层更新的进展。
+
+**命题 8.** 若下层步长 $\alpha$ 满足 $\alpha\leq\frac{\mu_g}{(L_g)^2}$ 且 H1—H5 成立，则
+
+$$
+\begin{aligned}
+\left\|y^{k+1}-\bar y^{k}\right\|_2^2&\leq\left(1-\frac{\alpha\mu_g}{2}\right)\left\|y^{k}-\bar y^{k-1}\right\|_2^2\tag{26}\\
+&\quad+L_y^2\left(\frac{2}{\alpha\mu_g}-1\right)\left\|S^{k-1}-S^{k}\right\|_F^2,
+\end{aligned}
+$$
+
+其中 $\mu_y$、$L_y$ 分别在 H3 与 (S2) 中给出。
+
+**证明.** 由于 $y^{k+1}=y^k-\alpha Y(y^k;S^k)$，有
+
+$$
+\begin{aligned}
+\left\|y^{k+1}-\bar y^{k}\right\|_2^2&=\left\|y^k-\bar y^k-\alpha Y(y^k;S^k)\right\|_2^2\\
+&\leq\left(1+(\alpha L_g)^2\right)\left\|y^k-\bar y^k\right\|_2^2-2\alpha\left\langle y^k-\bar y^k,Y(y^k;S^k)-Y(\bar y^k;S^k)\right\rangle\\
+&\leq\left(1+(\alpha L_g)^2-2\alpha\mu_g\right)\left\|y^k-\bar y^k\right\|_2^2.
+\end{aligned}
+$$
+
+最后两个不等式来自 H3。由于 $\alpha\leq\frac{\mu_g}{(L_g)^2}$，首项可化简为
+
+$$
+\begin{aligned}
+\left(1+(\alpha L_g)^2-2\alpha\mu_g\right)\left\|y^k-\bar y^k\right\|_2^2&\leq(1-\alpha\mu_g)\left\|y^k-\bar y^k\right\|_2^2\\
+&\leq(1-\alpha\mu_g)\left[(1+z)\left\|y^k-\bar y^{k-1}\right\|_2^2+\left(1+\frac1z\right)\left\|\bar y^{k-1}-\bar y^{k}\right\|_2^2\right],
+\end{aligned}
+$$
+
+其中 $z>0$ 任意。由 (S2) 把右端界为
+
+$$
+\begin{aligned}
+&(1-\alpha\mu_g)(1+z)\left\|y^k-\bar y^{k-1}\right\|_2^2+L_y^2\left(1+\frac1z\right)\left\|S^{k-1}-S^{k}\right\|_F^2\\
+&\leq\left(1-\frac{\alpha\mu_g}{2}\right)\left\|y^k-\bar y^{k-1}\right\|_2^2+L_y^2\left(\frac{2}{\mu_g\alpha}-1\right)\left\|S^{k-1}-S^{k}\right\|_F^2,
+\end{aligned}
+$$
+
+其中最后一步取 $z=\frac{\mu_g\alpha}{2(1-\mu_g\alpha)}$。$\square$
+
+上述命题的直接推论是 $y^k$ 有界，可通过解递推（26）并利用 $\|S^k-S^{k-1}\|_F\leq D$ 证明。特别地，令
+
+$$
+B:=\tilde B+\sqrt{\left\|y^1-\bar y^0\right\|_2^2+2D^2L_y^2\alpha\mu_g\left(\frac{2}{\alpha\mu_g}-1\right)},\tag{27}
+$$
+
+其中 $D$ 为 $\mathcal S$ 的直径，$\tilde B$、$L_y$ 由 (S2) 给出。
+
+**推论 1.** 在命题 8 的设定下，对任意 $k\geq0$ 有 $\|y^k\|_2\leq B$。
+
+上述推论使我们能控制上层目标函数 $\ell(\cdot)$ 的进展：
+
+**命题 9.** 在命题 8 的设定下，存在 $L_{\hat\Phi}$ 与 $L_\ell$，使对任意 $k$ 有
+
+$$
+\ell(S^{k+1})-\ell(S^k)\leq-\left(\frac{1}{2\gamma}-\frac{L_\ell}{2}\right)\left\|S^{k+1}-S^k\right\|_F^2+\frac{\gamma}{2}L_{\hat\Phi}^2\left\|y^{k+1}-\bar y^k\right\|_2^2.\tag{28}
+$$
+
+**证明.** (S4) 意味着
+
+$$
+\ell(S^{k+1})-\ell(S^k)\leq\left\langle\nabla\ell(S^k),S^{k+1}-S^k\right\rangle+\frac{L_\ell}{2}\left\|S^{k+1}-S^k\right\|_F^2.\tag{29}
+$$
+
+由于 $\|y^k\|_2\leq B$ 且 $\|y^{\star}(S)\|_2\leq\tilde B$，(S3) 意味着存在 $L_{\hat\Phi}$，使对任意 $k$ 有
+
+$$
+\left\|\nabla\ell(S^k)-\hat\nabla\Phi(S^k;y^{k+1})\right\|_F=\left\|\hat\nabla\Phi(S^k;\bar y^k)-\hat\nabla\Phi(S^k;y^{k+1})\right\|_F\leq L_{\hat\Phi}\left\|\bar y^k-y^{k+1}\right\|_2.
+$$
+
+随后可界为
+
+$$
+\begin{aligned}
+\left\langle\nabla\ell(S^k),S^{k+1}-S^k\right\rangle&=\left\langle\nabla\ell(S^k)-\hat\nabla\Phi(S^k;y^{k+1})+\hat\nabla\Phi(S^k;y^{k+1}),S^{k+1}-S^k\right\rangle\\
+&\leq\left\langle\nabla\ell(S^k)-\hat\nabla\Phi(S^k;y^{k+1}),S^{k+1}-S^k\right\rangle-\frac1\gamma\left\|S^{k+1}-S^k\right\|_F^2\\
+&\leq\frac{\gamma}{2}\left\|\nabla\ell(S^k)-\hat\nabla\Phi(S^k;y^{k+1})\right\|_F^2-\frac{1}{2\gamma}\left\|S^{k+1}-S^k\right\|_F^2\\
+&\leq\frac{\gamma}{2}L_{\hat\Phi}^2\left\|\bar y^k-y^{k+1}\right\|_2^2-\frac{1}{2\gamma}\left\|S^{k+1}-S^k\right\|_F^2,
+\end{aligned}
+$$
+
+其中第一个不等式来自 $S$ 的更新规则，最后一个不等式来自 (S3)。最后把上述结果与（29）结合即得（28）。$\square$
+
+为完成证明，我们借用 [30, 引理 3.6] 的如下引理。
+
+**引理 2.** 考虑非负序列 $\{\Omega_k\}$、$\{\Gamma_k\}$、$\{\Theta_k\}$。设 $c_0,c_1,d_0,d_1>0$ 满足
+
+$$
+\Omega_{k+1}\leq\Omega_k-c_0\Theta_{k+1}+c_1\Gamma_{k+1},\qquad \Gamma_{k+1}\leq(1-d_0)\Gamma_k+d_1\Theta_k.\tag{30}
+$$
+
+若 $\frac{c_0}{c_1}>\frac{d_1}{d_0}$，则
+
+$$
+\frac1K\sum_{k=1}^{K}\Theta_k=O(1/K),\qquad \frac1K\sum_{k=1}^{K}\Gamma_k=O(1/K).
+$$
+
+取 $\Theta_k=\|S^k-S^{k-1}\|_F^2$、$\Gamma_k=\|y^k-y^{\star}(S^{k-1})\|_2^2$、$\Omega_k=\ell(S^k)$。由命题 8 与 9 可见，取 $c_0=\frac{1}{2\gamma}-\frac{L_\ell}{2}$ 时（30）中不等式以 $c_1=\frac{\gamma}{2}L_{\hat\Phi}^2$、$d_0=\frac{\alpha(1-\mu_y)}{2}$、$d_1=L_y^2\left(\frac{2}{\alpha(1-\mu_y)}-1\right)$ 成立。取 $\alpha=\frac{1-\mu_y}{(1+\mu_y)^2}$ 与 $\gamma\leq\min\left\{\frac{3}{4L_\ell},\frac{\alpha(1-\mu_y)}{4L_{\hat\Phi}L_y}\right\}$，可观察到
+
+$$
+\frac{c_0}{c_1}=\frac{1-\gamma L_\ell}{\gamma^2L_{\hat\Phi}^2}\geq\frac{1}{4\gamma^2L_{\hat\Phi}^2}\geq\frac{4L_y^2}{\mu_g^2\alpha^2}>\frac{L_y^2\left(4-2\mu_g\alpha\right)}{\alpha^2\mu_g^2}=\frac{d_1}{d_0}.
+$$
+
+应用引理 2 得
+
+$$
+\frac1K\sum_{k=1}^{K}\left\|S^k-S^{k-1}\right\|_F^2=O\left(\frac1K\right),\tag{31}
+$$
+
+$$
+\frac1K\sum_{k=1}^{K}\left\|y^k-\bar y^{k-1}\right\|_2^2=O\left(\frac1K\right).\tag{32}
+$$
+
+最后观察到
+
+$$
+\begin{aligned}
+\gamma G_\gamma(S^k)&=\left\|S^k-\operatorname{Proj}_{\mathcal S}\left(S^k-\gamma\nabla\ell(S^k)\right)\right\|_F\\
+&\leq\left\|S^k-\operatorname{Proj}_{\mathcal S}\left(S^k-\gamma\hat\nabla\Phi(S^k;y^{k+1})\right)\right\|_F\\
+&\quad+\left\|\operatorname{Proj}_{\mathcal S}\left(S^k-\gamma\hat\nabla\Phi(S^k;y^{k+1})\right)-\operatorname{Proj}_{\mathcal S}\left(S^k-\gamma\nabla\ell(S^k)\right)\right\|_F\\
+&\leq\left\|S^k-S^{k+1}\right\|_F+\gamma\left\|\hat\nabla\Phi(S^k;y^{k+1})-\nabla\ell(S^k)\right\|_F\\
+&\leq\left\|S^k-S^{k+1}\right\|_F+\gamma L_{\hat\Phi}\left\|y^{k+1}-\bar y^k\right\|_2.
+\end{aligned}
+$$
+
+由（31）与（32）得
+
+$$
+\frac1K\sum_{k=1}^{K}G_\gamma(S^k)=O(1/K),
+$$
+
+即定理 1 证毕。
+
+## 附录 C：命题 1 的证明（原 PDF 第 17—18 页）
+
+本小节全程假设 LQ 博弈设定下 H6 成立。注意对 LQ 博弈有
+
+$$
+Y_{\mathrm{lq}}(y;S)=y-\max\{0,Sf(y)+\mathbf b\}.\tag{33}
+$$
+
+我们定义
+
+$$
+\tilde Y_{\mathrm{lq}}(y;S)=y-(Sf(y)+\mathbf b)\tag{34}
+$$
+
+并证明对任意 $y\in\mathcal Y$、$S\in\mathcal S_{\mathrm{ng}}$ 有 $\tilde Y_{\mathrm{lq}}(y;S)=Y_{\mathrm{lq}}(y;S)$。形式上：
+
+**引理 3.** 对 LQ 博弈，对任意 $S\in\mathcal S_{\mathrm{ng}}$ 与 $y\in[0,\infty)^N$ 有 $\tilde Y_{\mathrm{lq}}(y;S)=Y_{\mathrm{lq}}(y;S)$。
+
+**证明.** 在 LQ 博弈设定下，注意由 H6 有 $f(x)\geq0$（任意 $x\in[0,\infty)$）且 $\mathbf b\geq0$。故对任意 $y\in\mathcal Y$ 与 $S\in\mathcal S_{\mathrm{ng}}$ 有 $Sf(y)+\mathbf b\geq0$。这证明 $\tilde Y_{\mathrm{lq}}(y;S)=Y_{\mathrm{lq}}(y;S)$ 在所关注区域成立。$\square$
+
+> **注 3：** 上述证明表明，在 H6 下 $F(y;S):=y-Y(y;S)$ 对任意 $S\in\mathcal S_{\mathrm{ng}}$ 是 $\mathcal Y$ 上的自映射。因此对 LQ 博弈，H2 在该假设下成立。
+
+接着证明 $\tilde Y_{\mathrm{lq}}$ 与（GL-NG）中定义的 $\Phi(\cdot)$ 一起满足 H3—H5。
+
+**引理 4.** 若 $\Phi(S;y)=\operatorname{Tr}(S^{\top}D)+\beta\|S\|_F^2-\lambda\mathbf 1^{\top}y$（如（GL-NG）所定义），则 H4 在 $\mathcal S=\mathcal S_{\mathrm{ng}}$ 与 $\mathcal Y\subseteq[0,\infty)^N$ 下成立。
+
+**证明.** 注意 $\nabla\Phi(S;y)=(D+2\beta S;-\lambda\mathbf 1)$。因此对任意 $S_1,S_2\in\mathcal S_{\mathrm{ng}}$ 与 $y_1,y_2\in\mathcal Y$ 有
+
+$$
+\|\nabla\Phi(S_1;y_1)-\nabla\Phi(S_2;y_2)\|_F=\|(2\beta(S_1-S_2);\mathbf 0)\|_F=2\beta\|S_1-S_2\|_F\leq2\beta\|(S_1;y_1)-(S_2;y_2)\|_F.
+$$
+
+命题得证。$\square$
+
+**引理 5.** $\tilde Y_{\mathrm{lq}}$ 满足 H3。
+
+**证明.** 对任意 $S\in\mathcal S_{\mathrm{ng}}$ 与 $y_1,y_2\in\mathcal Y$，注意
+
+$$
+\begin{aligned}
+\left\langle\tilde Y_{\mathrm{lq}}(y_1;S)-\tilde Y_{\mathrm{lq}}(y_2;S),y_1-y_2\right\rangle&=\|y_1-y_2\|_2^2-\left\langle S(f(y_1)-f(y_2)),y_1-y_2\right\rangle\\
+&\geq\|y_1-y_2\|_2^2-\|S\|_2L_{f,1}\|y_1-y_2\|_2^2\\
+&\geq(1-cL_{f,1})\|y_1-y_2\|_2^2.
+\end{aligned}
+$$
+
+最后一步不等式来自对任意 $S\in\mathcal S_{\mathrm{ng}}$ 有 $\|S\|_2\leq\|S\|_\infty=c$。对 H3 的第二部分，注意
+
+$$
+\left\|\tilde Y_{\mathrm{lq}}(y_1;S)-\tilde Y_{\mathrm{lq}}(y_2;S)\right\|_2\leq\|y_1-y_2\|_2+\|S(f(y_1)-f(y_2))\|_2\leq(1+cL_{f,1})\|y_1-y_2\|_2.
+$$
+
+引理得证。$\square$
+
+**引理 6.** $\tilde Y_{\mathrm{lq}}$ 满足 H5。
+
+**证明.** 注意
+
+$$
+J\tilde Y_{\mathrm{lq}}=\left[I-S\operatorname{Diag}(f'(y));\ f(y)\otimes\mathbf I_N\right].\tag{35}
+$$
+
+因此对任意 $S_1,S_2\in\mathcal S_{\mathrm{ng}}$ 与 $y_1,y_2\in\mathcal Y$ 有
+
+$$
+\begin{aligned}
+\left\|J\tilde Y_{\mathrm{lq}}(y_1;S_1)-J\tilde Y_{\mathrm{lq}}(y_2;S_2)\right\|_F&\leq\left\|S_1\operatorname{Diag}(f'(y_1))-S_2\operatorname{Diag}(f'(y_2))\right\|_F\\
+&\quad+\left\|(f(y_1)-f(y_2))\otimes\mathbf I_N\right\|_F\\
+&\leq\|S_1\|_2\left\|\operatorname{Diag}(f'(y_1))-\operatorname{Diag}(f'(y_2))\right\|_F+\left\|\operatorname{Diag}(f'(y_1))\right\|_2\|S_1-S_2\|_F\\
+&\quad+\left\|(f(y_1)-f(y_2))\otimes\mathbf I_N\right\|_F\\
+&\leq cL_{f,2}\|y_1-y_2\|_2+L_{f,1}\|S_1-S_2\|_F+\sqrt N L_{f,1}\|y_1-y_2\|_2\\
+&\leq\sqrt2\left(cL_{f,2}+\sqrt N L_{f,1}\right)\left\|(S_1;y_1)-(S_2;y_2)\right\|_F.
+\end{aligned}
+$$
+
+关于命题 2 的证明，回顾
+
+$$
+Y_{\mathrm{rt}}(y;S)=y-\min\{a,g(Sy)+\mathbf b\}.
+$$
+
+类似地定义
+
+$$
+\tilde Y_{\mathrm{rt}}(y;S)=y-(g(Sy)+\mathbf b).
+$$
+
+仿照命题 1 的证明可证在所关注区域上 $Y_{\mathrm{rt}}=\tilde Y_{\mathrm{rt}}$，且当 H7 对 RT 博弈成立时 $\tilde Y_{\mathrm{rt}}$ 满足 H3—H5。
+
+## 参考文献（英文原书目）
+
+以下按原 PDF 第 14—15 页的编号逐条转录英文书目，保留英文原貌与原始编号；本页未翻译条目文字，也未联网核验 DOI 与在线链接。
+
+[1] M. Newman, Networks. Oxford University Press, 2018.
+
+[2] G. Mateos, S. Segarra, A. G. Marques, and A. Ribeiro, "Connecting the dots: Identifying network structure via graph signal processing," IEEE Signal. Process. Mag., vol. 36, no. 3, pp. 16–43, 2019.
+
+[3] X. Dong, D. Thanou, M. Rabbat, and P. Frossard, "Learning graphs from data: A signal representation perspective," IEEE Signal. Process. Mag., vol. 36, no. 3, pp. 44–63, 2019.
+
+[4] J. Friedman, T. Hastie, and R. Tibshirani, "Sparse inverse covariance estimation with the graphical Lasso," Biostatistics, vol. 9, no. 3, pp. 432–441, 2008.
+
+[5] X. Dong, D. Thanou, P. Frossard, and P. Vandergheynst, "Learning Laplacian matrix in smooth graph signal representations," IEEE Trans. Signal Process., vol. 64, no. 23, pp. 6160–6173, 2016.
+
+[6] V. Kalofolias, "How to learn a graph from smooth signals," in AISTATS, 2016, pp. 920–929.
+
+[7] P.-L. Loh and M. J. Wainwright, "Structure estimation for discrete graphical models: Generalized covariance matrices and their inverses," Advances in Neural Information Processing Systems, vol. 25, 2012.
+
+[8] H. Rue and L. Held, Gaussian Markov Random Fields: Theory and Applications. Chapman and Hall/CRC, 2005.
+
+[9] N. Meinshausen and P. Bühlmann, "High-dimensional graphs and variable selection with the Lasso," Annals of Statistics, vol. 34, no. 3, pp. 1436–1462, 2006.
+
+[10] Y. Shen, B. Baingana, and G. B. Giannakis, "Kernel-based structural equation models for topology identification of directed networks," IEEE Trans. Signal Process., vol. 65, no. 10, pp. 2503–2516, 2017.
+
+[11] H.-T. Wai, A. Scaglione, B. Barzel, and A. Leshem, "Joint network topology and dynamics recovery from perturbed stationary points," IEEE Trans. Signal Process., vol. 67, no. 17, pp. 4582–4596, 2019.
+
+[12] S. Segarra, A. G. Marques, G. Mateos, and A. Ribeiro, "Network topology inference from spectral templates," IEEE TSIPN, vol. 3, no. 3, pp. 467–483, 2017.
+
+[13] A. Sandryhaila and J. M. Moura, "Discrete signal processing on graphs," IEEE Trans. Signal Process., vol. 61, no. 7, pp. 1644–1656, 2013.
+
+[14] D. I. Shuman, S. K. Narang, P. Frossard, A. Ortega, and P. Vandergheynst, "The emerging field of signal processing on graphs: Extending high-dimensional data analysis to networks and other irregular domains," IEEE Signal. Process. Mag., vol. 30, no. 3, pp. 83–98, 2013.
+
+[15] Z. Chen, W. Gan, J. Wu, K. Hu, and H. Lin, "Data scarcity in recommendation systems: A survey," ACM Transactions on Recommender Systems, vol. 3, no. 3, pp. 1–31, 2025.
+
+[16] Y. Li, M. Purcell, T. Rakotoarivelo, D. Smith, T. Ranbaduge, and K. S. Ng, "Private graph data release: A survey," ACM Computing Surveys, vol. 55, no. 11, pp. 1–39, 2023.
+
+[17] G. Kossinets, "Effects of missing data in social networks," Social Networks, vol. 28, no. 3, pp. 247–268, 2006.
+
+[18] X. Yang, M. Sheng, Y. Yuan, and T. Q. Quek, "Network topology inference from heterogeneous incomplete graph signals," IEEE Trans. Signal Process., vol. 69, pp. 314–327, 2020.
+
+[19] M. O. Jackson, Social and Economic Networks. Princeton University Press, 2008, vol. 3.
+
+[20] S. M. Smith, K. L. Miller, G. Salimi-Khorshidi, M. Webster, C. F. Beckmann, T. E. Nichols, J. D. Ramsey, and M. W. Woolrich, "Network modelling methods for FMRI," NeuroImage, vol. 54, no. 2, 2011.
+
+[21] F. R. Chung, Spectral Graph Theory. American Mathematical Society, 1997, vol. 92.
+
+[22] H. Zha, X. He, C. Ding, H. Simon, and M. Gu, "Bipartite graph partitioning and data clustering," in CIKM, 2001, pp. 25–32.
+
+[23] L. Lovász, Graphs and Geometry. American Mathematical Society, 2019, vol. 65.
+
+[24] H. E. Egilmez, E. Pavez, and A. Ortega, "Graph learning from data under Laplacian and structural constraints," IEEE Journal of Selected Topics in Signal Processing, vol. 11, no. 6, pp. 825–841, 2017.
+
+[25] S. Kumar, J. Ying, J. V. d. M. Cardoso, and D. P. Palomar, "A unified framework for structured graph learning via spectral constraints," Journal of Machine Learning Research, vol. 21, no. 22, pp. 1–60, 2020.
+
+[26] F. Nie, X. Wang, M. Jordan, and H. Huang, "The constrained Laplacian rank algorithm for graph-based clustering," in Proceedings of the AAAI Conference on Artificial Intelligence, vol. 30, no. 1, 2016.
+
+[27] G. Demange, "Optimal targeting strategies in a network under complementarities," Games and Economic Behavior, vol. 105, 2017.
+
+[28] O. Candogan, K. Bimpikis, and A. Ozdaglar, "Optimal pricing in networks with externalities," Operations Research, vol. 60, no. 4, 2012.
+
+[29] J. Gao, B. Barzel, and A.-L. Barabási, "Universal resilience patterns in complex networks," Nature, vol. 530, no. 7590, pp. 307–312, 2016.
+
+[30] M. Hong, H.-T. Wai, Z. Wang, and Z. Yang, "A two-timescale stochastic algorithm framework for bilevel optimization: Complexity analysis and application to actor-critic," SIAM Journal on Optimization, vol. 33, no. 1, pp. 147–180, 2023.
+
+[31] H. Shen and T. Chen, "On penalty-based bilevel gradient descent method," in ICML, 2023, pp. 30 992–31 015.
+
+[32] A. Shaban, C.-A. Cheng, N. Hatch, and B. Boots, "Truncated back-propagation for bilevel optimization," in AISTATS, 2019, pp. 1723–1732.
+
+[33] Z. Zhou and A. M.-C. So, "A unified approach to error bounds for structured convex optimization problems," Mathematical Programming, vol. 165, pp. 689–728, 2017.
+
+[34] M. Kühne, P. D. Grontas, G. De Pasquale, G. Belgioioso, F. Dorfler, and J. Lygeros, "Optimizing social network interventions via hypergradient-based recommender system design," in International Conference on Machine Learning. PMLR, 2025, pp. 31 860–31 875.
+
+[35] Z. Xu and V. Tzoumas, "Performance-aware self-configurable multi-agent networks: A distributed submodular approach for simultaneous coordination and network design," arXiv:2409.01411, 2024.
+
+[36] M. Hu, H. Chang, B. Ma, and S. Shan, "Learning continuous graph structure with bilevel programming for graph neural networks," in IJCAI, 2022, pp. 3057–3063.
+
+[37] C. Zhang, S. Liu, H.-T. Wai, and A. M.-C. So, "Network games induced prior for graph topology learning," in ICASSP, 2025.
+
+[38] R. Ramakrishna, H. T. Wai, and A. Scaglione, "A user guide to low-pass graph signal processing and its applications: Tools and applications," IEEE Signal. Process. Mag., vol. 37, no. 6, pp. 74–85, 2020.
+
+[39] A. Tjärnberg, T. E. Nordling, M. Studham, and E. L. Sonnhammer, "Optimal sparsity criteria for network inference," Journal of Computational Biology, vol. 20, no. 5, pp. 398–408, 2013.
+
+[40] T. Hillerton, D. Seçilmiş, S. Nelander, and E. L. Sonnhammer, "Fast and accurate gene regulatory network inference by normalized least squares regression," Bioinformatics, vol. 38, no. 8, pp. 2263–2268, 2022.
+
+[41] Y.-J. Chen, Y. Zenou, and J. Zhou, "The impact of network topology and market structure on pricing," Journal of Economic Theory, vol. 204, p. 105491, 2022.
+
+[42] F. Li, T. Long, Y. Lu, Q. Ouyang, and C. Tang, "The yeast cell-cycle network is robustly designed," Proceedings of the National Academy of Sciences, vol. 101, no. 14, pp. 4781–4786, 2004.
+
+[43] S. Ciliberti, O. C. Martin, and A. Wagner, "Robustness can evolve gradually in complex regulatory gene networks with varying topology," PLoS Computational Biology, vol. 3, no. 2, p. e15, 2007.
+
+[44] J. Cai, C. Zhang, and H.-T. Wai, "Optimal pricing for linear-quadratic games with nonlinear interaction between agents," IEEE Control Systems Letters, 2024.
+
+[45] C. Ballester, A. Calvó-Armengol, and Y. Zenou, "Who's who in networks. Wanted: The key player," Econometrica, vol. 74, no. 5, pp. 1403–1417, 2006.
+
+[46] Y. Bramoullé, R. Kranton, and M. D'amours, "Strategic interaction and networks," American Economic Review, vol. 104, pp. 898–930, 2014.
+
+[47] M. O. Jackson and Y. Zenou, "Games on Networks," in Handbook of Game Theory with Economic Applications. Elsevier, 2015, vol. 4, pp. 95–163.
+
+[48] N. Allouch, "On the private provision of public goods on networks," Journal of Economic Theory, vol. 157, pp. 527–552, 2015.
+
+[49] F. Parise and A. Ozdaglar, "A variational inequality framework for network games: Existence, uniqueness, convergence and sensitivity analysis," Games and Economic Behavior, vol. 114, pp. 47–82, 2019.
+
+[50] M. Belhaj and F. Deroïan, "Competing activities in social networks," The BE Journal of Economic Analysis & Policy, vol. 14, no. 4, pp. 1431–1466, 2014.
+
+[51] H. Sanhedrai, J. Gao, A. Bashan, M. Schwartz, S. Havlin, and B. Barzel, "Reviving a failed network through microscopic interventions," Nature Physics, vol. 18, no. 3, pp. 338–349, 2022.
+
+[52] C. Meena, C. Hens, S. Acharyya, S. Haber, S. Boccaletti, and B. Barzel, "Emergent stability in complex network dynamics," Nature Physics, vol. 19, no. 7, pp. 1033–1042, 2023.
+
+[53] U. Alon, An Introduction to Systems Biology: Design Principles of Biological Circuits. Chapman and Hall/CRC, 2019.
+
+[54] G. Karlebach and R. Shamir, "Modelling and analysis of gene regulatory networks," Nature Reviews Molecular Cell Biology, vol. 9, no. 10, pp. 770–780, 2008.
+
+[55] T. S. Gardner, D. Di Bernardo, D. Lorenz, and J. J. Collins, "Inferring genetic networks and identifying compound mode of action via expression profiling," Science, vol. 301, no. 5629, pp. 102–105, 2003.
+
+[56] Y. Yuan, G.-B. Stan, S. Warnick, and J. Goncalves, "Robust dynamical network structure reconstruction," Automatica, 2011.
+
+[57] B. Liu, J. Li, Z. Yang, H.-T. Wai, M. Hong, Y. Nie, and Z. Wang, "Inducing equilibria via incentives: Simultaneous design-and-play ensures global convergence," NeurIPS, vol. 35, pp. 29 001–29 013, 2022.
+
+[58] Y. Zhang, Y. Yao, P. Ram, P. Zhao, T. Chen, M. Hong, Y. Wang, and S. Liu, "Advancing model pruning via bi-level optimization," NeurIPS, vol. 35, pp. 18 309–18 326, 2022.
+
+[59] D. Davis and D. Drusvyatskiy, "Stochastic model-based minimization of weakly convex functions," SIAM Journal on Optimization, vol. 29, no. 1, pp. 207–239, 2019.
+
+[60] R. T. Rockafellar and R. J.-B. Wets, Variational Analysis. Springer Science & Business Media, 2009, vol. 317.
+
+[61] K. Yosida, Functional Analysis. Springer Science & Business Media, 2012, vol. 123.
+
+[62] Y. Leng, X. Dong, J. Wu, and A. Pentland, "Learning quadratic games on networks," in ICML, 2020, pp. 5820–5830.
+
+[63] A. Banerjee, A. G. Chandrasekhar, E. Duflo, and M. O. Jackson, "The diffusion of microfinance," Science, vol. 341, no. 6144, 2013.
+
+[64] S. Gama-Castro et al., "RegulonDB (version 6.0): gene regulation model of Escherichia coli K-12 beyond transcription, active (experimental) annotated promoters and Textpresso navigation," Nucleic Acids Research, vol. 36, no. suppl 1, 2008.
+
+[65] S. Balaji, M. M. Babu, L. M. Iyer, N. M. Luscombe, and L. Aravind, "Comprehensive analysis of combinatorial regulation using the transcriptional regulatory network of yeast," Journal of Molecular Biology, vol. 360, no. 1, pp. 213–227, 2006.
+
+[66] D. Marbach, J. C. Costello, R. Küffner, N. M. Vega, R. J. Prill, D. M. Camacho, K. R. Allison, M. Kellis, J. J. Collins et al., "Wisdom of crowds for robust gene network inference," Nature Methods, vol. 9, no. 8, pp. 796–804, 2012.
+
+**本页范围与校对状态：** 本页依据 arXiv:2606.13885v1（eess.SP，2026-06-11，18 页）完成全文中文翻译：摘要、索引词、记号、第 I—VII 节（含各小节、假设 H1—H7、命题 1—9、引理 1—6、定理 1、推论 1、注 1—3）、结论、图 1—8 中文图注、表 I—III 逐格转录、附录 A—C、参考文献 [1]—[66] 英文原条目（按原编号）。公式编号 (1)—(35) 按原文保留；表 I 已用 PDF 第 5 页、表 II 与表 III 分别用第 11、12 页渲染图逐格核对。**逐句逐式终校未做**；图内曲线与直方图未作数字化读取，只转录图注与正文给出的关键信息；参考文献未联网核验 DOI、页码与在线链接。原文为期刊式长文，无作者简介与补充材料。本页为全文译稿，不宣称已通过逐式校对验收。
 
 ---
 
