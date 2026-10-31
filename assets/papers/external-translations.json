@@ -42,8 +42,8 @@
   {
     "date": "2026-10-31",
     "slug": "2026-10-31-cpf-ddnm-2610-03261",
-    "title": "CPF-DDNM：连续后验融合的不可观测图像结构扩散恢复｜中文部分译稿",
-    "scope": "原文 21 页；摘要、引言、方法与理论、部分实验结果已翻译；剩余实验段落、部分公式和完整书目待补，非全文。",
+    "title": "CPF-DDNM：连续后验融合的不可观测图像结构扩散恢复｜中文全文译稿",
+    "scope": "原文 21 页；摘要、正文 1–6、公式（1）–（39）、算法 1、表 1–2、图 1–7 说明与英文书目 [1]–[35] 已录入；逐字符及图中细节终校未完成。原稿式（36）与算法 1 的符号矛盾已注明。",
     "url": "/papers/translations/2026-10-31-cpf-ddnm-2610-03261/",
     "source_file": "2026-10-31-cpf-ddnm-2610-03261.md",
     "source_page_path": "papers/translations/2026-10-31-cpf-ddnm-2610-03261.md",
@@ -54,8 +54,8 @@
     ],
     "qa_complete": false,
     "external": true,
-    "primary_translation": false,
-    "coverage": "partial",
+    "primary_translation": true,
+    "coverage": "full",
     "license": "arxiv",
     "final_proofread_done": false
   },
