@@ -4,8 +4,8 @@
   "source_sha256": "667f6509c907b3f519f6fb8fb5bebd90ca35d9c2641539ec2bd83988638e4787",
   "translation_progress": {
     "target": 315,
-    "completed": 219,
-    "public_full_text": 211,
+    "completed": 227,
+    "public_full_text": 219,
     "local_only": 12,
     "status_counts": {
       "access_blocked": 3,
@@ -14601,7 +14601,13 @@
       "report_entry_url": "/papers/reports/2026-09-26/#paper-0fe35eceae21f61b",
       "paper_url": "/papers/items/0fe35eceae21f61b/",
       "paper_report_url": "/papers/items/0fe35eceae21f61b/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-26-2507-06612-graph-learning-for-cooperative-cell-free-isac-systems-from-optimizatio/",
+          "title": "协作无蜂窝 ISAC 系统的图学习｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[41]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2507.06612",
         "https://arxiv.org/abs/2507.06612",
@@ -14615,10 +14621,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/0fe35eceae21f61b/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-26-2507-06612-graph-learning-for-cooperative-cell-free-isac-systems-from-optimizatio/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "aec5e22f4f692b2d",
@@ -14651,7 +14657,13 @@
       "report_entry_url": "/papers/reports/2026-09-26/#paper-aec5e22f4f692b2d",
       "paper_url": "/papers/items/aec5e22f4f692b2d/",
       "paper_report_url": "/papers/items/aec5e22f4f692b2d/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-26-2511-15198-space-time-frequency-synthetic-integrated-sensing-and-communication-ne/",
+          "title": "空时频合成一体化感知与通信｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[26]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2511.15198v1",
         "https://arxiv.org/abs/2511.15198",
@@ -14665,10 +14677,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/aec5e22f4f692b2d/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-26-2511-15198-space-time-frequency-synthetic-integrated-sensing-and-communication-ne/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "b530cc5c4dada900",
@@ -14755,7 +14767,13 @@
       "report_entry_url": "/papers/reports/2026-09-26/#paper-5ba390d284788f27",
       "paper_url": "/papers/items/5ba390d284788f27/",
       "paper_report_url": "/papers/items/5ba390d284788f27/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-26-2609-05013-has-mimo-decoding-been-proved-hard-from-lattice-problems/",
+          "title": "MIMO 解码从格问题角度是否已被证明困难？｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[10]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.05013",
         "https://arxiv.org/abs/2609.05013"
@@ -14766,10 +14784,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/5ba390d284788f27/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-26-2609-05013-has-mimo-decoding-been-proved-hard-from-lattice-problems/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "a578962c1b06d133",
@@ -14802,7 +14820,13 @@
       "report_entry_url": "/papers/reports/2026-09-26/#paper-a578962c1b06d133",
       "paper_url": "/papers/items/a578962c1b06d133/",
       "paper_report_url": "/papers/items/a578962c1b06d133/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-26-2609-25646-key-reconciliation-with-rc-ldpc-error-estimation-for-satellite-based-f/",
+          "title": "卫星通信的 RC-LDPC 密钥协商与错误估计｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[47]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.25646",
         "https://arxiv.org/abs/2609.25646",
@@ -14817,10 +14841,10 @@
       ],
       "hosted_pdfs": [],
       "status": "Early Access",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/a578962c1b06d133/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-26-2609-25646-key-reconciliation-with-rc-ldpc-error-estimation-for-satellite-based-f/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "636923cdb596f349",
@@ -14853,7 +14877,13 @@
       "report_entry_url": "/papers/reports/2026-09-26/#paper-636923cdb596f349",
       "paper_url": "/papers/items/636923cdb596f349/",
       "paper_report_url": "/papers/items/636923cdb596f349/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-26-2609-08661-partial-superimposed-pilot-aided-sparse-vector-transmission-for-high-m/",
+          "title": "部分叠加导频辅助的稀疏向量传输｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[16]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.08661",
         "https://arxiv.org/abs/2609.08661"
@@ -14864,10 +14894,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/636923cdb596f349/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-26-2609-08661-partial-superimposed-pilot-aided-sparse-vector-transmission-for-high-m/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "6cb8208e4ef11739",
@@ -15913,7 +15943,13 @@
       "report_entry_url": "/papers/reports/2026-09-23/#paper-513389bafd3f710a",
       "paper_url": "/papers/items/513389bafd3f710a/",
       "paper_report_url": "/papers/items/513389bafd3f710a/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-23-2609-16948-antennaflow-a-generative-flow-model-for-offset-correction-in-phaseless/",
+          "title": "AntennaFlow：相位缺失测量的偏移矫正生成流模型｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[17]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/abs/2609.16948)｜",
         "https://arxiv.org/pdf/2609.16948",
@@ -15925,10 +15961,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/513389bafd3f710a/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-23-2609-16948-antennaflow-a-generative-flow-model-for-offset-correction-in-phaseless/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "ced0378c092d0990",
@@ -16443,7 +16479,13 @@
       "report_entry_url": "/papers/reports/2026-09-18/#paper-44e4938426086ed1",
       "paper_url": "/papers/items/44e4938426086ed1/",
       "paper_report_url": "/papers/items/44e4938426086ed1/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-18-2608-15314-physics-informed-vae-evt-for-tail-aware-radio-map-prediction/",
+          "title": "物理信息 VAE-EVT 的尾部感知无线电地图预测｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[18]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2608.15314",
         "https://arxiv.org/abs/2608.15314",
@@ -16457,10 +16499,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/44e4938426086ed1/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-18-2608-15314-physics-informed-vae-evt-for-tail-aware-radio-map-prediction/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "b0c122a090867595",
@@ -16493,7 +16535,13 @@
       "report_entry_url": "/papers/reports/2026-09-18/#paper-b0c122a090867595",
       "paper_url": "/papers/items/b0c122a090867595/",
       "paper_report_url": "/papers/items/b0c122a090867595/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-18-2609-00615-beamrmx-radiation-pattern-driven-learning-for-generalizable-beam-radio/",
+          "title": "BeamRMX：辐射方向图驱动的可泛化波束学习｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[34]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.00615",
         "https://arxiv.org/abs/2609.00615",
@@ -16507,10 +16555,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/b0c122a090867595/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-18-2609-00615-beamrmx-radiation-pattern-driven-learning-for-generalizable-beam-radio/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "4b9e56a579c0e989",
@@ -27214,6 +27262,26 @@
     },
     {
       "date": "2026-09-26",
+      "slug": "2026-09-26-2609-25646-key-reconciliation-with-rc-ldpc-error-estimation-for-satellite-based-f",
+      "title": "卫星通信的 RC-LDPC 密钥协商与错误估计｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[47]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-26-2609-25646-key-reconciliation-with-rc-ldpc-error-estimation-for-satellite-based-f/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-26-2609-25646-key-reconciliation-with-rc-ldpc-error-estimation-for-satellite-based-f.md",
+      "paper_ids": [
+        "a578962c1b06d133"
+      ],
+      "source_arxiv_ids": [
+        "2609.25646"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-26",
       "slug": "2026-09-26-2609-23945-echo-state-network-esn-for-signal-recovery-in-rf-impaired-ibfd-mimo-sy",
       "title": "射频损伤 IBFD MIMO 系统的回声状态网络信号恢复｜中文全文译文",
       "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[20]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
@@ -27434,6 +27502,26 @@
     },
     {
       "date": "2026-09-26",
+      "slug": "2026-09-26-2609-08661-partial-superimposed-pilot-aided-sparse-vector-transmission-for-high-m",
+      "title": "部分叠加导频辅助的稀疏向量传输｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[16]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-26-2609-08661-partial-superimposed-pilot-aided-sparse-vector-transmission-for-high-m/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-26-2609-08661-partial-superimposed-pilot-aided-sparse-vector-transmission-for-high-m.md",
+      "paper_ids": [
+        "636923cdb596f349"
+      ],
+      "source_arxiv_ids": [
+        "2609.08661"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-26",
       "slug": "2026-09-26-2609-07698-non-uniform-antenna-array-design-with-large-inter-element-spacing-for",
       "title": "大间距非均匀天线阵列的大规模 MIMO 设计｜中文全文译文",
       "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[36]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
@@ -27454,6 +27542,26 @@
     },
     {
       "date": "2026-09-26",
+      "slug": "2026-09-26-2609-05013-has-mimo-decoding-been-proved-hard-from-lattice-problems",
+      "title": "MIMO 解码从格问题角度是否已被证明困难？｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[10]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-26-2609-05013-has-mimo-decoding-been-proved-hard-from-lattice-problems/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-26-2609-05013-has-mimo-decoding-been-proved-hard-from-lattice-problems.md",
+      "paper_ids": [
+        "5ba390d284788f27"
+      ],
+      "source_arxiv_ids": [
+        "2609.05013"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-26",
       "slug": "2026-09-26-2609-00863-conditional-flow-matching-for-ml-based-inverse-design-problems",
       "title": "面向机器学习逆向设计问题的条件流匹配｜中文全文译文",
       "scope": "全文覆盖：摘要、正文各节、结论、附录、图表说明（书目以原文 PDF 为题名核对入口）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
@@ -27464,6 +27572,46 @@
       ],
       "source_arxiv_ids": [
         "2609.00863"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-26",
+      "slug": "2026-09-26-2511-15198-space-time-frequency-synthetic-integrated-sensing-and-communication-ne",
+      "title": "空时频合成一体化感知与通信｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[26]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-26-2511-15198-space-time-frequency-synthetic-integrated-sensing-and-communication-ne/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-26-2511-15198-space-time-frequency-synthetic-integrated-sensing-and-communication-ne.md",
+      "paper_ids": [
+        "aec5e22f4f692b2d"
+      ],
+      "source_arxiv_ids": [
+        "2511.15198"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-26",
+      "slug": "2026-09-26-2507-06612-graph-learning-for-cooperative-cell-free-isac-systems-from-optimizatio",
+      "title": "协作无蜂窝 ISAC 系统的图学习｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[41]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-26-2507-06612-graph-learning-for-cooperative-cell-free-isac-systems-from-optimizatio/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-26-2507-06612-graph-learning-for-cooperative-cell-free-isac-systems-from-optimizatio.md",
+      "paper_ids": [
+        "0fe35eceae21f61b"
+      ],
+      "source_arxiv_ids": [
+        "2507.06612"
       ],
       "qa_complete": true,
       "external": true,
@@ -27633,6 +27781,26 @@
       "final_proofread_done": false
     },
     {
+      "date": "2026-09-23",
+      "slug": "2026-09-23-2609-16948-antennaflow-a-generative-flow-model-for-offset-correction-in-phaseless",
+      "title": "AntennaFlow：相位缺失测量的偏移矫正生成流模型｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[17]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-23-2609-16948-antennaflow-a-generative-flow-model-for-offset-correction-in-phaseless/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-23-2609-16948-antennaflow-a-generative-flow-model-for-offset-correction-in-phaseless.md",
+      "paper_ids": [
+        "513389bafd3f710a"
+      ],
+      "source_arxiv_ids": [
+        "2609.16948"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
       "date": "2026-09-20",
       "slug": "2026-09-20-2609-20769-flowsgs-improving-flow-matching-priors-for-inverse-imaging-with-stocha",
       "title": "FlowSGS：用随机插值改进逆成像流匹配先验｜中文全文译文",
@@ -27764,6 +27932,46 @@
       ],
       "source_arxiv_ids": [
         "2609.00679"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-18",
+      "slug": "2026-09-18-2609-00615-beamrmx-radiation-pattern-driven-learning-for-generalizable-beam-radio",
+      "title": "BeamRMX：辐射方向图驱动的可泛化波束学习｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[34]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-18-2609-00615-beamrmx-radiation-pattern-driven-learning-for-generalizable-beam-radio/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-18-2609-00615-beamrmx-radiation-pattern-driven-learning-for-generalizable-beam-radio.md",
+      "paper_ids": [
+        "b0c122a090867595"
+      ],
+      "source_arxiv_ids": [
+        "2609.00615"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-18",
+      "slug": "2026-09-18-2608-15314-physics-informed-vae-evt-for-tail-aware-radio-map-prediction",
+      "title": "物理信息 VAE-EVT 的尾部感知无线电地图预测｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[18]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-18-2608-15314-physics-informed-vae-evt-for-tail-aware-radio-map-prediction/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-18-2608-15314-physics-informed-vae-evt-for-tail-aware-radio-map-prediction.md",
+      "paper_ids": [
+        "44e4938426086ed1"
+      ],
+      "source_arxiv_ids": [
+        "2608.15314"
       ],
       "qa_complete": true,
       "external": true,
