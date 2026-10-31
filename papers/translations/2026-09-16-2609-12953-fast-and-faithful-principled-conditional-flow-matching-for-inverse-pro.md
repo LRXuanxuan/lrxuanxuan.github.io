@@ -429,7 +429,687 @@ $$
 - [63] Matthieu Terris, Samuel Hurault, Maxime Song, and Julián Tachella, "Reconstruct Anything Model: A Lightweight Foundation Model for Computational Imaging," in Proc. ICLR, 2026.
 - [64] Noam Elata, Hyungjin Chung, Jong Chul Ye, Tomer Michaeli, and Michael Elad, "InvFussion: Bridging Supervised and Zero-Shot Diffusion for Inverse Problems," in Proc. NeurIPS, 2025.
 
-<!-- CURSOR -->
+## 附录 A. 理论结果证明
+
+**证明路线图。** 证明沿用与方法相同的两阶段构造。第一，把联合观测 $(\mathbf x_t,\mathbf y)$ 归约为等价的高斯去噪问题，[33] 的高斯 MMSE 刻画随后给出后验均值的变分形式。第二，证明该均值确定条件速度、该速度满足条件连续性方程，且其 ODE 把高斯源输运向后验。下面各引理分别验证这些步骤，最终证明把它们组合起来。
+
+### A.1 变分刻画
+
+高斯 MMSE 刻画把后验均值估计与变分优化联系起来。对高斯噪声中观测到的信号，后验均值是二次数据拟合项加上由信号分布与噪声协方差决定的隐式正则项的唯一极小化者。我们用该结果把测量条件后验均值表示为某个优化问题的解。
+
+**引理 1（高斯 MMSE 刻画 [33, Cor. 1]）。** 设 $\mathbf z$ 在 $\mathbb R^n$ 上具有非退化分布，且
+
+$$
+\mathbf u=\mathbf z+\boldsymbol\xi,\qquad\boldsymbol\xi\sim\mathcal N(\mathbf 0,\boldsymbol\Sigma),\quad\boldsymbol\Sigma\succ0, \tag{28}
+$$
+
+其中 $\boldsymbol\xi$ 与 $\mathbf z$ 独立。则存在函数 $\phi:\mathbb R^n\to\mathbb R\cup\{+\infty\}$，使
+
+$$
+\mathbb E[\mathbf z\mid\mathbf u]=\arg\min_{\mathbf z'\in\mathbb R^n}\left\{\frac12\left\|\mathbf u-\mathbf z'\right\|_{\boldsymbol\Sigma^{-1}}^2+\phi(\mathbf z')\right\}. \tag{29}
+$$
+
+该极小化者是唯一全局极小化者与驻点，且 $\phi$ 至多相差一个加性常数唯一。
+
+**证明。** 这是 [33] 的推论 1，用 $\|\mathbf a\|_{\mathbf B}^2=\mathbf a^\top\mathbf B\mathbf a$ 重述。我们只使用 (29) 的存在性与唯一性结论。
+
+插值状态 $\mathbf x_t$ 与测量 $\mathbf y$ 都是干净图像 $\mathbf x_1$ 的含噪线性观测。由于二者噪声项独立，两个观测可堆叠为噪声协方差块对角的单一线性高斯模型。
+
+**引理 2。** 对 $t\in(0,1)$，定义
+
+$$
+\widetilde{\mathbf y}=\begin{pmatrix}\mathbf x_t\\ \mathbf y\end{pmatrix},\qquad\widetilde{\mathbf A}=\begin{pmatrix}t\mathbf I\\ \mathbf A\end{pmatrix},\qquad\widetilde{\boldsymbol\Sigma}=\begin{pmatrix}(1-t)^2\mathbf I&\mathbf 0\\ \mathbf 0&\sigma^2\mathbf I\end{pmatrix}. \tag{30}
+$$
+
+则
+
+$$
+\widetilde{\mathbf y}=\widetilde{\mathbf A}\mathbf x_1+\widetilde{\mathbf b},\qquad\widetilde{\mathbf b}\sim\mathcal N(\mathbf 0,\widetilde{\boldsymbol\Sigma}), \tag{31}
+$$
+
+且 $\widetilde{\mathbf b}$ 与 $\mathbf x_1$ 独立。
+
+**证明。** 插值方程给出 $\mathbf x_t=t\mathbf x_1+(1-t)\mathbf x_0$，测量方程给出 $\mathbf y=\mathbf A\mathbf x_1+\boldsymbol\eta$。因此
+
+$$
+\widetilde{\mathbf b}=\begin{pmatrix}(1-t)\mathbf x_0\\ \boldsymbol\eta\end{pmatrix}. \tag{32}
+$$
+
+由于 $\mathbf x_0\sim\mathcal N(\mathbf 0,\mathbf I)$ 与 $\boldsymbol\eta\sim\mathcal N(\mathbf 0,\sigma^2\mathbf I)$ 彼此独立且与 $\mathbf x_1$ 独立，所述协方差与独立性成立。
+
+增广模型是线性高斯的，但尚未具有引理 1 所需的加性去噪形式。我们按噪声水平组合插值状态与测量得到 $\mathbf u_t$。所得变量等价于在加性高斯噪声下直接观测 $\mathbf x_1$，其精度矩阵为 $\mathbf M_t$。
+
+**引理 3。** 令
+
+$$
+\mathbf M_t=\widetilde{\mathbf A}^\top\widetilde{\boldsymbol\Sigma}^{-1}\widetilde{\mathbf A}=\frac{t^2}{(1-t)^2}\mathbf I+\frac{1}{\sigma^2}\mathbf A^\top\mathbf A \tag{33}
+$$
+
+并定义
+
+$$
+\mathbf u_t=\mathbf M_t^{-1}\widetilde{\mathbf A}^\top\widetilde{\boldsymbol\Sigma}^{-1}\widetilde{\mathbf y}. \tag{34}
+$$
+
+则 $\mathbf M_t\succ0$ 且
+
+$$
+\mathbf u_t=\mathbf x_1+\boldsymbol\xi_t,\qquad\boldsymbol\xi_t\sim\mathcal N\left(\mathbf 0,\mathbf M_t^{-1}\right), \tag{35}
+$$
+
+其中 $\boldsymbol\xi_t$ 与 $\mathbf x_1$ 独立。
+
+**证明。** 对每个非零 $\mathbf a\in\mathbb R^n$，
+
+$$
+\mathbf a^\top\mathbf M_t\mathbf a=\frac{t^2}{(1-t)^2}\|\mathbf a\|_2^2+\frac{1}{\sigma^2}\|\mathbf A\mathbf a\|_2^2>0. \tag{36}
+$$
+
+故 $\mathbf M_t\succ0$。把 (31) 代入 (34) 得
+
+$$
+\mathbf u_t=\mathbf x_1+\mathbf M_t^{-1}\widetilde{\mathbf A}^\top\widetilde{\boldsymbol\Sigma}^{-1}\widetilde{\mathbf b}=:\mathbf x_1+\boldsymbol\xi_t. \tag{37}
+$$
+
+噪声 $\boldsymbol\xi_t$ 是高斯的且与 $\mathbf x_1$ 独立，其协方差为
+
+$$
+\mathrm{Cov}(\boldsymbol\xi_t)=\mathbf M_t^{-1}\widetilde{\mathbf A}^\top\widetilde{\boldsymbol\Sigma}^{-1}\widetilde{\boldsymbol\Sigma}\widetilde{\boldsymbol\Sigma}^{-1}\widetilde{\mathbf A}\mathbf M_t^{-1}=\mathbf M_t^{-1}. \tag{38}
+$$
+
+这证明了 (35)。
+
+归约观测 $\mathbf u_t$ 只有在保留 $(\mathbf x_t,\mathbf y)$ 中关于 $\mathbf x_1$ 的全部信息时才有用。下一引理表明增广数据拟合项等于涉及 $\mathbf u_t$ 的高斯去噪项（至多相差一个与未知图像无关的常数）。因此对 $\mathbf u_t$ 条件化给出的后验均值与对原观测条件化相同。
+
+**引理 4。** (34) 中统计量 $\mathbf u_t$ 对 $\widetilde{\mathbf y}$ 中的 $\mathbf x_1$ 充分。因此
+
+$$
+\mathbb E[\mathbf x_1\mid\mathbf x_t,\mathbf y]=\mathbb E[\mathbf x_1\mid\widetilde{\mathbf y}]=\mathbb E[\mathbf x_1\mid\mathbf u_t]. \tag{39}
+$$
+
+此外，对每个 $\mathbf x\in\mathbb R^n$，
+
+$$
+\frac{1}{2(1-t)^2}\|\mathbf x_t-t\mathbf x\|_2^2+\frac{1}{2\sigma^2}\|\mathbf y-\mathbf A\mathbf x\|_2^2=\frac12\|\mathbf u_t-\mathbf x\|_{\mathbf M_t}^2+c(\widetilde{\mathbf y}),
+$$
+
+其中 $c(\widetilde{\mathbf y})$ 不依赖 $\mathbf x$。
+
+**证明。** 由 $\mathbf M_t$ 与 $\mathbf u_t$ 的定义，
+
+$$
+\widetilde{\mathbf A}^\top\widetilde{\boldsymbol\Sigma}^{-1}\widetilde{\mathbf y}=\mathbf M_t\mathbf u_t. \tag{40}
+$$
+
+展开增广二次型并配方得
+
+$$
+\frac12\|\widetilde{\mathbf y}-\widetilde{\mathbf A}\mathbf x\|_{\widetilde{\boldsymbol\Sigma}^{-1}}^2=\frac12\mathbf x^\top\mathbf M_t\mathbf x-\mathbf x^\top\mathbf M_t\mathbf u_t+\frac12\widetilde{\mathbf y}^\top\widetilde{\boldsymbol\Sigma}^{-1}\widetilde{\mathbf y}=\frac12\|\mathbf u_t-\mathbf x\|_{\mathbf M_t}^2+c(\widetilde{\mathbf y}),
+$$
+
+其中
+
+$$
+c(\widetilde{\mathbf y})=\frac12\widetilde{\mathbf y}^\top\widetilde{\boldsymbol\Sigma}^{-1}\widetilde{\mathbf y}-\frac12\mathbf u_t^\top\mathbf M_t\mathbf u_t. \tag{41}
+$$
+
+逐块展开左边即得 (40)。
+
+条件似然因此因子化为
+
+$$
+p(\widetilde{\mathbf y}\mid\mathbf x_1)=r(\widetilde{\mathbf y})\exp\left(-\frac12\|\mathbf u_t-\mathbf x_1\|_{\mathbf M_t}^2\right), \tag{42}
+$$
+
+其中 $r(\widetilde{\mathbf y})$ 与 $\mathbf x_1$ 无关。因子分解判据表明 $\mathbf u_t$ 对 $\mathbf x_1$ 充分，这证明了 (39)。
+
+前面引理把观测 $(\mathbf x_t,\mathbf y)$ 归约为等价的高斯去噪观测 $\mathbf u_t$，且不丢失关于 $\mathbf x_1$ 的信息。因此可把高斯 MMSE 刻画应用于 $\mathbf u_t$，再用原观测重写其二次项。所得目标包含一个与插值状态相关的项与一个显式强制测量模型的项。
+
+**引理 5。** 假设 $p_1$ 非退化。对每个 $t\in(0,1)$，存在函数 $\phi_t:\mathbb R^n\to\mathbb R\cup\{+\infty\}$（至多相差一个加性常数唯一），使
+
+$$
+\mathbb E[\mathbf x_1\mid\mathbf x_t,\mathbf y]=\arg\min_{\mathbf x\in\mathbb R^n}\left\{\frac{1}{2(1-t)^2}\|\mathbf x_t-t\mathbf x\|_2^2+\frac{1}{2\sigma^2}\|\mathbf y-\mathbf A\mathbf x\|_2^2+\phi_t(\mathbf x)\right\}. \tag{43}
+$$
+
+后验均值是唯一全局极小化者与驻点。为可读性省略 $\phi_t$ 对固定算子 $\mathbf A$ 与噪声水平 $\sigma$ 的依赖。
+
+**证明。** 引理 3 把 $\mathbf u_t$ 表示为高斯去噪模型
+
+$$
+\mathbf u_t=\mathbf x_1+\boldsymbol\xi_t,\qquad\boldsymbol\xi_t\sim\mathcal N\left(\mathbf 0,\mathbf M_t^{-1}\right). \tag{44}
+$$
+
+对噪声协方差 $\mathbf M_t^{-1}$ 应用引理 1 得到一个函数 $\phi_t$，使
+
+$$
+\mathbb E[\mathbf x_1\mid\mathbf u_t]=\arg\min_{\mathbf x\in\mathbb R^n}\left\{\frac12\|\mathbf u_t-\mathbf x\|_{\mathbf M_t}^2+\phi_t(\mathbf x)\right\}. \tag{45}
+$$
+
+引理 4 表明条件均值等于 $\mathbb E[\mathbf x_1\mid\mathbf x_t,\mathbf y]$，且该二次项与 (43) 中两个数据项仅相差一个与 $\mathbf x$ 无关的常数。加上或去掉该常数不改变极小化者或驻点，故结论成立。
+
+### A.2 条件概率流
+
+变分结果刻画后验均值，而流匹配需要速度场。在线性插值下，每条轨迹的速度只用其端点 $\mathbf x_1$ 与当前状态 $\mathbf x_t$ 即可写出。因此对以 $\mathbf x_t$ 与 $\mathbf y$ 为条件的可能端点取平均，就可用后验均值直接表示最优条件速度。
+
+**引理 6。** 对 $t\in[0,1)$，最优测量条件速度为
+
+$$
+\mathbf v(\mathbf x,t,\mathbf y)=\mathbb E[\mathbf x_1-\mathbf x_0\mid\mathbf x_t=\mathbf x,\mathbf y]=\frac{\mathbb E[\mathbf x_1\mid\mathbf x_t=\mathbf x,\mathbf y]-\mathbf x}{1-t}. \tag{46}
+$$
+
+**证明。** 线性路径的速度为 $\dot{\mathbf x}_t=\mathbf x_1-\mathbf x_0$。由于
+
+$$
+\mathbf x_0=\frac{\mathbf x_t-t\mathbf x_1}{1-t}, \tag{47}
+$$
+
+得
+
+$$
+\mathbf x_1-\mathbf x_0=\frac{\mathbf x_1-\mathbf x_t}{1-t}. \tag{48}
+$$
+
+对 $\mathbf x_t=\mathbf x$ 与 $\mathbf y$ 取条件期望即证 (46)。
+
+为建立概率流，必须首先表明后验均值随当前状态 $\mathbf x$ 光滑变化。有界支撑假设允许通过条件密度求导。所得 Jacobian 具有简单的协方差形式，用于控制条件速度的正则性。
+
+**引理 7（条件均值的正则性）。** 假设 $\mathrm{supp}\,p_1\subseteq B(\mathbf 0,R)$ 并固定 $\mathbf y$。定义
+
+$$
+\mathbf m_t(\mathbf x)=\mathbb E[\mathbf x_1\mid\mathbf x_t=\mathbf x,\mathbf y]. \tag{49}
+$$
+
+对每个 $t\in[0,1)$，条件密度 $p_t(\mathbf x\mid\mathbf y)$ 正且光滑，$\mathbf m_t$ 关于 $(\mathbf x,t)$ 光滑。此外 $\|\mathbf m_t(\mathbf x)\|_2\le R$，且
+
+$$
+\nabla_{\mathbf x}\mathbf m_t(\mathbf x)=\frac{t}{(1-t)^2}\mathrm{Cov}(\mathbf x_1\mid\mathbf x_t=\mathbf x,\mathbf y). \tag{50}
+$$
+
+**证明。** 令 $\nu=p(\mathbf x_1\mid\mathbf y)$。由于高斯似然为正，$\nu$ 支撑于 $B(\mathbf 0,R)$。对 $t<1$，$\mathbf x_t$ 的条件密度为
+
+$$
+p_t(\mathbf x\mid\mathbf y)=\int\varphi_{1-t}(\mathbf x-t\mathbf x_1)\nu(\mathrm d\mathbf x_1), \tag{51}
+$$
+
+其中 $\varphi_s$ 表示 $\mathcal N(\mathbf 0,s^2\mathbf I)$ 的密度。高斯核正且光滑。由于 $\nu$ 有界支撑，其导数在 $\mathbb R^n\times[0,1)$ 的紧子集上一致地被控制，因此可在积分号下求导。
+
+条件分布支撑于 $B(\mathbf 0,R)$，故其均值满足 $\|\mathbf m_t(\mathbf x)\|_2\le R$。贝叶斯公式给出
+
+$$
+q_{\mathbf x,t}(\mathrm d\mathbf x_1)=\frac{\varphi_{1-t}(\mathbf x-t\mathbf x_1)}{p_t(\mathbf x\mid\mathbf y)}\nu(\mathrm d\mathbf x_1). \tag{52}
+$$
+
+对其对数密度关于 $\mathbf x$ 求导得
+
+$$
+\nabla_{\mathbf x}\log q_{\mathbf x,t}(\mathbf x_1)=\frac{t}{(1-t)^2}\left(\mathbf x_1-\mathbf m_t(\mathbf x)\right). \tag{53}
+$$
+
+由于 $\mathbf m_t(\mathbf x)=\int\mathbf x_1q_{\mathbf x,t}(\mathrm d\mathbf x_1)$，在积分号下求导即得 (50)。
+
+唯一概率流要求条件速度随当前状态正则变化。引理 7 的 Jacobian 恒等式使我们能通过 $\mathbf x_1$ 的条件协方差界定该变化。有界支撑给出统一的协方差界，使速度在每个时间区间 $[0,\tau]$（$\tau<1$）上全局 Lipschitz。
+
+**引理 8（Lipschitz 条件速度）。** 在引理 7 的假设下，$\mathbf v(\cdot,t,\mathbf y)$ 对每个 $t\in[0,1)$ 全局 Lipschitz，且
+
+$$
+\mathrm{Lip}\left(\mathbf v(\cdot,t,\mathbf y)\right)\le\frac{1}{1-t}+\frac{tR^2}{(1-t)^3}. \tag{54}
+$$
+
+该界在每个 $\tau<1$ 上关于 $t\in[0,\tau]$ 一致。
+
+**证明。** 利用引理 6 与引理 7，
+
+$$
+\nabla_{\mathbf x}\mathbf v(\mathbf x,t,\mathbf y)=\frac{t}{(1-t)^3}\mathrm{Cov}(\mathbf x_1\mid\mathbf x_t=\mathbf x,\mathbf y)-\frac{1}{1-t}\mathbf I. \tag{55}
+$$
+
+对每个单位向量 $\mathbf a$，
+
+$$
+\mathbf a^\top\mathrm{Cov}(\mathbf x_1\mid\mathbf x_t=\mathbf x,\mathbf y)\mathbf a\le\mathbb E\left[(\mathbf a^\top\mathbf x_1)^2\mid\mathbf x_t=\mathbf x,\mathbf y\right]\le R^2. \tag{56}
+$$
+
+因此条件协方差的算子范数至多为 $R^2$，给出 (54)。对每个 $\tau<1$，
+
+$$
+\sup_{t\in[0,\tau]}\mathrm{Lip}\left(\mathbf v(\cdot,t,\mathbf y)\right)\le\frac{1}{1-\tau}+\frac{\tau R^2}{(1-\tau)^3}<\infty. \tag{57}
+$$
+
+在 $t=0$ 处，恒等式 $\mathbf v(\mathbf x,0,\mathbf y)=\mathbb E[\mathbf x_1\mid\mathbf y]-\mathbf x$ 给出 Lipschitz 常数 1，与该界一致。
+
+对每个可能端点 $\mathbf x_1$，线性插值定义一个具有已知速度的简单高斯概率路径。条件分布 $p_t(\mathbf x\mid\mathbf y)$ 通过把这些路径按 $\mathbf x_1$ 的后验分布平均得到。平均它们的概率通量即得最优测量条件速度并建立相应连续性方程。
+
+**引理 9（条件连续性方程）。** 在引理 8 的假设下，条件密度 $p_t(\mathbf x\mid\mathbf y)$ 满足
+
+$$
+\partial_tp_t(\mathbf x\mid\mathbf y)+\nabla\cdot\left(p_t(\mathbf x\mid\mathbf y)\mathbf v(\mathbf x,t,\mathbf y)\right)=0,\qquad t\in[0,1). \tag{58}
+$$
+
+**证明。** 固定 $\mathbf y$ 并记 $\nu=p(\mathbf x_1\mid\mathbf y)$。对固定端点 $\mathbf x_1$，密度
+
+$$
+p_t(\mathbf x\mid\mathbf x_1)=\varphi_{1-t}(\mathbf x-t\mathbf x_1) \tag{59}
+$$
+
+由确定性映射 $\mathbf x_0\mapsto t\mathbf x_1+(1-t)\mathbf x_0$ 诱导，因此满足
+
+$$
+\partial_tp_t(\mathbf x\mid\mathbf x_1)+\nabla\cdot\left(p_t(\mathbf x\mid\mathbf x_1)\frac{\mathbf x_1-\mathbf x}{1-t}\right)=0. \tag{60}
+$$
+
+由于 $\mathbf x_0$ 与 $(\mathbf x_1,\mathbf y)$ 独立，
+
+$$
+p_t(\mathbf x\mid\mathbf y)=\int p_t(\mathbf x\mid\mathbf x_1)\nu(\mathrm d\mathbf x_1). \tag{61}
+$$
+
+把 (60) 关于 $\nu$ 积分得
+
+$$
+\partial_tp_t(\mathbf x\mid\mathbf y)=-\nabla\cdot\int p_t(\mathbf x\mid\mathbf x_1)\frac{\mathbf x_1-\mathbf x}{1-t}\nu(\mathrm d\mathbf x_1). \tag{62}
+$$
+
+由贝叶斯公式与引理 6，(62) 中的积分等于
+
+$$
+p_t(\mathbf x\mid\mathbf y)\mathbb E\left[\frac{\mathbf x_1-\mathbf x}{1-t}\mid\mathbf x_t=\mathbf x,\mathbf y\right]=p_t(\mathbf x\mid\mathbf y)\mathbf v(\mathbf x,t,\mathbf y). \tag{63}
+$$
+
+代入即证 (58)。
+
+连续性方程确定了与条件速度相关联的概率路径，但良定义的采样器还要求相应 ODE 具有唯一轨迹。Lipschitz 界保证在每个早于 $t=1$ 结束的区间上存在唯一流。由于 ODE 流与条件路径从同一高斯分布出发并满足同一连续性方程，它们的分布一致。随后条件路径在 $t$ 趋于 1 时收敛到测量条件后验。
+
+**引理 10（条件输运与后极限）。** 在引理 8 的假设下，对每个 $\tau<1$，ODE
+
+$$
+\frac{\mathrm d\mathbf x_t}{\mathrm dt}=\mathbf v(\mathbf x_t,t,\mathbf y) \tag{64}
+$$
+
+生成唯一流映射 $\Phi_{0\to\tau}$，满足
+
+$$
+(\Phi_{0\to\tau})_\#\mathcal N(\mathbf 0,\mathbf I)=p_\tau(\cdot\mid\mathbf y). \tag{65}
+$$
+
+此外，当 $\tau\to1^-$ 时
+
+$$
+p_\tau(\cdot\mid\mathbf y)\Rightarrow p(\mathbf x_1\mid\mathbf y)\qquad(\tau\to1^-). \tag{66}
+$$
+
+**证明。** 引理 7 与引理 8 表明速度在时间上连续、在 $\mathbf x$ 上全局 Lipschitz，且在每个区间 $[0,\tau]$（$\tau<1$）上一致。它关于 $\mathbf x$ 至多线性增长。Picard–Lindelöf 定理因此给出每个此类区间上的唯一全局流映射。
+
+初始分布经该流的推前满足与 $\mathbf v$ 关联的连续性方程。由引理 9，$p_t(\cdot\mid\mathbf y)$ 满足同一方程。由于 $\mathbf x_0$ 与 $\mathbf y$ 独立，两个解具有相同初始分布：
+
+$$
+p_0(\cdot\mid\mathbf y)=\mathcal N(\mathbf 0,\mathbf I). \tag{67}
+$$
+
+全局 Lipschitz 速度下输运测度的唯一性证明 (65)。
+
+最后，按 $\mathbf x_1\sim p(\mathbf x_1\mid\mathbf y)$ 与 $\mathbf x_0\sim\mathcal N(\mathbf 0,\mathbf I)$ 独立抽样来耦合条件路径。则
+
+$$
+\mathbf x_\tau=\tau\mathbf x_1+(1-\tau)\mathbf x_0\longrightarrow\mathbf x_1\quad\text{几乎必然}. \tag{68}
+$$
+
+几乎必然收敛蕴含依分布收敛，证明 (66)。该结果不需要把流映射延拓到 $t=1$。
+
+### A.3 命题 1 的证明
+
+**证明。** 引理 5 证明测量条件后验均值是 (13) 的唯一极小化者。引理 6 把该均值转化为最优条件速度。最后，引理 9 与引理 10 表明所得速度定义条件概率流并弱收敛到测量条件后验。这些正是命题 1 的两个论断。
+
+## 附录 B. 算法细节
+
+本节给出用于参数化条件速度的 HQS 迭代实现细节。正文给出 HQS 目标及其两个交替子问题 (17) 与 (18)。
+
+### B.1 数据一致性更新
+
+$\mathbf x$ 子问题为
+
+$$
+\mathbf x^{k+1}=\arg\min_{\mathbf x}\left\{\frac{1}{2\sigma^2}\|\mathbf y-\mathbf A\mathbf x\|_2^2+\frac{\mu}{2}\left\|\mathbf x-\mathbf z^k\right\|_2^2\right\}. \tag{69}
+$$
+
+其最优性条件为
+
+$$
+\left(\sigma^{-2}\mathbf A^\top\mathbf A+\mu\mathbf I\right)\mathbf x^{k+1}=\sigma^{-2}\mathbf A^\top\mathbf y+\mu\mathbf z^k. \tag{70}
+$$
+
+定义 $\rho=\mu\sigma^2$ 即得实现所用的正规方程
+
+$$
+\left(\mathbf A^\top\mathbf A+\rho\mathbf I\right)\mathbf x^{k+1}=\mathbf A^\top\mathbf y+\rho\mathbf z^k. \tag{71}
+$$
+
+该更新显式依赖前向算子 $\mathbf A$。本文所考虑算子的闭式解见附录 B.4。
+
+### B.2 学习正则化更新
+
+精确 $\mathbf z$ 子问题为
+
+$$
+\mathbf z_\star^{k+1}=\arg\min_{\mathbf z}\left\{\phi_t(\mathbf z)+\frac{1}{2(1-t)^2}\left\|\mathbf x_t-t\mathbf z\right\|_2^2+\frac{\mu}{2}\left\|\mathbf x^{k+1}-\mathbf z\right\|_2^2\right\}. \tag{72}
+$$
+
+两个二次项可写为加权残差
+
+$$
+\frac12\left\|\widetilde{\mathbf y}_k-\widetilde{\mathbf A}_k\mathbf z\right\|_{\widetilde{\boldsymbol\Sigma}_k^{-1}}^2, \tag{73}
+$$
+
+其中
+
+$$
+\widetilde{\mathbf y}_k=\begin{pmatrix}\mathbf x_t\\ \mathbf x^{k+1}\end{pmatrix},\qquad\widetilde{\mathbf A}_k=\begin{pmatrix}t\mathbf I\\ \mathbf I\end{pmatrix},\qquad\widetilde{\boldsymbol\Sigma}_k=\begin{pmatrix}(1-t)^2\mathbf I&\mathbf 0\\ \mathbf 0&\mu^{-1}\mathbf I\end{pmatrix}. \tag{74}
+$$
+
+配方把两个观测归约为充分统计量
+
+$$
+\mathbf u_k=\frac{\frac{t}{(1-t)^2}\mathbf x_t+\mu\mathbf x^{k+1}}{\frac{t^2}{(1-t)^2}+\mu}, \tag{75}
+$$
+
+其精度为
+
+$$
+\mathbf M_k=\left(\frac{t^2}{(1-t)^2}+\mu\right)\mathbf I. \tag{76}
+$$
+
+因此 (72) 等价于（至多相差与 $\mathbf z$ 无关的项）
+
+$$
+\mathbf z_\star^{k+1}=\arg\min_{\mathbf z}\left\{\phi_t(\mathbf z)+\frac12\left\|\mathbf u_k-\mathbf z\right\|_{\mathbf M_k}^2\right\}. \tag{77}
+$$
+
+于是精确更新对插值状态与数据一致迭代的精度加权组合做去噪。该归约识别出正则化子问题的形式，但并不意味着 (77) 的任意极小化者都是后验均值。特别地，[33] 中 MMSE 刻画的逆命题一般并不成立。
+
+由于 $\phi_t$ 不可得，我们遵循 PnP 实践 [26] 用学习到的估计器替代精确更新：
+
+$$
+\hat{\mathbf z}^{k+1}=\mathcal R_\theta\left(\mathbf x^{k+1},\mathbf x_t,t\right). \tag{78}
+$$
+
+网络分别接收 (75) 的两个分量，使其相对权重可依赖 $t$ 与 HQS 参数。
+
+遵循 [29]，我们把学习估计向数据一致迭代阻尼：
+
+$$
+\mathbf z^{k+1}=(1-\beta)\mathbf x^{k+1}+\beta\hat{\mathbf z}^{k+1},\qquad\beta\in[0,1]. \tag{79}
+$$
+
+阻尼保留 $\mathbf x^{k+1}$ 的显式贡献，防止学习估计器完全覆盖数据一致迭代。
+
+### B.3 速度参数化与代价
+
+从 $\mathbf z^0=\mathbf x_t$ 出发，我们交替 (71)、(78) 与 (79) 共 $K$ 次迭代。最终迭代估计测量条件后验均值：
+
+$$
+\mathbf z_\theta^K(\mathbf x_t,t,\mathbf y)\approx\mathbb E[\mathbf x_1\mid\mathbf x_t,\mathbf y], \tag{80}
+$$
+
+并由 (19) 定义学习到的条件速度。
+
+网络参数 $\theta$ 只通过 $\mathcal R_\theta$ 进入。每次速度评估需要 $K$ 次数据一致性求解与 $K$ 次学习估计器评估。由于每次数据一致性求解都依赖 $\mathbf A$ 与 $\mathbf y$，前向算子作用于学习速度场的每个内层迭代。算法 3 总结算子感知后验均值评估。
+
+> **算法 3　算子感知后验均值估计**
+> **Require：** 插值状态 $\mathbf x_t$、时间 $t<1$、测量 $\mathbf y$、前向算子 $\mathbf A$、学习估计器 $\mathcal R_\theta$、迭代数 $K$、耦合 $\rho$、阻尼 $\beta$
+> **Ensure：** 后验均值估计 $\mathbf z^K$
+> 1: $\mathbf z^0\leftarrow\mathbf x_t$
+> 2: **for** $k=0,\dots,K-1$ **do**
+> 3: 　$\mathbf x^{k+1}\leftarrow\left(\mathbf A^\top\mathbf A+\rho\mathbf I\right)^{-1}\left(\mathbf A^\top\mathbf y+\rho\mathbf z^k\right)$
+> 4: 　$\hat{\mathbf z}^{k+1}\leftarrow\mathcal R_\theta(\mathbf x^{k+1},\mathbf x_t,t)$
+> 5: 　$\mathbf z^{k+1}\leftarrow(1-\beta)\mathbf x^{k+1}+\beta\hat{\mathbf z}^{k+1}$
+> 6: **return** $\mathbf z^K$
+
+### B.4 算子特定的数据一致性解
+
+**图像去噪。** 去噪时 $\mathbf A=\mathbf I$，(71) 给出
+
+$$
+\mathbf x^{k+1}=\frac{\mathbf y+\rho\mathbf z^k}{1+\rho}. \tag{81}
+$$
+
+该更新是测量与当前迭代的加权平均。
+
+**图像修复。** 修复时 $\mathbf A=\mathbf M$ 是满足 $\mathbf M^\top\mathbf M=\mathbf M$ 的对角二元掩码。因此 (71) 可逐元素求解：
+
+$$
+x_i^{k+1}=\begin{cases}\dfrac{y_i+\rho z_i^k}{1+\rho}, & i\in\Omega,\\[8pt] z_i^k, & i\notin\Omega,\end{cases} \tag{82}
+$$
+
+其中 $\Omega$ 表示观测像素。
+
+**图像超分辨率。** 我们用不带抗混叠预滤波的跨步下采样实现超分辨率。前向算子保留像素的周期子集，$\mathbf A^\top\mathbf A$ 是对角二元掩码，因此更新为 (82)，其中 $\mathbf y$ 替换为 $\mathbf A^\top\mathbf y$，$\Omega$ 表示采样网格位置。
+
+**图像去模糊。** 去模糊时 $\mathbf A=\mathbf H$ 是空间不变模糊。在循环边界条件下 $\mathbf H=\mathbf F^H\boldsymbol\Lambda\mathbf F$，其中 $\boldsymbol\Lambda$ 含模糊核的 Fourier 系数。(71) 随后给出
+
+$$
+\mathbf x^{k+1}=\mathbf F^H\left[\frac{\boldsymbol\Lambda\mathbf F\mathbf y+\rho\mathbf F\mathbf z^k}{|\boldsymbol\Lambda|^2+\rho}\right], \tag{83}
+$$
+
+其中括号内运算均逐元素进行。
+
+**欠采样 Fourier 测量。** 对附录 E.4 的压缩感知实验，令 $\mathbf A=\mathbf P\mathbf F$，其中 $\mathbf F$ 是正交二维 DFT，$\mathbf P=\mathrm{diag}(\mathbf p)$ 是采样掩码。记 $\hat{\mathbf z}^k=\mathbf F\mathbf z^k$，Fourier 域更新为
+
+$$
+\hat x_i^{k+1}=\begin{cases}\dfrac{y_i+\rho\hat z_i^k}{1+\rho}, & i\in\Omega,\\[8pt] \hat z_i^k, & i\notin\Omega,\end{cases}\qquad\mathbf x^{k+1}=\Re\left(\mathbf F^H\hat{\mathbf x}^{k+1}\right). \tag{84}
+$$
+
+对我们实验中所用共轭对称掩码，取实部等价于求解相应实正规方程。该算子对每个颜色通道独立施加。
+
+**一般线性算子。** 对无可利用结构的算子，(71) 可用共轭梯度求解。本文所用全部算子都允许上述闭式更新。
+
+
+## 附录 C. 相关工作
+
+成像逆问题的生成式求解器主要在一点上不同：前向算子 $\mathbf A$ 是只在推理时进入、通过算子感知架构进入，还是在条件训练中进入。我们沿该轴组织先前工作。
+
+**依赖预训练先验的推理时引导。** 扩散类方法把无条件先验与采样时的测量一致性结合。DPS 与 $\Pi$GDM 用去噪后的干净图像估计近似似然引导 [42, 43]；DDRM 与 DDNM 利用 $\mathbf A$ 的谱结构或零空间结构 [15, 44]；DiffPIR、变分 PnP 扩散与 DAPS 在生成更新与优化、投影或条件重采样之间交替 [14, 16, 45]。基于流的对应方法包括 OT-ODE、D-Flow、Flow Priors、FlowDPS、PnP-Flow 与 Flower [39, 40, 19, 46, 17, 18]。这些方法可在许多兼容算子上复用预训练先验，但在推理时只构造测量条件动力学的近似。近期后验输运分析把若干此类近似纳入统一框架并界定其后验偏差 [47]。
+
+**摊销条件模型。** 条件复原方法改为从配对数据学习测量到图像的动力学。例子包括 SR3、Palette、InDI、I²SB、条件扩散桥、ResShift 与 ResFlow [20, 48, 21, 22, 49, 50, 51]。在流匹配中，数据相关随机插值与条件 Wasserstein 表述提供了理论基础 [52, 53]，而 DAWN-FM 把其速度场条件化于测量嵌入（通常为 $\mathbf A^\top\mathbf y$）与噪声水平 [54]。多数此类模型针对特定任务或退化族训练，并通过 $\mathbf y$、$\mathbf A^\top\mathbf y$ 或学习表示编码测量。我们的区别在于 $\mathbf A$ 通过生成动力学内部的数据一致性更新显式作用。
+
+**算子感知的学习求解器。** 即插即用方法在数据保真更新中保留前向算子，同时用学习去噪器替代正则项 [26, 37, 36]。算法展开使这些迭代可端到端训练，产生 ISTA-Net、ADMM-Net、learned primal–dual、MoDL 与 VarNet 等方法 [38, 55, 56, 57, 58]。MoDL 在其数据一致性与共享权重学习更新之间的交替上尤其接近。这些架构通常训练为点估计器，本身并不定义后验采样器。我们的方法通过在每步 ODE 的每个内层迭代施加数据一致性，把它们的算子感知结构引入生成速度场。
+
+**失真–感知控制。** 失真–感知折中是图像复原的基本问题 [59]。对 MSE 失真与 Wasserstein 感知，最优估计器在最小 MSE 与完美感知两个端点之间描绘一条 Wasserstein 测地线 [60]。PMRF 通过把后验均值估计输运向数据分布来实现该思想 [61]；相关插值机制出现在 InDI 与数据相关插值中 [21, 52]。流映射去噪器同样产生一族遍历失真–感知平面的估计器，并在高斯设定下建立最优性 [62]。我们的 Euler 步数 $N$ 起类似的经验作用。在理想条件速度下，一个 Euler 步退化为条件均值更新；对学习到的速度场，$N=1$ 的输出应解释为类后验均值，而非精确等于后验均值。增大 $N$ 会在越来越低的插值噪声水平处评估学习估计器，那里后验模态更易分辨。
+
+我们的模型针对指定的前向算子族与噪声水平训练，属于摊销条件模型族。核心问题是：在给定算子特定训练的前提下，把 $\mathbf A$ 显式嵌入动力学是否优于仅把网络条件化于图像空间测量。我们在附录 E.2 研究该问题。我们还与推理时流求解器比较，因为它们是该基准的既定参照 [39, 40, 19, 17, 18]。跨算子族摊销的方法 [63, 64] 为扩展本文方法提供了自然方向。
+
+## 附录 D. 实现细节
+
+**估计器网络。** 学习估计器 $\mathcal R_\theta$ 是 U-Net，接收数据一致迭代 $\mathbf x^{k+1}$ 与流状态 $\mathbf x_t$ 沿通道维度的拼接（$2C$ 个输入通道），并通过宽度 $4c_h$ 的正弦嵌入注入每个残差块来以 $t$ 为条件。块使用 32 组的 GroupNorm 与 Swish 激活，并在表 7 所列分辨率处使用自注意力。权重在 $K$ 次内层迭代间共享，因此完整模型的参数数等于单个 U-Net：CelebA 模型用 $c_h=32$、乘子 $(1,2,4,8)$（34.5M 参数）；AFHQ-Cat 模型用乘子 $(1,2,4,8,8)$、$c_h=32$（59.9M），去模糊除外使用 $c_h=64$（239.4M）。
+
+**求解器。** 我们使用 $K=5$ 次内层迭代、阻尼 $\beta=0.5$、对每个算子与噪声水平固定耦合 $\rho=0.01$。把数据一致步写为 $\mathbf x^{k+1}=(\mathbf A^\top\mathbf A+\rho\mathbf I)^{-1}(\mathbf A^\top\mathbf y+\rho\mathbf z^k)$ 会把噪声方差吸收进 $\rho=\mu\sigma^2$；对本文考虑的所有算子该求解为闭式（附录 B）。迭代从 $\mathbf z^0=\mathbf x_t$ 初始化。
+
+**训练。** 用 AdamW，学习率 $10^{-4}$ 经余弦计划衰减到 $10^{-6}$，权重衰减 $10^{-4}$，梯度范数裁剪 1.0，不使用混合精度。总批大小 32（4 块 GPU 上每块 8，DDP）：CelebA 训练 500 个 epoch × 2000 步，AFHQ-Cat 训练 700 个 epoch × 750 步，每个 epoch 有放回重采样训练集。从第 20 个 epoch 起维护衰减 0.999 的权重指数滑动平均，用于所有验证与测试时评估。前 20 个 epoch 我们在无数据一致性下训练估计器，只对 $\mathbf A^\top\mathbf y$ 与 $\mathbf x_t$ 的拼接做一次网络调用，随后在剩余训练中启用 $K=5$ 的数据项求解器；该热启动避免通过未训练估计器的五次迭代反传。时间 $t$ 由 $[t_{\min},t_{\max}]$ 上 64 个等距分层的低差异分层采样抽取，而非 i.i.d. 均匀，这在小批下降低 epoch 平均损失的方差。训练大约需要 24–48 小时。
+
+**评估协议。** PSNR 在 $[0,1]$ 上以 data_range=1 计算，匹配 [18] 的后处理，使数值可直接比较；SSIM 在钳制到 $[0,1]$ 的图像上计算，LPIPS 用 AlexNet 主干在钳制到 $[-1,1]$ 的图像上计算。所有运行使用种子 42。
+
+> **表 7（原文 Table 7）：** 超参数。除注明外，五个任务共用全部取值。
+
+| 项目 | CelebA（$128^2$） | AFHQ-Cat（$256^2$） |
+|---|---|---|
+| **求解器** | | |
+| 迭代深度 $K$ | 5 | 5 |
+| 阻尼 $\beta$ | 0.5 | 0.5 |
+| 耦合 $\rho$ | 0.01 | 0.01 |
+| 初始化 $\mathbf z_0$ | $\mathbf x_t$ | $\mathbf x_t$ |
+| **流** | | |
+| $t_{\min}/t_{\max}$ | $10^{-3}/0.995$ | $10^{-3}/0.995$ |
+| 钳制 $\tau_{\min}$ | 0.1 | 0.1 |
+| 积分器 | Euler | Euler |
+| **网络** | | |
+| 基础宽度 $c_h$ | 32 | 32（去模糊为 64） |
+| 通道乘子 | (1,2,4,8) | (1,2,4,8,8) |
+| 每层残差块数 | 6 | 6 |
+| 自注意力分辨率 | 16, 8 | 32, 16 |
+| 参数量 | 34.5 M | 59.9 M（239.4 M） |
+| **优化** | | |
+| 优化器 | AdamW | AdamW |
+| 学习率（余弦到 $10^{-6}$） | $10^{-4}$ | $10^{-4}$ |
+| 权重衰减 / 梯度裁剪 | $10^{-4}$ / 1.0 | $10^{-4}$ / 1.0 |
+| 批大小（总） | 32 | 32 |
+| epoch 数 × 每 epoch 步数 | $500\times2000$ | $700\times750$ |
+| EMA 衰减（自第 20 epoch 起） | 0.999 | 0.999 |
+
+### D.1 基线
+
+**PnP-HQS (DPIR)。** PnP-HQS 即 DPIR [37]，是以 DRUNet 去噪器为先验的半二次分裂，在闭式数据步 $(\mathbf A^\top\mathbf A+\rho_k\mathbf I)\mathbf x=\mathbf A^\top\mathbf y+\rho_k\mathbf z$ 与噪声水平 $\sigma_k$ 处的去噪步之间交替；$\sigma_k$ 从 $49/255$ 对数间隔下降到测量噪声，$\rho_k=\lambda\sigma^2/\sigma_k^2$，$\lambda=0.23$（DPIR 默认）。算子与测量取自我们自己的实现，因此退化与本文方法及其他基线所用完全相同。为避免用通用先验削弱该基线，我们在与本文模型相同的数据与预处理上训练 DRUNet（32.6M 参数）：AFHQ-Cat 为 $256\times256$，CelebA 去噪器在 $128\times128$ 上类似训练。迭代数按任务调至验证子集平台：AFHQ-Cat 上去模糊与超分辨率 24 次、随机修复 100 次（需要更多迭代把填充传播到缺失像素）、去噪 1 次（$\mathbf A=\mathbf I$ 使数据步平凡，DPIR 退化为单次去噪器前传；更多迭代更差，8 与 16 次迭代分别为 32.32 与 32.36 dB，而单次为 32.69 dB）。CelebA 实验使用相同迭代数。超分辨率从测量的双三次上采样初始化（与 DPIR 相同）；其余任务用 $\mathbf x^0=\mathbf A^\top\mathbf y$。我们不报告框修复，因为高斯去噪器非生成式，无法填充大的连续空洞。
+
+**ISTA-Net+。** 我们用 ISTA-Net+ [38] 作为代表性深度展开基线。使用 $K$ 个近端梯度步，每步为数据保真梯度步 $\mathbf x\leftarrow\mathbf x-\lambda_k\mathbf A^\top(\mathbf A\mathbf x-\mathbf y)$，随后是学习近端（卷积前向变换、软阈值、逆变换、残差），用标准重建损失加对称损失（$\gamma=0.01$）端到端训练。我们把它适配到三通道图像与本文所用测量算子。使用 $K=9$ 层、32 通道、不共享权重（0.35M 参数），每个任务训练一个模型，Adam、学习率 $10^{-4}$，从 $\mathbf A^\top\mathbf y$ 初始化（超分辨率用双三次）。框修复与去噪被省略，因为紧凑卷积近端无法填充大的连续空洞。
+
+## 附录 E. 补充结果
+
+### E.1 附加消融
+
+**阻尼系数 $\beta$。** 表 8 报告 $N=2$、$K=5$ 时 $\beta\in\{0.25,0.5,0.75,1.0\}$ 在随机修复上的质量。该系数决定每次更新有多少来自学习估计器而非数据一致迭代，因此 $\beta=1$ 丢弃更新中的数据一致迭代（尽管 $\mathbf x^{k+1}$ 仍作为 $\mathcal R_\theta$ 的输入），在三项指标上最差。阻尼设置之间差异较小，且全部优于表 1 中所有基线。因此我们对所有任务使用 $\beta=0.5$，而非逐设置调优。
+
+> **表 8（原文 Table 8）：** 阻尼系数 $\beta$ 的影响。
+
+| $\beta$ | PSNR↑ | SSIM↑ | LPIPS↓ |
+|---|---|---|---|
+| 0.25 | **35.30** | **0.965** | **0.018** |
+| 0.50 | 35.03 | 0.963 | **0.018** |
+| 0.75 | 35.17 | 0.964 | **0.018** |
+| 1.00 | 34.70 | 0.961 | 0.020 |
+
+### E.2 消融 HQS 求解器
+
+我们主张把测量算子 $\mathbf A$ 嵌入生成动力学优于把网络条件化于测量。这里我们用相同网络、目标与训练计划比较该效应，但把 $\mathbf A^\top\mathbf y$ 作为额外条件通道与 $\mathbf x_t$ 拼接输入，以替代 HQS 求解器。由于没有 HQS 内层迭代，代价会降低。我们在随机修复与去模糊任务上跨不同 ODE 步长报告结果于表 9。
+
+> **表 9（原文 Table 9）：** CelebA（100 张图像）上的算子嵌入消融。Flow-only 是同一 U-Net 在同一目标下、对 $\mathbf A^\top\mathbf y$ 与 $\mathbf x_t$ 的拼接训练，不含 HQS 求解器，每个 Euler 步只需一次网络调用（本文方法需 $K=5$ 次）；各行按步数 $N$ 配对，因此本文方法使用 5 倍函数评估。每对中较优者加粗。
+
+| $N$ | 方法 | 随机修复 PSNR↑ | SSIM↑ | LPIPS↓ | 去模糊 PSNR↑ | SSIM↑ | LPIPS↓ |
+|---|---|---|---|---|---|---|---|
+| 2 | Flow-only | 34.54 | 0.955 | **0.0186** | 35.77 | 0.952 | **0.0281** |
+| 2 | 本文 | **35.03** | **0.963** | 0.0189 | **36.04** | **0.957** | 0.0295 |
+| 4 | Flow-only | 34.15 | 0.953 | 0.0172 | 35.45 | 0.950 | **0.0256** |
+| 4 | 本文 | **34.67** | **0.962** | **0.0169** | **35.78** | **0.956** | 0.0280 |
+| 10 | Flow-only | 33.53 | 0.948 | 0.0149 | 34.72 | 0.943 | **0.0209** |
+| 10 | 本文 | **33.98** | **0.956** | **0.0146** | **35.03** | **0.950** | 0.0235 |
+| 25 | Flow-only | 33.07 | 0.943 | 0.0136 | **34.03** | **0.934** | **0.0174** |
+| 25 | 本文 | **33.42** | **0.951** | **0.0134** | 31.46 | 0.848 | 0.0265 |
+
+### E.3 玩具问题上的后验恢复
+
+为对照真值评估后验保真度，我们考虑一个具有解析后验的二维问题。令 $\mathbf x=(u,v)\in\mathbb R^2$ 服从等权四分量高斯混合，均值为 $(\pm1.5,\pm1.5)$、分量标准差 0.2。我们观测 $\mathbf y=\mathbf A\mathbf x+\boldsymbol\eta$，其中 $\mathbf A=\mathrm{diag}(1,0)$、$\sigma=0.1$。因此 $u$ 被观测，而 $p(v\mid\mathbf y)$ 仍为双峰，其均值位于低密度点 $v=0$。我们把 U-Net 替换为小型 MLP，保留 $K=5$、$\beta=0.5$、$\rho=0.01$，并为每个固定测量抽取 4000 个样本。
+
+在 $N=50$ 时，采样器恢复两个后验模态，经验权重 0.49/0.51，而精确值为 0.50/0.50（图 4）。被掩蔽坐标距离为 $W_1(v)\approx0.1$，观测坐标与测量一致在 $\pm0.02$ 内。剩余误差主要来自采样模态的轻微欠散布。
+
+**采样步数的影响。** 表 10 与图 5 表明 $N=1$ 输出坍缩到后验均值区域，而增加 $N$ 逐步解析两个模态。模态覆盖率达到 $N=2$ 时的 77%、$N=4$ 时的 93%；对 $6\le N\le25$，恢复的权重与模态位置分别在解析值的 1% 与 0.05 内。
+
+> **表 10（原文 Table 10）：** $u=+1.5$ 时使用 4000 个样本的后验恢复随 $N$ 的变化。解析后验在 $|v|<0.75$ 内质量可忽略、模态等权、模态位于 $\pm1.5$ 附近。
+
+| $N$ | 1 | 2 | 4 | 50 |
+|---|---|---|---|---|
+| $W_1(v)$↓ | 1.44 | 0.44 | 0.13 | **0.11** |
+| $\lVert v\rVert<0.75$ 内质量 | 100% | 23% | 7% | **0.5%** |
+| 模态权重 | — | 0.50/0.50 | 0.52/0.48 | **0.49/0.51** |
+| 经验模态 | 0 | ±1.26 | ±1.45 | **±1.52** |
+
+对均匀 Euler 积分，$\Delta t=1/N=1-t_{N-1}$，因此最终更新满足
+
+$$
+\mathbf x_N=\mathcal E_\theta\left(\mathbf x_{N-1},t_{N-1},\mathbf y\right),\qquad t_{N-1}=\frac{N-1}{N}.
+$$
+
+因此增加 $N$ 会把最终估计器评估移向更接近 $t=1$（插值噪声更小）处，同时改变前面 Euler 步产生的状态。这解释了从小 $N$ 的类后验均值估计到大 $N$ 的模态解析样本的转变，与图像实验中观察到的失真–感知折中一致。
+
+> **图 4（原文 Fig. 4）：** $N=50$ 时的后验恢复。上：在 $u=\pm1.5$ 附近测量下的样本（蓝色）与解析后验等高线（红色）；后验均值（×）位于两模态之间。下：采样与解析边缘 $p(v\mid y)$。
+
+> **图 5（原文 Fig. 5）：** 后验恢复随 $N$ 的变化。上：$W_1(v)$ 与低密度谷内的质量。下：采样（蓝色）与解析（红色）边缘。模态在 $N\approx6$ 附近变得可分辨，随后在较大 $N$ 处出现轻微漂移与欠散布。
+
+### E.4 压缩感知 Fourier 采样
+
+我们考虑欠采样 Fourier 测量 $\mathbf A=\mathbf P\mathbf F$，即加速 MRI 的前向模型，其中 $\mathbf F$ 是二维 DFT、$\mathbf P$ 是二元采样掩码。我们在 AFHQ-Cat 上评估保留 $k$ 空间 21.88% 的笛卡尔掩码，复高斯噪声标准差 $\sigma=0.002$，对彩色图像逐通道施加该算子。我们与 Flower [18]（$\gamma=0$，$N=100$，$N_{\mathrm{avg}}=1$）以及零填充伴随 $\mathbf A^*\mathbf y$ 比较。图 17 与表 13 报告结果。
+
+> **图 17（原文 Fig. 17）：** AFHQ-Cat（$256\times256$）上的压缩感知 Fourier 采样，$\sigma=0.002$。列：真值、零填充伴随 $\mathbf A^*\mathbf y$、Flower1-OT、本文（$N=2$，笛卡尔掩码 21.88%）。
+
+> **表 13（原文 Table 13）：** AFHQ-Cat（平均 100 张图像）上的压缩感知 Fourier 采样。
+
+| 方法 | PSNR↑ | SSIM↑ | LPIPS↓ |
+|---|---|---|---|
+| 零填充 | 25.62 | 0.725 | 0.343 |
+| Flower1-OT | 31.17 | 0.870 | 0.062 |
+| 本文（$N=2$） | **32.06** | **0.892** | 0.074 |
+| 本文（$N=4$） | 31.71 | 0.885 | 0.064 |
+| 本文（$N=10$） | 31.06 | 0.869 | **0.054** |
+
+### E.5 更大测试集
+
+遵循 [18]，我们在更大测试集上评估若干方法并报告标准差：CelebA 的 1,000 张图像与 AFHQ-Cat 的 400 张图像（原置于第 25–26 页的表 11 与表 12）。我们的方法在多数任务与步数下保持优势，且 $N=2$ 时在两项数据集的全部任务上均取得最佳 PSNR/SSIM；更大 $N$ 继续改善 LPIPS。
+
+> **表 11（原文 Table 11）：** 1,000 张 CelebA 图像上的结果。最优与次优结果分别以蓝色与红色标出（此处以加粗表示最优）。
+
+| 指标 | 退化输入 | OT-ODE | PnP-Flow1 | PnP-Flow5 | Flower1-OT | Flower5-OT | 本文 $N=2$ | 本文 $N=4$ | 本文 $N=10$ | 本文 $N=25$ |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 去噪 PSNR | 20.00 | 30.48 | 31.79 | 32.27 | 32.25 | 33.10 | **33.68** | 33.25 | 32.27 | 31.58 |
+| 去噪 SSIM | 0.351 | 0.856 | 0.903 | 0.909 | 0.912 | 0.924 | **0.931** | 0.927 | 0.914 | 0.901 |
+| 去噪 LPIPS | 0.367 | 0.033 | 0.044 | 0.056 | **0.033** | 0.038 | 0.034 | 0.034 | 0.031 | 0.028 |
+| 去模糊 PSNR | 27.82 | 33.00 | 34.56 | 34.89 | 35.01 | 35.71 | **36.09** | 35.82 | 35.05 | 31.46 |
+| 去模糊 SSIM | 0.741 | 0.919 | 0.935 | 0.940 | 0.946 | 0.953 | **0.957** | 0.955 | 0.949 | 0.848 |
+| 去模糊 LPIPS | 0.123 | 0.029 | 0.037 | 0.044 | **0.025** | 0.031 | 0.029 | 0.027 | 0.023 | 0.026 |
+| 超分 PSNR | 10.38 | 31.43 | 31.12 | 31.53 | 32.41 | 33.14 | **34.52** | 34.10 | 33.27 | 30.48 |
+| 超分 SSIM | 0.185 | 0.903 | 0.900 | 0.904 | 0.921 | 0.930 | **0.949** | 0.946 | 0.937 | 0.838 |
+| 超分 LPIPS | 0.829 | **0.026** | 0.045 | 0.054 | 0.034 | 0.039 | 0.028 | 0.027 | 0.023 | 0.028 |
+| 随机修复 PSNR | 12.13 | 28.87 | 33.23 | 34.20 | 33.26 | 34.15 | **35.27** | 34.93 | 34.23 | 33.66 |
+| 随机修复 SSIM | 0.199 | 0.872 | 0.944 | 0.954 | 0.945 | 0.953 | **0.963** | 0.962 | 0.957 | 0.951 |
+| 随机修复 LPIPS | 1.027 | 0.050 | **0.017** | 0.021 | **0.017** | 0.019 | 0.018 | 0.016 | 0.014 | 0.013 |
+| 框修复 PSNR | 22.29 | 29.68 | 30.44 | 30.99 | 31.19 | 31.81 | **33.28** | 32.63 | 31.95 | 31.45 |
+| 框修复 SSIM | 0.745 | 0.921 | 0.934 | 0.940 | 0.946 | 0.953 | **0.961** | 0.959 | 0.955 | 0.949 |
+| 框修复 LPIPS | 0.211 | 0.035 | 0.036 | 0.042 | **0.021** | 0.022 | 0.022 | 0.021 | 0.020 | 0.019 |
+
+> **表 12（原文 Table 12）：** 400 张 AFHQ-Cat 图像上的结果。
+
+| 指标 | 退化输入 | OT-ODE | PnP-Flow1 | PnP-Flow5 | Flower1-OT | Flower5-OT | 本文 $N=2$ | 本文 $N=4$ | 本文 $N=10$ | 本文 $N=25$ |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 去噪 PSNR | 20.00 | 30.07 | 31.22 | 31.47 | 31.70 | 32.35 | **32.90** | 32.50 | 31.51 | 29.39 |
+| 去噪 SSIM | 0.311 | 0.813 | 0.861 | 0.862 | 0.876 | 0.888 | **0.901** | 0.894 | 0.874 | 0.776 |
+| 去噪 LPIPS | 0.511 | 0.079 | 0.142 | 0.176 | 0.113 | 0.127 | 0.082 | 0.080 | 0.072 | 0.078 |
+| 去模糊 PSNR | 24.16 | 27.23 | 28.18 | 28.48 | 28.85 | 29.20 | **29.37** | 28.88 | 28.15 | 27.57 |
+| 去模糊 SSIM | 0.522 | 0.713 | 0.764 | 0.769 | 0.777 | 0.786 | **0.795** | 0.782 | 0.758 | 0.735 |
+| 去模糊 LPIPS | 0.437 | **0.125** | 0.302 | 0.331 | 0.253 | 0.282 | 0.244 | 0.199 | 0.151 | **0.124** |
+| 超分 PSNR | 11.88 | 26.13 | 27.15 | 27.61 | 26.41 | 26.73 | **28.56** | 27.94 | 27.19 | 26.08 |
+| 超分 SSIM | 0.219 | 0.717 | 0.765 | 0.777 | 0.743 | 0.751 | **0.803** | 0.786 | 0.760 | 0.665 |
+| 超分 LPIPS | 0.878 | **0.110** | 0.168 | 0.178 | 0.275 | 0.286 | 0.179 | 0.150 | 0.122 | 0.122 |
+| 随机修复 PSNR | 13.56 | 29.52 | 33.15 | 33.88 | 33.12 | 33.82 | **34.12** | 33.70 | 32.93 | 32.32 |
+| 随机修复 SSIM | 0.230 | 0.840 | 0.918 | 0.929 | 0.918 | 0.927 | **0.933** | 0.929 | 0.918 | 0.907 |
+| 随机修复 LPIPS | 1.065 | 0.088 | **0.040** | 0.047 | 0.043 | 0.049 | 0.047 | 0.042 | 0.036 | 0.032 |
+| 框修复 PSNR | 21.82 | 24.76 | 26.57 | 27.19 | 26.79 | 27.47 | **28.94** | 28.29 | 27.60 | 26.52 |
+| 框修复 SSIM | 0.743 | 0.873 | 0.895 | 0.900 | 0.915 | 0.923 | **0.925** | 0.922 | 0.916 | 0.825 |
+| 框修复 LPIPS | 0.201 | 0.091 | 0.110 | 0.127 | 0.065 | 0.067 | 0.059 | 0.051 | 0.045 | 0.071 |
+
+（表 11 与表 12 在原文中均报告标准差；为可读性本页仅保留均值，标准差见原文第 25–26 页。）
+
+> **图 6（原文 Fig. 6）：** 随机修复（CelebA，$128\times128$）在前向模型失配下的重建。在 0.7 掩码比例、$\sigma=0.01$ 处训练的单一模型被应用于掩码比例 0.5 到 0.8 的测试测量。质量随测试掩码比例单调变化，在两端均无失效模式。无匹配比例模型时，这些数值刻画优雅退化而非量化失配惩罚；定量值见表 6。
+
+> **图 7（原文 Fig. 7）：** CelebA（$128\times128$）上的失真–感知折中。
+
+> **图 8（原文 Fig. 8）：** AFHQ（$256\times256$）上的失真–感知折中。
+
+> **图 9（原文 Fig. 9）：** 五个逆问题（去噪、去模糊、$\times2$ 超分辨率、随机修复、框修复）的重建（上）与逐像素误差图（下，magma，$[0,0.1]$）。列：真值、测量、PnP-Flow、Flower、本文（$N=2$）、本文（$N=25$）。每个面板下方报告 MAE/PSNR（dB）。本文（$N=2$）在每个任务上给出最低误差。
+
+> **图 10（原文 Fig. 10）：** CelebA（$128\times128$）上重建质量随推理代价的变化。PSNR 在表 1 的五个复原任务上平均（每个任务 100 张测试图像）；横轴为单张 NVIDIA RTX A6000 上的每图像实际耗时，对数刻度。越靠左上越好。本文方法展示 $K=5$ 固定时 Euler 步数 $N\in\{2,4,10,25\}$，每个基线贡献单点。在 $N=2$ 时我们以约 $50\times$ 更低代价超过最强基线（Flower5）。沿本文曲线 PSNR 随 $N$ 增大而下降，因为额外步数以失真换取感知质量。
+
+> **图 11（原文 Fig. 11）：** CelebA 随机修复：重建随采样步数增长（$N=1\to100$），更高 $N$ 增加细节。
+
+> **图 12（原文 Fig. 12）：** CelebA 去模糊重建随采样步数（$N=1\to100$）的变化。
+
+> **图 13（原文 Fig. 13）：** CelebA $\times2$ 超分辨率重建随采样步数（$N=1\to100$）的变化。
+
+> **图 14（原文 Fig. 14）：** 框修复（CelebA，$128\times128$，$K=5$）中的后验样本多样性。对每张测试图像保持测量 $\mathbf y$ 固定，只改变源抽样 $\mathbf x_0\sim\mathcal N(\mathbf 0,\mathbf I)$。列展示真值、测量、$N=2$ 时 $S=8$ 个重建中的三个、全部八个样本的逐像素标准差，以及 $N=25$ 时相应样本与标准差。标准差图在全图共享单一色标。变化局限于被掩蔽区域，并在测量可用处消失，与命题 1 一致：学习场把源输运到测量条件后验而非单个点估计。更长积分（$N=25$）扩大分布，这解释了表 1 与表 11 中 LPIPS 改善与 PSNR 下降。
+
+> **图 15（原文 Fig. 15）：** 图 14 的放大版本。
+
+> **图 16（原文 Fig. 16）：** 框修复求解器的内部轨迹（$N=2$ 个 Euler 步、每步 $K=5$ 次 HQS 迭代）：从真值与测量出发，每个 Euler 步（行，按 $t$ 标记）通过其内层迭代 $K=1{:}5$ 精化估计，展示数据一致迭代 $x^k$（上）与阻尼学习更新 $z^k$（下）。
+
+## 图注与表注索引
+
+本页图 1–17 的中文图注与表 1–13 的表注均按原文出现位置内联在正文中（图 1–2 与表 1–3 见第 4.1–4.2 节，图 3 与表 4–6 见第 4.3 节；表 7–8 见附录 D 与 E.1，表 9 见附录 E.2，图 4–5 与表 10 见附录 E.3，图 17 与表 13 见附录 E.4，表 11–12 与原置于第 25–26 页，图 6–16 见附录 E），此处不重复罗列。原文为 CV 会议单栏排版（宽表与大量图），本页按逻辑出现顺序内联。
+
+**本页范围与校对状态：** 本页覆盖 arXiv:2609.12953v1 全文（34 页）的中文译稿：摘要、第 1–5 节正文与编号小节、算法 1–3、图 1–17 的中文图注、表 1–13 的逐格转写、附录 A–E（理论证明（引理 1–10）、算法细节、相关工作、实现细节与补充结果），以及参考文献 64 条英文原条目（按原编号）。公式与表格已对照 PDF 渲染页核对：正文与附录 (1)–(84) 逐式核对（重点 (8)–(14)、(16)–(19)、(22)–(27)、(28)–(45)、(69)–(84)）；表 1 用第 5 页渲染图逐格核对，表 2–6 与表 7–13 的数值按原文逐行抽取数据转写，并核对表 11/表 12 的十列结构（退化输入、OT-ODE、PnP-Flow1/5、Flower1-OT/5-OT、本文 N=2/4/10/25）。原文疑点：表 1 与表 2 中 I²SB 的 LPIPS 优于本文（如去模糊 0.012 对 0.029），而摘要仅主张以 50× 更少评估取得最先进 PSNR、正文亦表述为"取得最佳重建质量的同时达到有竞争力感知质量"，未主张 LPIPS 最优，故不构成数值矛盾，此处仅说明。本页不上传原文图片，图内像素级重建与曲线数值不作数字化估算；正文与表格中的实验数值按原文转写。逐句终校未做；个别术语的中译仍以英文原词首次出现时标注为准。
+
 
 ---
 
