@@ -4,8 +4,8 @@
   "source_sha256": "667f6509c907b3f519f6fb8fb5bebd90ca35d9c2641539ec2bd83988638e4787",
   "translation_progress": {
     "target": 315,
-    "completed": 235,
-    "public_full_text": 227,
+    "completed": 240,
+    "public_full_text": 232,
     "local_only": 12,
     "status_counts": {
       "access_blocked": 3,
@@ -137,7 +137,13 @@
       "report_entry_url": "/papers/reports/2026-10-31/#paper-fd7b24a313b46ea0",
       "paper_url": "/papers/items/fd7b24a313b46ea0/",
       "paper_report_url": "/papers/items/fd7b24a313b46ea0/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-31-2610-35442-simulation-efficient-double-flow-neural-posterior-estimation-for-agent/",
+          "title": "面向基于智能体模型的仿真高效双流神经后验估计｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、图表说明（书目以原文 PDF 为题名核对入口）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2610.35442",
         "https://arxiv.org/abs/2610.35442",
@@ -150,10 +156,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/fd7b24a313b46ea0/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-31-2610-35442-simulation-efficient-double-flow-neural-posterior-estimation-for-agent/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "10de81d8e4c55488",
@@ -186,7 +192,13 @@
       "report_entry_url": "/papers/reports/2026-10-31/#paper-10de81d8e4c55488",
       "paper_url": "/papers/items/10de81d8e4c55488/",
       "paper_report_url": "/papers/items/10de81d8e4c55488/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-31-2608-05133-near-field-velocity-estimation-and-doppler-aware-localization-in-ofdm/",
+          "title": "OFDM 大规模 MIMO 中的近场速度估计与多普勒感知定位｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[12]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2608.05133",
         "https://arxiv.org/abs/2608.05133",
@@ -199,10 +211,10 @@
       ],
       "hosted_pdfs": [],
       "status": "已接受待刊",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/10de81d8e4c55488/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-31-2608-05133-near-field-velocity-estimation-and-doppler-aware-localization-in-ofdm/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "16a55e81fda01b8f",
@@ -235,7 +247,13 @@
       "report_entry_url": "/papers/reports/2026-10-31/#paper-16a55e81fda01b8f",
       "paper_url": "/papers/items/16a55e81fda01b8f/",
       "paper_report_url": "/papers/items/16a55e81fda01b8f/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-31-2610-27464-rmsampler-sparse-radio-map-reconstruction-with-active-sampling-and-dif/",
+          "title": "RMSampler：稀疏无线电地图重建的主动采样与扩散后验校正｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[41]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2610.27464",
         "https://arxiv.org/abs/2610.27464",
@@ -248,10 +266,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/16a55e81fda01b8f/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-31-2610-27464-rmsampler-sparse-radio-map-reconstruction-with-active-sampling-and-dif/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "3f84682f0fb82697",
@@ -284,7 +302,13 @@
       "report_entry_url": "/papers/reports/2026-10-31/#paper-3f84682f0fb82697",
       "paper_url": "/papers/items/3f84682f0fb82697/",
       "paper_report_url": "/papers/items/3f84682f0fb82697/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-31-2603-02337-preconditioned-flow-matching/",
+          "title": "预处理流匹配｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、图表说明（书目以原文 PDF 为题名核对入口）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2603.02337",
         "https://arxiv.org/abs/2603.02337",
@@ -301,10 +325,10 @@
       ],
       "hosted_pdfs": [],
       "status": "已接受待刊",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/3f84682f0fb82697/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-31-2603-02337-preconditioned-flow-matching/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "34ffbb5befb01a12",
@@ -337,7 +361,13 @@
       "report_entry_url": "/papers/reports/2026-10-31/#paper-34ffbb5befb01a12",
       "paper_url": "/papers/items/34ffbb5befb01a12/",
       "paper_report_url": "/papers/items/34ffbb5befb01a12/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-31-2610-03261-consecutive-posterior-fusion-for-diffusive-recovery-of-unobservable-im/",
+          "title": "面向不可观测图像结构扩散恢复的连续后验融合｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[35]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2610.03261",
         "https://arxiv.org/abs/2610.03261",
@@ -350,10 +380,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/34ffbb5befb01a12/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-31-2610-03261-consecutive-posterior-fusion-for-diffusive-recovery-of-unobservable-im/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "6240e182618d1d29",
@@ -22846,6 +22876,106 @@
         "2610.03261"
       ],
       "qa_complete": false,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-31",
+      "slug": "2026-10-31-2610-35442-simulation-efficient-double-flow-neural-posterior-estimation-for-agent",
+      "title": "面向基于智能体模型的仿真高效双流神经后验估计｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、图表说明（书目以原文 PDF 为题名核对入口）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-31-2610-35442-simulation-efficient-double-flow-neural-posterior-estimation-for-agent/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-31-2610-35442-simulation-efficient-double-flow-neural-posterior-estimation-for-agent.md",
+      "paper_ids": [
+        "fd7b24a313b46ea0"
+      ],
+      "source_arxiv_ids": [
+        "2610.35442"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-31",
+      "slug": "2026-10-31-2610-27464-rmsampler-sparse-radio-map-reconstruction-with-active-sampling-and-dif",
+      "title": "RMSampler：稀疏无线电地图重建的主动采样与扩散后验校正｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[41]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-31-2610-27464-rmsampler-sparse-radio-map-reconstruction-with-active-sampling-and-dif/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-31-2610-27464-rmsampler-sparse-radio-map-reconstruction-with-active-sampling-and-dif.md",
+      "paper_ids": [
+        "16a55e81fda01b8f"
+      ],
+      "source_arxiv_ids": [
+        "2610.27464"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-31",
+      "slug": "2026-10-31-2610-03261-consecutive-posterior-fusion-for-diffusive-recovery-of-unobservable-im",
+      "title": "面向不可观测图像结构扩散恢复的连续后验融合｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[35]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-31-2610-03261-consecutive-posterior-fusion-for-diffusive-recovery-of-unobservable-im/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-31-2610-03261-consecutive-posterior-fusion-for-diffusive-recovery-of-unobservable-im.md",
+      "paper_ids": [
+        "34ffbb5befb01a12"
+      ],
+      "source_arxiv_ids": [
+        "2610.03261"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-31",
+      "slug": "2026-10-31-2608-05133-near-field-velocity-estimation-and-doppler-aware-localization-in-ofdm",
+      "title": "OFDM 大规模 MIMO 中的近场速度估计与多普勒感知定位｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[12]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-31-2608-05133-near-field-velocity-estimation-and-doppler-aware-localization-in-ofdm/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-31-2608-05133-near-field-velocity-estimation-and-doppler-aware-localization-in-ofdm.md",
+      "paper_ids": [
+        "10de81d8e4c55488"
+      ],
+      "source_arxiv_ids": [
+        "2608.05133"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-31",
+      "slug": "2026-10-31-2603-02337-preconditioned-flow-matching",
+      "title": "预处理流匹配｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、图表说明（书目以原文 PDF 为题名核对入口）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-31-2603-02337-preconditioned-flow-matching/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-31-2603-02337-preconditioned-flow-matching.md",
+      "paper_ids": [
+        "3f84682f0fb82697"
+      ],
+      "source_arxiv_ids": [
+        "2603.02337"
+      ],
+      "qa_complete": true,
       "external": true,
       "primary_translation": true,
       "coverage": "full",
