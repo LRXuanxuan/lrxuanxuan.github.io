@@ -4,8 +4,8 @@
   "source_sha256": "667f6509c907b3f519f6fb8fb5bebd90ca35d9c2641539ec2bd83988638e4787",
   "translation_progress": {
     "target": 315,
-    "completed": 179,
-    "public_full_text": 170,
+    "completed": 180,
+    "public_full_text": 171,
     "local_only": 12,
     "status_counts": {
       "access_blocked": 3,
@@ -16488,7 +16488,13 @@
       "report_entry_url": "/papers/reports/2026-09-18/#paper-90965c3b3b928369",
       "paper_url": "/papers/items/90965c3b3b928369/",
       "paper_report_url": "/papers/items/90965c3b3b928369/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-18-2609-12899-physical-state-guided-diffusion-sampling-for-full-waveform-inversion/",
+          "title": "物理状态引导的全波形反演扩散采样｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[64]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.12899",
         "https://arxiv.org/abs/2609.12899"
@@ -16499,10 +16505,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/90965c3b3b928369/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-18-2609-12899-physical-state-guided-diffusion-sampling-for-full-waveform-inversion/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "6edd1b2a90906cae",
@@ -26938,6 +26944,26 @@
       ],
       "source_arxiv_ids": [
         "2609.01074"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-18",
+      "slug": "2026-09-18-2609-12899-physical-state-guided-diffusion-sampling-for-full-waveform-inversion",
+      "title": "物理状态引导的全波形反演扩散采样｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[64]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-18-2609-12899-physical-state-guided-diffusion-sampling-for-full-waveform-inversion/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-18-2609-12899-physical-state-guided-diffusion-sampling-for-full-waveform-inversion.md",
+      "paper_ids": [
+        "90965c3b3b928369"
+      ],
+      "source_arxiv_ids": [
+        "2609.12899"
       ],
       "qa_complete": true,
       "external": true,
