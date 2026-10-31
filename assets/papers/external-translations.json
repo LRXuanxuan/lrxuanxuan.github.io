@@ -4024,5 +4024,159 @@
     "coverage": "full",
     "license": "arxiv",
     "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-29",
+    "slug": "2026-09-29-2606-13885-learning-graph-topology-with-functional-priors-via-bilevel-optimizatio",
+    "title": "基于双层优化的函数先验图拓扑学习｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、图表说明（书目以原文 PDF 为题名核对入口）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-29-2606-13885-learning-graph-topology-with-functional-priors-via-bilevel-optimizatio/",
+    "source_file": "2026-09-29-2606-13885-learning-graph-topology-with-functional-priors-via-bilevel-optimizatio.md",
+    "source_page_path": "papers/translations/2026-09-29-2606-13885-learning-graph-topology-with-functional-priors-via-bilevel-optimizatio.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-29-2606-13885-learning-graph-topology-with-functional-priors-via-bilevel-optimizatio.md",
+    "paper_ids": [
+      "3d24bd6e709db6ae"
+    ],
+    "source_arxiv_ids": [
+      "2606.13885"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-28",
+    "slug": "2026-09-28-2609-20581-limits-of-confidence-in-diffusion",
+    "title": "扩散模型置信度的极限｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[19]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-28-2609-20581-limits-of-confidence-in-diffusion/",
+    "source_file": "2026-09-28-2609-20581-limits-of-confidence-in-diffusion.md",
+    "source_page_path": "papers/translations/2026-09-28-2609-20581-limits-of-confidence-in-diffusion.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-28-2609-20581-limits-of-confidence-in-diffusion.md",
+    "paper_ids": [
+      "d0cd106d63eebdd2"
+    ],
+    "source_arxiv_ids": [
+      "2609.20581"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-28",
+    "slug": "2026-09-28-2609-22994-full-frame-ofdm-isac-joint-constellation-pilot-and-receive-filter-desi",
+    "title": "全帧 OFDM-ISAC：联合星座、导频与接收滤波器设计｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[38]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-28-2609-22994-full-frame-ofdm-isac-joint-constellation-pilot-and-receive-filter-desi/",
+    "source_file": "2026-09-28-2609-22994-full-frame-ofdm-isac-joint-constellation-pilot-and-receive-filter-desi.md",
+    "source_page_path": "papers/translations/2026-09-28-2609-22994-full-frame-ofdm-isac-joint-constellation-pilot-and-receive-filter-desi.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-28-2609-22994-full-frame-ofdm-isac-joint-constellation-pilot-and-receive-filter-desi.md",
+    "paper_ids": [
+      "1e048eb88aa75232"
+    ],
+    "source_arxiv_ids": [
+      "2609.22994"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-28",
+    "slug": "2026-09-28-2609-17691-accelerating-diffusion-sampling-via-speculative-draft-trees",
+    "title": "通过推测性草稿树加速扩散采样｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[84]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-28-2609-17691-accelerating-diffusion-sampling-via-speculative-draft-trees/",
+    "source_file": "2026-09-28-2609-17691-accelerating-diffusion-sampling-via-speculative-draft-trees.md",
+    "source_page_path": "papers/translations/2026-09-28-2609-17691-accelerating-diffusion-sampling-via-speculative-draft-trees.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-28-2609-17691-accelerating-diffusion-sampling-via-speculative-draft-trees.md",
+    "paper_ids": [
+      "166d97b2b5641eca"
+    ],
+    "source_arxiv_ids": [
+      "2609.17691"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-28",
+    "slug": "2026-09-28-2608-18040-optimize-your-sampling-tuned-diffusion-sampling-with-bayesian-optimiza",
+    "title": "优化你的采样：基于贝叶斯优化的扩散采样调优｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[56]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-28-2608-18040-optimize-your-sampling-tuned-diffusion-sampling-with-bayesian-optimiza/",
+    "source_file": "2026-09-28-2608-18040-optimize-your-sampling-tuned-diffusion-sampling-with-bayesian-optimiza.md",
+    "source_page_path": "papers/translations/2026-09-28-2608-18040-optimize-your-sampling-tuned-diffusion-sampling-with-bayesian-optimiza.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-28-2608-18040-optimize-your-sampling-tuned-diffusion-sampling-with-bayesian-optimiza.md",
+    "paper_ids": [
+      "635364ae01804c27"
+    ],
+    "source_arxiv_ids": [
+      "2608.18040"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-28",
+    "slug": "2026-09-28-2609-24947-learning-physics-from-an-imperfect-ancestor",
+    "title": "从不完美祖先模型中学习物理规律｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[41]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-28-2609-24947-learning-physics-from-an-imperfect-ancestor/",
+    "source_file": "2026-09-28-2609-24947-learning-physics-from-an-imperfect-ancestor.md",
+    "source_page_path": "papers/translations/2026-09-28-2609-24947-learning-physics-from-an-imperfect-ancestor.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-28-2609-24947-learning-physics-from-an-imperfect-ancestor.md",
+    "paper_ids": [
+      "ef9e4c178d98a69d"
+    ],
+    "source_arxiv_ids": [
+      "2609.24947"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-28",
+    "slug": "2026-09-28-2609-25589-the-isac-tradeoff-cliff-fundamental-limits-under-waveform-uncertainty",
+    "title": "ISAC 权衡悬崖：波形不确定与有限码长下的基本极限｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、图表说明（书目以原文 PDF 为题名核对入口）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-28-2609-25589-the-isac-tradeoff-cliff-fundamental-limits-under-waveform-uncertainty/",
+    "source_file": "2026-09-28-2609-25589-the-isac-tradeoff-cliff-fundamental-limits-under-waveform-uncertainty.md",
+    "source_page_path": "papers/translations/2026-09-28-2609-25589-the-isac-tradeoff-cliff-fundamental-limits-under-waveform-uncertainty.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-28-2609-25589-the-isac-tradeoff-cliff-fundamental-limits-under-waveform-uncertainty.md",
+    "paper_ids": [
+      "f136370903798d3a"
+    ],
+    "source_arxiv_ids": [
+      "2609.25589"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
   }
 ]
