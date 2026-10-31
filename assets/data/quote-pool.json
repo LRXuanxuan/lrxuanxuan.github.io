@@ -13765,7 +13765,7 @@
     },
     {
       "id": "c12730e4433ec1fc0c6e6461cb24e565af9fa8ea91647c9494ae725ac59e5bac",
-      "text": "Play a song for me\n\n给我演奏一首歌吧。",
+      "text": "I’m not sleepy and there is no place I’m going to\n\n我并不困倦，也没有什么地方要去。",
       "book": "Mr. Tambourine Man",
       "author": "Bob Dylan",
       "chapter": "演唱：Bob Dylan｜专辑：Bringing It All Back Home（发行：1965-03-22）｜首发：1965-03-22（专辑）",
@@ -13773,7 +13773,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "inspiration",
-      "aspect": "sky",
+      "aspect": "rose",
       "sourceType": "song"
     },
     {
@@ -14441,7 +14441,7 @@
     },
     {
       "id": "e7d078c40403305281dedd0350916db74b3b50b6281adc7831776d0f4d0a32bf",
-      "text": "the day would never come\n\n那一天永远不会到来。",
+      "text": "My morning sun is the drug that brings me near\nTo the childhood I lost, replaced by fear\n\n我的晨阳是引我靠近的药\n引向那被我遗失、被恐惧取代的童年。",
       "book": "True Faith",
       "author": "New Order",
       "chapter": "演唱：New Order｜专辑：Substance 1987（单曲合集）（发行：1987-08）｜首发：1987-07（单曲）",
@@ -16665,7 +16665,7 @@
     },
     {
       "id": "a3fd6717e6bb3051869f0131444f0ee4565fecba601390432c2127822a1e597a",
-      "text": "Yeah, I hope I die before I get old\n\n是啊，我希望在衰老之前死去。",
+      "text": "Why don’t you all fade away?\n\n你们怎么不全都消散而去？",
       "book": "My Generation",
       "author": "Pete Townshend",
       "chapter": "演唱：The Who｜专辑：My Generation（发行：1965-12-03）｜首发：1965-10-29（英国单曲）",
@@ -16673,7 +16673,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "reflection",
-      "aspect": "winter",
+      "aspect": "edge",
       "sourceType": "song"
     },
     {
@@ -17042,7 +17042,7 @@
     },
     {
       "id": "d3ad88ec1e1dfb00ce8976753074313c8c1647d0f5160bbb80ce4134b1443ec0",
-      "text": "Shine on\n\n继续闪耀吧。",
+      "text": "Now there’s a look in your eyes, like black holes in the sky\n\n如今你眼中有一道神色，像天空里的黑洞。",
       "book": "Shine On You Crazy Diamond",
       "author": "Roger Waters（歌词）；David Gilmour、Richard Wright（音乐）",
       "chapter": "演唱：Pink Floyd｜专辑：Wish You Were Here（发行：1975-09）｜首发：1975-09（专辑）｜备注：作品在专辑中分为 Parts I–V 与 Parts VI–IX 两组；致意 Syd Barrett",
@@ -17172,7 +17172,7 @@
     },
     {
       "id": "1c9f37c3f96ffb69fe02c3f537acacc83f5671a923e9f960c74262c773ffab11",
-      "text": "Hangs motionless upon the air\n\n悬在空中，一动不动。",
+      "text": "And everything is green and submarine\n\n而一切青碧，尽在海水之下。",
       "book": "Echoes",
       "author": "Roger Waters（歌词）；Pink Floyd（音乐）",
       "chapter": "演唱：Pink Floyd｜专辑：Meddle（发行：1971-10）｜首发：1971-10（专辑）",
@@ -17180,7 +17180,7 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "scenery",
-      "aspect": "sky",
+      "aspect": "moon",
       "sourceType": "song"
     },
     {
@@ -17237,7 +17237,7 @@
     },
     {
       "id": "fe70336337cc58fef7e20f21411a67a3b638c28c27cceee1ab95a05ff2acf6cb",
-      "text": "I’d be gone\n\n我便会远走高飞。",
+      "text": "If I were a train, I’d be late\n\n如果我是一列火车，我就会晚点。",
       "book": "If",
       "author": "Roger Waters",
       "chapter": "演唱：Pink Floyd｜专辑：Atom Heart Mother（发行：1970-10）｜首发：1970-10（专辑）",
@@ -17354,7 +17354,7 @@
     },
     {
       "id": "6ab0f71014000000000000000000000000000000000000000000000000000023",
-      "text": "No hope\n\n没有希望。",
+      "text": "Tell me how long before the last one?\n\n告诉我，还要等多久，才轮到最后一个？",
       "book": "Last Night I Dreamt That Somebody Loved Me",
       "author": "Morrissey",
       "chapter": "演唱：The Smiths｜专辑：Strangeways, Here We Come（发行：1987）｜首发：1987",
@@ -17900,7 +17900,7 @@
     },
     {
       "id": "ab26c10140000000000000000000000000000000000000000000000000000110",
-      "text": "In the modern age\n\n在这个现代的年代。",
+      "text": "Up on a hill is where we begin\n\n在山丘之上，正是我们开始的地方。",
       "book": "The Modern Age",
       "author": "Julian Casablancas",
       "chapter": "演唱：The Strokes｜专辑：Is This It（发行：2001）｜首发：2001",
