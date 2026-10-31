@@ -4,8 +4,8 @@
   "source_sha256": "667f6509c907b3f519f6fb8fb5bebd90ca35d9c2641539ec2bd83988638e4787",
   "translation_progress": {
     "target": 315,
-    "completed": 227,
-    "public_full_text": 219,
+    "completed": 234,
+    "public_full_text": 226,
     "local_only": 12,
     "status_counts": {
       "access_blocked": 3,
@@ -1655,7 +1655,13 @@
       "report_entry_url": "/papers/reports/2026-10-26/#paper-a67500334e77fc04",
       "paper_url": "/papers/items/a67500334e77fc04/",
       "paper_report_url": "/papers/items/a67500334e77fc04/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-26-2608-12524-channel-estimation-for-otfs-systems-with-overspread-doppler-shifts/",
+          "title": "过扩张多普勒 OTFS 系统的信道估计｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[28]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2608.12524",
         "https://ieeexplore.ieee.org/document/11627204/",
@@ -1671,10 +1677,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/a67500334e77fc04/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-26-2608-12524-channel-estimation-for-otfs-systems-with-overspread-doppler-shifts/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "88ee728a26730659",
@@ -6689,7 +6695,13 @@
       "report_entry_url": "/papers/reports/2026-10-08/#paper-38cc50b840720a0c",
       "paper_url": "/papers/items/38cc50b840720a0c/",
       "paper_report_url": "/papers/items/38cc50b840720a0c/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-08-2408-15202-canonical-form-and-finite-blocklength-bounds-for-stabilizer-codes/",
+          "title": "稳定子码的规范形与有限码长界｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[22]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2408.15202",
         "https://ieeexplore.ieee.org/document/11495376/",
@@ -6704,10 +6716,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/38cc50b840720a0c/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-08-2408-15202-canonical-form-and-finite-blocklength-bounds-for-stabilizer-codes/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "fa792f0d4a8db9aa",
@@ -7335,7 +7347,13 @@
       "report_entry_url": "/papers/reports/2026-10-08/#paper-2fd7c6f4df7bed7e",
       "paper_url": "/papers/items/2fd7c6f4df7bed7e/",
       "paper_report_url": "/papers/items/2fd7c6f4df7bed7e/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-08-2606-24824-solving-inverse-problems-of-chaotic-systems-with-bidirectional-conditi/",
+          "title": "双向条件流匹配求解混沌系统逆问题｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[121]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2606.24824",
         "https://arxiv.org/abs/2606.24824"
@@ -7346,10 +7364,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/2fd7c6f4df7bed7e/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-08-2606-24824-solving-inverse-problems-of-chaotic-systems-with-bidirectional-conditi/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "b0be94b7c9394c6c",
@@ -7541,7 +7559,13 @@
       "report_entry_url": "/papers/reports/2026-10-08/#paper-647afc788713a6de",
       "paper_url": "/papers/items/647afc788713a6de/",
       "paper_report_url": "/papers/items/647afc788713a6de/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-08-2610-02260-mintflow-minimal-trajectory-intervention-for-constrained-flow-matching/",
+          "title": "MintFlow：约束流匹配的最小轨迹干预｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[41]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2610.02260",
         "https://arxiv.org/abs/2610.02260",
@@ -7555,10 +7579,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/647afc788713a6de/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-08-2610-02260-mintflow-minimal-trajectory-intervention-for-constrained-flow-matching/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "37453168222f4582",
@@ -15997,7 +16021,13 @@
       "report_entry_url": "/papers/reports/2026-09-23/#paper-ced0378c092d0990",
       "paper_url": "/papers/items/ced0378c092d0990/",
       "paper_report_url": "/papers/items/ced0378c092d0990/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-23-2609-24121-joint-channel-estimation-detection-and-resource-allocation-for-otfs-rs/",
+          "title": "OTFS-RSMA 的联合信道估计、检测与资源分配｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[24]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/abs/2609.24121)｜",
         "https://arxiv.org/pdf/2609.24121",
@@ -16009,10 +16039,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/ced0378c092d0990/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-23-2609-24121-joint-channel-estimation-detection-and-resource-allocation-for-otfs-rs/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "c492f49d2a1959dc",
@@ -17022,7 +17052,13 @@
       "report_entry_url": "/papers/reports/2026-09-16/#paper-fdd244da160081c6",
       "paper_url": "/papers/items/fdd244da160081c6/",
       "paper_report_url": "/papers/items/fdd244da160081c6/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-16-2609-00937-exact-payload-decoupling-conditions-for-pilot-only-bem-channel-estimat/",
+          "title": "仅导频 BEM 信道估计的精确载荷解耦条件｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[29]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.00937",
         "https://arxiv.org/abs/2609.00937"
@@ -17033,10 +17069,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/fdd244da160081c6/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-16-2609-00937-exact-payload-decoupling-conditions-for-pilot-only-bem-channel-estimat/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "ab1455deae68f37f",
@@ -17069,7 +17105,13 @@
       "report_entry_url": "/papers/reports/2026-09-16/#paper-ab1455deae68f37f",
       "paper_url": "/papers/items/ab1455deae68f37f/",
       "paper_report_url": "/papers/items/ab1455deae68f37f/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-16-2609-11142-radio-map-construction-with-post-hoc-location-calibration-under-quasi/",
+          "title": "后置位置校准的无线电地图构建｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[30]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.11142",
         "https://arxiv.org/abs/2609.11142",
@@ -17083,10 +17125,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/ab1455deae68f37f/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-16-2609-11142-radio-map-construction-with-post-hoc-location-calibration-under-quasi/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "4e41c9dfc2647d39",
@@ -23291,6 +23333,26 @@
       "final_proofread_done": false
     },
     {
+      "date": "2026-10-26",
+      "slug": "2026-10-26-2608-12524-channel-estimation-for-otfs-systems-with-overspread-doppler-shifts",
+      "title": "过扩张多普勒 OTFS 系统的信道估计｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[28]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-26-2608-12524-channel-estimation-for-otfs-systems-with-overspread-doppler-shifts/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-26-2608-12524-channel-estimation-for-otfs-systems-with-overspread-doppler-shifts.md",
+      "paper_ids": [
+        "a67500334e77fc04"
+      ],
+      "source_arxiv_ids": [
+        "2608.12524"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
       "slug": "2026-10-24-xl-mimo-multi-user-spatial-sharing",
       "title": "近场 XL-MIMO 多用户空间信息共享信道估计｜中文全文译文",
       "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[35]；许可：arXiv 预印本（正式版 DOI: 10.1109/TWC.2026.3702238，以预印本翻译）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
@@ -25531,6 +25593,26 @@
     },
     {
       "date": "2026-10-08",
+      "slug": "2026-10-08-2610-02260-mintflow-minimal-trajectory-intervention-for-constrained-flow-matching",
+      "title": "MintFlow：约束流匹配的最小轨迹干预｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[41]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-08-2610-02260-mintflow-minimal-trajectory-intervention-for-constrained-flow-matching/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-08-2610-02260-mintflow-minimal-trajectory-intervention-for-constrained-flow-matching.md",
+      "paper_ids": [
+        "647afc788713a6de"
+      ],
+      "source_arxiv_ids": [
+        "2610.02260"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-08",
       "slug": "2026-10-08-2609-40090-ptno-training-neural-operators-with-noisy-monte-carlo-estimates-for-pa",
       "title": "PTNO：用含噪蒙特卡洛估计训练神经算子求解粒子输运问题｜中文全文译文",
       "scope": "全文覆盖：摘要、正文 1—6 节、致谢、附录 A—P（表 3—35）、图 1—15 图注、表 1—35、参考文献 54 条（英文原条目）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
@@ -25691,6 +25773,26 @@
     },
     {
       "date": "2026-10-08",
+      "slug": "2026-10-08-2606-24824-solving-inverse-problems-of-chaotic-systems-with-bidirectional-conditi",
+      "title": "双向条件流匹配求解混沌系统逆问题｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[121]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-08-2606-24824-solving-inverse-problems-of-chaotic-systems-with-bidirectional-conditi/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-08-2606-24824-solving-inverse-problems-of-chaotic-systems-with-bidirectional-conditi.md",
+      "paper_ids": [
+        "2fd7c6f4df7bed7e"
+      ],
+      "source_arxiv_ids": [
+        "2606.24824"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-08",
       "slug": "2026-10-08-2602-21449-semi-gridless-variational-bayes-channel-estimation-in-xl-mimo-near-fie",
       "title": "XL-MIMO 半无网格变分贝叶斯信道估计：近场建模与推断｜中文全文译文",
       "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[46]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
@@ -25761,6 +25863,26 @@
       ],
       "source_arxiv_ids": [
         "2505.07991"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-08",
+      "slug": "2026-10-08-2408-15202-canonical-form-and-finite-blocklength-bounds-for-stabilizer-codes",
+      "title": "稳定子码的规范形与有限码长界｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[22]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-08-2408-15202-canonical-form-and-finite-blocklength-bounds-for-stabilizer-codes/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-08-2408-15202-canonical-form-and-finite-blocklength-bounds-for-stabilizer-codes.md",
+      "paper_ids": [
+        "38cc50b840720a0c"
+      ],
+      "source_arxiv_ids": [
+        "2408.15202"
       ],
       "qa_complete": true,
       "external": true,
@@ -27762,6 +27884,26 @@
     },
     {
       "date": "2026-09-23",
+      "slug": "2026-09-23-2609-24121-joint-channel-estimation-detection-and-resource-allocation-for-otfs-rs",
+      "title": "OTFS-RSMA 的联合信道估计、检测与资源分配｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[24]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-23-2609-24121-joint-channel-estimation-detection-and-resource-allocation-for-otfs-rs/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-23-2609-24121-joint-channel-estimation-detection-and-resource-allocation-for-otfs-rs.md",
+      "paper_ids": [
+        "ced0378c092d0990"
+      ],
+      "source_arxiv_ids": [
+        "2609.24121"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-23",
       "slug": "2026-09-23-2609-24119-sensing-while-communicating-active-online-spectrum-cartography-via-air",
       "title": "边通信边感知：空中平台主动在线频谱制图｜中文全文译文",
       "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[36]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
@@ -28132,6 +28274,46 @@
       ],
       "source_arxiv_ids": [
         "2609.12953"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-16",
+      "slug": "2026-09-16-2609-11142-radio-map-construction-with-post-hoc-location-calibration-under-quasi",
+      "title": "后置位置校准的无线电地图构建｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[30]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-16-2609-11142-radio-map-construction-with-post-hoc-location-calibration-under-quasi/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-16-2609-11142-radio-map-construction-with-post-hoc-location-calibration-under-quasi.md",
+      "paper_ids": [
+        "ab1455deae68f37f"
+      ],
+      "source_arxiv_ids": [
+        "2609.11142"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-16",
+      "slug": "2026-09-16-2609-00937-exact-payload-decoupling-conditions-for-pilot-only-bem-channel-estimat",
+      "title": "仅导频 BEM 信道估计的精确载荷解耦条件｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[29]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-16-2609-00937-exact-payload-decoupling-conditions-for-pilot-only-bem-channel-estimat/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-16-2609-00937-exact-payload-decoupling-conditions-for-pilot-only-bem-channel-estimat.md",
+      "paper_ids": [
+        "fdd244da160081c6"
+      ],
+      "source_arxiv_ids": [
+        "2609.00937"
       ],
       "qa_complete": true,
       "external": true,
