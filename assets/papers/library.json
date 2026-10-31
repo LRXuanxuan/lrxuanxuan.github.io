@@ -4,8 +4,8 @@
   "source_sha256": "667f6509c907b3f519f6fb8fb5bebd90ca35d9c2641539ec2bd83988638e4787",
   "translation_progress": {
     "target": 315,
-    "completed": 211,
-    "public_full_text": 203,
+    "completed": 219,
+    "public_full_text": 211,
     "local_only": 12,
     "status_counts": {
       "access_blocked": 3,
@@ -13580,7 +13580,13 @@
       "report_entry_url": "/papers/reports/2026-09-27/#paper-55e9194128966702",
       "paper_url": "/papers/items/55e9194128966702/",
       "paper_report_url": "/papers/items/55e9194128966702/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-27-2603-11918-indirect-and-direct-multiuser-hybrid-beamforming-for-far-field-and-nea/",
+          "title": "远场与近场多用户混合波束赋形的间接与直接方法｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[52]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2603.11918",
         "https://arxiv.org/abs/2603.11918",
@@ -13594,10 +13600,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/55e9194128966702/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-27-2603-11918-indirect-and-direct-multiuser-hybrid-beamforming-for-far-field-and-nea/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "612370cfe0599939",
@@ -13630,7 +13636,13 @@
       "report_entry_url": "/papers/reports/2026-09-27/#paper-612370cfe0599939",
       "paper_url": "/papers/items/612370cfe0599939/",
       "paper_report_url": "/papers/items/612370cfe0599939/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-27-2601-12725-robust-beamforming-and-time-allocation-for-time-division-cell-free-nea/",
+          "title": "时分组蜂窝网络的鲁棒波束赋形与时间分配｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[38]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2601.12725",
         "https://arxiv.org/abs/2601.12725",
@@ -13644,10 +13656,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/612370cfe0599939/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-27-2601-12725-robust-beamforming-and-time-allocation-for-time-division-cell-free-nea/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "51fc42f3aed64097",
@@ -13730,7 +13742,13 @@
       "report_entry_url": "/papers/reports/2026-09-27/#paper-c4f5057561653bf8",
       "paper_url": "/papers/items/c4f5057561653bf8/",
       "paper_report_url": "/papers/items/c4f5057561653bf8/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-27-2609-20899-spacediffusion-over-the-orbit-diffusion-for-space-generate-and-forward/",
+          "title": "SpaceDiffusion：面向太空生成转发的在轨扩散｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[41]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.20899",
         "https://arxiv.org/abs/2609.20899"
@@ -13741,10 +13759,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/c4f5057561653bf8/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-27-2609-20899-spacediffusion-over-the-orbit-diffusion-for-space-generate-and-forward/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "b05fb1daabe5bcda",
@@ -14882,7 +14900,13 @@
       "report_entry_url": "/papers/reports/2026-09-26/#paper-6cb8208e4ef11739",
       "paper_url": "/papers/items/6cb8208e4ef11739/",
       "paper_report_url": "/papers/items/6cb8208e4ef11739/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-26-2609-16569-joint-freshness-and-age-dispersion-control-over-finite-state-markov-wi/",
+          "title": "有限状态信道上的联合新鲜度与年龄离散控制｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[17]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.16569",
         "https://arxiv.org/abs/2609.16569"
@@ -14893,10 +14917,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/6cb8208e4ef11739/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-26-2609-16569-joint-freshness-and-age-dispersion-control-over-finite-state-markov-wi/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "6a310edf70bd8668",
@@ -14929,7 +14953,13 @@
       "report_entry_url": "/papers/reports/2026-09-26/#paper-6a310edf70bd8668",
       "paper_url": "/papers/items/6a310edf70bd8668/",
       "paper_report_url": "/papers/items/6a310edf70bd8668/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-26-2609-09777-multi-stream-spatiotemporal-channel-coding-for-mimo-systems-transmissi/",
+          "title": "MIMO 多流时空信道编码｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[36]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.09777",
         "https://arxiv.org/abs/2609.09777",
@@ -14946,10 +14976,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/6a310edf70bd8668/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-26-2609-09777-multi-stream-spatiotemporal-channel-coding-for-mimo-systems-transmissi/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "421cfd8b602b8e9f",
@@ -14982,7 +15012,13 @@
       "report_entry_url": "/papers/reports/2026-09-26/#paper-421cfd8b602b8e9f",
       "paper_url": "/papers/items/421cfd8b602b8e9f/",
       "paper_report_url": "/papers/items/421cfd8b602b8e9f/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-26-2609-09324-improving-5g-ai-ran-mcs-selection-by-predicting-retransmissions/",
+          "title": "通过预测重传改进 5G AI-RAN MCS 选择｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[17]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.09324",
         "https://arxiv.org/abs/2609.09324"
@@ -14993,10 +15029,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/421cfd8b602b8e9f/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-26-2609-09324-improving-5g-ai-ran-mcs-selection-by-predicting-retransmissions/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "7defd44fabc63f0c",
@@ -15029,7 +15065,13 @@
       "report_entry_url": "/papers/reports/2026-09-26/#paper-7defd44fabc63f0c",
       "paper_url": "/papers/items/7defd44fabc63f0c/",
       "paper_report_url": "/papers/items/7defd44fabc63f0c/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-26-2609-23945-echo-state-network-esn-for-signal-recovery-in-rf-impaired-ibfd-mimo-sy/",
+          "title": "射频损伤 IBFD MIMO 系统的回声状态网络信号恢复｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[20]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.23945",
         "https://arxiv.org/abs/2609.23945"
@@ -15040,10 +15082,10 @@
       ],
       "hosted_pdfs": [],
       "status": "已接受待刊",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/7defd44fabc63f0c/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-26-2609-23945-echo-state-network-esn-for-signal-recovery-in-rf-impaired-ibfd-mimo-sy/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "20630c11ee8f0cdb",
@@ -15076,7 +15118,13 @@
       "report_entry_url": "/papers/reports/2026-09-26/#paper-20630c11ee8f0cdb",
       "paper_url": "/papers/items/20630c11ee8f0cdb/",
       "paper_report_url": "/papers/items/20630c11ee8f0cdb/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-26-2609-16341-channel-informed-neural-network-for-physical-layer-key-generation/",
+          "title": "信道感知神经网络的物理层密钥生成｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[33]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.16341",
         "https://arxiv.org/abs/2609.16341"
@@ -15087,10 +15135,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/20630c11ee8f0cdb/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-26-2609-16341-channel-informed-neural-network-for-physical-layer-key-generation/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "6cd22d3b2ff792a9",
@@ -26886,6 +26934,26 @@
     },
     {
       "date": "2026-09-27",
+      "slug": "2026-09-27-2609-20899-spacediffusion-over-the-orbit-diffusion-for-space-generate-and-forward",
+      "title": "SpaceDiffusion：面向太空生成转发的在轨扩散｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[41]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-27-2609-20899-spacediffusion-over-the-orbit-diffusion-for-space-generate-and-forward/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-27-2609-20899-spacediffusion-over-the-orbit-diffusion-for-space-generate-and-forward.md",
+      "paper_ids": [
+        "c4f5057561653bf8"
+      ],
+      "source_arxiv_ids": [
+        "2609.20899"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-27",
       "slug": "2026-09-27-2609-19747-star-structure-aware-test-time-adaptation-for-diffusion-based-light-fi",
       "title": "STAR：面向扩散光场重建的结构感知测试时自适应｜中文全文译文",
       "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[29]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
@@ -27105,6 +27173,66 @@
       "final_proofread_done": false
     },
     {
+      "date": "2026-09-27",
+      "slug": "2026-09-27-2603-11918-indirect-and-direct-multiuser-hybrid-beamforming-for-far-field-and-nea",
+      "title": "远场与近场多用户混合波束赋形的间接与直接方法｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[52]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-27-2603-11918-indirect-and-direct-multiuser-hybrid-beamforming-for-far-field-and-nea/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-27-2603-11918-indirect-and-direct-multiuser-hybrid-beamforming-for-far-field-and-nea.md",
+      "paper_ids": [
+        "55e9194128966702"
+      ],
+      "source_arxiv_ids": [
+        "2603.11918"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-27",
+      "slug": "2026-09-27-2601-12725-robust-beamforming-and-time-allocation-for-time-division-cell-free-nea",
+      "title": "时分组蜂窝网络的鲁棒波束赋形与时间分配｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[38]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-27-2601-12725-robust-beamforming-and-time-allocation-for-time-division-cell-free-nea/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-27-2601-12725-robust-beamforming-and-time-allocation-for-time-division-cell-free-nea.md",
+      "paper_ids": [
+        "612370cfe0599939"
+      ],
+      "source_arxiv_ids": [
+        "2601.12725"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-26",
+      "slug": "2026-09-26-2609-23945-echo-state-network-esn-for-signal-recovery-in-rf-impaired-ibfd-mimo-sy",
+      "title": "射频损伤 IBFD MIMO 系统的回声状态网络信号恢复｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[20]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-26-2609-23945-echo-state-network-esn-for-signal-recovery-in-rf-impaired-ibfd-mimo-sy/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-26-2609-23945-echo-state-network-esn-for-signal-recovery-in-rf-impaired-ibfd-mimo-sy.md",
+      "paper_ids": [
+        "7defd44fabc63f0c"
+      ],
+      "source_arxiv_ids": [
+        "2609.23945"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
       "date": "2026-09-26",
       "slug": "2026-09-26-2609-23157-orientation-aware-control-and-trajectory-design-for-aerial-ris-assiste",
       "title": "空中 RIS 辅助无线网络的姿态感知控制与轨迹设计｜中文全文译文",
@@ -27166,6 +27294,46 @@
     },
     {
       "date": "2026-09-26",
+      "slug": "2026-09-26-2609-16569-joint-freshness-and-age-dispersion-control-over-finite-state-markov-wi",
+      "title": "有限状态信道上的联合新鲜度与年龄离散控制｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[17]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-26-2609-16569-joint-freshness-and-age-dispersion-control-over-finite-state-markov-wi/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-26-2609-16569-joint-freshness-and-age-dispersion-control-over-finite-state-markov-wi.md",
+      "paper_ids": [
+        "6cb8208e4ef11739"
+      ],
+      "source_arxiv_ids": [
+        "2609.16569"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-26",
+      "slug": "2026-09-26-2609-16341-channel-informed-neural-network-for-physical-layer-key-generation",
+      "title": "信道感知神经网络的物理层密钥生成｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[33]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-26-2609-16341-channel-informed-neural-network-for-physical-layer-key-generation/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-26-2609-16341-channel-informed-neural-network-for-physical-layer-key-generation.md",
+      "paper_ids": [
+        "20630c11ee8f0cdb"
+      ],
+      "source_arxiv_ids": [
+        "2609.16341"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-26",
       "slug": "2026-09-26-2609-14373-low-complexity-near-field-channel-estimation-and-subcarrier-cooperativ",
       "title": "低复杂度近场信道估计与子载波协作混合波束赋形｜中文全文译文",
       "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[26]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
@@ -27206,6 +27374,26 @@
     },
     {
       "date": "2026-09-26",
+      "slug": "2026-09-26-2609-09777-multi-stream-spatiotemporal-channel-coding-for-mimo-systems-transmissi",
+      "title": "MIMO 多流时空信道编码｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[36]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-26-2609-09777-multi-stream-spatiotemporal-channel-coding-for-mimo-systems-transmissi/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-26-2609-09777-multi-stream-spatiotemporal-channel-coding-for-mimo-systems-transmissi.md",
+      "paper_ids": [
+        "6a310edf70bd8668"
+      ],
+      "source_arxiv_ids": [
+        "2609.09777"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-26",
       "slug": "2026-09-26-2609-09656-why-learning-rediscovers-the-closed-form-diagonal-regularizer",
       "title": "学习为何会重新发现闭式对角正则化器｜中文全文译文",
       "scope": "全文覆盖：摘要、正文各节、结论、附录、图表说明（书目以原文 PDF 为题名核对入口）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
@@ -27216,6 +27404,26 @@
       ],
       "source_arxiv_ids": [
         "2609.09656"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-26",
+      "slug": "2026-09-26-2609-09324-improving-5g-ai-ran-mcs-selection-by-predicting-retransmissions",
+      "title": "通过预测重传改进 5G AI-RAN MCS 选择｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[17]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-26-2609-09324-improving-5g-ai-ran-mcs-selection-by-predicting-retransmissions/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-26-2609-09324-improving-5g-ai-ran-mcs-selection-by-predicting-retransmissions.md",
+      "paper_ids": [
+        "421cfd8b602b8e9f"
+      ],
+      "source_arxiv_ids": [
+        "2609.09324"
       ],
       "qa_complete": true,
       "external": true,
