@@ -526,7 +526,430 @@ AWGN 情形使用标准的高斯近似（GA）Polar 构造。对 Rayleigh 情形
 
 **图 9：** 使用 Polar 编码通信对可靠性驱动感知框架的实际验证，覆盖 AWGN/BPSK 与 Rayleigh/QPSK 两类信道以及 SC/DFD 译码。(a) AWGN 与 Rayleigh（SC 及 Rayleigh DFD）译码下经验与标定理论的残余协方差膨胀对比；(b) 两类信道与译码器下 Polar 编码感知 FI 随速率的变化（权衡悬崖）；(c) 两类信道下 Polar 译码器 BLER 与标定有限码长参考的对比；(d) Rayleigh/QPSK 配置在 0、6、12 与 18 dB 下 CRB 随速率的变化。
 
-<!-- PART5 -->
+## VII. 结论与未来工作
+
+在所采用的基于解码参考的感知框架内，本文通过放松“感知参考波形完美已知”这一经典假设，探索了集成感知与通信（ISAC）的基本极限。通过引入有限码长理论，我们揭示了“权衡悬崖”——当通信速率逼近 Shannon 容量时，感知性能出现急剧的非线性退化。
+
+### A. 贡献总结
+
+我们的分析为可靠性感知 ISAC 给出若干关键洞见：
+
+- **可靠性驱动的耦合：** Fisher 信息与解码成功率内在相关。因此，统一波形作为感知参考的效用从根本上取决于通信可靠性。
+- **权衡悬崖：** 感知在低速率时接近最优，但当可靠性裕量消失（$R\to C$）时急剧退化。
+- **块长标定：** 块长 $n$ 支配权衡几何。URLLC 中的短包导致更早、更平缓的退化；而长包（eMBB）推迟崩塌但使悬崖更陡。
+- **最优设计：** 我们建立了一个在严格通信 QoS 约束下最大化可达感知精度的优化框架，为 6G 资源分配提供了实用工具。
+
+**局限：** 通过把解码不确定性建模为等效二阶高斯失真，我们的框架捕捉的是聚合感知退化，并未显式考虑码特有的结构化失败或突发错误。因此，向码感知的感知分析扩展是重要的下一步。
+
+### B. 对 6G 的启示
+
+我们的发现表明，对统一 ISAC 波形与基于 FBL 解码参考的 ISAC 系统而言，在通信可靠性边界附近任意接近地运行，与维持高精度感知性能在本质上不相容。系统设计者必须施加信息论意义上的**可靠性裕量**，以确保波形始终是稳定的感知参考，从而超越纯硬件中心的设计约束。
+
+### C. 未来研究方向
+
+在此框架基础上，未来工作可研究：
+
+- **精确分析：** 所提分析框架依赖解码不确定性的协方差等效近似及相应可处理的 Fisher 信息刻画；把分析扩展到精确的码感知残余统计仍是重要的未来方向。
+- **MIMO ISAC 权衡：** 把可靠性驱动模型扩展到多天线系统，以探索空间自由度如何缓解解码不确定性，并扩展到 ISAC 的其他形式，如集成极化感知与通信（IP-SAC）[51]。
+- **不完美 CSI：** 分析信道估计误差如何加剧感知参考的不稳定性。
+- **抗错编码：** 设计专门码，使通信解码失败时感知方差仍最小化。
+- **实验验证：** 在不同编码方案、调制格式、信道模型与硬件平台上对协方差等效模型进行实验验证，是重要的未来研究方向。
+
+## 附录 A　解码不确定性的协方差解释
+
+本附录为用于刻画 FBL 不确定性下感知退化的等效解码失真模型提供统计基础。
+
+### A. 解码残差与协方差分解
+
+设 $\mathbf x\in\mathbb C^n$ 为编码块，$\hat{\mathbf x}=D(\mathbf y)$ 为 FBL 译码器输出。定义解码残差 $\mathbf e=\hat{\mathbf x}-\mathbf x$，于是解码波形为 $\hat{\mathbf x}=\mathbf x+\mathbf e$。
+
+虽然 $\mathbf e$ 的精确结构取决于具体码与 SNR，我们采用**协方差等效抽象**来刻画其对感知的二阶影响。设 $\mathcal E=\{\hat{\mathbf x}\ne\mathbf x\}$ 为解码错误事件，概率为 $P_e$。由全期望公式，残差协方差 $\mathbf R_e=\mathbb E[\mathbf e\mathbf e^H]$ 分解为
+
+$$
+\mathbf R_e=(1-P_e)\mathbf R_{\rm succ}+P_e\mathbf R_{\rm fail}, \tag{20}
+$$
+
+其中 $\mathbf R_{\rm succ}$ 与 $\mathbf R_{\rm fail}$ 分别是解码成功与失败条件下的残差协方差。在可靠 FBL 系统中，成功解码下的失真可忽略（$\mathbf R_{\rm succ}\approx\mathbf 0$）[20]，这意味着聚合不确定性与错误概率直接成比例：
+
+$$
+\mathbf R_e\approx P_e\mathbf R_{\rm fail}. \tag{21}
+$$
+
+### B. 各向同性近似与高斯解释
+
+在交织编码系统中，Fisher 信息主要受聚合协方差幅值影响，而非受细粒度的符号级相关影响。假定残差无方向偏好，我们把失败协方差建模为各向同性的：$\mathbf R_{\rm fail}\approx\kappa\mathbf I$，其中 $\kappa>0$ 为依赖系统的缩放参数。由此得到模型
+
+$$
+\mathbf R_e\approx\kappa P_e\mathbf I
+\;\Longrightarrow\;
+\mathbf e_k\sim\mathcal{CN}(0,\sigma_e^2),\qquad
+\sigma_e^2=\kappa P_e. \tag{22}
+$$
+
+我们采用高斯分布作为协方差等效的分析代理，而不要求译码器残差本身服从高斯分布。在包含多个近似独立损伤源的系统中，高斯聚合还可由中心极限论证渐近地得到支持：若 $\mathbf e_k$ 源自多个独立扰动源（如量化、同步失配与干扰），聚合残差在分布上收敛到 $\mathcal{CN}(0,\sigma_e^2)$。这使得 Fisher 信息分析可解析处理，同时仍捕捉主导的物理退化。
+
+### C. 适用范围与局限
+
+本表述是等效的感知失真抽象，而非精确的物理译码器模型。因此，高斯解码失真模型应理解为聚合解码不确定性的协方差等效表示，而非译码器残差的精确统计分布。它对依赖二阶统计量的指标（FI 与 CRB）最为准确，且不显式捕捉：
+
+- 码特有的结构化失败或突发错误行为；
+- 依赖符号的相关性或非高斯残差分布。
+
+因此，所提近似最适合解码参考 ISAC 系统中感知性能的解析刻画，其中解码不确定性的主导效应通过其协方差被捕捉。尽管有这些简化，该框架提供了把通信可靠性与 Fisher 信息损失联系起来的数学严格机制。在真实、码特定的译码器（而非上文假定的理想化高斯残差模型）下，这一联系的实证实例在第 VI-H 节（图 9）中得到验证。
+
+## 附录 B　定理 1 的证明
+
+本附录推导解码不确定性条件下复标量信道增益 $h$ 的 Fisher 信息。下式推导中的期望同时对观测噪声与解码参考不确定性取。等价地，这里推导的 Fisher 信息对应于期望 Fisher 信息
+
+$$
+I(h)=\mathbb E_{\hat{x}}\left[I(h|\hat{x})\right],
+$$
+
+其中内层 Fisher 信息以特定解码波形实现为条件。
+
+### A. 观测模型
+
+接收感知信号为 $y=hx+w$，其中 $w\sim\mathcal{CN}(0,N_0)$。接收机只能获得解码波形 $\hat{x}=x+e$，$e\sim\mathcal{CN}(0,\sigma_e^2)$ 与 $x$、$w$ 独立。把 $x=\hat{x}-e$ 代入观测模型得
+
+$$
+y=h\hat{x}+\tilde{w},\qquad \tilde{w}=w-he. \tag{23}
+$$
+
+由于 $w$ 与 $e$ 是独立高斯变量，有效噪声 $\tilde{w}$ 服从 $\mathcal{CN}(0,\sigma^2_{\tilde{w}})$，方差 $\sigma^2_{\tilde{w}}=N_0+|h|^2\sigma_e^2$。在附录 A 发展的协方差等效近似下，观测模型近似为
+
+$$
+y|\hat{x}\approx\mathcal{CN}(h\hat{x},\sigma^2_{\tilde{w}}),
+$$
+
+其中该近似忽略由 $\hat{x}$ 与解码残差耦合诱导的高阶残余相关项。
+
+**命题 1（协方差等效近似的精度）.** 考虑基于解码参考的感知模型 $\hat{x}=x+e$ 与 $\tilde{w}=w-\alpha e$，其中 $e\sim\mathcal{CN}(0,\sigma_e^2\mathbf I)$ 与 $w\sim\mathcal{CN}(0,N_0\mathbf I)$ 独立。在适度解码不确定性（$\sigma_e^2\ll\min(P,N_0)$）下，精确 Fisher 信息具有如下扰动展开：
+
+$$
+\mathbf I=\mathbf I_{\rm eq}+\Delta\mathbf I, \tag{24}
+$$
+
+其中 $\mathbf I_{\rm eq}$ 是通过所提协方差等效模型得到的 Fisher 信息，而被忽略的互协方差矩阵 $\boldsymbol\Delta$ 所产生的扰动满足 $\Delta\mathbf I=O\left(\left\|\boldsymbol\Sigma_{\rm eq}^{-1}\boldsymbol\Delta\right\|\right)$。因此，所提协方差等效 Fisher 信息是精确 Fisher 信息的首阶近似，而解码波形与有效噪声之间的相关仅表现为高阶扰动。
+
+**证明：** 解码参考波形与有效噪声的精确联合协方差为
+
+$$
+\boldsymbol\Sigma=
+\begin{bmatrix}
+(P+\sigma_e^2)\mathbf I & -\alpha^*\sigma_e^2\mathbf I\\
+-\alpha\sigma_e^2\mathbf I & (N_0+|\alpha|^2\sigma_e^2)\mathbf I
+\end{bmatrix}
+=\boldsymbol\Sigma_{\rm eq}+\boldsymbol\Delta,
+$$
+
+其中
+
+$$
+\boldsymbol\Sigma_{\rm eq}=
+\begin{bmatrix}
+(P+\sigma_e^2)\mathbf I & \mathbf 0\\
+\mathbf 0 & (N_0+|\alpha|^2\sigma_e^2)\mathbf I
+\end{bmatrix}.
+$$
+
+由于 $\sigma_e^2\ll\min(P,N_0)$，有 $\left\|\boldsymbol\Sigma_{\rm eq}^{-1}\boldsymbol\Delta\right\|<1$，因此逆协方差具有收敛的 Neumann 级数展开
+
+$$
+\boldsymbol\Sigma^{-1}=\boldsymbol\Sigma_{\rm eq}^{-1}
+-\boldsymbol\Sigma_{\rm eq}^{-1}\boldsymbol\Delta\boldsymbol\Sigma_{\rm eq}^{-1}
++O\left(\left\|\boldsymbol\Sigma_{\rm eq}^{-1}\boldsymbol\Delta\right\|^2\right),
+$$
+
+依据标准矩阵扰动结果 [52]。由于复高斯模型的 Fisher 信息依赖逆协方差矩阵，代入上述展开即得
+
+$$
+\mathbf I=\mathbf I_{\rm eq}+O\left(\left\|\boldsymbol\Sigma_{\rm eq}^{-1}\boldsymbol\Delta\right\|\right).
+$$
+
+因此，本文所依赖的协方差等效 Fisher 信息恰是精确 Fisher 信息的首阶项，而被忽略的互协方差效应仅表现为扰动。$\square$
+
+### B. 步骤 1：固定 $\hat{x}$ 的条件 Fisher 信息
+
+对解码参考 $\hat{x}$ 的一个**固定**实现，条件对数似然为
+
+$$
+\log p(y|h,\hat{x})
+=-\frac{|y-h\hat{x}|^2}{\sigma^2_{\tilde{w}}}
+-\log\left(\pi\sigma^2_{\tilde{w}}\right). \tag{25}
+$$
+
+注意有效方差 $\sigma^2_{\tilde{w}}=N_0+|h|^2\sigma_e^2$ 通过其二阶矩 $\sigma_e^2$ 依赖 $h$，但并不依赖 $\hat{x}$ 的具体实现，因为 $\sigma_e^2$ 是解码信道的属性，而非任何特定解码结果的属性。由 Wirtinger 导数 $\partial\sigma^2_{\tilde{w}}/\partial h^*=h\sigma_e^2$，以 $\hat{x}$ 为条件的得分函数为
+
+$$
+\frac{\partial}{\partial h^*}\log p(y|h,\hat{x})
+=\frac{\hat{x}^*(y-h\hat{x})}{\sigma^2_{\tilde{w}}}
++\frac{h\sigma_e^2}{\sigma^2_{\tilde{w}}}
+\left(\frac{|y-h\hat{x}|^2}{\sigma^2_{\tilde{w}}}-1\right). \tag{26}
+$$
+
+定义残差 $\epsilon=y-h\hat{x}=\tilde{w}$，$\epsilon\sim\mathcal{CN}(0,\sigma^2_{\tilde{w}})$，并在附录 A 的等效协方差解码不确定性模型下计算 $I(h|\hat{x})=\mathbb E\left[\left|\partial\log p(y|h,\hat{x})/\partial h^*\right|^2\big|\hat{x}\right]$，保留到适度解码不确定性近似所需的各项，得
+
+$$
+I(h|\hat{x})=\frac{|\hat{x}|^2}{N_0+|h|^2\sigma_e^2}
++\frac{|h|^2\sigma_e^4}{\left(N_0+|h|^2\sigma_e^2\right)^2}. \tag{27}
+$$
+
+### C. 步骤 2：对 $\hat{x}$ 取期望
+
+由于有限码长解码，$\hat{x}=x+e$ 本身是随机的，因此实际相关的感知度量是对 $\hat{x}$ 分布取平均的 Fisher 信息：
+
+$$
+I(h)=\mathbb E_{\hat{x}}\left[I(h|\hat{x})\right]. \tag{28}
+$$
+
+考察 (27) 可见，$I(h|\hat{x})$ 仅通过 $|\hat{x}|^2$ 依赖 $\hat{x}$，且只出现在均值梯度项中；方差梯度项（(27) 第二项）不直接依赖 $\hat{x}$，只依赖 $\sigma_e^2$。因此，(28) 中的取期望简化为用其期望值替换 $|\hat{x}|^2$：
+
+$$
+\mathbb E\left[|\hat{x}|^2\right]=P+\sigma_e^2\approx P, \tag{29}
+$$
+
+从而得到
+
+$$
+I(h)\approx\frac{\mathbb E\left[|\hat{x}|^2\right]}{N_0+|h|^2\sigma_e^2}
++\frac{|h|^2\sigma_e^4}{\left(N_0+|h|^2\sigma_e^2\right)^2}. \tag{30}
+$$
+
+这确认步骤 1 的条件推导与步骤 2 的期望殊途同归，都归结为单一代换 (29)，因为 $I(h|\hat{x})$ 除二阶矩外不依赖 $\hat{x}$。式 (30) 正是定理 1 的 (8)。
+
+**注 2.** 由于 $I(h|\hat{x})$ 仅通过 $|\hat{x}|^2$ 依赖 $\hat{x}$，上述“先条件化再平均”的构造与基于平均观测模型 $y|\hat{x}\sim\mathcal{CN}(h\hat{x},\sigma^2_{\tilde{w}})$ 的直接单步推导给出相同结果。这一等价性依赖附录 A 的协方差等效建模假设：在该假设下，$\sigma^2_{\tilde{w}}$ 仅通过二阶矩 $\sigma_e^2$ 依赖 $\hat{x}$，而非通过具体实现的偏差 $e=\hat{x}-x$。
+
+### D. 近似合理性
+
+当不确定性诱导噪声相对热噪声较小（$|h|^2\sigma_e^2\ll N_0$）时，方差梯度项（(30) 第二项）变得可忽略，于是
+
+$$
+I(h)\approx\frac{\mathbb E\left[|\hat{x}|^2\right]}{N_0+|h|^2\sigma_e^2}. \tag{31}
+$$
+
+最后，注意到 $\mathbb E[|\hat{x}|^2]=P+\sigma_e^2\approx P$，Fisher 信息简化为等效噪声表述：
+
+$$
+I(h)\approx\frac{P}{N_0+|h|^2\sigma_e^2}. \tag{32}
+$$
+
+证毕。
+
+## 附录 C　定理 2 的证明
+
+### A. 信号模型与参数向量
+
+考虑参数化接收信号 $y(t)=\alpha x(t-\tau)e^{j2\pi\nu t}+w(t)$，其中 $\alpha\in\mathbb C$ 为复反射系数，$\tau$ 为时延，$\nu$ 为多普勒偏移，$w(t)\sim\mathcal{CN}(0,N_0)$ 为加性热噪声。
+
+由于解码不确定性，感知接收机使用解码估计 $\hat{x}(t)=x(t)+e(t)$ 运行，误差 $e(t)\sim\mathcal{CN}(0,\sigma_e^2)$。把 $x(t)$ 代入观测得
+
+$$
+y(t)=\alpha\hat{x}(t-\tau)e^{j2\pi\nu t}+\tilde{w}(t), \tag{33}
+$$
+
+其中有效噪声 $\tilde{w}(t)=w(t)-\alpha e(t-\tau)e^{j2\pi\nu t}$ 服从 $\mathcal{CN}(0,\sigma^2)$，其方差被膨胀为 $\sigma^2=N_0+|\alpha|^2\sigma_e^2$。
+
+我们定义参数向量 $\boldsymbol\theta=[\tau,\nu,\Re(\alpha),\Im(\alpha)]^T$。相应的 Fisher 信息矩阵（FIM）为
+
+$$
+\mathbf I(\boldsymbol\theta)=\mathbb E\left[
+\left(\frac{\partial\log p(y|\boldsymbol\theta)}{\partial\boldsymbol\theta}\right)
+\left(\frac{\partial\log p(y|\boldsymbol\theta)}{\partial\boldsymbol\theta}\right)^T\right]. \tag{34}
+$$
+
+相应的 Cramér–Rao 下界由
+
+$$
+\boldsymbol{\rm CRB}(\boldsymbol\theta)=\mathbf I^{-1}(\boldsymbol\theta) \tag{35}
+$$
+
+得到，其中 $\mathbf I(\boldsymbol\theta)$ 的对角与非对角元都通过参数耦合影响估计精度。
+
+### B. FIM 计算与主结构
+
+对复高斯模型 $y(t)\sim\mathcal{CN}(\mu(t;\boldsymbol\theta),\sigma^2)$，其均值 $\mu(t;\boldsymbol\theta)=\alpha\hat{x}(t-\tau)e^{j2\pi\nu t}$，Fisher 信息矩阵的每个元素可写为
+
+$$
+\mathrm I_{ij}=\frac{2}{\sigma^2}\Re\left\{
+\left(\frac{\partial\mu}{\partial\theta_i}\right)^H
+\left(\frac{\partial\mu}{\partial\theta_j}\right)\right\}
++\mathrm I^{(\rm var)}_{ij}, \tag{36}
+$$
+
+其中 $\mathrm I^{(\rm var)}_{ij}$ 表示协方差梯度贡献。在适度解码不确定性假设（$\sigma_e^2\ll P$）下，方差梯度项可忽略，于是
+
+$$
+\mathrm I_{ij}\approx
+\frac{1}{N_0+|\alpha|^2\sigma_e^2(R,n)}\,\mathrm I^{(0)}_{ij}, \tag{37}
+$$
+
+其中
+
+$$
+\mathrm I^{(0)}_{ij}=2\Re\left\{
+\left(\frac{\partial\mu}{\partial\theta_i}\right)^H
+\left(\frac{\partial\mu}{\partial\theta_j}\right)\right\}
+$$
+
+是完全已知参考波形下得到的相应 Fisher 信息元。
+
+均值信号对各参数的偏导数为
+
+$$
+\frac{\partial\mu(t)}{\partial\tau}=-\alpha\dot{\hat{x}}(t-\tau)e^{j2\pi\nu t},\qquad
+\frac{\partial\mu(t)}{\partial\Re(\alpha)}=\hat{x}(t-\tau)e^{j2\pi\nu t}, \tag{38}
+$$
+$$
+\frac{\partial\mu(t)}{\partial\nu}=j2\pi t\alpha\hat{x}(t-\tau)e^{j2\pi\nu t},\qquad
+\frac{\partial\mu(t)}{\partial\Im(\alpha)}=j\hat{x}(t-\tau)e^{j2\pi\nu t}. \tag{39}
+$$
+
+收集全部两两 Fisher 信息项，得到完整的 Fisher 信息矩阵
+
+$$
+\mathbf I(\boldsymbol\theta)=
+\begin{bmatrix}
+\mathrm I_{\tau\tau} & \mathrm I_{\tau\nu} & \mathrm I_{\tau\Re(\alpha)} & \mathrm I_{\tau\Im(\alpha)}\\
+\mathrm I_{\nu\tau} & \mathrm I_{\nu\nu} & \mathrm I_{\nu\Re(\alpha)} & \mathrm I_{\nu\Im(\alpha)}\\
+\mathrm I_{\Re(\alpha)\tau} & \mathrm I_{\Re(\alpha)\nu} & \mathrm I_{\Re(\alpha)\Re(\alpha)} & \mathrm I_{\Re(\alpha)\Im(\alpha)}\\
+\mathrm I_{\Im(\alpha)\tau} & \mathrm I_{\Im(\alpha)\nu} & \mathrm I_{\Im(\alpha)\Re(\alpha)} & \mathrm I_{\Im(\alpha)\Im(\alpha)}
+\end{bmatrix}, \tag{40}
+$$
+
+其中非对角元量化联合估计参数之间的耦合。为完整起见，下面列出对角元：
+
+$$
+\mathrm I_{\tau\tau}=\frac{2|\alpha|^2}{\sigma^2}\int|\dot{\hat{x}}(t)|^2\,dt, \tag{41}
+$$
+$$
+\mathrm I_{\nu\nu}=\frac{8\pi^2|\alpha|^2}{\sigma^2}\int t^2|\hat{x}(t)|^2\,dt, \tag{42}
+$$
+$$
+\mathrm I_{\alpha\alpha}=\frac{2}{\sigma^2}\int|\hat{x}(t)|^2\,dt. \tag{43}
+$$
+
+### C. 解码不确定性对 CRB 的影响
+
+Cramér–Rao 下界（CRB）矩阵是 FIM 的逆，$\boldsymbol{\rm CRB}(\boldsymbol\theta)=\mathbf I^{-1}(\boldsymbol\theta)$。解码不确定性通过两种机制使 FIM 退化：**噪声放大**（$\sigma^2=N_0+|\alpha|^2\sigma_e^2$）与**信号失真**（$\mathbb E[|\hat{x}(t)|^2]=P+\sigma_e^2$）。因此，针对时延与多普勒估计给出的 CRB 按如下方式标定：
+
+$$
+{\rm CRB}(\tau)\propto\frac{\sigma^2}{|\alpha|^2\int|\dot{\hat{x}}(t)|^2dt},\qquad
+{\rm CRB}(\nu)\propto\frac{\sigma^2}{|\alpha|^2\int t^2|\hat{x}(t)|^2dt}. \tag{44}
+$$
+
+**注（Remark）：** 由于 Fisher 信息矩阵的每个元素都被同一个依赖可靠性的协方差膨胀因子 $\frac{1}{N_0+|\alpha|^2\sigma_e^2(R,n)}$ 缩放，对角与非对角 Fisher 信息项都继承相同的有限码长可靠性依赖。因此，权衡悬崖自然延伸到完整的 Fisher 信息矩阵，从而也延伸到时延、多普勒与复信道增益的联合 CRB。
+
+## 参考文献（英文原条目，按原文顺序）
+
+[1] F. Liu, Y. Cui, C. Masouros, J. Xu, T. X. Han, Y. C. Eldar, and S. Buzzi, “Integrated sensing and communications: Toward dual-functional wireless networks for 6G and beyond,” *IEEE Journal on Selected Areas in Communications*, vol. 40, no. 6, pp. 1728–1767, 2022.
+
+[2] F. Liu, C. Masouros, A. Li, H. Sun, and L. Hanzo, “MU-MIMO communications with MIMO radar: From co-existence to joint transmission,” *IEEE Transactions on Wireless Communications*, vol. 17, no. 4, pp. 2755–2770, 2018.
+
+[3] F. Liu, C. Masouros, A. P. Petropulu, H. Griffiths, and L. Hanzo, “Joint radar and communication design: Applications, state-of-the-art, and the road ahead,” *IEEE Transactions on Communications*, vol. 68, no. 6, pp. 3834–3862, 2020.
+
+[4] Z. Wei, W. Yuan, S. Li, J. Yuan, D. W. K. Ng, and X.-G. Xia, “Joint communication and radar sensing in 6G wireless systems: Opportunities and challenges,” *IEEE Wireless Communications*, vol. 28, no. 1, pp. 149–159, 2021.
+
+[5] L. Zheng, M. Lops, Y. C. Eldar, and X. Wang, “Radar and communication coexistence: An overview,” *IEEE Signal Processing Magazine*, vol. 36, no. 5, pp. 85–114, 2019.
+
+[6] A. Hassanien and M. G. Amin, “Dual-function radar-communications using phase-modulated waveforms,” *IEEE Transactions on Signal Processing*, vol. 64, no. 8, pp. 2168–2181, 2016.
+
+[7] F. Liu and C. Masouros, “Toward dual-functional radar-communication systems: Optimal waveform design,” *IEEE Transactions on Signal Processing*, vol. 69, pp. 5598–5613, 2021.
+
+[8] B. Lee, H. Kim, D. J. Love, and J. V. Krogmeier, “Spatial-division ISAC: A practical waveform design strategy via null-space superimposition,” *IEEE Transactions on Wireless Communications*, vol. 25, pp. 6837–6851, 2026.
+
+[9] Z. Ding, R. Schober, and H. V. Poor, “On the limits of integrated sensing and communication systems,” *IEEE Transactions on Information Theory*, vol. 67, no. 12, pp. 8079–8095, 2021.
+
+[10] M. Bica and V. Saligrama, “A rate-distortion perspective on integrated sensing and communication,” *IEEE Transactions on Information Theory*, vol. 68, no. 7, pp. 4569–4590, 2022.
+
+[11] Y. Xiong, F. Liu, Y. Cui, W. Yuan, T. X. Han, and G. Caire, “On the fundamental tradeoff of integrated sensing and communications under Gaussian channels,” *IEEE Transactions on Information Theory*, vol. 69, no. 9, pp. 5723–5751, 2023.
+
+[12] A. Liu, Z. Huang, M. Li, Y. Wan, W. Li, T. X. Han, C. Liu, R. Du, D. K. P. Tan, J. Lu, Y. Shen, F. Colone, and K. Chetty, “A survey on fundamental limits of integrated sensing and communication,” *IEEE Communications Surveys & Tutorials*, vol. 24, no. 2, pp. 994–1034, 2022.
+
+[13] F. Dong, F. Liu, S. Lu, Y. Xiong, Q. Zhang, Z. Feng, and F. Gao, “Communication-assisted sensing in 6G networks,” *IEEE Journal on Selected Areas in Communications*, vol. 43, no. 4, pp. 1371–1386, 2025.
+
+[14] C. Masouros and F. Liu, “Dual-functional radar-communication waveform design in the presence of finite-alphabet signaling,” *IEEE Communications Letters*, vol. 24, no. 7, pp. 1414–1418, 2020.
+
+[15] H. Akca, E. Memişoğlu, H. A. Çırpan, and H. Arslan, “Integrated sensing and communication with power amplifier impairment,” in *2024 6th International Conference on Communications, Signal Processing, and their Applications (ICCSPA)*, 2024, pp. 1–6.
+
+[16] X. Zhang, N. P. Le, and M.-S. Alouini, “RIS-based DOA estimation for communication-assisted sensing systems under hardware impairments,” *IEEE Open Journal of Vehicular Technology*, vol. 6, pp. 1736–1748, 2025.
+
+[17] R. Liu, M. Li, Q. Liu, and A. L. Swindlehurst, “Dual-functional radar-communication waveform design: A symbol-level precoding approach,” *IEEE Journal of Selected Topics in Signal Processing*, vol. 15, no. 6, pp. 1316–1331, 2021.
+
+[18] C. Öztürk, H. Wymeersch et al., “On the impact of hardware impairments on RIS-aided localization,” in *IEEE International Conference on Communications (ICC)*, 2022, pp. 1–6.
+
+[19] A. Mezghani and A. L. Swindlehurst, “Blind self-sensing for ISAC systems with hardware impairments,” *IEEE Transactions on Signal Processing*, vol. 70, pp. 3193–3208, 2022.
+
+[20] Y. Polyanskiy, H. V. Poor, and S. Verdú, “Channel coding rate in the finite blocklength regime,” *IEEE Transactions on Information Theory*, vol. 56, no. 5, pp. 2307–2359, 2010.
+
+[21] M. Shehab, R. Abbas, A. Almradi, N. Al-Dhahir, and R. Schober, “Finite blocklength performance of ISAC for URLLC,” *IEEE Open Journal of the Communications Society*, 2023.
+
+[22] Z. Zhang, C. Masouros et al., “Fundamental tradeoffs for ISAC multiple access in finite-blocklength regime,” *arXiv preprint arXiv:2601.05165*, 2026.
+
+[23] S. Sardar, A. K. Mishra, and M. Z. A. Khan, “LTE-CommSense system and its feasibility analysis,” in *2017 IEEE AFRICON*, 2017, pp. 1564–1568.
+
+[24] ——, “LTE CommSense for object detection in indoor environments,” *IEEE Aerospace and Electronic Systems Magazine*, vol. 33, no. 7, pp. 46–59, 2018.
+
+[25] B. Tan et al., “Integrated terahertz communication and radar sensing: Feasibility, opportunities, and challenges,” *IEEE Wireless Communications*, vol. 28, no. 1, pp. 150–158, 2021.
+
+[26] P. Bahl and V. N. Padmanabhan, “RADAR: An in-building RF-based user location and tracking system,” in *Proceedings IEEE INFOCOM 2000*, vol. 2, 2000, pp. 775–784.
+
+[27] Y. Ma, G. Zhou, S. Wang, H. Zhao, and W. Jung, “WiFi sensing with channel state information: A survey,” *IEEE Communications Surveys & Tutorials*, vol. 21, no. 2, pp. 1747–1773, 2019.
+
+[28] I. Ahmad, A. Ullah, and W. Choi, “WiFi-based human sensing with deep learning: Recent advances, challenges, and opportunities,” *IEEE Open Journal of the Communications Society*, vol. 5, pp. 3595–3623, 2024.
+
+[29] M. Z. A. Khan, “Poster: Fundamental limits of network sensing using CommSense,” in *Proceedings of IEEE LANMAN*, June 2026, pp. 1–3.
+
+[30] S. Lu et al., “Integrated sensing and communications: Recent advances and ten open challenges,” *IEEE Internet of Things Journal*, vol. 11, no. 11, pp. 19 094–19 120, 2024.
+
+[31] S. Blandino et al., “Analysis of OFDM-based ISAC with hardware impairments,” *IEEE Open Journal of the Communications Society*, vol. 4, pp. 1671–1685, 2023.
+
+[32] U. Demirhan and A. Alkhateeb, “Joint radar and communication beamforming with digital metasurfaces,” *IEEE Transactions on Wireless Communications*, vol. 21, no. 11, pp. 9936–9951, 2022.
+
+[33] X. Shen, Z. Lu, N. Zhao, H. Zhao, and Y. Shen, “Fundamental tradeoff of bistatic ISAC under Gaussian fading channels at finite blocklength,” *IEEE Transactions on Information Theory*, vol. 72, no. 2, pp. 1176–1200, Feb. 2026.
+
+[34] X. Lin, X. Sun, J. Li, P. Zhu, D. Wang, F. Shu, and X. You, “Adaptive finite-blocklength optimization for the communication–sensing tradeoff in network-assisted full-duplex cell-free ISAC systems with URLLC users,” *IEEE Transactions on Wireless Communications*, vol. 25, pp. 17 446–17 462, 2026.
+
+[35] S. Fortunati et al., “On the use of massive arrays for joint communication and radar sensing,” *IEEE Transactions on Signal Processing*, vol. 68, pp. 5441–5456, 2020.
+
+[36] L. Pucci, L. Arcangeloni, and A. Giorgetti, “Position and velocity estimation accuracy in MIMO-OFDM ISAC networks: A Fisher information analysis,” 2025. [Online]. Available: https://arxiv.org/abs/2507.01743
+
+[37] H. Hua, T. X. Han, and J. Xu, “MIMO integrated sensing and communication: CRB-rate tradeoff,” *IEEE Transactions on Wireless Communications*, vol. 23, no. 4, pp. 2839–2854, 2024.
+
+[38] Q. Zhu, M. Li, R. Liu, and Q. Liu, “Cramér-Rao bound optimization for active RIS-empowered ISAC systems,” *IEEE Transactions on Wireless Communications*, vol. 23, no. 9, pp. 11 723–11 736, 2024.
+
+[39] K. Meng, C. Masouros, A. P. Petropulu, and L. Hanzo, “Cooperative ISAC networks: Performance analysis, scaling laws, and optimization,” *IEEE Transactions on Wireless Communications*, vol. 24, no. 2, pp. 877–892, 2025.
+
+[40] S. M. Kay, *Fundamentals of Statistical Signal Processing, Volume I: Estimation Theory*. Prentice Hall, 1993.
+
+[41] F. Liu, Y.-F. Liu, Y. Cui, C. Masouros, J. Xu, T. X. Han, S. Buzzi, Y. C. Eldar, and S. Jin, “Sensing with communication signals: From information theory to signal processing,” *IEEE Communications Surveys & Tutorials*, 2025, early access.
+
+[42] S. Lu, F. Liu, Y. Xiong, Z. Du, Y. Cui, S. Li, W. Yuan, J. Yang, and S. Jin, “Sensing with random communication signals,” *arXiv preprint arXiv:2504.06537*, 2025.
+
+[43] Q. H. Vuong, “Cramér–Rao bounds for misspecified models,” Division of the Humanities and Social Sciences, California Institute of Technology, Pasadena, CA, USA, Working Paper 652, Oct. 1986.
+
+[44] C. D. Richmond and L. L. Horowitz, “Parameter bounds on estimation accuracy under model misspecification,” *IEEE Transactions on Signal Processing*, vol. 63, no. 9, pp. 2263–2278, May 2015.
+
+[45] S. Fortunati, F. Gini, and M. S. Greco, “The misspecified Cramér–Rao bound and its application to scatter matrix estimation in complex elliptically symmetric distributions,” *IEEE Transactions on Signal Processing*, vol. 64, no. 9, pp. 2387–2399, May 2016.
+
+[46] E. Arikan, “Channel polarization: A method for constructing capacity-achieving codes for symmetric binary-input memoryless channels,” *IEEE Transactions on Information Theory*, vol. 55, no. 7, pp. 3051–3073, 2009.
+
+[47] I. Tal and A. Vardy, “List decoding of polar codes,” *IEEE Transactions on Information Theory*, vol. 61, no. 5, pp. 2213–2226, 2015.
+
+[48] C. Condo, “Short-packet polar codes: A survey on design and performance,” *IEEE Communications Surveys & Tutorials*, vol. 23, no. 4, pp. 2451–2482, 2021.
+
+[49] P. S. Bere, M. Z. A. Khan, and L. Hanzo, “A low-complexity diversity-preserving universal bit-flipping enhanced hard decision decoder for arbitrary linear codes,” *IEEE Open Journal of Vehicular Technology*, vol. 5, pp. 1496–1517, 2024.
+
+[50] P. Sai, M. Khan, and L. Hanzo, “A universal generalized flip decoder for next-generation URLLC systems,” *IEEE Transactions on Vehicular Technology*, pp. 1–17, 05 2026.
+
+[51] B. Lee, R. Liu, D. J. Love, J. V. Krogmeier, and A. Lee Swindlehurst, “Integrated polarimetric sensing and communication with polarization-reconfigurable arrays,” *IEEE Transactions on Wireless Communications*, vol. 25, pp. 10 618–10 634, 2026.
+
+[52] R. A. Horn and C. R. Johnson, *Matrix Analysis*, 2nd ed. Cambridge, UK: Cambridge University Press, 2013.
+
+**原文插图：** 原 PDF 中的图 1–9 未重传至本页，仅保留中文图注与图中关键标注；全部原图可通过页首的 arXiv 页面查看（原文采用 CC BY 4.0 许可）。
+
+---
+
+**本页范围与校对状态：** 本页为 arXiv:2609.25589v1（cs.IT，18 页）的全文中文译稿，覆盖摘要、关键词、正文第 I–VII 节（含 II-A–C、III-A–C、IV-A–E、V-A–D、VI-A–H、VII-A–C 等全部小节）、结论与未来工作、全部图注（图 1–9，含图 9 的 (a)–(d) 子图）、表 1–2（逐格转录）、公式 (1)–(44)（含定理 1–4、引理 1–3、推论 1、命题 1）、附录 A–C（含命题 1 证明与定理 1、2 的完整证明）以及 52 条参考文献英文原条目；原文无独立作者简介。**逐句终校未做**：表 1 的 ✓ 分布已用 PDF 页面渲染逐格核对（源文本层无法保留勾选位置）；表 2 的三区间结构、式 (13)–(15) 的悬崖阈值与安全裕量、式 (14) 的一阶/二阶导数均已对照页面渲染核对，其余公式按 PDF 文本层录入；但尚未完成逐句逐式的独立复核。页内 3 条“原文疑点”加注共涉及 4 项原文瑕疵：标题上方残留模板行 “; revised .” 与页脚 “VOLUME 00, 2024” 占位、南安普顿单位行邮编 “4004 UK”、§III-B 误引 “Appendix Subsection D”（应为附录 A）、§VI-E 误引 “Section VI-I”（应为第 VI-H 节）。均按原文照录并加注，未作数值或表述改动。
 
 ---
 
