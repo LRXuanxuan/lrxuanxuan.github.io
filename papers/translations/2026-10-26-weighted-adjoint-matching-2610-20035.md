@@ -7,7 +7,7 @@ toc: true
 ---
 
 {% raw %}
-[← 返回论文库](/papers/) · [原文 arXiv](https://arxiv.org/abs/2610.20035)
+[← 返回论文库](/papers/) · [原文 arXiv]\,(https://arxiv.org/abs/2610.20035)
 
 # 加权伴随匹配：利用时变控制代价微调流匹配模型
 
@@ -1270,7 +1270,7 @@ $$
 **证明要点（原文顺序）。** ① **泛函梯度定义。** 对 \(\mathbb R^d\times[0,T]\) 上的测度 \(M\)、泛函 \(F:L^2(\mathbb R^d\times[0,T],M;\mathbb R^d)\to\mathbb R\) 与 \(f\in L^2\)，把泛函梯度 \(\frac{\delta}{\delta f}F(f)\) 定义为满足下式的 \(g\in L^2\)：对一切 \(h\in L^2\)，\(\lim_{\varepsilon\to0}\frac{F(f+\varepsilon h)-F(f)}{\varepsilon}=\int\langle g(x,t),h(x,t)\rangle M(\mathrm dx,\mathrm dt)\)。② **临界点条件。** 对固定控制 \(v\)，取测度 \(M(\mathrm dx,\mathrm dt)=p(X_t^v=x)\mathrm dx\mathrm dt\)，把损失展开并把 \(\widetilde a(t,X)\) 用其条件期望替换，得
 
 $$
-\frac{\delta}{\delta u}\mathbb E_{X\sim p^v}[L_{\mathrm{WAM}}(u,X)](x,t)=u(x,t)+\frac{\gamma(t)^\top\mathbb E_{X\sim p^v}[\widetilde a(t,X)\mid X_t=x]}{w(t)},
+\frac{\delta}{\delta u}\mathbb E_{X\sim p^v}[L_{\mathrm{WAM}}(u,X)]\,(x,t)=u(x,t)+\frac{\gamma(t)^\top\mathbb E_{X\sim p^v}[\widetilde a(t,X)\mid X_t=x]}{w(t)},
 $$
 
 于是 \(u\) 是 \(u\mapsto\mathbb E_{X\sim p^{\bar u}}[L_{\mathrm{WAM}}(u,X)]\) 的临界点当且仅当

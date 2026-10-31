@@ -7,7 +7,7 @@ toc: true
 ---
 
 {% raw %}
-[← 返回论文库](/papers/) · [对应论文](/papers/items/37453168222f4582/) · [原文 arXiv](https://arxiv.org/abs/2610.02377) · [全部目录](/papers/catalog/)
+[← 返回论文库](/papers/) · [对应论文](/papers/items/37453168222f4582/) · [原文 arXiv]\,(https://arxiv.org/abs/2610.02377) · [全部目录](/papers/catalog/)
 
 # 面向贝叶斯逆问题快速后验采样的流匹配
 
@@ -165,14 +165,14 @@ $$
 \nu=\eta\otimes\pi_Y,\qquad \eta:=\mathcal N(0,\mathrm I_d), \tag{7}
 $$
 
-其中 $\mathrm I_d\in\mathbb R^{d\times d}$ 表示单位矩阵。注意这已经把边缘匹配 $\nu_Y=\pi_Y$ 从一开始就内置了。下面我们仍用 $\nu(x,y)=\nu_X(x)\nu_Y(y)$ 与 $\pi(x,y)=\pi(x|y)\pi_Y(y)$ 表示 $\nu$ 与 $\pi$ 的 Lebesgue 密度，于是 $\nu_X$ 是标准高斯密度，$\pi^y(\cdot)=\pi(\cdot|y)$ 是后验密度。此外，我们引入 $\pi^y_\theta:=T_\theta(\cdot;y)_*\eta$，作为由传输映射 $T_\theta$ 得到的 $\pi^y$ 的近似。那么如何确定 $\theta$？机器学习文献中的常用做法是最小化 $T_*\nu$ 与 $\pi$ 之间的联合 KL 散度，它实际上等价于最大似然估计，下面说明。由 (7) 的乘积结构与 $T(x,y)=(T_\theta(x;y),y)$ 的三角结构，三角映射下的前推密度分解为 $[T_*\nu](x,y)=[T_\theta(\cdot;y)_*\nu_X](x)\nu_Y(y)$，进而得到
+其中 $\mathrm I_d\in\mathbb R^{d\times d}$ 表示单位矩阵。注意这已经把边缘匹配 $\nu_Y=\pi_Y$ 从一开始就内置了。下面我们仍用 $\nu(x,y)=\nu_X(x)\nu_Y(y)$ 与 $\pi(x,y)=\pi(x|y)\pi_Y(y)$ 表示 $\nu$ 与 $\pi$ 的 Lebesgue 密度，于是 $\nu_X$ 是标准高斯密度，$\pi^y(\cdot)=\pi(\cdot|y)$ 是后验密度。此外，我们引入 $\pi^y_\theta:=T_\theta(\cdot;y)_*\eta$，作为由传输映射 $T_\theta$ 得到的 $\pi^y$ 的近似。那么如何确定 $\theta$？机器学习文献中的常用做法是最小化 $T_*\nu$ 与 $\pi$ 之间的联合 KL 散度，它实际上等价于最大似然估计，下面说明。由 (7) 的乘积结构与 $T(x,y)=(T_\theta(x;y),y)$ 的三角结构，三角映射下的前推密度分解为 $[T_*\nu]\,(x,y)=[T_\theta(\cdot;y)_*\nu_X]\,(x)\nu_Y(y)$，进而得到
 
 $$
 \begin{aligned}
 D_{\mathrm{KL}}\left(\pi\,\|\,T_*\nu\right)
-&:= \mathbb E_{(x,y)\sim\pi}\left[\log\frac{\pi(x,y)}{[T_*\nu](x,y)}\right]
-= \mathbb E_{(x,y)\sim\pi}\left[\log\frac{\pi^y(x)\pi_Y(y)}{[T_\theta(\cdot;y)_*\nu_X](x)\nu_Y(y)}\right]\\
-&= \mathbb E_{(x,y)\sim\pi}\left[\log\frac{\pi^y(x)}{[T_\theta(\cdot;y)_*\nu_X](x)}\right]
+&:= \mathbb E_{(x,y)\sim\pi}\left[\log\frac{\pi(x,y)}{[T_*\nu]\,(x,y)}\right]
+= \mathbb E_{(x,y)\sim\pi}\left[\log\frac{\pi^y(x)\pi_Y(y)}{[T_\theta(\cdot;y)_*\nu_X]\,(x)\nu_Y(y)}\right]\\
+&= \mathbb E_{(x,y)\sim\pi}\left[\log\frac{\pi^y(x)}{[T_\theta(\cdot;y)_*\nu_X]\,(x)}\right]
 = \mathbb E_{(x,y)\sim\pi}[\log\pi^y(x)] - \mathbb E_{(x,y)\sim\pi}[\log\pi^y_\theta(x)],
 \end{aligned}
 $$

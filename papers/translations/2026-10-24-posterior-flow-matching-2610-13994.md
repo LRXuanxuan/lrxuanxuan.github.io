@@ -6,7 +6,7 @@ math: true
 toc: true
 ---
 
-[← 返回论文库](/papers/) · [arXiv](https://arxiv.org/abs/2610.13994) · [原文 PDF](https://arxiv.org/pdf/2610.13994v1)
+[← 返回论文库](/papers/) · [arXiv]\,(https://arxiv.org/abs/2610.13994) · [原文 PDF]\,(https://arxiv.org/pdf/2610.13994v1)
 
 # 后验流匹配（Posterior Flow Matching）
 
@@ -236,7 +236,7 @@ $$
 
 $$
 dY_t=\left[v_\theta+\frac12\nabla_x\cdot a_\theta
-+\frac12 a_\theta\widehat s_\theta\right](Y_t,t)\,dt
++\frac12 a_\theta\widehat s_\theta\right]\,(Y_t,t)\,dt
 +B_\theta(Y_t,t)\,dW_t. \tag{19}
 $$
 
@@ -754,7 +754,7 @@ $$
 
 $$
 dY_t=v_\eta(Y_t,t)\,dt,\qquad
-dY_t=[v_\eta+\tfrac12\kappa\widehat s_\eta](Y_t,t)\,dt
+dY_t=[v_\eta+\tfrac12\kappa\widehat s_\eta]\,(Y_t,t)\,dt
 +\sqrt{\kappa(t)}\,dW_t. \tag{32}
 $$
 
@@ -1340,7 +1340,7 @@ $$
 dY_t=\left[
 \frac{\mu_\theta-x}{1-t}+\frac12\nabla_x\cdot a_\theta
 +\frac12a_\theta\widehat s_\theta
-\right](Y_t,t)\,dt+B_\theta(Y_t,t)dW_t.
+\right]\,(Y_t,t)\,dt+B_\theta(Y_t,t)dW_t.
 $$
 
 二者均从 $\mathcal N(0,I)$ 初始化。根据式（73）构造相关场后，可以按算法 2、3 进行离散化。
@@ -1734,7 +1734,7 @@ $$
 
 ## 参考文献与终校状态
 
-本文正文 1–6 节、附录 A–H 的数学证明、算法与补充实验已编入页面。原版 42 页 PDF 中，第 10–15 页参考文献已全文加入本译稿，可与[原始 PDF 的书目部分](https://arxiv.org/pdf/2610.13994v1)对照核验。
+本文正文 1–6 节、附录 A–H 的数学证明、算法与补充实验已编入页面。原版 42 页 PDF 中，第 10–15 页参考文献已全文加入本译稿，可与[原始 PDF 的书目部分]\,(https://arxiv.org/pdf/2610.13994v1)对照核验。
 
 此外，原文图 1–15 的图注已经翻译，但插图本身未搬运；为遵守博客轻量化规则，请从上述 PDF 查阅原图。数学复现前仍建议核对部分上下标、希腊字母及公式排版。
 
