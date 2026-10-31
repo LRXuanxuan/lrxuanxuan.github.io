@@ -835,13 +835,17 @@ $$
 &\leq\mathbb E_{\omega,Y}\left[g(M^{\natural}_{\omega:},Y_{\omega:})\right]-\mathbb E_{\omega,Y}\left[g(M^{\star}_{\omega:},Y_{\omega:})\right]+F_{\Omega,\mathcal Y}(M^{\natural})\\
 &\quad-\mathbb E_{\omega,Y}\left[g(M^{\natural}_{\omega:},Y_{\omega:})\right]+\mathbb E_{\omega,Y}\left[g(M^{\star}_{\omega:},Y_{\omega:})\right]-F_{\Omega,\mathcal Y}(M^{\star})+F_{\Omega,\mathcal Y}(\bar M)-F_{\Omega,\mathcal Y}(M^{\natural})\\
 &\overset{(a)}{\leq}\mathbb E_{\omega,Y}\left[g(M^{\natural}_{\omega:},Y_{\omega:})-g(M^{\star}_{\omega:},Y_{\omega:})\right]+\left|F_{\Omega,\mathcal Y}(M^{\natural})-\mathbb E_{\omega,Y}\left[g(M^{\natural}_{\omega:},Y_{\omega:})\right]\right|\\
-&\quad+\left|F_{\Omega,\mathcal Y}(M^{\star})-\mathbb E_{\omega,Y}\left[g(M^{\star}_{\omega:},Y_{\omega:})\right]\right|+\left|F_{\Omega,\mathcal Y}(\bar M)-F_{\Omega,\mathcal Y}(M^{\natural})\right|\\
-&\overset{(b)}{\Longrightarrow}\ K\cdot\mathrm{KL}(M^{\star}\|M^{\natural})\leq\left|F_{\Omega,\mathcal Y}(\bar M)-F_{\Omega,\mathcal Y}(M^{\natural})\right|+\left|F_{\Omega,\mathcal Y}(M^{\natural})-\mathbb E_{\omega,Y}\left[g(M^{\natural}_{\omega:},Y_{\omega:})\right]\right|\\
-&\quad+\sup_{M\in\mathcal M}\left|F_{\Omega,\mathcal Y}(M)-\mathbb E_{\omega,Y}\left[g(M_{\omega:},Y_{\omega:})\right]\right|,
+&\quad+\left|F_{\Omega,\mathcal Y}(M^{\star})-\mathbb E_{\omega,Y}\left[g(M^{\star}_{\omega:},Y_{\omega:})\right]\right|+\left|F_{\Omega,\mathcal Y}(\bar M)-F_{\Omega,\mathcal Y}(M^{\natural})\right|,
 \end{aligned}\tag{48}
 $$
 
-其中 (a) 由三角不等式得到，(b) 用到（47）。回顾 $\min_{\widetilde{\mathcal X}\in\mathcal X^{R,g_\theta}}\|\widetilde{\mathcal X}-\mathcal X^{\natural}\|_\infty\leq\nu$，其中 $\nu\in\{\nu_{\mathrm{BTD}},\nu_{\mathrm{DGM}}\}$ 且 $\nu\geq0$ 为常数。（49）右端第一项可界定为
+其中 (a) 由三角不等式得到。再结合（47）可得
+
+$$
+K\cdot\mathrm{KL}(M^{\star}\|M^{\natural})\leq\left|F_{\Omega,\mathcal Y}(\bar M)-F_{\Omega,\mathcal Y}(M^{\natural})\right|+\left|F_{\Omega,\mathcal Y}(M^{\natural})-\mathbb E_{\omega,Y}\left[g(M^{\natural}_{\omega:},Y_{\omega:})\right]\right|+\sup_{M\in\mathcal M}\left|F_{\Omega,\mathcal Y}(M)-\mathbb E_{\omega,Y}\left[g(M_{\omega:},Y_{\omega:})\right]\right|.\tag{49}
+$$
+
+回顾 $\min_{\widetilde{\mathcal X}\in\mathcal X^{R,g_\theta}}\|\widetilde{\mathcal X}-\mathcal X^{\natural}\|_\infty\leq\nu$，其中 $\nu\in\{\nu_{\mathrm{BTD}},\nu_{\mathrm{DGM}}\}$ 且 $\nu\geq0$ 为常数。（49）右端第一项可界定为
 
 $$
 \begin{aligned}

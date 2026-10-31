@@ -4,8 +4,8 @@
   "source_sha256": "667f6509c907b3f519f6fb8fb5bebd90ca35d9c2641539ec2bd83988638e4787",
   "translation_progress": {
     "target": 315,
-    "completed": 133,
-    "public_full_text": 124,
+    "completed": 141,
+    "public_full_text": 132,
     "local_only": 12,
     "status_counts": {
       "access_blocked": 3,
@@ -11491,7 +11491,13 @@
       "report_entry_url": "/papers/reports/2026-09-29/#paper-72c955ad657d80c7",
       "paper_url": "/papers/items/72c955ad657d80c7/",
       "paper_report_url": "/papers/items/72c955ad657d80c7/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-29-2609-24365-joint-energy-efficiency-and-fairness-optimization-for-d2d-communicatio/",
+          "title": "空天地一体化异构网络中 D2D 通信的能效与公平性联合优化｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[31]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.24365",
         "https://arxiv.org/abs/2609.24365"
@@ -11502,10 +11508,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/72c955ad657d80c7/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-29-2609-24365-joint-energy-efficiency-and-fairness-optimization-for-d2d-communicatio/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "58bc2566350d5896",
@@ -11538,7 +11544,13 @@
       "report_entry_url": "/papers/reports/2026-09-29/#paper-58bc2566350d5896",
       "paper_url": "/papers/items/58bc2566350d5896/",
       "paper_report_url": "/papers/items/58bc2566350d5896/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-29-2609-12903-hidden-in-rounds-predicting-the-time-cost-of-802-11-contention-in-fede/",
+          "title": "轮次中的隐藏开销：联邦学习中 802.11 竞争时间成本预测｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[26]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.12903v1",
         "https://arxiv.org/abs/2609.12903"
@@ -11549,10 +11561,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/58bc2566350d5896/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-29-2609-12903-hidden-in-rounds-predicting-the-time-cost-of-802-11-contention-in-fede/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "5a3ee963c993424b",
@@ -11585,7 +11597,13 @@
       "report_entry_url": "/papers/reports/2026-09-29/#paper-5a3ee963c993424b",
       "paper_url": "/papers/items/5a3ee963c993424b/",
       "paper_report_url": "/papers/items/5a3ee963c993424b/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-29-2506-07021-stochastic-push-pull-for-decentralized-nonconvex-optimization/",
+          "title": "去中心化非凸优化的随机推拉方法｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[46]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2506.07021",
         "https://arxiv.org/abs/2506.07021",
@@ -11599,10 +11617,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/5a3ee963c993424b/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-29-2506-07021-stochastic-push-pull-for-decentralized-nonconvex-optimization/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "b37cb7101a38a73d",
@@ -11635,7 +11653,13 @@
       "report_entry_url": "/papers/reports/2026-09-29/#paper-b37cb7101a38a73d",
       "paper_url": "/papers/items/b37cb7101a38a73d/",
       "paper_report_url": "/papers/items/b37cb7101a38a73d/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-29-2508-02471-inverse-harmonic-clustering-for-multi-pitch-estimation-an-optimal-tran/",
+          "title": "多基频估计的逆谐波聚类：最优传输方法｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[52]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2508.02471",
         "https://arxiv.org/abs/2508.02471",
@@ -11649,10 +11673,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/b37cb7101a38a73d/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-29-2508-02471-inverse-harmonic-clustering-for-multi-pitch-estimation-an-optimal-tran/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "811140ad2372f3e3",
@@ -11685,7 +11709,13 @@
       "report_entry_url": "/papers/reports/2026-09-29/#paper-811140ad2372f3e3",
       "paper_url": "/papers/items/811140ad2372f3e3/",
       "paper_report_url": "/papers/items/811140ad2372f3e3/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-29-2503-01504-on-noncoherent-multiple-antenna-rayleigh-block-fading-channels-at-fini/",
+          "title": "有限码长下非相干多天线瑞利块衰落信道｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[43]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2503.01504",
         "https://arxiv.org/abs/2503.01504",
@@ -11699,10 +11729,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/811140ad2372f3e3/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-29-2503-01504-on-noncoherent-multiple-antenna-rayleigh-block-fading-channels-at-fini/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "d5bac04a09255471",
@@ -11735,7 +11765,13 @@
       "report_entry_url": "/papers/reports/2026-09-29/#paper-d5bac04a09255471",
       "paper_url": "/papers/items/d5bac04a09255471/",
       "paper_report_url": "/papers/items/d5bac04a09255471/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-29-2609-14930-pareto-optimal-rate-crlb-tradeoff-via-anchor-placement-optimization-fo/",
+          "title": "无人机辅助三维 ISAC 的锚点部署优化与速率-CRLB 帕累托权衡｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[30]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.14930",
         "https://arxiv.org/abs/2609.14930"
@@ -11746,10 +11782,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/d5bac04a09255471/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-29-2609-14930-pareto-optimal-rate-crlb-tradeoff-via-anchor-placement-optimization-fo/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "1befed8a0e0a9866",
@@ -11782,7 +11818,13 @@
       "report_entry_url": "/papers/reports/2026-09-29/#paper-1befed8a0e0a9866",
       "paper_url": "/papers/items/1befed8a0e0a9866/",
       "paper_report_url": "/papers/items/1befed8a0e0a9866/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-29-2609-18467-massive-mimo-isac-under-target-angle-uncertainty-crlb-outage-analysis/",
+          "title": "目标角度不确定下大规模 MIMO ISAC：CRLB 中断分析与鲁棒资源分配｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[38]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.18467",
         "https://arxiv.org/abs/2609.18467"
@@ -11793,10 +11835,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/1befed8a0e0a9866/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-29-2609-18467-massive-mimo-isac-under-target-angle-uncertainty-crlb-outage-analysis/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "83918f571f3cd874",
@@ -11829,7 +11871,13 @@
       "report_entry_url": "/papers/reports/2026-09-29/#paper-83918f571f3cd874",
       "paper_url": "/papers/items/83918f571f3cd874/",
       "paper_report_url": "/papers/items/83918f571f3cd874/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-29-2609-09644-probabilistic-symbol-level-precoding-based-affine-frequency-division-m/",
+          "title": "基于概率符号级预编码的仿射频分复用传输｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[26]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.09644",
         "https://arxiv.org/abs/2609.09644"
@@ -11840,10 +11888,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/83918f571f3cd874/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-29-2609-09644-probabilistic-symbol-level-precoding-based-affine-frequency-division-m/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "c6e694730f4aaecf",
@@ -25582,6 +25630,26 @@
     },
     {
       "date": "2026-09-29",
+      "slug": "2026-09-29-2609-24365-joint-energy-efficiency-and-fairness-optimization-for-d2d-communicatio",
+      "title": "空天地一体化异构网络中 D2D 通信的能效与公平性联合优化｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[31]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-29-2609-24365-joint-energy-efficiency-and-fairness-optimization-for-d2d-communicatio/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-29-2609-24365-joint-energy-efficiency-and-fairness-optimization-for-d2d-communicatio.md",
+      "paper_ids": [
+        "72c955ad657d80c7"
+      ],
+      "source_arxiv_ids": [
+        "2609.24365"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-29",
       "slug": "2026-09-29-2609-22312-data-aided-bayesian-learning-for-csi-estimation-over-doubly-selective",
       "title": "仿射预编码叠加训练序列下双选择性 DCO-OTFS MIMO VLC 信道的数助贝叶斯 CSI 估计｜中文全文译文",
       "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[37]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
@@ -25592,6 +25660,86 @@
       ],
       "source_arxiv_ids": [
         "2609.22312"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-29",
+      "slug": "2026-09-29-2609-18467-massive-mimo-isac-under-target-angle-uncertainty-crlb-outage-analysis",
+      "title": "目标角度不确定下大规模 MIMO ISAC：CRLB 中断分析与鲁棒资源分配｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[38]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-29-2609-18467-massive-mimo-isac-under-target-angle-uncertainty-crlb-outage-analysis/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-29-2609-18467-massive-mimo-isac-under-target-angle-uncertainty-crlb-outage-analysis.md",
+      "paper_ids": [
+        "1befed8a0e0a9866"
+      ],
+      "source_arxiv_ids": [
+        "2609.18467"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-29",
+      "slug": "2026-09-29-2609-14930-pareto-optimal-rate-crlb-tradeoff-via-anchor-placement-optimization-fo",
+      "title": "无人机辅助三维 ISAC 的锚点部署优化与速率-CRLB 帕累托权衡｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[30]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-29-2609-14930-pareto-optimal-rate-crlb-tradeoff-via-anchor-placement-optimization-fo/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-29-2609-14930-pareto-optimal-rate-crlb-tradeoff-via-anchor-placement-optimization-fo.md",
+      "paper_ids": [
+        "d5bac04a09255471"
+      ],
+      "source_arxiv_ids": [
+        "2609.14930"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-29",
+      "slug": "2026-09-29-2609-12903-hidden-in-rounds-predicting-the-time-cost-of-802-11-contention-in-fede",
+      "title": "轮次中的隐藏开销：联邦学习中 802.11 竞争时间成本预测｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[26]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-29-2609-12903-hidden-in-rounds-predicting-the-time-cost-of-802-11-contention-in-fede/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-29-2609-12903-hidden-in-rounds-predicting-the-time-cost-of-802-11-contention-in-fede.md",
+      "paper_ids": [
+        "58bc2566350d5896"
+      ],
+      "source_arxiv_ids": [
+        "2609.12903"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-29",
+      "slug": "2026-09-29-2609-09644-probabilistic-symbol-level-precoding-based-affine-frequency-division-m",
+      "title": "基于概率符号级预编码的仿射频分复用传输｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[26]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-29-2609-09644-probabilistic-symbol-level-precoding-based-affine-frequency-division-m/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-29-2609-09644-probabilistic-symbol-level-precoding-based-affine-frequency-division-m.md",
+      "paper_ids": [
+        "83918f571f3cd874"
+      ],
+      "source_arxiv_ids": [
+        "2609.09644"
       ],
       "qa_complete": true,
       "external": true,
@@ -25652,6 +25800,66 @@
       ],
       "source_arxiv_ids": [
         "2511.18009"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-29",
+      "slug": "2026-09-29-2508-02471-inverse-harmonic-clustering-for-multi-pitch-estimation-an-optimal-tran",
+      "title": "多基频估计的逆谐波聚类：最优传输方法｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[52]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-29-2508-02471-inverse-harmonic-clustering-for-multi-pitch-estimation-an-optimal-tran/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-29-2508-02471-inverse-harmonic-clustering-for-multi-pitch-estimation-an-optimal-tran.md",
+      "paper_ids": [
+        "b37cb7101a38a73d"
+      ],
+      "source_arxiv_ids": [
+        "2508.02471"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-29",
+      "slug": "2026-09-29-2506-07021-stochastic-push-pull-for-decentralized-nonconvex-optimization",
+      "title": "去中心化非凸优化的随机推拉方法｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[46]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-29-2506-07021-stochastic-push-pull-for-decentralized-nonconvex-optimization/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-29-2506-07021-stochastic-push-pull-for-decentralized-nonconvex-optimization.md",
+      "paper_ids": [
+        "5a3ee963c993424b"
+      ],
+      "source_arxiv_ids": [
+        "2506.07021"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-29",
+      "slug": "2026-09-29-2503-01504-on-noncoherent-multiple-antenna-rayleigh-block-fading-channels-at-fini",
+      "title": "有限码长下非相干多天线瑞利块衰落信道｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[43]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-29-2503-01504-on-noncoherent-multiple-antenna-rayleigh-block-fading-channels-at-fini/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-29-2503-01504-on-noncoherent-multiple-antenna-rayleigh-block-fading-channels-at-fini.md",
+      "paper_ids": [
+        "811140ad2372f3e3"
+      ],
+      "source_arxiv_ids": [
+        "2503.01504"
       ],
       "qa_complete": true,
       "external": true,
