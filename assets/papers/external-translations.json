@@ -5938,5 +5938,159 @@
     "coverage": "full",
     "license": "arxiv",
     "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-26",
+    "slug": "2026-10-26-2608-12524-channel-estimation-for-otfs-systems-with-overspread-doppler-shifts",
+    "title": "过扩张多普勒 OTFS 系统的信道估计｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[28]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-10-26-2608-12524-channel-estimation-for-otfs-systems-with-overspread-doppler-shifts/",
+    "source_file": "2026-10-26-2608-12524-channel-estimation-for-otfs-systems-with-overspread-doppler-shifts.md",
+    "source_page_path": "papers/translations/2026-10-26-2608-12524-channel-estimation-for-otfs-systems-with-overspread-doppler-shifts.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-26-2608-12524-channel-estimation-for-otfs-systems-with-overspread-doppler-shifts.md",
+    "paper_ids": [
+      "a67500334e77fc04"
+    ],
+    "source_arxiv_ids": [
+      "2608.12524"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-08",
+    "slug": "2026-10-08-2610-02260-mintflow-minimal-trajectory-intervention-for-constrained-flow-matching",
+    "title": "MintFlow：约束流匹配的最小轨迹干预｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[41]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-10-08-2610-02260-mintflow-minimal-trajectory-intervention-for-constrained-flow-matching/",
+    "source_file": "2026-10-08-2610-02260-mintflow-minimal-trajectory-intervention-for-constrained-flow-matching.md",
+    "source_page_path": "papers/translations/2026-10-08-2610-02260-mintflow-minimal-trajectory-intervention-for-constrained-flow-matching.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-08-2610-02260-mintflow-minimal-trajectory-intervention-for-constrained-flow-matching.md",
+    "paper_ids": [
+      "647afc788713a6de"
+    ],
+    "source_arxiv_ids": [
+      "2610.02260"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-08",
+    "slug": "2026-10-08-2606-24824-solving-inverse-problems-of-chaotic-systems-with-bidirectional-conditi",
+    "title": "双向条件流匹配求解混沌系统逆问题｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[121]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-10-08-2606-24824-solving-inverse-problems-of-chaotic-systems-with-bidirectional-conditi/",
+    "source_file": "2026-10-08-2606-24824-solving-inverse-problems-of-chaotic-systems-with-bidirectional-conditi.md",
+    "source_page_path": "papers/translations/2026-10-08-2606-24824-solving-inverse-problems-of-chaotic-systems-with-bidirectional-conditi.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-08-2606-24824-solving-inverse-problems-of-chaotic-systems-with-bidirectional-conditi.md",
+    "paper_ids": [
+      "2fd7c6f4df7bed7e"
+    ],
+    "source_arxiv_ids": [
+      "2606.24824"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-08",
+    "slug": "2026-10-08-2408-15202-canonical-form-and-finite-blocklength-bounds-for-stabilizer-codes",
+    "title": "稳定子码的规范形与有限码长界｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[22]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-10-08-2408-15202-canonical-form-and-finite-blocklength-bounds-for-stabilizer-codes/",
+    "source_file": "2026-10-08-2408-15202-canonical-form-and-finite-blocklength-bounds-for-stabilizer-codes.md",
+    "source_page_path": "papers/translations/2026-10-08-2408-15202-canonical-form-and-finite-blocklength-bounds-for-stabilizer-codes.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-08-2408-15202-canonical-form-and-finite-blocklength-bounds-for-stabilizer-codes.md",
+    "paper_ids": [
+      "38cc50b840720a0c"
+    ],
+    "source_arxiv_ids": [
+      "2408.15202"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-23",
+    "slug": "2026-09-23-2609-24121-joint-channel-estimation-detection-and-resource-allocation-for-otfs-rs",
+    "title": "OTFS-RSMA 的联合信道估计、检测与资源分配｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[24]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-23-2609-24121-joint-channel-estimation-detection-and-resource-allocation-for-otfs-rs/",
+    "source_file": "2026-09-23-2609-24121-joint-channel-estimation-detection-and-resource-allocation-for-otfs-rs.md",
+    "source_page_path": "papers/translations/2026-09-23-2609-24121-joint-channel-estimation-detection-and-resource-allocation-for-otfs-rs.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-23-2609-24121-joint-channel-estimation-detection-and-resource-allocation-for-otfs-rs.md",
+    "paper_ids": [
+      "ced0378c092d0990"
+    ],
+    "source_arxiv_ids": [
+      "2609.24121"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-16",
+    "slug": "2026-09-16-2609-11142-radio-map-construction-with-post-hoc-location-calibration-under-quasi",
+    "title": "后置位置校准的无线电地图构建｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[30]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-16-2609-11142-radio-map-construction-with-post-hoc-location-calibration-under-quasi/",
+    "source_file": "2026-09-16-2609-11142-radio-map-construction-with-post-hoc-location-calibration-under-quasi.md",
+    "source_page_path": "papers/translations/2026-09-16-2609-11142-radio-map-construction-with-post-hoc-location-calibration-under-quasi.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-16-2609-11142-radio-map-construction-with-post-hoc-location-calibration-under-quasi.md",
+    "paper_ids": [
+      "ab1455deae68f37f"
+    ],
+    "source_arxiv_ids": [
+      "2609.11142"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-16",
+    "slug": "2026-09-16-2609-00937-exact-payload-decoupling-conditions-for-pilot-only-bem-channel-estimat",
+    "title": "仅导频 BEM 信道估计的精确载荷解耦条件｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[29]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-16-2609-00937-exact-payload-decoupling-conditions-for-pilot-only-bem-channel-estimat/",
+    "source_file": "2026-09-16-2609-00937-exact-payload-decoupling-conditions-for-pilot-only-bem-channel-estimat.md",
+    "source_page_path": "papers/translations/2026-09-16-2609-00937-exact-payload-decoupling-conditions-for-pilot-only-bem-channel-estimat.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-16-2609-00937-exact-payload-decoupling-conditions-for-pilot-only-bem-channel-estimat.md",
+    "paper_ids": [
+      "fdd244da160081c6"
+    ],
+    "source_arxiv_ids": [
+      "2609.00937"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
   }
 ]
