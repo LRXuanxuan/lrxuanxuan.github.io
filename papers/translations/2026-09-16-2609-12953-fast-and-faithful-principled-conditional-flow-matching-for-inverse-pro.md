@@ -429,6 +429,474 @@ $$
 - [63] Matthieu Terris, Samuel Hurault, Maxime Song, and Julián Tachella, "Reconstruct Anything Model: A Lightweight Foundation Model for Computational Imaging," in Proc. ICLR, 2026.
 - [64] Noam Elata, Hyungjin Chung, Jong Chul Ye, Tomer Michaeli, and Michael Elad, "InvFussion: Bridging Supervised and Zero-Shot Diffusion for Inverse Problems," in Proc. NeurIPS, 2025.
 
+## 附录 A. 理论结果证明
+
+**证明路线图。** 证明沿用与方法相同的两阶段构造。第一，把联合观测 $(\mathbf x_t,\mathbf y)$ 归约为等价的高斯去噪问题，[33] 的高斯 MMSE 刻画随后给出后验均值的变分形式。第二，证明该均值确定条件速度、该速度满足条件连续性方程，且其 ODE 把高斯源输运向后验。下面各引理分别验证这些步骤，最终证明把它们组合起来。
+
+### A.1 变分刻画
+
+高斯 MMSE 刻画把后验均值估计与变分优化联系起来。对高斯噪声中观测到的信号，后验均值是二次数据拟合项加上由信号分布与噪声协方差决定的隐式正则项的唯一极小化者。我们用该结果把测量条件后验均值表示为某个优化问题的解。
+
+**引理 1（高斯 MMSE 刻画 [33, Cor. 1]）。** 设 $\mathbf z$ 在 $\mathbb R^n$ 上具有非退化分布，且
+
+$$
+\mathbf u=\mathbf z+\boldsymbol\xi,\qquad\boldsymbol\xi\sim\mathcal N(\mathbf 0,\boldsymbol\Sigma),\quad\boldsymbol\Sigma\succ0, \tag{28}
+$$
+
+其中 $\boldsymbol\xi$ 与 $\mathbf z$ 独立。则存在函数 $\phi:\mathbb R^n\to\mathbb R\cup\{+\infty\}$，使
+
+$$
+\mathbb E[\mathbf z\mid\mathbf u]=\arg\min_{\mathbf z'\in\mathbb R^n}\left\{\frac12\left\|\mathbf u-\mathbf z'\right\|_{\boldsymbol\Sigma^{-1}}^2+\phi(\mathbf z')\right\}. \tag{29}
+$$
+
+该极小化者是唯一全局极小化者与驻点，且 $\phi$ 至多相差一个加性常数唯一。
+
+**证明。** 这是 [33] 的推论 1，用 $\|\mathbf a\|_{\mathbf B}^2=\mathbf a^\top\mathbf B\mathbf a$ 重述。我们只使用 (29) 的存在性与唯一性结论。
+
+插值状态 $\mathbf x_t$ 与测量 $\mathbf y$ 都是干净图像 $\mathbf x_1$ 的含噪线性观测。由于二者噪声项独立，两个观测可堆叠为噪声协方差块对角的单一线性高斯模型。
+
+**引理 2。** 对 $t\in(0,1)$，定义
+
+$$
+\widetilde{\mathbf y}=\begin{pmatrix}\mathbf x_t\\ \mathbf y\end{pmatrix},\qquad\widetilde{\mathbf A}=\begin{pmatrix}t\mathbf I\\ \mathbf A\end{pmatrix},\qquad\widetilde{\boldsymbol\Sigma}=\begin{pmatrix}(1-t)^2\mathbf I&\mathbf 0\\ \mathbf 0&\sigma^2\mathbf I\end{pmatrix}. \tag{30}
+$$
+
+则
+
+$$
+\widetilde{\mathbf y}=\widetilde{\mathbf A}\mathbf x_1+\widetilde{\mathbf b},\qquad\widetilde{\mathbf b}\sim\mathcal N(\mathbf 0,\widetilde{\boldsymbol\Sigma}), \tag{31}
+$$
+
+且 $\widetilde{\mathbf b}$ 与 $\mathbf x_1$ 独立。
+
+**证明。** 插值方程给出 $\mathbf x_t=t\mathbf x_1+(1-t)\mathbf x_0$，测量方程给出 $\mathbf y=\mathbf A\mathbf x_1+\boldsymbol\eta$。因此
+
+$$
+\widetilde{\mathbf b}=\begin{pmatrix}(1-t)\mathbf x_0\\ \boldsymbol\eta\end{pmatrix}. \tag{32}
+$$
+
+由于 $\mathbf x_0\sim\mathcal N(\mathbf 0,\mathbf I)$ 与 $\boldsymbol\eta\sim\mathcal N(\mathbf 0,\sigma^2\mathbf I)$ 彼此独立且与 $\mathbf x_1$ 独立，所述协方差与独立性成立。
+
+增广模型是线性高斯的，但尚未具有引理 1 所需的加性去噪形式。我们按噪声水平组合插值状态与测量得到 $\mathbf u_t$。所得变量等价于在加性高斯噪声下直接观测 $\mathbf x_1$，其精度矩阵为 $\mathbf M_t$。
+
+**引理 3。** 令
+
+$$
+\mathbf M_t=\widetilde{\mathbf A}^\top\widetilde{\boldsymbol\Sigma}^{-1}\widetilde{\mathbf A}=\frac{t^2}{(1-t)^2}\mathbf I+\frac{1}{\sigma^2}\mathbf A^\top\mathbf A \tag{33}
+$$
+
+并定义
+
+$$
+\mathbf u_t=\mathbf M_t^{-1}\widetilde{\mathbf A}^\top\widetilde{\boldsymbol\Sigma}^{-1}\widetilde{\mathbf y}. \tag{34}
+$$
+
+则 $\mathbf M_t\succ0$ 且
+
+$$
+\mathbf u_t=\mathbf x_1+\boldsymbol\xi_t,\qquad\boldsymbol\xi_t\sim\mathcal N\left(\mathbf 0,\mathbf M_t^{-1}\right), \tag{35}
+$$
+
+其中 $\boldsymbol\xi_t$ 与 $\mathbf x_1$ 独立。
+
+**证明。** 对每个非零 $\mathbf a\in\mathbb R^n$，
+
+$$
+\mathbf a^\top\mathbf M_t\mathbf a=\frac{t^2}{(1-t)^2}\|\mathbf a\|_2^2+\frac{1}{\sigma^2}\|\mathbf A\mathbf a\|_2^2>0. \tag{36}
+$$
+
+故 $\mathbf M_t\succ0$。把 (31) 代入 (34) 得
+
+$$
+\mathbf u_t=\mathbf x_1+\mathbf M_t^{-1}\widetilde{\mathbf A}^\top\widetilde{\boldsymbol\Sigma}^{-1}\widetilde{\mathbf b}=:\mathbf x_1+\boldsymbol\xi_t. \tag{37}
+$$
+
+噪声 $\boldsymbol\xi_t$ 是高斯的且与 $\mathbf x_1$ 独立，其协方差为
+
+$$
+\mathrm{Cov}(\boldsymbol\xi_t)=\mathbf M_t^{-1}\widetilde{\mathbf A}^\top\widetilde{\boldsymbol\Sigma}^{-1}\widetilde{\boldsymbol\Sigma}\widetilde{\boldsymbol\Sigma}^{-1}\widetilde{\mathbf A}\mathbf M_t^{-1}=\mathbf M_t^{-1}. \tag{38}
+$$
+
+这证明了 (35)。
+
+归约观测 $\mathbf u_t$ 只有在保留 $(\mathbf x_t,\mathbf y)$ 中关于 $\mathbf x_1$ 的全部信息时才有用。下一引理表明增广数据拟合项等于涉及 $\mathbf u_t$ 的高斯去噪项（至多相差一个与未知图像无关的常数）。因此对 $\mathbf u_t$ 条件化给出的后验均值与对原观测条件化相同。
+
+**引理 4。** (34) 中统计量 $\mathbf u_t$ 对 $\widetilde{\mathbf y}$ 中的 $\mathbf x_1$ 充分。因此
+
+$$
+\mathbb E[\mathbf x_1\mid\mathbf x_t,\mathbf y]=\mathbb E[\mathbf x_1\mid\widetilde{\mathbf y}]=\mathbb E[\mathbf x_1\mid\mathbf u_t]. \tag{39}
+$$
+
+此外，对每个 $\mathbf x\in\mathbb R^n$，
+
+$$
+\frac{1}{2(1-t)^2}\|\mathbf x_t-t\mathbf x\|_2^2+\frac{1}{2\sigma^2}\|\mathbf y-\mathbf A\mathbf x\|_2^2=\frac12\|\mathbf u_t-\mathbf x\|_{\mathbf M_t}^2+c(\widetilde{\mathbf y}),
+$$
+
+其中 $c(\widetilde{\mathbf y})$ 不依赖 $\mathbf x$。
+
+**证明。** 由 $\mathbf M_t$ 与 $\mathbf u_t$ 的定义，
+
+$$
+\widetilde{\mathbf A}^\top\widetilde{\boldsymbol\Sigma}^{-1}\widetilde{\mathbf y}=\mathbf M_t\mathbf u_t. \tag{40}
+$$
+
+展开增广二次型并配方得
+
+$$
+\frac12\|\widetilde{\mathbf y}-\widetilde{\mathbf A}\mathbf x\|_{\widetilde{\boldsymbol\Sigma}^{-1}}^2=\frac12\mathbf x^\top\mathbf M_t\mathbf x-\mathbf x^\top\mathbf M_t\mathbf u_t+\frac12\widetilde{\mathbf y}^\top\widetilde{\boldsymbol\Sigma}^{-1}\widetilde{\mathbf y}=\frac12\|\mathbf u_t-\mathbf x\|_{\mathbf M_t}^2+c(\widetilde{\mathbf y}),
+$$
+
+其中
+
+$$
+c(\widetilde{\mathbf y})=\frac12\widetilde{\mathbf y}^\top\widetilde{\boldsymbol\Sigma}^{-1}\widetilde{\mathbf y}-\frac12\mathbf u_t^\top\mathbf M_t\mathbf u_t. \tag{41}
+$$
+
+逐块展开左边即得 (40)。
+
+条件似然因此因子化为
+
+$$
+p(\widetilde{\mathbf y}\mid\mathbf x_1)=r(\widetilde{\mathbf y})\exp\left(-\frac12\|\mathbf u_t-\mathbf x_1\|_{\mathbf M_t}^2\right), \tag{42}
+$$
+
+其中 $r(\widetilde{\mathbf y})$ 与 $\mathbf x_1$ 无关。因子分解判据表明 $\mathbf u_t$ 对 $\mathbf x_1$ 充分，这证明了 (39)。
+
+前面引理把观测 $(\mathbf x_t,\mathbf y)$ 归约为等价的高斯去噪观测 $\mathbf u_t$，且不丢失关于 $\mathbf x_1$ 的信息。因此可把高斯 MMSE 刻画应用于 $\mathbf u_t$，再用原观测重写其二次项。所得目标包含一个与插值状态相关的项与一个显式强制测量模型的项。
+
+**引理 5。** 假设 $p_1$ 非退化。对每个 $t\in(0,1)$，存在函数 $\phi_t:\mathbb R^n\to\mathbb R\cup\{+\infty\}$（至多相差一个加性常数唯一），使
+
+$$
+\mathbb E[\mathbf x_1\mid\mathbf x_t,\mathbf y]=\arg\min_{\mathbf x\in\mathbb R^n}\left\{\frac{1}{2(1-t)^2}\|\mathbf x_t-t\mathbf x\|_2^2+\frac{1}{2\sigma^2}\|\mathbf y-\mathbf A\mathbf x\|_2^2+\phi_t(\mathbf x)\right\}. \tag{43}
+$$
+
+后验均值是唯一全局极小化者与驻点。为可读性省略 $\phi_t$ 对固定算子 $\mathbf A$ 与噪声水平 $\sigma$ 的依赖。
+
+**证明。** 引理 3 把 $\mathbf u_t$ 表示为高斯去噪模型
+
+$$
+\mathbf u_t=\mathbf x_1+\boldsymbol\xi_t,\qquad\boldsymbol\xi_t\sim\mathcal N\left(\mathbf 0,\mathbf M_t^{-1}\right). \tag{44}
+$$
+
+对噪声协方差 $\mathbf M_t^{-1}$ 应用引理 1 得到一个函数 $\phi_t$，使
+
+$$
+\mathbb E[\mathbf x_1\mid\mathbf u_t]=\arg\min_{\mathbf x\in\mathbb R^n}\left\{\frac12\|\mathbf u_t-\mathbf x\|_{\mathbf M_t}^2+\phi_t(\mathbf x)\right\}. \tag{45}
+$$
+
+引理 4 表明条件均值等于 $\mathbb E[\mathbf x_1\mid\mathbf x_t,\mathbf y]$，且该二次项与 (43) 中两个数据项仅相差一个与 $\mathbf x$ 无关的常数。加上或去掉该常数不改变极小化者或驻点，故结论成立。
+
+### A.2 条件概率流
+
+变分结果刻画后验均值，而流匹配需要速度场。在线性插值下，每条轨迹的速度只用其端点 $\mathbf x_1$ 与当前状态 $\mathbf x_t$ 即可写出。因此对以 $\mathbf x_t$ 与 $\mathbf y$ 为条件的可能端点取平均，就可用后验均值直接表示最优条件速度。
+
+**引理 6。** 对 $t\in[0,1)$，最优测量条件速度为
+
+$$
+\mathbf v(\mathbf x,t,\mathbf y)=\mathbb E[\mathbf x_1-\mathbf x_0\mid\mathbf x_t=\mathbf x,\mathbf y]=\frac{\mathbb E[\mathbf x_1\mid\mathbf x_t=\mathbf x,\mathbf y]-\mathbf x}{1-t}. \tag{46}
+$$
+
+**证明。** 线性路径的速度为 $\dot{\mathbf x}_t=\mathbf x_1-\mathbf x_0$。由于
+
+$$
+\mathbf x_0=\frac{\mathbf x_t-t\mathbf x_1}{1-t}, \tag{47}
+$$
+
+得
+
+$$
+\mathbf x_1-\mathbf x_0=\frac{\mathbf x_1-\mathbf x_t}{1-t}. \tag{48}
+$$
+
+对 $\mathbf x_t=\mathbf x$ 与 $\mathbf y$ 取条件期望即证 (46)。
+
+为建立概率流，必须首先表明后验均值随当前状态 $\mathbf x$ 光滑变化。有界支撑假设允许通过条件密度求导。所得 Jacobian 具有简单的协方差形式，用于控制条件速度的正则性。
+
+**引理 7（条件均值的正则性）。** 假设 $\mathrm{supp}\,p_1\subseteq B(\mathbf 0,R)$ 并固定 $\mathbf y$。定义
+
+$$
+\mathbf m_t(\mathbf x)=\mathbb E[\mathbf x_1\mid\mathbf x_t=\mathbf x,\mathbf y]. \tag{49}
+$$
+
+对每个 $t\in[0,1)$，条件密度 $p_t(\mathbf x\mid\mathbf y)$ 正且光滑，$\mathbf m_t$ 关于 $(\mathbf x,t)$ 光滑。此外 $\|\mathbf m_t(\mathbf x)\|_2\le R$，且
+
+$$
+\nabla_{\mathbf x}\mathbf m_t(\mathbf x)=\frac{t}{(1-t)^2}\mathrm{Cov}(\mathbf x_1\mid\mathbf x_t=\mathbf x,\mathbf y). \tag{50}
+$$
+
+**证明。** 令 $\nu=p(\mathbf x_1\mid\mathbf y)$。由于高斯似然为正，$\nu$ 支撑于 $B(\mathbf 0,R)$。对 $t<1$，$\mathbf x_t$ 的条件密度为
+
+$$
+p_t(\mathbf x\mid\mathbf y)=\int\varphi_{1-t}(\mathbf x-t\mathbf x_1)\nu(\mathrm d\mathbf x_1), \tag{51}
+$$
+
+其中 $\varphi_s$ 表示 $\mathcal N(\mathbf 0,s^2\mathbf I)$ 的密度。高斯核正且光滑。由于 $\nu$ 有界支撑，其导数在 $\mathbb R^n\times[0,1)$ 的紧子集上一致地被控制，因此可在积分号下求导。
+
+条件分布支撑于 $B(\mathbf 0,R)$，故其均值满足 $\|\mathbf m_t(\mathbf x)\|_2\le R$。贝叶斯公式给出
+
+$$
+q_{\mathbf x,t}(\mathrm d\mathbf x_1)=\frac{\varphi_{1-t}(\mathbf x-t\mathbf x_1)}{p_t(\mathbf x\mid\mathbf y)}\nu(\mathrm d\mathbf x_1). \tag{52}
+$$
+
+对其对数密度关于 $\mathbf x$ 求导得
+
+$$
+\nabla_{\mathbf x}\log q_{\mathbf x,t}(\mathbf x_1)=\frac{t}{(1-t)^2}\left(\mathbf x_1-\mathbf m_t(\mathbf x)\right). \tag{53}
+$$
+
+由于 $\mathbf m_t(\mathbf x)=\int\mathbf x_1q_{\mathbf x,t}(\mathrm d\mathbf x_1)$，在积分号下求导即得 (50)。
+
+唯一概率流要求条件速度随当前状态正则变化。引理 7 的 Jacobian 恒等式使我们能通过 $\mathbf x_1$ 的条件协方差界定该变化。有界支撑给出统一的协方差界，使速度在每个时间区间 $[0,\tau]$（$\tau<1$）上全局 Lipschitz。
+
+**引理 8（Lipschitz 条件速度）。** 在引理 7 的假设下，$\mathbf v(\cdot,t,\mathbf y)$ 对每个 $t\in[0,1)$ 全局 Lipschitz，且
+
+$$
+\mathrm{Lip}\left(\mathbf v(\cdot,t,\mathbf y)\right)\le\frac{1}{1-t}+\frac{tR^2}{(1-t)^3}. \tag{54}
+$$
+
+该界在每个 $\tau<1$ 上关于 $t\in[0,\tau]$ 一致。
+
+**证明。** 利用引理 6 与引理 7，
+
+$$
+\nabla_{\mathbf x}\mathbf v(\mathbf x,t,\mathbf y)=\frac{t}{(1-t)^3}\mathrm{Cov}(\mathbf x_1\mid\mathbf x_t=\mathbf x,\mathbf y)-\frac{1}{1-t}\mathbf I. \tag{55}
+$$
+
+对每个单位向量 $\mathbf a$，
+
+$$
+\mathbf a^\top\mathrm{Cov}(\mathbf x_1\mid\mathbf x_t=\mathbf x,\mathbf y)\mathbf a\le\mathbb E\left[(\mathbf a^\top\mathbf x_1)^2\mid\mathbf x_t=\mathbf x,\mathbf y\right]\le R^2. \tag{56}
+$$
+
+因此条件协方差的算子范数至多为 $R^2$，给出 (54)。对每个 $\tau<1$，
+
+$$
+\sup_{t\in[0,\tau]}\mathrm{Lip}\left(\mathbf v(\cdot,t,\mathbf y)\right)\le\frac{1}{1-\tau}+\frac{\tau R^2}{(1-\tau)^3}<\infty. \tag{57}
+$$
+
+在 $t=0$ 处，恒等式 $\mathbf v(\mathbf x,0,\mathbf y)=\mathbb E[\mathbf x_1\mid\mathbf y]-\mathbf x$ 给出 Lipschitz 常数 1，与该界一致。
+
+对每个可能端点 $\mathbf x_1$，线性插值定义一个具有已知速度的简单高斯概率路径。条件分布 $p_t(\mathbf x\mid\mathbf y)$ 通过把这些路径按 $\mathbf x_1$ 的后验分布平均得到。平均它们的概率通量即得最优测量条件速度并建立相应连续性方程。
+
+**引理 9（条件连续性方程）。** 在引理 8 的假设下，条件密度 $p_t(\mathbf x\mid\mathbf y)$ 满足
+
+$$
+\partial_tp_t(\mathbf x\mid\mathbf y)+\nabla\cdot\left(p_t(\mathbf x\mid\mathbf y)\mathbf v(\mathbf x,t,\mathbf y)\right)=0,\qquad t\in[0,1). \tag{58}
+$$
+
+**证明。** 固定 $\mathbf y$ 并记 $\nu=p(\mathbf x_1\mid\mathbf y)$。对固定端点 $\mathbf x_1$，密度
+
+$$
+p_t(\mathbf x\mid\mathbf x_1)=\varphi_{1-t}(\mathbf x-t\mathbf x_1) \tag{59}
+$$
+
+由确定性映射 $\mathbf x_0\mapsto t\mathbf x_1+(1-t)\mathbf x_0$ 诱导，因此满足
+
+$$
+\partial_tp_t(\mathbf x\mid\mathbf x_1)+\nabla\cdot\left(p_t(\mathbf x\mid\mathbf x_1)\frac{\mathbf x_1-\mathbf x}{1-t}\right)=0. \tag{60}
+$$
+
+由于 $\mathbf x_0$ 与 $(\mathbf x_1,\mathbf y)$ 独立，
+
+$$
+p_t(\mathbf x\mid\mathbf y)=\int p_t(\mathbf x\mid\mathbf x_1)\nu(\mathrm d\mathbf x_1). \tag{61}
+$$
+
+把 (60) 关于 $\nu$ 积分得
+
+$$
+\partial_tp_t(\mathbf x\mid\mathbf y)=-\nabla\cdot\int p_t(\mathbf x\mid\mathbf x_1)\frac{\mathbf x_1-\mathbf x}{1-t}\nu(\mathrm d\mathbf x_1). \tag{62}
+$$
+
+由贝叶斯公式与引理 6，(62) 中的积分等于
+
+$$
+p_t(\mathbf x\mid\mathbf y)\mathbb E\left[\frac{\mathbf x_1-\mathbf x}{1-t}\mid\mathbf x_t=\mathbf x,\mathbf y\right]=p_t(\mathbf x\mid\mathbf y)\mathbf v(\mathbf x,t,\mathbf y). \tag{63}
+$$
+
+代入即证 (58)。
+
+连续性方程确定了与条件速度相关联的概率路径，但良定义的采样器还要求相应 ODE 具有唯一轨迹。Lipschitz 界保证在每个早于 $t=1$ 结束的区间上存在唯一流。由于 ODE 流与条件路径从同一高斯分布出发并满足同一连续性方程，它们的分布一致。随后条件路径在 $t$ 趋于 1 时收敛到测量条件后验。
+
+**引理 10（条件输运与后极限）。** 在引理 8 的假设下，对每个 $\tau<1$，ODE
+
+$$
+\frac{\mathrm d\mathbf x_t}{\mathrm dt}=\mathbf v(\mathbf x_t,t,\mathbf y) \tag{64}
+$$
+
+生成唯一流映射 $\Phi_{0\to\tau}$，满足
+
+$$
+(\Phi_{0\to\tau})_\#\mathcal N(\mathbf 0,\mathbf I)=p_\tau(\cdot\mid\mathbf y). \tag{65}
+$$
+
+此外，当 $\tau\to1^-$ 时 $p_\tau(\cdot\mid\mathbf y)\Rightarrow p(\mathbf x_1\mid\mathbf y)$。
+
+**证明。** 引理 7 与引理 8 表明速度在时间上连续、在 $\mathbf x$ 上全局 Lipschitz，且在每个区间 $[0,\tau]$（$\tau<1$）上一致。它关于 $\mathbf x$ 至多线性增长。Picard–Lindelöf 定理因此给出每个此类区间上的唯一全局流映射。
+
+初始分布经该流的推前满足与 $\mathbf v$ 关联的连续性方程。由引理 9，$p_t(\cdot\mid\mathbf y)$ 满足同一方程。由于 $\mathbf x_0$ 与 $\mathbf y$ 独立，两个解具有相同初始分布：
+
+$$
+p_0(\cdot\mid\mathbf y)=\mathcal N(\mathbf 0,\mathbf I). \tag{67}
+$$
+
+全局 Lipschitz 速度下输运测度的唯一性证明 (65)。
+
+最后，按 $\mathbf x_1\sim p(\mathbf x_1\mid\mathbf y)$ 与 $\mathbf x_0\sim\mathcal N(\mathbf 0,\mathbf I)$ 独立抽样来耦合条件路径。则
+
+$$
+\mathbf x_\tau=\tau\mathbf x_1+(1-\tau)\mathbf x_0\longrightarrow\mathbf x_1\quad\text{几乎必然}. \tag{68}
+$$
+
+几乎必然收敛蕴含依分布收敛，证明 (66)。该结果不需要把流映射延拓到 $t=1$。
+
+### A.3 命题 1 的证明
+
+**证明。** 引理 5 证明测量条件后验均值是 (13) 的唯一极小化者。引理 6 把该均值转化为最优条件速度。最后，引理 9 与引理 10 表明所得速度定义条件概率流并弱收敛到测量条件后验。这些正是命题 1 的两个论断。
+
+## 附录 B. 算法细节
+
+本节给出用于参数化条件速度的 HQS 迭代实现细节。正文给出 HQS 目标及其两个交替子问题 (17) 与 (18)。
+
+### B.1 数据一致性更新
+
+$\mathbf x$ 子问题为
+
+$$
+\mathbf x^{k+1}=\arg\min_{\mathbf x}\left\{\frac{1}{2\sigma^2}\|\mathbf y-\mathbf A\mathbf x\|_2^2+\frac{\mu}{2}\left\|\mathbf x-\mathbf z^k\right\|_2^2\right\}. \tag{69}
+$$
+
+其最优性条件为
+
+$$
+\left(\sigma^{-2}\mathbf A^\top\mathbf A+\mu\mathbf I\right)\mathbf x^{k+1}=\sigma^{-2}\mathbf A^\top\mathbf y+\mu\mathbf z^k. \tag{70}
+$$
+
+定义 $\rho=\mu\sigma^2$ 即得实现所用的正规方程
+
+$$
+\left(\mathbf A^\top\mathbf A+\rho\mathbf I\right)\mathbf x^{k+1}=\mathbf A^\top\mathbf y+\rho\mathbf z^k. \tag{71}
+$$
+
+该更新显式依赖前向算子 $\mathbf A$。本文所考虑算子的闭式解见附录 B.4。
+
+### B.2 学习正则化更新
+
+精确 $\mathbf z$ 子问题为
+
+$$
+\mathbf z_\star^{k+1}=\arg\min_{\mathbf z}\left\{\phi_t(\mathbf z)+\frac{1}{2(1-t)^2}\left\|\mathbf x_t-t\mathbf z\right\|_2^2+\frac{\mu}{2}\left\|\mathbf x^{k+1}-\mathbf z\right\|_2^2\right\}. \tag{72}
+$$
+
+两个二次项可写为加权残差
+
+$$
+\frac12\left\|\widetilde{\mathbf y}_k-\widetilde{\mathbf A}_k\mathbf z\right\|_{\widetilde{\boldsymbol\Sigma}_k^{-1}}^2, \tag{73}
+$$
+
+其中
+
+$$
+\widetilde{\mathbf y}_k=\begin{pmatrix}\mathbf x_t\\ \mathbf x^{k+1}\end{pmatrix},\qquad\widetilde{\mathbf A}_k=\begin{pmatrix}t\mathbf I\\ \mathbf I\end{pmatrix},\qquad\widetilde{\boldsymbol\Sigma}_k=\begin{pmatrix}(1-t)^2\mathbf I&\mathbf 0\\ \mathbf 0&\mu^{-1}\mathbf I\end{pmatrix}. \tag{74}
+$$
+
+配方把两个观测归约为充分统计量
+
+$$
+\mathbf u_k=\frac{\frac{t}{(1-t)^2}\mathbf x_t+\mu\mathbf x^{k+1}}{\frac{t^2}{(1-t)^2}+\mu}, \tag{75}
+$$
+
+其精度为
+
+$$
+\mathbf M_k=\left(\frac{t^2}{(1-t)^2}+\mu\right)\mathbf I. \tag{76}
+$$
+
+因此 (72) 等价于（至多相差与 $\mathbf z$ 无关的项）
+
+$$
+\mathbf z_\star^{k+1}=\arg\min_{\mathbf z}\left\{\phi_t(\mathbf z)+\frac12\left\|\mathbf u_k-\mathbf z\right\|_{\mathbf M_k}^2\right\}. \tag{77}
+$$
+
+于是精确更新对插值状态与数据一致迭代的精度加权组合做去噪。该归约识别出正则化子问题的形式，但并不意味着 (77) 的任意极小化者都是后验均值。特别地，[33] 中 MMSE 刻画的逆命题一般并不成立。
+
+由于 $\phi_t$ 不可得，我们遵循 PnP 实践 [26] 用学习到的估计器替代精确更新：
+
+$$
+\hat{\mathbf z}^{k+1}=\mathcal R_\theta\left(\mathbf x^{k+1},\mathbf x_t,t\right). \tag{78}
+$$
+
+网络分别接收 (75) 的两个分量，使其相对权重可依赖 $t$ 与 HQS 参数。
+
+遵循 [29]，我们把学习估计向数据一致迭代阻尼：
+
+$$
+\mathbf z^{k+1}=(1-\beta)\mathbf x^{k+1}+\beta\hat{\mathbf z}^{k+1},\qquad\beta\in[0,1]. \tag{79}
+$$
+
+阻尼保留 $\mathbf x^{k+1}$ 的显式贡献，防止学习估计器完全覆盖数据一致迭代。
+
+### B.3 速度参数化与代价
+
+从 $\mathbf z^0=\mathbf x_t$ 出发，我们交替 (71)、(78) 与 (79) 共 $K$ 次迭代。最终迭代估计测量条件后验均值：
+
+$$
+\mathbf z_\theta^K(\mathbf x_t,t,\mathbf y)\approx\mathbb E[\mathbf x_1\mid\mathbf x_t,\mathbf y], \tag{80}
+$$
+
+并由 (19) 定义学习到的条件速度。
+
+网络参数 $\theta$ 只通过 $\mathcal R_\theta$ 进入。每次速度评估需要 $K$ 次数据一致性求解与 $K$ 次学习估计器评估。由于每次数据一致性求解都依赖 $\mathbf A$ 与 $\mathbf y$，前向算子作用于学习速度场的每个内层迭代。算法 3 总结算子感知后验均值评估。
+
+> **算法 3　算子感知后验均值估计**
+> **Require：** 插值状态 $\mathbf x_t$、时间 $t<1$、测量 $\mathbf y$、前向算子 $\mathbf A$、学习估计器 $\mathcal R_\theta$、迭代数 $K$、耦合 $\rho$、阻尼 $\beta$
+> **Ensure：** 后验均值估计 $\mathbf z^K$
+> 1: $\mathbf z^0\leftarrow\mathbf x_t$
+> 2: **for** $k=0,\dots,K-1$ **do**
+> 3: 　$\mathbf x^{k+1}\leftarrow\left(\mathbf A^\top\mathbf A+\rho\mathbf I\right)^{-1}\left(\mathbf A^\top\mathbf y+\rho\mathbf z^k\right)$
+> 4: 　$\hat{\mathbf z}^{k+1}\leftarrow\mathcal R_\theta(\mathbf x^{k+1},\mathbf x_t,t)$
+> 5: 　$\mathbf z^{k+1}\leftarrow(1-\beta)\mathbf x^{k+1}+\beta\hat{\mathbf z}^{k+1}$
+> 6: **return** $\mathbf z^K$
+
+### B.4 算子特定的数据一致性解
+
+**图像去噪。** 去噪时 $\mathbf A=\mathbf I$，(71) 给出
+
+$$
+\mathbf x^{k+1}=\frac{\mathbf y+\rho\mathbf z^k}{1+\rho}. \tag{81}
+$$
+
+该更新是测量与当前迭代的加权平均。
+
+**图像修复。** 修复时 $\mathbf A=\mathbf M$ 是满足 $\mathbf M^\top\mathbf M=\mathbf M$ 的对角二元掩码。因此 (71) 可逐元素求解：
+
+$$
+x_i^{k+1}=\begin{cases}\dfrac{y_i+\rho z_i^k}{1+\rho}, & i\in\Omega,\\[8pt] z_i^k, & i\notin\Omega,\end{cases} \tag{82}
+$$
+
+其中 $\Omega$ 表示观测像素。
+
+**图像超分辨率。** 我们用不带抗混叠预滤波的跨步下采样实现超分辨率。前向算子保留像素的周期子集，$\mathbf A^\top\mathbf A$ 是对角二元掩码，因此更新为 (82)，其中 $\mathbf y$ 替换为 $\mathbf A^\top\mathbf y$，$\Omega$ 表示采样网格位置。
+
+**图像去模糊。** 去模糊时 $\mathbf A=\mathbf H$ 是空间不变模糊。在循环边界条件下 $\mathbf H=\mathbf F^H\boldsymbol\Lambda\mathbf F$，其中 $\boldsymbol\Lambda$ 含模糊核的 Fourier 系数。(71) 随后给出
+
+$$
+\mathbf x^{k+1}=\mathbf F^H\left[\frac{\boldsymbol\Lambda\mathbf F\mathbf y+\rho\mathbf F\mathbf z^k}{|\boldsymbol\Lambda|^2+\rho}\right], \tag{83}
+$$
+
+其中括号内运算均逐元素进行。
+
+**欠采样 Fourier 测量。** 对附录 E.4 的压缩感知实验，令 $\mathbf A=\mathbf P\mathbf F$，其中 $\mathbf F$ 是正交二维 DFT，$\mathbf P=\mathrm{diag}(\mathbf p)$ 是采样掩码。记 $\hat{\mathbf z}^k=\mathbf F\mathbf z^k$，Fourier 域更新为
+
+$$
+\hat x_i^{k+1}=\begin{cases}\dfrac{y_i+\rho\hat z_i^k}{1+\rho}, & i\in\Omega,\\[8pt] \hat z_i^k, & i\notin\Omega,\end{cases}\qquad\mathbf x^{k+1}=\Re\left(\mathbf F^H\hat{\mathbf x}^{k+1}\right). \tag{84}
+$$
+
+对我们实验中所用共轭对称掩码，取实部等价于求解相应实正规方程。该算子对每个颜色通道独立施加。
+
+**一般线性算子。** 对无可利用结构的算子，(71) 可用共轭梯度求解。本文所用全部算子都允许上述闭式更新。
+
 <!-- CURSOR -->
 
 ---
