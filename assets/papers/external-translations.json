@@ -5410,5 +5410,181 @@
     "coverage": "full",
     "license": "arxiv",
     "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-27",
+    "slug": "2026-09-27-2609-07926-exact-degrees-of-freedom-of-spatially-sparse-mimo-channels-without-pri",
+    "title": "空间稀疏 MIMO 信道的精确自由度｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[42]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-27-2609-07926-exact-degrees-of-freedom-of-spatially-sparse-mimo-channels-without-pri/",
+    "source_file": "2026-09-27-2609-07926-exact-degrees-of-freedom-of-spatially-sparse-mimo-channels-without-pri.md",
+    "source_page_path": "papers/translations/2026-09-27-2609-07926-exact-degrees-of-freedom-of-spatially-sparse-mimo-channels-without-pri.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-27-2609-07926-exact-degrees-of-freedom-of-spatially-sparse-mimo-channels-without-pri.md",
+    "paper_ids": [
+      "b05fb1daabe5bcda"
+    ],
+    "source_arxiv_ids": [
+      "2609.07926"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-27",
+    "slug": "2026-09-27-2609-07843-the-ocudu-dapp-platform-an-open-runtime-and-e3-interface-for-real-time",
+    "title": "OCUDU dApp 平台：实时 AI 的开放运行时与 E3 接口｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[20]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-27-2609-07843-the-ocudu-dapp-platform-an-open-runtime-and-e3-interface-for-real-time/",
+    "source_file": "2026-09-27-2609-07843-the-ocudu-dapp-platform-an-open-runtime-and-e3-interface-for-real-time.md",
+    "source_page_path": "papers/translations/2026-09-27-2609-07843-the-ocudu-dapp-platform-an-open-runtime-and-e3-interface-for-real-time.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-27-2609-07843-the-ocudu-dapp-platform-an-open-runtime-and-e3-interface-for-real-time.md",
+    "paper_ids": [
+      "3c36e9afe33d8029"
+    ],
+    "source_arxiv_ids": [
+      "2609.07843"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-27",
+    "slug": "2026-09-27-2609-16375-gr-physec-real-time-channel-based-key-generation-for-physical-layer-se",
+    "title": "gr-PHYSEC：基于信道的实时物理层密钥生成｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[18]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-27-2609-16375-gr-physec-real-time-channel-based-key-generation-for-physical-layer-se/",
+    "source_file": "2026-09-27-2609-16375-gr-physec-real-time-channel-based-key-generation-for-physical-layer-se.md",
+    "source_page_path": "papers/translations/2026-09-27-2609-16375-gr-physec-real-time-channel-based-key-generation-for-physical-layer-se.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-27-2609-16375-gr-physec-real-time-channel-based-key-generation-for-physical-layer-se.md",
+    "paper_ids": [
+      "d006ba66a14e17d2"
+    ],
+    "source_arxiv_ids": [
+      "2609.16375"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-27",
+    "slug": "2026-09-27-2609-18089-fedpgt-progressive-gradient-transmission-for-vehicular-federated-learn",
+    "title": "FedPGT：车载联邦学习的渐进梯度传输｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[47]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-27-2609-18089-fedpgt-progressive-gradient-transmission-for-vehicular-federated-learn/",
+    "source_file": "2026-09-27-2609-18089-fedpgt-progressive-gradient-transmission-for-vehicular-federated-learn.md",
+    "source_page_path": "papers/translations/2026-09-27-2609-18089-fedpgt-progressive-gradient-transmission-for-vehicular-federated-learn.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-27-2609-18089-fedpgt-progressive-gradient-transmission-for-vehicular-federated-learn.md",
+    "paper_ids": [
+      "55165e9384241c56"
+    ],
+    "source_arxiv_ids": [
+      "2609.18089"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-27",
+    "slug": "2026-09-27-2609-22309-otfs-enabled-delayed-sinr-feedback-power-control-for-reliable-and-fair",
+    "title": "OTFS 时延 SINR 反馈功率控制｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[19]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-27-2609-22309-otfs-enabled-delayed-sinr-feedback-power-control-for-reliable-and-fair/",
+    "source_file": "2026-09-27-2609-22309-otfs-enabled-delayed-sinr-feedback-power-control-for-reliable-and-fair.md",
+    "source_page_path": "papers/translations/2026-09-27-2609-22309-otfs-enabled-delayed-sinr-feedback-power-control-for-reliable-and-fair.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-27-2609-22309-otfs-enabled-delayed-sinr-feedback-power-control-for-reliable-and-fair.md",
+    "paper_ids": [
+      "c430c3db39ff0393"
+    ],
+    "source_arxiv_ids": [
+      "2609.22309"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-27",
+    "slug": "2026-09-27-2609-25909-fm-ofdm-a-constant-envelope-sensing-waveform-with-phase-differencing-r",
+    "title": "FM-OFDM：恒包络感知波形与相位差接收｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[42]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-27-2609-25909-fm-ofdm-a-constant-envelope-sensing-waveform-with-phase-differencing-r/",
+    "source_file": "2026-09-27-2609-25909-fm-ofdm-a-constant-envelope-sensing-waveform-with-phase-differencing-r.md",
+    "source_page_path": "papers/translations/2026-09-27-2609-25909-fm-ofdm-a-constant-envelope-sensing-waveform-with-phase-differencing-r.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-27-2609-25909-fm-ofdm-a-constant-envelope-sensing-waveform-with-phase-differencing-r.md",
+    "paper_ids": [
+      "c42f97ea436c96ec"
+    ],
+    "source_arxiv_ids": [
+      "2609.25909"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-27",
+    "slug": "2026-09-27-2609-21062-exploiting-mutual-coupling-structure-for-channel-estimation-of-active",
+    "title": "利用互耦结构的有源 RIS 信道估计｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[25]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-27-2609-21062-exploiting-mutual-coupling-structure-for-channel-estimation-of-active/",
+    "source_file": "2026-09-27-2609-21062-exploiting-mutual-coupling-structure-for-channel-estimation-of-active.md",
+    "source_page_path": "papers/translations/2026-09-27-2609-21062-exploiting-mutual-coupling-structure-for-channel-estimation-of-active.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-27-2609-21062-exploiting-mutual-coupling-structure-for-channel-estimation-of-active.md",
+    "paper_ids": [
+      "9b709aa7ec4e41b4"
+    ],
+    "source_arxiv_ids": [
+      "2609.21062"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-28",
+    "slug": "2026-09-28-2512-14022-symbol-distributions-in-semantic-communications-a-source-channel-equil",
+    "title": "语义通信中的符号分布：源信道联合视角｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[32]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-28-2512-14022-symbol-distributions-in-semantic-communications-a-source-channel-equil/",
+    "source_file": "2026-09-28-2512-14022-symbol-distributions-in-semantic-communications-a-source-channel-equil.md",
+    "source_page_path": "papers/translations/2026-09-28-2512-14022-symbol-distributions-in-semantic-communications-a-source-channel-equil.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-28-2512-14022-symbol-distributions-in-semantic-communications-a-source-channel-equil.md",
+    "paper_ids": [
+      "43a2ec2929ad10c6"
+    ],
+    "source_arxiv_ids": [
+      "2512.14022"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
   }
 ]
