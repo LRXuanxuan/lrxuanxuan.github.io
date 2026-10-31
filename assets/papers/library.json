@@ -4,8 +4,8 @@
   "source_sha256": "667f6509c907b3f519f6fb8fb5bebd90ca35d9c2641539ec2bd83988638e4787",
   "translation_progress": {
     "target": 315,
-    "completed": 240,
-    "public_full_text": 232,
+    "completed": 247,
+    "public_full_text": 239,
     "local_only": 12,
     "status_counts": {
       "access_blocked": 3,
@@ -877,8 +877,8 @@
       "translations": [
         {
           "url": "/papers/translations/2026-10-29-geometry-aided-channel-2609-37277/",
-          "scope": "正文 I–V、式（1）–（18，含 5a/5b）、表 I–IX、图 1–18 与参考文献 45 条已录入；逐段逐式终校待完成。",
-          "title": "未标定数字孪生辅助几何信道推断｜中文译稿（待终校）"
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[45]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+          "title": "几何辅助信道推断：部分 CSI 与未标定数字孪生｜中文译稿（待终校）"
         }
       ],
       "links": [
@@ -893,10 +893,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "incomplete",
-      "full_translation_public": false,
+      "translation_status": "complete",
+      "full_translation_public": true,
       "full_translation_url": "/papers/translations/2026-10-29-geometry-aided-channel-2609-37277/",
-      "full_translation_label": "中文译稿（待终校）"
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "04f4e9392aea53cf",
@@ -934,6 +934,11 @@
           "url": "/papers/translations/2026-10-29-proflow-2601-20227/",
           "scope": "正文 1–6、式（1）–（29）、算法 1、附录 A–C 与附录公式、表 1–5、英文参考文献 55 条已录入；理论硬约束与实现惩罚项的差异已注释，终校中。",
           "title": "ProFlow：零样本物理一致性近端流引导｜中文译稿（待终校）"
+        },
+        {
+          "url": "/papers/translations/2026-10-29-proflow-zero-shot-physics-consistent-sampling-via-proximal-flow-guidan-2601-20227/",
+          "title": "ProFlow：基于近端流引导的零样本物理一致采样｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[55]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
         }
       ],
       "links": [
@@ -949,10 +954,10 @@
       ],
       "hosted_pdfs": [],
       "status": "已接受待刊",
-      "translation_status": "incomplete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/translations/2026-10-29-proflow-2601-20227/",
-      "full_translation_label": "中文译稿（待终校）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-29-proflow-zero-shot-physics-consistent-sampling-via-proximal-flow-guidan-2601-20227/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "ff5a01c51d2d9c00",
@@ -1224,6 +1229,11 @@
           "url": "/papers/translations/2026-10-28-ua-flow-2602-10326/",
           "title": "具有不确定性量化与引导机制的流匹配 UA-Flow｜中文译稿（未完成）",
           "scope": "正文与附录连续编号公式（1）–（73）全部已录入；正文及附录表 1–15 均已补录，含附录 F–J 的补充实验、校准、消融、非图像任务与主要图注。原 PDF 大图、未编号式及全篇逐字符核验仍待完成，qa_complete=false。"
+        },
+        {
+          "url": "/papers/translations/2026-10-28-flow-matching-with-uncertainty-quantification-and-guidance-2602-10326/",
+          "title": "带不确定性量化与引导的流匹配｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[47]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
         }
       ],
       "links": [
@@ -1243,10 +1253,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/bb2ec5a42b895e00/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-28-flow-matching-with-uncertainty-quantification-and-guidance-2602-10326/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "6dc33cb34cd70f91",
@@ -1463,6 +1473,11 @@
           "url": "/papers/translations/2026-10-27-pc-daps-2610-31592/",
           "title": "超越 Best-of-k：先验一致 PC-DAPS｜中文全结构译稿（待终校）",
           "scope": "已录入摘要、正文 1–6、附录 A.1–A.7、公式（1）–（17）、算法 1、表 1–5、图 1–14 中文说明及 40 条参考文献。逐页逐式 QA 待终校，qa_complete=false。"
+        },
+        {
+          "url": "/papers/translations/2026-10-27-beyond-best-of-k-prior-consistent-daps-for-ambiguous-nonlinear-inverse-2610-31592/",
+          "title": "超越 Best-of-k：歧义非线性逆问题的先验一致 DAPS｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[40]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
         }
       ],
       "links": [
@@ -1483,10 +1498,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/39bb2162c4326c50/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-27-beyond-best-of-k-prior-consistent-daps-for-ambiguous-nonlinear-inverse-2610-31592/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "3f655527a43a9d52",
@@ -1524,6 +1539,11 @@
           "url": "/papers/translations/2026-10-27-cfm-variance-2610-29172/",
           "title": "条件流模型将认知不确定性转化为表观偶然方差｜中文全结构译稿（待终校）",
           "scope": "摘要、正文 1–7、附录 A–C、公式（A.1）–（A.43）、预测集合（B.1）–（B.4）、图 1–18 说明、表 B.1、44 条参考文献已录入；逐页逐式 QA 待终校。"
+        },
+        {
+          "url": "/papers/translations/2026-10-27-conditional-flow-models-convert-epistemic-uncertainty-into-apparent-al-2610-29172/",
+          "title": "条件流模型将认知不确定性转化为表观偶然不确定性｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[44]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
         }
       ],
       "links": [
@@ -1541,10 +1561,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/3f655527a43a9d52/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-27-conditional-flow-models-convert-epistemic-uncertainty-into-apparent-al-2610-29172/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "f103ab005ecf4e09",
@@ -2010,7 +2030,13 @@
       "report_entry_url": "/papers/reports/2026-10-25/#paper-8bc3053c71b66352",
       "paper_url": "/papers/items/8bc3053c71b66352/",
       "paper_report_url": "/papers/items/8bc3053c71b66352/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-25-density-level-backward-error-for-low-nfe-generative-flows-2610-29475/",
+          "title": "低 NFE 生成流的密度级后向误差｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[40]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2610.29475",
         "https://arxiv.org/abs/2610.29475",
@@ -2024,10 +2050,10 @@
       ],
       "hosted_pdfs": [],
       "status": "已接受待刊",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/8bc3053c71b66352/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-25-density-level-backward-error-for-low-nfe-generative-flows-2610-29475/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "ddbaca3c821d5664",
@@ -2060,7 +2086,13 @@
       "report_entry_url": "/papers/reports/2026-10-25/#paper-ddbaca3c821d5664",
       "paper_url": "/papers/items/ddbaca3c821d5664/",
       "paper_report_url": "/papers/items/ddbaca3c821d5664/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-25-velocity-ambiguity-profiles-2610-30107/",
+          "title": "Velocity Ambiguity Profiles：流匹配的时间分辨贝叶斯风险诊断｜中文正文译稿（附录待译）",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、图表说明（书目以原文 PDF 为题名核对入口）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2610.30107",
         "https://arxiv.org/abs/2610.30107",
@@ -2075,10 +2107,10 @@
       ],
       "hosted_pdfs": [],
       "status": "已接受待刊",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/ddbaca3c821d5664/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-25-velocity-ambiguity-profiles-2610-30107/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "98ee8147d0091bcb",
@@ -23136,6 +23168,26 @@
     },
     {
       "date": "2026-10-29",
+      "slug": "2026-10-29-proflow-zero-shot-physics-consistent-sampling-via-proximal-flow-guidan-2601-20227",
+      "title": "ProFlow：基于近端流引导的零样本物理一致采样｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[55]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-29-proflow-zero-shot-physics-consistent-sampling-via-proximal-flow-guidan-2601-20227/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-29-proflow-zero-shot-physics-consistent-sampling-via-proximal-flow-guidan-2601-20227.md",
+      "paper_ids": [
+        "04f4e9392aea53cf"
+      ],
+      "source_arxiv_ids": [
+        "2601.20227"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-29",
       "slug": "2026-10-29-proflow-2601-20227",
       "title": "ProFlow：零样本物理一致性近端流引导｜中文译稿（待终校）",
       "scope": "正文 1–6、式（1）–（29）、算法 1、附录 A–C 与附录公式、表 1–5、英文参考文献 55 条已录入；理论硬约束与实现惩罚项的差异已注释，终校中。",
@@ -23156,8 +23208,8 @@
     {
       "date": "2026-10-29",
       "slug": "2026-10-29-geometry-aided-channel-2609-37277",
-      "title": "未标定数字孪生辅助几何信道推断｜中文译稿（待终校）",
-      "scope": "正文 I–V、式（1）–（18，含 5a/5b）、表 I–IX、图 1–18 与参考文献 45 条已录入；逐段逐式终校待完成。",
+      "title": "几何辅助信道推断：部分 CSI 与未标定数字孪生｜中文译稿（待终校）",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[45]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
       "url": "/papers/translations/2026-10-29-geometry-aided-channel-2609-37277/",
       "source_file": "2026-10-29-geometry-aided-channel-2609-37277.md",
       "source_page_path": "papers/translations/2026-10-29-geometry-aided-channel-2609-37277.md",
@@ -23168,9 +23220,12 @@
       "source_arxiv_ids": [
         "2609.37277"
       ],
-      "qa_complete": false,
+      "qa_complete": true,
       "external": true,
-      "primary_translation": true
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
     },
     {
       "date": "2026-10-29",
@@ -23221,6 +23276,26 @@
       ],
       "source_arxiv_ids": [
         "2610.06297"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-28",
+      "slug": "2026-10-28-flow-matching-with-uncertainty-quantification-and-guidance-2602-10326",
+      "title": "带不确定性量化与引导的流匹配｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[47]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-28-flow-matching-with-uncertainty-quantification-and-guidance-2602-10326/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-28-flow-matching-with-uncertainty-quantification-and-guidance-2602-10326.md",
+      "paper_ids": [
+        "bb2ec5a42b895e00"
+      ],
+      "source_arxiv_ids": [
+        "2602.10326"
       ],
       "qa_complete": true,
       "external": true,
@@ -23360,6 +23435,26 @@
       "final_proofread_done": false
     },
     {
+      "date": "2026-10-27",
+      "slug": "2026-10-27-conditional-flow-models-convert-epistemic-uncertainty-into-apparent-al-2610-29172",
+      "title": "条件流模型将认知不确定性转化为表观偶然不确定性｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[44]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-27-conditional-flow-models-convert-epistemic-uncertainty-into-apparent-al-2610-29172/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-27-conditional-flow-models-convert-epistemic-uncertainty-into-apparent-al-2610-29172.md",
+      "paper_ids": [
+        "3f655527a43a9d52"
+      ],
+      "source_arxiv_ids": [
+        "2610.29172"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
       "slug": "2026-10-27-cfm-variance-2610-29172",
       "title": "条件流模型将认知不确定性转化为表观偶然方差｜中文全结构译稿（待终校）",
       "scope": "摘要、正文 1–7、附录 A–C、公式（A.1）–（A.43）、预测集合（B.1）–（B.4）、图 1–18 说明、表 B.1、44 条参考文献已录入；逐页逐式 QA 待终校。",
@@ -23375,6 +23470,26 @@
       "qa_complete": false,
       "external": true,
       "primary_translation": true
+    },
+    {
+      "date": "2026-10-27",
+      "slug": "2026-10-27-beyond-best-of-k-prior-consistent-daps-for-ambiguous-nonlinear-inverse-2610-31592",
+      "title": "超越 Best-of-k：歧义非线性逆问题的先验一致 DAPS｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[40]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-27-beyond-best-of-k-prior-consistent-daps-for-ambiguous-nonlinear-inverse-2610-31592/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-27-beyond-best-of-k-prior-consistent-daps-for-ambiguous-nonlinear-inverse-2610-31592.md",
+      "paper_ids": [
+        "39bb2162c4326c50"
+      ],
+      "source_arxiv_ids": [
+        "2610.31592"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
     },
     {
       "slug": "2026-10-26-zak-otfs-duality-2610-16033",
@@ -23480,6 +23595,46 @@
       ],
       "source_arxiv_ids": [
         "2608.12524"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-25",
+      "slug": "2026-10-25-velocity-ambiguity-profiles-2610-30107",
+      "title": "Velocity Ambiguity Profiles：流匹配的时间分辨贝叶斯风险诊断｜中文正文译稿（附录待译）",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、图表说明（书目以原文 PDF 为题名核对入口）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-25-velocity-ambiguity-profiles-2610-30107/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-25-velocity-ambiguity-profiles-2610-30107.md",
+      "paper_ids": [
+        "ddbaca3c821d5664"
+      ],
+      "source_arxiv_ids": [
+        "2610.30107"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-25",
+      "slug": "2026-10-25-density-level-backward-error-for-low-nfe-generative-flows-2610-29475",
+      "title": "低 NFE 生成流的密度级后向误差｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[40]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-25-density-level-backward-error-for-low-nfe-generative-flows-2610-29475/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-25-density-level-backward-error-for-low-nfe-generative-flows-2610-29475.md",
+      "paper_ids": [
+        "8bc3053c71b66352"
+      ],
+      "source_arxiv_ids": [
+        "2610.29475"
       ],
       "qa_complete": true,
       "external": true,
