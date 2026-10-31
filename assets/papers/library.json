@@ -4,8 +4,8 @@
   "source_sha256": "667f6509c907b3f519f6fb8fb5bebd90ca35d9c2641539ec2bd83988638e4787",
   "translation_progress": {
     "target": 315,
-    "completed": 195,
-    "public_full_text": 187,
+    "completed": 203,
+    "public_full_text": 195,
     "local_only": 12,
     "status_counts": {
       "access_blocked": 3,
@@ -12558,7 +12558,13 @@
       "report_entry_url": "/papers/reports/2026-09-28/#paper-ef838835a9f80220",
       "paper_url": "/papers/items/ef838835a9f80220/",
       "paper_report_url": "/papers/items/ef838835a9f80220/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-28-2606-19010-channel-charting-with-physical-channel-fingerprints-for-massive-mimo-o/",
+          "title": "基于物理信道指纹的信道图谱｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[47]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2606.19010",
         "https://ieeexplore.ieee.org/document/11561835/",
@@ -12572,10 +12578,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/ef838835a9f80220/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-28-2606-19010-channel-charting-with-physical-channel-fingerprints-for-massive-mimo-o/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "91124ea5f492b97f",
@@ -12608,7 +12614,13 @@
       "report_entry_url": "/papers/reports/2026-09-28/#paper-91124ea5f492b97f",
       "paper_url": "/papers/items/91124ea5f492b97f/",
       "paper_report_url": "/papers/items/91124ea5f492b97f/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-28-2505-13867-generalizable-learning-for-frequency-domain-channel-extrapolation-unde/",
+          "title": "频域信道外推的泛化学习｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[39]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2505.13867v1",
         "https://ieeexplore.ieee.org/document/11345190/",
@@ -12622,10 +12634,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/91124ea5f492b97f/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-28-2505-13867-generalizable-learning-for-frequency-domain-channel-extrapolation-unde/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "e5775beab126d062",
@@ -12658,7 +12670,13 @@
       "report_entry_url": "/papers/reports/2026-09-28/#paper-e5775beab126d062",
       "paper_url": "/papers/items/e5775beab126d062/",
       "paper_report_url": "/papers/items/e5775beab126d062/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-28-2609-06537-uav-fluid-antenna-channel-acquisition-under-intra-scan-channel-aging/",
+          "title": "扫描内信道变化下的 UAV 流体天线信道获取｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[21]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.06537",
         "https://arxiv.org/abs/2609.06537"
@@ -12669,10 +12687,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/e5775beab126d062/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-28-2609-06537-uav-fluid-antenna-channel-acquisition-under-intra-scan-channel-aging/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "e28725de96ec4c98",
@@ -12705,7 +12723,13 @@
       "report_entry_url": "/papers/reports/2026-09-28/#paper-e28725de96ec4c98",
       "paper_url": "/papers/items/e28725de96ec4c98/",
       "paper_report_url": "/papers/items/e28725de96ec4c98/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-28-2609-09782-channel-estimation-for-ofdm-via-delay-doppler-refinement/",
+          "title": "基于时延-多普勒细化的 OFDM 信道估计｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[12]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.09782",
         "https://arxiv.org/abs/2609.09782"
@@ -12716,10 +12740,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/e28725de96ec4c98/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-28-2609-09782-channel-estimation-for-ofdm-via-delay-doppler-refinement/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "26682e24112600d7",
@@ -12752,7 +12776,13 @@
       "report_entry_url": "/papers/reports/2026-09-28/#paper-26682e24112600d7",
       "paper_url": "/papers/items/26682e24112600d7/",
       "paper_report_url": "/papers/items/26682e24112600d7/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-28-2609-11130-exact-pid-and-pi-gain-regions-for-uncertain-non-affine-mimo-systems/",
+          "title": "不确定非仿射 MIMO 系统的精确 PID 与 PI 增益域｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[29]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.11130",
         "https://arxiv.org/abs/2609.11130"
@@ -12763,10 +12793,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/26682e24112600d7/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-28-2609-11130-exact-pid-and-pi-gain-regions-for-uncertain-non-affine-mimo-systems/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "e20b58b971f0cfd7",
@@ -12852,7 +12882,13 @@
       "report_entry_url": "/papers/reports/2026-09-28/#paper-db25f5994cd60640",
       "paper_url": "/papers/items/db25f5994cd60640/",
       "paper_report_url": "/papers/items/db25f5994cd60640/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-28-2609-15865-cofi-clm-a-coarse-to-fine-channel-language-model-for-finite-bit-csi-fe/",
+          "title": "CoFi-CLM：面向有限比特 CSI 反馈的粗到细信道语言模型｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[12]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.15865",
         "https://arxiv.org/abs/2609.15865",
@@ -12866,10 +12902,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/db25f5994cd60640/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-28-2609-15865-cofi-clm-a-coarse-to-fine-channel-language-model-for-finite-bit-csi-fe/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "89d24cfddcc38e37",
@@ -12902,7 +12938,13 @@
       "report_entry_url": "/papers/reports/2026-09-28/#paper-89d24cfddcc38e37",
       "paper_url": "/papers/items/89d24cfddcc38e37/",
       "paper_report_url": "/papers/items/89d24cfddcc38e37/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-28-2609-14735-helena-for-5g-nr-leo-ntn-channel-estimation-a-comparative-evaluation/",
+          "title": "5G NR LEO NTN 信道估计的 HELENA 对比评估｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[18]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.14735",
         "https://arxiv.org/abs/2609.14735",
@@ -12916,10 +12958,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/89d24cfddcc38e37/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-28-2609-14735-helena-for-5g-nr-leo-ntn-channel-estimation-a-comparative-evaluation/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "113248064348a34c",
@@ -13005,7 +13047,13 @@
       "report_entry_url": "/papers/reports/2026-09-28/#paper-b4efda7fab668f1f",
       "paper_url": "/papers/items/b4efda7fab668f1f/",
       "paper_report_url": "/papers/items/b4efda7fab668f1f/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-28-2609-21055-learning-based-near-versus-far-field-boundaries-for-ultra-massive-mimo/",
+          "title": "超大规模 MIMO 近场与远场边界的学习方法｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[18]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.21055",
         "https://arxiv.org/abs/2609.21055"
@@ -13016,10 +13064,10 @@
       ],
       "hosted_pdfs": [],
       "status": "已接受待刊",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/b4efda7fab668f1f/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-28-2609-21055-learning-based-near-versus-far-field-boundaries-for-ultra-massive-mimo/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "743e257366f3c1bd",
@@ -26430,6 +26478,26 @@
     },
     {
       "date": "2026-09-28",
+      "slug": "2026-09-28-2609-21055-learning-based-near-versus-far-field-boundaries-for-ultra-massive-mimo",
+      "title": "超大规模 MIMO 近场与远场边界的学习方法｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[18]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-28-2609-21055-learning-based-near-versus-far-field-boundaries-for-ultra-massive-mimo/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-28-2609-21055-learning-based-near-versus-far-field-boundaries-for-ultra-massive-mimo.md",
+      "paper_ids": [
+        "b4efda7fab668f1f"
+      ],
+      "source_arxiv_ids": [
+        "2609.21055"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-28",
       "slug": "2026-09-28-2609-20581-limits-of-confidence-in-diffusion",
       "title": "扩散模型置信度的极限｜中文全文译文",
       "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[19]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
@@ -26490,6 +26558,106 @@
     },
     {
       "date": "2026-09-28",
+      "slug": "2026-09-28-2609-15865-cofi-clm-a-coarse-to-fine-channel-language-model-for-finite-bit-csi-fe",
+      "title": "CoFi-CLM：面向有限比特 CSI 反馈的粗到细信道语言模型｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[12]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-28-2609-15865-cofi-clm-a-coarse-to-fine-channel-language-model-for-finite-bit-csi-fe/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-28-2609-15865-cofi-clm-a-coarse-to-fine-channel-language-model-for-finite-bit-csi-fe.md",
+      "paper_ids": [
+        "db25f5994cd60640"
+      ],
+      "source_arxiv_ids": [
+        "2609.15865"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-28",
+      "slug": "2026-09-28-2609-14735-helena-for-5g-nr-leo-ntn-channel-estimation-a-comparative-evaluation",
+      "title": "5G NR LEO NTN 信道估计的 HELENA 对比评估｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[18]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-28-2609-14735-helena-for-5g-nr-leo-ntn-channel-estimation-a-comparative-evaluation/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-28-2609-14735-helena-for-5g-nr-leo-ntn-channel-estimation-a-comparative-evaluation.md",
+      "paper_ids": [
+        "89d24cfddcc38e37"
+      ],
+      "source_arxiv_ids": [
+        "2609.14735"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-28",
+      "slug": "2026-09-28-2609-11130-exact-pid-and-pi-gain-regions-for-uncertain-non-affine-mimo-systems",
+      "title": "不确定非仿射 MIMO 系统的精确 PID 与 PI 增益域｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[29]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-28-2609-11130-exact-pid-and-pi-gain-regions-for-uncertain-non-affine-mimo-systems/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-28-2609-11130-exact-pid-and-pi-gain-regions-for-uncertain-non-affine-mimo-systems.md",
+      "paper_ids": [
+        "26682e24112600d7"
+      ],
+      "source_arxiv_ids": [
+        "2609.11130"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-28",
+      "slug": "2026-09-28-2609-09782-channel-estimation-for-ofdm-via-delay-doppler-refinement",
+      "title": "基于时延-多普勒细化的 OFDM 信道估计｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[12]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-28-2609-09782-channel-estimation-for-ofdm-via-delay-doppler-refinement/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-28-2609-09782-channel-estimation-for-ofdm-via-delay-doppler-refinement.md",
+      "paper_ids": [
+        "e28725de96ec4c98"
+      ],
+      "source_arxiv_ids": [
+        "2609.09782"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-28",
+      "slug": "2026-09-28-2609-06537-uav-fluid-antenna-channel-acquisition-under-intra-scan-channel-aging",
+      "title": "扫描内信道变化下的 UAV 流体天线信道获取｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[21]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-28-2609-06537-uav-fluid-antenna-channel-acquisition-under-intra-scan-channel-aging/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-28-2609-06537-uav-fluid-antenna-channel-acquisition-under-intra-scan-channel-aging.md",
+      "paper_ids": [
+        "e5775beab126d062"
+      ],
+      "source_arxiv_ids": [
+        "2609.06537"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-28",
       "slug": "2026-09-28-2609-06361-a-graph-foundation-model-for-large-scale-mimo-detection",
       "title": "大规模 MIMO 检测的图基础模型｜中文全文译文",
       "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[51]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
@@ -26520,6 +26688,46 @@
       ],
       "source_arxiv_ids": [
         "2608.18040"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-28",
+      "slug": "2026-09-28-2606-19010-channel-charting-with-physical-channel-fingerprints-for-massive-mimo-o",
+      "title": "基于物理信道指纹的信道图谱｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[47]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-28-2606-19010-channel-charting-with-physical-channel-fingerprints-for-massive-mimo-o/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-28-2606-19010-channel-charting-with-physical-channel-fingerprints-for-massive-mimo-o.md",
+      "paper_ids": [
+        "ef838835a9f80220"
+      ],
+      "source_arxiv_ids": [
+        "2606.19010"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-28",
+      "slug": "2026-09-28-2505-13867-generalizable-learning-for-frequency-domain-channel-extrapolation-unde",
+      "title": "频域信道外推的泛化学习｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[39]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-28-2505-13867-generalizable-learning-for-frequency-domain-channel-extrapolation-unde/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-28-2505-13867-generalizable-learning-for-frequency-domain-channel-extrapolation-unde.md",
+      "paper_ids": [
+        "91124ea5f492b97f"
+      ],
+      "source_arxiv_ids": [
+        "2505.13867"
       ],
       "qa_complete": true,
       "external": true,
