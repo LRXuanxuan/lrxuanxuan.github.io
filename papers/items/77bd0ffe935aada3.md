@@ -9,7 +9,7 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=77bd0ffe935aada3)
 
-[本篇日报说明](/papers/items/77bd0ffe935aada3/#paper-report) · [全文翻译（待补齐）](/papers/items/77bd0ffe935aada3/#paper-translation)
+[本篇日报说明](/papers/items/77bd0ffe935aada3/#paper-report) · [阅读全文翻译](/papers/translations/2026-10-23-deep-bayesian-refocus-2610-03419/)
 
 **推荐日期：** 2026-10-23 · **发表状态：** 预印本/状态未确认
 
@@ -17,7 +17,7 @@ toc: true
 
 ## 本篇全文翻译
 
-本篇已列入全文翻译清单，尚未完成。完成并允许公开后，此入口将直达本篇全文译稿。
+全文中文译稿已发布，请使用页首的「阅读全文翻译」入口。
 
 <span id="paper-report"></span>
 
@@ -53,7 +53,7 @@ toc: true
 
 [官方PDF](https://arxiv.org/pdf/2610.03419)；[原文PDF](https://arxiv.org/pdf/2610.03419)。全文10页；定位：PDF SecII–VI、TableI、Figs3–8；项目页与2026-10-23 GitHub递归tree。
 
-[本篇全文翻译状态](https://lrxuanxuan.github.io/papers/items/77bd0ffe935aada3/#paper-translation)。job `455fa7ca9b751b6d2cead6ff`，pending，指定gpt-6-luna/xhigh；原worker不可达，未启动/未译完。预计输出：`本地资料：paper.md`。
+全文翻译状态见页首。job `455fa7ca9b751b6d2cead6ff`，pending，指定gpt-6-luna/xhigh；原worker不可达，未启动/未译完。预计输出：`本地资料：paper.md`。
 
 [源许可](https://creativecommons.org/licenses/by/4.0/)。完成译文可按CC BY4署名、注明改动后分享。PDF仅官方链接，不上传网站。
 
@@ -104,7 +104,7 @@ https://swpenninga.github.io/deep-bayesian-refocus/
 
 [来源 4](https://github.com/swpenninga/deep-bayesian-refocus)
 
-[来源 5](https://lrxuanxuan.github.io/papers/items/77bd0ffe935aada3/#paper-translation)
+来源 5：见页首翻译状态
 
 [来源 6](https://creativecommons.org/licenses/by/4.0/)
 {% endraw %}

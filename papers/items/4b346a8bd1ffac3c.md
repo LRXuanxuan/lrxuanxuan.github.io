@@ -9,7 +9,7 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=4b346a8bd1ffac3c)
 
-[本篇日报说明](/papers/items/4b346a8bd1ffac3c/#paper-report) · [全文翻译（待补齐）](/papers/items/4b346a8bd1ffac3c/#paper-translation)
+[本篇日报说明](/papers/items/4b346a8bd1ffac3c/#paper-report) · 全文翻译（待补齐）
 
 **推荐日期：** 2026-10-10 · **发表状态：** 正式发表
 

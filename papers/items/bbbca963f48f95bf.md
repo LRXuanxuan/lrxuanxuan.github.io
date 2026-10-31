@@ -9,7 +9,7 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=bbbca963f48f95bf)
 
-[本篇日报说明](/papers/items/bbbca963f48f95bf/#paper-report) · [全文翻译（待补齐）](/papers/items/bbbca963f48f95bf/#paper-translation) · [中文阶段性译稿（部分章节与公式，非全文；未验收）](/papers/translations/2026-10-14-radio-map-aerial-images-2410-17264/)
+[本篇日报说明](/papers/items/bbbca963f48f95bf/#paper-report) · [阅读已有译稿（非全文）](/papers/translations/2026-10-14-radio-map-aerial-images-2410-17264/)
 
 **推荐日期：** 2026-10-14 · **发表状态：** 正式发表
 
@@ -17,9 +17,7 @@ toc: true
 
 ## 本篇全文翻译
 
-本篇已列入全文翻译清单，尚未完成。完成并允许公开后，此入口将直达本篇全文译稿。
-
-已有部分译文（不计全文完成）：[历史译文](/papers/translations/2026-10-14-radio-map-aerial-images-2410-17264/)
+本篇现有译稿为阶段性/历史版本（未计入全文验收）；完整全文翻译尚未完成，完成后页首入口将直达全文译稿。
 
 <span id="paper-report"></span>
 
@@ -51,7 +49,7 @@ toc: true
 
 **数据：** [作者Zenodo入口](https://zenodo.org/records/15721131)；尚未下载全数据，不虚报复现。
 
-[本篇全文翻译](https://lrxuanxuan.github.io/papers/items/bbbca963f48f95bf/#paper-translation) （按标题/主键绑定本篇状态）。
+本篇全文翻译 （按标题/主键绑定本篇状态）。
 
 **本地原文及翻译：** [PDF](https://arxiv.org/pdf/2410.17264)，13页；job_id=61010543f523f89eaeb7766e，状态=pending；已取得原文即入队，派发原worker失败：当前应用未找到既有threadId。尚未开始/验收译稿，不把入队称已翻译。预期路径：`本地资料：paper.md`。
 
@@ -105,7 +103,7 @@ toc: true
 
 [来源 5](https://zenodo.org/records/15721131)
 
-[来源 6](https://lrxuanxuan.github.io/papers/items/bbbca963f48f95bf/#paper-translation)
+来源 6：见页首翻译状态
 
 [来源 7](https://creativecommons.org/licenses/by/4.0/)允许署名衍生译文)
 {% endraw %}

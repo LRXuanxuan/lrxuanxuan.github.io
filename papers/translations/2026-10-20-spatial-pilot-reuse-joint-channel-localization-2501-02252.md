@@ -7,6 +7,9 @@ toc: true
 ---
 
 {% raw %}
+
+> **说明：** 本页为较早的译文版本，已被更新、更完整的版本取代，请阅读 [最新全文译文](/papers/translations/2026-10-20-mu-scattering-aware-pilot-reuse-2501-02252/)。
+
 [← 返回论文库](/papers/) · [arXiv 原文](https://arxiv.org/abs/2501.02252)
 
 # 利用空间复用导频的散射环境感知多用户联合信道估计与定位

@@ -9,7 +9,7 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=5cdd2cbc4dcb1cfc)
 
-[本篇日报说明](/papers/items/5cdd2cbc4dcb1cfc/#paper-report) · [全文翻译（待补齐）](/papers/items/5cdd2cbc4dcb1cfc/#paper-translation)
+[本篇日报说明](/papers/items/5cdd2cbc4dcb1cfc/#paper-report) · [阅读全文翻译](/papers/translations/2026-09-17-2609-15536-physics-guided-conditional-flow-matching-with-energy-regularization-fo/)
 
 **推荐日期：** 2026-09-17 · **发表状态：** 历史记录未明确
 
@@ -17,7 +17,7 @@ toc: true
 
 ## 本篇全文翻译
 
-本篇已列入全文翻译清单，尚未完成。完成并允许公开后，此入口将直达本篇全文译稿。
+全文中文译稿已发布，请使用页首的「阅读全文翻译」入口。
 
 <span id="paper-report"></span>
 

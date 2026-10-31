@@ -7,6 +7,9 @@ toc: true
 ---
 
 {% raw %}
+
+> **说明：** 本页为较早的译文版本，已被更新、更完整的版本取代，请阅读 [最新全文译文](/papers/translations/2026-10-20-wireless-scene-reconstruction-diffusion-2610-22120/)。
+
 [← 返回论文库](/papers/) · [arXiv 原文](https://arxiv.org/abs/2610.22120)
 
 # 利用无处不在的无线信号，通过物理约束表征上的扩散后验推断重建场景

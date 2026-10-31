@@ -7,6 +7,9 @@ toc: true
 ---
 
 {% raw %}
+
+> **说明：** 本页为较早的译文版本，已被更新、更完整的版本取代，请阅读 [最新全文译文](/papers/translations/2026-10-20-conditional-mean-flows-few-step-densities-for-simulation-based-inferen-2610-21657/)。
+
 [← 返回论文库](/papers/) · [arXiv 原文](https://arxiv.org/abs/2610.21657)
 
 # 条件平均流：面向基于仿真的推断的少步密度估计

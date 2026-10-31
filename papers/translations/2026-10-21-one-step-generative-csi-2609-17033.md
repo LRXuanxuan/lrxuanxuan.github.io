@@ -7,6 +7,9 @@ toc: true
 ---
 
 {% raw %}
+
+> **说明：** 本页为较早的译文版本，已被更新、更完整的版本取代，请阅读 [最新全文译文](/papers/translations/2026-10-21-one-step-generative-csi-prediction-2609-17033/)。
+
 [← 返回论文库](/papers/) · [对应论文](/papers/items/efb1c2b897f3baec/) · [arXiv 原文](https://arxiv.org/abs/2609.17033) · [代码](https://github.com/MehdiSattari/meanflow-csi-prediction)
 
 # 一步生成式 CSI 预测

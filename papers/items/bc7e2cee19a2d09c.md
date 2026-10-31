@@ -9,7 +9,7 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=bc7e2cee19a2d09c)
 
-[本篇日报说明](/papers/items/bc7e2cee19a2d09c/#paper-report) · [全文翻译（待补齐）](/papers/items/bc7e2cee19a2d09c/#paper-translation)
+[本篇日报说明](/papers/items/bc7e2cee19a2d09c/#paper-report) · [阅读全文翻译](/papers/translations/2026-10-08-2609-40090-ptno-training-neural-operators-with-noisy-monte-carlo-estimates-for-pa/)
 
 **推荐日期：** 2026-10-08 · **发表状态：** 在投
 
@@ -17,7 +17,7 @@ toc: true
 
 ## 本篇全文翻译
 
-本篇已列入全文翻译清单，尚未完成。完成并允许公开后，此入口将直达本篇全文译稿。
+全文中文译稿已发布，请使用页首的「阅读全文翻译」入口。
 
 <span id="paper-report"></span>
 
