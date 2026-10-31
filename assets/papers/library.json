@@ -4,8 +4,8 @@
   "source_sha256": "667f6509c907b3f519f6fb8fb5bebd90ca35d9c2641539ec2bd83988638e4787",
   "translation_progress": {
     "target": 315,
-    "completed": 164,
-    "public_full_text": 155,
+    "completed": 172,
+    "public_full_text": 163,
     "local_only": 12,
     "status_counts": {
       "access_blocked": 3,
@@ -15484,7 +15484,13 @@
       "report_entry_url": "/papers/reports/2026-09-24/#paper-4d5da75c47c1bce9",
       "paper_url": "/papers/items/4d5da75c47c1bce9/",
       "paper_report_url": "/papers/items/4d5da75c47c1bce9/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-24-2609-23365-gnn-based-global-csi-reconstruction-for-fronthaul-limited-distributed/",
+          "title": "前传受限分布式 MIMO 的 GNN 全局 CSI 重建｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[12]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.23365",
         "https://arxiv.org/abs/2609.23365"
@@ -15495,10 +15501,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/4d5da75c47c1bce9/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-24-2609-23365-gnn-based-global-csi-reconstruction-for-fronthaul-limited-distributed/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "58d2f204b53b9219",
@@ -15531,7 +15537,13 @@
       "report_entry_url": "/papers/reports/2026-09-24/#paper-58d2f204b53b9219",
       "paper_url": "/papers/items/58d2f204b53b9219/",
       "paper_report_url": "/papers/items/58d2f204b53b9219/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-24-2609-10200-robust-beam-prediction-for-v2x-networks-with-multi-modal-sensing/",
+          "title": "多模态感知下 V2X 网络的鲁棒波束预测｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[23]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.10200",
         "https://arxiv.org/abs/2609.10200",
@@ -15543,10 +15555,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/58d2f204b53b9219/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-24-2609-10200-robust-beam-prediction-for-v2x-networks-with-multi-modal-sensing/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "f0bfaf2f0a67536d",
@@ -15579,7 +15591,13 @@
       "report_entry_url": "/papers/reports/2026-09-24/#paper-f0bfaf2f0a67536d",
       "paper_url": "/papers/items/f0bfaf2f0a67536d/",
       "paper_report_url": "/papers/items/f0bfaf2f0a67536d/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-24-2609-19819-online-material-labeled-environment-reconstruction-via-bayesian-multip/",
+          "title": "贝叶斯多径的在线材料标注环境重建｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[13]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.19819",
         "https://arxiv.org/abs/2609.19819"
@@ -15590,10 +15608,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/f0bfaf2f0a67536d/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-24-2609-19819-online-material-labeled-environment-reconstruction-via-bayesian-multip/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "0405b09fb4f146f6",
@@ -15626,7 +15644,13 @@
       "report_entry_url": "/papers/reports/2026-09-24/#paper-0405b09fb4f146f6",
       "paper_url": "/papers/items/0405b09fb4f146f6/",
       "paper_report_url": "/papers/items/0405b09fb4f146f6/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-24-2609-23383-bayesian-filtering-in-physical-systems-via-test-time-trained-flow-matc/",
+          "title": "基于测试时训练流匹配的物理系统贝叶斯滤波｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[39]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.23383",
         "https://arxiv.org/abs/2609.23383",
@@ -15638,10 +15662,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/0405b09fb4f146f6/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-24-2609-23383-bayesian-filtering-in-physical-systems-via-test-time-trained-flow-matc/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "a288be10790c6d1b",
@@ -15674,7 +15698,13 @@
       "report_entry_url": "/papers/reports/2026-09-24/#paper-a288be10790c6d1b",
       "paper_url": "/papers/items/a288be10790c6d1b/",
       "paper_report_url": "/papers/items/a288be10790c6d1b/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-24-2609-21251-geometry-aware-diffusion-guidance-via-curvature-adaptive-tubular-corre/",
+          "title": "曲率自适应管状修正的几何感知扩散引导｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[31]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.21251",
         "https://arxiv.org/abs/2609.21251"
@@ -15685,10 +15715,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/a288be10790c6d1b/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-24-2609-21251-geometry-aware-diffusion-guidance-via-curvature-adaptive-tubular-corre/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "513389bafd3f710a",
@@ -15817,7 +15847,13 @@
       "report_entry_url": "/papers/reports/2026-09-23/#paper-c492f49d2a1959dc",
       "paper_url": "/papers/items/c492f49d2a1959dc/",
       "paper_report_url": "/papers/items/c492f49d2a1959dc/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-23-2609-24119-sensing-while-communicating-active-online-spectrum-cartography-via-air/",
+          "title": "边通信边感知：空中平台主动在线频谱制图｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[36]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/abs/2609.24119)｜",
         "https://arxiv.org/pdf/2609.24119",
@@ -15829,10 +15865,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/c492f49d2a1959dc/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-23-2609-24119-sensing-while-communicating-active-online-spectrum-cartography-via-air/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "c010f548cb2bbc18",
@@ -15865,7 +15901,13 @@
       "report_entry_url": "/papers/reports/2026-09-23/#paper-c010f548cb2bbc18",
       "paper_url": "/papers/items/c010f548cb2bbc18/",
       "paper_report_url": "/papers/items/c010f548cb2bbc18/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-23-2609-26437-a-gram-attention-learning-framework-for-spatially-non-stationary-chann/",
+          "title": "空间非平稳信道的 Gram 注意力学习框架｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[36]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/abs/2609.26437)｜",
         "https://arxiv.org/pdf/2609.26437",
@@ -15877,10 +15919,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/c010f548cb2bbc18/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-23-2609-26437-a-gram-attention-learning-framework-for-spatially-non-stationary-chann/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "afb5b3e241095390",
@@ -15913,7 +15955,13 @@
       "report_entry_url": "/papers/reports/2026-09-23/#paper-afb5b3e241095390",
       "paper_url": "/papers/items/afb5b3e241095390/",
       "paper_report_url": "/papers/items/afb5b3e241095390/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-23-2609-25923-mimo-ofdm-ai-receiver-based-on-incrementally-conditioned-diffusion-wit/",
+          "title": "基于增量条件扩散的 MIMO-OFDM AI 接收机｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[36]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/abs/2609.25923)｜",
         "https://arxiv.org/pdf/2609.25923",
@@ -15925,10 +15973,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/afb5b3e241095390/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-23-2609-25923-mimo-ofdm-ai-receiver-based-on-incrementally-conditioned-diffusion-wit/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "8fbe6b9650945281",
@@ -26588,6 +26636,166 @@
       ],
       "source_arxiv_ids": [
         "2609.00863"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-24",
+      "slug": "2026-09-24-2609-23383-bayesian-filtering-in-physical-systems-via-test-time-trained-flow-matc",
+      "title": "基于测试时训练流匹配的物理系统贝叶斯滤波｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[39]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-24-2609-23383-bayesian-filtering-in-physical-systems-via-test-time-trained-flow-matc/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-24-2609-23383-bayesian-filtering-in-physical-systems-via-test-time-trained-flow-matc.md",
+      "paper_ids": [
+        "0405b09fb4f146f6"
+      ],
+      "source_arxiv_ids": [
+        "2609.23383"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-24",
+      "slug": "2026-09-24-2609-23365-gnn-based-global-csi-reconstruction-for-fronthaul-limited-distributed",
+      "title": "前传受限分布式 MIMO 的 GNN 全局 CSI 重建｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[12]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-24-2609-23365-gnn-based-global-csi-reconstruction-for-fronthaul-limited-distributed/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-24-2609-23365-gnn-based-global-csi-reconstruction-for-fronthaul-limited-distributed.md",
+      "paper_ids": [
+        "4d5da75c47c1bce9"
+      ],
+      "source_arxiv_ids": [
+        "2609.23365"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-24",
+      "slug": "2026-09-24-2609-21251-geometry-aware-diffusion-guidance-via-curvature-adaptive-tubular-corre",
+      "title": "曲率自适应管状修正的几何感知扩散引导｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[31]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-24-2609-21251-geometry-aware-diffusion-guidance-via-curvature-adaptive-tubular-corre/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-24-2609-21251-geometry-aware-diffusion-guidance-via-curvature-adaptive-tubular-corre.md",
+      "paper_ids": [
+        "a288be10790c6d1b"
+      ],
+      "source_arxiv_ids": [
+        "2609.21251"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-24",
+      "slug": "2026-09-24-2609-19819-online-material-labeled-environment-reconstruction-via-bayesian-multip",
+      "title": "贝叶斯多径的在线材料标注环境重建｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[13]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-24-2609-19819-online-material-labeled-environment-reconstruction-via-bayesian-multip/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-24-2609-19819-online-material-labeled-environment-reconstruction-via-bayesian-multip.md",
+      "paper_ids": [
+        "f0bfaf2f0a67536d"
+      ],
+      "source_arxiv_ids": [
+        "2609.19819"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-24",
+      "slug": "2026-09-24-2609-10200-robust-beam-prediction-for-v2x-networks-with-multi-modal-sensing",
+      "title": "多模态感知下 V2X 网络的鲁棒波束预测｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[23]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-24-2609-10200-robust-beam-prediction-for-v2x-networks-with-multi-modal-sensing/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-24-2609-10200-robust-beam-prediction-for-v2x-networks-with-multi-modal-sensing.md",
+      "paper_ids": [
+        "58d2f204b53b9219"
+      ],
+      "source_arxiv_ids": [
+        "2609.10200"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-23",
+      "slug": "2026-09-23-2609-26437-a-gram-attention-learning-framework-for-spatially-non-stationary-chann",
+      "title": "空间非平稳信道的 Gram 注意力学习框架｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[36]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-23-2609-26437-a-gram-attention-learning-framework-for-spatially-non-stationary-chann/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-23-2609-26437-a-gram-attention-learning-framework-for-spatially-non-stationary-chann.md",
+      "paper_ids": [
+        "c010f548cb2bbc18"
+      ],
+      "source_arxiv_ids": [
+        "2609.26437"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-23",
+      "slug": "2026-09-23-2609-25923-mimo-ofdm-ai-receiver-based-on-incrementally-conditioned-diffusion-wit",
+      "title": "基于增量条件扩散的 MIMO-OFDM AI 接收机｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[36]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-23-2609-25923-mimo-ofdm-ai-receiver-based-on-incrementally-conditioned-diffusion-wit/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-23-2609-25923-mimo-ofdm-ai-receiver-based-on-incrementally-conditioned-diffusion-wit.md",
+      "paper_ids": [
+        "afb5b3e241095390"
+      ],
+      "source_arxiv_ids": [
+        "2609.25923"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-23",
+      "slug": "2026-09-23-2609-24119-sensing-while-communicating-active-online-spectrum-cartography-via-air",
+      "title": "边通信边感知：空中平台主动在线频谱制图｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[36]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-23-2609-24119-sensing-while-communicating-active-online-spectrum-cartography-via-air/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-23-2609-24119-sensing-while-communicating-active-online-spectrum-cartography-via-air.md",
+      "paper_ids": [
+        "c492f49d2a1959dc"
+      ],
+      "source_arxiv_ids": [
+        "2609.24119"
       ],
       "qa_complete": true,
       "external": true,
