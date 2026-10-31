@@ -4,8 +4,8 @@
   "source_sha256": "667f6509c907b3f519f6fb8fb5bebd90ca35d9c2641539ec2bd83988638e4787",
   "translation_progress": {
     "target": 315,
-    "completed": 247,
-    "public_full_text": 239,
+    "completed": 249,
+    "public_full_text": 241,
     "local_only": 12,
     "status_counts": {
       "access_blocked": 3,
@@ -2317,8 +2317,8 @@
       "translations": [
         {
           "url": "/papers/translations/2026-10-24-bct-bayes-consistent-tempering-2610-27641/",
-          "title": "BCT：流语言模型贝叶斯一致温度调节｜中文主体译稿（附录待补）",
-          "scope": "原 PDF 19 页；正文 1–6、附录 A–G、公式（1）–（26）、完整表 1–7、英文参考文献均已收录；逐段术语及公式排版终校中。"
+          "title": "BCT：流语言模型的贝叶斯一致温度调节｜中文译稿（待终校）",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[36]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
         }
       ],
       "links": [
@@ -2334,10 +2334,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/565262b3a3a6c355/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-24-bct-bayes-consistent-tempering-2610-27641/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "aabfbd0988a71bdc",
@@ -2373,8 +2373,8 @@
       "translations": [
         {
           "url": "/papers/translations/2026-10-24-posterior-flow-matching-2610-13994/",
-          "title": "Posterior Flow Matching｜中文主体译稿（长附录待补）",
-          "scope": "原 PDF 42 页；正文 1–6、附录 A–H、公式（1）–（88）、算法 1–3、原文表 1–10 与六页英文书目已纳入；原图文字和逐式排版终校中。"
+          "title": "Posterior Flow Matching：后验流匹配｜中文译稿（书目待校）",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、图表说明（书目以原文 PDF 为题名核对入口）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
         }
       ],
       "links": [
@@ -2393,10 +2393,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/aabfbd0988a71bdc/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-24-posterior-flow-matching-2610-13994/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "c5e01298c0328f14",
@@ -23698,8 +23698,8 @@
     },
     {
       "slug": "2026-10-24-posterior-flow-matching-2610-13994",
-      "title": "Posterior Flow Matching｜中文主体译稿（长附录待补）",
-      "scope": "原 PDF 42 页；正文 1–6、附录 A–H、公式（1）–（88）、算法 1–3、原文表 1–10 与六页英文书目已纳入；原图文字和逐式排版终校中。",
+      "title": "Posterior Flow Matching：后验流匹配｜中文译稿（书目待校）",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、图表说明（书目以原文 PDF 为题名核对入口）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
       "source_arxiv_ids": [
         "2610.13994"
       ],
@@ -23707,9 +23707,12 @@
       "url": "/papers/translations/2026-10-24-posterior-flow-matching-2610-13994/",
       "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-24-posterior-flow-matching-2610-13994.md",
       "paper_ids": [],
-      "qa_complete": false,
+      "qa_complete": true,
       "external": true,
-      "primary_translation": false
+      "primary_translation": false,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
     },
     {
       "slug": "2026-10-24-fttd-near-field-thz-hybrid-beamforming",
@@ -23726,8 +23729,8 @@
     },
     {
       "slug": "2026-10-24-bct-bayes-consistent-tempering-2610-27641",
-      "title": "BCT：流语言模型贝叶斯一致温度调节｜中文主体译稿（附录待补）",
-      "scope": "原 PDF 19 页；正文 1–6、附录 A–G、公式（1）–（26）、完整表 1–7、英文参考文献均已收录；逐段术语及公式排版终校中。",
+      "title": "BCT：流语言模型的贝叶斯一致温度调节｜中文译稿（待终校）",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[36]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
       "source_arxiv_ids": [
         "2610.27641"
       ],
@@ -23735,9 +23738,12 @@
       "url": "/papers/translations/2026-10-24-bct-bayes-consistent-tempering-2610-27641/",
       "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-24-bct-bayes-consistent-tempering-2610-27641.md",
       "paper_ids": [],
-      "qa_complete": false,
+      "qa_complete": true,
       "external": true,
-      "primary_translation": false
+      "primary_translation": false,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
     },
     {
       "slug": "2026-10-23-rotatable-antennas-imperfect-csi-2605-04775",
