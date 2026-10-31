@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Preconditioned Flow Matching：预条件流匹配｜中文主体译稿（长附录待补）"
+title: "Preconditioned Flow Matching：预条件流匹配｜中文全文译稿（逐字符终校待做）"
 permalink: /papers/translations/2026-10-31-preconditioned-flow-matching-2603-02337/
 math: true
 toc: true
@@ -15,7 +15,7 @@ toc: true
 **作者：** Shadab Ahamed、Eshed Gal、Md Shahriar Rahim Siddiqui、Simon Ghyselincks、Moshe Eliasof、Eldad Haber  
 **机构：** 不列颠哥伦比亚大学、剑桥大学。  
 **原稿：** arXiv:2603.02337v3，2026-10-26，45 页，标注 NeurIPS 2026。  
-**译稿状态：** 主体 1—6 节已翻译为中文技术稿，并录入核心公式与实验主表；附录 D—H 的大部分证明与实验、全部证明细节、附录数据表和完整英文参考书目尚未逐段补齐，因此**不是最终全文译文**。少数标题/定理编号以原文为准。
+**译稿状态：** 中文译稿已扩展至主体第 1—6 节、全部附录 A—K、全部编号公式（1）—（189）、全部图 1—19 的文字说明、表 1—10，以及原稿全部 45 条英文参考文献。逐自然段与未编号公式、符号、表格全部单元格及图内文字的严格终校仍未通过；原 PDF 为最终核验依据。
 
 ## 摘要
 
@@ -392,6 +392,56 @@ $$
 ## 致谢
 
 本研究获加拿大自然科学与工程研究理事会（NSERC）Discovery Grants 计划及 Canada Graduate Scholarships – Master’s（CGS-M）计划资助。作者声明不存在与本工作有关的竞争利益。
+
+## 参考文献
+
+以下保留原稿的**英文原题、作者及主要书目信息**，避免在学术检索时将中文译名误认为正式论文题名。原稿采用作者—年份引用方式，故以下依原书目顺序列出，不另造文内编号。
+
+- Shadab Ahamed and Eldad Haber. “Dawn-FM: Data-aware and noise-informed flow matching for solving inverse problems.” arXiv:2412.04766, 2024.
+- Shadab Ahamed and Arman Rahmim. “IGCONDA-PET: Weakly-supervised PET anomaly detection using implicitly-guided attention-conditional counterfactual diffusion modeling—a multi-center, multi-cancer, and multi-tracer study.” *Computerized Medical Imaging and Graphics*, 102615, 2025.
+- Santiago Aranguri, Giulio Biroli, Marc Mezard, and Eric Vanden-Eijnden. “Optimizing noise schedules of generative models in high dimensions.” arXiv:2501.00988, 2025.
+- Michele Benzi. “Preconditioning techniques for large linear systems: A survey.” *Journal of Computational Physics*, 182(2):418–477, 2002. doi:10.1006/jcph.2002.7176.
+- Lukas Billera, Hedwig Nora Nordlinder, and Ben Murrell. “Time dependent loss reweighting for flow matching and diffusion models is theoretically justified.” *ICLR 2026 2nd Workshop on Deep Generative Model in Machine Learning: Theory, Principle and Efficacy*, 2026.
+- Francisco Caetano, Christiaan Viviers, Peter H. N. De With, and Fons Van der Sommen. “Symmetrical flow matching: Unified image generation, segmentation, and classification with score-based generative models.” *Proceedings of the AAAI Conference on Artificial Intelligence*, 40:2498–2506, 2026.
+- Wenbo Cao and Weiwei Zhang. “An analysis and solution of ill-conditioning in physics-informed neural networks.” *Journal of Computational Physics*, 520:113494, 2025.
+- Shoufa Chen, Peize Sun, Yibing Song, and Ping Luo. “DiffusionDet: Diffusion model for object detection.” *Proceedings of ICCV*, pp. 19773–19786, 2023.
+- Yunjey Choi, Youngjung Uh, Jaejun Yoo, and Jung-Woo Ha. “StarGAN v2: Diverse image synthesis for multiple domains.” *Proceedings of CVPR*, 2020.
+- Patryk Chrabaszcz, Ilya Loshchilov, and Frank Hutter. “A downsampled variant of ImageNet as an alternative to the CIFAR datasets.” arXiv:1707.08819, 2017.
+- Hyungjin Chung and Jong Chul Ye. “Score-based diffusion models for accelerated MRI.” *Medical Image Analysis*, 80:102479, 2022.
+- Danilo Danese, Angela Lombardi, Matteo Attimonelli, Giuseppe Fasano, and Tommaso Di Noia. “Flowlet: Conditional 3D brain MRI synthesis using wavelet flow matching.” arXiv:2601.05212, 2026.
+- Quan Dao, Hao Phung, Binh Nguyen, and Anh Tran. “Flow matching in latent space.” arXiv:2307.08698, 2023.
+- Yann N. Dauphin, Razvan Pascanu, Caglar Gulcehre, Kyunghyun Cho, Surya Ganguli, and Yoshua Bengio. “Identifying and attacking the saddle point problem in high-dimensional non-convex optimization.” *Advances in Neural Information Processing Systems*, 2014.
+- Sascha Diefenbacher, Engin Eren, Gregor Kasieczka, Anatolii Korol, Benjamin Nachman, and David Shih. “DCTRGAN: Improving the precision of generative models with reweighting.” *Journal of Instrumentation*, 15(11):P11004, 2020.
+- Laurent Dinh, Jascha Sohl-Dickstein, and Samy Bengio. “Density estimation using Real NVP.” *ICLR*, 2017.
+- Gene H. Golub and Qiang Ye. “Inexact preconditioned conjugate gradient method with inner-outer iteration.” *SIAM Journal on Scientific Computing*, 21(4):1305–1320, 1999.
+- Wenhao Guan, Kaidi Wang, Wangjin Zhou, Yang Wang, Feng Deng, Hui Wang, Lin Li, Qingyang Hong, and Yong Qin. “LAFMA: A latent flow matching model for text-to-audio generation.” *Interspeech*, 2024.
+- Jonathan Ho, Ajay Jain, and Pieter Abbeel. “Denoising diffusion probabilistic models.” *Advances in Neural Information Processing Systems*, 2020.
+- Tero Karras, Miika Aittala, Timo Aila, and Samuli Laine. “Elucidating the design space of diffusion-based generative models.” *Neural Information Processing Systems*, 2022.
+- Agnan Kessy, Alex Lewin, and Korbinian Strimmer. “Optimal whitening and decorrelation.” *The American Statistician*, 72(4):309–314, 2018.
+- Diederik P. Kingma and Max Welling. “Auto-encoding variational Bayes.” *International Conference on Learning Representations*, 2014.
+- Ivan Kobyzev, Simon J. D. Prince, and Marcus A. Brubaker. “Normalizing flows: An introduction and review of current methods.” *IEEE Transactions on Pattern Analysis and Machine Intelligence*, 43(11):3964–3979, 2020.
+- Nikita Kornilov, Petr Mokrov, Alexander Gasnikov, and Alexander Korotin. “Optimal flow matching: Learning straight trajectories in just one step.” *Advances in Neural Information Processing Systems*, 37:104180–104204, 2024.
+- Alex Krizhevsky, Geoffrey Hinton, et al. “Learning multiple layers of features from tiny images.” 2009.
+- Lorenzo Lazzarino, Yuji Nakatsukasa, and Umberto Zerbinati. “Preconditioned normal equations for solving discretised partial differential equations.” arXiv:2502.17626, 2025.
+- Shanchuan Lin and Xiao Yang. “Diffusion model with perceptual loss.” arXiv:2401.00110v7, 2025.
+- Yaron Lipman, Ricky T. Q. Chen, Heli Ben-Hamu, Maximilian Nickel, and Matthew L. Le. “Flow matching for generative modeling.” *ICLR*, 2023.
+- Yaron Lipman, Marton Havasi, Peter Holderrieth, Neta Shaul, Matt Le, Brian Karrer, Ricky T. Q. Chen, David Lopez-Paz, Heli Ben-Hamu, and Itai Gat. “Flow matching guide and code.” arXiv:2412.06264, 2024.
+- Xingchao Liu, Chengyue Gong, and Qiang Liu. “Flow straight and fast: Learning to generate and transfer data with rectified flow.” arXiv:2209.03003, 2022.
+- Andreas Lugmayr, Martin Danelljan, Andres Romero, Fisher Yu, Radu Timofte, and Luc Van Gool. “RePaint: Inpainting using denoising diffusion probabilistic models.” *CVPR*, pp. 11451–11461, 2022.
+- Maria-Elena Nilsback and Andrew Zisserman. “Automated flower classification over a large number of classes.” *ICVGIP*, 2008.
+- George Papamakarios, Eric Nalisnick, Danilo Jimenez Rezende, Shakir Mohamed, and Balaji Lakshminarayanan. “Normalizing flows for probabilistic modeling and inference.” *Journal of Machine Learning Research*, 2021.
+- Rien Quirynen and Stefano Di Cairano. “PRESAS: Block-structured preconditioning of iterative solvers within a primal active-set method for fast model predictive control.” *Optimal Control Applications and Methods*, 41(6):2282–2307, 2020.
+- Robin Rombach, Andreas Blattmann, Dominik Lorenz, Patrick Esser, and Björn Ommer. “High-resolution image synthesis with latent diffusion models.” *CVPR*, pp. 10684–10695, 2022.
+- Yousef Saad. “Analysis of some Krylov subspace approximations to the matrix exponential operator.” *SIAM Journal on Numerical Analysis*, 29(1):209–228, 1992.
+- Yousef Saad. *Iterative Methods for Sparse Linear Systems*. SIAM, 2003.
+- Yang Song, Jascha Sohl-Dickstein, Diederik P. Kingma, Abhishek Kumar, Stefano Ermon, and Ben Poole. “Score-based generative modeling through stochastic differential equations.” *ICLR*, 2021.
+- Lloyd N. Trefethen and David Bau. *Numerical Linear Algebra*. SIAM, 1997.
+- Jiayi Wang, Hadrien Reynaud, Franciskus Xaverius Erick, and Bernhard Kainz. “CTFlow: Video-inspired latent flow matching for 3D CT synthesis.” arXiv:2508.12900, 2025.
+- Yixian Xu, Shengjie Luo, Liwei Wang, Di He, and Chang Liu. “Diagnosing and improving diffusion models by estimating the optimal loss value.” *ICLR*, 2026.
+- Qiang Ye. “Preconditioning for accelerated gradient descent optimization and regularization.” arXiv:2410.00232v2, 2024.
+- Fisher Yu, Ari Seff, Yinda Zhang, Shuran Song, Thomas Funkhouser, and Jianxiong Xiao. “LSUN: Construction of a large-scale image dataset using deep learning with humans in the loop.” *CVPR*, 2015.
+- Shuangfei Zhai, Ruixiang Zhang, Preetum Nakkiran, David Berthelot, Jiatao Gu, Huangjie Zheng, Tianrong Chen, Miguel Angel Bautista, Navdeep Jaitly, and Joshua M. Susskind. “Normalizing flows are capable generative models.” *ICML*, 2025.
+- Mingyuan Zhou, Yi Gu, Huangjie Zheng, Liangchen Song, Guande He, Yizhe Zhang, Wenze Hu, and Yinfei Yang. “Score distillation of flow matching models.” arXiv:2509.25127, 2025.
 
 ## 附录 A：补充相关工作
 
@@ -1830,9 +1880,5 @@ LSUN Churches、Flowers-102 和 AFHQ Cats 使用 $s(t)=\sin(\pi t/2)$、$c(t)=\c
 ## 附录 K：已有资产及许可
 
 实验使用已有公开数据集和标准模型组件，并引用所使用的 MNIST、CIFAR-10、ImageNet-1k、LSUN Churches、Oxford Flowers-102 和 AFHQ Cats 原始来源。研究仅将这些资产用于研究与评价，并遵守其相关使用条款。作者还引用了用于把较高分辨率图像编码到潜空间的 Stable Diffusion VAE 检查点（CC BY 4.0）。论文不引入或再分发新的数据集；如发布代码，将对外部代码库和所用程序库及其许可作出注明。
-
-## 参考文献及附录（待补）
-
-原稿包含完整英文参考文献以及附录 A—K。已补译附录 A—C、J、K 与原表 9—10；附录 D—H 的证明、长公式、扩展实验和书目仍未完整译录。**这些部分尚未完整译录，不能用上述主体正文代替。** 请以[原文 PDF（45 页）](https://arxiv.org/pdf/2603.02337)为准。
 
 {% endraw %}
