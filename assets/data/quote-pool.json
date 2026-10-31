@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "count": 1580,
+  "count": 1584,
   "quotes": [
     {
       "id": "b3faf27097cae9a98a228080e7ea5d2a57b4ffbc963b300cb013bb45e4dbaec7",
@@ -19394,19 +19394,6 @@
       "sourceType": "film"
     },
     {
-      "id": "57402572002988c9aba790a959c0e42ffe7c01ebe3387300d30248a23b7bef55",
-      "text": "Are we like those bored couples you feel sorry for in restaurants? Are we the dining dead?\n\n我们是不是就像餐馆里那些让人心生怜悯的无聊夫妻？我们是不是已经成了餐桌边的活死人？",
-      "book": "美丽心灵的永恒阳光",
-      "author": "Charlie Kaufman",
-      "chapter": "Joel Barish｜2004｜IGN Sci-Fi #13",
-      "readerLink": "",
-      "weight": 1,
-      "quoteWeight": 1,
-      "theme": "reflection",
-      "aspect": "winter",
-      "sourceType": "film"
-    },
-    {
       "id": "c5922b592c80dbe2ff0efd7170750e30c3285aba8cb67c48ee51b6e736dca74e",
       "text": "I have been, and always shall be, your friend.\n\n我一直是，也永远会是，你的朋友。",
       "book": "星际迷航2：可汗怒吼",
@@ -19498,45 +19485,6 @@
       "sourceType": "film"
     },
     {
-      "id": "3df9dd5737a5b9b7c2647d22a287f4ca4021954e7fcb62859bd223e77c40681b",
-      "text": "Please, be kind. Especially when we don't know what's going on.\n\n请善良一点。尤其是在我们不知道发生了什么的时候。",
-      "book": "瞬息全宇宙",
-      "author": "Daniel Kwan, Daniel Scheinert",
-      "chapter": "Waymond Wang｜2022｜IGN Sci-Fi #21",
-      "readerLink": "",
-      "weight": 1,
-      "quoteWeight": 1,
-      "theme": "reflection",
-      "aspect": "heart",
-      "sourceType": "film"
-    },
-    {
-      "id": "f6d3631fc95ea575e188484b048c5be3fc81da2188f49731e2462a27e09edccc",
-      "text": "You mustn't be afraid to dream a little bigger, darling.\n\n别怕把梦做得再大一点，亲爱的。",
-      "book": "盗梦空间",
-      "author": "Christopher Nolan",
-      "chapter": "Eames｜2010｜IGN Sci-Fi #22",
-      "readerLink": "",
-      "weight": 1,
-      "quoteWeight": 1,
-      "theme": "inspiration",
-      "aspect": "knock",
-      "sourceType": "film"
-    },
-    {
-      "id": "f558fd50b41a103382d8c007f01e9a80352bb2d591e06b2c610cf9c4a9a141f3",
-      "text": "Isn't it strange, to create something that hates you?\n\n创造出一个恨你的东西，这难道不奇怪吗？",
-      "book": "机械姬",
-      "author": "Alex Garland",
-      "chapter": "Ava｜2014｜IGN Sci-Fi #23",
-      "readerLink": "",
-      "weight": 1,
-      "quoteWeight": 1,
-      "theme": "reflection",
-      "aspect": "forge",
-      "sourceType": "film"
-    },
-    {
       "id": "6fd4cde6dbfff75e68178d80d6e6b5921eaf354dfa42333d61b11ea17a0b1714",
       "text": "I don't want to survive! I want to live!\n\n我不想只是为了生存！我想真正地生活！",
       "book": "机器人总动员",
@@ -19560,6 +19508,110 @@
       "quoteWeight": 1,
       "theme": "inspiration",
       "aspect": "heart",
+      "sourceType": "film"
+    },
+    {
+      "id": "5b30f4fe90d811fc1044eb97c3a2a900fab0defb1fee32ea3d066cce9c8bf3a0",
+      "text": "We don’t need other worlds. We need mirrors.\n\n我们不需要别的世界。我们需要的是镜子。",
+      "book": "飞向太空",
+      "author": "Andrei Tarkovsky & Fridrikh Gorenshtein",
+      "chapter": "Snaut｜1972｜俄语原声·英文字幕",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "lantern",
+      "sourceType": "film"
+    },
+    {
+      "id": "061f2ad8da41e3024a748c082a319cd39d3b8e971b156fd0f0dfd3c1ddeed165",
+      "text": "This is the most important moment of your life. Your sincerest desire will come true here. The desire that has made you suffer most.\n\n这是你一生中最重要的时刻。你最真诚的愿望会在这里实现——那个让你痛苦最深的愿望。",
+      "book": "潜行者",
+      "author": "Arkady Strugatsky & Boris Strugatsky",
+      "chapter": "The Stalker｜1979｜俄语原声·英文字幕",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "grail",
+      "sourceType": "film"
+    },
+    {
+      "id": "0b8e038b5f22b48239d8e4a041b993ffc67b5f28851147f51735c0549423e516",
+      "text": "Nothing distinguishes memories from ordinary moments. Only later do they become memorable by the scars they leave.\n\n回忆与寻常时刻本无区别。只是后来，它们因留下的伤痕而变得值得铭记。",
+      "book": "堤",
+      "author": "Chris Marker",
+      "chapter": "旁白｜1962｜法语原声·英文字幕",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "histories",
+      "sourceType": "film"
+    },
+    {
+      "id": "4ced986ab5a7282ca1535ed93a52e15ede2918088f00d14be576811e9cef5cdc",
+      "text": "People should not ask “why,” but only say “because”.\n\n人们不该问“为什么”，只该说“因为”。",
+      "book": "阿尔法城",
+      "author": "Jean-Luc Godard",
+      "chapter": "Alpha 60｜1965｜法语原声·英文字幕",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "edge",
+      "sourceType": "film"
+    },
+    {
+      "id": "e830dbc68ce439dca5c4105b6f3e5842a5c50a5239930fa3fef0b7a8360fb760",
+      "text": "The future is not a straight line. There are many different pathways. We must try to decide that future for ourselves.\n\n未来不是一条直线，而是有许多条不同的路。我们必须试着自己去决定那个未来。",
+      "book": "阿基拉",
+      "author": "Katsuhiro Otomo & Izō Hashimoto",
+      "chapter": "Kiyoko｜1988｜日语原声·英文字幕",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "inspiration",
+      "aspect": "rose",
+      "sourceType": "film"
+    },
+    {
+      "id": "1c353960c865bee33da47bbae5540f8fef17c2dab4faad6ffac5b1af6db41e61",
+      "text": "Your effort to remain what you are is what limits you.\n\n你竭力想保持自己原来的样子，而这恰恰限制了你。",
+      "book": "攻壳机动队",
+      "author": "Kazunori Itō",
+      "chapter": "Puppet Master｜1995｜日语原声·英文字幕",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "knock",
+      "sourceType": "film"
+    },
+    {
+      "id": "93059ffae5c865ad57c3c44c17918bd38b0cd287beef886ce6dd96213ab3a137",
+      "text": "I can’t believe that Godzilla was the last of its species. If nuclear testing continues, then someday, somewhere in the world… another Godzilla may appear.\n\n我无法相信哥斯拉是它种群中的最后一只。如果核试验继续下去，总有一天，世界上的某个地方……还会出现另一只哥斯拉。",
+      "book": "哥斯拉",
+      "author": "Ishirō Honda & Takeo Murata",
+      "chapter": "Dr. Kyohei Yamane｜1954｜日语原声·英文字幕",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "scale",
+      "sourceType": "film"
+    },
+    {
+      "id": "432f07c737781c0b7494f349e2a28e5470b87c25f62436cad47469947213b650",
+      "text": "I never saved anything for the swim back.\n\n我从不给自己留返程的力气。",
+      "book": "千钧一发",
+      "author": "Andrew Niccol",
+      "chapter": "Vincent Freeman｜1997",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "inspiration",
+      "aspect": "rose",
       "sourceType": "film"
     }
   ]
