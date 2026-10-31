@@ -4,7 +4,9 @@
   const key = 'rc-sign-archive-v2';
   const legacyKey = 'rc-sign-archive-v1';
   const resetMarker = 'rc-sign-aspects-reviewed-v1';
-  const bibliographyMarker = 'rc-sign-typography-clean-v1';
+  // Bumping this marker re-runs the one-time refresh of stored snapshots from the pool.
+  // v2 (2026-10-31): finish the lyric/film sign text revisions and sync archived rows by id.
+  const bibliographyMarker = 'rc-sign-typography-clean-v2';
   let memory = [];
   const fields = ['text','book','author','chapter','readerLink','aspect'];
   // This executes in either home or archive, on the first visit after deployment.
