@@ -4,8 +4,8 @@
   "source_sha256": "667f6509c907b3f519f6fb8fb5bebd90ca35d9c2641539ec2bd83988638e4787",
   "translation_progress": {
     "target": 315,
-    "completed": 148,
-    "public_full_text": 139,
+    "completed": 156,
+    "public_full_text": 147,
     "local_only": 12,
     "status_counts": {
       "access_blocked": 3,
@@ -14039,7 +14039,13 @@
       "report_entry_url": "/papers/reports/2026-09-27/#paper-4cc6953f005fade6",
       "paper_url": "/papers/items/4cc6953f005fade6/",
       "paper_report_url": "/papers/items/4cc6953f005fade6/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-27-2609-17769-prior-aided-masked-vector-quantization-csi-feedback-for-fdd-massive-mi/",
+          "title": "先验辅助的掩码矢量量化 CSI 反馈｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[31]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.17769",
         "https://arxiv.org/abs/2609.17769"
@@ -14050,10 +14056,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/4cc6953f005fade6/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-27-2609-17769-prior-aided-masked-vector-quantization-csi-feedback-for-fdd-massive-mi/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "27133f41db1533c8",
@@ -14086,7 +14092,13 @@
       "report_entry_url": "/papers/reports/2026-09-27/#paper-27133f41db1533c8",
       "paper_url": "/papers/items/27133f41db1533c8/",
       "paper_report_url": "/papers/items/27133f41db1533c8/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-27-2608-27996-should-i-use-this-synthetic-dataset-for-training-how-to-test-with-mini/",
+          "title": "该合成数据集适合训练吗？最小代价的检验方法｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、图表说明（书目以原文 PDF 为题名核对入口）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2608.27996",
         "https://arxiv.org/abs/2608.27996"
@@ -14097,10 +14109,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/27133f41db1533c8/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-27-2608-27996-should-i-use-this-synthetic-dataset-for-training-how-to-test-with-mini/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "203aec474c6df667",
@@ -14133,7 +14145,13 @@
       "report_entry_url": "/papers/reports/2026-09-27/#paper-203aec474c6df667",
       "paper_url": "/papers/items/203aec474c6df667/",
       "paper_report_url": "/papers/items/203aec474c6df667/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-27-2609-05793-halifaxdt-a-wireless-digital-twin-from-open-geospatial-data/",
+          "title": "HalifaxDT：基于开放地理空间数据的无线数字孪生｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[17]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.05793",
         "https://arxiv.org/abs/2609.05793",
@@ -14147,10 +14165,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/203aec474c6df667/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-27-2609-05793-halifaxdt-a-wireless-digital-twin-from-open-geospatial-data/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "d6b9d9ec4bd44c49",
@@ -14183,7 +14201,13 @@
       "report_entry_url": "/papers/reports/2026-09-27/#paper-d6b9d9ec4bd44c49",
       "paper_url": "/papers/items/d6b9d9ec4bd44c49/",
       "paper_report_url": "/papers/items/d6b9d9ec4bd44c49/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-27-2609-08023-risk-aware-goal-oriented-bayesian-optimal-experimental-design/",
+          "title": "风险感知的目标导向贝叶斯最优实验设计｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、图表说明（书目以原文 PDF 为题名核对入口）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.08023",
         "https://arxiv.org/abs/2609.08023"
@@ -14194,10 +14218,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/d6b9d9ec4bd44c49/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-27-2609-08023-risk-aware-goal-oriented-bayesian-optimal-experimental-design/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "23374adc12c265ee",
@@ -14230,7 +14254,13 @@
       "report_entry_url": "/papers/reports/2026-09-27/#paper-23374adc12c265ee",
       "paper_url": "/papers/items/23374adc12c265ee/",
       "paper_report_url": "/papers/items/23374adc12c265ee/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-27-2609-14926-linearized-pinn-with-pretrained-nonlinear-layers/",
+          "title": "带预训练非线性层的线性化 PINN｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[29]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.14926",
         "https://arxiv.org/abs/2609.14926",
@@ -14244,10 +14274,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/23374adc12c265ee/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-27-2609-14926-linearized-pinn-with-pretrained-nonlinear-layers/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "0529c0e21a47a2f4",
@@ -14280,7 +14310,13 @@
       "report_entry_url": "/papers/reports/2026-09-27/#paper-0529c0e21a47a2f4",
       "paper_url": "/papers/items/0529c0e21a47a2f4/",
       "paper_report_url": "/papers/items/0529c0e21a47a2f4/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-27-2609-11230-kiloda-reconstructing-kilometer-scale-near-surface-wind-states-from-sp/",
+          "title": "KiloDA：从稀疏观测重建公里尺度近地表风场｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、图表说明（书目以原文 PDF 为题名核对入口）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.11230",
         "https://arxiv.org/abs/2609.11230"
@@ -14291,10 +14327,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/0529c0e21a47a2f4/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-27-2609-11230-kiloda-reconstructing-kilometer-scale-near-surface-wind-states-from-sp/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "7f473bb5126bc0a3",
@@ -14327,7 +14363,13 @@
       "report_entry_url": "/papers/reports/2026-09-27/#paper-7f473bb5126bc0a3",
       "paper_url": "/papers/items/7f473bb5126bc0a3/",
       "paper_report_url": "/papers/items/7f473bb5126bc0a3/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-27-2609-21812-classification-oriented-adaptive-sensing-via-posterior-sampling/",
+          "title": "面向分类的贝叶斯后验采样自适应感知｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[26]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.21812",
         "https://arxiv.org/abs/2609.21812"
@@ -14338,10 +14380,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/7f473bb5126bc0a3/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-27-2609-21812-classification-oriented-adaptive-sensing-via-posterior-sampling/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "fc3db27e4c1cac09",
@@ -14374,7 +14416,13 @@
       "report_entry_url": "/papers/reports/2026-09-27/#paper-fc3db27e4c1cac09",
       "paper_url": "/papers/items/fc3db27e4c1cac09/",
       "paper_report_url": "/papers/items/fc3db27e4c1cac09/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-27-2609-19747-star-structure-aware-test-time-adaptation-for-diffusion-based-light-fi/",
+          "title": "STAR：面向扩散光场重建的结构感知测试时自适应｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[29]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.19747",
         "https://arxiv.org/abs/2609.19747"
@@ -14385,10 +14433,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/fc3db27e4c1cac09/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-27-2609-19747-star-structure-aware-test-time-adaptation-for-diffusion-based-light-fi/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "0fe35eceae21f61b",
@@ -26172,6 +26220,166 @@
       ],
       "source_arxiv_ids": [
         "2608.18040"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-27",
+      "slug": "2026-09-27-2609-21812-classification-oriented-adaptive-sensing-via-posterior-sampling",
+      "title": "面向分类的贝叶斯后验采样自适应感知｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[26]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-27-2609-21812-classification-oriented-adaptive-sensing-via-posterior-sampling/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-27-2609-21812-classification-oriented-adaptive-sensing-via-posterior-sampling.md",
+      "paper_ids": [
+        "7f473bb5126bc0a3"
+      ],
+      "source_arxiv_ids": [
+        "2609.21812"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-27",
+      "slug": "2026-09-27-2609-19747-star-structure-aware-test-time-adaptation-for-diffusion-based-light-fi",
+      "title": "STAR：面向扩散光场重建的结构感知测试时自适应｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[29]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-27-2609-19747-star-structure-aware-test-time-adaptation-for-diffusion-based-light-fi/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-27-2609-19747-star-structure-aware-test-time-adaptation-for-diffusion-based-light-fi.md",
+      "paper_ids": [
+        "fc3db27e4c1cac09"
+      ],
+      "source_arxiv_ids": [
+        "2609.19747"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-27",
+      "slug": "2026-09-27-2609-17769-prior-aided-masked-vector-quantization-csi-feedback-for-fdd-massive-mi",
+      "title": "先验辅助的掩码矢量量化 CSI 反馈｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[31]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-27-2609-17769-prior-aided-masked-vector-quantization-csi-feedback-for-fdd-massive-mi/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-27-2609-17769-prior-aided-masked-vector-quantization-csi-feedback-for-fdd-massive-mi.md",
+      "paper_ids": [
+        "4cc6953f005fade6"
+      ],
+      "source_arxiv_ids": [
+        "2609.17769"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-27",
+      "slug": "2026-09-27-2609-14926-linearized-pinn-with-pretrained-nonlinear-layers",
+      "title": "带预训练非线性层的线性化 PINN｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[29]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-27-2609-14926-linearized-pinn-with-pretrained-nonlinear-layers/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-27-2609-14926-linearized-pinn-with-pretrained-nonlinear-layers.md",
+      "paper_ids": [
+        "23374adc12c265ee"
+      ],
+      "source_arxiv_ids": [
+        "2609.14926"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-27",
+      "slug": "2026-09-27-2609-11230-kiloda-reconstructing-kilometer-scale-near-surface-wind-states-from-sp",
+      "title": "KiloDA：从稀疏观测重建公里尺度近地表风场｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、图表说明（书目以原文 PDF 为题名核对入口）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-27-2609-11230-kiloda-reconstructing-kilometer-scale-near-surface-wind-states-from-sp/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-27-2609-11230-kiloda-reconstructing-kilometer-scale-near-surface-wind-states-from-sp.md",
+      "paper_ids": [
+        "0529c0e21a47a2f4"
+      ],
+      "source_arxiv_ids": [
+        "2609.11230"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-27",
+      "slug": "2026-09-27-2609-08023-risk-aware-goal-oriented-bayesian-optimal-experimental-design",
+      "title": "风险感知的目标导向贝叶斯最优实验设计｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、图表说明（书目以原文 PDF 为题名核对入口）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-27-2609-08023-risk-aware-goal-oriented-bayesian-optimal-experimental-design/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-27-2609-08023-risk-aware-goal-oriented-bayesian-optimal-experimental-design.md",
+      "paper_ids": [
+        "d6b9d9ec4bd44c49"
+      ],
+      "source_arxiv_ids": [
+        "2609.08023"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-27",
+      "slug": "2026-09-27-2609-05793-halifaxdt-a-wireless-digital-twin-from-open-geospatial-data",
+      "title": "HalifaxDT：基于开放地理空间数据的无线数字孪生｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[17]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-27-2609-05793-halifaxdt-a-wireless-digital-twin-from-open-geospatial-data/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-27-2609-05793-halifaxdt-a-wireless-digital-twin-from-open-geospatial-data.md",
+      "paper_ids": [
+        "203aec474c6df667"
+      ],
+      "source_arxiv_ids": [
+        "2609.05793"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-27",
+      "slug": "2026-09-27-2608-27996-should-i-use-this-synthetic-dataset-for-training-how-to-test-with-mini",
+      "title": "该合成数据集适合训练吗？最小代价的检验方法｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、图表说明（书目以原文 PDF 为题名核对入口）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-27-2608-27996-should-i-use-this-synthetic-dataset-for-training-how-to-test-with-mini/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-27-2608-27996-should-i-use-this-synthetic-dataset-for-training-how-to-test-with-mini.md",
+      "paper_ids": [
+        "27133f41db1533c8"
+      ],
+      "source_arxiv_ids": [
+        "2608.27996"
       ],
       "qa_complete": true,
       "external": true,
