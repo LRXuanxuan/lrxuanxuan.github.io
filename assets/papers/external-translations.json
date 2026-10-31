@@ -4953,7 +4953,7 @@
     "date": "2026-09-16",
     "slug": "2026-09-16-2608-21709-posterior-information-dynamics-of-diffusion-models-for-linear-inverse",
     "title": "线性逆问题扩散模型的后验信息动力学｜中文全文译文",
-    "scope": "全文覆盖：摘要、正文各节、图表说明（书目以原文 PDF 为题名核对入口）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[56]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
     "url": "/papers/translations/2026-09-16-2608-21709-posterior-information-dynamics-of-diffusion-models-for-linear-inverse/",
     "source_file": "2026-09-16-2608-21709-posterior-information-dynamics-of-diffusion-models-for-linear-inverse.md",
     "source_page_path": "papers/translations/2026-09-16-2608-21709-posterior-information-dynamics-of-diffusion-models-for-linear-inverse.md",
@@ -4975,7 +4975,7 @@
     "date": "2026-09-16",
     "slug": "2026-09-16-2609-12953-fast-and-faithful-principled-conditional-flow-matching-for-inverse-pro",
     "title": "快速且忠实：逆问题的有原则条件流匹配｜中文全文译文",
-    "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[64]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[64]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
     "url": "/papers/translations/2026-09-16-2609-12953-fast-and-faithful-principled-conditional-flow-matching-for-inverse-pro/",
     "source_file": "2026-09-16-2609-12953-fast-and-faithful-principled-conditional-flow-matching-for-inverse-pro.md",
     "source_page_path": "papers/translations/2026-09-16-2609-12953-fast-and-faithful-principled-conditional-flow-matching-for-inverse-pro.md",
@@ -5007,6 +5007,50 @@
     ],
     "source_arxiv_ids": [
       "2609.14596"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-17",
+    "slug": "2026-09-17-2609-15536-physics-guided-conditional-flow-matching-with-energy-regularization-fo",
+    "title": "能量正则化的物理引导条件流匹配｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[41]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-17-2609-15536-physics-guided-conditional-flow-matching-with-energy-regularization-fo/",
+    "source_file": "2026-09-17-2609-15536-physics-guided-conditional-flow-matching-with-energy-regularization-fo.md",
+    "source_page_path": "papers/translations/2026-09-17-2609-15536-physics-guided-conditional-flow-matching-with-energy-regularization-fo.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-17-2609-15536-physics-guided-conditional-flow-matching-with-energy-regularization-fo.md",
+    "paper_ids": [
+      "5cdd2cbc4dcb1cfc"
+    ],
+    "source_arxiv_ids": [
+      "2609.15536"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-17",
+    "slug": "2026-09-17-2609-15702-backward-sdes-based-diffusion-for-physics-constrained-generation",
+    "title": "物理约束生成的后向 SDE 扩散｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[56]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-17-2609-15702-backward-sdes-based-diffusion-for-physics-constrained-generation/",
+    "source_file": "2026-09-17-2609-15702-backward-sdes-based-diffusion-for-physics-constrained-generation.md",
+    "source_page_path": "papers/translations/2026-09-17-2609-15702-backward-sdes-based-diffusion-for-physics-constrained-generation.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-17-2609-15702-backward-sdes-based-diffusion-for-physics-constrained-generation.md",
+    "paper_ids": [
+      "b346889959b048d7"
+    ],
+    "source_arxiv_ids": [
+      "2609.15702"
     ],
     "qa_complete": true,
     "external": true,
