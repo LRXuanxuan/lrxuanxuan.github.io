@@ -6092,5 +6092,27 @@
     "coverage": "full",
     "license": "arxiv",
     "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-28",
+    "slug": "2026-09-28-parallelism-critical-windows-and-separations-among-diffusion-language",
+    "title": "扩散语言模型之间的并行性、关键窗口与分离｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、图表说明（书目以原文 PDF 为题名核对入口）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-28-parallelism-critical-windows-and-separations-among-diffusion-language/",
+    "source_file": "2026-09-28-parallelism-critical-windows-and-separations-among-diffusion-language.md",
+    "source_page_path": "papers/translations/2026-09-28-parallelism-critical-windows-and-separations-among-diffusion-language.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-28-parallelism-critical-windows-and-separations-among-diffusion-language.md",
+    "paper_ids": [
+      "5c26f8d42567cb74"
+    ],
+    "source_arxiv_ids": [
+      "2609.20539"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
   }
 ]
