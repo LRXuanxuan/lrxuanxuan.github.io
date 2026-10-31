@@ -212,6 +212,36 @@ toc: true
 
 ## 推荐论文
 
+### 2026-10-31 · [Simulation-Efficient Double-Flow Neural Posterior Estimation for Agent-Based Models](/papers/items/fd7b24a313b46ea0/)
+
+为射线追踪昂贵时的合成统计增广提供可检验方案及明确反例边界。
+
+[本篇日报](/papers/items/fd7b24a313b46ea0/#paper-report)
+
+### 2026-10-31 · [Near-Field Velocity Estimation and Doppler-Aware Localization in OFDM Massive MIMO](/papers/items/10de81d8e4c55488/)
+
+明确区分生成先验误差与观测算子误差，避免用更强生成模型掩盖模型不相容。
+
+[本篇日报](/papers/items/10de81d8e4c55488/#paper-report)
+
+### 2026-10-31 · [RMSampler: Sparse Radio Map Reconstruction with Active Sampling and Diffusion Posterior Correction](/papers/items/16a55e81fda01b8f/)
+
+提供冻结生成模型后的测量利用接口，并给出采样位置与重建器分离归因的实测设计。
+
+[本篇日报](/papers/items/16a55e81fda01b8f/#paper-report)
+
+### 2026-10-31 · [Preconditioned Flow Matching](/papers/items/3f84682f0fb82697/)
+
+角延迟信道谱强各向异性，低能量路径可能被总loss遮蔽；ZCA可作为最小独立控制。
+
+[本篇日报](/papers/items/3f84682f0fb82697/#paper-report)
+
+### 2026-10-31 · [Consecutive Posterior Fusion for Diffusive Recovery of Unobservable Image Structures](/papers/items/34ffbb5befb01a12/)
+
+直接对应当前不可观测子空间收益的机制解释，可在冻结先验条件下研究相邻校正是否提供额外信息。
+
+[本篇日报](/papers/items/34ffbb5befb01a12/#paper-report)
+
 ### 2026-10-30 · [Joint Range and Doppler Estimation Using Spectrally Efficient FDM](/papers/items/6240e182618d1d29/)
 
 提供传统ML/CRLB基线及移动失效条件，避免只比较神经求解器而忽略似然模型错误。
