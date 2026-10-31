@@ -4,8 +4,8 @@
   "source_sha256": "55bac1c358c14dd628820d8753d5c4f83eff21c96f8bed831ec636a33db8be1c",
   "translation_progress": {
     "target": 315,
-    "completed": 128,
-    "public_full_text": 116,
+    "completed": 133,
+    "public_full_text": 124,
     "local_only": 12,
     "status_counts": {
       "access_blocked": 3,
@@ -9302,7 +9302,13 @@
       "report_entry_url": "/papers/reports/2026-10-08-supplement/#paper-994df95bbaf1d51b",
       "paper_url": "/papers/items/994df95bbaf1d51b/",
       "paper_report_url": "/papers/items/994df95bbaf1d51b/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-03-2307-09441-convergent-regularization-in-inverse-problems-and-linear-plug-and-play/",
+          "title": "逆问题中的收敛正则化与线性即插即用去噪器｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[48]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/abs/2307.09441"
       ],
@@ -9312,10 +9318,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/994df95bbaf1d51b/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-03-2307-09441-convergent-regularization-in-inverse-problems-and-linear-plug-and-play/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "b8628866bf029cba",
@@ -9482,7 +9488,13 @@
       "report_entry_url": "/papers/reports/2026-10-08-supplement/#paper-a6fc510f0b68458b",
       "paper_url": "/papers/items/a6fc510f0b68458b/",
       "paper_report_url": "/papers/items/a6fc510f0b68458b/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-03-2311-10311-joint-channel-estimation-and-data-detection-in-massive-mimo-systems-ba/",
+          "title": "基于扩散模型的大规模 MIMO 联合信道估计与数据检测｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[31]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/abs/2311.10311"
       ],
@@ -9492,10 +9504,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/a6fc510f0b68458b/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-03-2311-10311-joint-channel-estimation-and-data-detection-in-massive-mimo-systems-ba/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "9af23c016d0e8af8",
@@ -9528,7 +9540,13 @@
       "report_entry_url": "/papers/reports/2026-10-08-supplement/#paper-9af23c016d0e8af8",
       "paper_url": "/papers/items/9af23c016d0e8af8/",
       "paper_report_url": "/papers/items/9af23c016d0e8af8/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-03-2506-21112-point-cloud-environment-based-channel-knowledge-map-construction/",
+          "title": "基于点云环境的信道知识地图构建｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[42]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/abs/2506.21112"
       ],
@@ -9538,10 +9556,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/9af23c016d0e8af8/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-03-2506-21112-point-cloud-environment-based-channel-knowledge-map-construction/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "e0ae0669ed8263c5",
@@ -9574,7 +9592,13 @@
       "report_entry_url": "/papers/reports/2026-10-08-supplement/#paper-e0ae0669ed8263c5",
       "paper_url": "/papers/items/e0ae0669ed8263c5/",
       "paper_report_url": "/papers/items/e0ae0669ed8263c5/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-03-2303-01770-quantized-radio-map-estimation-using-tensor-and-deep-generative-models/",
+          "title": "基于张量与深度生成模型的量化无线电地图估计｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[55]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/abs/2303.01770"
       ],
@@ -9584,10 +9608,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/e0ae0669ed8263c5/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-03-2303-01770-quantized-radio-map-estimation-using-tensor-and-deep-generative-models/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "1cbafcaa542d5384",
@@ -10788,7 +10812,13 @@
       "report_entry_url": "/papers/reports/2026-10-08-supplement/#paper-3338a24ceb5e8eb5",
       "paper_url": "/papers/items/3338a24ceb5e8eb5/",
       "paper_report_url": "/papers/items/3338a24ceb5e8eb5/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-02-2303-07271-provably-convergent-plug-and-play-quasi-newton-methods/",
+          "title": "可证明收敛的即插即用拟牛顿方法｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、英文书目 [1]–[78]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/abs/2303.07271"
       ],
@@ -10799,9 +10829,9 @@
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/3338a24ceb5e8eb5/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-02-2303-07271-provably-convergent-plug-and-play-quasi-newton-methods/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "60e0b265df0ae795",
@@ -10834,7 +10864,13 @@
       "report_entry_url": "/papers/reports/2026-10-08-supplement/#paper-60e0b265df0ae795",
       "paper_url": "/papers/items/60e0b265df0ae795/",
       "paper_report_url": "/papers/items/60e0b265df0ae795/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-02-2406-13722-channel-charting-in-real-world-coordinates-with-distributed-mimo/",
+          "title": "分布式 MIMO 下真实世界坐标的信道图谱｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[54]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/abs/2406.13722"
       ],
@@ -10845,9 +10881,9 @@
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/60e0b265df0ae795/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-02-2406-13722-channel-charting-in-real-world-coordinates-with-distributed-mimo/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "a726dc223fa71900",
@@ -10926,7 +10962,13 @@
       "report_entry_url": "/papers/reports/2026-10-08-supplement/#paper-b9e4ec1984babd3a",
       "paper_url": "/papers/items/b9e4ec1984babd3a/",
       "paper_report_url": "/papers/items/b9e4ec1984babd3a/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-10-02-2309-07460-a-tutorial-on-environment-aware-communications-via-channel-knowledge-m/",
+          "title": "面向 6G 的信道知识地图环境感知通信教程｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、英文书目 [1]–[216]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/abs/2309.07460"
       ],
@@ -10937,9 +10979,9 @@
       "hosted_pdfs": [],
       "status": "历史记录未明确",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/b9e4ec1984babd3a/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-02-2309-07460-a-tutorial-on-environment-aware-communications-via-channel-knowledge-m/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "b02fa6815cfbc54e",
@@ -11584,7 +11626,13 @@
       "report_entry_url": "/papers/reports/2026-09-29/#paper-c6e694730f4aaecf",
       "paper_url": "/papers/items/c6e694730f4aaecf/",
       "paper_report_url": "/papers/items/c6e694730f4aaecf/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-29-2609-22312-data-aided-bayesian-learning-for-csi-estimation-over-doubly-selective/",
+          "title": "仿射预编码叠加训练序列下双选择性 DCO-OTFS MIMO VLC 信道的数助贝叶斯 CSI 估计｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[37]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.22312",
         "https://arxiv.org/abs/2609.22312"
@@ -11595,10 +11643,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/c6e694730f4aaecf/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-29-2609-22312-data-aided-bayesian-learning-for-csi-estimation-over-doubly-selective/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "2c23b61880dd31f8",
@@ -25022,6 +25070,26 @@
     },
     {
       "date": "2026-10-03",
+      "slug": "2026-10-03-2506-21112-point-cloud-environment-based-channel-knowledge-map-construction",
+      "title": "基于点云环境的信道知识地图构建｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[42]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-03-2506-21112-point-cloud-environment-based-channel-knowledge-map-construction/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-03-2506-21112-point-cloud-environment-based-channel-knowledge-map-construction.md",
+      "paper_ids": [
+        "9af23c016d0e8af8"
+      ],
+      "source_arxiv_ids": [
+        "2506.21112"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-03",
       "slug": "2026-10-03-2501-13472-radio-map-estimation-via-latent-domain-plug-and-play-denoising",
       "title": "潜域即插即用去噪的无线电地图估计｜中文全文译文",
       "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[59]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
@@ -25121,6 +25189,66 @@
       "final_proofread_done": false
     },
     {
+      "date": "2026-10-03",
+      "slug": "2026-10-03-2311-10311-joint-channel-estimation-and-data-detection-in-massive-mimo-systems-ba",
+      "title": "基于扩散模型的大规模 MIMO 联合信道估计与数据检测｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[31]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-03-2311-10311-joint-channel-estimation-and-data-detection-in-massive-mimo-systems-ba/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-03-2311-10311-joint-channel-estimation-and-data-detection-in-massive-mimo-systems-ba.md",
+      "paper_ids": [
+        "a6fc510f0b68458b"
+      ],
+      "source_arxiv_ids": [
+        "2311.10311"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-03",
+      "slug": "2026-10-03-2307-09441-convergent-regularization-in-inverse-problems-and-linear-plug-and-play",
+      "title": "逆问题中的收敛正则化与线性即插即用去噪器｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[48]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-03-2307-09441-convergent-regularization-in-inverse-problems-and-linear-plug-and-play/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-03-2307-09441-convergent-regularization-in-inverse-problems-and-linear-plug-and-play.md",
+      "paper_ids": [
+        "994df95bbaf1d51b"
+      ],
+      "source_arxiv_ids": [
+        "2307.09441"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-03",
+      "slug": "2026-10-03-2303-01770-quantized-radio-map-estimation-using-tensor-and-deep-generative-models",
+      "title": "基于张量与深度生成模型的量化无线电地图估计｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[55]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-03-2303-01770-quantized-radio-map-estimation-using-tensor-and-deep-generative-models/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-03-2303-01770-quantized-radio-map-estimation-using-tensor-and-deep-generative-models.md",
+      "paper_ids": [
+        "e0ae0669ed8263c5"
+      ],
+      "source_arxiv_ids": [
+        "2303.01770"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
       "date": "2026-10-02",
       "url": "/papers/translations/2026-10-02-f69d81ae0d16b949c706baa6/",
       "slug": "2026-10-02-f69d81ae0d16b949c706baa6",
@@ -25130,6 +25258,86 @@
       "paper_id": "arxiv:2310.06721",
       "license_url": "https://creativecommons.org/licenses/by/4.0/",
       "download": "/assets/papers/translations/2026-10-02-f69d81ae0d16b949c706baa6.md"
+    },
+    {
+      "date": "2026-10-02",
+      "slug": "2026-10-02-2406-13722-channel-charting-in-real-world-coordinates-with-distributed-mimo",
+      "title": "分布式 MIMO 下真实世界坐标的信道图谱｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[54]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-02-2406-13722-channel-charting-in-real-world-coordinates-with-distributed-mimo/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-02-2406-13722-channel-charting-in-real-world-coordinates-with-distributed-mimo.md",
+      "paper_ids": [
+        "60e0b265df0ae795"
+      ],
+      "source_arxiv_ids": [
+        "2406.13722"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-02",
+      "slug": "2026-10-02-2309-07460-a-tutorial-on-environment-aware-communications-via-channel-knowledge-m",
+      "title": "面向 6G 的信道知识地图环境感知通信教程｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、英文书目 [1]–[216]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-02-2309-07460-a-tutorial-on-environment-aware-communications-via-channel-knowledge-m/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-02-2309-07460-a-tutorial-on-environment-aware-communications-via-channel-knowledge-m.md",
+      "paper_ids": [
+        "b9e4ec1984babd3a"
+      ],
+      "source_arxiv_ids": [
+        "2309.07460"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-02",
+      "slug": "2026-10-02-2303-07271-provably-convergent-plug-and-play-quasi-newton-methods",
+      "title": "可证明收敛的即插即用拟牛顿方法｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、英文书目 [1]–[78]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-02-2303-07271-provably-convergent-plug-and-play-quasi-newton-methods/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-02-2303-07271-provably-convergent-plug-and-play-quasi-newton-methods.md",
+      "paper_ids": [
+        "3338a24ceb5e8eb5"
+      ],
+      "source_arxiv_ids": [
+        "2303.07271"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-29",
+      "slug": "2026-09-29-2609-22312-data-aided-bayesian-learning-for-csi-estimation-over-doubly-selective",
+      "title": "仿射预编码叠加训练序列下双选择性 DCO-OTFS MIMO VLC 信道的数助贝叶斯 CSI 估计｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[37]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-29-2609-22312-data-aided-bayesian-learning-for-csi-estimation-over-doubly-selective/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-29-2609-22312-data-aided-bayesian-learning-for-csi-estimation-over-doubly-selective.md",
+      "paper_ids": [
+        "c6e694730f4aaecf"
+      ],
+      "source_arxiv_ids": [
+        "2609.22312"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
     },
     {
       "date": "2026-09-29",
