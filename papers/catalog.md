@@ -366,6 +366,36 @@ toc: true
 
 ## 推荐论文
 
+### 2026-11-01 · [Posterior Consistency under dependent errors in non-linear inverse problems with applications to time evolution equations](/papers/items/543be3b86f217d5c/)
+
+为高速移动相关误差与后验可靠性提供假设清单，防止把相关观测当独立证据。
+
+[本篇日报](/papers/items/543be3b86f217d5c/#paper-report)
+
+### 2026-11-01 · [ChronoChart: Setup-Agnostic Channel Charting for Label-Free Indoor Localization](/papers/items/7a8f47c8b4332d21/)
+
+补充缺失/噪声位置模态的实测CSI工具，具可检查源码及明确对齐限制。
+
+[本篇日报](/papers/items/7a8f47c8b4332d21/#paper-report)
+
+### 2026-11-01 · [Sparse Gain Radio Map Reconstruction With Geometry Priors and Uncertainty-Guided Measurement Selection](/papers/items/d96f1cff9c62a14d/)
+
+为环境先验和额外探测预算提供可检验基线，重点读预算控制与数据划分。
+
+[本篇日报](/papers/items/d96f1cff9c62a14d/#paper-report)
+
+### 2026-11-01 · [An exploration of plug-and-play flow matching for full-waveform inversion on breast imaging](/papers/items/170f73a229228f5e/)
+
+与FlowADMM的先验—物理交替接口接近，最值得优先精读其公平预算和失配边界。
+
+[本篇日报](/papers/items/170f73a229228f5e/#paper-report)
+
+### 2026-11-01 · [Robust Ensemble Guidance for Scientific Inverse Problems](/papers/items/be32642a596c1b20/)
+
+提供不增加前向次数的校正消融及明确失败条件，适合地图失配和异常导频诊断。
+
+[本篇日报](/papers/items/be32642a596c1b20/#paper-report)
+
 ### 2026-10-31 · [Simulation-Efficient Double-Flow Neural Posterior Estimation for Agent-Based Models](/papers/items/fd7b24a313b46ea0/)
 
 为射线追踪昂贵时的合成统计增广提供可检验方案及明确反例边界。
