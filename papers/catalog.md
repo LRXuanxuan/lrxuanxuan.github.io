@@ -218,8 +218,11 @@ toc: true
 - [ISAC 权衡悬崖：波形不确定与有限码长下的基本极限｜中文全文译文](/papers/translations/2026-09-28-2609-25589-the-isac-tradeoff-cliff-fundamental-limits-under-waveform-uncertainty/) · 全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[52]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
 - [从不完美祖先模型中学习物理规律｜中文全文译文](/papers/translations/2026-09-28-2609-24947-learning-physics-from-an-imperfect-ancestor/) · 全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[41]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
 - [全帧 OFDM-ISAC：联合星座、导频与接收滤波器设计｜中文全文译文](/papers/translations/2026-09-28-2609-22994-full-frame-ofdm-isac-joint-constellation-pilot-and-receive-filter-desi/) · 全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[38]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
+- [RIS 两阶段细化稀疏信道估计｜中文全文译文](/papers/translations/2026-09-28-2609-22756-two-stage-refinement-sparse-channel-estimation-for-reconfigurable-inte/) · 全文覆盖：摘要、正文各节、结论、英文书目 [1]–[53]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
 - [扩散模型置信度的极限｜中文全文译文](/papers/translations/2026-09-28-2609-20581-limits-of-confidence-in-diffusion/) · 全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[19]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
+- [下行 MIMO 调度的 QUBO 建模｜中文全文译文](/papers/translations/2026-09-28-2609-18580-qubo-formulations-of-the-downlink-mimo-scheduling-problem-in-5g-base-s/) · 全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[28]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
 - [通过推测性草稿树加速扩散采样｜中文全文译文](/papers/translations/2026-09-28-2609-17691-accelerating-diffusion-sampling-via-speculative-draft-trees/) · 全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[84]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
+- [大规模 MIMO 检测的图基础模型｜中文全文译文](/papers/translations/2026-09-28-2609-06361-a-graph-foundation-model-for-large-scale-mimo-detection/) · 全文覆盖：摘要、正文各节、结论、英文书目 [1]–[51]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
 - [优化你的采样：基于贝叶斯优化的扩散采样调优｜中文全文译文](/papers/translations/2026-09-28-2608-18040-optimize-your-sampling-tuned-diffusion-sampling-with-bayesian-optimiza/) · 全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[56]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
 - [面向分类的贝叶斯后验采样自适应感知｜中文全文译文](/papers/translations/2026-09-27-2609-21812-classification-oriented-adaptive-sensing-via-posterior-sampling/) · 全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[26]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
 - [STAR：面向扩散光场重建的结构感知测试时自适应｜中文全文译文](/papers/translations/2026-09-27-2609-19747-star-structure-aware-test-time-adaptation-for-diffusion-based-light-fi/) · 全文覆盖：摘要、正文各节、结论、英文书目 [1]–[29]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
@@ -263,10 +266,15 @@ toc: true
 - [线性逆问题扩散模型的后验信息动力学｜中文全文译文](/papers/translations/2026-09-16-2608-21709-posterior-information-dynamics-of-diffusion-models-for-linear-inverse/) · 全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[56]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
 - [BRCL：发射端 MIMO CSI 表征的波束响应对比学习｜中文全文译文](/papers/translations/2026-07-29-2607-24872/) · 全文覆盖：正文 I—VI、式 (1)—(52)、表 I—III、图 1—8；许可：arxiv；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。 参考文献 [1]—[51] 未逐条转录（页内注明依原 PDF 核对）。
 - [RadioTrace：无需部署时微调的发射机感知扩散无线电地图估计｜中文全文译文](/papers/translations/2026-07-29-2607-20909/) · 全文覆盖：正文 I—VI、附录 A、表 I—VIII、图 1—12；许可：arxiv；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。 参考文献以原文书目为入口（页内注明，未重录条目）。
+- [CAR-Flow：条件感知重参数化对齐源与目标｜中文全文译文](/papers/translations/2026-07-16-2509-19300-car-flow-condition-aware-reparameterization-aligns-source-and-target-f/) · 全文覆盖：摘要、正文各节、结论、附录、图表说明（书目以原文 PDF 为题名核对入口）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
 - [Translation notes](/papers/translations/2026-07-15-bd02b443/) · 翻译说明
 - [2026-07-15 推荐五篇论文：摘要与 Introduction 中英对照、内容概括与研究启示](/papers/translations/2026-07-15-1663571a/) · 摘要与引言 / 历史译文说明
 - [2026-07-14 五篇论文摘要与引言：中文翻译与研究总结](/papers/translations/2026-07-14-c53631b8/) · 摘要与引言 / 历史译文说明
 - [2026-07-13 论文翻译与研究启示](/papers/translations/2026-07-13-06fee7b2/) · 摘要与引言 / 历史译文说明
+- [BeamCKMDiff：波束感知信道知识地图的扩散构建｜中文全文译文](/papers/translations/2026-07-12-2601-10207-beamckmdiff-beam-aware-channel-knowledge-map-construction-via-diffusio/) · 全文覆盖：摘要、正文各节、结论、英文书目 [1]–[16]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
+- [RadioDiff-3D：三维无线电地图数据集与生成扩散｜中文全文译文](/papers/translations/2026-07-12-2507-12166-radiodiff-3d-a-3d-3d-radio-map-dataset-and-generative-diffusion-based/) · 全文覆盖：摘要、正文各节、结论、英文书目 [1]–[71]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
+- [CKM 辅助的双域跟踪与预测波束赋形｜中文全文译文](/papers/translations/2026-07-12-2506-22796-channel-knowledge-map-assisted-dual-domain-tracking-and-predictive-bea/) · 全文覆盖：摘要、正文各节、结论、英文书目 [1]–[53]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
+- [WiFi-Diffusion：细粒度 WiFi 无线电地图估计｜中文全文译文](/papers/translations/2026-07-12-2503-12004-wifi-diffusion-achieving-fine-grained-wifi-radio-map-estimation-with-u/) · 全文覆盖：摘要、正文各节、结论、英文书目 [1]–[34]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
 - [2026-07-11 论文翻译：第 1 至第 4 篇](/papers/translations/2026-07-11-63e83258/) · 摘要与引言 / 历史译文说明
 - [2026-07-11 论文翻译：第 5 篇与跨论文研究路线](/papers/translations/2026-07-11-203f202a/) · 摘要与引言 / 历史译文说明
 
