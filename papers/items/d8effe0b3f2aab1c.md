@@ -9,7 +9,7 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=d8effe0b3f2aab1c)
 
-[本篇日报说明](/papers/items/d8effe0b3f2aab1c/#paper-report) · [全文翻译（待补齐）](/papers/items/d8effe0b3f2aab1c/#paper-translation)
+[本篇日报说明](/papers/items/d8effe0b3f2aab1c/#paper-report) · 全文翻译（待补齐）
 
 **推荐日期：** 2026-07-26 · **发表状态：** 历史记录未明确
 

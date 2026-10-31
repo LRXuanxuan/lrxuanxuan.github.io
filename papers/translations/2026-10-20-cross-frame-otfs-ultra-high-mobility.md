@@ -7,6 +7,9 @@ toc: true
 ---
 
 {% raw %}
+
+> **说明：** 本页为较早的译文版本，已被更新、更完整的版本取代，请阅读 [最新全文译文](/papers/translations/2026-10-20-channel-estimation-in-cross-frame-otfs-system-with-ultra-high-mobility-65fb4a2e/)。
+
 [← 返回论文库](/papers/) · [IEEE 原文](https://doi.org/10.1109/TWC.2026.3668101)
 
 # 超高速移动条件下跨帧 OTFS 系统的信道估计

@@ -9,7 +9,7 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=6ffe4ab7aea24bbc)
 
-[本篇日报说明](/papers/items/6ffe4ab7aea24bbc/#paper-report) · [全文翻译（待补齐）](/papers/items/6ffe4ab7aea24bbc/#paper-translation)
+[本篇日报说明](/papers/items/6ffe4ab7aea24bbc/#paper-report) · [阅读全文翻译（学习页；未登记）](/papers/translations/2026-10-04-learning-diffusion-priors-from-observations-by-expectation-maximizatio/)
 
 **推荐日期：** 2026-10-04 · **发表状态：** 历史记录未明确
 
@@ -17,7 +17,7 @@ toc: true
 
 ## 本篇全文翻译
 
-本篇已列入全文翻译清单，尚未完成。完成并允许公开后，此入口将直达本篇全文译稿。
+全文中文译稿已发布，请使用页首的「阅读全文翻译」入口。
 
 <span id="paper-report"></span>
 
@@ -81,6 +81,5 @@ Diffusion models recently proved to be remarkable priors for Bayesian inverse pr
 **反馈权重说明：** 保留原日推日期，追加到末尾；不重排历史行。
 
 ## 原文与代码入口
-
 
 {% endraw %}

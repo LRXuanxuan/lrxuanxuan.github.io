@@ -9,7 +9,7 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=efb1c2b897f3baec)
 
-[本篇日报说明](/papers/items/efb1c2b897f3baec/#paper-report) · [全文翻译（待补齐）](/papers/items/efb1c2b897f3baec/#paper-translation)
+[本篇日报说明](/papers/items/efb1c2b897f3baec/#paper-report) · [阅读全文翻译](/papers/translations/2026-10-21-one-step-generative-csi-prediction-2609-17033/)
 
 **推荐日期：** 2026-10-21 · **发表状态：** 在投
 
@@ -17,7 +17,7 @@ toc: true
 
 ## 本篇全文翻译
 
-本篇已列入全文翻译清单，尚未完成。完成并允许公开后，此入口将直达本篇全文译稿。
+全文中文译稿已发布，请使用页首的「阅读全文翻译」入口。
 
 <span id="paper-report"></span>
 
@@ -51,7 +51,7 @@ toc: true
 
 [官方PDF/原文](https://arxiv.org/pdf/2609.17033)；[原文PDF](https://arxiv.org/pdf/2609.17033)。证据定位：PDF Sec.III/Algorithms1–2、Tables I–V、Figs2–4；6页。
 
-全文可打开，标题核验通过；6页已缓存。job `71460b27ca64aeb140de7c94` 已入队，要求 `gpt-6-luna / xhigh`。原worker发送及有界查询均返回找不到会话，未成功启动、未译完。[本篇全文翻译状态](https://lrxuanxuan.github.io/papers/items/efb1c2b897f3baec/#paper-translation)。预计本地路径：`本地资料：paper.md`。
+全文可打开，标题核验通过；6页已缓存。job `71460b27ca64aeb140de7c94` 已入队，要求 `gpt-6-luna / xhigh`。原worker发送及有界查询均返回找不到会话，未成功启动、未译完。全文翻译状态见页首。预计本地路径：`本地资料：paper.md`。
 
 原文许可/权利政策：[https://arxiv.org/licenses/nonexclusive-distrib/1.0/](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)。当前全文版本未取得公开译文许可，完成稿仅本地；代码许可证不替代论文许可。全部PDF只保留原文链接，不上传GitHub/网站。
 
@@ -99,7 +99,7 @@ toc: true
 
 [来源 3](https://github.com/MehdiSattari/meanflow-csi-prediction)
 
-[来源 4](https://lrxuanxuan.github.io/papers/items/efb1c2b897f3baec/#paper-translation)
+来源 4：见页首翻译状态
 
 [来源 5](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)
 {% endraw %}

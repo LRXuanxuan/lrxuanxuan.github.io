@@ -9,7 +9,7 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=fa7f1bb2b6bb36bc)
 
-[本篇日报说明](/papers/items/fa7f1bb2b6bb36bc/#paper-report) · [全文翻译（进行中）](/papers/items/fa7f1bb2b6bb36bc/#paper-translation) · [原文全文结构译稿（校对中；未计入全文验收）](/papers/translations/2026-10-13-fr3-uav-ckm-2610-06356/)
+[本篇日报说明](/papers/items/fa7f1bb2b6bb36bc/#paper-report) · [阅读全文翻译](/papers/translations/2026-10-13-fr3-uav-ckm-2610-06356/)
 
 **推荐日期：** 2026-10-13 · **发表状态：** 已接受待刊
 
@@ -17,9 +17,7 @@ toc: true
 
 ## 本篇全文翻译
 
-本篇全文翻译正在补齐或核验，尚未计为完成。完成并允许公开后，此入口将直达本篇全文译稿。
-
-已有部分译文（不计全文完成）：[历史译文](/papers/translations/2026-10-13-fr3-uav-ckm-2610-06356/)
+全文中文译稿已发布，请使用页首的「阅读全文翻译」入口。
 
 <span id="paper-report"></span>
 
@@ -49,7 +47,7 @@ toc: true
 
 **数据：** [论文给出的数据入口](https://doi.org/10.5281/zenodo.21839567)；访问/文件完整性待核验，不虚报已下载。
 
-[本篇全文翻译](https://lrxuanxuan.github.io/papers/items/fa7f1bb2b6bb36bc/#paper-translation)（按本篇身份绑定）。
+本篇全文翻译（按本篇身份绑定）。
 
 **本地原文与翻译：** [PDF](https://arxiv.org/pdf/2610.06356)；job_id=b5206d10b28143a3b007fe81，当前状态=pending。已立即派发并确认gpt-6-luna/xhigh活跃；尚未验收全文完成。预期输出 `本地资料：paper.md`。
 
@@ -101,7 +99,7 @@ toc: true
 
 [来源 4](https://doi.org/10.5281/zenodo.21839567)
 
-[来源 5](https://lrxuanxuan.github.io/papers/items/fa7f1bb2b6bb36bc/#paper-translation)（按本篇身份绑定)
+来源 5：见页首翻译状态（按本篇身份绑定)
 
 [来源 6](https://creativecommons.org/licenses/by/4.0/)
 {% endraw %}

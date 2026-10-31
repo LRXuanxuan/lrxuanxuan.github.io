@@ -9,7 +9,7 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=9fbabb9ea67e23ff)
 
-[本篇日报说明](/papers/items/9fbabb9ea67e23ff/#paper-report) · [全文翻译（待补齐）](/papers/items/9fbabb9ea67e23ff/#paper-translation)
+[本篇日报说明](/papers/items/9fbabb9ea67e23ff/#paper-report) · 全文翻译（待补齐）
 
 **推荐日期：** 2026-07-12 · **发表状态：** 正式发表
 
@@ -27,7 +27,7 @@ toc: true
 
 - 原推荐日期：2026-07-12；原表身份：每日论文推荐第 10 行；论文身份键：8945337f08cbfbf33d79d68b。
 
-- 本篇网站条目：[本篇日报与证据](https://lrxuanxuan.github.io/papers/items/9fbabb9ea67e23ff/#paper-report)（身份键 8945337f08cbfbf33d79d68b）；[本篇翻译状态](https://lrxuanxuan.github.io/papers/items/9fbabb9ea67e23ff/#paper-translation)。
+- 本篇网站条目：[本篇日报与证据](https://lrxuanxuan.github.io/papers/items/9fbabb9ea67e23ff/#paper-report)（身份键 8945337f08cbfbf33d79d68b）；本篇翻译状态。
 - 本次补写/核验日期：2026-10-12。
 - 作者：Seyed Alireza Javid, Nuria González-Prelcic。原预印本年份：2025；Venue：IEEE ICASSP 2026，同题论文列入官方会议日程并于2026-05-07安排报告（Paper 13690）。IEEE Xplore DOI本轮未核实。作者另有题名不同的扩展期刊稿，不在本条合并身份。
 - 本轮证据范围：arXiv摘要/元数据；全文未核验。本轮没有读取论文全文，以下方法/结果限于公开摘要或书目证据；不会把表中“略读”状态当成本轮全文阅读事实。
@@ -103,7 +103,7 @@ toc: true
 
 [来源 3](https://lrxuanxuan.github.io/papers/items/9fbabb9ea67e23ff/#paper-report)（身份键)
 
-[来源 4](https://lrxuanxuan.github.io/papers/items/9fbabb9ea67e23ff/#paper-translation)
+来源 4：见页首翻译状态
 
 [来源 5](https://arxiv.org/pdf/2511.05771)（网站仅保留官方原文链接)
 

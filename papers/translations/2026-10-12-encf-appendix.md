@@ -7,6 +7,9 @@ toc: true
 ---
 
 {% raw %}
+
+> **说明：** 本页为补充材料（附录）译文，正文全文见 [主译文页](/papers/translations/2026-10-12-encf-main/)。
+
 [← 返回正文](/papers/translations/2026-10-12-encf-main/) · [论文条目](/papers/items/5cc0d0d751befc62/) · [官方 PDF](https://arxiv.org/pdf/2607.12975v1)
 
 # 附录：延期给出的证明与实验细节

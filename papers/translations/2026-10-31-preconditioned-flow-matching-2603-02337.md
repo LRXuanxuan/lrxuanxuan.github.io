@@ -7,6 +7,9 @@ toc: true
 ---
 
 {% raw %}
+
+> **说明：** 本页为较早的译文版本，已被更新、更完整的版本取代，请阅读 [最新全文译文](/papers/translations/2026-10-31-2603-02337-preconditioned-flow-matching/)。
+
 [← 返回论文库](/papers/) · [原文 arXiv](https://arxiv.org/abs/2603.02337) · [原文代码](https://github.com/ahxmeds/preconditioned-flow-matching)
 
 # 预条件流匹配（Preconditioned Flow Matching）

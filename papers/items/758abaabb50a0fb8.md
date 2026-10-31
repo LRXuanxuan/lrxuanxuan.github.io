@@ -9,7 +9,7 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=758abaabb50a0fb8)
 
-[本篇日报说明](/papers/items/758abaabb50a0fb8/#paper-report) · [全文翻译（待补齐）](/papers/items/758abaabb50a0fb8/#paper-translation)
+[本篇日报说明](/papers/items/758abaabb50a0fb8/#paper-report) · [阅读全文翻译](/papers/translations/2026-10-28-coflow-2610-03202/)
 
 **推荐日期：** 2026-10-28 · **发表状态：** 正式发表
 
@@ -17,7 +17,7 @@ toc: true
 
 ## 本篇全文翻译
 
-本篇已列入全文翻译清单，尚未完成。完成并允许公开后，此入口将直达本篇全文译稿。
+全文中文译稿已发布，请使用页首的「阅读全文翻译」入口。
 
 <span id="paper-report"></span>
 
@@ -55,7 +55,7 @@ toc: true
 
 **全文定位与验证范围**：PDF Algorithm1、Theorem1、Table1、Sec4 limitations及Appendix A.3/A.6/A.7（30页）。
 
-[本篇全文翻译/真实状态](https://lrxuanxuan.github.io/papers/items/758abaabb50a0fb8/#paper-translation)。job `840f61d96f1f8ea1cafb361f`已入队，固定gpt-6-luna/xhigh；原worker发送与有界确认均No Codex thread found，pending，未启动、未完成。
+全文翻译状态见页首。job `840f61d96f1f8ea1cafb361f`已入队，固定gpt-6-luna/xhigh；原worker发送与有界确认均No Codex thread found，pending，未启动、未完成。
 
 [原文许可](https://creativecommons.org/licenses/by/4.0/)；完成且全文QA通过后可按署名和许可要求分享译文。代码许可不替代论文/译文许可。
 
@@ -107,7 +107,7 @@ https://arunv3rma.github.io/research.html
 
 [来源 4](https://arunv3rma.github.io/research.html)
 
-[来源 5](https://lrxuanxuan.github.io/papers/items/758abaabb50a0fb8/#paper-translation)
+来源 5：见页首翻译状态
 
 [来源 6](https://creativecommons.org/licenses/by/4.0/)
 {% endraw %}

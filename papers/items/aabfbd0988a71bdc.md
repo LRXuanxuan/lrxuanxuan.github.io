@@ -9,7 +9,7 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=aabfbd0988a71bdc)
 
-[本篇日报说明](/papers/items/aabfbd0988a71bdc/#paper-report) · [全文翻译（待补齐）](/papers/items/aabfbd0988a71bdc/#paper-translation)
+[本篇日报说明](/papers/items/aabfbd0988a71bdc/#paper-report) · [阅读全文翻译](/papers/translations/2026-10-24-posterior-flow-matching-2610-13994/)
 
 **推荐日期：** 2026-10-24 · **发表状态：** 预印本/状态未确认
 
@@ -17,7 +17,7 @@ toc: true
 
 ## 本篇全文翻译
 
-本篇已列入全文翻译清单，尚未完成。完成并允许公开后，此入口将直达本篇全文译稿。
+全文中文译稿已发布，请使用页首的「阅读全文翻译」入口。
 
 <span id="paper-report"></span>
 
@@ -57,7 +57,7 @@ toc: true
 
 [原文PDF](https://arxiv.org/pdf/2610.13994)，42页；PDF pp3–9，Eq13/15/19/20、Tables2–6；附录A–H。
 
-[本篇全文翻译状态](https://lrxuanxuan.github.io/papers/items/aabfbd0988a71bdc/#paper-translation)。job `f76554550632f9a9fa842e4d` pending，gpt-6-luna/xhigh；原worker不可达，未启动。预计输出：`本地资料：paper.md`。
+全文翻译状态见页首。job `f76554550632f9a9fa842e4d` pending，gpt-6-luna/xhigh；原worker不可达，未启动。预计输出：`本地资料：paper.md`。
 
 [源许可](https://creativecommons.org/licenses/by/4.0/)；允许完成译稿按CC署名及改动披露分享。PDF只保留官方链接，不上传。
 
@@ -108,7 +108,7 @@ https://merry7cherry.github.io/posterior-flow-matching/
 
 [来源 4](https://github.com/merry7cherry/posterior-flow-matching)
 
-[来源 5](https://lrxuanxuan.github.io/papers/items/aabfbd0988a71bdc/#paper-translation)
+来源 5：见页首翻译状态
 
 [来源 6](https://creativecommons.org/licenses/by/4.0/)
 {% endraw %}

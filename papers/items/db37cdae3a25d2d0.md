@@ -9,7 +9,7 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=db37cdae3a25d2d0)
 
-[本篇日报说明](/papers/items/db37cdae3a25d2d0/#paper-report) · [全文翻译（待补齐）](/papers/items/db37cdae3a25d2d0/#paper-translation)
+[本篇日报说明](/papers/items/db37cdae3a25d2d0/#paper-report) · [阅读全文翻译](/papers/translations/2026-10-23-site-geometry-and-calibration-uncertainties-in-digital-twin-enabled-ch-2607-09334/)
 
 **推荐日期：** 2026-10-23 · **发表状态：** 正式发表
 
@@ -17,7 +17,7 @@ toc: true
 
 ## 本篇全文翻译
 
-本篇已列入全文翻译清单，尚未完成。完成并允许公开后，此入口将直达本篇全文译稿。
+全文中文译稿已发布，请使用页首的「阅读全文翻译」入口。
 
 <span id="paper-report"></span>
 
@@ -51,7 +51,7 @@ toc: true
 
 [官方PDF](https://arxiv.org/pdf/2607.09334)；[原文PDF](https://arxiv.org/pdf/2607.09334)。全文16页；定位：PDF SecIII–V，尤其SecIV固定路径一阶模型、SecV数据划分/RT设置；IEEE注册元数据。
 
-[本篇全文翻译状态](https://lrxuanxuan.github.io/papers/items/db37cdae3a25d2d0/#paper-translation)。job `00c76da2daba470a78042b9c`，pending，指定gpt-6-luna/xhigh；原worker不可达，未启动/未译完。预计输出：`本地资料：paper.md`。
+全文翻译状态见页首。job `00c76da2daba470a78042b9c`，pending，指定gpt-6-luna/xhigh；原worker不可达，未启动/未译完。预计输出：`本地资料：paper.md`。
 
 [源许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)。当前只获原文分发入口许可，未获公开译文许可；完成稿先本地保存。PDF仅官方链接，不上传网站。
 
@@ -106,7 +106,7 @@ https://ieeexplore.ieee.org/document/11660482/
 
 [来源 5](https://ieeexplore.ieee.org/document/11660482/)
 
-[来源 6](https://lrxuanxuan.github.io/papers/items/db37cdae3a25d2d0/#paper-translation)
+来源 6：见页首翻译状态
 
 [来源 7](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)
 {% endraw %}

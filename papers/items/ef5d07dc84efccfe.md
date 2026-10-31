@@ -9,7 +9,7 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=ef5d07dc84efccfe)
 
-[本篇日报说明](/papers/items/ef5d07dc84efccfe/#paper-report) · [全文翻译（待补齐）](/papers/items/ef5d07dc84efccfe/#paper-translation)
+[本篇日报说明](/papers/items/ef5d07dc84efccfe/#paper-report) · [阅读全文翻译（学习页；未登记）](/papers/translations/2026-10-16-interference-cancellation-ckm-2409-00461/)
 
 **推荐日期：** 2026-10-16 · **发表状态：** 正式发表
 
@@ -17,7 +17,7 @@ toc: true
 
 ## 本篇全文翻译
 
-本篇已列入全文翻译清单，尚未完成。完成并允许公开后，此入口将直达本篇全文译稿。
+全文中文译稿已发布，请使用页首的「阅读全文翻译」入口。
 
 <span id="paper-report"></span>
 
@@ -51,7 +51,7 @@ toc: true
 
 **原文核查范围：** 13页作者版；重点第3–5页模型、第6–10页推断/协方差、第12–13页结果。
 
-[本篇全文翻译](https://lrxuanxuan.github.io/papers/items/ef5d07dc84efccfe/#paper-translation)（只指向本篇真实进度，未完成稿不冒充全文）。
+本篇全文翻译（只指向本篇真实进度，未完成稿不冒充全文）。
 
 **本地原文与翻译：** PDF（本地资料：2409.00461.pdf），13页；已入队，job_id=d78ddd05b6962950a6b60391，status=pending。请求模型gpt-6-luna/xhigh；原翻译worker读取返回“No Codex thread found”，派发未启动，不能称已翻译。预期路径：`本地资料：paper.md`。
 
@@ -103,7 +103,7 @@ toc: true
 
 [来源 4](https://arxiv.org/abs/2409.00461)
 
-[来源 5](https://lrxuanxuan.github.io/papers/items/ef5d07dc84efccfe/#paper-translation)（只指向本篇真实进度)
+来源 5：见页首翻译状态（只指向本篇真实进度)
 
 [来源 6](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)
 {% endraw %}
