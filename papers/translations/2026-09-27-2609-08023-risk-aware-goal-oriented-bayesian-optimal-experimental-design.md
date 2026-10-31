@@ -160,7 +160,7 @@ $$
 
 | 族 | 遗憾度量 | 偏差度量 | 风险度量 |
 | --- | --- | --- | --- |
-| （安全裕度） | $\mathcal V(Z)=c\|Z\|_2+\mathbb E[Z]$ | $\mathcal D(Z)=c\,\mathrm{Std}[Z]$ | $\mathcal R(Z)=\mathbb E[Z]+c\,\mathrm{Std}[Z]$ |
+| （安全裕度） | $\mathcal V(Z)=c\lVert Z\rVert_2+\mathbb E[Z]$ | $\mathcal D(Z)=c\,\mathrm{Std}[Z]$ | $\mathcal R(Z)=\mathbb E[Z]+c\,\mathrm{Std}[Z]$ |
 | （AVaR） | $\mathcal V(Z)=\mathbb E\left[\frac{\max(0,Z)}{1-\alpha}\right]$ | $\mathcal D(Z)=\mathrm{AVaR}_\alpha[Z-\mathbb E[Z]]$ | $\mathcal R(Z)=\mathrm{AVaR}_\alpha[Z]$ |
 | （熵） | $\mathcal V(Z)=\mathbb E\left[\frac{1}{\lambda}\left(e^{\lambda Z}-1\right)\right]$ | $\mathcal D(Z)=\frac{1}{\lambda}\log\mathbb E\left[e^{\lambda(Z-\mathbb E[Z])}\right]$ | $\mathcal R(Z)=\frac{1}{\lambda}\log\mathbb E\left[e^{\lambda Z}\right]$ |
 
@@ -417,6 +417,417 @@ $$
 
 **生成式 AI 在写作过程中的声明**：在本工作准备期间，作者使用了 SandiaAI - Chat 与 Claude (Anthropic) 协助编辑与措辞，并核对稿件与计算结果的一致性。使用该工具/服务后，作者按需审查并编辑了内容，并对出版内容承担全部责任。
 
+
+## 参考文献
+
+> 以下按原文编号 [1]—[20] 转录英文原书目，条目文字不翻译；PDF 抽取文本中的 “¨”“´” 等变音伪影已按常规写法整理，书目内容未改动。
+
+[1] Alen Alexanderian. Optimal experimental design for infinite-dimensional Bayesian inverse problems governed by PDEs: A review. Inverse Problems, 37(4):043001, mar 2021. doi: 10.1088/1361-6420/abe10c.
+
+[2] Ahmed Attia, Alen Alexanderian, and Arvind K. Saibaba. Goal-oriented optimal design of experiments for large-scale Bayesian linear inverse problems. Inverse Problems, 34(9):095009, jul 2018. doi: 10.1088/1361-6420/aad210.
+
+[3] T. Butler, J. D. Jakeman, and T. Wildey. Optimal experimental design for prediction based on push-forward probability measures. Journal of Computational Physics, 416:109518, 2020. ISSN 0021-9991. doi: https://doi.org/10.1016/j.jcp.2020.109518.
+
+[4] Atlanta Chakraborty, Xun Huan, and Tommie Catanach. A likelihood-free approach to goal-oriented Bayesian optimal experimental design, 2024. URL https://arxiv.org/abs/2408.09582.
+
+[5] Kathryn Chaloner and Isabella Verdinelli. Bayesian experimental design: A review. Statist. Sci., 10(3):273–304, 08 1995. doi: 10.1214/ss/1177009939.
+
+[6] Jeffrey Donatelli, John Jakeman, Michael Shields, Anne Gelb, Felix Herrmann, Sanket Jantre, et al. Basic research needs for inverse methods for complex systems under uncertainty. Technical Report OSTI:2583339, U.S. Department of Energy, Office of Scientific and Technical Information, September 2025.
+
+[7] John D. Jakeman, Drew P. Kouri, and J. Gabriel Huerta. Surrogate modeling for efficiently, accurately and conservatively estimating measures of risk. Reliability Engineering & System Safety, page 108280, 2022. ISSN 0951-8320. doi: https://doi.org/10.1016/j.ress.2021.108280.
+
+[8] D. P. Kouri and T. M. Surowiec. Risk-averse PDE-constrained optimization using the conditional value-at-risk. SIAM Journal on Optimization, 26(1):365–396, 2016. doi: 10.1137/140954556.
+
+[9] Drew P. Kouri and Thomas M. Surowiec. Epi-regularization of risk measures. Mathematics of Operations Research, 45(2):774–795, 2020.
+
+[10] Drew P. Kouri and Thomas M. Surowiec. A primal–dual algorithm for risk minimization. Mathematical Programming, 193(1):337–363, 2022.
+
+[11] Drew P. Kouri, John D. Jakeman, and J. Gabriel Huerta. Risk-adapted optimal experimental design. SIAM/ASA Journal on Uncertainty Quantification, 10(2):687–716, 2022. doi: 10.1137/20M1357615.
+
+[12] Cheng Peng, Drew P. Kouri, and Stan Uryasev. Efficient and robust optimal design for quantile regression based on linear programming. Computational Statistics & Data Analysis, 192:107892, 2024.
+
+[13] Tom Rainforth, Adam Foster, Desi R. Ivanova, and Freddie Bickford Smith. Modern Bayesian Experimental Design. Statistical Science, 39(1):100–114, 2024. doi: 10.1214/23-STS915.
+
+[14] R. Tyrrell Rockafellar and Stan Uryasev. The fundamental risk quadrangle in risk management, optimization and statistical estimation. Surveys in Operations Research and Management Science, 18(1):33–53, 2013. ISSN 1876-7354. doi: https://doi.org/10.1016/j.sorms.2013.03.001.
+
+[15] Elizabeth G. Ryan, Christopher C. Drovandi, James M. McGree, and Anthony N. Pettitt. A review of modern computational algorithms for Bayesian optimal design. International Statistical Review, 84(1):128–154, 2016. doi: https://doi.org/10.1111/insr.12107.
+
+[16] S. D. Silvey. Optimal Design. Chapman and Hall, London, 1980.
+
+[17] George R. Terrell and David W. Scott. Variable Kernel Density Estimation. The Annals of Statistics, 20(3):1236–1265, 1992. doi: 10.1214/aos/1176348768.
+
+[18] Keyi Wu, Peng Chen, and Omar Ghattas. An offline-online decomposition method for efficient linear Bayesian goal-oriented optimal experimental design: Application to optimal sensor placement. SIAM Journal on Scientific Computing, 45(1):B57–B77, 2023. doi: 10.1137/21M1466542.
+
+[19] Jing Yu, Victor M. Zavala, and Mihai Anitescu. A scalable design of experiments framework for optimal sensor placement. Journal of Process Control, 67:44–55, 2018. ISSN 0959-1524. doi: https://doi.org/10.1016/j.jprocont.2017.03.011.
+
+[20] Shijie Zhong, Wanggang Shen, Tommie Catanach, and Xun Huan. Goal-oriented Bayesian optimal experimental design for nonlinear models using Markov chain Monte Carlo, 2025. URL https://arxiv.org/abs/2403.18072.
+
+## 附录 A：线性高斯模型的后验与推前统计量
+
+我们汇总运行示例与实验所用线性高斯模型的后验与推前统计量。后续各附录均使用此处定义的记号。
+
+### A.1 模型设定
+
+设 $\theta\in\mathbb R^D$ 为参数向量，先验 $\theta\sim\mathcal N(\mu,\Sigma)$。观测服从线性模型
+
+$$
+y=A\theta+\varepsilon,\qquad\varepsilon\mid w\sim\mathcal N(0,\Gamma_{\mathrm{eff}}(w)),\tag{23}
+$$
+
+其中 $A\in\mathbb R^{K\times D}$ 为观测（Vandermonde）矩阵，元素 $A_{ij}=x_i^{j-1}$ 在候选位置 $x_1,\ldots,x_K$ 处取值；基线噪声为对角 $\Gamma=\operatorname{diag}(\sigma_{\varepsilon,1}^2,\ldots,\sigma_{\varepsilon,K}^2)$，各候选间噪声独立、可能异方差。给候选 $k$ 分配权重 $w_k$ 即缩放其精度，得到对角有效噪声协方差 $\Gamma_{\mathrm{eff}}(w)=\operatorname{diag}(\sigma_{\varepsilon,k}^2/w_k)$，故权重 $w_k$ 越大、位置 $k$ 处的有效噪声越小。其逆 $\Gamma_{\mathrm{eff}}(w)^{-1}=\operatorname{diag}(w_k/\sigma_{\varepsilon,k}^2)$ 出现在下文各后验表达式中。多项式基实验中我们使用 4 次基（$D=5$）、$K=10$ 个在 $[-1,1]$ 上等距的候选位置、所有 $k$ 的公共噪声标准差 $\sigma_{\varepsilon,k}=0.5$、以及各向同性先验 $\Sigma=\sigma_0^2I$（$\sigma_0=0.5$）。
+
+### A.2 后验分布
+
+由于模型是线性—高斯的，后验为高斯：$\theta\mid y,w\sim\mathcal N(\mu^\ast,\Sigma^\ast)$，其中
+
+$$
+\Sigma^\ast=\left(\Sigma^{-1}+A^\top\Gamma_{\mathrm{eff}}(w)^{-1}A\right)^{-1},\tag{24}
+$$
+
+$$
+\mu^\ast=\Sigma^\ast\left(A^\top\Gamma_{\mathrm{eff}}(w)^{-1}y+\Sigma^{-1}\mu\right).\tag{25}
+$$
+
+关键在于 $\Sigma^\ast$ 只依赖设计 $w$，不依赖数据 $y$。
+
+### A.3 后验均值在数据上的分布
+
+由于 $y=A\theta+\varepsilon$ 且 $(\theta,\varepsilon)$ 独立，$\mu^\ast$ 在数据边缘分布 $y\sim p(y\mid w)$ 下是高斯随机变量。定义
+
+$$
+R:=\Sigma^\ast A^\top\Gamma_{\mathrm{eff}}(w)^{-1},\qquad R_0:=RA.\tag{26}
+$$
+
+由于 $\mu^\ast=Ry+\Sigma^\ast\Sigma^{-1}\mu$ 且 $\mathbb E_{p(y\mid w)}[y]=A\mu$，$\mu^\ast$ 在数据上的均值为
+
+$$
+\nu:=\mathbb E_{p(y\mid w)}[\mu^\ast]=RA\mu+\Sigma^\ast\Sigma^{-1}\mu=(R_0+\Sigma^\ast\Sigma^{-1})\mu=\Sigma^\ast\left(A^\top\Gamma_{\mathrm{eff}}(w)^{-1}A+\Sigma^{-1}\right)\mu=\Sigma^\ast{\Sigma^\ast}^{-1}\mu=\mu.\tag{27}
+$$
+
+故 $\nu=\mu$：后验均值在期望意义上对先验均值无偏。$\mu^\ast$ 在数据上的协方差为
+
+$$
+C:=\operatorname{Cov}[\mu^\ast,\mu^\ast]=R\operatorname{Cov}[y,y]R^\top=R_0\Sigma R_0^\top+R\Gamma R^\top,\tag{28}
+$$
+
+其中 $\operatorname{Cov}[y,y]=A\Sigma A^\top+\Gamma$。
+
+### A.4 对数正态推前
+
+对 QoI 映射 $q_j(\theta)=\exp(\psi_j^\top\theta)$，定义对数均值 $\tau_j:=\psi_j^\top\mu^\ast$ 与后验对数方差 $\sigma_j^2:=\psi_j^\top\Sigma^\ast\psi_j$。由于 $\psi_j^\top\theta\mid y,w\sim\mathcal N(\tau_j,\sigma_j^2)$，每个 QoI 分量服从对数正态分布：$q_j(\theta)\mid y,w\sim\mathcal L\mathcal N(\tau_j,\sigma_j^2)$。其条件标准差可分解为
+
+$$
+d_j(y,w)\equiv\mathrm{Std}[q_j(\theta)\mid y,w]=K_j\exp(\tau_j),\tag{29}
+$$
+
+其中**确定性尺度因子**
+
+$$
+K_j=\exp\left(\tfrac{1}{2}\sigma_j^2\right)\sqrt{\exp(\sigma_j^2)-1}\tag{30}
+$$
+
+只通过 $\Sigma^\ast$ 依赖 $w$。对数均值 $\tau_j$ 在数据上为高斯，且
+
+$$
+\nu_j:=\mathbb E[\tau_j]=\psi_j^\top\mu,\qquad \sigma_{\tau,j}^2:=\operatorname{V}[\tau_j]=\psi_j^\top C\psi_j.\tag{31}
+$$
+
+## 附录 B：解析设计目标表达式——标量 QoI
+
+我们对标量 QoI 情形（$Q=1$）推导设计目标 U1—U4 与 EIG 基线的闭式表达。全文 $K$、$\tau$、$\nu$、$\sigma^2$、$\sigma_\tau^2$ 如附录 A 定义（因 $Q=1$ 而略去分量下标 $j$）。特别地，$d(y,w)=K\exp(\tau)$，其中 $\tau\sim\mathcal N(\nu,\sigma_\tau^2)$ 为在数据边缘下。
+
+### B.1 U1：期望标准差
+
+**命题 B.1**：$U_1(w)=\mathbb E_{p(y\mid w)}[d(y,w)]=K\exp\left(\nu+\frac{1}{2}\sigma_\tau^2\right)$。
+
+**证明**：由于 $d=Ke^\tau$ 且 $\tau\sim\mathcal N(\nu,\sigma_\tau^2)$，随机变量 $d/K$ 服从对数正态。对数正态 $\mathcal L\mathcal N(\mu,\sigma^2)$ 的均值为 $e^{\mu+\sigma^2/2}$，即得结论。$\square$
+
+### B.2 U3：标准差在数据上的 AVaR$_\beta$
+
+**命题 B.2**：
+
+$$
+U_3(w)=\mathrm{AVaR}_\beta[d(y,w)]=K\exp\left(\nu+\frac{1}{2}\sigma_\tau^2\right)\frac{1}{1-\beta}\bar\Phi\left(\sqrt{\sigma_\tau^2}-\Phi^{-1}(\beta)\right).\tag{32}
+$$
+
+**证明**：随机变量 $d=Ke^\tau$ 为对数正态，参数为 $\log K+\nu$ 与 $\sigma_\tau^2$。对对数正态 $X\sim\mathcal L\mathcal N(\mu_X,\sigma_X^2)$，$\beta$-分位数为 $q_\beta=e^{\mu_X+\sigma_X\Phi^{-1}(\beta)}$，条件尾部期望为
+
+$$
+\mathrm{AVaR}_\beta[X]=\frac{\mathbb E_{p(y\mid w)}[X]}{1-\beta}\bar\Phi\left(\sigma_X-\Phi^{-1}(\beta)\right).
+$$
+
+代入 $\mu_X=\log K+\nu$、$\sigma_X=\sqrt{\sigma_\tau^2}$、$\mathbb E_{p(y\mid w)}[X]=K\exp(\nu+\sigma_\tau^2/2)$ 即得（32）。$\square$
+
+### B.3 U4：安全裕度
+
+**命题 B.3**：对安全因子 $c\ge0$，
+
+$$
+U_4(w)=\mathbb E_{p(y\mid w)}[d]+c\,\mathrm{Std}[d(y,w)]=K\exp\left(\nu+\frac{1}{2}\sigma_\tau^2\right)\left(1+c\sqrt{\exp(\sigma_\tau^2)-1}\right).\tag{33}
+$$
+
+**证明**：由命题 B.1 有 $\mathbb E_{p(y\mid w)}[d]=U_1$。对对数正态 $d/K\sim\mathcal L\mathcal N(\nu,\sigma_\tau^2)$：$\operatorname{Var}_{p(y\mid w)}[d]=K^2e^{2\nu+\sigma_\tau^2}(e^{\sigma_\tau^2}-1)$，故 $\mathrm{Std}_{p(y\mid w)}[d]=Ke^{\nu+\sigma_\tau^2/2}\sqrt{e^{\sigma_\tau^2}-1}=U_1\sqrt{e^{\sigma_\tau^2}-1}$。代入 $U_4=\mathbb E_{p(y\mid w)}[d]+c\,\mathrm{Std}_{p(y\mid w)}[d]$ 即得（33）。$\square$
+
+### B.4 EIG 基线
+
+数值实验所用的基于 KL 的基线是**完整参数后验**（而非其到预测方向 $\psi$ 的投影）上的期望信息增益（EIG）。对附录 A 的线性—高斯模型，该 EIG 有闭式表达，且因后验协方差不依赖实现数据而与数据无关。
+
+**命题 B.4**：设 $F(w)=A^\top\Gamma_{\mathrm{eff}}(w)^{-1}A$ 为设计加权 Fisher 信息，则
+
+$$
+U_{\mathrm{KL}}(w):=\mathbb E_{p(y\mid w)}\left[\mathrm{KL}(p(\theta\mid y,w)\|p(\theta))\right]=\frac{1}{2}\log\frac{\det\Sigma}{\det\Sigma^\ast}=\frac{1}{2}\log\det\left(I+\Sigma F(w)\right).\tag{34}
+$$
+
+**证明**：对高斯 $p(\theta)=\mathcal N(\mu,\Sigma)$ 与 $p(\theta\mid y,w)=\mathcal N(\mu^\ast,\Sigma^\ast)$，KL 散度的标准形式为
+
+$$
+\mathrm{KL}(p(\theta\mid y,w)\|p(\theta))=\frac{1}{2}\left[\operatorname{tr}\left(\Sigma^{-1}\Sigma^\ast\right)-D+\log\frac{\det\Sigma}{\det\Sigma^\ast}+(\mu^\ast-\mu)^\top\Sigma^{-1}(\mu^\ast-\mu)\right].\tag{35}
+$$
+
+对 $y\sim p(y\mid w)$ 取期望：前三项与 $y$ 无关（附录 A.2 给出 $\Sigma^\ast$ 不依赖 $y$）；对二次项，由 $\mathbb E_{p(y\mid w)}[\mu^\ast]=\mu$（27）与 $\operatorname{Cov}[\mu^\ast,\mu^\ast]=C$（28）得
+
+$$
+\mathbb E_{p(y\mid w)}\left[(\mu^\ast-\mu)^\top\Sigma^{-1}(\mu^\ast-\mu)\right]=\operatorname{tr}\left(\Sigma^{-1}C\right).
+$$
+
+对 $\theta$ 在 $p(\theta,y\mid w)$ 下应用全方差公式、并利用 $\Sigma^\ast$ 与 $y$ 无关，得 $\Sigma=\Sigma^\ast+C$，故 $\operatorname{tr}(\Sigma^{-1}C)=D-\operatorname{tr}(\Sigma^{-1}\Sigma^\ast)$，恰好抵消（35）的前两项。剩下的对数行列式给出（34）的中间表达式。Fisher 形式来自 ${\Sigma^\ast}^{-1}=\Sigma^{-1}+F(w)$（24），它给出 $\Sigma{\Sigma^\ast}^{-1}=I+\Sigma F(w)$，从而 $\det(\Sigma)/\det(\Sigma^\ast)=\det(I+\Sigma F(w))$。$\square$
+
+## 附录 C：设计目标估计器的收敛性
+
+本附录验证第 4.2 节的嵌套求积设计目标估计器收敛到附录 B 的闭式参考，量化其精度对内外求积点数的依赖，并用随机移位 Halton 序列比较蒙特卡洛（MC）采样与准蒙特卡洛（QMC）。
+
+为使与精确参考的比较可行，我们使用第 2.4 节的线性高斯模型——这是设计目标具有附录 B 闭式表达的唯一设置。取 4 次多项式基 $\psi(x)=[1,x,x^2,x^3,x^4]^\top$，故 $A\in\mathbb R^{K\times(p+1)}$ 为在 $[-1,1]$ 上 $K=10$ 个等距观测位置处取值的 Vandermonde 矩阵。QoI 映射（7）在单个预测位置 $x_{\mathrm{pred}}=0$ 处评估，得到标量 QoI（$Q=1$）；先验取 $\theta\sim\mathcal N(0,0.25I)$、基线噪声协方差 $\Gamma=0.25I$。
+
+我们在均匀设计 $w=1/K$ 处，对四个解析值可得的命名设计目标评估估计器——U1（std/mean/mean）、U3（std/mean/AVaR$_\beta$，$\beta=0.9$）、U6（std/mean/mean$+c\cdot$Std，$c=1$）与 KL。对每个目标，我们生成 $R=1000$ 个独立数据实现、对每个计算估计 $\hat U_{M,N}^{(r)}$，并构造均方误差的蒙特卡洛近似
+
+$$
+\mathrm{MSE}(\hat U_{M,N})\approx\frac{1}{R}\sum_{r=1}^{R}\left(U-\hat U_{M,N}^{(r)}\right)^2=\mathrm{Bias}^2(\hat U_{M,N})+\mathrm{Var}(\hat U_{M,N}),\tag{36}
+$$
+
+其中 $U$ 为解析值。从同一批 $R$ 个重复估计平方偏差 $(\mathbb E[\hat U_{M,N}]-U)^2$ 与方差 $\mathbb E[(\hat U_{M,N}-\mathbb E[\hat U_{M,N}])^2]$，可分离这两种误差来源，从而看出各区间中哪一种限制精度。对 QMC，各重复对应独立 Halton 移位，因而保持该偏差—方差分解。
+
+图 13 报告内环与外环样本数依次扫描时（先在 $M=4000$ 下变化 $N$，再在 $N=4000$ 下变化 $M$）的两个误差分量。对预测类目标 U1、U3、U6，细化内环使两个分量都下降；由于全过程方差都高于平方偏差，可达精度由方差决定。KL 目标行为不同，且有结构性原因：其 log-sum-exp 形式在内环收敛很快，故一旦 $N\gtrsim200$ 内环贡献已可忽略，总误差在外环设定的下限处平台化。此时再增加内环样本会降低 KL 估计器的 Jensen 偏差，但无法触及此时占主导的外环采样方差，故 MSE 不再改善。
+
+外环扫描确认了这种分工。对预测类目标，偏差与方差再次同时下降、方差占主导，故增大 $M$ 继续换取精度。KL 的行为与其内环行为相反：其方差随 $M$ 单调下降，而平方偏差基本保持不变，因为偏差由 $N$ 固定、从而与抽取多少外环样本无关。在所有目标上，相同样本数下 QMC 外环采样都达到比 MC 更低的方差，这是 Halton 序列低差异结构的直接结果。综合这些扫描可见估计器收敛到解析参考，并识别出对给定目标应细化哪个环：预测类目标细化内环，KL 细化外环。
+
+**图 13**：U1、U3、U6 与 KL 效用（在均匀设计权重处评估）的 MC（虚线）与 QMC（实线）估计器的 MSE 分解（MSE = Bias² + Var）。上排：内环扫描（变化 $N$，$M=4000$ 固定）。下排：外环扫描（变化 $M$，$N=4000$ 固定）。第 4.2 节的解耦估计器在所有外环样本间共享同一内环样本集。
+
+## 附录 D：梯度推导
+
+我们推导样本平均 OED 目标关于设计权重 $w$ 的精确梯度，所用求积样本在优化前抽取一次并保持固定。D.1 节给出一般三层链式法则，D.5 节专门讨论 Std/Mean/Mean 配置（设计目标 U1）。
+
+### D.1 重参数化观测与对数似然
+
+固定来自先验—噪声联合分布的外环样本 $\{(\theta^{(m)},\varepsilon^{(m)})\}_{m=1}^{M}$（$\varepsilon^{(m)}\sim\mathcal N(0,I)$）与内环先验样本 $\{\theta^{(n)}\}_{n=1}^{N}$。如附录 A，基线噪声协方差为对角 $\Gamma=\operatorname{diag}(\sigma_{\varepsilon,1}^2,\ldots,\sigma_{\varepsilon,K}^2)$，设计以对角加权 $W=\operatorname{diag}(w)$ 进入，故生成人工观测的重参数化按传感器分离。对每个外环样本 $m$ 与传感器 $k$，
+
+$$
+y_k^{(m)}=A_k^\top\theta^{(m)}+\frac{\sigma_{\varepsilon,k}}{\sqrt{w_k}}z_k^{(m)},\tag{37}
+$$
+
+其中 $z_k^{(m)}$ 为 $\varepsilon^{(m)}$ 的第 $k$ 个元素，潜噪声实现在优化全程只抽取一次并固定。这使每个 $y^{(m)}$ 成为 $w$ 的确定性可微函数；且由于加权按传感器作用，把 $w_k$ 减小到零会把传感器 $k$ 上的有效噪声放大到无穷。
+
+对数似然继承同样的按传感器分离结构。对内外样本 $n$ 与外环实现 $m$，对数似然为
+
+$$
+\ell_{mn}(w)=-\frac{1}{2}\sum_{k=1}^{K}\left[\log\frac{\sigma_{\varepsilon,k}^2}{w_k}+\frac{w_ke_{mnk}^2}{\sigma_{\varepsilon,k}^2}\right]+\text{const},\tag{38}
+$$
+
+其中 $e_{mnk}=y_k^{(m)}-A_k^\top\theta^{(n)}$ 为位置 $k$ 处的残差。由于 $y_k^{(m)}$ 经（37）依赖 $w$，偏导数有三项贡献：
+
+$$
+\frac{\partial\ell_{mn}}{\partial w_k}=\underbrace{\frac{1}{2w_k}}_{\text{对数行列式}}-\underbrace{\frac{e_{mnk}^2}{2\sigma_{\varepsilon,k}^2}}_{\text{二次项}}+\underbrace{\frac{e_{mnk}z_k^{(m)}}{2\sigma_{\varepsilon,k}\sqrt{w_k}}}_{\text{重参数化}}.\tag{39}
+$$
+
+前两项来自高斯对数密度；第三项计入 $y^{(m)}$ 对设计的隐式依赖。
+
+### D.2 证据与归一化重要性权重
+
+外环样本 $m$ 的边缘似然（证据）为
+
+$$
+\hat p(y^{(m)}\mid w)=\sum_{n=1}^{N}\omega_n^{\mathrm{in}}\exp\left(\ell_{mn}(w)\right),\tag{40}
+$$
+
+其中 $\omega_n^{\mathrm{in}}$ 为内环求积权重（蒙特卡洛时均匀取 $1/N$）。归一化重要性权重
+
+$$
+\tilde w_n^{(m)}(w)=\frac{\omega_n^{\mathrm{in}}\exp\left(\ell_{mn}(w)\right)}{\hat p(y^{(m)}\mid w)}\tag{41}
+$$
+
+近似后验 $p(\theta^{(n)}\mid y^{(m)},w)$，并对每个 $m$ 满足 $\sum_n\tilde w_n^{(m)}(w)=1$。其关于 $w_k$ 的梯度由商法则给出：
+
+$$
+\frac{\partial\tilde w_n^{(m)}(w)}{\partial w_k}=\tilde w_n^{(m)}(w)\left[\frac{\partial\ell_{mn}}{\partial w_k}-\sum_{n'}\tilde w_{n'}^{(m)}(w)\frac{\partial\ell_{mn'}}{\partial w_k}\right],\tag{42}
+$$
+
+其中括号内为对数似然梯度的重要性加权均值，这是把梯度经归一化传播所必需的。
+
+### D.3 穿越三个层级的链式法则
+
+（13）的样本平均近似为
+
+$$
+\hat U(w)=\mathcal R^{\mathrm{data}}\left[\mathcal R^{\mathrm{QoI}}\left[\hat d_j(y^{(m)},w)\right]_{j=1}^{Q}\right]_{m=1}^{M},\tag{43}
+$$
+
+其中 $\hat d_j$ 为预测分量 $j$ 与外环样本 $m$ 处的偏差估计。梯度通过依次对每个层级施加链式法则来组装。
+
+1. **第 1 层（偏差）**：对每个预测分量 $j$ 与外环样本 $m$，计算 $\hat d_{jm}(w)$ 及其偏导 $\partial\hat d_{jm}/\partial w_k$（具体偏差类型见 D.5 与 D.4 节）。
+2. **第 2 层（QoI 风险）**：对每个 $m$，把 $\mathcal R^{\mathrm{QoI}}$ 作用于 $(\hat d_{1m},\ldots,\hat d_{Qm})$ 得逐实现标量 $\hat r_m(w)$。链式法则给出 $\partial\hat r_m/\partial w_k=\sum_{j=1}^{Q}\frac{\partial\mathcal R^{\mathrm{QoI}}}{\partial\hat d_{jm}}\cdot\frac{\partial\hat d_{jm}}{\partial w_k}$。对均值 $\partial\mathcal R^{\mathrm{QoI}}/\partial\hat d_{jm}=1/Q$；对 AVaR$_\alpha$，偏导为下文 D.4 节的投影权重 $\pi_{jm}^\ast$；对熵风险 $\frac{1}{\lambda}\log\frac{1}{Q}\sum_je^{\lambda\hat d_{jm}}$，为指数倾斜权重 $e^{\lambda\hat d_{jm}}/\sum_{j'}e^{\lambda\hat d_{j'm}}$。
+3. **第 3 层（数据风险）**：把 $\mathcal R^{\mathrm{data}}$ 作用于 $(\hat r_1,\ldots,\hat r_M)$ 得目标估计 $\hat U(w)$。梯度为 $\partial\hat U/\partial w_k=\sum_{m=1}^{M}\frac{\partial\mathcal R^{\mathrm{data}}}{\partial\hat r_m}\cdot\frac{\partial\hat r_m}{\partial w_k}$，风险度量相关权重同第 2 层。
+
+完整 Jacobian $\nabla_w\hat U(w)$ 只需前向传播中已计算的数量，使梯度代价仅为函数评估代价的常数倍。
+
+### D.4 光滑 AVaR 的求值与梯度
+
+离散分布（样本 $\{f_i\}_{i=1}^{N}$、概率权重 $\{v_i\}_{i=1}^{N}$ 且和为 1）在水平 $\alpha\in[0,1)$ 处的标准 AVaR 为
+
+$$
+\mathrm{AVaR}_\alpha[f]=\mathrm{VaR}_\alpha[f]+\frac{1}{1-\alpha}\sum_{i=1}^{N}v_i\max(0,f_i-\mathrm{VaR}_\alpha[f]),\tag{44}
+$$
+
+其中 $\mathrm{VaR}_\alpha[f]$ 为 $\alpha$-分位数。正部函数 $t\mapsto\max(0,t)$ 使（44）不可微。我们使用对偶（风险包络）表示 [9] 的正则化；也可以改用原始—对偶风险最小化算法 [10] 来避免光滑化。
+
+**对偶表示与光滑化**：精确 AVaR 有对偶表示
+
+$$
+\mathrm{AVaR}_\alpha[f]=\max_{\pi\in\mathcal C_\alpha}\sum_{i=1}^{N}\pi_if_i,\tag{45}
+$$
+
+其中 AVaR 风险包络为 $\mathcal C_\alpha=\left\{\pi\in\mathbb R^N:0\le\pi_i/v_i\le(1-\alpha)^{-1},\ \sum_i\pi_i=1\right\}$。光滑版本为 Moreau–Yosida 近似：
+
+$$
+\widehat{\mathrm{AVaR}}_{\alpha,\delta}(f)=\max_{\pi\in\mathcal C_\alpha}\left\{\sum_{i=1}^{N}\pi_if_i-\frac{1}{2\delta}\sum_{i=1}^{N}\frac{\pi_i^2}{v_i}\right\},\qquad\delta>0.\tag{46}
+$$
+
+$\widehat{\mathrm{AVaR}}_{\alpha,\delta}$ 与 $\mathrm{AVaR}_\alpha$ 的误差为 $O(\delta^{-1})$，故 $\delta\to\infty$ 时 $\widehat{\mathrm{AVaR}}_{\alpha,\delta}\to\mathrm{AVaR}_\alpha$ [9,10]。
+
+**经加权投影计算**：（46）的最大化者是 $s_i=\delta v_if_i$ 在 $V^{-1}$ 加权范数下到 $\mathcal C_\alpha$ 的投影，由加权截断求解：
+
+$$
+\pi_i^\ast=\min\left(\frac{v_i}{1-\alpha},\max(0,s_i-\mu v_i)\right),\tag{47}
+$$
+
+其中强制 $\sum_i\pi_i^\ast=1$ 的 Lagrange 乘子 $\mu$ 通过如下方式求出：对分段线性函数 $\mu\mapsto\sum_i\pi_i^\ast-1$ 的折点排序，再用二分法确定含根的区间。光滑目标的取值为
+
+$$
+\widehat{\mathrm{AVaR}}_{\alpha,\delta}(f)=\sum_{i=1}^{N}\pi_i^\ast f_i-\frac{1}{2\delta}\sum_{i=1}^{N}\frac{(\pi_i^\ast)^2}{v_i}.\tag{48}
+$$
+
+**梯度**：当权重 $v_i$ 不依赖 $w$ 时，梯度为
+
+$$
+\nabla_w\widehat{\mathrm{AVaR}}_{\alpha,\delta}(f)=\sum_{i=1}^{N}\pi_i^\ast\nabla_wf_i.\tag{49}
+$$
+
+当 $v_i=v_i(w)$（设计相关的重要性权重）时，由于二分法活跃集不连续，没有闭式梯度；梯度通过光滑投影的反向模式自动微分传播。全文取 $\delta=10^5$；风险水平 $\alpha$ 在第 5 节按实验指定。
+
+### D.5 特例：Std/Mean/Mean（设计目标 U1）
+
+对 $\mathcal D^{\mathrm{pf}}=\mathrm{Std}$、$\mathcal R^{\mathrm{QoI}}=\mathrm{Mean}$、$\mathcal R^{\mathrm{data}}=\mathrm{Mean}$ 与标量 QoI（$Q=1$），样本平均目标为
+
+$$
+\hat U_1(w)=\sum_{m=1}^{M}\omega_m^{\mathrm{out}}\sigma_m(w),\tag{50}
+$$
+
+其中 $\omega_m^{\mathrm{out}}$ 为外环求积权重，且
+
+$$
+\sigma_m(w)=\sqrt{V_m(w)},\qquad V_m=M_m^{(2)}-\left[M_m^{(1)}\right]^2,\tag{51}
+$$
+
+后验矩为
+
+$$
+M_m^{(p)}(w)=\sum_{n=1}^{N}\tilde w_n^{(m)}(w)f_n^p,\qquad p=1,2,\tag{52}
+$$
+
+$f_n=q(\theta^{(n)})$ 为内环样本 $n$ 处（固定）的 QoI 值。
+
+**矩的梯度**：对（52）求导并代入（42）得
+
+$$
+\frac{\partial M_m^{(p)}}{\partial w_k}=\sum_{n=1}^{N}f_n^p\frac{\partial\tilde w_n^{(m)}(w)}{\partial w_k},\qquad p=1,2.\tag{53}
+$$
+
+**方差与标准差梯度**：由链式法则，
+
+$$
+\frac{\partial V_m}{\partial w_k}=\frac{\partial M_m^{(2)}}{\partial w_k}-2M_m^{(1)}\frac{\partial M_m^{(1)}}{\partial w_k},\tag{54}
+$$
+
+$$
+\frac{\partial\sigma_m}{\partial w_k}=\frac{1}{2\sigma_m}\frac{\partial V_m}{\partial w_k}.\tag{55}
+$$
+
+**目标梯度**：把（50）与（55）结合得
+
+$$
+\frac{\partial\hat U_1}{\partial w_k}=\sum_{m=1}^{M}\omega_m^{\mathrm{out}}\frac{\partial\sigma_m}{\partial w_k}.\tag{56}
+$$
+
+其他偏差度量（方差、熵）的梯度结构相同，只需把 $\sigma_m$ 替换为重要性加权矩的相应泛函。
+
+## 附录 E：对流—扩散实验——区间复现
+
+本附录汇总对流—扩散传感器布局实验（第 5.2 节）在扩散占优（$D=0.1$、$\mathrm{Pe}_h=0.024$）与中等（$D=0.02$、$\mathrm{Pe}_h=0.120$）区间的复现。各区间只在示踪剂扩散率 $D$ 上不同，并以网格 Péclet 数 $\mathrm{Pe}_h=|u|_{\max}h/(2D)$ 概括，其中 $h$ 为局部网格单元尺寸、$|u|_{\max}$ 为 Navier–Stokes 解的最大速度幅值。正文报告的对流占优区间为 $D=0.005$、$\mathrm{Pe}_h=0.484$。每个区间用活跃候选传感器的自助权重箱线图（图 15 与图 16）以及叠加六个优化设计交叉评估的随机设计直方图（图 17 与图 18）记录。
+
+**活跃传感器与自助变异**：扩散占优与中等区间的箱线图（图 15、图 16）复现了对流占优箱线图（图 11）的定性结构：$K=50$ 个候选传感器中的一小部分在每个设计目标下获得几乎全部权重，相对于目标间差距自助箱较窄，且设计目标在主导与次级传感器的选择上都存在分歧。区间变化带来两个定量差异。第一，随着输运更具扩散性，主导的目标导向传感器向上游移动：在对流占优设计中紧邻第一个障碍物之后锚定的传感器 26 失去主导地位，让位于放置在域中更靠左的传感器，这与平流路径的收缩一致。第二，每个活跃传感器处的目标间散布收缩：对流占优区间，单一主导传感器处六个目标导向设计目标的散布接近 $0.4$；中等区间接近 $0.2$；扩散占优区间六个目标导向设计目标把权重集中在相同的两三个传感器上，散布低于 $0.1$。
+
+**KL 与目标导向设计的分离**：在对流占优区间，KL 基线把权重放在每个目标导向设计目标都忽略的传感器上（第 5.3 节）；两组主导传感器互不相交（图 11）。随着输运更具扩散性，这种分离收窄：中等区间 KL 与目标导向的首选传感器不同但部分重叠（图 16）；扩散占优区间 KL 主导传感器与目标导向主导传感器在主选择上重合，分歧仅限次级分配（图 15）。物理机制与上文讨论的传感器移动相同：当扩散拓宽信息区域时，单个传感器可同时约束源参数（KL 所奖励）与下游预测（目标导向设计目标所奖励），故两种“信息”概念不再那么正交。
+
+**失配设计的实际代价**：随机设计直方图（图 17、图 18）显示交叉评估惩罚相应收缩。在对流占优区间（图 12），KL 最优设计在任一目标导向设计目标下评估都深处于随机设计分布内部——与单纯形上的任意分配相当——而六个目标导向设计在 KL 目标下反向亦然。中等区间，KL 最优设计向各目标导向设计目标的随机设计直方图有利边缘移动；其相对匹配最优的惩罚可见，但远小于对流区间。扩散占优区间该惩罚进一步收缩：KL 最优设计与六个目标导向最优在任一设计目标下都位于匹配最优约一个直方图宽度以内，参数导向与预测导向设计之间的交叉评估不对称性减弱。因此，错误指定目标类别在对流占优区间所招致的“定性”错误，随着扩散拓宽每个候选可得的信息而软化为有界的定量误差。
+
+**舍入为可部署的整数预算**：可部署设计需要把连续最优 $w^\star\in\Delta_K$ 舍入为整数测量分配 $n^\star\in\mathbb Z_{\ge0}^K$ 且 $\sum_kn_k^\star=S$，$S$ 为总测量预算。我们建议使用 Hamilton 最大余数分配规则：先给每个传感器 $\lfloor Sw_k^\star\rfloor$ 个测量，再把剩余 $S-\sum_k\lfloor Sw_k^\star\rfloor$ 个测量分配给小数部分 $Sw_k^\star-\lfloor Sw_k^\star\rfloor$ 最大的传感器。图 14 给出对流占优区间中风险厌恶最强的设计目标 U3 在三个预算 $S\in\{5,10,20\}$ 下的结果。最小预算把全部五个测量放在左上的一对传感器上，其中在 U3 集中约 $0.7$ 连续权重的传感器 26 处放多个测量。随着 $S$ 增大，主导传感器的计数先增加，只有当这些站点承载了相称数量的测量后，额外传感器才被激活以填充次级支撑。因此舍入分配从小预算的高度集中过渡到大预算的空间多样化，尊重连续最优的权重层级而无需单独的整数优化。该行为在三个区间定性不变，只是底层连续最优（从而被填充的具体站点）不同。增大 $S$ 先增加主导传感器的测量计数，然后激活额外传感器填充连续最优的次级支撑。
+
+**图 14**：对流占优区间 U3 最优在三个预算 $S\in\{5,10,20\}$ 下的舍入整数测量分配。实心标记：活跃传感器位置，大小表示该位置的整数测量数。
+**图 15**：扩散占优区间（$D=0.1$、$\mathrm{Pe}_h=0.024$）下 30 个重采样训练集上最优传感器权重的自助分布；格式同图 11。
+**图 16**：中等区间（$D=0.02$、$\mathrm{Pe}_h=0.120$）下 30 个重采样训练集上最优传感器权重的自助分布；格式同图 11。
+**图 17**：扩散占优区间（$D=0.1$、$\mathrm{Pe}_h=0.024$）的随机设计直方图与最优交叉评估；格式同图 12。
+**图 18**：中等区间（$D=0.02$、$\mathrm{Pe}_h=0.120$）的随机设计直方图与最优交叉评估；格式同图 12。
+
+## 附录 F：光滑 AVaR 值函数的连续性
+
+本附录验证如下论断：最优光滑 AVaR 路径关于置信参数 $\alpha\in[0,1)$ 连续。设 $f:\Delta_K\to L^1$、$r>0$、$t\in[1,\infty)$，考虑最优值函数
+
+$$
+h(t):=\min_{w\in\Delta_K}\sup_{\theta\in\mathcal A_t}\left\{\mathbb E[\theta f(w)]-\frac{1}{2r}\mathbb E[\theta^2]\right\},
+$$
+
+其中 $\mathcal A_t:=\{\theta\in L^\infty\mid\mathbb E[\theta]=1,\ 0\le\theta\le t\ \text{a.s.}\}$，$L^1$ 与 $L^\infty$ 分别表示绝对可积与本质有界随机变量的 Lebesgue 空间。回顾内层最大化问题是光滑 AVaR 的对偶表示。最终我们将证明 $\alpha\mapsto h(1/(1-\alpha))$ 连续。为此先证明 $h(\cdot)$ 有限、凹且递增，从而连续；目标函数作为连续映射的复合即连续。
+
+首先注意，对任意 $t_1,t_2\in[1,\infty)$ 与 $\lambda\in[0,1]$，有 $\lambda\mathcal A_{t_1}+(1-\lambda)\mathcal A_{t_2}\subseteq\mathcal A_{\lambda t_1+(1-\lambda)t_2}$（左侧为集合的 Minkowski 和）。为证该包含关系，令 $\theta_1\in\mathcal A_{t_1}$、$\theta_2\in\mathcal A_{t_2}$，则 $\mathbb E[\lambda\theta_1+(1-\lambda)\theta_2]=\lambda\mathbb E[\theta_1]+(1-\lambda)\mathbb E[\theta_2]=\lambda+(1-\lambda)=1$，且 $0\le\lambda\theta_1+(1-\lambda)\theta_2\le\lambda t_1+(1-\lambda)t_2$ a.s.，故 $\lambda\theta_1+(1-\lambda)\theta_2\in\mathcal A_{\lambda t_1+(1-\lambda)t_2}$。利用该包含关系可得
+
+$$
+h(\lambda t_1+(1-\lambda)t_2)\ge\min_{w\in\Delta_K}\left\{\mathbb E[(\lambda\theta_1+(1-\lambda)\theta_2)f(w)]-\frac{1}{2r}\mathbb E[(\lambda\theta_1+(1-\lambda)\theta_2)^2]\right\}\ge\min_{w\in\Delta_K}\left\{\lambda\left(\mathbb E[\theta_1f(w)]-\frac{1}{2r}\mathbb E[\theta_1^2]\right)+(1-\lambda)\left(\mathbb E[\theta_2f(w)]-\frac{1}{2r}\mathbb E[\theta_2^2]\right)\right\}
+$$
+
+对任意 $\theta_1\in\mathcal A_{t_1}$、$\theta_2\in\mathcal A_{t_2}$ 与 $\lambda\in[0,1]$ 成立，其中第二个不等式来自 $\theta\mapsto-\frac{1}{2r}\mathbb E[\theta^2]$ 的凹性。对 $\theta_1$、$\theta_2$ 最大化右端，并注意“和的最小值不小于各自最小值之和”即证 $h(\cdot)$ 凹。此外，由于对所有 $t_2\ge t_1\ge1$ 有 $\mathcal A_{t_1}\subseteq\mathcal A_{t_2}$，$\mathcal A_{t_2}$ 上的上确界不小于 $\mathcal A_{t_1}$ 上的上确界，故 $h(\cdot)$ 递增。最后，由于对所有 $w\in\Delta_K$ 有 $f(w)\in L^1$，$h(\cdot)$ 有限；这三条性质保证 $h(\cdot)$ 在 $[1,\infty)$ 上连续。因此 $\alpha\mapsto h(1/(1-\alpha))$ 在 $[0,1)$ 上连续且递增，因为它是连续递增映射的复合。
+
+## 图注与表注
+
+**图 1**：pOED 与 gOED 在带流阻水道中传感器布局的概念比较（含候选传感器位置、受体位置与先验/后验推前分布）。
+**图 2**：对数正态运行示例的观测模型、QoI 映射与后验推前：(a) 参数空间与后验椭圆；(b) 先验与两种设计下的后验推前；(c, d) 后验协方差行列式与推前标准差。
+**图 3**：表 1 三个族的遗憾函数 $v(t)$（对称、AVaR 分段线性、指数）。
+**图 4**：各偏差度量在参考分布上的作用（标准差、AVaR 偏差、熵偏差）。
+**图 5**：运行示例第 1 层标准差度量：联合后验密度与偏差曲面。
+**图 6**：第 2 层 QoI 风险度量：偏差曲面、偏差剖面与聚合曲线。
+**图 7**：第 3 层数据风险度量作用于 $r$ 的概率密度（均值 vs $\mathrm{AVaR}_\beta$）。
+**图 8**：I–G 最优性插值（目标值与最优传感器权重随 $\alpha$ 的变化）。
+**图 9**：对流—扩散基准设置（源场实现与定常速度场）。
+**图 10**：$K=50$ 个候选传感器与 $Q=20$ 个 QoI 受体位置布局（含障碍物）。
+**图 11**：对流占优区间最优传感器权重的自助分布。
+**图 12**：对流占优区间的随机设计直方图与最优交叉评估。
+**图 13**：MC 与 QMC 估计器的 MSE 分解（内环与外环扫描）。
+**图 14**：对流占优区间 U3 最优的舍入整数测量分配（$S=5,10,20$）。
+**图 15**：扩散占优区间最优传感器权重的自助分布。
+**图 16**：中等区间最优传感器权重的自助分布。
+**图 17**：扩散占优区间的随机设计直方图与最优交叉评估。
+**图 18**：中等区间的随机设计直方图与最优交叉评估。
+
+**表注**：表 1 为遗憾、偏差与风险度量三个族（安全裕度、AVaR、熵），见第 3.1 节逐格转录；表 2 为本文使用的命名设计目标 U1—U6 与 KL 基线，见第 5 节逐格转录。算法 1 已按原算法逐行转录。
+
+**本页范围与校对状态：** 本页为从零建立的中文全文译稿，覆盖：摘要与关键词；第 1 节引言（图 1）；第 2 节问题表述（2.1—2.4，式（1）—（7），图 2）；第 3 节风险感知目标导向设计目标（3.1—3.5，式（8）—（14），表 1，图 3—7，脚注 1）；第 4 节估计与优化（4.1—4.3，式（15）—（20），算法 1）；第 5 节数值实验（5.1—5.4，式（21）—（22），表 2，图 8—12）；第 6 节结论；致谢与生成式 AI 声明；参考文献 [1]—[20] 英文原书目；附录 A（式（23）—（31））；附录 B（命题 B.1—B.4，式（32）—（35））；附录 C（式（36），图 13）；附录 D（式（37）—（56））；附录 E（图 14—18）；附录 F（连续性证明）；图 1—18 图注与表注。未完成/未包含：①逐句逐式与 PDF 的终校未做；②图 1—18 图像本体未复制（站点不上传图片），仅中文图注与正文数值；③表 1 已用 PyMuPDF 渲染原 PDF 第 8 页逐格核对，表 2 按抽取文本与版式逐格转录；④作者简介与版权声明不在正文范围，未收录；⑤原文个别记号印刷不一致（如式（19）中 $q_j$ 与 QoI 值 $f_n$ 的用例、附录 D.5 中式（52）的 $\tilde w_n^{(m)}(w)$ 重复括号），译文按上下文整理；⑥本页在我撰写途中被外部进程追加了“登记”页脚与 raw/endraw 标记，我已把全部正文/附录/参考文献插入到该页脚之前，该页脚与 raw/endraw 标记保留在文件末尾。**qa_complete=false。**
 
 ---
 
