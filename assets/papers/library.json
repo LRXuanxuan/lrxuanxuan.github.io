@@ -4,8 +4,8 @@
   "source_sha256": "667f6509c907b3f519f6fb8fb5bebd90ca35d9c2641539ec2bd83988638e4787",
   "translation_progress": {
     "target": 315,
-    "completed": 249,
-    "public_full_text": 241,
+    "completed": 256,
+    "public_full_text": 248,
     "local_only": 12,
     "status_counts": {
       "access_blocked": 3,
@@ -2434,6 +2434,11 @@
           "url": "/papers/translations/2026-10-23-rf-navigation-multipath-2610-08105/",
           "title": "RF 多径不确定性下的具身导航｜中文译稿（待终校）",
           "scope": "6 页：正文 I–V、公式（1）–（16）、图 1–4 说明、表 I–IV、18 条英文参考文献已完整列入；逐段准确性终校未完成。"
+        },
+        {
+          "url": "/papers/translations/2026-10-23-navigation-with-rf-cues-embodied-perception-action-under-multipath-unc-2610-08105/",
+          "title": "RF 线索导航：多径不确定性下的具身感知与行动｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[18]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
         }
       ],
       "links": [
@@ -2448,10 +2453,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/c5e01298c0328f14/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-23-navigation-with-rf-cues-embodied-perception-action-under-multipath-unc-2610-08105/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "28c82c01455d353f",
@@ -2489,6 +2494,11 @@
           "url": "/papers/translations/2026-10-23-rotatable-antennas-imperfect-csi-2605-04775/",
           "title": "可旋转天线双时间尺度设计与不完美 CSI｜中文扩充译稿（待终校）",
           "scope": "13 页：正文 I–VIII、速率代理与部分长公式、wZF 条件干扰及 Schur 补、投影梯度算法、图 1–10、31 条参考文献已补；部分原文子公式和实验叙述尚需逐段终校。"
+        },
+        {
+          "url": "/papers/translations/2026-10-23-two-timescale-design-for-rotatable-antenna-systems-with-imperfect-csi-2605-04775/",
+          "title": "可旋转天线系统的不完美 CSI 双时间尺度设计：速率分析与优化｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[31]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
         }
       ],
       "links": [
@@ -2506,10 +2516,10 @@
       ],
       "hosted_pdfs": [],
       "status": "Early Access",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/28c82c01455d353f/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-23-two-timescale-design-for-rotatable-antenna-systems-with-imperfect-csi-2605-04775/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "db37cdae3a25d2d0",
@@ -2547,6 +2557,11 @@
           "url": "/papers/translations/2026-10-23-digital-twin-geometry-calibration-2607-09334/",
           "title": "数字孪生信道估计：几何与标定不确定性｜中文扩充译稿（待终校）",
           "scope": "16 页：正文 I–VI、公式（1）–（38）、附录 A–B 公式（39）–（59）、表 I–III、图 1–6 说明、33 条参考文献已补；部分正文长段落和书目排版待终校。"
+        },
+        {
+          "url": "/papers/translations/2026-10-23-site-geometry-and-calibration-uncertainties-in-digital-twin-enabled-ch-2607-09334/",
+          "title": "数字孪生信道估计中的站点几何与标定不确定性｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[33]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
         }
       ],
       "links": [
@@ -2564,10 +2579,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/db37cdae3a25d2d0/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-23-site-geometry-and-calibration-uncertainties-in-digital-twin-enabled-ch-2607-09334/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "77bd0ffe935aada3",
@@ -2664,6 +2679,11 @@
           "url": "/papers/translations/2026-10-23-ms-flow-2602-08538/",
           "title": "MS-Flow：流模型逆问题的轨迹拼接｜中文扩充译稿（待终校）",
           "scope": "22 页：正文 1–7、附录 A–J、部分证明与公式（1）–（52）、坐标更新（23）–（25）、ADMM 子问题（48）–（50）、表 1–8、61 条作者年份参考文献已补；未逐式展开的子公式和个别表格细节待终校。"
+        },
+        {
+          "url": "/papers/translations/2026-10-23-trajectory-stitching-for-solving-inverse-problems-with-flow-based-mode-2602-08538/",
+          "title": "基于流模型的逆问题轨迹拼接｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[61]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
         }
       ],
       "links": [
@@ -2679,10 +2699,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/61e3ca79d6c8dda8/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-23-trajectory-stitching-for-solving-inverse-problems-with-flow-based-mode-2602-08538/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "cd2b413146f4cf6d",
@@ -3065,6 +3085,11 @@
           "title": "高速铁路 DD 域测量与建模｜中文全篇译稿（待终校）",
           "scope": "摘要、正文 I–VI、公式（1）–（21）、算法 1、TDDL-A/B/C 模型、图 1–10、表 I–VI、58 条参考文献已录入；独立逐式校对中",
           "url": "/papers/translations/2026-10-21-dd-hsr-2509-25854/"
+        },
+        {
+          "url": "/papers/translations/2026-10-21-delay-doppler-domain-channel-measurements-and-modeling-in-high-speed-r-2509-25854/",
+          "title": "高速铁路时延-多普勒域信道测量与建模｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[58]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
         }
       ],
       "links": [
@@ -3082,10 +3107,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/44c51f88d1ab5473/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-21-delay-doppler-domain-channel-measurements-and-modeling-in-high-speed-r-2509-25854/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "43ba737242163164",
@@ -3183,6 +3208,11 @@
           "title": "一步生成式 CSI 预测｜中文全篇译稿（待终校）",
           "scope": "摘要、正文 I–V、公式（1）–（17）、算法 1–2、图 1–4 说明、表 I–V、参考文献 14 条及资助说明已录入；独立逐式校对中",
           "url": "/papers/translations/2026-10-21-one-step-generative-csi-2609-17033/"
+        },
+        {
+          "url": "/papers/translations/2026-10-21-one-step-generative-csi-prediction-2609-17033/",
+          "title": "一步生成式 CSI 预测｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[14]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
         }
       ],
       "links": [
@@ -3200,10 +3230,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/efb1c2b897f3baec/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-21-one-step-generative-csi-prediction-2609-17033/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "c14464e6257e8788",
@@ -3541,6 +3571,11 @@
           "url": "/papers/translations/2026-10-20-conditional-mean-flows-2610-21657/",
           "title": "条件平均流：面向仿真推断的少步密度估计｜中文译稿（未通过全文 QA）",
           "scope": "编号公式（1）–（11）、完整实验表 1 及补充表 S1–S6、两个命题要点已录入；附录其他证明、参考文献与独立终校待完成"
+        },
+        {
+          "url": "/papers/translations/2026-10-20-conditional-mean-flows-few-step-densities-for-simulation-based-inferen-2610-21657/",
+          "title": "条件均值流：面向仿真推断的少步密度｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、图表说明（书目以原文 PDF 为题名核对入口）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
         }
       ],
       "links": [
@@ -3556,10 +3591,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/93b1bdda4e6c5e02/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-10-20-conditional-mean-flows-few-step-densities-for-simulation-based-inferen-2610-21657/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "fd1f49fccc8f85b4",
@@ -23746,6 +23781,66 @@
       "final_proofread_done": false
     },
     {
+      "date": "2026-10-23",
+      "slug": "2026-10-23-two-timescale-design-for-rotatable-antenna-systems-with-imperfect-csi-2605-04775",
+      "title": "可旋转天线系统的不完美 CSI 双时间尺度设计：速率分析与优化｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[31]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-23-two-timescale-design-for-rotatable-antenna-systems-with-imperfect-csi-2605-04775/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-23-two-timescale-design-for-rotatable-antenna-systems-with-imperfect-csi-2605-04775.md",
+      "paper_ids": [
+        "28c82c01455d353f"
+      ],
+      "source_arxiv_ids": [
+        "2605.04775"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-23",
+      "slug": "2026-10-23-trajectory-stitching-for-solving-inverse-problems-with-flow-based-mode-2602-08538",
+      "title": "基于流模型的逆问题轨迹拼接｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[61]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-23-trajectory-stitching-for-solving-inverse-problems-with-flow-based-mode-2602-08538/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-23-trajectory-stitching-for-solving-inverse-problems-with-flow-based-mode-2602-08538.md",
+      "paper_ids": [
+        "61e3ca79d6c8dda8"
+      ],
+      "source_arxiv_ids": [
+        "2602.08538"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-23",
+      "slug": "2026-10-23-site-geometry-and-calibration-uncertainties-in-digital-twin-enabled-ch-2607-09334",
+      "title": "数字孪生信道估计中的站点几何与标定不确定性｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[33]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-23-site-geometry-and-calibration-uncertainties-in-digital-twin-enabled-ch-2607-09334/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-23-site-geometry-and-calibration-uncertainties-in-digital-twin-enabled-ch-2607-09334.md",
+      "paper_ids": [
+        "db37cdae3a25d2d0"
+      ],
+      "source_arxiv_ids": [
+        "2607.09334"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
       "slug": "2026-10-23-rotatable-antennas-imperfect-csi-2605-04775",
       "title": "可旋转天线双时间尺度设计与不完美 CSI｜中文扩充译稿（待终校）",
       "scope": "13 页：正文 I–VIII、速率代理与部分长公式、wZF 条件干扰及 Schur 补、投影梯度算法、图 1–10、31 条参考文献已补；部分原文子公式和实验叙述尚需逐段终校。",
@@ -23774,6 +23869,26 @@
       "qa_complete": false,
       "external": true,
       "primary_translation": false
+    },
+    {
+      "date": "2026-10-23",
+      "slug": "2026-10-23-navigation-with-rf-cues-embodied-perception-action-under-multipath-unc-2610-08105",
+      "title": "RF 线索导航：多径不确定性下的具身感知与行动｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[18]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-23-navigation-with-rf-cues-embodied-perception-action-under-multipath-unc-2610-08105/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-23-navigation-with-rf-cues-embodied-perception-action-under-multipath-unc-2610-08105.md",
+      "paper_ids": [
+        "c5e01298c0328f14"
+      ],
+      "source_arxiv_ids": [
+        "2610.08105"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
     },
     {
       "slug": "2026-10-23-ms-flow-2602-08538",
@@ -23959,6 +24074,26 @@
     },
     {
       "date": "2026-10-21",
+      "slug": "2026-10-21-one-step-generative-csi-prediction-2609-17033",
+      "title": "一步生成式 CSI 预测｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[14]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-21-one-step-generative-csi-prediction-2609-17033/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-21-one-step-generative-csi-prediction-2609-17033.md",
+      "paper_ids": [
+        "efb1c2b897f3baec"
+      ],
+      "source_arxiv_ids": [
+        "2609.17033"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-21",
       "slug": "2026-10-21-one-step-generative-csi-2609-17033",
       "title": "一步生成式 CSI 预测｜中文全篇译稿（待终校）",
       "url": "/papers/translations/2026-10-21-one-step-generative-csi-2609-17033/",
@@ -23975,6 +24110,26 @@
       "qa_complete": false,
       "external": true,
       "primary_translation": false
+    },
+    {
+      "date": "2026-10-21",
+      "slug": "2026-10-21-delay-doppler-domain-channel-measurements-and-modeling-in-high-speed-r-2509-25854",
+      "title": "高速铁路时延-多普勒域信道测量与建模｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[58]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-21-delay-doppler-domain-channel-measurements-and-modeling-in-high-speed-r-2509-25854/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-21-delay-doppler-domain-channel-measurements-and-modeling-in-high-speed-r-2509-25854.md",
+      "paper_ids": [
+        "44c51f88d1ab5473"
+      ],
+      "source_arxiv_ids": [
+        "2509.25854"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
     },
     {
       "date": "2026-10-21",
@@ -24152,6 +24307,26 @@
       "qa_complete": false,
       "external": true,
       "primary_translation": false
+    },
+    {
+      "date": "2026-10-20",
+      "slug": "2026-10-20-conditional-mean-flows-few-step-densities-for-simulation-based-inferen-2610-21657",
+      "title": "条件均值流：面向仿真推断的少步密度｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、图表说明（书目以原文 PDF 为题名核对入口）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-10-20-conditional-mean-flows-few-step-densities-for-simulation-based-inferen-2610-21657/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-20-conditional-mean-flows-few-step-densities-for-simulation-based-inferen-2610-21657.md",
+      "paper_ids": [
+        "93b1bdda4e6c5e02"
+      ],
+      "source_arxiv_ids": [
+        "2610.21657"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
     },
     {
       "date": "2026-10-20",

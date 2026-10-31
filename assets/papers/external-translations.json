@@ -6365,5 +6365,159 @@
     "coverage": "full",
     "license": "arxiv",
     "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-23",
+    "slug": "2026-10-23-navigation-with-rf-cues-embodied-perception-action-under-multipath-unc-2610-08105",
+    "title": "RF 线索导航：多径不确定性下的具身感知与行动｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[18]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-10-23-navigation-with-rf-cues-embodied-perception-action-under-multipath-unc-2610-08105/",
+    "source_file": "2026-10-23-navigation-with-rf-cues-embodied-perception-action-under-multipath-unc-2610-08105.md",
+    "source_page_path": "papers/translations/2026-10-23-navigation-with-rf-cues-embodied-perception-action-under-multipath-unc-2610-08105.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-23-navigation-with-rf-cues-embodied-perception-action-under-multipath-unc-2610-08105.md",
+    "paper_ids": [
+      "c5e01298c0328f14"
+    ],
+    "source_arxiv_ids": [
+      "2610.08105"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-23",
+    "slug": "2026-10-23-two-timescale-design-for-rotatable-antenna-systems-with-imperfect-csi-2605-04775",
+    "title": "可旋转天线系统的不完美 CSI 双时间尺度设计：速率分析与优化｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[31]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-10-23-two-timescale-design-for-rotatable-antenna-systems-with-imperfect-csi-2605-04775/",
+    "source_file": "2026-10-23-two-timescale-design-for-rotatable-antenna-systems-with-imperfect-csi-2605-04775.md",
+    "source_page_path": "papers/translations/2026-10-23-two-timescale-design-for-rotatable-antenna-systems-with-imperfect-csi-2605-04775.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-23-two-timescale-design-for-rotatable-antenna-systems-with-imperfect-csi-2605-04775.md",
+    "paper_ids": [
+      "28c82c01455d353f"
+    ],
+    "source_arxiv_ids": [
+      "2605.04775"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-23",
+    "slug": "2026-10-23-site-geometry-and-calibration-uncertainties-in-digital-twin-enabled-ch-2607-09334",
+    "title": "数字孪生信道估计中的站点几何与标定不确定性｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[33]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-10-23-site-geometry-and-calibration-uncertainties-in-digital-twin-enabled-ch-2607-09334/",
+    "source_file": "2026-10-23-site-geometry-and-calibration-uncertainties-in-digital-twin-enabled-ch-2607-09334.md",
+    "source_page_path": "papers/translations/2026-10-23-site-geometry-and-calibration-uncertainties-in-digital-twin-enabled-ch-2607-09334.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-23-site-geometry-and-calibration-uncertainties-in-digital-twin-enabled-ch-2607-09334.md",
+    "paper_ids": [
+      "db37cdae3a25d2d0"
+    ],
+    "source_arxiv_ids": [
+      "2607.09334"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-23",
+    "slug": "2026-10-23-trajectory-stitching-for-solving-inverse-problems-with-flow-based-mode-2602-08538",
+    "title": "基于流模型的逆问题轨迹拼接｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[61]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-10-23-trajectory-stitching-for-solving-inverse-problems-with-flow-based-mode-2602-08538/",
+    "source_file": "2026-10-23-trajectory-stitching-for-solving-inverse-problems-with-flow-based-mode-2602-08538.md",
+    "source_page_path": "papers/translations/2026-10-23-trajectory-stitching-for-solving-inverse-problems-with-flow-based-mode-2602-08538.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-23-trajectory-stitching-for-solving-inverse-problems-with-flow-based-mode-2602-08538.md",
+    "paper_ids": [
+      "61e3ca79d6c8dda8"
+    ],
+    "source_arxiv_ids": [
+      "2602.08538"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-21",
+    "slug": "2026-10-21-delay-doppler-domain-channel-measurements-and-modeling-in-high-speed-r-2509-25854",
+    "title": "高速铁路时延-多普勒域信道测量与建模｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[58]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-10-21-delay-doppler-domain-channel-measurements-and-modeling-in-high-speed-r-2509-25854/",
+    "source_file": "2026-10-21-delay-doppler-domain-channel-measurements-and-modeling-in-high-speed-r-2509-25854.md",
+    "source_page_path": "papers/translations/2026-10-21-delay-doppler-domain-channel-measurements-and-modeling-in-high-speed-r-2509-25854.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-21-delay-doppler-domain-channel-measurements-and-modeling-in-high-speed-r-2509-25854.md",
+    "paper_ids": [
+      "44c51f88d1ab5473"
+    ],
+    "source_arxiv_ids": [
+      "2509.25854"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-21",
+    "slug": "2026-10-21-one-step-generative-csi-prediction-2609-17033",
+    "title": "一步生成式 CSI 预测｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[14]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-10-21-one-step-generative-csi-prediction-2609-17033/",
+    "source_file": "2026-10-21-one-step-generative-csi-prediction-2609-17033.md",
+    "source_page_path": "papers/translations/2026-10-21-one-step-generative-csi-prediction-2609-17033.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-21-one-step-generative-csi-prediction-2609-17033.md",
+    "paper_ids": [
+      "efb1c2b897f3baec"
+    ],
+    "source_arxiv_ids": [
+      "2609.17033"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-10-20",
+    "slug": "2026-10-20-conditional-mean-flows-few-step-densities-for-simulation-based-inferen-2610-21657",
+    "title": "条件均值流：面向仿真推断的少步密度｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、图表说明（书目以原文 PDF 为题名核对入口）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-10-20-conditional-mean-flows-few-step-densities-for-simulation-based-inferen-2610-21657/",
+    "source_file": "2026-10-20-conditional-mean-flows-few-step-densities-for-simulation-based-inferen-2610-21657.md",
+    "source_page_path": "papers/translations/2026-10-20-conditional-mean-flows-few-step-densities-for-simulation-based-inferen-2610-21657.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-20-conditional-mean-flows-few-step-densities-for-simulation-based-inferen-2610-21657.md",
+    "paper_ids": [
+      "93b1bdda4e6c5e02"
+    ],
+    "source_arxiv_ids": [
+      "2610.21657"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
   }
 ]

@@ -59,8 +59,12 @@ toc: true
 - [Posterior Flow Matching：后验流匹配｜中文译稿（书目待校）](/papers/translations/2026-10-24-posterior-flow-matching-2610-13994/) · 全文覆盖：摘要、正文各节、结论、附录、图表说明（书目以原文 PDF 为题名核对入口）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
 - [近场 THz 多用户 FTTD 混合波束赋形｜中文主体译稿（待补齐）](/papers/translations/2026-10-24-fttd-near-field-thz-hybrid-beamforming/) · 原 PDF 17 页；正文 I–VI、PWMMSE、FC/SC、低复杂度设计、公式（1）–（56）的主体、算法 1–4、图 1–15、表 I–II 的数据和 40 条书目已纳入；逐式终校未结束。
 - [BCT：流语言模型的贝叶斯一致温度调节｜中文译稿（待终校）](/papers/translations/2026-10-24-bct-bayes-consistent-tempering-2610-27641/) · 全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[36]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
+- [可旋转天线系统的不完美 CSI 双时间尺度设计：速率分析与优化｜中文全文译文](/papers/translations/2026-10-23-two-timescale-design-for-rotatable-antenna-systems-with-imperfect-csi-2605-04775/) · 全文覆盖：摘要、正文各节、结论、英文书目 [1]–[31]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
+- [基于流模型的逆问题轨迹拼接｜中文全文译文](/papers/translations/2026-10-23-trajectory-stitching-for-solving-inverse-problems-with-flow-based-mode-2602-08538/) · 全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[61]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
+- [数字孪生信道估计中的站点几何与标定不确定性｜中文全文译文](/papers/translations/2026-10-23-site-geometry-and-calibration-uncertainties-in-digital-twin-enabled-ch-2607-09334/) · 全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[33]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
 - [可旋转天线双时间尺度设计与不完美 CSI｜中文扩充译稿（待终校）](/papers/translations/2026-10-23-rotatable-antennas-imperfect-csi-2605-04775/) · 13 页：正文 I–VIII、速率代理与部分长公式、wZF 条件干扰及 Schur 补、投影梯度算法、图 1–10、31 条参考文献已补；部分原文子公式和实验叙述尚需逐段终校。
 - [RF 多径不确定性下的具身导航｜中文译稿（待终校）](/papers/translations/2026-10-23-rf-navigation-multipath-2610-08105/) · 6 页：正文 I–V、公式（1）–（16）、图 1–4 说明、表 I–IV、18 条英文参考文献已完整列入；逐段准确性终校未完成。
+- [RF 线索导航：多径不确定性下的具身感知与行动｜中文全文译文](/papers/translations/2026-10-23-navigation-with-rf-cues-embodied-perception-action-under-multipath-unc-2610-08105/) · 全文覆盖：摘要、正文各节、结论、英文书目 [1]–[18]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
 - [MS-Flow：流模型逆问题的轨迹拼接｜中文扩充译稿（待终校）](/papers/translations/2026-10-23-ms-flow-2602-08538/) · 22 页：正文 1–7、附录 A–J、部分证明与公式（1）–（52）、坐标更新（23）–（25）、ADMM 子问题（48）–（50）、表 1–8、61 条作者年份参考文献已补；未逐式展开的子公式和个别表格细节待终校。
 - [数字孪生信道估计：几何与标定不确定性｜中文扩充译稿（待终校）](/papers/translations/2026-10-23-digital-twin-geometry-calibration-2607-09334/) · 16 页：正文 I–VI、公式（1）–（38）、附录 A–B 公式（39）–（59）、表 I–III、图 1–6 说明、33 条参考文献已补；部分正文长段落和书目排版待终校。
 - [Deep Bayesian REFoCUS：超声多基地数据的流匹配后验恢复｜中文全文译文](/papers/translations/2026-10-23-deep-bayesian-refocus-2610-03419/) · 全文覆盖：摘要、正文各节、结论、英文书目 [1]–[46]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
@@ -71,7 +75,9 @@ toc: true
 - [非均匀导频连续时间 Transformer 信道预测｜中文部分译稿](/papers/translations/2026-10-22-continuous-time-transformer-nonuniform-pilots/) · 16 页：摘要、正文 I–VI、编号公式（1）–（32）主体、表 I–XI、图 1–9 说明、附录推论证明、英文参考文献 64 条已录入；终校未完成
 - [用于信道预测的时空电磁核学习｜中文全文译文](/papers/translations/2026-10-21-spatiotemporal-em-kernel-channel-prediction/) · 全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[59]；许可：arXiv 预印本（正式版 DOI: 10.1109/TWC.2025.3635412，以预印本翻译）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
 - [PnP-CF：面向一般逆问题的共识流匹配求解器｜中文全文译文](/papers/translations/2026-10-21-pnp-cf-2610-26000/) · 全文覆盖：摘要、正文各节、结论、附录、图表说明（书目以原文 PDF 为题名核对入口，页内已注明）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
+- [一步生成式 CSI 预测｜中文全文译文](/papers/translations/2026-10-21-one-step-generative-csi-prediction-2609-17033/) · 全文覆盖：摘要、正文各节、结论、英文书目 [1]–[14]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
 - [一步生成式 CSI 预测｜中文全篇译稿（待终校）](/papers/translations/2026-10-21-one-step-generative-csi-2609-17033/) · 摘要、正文 I–V、公式（1）–（17）、算法 1–2、图 1–4 说明、表 I–V、参考文献 14 条及资助说明已录入；独立逐式校对中
+- [高速铁路时延-多普勒域信道测量与建模｜中文全文译文](/papers/translations/2026-10-21-delay-doppler-domain-channel-measurements-and-modeling-in-high-speed-r-2509-25854/) · 全文覆盖：摘要、正文各节、结论、英文书目 [1]–[58]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
 - [高速铁路 DD 域测量与建模｜中文全篇译稿（待终校）](/papers/translations/2026-10-21-dd-hsr-2509-25854/) · 摘要、正文 I–VI、公式（1）–（21）、算法 1、TDDL-A/B/C 模型、图 1–10、表 I–VI、58 条参考文献已录入；独立逐式校对中
 - [信道老化与多普勒杂波对 OFDM ISAC 系统的影响｜中文全文译文](/papers/translations/2026-10-21-channel-aging-clutter-isac-2601-05032/) · 全文覆盖：摘要、正文各节、结论、英文书目 [1]–[59]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
 - [无线信号场景重建：物理表征与扩散后验推断｜中文全文译文](/papers/translations/2026-10-20-wireless-scene-reconstruction-diffusion-2610-22120/) · 全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[29]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
@@ -81,6 +87,7 @@ toc: true
 - [散射环境感知的多用户联合信道估计与定位｜中文全文译文](/papers/translations/2026-10-20-mu-scattering-aware-pilot-reuse-2501-02252/) · 全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[31]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
 - [FactorDPS 无线电地图张量补全｜中文译稿（未通过全文 QA）](/papers/translations/2026-10-20-factordps-radio-map-2610-15980/) · 编号公式（1）–（38）、FactorDPS 算法、可恢复性定理及完整表 I–XI 已录入；附录其他长证明、参考文献与独立终校待完成
 - [跨帧 OTFS 超高速移动信道估计｜中文逐节译稿（未通过全文 QA）](/papers/translations/2026-10-20-cross-frame-otfs-ultra-high-mobility/) · 正文及附录编号公式（1）–（53）、表 I–V、算法 1、参考文献与作者简介已录入；保留表格原文参数不一致提示；尚未完成独立逐句逐式终校
+- [条件均值流：面向仿真推断的少步密度｜中文全文译文](/papers/translations/2026-10-20-conditional-mean-flows-few-step-densities-for-simulation-based-inferen-2610-21657/) · 全文覆盖：摘要、正文各节、结论、附录、图表说明（书目以原文 PDF 为题名核对入口）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
 - [条件平均流：面向仿真推断的少步密度估计｜中文译稿（未通过全文 QA）](/papers/translations/2026-10-20-conditional-mean-flows-2610-21657/) · 编号公式（1）–（11）、完整实验表 1 及补充表 S1–S6、两个命题要点已录入；附录其他证明、参考文献与独立终校待完成
 - [基于加权随机森林的 6G 室内定位算法｜中文译稿（待终校）](/papers/translations/2026-10-19-weighted-random-forest-indoor-2208-10007/) · 摘要、正文 I–V、公式（1）–（4）、算法 1–2、图 1–6、表 I–III、20 条参考文献及致谢；逐式终校中，未通过全文 QA
 - [LoS/NLoS 识别辅助的室内 MIMO 定位方法｜中文逐节译稿（校对中）](/papers/translations/2026-10-19-los-nlos-iapm-tcomm2025/) · 摘要、正文 I–VI、公式（1）–（38）、图 1–15 说明、表 I–VIII 完整数据、58 条参考文献中文题名及作者简介；逐页逐式终校中，未通过全文 QA
