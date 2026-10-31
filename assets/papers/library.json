@@ -4,8 +4,8 @@
   "source_sha256": "667f6509c907b3f519f6fb8fb5bebd90ca35d9c2641539ec2bd83988638e4787",
   "translation_progress": {
     "target": 315,
-    "completed": 172,
-    "public_full_text": 163,
+    "completed": 179,
+    "public_full_text": 170,
     "local_only": 12,
     "status_counts": {
       "access_blocked": 3,
@@ -16009,7 +16009,13 @@
       "report_entry_url": "/papers/reports/2026-09-20/#paper-8fbe6b9650945281",
       "paper_url": "/papers/items/8fbe6b9650945281/",
       "paper_report_url": "/papers/items/8fbe6b9650945281/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-20-2609-08482-a-foundation-model-for-large-scale-wireless-network-planning-operation/",
+          "title": "面向大规模无线网络规划与运维的基础模型｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[39]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.08482",
         "https://arxiv.org/abs/2609.08482",
@@ -16021,10 +16027,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/8fbe6b9650945281/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-20-2609-08482-a-foundation-model-for-large-scale-wireless-network-planning-operation/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "3b08e5da92d95b3b",
@@ -16057,7 +16063,13 @@
       "report_entry_url": "/papers/reports/2026-09-20/#paper-3b08e5da92d95b3b",
       "paper_url": "/papers/items/3b08e5da92d95b3b/",
       "paper_report_url": "/papers/items/3b08e5da92d95b3b/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-20-2609-04004-on-the-impact-of-site-specific-training-for-a-real-world-5g-nr-system/",
+          "title": "站点特定训练对真实 5G NR 系统的影响｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[26]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.04004",
         "https://arxiv.org/abs/2609.04004",
@@ -16072,10 +16084,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/3b08e5da92d95b3b/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-20-2609-04004-on-the-impact-of-site-specific-training-for-a-real-world-5g-nr-system/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "d3356c685e57e5cc",
@@ -16108,7 +16120,13 @@
       "report_entry_url": "/papers/reports/2026-09-20/#paper-d3356c685e57e5cc",
       "paper_url": "/papers/items/d3356c685e57e5cc/",
       "paper_report_url": "/papers/items/d3356c685e57e5cc/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-20-2609-01074-otfs-channel-estimation-utilizing-sparse-bayesian-generative-modelling/",
+          "title": "利用稀疏贝叶斯生成建模的 OTFS 信道估计｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[14]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.01074",
         "https://arxiv.org/abs/2609.01074",
@@ -16120,10 +16138,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/d3356c685e57e5cc/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-20-2609-01074-otfs-channel-estimation-utilizing-sparse-bayesian-generative-modelling/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "4a83ca67c5c2a663",
@@ -16156,7 +16174,13 @@
       "report_entry_url": "/papers/reports/2026-09-20/#paper-4a83ca67c5c2a663",
       "paper_url": "/papers/items/4a83ca67c5c2a663/",
       "paper_report_url": "/papers/items/4a83ca67c5c2a663/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-20-2609-01220-how-much-training-is-needed-with-a-digital-twin/",
+          "title": "数字孪生需要多少训练数据？｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[60]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.01220",
         "https://arxiv.org/abs/2609.01220"
@@ -16167,10 +16191,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/4a83ca67c5c2a663/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-20-2609-01220-how-much-training-is-needed-with-a-digital-twin/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "8cf9dc565c9d7241",
@@ -16203,7 +16227,13 @@
       "report_entry_url": "/papers/reports/2026-09-20/#paper-8cf9dc565c9d7241",
       "paper_url": "/papers/items/8cf9dc565c9d7241/",
       "paper_report_url": "/papers/items/8cf9dc565c9d7241/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-20-2609-20769-flowsgs-improving-flow-matching-priors-for-inverse-imaging-with-stocha/",
+          "title": "FlowSGS：用随机插值改进逆成像流匹配先验｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[68]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.20769",
         "https://arxiv.org/abs/2609.20769",
@@ -16215,10 +16245,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/8cf9dc565c9d7241/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-20-2609-20769-flowsgs-improving-flow-matching-priors-for-inverse-imaging-with-stocha/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "44e4938426086ed1",
@@ -16351,7 +16381,13 @@
       "report_entry_url": "/papers/reports/2026-09-18/#paper-4b9e56a579c0e989",
       "paper_url": "/papers/items/4b9e56a579c0e989/",
       "paper_report_url": "/papers/items/4b9e56a579c0e989/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-18-2609-00679-harmocore-functional-latent-diffusion-for-sparse-reconstruction-of-osc/",
+          "title": "HarmoCore：骨稀疏重建的函数潜扩散｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[32]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.00679",
         "https://arxiv.org/abs/2609.00679",
@@ -16363,10 +16399,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/4b9e56a579c0e989/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-18-2609-00679-harmocore-functional-latent-diffusion-for-sparse-reconstruction-of-osc/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "a0b27791ab412699",
@@ -16399,7 +16435,13 @@
       "report_entry_url": "/papers/reports/2026-09-18/#paper-a0b27791ab412699",
       "paper_url": "/papers/items/a0b27791ab412699/",
       "paper_report_url": "/papers/items/a0b27791ab412699/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-18-2608-15144-a-posterior-dynamics-framework-for-imaging-inverse-problems-with-pretr/",
+          "title": "预训练模型下成像逆问题的后验动力学框架｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[49]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2608.15144",
         "https://arxiv.org/abs/2608.15144"
@@ -16410,10 +16452,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/a0b27791ab412699/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-18-2608-15144-a-posterior-dynamics-framework-for-imaging-inverse-problems-with-pretr/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "90965c3b3b928369",
@@ -22400,7 +22442,7 @@
       "date": "2026-10-31",
       "slug": "2026-10-31-preconditioned-flow-matching-2603-02337",
       "title": "Preconditioned Flow Matching：预条件流匹配｜中文全文译稿（待逐字终校）",
-      "scope": "原文 45 页；正文 1–6、附录 A–K、189 个编号公式、图 1–19、表 1–10 和全部 45 条英文原始书目已补齐；原译逐自然段与每个数学字符、无编号公式及图内文字的严格终校尚未通过。",
+      "scope": "原文 45 页；正文、附录 A–K、189 个编号公式、图 1–19 的文字说明、表 1–10 与 45 条英文书目已录入，但论文多处为结构化中文整理，尚未完成每个原文自然段与译稿的一对一终校；公式编号覆盖不等于逐字符一致。",
       "url": "/papers/translations/2026-10-31-preconditioned-flow-matching-2603-02337/",
       "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-31-preconditioned-flow-matching-2603-02337.md",
       "paper_ids": [],
@@ -22410,7 +22452,7 @@
       "qa_complete": false,
       "external": true,
       "primary_translation": false,
-      "coverage": "full",
+      "coverage": "partial",
       "license": "arxiv",
       "final_proofread_done": false
     },
@@ -22435,8 +22477,8 @@
     {
       "date": "2026-10-31",
       "slug": "2026-10-31-double-flow-npe-2610-35442",
-      "title": "DF-NPE：面向智能体模型的双流神经后验估计｜中文部分译稿",
-      "scope": "原文 28 页；摘要、引言、双流框架、方法公式与部分数值实验已翻译；实验后半、附录及完整书目待补，非全文。",
+      "title": "DF-NPE：面向基于智能体模型的双流神经后验估计｜中文译稿（待严格终校）",
+      "scope": "原文 28 页；本轮补译正文算法 1 的逐指令步骤、附录 A–D、附录公式 A.1/B.1–B.3/D.1–D.2、附录表 A.1/B.1/C.1–C.3/D.1–D.2，并录入 34 条英文参考文献；仍需正文每一自然段和未编号公式的完整逐项语义终校。",
       "url": "/papers/translations/2026-10-31-double-flow-npe-2610-35442/",
       "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-31-double-flow-npe-2610-35442.md",
       "paper_ids": [],
@@ -26796,6 +26838,146 @@
       ],
       "source_arxiv_ids": [
         "2609.24119"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-20",
+      "slug": "2026-09-20-2609-20769-flowsgs-improving-flow-matching-priors-for-inverse-imaging-with-stocha",
+      "title": "FlowSGS：用随机插值改进逆成像流匹配先验｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[68]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-20-2609-20769-flowsgs-improving-flow-matching-priors-for-inverse-imaging-with-stocha/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-20-2609-20769-flowsgs-improving-flow-matching-priors-for-inverse-imaging-with-stocha.md",
+      "paper_ids": [
+        "8cf9dc565c9d7241"
+      ],
+      "source_arxiv_ids": [
+        "2609.20769"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-20",
+      "slug": "2026-09-20-2609-08482-a-foundation-model-for-large-scale-wireless-network-planning-operation",
+      "title": "面向大规模无线网络规划与运维的基础模型｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[39]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-20-2609-08482-a-foundation-model-for-large-scale-wireless-network-planning-operation/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-20-2609-08482-a-foundation-model-for-large-scale-wireless-network-planning-operation.md",
+      "paper_ids": [
+        "8fbe6b9650945281"
+      ],
+      "source_arxiv_ids": [
+        "2609.08482"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-20",
+      "slug": "2026-09-20-2609-04004-on-the-impact-of-site-specific-training-for-a-real-world-5g-nr-system",
+      "title": "站点特定训练对真实 5G NR 系统的影响｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[26]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-20-2609-04004-on-the-impact-of-site-specific-training-for-a-real-world-5g-nr-system/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-20-2609-04004-on-the-impact-of-site-specific-training-for-a-real-world-5g-nr-system.md",
+      "paper_ids": [
+        "3b08e5da92d95b3b"
+      ],
+      "source_arxiv_ids": [
+        "2609.04004"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-20",
+      "slug": "2026-09-20-2609-01220-how-much-training-is-needed-with-a-digital-twin",
+      "title": "数字孪生需要多少训练数据？｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[60]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-20-2609-01220-how-much-training-is-needed-with-a-digital-twin/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-20-2609-01220-how-much-training-is-needed-with-a-digital-twin.md",
+      "paper_ids": [
+        "4a83ca67c5c2a663"
+      ],
+      "source_arxiv_ids": [
+        "2609.01220"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-20",
+      "slug": "2026-09-20-2609-01074-otfs-channel-estimation-utilizing-sparse-bayesian-generative-modelling",
+      "title": "利用稀疏贝叶斯生成建模的 OTFS 信道估计｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[14]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-20-2609-01074-otfs-channel-estimation-utilizing-sparse-bayesian-generative-modelling/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-20-2609-01074-otfs-channel-estimation-utilizing-sparse-bayesian-generative-modelling.md",
+      "paper_ids": [
+        "d3356c685e57e5cc"
+      ],
+      "source_arxiv_ids": [
+        "2609.01074"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-18",
+      "slug": "2026-09-18-2609-00679-harmocore-functional-latent-diffusion-for-sparse-reconstruction-of-osc",
+      "title": "HarmoCore：骨稀疏重建的函数潜扩散｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[32]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-18-2609-00679-harmocore-functional-latent-diffusion-for-sparse-reconstruction-of-osc/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-18-2609-00679-harmocore-functional-latent-diffusion-for-sparse-reconstruction-of-osc.md",
+      "paper_ids": [
+        "4b9e56a579c0e989"
+      ],
+      "source_arxiv_ids": [
+        "2609.00679"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-18",
+      "slug": "2026-09-18-2608-15144-a-posterior-dynamics-framework-for-imaging-inverse-problems-with-pretr",
+      "title": "预训练模型下成像逆问题的后验动力学框架｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[49]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-18-2608-15144-a-posterior-dynamics-framework-for-imaging-inverse-problems-with-pretr/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-18-2608-15144-a-posterior-dynamics-framework-for-imaging-inverse-problems-with-pretr.md",
+      "paper_ids": [
+        "a0b27791ab412699"
+      ],
+      "source_arxiv_ids": [
+        "2608.15144"
       ],
       "qa_complete": true,
       "external": true,
