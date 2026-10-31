@@ -4,8 +4,8 @@
   "source_sha256": "667f6509c907b3f519f6fb8fb5bebd90ca35d9c2641539ec2bd83988638e4787",
   "translation_progress": {
     "target": 315,
-    "completed": 188,
-    "public_full_text": 179,
+    "completed": 195,
+    "public_full_text": 187,
     "local_only": 12,
     "status_counts": {
       "access_blocked": 3,
@@ -12799,7 +12799,13 @@
       "report_entry_url": "/papers/reports/2026-09-28/#paper-e20b58b971f0cfd7",
       "paper_url": "/papers/items/e20b58b971f0cfd7/",
       "paper_report_url": "/papers/items/e20b58b971f0cfd7/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-28-2609-06361-a-graph-foundation-model-for-large-scale-mimo-detection/",
+          "title": "大规模 MIMO 检测的图基础模型｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[51]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.06361",
         "https://arxiv.org/abs/2609.06361"
@@ -12810,10 +12816,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/e20b58b971f0cfd7/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-28-2609-06361-a-graph-foundation-model-for-large-scale-mimo-detection/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "db25f5994cd60640",
@@ -12946,7 +12952,13 @@
       "report_entry_url": "/papers/reports/2026-09-28/#paper-113248064348a34c",
       "paper_url": "/papers/items/113248064348a34c/",
       "paper_report_url": "/papers/items/113248064348a34c/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-28-2609-18580-qubo-formulations-of-the-downlink-mimo-scheduling-problem-in-5g-base-s/",
+          "title": "下行 MIMO 调度的 QUBO 建模｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[28]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.18580",
         "https://arxiv.org/abs/2609.18580"
@@ -12957,10 +12969,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/113248064348a34c/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-28-2609-18580-qubo-formulations-of-the-downlink-mimo-scheduling-problem-in-5g-base-s/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "b4efda7fab668f1f",
@@ -13040,7 +13052,13 @@
       "report_entry_url": "/papers/reports/2026-09-28/#paper-743e257366f3c1bd",
       "paper_url": "/papers/items/743e257366f3c1bd/",
       "paper_report_url": "/papers/items/743e257366f3c1bd/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-09-28-2609-22756-two-stage-refinement-sparse-channel-estimation-for-reconfigurable-inte/",
+          "title": "RIS 两阶段细化稀疏信道估计｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[53]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.22756",
         "https://arxiv.org/abs/2609.22756"
@@ -13051,10 +13069,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/743e257366f3c1bd/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-09-28-2609-22756-two-stage-refinement-sparse-channel-estimation-for-reconfigurable-inte/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "1e048eb88aa75232",
@@ -20385,7 +20403,13 @@
       "report_entry_url": "/papers/reports/2026-07-16/#paper-7f07ae93a51d317e",
       "paper_url": "/papers/items/7f07ae93a51d317e/",
       "paper_report_url": "/papers/items/7f07ae93a51d317e/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-07-16-2509-19300-car-flow-condition-aware-reparameterization-aligns-source-and-target-f/",
+          "title": "CAR-Flow：条件感知重参数化对齐源与目标｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、附录、图表说明（书目以原文 PDF 为题名核对入口）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://papers.nips.cc/paper_files/paper/2025/file/8838314582eb031f55aee65a703e76c5-Paper-Conference.pdf",
         "https://machinelearning.apple.com/research/car-flow",
@@ -20397,10 +20421,10 @@
       ],
       "hosted_pdfs": [],
       "status": "历史记录未明确",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/7f07ae93a51d317e/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-07-16-2509-19300-car-flow-condition-aware-reparameterization-aligns-source-and-target-f/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "32099465209a8e56",
@@ -21370,7 +21394,13 @@
       "report_entry_url": "/papers/items/dc124267e48719cb/#paper-report",
       "paper_url": "/papers/items/dc124267e48719cb/",
       "paper_report_url": "/papers/items/dc124267e48719cb/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-07-12-2507-12166-radiodiff-3d-a-3d-3d-radio-map-dataset-and-generative-diffusion-based/",
+          "title": "RadioDiff-3D：三维无线电地图数据集与生成扩散｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[71]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2507.12166",
         "https://arxiv.org/abs/2507.12166",
@@ -21389,10 +21419,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/dc124267e48719cb/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-07-12-2507-12166-radiodiff-3d-a-3d-3d-radio-map-dataset-and-generative-diffusion-based/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "9fbabb9ea67e23ff",
@@ -21479,7 +21509,13 @@
       "report_entry_url": "/papers/items/870d5593d1b05f78/#paper-report",
       "paper_url": "/papers/items/870d5593d1b05f78/",
       "paper_report_url": "/papers/items/870d5593d1b05f78/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-07-12-2503-12004-wifi-diffusion-achieving-fine-grained-wifi-radio-map-estimation-with-u/",
+          "title": "WiFi-Diffusion：细粒度 WiFi 无线电地图估计｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[34]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2503.12004",
         "https://arxiv.org/abs/2503.12004",
@@ -21498,10 +21534,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/870d5593d1b05f78/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-07-12-2503-12004-wifi-diffusion-achieving-fine-grained-wifi-radio-map-estimation-with-u/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "db2cce36b933a85f",
@@ -21534,7 +21570,13 @@
       "report_entry_url": "/papers/items/db2cce36b933a85f/#paper-report",
       "paper_url": "/papers/items/db2cce36b933a85f/",
       "paper_report_url": "/papers/items/db2cce36b933a85f/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-07-12-2506-22796-channel-knowledge-map-assisted-dual-domain-tracking-and-predictive-bea/",
+          "title": "CKM 辅助的双域跟踪与预测波束赋形｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[53]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2506.22796",
         "https://arxiv.org/abs/2506.22796",
@@ -21550,10 +21592,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/db2cce36b933a85f/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-07-12-2506-22796-channel-knowledge-map-assisted-dual-domain-tracking-and-predictive-bea/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "f25af54ef5c30a81",
@@ -21586,7 +21628,13 @@
       "report_entry_url": "/papers/items/f25af54ef5c30a81/#paper-report",
       "paper_url": "/papers/items/f25af54ef5c30a81/",
       "paper_report_url": "/papers/items/f25af54ef5c30a81/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-07-12-2601-10207-beamckmdiff-beam-aware-channel-knowledge-map-construction-via-diffusio/",
+          "title": "BeamCKMDiff：波束感知信道知识地图的扩散构建｜中文全文译文",
+          "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[16]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2601.10207",
         "https://arxiv.org/abs/2601.10207",
@@ -21602,9 +21650,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/f25af54ef5c30a81/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-07-12-2601-10207-beamckmdiff-beam-aware-channel-knowledge-map-construction-via-diffusio/",
+      "full_translation_label": "全文中文译文（已完成）"
     },
     {
       "id": "d7eb6567cc13c90c",
@@ -26362,6 +26410,26 @@
     },
     {
       "date": "2026-09-28",
+      "slug": "2026-09-28-2609-22756-two-stage-refinement-sparse-channel-estimation-for-reconfigurable-inte",
+      "title": "RIS 两阶段细化稀疏信道估计｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[53]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-28-2609-22756-two-stage-refinement-sparse-channel-estimation-for-reconfigurable-inte/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-28-2609-22756-two-stage-refinement-sparse-channel-estimation-for-reconfigurable-inte.md",
+      "paper_ids": [
+        "743e257366f3c1bd"
+      ],
+      "source_arxiv_ids": [
+        "2609.22756"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-28",
       "slug": "2026-09-28-2609-20581-limits-of-confidence-in-diffusion",
       "title": "扩散模型置信度的极限｜中文全文译文",
       "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[19]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
@@ -26382,6 +26450,26 @@
     },
     {
       "date": "2026-09-28",
+      "slug": "2026-09-28-2609-18580-qubo-formulations-of-the-downlink-mimo-scheduling-problem-in-5g-base-s",
+      "title": "下行 MIMO 调度的 QUBO 建模｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[28]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-28-2609-18580-qubo-formulations-of-the-downlink-mimo-scheduling-problem-in-5g-base-s/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-28-2609-18580-qubo-formulations-of-the-downlink-mimo-scheduling-problem-in-5g-base-s.md",
+      "paper_ids": [
+        "113248064348a34c"
+      ],
+      "source_arxiv_ids": [
+        "2609.18580"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-28",
       "slug": "2026-09-28-2609-17691-accelerating-diffusion-sampling-via-speculative-draft-trees",
       "title": "通过推测性草稿树加速扩散采样｜中文全文译文",
       "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[84]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
@@ -26392,6 +26480,26 @@
       ],
       "source_arxiv_ids": [
         "2609.17691"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-28",
+      "slug": "2026-09-28-2609-06361-a-graph-foundation-model-for-large-scale-mimo-detection",
+      "title": "大规模 MIMO 检测的图基础模型｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[51]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-09-28-2609-06361-a-graph-foundation-model-for-large-scale-mimo-detection/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-28-2609-06361-a-graph-foundation-model-for-large-scale-mimo-detection.md",
+      "paper_ids": [
+        "e20b58b971f0cfd7"
+      ],
+      "source_arxiv_ids": [
+        "2609.06361"
       ],
       "qa_complete": true,
       "external": true,
@@ -27261,6 +27369,26 @@
       "final_proofread_done": false
     },
     {
+      "date": "2026-07-16",
+      "slug": "2026-07-16-2509-19300-car-flow-condition-aware-reparameterization-aligns-source-and-target-f",
+      "title": "CAR-Flow：条件感知重参数化对齐源与目标｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、附录、图表说明（书目以原文 PDF 为题名核对入口）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-07-16-2509-19300-car-flow-condition-aware-reparameterization-aligns-source-and-target-f/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-07-16-2509-19300-car-flow-condition-aware-reparameterization-aligns-source-and-target-f.md",
+      "paper_ids": [
+        "7f07ae93a51d317e"
+      ],
+      "source_arxiv_ids": [
+        "2509.19300"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
       "date": "2026-07-15",
       "url": "/papers/translations/2026-07-15-bd02b443/",
       "slug": "2026-07-15-bd02b443",
@@ -27295,6 +27423,86 @@
       "scope": "摘要与引言 / 历史译文说明",
       "title": "2026-07-13 论文翻译与研究启示",
       "download": "/assets/papers/translations/2026-07-13-06fee7b2.md"
+    },
+    {
+      "date": "2026-07-12",
+      "slug": "2026-07-12-2601-10207-beamckmdiff-beam-aware-channel-knowledge-map-construction-via-diffusio",
+      "title": "BeamCKMDiff：波束感知信道知识地图的扩散构建｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[16]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-07-12-2601-10207-beamckmdiff-beam-aware-channel-knowledge-map-construction-via-diffusio/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-07-12-2601-10207-beamckmdiff-beam-aware-channel-knowledge-map-construction-via-diffusio.md",
+      "paper_ids": [
+        "f25af54ef5c30a81"
+      ],
+      "source_arxiv_ids": [
+        "2601.10207"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-07-12",
+      "slug": "2026-07-12-2507-12166-radiodiff-3d-a-3d-3d-radio-map-dataset-and-generative-diffusion-based",
+      "title": "RadioDiff-3D：三维无线电地图数据集与生成扩散｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[71]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-07-12-2507-12166-radiodiff-3d-a-3d-3d-radio-map-dataset-and-generative-diffusion-based/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-07-12-2507-12166-radiodiff-3d-a-3d-3d-radio-map-dataset-and-generative-diffusion-based.md",
+      "paper_ids": [
+        "dc124267e48719cb"
+      ],
+      "source_arxiv_ids": [
+        "2507.12166"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-07-12",
+      "slug": "2026-07-12-2506-22796-channel-knowledge-map-assisted-dual-domain-tracking-and-predictive-bea",
+      "title": "CKM 辅助的双域跟踪与预测波束赋形｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[53]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-07-12-2506-22796-channel-knowledge-map-assisted-dual-domain-tracking-and-predictive-bea/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-07-12-2506-22796-channel-knowledge-map-assisted-dual-domain-tracking-and-predictive-bea.md",
+      "paper_ids": [
+        "db2cce36b933a85f"
+      ],
+      "source_arxiv_ids": [
+        "2506.22796"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-07-12",
+      "slug": "2026-07-12-2503-12004-wifi-diffusion-achieving-fine-grained-wifi-radio-map-estimation-with-u",
+      "title": "WiFi-Diffusion：细粒度 WiFi 无线电地图估计｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[34]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-07-12-2503-12004-wifi-diffusion-achieving-fine-grained-wifi-radio-map-estimation-with-u/",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-07-12-2503-12004-wifi-diffusion-achieving-fine-grained-wifi-radio-map-estimation-with-u.md",
+      "paper_ids": [
+        "870d5593d1b05f78"
+      ],
+      "source_arxiv_ids": [
+        "2503.12004"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
     },
     {
       "date": "2026-07-11",
