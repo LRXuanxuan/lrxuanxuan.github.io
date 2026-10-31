@@ -473,90 +473,90 @@ $$
 
 下面证明条件流匹配目标的标准条件均值刻画。令
 
-$
+$$
 Y:=v_t^\star(\mathbf x_0,\mathbf x_1),\qquad X:=(\mathbf x_t,t). \tag{25}
-$
+$$
 
 总体目标可以写为
 
-$
+$$
 \mathcal L(g)=\mathbb E[\|g(X)-Y\|^2]. \tag{26}
-$
+$$
 
 定义
 
-$
+$$
 g^\star(X):=\mathbb E[Y\mid X]. \tag{27}
-$
+$$
 
 则
 
-$
+$$
 Y=g^\star(X)+(Y-g^\star(X)), \tag{28}
-$
+$$
 
 并且根据条件均值的定义，
 
-$
+$$
 \mathbb E[Y-g^\star(X)\mid X]=0. \tag{29}
-$
+$$
 
 将式（28）代入总体目标并展开平方范数：
 
-$
+$$
 \mathcal L(g)=\mathbb E[\|g(X)-g^\star(X)+g^\star(X)-Y\|^2], \tag{30}
-$
+$$
 
-$
+$$
 \begin{aligned}
 \mathcal L(g)=&
 \mathbb E[\|g(X)-g^\star(X)\|^2]
 +\mathbb E[\|Y-g^\star(X)\|^2]\\
 &+2\mathbb E[\langle g(X)-g^\star(X),g^\star(X)-Y\rangle].
 \end{aligned}\tag{31}
-$
+$$
 
 交叉项之所以消失，是因为以 $X$ 为条件时，$g(X)-g^\star(X)$ 已确定，而条件残差具有零均值。具体地，
 
-$
+$$
 \mathbb E[\langle g(X)-g^\star(X),g^\star(X)-Y\rangle] \tag{32}
-$
+$$
 
-$
+$$
 =\mathbb E[\langle g(X)-g^\star(X),\mathbb E[g^\star(X)-Y\mid X]\rangle]=0. \tag{33}
-$
+$$
 
 因此得到正交分解：
 
-$
+$$
 \mathcal L(g)=\mathbb E[\|g(X)-g^\star(X)\|^2]
 +\mathbb E[\|Y-g^\star(X)\|^2]. \tag{34}
-$
+$$
 
 第二项就是随机目标在给定 $X$ 时的条件方差迹的期望：
 
-$
+$$
 \mathbb E[\|Y-g^\star(X)\|^2]
 =\mathbb E[\operatorname{Tr}(\operatorname{Cov}(Y\mid X))]. \tag{35}
-$
+$$
 
 还原 $\mathbf x_t$ 和目标速度的定义，得
 
-$
+$$
 \begin{aligned}
 \mathcal L(g)=&
 \mathbb E[\|g(\mathbf x_t,t)-g^\star(\mathbf x_t,t)\|^2]\\
 &+\mathbb E[\operatorname{Tr}(\operatorname{Cov}
 (v_t^\star(\mathbf x_0,\mathbf x_1)\mid\mathbf x_t,t))].
 \end{aligned}\tag{36}
-$
+$$
 
 这就是正文式（4）。特别地，
 
-$
+$$
 \mathcal L(g)-\mathcal L(g^\star)=
 \mathbb E[\|g(\mathbf x_t,t)-g^\star(\mathbf x_t,t)\|^2]. \tag{37}
-$
+$$
 
 因此 $g^\star$ 是总体目标的唯一最优预测器（在几乎处处相等的意义下）。
 
@@ -564,67 +564,67 @@ $
 
 假设 $\mathbf x_0\sim\mathcal N(0,I)$、$\mathbf x_1\sim\mathcal N(0,H)$ 相互独立，且 $\mathbf x_t=(1-t)\mathbf x_0+t\mathbf x_1$。于是交叉二阶矩为零。先计算中间状态协方差：
 
-$
+$$
 \Sigma_t:=\mathbb E[\mathbf x_t\mathbf x_t^\top]. \tag{38}
-$
+$$
 
-$
+$$
 =\mathbb E[((1-t)\mathbf x_0+t\mathbf x_1)((1-t)\mathbf x_0+t\mathbf x_1)^\top]. \tag{39}
-$
+$$
 
-$
+$$
 \begin{aligned}
 =&(1-t)^2\mathbb E[\mathbf x_0\mathbf x_0^\top]
 +t^2\mathbb E[\mathbf x_1\mathbf x_1^\top]\\
 &+t(1-t)\mathbb E[\mathbf x_0\mathbf x_1^\top]
 +t(1-t)\mathbb E[\mathbf x_1\mathbf x_0^\top].
 \end{aligned}\tag{40}
-$
+$$
 
-$
+$$
 \Sigma_t=(1-t)^2I+t^2H. \tag{41}
-$
+$$
 
 其次计算条件目标速度。令 $\mathbf y=\mathbf x_1-\mathbf x_0$；因 $(\mathbf y,\mathbf x_t)$ 联合高斯、均值为零，其条件均值线性地依赖 $\mathbf x_t$：
 
-$
+$$
 \mathbb E[\mathbf y\mid\mathbf x_t]
 =\operatorname{Cov}(\mathbf y,\mathbf x_t)\Sigma_t^{-1}\mathbf x_t. \tag{42}
-$
+$$
 
 交叉协方差为
 
-$
+$$
 \operatorname{Cov}(\mathbf x_1-\mathbf x_0,\mathbf x_t)
 =\mathbb E[(\mathbf x_1-\mathbf x_0)((1-t)\mathbf x_0+t\mathbf x_1)^\top]. \tag{43}
-$
+$$
 
-$
+$$
 =(1-t)\mathbb E[(\mathbf x_1-\mathbf x_0)\mathbf x_0^\top]
 +t\mathbb E[(\mathbf x_1-\mathbf x_0)\mathbf x_1^\top]. \tag{44}
-$
+$$
 
 独立且零均值给出
 
-$
+$$
 \mathbb E[(\mathbf x_1-\mathbf x_0)\mathbf x_0^\top]=-I,\quad
 \mathbb E[(\mathbf x_1-\mathbf x_0)\mathbf x_1^\top]=H. \tag{45}
-$
+$$
 
-$
+$$
 \operatorname{Cov}(\mathbf x_1-\mathbf x_0,\mathbf x_t)=tH-(1-t)I. \tag{46}
-$
+$$
 
 故
 
-$
+$$
 g_t^\star(\mathbf x_t)=\mathbb E[\mathbf x_1-\mathbf x_0\mid\mathbf x_t]
 =A^\star(t)\mathbf x_t, \tag{47}
-$
+$$
 
-$
+$$
 A^\star(t)=[tH-(1-t)I][(1-t)^2I+t^2H]^{-1}. \tag{48}
-$
+$$
 
 这证明了正文关于目标速度和中间协方差的命题。
 
@@ -632,77 +632,77 @@ $
 
 固定 $t\in[0,1]$，定义二次回归损失
 
-$
+$$
 \mathcal L_t(A)=\mathbb E[\|A\mathbf x_t-(\mathbf x_1-\mathbf x_0)\|^2]. \tag{49}
-$
+$$
 
 记
 
-$
+$$
 \mathbf y=\mathbf x_1-\mathbf x_0,\qquad
 g_t^\star(\mathbf x_t)=A^\star(t)\mathbf x_t=\mathbb E[\mathbf y\mid\mathbf x_t]. \tag{50}
-$
+$$
 
 由定理 2.1 的条件均值分解，
 
-$
+$$
 \mathcal L_t(A)=\mathbb E[\|A\mathbf x_t-A^\star(t)\mathbf x_t\|^2]
 +\mathbb E[\operatorname{Tr}(\operatorname{Cov}(\mathbf y\mid\mathbf x_t))]. \tag{51}
-$
+$$
 
 注意
 
-$
+$$
 A\mathbf x_t-A^\star(t)\mathbf x_t=(A-A^\star(t))\mathbf x_t. \tag{52}
-$
+$$
 
 对应平方范数的期望依次转化为
 
-$
+$$
 \mathbb E[\|(A-A^\star(t))\mathbf x_t\|^2]
 =\mathbb E[\mathbf x_t^\top(A-A^\star)^\top(A-A^\star)\mathbf x_t], \tag{53}
-$
+$$
 
-$
+$$
 =\mathbb E[\operatorname{Tr}(\mathbf x_t^\top(A-A^\star)^\top(A-A^\star)\mathbf x_t)], \tag{54}
-$
+$$
 
-$
+$$
 =\operatorname{Tr}((A-A^\star)^\top(A-A^\star)\mathbb E[\mathbf x_t\mathbf x_t^\top]), \tag{55}
-$
+$$
 
-$
+$$
 =\operatorname{Tr}((A-A^\star)^\top(A-A^\star)\Sigma_t), \tag{56}
-$
+$$
 
-$
+$$
 =\operatorname{Tr}((A-A^\star)\Sigma_t(A-A^\star)^\top). \tag{57}
-$
+$$
 
 上式最后一步使用迹的循环不变性；为节省排版，式（53）—（57）中的 $A^\star$ 均指 $A^\star(t)$。于是
 
-$
+$$
 \begin{aligned}
 \mathcal L_t(A)=&\mathbb E[\operatorname{Tr}(\operatorname{Cov}
 (\mathbf x_1-\mathbf x_0\mid\mathbf x_t))]\\
 &+\operatorname{Tr}((A-A^\star(t))\Sigma_t(A-A^\star(t))^\top).
 \end{aligned}\tag{58}
-$
+$$
 
 由于 $\Sigma_t\succ0$，第二项非负且仅在 $A=A^\star(t)$ 时为零，故最优解唯一。取最优解得到
 
-$
+$$
 \mathcal L_t(A^\star(t))=
 \mathbb E[\operatorname{Tr}(\operatorname{Cov}
 (\mathbf x_1-\mathbf x_0\mid\mathbf x_t))]. \tag{59}
-$
+$$
 
 两式相减，
 
-$
+$$
 \mathcal L_t(A)-\mathcal L_t(A^\star(t))
 =\operatorname{Tr}((A-A^\star(t))\Sigma_t(A-A^\star(t))^\top). \tag{60}
-$
+$$
 
 这同时证明正文式（10）与式（12）的精确超额风险表达式。
 
@@ -710,210 +710,210 @@ $
 
 再次考虑总体损失
 
-$
+$$
 \mathcal L_t(A)=\mathbb E[\|A\mathbf x_t-(\mathbf x_1-\mathbf x_0)\|^2]. \tag{61}
-$
+$$
 
 令
 
-$
+$$
 C_t=\operatorname{Cov}(\mathbf x_1-\mathbf x_0,\mathbf x_t)=tH-(1-t)I. \tag{62}
-$
+$$
 
 使用矩阵求导公式，
 
-$
+$$
 \nabla_A\mathcal L_t(A)=2(A\Sigma_t-C_t). \tag{63}
-$
+$$
 
 步长为 $\eta$ 的全批量梯度下降为
 
-$
+$$
 A_{k+1}=A_k-2\eta(A_k\Sigma_t-C_t). \tag{64}
-$
+$$
 
 定义误差
 
-$
+$$
 E_k=A_k-A^\star(t). \tag{65}
-$
+$$
 
 利用最优解满足 $A^\star(t)\Sigma_t=C_t$，误差递推逐步化为
 
-$
+$$
 E_{k+1}=A_{k+1}-A^\star(t), \tag{66}
-$
+$$
 
-$
+$$
 =A_k-2\eta(A_k\Sigma_t-C_t)-A^\star(t), \tag{67}
-$
+$$
 
-$
+$$
 =A_k-A^\star(t)-2\eta(A_k-A^\star(t))\Sigma_t, \tag{68}
-$
+$$
 
-$
+$$
 =E_k(I-2\eta\Sigma_t). \tag{69}
-$
+$$
 
 故
 
-$
+$$
 E_{k+1}=E_k(I-2\eta\Sigma_t). \tag{70}
-$
+$$
 
 由于 $\Sigma_t$ 对称正定，可以正交对角化：
 
-$
+$$
 \Sigma_t=U\operatorname{diag}(\sigma_1(t),\ldots,\sigma_d(t))U^\top, \tag{71}
-$
+$$
 
-$
+$$
 0<\sigma_{\min}(t)\le\sigma_i(t)\le\sigma_{\max}(t). \tag{72}
-$
+$$
 
-$
+$$
 I-2\eta\Sigma_t
 =U\operatorname{diag}(1-2\eta\sigma_1(t),\ldots,1-2\eta\sigma_d(t))U^\top. \tag{73}
-$
+$$
 
 每个特征方向的误差收缩因子为
 
-$
+$$
 |1-2\eta\sigma_i(t)|. \tag{74}
-$
+$$
 
 最坏收缩因子是
 
-$
+$$
 \rho(\eta)=\max_i|1-2\eta\sigma_i(t)|
 =\max\{|1-2\eta\sigma_{\min}(t)|,|1-2\eta\sigma_{\max}(t)|\}. \tag{75}
-$
+$$
 
 收敛要求 $\rho(\eta)<1$，等价于
 
-$
+$$
 0<\eta<\frac{1}{\sigma_{\max}(t)}. \tag{76}
-$
+$$
 
 固定步长最优化就是最小化
 
-$
+$$
 \rho(\eta)=\max\{|1-2\eta\sigma_{\min}(t)|,\,
 |1-2\eta\sigma_{\max}(t)|\}. \tag{77}
-$
+$$
 
 最优步长处，两个极端特征方向的收缩幅度相等，符号相反：
 
-$
+$$
 1-2\eta^\star\sigma_{\min}(t)
 =-[1-2\eta^\star\sigma_{\max}(t)]. \tag{78}
-$
+$$
 
 即
 
-$
+$$
 1-2\eta^\star\sigma_{\min}(t)
 =-1+2\eta^\star\sigma_{\max}(t), \tag{79}
-$
+$$
 
-$
+$$
 2=2\eta^\star[\sigma_{\max}(t)+\sigma_{\min}(t)]. \tag{80}
-$
+$$
 
 所以
 
-$
+$$
 \eta^\star=\frac1{\sigma_{\max}(t)+\sigma_{\min}(t)}. \tag{81}
-$
+$$
 
 将其代入式（75）得到
 
-$
+$$
 \rho^\star=1-2\eta^\star\sigma_{\min}(t)
 =1-\frac{2\sigma_{\min}(t)}{\sigma_{\max}(t)+\sigma_{\min}(t)}, \tag{82}
-$
+$$
 
-$
+$$
 \rho^\star=\frac{\sigma_{\max}(t)-\sigma_{\min}(t)}
 {\sigma_{\max}(t)+\sigma_{\min}(t)}. \tag{83}
-$
+$$
 
 利用
 
-$
+$$
 \kappa(\Sigma_t)=\frac{\sigma_{\max}(t)}{\sigma_{\min}(t)}, \tag{84}
-$
+$$
 
 可写为
 
-$
+$$
 \rho^\star=\frac{\kappa(\Sigma_t)-1}{\kappa(\Sigma_t)+1}. \tag{85}
-$
+$$
 
 经过 $k$ 次梯度下降，
 
-$
+$$
 \|E_k\|\le(\rho^\star)^k\|E_0\|. \tag{86}
-$
+$$
 
 要将误差缩小为原来的 $\varepsilon\in(0,1)$ 倍，只需
 
-$
+$$
 (\rho^\star)^k\le\varepsilon. \tag{87}
-$
+$$
 
 取对数，
 
-$
+$$
 k\log\rho^\star\le\log\varepsilon. \tag{88}
-$
+$$
 
 因为 $\log\rho^\star<0$，其充分条件为
 
-$
+$$
 k\ge\frac{\log(1/\varepsilon)}{-\log\rho^\star}. \tag{89}
-$
+$$
 
 又有
 
-$
+$$
 \rho^\star=\frac{\kappa(\Sigma_t)-1}{\kappa(\Sigma_t)+1}
 =1-\frac{2}{\kappa(\Sigma_t)+1}. \tag{90}
-$
+$$
 
 采用标准不等式 $-\log(1-a)\ge a$，令
 
-$
+$$
 a=\frac{2}{\kappa(\Sigma_t)+1}. \tag{91}
-$
+$$
 
 则
 
-$
+$$
 -\log\rho^\star
 =-\log\left(1-\frac{2}{\kappa(\Sigma_t)+1}\right)
 \ge\frac{2}{\kappa(\Sigma_t)+1}. \tag{92}
-$
+$$
 
 由此
 
-$
+$$
 \frac{\log(1/\varepsilon)}{-\log\rho^\star}
 \le\frac{\kappa(\Sigma_t)+1}{2}\log(1/\varepsilon). \tag{93}
-$
+$$
 
 于是可取
 
-$
+$$
 k\ge\frac{\kappa(\Sigma_t)+1}{2}\log(1/\varepsilon). \tag{94}
-$
+$$
 
 从而证明迭代复杂度
 
-$
+$$
 k=O(\kappa(\Sigma_t)\log(1/\varepsilon)). \tag{95}
-$
+$$
 
 这一证明精确展示固定时间 $t$ 的回归条件数如何决定 GD 收敛时间尺度。
 
@@ -921,9 +921,9 @@ $
 
 由定理 3.3，梯度下降误差在 $\Sigma_t$ 的每个特征方向分别收缩；最小特征值对应最慢模态。若 $H$ 病态且 $t$ 不接近零，则
 
-$
+$$
 \sigma_i(t)=(1-t)^2+t^2\lambda_i \tag{96}
-$
+$$
 
 继承 $H$ 的特征值差异，因此优化受中间分布的低方差方向支配，证毕。
 
@@ -931,128 +931,128 @@ $
 
 固定时间 $t$，对第 $m$ 个单样本，记
 
-$
+$$
 \mathbf x_t^{(m)}=(1-t)\mathbf x_0^{(m)}+t\mathbf x_1^{(m)},
 \qquad\mathbf y^{(m)}=\mathbf x_1^{(m)}-\mathbf x_0^{(m)}. \tag{97}
-$
+$$
 
 单样本损失为
 
-$
+$$
 \ell_m(A)=\|A\mathbf x_t^{(m)}-\mathbf y^{(m)}\|^2, \tag{98}
-$
+$$
 
 其梯度为
 
-$
+$$
 \nabla_A\ell_m(A)
 =2(A\mathbf x_t^{(m)}-\mathbf y^{(m)})(\mathbf x_t^{(m)})^\top. \tag{99}
-$
+$$
 
 SGD 更新为
 
-$
+$$
 A_{m+1}=A_m-2\eta(A_m\mathbf x_t^{(m)}-\mathbf y^{(m)})
 (\mathbf x_t^{(m)})^\top. \tag{100}
-$
+$$
 
 记
 
-$
+$$
 E_m=A_m-A^\star. \tag{101}
-$
+$$
 
 从递推中减去 $A^\star$：
 
-$
+$$
 E_{m+1}=A_{m+1}-A^\star, \tag{102}
-$
+$$
 
-$
+$$
 =E_m-2\eta E_m\mathbf x_t^{(m)}(\mathbf x_t^{(m)})^\top
 -2\eta(A^\star\mathbf x_t^{(m)}-\mathbf y^{(m)})
 (\mathbf x_t^{(m)})^\top. \tag{103}
-$
+$$
 
 在给定当前误差 $E_m$ 的条件下取期望：
 
-$
+$$
 \begin{aligned}
 \mathbb E[E_{m+1}\mid E_m]
 =&E_m-2\eta E_m\mathbb E[\mathbf x_t\mathbf x_t^\top]\\
 &-2\eta\mathbb E[(A^\star\mathbf x_t-\mathbf y)\mathbf x_t^\top].
 \end{aligned}\tag{104}
-$
+$$
 
 已知
 
-$
+$$
 \mathbb E[\mathbf x_t\mathbf x_t^\top]=\Sigma_t, \tag{105}
-$
+$$
 
 以及总体正规方程
 
-$
+$$
 A^\star\Sigma_t=\operatorname{Cov}(\mathbf y,\mathbf x_t)
 =\mathbb E[\mathbf y\mathbf x_t^\top], \tag{106}
-$
+$$
 
 则
 
-$
+$$
 \mathbb E[(A^\star\mathbf x_t-\mathbf y)\mathbf x_t^\top]
 =A^\star\Sigma_t-\mathbb E[\mathbf y\mathbf x_t^\top]=0. \tag{107}
-$
+$$
 
 因此
 
-$
+$$
 \mathbb E[E_{m+1}\mid E_m]=E_m(I-2\eta\Sigma_t). \tag{108}
-$
+$$
 
 将中间协方差分解为
 
-$
+$$
 \Sigma_t=U\operatorname{diag}(\sigma_1(t),\ldots,\sigma_d(t))U^\top, \tag{109}
-$
+$$
 
 定义特征基下的误差矩阵
 
-$
+$$
 \widetilde E_m:=E_mU. \tag{110}
-$
+$$
 
 右乘 $U$ 得
 
-$
+$$
 \mathbb E[\widetilde E_{m+1}\mid E_m]
 =\widetilde E_m\operatorname{diag}(1-2\eta\sigma_1(t),\ldots,
 1-2\eta\sigma_d(t)). \tag{111}
-$
+$$
 
 对输出坐标 $k$ 和特征方向 $i$，标量误差为
 
-$
+$$
 e_{ki,m}:=(\widetilde E_m)_{ki}, \tag{112}
-$
+$$
 
 满足
 
-$
+$$
 \mathbb E[e_{ki,m+1}\mid E_m]=(1-2\eta\sigma_i(t))e_{ki,m}. \tag{113}
-$
+$$
 
 等价地，可把随机递推写成
 
-$
+$$
 e_{ki,m+1}=(1-2\eta\sigma_i(t))e_{ki,m}+\zeta_{ki,m}, \tag{114}
-$
+$$
 
 其中零均值随机梯度噪声满足
 
-$
+$$
 \mathbb E[\zeta_{ki,m}\mid E_m]=0. \tag{115}
-$
+$$
 
 由式（113）可见，较小的 $\sigma_i(t)$ 对应更慢的平均误差衰减。即使考虑随机梯度，病态中间协方差造成的方向性收敛差异依然存在，从而证明定理 3.5。
 
@@ -1064,59 +1064,59 @@ $
 
 假定目标是具有 $K$ 个分量的零均值高斯混合，源分布为标准高斯，使用线性插值：
 
-$
+$$
 \mathbf x_1\sim\sum_{k=1}^K\pi_k\mathcal N(0,H_k),\quad
 \mathbf x_0\sim\mathcal N(0,I),\quad
 \mathbf x_t=(1-t)\mathbf x_0+t\mathbf x_1. \tag{116}
-$
+$$
 
 令 $Z\in\{1,\ldots,K\}$ 表示 $\mathbf x_1$ 所属的隐含混合分量，满足
 
-$
+$$
 \Pr(Z=k)=\pi_k. \tag{117}
-$
+$$
 
 由全期望公式，
 
-$
+$$
 g_t^\star(\mathbf x_t)=\mathbb E[\mathbf x_1-\mathbf x_0\mid\mathbf x_t], \tag{118}
-$
+$$
 
-$
+$$
 =\sum_{k=1}^K\Pr(Z=k\mid\mathbf x_t,t)
 \mathbb E[\mathbf x_1-\mathbf x_0\mid\mathbf x_t,Z=k,t]. \tag{119}
-$
+$$
 
 定义后验分量责任概率
 
-$
+$$
 w_k(\mathbf x_t,t):=\Pr(Z=k\mid\mathbf x_t,t). \tag{120}
-$
+$$
 
 给定 $Z=k$，有
 
-$
+$$
 \mathbf x_0\sim\mathcal N(0,I),\quad
 \mathbf x_1\sim\mathcal N(0,H_k),\quad
 \mathbf x_t=(1-t)\mathbf x_0+t\mathbf x_1. \tag{121}
-$
+$$
 
 因此可以应用附录 D.2 的单高斯结论：
 
-$
+$$
 \mathbb E[\mathbf x_1-\mathbf x_0\mid\mathbf x_t,Z=k,t]
 =A_k^\star(t)\mathbf x_t, \tag{122}
-$
+$$
 
-$
+$$
 A_k^\star(t)=[tH_k-(1-t)I][(1-t)^2I+t^2H_k]^{-1}. \tag{123}
-$
+$$
 
 代回全期望式，得到
 
-$
+$$
 g_t^\star(\mathbf x_t)=\sum_{k=1}^Kw_k(\mathbf x_t,t)A_k^\star(t)\mathbf x_t. \tag{124}
-$
+$$
 
 故高斯混合 FM 的目标向量场是分量条件线性速度的责任概率加权和。
 
@@ -1124,47 +1124,47 @@ $
 
 在正文假设 3.7 下，各样本的分量归属或责任概率准确已知，从而总体高斯混合 FM 回归可分解为独立的分量回归问题。对于第 $k$ 个分量，中间协方差为
 
-$
+$$
 \Sigma_{t,k}=(1-t)^2I+t^2H_k. \tag{125}
-$
+$$
 
 如果 $\lambda_{k,i}$ 是 $H_k$ 的第 $i$ 个特征值，对应中间协方差特征值为
 
-$
+$$
 \sigma_{k,i}(t)=(1-t)^2+t^2\lambda_{k,i}. \tag{126}
-$
+$$
 
 每个分量都适用高斯情形的 GD 分析。特别地，
 
-$
+$$
 E_{k,m+1}=E_{k,m}(I-2\eta\Sigma_{t,k}), \tag{127}
-$
+$$
 
 所以在特征方向 $i$ 上
 
-$
+$$
 e_{k,i,m+1}=(1-2\eta\sigma_{k,i}(t))e_{k,i,m}. \tag{128}
-$
+$$
 
 较小的 $\sigma_{k,i}(t)$ 使该方向的收敛更慢。单样本 SGD 的条件平均误差满足
 
-$
+$$
 \mathbb E[E_{k,m+1}\mid E_{k,m}]
 =E_{k,m}(I-2\eta\Sigma_{t,k}), \tag{129}
-$
+$$
 
 以及
 
-$
+$$
 \mathbb E[e_{k,i,m+1}\mid E_{k,m}]
 =(1-2\eta\sigma_{k,i}(t))e_{k,i,m}. \tag{130}
-$
+$$
 
 若希望各混合分量与所有特征方向获得可比较的优化精度，整体时间尺度由最慢的分量模态决定，即
 
-$
+$$
 \min_{k,i}\sigma_{k,i}(t). \tag{131}
-$
+$$
 
 因此，即使多数混合分量条件数良好，单个具有很小特征值的分量也可能控制整体优化收敛，证毕。
 
@@ -1176,31 +1176,31 @@ $
 
 **推论 E.1。** 令 $\mathbf x_0\sim\mathcal N(0,I)$、$\mathbf x_1\sim\mathcal N(\mu,H)$ 独立，$H\succ0$，线性插值得 $\mathbf x_t=(1-t)\mathbf x_0+t\mathbf x_1$。定义 $m_t=t\mu$、$\Sigma_t=(1-t)^2I+t^2H$、$C_t=tH-(1-t)I$。总体最优速度由线性变为仿射：
 
-$
+$$
 g_t^\star(\mathbf x)
 =\mathbb E[\mathbf x_1-\mathbf x_0\mid\mathbf x_t=\mathbf x]
 =A^\star(t)\mathbf x+b^\star(t),
-$
+$$
 
-$
+$$
 A^\star(t)=C_t\Sigma_t^{-1},\quad
 b^\star(t)=\mu-A^\star(t)m_t=(1-t)\Sigma_t^{-1}\mu.
-$
+$$
 
 考虑带截距的损失 $\mathcal L_t(A,b)=\mathbb E[\|A\mathbf x_t+b-(\mathbf x_1-\mathbf x_0)\|_2^2]$，超额风险分解为
 
-$
+$$
 \mathcal L_t(A,b)-\mathcal L_t(A^\star,b^\star)=
 \operatorname{Tr}((A-A^\star)\Sigma_t(A-A^\star)^\top)
 +\|(A-A^\star)m_t+(b-b^\star)\|_2^2.
-$
+$$
 
 等价地，用中心化参数 $A(\mathbf x_t-m_t)+\beta$ 表示预测器，最优截距为 $\beta^\star=\mu$，超额风险变成
 
-$
+$$
 \widetilde{\mathcal L}_t(A,\beta)-\widetilde{\mathcal L}_t(A^\star,\mu)
 =\operatorname{Tr}((A-A^\star)\Sigma_t(A-A^\star)^\top)+\|\beta-\mu\|_2^2.
-$
+$$
 
 斜率与截距因此解耦：斜率的 GD 仍满足 $E_{\ell+1}=E_\ell(I-2\eta\Sigma_t)$，截距误差的收缩因子为 $1-2\eta$。可见，若先中心化或将截距消去，非零均值不会改变由协方差控制的方向性瓶颈。
 
@@ -1208,12 +1208,12 @@ $
 
 **备注 E.2（均值偏移的影响）。** 若不采用中心化参数化，$(A,b)$ 的 Hessian 与
 
-$
+$$
 M_t=\begin{pmatrix}
 \Sigma_t+m_tm_t^\top&m_t\\
 m_t^\top&1
 \end{pmatrix}
-$
+$$
 
 有关，大的均值可能使原始参数化更病态。然而这种影响可以通过显式中心化完全消除；$\kappa(\Sigma_t)$ 带来的方向性刚性则依然存在。对于混合分布，不同均值会影响后验责任概率和模态位置，但不影响单个分量内部的协方差。更大的均值间隔通常还会使假设 3.7 的理想分量归属近似更合理。
 
@@ -1225,84 +1225,84 @@ $
 
 设源与目标为独立零均值高斯，线性输运为
 
-$
+$$
 \mathbf x_0\sim\mathcal N(0,I),\quad
 \mathbf x_1\sim\mathcal N(0,H),\quad
 \mathbf x_t=(1-t)\mathbf x_0+t\mathbf x_1. \tag{132}
-$
+$$
 
 令可逆矩阵 $P\in\mathbb R^{d\times d}$，定义
 
-$
+$$
 \tilde{\mathbf x}_1=P\mathbf x_1,\qquad
 \tilde{\mathbf x}_t=(1-t)\mathbf x_0+t\tilde{\mathbf x}_1. \tag{133}
-$
+$$
 
 先计算变换后的中间协方差：
 
-$
+$$
 \tilde\Sigma_t:=\mathbb E[\tilde{\mathbf x}_t\tilde{\mathbf x}_t^\top], \tag{134}
-$
+$$
 
-$
+$$
 =\mathbb E[((1-t)\mathbf x_0+tP\mathbf x_1)((1-t)\mathbf x_0+tP\mathbf x_1)^\top], \tag{135}
-$
+$$
 
-$
+$$
 =(1-t)^2\mathbb E[\mathbf x_0\mathbf x_0^\top]
 +t^2\mathbb E[P\mathbf x_1\mathbf x_1^\top P^\top], \tag{136}
-$
+$$
 
-$
+$$
 \quad+t(1-t)\mathbb E[\mathbf x_0\mathbf x_1^\top]P^\top
 +t(1-t)P\mathbb E[\mathbf x_1\mathbf x_0^\top], \tag{137}
-$
+$$
 
-$
+$$
 \tilde\Sigma_t=(1-t)^2I+t^2PHP^\top. \tag{138}
-$
+$$
 
 若采用精确白化 $P=H^{-1/2}$，
 
-$
+$$
 PHP^\top=I, \tag{139}
-$
+$$
 
-$
+$$
 \tilde\Sigma_t=(1-t)^2I+t^2I=[(1-t)^2+t^2]I. \tag{140}
-$
+$$
 
 所有特征值相等，因此
 
-$
+$$
 \kappa(\tilde\Sigma_t)=1,\qquad t\in[0,1]. \tag{141}
-$
+$$
 
 对于近似各向同性化，假定存在 $0<m\le M$，满足
 
-$
+$$
 mI\preceq PHP^\top\preceq MI. \tag{142}
-$
+$$
 
 利用式（138），有
 
-$
+$$
 (1-t)^2I+t^2mI\preceq\tilde\Sigma_t
 \preceq(1-t)^2I+t^2MI. \tag{143}
-$
+$$
 
 从而每个特征值满足
 
-$
+$$
 (1-t)^2+t^2m\le\lambda_i(\tilde\Sigma_t)\le(1-t)^2+t^2M, \tag{144}
-$
+$$
 
 最终得到
 
-$
+$$
 \kappa(\tilde\Sigma_t)
 \le\frac{(1-t)^2+t^2M}{(1-t)^2+t^2m}. \tag{145}
-$
+$$
 
 上述三步证明了精确白化可以把路径条件数降为 1，近似白化的改进则取决于 $PHP^\top$ 的谱界。
 
@@ -1310,15 +1310,15 @@ $
 
 如果能够针对高斯混合的每个分量分别采用白化算子
 
-$
+$$
 T_k=H_k^{-1/2}, \tag{146}
-$
+$$
 
 则变换后的分量路径协方差为
 
-$
+$$
 \tilde\Sigma_{t,k}=[(1-t)^2+t^2]I. \tag{147}
-$
+$$
 
 所有分量的条件数因此成为 1，不再存在单个病态分量拖慢训练的机制。正文第 4 节主要阐述单高斯情况，是因为其定理表述最简洁。实际训练的非线性预条件器只能看作上述理想分量白化思想的近似推广。
 
@@ -1326,210 +1326,210 @@ $
 
 **推论 F.3.1（较小 FM 损失也可能隐藏方向性速度误差）。** 固定时间的超额风险可以在 $H$ 的特征向量基下展开：
 
-$
+$$
 \mathcal L_t(A)-\mathcal L_t(A^\star(t))
 =\sum_{i=1}^d\sigma_i(t)\|(A-A^\star(t))\mathbf u_i\|_2^2. \tag{148}
-$
+$$
 
 由此若超额风险不超过 $\varepsilon$，各方向只能得到较弱的界：
 
-$
+$$
 \|(A-A^\star(t))\mathbf u_i\|_2^2
 \le\frac{\varepsilon}{\sigma_i(t)}. \tag{149}
-$
+$$
 
 在特征值很小的方向，即使总体 FM 损失已经接近最优，速度场仍可能存在明显误差。
 
 *证明。* 由式（12），
 
-$
+$$
 \mathcal L_t(A)-\mathcal L_t(A^\star(t))
 =\operatorname{Tr}((A-A^\star(t))\Sigma_t(A-A^\star(t))^\top). \tag{150}
-$
+$$
 
 令
 
-$
+$$
 \Delta_t:=A-A^\star(t). \tag{151}
-$
+$$
 
 由于 $H=U\Lambda U^\top$，有
 
-$
+$$
 \Sigma_t=U\operatorname{diag}(\sigma_1(t),\ldots,\sigma_d(t))U^\top,\quad
 \sigma_i(t)=(1-t)^2+t^2\lambda_i. \tag{152}
-$
+$$
 
 代入二次型：
 
-$
+$$
 \operatorname{Tr}(\Delta_t\Sigma_t\Delta_t^\top)
 =\operatorname{Tr}(\Delta_tU\operatorname{diag}(\sigma_i(t))U^\top\Delta_t^\top). \tag{153}
-$
+$$
 
 谱分解也可写成
 
-$
+$$
 U\operatorname{diag}(\sigma_1(t),\ldots,\sigma_d(t))U^\top
 =\sum_{i=1}^d\sigma_i(t)\mathbf u_i\mathbf u_i^\top. \tag{154}
-$
+$$
 
 所以
 
-$
+$$
 \operatorname{Tr}(\Delta_t\Sigma_t\Delta_t^\top)
 =\sum_{i=1}^d\sigma_i(t)\operatorname{Tr}
 (\Delta_t\mathbf u_i\mathbf u_i^\top\Delta_t^\top). \tag{155}
-$
+$$
 
 每个迹项为
 
-$
+$$
 \operatorname{Tr}(\Delta_t\mathbf u_i\mathbf u_i^\top\Delta_t^\top)
 =\operatorname{Tr}((\Delta_t\mathbf u_i)(\Delta_t\mathbf u_i)^\top)
 =\|\Delta_t\mathbf u_i\|_2^2. \tag{156}
-$
+$$
 
 因而
 
-$
+$$
 \mathcal L_t(A)-\mathcal L_t(A^\star(t))
 =\sum_{i=1}^d\sigma_i(t)\|(A-A^\star(t))\mathbf u_i\|_2^2. \tag{157}
-$
+$$
 
 若
 
-$
+$$
 \mathcal L_t(A)-\mathcal L_t(A^\star(t))\le\varepsilon, \tag{158}
-$
+$$
 
 注意全部 $\sigma_i(t)>0$，且每项
 
-$
+$$
 \sigma_i(t)\|(A-A^\star(t))\mathbf u_i\|_2^2 \tag{159}
-$
+$$
 
 非负，因此
 
-$
+$$
 \begin{aligned}
 \sigma_i(t)\|(A-A^\star(t))\mathbf u_i\|_2^2
 &\le\sum_{j=1}^d\sigma_j(t)\|(A-A^\star(t))\mathbf u_j\|_2^2\\
 &=\mathcal L_t(A)-\mathcal L_t(A^\star(t))\le\varepsilon.
 \end{aligned}\tag{160}
-$
+$$
 
 除以 $\sigma_i(t)$，
 
-$
+$$
 \|(A-A^\star(t))\mathbf u_i\|_2^2
 \le\frac{\varepsilon}{\sigma_i(t)}. \tag{161}
-$
+$$
 
 即证明式（149）。
 
 **推论 F.3.2（时间标量加权不能消除固定时间的方向刚性）。** 固定 $t$ 并令 $\alpha(t)>0$，考虑
 
-$
+$$
 \mathcal L_{t,\alpha}(A)=
 \alpha(t)\mathbb E[\|A\mathbf x_t-(\mathbf x_1-\mathbf x_0)\|^2]. \tag{162}
-$
+$$
 
 这种加权同时缩放全部方向的曲率，但不会改变其条件数。
 
 *证明。* 因 $\alpha(t)$ 对于待优化变量 $A$ 是常数，
 
-$
+$$
 \mathcal L_{t,\alpha}(A)=\alpha(t)\mathcal L_t(A),\quad
 \mathcal L_t(A)=\mathbb E[\|A\mathbf x_t-(\mathbf x_1-\mathbf x_0)\|^2]. \tag{163}
-$
+$$
 
 未加权梯度为
 
-$
+$$
 \nabla_A\mathcal L_t(A)=2(A\Sigma_t-C_t), \tag{164}
-$
+$$
 
 其中
 
-$
+$$
 \Sigma_t=\mathbb E[\mathbf x_t\mathbf x_t^\top],\quad
 C_t=\operatorname{Cov}(\mathbf x_1-\mathbf x_0,\mathbf x_t). \tag{165}
-$
+$$
 
 加权梯度为
 
-$
+$$
 \nabla_A\mathcal L_{t,\alpha}(A)
 =\alpha(t)\nabla_A\mathcal L_t(A)
 =2\alpha(t)(A\Sigma_t-C_t). \tag{166}
-$
+$$
 
 对任意扰动 $\Delta\in\mathbb R^{d\times d}$，
 
-$
+$$
 \nabla_A\mathcal L_{t,\alpha}(A+\Delta)
 -\nabla_A\mathcal L_{t,\alpha}(A)
 =2\alpha(t)\Delta\Sigma_t. \tag{167}
-$
+$$
 
 因此 Hessian 可视作线性算子
 
-$
+$$
 \Delta\mapsto2\alpha(t)\Delta\Sigma_t. \tag{168}
-$
+$$
 
 再把协方差对角化：
 
-$
+$$
 \Sigma_t=U\operatorname{diag}(\sigma_1(t),\ldots,\sigma_d(t))U^\top. \tag{169}
-$
+$$
 
 各特征方向的曲率变为
 
-$
+$$
 2\alpha(t)\sigma_i(t). \tag{170}
-$
+$$
 
 最大和最小曲率分别为
 
-$
+$$
 2\alpha(t)\sigma_{\max}(t),\quad
 2\alpha(t)\sigma_{\min}(t). \tag{171}
-$
+$$
 
 故其比值为
 
-$
+$$
 \frac{2\alpha(t)\sigma_{\max}(t)}
 {2\alpha(t)\sigma_{\min}(t)}
 =\frac{\sigma_{\max}(t)}{\sigma_{\min}(t)}
 =\kappa(\Sigma_t). \tag{172}
-$
+$$
 
 时间标量加权只改变整体曲率的尺度。等价地，加权 GD 更新为
 
-$
+$$
 A_{k+1}=A_k-2\eta\alpha(t)(A_k\Sigma_t-C_t). \tag{173}
-$
+$$
 
 定义
 
-$
+$$
 E_k=A_k-A^\star(t), \tag{174}
-$
+$$
 
 得到误差递推
 
-$
+$$
 E_{k+1}=E_k(I-2\eta\alpha(t)\Sigma_t). \tag{175}
-$
+$$
 
 在第 $i$ 个特征方向上的收缩因子为
 
-$
+$$
 1-2\eta\alpha(t)\sigma_i(t). \tag{176}
-$
+$$
 
 因此，$\alpha(t)$ 只是把有效学习率从 $\eta$ 调整成 $\eta\alpha(t)$，不同方向的相对快慢仍由 $\Sigma_t$ 的谱决定，固定时间下最优步长的迭代复杂度依然取决于 $\kappa(\Sigma_t)$。
 
@@ -1593,68 +1593,68 @@ $
 
 设 MNIST 预训练 VAE 的潜向量为 $\mathbf z_1\in\mathbb R^{64}$。标准模型的目标为 $\mathbf z_1$；NF 预条件模型的目标则为 $\tilde{\mathbf z}_1=P_\phi(\mathbf z_1,y)$，其中 $y$ 是数字类别标签。所有诊断均在相应模型实际训练使用的表示空间内计算。设该表示下的训练集大小为 $M$，估计均值与协方差：
 
-$
+$$
 \hat\mu=\frac1M\sum_{m=1}^M\mathbf z_1^{(m)},\qquad
 \hat H=\frac1{M-1}\sum_{m=1}^M
 (\mathbf z_1^{(m)}-\hat\mu)(\mathbf z_1^{(m)}-\hat\mu)^\top. \tag{177}
-$
+$$
 
 对 $\hat H=U\Lambda U^\top$ 进行谱分解，按特征值升序排列特征向量；最大八个特征值所对应的方向构成高方差子空间，最小八个特征值所对应方向构成低方差子空间。
 
 MNIST 使用三角插值 $\mathbf x_t=s(t)\mathbf z_1+c(t)\mathbf z_0$，其中 $s(t)=\sin(\pi t/2)$、$c(t)=\cos(\pi t/2)$，$\mathbf z_0\sim\mathcal N(0,I)$。条件目标速度为
 
-$
+$$
 v_t^\star=\dot s(t)\mathbf z_1+\dot c(t)\mathbf z_0
 =\frac{\pi}{2}[c(t)\mathbf z_1-s(t)\mathbf z_0]. \tag{178}
-$
+$$
 
 在矩匹配高斯近似 $\mathbf z_1\sim\mathcal N(\hat\mu,\hat H)$ 下，
 
-$
+$$
 \hat\Sigma_t=c(t)^2I+s(t)^2\hat H. \tag{179}
-$
+$$
 
 $\hat\Sigma_t$ 与 $\hat H$ 共享特征向量；相应的最优线性速度算子为
 
-$
+$$
 \hat A_t^\star=
 \frac{\pi}{2}s(t)c(t)(\hat H-I)
 [c(t)^2I+s(t)^2\hat H]^{-1}. \tag{180}
-$
+$$
 
 训练中的神经速度场通常是非线性的，因此其局部作用由输入 Jacobian 表征。第 $e$ 轮参数模型的 Jacobian 定义为
 
-$
+$$
 J_{\theta_e}(\mathbf x_t,y,t)
 =\frac{\partial v_{\theta_e}(\mathbf x_t,y,t)}{\partial\mathbf x_t}. \tag{181}
-$
+$$
 
 采用精确 Jacobian–向量乘积计算其沿每个协方差特征向量的作用。定义不按协方差加权的方向算子误差：
 
-$
+$$
 e_i(t,e)=\frac{1}{N_{\rm probe}}\sum_{n=1}^{N_{\rm probe}}
 \|J_{\theta_e}(\mathbf x_t^{(n)},y^{(n)},t)\mathbf u_i
 -\hat A_t^\star\mathbf u_i\|_2^2. \tag{182}
-$
+$$
 
 每个检查点使用同一组固定探针样本，因此误差变化主要反映已学习速度场的变化，而非抽样变动。对 $t\in\{0.50,0.75,0.90\}$ 分别计算。设 $\mathcal I_{\rm top8}$、$\mathcal I_{\rm bottom8}$ 为最大、最小八个特征值的索引集合：
 
-$
+$$
 \mathrm{err}_{\rm top8}(t,e)
 =\frac18\sum_{i\in\mathcal I_{\rm top8}}e_i(t,e), \tag{183}
-$
+$$
 
-$
+$$
 \mathrm{err}_{\rm bottom8}(t,e)
 =\frac18\sum_{i\in\mathcal I_{\rm bottom8}}e_i(t,e). \tag{184}
-$
+$$
 
 这些误差不按 $\sigma_i(t)$ 加权，因此低方差方向的误差不会因数据方差小而被缩小。方向学习不均衡用比值表示：
 
-$
+$$
 R(t,e)=\frac{\mathrm{err}_{\rm bottom8}(t,e)}
 {\mathrm{err}_{\rm top8}(t,e)}. \tag{185}
-$
+$$
 
 $R\approx1$ 表示两组方向学得近似同样准确；$R\gg1$ 表示高方差方向明显先于低方差方向被学习。
 
@@ -1709,10 +1709,10 @@ Reflow 将 RF 的 FID 从 6.86 改善到 5.15，但仍高于两种预条件方�
 
 设 $\mathbf z$ 是预条件空间的终点，$\delta\mathbf z$ 是较小的终点误差。逆映射的一阶展开为
 
-$
+$$
 P^{-1}(\mathbf z+\delta\mathbf z)-P^{-1}(\mathbf z)
 =J_{P^{-1}}(\mathbf z)\delta\mathbf z+O(\|\delta\mathbf z\|_2^2). \tag{186}
-$
+$$
 
 因此局部最坏绝对误差放大由 $\|J_{P^{-1}}\|_2=\sigma_{\max}(J_{P^{-1}})$ 决定；Jacobian 条件数 $\kappa(J_{P^{-1}})=\sigma_{\max}/\sigma_{\min}$ 只描述不同方向放大比例的差异，单独的条件数不等同于绝对误差放大。
 
@@ -1750,18 +1750,18 @@ $
 
 本节检验预条件化在必须保存测量信息的条件 FM 任务中是否有效。采用 MNIST 上两个轻量级逆问题，测量模型均为
 
-$
+$$
 \mathbf b=A\mathbf x+\boldsymbol\epsilon,\qquad
 \boldsymbol\epsilon\sim\mathcal N(0,s^2I). \tag{187}
-$
+$$
 
 噪声水平 $s$ 在测量动态范围的 0%—10% 间均匀抽样。任务分别为模糊标准差 $\sigma=3$ 像素的高斯去模糊，以及四倍超分辨率（$A$ 为因子 4 的下采样算子）。
 
 **条件 FM 模型。** 基线使用多尺度 U-Net 参数化 $v_\theta(\mathbf x_t,t,c)$，条件 $c=(A^\top\mathbf b,s)$。采用 Ahamed 和 Haber（2024）的逆问题 FM 表述，终点预测为
 
-$
+$$
 \hat{\mathbf x}_1=\mathbf x_t+(1-t)v_\theta(\mathbf x_t,t,c). \tag{188}
-$
+$$
 
 训练中还加入测量一致性惩罚 $\|A\hat{\mathbf x}_1-\mathbf b\|_2^2$。预条件模型遵循算法 1，把同一个条件 $c$ 同时提供给预条件器与主流，并在潜空间实施对应一致性惩罚 $\|\hat{\tilde{\mathbf z}}_1-\tilde{\mathbf z}_1\|_2^2$。比较对象包括原始条件 FM 及参数量匹配、训练 FLOPs 匹配的未预条件控制组；评价后验均值的 SSIM/PSNR、后验标准差（样本多样性）与测量失配。
 
@@ -1782,10 +1782,10 @@ $
 
 进一步测量条件逆预条件器的敏感性：
 
-$
+$$
 G=\frac{\|P^{-1}(\tilde{\mathbf z}+\boldsymbol\delta,c)
 -P^{-1}(\tilde{\mathbf z},c)\|_2}{\|\boldsymbol\delta\|_2}. \tag{189}
-$
+$$
 
 无条件预条件器的 $G=2.3$，具有扰动放大；条件预条件器则收缩，$G=0.37$，在扰动幅度为 $\|\tilde{\mathbf z}\|_2$ 的 1%—10% 时仍稳定。结果说明，给预条件器输入条件信息有助于维持条件相关几何与逆映射稳定性，而不是破坏预条件化收益。应依据最差条件对应的路径条件数及逆变换敏感性选择条件预条件器，而不应仅依靠边缘协方差的各向同性。
 
