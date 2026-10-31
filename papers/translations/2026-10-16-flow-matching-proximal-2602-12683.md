@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "从近端算子视角理解流匹配｜中文译稿（逐式校对中）"
+title: "从近端算子视角理解流匹配｜中文全文译文"
 permalink: /papers/translations/2026-10-16-flow-matching-proximal-2602-12683/
 math: true
 toc: true
@@ -383,8 +383,7 @@ $$
 $$
 
 与扩散模型同理，在无穷小噪声下，SB 反向过程可以写成
-$\operatorname{prox}_{2\epsilon s(-\log\phi_0)}+
-O((\epsilon s)^2)$ 的形式。
+$\operatorname{prox}_{2\epsilon s(-\log\phi_0)}+ O((\epsilon s)^2)$ 的形式。
 
 ### 3.3 正向近端算子
 
@@ -523,8 +522,7 @@ $$
 **引理 4.3。** 记 $h_T$ 为 $h$ 在 $T_{x_1}\mathcal M$ 上的正交投影。在上述记号下：
 
 (i) 任意 $h\in\mathbb R^d$ 都满足
-$DP_\lambda(x_1;h)
-=DP_\lambda(x_1;h_T)\in T_{x_1}\mathcal M$。
+$DP_\lambda(x_1;h) =DP_\lambda(x_1;h_T)\in T_{x_1}\mathcal M$。
 
 (ii) 若 $h\in N_{x_1}\mathcal M$，则
 $DP_\lambda(x_1;h)=0$。
@@ -610,8 +608,7 @@ v\in T_{x_1}\mathcal M\setminus\{0\},
 $$
 
 其中
-$\lambda(v)=\lim_{\tau\to\infty}\tau^{-1}
-\log\|D\Phi_\tau(x_0)v\|$。
+$\lambda(v)=\lim_{\tau\to\infty}\tau^{-1} \log\|D\Phi_\tau(x_0)v\|$。
 因此 $\mathcal M$ 是法向收缩率为 $\gamma$ 的**法向双曲吸引子**。
 
 **证明。** 令 $\xi(\tau)=D\Phi_\tau(x_0)v$。由半导数定义可知 $\xi$ 满足方向变分方程
@@ -1076,8 +1073,7 @@ d^2f(x\mid v)(w)
 $$
 
 其有效定义域为
-$\operatorname{dom}d^2f(x\mid v)
-=\{w:d^2f(x\mid v)(w)<+\infty\}$。
+$\operatorname{dom}d^2f(x\mid v) =\{w:d^2f(x\mid v)(w)<+\infty\}$。
 以下专注于 $v=0$ 的情形。
 
 ### B.3 引理 4.2 的证明
@@ -1132,8 +1128,7 @@ $$
 $$
 
 其中对凸集 $C$，
-$\operatorname{par}(C)
-:=\operatorname{aff}(C)-\operatorname{aff}(C)$
+$\operatorname{par}(C) :=\operatorname{aff}(C)-\operatorname{aff}(C)$
 是其平行子空间。
 
 **证明。** 首先证明任意 $z_0\in\partial f(x_1)$ 在
@@ -1284,15 +1279,13 @@ $$
 $T_{x_1}\mathcal M$ 上的正交投影。
 
 (i) 对任意 $h$，
-$DP_\lambda(x_1;h)=DP_\lambda(x_1;h_T)
-\in T_{x_1}\mathcal M$。
+$DP_\lambda(x_1;h)=DP_\lambda(x_1;h_T) \in T_{x_1}\mathcal M$。
 
 (ii) 若 $h\in N_{x_1}\mathcal M$，
 $DP_\lambda(x_1;h)=0$。
 
 (iii) 存在 $C>0$，使对切空间中的 $h$ 有
-$\|DP_\lambda(x_1;h)-h\|
-\le C\sqrt\lambda\|h\|$。
+$\|DP_\lambda(x_1;h)-h\| \le C\sqrt\lambda\|h\|$。
 （原文 B.5 的表述将向量加上标量 $C\sqrt\lambda\|h\|$；这里用本节证明所得的范数界表达其本意，正文仍保留 $O(\sqrt\lambda)$ 记号。）
 
 **证明。**
@@ -1358,8 +1351,7 @@ d^2f(x_1\mid0)(h)
 $$
 
 所以
-$\|DP_\lambda(x_1;h)-h\|
-\le\sqrt{\lambda C}\|h\|$。
+$\|DP_\lambda(x_1;h)-h\| \le\sqrt{\lambda C}\|h\|$。
 证明完毕。
 
 
@@ -1498,9 +1490,7 @@ $\pi_{x_1}$ 是式 (34) 的条件概率核。以下条件等价：
 1. 对 $\pi$-几乎处处的 $(x_1,x_0)$，有
    $x_0\in\operatorname{ri}(\partial\varphi(x_1))$。
 2. 对 $P_1$-几乎处处的 $x_1$，
-   $\pi_{x_1}(
-   \partial\varphi(x_1)\setminus\operatorname{ri}(\partial\varphi(x_1))
-   )=0$；
+   $\pi_{x_1}( \partial\varphi(x_1)\setminus\operatorname{ri}(\partial\varphi(x_1)) )=0$；
    等价地，
    $\pi_{x_1}(\operatorname{ri}(\partial\varphi(x_1)))=1$。
 
@@ -1911,8 +1901,7 @@ $$
 $$
 
 利用 $b(t)\ge0$ 及
-$b(t)/\beta_t
-=\dot\beta_t/\beta_t-\dot\alpha_t/\alpha_t$，
+$b(t)/\beta_t =\dot\beta_t/\beta_t-\dot\alpha_t/\alpha_t$，
 
 $$
 \begin{aligned}
@@ -2071,8 +2060,7 @@ $$
 
 第一项由 $\delta_1$ 的选择不超过 $\varepsilon_0$。
 第二项满足
-$\|x_n(t)-x(t)\|
-\le2Mt\le2M\delta$，
+$\|x_n(t)-x(t)\| \le2Mt\le2M\delta$，
 因此不超过
 $\omega_R(2M\delta)\le\varepsilon_0$。
 故
@@ -2614,3 +2602,7 @@ $$
 $$
 
 证明完毕。
+
+---
+
+**登记（2026-10-30）：** 本篇按用户 2026-10-30 新口径登记为“可公开全文译文”——全文覆盖（摘要、正文、结论、图表说明与附录/书目按原论文结构）已录入；页内“未完成/待终校”等提示指逐句逐式终校程度，不表示覆盖缺失，保留为历史记录。

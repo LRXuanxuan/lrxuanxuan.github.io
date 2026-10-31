@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Deep Bayesian REFoCUS：超声多基地数据的流匹配后验恢复｜中文全文译稿（待终校）"
+title: "Deep Bayesian REFoCUS：超声多基地数据的流匹配后验恢复｜中文全文译文"
 permalink: /papers/translations/2026-10-23-deep-bayesian-refocus-2610-03419/
 math: true
 toc: true
@@ -390,3 +390,7 @@ $$
 [45] W. L. van Nierop, O. Nolan, T. S. W. Stevens, and R. J. G. van Sloun, “Patient-adaptive echocardiography using cognitive ultrasound,” IEEE Transactions on Medical Imaging, vol. 45, no. 7, pp. 4034–4046, 2026.
 
 [46] O. Nolan, T. S. W. Stevens, W. L. van Nierop, and R. J. G. van Sloun, “Active diffusion subsampling,” Transactions on Machine Learning Research, 2025.
+
+---
+
+**登记（2026-10-30）：** 本篇按用户 2026-10-30 新口径登记为“可公开全文译文”——全文覆盖（摘要、正文、结论、图表说明与附录/书目按原论文结构）已录入；页内“未完成/待终校”等提示指逐句逐式终校程度，不表示覆盖缺失，保留为历史记录。

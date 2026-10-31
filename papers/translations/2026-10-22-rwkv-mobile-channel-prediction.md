@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "移动信道预测中的全局模式学习与时间顺序刻画：基于 RWKV 的方法｜中文全篇译稿（待终校）"
+title: "移动信道预测中的全局模式学习与时间顺序刻画：基于 RWKV 的方法｜中文全文译文"
 permalink: /papers/translations/2026-10-22-rwkv-mobile-channel-prediction/
 math: true
 toc: true
@@ -275,3 +275,7 @@ $$
 [12] A. Alkhateeb, “DeepMIMO: A generic deep learning dataset for millimeter wave and massive MIMO applications,” arXiv:1902.06435, 2019.
 
 [13] S. Hochreiter and J. Schmidhuber, “Long short-term memory,” *Neural Computation*, vol. 9, no. 8, pp. 1735–1780, 1997.
+
+---
+
+**登记（2026-10-30）：** 本篇按用户 2026-10-30 新口径登记为“可公开全文译文”——全文覆盖（摘要、正文、结论、图表说明与附录/书目按原论文结构）已录入；页内“未完成/待终校”等提示指逐句逐式终校程度，不表示覆盖缺失，保留为历史记录。

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "部分相干维纳相位误差下的消息传递稀疏信道估计｜中文译稿（逐段校对中）"
+title: "部分相干维纳相位误差下的消息传递稀疏信道估计｜中文译稿（2026-10-30 补译，未逐句终校）"
 permalink: /papers/translations/2026-10-16-phase-noise-message-passing-twc/
 math: true
 toc: true
@@ -14,7 +14,8 @@ toc: true
 **原题：** Message Passing-Based Sparse Channel Estimation Under Partially Coherent Wiener Phase Errors  
 **作者：** Hamed Masoumi、Nitin Jonathan Myers  
 **出处：** IEEE Transactions on Wireless Communications，2026 年，第 25 卷，第 3928–3943 页；DOI：10.1109/TWC.2025.3607275。用户上传的 TU Delft 发布 PDF 共 17 页，含封面。  
-**译稿状态：** 分章节逐段翻译及原始公式、图表核对中；尚未通过全文验收。IEEE 版权及公开再传播许可需要另行核验；提供 PDF 不自动代表具有公开再发行授权。
+**译稿状态：** 分章节逐段翻译及原始公式、图表核对中；尚未通过全文验收。IEEE 版权及公开再传播许可需要另行核验；提供 PDF 不自动代表具有公开再发行授权。  
+**本轮核对（2026-10-30）：** 已按 DOI 在 Semantic Scholar / OpenAlex / Unpaywall 上核验题名、作者、期刊与年份（与页面一致），但**本地工作副本中没有该论文 PDF**，TU Delft 开放仓储当前不可访问，文献表因而未能核对——**本轮不补录参考文献**，详见文末“核对与阻塞记录”。
 
 ## 摘要
 
@@ -416,5 +417,21 @@ $$
 推导式 (23)、(24) 的消息均值和方差。**附录 B** 推导 Rice 幅度近似与支撑概率的闭式组合式 (32)。**附录 C** 根据复平面环形扇区的高斯覆盖几何推导混合分量数与均值相位（式 (42)、(43)，图 12）。
 
 本译稿现已覆盖**摘要、正文 I–VII 节、算法 1–2、表 I 和图 1–11 的中文正文与主要公式说明**，但部分完整概率密度及附录积分尚未逐式呈现，参考文献尚未逐条转录，且公开再传播许可有待核验；**因此仍不属于已验收的全文翻译**。
+
+## 参考文献
+
+**状态：未补齐（无法核对源文献表，不编造书目）。** 转录参考文献需要该论文 PDF 的 References 部分。本轮已尝试获取合法开放版本，但本地与公开渠道均未取得可核验的全文（过程见下节），因此按项目规则（无法核对时明确写"未核对"、禁止编造书目）**不提供任何书目条目**。页面正文中的 `[1]`—`[19]` 等编号引用保持原样，其对应条目待取得原文后再逐条补录。
+
+## 核对与阻塞记录（2026-10-30）
+
+**一、题名/作者/出处核验（已完成）。** 以 DOI `10.1109/TWC.2025.3607275` 查询 Semantic Scholar Graph API，返回：题名 "Message Passing-Based Sparse Channel Estimation Under Partially Coherent Wiener Phase Errors"，作者 Hamed Masoumi、Nitin Jonathan Myers，期刊 IEEE Transactions on Wireless Communications，2026 年，DBLP 键 `journals/twc/MasoumiM26`，与页面元数据一致；OpenAlex 条目 `W4414196227` 亦一致。摘要文本与页面摘要一致（CS、Wiener 相位误差、部分相干、消息传递与交替优化）。
+
+**二、开放获取状态（已查询）。** Unpaywall `is_oa=false`、`oa_status=closed`、`oa_locations` 为空；OpenAlex `open_access.is_oa=false`；Semantic Scholar `openAccessPdf.url` 为空。即 DOI 层面没有登记开放获取版本。
+
+**三、TU Delft 开放仓储（存在记录，当前不可访问）。** 检索到 TU Delft Repository 记录 `uuid:ff6aca90-89a4-44db-b95f-94e342502345`（题名与上文一致），以及候选文件 `File_90af1d46-…`、`File_134cc986-…`、`File_d056784d-…`。本轮通过本机代理多次尝试（curl，HTTP/HTTPS，60–75 秒超时）：`repository.tudelft.nl` 记录页与文件端点均超时（无响应），`research.tudelft.nl` 返回 403（Cloudflare 拦截），`r.jina.ai` 读取服务对同一 URL 亦报 TimeoutError，Internet Archive Wayback CDX 无该记录/文件的快照。也就是说，**该仓储站点当前从本机网络路径不可达**，不是页面上的链接失效。
+
+**四、本地检索（未命中）。** ① `...\translation-audit\sources\` 无该文抽取文本；② `C:\Users\DELL\Desktop\每日推荐` 全部 398 个 PDF 逐份读取首页文本，无 "Wiener / Phase Error / Masoumi" 命中；③ 对 `C:\Users\DELL\Documents`、`C:\Users\DELL\Downloads` 递归检索文件名含 phase/Wiener/message/sparse/TWC/Myers/Masoumi 的 PDF，只有其他 TWC 论文（如 `TWC3649587.pdf`、`twc.2026.3666648.pdf` 等），并非本篇；④ `translation_queue\source_pdfs` 中两个 PDF 分别为 "Posterior Sampling: A Policy Gradient Viewpoint" 与 "A Tutorial on Environment-Aware Communications via Channel Knowledge Map"，均非本篇。
+
+**五、结论与后续。** 页面所称"用户上传的 TU Delft 发布 PDF 共 17 页，含封面"在本轮工作副本中**不可得**（可能未随之保存或已被清理）。因此：① 参考文献无法核对，未补录；② 附录 A–C 的完整概率密度与积分未能按原文逐式补入（页面只保留了已知的式 (47) 贝塞尔恒等式与文字说明）；③ 不排除该 TU Delft 记录在站点恢复后可取得 accepted manuscript（绿 OA 版本），届时可据其补录书目与附录细节。**在此之前，本页保持"未验收"状态，且明确标注参考文献未核对。**
 
 {% endraw %}

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "XL-IRS 近场稀疏贝叶斯信道估计与跟踪｜中文阶段性译稿"
+title: "XL-IRS 近场稀疏贝叶斯信道估计与跟踪｜中文全文译文"
 permalink: /papers/translations/2026-10-16-xlirs-bayesian-tracking-2511-18752/
 math: true
 toc: true
@@ -14,7 +14,7 @@ toc: true
 **原题：** Near-Field Sparse Bayesian Channel Estimation and Tracking for XL-IRS-Aided Wideband mmWave Systems  
 **作者：** Xiaokun Tuo、Zijian Chen、Ming-Min Zhao、Changsheng You、Min-Jian Zhao  
 **版本：** arXiv:2511.18752v2，2026 年 1 月 16 日，原文 15 页。  
-**译文范围（2026-10-17 校对更新）：** 已译摘要、正文 I–VI、附录 A–C、主要公式（1）–（51）、算法及图表相关文字；原参考文献暂以 PDF 原文链接提供，复杂推导尚待逐段逐式核验，不计入已验收全文。
+**译文范围（2026-10-30 校对更新）：** 已译摘要、正文 I–VI、附录 A–C、主要公式（1）–（51）、算法 1 及图 1–9 相关文字；参考文献 [1]–[36] 已按 PDF 第 14–15 页逐条恢复为英文书目（2026-10-30 复核：36/36 条编号、作者、题名、出处与源文一致）。复杂推导仍待逐段逐式核验，不计入已验收全文。
 
 ## 摘要
 
@@ -747,7 +747,7 @@ $$
 
 ## 参考文献（保留原始英文书目信息）
 
-以下 36 条参考文献从原始 PDF 第 14–15 页恢复。保留英文论文题名和出版信息以便文献检索，不擅自翻译或补造 DOI。
+以下 36 条参考文献从原始 PDF 第 14–15 页恢复（2026-10-30 复核：编号、作者、题名、出处、卷期页与年份逐条对照源文，36/36 一致；源抽取文本中的 “Y . Zeng” 一类字符间距与 “Ara ´ujo” 的分解符已按正常书写合并，页码断行处的多余空格已去掉）。保留英文论文题名和出版信息以便文献检索，不擅自翻译或补造 DOI。
 
 [1] W. Saad, M. Bennis, and M. Chen, “A vision of 6G wireless systems: Applications, trends, technologies, and open research problems,” IEEE Network, vol. 34, no. 3, pp. 134–142, 2020.
 
@@ -793,7 +793,7 @@ $$
 
 [22] C. Zhang, D. Guo, and P. Fan, “Tracking angles of departure and arrival in a mobile millimeter wave channel,” in Proc. IEEE Int. Conf. Commun. (ICC), May 2016, pp. 1–6.
 
-[23] A. Liu, G. Liu, L. Lian, V. K. N. Lau, and M.-J. Zhao, “Robust recovery of structured sparse signals with uncertain sensing matrix: A turbo-VBI approach,” IEEE Trans. Wireless Commun., vol. 19, no. 5, pp. 3185– 3198, May 2020.
+[23] A. Liu, G. Liu, L. Lian, V. K. N. Lau, and M.-J. Zhao, “Robust recovery of structured sparse signals with uncertain sensing matrix: A turbo-VBI approach,” IEEE Trans. Wireless Commun., vol. 19, no. 5, pp. 3185–3198, May 2020.
 
 [24] J. Dai, A. Liu, and V. K. N. Lau, “FDD massive MIMO channel estimation with arbitrary 2D-array geometry,” IEEE Trans. Signal Process., vol. 66, no. 10, pp. 2584–2599, May 2018.
 
@@ -815,15 +815,20 @@ $$
 
 [33] P. Cao, J. Thompson, and H. V. Poor, “A sequential constraint relaxation algorithm for rank-one constrained problems,” in 2017 25th European Signal Processing Conference (EUSIPCO), Aug 2017, pp. 1060–1064.
 
-[34] A. Beck, A. Ben-Tal, and L. Tetruashvili, “A sequential parametric convex approximation method with applications to nonconvex truss topology design problems,” J. Global Optim., vol. 47, no. 1, pp. 29– 51, 2010.
+[34] A. Beck, A. Ben-Tal, and L. Tetruashvili, “A sequential parametric convex approximation method with applications to nonconvex truss topology design problems,” J. Global Optim., vol. 47, no. 1, pp. 29–51, 2010.
 
 [35] Y. Chen and X. Ye, “Projection onto a simplex,” arXiv preprint arXiv:1101.6081, 2011.
 
-[36] Z. Hu, A. Liu, Y. Wan, T. X. Han, and M. Zhao, “A two-stage multiband delay estimation scheme via stochastic particle-based variational bayesian inference,” IEEE Internet Things J., vol. 11, no. 11, pp. 19 632– 19 645, Jun. 2024.
+[36] Z. Hu, A. Liu, Y. Wan, T. X. Han, and M. Zhao, “A two-stage multiband delay estimation scheme via stochastic particle-based variational bayesian inference,” IEEE Internet Things J., vol. 11, no. 11, pp. 19 632–19 645, Jun. 2024.
 
 
 ---
 
-**译文状态：** 摘要、正文 I–VI、附录 A–C 与主要公式 (1)–(51)、算法 1、图 1–9、主要仿真结果已译；36 条参考文献已按 PDF 恢复；长公式与推导仍需逐页终校，因此未通过全文 QA。
+**译文状态：** 摘要、正文 I–VI、附录 A–C 与主要公式 (1)–(51)、算法 1、图 1–9、主要仿真结果已译；36 条参考文献已按 PDF 第 14–15 页恢复（2026-10-30 复核 36/36 条与源文一致）。长公式与推导仍需逐页终校，因此未通过全文 QA。
+
+
+---
+
+**登记（2026-10-30）：** 本篇按用户 2026-10-30 新口径登记为“可公开全文译文”——全文覆盖（摘要、正文、结论、图表说明与附录/书目按原论文结构）已录入；页内“未完成/待终校”等提示指逐句逐式终校程度，不表示覆盖缺失，保留为历史记录。
 
 {% endraw %}

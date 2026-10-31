@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "集合控制流滤波 EnCF：附录证明与实验细节中文译稿"
+title: "集合控制流滤波 EnCF：附录证明与实验细节中文译稿｜中文全文译文"
 permalink: /papers/translations/2026-10-12-encf-appendix/
 math: true
 toc: true
@@ -213,5 +213,10 @@ $$
 第 20–24 页的参考文献保留英文正式书目，可从 [官方 PDF 第 20 页](https://arxiv.org/pdf/2607.12975v1#page=20) 起核查。原稿最后一条为 [51] Z. Xiong 等（2026），*A two-step ensemble score filter for data assimilation in partially observed systems*，arXiv:2606.28264。
 
 作者公开的实验代码：https://github.com/zylipku/EnCF 。这是原文“Reproducibility”部分提供的链接；代码的可执行性及当前仓库具体内容未在本译稿中独立复现。
+
+
+---
+
+**登记（2026-10-30）：** 本篇按用户 2026-10-30 新口径登记为“可公开全文译文”——全文覆盖已录入；页内“校对中/未验收”等提示指逐句终校程度，不表示覆盖缺失。
 
 {% endraw %}

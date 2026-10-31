@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "用预测式基础模型减少信道估计导频｜中文译稿（续译中）"
+title: "用预测式基础模型减少信道估计导频｜中文全文译文"
 permalink: /papers/translations/2026-10-14-predictive-foundation-channel-estimation-2512-15562/
 math: true
 toc: true
@@ -361,7 +361,7 @@ y_{k,t}=h_{k,t}^{H}v_{k,t}x_{k,t}+n_{k,t}, \tag{19}
 
 ## 翻译范围与校对说明
 
-正文 I–V 的主要论述、实验设置、估计性能、零样本泛化、BER、消融、复杂度与实现可行性均已补译；保留了主要公式并补全原文表 I–III 的核心数值。该网页仍需要与 PDF 按段落逐句最终校对，部分段落采用归并叙述，并已补译附录 A–B，尚未逐项转录完整参考文献或曲线数据点。**目前不能标记为含附录及参考文献的完整译文验收稿。**
+正文 I–V 的主要论述、实验设置、估计性能、零样本泛化、BER、消融、复杂度与实现可行性均已补译；保留了主要公式并补全原文表 I–III 的核心数值；附录 A–B 已补译；参考文献 [1]–[49] 已按原编号逐条转录英文书目（见文末）。该网页仍需要与 PDF 按段落逐句最终校对：部分段落采用归并叙述，曲线数据点未逐点转录。**本轮仍属待逐句终校稿，不标记为完整译文验收稿。**
 
 
 ---
@@ -427,6 +427,115 @@ R_{l2}=\operatorname{AdaLN}
 \]
 式 (23b) 和式 (23d) 中的箭头分别表示在一维 token 序列（长度 \(Q\)）与二维空间—频率网格（\(H\times W\)）之间重排张量维度，并不是数值变换。输入和输出借助残差连接相加。
 
-**核验备注：** PDF 第 15–16 页为参考文献 [1]–[49]。附录 A 和 B 的两组公式已经按原文编号 (20)–(23e) 补入；参考文献条目的题名、作者和出版信息仍需逐项转录，不能把未译的参考文献算作完整翻译。
+## 参考文献
+
+下列条目按原论文编号转录自 PDF 第 15–16 页，保留英文原书目信息（题名、作者、期刊/会议、卷期页、年份），条目文字未作翻译。
+
+[1] J. G. Andrews, T. E. Humphreys, and T. Ji, “6G takes shape,” IEEE BITS Inform. Theory Mag., vol. 4, no. 1, pp. 2–24, Mar. 2024.
+
+[2] Z. Wang et al., “A tutorial on extremely large-scale MIMO for 6G: Fundamentals, signal processing, and applications,” IEEE Commun. Surveys Tuts., vol. 26, no. 3, pp. 1560–1605, 3rd Quart., 2024.
+
+[3] M. Shafi et al., “Industrial viewpoints on RAN technologies for 6G,” arXiv preprint arXiv:2508.08225, 2025.
+
+[4] 3GPP 6GWS-250159, “Views on 6G radio,” Huawei, HiSilion, Tech. Rep., Mar. 2025. [Online]. Available: https://www.3gpp.org/ftp/workshop/2025-03-10_3GPP_6G_WS/Docs/6GWS-250159.zip
+
+[5] F. Liu, P. Jiang, J. Zhang, W. Wang, C.-K. Wen, and S. Jin, “PD-CEViT: A novel pilot pattern design and channel estimation network for OFDM systems,” IEEE Trans. Commun., vol. 73, no. 6, pp. 4363–4377, Jun. 2025.
+
+[6] K. Pratik et al., “ReQuestNet: A foundational learning model for channel estimation,” arXiv preprint arXiv:2508.08790, 2025.
+
+[7] Z. Qin et al., “AI empowered wireless communications: From bits to semantics,” Proc. IEEE, vol. 112, no. 7, pp. 621–652, Jul. 2024.
+
+[8] J. Hoydis, F. A. Aoudia, A. Valcarce, and H. Viswanathan, “Toward a 6G AI-native air interface,” IEEE Commun. Mag., vol. 59, no. 5, pp. 76–81, May 2021.
+
+[9] 3GPP TR 38.843, “Study on artificial intelligence (AI)/machine learning (ML) for NR air interface (Release 18),” Tech. Rep., Dec. 2023. [Online]. Available: https://www.3gpp.org/ftp/Specs/archive/38_series/38.843/38843-200.zip
+
+[10] Q. Li et al., “Machine learning based time domain millimeter-wave beam prediction for 5G-advanced and beyond: Design, analysis, and over-the-air experiments,” IEEE J. Sel. Areas Commun., vol. 41, no. 6, pp. 1787–1809, Jun. 2023.
+
+[11] H. Jiang, M. Cui, D. W. K. Ng, and L. Dai, “Accurate channel prediction based on transformer: Making mobility negligible,” IEEE J. Sel. Areas Commun., vol. 40, no. 9, pp. 2717–2732, Sep. 2022.
+
+[12] X. Zhou, L. Liang, J. Zhang, P. Jiang, Y. Li, and S. Jin, “Generative diffusion models for high dimensional channel estimation,” IEEE Trans. Wireless Commun., vol. 24, no. 7, pp. 5840–5854, Jul. 2025.
+
+[13] J. Guo, C.-K. Wen, S. Jin, and X. Li, “AI for CSI feedback enhancement in 5G-advanced,” IEEE Wireless Commun., vol. 31, no. 3, pp. 169–176, Jun. 2024.
+
+[14] H.-S. Cha, G. Lee, A. Ghosh, M. Baker, S. Kelley, and J. Hofmann, “5G NR positioning enhancements in 3GPP Release-18,” IEEE Commun. Standards Mag., vol. 9, no. 1, pp. 22–27, Mar. 2025.
+
+[15] 3GPP R1-2505970, “Discussion on AI/ML in 6GR,” Fujitsu, Tech. Rep., Aug. 2025. [Online]. Available: https://www.3gpp.org/ftp/tsg_ran/WG1_RL1/TSGR1_122/Docs/R1-2505970.zip
+
+[16] M. Soltani, V. Pourahmadi, A. Mirzaei, and H. Sheikhzadeh, “Deep learning-based channel estimation,” IEEE Commun. Lett., vol. 23, no. 4, pp. 652–655, Apr. 2019.
+
+[17] L. Li, H. Chen, H.-H. Chang, and L. Liu, “Deep residual learning meets OFDM channel estimation,” IEEE Wireless Commun. Lett., vol. 9, no. 5, pp. 615–618, May 2020.
+
+[18] Y. Liao, Y. Hua, and Y. Cai, “Deep learning based channel estimation algorithm for fast time-varying MIMO-OFDM systems,” IEEE Commun. Lett., vol. 24, no. 3, pp. 572–576, Mar. 2020.
+
+[19] A. Vaswani et al., “Attention is all you need,” Proc. Adv. Neural Inform. Process. Syst. (NIPS), 2017, pp. 5998–6008.
+
+[20] A. Dosovitskiy et al., “An image is worth 16x16 words: Transformers for image recognition at scale,” arXiv preprint arXiv:2010.11929, 2020.
+
+[21] D. Luan and J. Thompson, “Attention based neural networks for wireless channel estimation,” Proc. IEEE Veh. Technol. Conf., Jun. 2022, pp. 1–5.
+
+[22] J. Guo, P. Jiang, C.-K. Wen, S. Jin, and J. Zhang, “LVM4CSI: Enabling direct application of pre-trained large vision models for wireless channel tasks,” arXiv preprint arXiv:2507.05121, 2025.
+
+[23] T. Brown et al., “Language models are few-shot learners,” Proc. Adv. Neural Inform. Process. Syst. (NIPS), 2020, pp. 1877–1901.
+
+[24] D. Guo et al., “DeepSeek-R1: Incentivizing reasoning capability in LLMs via reinforcement learning,” arXiv preprint arXiv:2501.12948, 2025.
+
+[25] L. Liang et al., “Large language models for wireless communications: From adaptation to autonomy,” arXiv preprint arXiv:2507.21524, 2025.
+
+[26] B. Liu, X. Liu, S. Gao, X. Cheng, and L. Yang, “LLM4CP: Adapting large language models for channel prediction,” J. Commun. Inf. Netw., vol. 9, no. 2, pp. 113–125, Jun. 2024.
+
+[27] Y. Sheng, K. Huang, L. Liang, P. Liu, S. Jin, and G. Y. Li, “Beam prediction based on large language models,” IEEE Wireless Commun. Lett., vol. 14, no. 5, pp. 1406–1410, May 2025.
+
+[28] T. Zheng and L. Dai, “Large language model enabled multi-task physical layer network,” IEEE Trans. Commun., vol. 74, pp. 307–321, 2026.
+
+[29] S. Alikhani, G. Charan, and A. Alkhateeb, “Large wireless model (LWM): A foundation model for wireless channels,” arXiv preprint arXiv:2411.08872, 2024.
+
+[30] B. Liu, S. Gao, X. Liu, X. Cheng, and L. Yang, “WiFo: Wireless foundation model for channel prediction,” Sci. China Inf. Sci., vol. 68, no. 6, pp. 1–13, Jun. 2025.
+
+[31] T. Yang et al., “WirelessGPT: A generative pre-trained multi-task learning framework for wireless communication,” IEEE Netw., vol. 39, no. 5, pp. 58–65, Sep. 2025.
+
+[32] Y. Nie, N. H. Nguyen, P. Sinthong, and J. Kalagnanam, “A time series is worth 64 words: Long-term forecasting with transformers,” arXiv preprint arXiv:2211.14730, 2022.
+
+[33] A. Das, W. Kong, R. Sen, and Y. Zhou, “A decoder-only foundation model for time-series forecasting,” Proc. Int. Conf. Mach. Learn. (ICML), 2024, pp. 10148–10167.
+
+[34] Y. Sheng et al., “A wireless foundation model for multi-task prediction,” arXiv preprint arXiv:2507.05938, 2025.
+
+[35] K. He, X. Zhang, S. Ren, and J. Sun, “Deep residual learning for image recognition,” Proc. IEEE Conf. Comput. Vis. Pattern Recognit. (CVPR), 2016, pp. 770–778.
+
+[36] A. Zeng, M. Chen, L. Zhang, and Q. Xu, “Are transformers effective for time series forecasting?” Proc. AAAI, 2023, pp. 11121–11128.
+
+[37] 3GPP TS 38.211, “NR; Physical channels and modulation (Release 19),” Tech. Spec., Oct. 2025. [Online]. Available: https://www.etsi.org/deliver/etsi_ts/138200_138299/138211/19.01.00_60/ts_138211v190100p.pdf
+
+[38] K. Yuan, S. Guo, Z. Liu, A. Zhou, F. Yu, and W. Wu, “Incorporating convolution designs into visual transformers,” Proc. IEEE Int. Conf. Comput. Vis. (ICCV), 2021, pp. 579–588.
+
+[39] W. Peebles and S. Xie, “Scalable diffusion models with transformers,” in Proc. IEEE Int. Conf. Comput. Vis. (ICCV), 2023, pp. 4195–4205.
+
+[40] 3GPP TR 38.901, “Study on channel model for frequencies from 0.5 to 100 GHz (Release 17),” Tech. Rep., Apr. 2022. [Online]. Available: https://www.etsi.org/deliver/etsi_tr/138900_138999/138901/17.00.00_60/tr_138901v170000p.pdf
+
+[41] E. Dahlman, S. Parkvall, and J. Skold, 5G NR: The Next Generation Wireless Access Technology. Academic Press, 2020.
+
+[42] W. Jiang and H. D. Schotten, “Deep learning for fading channel prediction,” IEEE Open J. Commun. Soc., vol. 1, pp. 320–332, 2020.
+
+[43] 3GPP TS 36.101, “Evolved Universal Terrestrial Radio Access (E-UTRA); User Equipment (UE) radio transmission and reception (Release 17),” Tech. Rep., May 2022. [Online]. Available: https://www.etsi.org/deliver/etsi_ts/136100_136199/136101/17.05.00_60/ts_136101v170500p.pdf
+
+[44] 3GPP TS 38.214, “NR; Physical layer procedures for data (Release 19),” Tech. Spec., Oct. 2025. [Online]. Available: https://www.etsi.org/deliver/etsi_ts/138200_138299/138214/19.01.00_60/ts_138214v190100p.pdf
+
+[45] D. Tse and P. Viswanath, Fundamentals of Wireless Communication. Cambridge Univ. Press, 2005.
+
+[46] 3GPP TR 38.802, “Study on new radio (NR) access technology; physical layer aspects (Release 14),” Tech. Rep., Sep. 2017. [Online]. Available: https://www.3gpp.org/ftp/Specs/archive/38_series/38.802（原文此处抽取不完整，待核对）
+
+[47] Z. Liu et al., “MobileLLM: Optimizing sub-billion parameter language models for on-device use cases,” Proc. Int. Conf. Mach. Learn. (ICML), 2024, pp. 32431–32454.
+
+[48] A. Raha et al., “LLM-NPU: Towards efficient foundation model inference on low-power neural processing units,” Proc. IEEE Int. Conf. Omni-Layer Intell. Syst. (COINS), 2025, pp. 1–8.
+
+[49] X. Lin et al., “AI-native 6G: Empowering intelligent RAN with accelerated compute,” IEEE Wireless Commun., vol. 32, no. 6, pp. 11–14, Dec. 2025.
+
+**书目转录说明：** 条目中 "P . Jiang" 一类字符间距来自 PDF 抽取（原文为 "P. Jiang"），已按原书写习惯合并；[4] 的 "HiSilion" 为抽取所得写法（疑为 HiSilicon）；[46] 的在线 URL 在 PDF 抽取中被截断（原文此处抽取不完整，待核对）。以上均未擅自补改。
+
+**核验备注：** 附录 A 和 B 的两组公式已按原文编号 (20)–(23e) 补入；参考文献 [1]–[49] 已按原编号逐条转录英文书目（PDF 第 15–16 页）。正文与公式的逐句逐式终校尚未完成，本轮不标记为完整译文验收稿。
+
+
+---
+
+**登记（2026-10-30）：** 本篇按用户 2026-10-30 新口径登记为“可公开全文译文”——全文覆盖（摘要、正文、结论、图表说明与附录/书目按原论文结构）已录入；页内“未完成/待终校”等提示指逐句逐式终校程度，不表示覆盖缺失，保留为历史记录。
 
 {% endraw %}

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "FTN 耦合干扰建模与迭代检测｜中文译稿（校对中）"
+title: "FTN 耦合干扰建模与迭代检测｜中文译稿（2026-10-30 补译，未逐句终校）"
 permalink: /papers/translations/2026-10-15-ftn-coupled-interference/
 math: true
 toc: true
@@ -15,7 +15,7 @@ toc: true
 **作者**：Qiang Li、Yan Wang、Liping Li、Yingsong Li、Xingwang Li、Kai-Kit Wong、Chau Yuen  
 **来源**：IEEE Transactions on Wireless Communications，2026，第 25 卷，12613–12629；DOI：10.1109/TWC.2026.3666648。  
 **发布状态**：用户提供中文译稿；校对中，未计入全文验收。
-**进度**：摘要、第一章，第二至四章核心正文与公式、第五章部分仿真说明已译；论文第 11 式与第 31 式的带状矩阵、算法 1 的逐行排版及实验表格仍需与原 PDF 校对；第 VI 章结论已补译。**不是经逐式核对的终版全译。**
+**进度**：摘要、第 I—VI 章正文与公式已译；本轮补入第 V 章逐段说明、图 7—13 图注与数值要点、表 I—V 逐格转录、算法 1 逐行伪代码、式（11）与（31）的带状矩阵结构、参考文献 [1]—[44] 英文原书目。**仍不是经逐字符核对的终版全译。**
 
 ## 摘要
 
@@ -59,7 +59,42 @@ FTN 在利用符号压缩优势的同时不再严格满足奈奎斯特准则，�
 
 文章其余安排如下：第二章为 DSF 信道 FTN 系统模型；第三章提出信道估计算法；第四章说明迭代检测机制及流程并分析复杂度；第五章给出仿真；第六章总结。
 
-**记号**：粗体小写和大写分别为向量与矩阵；$\mathbb E(\cdot)$ 为期望，$\Re(\cdot)$ 为复数实部，$\lfloor\cdot\rfloor$ 为下取整，$\Pr(\cdot)$ 表示概率，$\propto$ 为正比，$\|\mathbf x\|_2$ 为欧氏范数，$\mathcal{CN}(\mu,\Sigma)$ 为均值 $\mu$、方差（或协方差）$\Sigma$ 的复高斯分布。$(\cdot)^T$、$(\cdot)^*$、$(\cdot)^H$ 分别为转置、共轭和共轭转置；$\otimes$ 表示线性卷积，$x_1\bmod x_2$ 为取模，$[x_i]_{i=N_1}^{N_2}$ 为按顺序构成的列向量。原文表 I 列出主要符号定义。
+**记号**：粗体小写和大写分别为向量与矩阵；$\mathbb E(\cdot)$ 为期望，$\Re(\cdot)$ 为复数实部，$\lfloor\cdot\rfloor$ 为下取整，$\Pr(\cdot)$ 表示概率，$\propto$ 为正比，$\|\mathbf x\|_2$ 为欧氏范数，$\mathcal{CN}(\mu,\Sigma)$ 为均值 $\mu$、方差（或协方差）$\Sigma$ 的复高斯分布。$(\cdot)^T$、$(\cdot)^*$、$(\cdot)^H$ 分别为转置、共轭和共轭转置；$\otimes$ 表示线性卷积，$x_1\bmod x_2$ 为取模，$[x_i]_{i=N_1}^{N_2}$ 为按顺序构成的列向量。
+
+原文表 I 给出关键符号与定义，按原表逐格转录如下（符号栏照录，说明栏为译述）。
+
+**表 I 关键符号与定义**
+
+| 符号 | 定义 |
+| --- | --- |
+| $\alpha$ | SRRC 滤波器的滚降因子 |
+| $\tau$ | FTN 系统的符号压缩率 |
+| $\varsigma$ | 归一化时延 |
+| $\ell$ | 第 $\ell$ 个离散时延位置 |
+| $\nu$ | 第 $\nu$ 个可分辨子径参数 |
+| $\varepsilon$ | 最大信道时延抽头 |
+| $\gamma_\varsigma$ | 与归一化时延 $\varsigma$ 对应的传播时延 |
+| $\phi_u$ | 与归一化时延 $\varsigma$ 对应的多普勒频移（原文如此；按正文应为“与归一化多普勒 $u$ 对应的多普勒频移”，见下方疑点注） |
+| $\mathcal L$ | 不同归一化时延构成的集合 |
+| $\mathcal U_\varsigma$ | 归一化多普勒频移的集合 |
+| $l$ | 第 $l$ 条显著传播路径 |
+| $L$ | 发送符号块长度 |
+| $L_b$ | 加 CP/CS 后的发送符号块长度 |
+| $L_c$ | 耦合干扰因子的单侧长度 |
+| $L_d$ | 耦合干扰因子的总长度 |
+| $L_h$ | 显著传播路径数 |
+| $L_p$ | 导频块长度 |
+| $L_s$ | 信道输入的发送符号序列长度 |
+| $m$ | 第 $m$ 个采样时刻 |
+| $N$ | 映射后的符号序列长度 |
+| $N_f$ | 成帧后的符号序列长度 |
+| $N_p$ | 一个传输帧的长度 |
+| $N_s$ | 加 CP/CS 后的符号序列长度 |
+| $u$ | 归一化多普勒频移 |
+| $U$ | 可分辨子径数 |
+| $v$ | FTN-ISI 因子序列的单侧长度 |
+
+> **原文疑点：** 表 I 中 $\phi_u$ 的说明印作“Doppler shift corresponding to the normalized delay $\varsigma$”，与正文式（2）下“$\phi_u$ 为与归一化多普勒频移 $u$ 对应的多普勒频移”不一致，疑为原表笔误；表中按原样转录并在此加注，未改动原表格文字。
 
 ## II. 系统模型
 
@@ -161,7 +196,25 @@ $$
 \mathbf r=\mathbf D\mathbf a,\qquad \mathbf D\in\mathbb C^{N\times N}.\tag{10}
 $$
 
-$\mathbf D$ 是 DSF 信道与 FTN 成形相互作用产生的**耦合干扰矩阵**，不能像式（7）那样分解为 $\widehat{\mathbf\Psi}\mathbf G$。原文式（11）在下一页底部以带状矩阵显示；其元素由式（9）确定，单侧耦合干扰跨度记 $L_c$，单侧 FTN-ISI 因子跨度记 $v$。**式（11）的整个带状矩阵排版仍需以 PDF 原图核对**。DSF 下缺乏循环性和对称性，这也使已有低复杂度检测方法性能下降，因而第四章提出 WE-OAMP。
+$\mathbf D$ 是 DSF 信道与 FTN 成形相互作用产生的**耦合干扰矩阵**，不能像式（7）那样分解为 $\widehat{\mathbf\Psi}\mathbf G$。其第 $j$ 行第 $n$ 列的元素即式（9）的 $D_{j,n}$；单侧耦合干扰跨度记为 $L_c$，单侧 FTN-ISI 因子跨度记为 $v$。原文式（11）以带状矩阵形式给出 $\mathbf D$ 的结构，按原 PDF 渲染图逐元转录如下（省略点表示非零元的延续，原文即以示意方式排版）：
+
+$$
+\mathbf D=
+\begin{bmatrix}
+D_{0,0} & \cdots & D_{0,v} & 0 & 0 & 0 & \cdots\cdots & 0\\
+D_{1,0} & D_{1,1} & \cdots & D_{1,v+1} & 0 & 0 & \cdots\cdots & 0\\
+\vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots\\
+D_{L_c-1,0} & \cdots & \cdots & \cdots & \cdots & D_{L_c-1,L_c+v} & \cdots & 0\\
+0 & \ddots & \cdots & \cdots & \cdots & \cdots & \ddots & 0\\
+\vdots & \cdots & \cdots & \ddots & \cdots & \cdots & \cdots & D_{L-v-1,L-1}\\
+\vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \vdots\\
+0 & \cdots & \cdots & \cdots & D_{L-1,L-L_c} & \cdots & \cdots\cdots & D_{L-1,L-1}
+\end{bmatrix}.\tag{11}
+$$
+
+> **转写说明（原文疑点）：** ①式（11）在原文中由省略点构成示意矩阵，印刷版的行列索引写到 $L-1$，而正文定义 $\mathbf D\in\mathbb C^{N\times N}$，两处维度记号不一致，疑为原排版问题，此处不作数值上的“修正”。②按原图，非零元集中在 $j-L_c+1\le n\le j+v$ 的带状范围内（$j$ 为行、$n$ 为列）；但第 $L_c-1$ 行的末个非零元印作 $D_{L_c-1,L_c+v}$，比首两行给出的 $j+v$ 规律大 1，疑为原表笔误，照原样转录。③若要逐元数值矩阵，需按式（9）另行计算，原图本身不含具体数值。
+
+DSF 下缺乏循环性和对称性，这也使已有低复杂度检测方法性能下降，因而第四章提出 WE-OAMP。
 
 ## III. 基于可分辨子径参数联合恢复的信道估计
 
@@ -297,7 +350,32 @@ $$
 
 高 SNR 时选择较小 $\lambda$ 以降低对原始测量拟合的干扰；低 SNR 时选较大 $\lambda$ 以压制噪声放大。文中同时讨论参数与噪声功率之间的关系，实际采用随 SNR 调整的正则强度。联合优化后，将参数重新代入（15）构造整个时间序列的 CSI。
 
-为提升稳健性，从 $\mathbf\Theta$ 的同一行提取长度 $2U$ 的滑动窗口：先以行内前 $2U$ 个测量估计一次，再从第二个位置开始估计下一次，直至遍历全行。若某窗口不可求解，用最近的有效估计填补；最后平均不同窗口的重建结果，形成时延抽头 $\omega$ 的估计 $\widehat{\boldsymbol\vartheta}_\omega$。对 $\omega=0,\ldots,\varepsilon$ 重复，形成整体 CSI 矩阵 $\widehat{\mathbf\Theta}$。原文**算法 1**列出按路径、窗口、时间和子径循环的完整伪代码，并以理想 CSI $\mathbf\Theta'$ 计算逐径 NMSE 和总 NMSE；算法中 $\mathrm{mean}$、$\mathrm{sum}$ 和 $\mathrm{abs}$ 分别为均值、求和与绝对值，$\mathbf0_{i\times j}$ 是零矩阵。**逐行伪代码尚未重排，本段为原文步骤的忠实中文转述。**
+为提升稳健性，从 $\mathbf\Theta$ 的同一行提取长度 $2U$ 的滑动窗口：先以行内前 $2U$ 个测量估计一次，再从第二个位置开始估计下一次，直至遍历全行。若某窗口不可求解，用最近的有效估计填补；最后平均不同窗口的重建结果，形成时延抽头 $\omega$ 的估计 $\widehat{\boldsymbol\vartheta}_\omega$。对 $\omega=0,\ldots,\varepsilon$ 重复，形成整体 CSI 矩阵 $\widehat{\mathbf\Theta}$。原文**算法 1** 如下（按原图逐行转录；$\mathrm{mean}(\cdot)$、$\mathrm{sum}(\cdot)$、$\mathrm{abs}(\cdot)$ 分别为均值、求和与绝对值，$\mathbf0_{i\times j}$ 为零矩阵，$\mathbf T$ 为局部最优估计的 CSI 矩阵，$\mathbf\Theta'$ 为理想 CSI 矩阵）：
+
+**算法 1**　基于可分辨子径参数联合恢复的信道估计算法
+
+**输入**：$\mathbf\Theta$，$\mathbf\Theta'$，$U$，$N_f$，$\zeta=MN/\lfloor N/L\rfloor$。
+
+1. 初始化 $\widehat{\mathbf\Theta}=\mathbf 0_{\varepsilon\times N_f}$，$\boldsymbol\delta=\mathbf 0_{1\times\varepsilon}$，$\boldsymbol\beta=\mathbf 0_{1\times\varepsilon}$，$\mathbf n_p=\mathbf 0_{1\times\varepsilon}$。
+2. **for** $\omega=0:\varepsilon$ **do**
+3. 　置 $\mathbf T=\mathbf 0_{(\lfloor N/L\rfloor+1-2U+1)\times N_f}$。
+4. 　**for** $idx=0:\lfloor N/L\rfloor+1-2U$ **do**
+5. 　　取 $\boldsymbol\vartheta=\mathbf\Theta(\omega,idx:idx+2U-1)$，求解方程组 $\boldsymbol\vartheta=\mathbf W\mathbf x$，其中 $\mathbf q=[x^{(0)},w^{(1)},\ldots,x^{(2U-2)},w^{(2U-1)}]$。
+6. 　　**for** $jdx=0:N_f-1$ **do**
+7. 　　　**for** $kdx=0:U-1$ **do**
+8. 　　　　$\mathbf T(idx,jdx)=\mathbf T(idx,jdx)+\mathbf q(idx,2kdx-1)\,\mathbf q(idx,2kdx)^{(jdx-\omega-(idx-1)\zeta)/\zeta}$。
+9. 　　　**end for**
+10. 　　**end for**
+11. 　**end for**
+12. 　**for** $jdx=0:N_f-1$ **do**
+13. 　　$\widehat{\mathbf\Theta}(\omega,jdx)=\mathrm{mean}\big(\mathbf T((\mathrm{abs}(\mathbf T(:,jdx)))^H\neq 0,jdx),1\big)$。
+14. 　**end for**
+15. 　$\delta(\omega)=\mathrm{sum}\big((\mathrm{abs}(\mathbf\Theta'(\omega,:)-\widehat{\mathbf\Theta}(\omega,:)))^2\big)$；$\beta(\omega)=\mathrm{sum}\big((\mathrm{abs}(\mathbf\Theta'(\omega,:)))^2\big)$；$n_p(\omega)=10\lg(\delta(\omega)/\beta(\omega))$。
+16. **end for**
+
+**输出**：$\widehat{\mathbf\Theta}$，$n=10\lg(\mathrm{sum}(\boldsymbol\delta)/\mathrm{sum}(\boldsymbol\beta))$。
+
+> **原文疑点：** 上式第 8 行的指数 $(jdx-\omega-(idx-1)\zeta)/\zeta$ 在原文中加在 $\mathbf q(idx,2kdx)$ 上；但按 $\mathbf q=[x^{(0)},w^{(1)},\ldots]$ 的定义，$2kdx-1$ 为奇数（相位基底 $w$）、$2kdx$ 为偶数（增益 $x$），Vandermonde 矩阵 $\mathbf W$ 的底应为 $w$、系数应为 $x$，故指数更可能应加在 $\mathbf q(idx,2kdx-1)$ 上。此处照原样转录并加注，未擅自改动。
 
 ## IV. 抑制耦合干扰的迭代检测
 
@@ -338,7 +416,27 @@ $$
 \quad\widehat{\mathbf D}_k\in\mathbb C^{L\times L}.\tag{30}
 $$
 
-尽管每个块的 $\widehat{\mathbf D}_k$ 数值不同，其带状结构相同，见原文式（31）。合并接收块得到
+尽管每个块的 $\widehat{\mathbf D}_k$ 数值不同，其带状结构相同，原文式（31）给出该结构，按原 PDF 渲染图逐元转录如下：
+
+$$
+\widehat{\mathbf D}_k=
+\begin{bmatrix}
+\hat D_{0,0} & \hat D_{0,1} & \cdots & \hat D_{0,v} & 0 & \cdots & \cdots & \cdots & 0 & \hat D_{0,L-L_c} & \cdots\cdots & \hat D_{0,L-1}\\
+\hat D_{1,0} & \hat D_{1,1} & \hat D_{1,2} & \cdots & \hat D_{1,v+1} & 0 & \cdots & \cdots & \cdots & 0 & \cdots\cdots & \hat D_{1,L-1}\\
+\vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \ddots & \vdots & \vdots & \vdots & \vdots\\
+\hat D_{L_c-2,0} & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \hat D_{L_c-2,L-1}\\
+\hat D_{L_c-1,0} & \cdots & \cdots & \cdots & \cdots & \hat D_{L_c-1,L_c+v-1} & \cdots & \cdots & \cdots & \cdots & \cdots & 0\\
+0 & \ddots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \ddots & 0\\
+\vdots & \cdots & \cdots & \ddots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \hat D_{L-v-1,L-1}\\
+\hat D_{L-v,0} & 0 & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \hat D_{L-v,L-1}\\
+\vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots\\
+\hat D_{L-1,0} & \cdots & \hat D_{L-1,v-1} & 0 & \cdots & 0 & \hat D_{L-1,L-L_c} & \cdots & \cdots & \cdots & \cdots & \hat D_{L-1,L-1}
+\end{bmatrix}.\tag{31}
+$$
+
+> **转写说明：** 式（31）原文同样以省略点示意。从图中可读出：由于插入 CP/CS，$\widehat{\mathbf D}_k$ 的带状结构在两端“回绕”——第 $j$ 行的非零元大致位于 $j-L_c+1\le n\le j+v$（按模 $L$ 回绕），因此矩阵左上、右下的角元为 $0$，而右上、左下出现非零角元；行末非零下标（$D_{L_c-1,L_c+v-1}$、$D_{L-v-1,L-1}$、$D_{L-1,L-L_c}$ 等）已按原图转录，“大致”“角元”等为对非零结构的描述，原文未逐条列出边界。逐元数值仍需按式（9）与 CP/CS 结构计算，原图不含具体数值。
+
+合并接收块得到
 
 $$
 \mathbf y=\widehat{\mathbf D}\mathbf a.\tag{32}
@@ -521,21 +619,86 @@ $$
 
 进一步近似为 $O(\varepsilon\lfloor N/L\rfloor IU^3)$。样条插值、线性插值、Wiener 插值分别约为 $O(2\varepsilon MN)$、$O(\varepsilon MN)$、$O(\varepsilon^2MN)$；基于索引调制的插值法还涉及导频位置识别，详细运算见表 II。
 
+**表 II 信道估计算法的计算复杂度**（逐格转录）
+
+| 算法 | 信道估计算法的复杂度 |
+| --- | --- |
+| JRRSP | $\mathcal O(\varepsilon\lfloor N/L\rfloor IU^3)$ |
+| 样条插值（spline interpolation） | $\mathcal O(2\varepsilon MN)$ |
+| 线性插值（linear interpolation） | $\mathcal O(\varepsilon MN)$ |
+| Wiener 插值 | $\mathcal O(\varepsilon^2MN)$ |
+| 基于索引调制的插值（IM-based） | $\mathcal O((\varepsilon+2-v)(\varepsilon+1)+P_c)$ |
+
+注：$P_c=(2\varepsilon+1)\times\mathrm{Card}\{\mathbb P\}+\mathrm{Card}\{\mathbb P\}\times\log(\mathrm{Card}\{\hat{\mathbb P}\})+\log(\mathrm{Card}\{\hat{\mathbb P}\})\times4\times\mathrm{Card}\{\hat{\mathbb P}\}\times\varepsilon$；其中 $\mathbb P$ 为预定义位置集合 $\{0,1,\cdots,2^{\lfloor\log_2(L+1)\rfloor}-1\}$，$\hat{\mathbb P}$ 为期望导频序列排序后的版本，$\mathrm{Card}\{\hat{\mathbb P}\}=2^{\lfloor\log_2(L+1)\rfloor-\lceil\log_2(\varepsilon+1)\rceil}$（见原文第 11 页正文）。原文该式前两项用 $\mathbb P$、后几项用 $\hat{\mathbb P}$，符号混用，此处照原样转录。
+
 原文表 III 对比检测复杂度。WE-OAMP 的 LE 权重计算包含一次 $L\times L$ 矩阵求逆，外信息计算中也有求逆，NLE 逐符号检测本身为 $O(L)$。经过 $\chi$ 次迭代，总复杂度约为 $O(\chi(5L^3+L))\simeq O(5\chi L^3)$。MRC 约为 $O(L^3+\chi L^2)$；LMMSE 约为 $O(L^3)$；Turbo 均衡约为 $O(\chi L^3)$。
 
-## V. 仿真分析（实验结果概要，非逐段全译）
+**表 III 数据检测算法的计算复杂度**（逐格转录）
 
-本文使用长度为 16200 的 LDPC 编码，码率 $1/2$ 或 $3/4$，QPSK 调制。信道采用 3GPP 的 EVA、EPA 与 ETU 模型；EVA 的最大时延抽头 $\varepsilon=63$。BER 实验数据块长 $L=1024$，FTN 参数分别为 $\tau=0.8,\alpha=0.25$ 与 $\tau=2/3,\alpha=0.5$，并以 $\tau=1$ 的奈奎斯特传输作为基准。原文表 IV 和表 V 分别给出信道与 FTN 系统的完整参数。
+| 算法 | 数据检测算法的复杂度 |
+| --- | --- |
+| WE-OAMP | $\mathcal O(5\chi L^3)$ |
+| MRC | $\mathcal O(L^3)$ |
+| LMMSE | $\mathcal O(L^3)$ |
+| Turbo 均衡（Turbo equalization） | $\mathcal O(\chi L^3)$ |
 
-**A. 干扰因子与频谱。** 图 7 比较 AWGN、FSF 与 DSF 信道中第 180、333、487 个符号的干扰因子。AWGN 下干扰主要来自 FTN-ISI，因子固定且对称；FSF 导致多径能量分散，但块内路径增益近似不变；DSF 同时具有时间和频率选择性，故不同符号的干扰幅度不再相同，耦合效应使波动更剧烈。图 8 比较无导频、FTN 成形导频、未成形导频及降低导频功率等设置下的频谱。未成形导频会使带外衰减比 FTN 成形导频降低约 10 dB，形成需要权衡的频谱开销。
+注：表中复杂度为原文以单次发送符号块为例的近似值；WE-OAMP 未计迭代次数时单轮约为 $O(5L^3)$。
 
-**B. 信道估计 NMSE。** 图 9–10 对比 JRRSP 与线性、样条、Wiener、索引调制插值方法，涵盖不同信道模型、数据块长和 SNR。总体上 JRRSP 的 NMSE 最小；当数据块加长时，插值误差更明显，而基于子径参数恢复的方法受影响较小。不过，JRRSP 以更高计算复杂度换取估计精度；其性能依赖子径数 $U$ 和正则参数设置，不能认为无条件优于全部基线。
+## V. 仿真分析
 
-**C. 误码率。** 图 11 为未编码系统，图 12 为编码系统，比较 WE-OAMP、MRC、LMMSE 与其他方案；并区分理想 CSI（ICSI）与估计 CSI（ECSI）。增加 WE-OAMP 迭代次数通常可改善 BER。值得注意的是，MRC 在部分未编码设置可优于 WE-OAMP，但编码后 WE-OAMP 的检测表现更稳定。在图 11(a) 的 $\tau=0.8$、BER=$10^{-4}$ 设置中，三次迭代相对于一次迭代约有 1 dB 改善。采用估计 CSI 后，各方案的 BER 都有所恶化，尤其在强压缩 $\tau=2/3$ 下更明显。
+本节采用块长 16200 的低密度奇偶校验（LDPC）码作信道编码，码率为 $1/2$ 与 $3/4$，调制方式为正交相移键控（QPSK）。信道采用 3GPP 的扩展车载 A（EVA）、扩展步行 A（EPA）与扩展典型城市（ETU）模型，其仿真参数汇总于表 IV [31]、[40]；其中 EVA 模型的最大信道时延抽头 $\varepsilon=63$。误码率（BER）评估采用数据块长 $L=1024$，并使用压缩率与滚降系数的两组组合 $\tau=0.8,\alpha=0.25$ 与 $\tau=2/3,\alpha=0.5$，以 $\tau=1$ 的奈奎斯特传输作为基准。表 V 给出本文所建 FTN 系统的相关参数。
 
-**D. 容量。** 图 13 在不同 $L,\tau,\alpha$ 下比较归一化可达容量。容量随 SNR 增大，块长增加到约 1024 后影响有限；较小的 FTN 压缩率（更密集的时间打包）在固定其他条件时通常得到更高可达容量。结果与式（51）的趋势一致。
+**表 IV 信道模型的仿真参数**（逐格转录）
 
-**尚待补齐/校核**：第五章所有逐段文字及图 8–13 细节、表 I–V 的完整逐单元转录、算法 1 的逐行排版、公式（11）、（31）的完整带状矩阵、作者参考文献列表与所有复杂公式的逐字符比对。目前是私人学习用阶段性译稿，而不是已验收完整翻译。
+| 信道模型 | 显著路径数 | 时延范围 (ns) | RMS 时延扩展 (ns) | 最大用户移动速度 (km/h) |
+| --- | --- | --- | --- | --- |
+| EVA | 9 | 0—2510 | 357 | 500 |
+| EPA | 7 | 0—410 | 约 50 | 3 |
+| ETU | 9 | 0—5000 | 约 991 | 500 |
+
+注：原表 EPA、ETU 两行的 RMS 时延扩展分别印作 “approximately 50”“approximately 991”。
+
+**表 V FTN 系统的仿真参数**（逐格转录）
+
+| 压缩率与滚降系数 | 上采样因子 | 采样率 | 奈奎斯特符号率 | 占用带宽 | SRRC 滤波器长度 |
+| --- | --- | --- | --- | --- | --- |
+| $\tau=0.8,\ \alpha=0.25$ | 4 | 25 MBaud | 5 MBaud | 6.25 MHz | 51 |
+| $\tau=2/3,\ \alpha=0.5$ | 4 | 25 MBaud | 25/6 MBaud | 6.25 MHz | 61 |
+
+**A. 干扰因子与发射信号频谱分析。** 本小节在压缩率 0.8、滚降系数 0.25 下分析干扰因子；为突出 DSF 信道的时变特性，最大多普勒频率设为 3700 Hz，符号块长取 512。选择第 180、333、487 个符号对应的干扰因子作观察，以分析 AWGN、FSF 与 DSF 三种信道下的干扰特性。
+
+不同信道上各符号对应的干扰因子幅度如图 7 所示。AWGN 信道下期望符号只受 FTN-ISI 影响：当 SRRC 滤波器的采样参数、滚降因子与长度固定时，FTN-ISI 因子保持恒定且对称，因此第 180、333、487 个符号对应的干扰因子完全重合。相比之下，频率选择性衰落使主径能量在 FSF 信道的多条路径上分散，干扰因子幅度较 AWGN 明显降低；又因 FSF 信道在一个符号周期内路径增益保持不变，不同符号的干扰因子仍相互一致。此外，与 AWGN 相比，FSF 下的干扰范围更宽：期望符号不仅受相邻符号影响，也受具有显著干扰的较远符号影响。DSF 信道同时具有频率选择性与时间选择性衰落，路径增益随时间变化，因此三个期望符号的干扰因子幅度不再一致，整体数值一般低于 AWGN 信道且波动更剧烈。另外，本文推导的 DSF 信道耦合干扰相比非耦合情形呈现更明显的幅度起伏：由于 FTN-ISI 与 channel-ISI 相互耦合，影响期望符号的强干扰更加集中。
+
+图 8 比较了五种频谱。第一种情形是奈奎斯特脉冲成形后不含导频的频谱；其余四种情形中所有数据符号均按 $\tau=0.8$、$\alpha=0.25$ 做 FTN 成形，分别为：不含导频的频谱；含非 FTN 成形导频的频谱；含降功率非 FTN 成形导频的频谱；含 FTN 成形导频的频谱。由图 8 可见，插入 FTN 成形导频时，所得频谱与奈奎斯特、FTN 两种系统下不含导频的情形高度吻合，在某一频率点之外的带外发射衰减约 40 dB。相反，采用本文设计的非 FTN 成形导频时，同一频率点处的带外衰减约为 30 dB，即相对无导频情形带外泄漏增加约 10 dB。不过，依据 [41]、[42]、[43]，本文导频插入方案得到的邻道泄漏功率比约为 30 dB，仍满足标准系统要求。因此，插入未成形导频虽会增加带外发射，但不影响系统的整体有效性，仍处于可接受范围。此外，图 8 还表明：当导频功率缩放为 $1/2$ 时，带外泄漏进一步减轻，比未缩放情形约降低 2 dB。
+
+**图 7**：FTN 传输在 AWGN、FSF 与 DSF 信道下的干扰因子。
+**图 8**：有无导频时的频谱比较。
+
+**B. 信道估计算法的 NMSE 性能。** 本小节采用 QPSK 调制进行 NMSE 分析。由于本文导频不参与 FTN 成形，信道估计仿真中可忽略 FTN 压缩率与 SRRC 滤波器滚降因子的影响。此外，信道估计算法中的多变量协同优化采用非线性最小二乘方法，通过迭代调整参数向量 $\mathbf x$ 使扩展残差最小 [44]；终止准则为残差变化的相对容差低于 $10^{-4}$，或最大迭代次数达到 500。相应地，在代表性逐比特信噪比 $[0,5,10,15,20,25,30]$ dB 处，正则参数取 $[1\mathrm{e}{-1},8\mathrm{e}{-2},4\mathrm{e}{-2},1\mathrm{e}{-2},3\mathrm{e}{-3},1\mathrm{e}{-4},1\mathrm{e}{-6}]$。
+
+图 9 在 EVA 信道模型下比较了所提 JRRSP 算法与文献 [25]、[31] 的线性、样条插值算法、文献 [39] 的 Wiener 插值算法以及文献 [26] 基于 IM 的插值算法在不同块长下的 NMSE。结果表明：所有算法的 NMSE 均随 SNR 增大而下降；在各类插值方法中 Wiener 插值性能最好。然而，随着符号块长增加，所有基于插值的信道估计算法都出现 NMSE 退化，主要原因是更长的块长需要插值更多点，插值误差累积使 NMSE 恶化。相比之下，所提 JRRSP 算法虽也随块长增加出现一定性能下降，但退化幅度明显更小，并在三种块长下均保持更优的估计性能。例如在 SNR 为 25 dB 时，与块长 256 相比，JRRSP 在块长 512 与 1024 下的 NMSE 分别增加约 0.1 dB 与 4 dB。此外，符号块长为 256 时，JRRSP 的 NMSE 比 Wiener 插值算法低约 4 dB；当块长增至 1024 时，JRRSP 相对 Wiener 插值的 NMSE 改善扩大至约 12 dB。
+
+图 10 给出块长 $L=1024$ 时，所提信道估计算法与四种基于插值的算法在 EVA、EPA 与 ETU 信道模型下的 NMSE。具体地，所提 JRRSP 算法在 EPA 模型中 NMSE 最优、在 ETU 模型中相对较差、在 EVA 模型中居中。线性插值、样条插值、Wiener 插值与基于 IM 的插值也呈相同趋势：随着多普勒频移与时延扩展增大，信道估计算法性能下降。例如在 SNR 为 30 dB 时，相对 ETU 模型，JRRSP 在 EPA 与 EVA 模型中的 NMSE 分别改善约 4 dB 与 1 dB。此外，在相同信道模型下，所提算法仍优于所有基于插值的方法。例如 EPA 模型、SNR 为 30 dB 时，JRRSP 的 NMSE 比性能最好的 Wiener 插值约低 0.5 dB；该改善在 EVA 模型中约达 14 dB、在 ETU 模型中约达 13 dB。这些结果说明，尽管所提估计算法在高多普勒、大时延扩展场景下性能会下降，仍相对现有算法保持明显优势。值得注意的是，所提 JRRSP 算法与对比的信道估计算法具有相同的基带导频开销；IM 方案虽 NMSE 较高，其主要优势在于额外的频谱效率 [26]。
+
+**图 9**：不同块长对信道估计算法的影响。
+**图 10**：不同信道模型对信道估计算法的影响。
+
+**C. 各算法的误码率性能分析。** 本小节比较所提算法与既有算法的 BER 性能。对于 LMMSE 检测，我们基于推导的耦合干扰矩阵与 MMSE 准则构造均衡矩阵；对于 MRC，按文献 [31]、[32] 的处理方式，以各路径对应的有效信道增益加权合并接收信号，提高合并后的输出 SNR。算法设置方面，采用硬判决 MRC 检测器，在初始化和未初始化两种条件下实现，并比较 1 次与 3 次迭代的结果；此外还仿真了一种非判决 MRC 检测器，仅在有编码系统中、初始化条件下实现。需要说明的是，TH 预编码算法要求发射端已知干扰矩阵；但 DSF 信道具有时变性，发射端可获得的 CSI 往往是过时的，因此 TH 预编码在实际系统中难以有效实现。为便于评估其理论性能，本文对 TH 预编码的仿真假设 DSF 信道在一定时段内保持静态，而其他算法均在真实系统条件下评估。图中 ICSI 与 ECSI 分别表示理想 CSI 与估计 CSI。
+
+图 11 给出 QPSK 调制下各未编码算法的 BER。随着压缩率减小，FTN-ISI 加重，所有算法的 BER 性能均下降，但两个子图的趋势一致。具体而言，在相同压缩率与滚降系数下，单次迭代的 WE-OAMP 算法与 LMMSE 算法的 BER 几乎重合；随着迭代次数增加，所提 WE-OAMP 算法与其他算法的 BER 逐步改善。例如图 11(a) 中 BER 为 $10^{-4}$、$\tau=0.8$ 时，三次迭代的 WE-OAMP 相比单次迭代约有 1 dB 改善。此外，文献 [26] 采用 Turbo 均衡进行 DSF 信道上的 FTN 信号检测；但对本文提出的收发机模型，Turbo 均衡的检测性能显著恶化。本文还比较了 MRC 算法的性能：未做初始估计时，MRC 的 BER 很差，明显劣于所提 WE-OAMP；相反，加入初始估计后，MRC 的 BER 超过 WE-OAMP。由于信道估计误差，ECSI 下 WE-OAMP 的性能劣于 ICSI：例如图 11(b) 中 BER 为 $10^{-3}$、$\tau=2/3$ 时，三次迭代的 WE-OAMP 在 ECSI 下相比 ICSI 约有 1.5 dB 损失。此外，未编码的 TH 预编码算法在低 SNR 下表现相对较好，但在高 SNR 下表现平庸，且随压缩率减小退化比其他算法更快，说明其对严重 FTN-ISI 更敏感。
+
+图 12 给出 QPSK 调制、码率 $1/2$ 与 $3/4$ 下各算法的 BER。加入信道编码后，初始化与未初始化的 MRC、Turbo 均衡以及 TH 预编码算法的性能均退化；相比之下，LMMSE 与所提 WE-OAMP 算法保持稳健的检测性能。如图 12 所示，$\tau=0.8$ 时，LMMSE 与 WE-OAMP 相对奈奎斯特准则的性能损失可以接受，而在 $\tau=2/3$ 时损失更明显，且 LMMSE 退化快于 WE-OAMP。例如码率 $1/2$、$\tau=0.8$、BER 为 $10^{-3}$ 时，WE-OAMP 相对奈奎斯特准则约损失 1.2 dB，同时比 LMMSE 约优 0.5 dB；在 $\tau=2/3$、BER 为 $10^{-2}$ 时，WE-OAMP 相对奈奎斯特准则约损失 1.8 dB，但仍比 LMMSE 约优 0.3 dB。此外，由于信道估计误差，ECSI 下 WE-OAMP 的性能较 ICSI 退化；尽管如此，$\tau=0.8$ 时 WE-OAMP 在 ECSI 下（图 12）仍取得可接受的性能，而在 $\tau=2/3$ 时性能显著下降。另外，TH 预编码在加入信道编码后表现很差，不适用于 DSF 信道传输。最后，当码率由 $1/2$ 提高到 $3/4$ 时，所有算法都需要更高的 SNR 才能达到码率 $1/2$ 时的性能水平；且随着压缩率进一步减小，LMMSE 的性能退化更明显。总体而言，所提 WE-OAMP 算法在检测编码 FTN 信号时取得最佳 BER 性能；在更低压缩率下，可通过提高 SNR 获得进一步改善。
+
+比较图 11 与图 12 可以看出：在不同码率下，无硬判决的 MRC 性能始终显著劣于硬判决 MRC。尽管在未编码系统中 MRC 的 BER 优于 WE-OAMP，但一旦加入信道编码，其性能大幅退化；相反，WE-OAMP 在有编码与未编码两种场景下都保持稳定、令人满意的 BER 性能，更适合实际通信系统。
+
+**图 11**：未编码 FTN 信号下各算法的 BER 性能。
+**图 12**：编码 FTN 信号下各算法的 BER 性能。
+
+**D. WE-OAMP 算法的可达容量分析。** 图 13 比较了所提 WE-OAMP 检测算法在块长 64、128、256、512、1024、2048、4096 与 8192 下的归一化可达容量。结果表明，在压缩率 $\tau=0.8$ 与 $\tau=2/3$ 的 FTN 系统中，系统容量随块长增大逐渐升高，并在块长约 1024 时开始收敛；此后继续增大块长，容量变化可忽略，说明块长 1024 及以上时信息速率已基本收敛。相比之下，奈奎斯特系统的容量在所有块长下几乎相同。此外，在相同滚降因子下，FTN 压缩率越小，可达容量越高，相对 $\tau=1$ 的奈奎斯特系统有显著增益。并且在压缩率固定时，滚降因子 0.25 的容量始终高于滚降因子 0.5，这与式（51）一致，说明可达容量随滚降因子增大而下降。总体而言，在 $1/(1+\alpha)<\tau<1$ 条件下，FTN 系统相对传统非 FTN 系统能在不增加带宽的情况下有效提升容量。
+
+**图 13**：DSF 信道上 WE-OAMP 算法的归一化容量。
+
+**本节补齐说明**：以上 A—D 四小节按原文第 11—15 页逐段译述；表 IV、表 V 按原表逐格转录；图 7—13 的原图注已转为中文图注并保留关键数值。图 7 的四个子图与图 11、图 12 的子图 (a)(b) 未复制图片，仅作文字说明。
 
 ## VI. 结论（依据原文第 15–16 页翻译）
 
@@ -545,6 +708,98 @@ $$
 
 最后，基于所推导的系统模型和耦合干扰矩阵，本文提出 WE-OAMP 算法：使用白化矩阵抑制噪声相关性，并在线性估计器与非线性估计器之间迭代优化，从而有效抑制耦合干扰。与已有数据检测算法相比，该方法实现了更好的误码率（BER）性能。
 
-**范围说明：** 本节为原文第 VI 章结论的完整译意；第 V 章细节、原文表 I–V 和算法 1 尚待更深入逐段/逐行校对。
+**范围说明：** 本节为原文第 VI 章结论的完整译意。本轮已补入第 V 章逐段译述、图 7—13 图注与数值要点、表 I—V 逐格转录、算法 1 逐行伪代码、式（11）与式（31）的带状矩阵结构，以及参考文献 [1]—[44] 的英文原书目。仍遗留：①式（11）（31）原文以省略点示意，原图不含逐元数值，若需逐元矩阵须按式（9）另行计算；②原文第 17 页作者简介（biography）属版权受限内容，按 IEEE 口径未作大段转述；③全部公式尚未与 PDF 做逐字符终校，个别抽取乱码/疑点处已在对应位置加注（表 I、式（11）、式（31）、算法 1 第 8 行、表 II 注）。
+
+## 参考文献
+
+> 以下按原文编号 [1]—[44] 转录英文原书目，条目文字不翻译。原文抽取文本中 “Y .” 之类的空格系 PDF 提取伪影，已按常规写法整理为 “Y.”，书目内容未改动。
+
+[1] Y. Xiao et al., “Space-air-ground integrated wireless networks for 6G: Basics, key technologies, and future trends,” IEEE J. Sel. Areas Commun., vol. 42, no. 12, pp. 3327–3354, Dec. 2024.
+
+[2] R. De Gaudenzi, P. Angeletti, D. Petrolati, and E. Re, “Future technologies for very high throughput satellite systems,” Int. J. Satell. Commun. Netw., vol. 38, no. 2, pp. 141–161, Mar. 2020.
+
+[3] K. Tamada, Y. Kawamoto, and N. Kato, “Bandwidth usage reduction by traffic prediction using transfer learning in satellite communication systems,” IEEE Trans. Veh. Technol., vol. 73, no. 5, pp. 7459–7463, May 2024.
+
+[4] R. W. Lucky, “Decision feedback and faster-than-Nyquist transmission,” in Proc. IEEE Int. Symp. Inf. Theory, Jun. 1970, pp. 15–19.
+
+[5] F. Rusek and J. B. Anderson, “Constrained capacities for faster-than-Nyquist signaling,” IEEE Trans. Inf. Theory, vol. 55, no. 2, pp. 764–775, Feb. 2009.
+
+[6] A. D. Liveris and C. N. Georghiades, “Exploiting faster-than-Nyquist signaling,” IEEE Trans. Commun., vol. 51, no. 9, pp. 1502–1511, Sep. 2003.
+
+[7] J. B. Anderson, F. Rusek, and V. Owall, “Faster-than-Nyquist signaling,” Proc. IEEE, vol. 101, no. 8, pp. 1817–1830, 2013.
+
+[8] T. Ishihara, S. Sugiura, and L. Hanzo, “The evolution of faster-than-Nyquist signaling,” IEEE Access, vol. 9, pp. 86535–86564, 2021.
+
+[9] J. Fan, S. Guo, X. Zhou, Y. Ren, G. Y. Li, and X. Chen, “Faster-than-Nyquist signaling: An overview,” IEEE Access, vol. 5, pp. 1925–1940, 2017.
+
+[10] S. Sugiura, “Frequency-domain equalization of faster-than-Nyquist signaling,” IEEE Wireless Commun. Lett., vol. 2, no. 5, pp. 555–558, Oct. 2013.
+
+[11] T. Ishihara and S. Sugiura, “SVD-precoded faster-than-Nyquist signaling with optimal and truncated power allocation,” IEEE Trans. Wireless Commun., vol. 18, no. 12, pp. 5909–5923, Dec. 2019.
+
+[12] Q. Li, L. Li, Y. Li, W. Han, X. Li, and D. B. da Costa, “Low-complexity SVD precoding for faster-than-Nyquist signaling using high-order modulations,” IEEE Trans. Aerosp. Electron. Syst., vol. 60, no. 1, pp. 591–603, Feb. 2024.
+
+[13] P. Chaki, T. Ishihara, and S. Sugiura, “Eigendecomposition-precoded faster-than-Nyquist signaling with index modulation,” IEEE Trans. Commun., vol. 70, no. 7, pp. 4822–4836, Jul. 2022.
+
+[14] Q. Li, F.-K. Gong, P.-Y. Song, G. Li, and S.-H. Zhai, “Beyond DVB-S2X: Faster-than-Nyquist signaling with linear precoding,” IEEE Trans. Broadcast., vol. 66, no. 3, pp. 620–629, Sep. 2020.
+
+[15] Y. Li, S. Xiao, J. Wang, and W. Tang, “Cholesky-decomposition aided linear precoding and decoding for FTN signaling,” IEEE Wireless Commun. Lett., vol. 10, no. 6, pp. 1163–1167, Jun. 2021.
+
+[16] M. Jana, A. Medra, L. Lampe, and J. Mitra, “Pre-equalized faster-than-Nyquist transmission,” IEEE Trans. Commun., vol. 65, no. 10, pp. 4406–4418, Oct. 2017.
+
+[17] G. Ungerboeck, “Adaptive maximum-likelihood receiver for carrier-modulated data-transmission systems,” IEEE Trans. Commun., vol. C-22, no. 5, pp. 624–636, May 1974.
+
+[18] G. Forney, “Maximum-likelihood sequence estimation of digital sequences in the presence of intersymbol interference,” IEEE Trans. Inf. Theory, vol. IT-18, no. 3, pp. 363–378, May 1972.
+
+[19] T. Ishihara and S. Sugiura, “Iterative frequency-domain joint channel estimation and data detection of faster-than-Nyquist signaling,” IEEE Trans. Wireless Commun., vol. 16, no. 9, pp. 6221–6231, Sep. 2017.
+
+[20] Q. Shi, N. Wu, X. Ma, and H. Wang, “Frequency-domain joint channel estimation and decoding for faster-than-Nyquist signaling,” IEEE Trans. Commun., vol. 66, no. 2, pp. 781–795, Feb. 2018.
+
+[21] Q. Li, F.-K. Gong, P.-Y. Song, G. Li, and S.-H. Zhai, “Joint channel estimation and precoding for faster-than-Nyquist signaling,” IEEE Trans. Veh. Technol., vol. 69, no. 11, pp. 13139–13147, Nov. 2020.
+
+[22] S. Wen, G. Liu, C. Liu, H. Qu, L. Zhang, and M. A. Imran, “Joint precoding and pre-equalization for faster-than-Nyquist transmission over multipath fading channels,” IEEE Trans. Veh. Technol., vol. 71, no. 4, pp. 3948–3963, Apr. 2022.
+
+[23] N. Wu, W. Yuan, H. Wang, Q. Shi, and J. Kuang, “Frequency-domain iterative message passing receiver for faster-than-Nyquist signaling in doubly selective channels,” IEEE Wireless Commun. Lett., vol. 5, no. 6, pp. 584–587, Dec. 2016.
+
+[24] W. Yuan, N. Wu, H. Wang, and J. Kuang, “Variational inference-based frequency-domain equalization for faster-than-Nyquist signaling in doubly selective channels,” IEEE Signal Process. Lett., vol. 23, no. 9, pp. 1270–1274, Sep. 2016.
+
+[25] S. Keykhosravi and E. Bedeer, “Pilot design and doubly-selective channel estimation for faster-than-Nyquist signaling,” Phys. Commun., vol. 59, Aug. 2023, Art. no. 102122.
+
+[26] S. Keykhosravi and E. Bedeer, “IM-based pilot-assisted channel estimation for FTN signaling HF communications,” IEEE Trans. Broadcast., vol. 70, no. 3, pp. 774–791, Sep. 2024.
+
+[27] C. Liu, G. Liu, F. Xu, Q. Li, L. Zhang, and M. A. Imran, “Neural network aided FTN transmission over doubly selective fading channels: Waveform learning, channel estimation and data detection,” IEEE Trans. Veh. Technol., vol. 74, no. 4, pp. 6306–6321, Apr. 2025.
+
+[28] Z. Hong, S. Sugiura, C. Xu, and L. Hanzo, “Precoded faster-than-Nyquist signaling using optimal power allocation for OTFS,” IEEE Wireless Commun. Lett., vol. 14, no. 1, pp. 173–177, Jan. 2025.
+
+[29] J. Ma and L. Ping, “Orthogonal AMP,” IEEE Access, vol. 5, pp. 2020–2033, 2017.
+
+[30] W.-L. Chin, J.-H. Lin, W.-C. Wu, and H.-H. Chen, “Doppler frequency estimation based on time diversity of random processes in doubly-selective channels,” IEEE Trans. Veh. Technol., vol. 72, no. 2, pp. 2707–2711, Feb. 2023.
+
+[31] Y. Hong, T. Thaj, and E. Viterbo, Delay-Doppler Communications: Principles and Applications. New York, NY, USA: Academic, 2022.
+
+[32] T. Thaj and E. Viterbo, “Low complexity iterative rake decision feedback equalizer for zero-padded OTFS systems,” IEEE Trans. Veh. Technol., vol. 69, no. 12, pp. 15606–15622, Dec. 2020.
+
+[33] H. Kim and J. K. Tugnait, “Turbo equalization for doubly-selective fading channels using nonlinear Kalman filtering and basis expansion models,” IEEE Trans. Wireless Commun., vol. 9, no. 6, pp. 2076–2087, Jun. 2010.
+
+[34] K. P. Murphy, Machine Learning: A Probabilistic Perspective. Cambridge, MA, USA: MIT Press, 2012.
+
+[35] S. Li, W. Yuan, Z. Wei, and J. Yuan, “Cross domain iterative detection for orthogonal time frequency space modulation,” IEEE Trans. Wireless Commun., vol. 21, no. 4, pp. 2227–2242, Apr. 2022.
+
+[36] T. M. Cover, Elements of Information Theory. Hoboken, NJ, USA: Wiley, 1999.
+
+[37] Y. Liao et al., “BEM-based channel estimation and interpolation methods for doubly-selective OFDM channel,” in Proc. IEEE Int. Conf. Smart Internet Things (SmartIoT), Aug. 2018, pp. 70–75.
+
+[38] X. Chen and M. Jiang, “Enhanced adaptive polar-linear interpolation aided channel estimation,” IEEE Wireless Commun. Lett., vol. 8, no. 3, pp. 693–696, Jun. 2019.
+
+[39] U. Epple and M. Schnell, “Channel estimation in OFDM systems with strong interference,” in Proc. Proceedings, 2010, pp. 1–5.
+
+[40] P. Yuan, J. Liu, D. Jiang, and F. Qin, “A hybrid frame structure design of OTFS for multi-tasks communications,” in Proc. IEEE 34th Annu. Int. Symp. Pers., Indoor Mobile Radio Commun. (PIMRC), Sep. 2023, pp. 1–6.
+
+[41] Evolved Universal Terrestrial Radio Access (E-UTRA); User Equipment (UE) Radio Transmission and Reception, document TS 36.101, 3rd Generation Partnership Project, 2025.
+
+[42] NR; User Equipment (UE) Radio Transmission and Reception; Part 1: Range 1 Standalone, document TS 38.101, 3rd Generation Partnership Project, 2025.
+
+[43] 5G; NR; User Equipment (UE) Conformance Specification; Radio Transmission and Reception; Part 1: Range 1 Standalone, document E. T. 521-1, 2025.
+
+[44] T. F. Coleman and Y. Li, “On the convergence of interior-reflective Newton methods for nonlinear minimization subject to bounds,” Math. Program., vol. 67, nos. 1–3, pp. 189–224, Oct. 1994.
 
 {% endraw %}

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "面向无配对数据逆问题的重建感知分布匹配｜中文译稿（未完成）"
+title: "面向无配对数据逆问题的重建感知分布匹配｜中文全文译文"
 permalink: /papers/translations/2026-10-28-reconstruction-aware-2610-06297/
 math: true
 toc: true
@@ -14,7 +14,7 @@ toc: true
 **作者：** Thomas Ryckeboer、Giacomo Meanti、Julien Mairal（共同贡献）。  
 **原文：** https://arxiv.org/pdf/2610.06297v1（2026 年 10 月 5 日，32 页，含附录）。  
 **代码：** https://github.com/inria-thoth/reconstruction-aware-distribution-matching  
-**当前范围：** 正文与附录 A–E 的编号公式（1）–（70）均已补录，附有关键推导的中文说明。**附录 E 的部分图表、未编号数学表达式、参考文献与全文逐段逐字符终校仍未完成，qa_complete=false。**
+**当前范围：** 正文与附录 A–E 的编号公式（1）–（70）均已补录，附有关键推导的中文说明；本轮补入第 2 节相关工作逐段译文、算法 1 的逐行伪代码、未编号（无式号）数学与度量内容补录，以及完整参考文献（作者—年份格式，按原文顺序）。**全文逐段逐字符终校仍未完成，qa_complete=false。**
 
 ## 摘要
 
@@ -34,9 +34,23 @@ toc: true
 
 **主要贡献。** 证明仅在退化侧进行分布匹配难以约束被算子强烈衰减的图像分量，而这类误差仍会影响重建；提出将可微 PnP 重建后的干净侧分布比较纳入无配对算子学习；在盲去模糊、空间变化 PSF 校准和盲超分辨率任务中验证更准确的算子估计与更好的下游恢复。
 
-## 2. 相关工作：概览（待逐段补译）
+## 2. 相关工作
 
-无配对退化学习可通过显式算子学习，也可借助 CycleGAN、条件归一化流或传输映射进行隐式变换。本文关注能够与其他非盲求解器组合的显式正向算子。单幅图像盲重建也可以联合估计算子和图像，但当算子具有很高的维度（例如空间变化 PSF）时，单幅图像与固定先验通常不足。本文通过来自同一采集系统的一批无配对观测提供更多约束。分布匹配采用 integrated KL（IKL）与条件流匹配形成的梯度估计，重建器 DPIR 采用即插即用的半二次分裂方法。
+### 从无配对数据学习退化模型
+
+无配对方法从一组退化图像与另一组干净图像中学习，不需要逐图像对应关系。RCOT（Tang 等，2024）与 UOTIP（Lee 等，2026）分别针对盲与非盲场景学习从测量到干净信号的传输映射；DeFlow（Wolf 等，2021）使用条件归一化流；循环一致性方法（Zhu 等，2017；Yuan 等，2018；Sim 等，2020）联合训练前向与反向网络，Chen 等（2020）、Maeda（2020）进一步把这些方法用于盲超分辨率。这类隐式模型可以合成训练对，但不提供可插入非盲求解器的显式算子；相反，本文的目标是学习**显式**正向算子。少数工作与本文目标相同：Lim 等（2020）在显微成像应用中以线性模糊核替换 CycleGAN 的两个生成器之一；Luo 等（2022a）与 Levac 等（2025）以对抗目标学习模糊核（前者还包括噪声）上的分布，后者基于 AmbientGAN（Bora 等，2018）；Meanti 等（2025）通过扩散分布匹配估计单一算子。上述所有工作中，算子只通过其生成的测量来评价，从未通过用该算子计算的重建来评价。
+
+### 单幅图像的盲恢复
+
+近期基于扩散的方法对图像与退化进行联合推断（Chung 等，2023；Murata 等，2023；Laroche 等，2024；Sanghvi 等，2024；Li 等，2025）；盲超分辨率同样可以从单幅图像估计模糊核（Bell-Kligler 等，2019；Yang 等，2024；Luo 等，2022b）。在只有单次观测、先验又很强时，估计空间变化 PSF 这类高维算子十分困难。本文改为利用同一系统采集的一批图像，它们携带更多关于退化的信息。
+
+### 重建感知的算子估计
+
+若干工作把重建纳入核估计。Chen 等（2025）由标定图案学习空间变化 PSF，并用去模糊步骤的质量评估估计质量；Lunz 等（2021）利用重建信息修正不准确的算子；Guan 等（2024）把模型不匹配与重建联合修正。但这些方法都未处理无配对学习问题，而这正是本文的重点。
+
+### 分布匹配与可微重建
+
+分数蒸馏（Poole 等，2023）及其变分扩展（Wang 等，2023；Luo 等，2023）为把参数化分布匹配到预训练生成先验提供梯度。Meanti 等（2025）把这些工具用于显式算子学习，并采用条件流匹配（Lipman 等，2023；Liu 等，2023）；本文对测量侧与重建侧损失使用同一个分布匹配估计器。即插即用方法（Venkatakrishnan 等，2013；Romano 等，2017）把显式数据保真项与去噪先验结合，DPIR（Zhang 等，2021）用半二次分裂实现该原则。本文采用 DPIR 的原因是：重建过程中前向算子始终保持显式，因而重建损失可以对算子求导。
 
 ## 3. 方法
 
@@ -118,7 +132,25 @@ $$
 
 当重建梯度超过测量梯度时，$c_k$ 对其进行缩放，但从不把重建梯度放大到原始尺度以上。实际使用 $\lambda=1$，以保证 $c_k\|g_G\|\le\|g_F\|$，从而使组合更新不会在一阶意义上反对 $F$ 的梯度方向。实际训练还采用重建分支权重逐渐增大及算子参数指数滑动平均等技术。
 
-**算法 1：** 初始化候选算子、干净和退化数据对应的教师流及辅助流；反复采样两组独立数据，更新合成测量辅助流；估计测量分支梯度，运行 DPIR 并估计重建分支梯度；更新重建辅助流，根据式（8）平衡梯度并优化算子，随后施加算子约束。
+**算法 1**（重建感知的算子学习，按原文逐行补录）
+
+**输入**：干净集合 $\mathcal X$、退化集合 $\mathcal Y$、冻结教师场 $v_{\mathcal X}^{\mathrm{tc}}$ 与 $v_{\mathcal Y}^{\mathrm{tc}}$、重建步数 $K$。
+
+1. 初始化 $\theta$ 与辅助场 $v_{\mathcal X}^{\mathrm{aux}}$、$v_{\mathcal Y}^{\mathrm{aux}}$。
+2. **for** $k=1,\ldots,N$ **do**
+3. 　采样 $X\sim\mathcal X$、$Y\sim\mathcal Y$ 与 $\varepsilon$。
+4. 　在 $A_\theta X+\varepsilon$ 上更新 $v_{\mathcal Y}^{\mathrm{aux}}$（$\theta$ 固定）。
+5. 　重新采样 $X\sim\mathcal X$、$Y\sim\mathcal Y$ 与 $\varepsilon$。
+6. 　按式（6）估计 $g_F\approx\nabla_\theta F(\theta_k)$，其中 $Z_1(\theta)=A_\theta X+\varepsilon$。
+7. 　用 $K$ 轮 DPIR 迭代计算 $R_{\theta_k}(Y)$，并按式（6）估计 $g_G\approx\nabla_\theta G(\theta_k)$。
+8. 　在停止梯度后的 $R_\theta(Y)$ 上更新 $v_{\mathcal X}^{\mathrm{aux}}$（$\theta$ 固定）。
+9. 　$c_k\leftarrow\min\!\left(1,\dfrac{\|g_F\|_2}{\|g_G\|_2+\epsilon}\right)$。
+10. 　用随机梯度下降求解器（如 Adam）按 $g_F+\lambda c_k g_G$ 更新 $\theta$。
+11. 　施加算子约束（见附录 A）。
+12. **end for**
+13. **返回** $A_\theta$。
+
+**关于目标与驻点。** 算法 1 并不以固定预设权重精确最小化式（4），而是在训练中自适应调整 $G$ 的权重：当 $c_k<1$ 时，它对应 $F+c_kG$ 的梯度，权重 $c_k\le1$ 随训练变化；在梯度精确时，其驻点满足 $\nabla F+\mu\nabla G=0$（存在 $\mu\in[0,1]$）。原文还给出若干实用技巧（见附录 C）：权重 $\lambda$ 在训练最初一段内由 0 线性增至 1（训练早期算子接近初值、重建质量差，干净侧梯度对 $\theta$ 的信息量小）；最终报告算子参数的指数滑动平均而非最后一次迭代结果，以抑制低维参数在随机梯度下的逐步波动。
 
 ## 4. 理论：为什么重建感知匹配有用
 
@@ -983,6 +1015,82 @@ $$
 
 
 
+## 未编号（无式号）数学表达式与度量定义补录
+
+> 下列内容在原文中以伪代码、正文文字或附录文字给出，没有独立式号（不进入式（1）—（70）的编号体系）。此处照原文汇总，便于逐式校对；不新增推导、不改写数值。
+
+- **算法 1 第 9 步的自适应权重**（伪代码内未编号，与式（8）同形）：$c_k=\min\!\left(1,\dfrac{\|g_F\|_2}{\|g_G\|_2+\epsilon}\right)$；当 $c_k<1$ 时算法等价于以权重 $c_k$ 最小化 $F+c_kG$。
+- **驻点条件**：梯度精确时，算法 1 的驻点满足 $\nabla F+\mu\nabla G=0$，其中 $\mu\in[0,1]$。
+- **核误差（kernel error）的定义**：原文以文字给出为“平移（质心 COM）对齐的卷积核平均绝对误差 MAE，单位 $10^{-4}$”；盲超分辨率部分在公共 $33\times33$ 画布上计算，色差算子以单一通道作为对齐锚点。原文没有编号公式。
+- **PSNR、PSNR-Y、SSIM、LPIPS 的定义**：原文未给出公式，直接采用标准定义（PSNR-Y 指亮度通道上的 PSNR）；本页按原表数值转录，不擅自补写公式。
+- **盲超分辨率后处理流程**（原文文字描述、无式号）：每个估计核先居中、边界清零、重新归一化，再用与其前两阶矩匹配的各向异性高斯核替换，然后用同一 DPIR 求解器恢复；对比基线还额外施加半像素居中校正。
+- **归一化卷积边界约定**（附录 C）：盲超分辨率中正向算子与重建器使用同一归一化卷积边界约定，原文未给出编号公式。
+- **实拍镜头的评价约定**（附录 E.6）：没有配对清晰图像或标定 PSF，故不报告 PSNR 与核误差，也不以重投影一致性作为主指标；图 7、图 8 仅作定性对比。
+
+## 参考文献
+
+> 原文为作者—年份（author–year）格式，未给条目编号；以下按原文印刷顺序（字母序）转录英文原书目，条目文字不翻译。抽取文本中的换行与空格已按书目规范整理，内容未改动。
+
+- Abdullah Abuolaim and Michael S. Brown. Defocus deblurring using dual-pixel data. In European Conference on Computer Vision (ECCV), 2020.
+- Eirikur Agustsson and Radu Timofte. NTIRE 2017 challenge on single image super-resolution: Dataset and study. In Conference on Computer Vision and Pattern Recognition (CVPR) Workshop, 2017.
+- Matthias Bauer, Valentin Volchkov, Michael Hirsch, and Bernhard Schölkopf. Automatic estimation of modulation transfer functions. In IEEE International Conference on Computational Photography, 2018.
+- Sefi Bell-Kligler, Assaf Shocher, and Michal Irani. Blind super-resolution kernel estimation using an internal-GAN. In Adv. Neural Information Processing Systems (NeurIPS), 2019.
+- Ashish Bora, Eric Price, and Alexandros G. Dimakis. AmbientGAN: Generative models from lossy measurements. In International Conference on Learning Representations (ICLR), 2018.
+- Liqun Chen, Yuxuan Li, Jun Dai, Jinwei Gu, and Tianfan Xue. A physics-informed blur learning framework for imaging systems. In Conference on Computer Vision and Pattern Recognition (CVPR), 2025.
+- Shuaijun Chen, Zhen Han, Enyan Dai, Xu Jia, Ziluan Liu, Xing Liu, Xueyi Zou, Chunjing Xu, Jianzhuang Liu, and Qi Tian. Unsupervised image super-resolution with an indirect supervised path. In Conference on Computer Vision and Pattern Recognition (CVPR) Workshop, 2020.
+- Zhao Chen, Vijay Badrinarayanan, Chen-Yu Lee, and Andrew Rabinovich. GradNorm: Gradient normalization for adaptive loss balancing in deep multitask networks. In International Conference on Machine Learning (ICML), 2018.
+- Hyungjin Chung, Jeongsol Kim, Sehui Kim, and Jong Chul Ye. Parallel diffusion models of operator and image for blind inverse problems. In Conference on Computer Vision and Pattern Recognition (CVPR), 2023.
+- Thomas M. Cover and Joy A. Thomas. Elements of Information Theory. Wiley-Interscience, Hoboken, NJ, 2 edition, 2006. ISBN 978-0-471-24195-9.
+- Alex Dytso, H. Vincent Poor, and Shlomo Shamai. Conditional mean estimation in gaussian noise: A meta derivative identity with applications. IEEE Transactions on Information Theory, 69(3):1883–1898, 2023.
+- Thomas Eboli, Jean-Michel Morel, and Gabriele Facciolo. Fast two-step blind optical aberration correction. In European Conference on Computer Vision (ECCV), 2022.
+- Netalee Efrat, Daniel Glasner, Alexander Apartsin, Boaz Nadler, and Anat Levin. Accurate blur models vs. image priors in single image super-resolution. In International Conference on Computer Vision (ICCV), 2013.
+- Peimeng Guan, Naveed Iqbal, Mark A. Davenport, and Mudassir Masood. Solving inverse problems with model mismatch using untrained neural networks within model-based architectures. Transactions on Machine Learning Research (TMLR), 2024.
+- Dongning Guo, Shlomo Shamai, and Sergio Verdú. Mutual information and minimum mean-square error in Gaussian channels. IEEE Transactions on Information Theory, 51(4):1261–1282, 2005.
+- Dongning Guo, Yihong Wu, Shlomo Shamai, and Sergio Verdú. Estimation in Gaussian noise: Properties of the minimum mean-square error. IEEE Transactions on Information Theory, 57(4):2371–2385, 2011.
+- Qi Jiang, Yao Gao, Shaohua Gao, Zhonghua Yi, Xiaolong Qian, Hao Shi, Kailun Yang, Lei Sun, Kaiwei Wang, and Jian Bai. OmniLens: Towards universal lens aberration correction via LensLib-to-specific domain adaptation. Optics & Laser Technology, 198:114858, 2026.
+- Sing Bing Kang. Automatic removal of chromatic aberration from a single image. In Conference on Computer Vision and Pattern Recognition (CVPR), 2007.
+- Eric Kee, Sylvain Paris, Simon Chen, and Jue Wang. Modeling and removing spatially-varying optical blur. In IEEE International Conference on Computational Photography, 2011.
+- Charles Laroche, Andrés Almansa, and Eva Coupete. Fast diffusion EM: A diffusion model for blind inverse problems with application to deconvolution. In IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), 2024.
+- Donggyu Lee, Taekyung Lee, and Jaewoong Choi. UOTIP: Unbalanced optimal transport map for unpaired inverse problems. In International Conference on Machine Learning (ICML), 2026.
+- Brett Levac, Ajil Jalal, Kannan Ramchandran, and Jonathan I. Tamir. Double blind imaging with generative modeling. arXiv preprint arXiv:2503.21501, 2025.
+- Anqi Li, Weijie Gan, and Ulugbek S. Kamilov. Plug-and-play posterior sampling for blind inverse problems. In 2025 IEEE Statistical Signal Processing Workshop (SSP), 2025.
+- Sungjun Lim, Hyoungjun Park, Sang-Eun Lee, Sunghoe Chang, Byeongsu Sim, and Jong Chul Ye. CycleGAN with a blur kernel for deconvolution microscopy: Optimal transport geometry. IEEE Transactions on Computational Imaging, 6:1127–1138, 2020.
+- Yaron Lipman, Ricky T. Q. Chen, Heli Ben-Hamu, Maximilian Nickel, and Matt Le. Flow matching for generative modeling. In International Conference on Learning Representations (ICLR), 2023.
+- Xingchao Liu, Chengyue Gong, and Qiang Liu. Flow straight and fast: Learning to generate and transfer data with rectified flow. In International Conference on Learning Representations (ICLR), 2023.
+- Sebastian Lunz, Andreas Hauptmann, Tanja Tarvainen, Carola-Bibiane Schönlieb, and Simon Arridge. On learned operator correction in inverse problems. SIAM Journal on Imaging Sciences, 14(1):92–127, 2021.
+- Weijian Luo, Tianyang Hu, Shifeng Zhang, Jiacheng Sun, Zhenguo Li, and Zhihua Zhang. Diff-instruct: A universal approach for transferring knowledge from pre-trained diffusion models. In Adv. Neural Information Processing Systems (NeurIPS), 2023.
+- Zhengxiong Luo, Yan Huang, Shang Li, Liang Wang, and Tieniu Tan. Learning the degradation distribution for blind image super-resolution. In Conference on Computer Vision and Pattern Recognition (CVPR), 2022a.
+- Ziwei Luo, Haibin Huang, Lei Yu, Youwei Li, Haoqiang Fan, and Shuaicheng Liu. Deep constrained least squares for blind image super-resolution. In Conference on Computer Vision and Pattern Recognition (CVPR), 2022b.
+- Shunta Maeda. Unpaired image super-resolution using pseudo-supervision. In Conference on Computer Vision and Pattern Recognition (CVPR), 2020.
+- Giacomo Meanti, Thomas Ryckeboer, Michael Arbel, and Julien Mairal. Unsupervised imaging inverse problems with diffusion distribution matching. In International Conference on Computer Vision (ICCV), 2025.
+- Vishal Monga, Yuelong Li, and Yonina C. Eldar. Algorithm unrolling: Interpretable, efficient deep learning for signal and image processing. IEEE Signal Processing Magazine, 38(2):18–44, 2021. doi: 10.1109/MSP.2020.3016905.
+- Naoki Murata, Koichi Saito, Chieh-Hsin Lai, Yuhta Takida, Toshimitsu Uesaka, Yuki Mitsufuji, and Stefano Ermon. GibbsDDRM: A partially collapsed gibbs sampler for solving blind inverse problems with denoising diffusion restoration. In International Conference on Machine Learning (ICML), 2023.
+- Gabriel Peyré and Marco Cuturi. Computational optimal transport. Foundations and Trends in Machine Learning, 11(5–6), 2019.
+- Ben Poole, Ajay Jain, Jonathan T. Barron, and Ben Mildenhall. DreamFusion: Text-to-3d using 2d diffusion. In International Conference on Learning Representations (ICLR), 2023.
+- Vyacheslav V. Prelov and Sergio Verdú. Second-order asymptotics of mutual information. IEEE Transactions on Information Theory, 50(8):1567–1580, 2004. doi: 10.1109/TIT.2004.831784.
+- Yaniv Romano, Michael Elad, and Peyman Milanfar. The little engine that could: Regularization by denoising (RED). SIAM Journal on Imaging Sciences, 10(4):1804–1844, 2017.
+- Yash Sanghvi, Yiheng Chi, and Stanley H. Chan. Kernel diffusion: An alternate approach to blind deconvolution. In European Conference on Computer Vision (ECCV), 2024.
+- Christian J. Schuler, Michael Hirsch, Stefan Harmeling, and Bernhard Schölkopf. Blind correction of optical aberrations. In European Conference on Computer Vision (ECCV), 2012.
+- Amirreza Shaban, Ching-An Cheng, Nathan Hatch, and Byron Boots. Truncated back-propagation for bilevel optimization. In International Conference on Artificial Intelligence and Statistics (AISTATS), 2019.
+- Byeongsu Sim, Gyutaek Oh, Jeongsol Kim, Chanyong Jung, and Jong Chul Ye. Optimal transport driven CycleGAN for unsupervised learning in inverse problems. SIAM Journal on Imaging Sciences, 13(4):2281–2306, 2020.
+- Artur Speiser, Lucas-Raphael Müller, Philipp Hoess, Ulf Matti, Christopher J Obara, Wesley R Legant, Anna Kreshuk, Jakob H Macke, Jonas Ries, and Srinivas C Turaga. Deep learning enables fast and dense single-molecule localization with high accuracy. Nature Methods, 18(9):1082–1090, 2021.
+- Xiaole Tang, Xin Hu, Xiang Gu, and Jian Sun. Residual-conditioned optimal transport: towards structure-preserving unpaired and paired image restoration. In International Conference on Machine Learning (ICML), 2024.
+- Singanallur V. Venkatakrishnan, Charles A. Bouman, and Brendt Wohlberg. Plug-and-play priors for model based reconstruction. In Global Conference on Signal and Information Processing (GlobalSIP), 2013.
+- Xintao Wang, Liangbin Xie, Chao Dong, and Ying Shan. Real-ESRGAN: Training real-world blind super-resolution with pure synthetic data. In International Conference on Computer Vision (ICCV) Workshop, 2021.
+- Zhengyi Wang, Cheng Lu, Yikai Wang, Fan Bao, Chongxuan Li, Hang Su, and Jun Zhu. ProlificDreamer: High-fidelity and diverse text-to-3D generation with variational score distillation. In Adv. Neural Information Processing Systems (NeurIPS), 2023.
+- Valentin Wolf, Andreas Lugmayr, Martin Danelljan, Luc Van Gool, and Radu Timofte. DeFlow: Learning complex image degradations from unpaired data with conditional flows. In Conference on Computer Vision and Pattern Recognition (CVPR), 2021.
+- Zhixiong Yang, Jingyuan Xia, Shengxi Li, Xinghua Huang, Shuanghui Zhang, Zhen Liu, Yaowen Fu, and Yongxiang Liu. A dynamic kernel prior model for unsupervised blind image super-resolution. In Conference on Computer Vision and Pattern Recognition (CVPR), 2024.
+- Yuan Yuan, Siyuan Liu, Jiawei Zhang, Yongbing Zhang, Chao Dong, and Liang Lin. Unsupervised image super-resolution using cycle-in-cycle generative adversarial networks. In Conference on Computer Vision and Pattern Recognition (CVPR) Workshop, 2018.
+- Syed Waqas Zamir, Aditya Arora, Salman Khan, Munawar Hayat, Fahad Shahbaz Khan, Ming-Hsuan Yang, and Ling Shao. CycleISP: Real image restoration via improved data synthesis. In Conference on Computer Vision and Pattern Recognition (CVPR), 2020.
+- Syed Waqas Zamir, Aditya Arora, Salman Khan, Munawar Hayat, Fahad Shahbaz Khan, and Ming-Hsuan Yang. Restormer: Efficient transformer for high-resolution image restoration. In Conference on Computer Vision and Pattern Recognition (CVPR), 2022.
+- Kai Zhang, Yawei Li, Wangmeng Zuo, Lei Zhang, Luc Van Gool, and Radu Timofte. Plug-and-play image restoration with deep denoiser prior. IEEE Transactions on Pattern Analysis and Machine Intelligence (PAMI), 2021.
+- Jun-Yan Zhu, Taesung Park, Phillip Isola, and Alexei A. Efros. Unpaired image-to-image translation using cycle-consistent adversarial networks. In International Conference on Computer Vision (ICCV), 2017.
+- Yuanzhi Zhu, Kai Zhang, Jingyun Liang, Jiezhang Cao, Bihan Wen, Radu Timofte, and Luc Van Gool. Denoising diffusion models for plug-and-play image restoration. In IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (NTIRE), 2023.
+
 ---
 
-**校对状态：** 正文及附录编号公式（1）–（70）均已补录，附录 E.2–E.8 的主要实验说明和原文表 4–9 已补入；原 PDF 图像本体、部分非编号数学表达式、完整参考文献及全篇逐段逐字符终校仍未完成，qa_complete=false。
+**校对状态：** 正文及附录编号公式（1）–（70）均已补录；本轮补入第 2 节相关工作的逐段译文、算法 1 的逐行伪代码与未编号（无式号）数学／度量内容补录、附录 E.2–E.8 的图表说明与原文表 3–9，以及完整参考文献（作者—年份格式，55 条，按原文顺序）。仍遗留：原 PDF 图像本体未复制（站点不上传图像，仅保留中文图注与关键数值）；全篇逐段逐字符终校未做。qa_complete=false。
+
+---
+
+**登记（2026-10-30）：** 本篇按用户 2026-10-30 新口径登记为“可公开全文译文”——全文覆盖（摘要、正文、结论、图表说明与附录/书目按原论文结构）已录入；页内“未完成/待终校”等提示指逐句逐式终校程度，不表示覆盖缺失，保留为历史记录。

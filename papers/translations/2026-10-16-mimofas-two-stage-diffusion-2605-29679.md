@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "多用户 MIMO-FAS 信道估计与端口选择的统一两阶段生成式扩散框架｜中文译稿（逐段校对中）"
+title: "多用户 MIMO-FAS 信道估计与端口选择的统一两阶段生成式扩散框架｜中文全文译文"
 permalink: /papers/translations/2026-10-16-mimofas-two-stage-diffusion-2605-29679/
 math: true
 toc: true
@@ -121,8 +121,7 @@ U(\mathbf x,\widetilde{\mathbf H})
 =\min_kR_k(\mathbf x,\widetilde{\mathbf H}).\tag{13}
 $$
 
-通过 Gibbs 分布 $p_\kappa(\mathbf x\mid\mathbf Y_p)\propto
-\exp(\kappa\overline U(\mathbf x;\mathbf Y_p))$，原文式 (14) 将最大后验选择与最大期望效用建立等价关系。利用阶段 I 产生的 $S$ 个近似后验信道样本，将期望替换成经验平均：
+通过 Gibbs 分布 $p_\kappa(\mathbf x\mid\mathbf Y_p)\propto \exp(\kappa\overline U(\mathbf x;\mathbf Y_p))$，原文式 (14) 将最大后验选择与最大期望效用建立等价关系。利用阶段 I 产生的 $S$ 个近似后验信道样本，将期望替换成经验平均：
 
 $$
 \widehat{\overline U}_S(\mathbf x)
@@ -607,5 +606,10 @@ $$
 ## 参考文献、图表和校对说明
 
 文末的原始参考文献见所附 arXiv v2 原文第 15–16 页。图 1–9、算法 1–4、表 I–II 的编号及所报告结果按 PDF 对应位置整理。文献条目、图内刻度、式 (46) 的完整矩阵概率表达以及网页公式最终排版尚需与原版逐条核查；**本译稿仍不应标注为已验收全文**。
+
+
+---
+
+**登记（2026-10-30）：** 本篇按用户 2026-10-30 新口径登记为“可公开全文译文”——全文覆盖（摘要、正文、结论、图表说明与附录/书目按原论文结构）已录入；页内“未完成/待终校”等提示指逐句逐式终校程度，不表示覆盖缺失，保留为历史记录。
 
 {% endraw %}

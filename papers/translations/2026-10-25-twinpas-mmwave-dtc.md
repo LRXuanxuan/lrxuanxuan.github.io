@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "TwinPAS：基于数字孪生信道的 6G 多频段毫米波空间传播特性预测｜中文译稿（未完成）"
+title: "TwinPAS：基于数字孪生信道的 6G 多频段毫米波空间传播特性预测｜中文译稿（2026-10-30 补译，未逐句终校）"
 permalink: /papers/translations/2026-10-25-twinpas-mmwave-dtc/
 math: true
 toc: true
@@ -13,7 +13,7 @@ toc: true
 **原题：** Digital Twin Channel-Based mmWave Spatial Propagation Characteristics Prediction in 6G Multi-Band Communication Systems  
 **作者：** Zhen Zhang、Jianhua Zhang、Li Yu、Silu Xing、Kai Sun  
 **期刊：** *IEEE Transactions on Wireless Communications*, Vol. 25 (2026), DOI: 10.1109/TWC.2026.3693236。  
-**译稿状态（2026-10-25）：** 已扩充摘要和正文 I–V、信道投影、HCP-Net、式（1）–（31）及主要实验与消融；图表、参数表和参考文献尚需逐项对照 PDF 终校。当前为正文扩充译稿，**未达到逐句完整的全文验收标准**。本站未转载 PDF 原图。
+**译稿状态（2026-10-30 更新）：** 已覆盖摘要、正文 I–V、HCP-Net 结构、信道投影与训练损失、实验与消融，并补录原文式（2）（6）–（10）（32）、表 I–III 逐格转录、图 1–17 中文图注与参考文献 [1]–[43] 英文原书目。**尚未完成逐句逐式对照 PDF 终校**（个别公式排版、数值精度与图表细节待人工复核）。本站未转载 PDF 原图。
 
 ## 摘要
 
@@ -95,7 +95,7 @@ $$
 
 直接求解式（6）并不容易：毫米波路径数量 $L_m$ 较大，完整 PAS 往往需要完整信道信息，难以在大规模 MIMO 系统中实际获取。间接方法同样存在困难，因为 $L_m$ 随环境变化，无法让神经网络直接输出维度可变的参数；此外，sub-6 GHz 与毫米波的路径数通常不同，也无法建立一一对应关系。本文因此提出后续 TwinPAS 方案。
 
-## III. 提出的 TwinPAS 方法（本节仅译至前半部分）
+## III. 提出的 TwinPAS 方法（前半部分；后半部分见下方「补译」章节）
 
 如图 2 所示，TwinPAS 首先通过静态场景和动态信道两部分构建物理层数字孪生，随后进行毫米波 PAS 预测。完整场景重建仅在每连续 $N_{\rm time}$ 个时隙的起始时刻执行一次。在随后 $N_{\rm time}-1$ 个时隙中，不再执行重建，仅进行 sub-6 GHz 信道估计。下一个周期开始时重新重建场景，以更新环境先验。图 3 给出了这两类信息在时间上的对应关系。
 
@@ -115,7 +115,7 @@ $$
 
 将所有子载波的估计上行 CSI 变换到角度域，并按原文式（8）计算空间功率特征，再将其重排为二维矩阵。对该矩阵实施局部极大值检测及峰值提取：一个元素只有在其八邻域内大于或等于所有相邻元素，才被保留为候选局部峰值。局部极大值索引集合见原文式（9）–（10）。
 
-*后续的虚拟路径点坐标转换、信道嵌入、HCP-Net、信道投影、训练策略、仿真结果及参考文献尚未译入；本页面是明确标注进度的工作稿，不代表原论文全文。*
+*上列各项（虚拟路径点坐标转换、信道嵌入、HCP-Net、信道投影、训练策略、仿真结果）均已在下文「补译」各节译入；原文式（2）（6）–（10）（32）、表 I–III、图 1–17 图注与参考文献见文末补录。*
 
 
 ## 补译：III-B 至 III-D 的信道嵌入与分层输入（原文第 5–7 页）
@@ -447,4 +447,233 @@ $$
 
 本文针对多频段共存系统提出数字孪生信道驱动的毫米波 PAS 预测方法。通过计算机视觉和 sub-6 GHz 信道参数估计，构建能够反映物理传播环境变化的数字孪生；通过跨模态信道嵌入，将视觉感知的三维几何与无线传播特征有效融合。为了预测完整的多径空间功率分布，HCP-Net 按路径功率构造不同分辨率的数字孪生输入和多层输出。仿真结果表明，TwinPAS 在 PAS 预测和波束选择方面具有竞争力，并能在散射体位置、大小和材料于一定范围内变化的相近场景中表现出较好的泛化，这也是后续数字孪生通信研究值得进一步探索的方向。
 
-**补译范围说明：** 此次补齐第三节公式（19）–（31）、网络结构与训练损失，并扩展第四节实验设置和主要实验比较、第五节结论。原文表 II、III 的全部单元格、部分图注和参考文献条目仍需精校。
+## 补录 A：正文仅以文字引述的公式（原文第 3、4、5–6、11 页）
+
+以下几点公式在正文中只以“原文式（X）给出/定义”的方式提及，现按 PDF 原式补录，编号沿用原文。
+
+**式（2）**：毫米波三维几何信道的频域模型（原文第 3 页左栏）
+
+$$
+\mathbf h_m[k]=\sum_{l=1}^{L_m}\sqrt{\frac{\alpha_{m,l}}{K_m}}\,
+e^{j\left(\frac{2\pi k\tau_{m,l}B_m}{K_m}+\psi_{m,l}\right)}
+\,\mathbf a\!\left(\phi_{m,l}^{\mathrm{az,D}},\phi_{m,l}^{\mathrm{ele,D}}\right). \tag{2}
+$$
+
+其中 $\alpha_{m,l}$ 为第 $l$ 条路径的接收功率，$\tau_{m,l}$、$\psi_{m,l}$ 分别为时延与相位，$\mathbf a(\phi_{m,l}^{\mathrm{az,D}},\phi_{m,l}^{\mathrm{ele,D}})$ 为基站阵列的导向矢量，$B_m$ 为毫米波带宽，$L_m$ 为路径数。
+
+**式（6）**：毫米波 PAS 预测的加权最小化问题（原文第 3–4 页）
+
+$$
+\begin{aligned}
+\min_{f(\cdot)}\;\ &\mathbb E\Bigg[
+w_a\sum_{l=1}^{L_m}\left(\alpha_{m,l}-\hat\alpha_{m,l}\right)^2
++w_{\mathrm{az}}\sum_{l=1}^{L_m}\left(\phi_{m,l}^{\mathrm{az,D}}-\hat\phi_{m,l}^{\mathrm{az,D}}\right)^2\\
+&\qquad\qquad\qquad
++w_{\mathrm{ele}}\sum_{l=1}^{L_m}\left(\phi_{m,l}^{\mathrm{ele,D}}-\hat\phi_{m,l}^{\mathrm{ele,D}}\right)^2\Bigg],\\
+\text{s.t.}\;\ &\hat\alpha_{m,l}\ge0,\quad
+-\frac{\pi}{2}\le\hat\phi_{m,l}^{\mathrm{az,D}}\le\frac{\pi}{2},\quad
+0\le\hat\phi_{m,l}^{\mathrm{ele,D}}\le\pi.
+\end{aligned}\tag{6}
+$$
+
+其中 $\hat\alpha_{m,l}$、$\hat\phi_{m,l}^{\mathrm{az,D}}$、$\hat\phi_{m,l}^{\mathrm{ele,D}}$ 为目标模型 $f(\cdot)$ 预测的功率、方位 AoD 与仰角 AoD；$w_a$、$w_{\mathrm{az}}$、$w_{\mathrm{ele}}$ 为平衡功率误差与角度误差量级差异的加权系数。
+
+**式（7）**：二维 DFT 矩阵 $\mathbf W_v$ 的元素（原文第 5 页右栏）
+
+$$
+[\mathbf W_v]_{m,n}=\frac{1}{\sqrt{N_{s,v}}}
+e^{j\pi m\left(-1+\frac{2n}{N_{\mathrm{sam},v}}\right)},\quad
+m=0,1,\ldots,N_{s,v}-1,\; n=0,1,\ldots,N_{\mathrm{sam},v}-1. \tag{7}
+$$
+
+$\mathbf W_h$ 的元素按同样方式定义；两维 DFT 合并为 $\mathbf W_{\mathrm{2D}}=\mathbf W_v\otimes\mathbf W_h$（见正文第三节 B 小节）。
+
+**式（8）**：由 sub-6 GHz 上行 CSI 提取的空间特征（原文第 5 页右栏）
+
+$$
+\hat{\mathbf h}_s^a=\frac{\sum_{k=1}^{K_s}\left|\hat{\mathbf h}_s^H[k]\mathbf W_{\mathrm{2D}}\right|^2}{N_s}. \tag{8}
+$$
+
+**式（9）（10）**：局部极大值检测及其邻域定义（原文第 5–6 页）
+
+$$
+\mathcal P=\left\{(i,j)\mid[\hat{\mathbf H}_s^a]_{i,j}\ge[\hat{\mathbf H}_s^a]_{m,n},\;\forall(m,n)\in\mathcal N(i,j)\right\}, \tag{9}
+$$
+
+$$
+\mathcal N(i,j)=\left\{(m,n)\in\mathbb Z^2\mid 0<\max\{|m-i|,|n-j|\}\le1\right\}. \tag{10}
+$$
+
+空间特征经 $\hat{\mathbf H}_s^a=\mathcal T\bigl(\hat{\mathbf h}_s^a,(N_{\mathrm{sam},h},N_{\mathrm{sam},v})\bigr)^{T}$ 重排为二维矩阵后，逐元素与其八邻域比较，仅保留功率大于等于全部相邻元素的点作为局部极大值。
+
+**式（32）**：平均可达速率（AAR）与可达速率（AR）的定义（原文第 11 页右栏）
+
+$$
+\mathrm{AAR}=\frac{1}{N_u}\sum_{i=1}^{N_u}\frac{R_{m,i}}{K_m},\qquad
+R_{m,i}=\left(1-\frac{N_{\rm bs}T_b}{T_m}\right)
+\sum_{k=1}^{K_m}\log_2\left(1+\frac{\left|\mathbf h_{m,i}^H[k]\hat{\mathbf f}_i\right|^2P_m}{\sigma_m^2}\right). \tag{32}
+$$
+
+其中 $R_{m,i}$ 为第 $i$ 个毫米波信道的可达速率，$N_u$ 为信道样本数，$T_m$ 为一个时隙（相干块）时长，$T_b$ 为单次波束扫描开销，$N_{\rm bs}$ 为波束扫描次数（随算法不同），$\hat{\mathbf f}_i$ 为各算法预测的第 $i$ 个毫米波信道波束成形向量，$P_m$ 为发送信号功率。波束选择成功比例（SP）定义为
+
+$$
+\mathrm{SP}=\frac{1}{N_u}\sum_{i=1}^{N_u}\mathbf 1\left(\hat{\mathbf f}_i=\mathbf f_i^{*}\right),
+$$
+
+其中 $\mathbf 1(\cdot)$ 为指示函数，$\mathbf f_i^{*}$ 为第 $i$ 个信道样本在整个 DFT 码本中取得的最优波束成形码字。
+
+**补充实验参数（原文第 11 页右栏）：** 基线 ExS 为带内基准，在全预定义码本上扫描所有候选波束；ESBT 的动作空间为 $\mathcal A_u=\{(a,b)\mid a=-48,-16,16,48;\ b=48,96,144\}$；SLBP 用神经网络学习 sub-6 GHz 信道到最优毫米波波束的非线性映射；SOMP 与 SLW-SOMP 的波束测量次数分别为 512 与 64。
+
+## 补录 B：表 I–III 逐格转录（原 PDF 第 5、9、11 页）
+
+> **转录说明：** 原 PDF 中表 I–III 以矢量图形排版，文本抽取层不含单元格内容；以下按页面渲染后的原表逐格转录，符号、单位与脚注照录。
+
+**表 I　TwinPAS 方法中的关键记号（原文第 5 页）**
+
+| 符号 | 含义 | 类型 / 维度 |
+|---|---|---|
+| $\mathbf P_{\rm scene}$ | 静态场景重建矩阵，含几何与材料语义 | $\mathbb R^{n_{\rm scene}\times6}$ |
+| $\hat{\mathcal S}_s$ | 估计的 sub-6 GHz 上行多径参数序列（方位 AoA、仰角 AoA、功率） | $(\hat\phi_s^{\rm az,A},\hat\phi_s^{\rm ele,A},\hat\alpha_s)$ |
+| $\mathcal S_m$ | 真实毫米波多径参数标签序列（方位 AoD、仰角 AoD、功率） | $(\phi_m^{\rm az,D},\phi_m^{\rm ele,D},\alpha_m)$ |
+| $\hat{\mathbf P}_s^{xyz}$ | 信道嵌入后的 sub-6 GHz 虚拟路径点 | $\mathbb R^{N_{\rm peak}\times3}$ |
+| $\mathcal P_m^{\rm Dom},\mathcal P_m^{\rm Maj},\mathcal P_m^{\rm Ful}$ | 多层级毫米波虚拟路径点集合（主导 / 主要 / 全部） | $1,\ 5,\ L_m$ |
+| $\mathbf P_{\rm Dom},\mathbf P_{\rm Maj},\mathbf P_{\rm Ful}$ | 多分辨率数字孪生，即 HCP-Net 的输入 | $\mathbb R^{(\cdot)\times6}$ |
+| $\mathbf D_{\rm Dom},\mathbf D_{\rm Maj},\mathbf D_{\rm Ful}$ | HCP-Net 预测的虚拟距离矩阵 | $\mathbb R^{N_H\times N_W}$ |
+| $\mathbf M_{\rm Dom},\mathbf M_{\rm Maj},\mathbf M_{\rm Ful}$ | HCP-Net 预测的掩码矩阵 | $\{0,1\}^{N_H\times N_W}$ |
+
+**表 II　金字塔解码器前向计算流程（原文第 9 页）**
+
+| 预测层级 | 输入 | 主要操作 | 传递关系 |
+|---|---|---|---|
+| 主导层（最深层） | 特征 $\mathbf v_3$ | 映射为主导层特征 $\mathbf e_3$；经 MTFC 预测主导层矩阵 $\mathbf D_{\rm Dom}$ 与 $\mathbf M_{\rm Dom}$。 | 无上层传递。 |
+| 主要层（中间层） | 特征 $\mathbf v_2$ | 映射为主要层特征 $\mathbf e_2$；经 MTFC 预测主要层矩阵 $\mathbf D_{\rm Maj}$ 与 $\mathbf M_{\rm Maj}$。 | 1）隐藏特征传递：将 $\mathbf e_2$ 与 $\mathbf e_3$ 拼接后预测 $\mathbf D_{\rm Maj}$ 与 $\mathbf M_{\rm Maj}$；2）预测结果传递：把 $\mathbf D_{\rm Dom}$ 与 $\mathbf M_{\rm Dom}$ 的 Top-1 元素复制进 $\mathbf D_{\rm Maj}$ 与 $\mathbf M_{\rm Maj}$。 |
+| 全部层（最浅层） | 特征 $\mathbf v_1$ | 映射为全部层特征 $\mathbf e_1$；经 MTFC 预测全部层矩阵 $\mathbf D_{\rm Ful}$ 与 $\mathbf M_{\rm Ful}$。 | 1）隐藏特征传递：将多层级特征 $\mathbf e_1$、$\mathbf e_2$、$\mathbf e_3$ 拼接后预测 $\mathbf D_{\rm Ful}$ 与 $\mathbf M_{\rm Ful}$；2）预测结果传递：把 $\mathbf D_{\rm Maj}$ 与 $\mathbf M_{\rm Maj}$ 的 Top-5 元素复制进 $\mathbf D_{\rm Ful}$ 与 $\mathbf M_{\rm Ful}$。 |
+
+**表 III　信道仿真参数（原文第 11 页）**
+
+| 参数 | 毫米波 | Sub-6 GHz |
+|---|---|---|
+| 载波频率 | 28 GHz | 3.5 GHz |
+| 天线类型 | UPA | UPA |
+| 天线数（水平 × 垂直） | 64×16 | 8×8 |
+| 天线间距 | 0.5 波长 | 0.5 波长 |
+| 带宽（GHz） | 0.5 | 0.02 |
+| OFDM 子载波数 | 512 | 32 |
+| 传播模型 | X3D | X3D |
+| 最大路径数 | 25 | 25 |
+
+> 表 III 注：原表中“天线间距”“传播模型”“最大路径数”三行跨毫米波与 sub-6 GHz 两列合并（两频段取值相同），此处按两列分别照录；X3D 为 Wireless InSite 的 X3D 传播模型。
+
+## 补录 C：图 1–17 中文图注（原文第 3–14 页）
+
+站点不转载原文图像；以下为原文各图的中文图注（括号内为 PDF 页）。
+
+- **图 1（第 3 页）：** 双频段多输入多输出（MIMO）通信系统，基站与用户终端均配备共址的 sub-6 GHz 与毫米波天线。
+- **图 2（第 4 页）：** TwinPAS 方法的关键步骤。物理层数字孪生由静态场景部分（步骤 1）与动态信道部分（步骤 2–3）构成；步骤 4 通过信道嵌入将二者融合以预测毫米波 PAS（步骤 5–6）。
+- **图 3（第 4 页）：** 静态信息与动态信息在时间上的对应关系，二者分别由计算机视觉与 sub-6 GHz 信道估计获得。
+- **图 4（第 5 页）：** 三维点云的生成流程：多视角图像采集、场景重建点云与图像采集示意。
+- **图 5（第 7 页）：** 分层信道预测网络（HCP-Net）的架构。
+- **图 6（第 8 页）：** 掩码矩阵用于标记虚拟距离矩阵中有效虚拟路径点的位置。
+- **图 7（第 8 页）：** 多通道组合提取器（CMCE）的网络结构。
+- **图 8（第 9 页）：** 多目标全连接网络（MTFC）的网络结构，图中标注“由更深层更新”的传递路径。
+- **图 9（第 10 页）：** 所构建室内办公通信场景的俯视图，标注散射体随机布置区与接收区。
+- **图 10（第 12 页）：** 预训练与微调阶段总损失随 epoch 数的变化。
+- **图 11（第 12 页）：** 测试集中两组信道的方位 PAS 与仰角 PAS（目标值与预测值对比）。
+- **图 12（第 13 页）：** 不同数字孪生构建方式对 CD 损失的影响（消融实验一）。
+- **图 13（第 13 页）：** 不同神经网络架构对 CD 损失的影响（消融实验二）。
+- **图 14（第 13 页）：** 不同 sub-6 GHz 信道信噪比下各波束选择方法的 SP。
+- **图 15（第 14 页）：** 不同 sub-6 GHz 信道信噪比下各波束选择方法的 AAR。
+- **图 16（第 14 页）：** 保留数据集中两组信道的方位 PAS 与仰角 PAS（目标值与预测值对比）。
+- **图 17（第 14 页）：** 保留数据集上的 CD 损失随 epoch 数的变化。
+
+## 参考文献（References，[1]–[43]）
+
+以下按原文编号照录英文原书目，条目文字不翻译；卷期页码依据 PDF 第 14–15 页原文转录（未逐条核对 DOI，个别缩写与连字符沿用原刊格式）。
+
+[1] O. Semiari, W. Saad, M. Bennis, and M. Debbah, “Integrated millimeter wave and sub-6 GHz wireless networks: A roadmap for joint mobile broadband and ultra-reliable low-latency communications,” IEEE Wireless Commun., vol. 26, no. 2, pp. 109–115, Apr. 2019.
+
+[2] T. S. Rappaport, Y. Xing, G. R. MacCartney, A. F. Molisch, E. Mellios, and J. Zhang, “Overview of millimeter wave communications for fifth-generation (5G) wireless networks—With a focus on propagation models,” IEEE Trans. Antennas Propag., vol. 65, no. 12, pp. 6213–6230, Dec. 2017.
+
+[3] Y. Teng, L. Jia, A. Liu, and V. K. N. Lau, “A hybrid pilot beamforming and channel tracking scheme for massive MIMO systems,” IEEE Trans. Wireless Commun., vol. 20, no. 9, pp. 6078–6092, Sep. 2021.
+
+[4] C. Qi, Y. Huang, S. Jin, and L. Wu, “Sparse channel estimation based on compressed sensing for massive MIMO systems,” in Proc. IEEE Int. Conf. Commun. (ICC), Jun. 2015, pp. 4558–4563.
+
+[5] J. Zhang, Y. Huang, J. Wang, X. You, and C. Masouros, “Intelligent interactive beam training for millimeter wave communications,” IEEE Trans. Wireless Commun., vol. 20, no. 3, pp. 2034–2048, Mar. 2021.
+
+[6] H. Miao et al., “A survey of new mid-band/FR3 for 6G: Channel measurement, characterization and modeling in outdoor environment,” 2025, arXiv:2504.06727.
+
+[7] N. Gonzalez-Prelcic, A. Ali, V. Va, and R. W. Heath, “Millimeter-wave communication with out-of-band information,” IEEE Commun. Mag., vol. 55, no. 12, pp. 140–146, Dec. 2017.
+
+[8] M. Alrabeiah and A. Alkhateeb, “Deep learning for mmWave beam and blockage prediction using sub-6 GHz channels,” IEEE Trans. Commun., vol. 68, no. 9, pp. 5504–5518, Sep. 2020.
+
+[9] A. Ali, N. González-Prelcic, and R. W. Heath, “Millimeter wave beam-selection using out-of-band spatial information,” IEEE Trans. Wireless Commun., vol. 17, no. 2, pp. 1038–1052, Feb. 2018.
+
+[10] Z. Zhang et al., “Deep reinforcement learning based dynamic beam selection in dual-band communication systems,” IEEE Trans. Wireless Commun., vol. 23, no. 4, pp. 2591–2606, Apr. 2024.
+
+[11] Z. Wu, J. Zhang, L. Tian, Z. Hu, T. Jiang, and W. Li, “Comparison on channel characteristics at 3.5 GHz and 28 GHz,” in Proc. Eur. Conf. Antenna Propag. (EuCAP), Apr. 2018, pp. 1–5.
+
+[12] Z. Zhang, J. Zhang, Y. Zhang, L. Yu, and G. Liu, “AI-based time-, frequency-, and space-domain channel extrapolation for 6G: Opportunities and challenges,” IEEE Veh. Technol. Mag., vol. 18, no. 1, pp. 29–39, Mar. 2023.
+
+[13] J. Zhang, “The interdisciplinary research of big data and wireless channel: A cluster-nuclei based channel model,” China Commun., vol. 13, no. 2, pp. 14–26, Feb. 2016.
+
+[14] K. Patel and R. W. Heath, “Harnessing multimodal sensing for multi-user beamforming in mmWave systems,” IEEE Trans. Wireless Commun., vol. 23, no. 12, pp. 18725–18739, Dec. 2024.
+
+[15] W. Xu, F. Gao, X. Tao, J. Zhang, and A. Alkhateeb, “Computer vision aided mmWave beam alignment in V2X communications,” IEEE Trans. Wireless Commun., vol. 22, no. 4, pp. 2699–2714, Apr. 2023.
+
+[16] J. Chen, F. Gao, X. Tao, G. Liu, C. Pan, and A. Alkhateeb, “Computer vision aided codebook design for MIMO communications systems,” IEEE Trans. Wireless Commun., vol. 22, no. 5, pp. 3341–3354, May 2023.
+
+[17] Y. Oguma, R. Arai, T. Nishio, K. Yamamoto, and M. Morikura, “Proactive base station selection based on human blockage prediction using RGB-D cameras for mmWave communications,” in Proc. IEEE Global Commun. Conf. (GLOBECOM), Dec. 2015, pp. 1–6.
+
+[18] W. Xu, F. Gao, J. Zhang, X. Tao, and A. Alkhateeb, “Deep learning based channel covariance matrix estimation with user location and scene images,” IEEE Trans. Commun., vol. 69, no. 12, pp. 8145–8158, Dec. 2021.
+
+[19] X. Cheng, B. Liu, X. Liu, E. Liu, and Z. Huang, “Foundation model empowered synesthesia of machines (SoM): AI-native intelligent multimodal sensing-communication integration,” IEEE Trans. Netw. Sci. Eng., vol. 13, pp. 762–782, 2026.
+
+[20] Y. Zeng et al., “A tutorial on environment-aware communications via channel knowledge map for 6G,” IEEE Commun. Surveys Tuts., vol. 26, no. 3, pp. 1478–1519, 3rd Quart., 2024.
+
+[21] Y. Yang, F. Gao, X. Tao, G. Liu, and C. Pan, “Environment semantics aided wireless communications: A case study of mmWave beam prediction and blockage prediction,” IEEE J. Sel. Areas Commun., vol. 41, no. 7, pp. 2025–2040, Jul. 2023.
+
+[22] M. Sun, L. Bai, Z. Huang, and X. Cheng, “Multi-modal sensing data-based real-time path loss prediction for 6G UAV-to-ground communications,” IEEE Wireless Commun. Lett., vol. 13, no. 9, pp. 2462–2466, Sep. 2024.
+
+[23] A. Bazzi, M. Ying, O. Kanhere, T. S. Rappaport, and M. Chafii, “ISAC imaging by channel state information using ray tracing for next generation 6G,” IEEE J. Sel. Topics Electromagn., Antennas Propag., vol. 1, no. 1, pp. 135–149, Sep. 2025.
+
+[24] X. Zhao, Z. An, Q. Pan, and L. Yang, “NeRF2: Neural radio-frequency radiance fields,” in Proc. 29th Annu. Int. Conf. Mobile Comput. Netw., New York, NY, USA, Oct. 2023, pp. 1–15.
+
+[25] H. Lu, C. Vattheuer, B. Mirzasoleiman, and O. Abari, “Newrf: A deep learning framework for wireless radiation field reconstruction and channel prediction,” in Proc. Int. Conf. Mach. Learn. (ICML), Jul. 2024, pp. 33147–33159.
+
+[26] H. Wang et al., “Digital twin channel for 6G: Concepts, architectures and potential applications,” IEEE Commun. Mag., vol. 63, no. 3, pp. 24–30, Mar. 2025.
+
+[27] A. Alkhateeb, S. Jiang, and G. Charan, “Real-time digital twins: Vision and research directions for 6G and beyond,” IEEE Commun. Mag., vol. 61, no. 11, pp. 128–134, Nov. 2023.
+
+[28] H. Zou, J. Yang, H. P. Das, H. Liu, Y. Zhou, and C. J. Spanos, “WiFi and vision multimodal learning for accurate and robust device-free human activity recognition,” in Proc. IEEE Conf. Comput. Vis. Pattern Recognit. Workshops (CVPRW), Jun. 2019, pp. 426–433.
+
+[29] C. Zheng, J. He, C. G. Kang, G. Cai, and H. Wymeersch, “Multimodal radio and vision fusion for robust localization in urban V2I communications,” 2025, arXiv:2508.17640.
+
+[30] Agisoft Metashape. Version 2.2.0. [Online]. Available: https://www.agisoft.com/
+
+[31] J. L. Schönberger and J.-M. Frahm, “Structure-from-motion revisited,” in Proc. IEEE Conf. Comput. Vis. Pattern Recognit. (CVPR), Las Vegas, NV, USA, Jun. 2016, pp. 4104–4113.
+
+[32] J. L. Schönberger, E. Zheng, J. M. Frahm, and M. Pollefeys, “Pixelwise view selection for unstructured multi-view stereo,” in Proc. Eur. Conf. Comput. Vis., 2016, pp. 501–518.
+
+[33] S. Bell, P. Upchurch, N. Snavely, and K. Bala, “Material recognition in the wild with the materials in context database,” in Proc. IEEE Conf. Comput. Vis. Pattern Recognit. (CVPR), Jun. 2015, pp. 3479–3487.
+
+[34] C. Zhao, L. Sun, and R. Stolkin, “A fully end-to-end deep learning approach for real-time simultaneous 3D reconstruction and material recognition,” in Proc. 18th Int. Conf. Adv. Robot. (ICAR), Hong Kong, Jul. 2017, pp. 75–82.
+
+[35] R. Q. Charles, H. Su, M. Kaichun, and L. J. Guibas, “PointNet: Deep learning on point sets for 3D classification and segmentation,” in Proc. IEEE Conf. Comput. Vis. Pattern Recognit. (CVPR), Jul. 2017, pp. 77–85.
+
+[36] H. Fan, H. Su, and L. Guibas, “A point set generation network for 3D object reconstruction from a single image,” in Proc. IEEE Conf. Comput. Vis. Pattern Recognit. (CVPR), Jul. 2017, pp. 2463–2471.
+
+[37] K. He and J. Sun, “Convolutional neural networks at constrained time cost,” in Proc. IEEE Conf. Comput. Vis. Pattern Recognit. (CVPR), Jun. 2015, pp. 5353–5360.
+
+[38] Blender. Version 4.0. [Online]. Available: https://www.blender.org/
+
+[39] Wireless InSite. Version 3.4.4. [Online]. Available: https://www.remcom.com/wireless-insite-em-propagation-software
+
+[40] Z. Yuan, J. Zhang, Y. Ji, G. F. Pedersen, and W. Fan, “Spatial non-stationary near-field channel modeling and validation for massive MIMO systems,” IEEE Trans. Antennas Propag., vol. 71, no. 1, pp. 921–933, Jan. 2023.
+
+[41] J. Li, B. Ai, R. He, M. Yang, Z. Zhong, and Y. Hao, “A cluster-based channel model for massive MIMO communications in indoor hotspot scenarios,” IEEE Trans. Wireless Commun., vol. 18, no. 8, pp. 3856–3870, Aug. 2019.
+
+[42] Trimesh. Version 3.2.0. [Online]. Available: https://trimesh.org/
+
+[43] Q.-Y. Zhou, J. Park, and V. Koltun, “Open3D: A modern library for 3D data processing,” 2018, arXiv:1801.09847.
+
+**补译范围说明（2026-10-30 更新）：** 本轮在原译稿基础上补录：正文仅以文字引述的式（2）（6）–（10）（32）及 SP 定义与基线实验参数；表 I–III 逐格转录（原 PDF 为矢量图表，文本层无单元格，按页面渲染原表转录）；图 1–17 中文图注；参考文献 [1]–[43] 英文原书目。原文图 5、7、8 内部的具体层参数仅以图形式给出（CMCE 结构参数见正文第三节 F 小节），本页未逐一转录图中标注。仍余：逐句逐式对照 PDF 终校、公式排版细节核对，以及表 II/III 与正文数值的交叉复核。

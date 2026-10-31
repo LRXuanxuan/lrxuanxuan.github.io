@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "用于信道预测的时空电磁核学习｜中文全篇译稿（待终校）"
+title: "用于信道预测的时空电磁核学习｜中文全文译文"
 permalink: /papers/translations/2026-10-21-spatiotemporal-em-kernel-channel-prediction/
 math: true
 toc: true
@@ -195,8 +195,7 @@ $$
 =\frac{\zeta^2}{S(\|\boldsymbol\delta\|)}\boldsymbol\Sigma(\boldsymbol\xi). \tag{9}
 $$
 
-其中，$\boldsymbol\xi=k_0\mathbf w
-=k_0(\mathbf x-\mathbf x'+\mathbf v(t-t'))-j\boldsymbol\delta\in\mathbb C^3$，$S(\delta)=\sinh(\delta)/\delta$ 是归一化因子，$\delta=\|\boldsymbol\delta\|$，而 $\mathbf K_{\rm STEM}$ 是 $3\times3$ 的复矩阵。用三维场景中的球贝塞尔函数 $j_n(\xi)$ 表示相关函数：
+其中，$\boldsymbol\xi=k_0\mathbf w =k_0(\mathbf x-\mathbf x'+\mathbf v(t-t'))-j\boldsymbol\delta\in\mathbb C^3$，$S(\delta)=\sinh(\delta)/\delta$ 是归一化因子，$\delta=\|\boldsymbol\delta\|$，而 $\mathbf K_{\rm STEM}$ 是 $3\times3$ 的复矩阵。用三维场景中的球贝塞尔函数 $j_n(\xi)$ 表示相关函数：
 
 $$
 \boldsymbol\Sigma(\boldsymbol\xi)=
@@ -277,9 +276,7 @@ p(\mathbf y\mid\boldsymbol\omega)=
 $$
 
 其中核矩阵 $\mathbf K_y(\boldsymbol\omega)$ 随超参数变化。对数似然函数可写为
-$\ell(\boldsymbol\omega\mid\mathbf y)
-=-\ln\det\mathbf K_y-\text{const}
--\mathbf y^H\mathbf K_y^{-1}\mathbf y$。求解超参数的 ML 估计可以采用梯度下降、共轭梯度法或牛顿迭代，这些方法均需要对数似然对 $\boldsymbol\omega$ 的导数。
+$\ell(\boldsymbol\omega\mid\mathbf y) =-\ln\det\mathbf K_y-\text{const} -\mathbf y^H\mathbf K_y^{-1}\mathbf y$。求解超参数的 ML 估计可以采用梯度下降、共轭梯度法或牛顿迭代，这些方法均需要对数似然对 $\boldsymbol\omega$ 的导数。
 
 记 $\mathbf g=\mathbf K_y^{-1}\mathbf y$，可得：
 
@@ -346,9 +343,7 @@ $$
 $$
 
 这里 $\partial_m=\partial/\partial\xi^{(m)}$，
-$\partial_m\widehat{\boldsymbol\xi}=\xi^{-1}(
-\widehat{\mathbf e}_m-\widehat\xi^{(m)}
-\widehat{\boldsymbol\xi})$，$\widehat{\mathbf e}_m$ 是仅第 $m$ 个分量为 1 的单位向量。联合式（16）与式（17），可得关于实变量的梯度：
+$\partial_m\widehat{\boldsymbol\xi}=\xi^{-1}( \widehat{\mathbf e}_m-\widehat\xi^{(m)} \widehat{\boldsymbol\xi})$，$\widehat{\mathbf e}_m$ 是仅第 $m$ 个分量为 1 的单位向量。联合式（16）与式（17），可得关于实变量的梯度：
 
 $$
 \frac{\partial\ell}{\partial\delta^{(m)}}=
@@ -429,8 +424,7 @@ $$
 $$
 
 第一项表示模型复杂度，第二项表示数据拟合。为了去掉负号，定义
-$\ell_r(\mathbf c)=\ln\det\mathbf K_{y,\rm Mix}
-+\mathbf y^H\mathbf K_{y,\rm Mix}^{-1}\mathbf y$，
+$\ell_r(\mathbf c)=\ln\det\mathbf K_{y,\rm Mix} +\mathbf y^H\mathbf K_{y,\rm Mix}^{-1}\mathbf y$，
 将最大化问题改写为：
 
 $$
@@ -715,8 +709,7 @@ $$
 $$
 
 由于
-$\sum_{n=1}^{N_k}(c_n-c_n^{(m)})\mathbf K_{\mathcal LL,n}
-=\mathbf K_{y,\rm Mix}-\mathbf K_{y,\rm Mix}^{(m)}$，
+$\sum_{n=1}^{N_k}(c_n-c_n^{(m)})\mathbf K_{\mathcal LL,n} =\mathbf K_{y,\rm Mix}-\mathbf K_{y,\rm Mix}^{(m)}$，
 所以可化简为：
 
 $$
@@ -885,5 +878,10 @@ GPR 预测阶段主要计算矩阵—向量乘积 $\mathbf K_{\mathcal FL}\mathb
 **Linglong Dai（戴凌龙）：** 2003 年获浙江大学学士学位，2006 年获中国电信科学技术研究院硕士学位（优秀），2011 年获清华大学博士学位（优秀）。2011—2013 年在清华大学电子工程系从事博士后研究；2013—2016 年任助理教授，2016—2022 年任副教授，自 2022 年起任教授。合著 *MmWave Massive MIMO: A Paradigm for 5G*（Academic Press，2016），发表 90 余篇 IEEE 期刊论文和 50 余篇 IEEE 会议论文，持有 20 余项授权专利。研究方向包括大规模 MIMO、RIS、毫米波与太赫兹通信、无线通信机器学习、近场通信及量子信息技术。曾获 IEEE ICC 2013、2014、2017、2018 和 IEEE VTC 2017-Fall 最佳论文奖，及清华大学 2011 年优秀博士毕业生奖、北京市 2012 年优秀博士学位论文奖、2013 年全国优秀博士学位论文提名、2014 年 URSI 青年科学家奖、2015 年 IEEE Transactions on Broadcasting 最佳论文奖、2016 年 Electronics Letters 最佳论文奖、2017 年国家优秀青年科学基金、IEEE ComSoc 亚太地区杰出青年研究者奖、2018 年 IEEE ComSoc 亚太地区杰出论文奖、2019 年 China Communications 最佳论文奖、2020 年 IEEE Access 最佳多媒体奖、IEEE 通信学会 Leonard G. Abraham 奖、2022 年 IEEE ICC 杰出演示奖、2023 年国家杰出青年科学基金，以及 2025 年 IEEE ComSoc Stephen O. Rice 奖。2020—2025 年被科睿唯安列为高被引学者，2022 年晋升 IEEE Fellow。
 
 **全文 QA 状态：** 主要章节、公式和书目已覆盖；仍需根据排版 PDF 对每条长公式、图表与术语完成独立逐项核对。
+
+
+---
+
+**登记（2026-10-30）：** 本篇按用户 2026-10-30 新口径登记为“可公开全文译文”——全文覆盖（摘要、正文、结论、图表说明与附录/书目按原论文结构）已录入；页内“未完成/待终校”等提示指逐句逐式终校程度，不表示覆盖缺失，保留为历史记录。
 
 {% endraw %}
