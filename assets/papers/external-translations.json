@@ -4354,5 +4354,181 @@
     "coverage": "full",
     "license": "arxiv",
     "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-26",
+    "slug": "2026-09-26-2609-00863-conditional-flow-matching-for-ml-based-inverse-design-problems",
+    "title": "面向机器学习逆向设计问题的条件流匹配｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、图表说明（书目以原文 PDF 为题名核对入口）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-26-2609-00863-conditional-flow-matching-for-ml-based-inverse-design-problems/",
+    "source_file": "2026-09-26-2609-00863-conditional-flow-matching-for-ml-based-inverse-design-problems.md",
+    "source_page_path": "papers/translations/2026-09-26-2609-00863-conditional-flow-matching-for-ml-based-inverse-design-problems.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-26-2609-00863-conditional-flow-matching-for-ml-based-inverse-design-problems.md",
+    "paper_ids": [
+      "90e5f2836d6cbfa3"
+    ],
+    "source_arxiv_ids": [
+      "2609.00863"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-26",
+    "slug": "2026-09-26-2609-09656-why-learning-rediscovers-the-closed-form-diagonal-regularizer",
+    "title": "学习为何会重新发现闭式对角正则化器｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、图表说明（书目以原文 PDF 为题名核对入口）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-26-2609-09656-why-learning-rediscovers-the-closed-form-diagonal-regularizer/",
+    "source_file": "2026-09-26-2609-09656-why-learning-rediscovers-the-closed-form-diagonal-regularizer.md",
+    "source_page_path": "papers/translations/2026-09-26-2609-09656-why-learning-rediscovers-the-closed-form-diagonal-regularizer.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-26-2609-09656-why-learning-rediscovers-the-closed-form-diagonal-regularizer.md",
+    "paper_ids": [
+      "3d7947797d2d62c9"
+    ],
+    "source_arxiv_ids": [
+      "2609.09656"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-26",
+    "slug": "2026-09-26-2609-14373-low-complexity-near-field-channel-estimation-and-subcarrier-cooperativ",
+    "title": "低复杂度近场信道估计与子载波协作混合波束赋形｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[26]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-26-2609-14373-low-complexity-near-field-channel-estimation-and-subcarrier-cooperativ/",
+    "source_file": "2026-09-26-2609-14373-low-complexity-near-field-channel-estimation-and-subcarrier-cooperativ.md",
+    "source_page_path": "papers/translations/2026-09-26-2609-14373-low-complexity-near-field-channel-estimation-and-subcarrier-cooperativ.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-26-2609-14373-low-complexity-near-field-channel-estimation-and-subcarrier-cooperativ.md",
+    "paper_ids": [
+      "0cf361caf5265c1b"
+    ],
+    "source_arxiv_ids": [
+      "2609.14373"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-26",
+    "slug": "2026-09-26-2609-23011-hamiltonian-monte-carlo-for-vector-perturbation-precoding-in-mu-mimo-v",
+    "title": "基于哈密顿蒙特卡洛的多用户 MIMO 矢量扰动预编码｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[24]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-26-2609-23011-hamiltonian-monte-carlo-for-vector-perturbation-precoding-in-mu-mimo-v/",
+    "source_file": "2026-09-26-2609-23011-hamiltonian-monte-carlo-for-vector-perturbation-precoding-in-mu-mimo-v.md",
+    "source_page_path": "papers/translations/2026-09-26-2609-23011-hamiltonian-monte-carlo-for-vector-perturbation-precoding-in-mu-mimo-v.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-26-2609-23011-hamiltonian-monte-carlo-for-vector-perturbation-precoding-in-mu-mimo-v.md",
+    "paper_ids": [
+      "49a4c172f1b741d0"
+    ],
+    "source_arxiv_ids": [
+      "2609.23011"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-26",
+    "slug": "2026-09-26-2609-07698-non-uniform-antenna-array-design-with-large-inter-element-spacing-for",
+    "title": "大间距非均匀天线阵列的大规模 MIMO 设计｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[36]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-26-2609-07698-non-uniform-antenna-array-design-with-large-inter-element-spacing-for/",
+    "source_file": "2026-09-26-2609-07698-non-uniform-antenna-array-design-with-large-inter-element-spacing-for.md",
+    "source_page_path": "papers/translations/2026-09-26-2609-07698-non-uniform-antenna-array-design-with-large-inter-element-spacing-for.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-26-2609-07698-non-uniform-antenna-array-design-with-large-inter-element-spacing-for.md",
+    "paper_ids": [
+      "aadfcbdb260a3740"
+    ],
+    "source_arxiv_ids": [
+      "2609.07698"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-26",
+    "slug": "2026-09-26-2609-23157-orientation-aware-control-and-trajectory-design-for-aerial-ris-assiste",
+    "title": "空中 RIS 辅助无线网络的姿态感知控制与轨迹设计｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[44]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-26-2609-23157-orientation-aware-control-and-trajectory-design-for-aerial-ris-assiste/",
+    "source_file": "2026-09-26-2609-23157-orientation-aware-control-and-trajectory-design-for-aerial-ris-assiste.md",
+    "source_page_path": "papers/translations/2026-09-26-2609-23157-orientation-aware-control-and-trajectory-design-for-aerial-ris-assiste.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-26-2609-23157-orientation-aware-control-and-trajectory-design-for-aerial-ris-assiste.md",
+    "paper_ids": [
+      "5cb79678d14fac5d"
+    ],
+    "source_arxiv_ids": [
+      "2609.23157"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-26",
+    "slug": "2026-09-26-2609-11121-quantifying-the-reality-gap-for-rl-based-uav-placement-at-mmwave-and-s",
+    "title": "毫米波与亚太赫兹下强化学习无人机部署的现实差距量化｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[17]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-26-2609-11121-quantifying-the-reality-gap-for-rl-based-uav-placement-at-mmwave-and-s/",
+    "source_file": "2026-09-26-2609-11121-quantifying-the-reality-gap-for-rl-based-uav-placement-at-mmwave-and-s.md",
+    "source_page_path": "papers/translations/2026-09-26-2609-11121-quantifying-the-reality-gap-for-rl-based-uav-placement-at-mmwave-and-s.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-26-2609-11121-quantifying-the-reality-gap-for-rl-based-uav-placement-at-mmwave-and-s.md",
+    "paper_ids": [
+      "f729f51b05c314a8"
+    ],
+    "source_arxiv_ids": [
+      "2609.11121"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-26",
+    "slug": "2026-09-26-2609-18027-agents-in-the-scene-an-agentic-framework-for-resource-efficient-site-s",
+    "title": "场景中的智能体：资源高效站点特定建模的智能体框架｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[24]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-26-2609-18027-agents-in-the-scene-an-agentic-framework-for-resource-efficient-site-s/",
+    "source_file": "2026-09-26-2609-18027-agents-in-the-scene-an-agentic-framework-for-resource-efficient-site-s.md",
+    "source_page_path": "papers/translations/2026-09-26-2609-18027-agents-in-the-scene-an-agentic-framework-for-resource-efficient-site-s.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-26-2609-18027-agents-in-the-scene-an-agentic-framework-for-resource-efficient-site-s.md",
+    "paper_ids": [
+      "6cd22d3b2ff792a9"
+    ],
+    "source_arxiv_ids": [
+      "2609.18027"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
   }
 ]
