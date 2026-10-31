@@ -1008,6 +1008,481 @@ $
 
 **图 4：** 高斯模型中的条件数及优化现象。（a）沿插值路径增长的条件数；（b）$\kappa(H)=1000$ 时中间协方差特征值的分离；（c）不同时刻的协方差椭圆；（d）达到固定精度所需 GD 迭代数；（e）理想白化使路径条件数约为 1；（f）$t=0.9$ 时各模态误差衰减；（g）最优得分场 $s^\star(\mathbf x,t)=-\Sigma_t^{-1}\mathbf x$；（h）最优 FM 速度场 $v^\star(\mathbf x,t)=A^\star(t)\mathbf x$。
 
+## 附录 E：高斯混合流匹配的证明
+
+### E.1 定理 3.8 的证明
+
+假定目标是具有 $K$ 个分量的零均值高斯混合，源分布为标准高斯，使用线性插值：
+
+$
+\mathbf x_1\sim\sum_{k=1}^K\pi_k\mathcal N(0,H_k),\quad
+\mathbf x_0\sim\mathcal N(0,I),\quad
+\mathbf x_t=(1-t)\mathbf x_0+t\mathbf x_1. \tag{116}
+$
+
+令 $Z\in\{1,\ldots,K\}$ 表示 $\mathbf x_1$ 所属的隐含混合分量，满足
+
+$
+\Pr(Z=k)=\pi_k. \tag{117}
+$
+
+由全期望公式，
+
+$
+g_t^\star(\mathbf x_t)=\mathbb E[\mathbf x_1-\mathbf x_0\mid\mathbf x_t], \tag{118}
+$
+
+$
+=\sum_{k=1}^K\Pr(Z=k\mid\mathbf x_t,t)
+\mathbb E[\mathbf x_1-\mathbf x_0\mid\mathbf x_t,Z=k,t]. \tag{119}
+$
+
+定义后验分量责任概率
+
+$
+w_k(\mathbf x_t,t):=\Pr(Z=k\mid\mathbf x_t,t). \tag{120}
+$
+
+给定 $Z=k$，有
+
+$
+\mathbf x_0\sim\mathcal N(0,I),\quad
+\mathbf x_1\sim\mathcal N(0,H_k),\quad
+\mathbf x_t=(1-t)\mathbf x_0+t\mathbf x_1. \tag{121}
+$
+
+因此可以应用附录 D.2 的单高斯结论：
+
+$
+\mathbb E[\mathbf x_1-\mathbf x_0\mid\mathbf x_t,Z=k,t]
+=A_k^\star(t)\mathbf x_t, \tag{122}
+$
+
+$
+A_k^\star(t)=[tH_k-(1-t)I][(1-t)^2I+t^2H_k]^{-1}. \tag{123}
+$
+
+代回全期望式，得到
+
+$
+g_t^\star(\mathbf x_t)=\sum_{k=1}^Kw_k(\mathbf x_t,t)A_k^\star(t)\mathbf x_t. \tag{124}
+$
+
+故高斯混合 FM 的目标向量场是分量条件线性速度的责任概率加权和。
+
+### E.2 定理 3.9 的证明
+
+在正文假设 3.7 下，各样本的分量归属或责任概率准确已知，从而总体高斯混合 FM 回归可分解为独立的分量回归问题。对于第 $k$ 个分量，中间协方差为
+
+$
+\Sigma_{t,k}=(1-t)^2I+t^2H_k. \tag{125}
+$
+
+如果 $\lambda_{k,i}$ 是 $H_k$ 的第 $i$ 个特征值，对应中间协方差特征值为
+
+$
+\sigma_{k,i}(t)=(1-t)^2+t^2\lambda_{k,i}. \tag{126}
+$
+
+每个分量都适用高斯情形的 GD 分析。特别地，
+
+$
+E_{k,m+1}=E_{k,m}(I-2\eta\Sigma_{t,k}), \tag{127}
+$
+
+所以在特征方向 $i$ 上
+
+$
+e_{k,i,m+1}=(1-2\eta\sigma_{k,i}(t))e_{k,i,m}. \tag{128}
+$
+
+较小的 $\sigma_{k,i}(t)$ 使该方向的收敛更慢。单样本 SGD 的条件平均误差满足
+
+$
+\mathbb E[E_{k,m+1}\mid E_{k,m}]
+=E_{k,m}(I-2\eta\Sigma_{t,k}), \tag{129}
+$
+
+以及
+
+$
+\mathbb E[e_{k,i,m+1}\mid E_{k,m}]
+=(1-2\eta\sigma_{k,i}(t))e_{k,i,m}. \tag{130}
+$
+
+若希望各混合分量与所有特征方向获得可比较的优化精度，整体时间尺度由最慢的分量模态决定，即
+
+$
+\min_{k,i}\sigma_{k,i}(t). \tag{131}
+$
+
+因此，即使多数混合分量条件数良好，单个具有很小特征值的分量也可能控制整体优化收敛，证毕。
+
+### E.3 推论 3.10 的证明
+
+由定理 3.9，收敛时间由所有分量的最小模态特征值决定，故多模态结构并不会自动平均掉条件数瓶颈。相反，最难优化的分量可能决定整个系统的训练难度。此结论依赖准确分量归属的假设，不能直接解释为任意复杂高斯混合网络的无条件优化定理。
+
+### E.4 非零均值高斯及高斯混合的扩展
+
+**推论 E.1。** 令 $\mathbf x_0\sim\mathcal N(0,I)$、$\mathbf x_1\sim\mathcal N(\mu,H)$ 独立，$H\succ0$，线性插值得 $\mathbf x_t=(1-t)\mathbf x_0+t\mathbf x_1$。定义 $m_t=t\mu$、$\Sigma_t=(1-t)^2I+t^2H$、$C_t=tH-(1-t)I$。总体最优速度由线性变为仿射：
+
+$
+g_t^\star(\mathbf x)
+=\mathbb E[\mathbf x_1-\mathbf x_0\mid\mathbf x_t=\mathbf x]
+=A^\star(t)\mathbf x+b^\star(t),
+$
+
+$
+A^\star(t)=C_t\Sigma_t^{-1},\quad
+b^\star(t)=\mu-A^\star(t)m_t=(1-t)\Sigma_t^{-1}\mu.
+$
+
+考虑带截距的损失 $\mathcal L_t(A,b)=\mathbb E[\|A\mathbf x_t+b-(\mathbf x_1-\mathbf x_0)\|_2^2]$，超额风险分解为
+
+$
+\mathcal L_t(A,b)-\mathcal L_t(A^\star,b^\star)=
+\operatorname{Tr}((A-A^\star)\Sigma_t(A-A^\star)^\top)
++\|(A-A^\star)m_t+(b-b^\star)\|_2^2.
+$
+
+等价地，用中心化参数 $A(\mathbf x_t-m_t)+\beta$ 表示预测器，最优截距为 $\beta^\star=\mu$，超额风险变成
+
+$
+\widetilde{\mathcal L}_t(A,\beta)-\widetilde{\mathcal L}_t(A^\star,\mu)
+=\operatorname{Tr}((A-A^\star)\Sigma_t(A-A^\star)^\top)+\|\beta-\mu\|_2^2.
+$
+
+斜率与截距因此解耦：斜率的 GD 仍满足 $E_{\ell+1}=E_\ell(I-2\eta\Sigma_t)$，截距误差的收缩因子为 $1-2\eta$。可见，若先中心化或将截距消去，非零均值不会改变由协方差控制的方向性瓶颈。
+
+对混合分量 $\mathbf x_1\mid Z=k\sim\mathcal N(\mu_k,H_k)$，其分量中间协方差仍是 $\Sigma_{t,k}=(1-t)^2I+t^2H_k$，与均值 $\mu_k$ 无关。条件目标速度为 $A_k^\star(t)\mathbf x+b_k^\star(t)$，其中 $A_k^\star(t)=[tH_k-(1-t)I]\Sigma_{t,k}^{-1}$，$b_k^\star(t)=(1-t)\Sigma_{t,k}^{-1}\mu_k$。故在假设 3.7 下，非零均值不改变各分量收敛率或最差分量结论。
+
+**备注 E.2（均值偏移的影响）。** 若不采用中心化参数化，$(A,b)$ 的 Hessian 与
+
+$
+M_t=\begin{pmatrix}
+\Sigma_t+m_tm_t^\top&m_t\\
+m_t^\top&1
+\end{pmatrix}
+$
+
+有关，大的均值可能使原始参数化更病态。然而这种影响可以通过显式中心化完全消除；$\kappa(\Sigma_t)$ 带来的方向性刚性则依然存在。对于混合分布，不同均值会影响后验责任概率和模态位置，但不影响单个分量内部的协方差。更大的均值间隔通常还会使假设 3.7 的理想分量归属近似更合理。
+
+证明如下。令 $\mathbf y=\mathbf x_1-\mathbf x_0$，联合高斯的基本矩为 $\mathbb E[\mathbf y]=\mu$、$\mathbb E[\mathbf x_t]=m_t$、$\operatorname{Cov}(\mathbf x_t)=\Sigma_t$、$\operatorname{Cov}(\mathbf y,\mathbf x_t)=C_t$。因此 $\mathbb E[\mathbf y\mid\mathbf x_t=\mathbf x]=\mu+C_t\Sigma_t^{-1}(\mathbf x-m_t)$。由于 $\Sigma_t-tC_t=(1-t)I$，得到上述 $A^\star,b^\star$。令 $\Delta A=A-A^\star$、$\Delta b=b-b^\star$，$\mathbf z_t=\mathbf x_t-m_t$，利用 $\mathbb E[\mathbf z_t]=0$、$\operatorname{Cov}(\mathbf z_t)=\Sigma_t$ 和条件均值正交分解，即得两项超额风险。将同样推导逐分量应用于非零均值高斯混合，完成证明。
+
+## 附录 F：流匹配预条件化的证明
+
+### F.1 定理 4.1 的证明
+
+设源与目标为独立零均值高斯，线性输运为
+
+$
+\mathbf x_0\sim\mathcal N(0,I),\quad
+\mathbf x_1\sim\mathcal N(0,H),\quad
+\mathbf x_t=(1-t)\mathbf x_0+t\mathbf x_1. \tag{132}
+$
+
+令可逆矩阵 $P\in\mathbb R^{d\times d}$，定义
+
+$
+\tilde{\mathbf x}_1=P\mathbf x_1,\qquad
+\tilde{\mathbf x}_t=(1-t)\mathbf x_0+t\tilde{\mathbf x}_1. \tag{133}
+$
+
+先计算变换后的中间协方差：
+
+$
+\tilde\Sigma_t:=\mathbb E[\tilde{\mathbf x}_t\tilde{\mathbf x}_t^\top], \tag{134}
+$
+
+$
+=\mathbb E[((1-t)\mathbf x_0+tP\mathbf x_1)((1-t)\mathbf x_0+tP\mathbf x_1)^\top], \tag{135}
+$
+
+$
+=(1-t)^2\mathbb E[\mathbf x_0\mathbf x_0^\top]
++t^2\mathbb E[P\mathbf x_1\mathbf x_1^\top P^\top], \tag{136}
+$
+
+$
+\quad+t(1-t)\mathbb E[\mathbf x_0\mathbf x_1^\top]P^\top
++t(1-t)P\mathbb E[\mathbf x_1\mathbf x_0^\top], \tag{137}
+$
+
+$
+\tilde\Sigma_t=(1-t)^2I+t^2PHP^\top. \tag{138}
+$
+
+若采用精确白化 $P=H^{-1/2}$，
+
+$
+PHP^\top=I, \tag{139}
+$
+
+$
+\tilde\Sigma_t=(1-t)^2I+t^2I=[(1-t)^2+t^2]I. \tag{140}
+$
+
+所有特征值相等，因此
+
+$
+\kappa(\tilde\Sigma_t)=1,\qquad t\in[0,1]. \tag{141}
+$
+
+对于近似各向同性化，假定存在 $0<m\le M$，满足
+
+$
+mI\preceq PHP^\top\preceq MI. \tag{142}
+$
+
+利用式（138），有
+
+$
+(1-t)^2I+t^2mI\preceq\tilde\Sigma_t
+\preceq(1-t)^2I+t^2MI. \tag{143}
+$
+
+从而每个特征值满足
+
+$
+(1-t)^2+t^2m\le\lambda_i(\tilde\Sigma_t)\le(1-t)^2+t^2M, \tag{144}
+$
+
+最终得到
+
+$
+\kappa(\tilde\Sigma_t)
+\le\frac{(1-t)^2+t^2M}{(1-t)^2+t^2m}. \tag{145}
+$
+
+上述三步证明了精确白化可以把路径条件数降为 1，近似白化的改进则取决于 $PHP^\top$ 的谱界。
+
+### F.2 高斯混合预条件化的补充说明
+
+如果能够针对高斯混合的每个分量分别采用白化算子
+
+$
+T_k=H_k^{-1/2}, \tag{146}
+$
+
+则变换后的分量路径协方差为
+
+$
+\tilde\Sigma_{t,k}=[(1-t)^2+t^2]I. \tag{147}
+$
+
+所有分量的条件数因此成为 1，不再存在单个病态分量拖慢训练的机制。正文第 4 节主要阐述单高斯情况，是因为其定理表述最简洁。实际训练的非线性预条件器只能看作上述理想分量白化思想的近似推广。
+
+### F.3 条件数理论对于 FM 的特有推论
+
+**推论 F.3.1（较小 FM 损失也可能隐藏方向性速度误差）。** 固定时间的超额风险可以在 $H$ 的特征向量基下展开：
+
+$
+\mathcal L_t(A)-\mathcal L_t(A^\star(t))
+=\sum_{i=1}^d\sigma_i(t)\|(A-A^\star(t))\mathbf u_i\|_2^2. \tag{148}
+$
+
+由此若超额风险不超过 $\varepsilon$，各方向只能得到较弱的界：
+
+$
+\|(A-A^\star(t))\mathbf u_i\|_2^2
+\le\frac{\varepsilon}{\sigma_i(t)}. \tag{149}
+$
+
+在特征值很小的方向，即使总体 FM 损失已经接近最优，速度场仍可能存在明显误差。
+
+*证明。* 由式（12），
+
+$
+\mathcal L_t(A)-\mathcal L_t(A^\star(t))
+=\operatorname{Tr}((A-A^\star(t))\Sigma_t(A-A^\star(t))^\top). \tag{150}
+$
+
+令
+
+$
+\Delta_t:=A-A^\star(t). \tag{151}
+$
+
+由于 $H=U\Lambda U^\top$，有
+
+$
+\Sigma_t=U\operatorname{diag}(\sigma_1(t),\ldots,\sigma_d(t))U^\top,\quad
+\sigma_i(t)=(1-t)^2+t^2\lambda_i. \tag{152}
+$
+
+代入二次型：
+
+$
+\operatorname{Tr}(\Delta_t\Sigma_t\Delta_t^\top)
+=\operatorname{Tr}(\Delta_tU\operatorname{diag}(\sigma_i(t))U^\top\Delta_t^\top). \tag{153}
+$
+
+谱分解也可写成
+
+$
+U\operatorname{diag}(\sigma_1(t),\ldots,\sigma_d(t))U^\top
+=\sum_{i=1}^d\sigma_i(t)\mathbf u_i\mathbf u_i^\top. \tag{154}
+$
+
+所以
+
+$
+\operatorname{Tr}(\Delta_t\Sigma_t\Delta_t^\top)
+=\sum_{i=1}^d\sigma_i(t)\operatorname{Tr}
+(\Delta_t\mathbf u_i\mathbf u_i^\top\Delta_t^\top). \tag{155}
+$
+
+每个迹项为
+
+$
+\operatorname{Tr}(\Delta_t\mathbf u_i\mathbf u_i^\top\Delta_t^\top)
+=\operatorname{Tr}((\Delta_t\mathbf u_i)(\Delta_t\mathbf u_i)^\top)
+=\|\Delta_t\mathbf u_i\|_2^2. \tag{156}
+$
+
+因而
+
+$
+\mathcal L_t(A)-\mathcal L_t(A^\star(t))
+=\sum_{i=1}^d\sigma_i(t)\|(A-A^\star(t))\mathbf u_i\|_2^2. \tag{157}
+$
+
+若
+
+$
+\mathcal L_t(A)-\mathcal L_t(A^\star(t))\le\varepsilon, \tag{158}
+$
+
+注意全部 $\sigma_i(t)>0$，且每项
+
+$
+\sigma_i(t)\|(A-A^\star(t))\mathbf u_i\|_2^2 \tag{159}
+$
+
+非负，因此
+
+$
+\begin{aligned}
+\sigma_i(t)\|(A-A^\star(t))\mathbf u_i\|_2^2
+&\le\sum_{j=1}^d\sigma_j(t)\|(A-A^\star(t))\mathbf u_j\|_2^2\\
+&=\mathcal L_t(A)-\mathcal L_t(A^\star(t))\le\varepsilon.
+\end{aligned}\tag{160}
+$
+
+除以 $\sigma_i(t)$，
+
+$
+\|(A-A^\star(t))\mathbf u_i\|_2^2
+\le\frac{\varepsilon}{\sigma_i(t)}. \tag{161}
+$
+
+即证明式（149）。
+
+**推论 F.3.2（时间标量加权不能消除固定时间的方向刚性）。** 固定 $t$ 并令 $\alpha(t)>0$，考虑
+
+$
+\mathcal L_{t,\alpha}(A)=
+\alpha(t)\mathbb E[\|A\mathbf x_t-(\mathbf x_1-\mathbf x_0)\|^2]. \tag{162}
+$
+
+这种加权同时缩放全部方向的曲率，但不会改变其条件数。
+
+*证明。* 因 $\alpha(t)$ 对于待优化变量 $A$ 是常数，
+
+$
+\mathcal L_{t,\alpha}(A)=\alpha(t)\mathcal L_t(A),\quad
+\mathcal L_t(A)=\mathbb E[\|A\mathbf x_t-(\mathbf x_1-\mathbf x_0)\|^2]. \tag{163}
+$
+
+未加权梯度为
+
+$
+\nabla_A\mathcal L_t(A)=2(A\Sigma_t-C_t), \tag{164}
+$
+
+其中
+
+$
+\Sigma_t=\mathbb E[\mathbf x_t\mathbf x_t^\top],\quad
+C_t=\operatorname{Cov}(\mathbf x_1-\mathbf x_0,\mathbf x_t). \tag{165}
+$
+
+加权梯度为
+
+$
+\nabla_A\mathcal L_{t,\alpha}(A)
+=\alpha(t)\nabla_A\mathcal L_t(A)
+=2\alpha(t)(A\Sigma_t-C_t). \tag{166}
+$
+
+对任意扰动 $\Delta\in\mathbb R^{d\times d}$，
+
+$
+\nabla_A\mathcal L_{t,\alpha}(A+\Delta)
+-\nabla_A\mathcal L_{t,\alpha}(A)
+=2\alpha(t)\Delta\Sigma_t. \tag{167}
+$
+
+因此 Hessian 可视作线性算子
+
+$
+\Delta\mapsto2\alpha(t)\Delta\Sigma_t. \tag{168}
+$
+
+再把协方差对角化：
+
+$
+\Sigma_t=U\operatorname{diag}(\sigma_1(t),\ldots,\sigma_d(t))U^\top. \tag{169}
+$
+
+各特征方向的曲率变为
+
+$
+2\alpha(t)\sigma_i(t). \tag{170}
+$
+
+最大和最小曲率分别为
+
+$
+2\alpha(t)\sigma_{\max}(t),\quad
+2\alpha(t)\sigma_{\min}(t). \tag{171}
+$
+
+故其比值为
+
+$
+\frac{2\alpha(t)\sigma_{\max}(t)}
+{2\alpha(t)\sigma_{\min}(t)}
+=\frac{\sigma_{\max}(t)}{\sigma_{\min}(t)}
+=\kappa(\Sigma_t). \tag{172}
+$
+
+时间标量加权只改变整体曲率的尺度。等价地，加权 GD 更新为
+
+$
+A_{k+1}=A_k-2\eta\alpha(t)(A_k\Sigma_t-C_t). \tag{173}
+$
+
+定义
+
+$
+E_k=A_k-A^\star(t), \tag{174}
+$
+
+得到误差递推
+
+$
+E_{k+1}=E_k(I-2\eta\alpha(t)\Sigma_t). \tag{175}
+$
+
+在第 $i$ 个特征方向上的收缩因子为
+
+$
+1-2\eta\alpha(t)\sigma_i(t). \tag{176}
+$
+
+因此，$\alpha(t)$ 只是把有效学习率从 $\eta$ 调整成 $\eta\alpha(t)$，不同方向的相对快慢仍由 $\Sigma_t$ 的谱决定，固定时间下最优步长的迭代复杂度依然取决于 $\kappa(\Sigma_t)$。
+
 ## 附录 J：计算资源
 
 论文中的全部实验在一台计算服务器上运行。该服务器配备三张 NVIDIA RTX A6000 GPU，每张具有 48 GB 显存；主机采用两颗 Intel Xeon Gold 5317 CPU，共 24 个物理核心、48 个逻辑处理器，内存为 1 TB，运行 AlmaLinux 9.6。所有模型训练、采样和评价均在该系统上完成。适用时，研究使用三张 GPU 上的分布式数据并行（DDP）训练。上述硬件足以支持论文报告的全部实验。
