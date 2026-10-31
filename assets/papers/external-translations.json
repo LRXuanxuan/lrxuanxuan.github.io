@@ -4882,5 +4882,137 @@
     "coverage": "full",
     "license": "arxiv",
     "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-17",
+    "slug": "2026-09-17-2609-06135-physical-field-reconstruction-from-sparse-observations-when-are-diffus",
+    "title": "稀疏观测下的物理场重建：扩散模型何时有效｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[43]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-17-2609-06135-physical-field-reconstruction-from-sparse-observations-when-are-diffus/",
+    "source_file": "2026-09-17-2609-06135-physical-field-reconstruction-from-sparse-observations-when-are-diffus.md",
+    "source_page_path": "papers/translations/2026-09-17-2609-06135-physical-field-reconstruction-from-sparse-observations-when-are-diffus.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-17-2609-06135-physical-field-reconstruction-from-sparse-observations-when-are-diffus.md",
+    "paper_ids": [
+      "2243864212b3ecd1"
+    ],
+    "source_arxiv_ids": [
+      "2609.06135"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-17",
+    "slug": "2026-09-17-2609-16588-environment-aware-diffusion-model-for-massive-mimo-ofdm-channel-estima",
+    "title": "面向大规模 MIMO-OFDM 信道估计的环境感知扩散模型｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[18]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-17-2609-16588-environment-aware-diffusion-model-for-massive-mimo-ofdm-channel-estima/",
+    "source_file": "2026-09-17-2609-16588-environment-aware-diffusion-model-for-massive-mimo-ofdm-channel-estima.md",
+    "source_page_path": "papers/translations/2026-09-17-2609-16588-environment-aware-diffusion-model-for-massive-mimo-ofdm-channel-estima.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-17-2609-16588-environment-aware-diffusion-model-for-massive-mimo-ofdm-channel-estima.md",
+    "paper_ids": [
+      "09a99087c61f409b"
+    ],
+    "source_arxiv_ids": [
+      "2609.16588"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-17",
+    "slug": "2026-09-17-2609-08859-a-material-aware-channel-model-for-efficient-ckm-generation-via-enviro",
+    "title": "面向高效 CKM 生成的材料感知信道模型｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[24]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-17-2609-08859-a-material-aware-channel-model-for-efficient-ckm-generation-via-enviro/",
+    "source_file": "2026-09-17-2609-08859-a-material-aware-channel-model-for-efficient-ckm-generation-via-enviro.md",
+    "source_page_path": "papers/translations/2026-09-17-2609-08859-a-material-aware-channel-model-for-efficient-ckm-generation-via-enviro.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-17-2609-08859-a-material-aware-channel-model-for-efficient-ckm-generation-via-enviro.md",
+    "paper_ids": [
+      "6edd1b2a90906cae"
+    ],
+    "source_arxiv_ids": [
+      "2609.08859"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-16",
+    "slug": "2026-09-16-2608-21709-posterior-information-dynamics-of-diffusion-models-for-linear-inverse",
+    "title": "线性逆问题扩散模型的后验信息动力学｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、图表说明（书目以原文 PDF 为题名核对入口）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-16-2608-21709-posterior-information-dynamics-of-diffusion-models-for-linear-inverse/",
+    "source_file": "2026-09-16-2608-21709-posterior-information-dynamics-of-diffusion-models-for-linear-inverse.md",
+    "source_page_path": "papers/translations/2026-09-16-2608-21709-posterior-information-dynamics-of-diffusion-models-for-linear-inverse.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-16-2608-21709-posterior-information-dynamics-of-diffusion-models-for-linear-inverse.md",
+    "paper_ids": [
+      "e3c20b8cdc120a52"
+    ],
+    "source_arxiv_ids": [
+      "2608.21709"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-16",
+    "slug": "2026-09-16-2609-12953-fast-and-faithful-principled-conditional-flow-matching-for-inverse-pro",
+    "title": "快速且忠实：逆问题的有原则条件流匹配｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[64]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-16-2609-12953-fast-and-faithful-principled-conditional-flow-matching-for-inverse-pro/",
+    "source_file": "2026-09-16-2609-12953-fast-and-faithful-principled-conditional-flow-matching-for-inverse-pro.md",
+    "source_page_path": "papers/translations/2026-09-16-2609-12953-fast-and-faithful-principled-conditional-flow-matching-for-inverse-pro.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-16-2609-12953-fast-and-faithful-principled-conditional-flow-matching-for-inverse-pro.md",
+    "paper_ids": [
+      "214927ad0ff3fd23"
+    ],
+    "source_arxiv_ids": [
+      "2609.12953"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-09-16",
+    "slug": "2026-09-16-2609-14596-direct-conditional-transition-sampling-for-diffusion-inverse-problems",
+    "title": "扩散逆问题的直接条件转移采样｜中文全文译文",
+    "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[20]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-09-16-2609-14596-direct-conditional-transition-sampling-for-diffusion-inverse-problems/",
+    "source_file": "2026-09-16-2609-14596-direct-conditional-transition-sampling-for-diffusion-inverse-problems.md",
+    "source_page_path": "papers/translations/2026-09-16-2609-14596-direct-conditional-transition-sampling-for-diffusion-inverse-problems.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-09-16-2609-14596-direct-conditional-transition-sampling-for-diffusion-inverse-problems.md",
+    "paper_ids": [
+      "4e41c9dfc2647d39"
+    ],
+    "source_arxiv_ids": [
+      "2609.14596"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
   }
 ]
