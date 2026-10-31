@@ -12,7 +12,7 @@ toc: true
 ## 中英文译文
 
 - [OFDM 大规模 MIMO 中的近场速度估计与多普勒感知定位｜中文全文译稿](/papers/translations/2026-10-31-near-field-velocity-2608-05133/) · 5 页；正文 I–VI、18 个编号公式、3 张表、5 幅图图注、12 条书目已录入；逐字符终校待做。
-- [RMSampler：主动采样与扩散后验校正｜中文部分译稿](/papers/translations/2026-10-31-rmsampler-2610-27464/) · 12 页；方法与核心理论已译，实验和参考文献未补齐。
+- [RMSampler：主动采样与扩散后验校正的稀疏无线电地图重建｜中文全文译稿](/papers/translations/2026-10-31-rmsampler-2610-27464/) · 原文 12 页；摘要、正文 I–VI、公式（1）–（30）、定理与命题、表 I–II、图 1–8 图注及英文参考文献 [1]–[41] 已录入；逐字符、逐图及排版终校尚未完成。
 - [CPF-DDNM：连续后验融合的图像扩散恢复｜中文部分译稿](/papers/translations/2026-10-31-cpf-ddnm-2610-03261/) · 21 页；方法和部分实验已译，部分正文和书目待补。
 - [DF-NPE：双流神经后验估计｜中文部分译稿](/papers/translations/2026-10-31-double-flow-npe-2610-35442/) · 28 页；方法与部分结果已译，长附录和完整实验待补。
 - [预条件流匹配｜中文主体译稿](/papers/translations/2026-10-31-preconditioned-flow-matching-2603-02337/) · 45 页；主体 1–6 节已译，附录 A–J 与书目待补。
