@@ -1,0 +1,157 @@
+[
+ {
+  "url": "/papers/translations/2026-10-31-rmsampler-2610-27464/",
+  "slug": "2026-10-31-rmsampler-2610-27464",
+  "superseded_by": "/papers/translations/2026-10-31-2610-27464-rmsampler-sparse-radio-map-reconstruction-with-active-sampling-and-dif/"
+ },
+ {
+  "url": "/papers/translations/2026-10-31-preconditioned-flow-matching-2603-02337/",
+  "slug": "2026-10-31-preconditioned-flow-matching-2603-02337",
+  "superseded_by": "/papers/translations/2026-10-31-2603-02337-preconditioned-flow-matching/"
+ },
+ {
+  "url": "/papers/translations/2026-10-31-near-field-velocity-2608-05133/",
+  "slug": "2026-10-31-near-field-velocity-2608-05133",
+  "superseded_by": "/papers/translations/2026-10-31-2608-05133-near-field-velocity-estimation-and-doppler-aware-localization-in-ofdm/"
+ },
+ {
+  "url": "/papers/translations/2026-10-31-double-flow-npe-2610-35442/",
+  "slug": "2026-10-31-double-flow-npe-2610-35442",
+  "superseded_by": "/papers/translations/2026-10-31-2610-35442-simulation-efficient-double-flow-neural-posterior-estimation-for-agent/"
+ },
+ {
+  "url": "/papers/translations/2026-10-31-cpf-ddnm-2610-03261/",
+  "slug": "2026-10-31-cpf-ddnm-2610-03261",
+  "superseded_by": "/papers/translations/2026-10-31-2610-03261-consecutive-posterior-fusion-for-diffusive-recovery-of-unobservable-im/"
+ },
+ {
+  "url": "/papers/translations/2026-10-29-proflow-2601-20227/",
+  "slug": "2026-10-29-proflow-2601-20227",
+  "superseded_by": "/papers/translations/2026-10-29-proflow-zero-shot-physics-consistent-sampling-via-proximal-flow-guidan-2601-20227/"
+ },
+ {
+  "url": "/papers/translations/2026-10-28-ua-flow-2602-10326/",
+  "slug": "2026-10-28-ua-flow-2602-10326",
+  "superseded_by": "/papers/translations/2026-10-28-flow-matching-with-uncertainty-quantification-and-guidance-2602-10326/"
+ },
+ {
+  "url": "/papers/translations/2026-10-28-esdd-oddm-highly-spread/",
+  "slug": "2026-10-28-esdd-oddm-highly-spread",
+  "superseded_by": "/papers/translations/2026-10-28-equivalent-sampled-delay-doppler-esdd-channel-models-for-oddm-over-hig-ff5a01c5/"
+ },
+ {
+  "url": "/papers/translations/2026-10-27-pc-daps-2610-31592/",
+  "slug": "2026-10-27-pc-daps-2610-31592",
+  "superseded_by": "/papers/translations/2026-10-27-beyond-best-of-k-prior-consistent-daps-for-ambiguous-nonlinear-inverse-2610-31592/"
+ },
+ {
+  "url": "/papers/translations/2026-10-27-cfm-variance-2610-29172/",
+  "slug": "2026-10-27-cfm-variance-2610-29172",
+  "superseded_by": "/papers/translations/2026-10-27-conditional-flow-models-convert-epistemic-uncertainty-into-apparent-al-2610-29172/"
+ },
+ {
+  "url": "/papers/translations/2026-10-24-fttd-near-field-thz-hybrid-beamforming/",
+  "slug": "2026-10-24-fttd-near-field-thz-hybrid-beamforming",
+  "superseded_by": "/papers/translations/2026-10-24-hybrid-beamforming-optimization-for-near-field-terahertz-multi-user-sy-98ee8147/"
+ },
+ {
+  "url": "/papers/translations/2026-10-23-rf-navigation-multipath-2610-08105/",
+  "slug": "2026-10-23-rf-navigation-multipath-2610-08105",
+  "superseded_by": "/papers/translations/2026-10-23-navigation-with-rf-cues-embodied-perception-action-under-multipath-unc-2610-08105/"
+ },
+ {
+  "url": "/papers/translations/2026-10-23-ms-flow-2602-08538/",
+  "slug": "2026-10-23-ms-flow-2602-08538",
+  "superseded_by": "/papers/translations/2026-10-23-trajectory-stitching-for-solving-inverse-problems-with-flow-based-mode-2602-08538/"
+ },
+ {
+  "url": "/papers/translations/2026-10-22-otfs-sunscape-superimposed-pilots/",
+  "slug": "2026-10-22-otfs-sunscape-superimposed-pilots",
+  "superseded_by": "/papers/translations/2026-10-22-superimposed-sunscape-pilot-pattern-for-channel-estimation-in-otfs-bas-e5fa7705/"
+ },
+ {
+  "url": "/papers/translations/2026-10-22-continuous-time-transformer-nonuniform-pilots/",
+  "slug": "2026-10-22-continuous-time-transformer-nonuniform-pilots",
+  "superseded_by": "/papers/translations/2026-10-22-continuous-time-transformer-based-channel-prediction-with-non-uni-0420e0d8/"
+ },
+ {
+  "url": "/papers/translations/2026-10-21-one-step-generative-csi-2609-17033/",
+  "slug": "2026-10-21-one-step-generative-csi-2609-17033",
+  "superseded_by": "/papers/translations/2026-10-21-one-step-generative-csi-prediction-2609-17033/"
+ },
+ {
+  "url": "/papers/translations/2026-10-21-dd-hsr-2509-25854/",
+  "slug": "2026-10-21-dd-hsr-2509-25854",
+  "superseded_by": "/papers/translations/2026-10-21-delay-doppler-domain-channel-measurements-and-modeling-in-high-speed-r-2509-25854/"
+ },
+ {
+  "url": "/papers/translations/2026-10-20-wireless-scene-reconstruction-2610-22120/",
+  "slug": "2026-10-20-wireless-scene-reconstruction-2610-22120",
+  "superseded_by": "/papers/translations/2026-10-20-wireless-scene-reconstruction-diffusion-2610-22120/"
+ },
+ {
+  "url": "/papers/translations/2026-10-20-spatial-pilot-reuse-joint-channel-localization-2501-02252/",
+  "slug": "2026-10-20-spatial-pilot-reuse-joint-channel-localization-2501-02252",
+  "superseded_by": "/papers/translations/2026-10-20-mu-scattering-aware-pilot-reuse-2501-02252/"
+ },
+ {
+  "url": "/papers/translations/2026-10-20-factordps-radio-map-2610-15980/",
+  "slug": "2026-10-20-factordps-radio-map-2610-15980",
+  "superseded_by": "/papers/translations/2026-10-20-radio-map-factor-dps-2610-15980/"
+ },
+ {
+  "url": "/papers/translations/2026-10-20-cross-frame-otfs-ultra-high-mobility/",
+  "slug": "2026-10-20-cross-frame-otfs-ultra-high-mobility",
+  "superseded_by": "/papers/translations/2026-10-20-channel-estimation-in-cross-frame-otfs-system-with-ultra-high-mobility-65fb4a2e/"
+ },
+ {
+  "url": "/papers/translations/2026-10-20-conditional-mean-flows-2610-21657/",
+  "slug": "2026-10-20-conditional-mean-flows-2610-21657",
+  "superseded_by": "/papers/translations/2026-10-20-conditional-mean-flows-few-step-densities-for-simulation-based-inferen-2610-21657/"
+ },
+ {
+  "url": "/papers/translations/2026-10-12-five-abstracts/",
+  "slug": "2026-10-12-five-abstracts",
+  "superseded_by": null
+ },
+ {
+  "url": "/papers/translations/2026-10-12-cd1fd1c4e35890df/",
+  "slug": "2026-10-12-cd1fd1c4e35890df",
+  "superseded_by": "/papers/translations/2026-10-12-e2227d37a5cd8f76429d8e25/"
+ },
+ {
+  "url": "/papers/translations/2026-10-12-03c3642f12989295/",
+  "slug": "2026-10-12-03c3642f12989295",
+  "superseded_by": "/papers/translations/2026-10-12-07cd9352cec539825a82cc81/"
+ },
+ {
+  "url": "/papers/translations/2026-10-26-otfs-overspread-doppler/",
+  "slug": "2026-10-26-otfs-overspread-doppler",
+  "superseded_by": "/papers/translations/2026-10-26-2608-12524-channel-estimation-for-otfs-systems-with-overspread-doppler-shifts/"
+ },
+ {
+  "url": "/papers/translations/2026-10-26-ckm-6dma-manifold/",
+  "slug": "2026-10-26-ckm-6dma-manifold",
+  "superseded_by": "/papers/translations/2026-10-26-channel-knowledge-map-enabled-6d-movable-antenna-systems-with-kinemati/"
+ },
+ {
+  "url": "/papers/translations/2026-10-23-rotatable-antennas-imperfect-csi-2605-04775/",
+  "slug": "2026-10-23-rotatable-antennas-imperfect-csi-2605-04775",
+  "superseded_by": "/papers/translations/2026-10-23-two-timescale-design-for-rotatable-antenna-systems-with-imperfect-csi-2605-04775/"
+ },
+ {
+  "url": "/papers/translations/2026-10-23-digital-twin-geometry-calibration-2607-09334/",
+  "slug": "2026-10-23-digital-twin-geometry-calibration-2607-09334",
+  "superseded_by": "/papers/translations/2026-10-23-site-geometry-and-calibration-uncertainties-in-digital-twin-enabled-ch-2607-09334/"
+ },
+ {
+  "url": "/papers/translations/2026-10-12-encf-appendix/",
+  "slug": "2026-10-12-encf-appendix",
+  "superseded_by": "/papers/translations/2026-10-12-encf-main/"
+ },
+ {
+  "url": "/papers/translations/2026-10-12-car-flow/",
+  "slug": "2026-10-12-car-flow",
+  "superseded_by": "/papers/translations/2026-07-16-2509-19300-car-flow-condition-aware-reparameterization-aligns-source-and-target-f/"
+ }
+]

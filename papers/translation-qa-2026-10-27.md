@@ -22,8 +22,8 @@ toc: true
 | `2610.27174v1.pdf` | 9 | [Sionna Bench](/papers/translations/2026-10-27-sionna-bench-2610-27174/) | （1）–（4）：4/4 | 31/31 | 待终校 |
 | `2603.23787v1.pdf` | 6 | [DT 测量设计](/papers/translations/2026-10-27-dt-measurement-2603-23787/) | （1）–（19），含（13a）（13b）：20/20 | 13/13 | 待终校 |
 | `2610.15455v1.pdf` | 16 | [小区间干扰抑制](/papers/translations/2026-10-27-intercell-svi-2610-15455/) | （1）–（70），含（59a）（59b）：71/71 | 47/47 | 待终校 |
-| `2610.31592v1.pdf` | 25 | [PC-DAPS](/papers/translations/2026-10-27-pc-daps-2610-31592/) | （1）–（17）：17/17 | 40/40 | 待终校 |
-| `2610.29172v1.pdf` | 30 | [条件流模型的方差膨胀](/papers/translations/2026-10-27-cfm-variance-2610-29172/) | （3.1）（3.2）、（5.1）–（5.5）、（A.1）–（A.43）、（B.1）–（B.4），附录重述（5.4）：55/55 | 44/44 | 待终校 |
+| `2610.31592v1.pdf` | 25 | [PC-DAPS](/papers/translations/2026-10-27-beyond-best-of-k-prior-consistent-daps-for-ambiguous-nonlinear-inverse-2610-31592/) | （1）–（17）：17/17 | 40/40 | 待终校 |
+| `2610.29172v1.pdf` | 30 | [条件流模型的方差膨胀](/papers/translations/2026-10-27-conditional-flow-models-convert-epistemic-uncertainty-into-apparent-al-2610-29172/) | （3.1）（3.2）、（5.1）–（5.5）、（A.1）–（A.43）、（B.1）–（B.4），附录重述（5.4）：55/55 | 44/44 | 待终校 |
 
 上表中的“20/20”“71/71”等仅指**编号公式条目的存在性**，并不意味着所有符号、上下标、正负号及变换均已被人工逐字符核定。文献的“31/31”等表示条目编号数量覆盖，不表示出版元数据及 DOI 已全部独立核验。
 

@@ -21,9 +21,9 @@ toc: true
 
 | 原论文 / 译稿 | PDF 页数 | 原 PDF 公式编号范围 | 译稿独立展示的整数公式编号数 | 未单独列式的整数编号数 | 去重前重复编号组 | 去重后重复编号组 | 当前验收 |
 |---|---:|---|---:|---:|---:|---:|---|
-| [CKM + 6DMA](/papers/translations/2026-10-26-ckm-6dma-manifold/) | 14 | (1)–(63)，另含 (30a)–(30j) | 53 | 9 个普通整数号 + (30) 属于子式编号而非独立式 | 29 | 0 | 未通过 |
+| [CKM + 6DMA](/papers/translations/2026-10-26-channel-knowledge-map-enabled-6d-movable-antenna-systems-with-kinemati/) | 14 | (1)–(63)，另含 (30a)–(30j) | 53 | 9 个普通整数号 + (30) 属于子式编号而非独立式 | 29 | 0 | 未通过 |
 | [Zak-OTFS 对偶性](/papers/translations/2026-10-26-zak-otfs-duality-2610-16033/) | 12 | (1)–(39) | 30 | 9 | 17 | 0 | 未通过 |
-| [超扩展多普勒 OTFS](/papers/translations/2026-10-26-otfs-overspread-doppler/) | 13 | (1)–(38) | 18 | 20 | 9 | 0 | 未通过 |
+| [超扩展多普勒 OTFS](/papers/translations/2026-10-26-2608-12524-channel-estimation-for-otfs-systems-with-overspread-doppler-shifts/) | 13 | (1)–(38) | 18 | 20 | 9 | 0 | 未通过 |
 | [AFDM 自适应阶数估计](/papers/translations/2026-10-26-afdm-model-order-2610-09970/) | 13 | (1)–(75)，(70)–(75) 在附录 A | 50 | 25 | 21 | 0 | 未通过 |
 | [Weighted Adjoint Matching](/papers/translations/2026-10-26-weighted-adjoint-matching-2610-20035/) | 34 | (1)–(36)，(22)–(36) 在附录 | 21 | 15 | 14 | 0 | 未通过 |
 
