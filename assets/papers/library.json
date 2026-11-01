@@ -138,7 +138,13 @@
       "report_entry_url": "/papers/reports/2026-11-01/#paper-543be3b86f217d5c",
       "paper_url": "/papers/items/543be3b86f217d5c/",
       "paper_report_url": "/papers/items/543be3b86f217d5c/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-01-2610-07240-posterior-consistency-dependent-errors-nonlinear-inverse/",
+          "scope": "全文覆盖：摘要与关键词、第 1–3 节及全部小节（§1.1–1.3、§2.1–2.2、§3.1–3.2）、Conditions/Lemmas/Propositions/Theorems 陈述与证明概述、附录 A–E、参考文献 [1]–[47]（英文原条目）；许可：CC BY 4.0；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+          "title": "相依误差下非线性逆问题的后验一致性及其在时间演化方程中的应用｜中文全文译文"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2610.07240",
         "https://arxiv.org/abs/2610.07240",
@@ -153,9 +159,9 @@
       "hosted_pdfs": [],
       "status": "在投",
       "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/543be3b86f217d5c/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-01-2610-07240-posterior-consistency-dependent-errors-nonlinear-inverse/",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "7a8f47c8b4332d21",
@@ -188,7 +194,13 @@
       "report_entry_url": "/papers/reports/2026-11-01/#paper-7a8f47c8b4332d21",
       "paper_url": "/papers/items/7a8f47c8b4332d21/",
       "paper_report_url": "/papers/items/7a8f47c8b4332d21/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-01-2610-25199-chronochart-setup-agnostic-indoor-localization/",
+          "scope": "全文覆盖：摘要、第 I–VI 节及全部小节（II-A–C、III-A–E、IV-A–D、V-A–C）、式 (1)–(3)、表 I–IV 逐格、图 1–2 图注、参考文献 [1]–[27]（英文原条目）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+          "title": "ChronoChart：面向无标签室内定位的系统无关信道图表｜中文全文译文"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2610.25199",
         "https://arxiv.org/abs/2610.25199",
@@ -207,9 +219,9 @@
       "hosted_pdfs": [],
       "status": "已接受待刊",
       "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/7a8f47c8b4332d21/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-01-2610-25199-chronochart-setup-agnostic-indoor-localization/",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "d96f1cff9c62a14d",
@@ -242,7 +254,13 @@
       "report_entry_url": "/papers/reports/2026-11-01/#paper-d96f1cff9c62a14d",
       "paper_url": "/papers/items/d96f1cff9c62a14d/",
       "paper_report_url": "/papers/items/d96f1cff9c62a14d/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-01-2604-05788-geouq-gfnet-sparse-gain-radio-map-with-geometry-priors-and-uncertainty/",
+          "scope": "全文覆盖：摘要、第 I–VII 节及全部小节（III-A–D、IV-A–J、V-A–C）、算法 1、表 I–III 逐格、图 1–10 图注、式 (1)–(35)、参考文献 [1]–[78]（英文原条目）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+          "title": "几何先验与不确定性引导测量的稀疏增益无线电地图重建｜中文全文译文"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2604.05788",
         "https://arxiv.org/abs/2604.05788",
@@ -257,9 +275,9 @@
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
       "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/d96f1cff9c62a14d/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-01-2604-05788-geouq-gfnet-sparse-gain-radio-map-with-geometry-priors-and-uncertainty/",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "170f73a229228f5e",
@@ -292,7 +310,13 @@
       "report_entry_url": "/papers/reports/2026-11-01/#paper-170f73a229228f5e",
       "paper_url": "/papers/items/170f73a229228f5e/",
       "paper_report_url": "/papers/items/170f73a229228f5e/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-01-2610-32185-pnp-flow-matching-for-full-waveform-inversion-on-breast-imaging/",
+          "scope": "全文覆盖：摘要与关键词、第 1–5 节及全部小节（§2.1–2.2、§3.1–3.2、§4.1–4.4）、算法 1–2 逐行、表 1–3 与表 C1 逐格、图 1–4 与图 B1 图注、式 (1)–(18)、注 1–4、附录 A–C、参考文献 [1]–[58]（英文原条目）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+          "title": "乳腺成像全波形反演中的即插即用流匹配探索｜中文全文译文"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2610.32185",
         "https://arxiv.org/abs/2610.32185",
@@ -313,9 +337,9 @@
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
       "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/170f73a229228f5e/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-01-2610-32185-pnp-flow-matching-for-full-waveform-inversion-on-breast-imaging/",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "be32642a596c1b20",
@@ -348,7 +372,13 @@
       "report_entry_url": "/papers/reports/2026-11-01/#paper-be32642a596c1b20",
       "paper_url": "/papers/items/be32642a596c1b20/",
       "paper_report_url": "/papers/items/be32642a596c1b20/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-01-2610-05371-robust-ensemble-guidance-for-scientific-inverse-problems/",
+          "scope": "全文覆盖：摘要、正文各节（§1–§5、§3.1–3.4、§4.1–4.4）、算法 1、表 1–4 逐格、图 1–9 图注、式 (1)–(40)、附录 A–C、参考文献 [1]–[48]（英文原条目）；许可：CC BY 4.0；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+          "title": "面向科学逆问题的稳健集成引导（REG）｜中文全文译文"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2610.05371",
         "https://arxiv.org/abs/2610.05371",
@@ -363,9 +393,9 @@
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
       "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/be32642a596c1b20/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-01-2610-05371-robust-ensemble-guidance-for-scientific-inverse-problems/",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "fd7b24a313b46ea0",
@@ -23296,6 +23326,116 @@
     }
   ],
   "translations": [
+    {
+      "date": "2026-11-01",
+      "slug": "2026-11-01-2610-32185-pnp-flow-matching-for-full-waveform-inversion-on-breast-imaging",
+      "title": "乳腺成像全波形反演中的即插即用流匹配探索｜中文全文译文",
+      "scope": "全文覆盖：摘要与关键词、第 1–5 节及全部小节（§2.1–2.2、§3.1–3.2、§4.1–4.4）、算法 1–2 逐行、表 1–3 与表 C1 逐格、图 1–4 与图 B1 图注、式 (1)–(18)、注 1–4、附录 A–C、参考文献 [1]–[58]（英文原条目）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-11-01-2610-32185-pnp-flow-matching-for-full-waveform-inversion-on-breast-imaging/",
+      "source_file": "2026-11-01-2610-32185-pnp-flow-matching-for-full-waveform-inversion-on-breast-imaging.md",
+      "source_page_path": "papers/translations/2026-11-01-2610-32185-pnp-flow-matching-for-full-waveform-inversion-on-breast-imaging.md",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-11-01-2610-32185-pnp-flow-matching-for-full-waveform-inversion-on-breast-imaging.md",
+      "paper_ids": [
+        "170f73a229228f5e"
+      ],
+      "source_arxiv_ids": [
+        "2610.32185"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-11-01",
+      "slug": "2026-11-01-2610-25199-chronochart-setup-agnostic-indoor-localization",
+      "title": "ChronoChart：面向无标签室内定位的系统无关信道图表｜中文全文译文",
+      "scope": "全文覆盖：摘要、第 I–VI 节及全部小节（II-A–C、III-A–E、IV-A–D、V-A–C）、式 (1)–(3)、表 I–IV 逐格、图 1–2 图注、参考文献 [1]–[27]（英文原条目）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-11-01-2610-25199-chronochart-setup-agnostic-indoor-localization/",
+      "source_file": "2026-11-01-2610-25199-chronochart-setup-agnostic-indoor-localization.md",
+      "source_page_path": "papers/translations/2026-11-01-2610-25199-chronochart-setup-agnostic-indoor-localization.md",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-11-01-2610-25199-chronochart-setup-agnostic-indoor-localization.md",
+      "paper_ids": [
+        "7a8f47c8b4332d21"
+      ],
+      "source_arxiv_ids": [
+        "2610.25199"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-11-01",
+      "slug": "2026-11-01-2610-07240-posterior-consistency-dependent-errors-nonlinear-inverse",
+      "title": "相依误差下非线性逆问题的后验一致性及其在时间演化方程中的应用｜中文全文译文",
+      "scope": "全文覆盖：摘要与关键词、第 1–3 节及全部小节（§1.1–1.3、§2.1–2.2、§3.1–3.2）、Conditions/Lemmas/Propositions/Theorems 陈述与证明概述、附录 A–E、参考文献 [1]–[47]（英文原条目）；许可：CC BY 4.0；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-11-01-2610-07240-posterior-consistency-dependent-errors-nonlinear-inverse/",
+      "source_file": "2026-11-01-2610-07240-posterior-consistency-dependent-errors-nonlinear-inverse.md",
+      "source_page_path": "papers/translations/2026-11-01-2610-07240-posterior-consistency-dependent-errors-nonlinear-inverse.md",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-11-01-2610-07240-posterior-consistency-dependent-errors-nonlinear-inverse.md",
+      "paper_ids": [
+        "543be3b86f217d5c"
+      ],
+      "source_arxiv_ids": [
+        "2610.07240"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "cc_by",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-11-01",
+      "slug": "2026-11-01-2610-05371-robust-ensemble-guidance-for-scientific-inverse-problems",
+      "title": "面向科学逆问题的稳健集成引导（REG）｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节（§1–§5、§3.1–3.4、§4.1–4.4）、算法 1、表 1–4 逐格、图 1–9 图注、式 (1)–(40)、附录 A–C、参考文献 [1]–[48]（英文原条目）；许可：CC BY 4.0；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-11-01-2610-05371-robust-ensemble-guidance-for-scientific-inverse-problems/",
+      "source_file": "2026-11-01-2610-05371-robust-ensemble-guidance-for-scientific-inverse-problems.md",
+      "source_page_path": "papers/translations/2026-11-01-2610-05371-robust-ensemble-guidance-for-scientific-inverse-problems.md",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-11-01-2610-05371-robust-ensemble-guidance-for-scientific-inverse-problems.md",
+      "paper_ids": [
+        "be32642a596c1b20"
+      ],
+      "source_arxiv_ids": [
+        "2610.05371"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "cc_by",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-11-01",
+      "slug": "2026-11-01-2604-05788-geouq-gfnet-sparse-gain-radio-map-with-geometry-priors-and-uncertainty",
+      "title": "几何先验与不确定性引导测量的稀疏增益无线电地图重建｜中文全文译文",
+      "scope": "全文覆盖：摘要、第 I–VII 节及全部小节（III-A–D、IV-A–J、V-A–C）、算法 1、表 I–III 逐格、图 1–10 图注、式 (1)–(35)、参考文献 [1]–[78]（英文原条目）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-11-01-2604-05788-geouq-gfnet-sparse-gain-radio-map-with-geometry-priors-and-uncertainty/",
+      "source_file": "2026-11-01-2604-05788-geouq-gfnet-sparse-gain-radio-map-with-geometry-priors-and-uncertainty.md",
+      "source_page_path": "papers/translations/2026-11-01-2604-05788-geouq-gfnet-sparse-gain-radio-map-with-geometry-priors-and-uncertainty.md",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-11-01-2604-05788-geouq-gfnet-sparse-gain-radio-map-with-geometry-priors-and-uncertainty.md",
+      "paper_ids": [
+        "d96f1cff9c62a14d"
+      ],
+      "source_arxiv_ids": [
+        "2604.05788"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
     {
       "date": "2026-10-31",
       "slug": "2026-10-31-2610-35442-simulation-efficient-double-flow-neural-posterior-estimation-for-agent",
