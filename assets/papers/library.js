@@ -22,8 +22,15 @@
     p.pdf_sources.forEach((u,i)=>appendLink(links,p.hosted_pdfs.length?'原始 PDF 来源':(i?'PDF 来源 '+(i+1):'PDF / 原文'),u));
     p.github.forEach((u,i)=>appendLink(links,i?'GitHub '+(i+1):'GitHub 仓库',u));
     if (p.report_entry_url) appendLink(links,'本篇日报与证据',p.paper_report_url);
-    appendLink(links,p.full_translation_label||'全文翻译（待补齐）',p.full_translation_url||p.paper_url+'#paper-translation');
-    p.translations.filter(t=>t.scope!=='全文中英文对照').forEach(t=>appendLink(links,'本篇历史译文',t.url));c.append(links);
+    appendLink(links,p.full_translation_label||'阅读全文翻译',p.full_translation_url||p.paper_url+'#paper-translation');
+    // Legacy/partial documents only: skip entries that resolve to the same translation as the main link.
+    const fullBase=(p.full_translation_url||'').split('#')[0];
+    p.translations.filter(t=>{
+      const b=(t.url||'').split('#')[0];
+      if(b===fullBase) return false;
+      const s=t.scope||'';
+      return !/全文中英文对照|全文覆盖|中文全文译文/.test(s);
+    }).forEach(t=>appendLink(links,'历史版本',t.url));c.append(links);
     if(!p.github.length)c.append(make('small',p.fields['代码/数据状态']||'未记录公开代码状态','pl-meta'));
     const d=make('details');d.append(make('summary','展开方法、结果、证据及表格全部字段'));
     const dl=make('dl');Object.entries(p.fields).forEach(([k,v])=>{dl.append(make('dt',k));const dd=make('dd',v||'—');const url=p.hyperlinks[k];if(url){dd.append(document.createTextNode(' '));appendLink(dd,'打开链接',url);}dl.append(dd);});
@@ -46,7 +53,7 @@
     const dest=$('pl-results');dest.replaceChildren();
     for (const p of result.slice(0,limit)) {
       if(view==='papers')dest.append(card(p));
-      else {const c=make('article',undefined,'pl-card');c.append(make('div',p.date+(p.scope?' · '+p.scope:''),'pl-meta'));c.append(make('h3',p.title));const links=make('div',undefined,'pl-links');appendLink(links,view==='reports'?'阅读完整日报':'阅读译文',p.url);appendLink(links,'下载 Markdown',p.download);c.append(links);dest.append(c);}
+      else {const c=make('article',undefined,'pl-card');c.append(make('div',p.date+(p.scope?' · '+p.scope:''),'pl-meta'));c.append(make('h3',(p.title||'').replace(/\s*｜\s*中文[^｜]*$/,'')));const links=make('div',undefined,'pl-links');appendLink(links,view==='reports'?'阅读完整日报':'阅读译文',p.url);appendLink(links,'下载 Markdown',p.download);c.append(links);dest.append(c);}
     }
     if(!result.length)dest.append(make('p','没有匹配记录，请调整筛选条件。'));
     $('pl-more').hidden=result.length<=limit;
@@ -71,10 +78,10 @@
             const paper=byId.get(id);
             if(!paper) continue;
             paper.translations=paper.translations||[];
-            if(!paper.translations.some(t=>t.url===e.url))paper.translations.push(item);
+            if(!paper.translations.some(t=>(t.url||'').split('#')[0]===e.url.split('#')[0]))paper.translations.push(item);
             if(e.primary_translation) {
               paper.full_translation_url=e.url;
-              paper.full_translation_label=e.qa_complete?'中文全文译稿':'中文译稿（待逐句核验）';
+              paper.full_translation_label=e.qa_complete?'阅读全文翻译':'阅读译稿（待核验）';
             }
           }
         }
