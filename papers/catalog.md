@@ -363,6 +363,36 @@ toc: true
 
 ## 推荐论文
 
+### 2026-11-02 · [Active Perception for Radio Map Reconstruction in Uncharted 3D Air-Ground Environments](/papers/items/06c412124f26d651/)
+
+与昨日单点主动采样形成明确区别，加入可达性、行程和三维几何不完整约束，同时有诚实的实测边界。
+
+[本篇日报](/papers/items/06c412124f26d651/#paper-report)
+
+### 2026-11-02 · [SNR-Gated LSTM-Conditioned Diffusion Model for MIMO Channel Estimation](/papers/items/bca80d269736373f/)
+
+给出可检查的LS输入、时序和SNR门控接口，并暴露每步重模型成本及全导频设定。
+
+[本篇日报](/papers/items/bca80d269736373f/#paper-report)
+
+### 2026-11-02 · [Radiomap Blind Prediction under Incomplete Observation: Error Characterization and Correctable Propagation-Prior Learning](/papers/items/a372011476d9d171/)
+
+直接澄清当前环境先验能提供和不能提供的信息，适合作为期刊扩展的问题定义依据。
+
+[本篇日报](/papers/items/a372011476d9d171/#paper-report)
+
+### 2026-11-02 · [TamedFlow: Trajectory-Aware Distillation for Teacher-Assisted Diffusion Sampling](/papers/items/3e271bfeaf1775d0/)
+
+对应低NFE时单步拟合与多步执行不一致的机制，帮助避免将网络压缩和预算分配的收益混为一谈。
+
+[本篇日报](/papers/items/3e271bfeaf1775d0/#paper-report)
+
+### 2026-11-02 · [BayesFP: Posterior Estimation for Flow-Based Policies via Feynman-Kac Sampling](/papers/items/c5cf757a8893191c/)
+
+为当前先验与观测修正提供可审计的粒子权重机制，可检验dual之外的独立因果来源。
+
+[本篇日报](/papers/items/c5cf757a8893191c/#paper-report)
+
 ### 2026-11-01 · [Posterior Consistency under dependent errors in non-linear inverse problems with applications to time evolution equations](/papers/items/543be3b86f217d5c/)
 
 为高速移动相关误差与后验可靠性提供假设清单，防止把相关观测当独立证据。

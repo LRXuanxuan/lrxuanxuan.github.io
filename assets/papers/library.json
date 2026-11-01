@@ -1,11 +1,11 @@
 {
   "schema_version": 2,
   "source": "每日论文推荐.xlsx",
-  "source_sha256": "cb3c483f31a6c38925ea339aca4953c1f2192583dbbb18193e06a7c404f802c3",
+  "source_sha256": "6079c2624e65436428a9ec03f01fe2b38f8302d6dfd9282329d0b629fa617c3f",
   "translation_progress": {
     "target": 315,
-    "completed": 256,
-    "public_full_text": 248,
+    "completed": 260,
+    "public_full_text": 252,
     "local_only": 12,
     "status_counts": {
       "access_blocked": 3,
@@ -23,7 +23,7 @@
   "sheets": [
     {
       "name": "每日论文推荐",
-      "count": 420,
+      "count": 425,
       "headers": [
         "日期",
         "标题",
@@ -45,8 +45,9 @@
       ]
     }
   ],
-  "total": 420,
+  "total": 425,
   "dates": {
+    "2026-11-02": 5,
     "2026-11-01": 5,
     "2026-10-31": 5,
     "2026-10-30": 5,
@@ -105,8 +106,261 @@
     "2026-07-12": 5,
     "2026-07-11": 5
   },
-  "latest_date": "2026-11-01",
+  "latest_date": "2026-11-02",
   "papers": [
+    {
+      "id": "06c412124f26d651",
+      "date": "2026-11-02",
+      "title": "Active Perception for Radio Map Reconstruction in Uncharted 3D Air-Ground Environments",
+      "sheet": "每日论文推荐",
+      "row": 426,
+      "fields": {
+        "日期": "2026-11-02",
+        "标题": "Active Perception for Radio Map Reconstruction in Uncharted 3D Air-Ground Environments",
+        "内容": "作者：Wenlihan Lu; Miaowen Wen; Shijian Gao。问题：未知三维环境下稀疏无线测量和不完整几何影响地图重建，UAV行程与scanner预算限制测量获取。 方法：StageI Bayesian U-Net双mask补全并估计aleatoric/epistemic不确定性；StageII动态PRM与Transformer/PPO策略按长期不确定性减少规划航点。 结果：模拟比较重建与样本效率；§V-F实测固定40m高度300×200m，385m相同行程下归一化RMSE由Lawnmower0.175至0.082。实测地图PCI657/beam6在微调时留出；并非完全无目标场景适配。 局限：实测只评估StageI的二维切片，单条预先选定轨迹无中间重规划，完整3D闭环实测仍是future work；不确定性需独立校准，RSRP图不是瞬时复CSI，不能将实测结果推广到全部新城市。",
+        "契合方向": "3D无线地图；缺失几何；不确定性主动测量",
+        "推荐理由": "与昨日单点主动采样形成明确区别，加入可达性、行程和三维几何不完整约束，同时有诚实的实测边界。",
+        "顶刊顶会/机构依据": "arXiv预印本；含早期WCSP2025工作；预印本/状态未确认；当前arXiv v2未给明确期刊录用信息；PDF IEEE模板及提到部分工作WCSP2025不证明当前整稿正式发表。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2606.12844",
+        "检索来源": "https://arxiv.org/abs/2606.12844",
+        "筛选备注": "理论启发或基线；独立主动数据获取课题：在相同mask与路径预算下比较不确定性查询，作为CKM构建上游；先不改现有FlowADMM求解器。；TableI；§III–IV；§V-F、Fig12–13、TableXI；§VI，16页。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；当前PDF与arXiv未给作者代码入口；精确标题、3D-URAM和2606.12844 GitHub编号检索0仓库，未发现作者实现；第三方文献清单不是代码。",
+        "反馈匹配": "GeoUQ按追加测点预算；本法按路径/能量约束连续探索。与RadioDecomp同信息残差不同，此处真正新增测量。",
+        "反馈权重说明": "独立机制；事实与迁移推断分开；固定预算，不预设改善。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-11-02/",
+      "report_section": "## 5. Active Perception for Radio Map Reconstruction in Uncharted 3D Air-Ground Environments\n\n**作者/年份/venue**：Wenlihan Lu; Miaowen Wen; Shijian Gao；2026；arXiv预印本；含早期WCSP2025工作。\n\n**发表状态**：预印本/状态未确认。当前arXiv v2未给明确期刊录用信息；PDF IEEE模板及提到部分工作WCSP2025不证明当前整稿正式发表。\n\n**方向**：3D无线地图；缺失几何；不确定性主动测量\n\n**问题**：未知三维环境下稀疏无线测量和不完整几何影响地图重建，UAV行程与scanner预算限制测量获取。\n\n**论文方法**：StageI Bayesian U-Net双mask补全并估计aleatoric/epistemic不确定性；StageII动态PRM与Transformer/PPO策略按长期不确定性减少规划航点。\n\n**结果及证据边界**：模拟比较重建与样本效率；§V-F实测固定40m高度300×200m，385m相同行程下归一化RMSE由Lawnmower0.175至0.082。实测地图PCI657/beam6在微调时留出；并非完全无目标场景适配。\n\n**局限与审计判断**：实测只评估StageI的二维切片，单条预先选定轨迹无中间重规划，完整3D闭环实测仍是future work；不确定性需独立校准，RSRP图不是瞬时复CSI，不能将实测结果推广到全部新城市。\n\n**迁移类型**：理论启发或基线\n\n**研究接口（迁移推断）**：独立主动数据获取课题：在相同mask与路径预算下比较不确定性查询，作为CKM构建上游；先不改现有FlowADMM求解器。\n\n**与既有阅读差异**：GeoUQ按追加测点预算；本法按路径/能量约束连续探索。与RadioDecomp同信息残差不同，此处真正新增测量。\n\n**推荐理由**：与昨日单点主动采样形成明确区别，加入可达性、行程和三维几何不完整约束，同时有诚实的实测边界。\n\n**代码状态**：未发现公开代码\n\n**代码证据**：当前PDF与arXiv未给作者代码入口；精确标题、3D-URAM和2606.12844 GitHub编号检索0仓库，未发现作者实现；第三方文献清单不是代码。\n\n**全文定位**：TableI；§III–IV；§V-F、Fig12–13、TableXI；§VI，16页。\n\n**稳定身份**：arXiv:2606.12844；DOI 10.48550/arXiv.2606.12844\n\n**一手来源**：[来源1](https://arxiv.org/abs/2606.12844)\n\n[官方PDF](https://arxiv.org/pdf/2606.12844)；[原文PDF](https://arxiv.org/pdf/2606.12844)；16页，完整PDF可访问。\n\n**代码入口**：未发现公开代码；见上述原文与精确检索证据。\n\n[本篇全文翻译/真实状态](https://lrxuanxuan.github.io/papers/items/06c412124f26d651/#paper-translation)：job `ce1fc543618bbf873c957e53`已入队，gpt-6-luna/xhigh。原worker返回找不到会话，未启动。\n\n[原文许可](https://creativecommons.org/licenses/by/4.0/)：允许完成且保留署名及改动说明后的译文共享。PDF仅本地和官方链接，不上传PDF或XLSX。",
+      "report_entry_url": "/papers/reports/2026-11-02/#paper-06c412124f26d651",
+      "paper_url": "/papers/items/06c412124f26d651/",
+      "paper_report_url": "/papers/items/06c412124f26d651/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2606.12844",
+        "https://arxiv.org/abs/2606.12844",
+        "https://lrxuanxuan.github.io/papers/items/06c412124f26d651/#paper-translation)：job",
+        "https://creativecommons.org/licenses/by/4.0/)：允许完成且保留署名及改动说明后的译文共享"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2606.12844"
+      ],
+      "hosted_pdfs": [],
+      "status": "正式发表",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/06c412124f26d651/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "bca80d269736373f",
+      "date": "2026-11-02",
+      "title": "SNR-Gated LSTM-Conditioned Diffusion Model for MIMO Channel Estimation",
+      "sheet": "每日论文推荐",
+      "row": 425,
+      "fields": {
+        "日期": "2026-11-02",
+        "标题": "SNR-Gated LSTM-Conditioned Diffusion Model for MIMO Channel Estimation",
+        "内容": "作者：Jixing Zhou; Xinming Huang。问题：单快照估计忽略时间相关，高SNR过强生成先验可能过平滑，低SNR采样开销大。 方法：对LS先做SNR归一化和天线FFT2，用双向LSTM条件化3D U-Net，结合可学习SNR late-fusion门控与SNR自适应截断DDIM。 结果：Fig4在−15到30dB比较LS、可分离LMMSE及条件/shortcut消融；部分消融在23/26/28dB后输给LMMSE。Fig5每步本法13.2ms、轻量Fesl1.7ms，靠减少更新次数权衡总耗时，不能只报NFE。 局限：P为NTX×NTX酉DFT，LS是全维加噪去噪，不验证秩亏稀疏导频零空间恢复；14帧/1ms且双向LSTM，需计算窗口采集延迟；多数样本时间相关接近1，不能直接声称极高速外推有效。",
+        "契合方向": "时序MIMO估计；SNR门控；DDIM预算",
+        "推荐理由": "给出可检查的LS输入、时序和SNR门控接口，并暴露每步重模型成本及全导频设定。",
+        "顶刊顶会/机构依据": "IEEE VTC 2026-Fall（作者声明）；已接受待刊；arXiv Comments明确accepted and presented at VTC2026-Fall；尚未核实IEEE正式会议录DOI，因此采用已接受待刊。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2610.08977",
+        "检索来源": "https://arxiv.org/abs/2610.08977\nhttps://github.com/JixingZhou2/GSL-Diff",
+        "筛选备注": "可改造工具；时序条件和预算分配的无线基线，先在相同导频秩、窗口、因果性、噪声和总耗时下比较，不作为环境先验核心创新。；§II Eq7–8；§III Eq13–15；Fig3–5；5页。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "https://github.com/JixingZhou2/GSL-Diff",
+        "代码/数据状态": "作者预告/部分代码；作者PDF直接链接；main提供QuaDRiGa生成、训练、评估脚本，已静态核读LSTM训练与评估。数据/模型转OneDrive未验证可完整下载；脚本硬编码本机checkpoint并从缓存读部分baseline，尚未完成闭环复现，保守记部分代码，未运行。",
+        "反馈匹配": "区别于DANCE的range/null修正和环境条件先验；本法重在多帧去噪与SNR门控，不提供地图条件或显式秩亏观测投影。",
+        "反馈权重说明": "独立机制；事实与迁移推断分开；固定预算，不预设改善。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-11-02/",
+      "report_section": "## 4. SNR-Gated LSTM-Conditioned Diffusion Model for MIMO Channel Estimation\n\n**作者/年份/venue**：Jixing Zhou; Xinming Huang；2026；IEEE VTC 2026-Fall（作者声明）。\n\n**发表状态**：已接受待刊。arXiv Comments明确accepted and presented at VTC2026-Fall；尚未核实IEEE正式会议录DOI，因此采用已接受待刊。\n\n**方向**：时序MIMO估计；SNR门控；DDIM预算\n\n**问题**：单快照估计忽略时间相关，高SNR过强生成先验可能过平滑，低SNR采样开销大。\n\n**论文方法**：对LS先做SNR归一化和天线FFT2，用双向LSTM条件化3D U-Net，结合可学习SNR late-fusion门控与SNR自适应截断DDIM。\n\n**结果及证据边界**：Fig4在−15到30dB比较LS、可分离LMMSE及条件/shortcut消融；部分消融在23/26/28dB后输给LMMSE。Fig5每步本法13.2ms、轻量Fesl1.7ms，靠减少更新次数权衡总耗时，不能只报NFE。\n\n**局限与审计判断**：P为NTX×NTX酉DFT，LS是全维加噪去噪，不验证秩亏稀疏导频零空间恢复；14帧/1ms且双向LSTM，需计算窗口采集延迟；多数样本时间相关接近1，不能直接声称极高速外推有效。\n\n**迁移类型**：可改造工具\n\n**研究接口（迁移推断）**：时序条件和预算分配的无线基线，先在相同导频秩、窗口、因果性、噪声和总耗时下比较，不作为环境先验核心创新。\n\n**与既有阅读差异**：区别于DANCE的range/null修正和环境条件先验；本法重在多帧去噪与SNR门控，不提供地图条件或显式秩亏观测投影。\n\n**推荐理由**：给出可检查的LS输入、时序和SNR门控接口，并暴露每步重模型成本及全导频设定。\n\n**代码状态**：作者预告/部分代码\n\n**代码证据**：作者PDF直接链接；main提供QuaDRiGa生成、训练、评估脚本，已静态核读LSTM训练与评估。数据/模型转OneDrive未验证可完整下载；脚本硬编码本机checkpoint并从缓存读部分baseline，尚未完成闭环复现，保守记部分代码，未运行。\n\n**全文定位**：§II Eq7–8；§III Eq13–15；Fig3–5；5页。\n\n**稳定身份**：arXiv:2610.08977；DOI 10.48550/arXiv.2610.08977\n\n**一手来源**：[来源1](https://arxiv.org/abs/2610.08977) [来源2](https://github.com/JixingZhou2/GSL-Diff)\n\n[官方PDF](https://arxiv.org/pdf/2610.08977)；[原文PDF](https://arxiv.org/pdf/2610.08977)；5页，完整PDF可访问。\n\n**代码入口**：[作者仓库](https://github.com/JixingZhou2/GSL-Diff)\n\n[本篇全文翻译/真实状态](https://lrxuanxuan.github.io/papers/items/bca80d269736373f/#paper-translation)：job `c3f53373a63db2571572d003`已入队，gpt-6-luna/xhigh。原worker返回找不到会话，未启动。\n\n[原文许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：译文公开许可未确认，先本地保留。PDF仅本地和官方链接，不上传PDF或XLSX。",
+      "report_entry_url": "/papers/reports/2026-11-02/#paper-bca80d269736373f",
+      "paper_url": "/papers/items/bca80d269736373f/",
+      "paper_report_url": "/papers/items/bca80d269736373f/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2610.08977",
+        "https://arxiv.org/abs/2610.08977",
+        "https://github.com/JixingZhou2/GSL-Diff",
+        "https://lrxuanxuan.github.io/papers/items/bca80d269736373f/#paper-translation)：job",
+        "https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：译文公开许可未确认"
+      ],
+      "github": [
+        "https://github.com/JixingZhou2/GSL-Diff"
+      ],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2610.08977"
+      ],
+      "hosted_pdfs": [],
+      "status": "已接受待刊",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/bca80d269736373f/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "a372011476d9d171",
+      "date": "2026-11-02",
+      "title": "Radiomap Blind Prediction under Incomplete Observation: Error Characterization and Correctable Propagation-Prior Learning",
+      "sheet": "每日论文推荐",
+      "row": 424,
+      "fields": {
+        "日期": "2026-11-02",
+        "标题": "Radiomap Blind Prediction under Incomplete Observation: Error Characterization and Correctable Propagation-Prior Learning",
+        "内容": "作者：Xiaojie Li; Yu Han; Han Fang; Shangqing Liu; Guangxu Zhu; Shi Jin; Chao-Kai Wen。问题：环境与基站表示缺少材料/细节时，盲预测无法由现有输入唯一确定真实地图，物理先验本身也可能带偏差。 方法：平方损失下分解条件均值逼近误差与不可约条件方差；RadioDecomp冻结先验base，再用相同可观测输入和base预测学习残差，给出RadioFR/RadioLSR。 结果：TableII跨环境BaseFR RMSE8.1933到RadioFR7.8755dB，跨配置6.4390到5.9706dB；TableIII十样本时RadioLSR MAE9.3178但RMSE19.6369，差于RadioFR的14.4285。宽base跨配置还出现极小退化。 局限：残差可纠正性是包含零函数时的总体最优假设类结论，不保证有限样本训练/新城测试改善。确定性派生特征和残差分支没有增加观测信息，不能消除不可约方差；实验为功率地图而非复信道分布。",
+        "契合方向": "CKM/WCM；缺失物理信息；跨环境风险分解",
+        "推荐理由": "直接澄清当前环境先验能提供和不能提供的信息，适合作为期刊扩展的问题定义依据。",
+        "顶刊顶会/机构依据": "arXiv；作者声明已提交IEEE，具体期刊录用未确认；在投；arXiv Comments明确submitted to IEEE for possible publication；TWC页眉不证明录用。相关会议版2609.11255单独身份复核通过，不能把其GLOBECOM录用移植给本稿。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2609.32836",
+        "检索来源": "https://arxiv.org/abs/2609.32836\nhttps://arxiv.org/abs/2609.11255",
+        "筛选备注": "理论启发或基线；为p(H|r,e,M)条件缺失机制提供论证；单独比较真实新增环境模态与同信息特征重编码，严禁将确定性残差称为后验纠错。；§III–V；Proposition1–2；Eq35–38；TableII–IV。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；原文/作者元数据未给代码；GitHub精确标题、RadioDecomp及2609.32836检索未发现作者实现（编号仓库0）。相关论文汇总不作为实现。",
+        "反馈匹配": "不同于昨日GeoUQ的主动查询；本文不采新测量，分析信息上限与可预测base偏差，并严格区分random/cross-config/cross-env。",
+        "反馈权重说明": "独立机制；事实与迁移推断分开；固定预算，不预设改善。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-11-02/",
+      "report_section": "## 3. Radiomap Blind Prediction under Incomplete Observation: Error Characterization and Correctable Propagation-Prior Learning\n\n**作者/年份/venue**：Xiaojie Li; Yu Han; Han Fang; Shangqing Liu; Guangxu Zhu; Shi Jin; Chao-Kai Wen；2026；arXiv；作者声明已提交IEEE，具体期刊录用未确认。\n\n**发表状态**：在投。arXiv Comments明确submitted to IEEE for possible publication；TWC页眉不证明录用。相关会议版2609.11255单独身份复核通过，不能把其GLOBECOM录用移植给本稿。\n\n**方向**：CKM/WCM；缺失物理信息；跨环境风险分解\n\n**问题**：环境与基站表示缺少材料/细节时，盲预测无法由现有输入唯一确定真实地图，物理先验本身也可能带偏差。\n\n**论文方法**：平方损失下分解条件均值逼近误差与不可约条件方差；RadioDecomp冻结先验base，再用相同可观测输入和base预测学习残差，给出RadioFR/RadioLSR。\n\n**结果及证据边界**：TableII跨环境BaseFR RMSE8.1933到RadioFR7.8755dB，跨配置6.4390到5.9706dB；TableIII十样本时RadioLSR MAE9.3178但RMSE19.6369，差于RadioFR的14.4285。宽base跨配置还出现极小退化。\n\n**局限与审计判断**：残差可纠正性是包含零函数时的总体最优假设类结论，不保证有限样本训练/新城测试改善。确定性派生特征和残差分支没有增加观测信息，不能消除不可约方差；实验为功率地图而非复信道分布。\n\n**迁移类型**：理论启发或基线\n\n**研究接口（迁移推断）**：为p(H|r,e,M)条件缺失机制提供论证；单独比较真实新增环境模态与同信息特征重编码，严禁将确定性残差称为后验纠错。\n\n**与既有阅读差异**：不同于昨日GeoUQ的主动查询；本文不采新测量，分析信息上限与可预测base偏差，并严格区分random/cross-config/cross-env。\n\n**推荐理由**：直接澄清当前环境先验能提供和不能提供的信息，适合作为期刊扩展的问题定义依据。\n\n**代码状态**：未发现公开代码\n\n**代码证据**：原文/作者元数据未给代码；GitHub精确标题、RadioDecomp及2609.32836检索未发现作者实现（编号仓库0）。相关论文汇总不作为实现。\n\n**全文定位**：§III–V；Proposition1–2；Eq35–38；TableII–IV。\n\n**稳定身份**：arXiv:2609.32836；DOI 10.48550/arXiv.2609.32836\n\n**一手来源**：[来源1](https://arxiv.org/abs/2609.32836) [来源2](https://arxiv.org/abs/2609.11255)\n\n[官方PDF](https://arxiv.org/pdf/2609.32836)；[原文PDF](https://arxiv.org/pdf/2609.32836)；13页，完整PDF可访问。\n\n**代码入口**：未发现公开代码；见上述原文与精确检索证据。\n\n[本篇全文翻译/真实状态](https://lrxuanxuan.github.io/papers/items/a372011476d9d171/#paper-translation)：job `2c65da9192e103883ad80e28`已入队，gpt-6-luna/xhigh。原worker返回找不到会话，未启动。\n\n[原文许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：译文公开许可未确认，先本地保留。PDF仅本地和官方链接，不上传PDF或XLSX。",
+      "report_entry_url": "/papers/reports/2026-11-02/#paper-a372011476d9d171",
+      "paper_url": "/papers/items/a372011476d9d171/",
+      "paper_report_url": "/papers/items/a372011476d9d171/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2609.32836",
+        "https://arxiv.org/abs/2609.32836",
+        "https://arxiv.org/abs/2609.11255",
+        "https://lrxuanxuan.github.io/papers/items/a372011476d9d171/#paper-translation)：job",
+        "https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：译文公开许可未确认"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2609.32836"
+      ],
+      "hosted_pdfs": [],
+      "status": "在投",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/a372011476d9d171/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "3e271bfeaf1775d0",
+      "date": "2026-11-02",
+      "title": "TamedFlow: Trajectory-Aware Distillation for Teacher-Assisted Diffusion Sampling",
+      "sheet": "每日论文推荐",
+      "row": 423,
+      "fields": {
+        "日期": "2026-11-02",
+        "标题": "TamedFlow: Trajectory-Aware Distillation for Teacher-Assisted Diffusion Sampling",
+        "内容": "作者：Shuaiqi Cheng; Jiahao Zhang; Boyuan Gu; Yuxi Chen; Haiying Xu; Zexin Lu; Huiyu Zhou; Xuming Hu。问题：在teacher状态上做逐点蒸馏的压缩student，连续使用自己的输出时可能累积偏差；直接叠加加速器可能退化。 方法：跨架构特征对齐、近恒等velocity修正头及随机1–5步rollout监督；LTE给草稿打分，接受则跳过teacher，否则回滚并执行一次teacher救援。 结果：Table1 ImageNet256默认τ=0.80：FID2.58、0.464秒、相对DDIM50加速2.25倍；teacher FID2.35/1.044秒。τ=0.85为FID2.33、1.73倍。是质量与时延权衡，不是同时全面优于teacher。 局限：Proposition3.1需有界Jacobian及固定Euler步长，仅给离散Grönwall上界，不保证实际DDIM全局稳定；LTE分数不是校准概率。训练/回滚/teacher成本必须计入，尚无MIMO与测量一致性实验。",
+        "契合方向": "DiT蒸馏；轨迹稳定性；自适应预算",
+        "推荐理由": "对应低NFE时单步拟合与多步执行不一致的机制，帮助避免将网络压缩和预算分配的收益混为一谈。",
+        "顶刊顶会/机构依据": "arXiv预印本；预印本/状态未确认；arXiv v2无明确录用信息，不以论文模板或第三方预测站点证明在投/录用。作者以当前v2 PDF/元数据为准。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2610.26025",
+        "检索来源": "https://arxiv.org/abs/2610.26025",
+        "筛选备注": "理论启发或基线；固定预算独立蒸馏分支：共享条件flow的student用自rollout训练，并以真实白化导频残差作外部诊断；不可把LTE当后验置信度。；§3.2 Proposition3.1；Eq5–8；Table1–2；Appendix F/H。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；已查当前arXiv/PDF链接、作者公开研究入口及GitHub精确标题/2610.26025。GitHub编号查询0仓库，未找到作者实现；这不是代码绝对不存在的证明。",
+        "反馈匹配": "区别于MeanFlow/Consistency的一步端点学习与简单减步；新增student自主轨迹分布及teacher回滚代价。",
+        "反馈权重说明": "独立机制；事实与迁移推断分开；固定预算，不预设改善。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-11-02/",
+      "report_section": "## 2. TamedFlow: Trajectory-Aware Distillation for Teacher-Assisted Diffusion Sampling\n\n**作者/年份/venue**：Shuaiqi Cheng; Jiahao Zhang; Boyuan Gu; Yuxi Chen; Haiying Xu; Zexin Lu; Huiyu Zhou; Xuming Hu；2026；arXiv预印本。\n\n**发表状态**：预印本/状态未确认。arXiv v2无明确录用信息，不以论文模板或第三方预测站点证明在投/录用。作者以当前v2 PDF/元数据为准。\n\n**方向**：DiT蒸馏；轨迹稳定性；自适应预算\n\n**问题**：在teacher状态上做逐点蒸馏的压缩student，连续使用自己的输出时可能累积偏差；直接叠加加速器可能退化。\n\n**论文方法**：跨架构特征对齐、近恒等velocity修正头及随机1–5步rollout监督；LTE给草稿打分，接受则跳过teacher，否则回滚并执行一次teacher救援。\n\n**结果及证据边界**：Table1 ImageNet256默认τ=0.80：FID2.58、0.464秒、相对DDIM50加速2.25倍；teacher FID2.35/1.044秒。τ=0.85为FID2.33、1.73倍。是质量与时延权衡，不是同时全面优于teacher。\n\n**局限与审计判断**：Proposition3.1需有界Jacobian及固定Euler步长，仅给离散Grönwall上界，不保证实际DDIM全局稳定；LTE分数不是校准概率。训练/回滚/teacher成本必须计入，尚无MIMO与测量一致性实验。\n\n**迁移类型**：理论启发或基线\n\n**研究接口（迁移推断）**：固定预算独立蒸馏分支：共享条件flow的student用自rollout训练，并以真实白化导频残差作外部诊断；不可把LTE当后验置信度。\n\n**与既有阅读差异**：区别于MeanFlow/Consistency的一步端点学习与简单减步；新增student自主轨迹分布及teacher回滚代价。\n\n**推荐理由**：对应低NFE时单步拟合与多步执行不一致的机制，帮助避免将网络压缩和预算分配的收益混为一谈。\n\n**代码状态**：未发现公开代码\n\n**代码证据**：已查当前arXiv/PDF链接、作者公开研究入口及GitHub精确标题/2610.26025。GitHub编号查询0仓库，未找到作者实现；这不是代码绝对不存在的证明。\n\n**全文定位**：§3.2 Proposition3.1；Eq5–8；Table1–2；Appendix F/H。\n\n**稳定身份**：arXiv:2610.26025；DOI 10.48550/arXiv.2610.26025\n\n**一手来源**：[来源1](https://arxiv.org/abs/2610.26025)\n\n[官方PDF](https://arxiv.org/pdf/2610.26025)；[原文PDF](https://arxiv.org/pdf/2610.26025)；24页，完整PDF可访问。\n\n**代码入口**：未发现公开代码；见上述原文与精确检索证据。\n\n[本篇全文翻译/真实状态](https://lrxuanxuan.github.io/papers/items/3e271bfeaf1775d0/#paper-translation)：job `ca659d3f9f39762639aea2d5`已入队，gpt-6-luna/xhigh。原worker返回找不到会话，未启动。\n\n[原文许可](https://creativecommons.org/licenses/by/4.0/)：允许完成且保留署名及改动说明后的译文共享。PDF仅本地和官方链接，不上传PDF或XLSX。",
+      "report_entry_url": "/papers/reports/2026-11-02/#paper-3e271bfeaf1775d0",
+      "paper_url": "/papers/items/3e271bfeaf1775d0/",
+      "paper_report_url": "/papers/items/3e271bfeaf1775d0/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2610.26025",
+        "https://arxiv.org/abs/2610.26025",
+        "https://lrxuanxuan.github.io/papers/items/3e271bfeaf1775d0/#paper-translation)：job",
+        "https://creativecommons.org/licenses/by/4.0/)：允许完成且保留署名及改动说明后的译文共享"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2610.26025"
+      ],
+      "hosted_pdfs": [],
+      "status": "在投",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/3e271bfeaf1775d0/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "c5cf757a8893191c",
+      "date": "2026-11-02",
+      "title": "BayesFP: Posterior Estimation for Flow-Based Policies via Feynman-Kac Sampling",
+      "sheet": "每日论文推荐",
+      "row": 422,
+      "fields": {
+        "日期": "2026-11-02",
+        "标题": "BayesFP: Posterior Estimation for Flow-Based Policies via Feynman-Kac Sampling",
+        "内容": "作者：Sreevardhan Sirigiri; Weiming Zhi; Fabio Ramos。问题：推理时加入新约束时，直接梯度引导可能破坏先验多模态结构。 方法：以示范策略为先验，以exp(βJ)、β<0构造Gibbs倾斜；由Feynman–Kac PDE推导带权SDE，并把确定性flow改写为保边缘SDE，结合漂移修正、SNIS与重采样。 结果：Table1中Transport成功率由无引导12%到56%；但π0.5 TakeMugs碰撞率从1.1%增至9.9%，成功率0%到10%，并非所有指标改善。Table2真实双杯任务成功率64%到92%。 局限：代价需几乎处处可微，先验与低代价区域需重叠；有限粒子权重退化与离散误差仍在。SDF/运动学造成1.25–2倍甚至更高开销；原文连续时间结果不等于有限粒子精确后验。机器人代价不是通信物理似然。",
+        "契合方向": "Flow/PnP后验校正；Feynman–Kac粒子重加权",
+        "推荐理由": "为当前先验与观测修正提供可审计的粒子权重机制，可检验dual之外的独立因果来源。",
+        "顶刊顶会/机构依据": "CoRL 2026（作者机构列为会议论文）；已接受待刊；NVIDIA作者机构页面明确列为CoRL 2026 conference paper，月份2026年11月；尚未核实正式会议录卷页。原文v3，43页。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2606.21014",
+        "检索来源": "https://arxiv.org/abs/2606.21014\nhttps://research.nvidia.com/labs/srl/publication/sirigiri-2026-bayes-fp/\nhttps://github.com/S-sirigiri/BayesFP",
+        "筛选备注": "可改造工具；期刊扩展独立solver分支：把Gibbs代价换成白化导频负对数似然，明确β和噪声协方差，测试重加权相对仅漂移的增量；尚未证明可迁移。；§4、Eq9–11；Table1–2；§6–7；Appendix C/D/F。",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "https://github.com/S-sirigiri/BayesFP",
+        "代码/数据状态": "作者预告/部分代码；作者PDF首个超链接直达仓库；main树和toy训练/推理/FKC采样器已静态核验。README明确GR00T论文checkpoint无公开下载，部分默认配置占位，SO101需另设部署；因此不记完整复现，未运行。",
+        "反馈匹配": "不同于FlowADMM的prox/dual交替，也不同于仅改guidance梯度；新增权重演化和粒子退化问题。",
+        "反馈权重说明": "独立机制；事实与迁移推断分开；固定预算，不预设改善。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-11-02/",
+      "report_section": "## 1. BayesFP: Posterior Estimation for Flow-Based Policies via Feynman-Kac Sampling\n\n**作者/年份/venue**：Sreevardhan Sirigiri; Weiming Zhi; Fabio Ramos；2026；CoRL 2026（作者机构列为会议论文）。\n\n**发表状态**：已接受待刊。NVIDIA作者机构页面明确列为CoRL 2026 conference paper，月份2026年11月；尚未核实正式会议录卷页。原文v3，43页。\n\n**方向**：Flow/PnP后验校正；Feynman–Kac粒子重加权\n\n**问题**：推理时加入新约束时，直接梯度引导可能破坏先验多模态结构。\n\n**论文方法**：以示范策略为先验，以exp(βJ)、β<0构造Gibbs倾斜；由Feynman–Kac PDE推导带权SDE，并把确定性flow改写为保边缘SDE，结合漂移修正、SNIS与重采样。\n\n**结果及证据边界**：Table1中Transport成功率由无引导12%到56%；但π0.5 TakeMugs碰撞率从1.1%增至9.9%，成功率0%到10%，并非所有指标改善。Table2真实双杯任务成功率64%到92%。\n\n**局限与审计判断**：代价需几乎处处可微，先验与低代价区域需重叠；有限粒子权重退化与离散误差仍在。SDF/运动学造成1.25–2倍甚至更高开销；原文连续时间结果不等于有限粒子精确后验。机器人代价不是通信物理似然。\n\n**迁移类型**：可改造工具\n\n**研究接口（迁移推断）**：期刊扩展独立solver分支：把Gibbs代价换成白化导频负对数似然，明确β和噪声协方差，测试重加权相对仅漂移的增量；尚未证明可迁移。\n\n**与既有阅读差异**：不同于FlowADMM的prox/dual交替，也不同于仅改guidance梯度；新增权重演化和粒子退化问题。\n\n**推荐理由**：为当前先验与观测修正提供可审计的粒子权重机制，可检验dual之外的独立因果来源。\n\n**代码状态**：作者预告/部分代码\n\n**代码证据**：作者PDF首个超链接直达仓库；main树和toy训练/推理/FKC采样器已静态核验。README明确GR00T论文checkpoint无公开下载，部分默认配置占位，SO101需另设部署；因此不记完整复现，未运行。\n\n**全文定位**：§4、Eq9–11；Table1–2；§6–7；Appendix C/D/F。\n\n**稳定身份**：arXiv:2606.21014；DOI 10.48550/arXiv.2606.21014\n\n**一手来源**：[来源1](https://arxiv.org/abs/2606.21014) [来源2](https://research.nvidia.com/labs/srl/publication/sirigiri-2026-bayes-fp/) [来源3](https://github.com/S-sirigiri/BayesFP)\n\n[官方PDF](https://arxiv.org/pdf/2606.21014)；[原文PDF](https://arxiv.org/pdf/2606.21014)；43页，完整PDF可访问。\n\n**代码入口**：[作者仓库](https://github.com/S-sirigiri/BayesFP)\n\n[本篇全文翻译/真实状态](https://lrxuanxuan.github.io/papers/items/c5cf757a8893191c/#paper-translation)：job `0227eb831b7bfb15201a0914`已入队，gpt-6-luna/xhigh。原worker返回找不到会话，未启动。\n\n[原文许可](https://creativecommons.org/licenses/by/4.0/)：允许完成且保留署名及改动说明后的译文共享。PDF仅本地和官方链接，不上传PDF或XLSX。",
+      "report_entry_url": "/papers/reports/2026-11-02/#paper-c5cf757a8893191c",
+      "paper_url": "/papers/items/c5cf757a8893191c/",
+      "paper_report_url": "/papers/items/c5cf757a8893191c/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2606.21014",
+        "https://arxiv.org/abs/2606.21014",
+        "https://research.nvidia.com/labs/srl/publication/sirigiri-2026-bayes-fp/",
+        "https://github.com/S-sirigiri/BayesFP",
+        "https://lrxuanxuan.github.io/papers/items/c5cf757a8893191c/#paper-translation)：job",
+        "https://creativecommons.org/licenses/by/4.0/)：允许完成且保留署名及改动说明后的译文共享"
+      ],
+      "github": [
+        "https://github.com/S-sirigiri/BayesFP"
+      ],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2606.21014"
+      ],
+      "hosted_pdfs": [],
+      "status": "已接受待刊",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/c5cf757a8893191c/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
     {
       "id": "543be3b86f217d5c",
       "date": "2026-11-01",
@@ -22739,6 +22993,17 @@
   ],
   "reports": [
     {
+      "date": "2026-11-02",
+      "url": "/papers/reports/2026-11-02/",
+      "source_file": "2026-11-02_每日前沿论文推荐.md",
+      "slug": "2026-11-02",
+      "covered_dates": [
+        "2026-11-02"
+      ],
+      "title": "11_2前沿论文推荐",
+      "download": "/assets/papers/reports/2026-11-02.md"
+    },
+    {
       "date": "2026-11-01",
       "url": "/papers/reports/2026-11-01/",
       "source_file": "2026-11-01_每日前沿论文推荐.md",
@@ -29692,9 +29957,9 @@
   "pdf_mode": "links_only",
   "workbook_table": {
     "url": "/papers/table/",
-    "source_sha256": "cb3c483f31a6c38925ea339aca4953c1f2192583dbbb18193e06a7c404f802c3",
+    "source_sha256": "6079c2624e65436428a9ec03f01fe2b38f8302d6dfd9282329d0b629fa617c3f",
     "sheet": "每日论文推荐",
-    "row_count": 420,
+    "row_count": 425,
     "headers": [
       "日期",
       "标题",
