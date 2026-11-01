@@ -50,11 +50,11 @@ Preconditioned Flow Matching 原 PDF 的附录范围为 A–K。2026-10-31 最�
 
 ## 对应的中文译文
 
-- [近场速度估计](/papers/translations/2026-10-31-near-field-velocity-2608-05133/)
-- [RMSampler](/papers/translations/2026-10-31-rmsampler-2610-27464/)
-- [CPF-DDNM](/papers/translations/2026-10-31-cpf-ddnm-2610-03261/)
-- [Double-Flow NPE](/papers/translations/2026-10-31-double-flow-npe-2610-35442/)
-- [Preconditioned Flow Matching](/papers/translations/2026-10-31-preconditioned-flow-matching-2603-02337/)
+- [近场速度估计](/papers/translations/2026-10-31-2608-05133-near-field-velocity-estimation-and-doppler-aware-localization-in-ofdm/)
+- [RMSampler](/papers/translations/2026-10-31-2610-27464-rmsampler-sparse-radio-map-reconstruction-with-active-sampling-and-dif/)
+- [CPF-DDNM](/papers/translations/2026-10-31-2610-03261-consecutive-posterior-fusion-for-diffusive-recovery-of-unobservable-im/)
+- [Double-Flow NPE](/papers/translations/2026-10-31-2610-35442-simulation-efficient-double-flow-neural-posterior-estimation-for-agent/)
+- [Preconditioned Flow Matching](/papers/translations/2026-10-31-2603-02337-preconditioned-flow-matching/)
 
 {% endraw %}
 

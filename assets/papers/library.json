@@ -19500,7 +19500,7 @@
         {
           "url": "/papers/translations/2026-10-12-encf-main/",
           "title": "面向隐式数据同化的集合控制流滤波：正文中文译稿｜中文全文译文",
-          "scope": "全文覆盖：正文与实验（第 1—20 页）；补充证明与书目见附录页；许可：arxiv；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。 附录页：2026-10-12-encf-appendix。"
+          "scope": "全文覆盖：正文与实验（第 1—20 页）；补充证明与书目见附录；许可：arxiv；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）（附录已并入本页）。"
         }
       ],
       "links": [
@@ -23298,101 +23298,6 @@
   "translations": [
     {
       "date": "2026-10-31",
-      "slug": "2026-10-31-rmsampler-2610-27464",
-      "title": "RMSampler：主动采样与扩散后验校正的稀疏无线电地图重建｜中文全文译稿",
-      "scope": "原文 12 页；摘要、正文 I–VI、公式（1）–（30）、定理与命题、表 I–II、图 1–8 图注及英文参考文献 [1]–[41] 已录入；逐字符、逐图及排版终校尚未完成。",
-      "url": "/papers/translations/2026-10-31-rmsampler-2610-27464/",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-31-rmsampler-2610-27464.md",
-      "paper_ids": [],
-      "source_arxiv_ids": [
-        "2610.27464"
-      ],
-      "qa_complete": false,
-      "external": true,
-      "primary_translation": true,
-      "coverage": "full",
-      "license": "arxiv",
-      "final_proofread_done": false,
-      "superseded_by": "/papers/translations/2026-10-31-2610-27464-rmsampler-sparse-radio-map-reconstruction-with-active-sampling-and-dif/"
-    },
-    {
-      "date": "2026-10-31",
-      "slug": "2026-10-31-preconditioned-flow-matching-2603-02337",
-      "title": "Preconditioned Flow Matching：预条件流匹配｜中文全文译稿（待逐字终校）",
-      "scope": "原文 45 页；正文、附录 A–K、189 个编号公式、图 1–19 的文字说明、表 1–10 与 45 条英文书目已录入，但论文多处为结构化中文整理，尚未完成每个原文自然段与译稿的一对一终校；公式编号覆盖不等于逐字符一致。",
-      "url": "/papers/translations/2026-10-31-preconditioned-flow-matching-2603-02337/",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-31-preconditioned-flow-matching-2603-02337.md",
-      "paper_ids": [],
-      "source_arxiv_ids": [
-        "2603.02337"
-      ],
-      "qa_complete": false,
-      "external": true,
-      "primary_translation": false,
-      "coverage": "partial",
-      "license": "arxiv",
-      "final_proofread_done": false,
-      "superseded_by": "/papers/translations/2026-10-31-2603-02337-preconditioned-flow-matching/"
-    },
-    {
-      "date": "2026-10-31",
-      "slug": "2026-10-31-near-field-velocity-2608-05133",
-      "title": "OFDM 大规模 MIMO 中的近场速度估计与多普勒感知定位｜中文全文译稿",
-      "scope": "原文 5 页；摘要、正文 I–VI、公式（1）–（18）、表 I–III、图 1–5 图注与英文书目 [1]–[12] 已录入；尚未完成公式逐字符终校。",
-      "url": "/papers/translations/2026-10-31-near-field-velocity-2608-05133/",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-31-near-field-velocity-2608-05133.md",
-      "paper_ids": [],
-      "source_arxiv_ids": [
-        "2608.05133"
-      ],
-      "qa_complete": false,
-      "external": true,
-      "primary_translation": true,
-      "coverage": "full",
-      "license": "arxiv",
-      "final_proofread_done": false,
-      "superseded_by": "/papers/translations/2026-10-31-2608-05133-near-field-velocity-estimation-and-doppler-aware-localization-in-ofdm/"
-    },
-    {
-      "date": "2026-10-31",
-      "slug": "2026-10-31-double-flow-npe-2610-35442",
-      "title": "DF-NPE：面向基于智能体模型的双流神经后验估计｜中文译稿（待严格终校）",
-      "scope": "原文 28 页；本轮补译正文算法 1 的逐指令步骤、附录 A–D、附录公式 A.1/B.1–B.3/D.1–D.2、附录表 A.1/B.1/C.1–C.3/D.1–D.2，并录入 34 条英文参考文献；仍需正文每一自然段和未编号公式的完整逐项语义终校。",
-      "url": "/papers/translations/2026-10-31-double-flow-npe-2610-35442/",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-31-double-flow-npe-2610-35442.md",
-      "paper_ids": [],
-      "source_arxiv_ids": [
-        "2610.35442"
-      ],
-      "qa_complete": false,
-      "external": true,
-      "primary_translation": false,
-      "coverage": "partial",
-      "license": "arxiv",
-      "final_proofread_done": false,
-      "superseded_by": "/papers/translations/2026-10-31-2610-35442-simulation-efficient-double-flow-neural-posterior-estimation-for-agent/"
-    },
-    {
-      "date": "2026-10-31",
-      "slug": "2026-10-31-cpf-ddnm-2610-03261",
-      "title": "CPF-DDNM：连续后验融合的不可观测图像结构扩散恢复｜中文全文译稿",
-      "scope": "原文 21 页；摘要、正文 1–6、公式（1）–（39）、算法 1、表 1–2、图 1–7 说明与英文书目 [1]–[35] 已录入；逐字符及图中细节终校未完成。原稿式（36）与算法 1 的符号矛盾已注明。",
-      "url": "/papers/translations/2026-10-31-cpf-ddnm-2610-03261/",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-31-cpf-ddnm-2610-03261.md",
-      "paper_ids": [],
-      "source_arxiv_ids": [
-        "2610.03261"
-      ],
-      "qa_complete": false,
-      "external": true,
-      "primary_translation": true,
-      "coverage": "full",
-      "license": "arxiv",
-      "final_proofread_done": false,
-      "superseded_by": "/papers/translations/2026-10-31-2610-03261-consecutive-posterior-fusion-for-diffusive-recovery-of-unobservable-im/"
-    },
-    {
-      "date": "2026-10-31",
       "slug": "2026-10-31-2610-35442-simulation-efficient-double-flow-neural-posterior-estimation-for-agent",
       "title": "面向基于智能体模型的仿真高效双流神经后验估计｜中文全文译文",
       "scope": "全文覆盖：摘要、正文各节、结论、附录、图表说明（书目以原文 PDF 为题名核对入口）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
@@ -23665,26 +23570,6 @@
     },
     {
       "date": "2026-10-29",
-      "slug": "2026-10-29-proflow-2601-20227",
-      "title": "ProFlow：零样本物理一致性近端流引导｜中文译稿（待终校）",
-      "scope": "正文 1–6、式（1）–（29）、算法 1、附录 A–C 与附录公式、表 1–5、英文参考文献 55 条已录入；理论硬约束与实现惩罚项的差异已注释，终校中。",
-      "url": "/papers/translations/2026-10-29-proflow-2601-20227/",
-      "source_file": "2026-10-29-proflow-2601-20227.md",
-      "source_page_path": "papers/translations/2026-10-29-proflow-2601-20227.md",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-29-proflow-2601-20227.md",
-      "paper_ids": [
-        "04f4e9392aea53cf"
-      ],
-      "source_arxiv_ids": [
-        "2601.20227"
-      ],
-      "qa_complete": false,
-      "external": true,
-      "primary_translation": true,
-      "superseded_by": "/papers/translations/2026-10-29-proflow-zero-shot-physics-consistent-sampling-via-proximal-flow-guidan-2601-20227/"
-    },
-    {
-      "date": "2026-10-29",
       "slug": "2026-10-29-geometry-aided-channel-2609-37277",
       "title": "几何辅助信道推断：部分 CSI 与未标定数字孪生｜中文译稿（待终校）",
       "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[45]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
@@ -23728,22 +23613,6 @@
       "final_proofread_done": false
     },
     {
-      "slug": "2026-10-28-ua-flow-2602-10326",
-      "title": "具有不确定性量化与引导机制的流匹配 UA-Flow｜中文译稿（未完成）",
-      "scope": "正文与附录连续编号公式（1）–（73）全部已录入；正文及附录表 1–15 均已补录，含附录 F–J 的补充实验、校准、消融、非图像任务与主要图注。原 PDF 大图、未编号式及全篇逐字符核验仍待完成，qa_complete=false。",
-      "date": "2026-10-28",
-      "url": "/papers/translations/2026-10-28-ua-flow-2602-10326/",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-28-ua-flow-2602-10326.md",
-      "paper_ids": [],
-      "source_arxiv_ids": [
-        "2602.10326"
-      ],
-      "qa_complete": false,
-      "external": true,
-      "primary_translation": true,
-      "superseded_by": "/papers/translations/2026-10-28-flow-matching-with-uncertainty-quantification-and-guidance-2602-10326/"
-    },
-    {
       "slug": "2026-10-28-reconstruction-aware-2610-06297",
       "title": "面向无配对数据逆问题的重建感知分布匹配｜中文全文译文",
       "scope": "全文覆盖：摘要、正文各节、结论、附录、图表说明（书目以原文 PDF 为题名核对入口，页内已注明）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
@@ -23782,20 +23651,6 @@
       "coverage": "full",
       "license": "arxiv",
       "final_proofread_done": false
-    },
-    {
-      "slug": "2026-10-28-esdd-oddm-highly-spread",
-      "title": "高度扩展信道中 ODDM 的等效采样时延–多普勒信道模型｜中文译稿（未完成）",
-      "scope": "主编号公式（1）–（71）及式（37a）–（37c）已补齐并进行首轮 PDF 公式核查；仍有未编号公式、全部图表文字及逐字符复核风险项待核验，qa_complete=false。",
-      "date": "2026-10-28",
-      "url": "/papers/translations/2026-10-28-esdd-oddm-highly-spread/",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-28-esdd-oddm-highly-spread.md",
-      "paper_ids": [],
-      "source_arxiv_ids": [],
-      "qa_complete": false,
-      "external": true,
-      "primary_translation": true,
-      "superseded_by": "/papers/translations/2026-10-28-equivalent-sampled-delay-doppler-esdd-channel-models-for-oddm-over-hig-ff5a01c5/"
     },
     {
       "slug": "2026-10-28-deeptelecom-2610-14545",
@@ -23858,24 +23713,6 @@
       "final_proofread_done": false
     },
     {
-      "slug": "2026-10-27-pc-daps-2610-31592",
-      "title": "超越 Best-of-k：先验一致 PC-DAPS｜中文全结构译稿（待终校）",
-      "scope": "已录入摘要、正文 1–6、附录 A.1–A.7、公式（1）–（17）、算法 1、表 1–5、图 1–14 中文说明及 40 条参考文献。逐页逐式 QA 待终校，qa_complete=false。",
-      "date": "2026-10-27",
-      "url": "/papers/translations/2026-10-27-pc-daps-2610-31592/",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-27-pc-daps-2610-31592.md",
-      "paper_ids": [
-        "39bb2162c4326c50"
-      ],
-      "source_arxiv_ids": [
-        "2610.31592"
-      ],
-      "qa_complete": false,
-      "external": true,
-      "primary_translation": true,
-      "superseded_by": "/papers/translations/2026-10-27-beyond-best-of-k-prior-consistent-daps-for-ambiguous-nonlinear-inverse-2610-31592/"
-    },
-    {
       "slug": "2026-10-27-intercell-svi-2610-15455",
       "title": "基于得分变分推断的 MIMO-OFDM 小区间干扰抑制｜中文全文译文",
       "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[47]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
@@ -23936,24 +23773,6 @@
       "final_proofread_done": false
     },
     {
-      "slug": "2026-10-27-cfm-variance-2610-29172",
-      "title": "条件流模型将认知不确定性转化为表观偶然方差｜中文全结构译稿（待终校）",
-      "scope": "摘要、正文 1–7、附录 A–C、公式（A.1）–（A.43）、预测集合（B.1）–（B.4）、图 1–18 说明、表 B.1、44 条参考文献已录入；逐页逐式 QA 待终校。",
-      "date": "2026-10-27",
-      "url": "/papers/translations/2026-10-27-cfm-variance-2610-29172/",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-27-cfm-variance-2610-29172.md",
-      "paper_ids": [
-        "3f655527a43a9d52"
-      ],
-      "source_arxiv_ids": [
-        "2610.29172"
-      ],
-      "qa_complete": false,
-      "external": true,
-      "primary_translation": true,
-      "superseded_by": "/papers/translations/2026-10-27-conditional-flow-models-convert-epistemic-uncertainty-into-apparent-al-2610-29172/"
-    },
-    {
       "date": "2026-10-27",
       "slug": "2026-10-27-beyond-best-of-k-prior-consistent-daps-for-ambiguous-nonlinear-inverse-2610-31592",
       "title": "超越 Best-of-k：歧义非线性逆问题的先验一致 DAPS｜中文全文译文",
@@ -24011,38 +23830,6 @@
       "primary_translation": false,
       "coverage": "full",
       "license": "arxiv",
-      "final_proofread_done": false
-    },
-    {
-      "slug": "2026-10-26-otfs-overspread-doppler",
-      "title": "超扩展多普勒 OTFS 信道估计｜中文译稿（2026-10-30 补译，未逐句终校）",
-      "scope": "2026-10-30 本轮已补译页面声明的主体缺口（章节、附录、公式转写、表格与英文书目以页内状态段为准）；逐句逐式终校未做，qa_complete=false。",
-      "date": "2026-10-26",
-      "url": "/papers/translations/2026-10-26-otfs-overspread-doppler/",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-26-otfs-overspread-doppler.md",
-      "paper_ids": [],
-      "source_arxiv_ids": [],
-      "qa_complete": false,
-      "external": true,
-      "primary_translation": false,
-      "coverage": "partial",
-      "license": "doi_only",
-      "final_proofread_done": false
-    },
-    {
-      "slug": "2026-10-26-ckm-6dma-manifold",
-      "title": "信道知识地图赋能的运动学约束 6DMA 系统｜中文译稿（2026-10-30 补译，未逐句终校）",
-      "scope": "2026-10-30 本轮已补译页面声明的主体缺口（章节、附录、公式转写、表格与英文书目以页内状态段为准）；逐句逐式终校未做，qa_complete=false。",
-      "date": "2026-10-26",
-      "url": "/papers/translations/2026-10-26-ckm-6dma-manifold/",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-26-ckm-6dma-manifold.md",
-      "paper_ids": [],
-      "source_arxiv_ids": [],
-      "qa_complete": false,
-      "external": true,
-      "primary_translation": false,
-      "coverage": "partial",
-      "license": "arxiv+ieee_doi",
       "final_proofread_done": false
     },
     {
@@ -24144,21 +23931,6 @@
       "final_proofread_done": false
     },
     {
-      "slug": "2026-10-24-wcm-instantaneous-csi-tcomm2026",
-      "title": "高移动性场景 WCM 赋能瞬时 CSI 获取｜中文全文译稿（逐式校对中）",
-      "scope": "原文16页，译文已并入对应历史论文 ID f997fa4fb49f2a25；含摘要、正文 I–VI、公式（1）–（87）、定理1–2、算法1、表I–II、图1–12图注、附录A–B、37条参考文献、作者简介；公式换行修复，逐式原文终校未完成。",
-      "source_arxiv_ids": [],
-      "date": "2026-10-24",
-      "url": "/papers/items/f997fa4fb49f2a25/#paper-translation",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/items/f997fa4fb49f2a25.md",
-      "paper_ids": [
-        "f997fa4fb49f2a25"
-      ],
-      "qa_complete": false,
-      "external": true,
-      "primary_translation": true
-    },
-    {
       "slug": "2026-10-24-ua-d-rme-2610-28293",
       "title": "UA-D-RME：去中心化无线网络中的不确定性感知分布式无线电地图估计｜中文全文译文",
       "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[20]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
@@ -24195,20 +23967,6 @@
       "coverage": "full",
       "license": "arxiv",
       "final_proofread_done": false
-    },
-    {
-      "slug": "2026-10-24-fttd-near-field-thz-hybrid-beamforming",
-      "title": "近场 THz 多用户 FTTD 混合波束赋形｜中文主体译稿（待补齐）",
-      "scope": "原 PDF 17 页；正文 I–VI、PWMMSE、FC/SC、低复杂度设计、公式（1）–（56）的主体、算法 1–4、图 1–15、表 I–II 的数据和 40 条书目已纳入；逐式终校未结束。",
-      "source_arxiv_ids": [],
-      "date": "2026-10-24",
-      "url": "/papers/translations/2026-10-24-fttd-near-field-thz-hybrid-beamforming/",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-24-fttd-near-field-thz-hybrid-beamforming.md",
-      "paper_ids": [],
-      "qa_complete": false,
-      "external": true,
-      "primary_translation": false,
-      "superseded_by": "/papers/translations/2026-10-24-hybrid-beamforming-optimization-for-near-field-terahertz-multi-user-sy-98ee8147/"
     },
     {
       "slug": "2026-10-24-bct-bayes-consistent-tempering-2610-27641",
@@ -24289,37 +24047,6 @@
       "final_proofread_done": false
     },
     {
-      "slug": "2026-10-23-rotatable-antennas-imperfect-csi-2605-04775",
-      "title": "可旋转天线双时间尺度设计与不完美 CSI｜中文扩充译稿（待终校）",
-      "scope": "13 页：正文 I–VIII、速率代理与部分长公式、wZF 条件干扰及 Schur 补、投影梯度算法、图 1–10、31 条参考文献已补；部分原文子公式和实验叙述尚需逐段终校。",
-      "source_arxiv_ids": [
-        "2605.04775"
-      ],
-      "date": "2026-10-23",
-      "url": "/papers/translations/2026-10-23-rotatable-antennas-imperfect-csi-2605-04775/",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-23-rotatable-antennas-imperfect-csi-2605-04775.md",
-      "paper_ids": [],
-      "qa_complete": false,
-      "external": true,
-      "primary_translation": false
-    },
-    {
-      "slug": "2026-10-23-rf-navigation-multipath-2610-08105",
-      "title": "RF 多径不确定性下的具身导航｜中文译稿（待终校）",
-      "scope": "6 页：正文 I–V、公式（1）–（16）、图 1–4 说明、表 I–IV、18 条英文参考文献已完整列入；逐段准确性终校未完成。",
-      "source_arxiv_ids": [
-        "2610.08105"
-      ],
-      "date": "2026-10-23",
-      "url": "/papers/translations/2026-10-23-rf-navigation-multipath-2610-08105/",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-23-rf-navigation-multipath-2610-08105.md",
-      "paper_ids": [],
-      "qa_complete": false,
-      "external": true,
-      "primary_translation": false,
-      "superseded_by": "/papers/translations/2026-10-23-navigation-with-rf-cues-embodied-perception-action-under-multipath-unc-2610-08105/"
-    },
-    {
       "date": "2026-10-23",
       "slug": "2026-10-23-navigation-with-rf-cues-embodied-perception-action-under-multipath-unc-2610-08105",
       "title": "RF 线索导航：多径不确定性下的具身感知与行动｜中文全文译文",
@@ -24338,37 +24065,6 @@
       "coverage": "full",
       "license": "arxiv",
       "final_proofread_done": false
-    },
-    {
-      "slug": "2026-10-23-ms-flow-2602-08538",
-      "title": "MS-Flow：流模型逆问题的轨迹拼接｜中文扩充译稿（待终校）",
-      "scope": "22 页：正文 1–7、附录 A–J、部分证明与公式（1）–（52）、坐标更新（23）–（25）、ADMM 子问题（48）–（50）、表 1–8、61 条作者年份参考文献已补；未逐式展开的子公式和个别表格细节待终校。",
-      "source_arxiv_ids": [
-        "2602.08538"
-      ],
-      "date": "2026-10-23",
-      "url": "/papers/translations/2026-10-23-ms-flow-2602-08538/",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-23-ms-flow-2602-08538.md",
-      "paper_ids": [],
-      "qa_complete": false,
-      "external": true,
-      "primary_translation": false,
-      "superseded_by": "/papers/translations/2026-10-23-trajectory-stitching-for-solving-inverse-problems-with-flow-based-mode-2602-08538/"
-    },
-    {
-      "slug": "2026-10-23-digital-twin-geometry-calibration-2607-09334",
-      "title": "数字孪生信道估计：几何与标定不确定性｜中文扩充译稿（待终校）",
-      "scope": "16 页：正文 I–VI、公式（1）–（38）、附录 A–B 公式（39）–（59）、表 I–III、图 1–6 说明、33 条参考文献已补；部分正文长段落和书目排版待终校。",
-      "source_arxiv_ids": [
-        "2607.09334"
-      ],
-      "date": "2026-10-23",
-      "url": "/papers/translations/2026-10-23-digital-twin-geometry-calibration-2607-09334/",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-23-digital-twin-geometry-calibration-2607-09334.md",
-      "paper_ids": [],
-      "qa_complete": false,
-      "external": true,
-      "primary_translation": false
     },
     {
       "slug": "2026-10-23-deep-bayesian-refocus-2610-03419",
@@ -24451,38 +24147,6 @@
       "final_proofread_done": false
     },
     {
-      "slug": "2026-10-22-otfs-sunscape-superimposed-pilots",
-      "title": "OTFS-ISAC 叠加式 Sunscape 导频与信道估计｜中文部分译稿",
-      "scope": "18 页：摘要、正文 I–VII、主要公式（1）–（51）、表 I–III、算法 1、图 1–15 说明、英文参考文献 34 条及作者简介；终校未完成",
-      "source_arxiv_ids": [],
-      "date": "2026-10-22",
-      "url": "/papers/translations/2026-10-22-otfs-sunscape-superimposed-pilots/",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-22-otfs-sunscape-superimposed-pilots.md",
-      "paper_ids": [
-        "e5fa7705f06fee0c"
-      ],
-      "qa_complete": false,
-      "external": true,
-      "primary_translation": false,
-      "superseded_by": "/papers/translations/2026-10-22-superimposed-sunscape-pilot-pattern-for-channel-estimation-in-otfs-bas-e5fa7705/"
-    },
-    {
-      "slug": "2026-10-22-continuous-time-transformer-nonuniform-pilots",
-      "title": "非均匀导频连续时间 Transformer 信道预测｜中文部分译稿",
-      "scope": "16 页：摘要、正文 I–VI、编号公式（1）–（32）主体、表 I–XI、图 1–9 说明、附录推论证明、英文参考文献 64 条已录入；终校未完成",
-      "source_arxiv_ids": [],
-      "date": "2026-10-22",
-      "url": "/papers/translations/2026-10-22-continuous-time-transformer-nonuniform-pilots/",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-22-continuous-time-transformer-nonuniform-pilots.md",
-      "paper_ids": [
-        "0420e0d84fe1b48f"
-      ],
-      "qa_complete": false,
-      "external": true,
-      "primary_translation": false,
-      "superseded_by": "/papers/translations/2026-10-22-continuous-time-transformer-based-channel-prediction-with-non-uni-0420e0d8/"
-    },
-    {
       "date": "2026-10-21",
       "slug": "2026-10-21-spatiotemporal-em-kernel-channel-prediction",
       "title": "用于信道预测的时空电磁核学习｜中文全文译文",
@@ -24546,26 +24210,6 @@
     },
     {
       "date": "2026-10-21",
-      "slug": "2026-10-21-one-step-generative-csi-2609-17033",
-      "title": "一步生成式 CSI 预测｜中文全篇译稿（待终校）",
-      "url": "/papers/translations/2026-10-21-one-step-generative-csi-2609-17033/",
-      "source_file": "2026-10-21-one-step-generative-csi-2609-17033.md",
-      "scope": "摘要、正文 I–V、公式（1）–（17）、算法 1–2、图 1–4 说明、表 I–V、参考文献 14 条及资助说明已录入；独立逐式校对中",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-21-one-step-generative-csi-2609-17033.md",
-      "source_page_path": "papers/translations/2026-10-21-one-step-generative-csi-2609-17033.md",
-      "paper_ids": [
-        "efb1c2b897f3baec"
-      ],
-      "source_arxiv_ids": [
-        "2609.17033"
-      ],
-      "qa_complete": false,
-      "external": true,
-      "primary_translation": false,
-      "superseded_by": "/papers/translations/2026-10-21-one-step-generative-csi-prediction-2609-17033/"
-    },
-    {
-      "date": "2026-10-21",
       "slug": "2026-10-21-delay-doppler-domain-channel-measurements-and-modeling-in-high-speed-r-2509-25854",
       "title": "高速铁路时延-多普勒域信道测量与建模｜中文全文译文",
       "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[58]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
@@ -24583,26 +24227,6 @@
       "coverage": "full",
       "license": "arxiv",
       "final_proofread_done": false
-    },
-    {
-      "date": "2026-10-21",
-      "slug": "2026-10-21-dd-hsr-2509-25854",
-      "title": "高速铁路 DD 域测量与建模｜中文全篇译稿（待终校）",
-      "url": "/papers/translations/2026-10-21-dd-hsr-2509-25854/",
-      "source_file": "2026-10-21-dd-hsr-2509-25854.md",
-      "scope": "摘要、正文 I–VI、公式（1）–（21）、算法 1、TDDL-A/B/C 模型、图 1–10、表 I–VI、58 条参考文献已录入；独立逐式校对中",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-21-dd-hsr-2509-25854.md",
-      "source_page_path": "papers/translations/2026-10-21-dd-hsr-2509-25854.md",
-      "paper_ids": [
-        "44c51f88d1ab5473"
-      ],
-      "source_arxiv_ids": [
-        "2509.25854"
-      ],
-      "qa_complete": false,
-      "external": true,
-      "primary_translation": false,
-      "superseded_by": "/papers/translations/2026-10-21-delay-doppler-domain-channel-measurements-and-modeling-in-high-speed-r-2509-25854/"
     },
     {
       "date": "2026-10-21",
@@ -24647,48 +24271,6 @@
       "coverage": "full",
       "license": "arxiv",
       "final_proofread_done": false
-    },
-    {
-      "date": "2026-10-20",
-      "slug": "2026-10-20-wireless-scene-reconstruction-2610-22120",
-      "title": "PHOENIX：基于物理表征与扩散后验推断的无线场景重建｜中文全文译文",
-      "url": "/papers/translations/2026-10-20-wireless-scene-reconstruction-2610-22120/",
-      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[29]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-20-wireless-scene-reconstruction-2610-22120.md",
-      "paper_ids": [
-        "8c207944a2f41338"
-      ],
-      "source_arxiv_ids": [
-        "2610.22120"
-      ],
-      "qa_complete": true,
-      "external": true,
-      "primary_translation": false,
-      "coverage": "full",
-      "license": "arxiv",
-      "final_proofread_done": false,
-      "superseded_by": "/papers/translations/2026-10-20-wireless-scene-reconstruction-diffusion-2610-22120/"
-    },
-    {
-      "date": "2026-10-20",
-      "slug": "2026-10-20-spatial-pilot-reuse-joint-channel-localization-2501-02252",
-      "title": "散射环境感知的空间复用导频多用户联合信道估计与定位｜中文全文译文",
-      "url": "/papers/translations/2026-10-20-spatial-pilot-reuse-joint-channel-localization-2501-02252/",
-      "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[31]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-20-spatial-pilot-reuse-joint-channel-localization-2501-02252.md",
-      "paper_ids": [
-        "0cc90a52b1d2a72d"
-      ],
-      "source_arxiv_ids": [
-        "2501.02252"
-      ],
-      "qa_complete": true,
-      "external": true,
-      "primary_translation": false,
-      "coverage": "full",
-      "license": "arxiv",
-      "final_proofread_done": false,
-      "superseded_by": "/papers/translations/2026-10-20-mu-scattering-aware-pilot-reuse-2501-02252/"
     },
     {
       "date": "2026-10-20",
@@ -24738,36 +24320,6 @@
     },
     {
       "date": "2026-10-20",
-      "slug": "2026-10-20-factordps-radio-map-2610-15980",
-      "title": "FactorDPS 无线电地图张量补全｜中文译稿（未通过全文 QA）",
-      "url": "/papers/translations/2026-10-20-factordps-radio-map-2610-15980/",
-      "scope": "编号公式（1）–（38）、FactorDPS 算法、可恢复性定理及完整表 I–XI 已录入；附录其他长证明、参考文献与独立终校待完成",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-20-factordps-radio-map-2610-15980.md",
-      "paper_ids": [],
-      "source_arxiv_ids": [
-        "2610.15980"
-      ],
-      "qa_complete": false,
-      "external": true,
-      "primary_translation": false,
-      "superseded_by": "/papers/translations/2026-10-20-radio-map-factor-dps-2610-15980/"
-    },
-    {
-      "date": "2026-10-20",
-      "slug": "2026-10-20-cross-frame-otfs-ultra-high-mobility",
-      "title": "跨帧 OTFS 超高速移动信道估计｜中文逐节译稿（未通过全文 QA）",
-      "url": "/papers/translations/2026-10-20-cross-frame-otfs-ultra-high-mobility/",
-      "scope": "正文及附录编号公式（1）–（53）、表 I–V、算法 1、参考文献与作者简介已录入；保留表格原文参数不一致提示；尚未完成独立逐句逐式终校",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-20-cross-frame-otfs-ultra-high-mobility.md",
-      "paper_ids": [],
-      "source_arxiv_ids": [],
-      "qa_complete": false,
-      "external": true,
-      "primary_translation": false,
-      "superseded_by": "/papers/translations/2026-10-20-channel-estimation-in-cross-frame-otfs-system-with-ultra-high-mobility-65fb4a2e/"
-    },
-    {
-      "date": "2026-10-20",
       "slug": "2026-10-20-conditional-mean-flows-few-step-densities-for-simulation-based-inferen-2610-21657",
       "title": "条件均值流：面向仿真推断的少步密度｜中文全文译文",
       "scope": "全文覆盖：摘要、正文各节、结论、附录、图表说明（书目以原文 PDF 为题名核对入口）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
@@ -24785,22 +24337,6 @@
       "coverage": "full",
       "license": "arxiv",
       "final_proofread_done": false
-    },
-    {
-      "date": "2026-10-20",
-      "slug": "2026-10-20-conditional-mean-flows-2610-21657",
-      "title": "条件平均流：面向仿真推断的少步密度估计｜中文译稿（未通过全文 QA）",
-      "url": "/papers/translations/2026-10-20-conditional-mean-flows-2610-21657/",
-      "scope": "编号公式（1）–（11）、完整实验表 1 及补充表 S1–S6、两个命题要点已录入；附录其他证明、参考文献与独立终校待完成",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-20-conditional-mean-flows-2610-21657.md",
-      "paper_ids": [],
-      "source_arxiv_ids": [
-        "2610.21657"
-      ],
-      "qa_complete": false,
-      "external": true,
-      "primary_translation": false,
-      "superseded_by": "/papers/translations/2026-10-20-conditional-mean-flows-few-step-densities-for-simulation-based-inferen-2610-21657/"
     },
     {
       "date": "2026-10-19",
@@ -25461,21 +24997,6 @@
     },
     {
       "date": "2026-10-12",
-      "url": "/papers/items/f01eb39a8eaa1174/#paper-translation",
-      "slug": "existing-f01eb39a8eaa1174",
-      "title": "Zero-Shot Frequency Generalization for Radio Map Prediction via Cross-Attention Physics-Residual Learning",
-      "scope": "全文中文译文（沿用原发布验收记录）",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/items/f01eb39a8eaa1174.md",
-      "source_page_path": "papers/items/f01eb39a8eaa1174.md",
-      "paper_ids": [
-        "f01eb39a8eaa1174"
-      ],
-      "external": true,
-      "qa_complete": true,
-      "qa_provenance": "Migrated existing live library.js completion declaration; not a new translation or new QA claim"
-    },
-    {
-      "date": "2026-10-12",
       "url": "/papers/translations/channel2world/",
       "slug": "channel2world-2026",
       "source_file": "channel2world-2026.md",
@@ -25905,36 +25426,9 @@
     },
     {
       "date": "2026-10-12",
-      "url": "/papers/translations/2026-10-12-five-abstracts/",
-      "slug": "2026-10-12-five-abstracts",
-      "source_file": "2026-10-12-five-abstracts.md",
-      "title": "2026 年 7 月五篇论文：摘要中译与主要内容",
-      "scope": "中文译稿（范围见原页面；未计入全文验收）",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-five-abstracts.md",
-      "source_page_path": "papers/translations/2026-10-12-five-abstracts.md",
-      "paper_ids": [
-        "65907205876c1561",
-        "5cc0d0d751befc62",
-        "2e094f4029e01a73",
-        "ad7c6f680aefcbc8",
-        "2b09701c969754d7"
-      ],
-      "source_arxiv_ids": [
-        "2607.12975",
-        "2607.15713",
-        "2607.16361",
-        "2607.17133",
-        "2607.17954"
-      ],
-      "external": true,
-      "qa_complete": false,
-      "superseded_by": "/papers/translations/2026-10-12-radio-map-online-gp-full-zh/"
-    },
-    {
-      "date": "2026-10-12",
       "slug": "2026-10-12-encf-main",
       "title": "面向隐式数据同化的集合控制流滤波：正文中文译稿｜中文全文译文",
-      "scope": "全文覆盖：正文与实验（第 1—20 页）；补充证明与书目见附录页；许可：arxiv；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。 附录页：2026-10-12-encf-appendix。",
+      "scope": "全文覆盖：正文与实验（第 1—20 页）；补充证明与书目见附录；许可：arxiv；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）（附录已并入本页）。",
       "url": "/papers/translations/2026-10-12-encf-main/",
       "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-encf-main.md",
       "paper_ids": [
@@ -25942,27 +25436,6 @@
       ],
       "source_arxiv_ids": [
         "2607.12975"
-      ],
-      "qa_complete": true,
-      "external": true,
-      "primary_translation": true,
-      "coverage": "full",
-      "license": "arxiv",
-      "final_proofread_done": false
-    },
-    {
-      "date": "2026-10-12",
-      "slug": "2026-10-12-encf-appendix",
-      "title": "集合控制流滤波 EnCF：附录证明与实验细节中文译稿｜中文全文译文",
-      "scope": "全文覆盖：附录：补充证明与实验参数（第 24—26 页）；许可：arxiv；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。 与正文页配套。",
-      "url": "/papers/translations/2026-10-12-encf-appendix/",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-encf-appendix.md",
-      "paper_ids": [
-        "5cc0d0d751befc62"
-      ],
-      "source_arxiv_ids": [
-        "2607.12975",
-        "2606.28264"
       ],
       "qa_complete": true,
       "external": true,
@@ -26038,39 +25511,6 @@
       "coverage": "full",
       "license": "arxiv",
       "final_proofread_done": false
-    },
-    {
-      "date": "2026-10-12",
-      "url": "/papers/translations/2026-10-12-cd1fd1c4e35890df/",
-      "slug": "2026-10-12-cd1fd1c4e35890df",
-      "source_file": "2026-10-12-cd1fd1c4e35890df.md",
-      "title": "SNaP: One-Step Posterior Sampling for Noisy Inverse Problems",
-      "scope": "中文译稿（范围见原页面；未计入全文验收）",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-cd1fd1c4e35890df.md",
-      "source_page_path": "papers/translations/2026-10-12-cd1fd1c4e35890df.md",
-      "paper_ids": [
-        "cd1fd1c4e35890df"
-      ],
-      "source_arxiv_ids": [
-        "2609.34071"
-      ],
-      "external": true,
-      "qa_complete": false,
-      "superseded_by": "/papers/translations/2026-10-12-e2227d37a5cd8f76429d8e25/#paper-cd1fd1c4e35890df"
-    },
-    {
-      "date": "2026-10-12",
-      "url": "/papers/translations/2026-10-12-car-flow/",
-      "slug": "2026-10-12-car-flow",
-      "source_file": "2026-10-12-car-flow.md",
-      "title": "CAR-Flow：条件感知重参数化通过对齐源与目标改进流匹配（中文译文）",
-      "scope": "中文译稿（范围见原页面；未计入全文验收）",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-car-flow.md",
-      "source_page_path": "papers/translations/2026-10-12-car-flow.md",
-      "paper_ids": [],
-      "source_arxiv_ids": [],
-      "external": true,
-      "qa_complete": false
     },
     {
       "date": "2026-10-12",
@@ -26336,25 +25776,6 @@
       "paper_id": "2610.03414",
       "license_url": "https://creativecommons.org/licenses/by/4.0/",
       "download": "/assets/papers/translations/2026-10-12-07cd9352cec539825a82cc81.md"
-    },
-    {
-      "date": "2026-10-12",
-      "url": "/papers/translations/2026-10-12-03c3642f12989295/",
-      "slug": "2026-10-12-03c3642f12989295",
-      "source_file": "2026-10-12-03c3642f12989295.md",
-      "title": "Iterating Consistency Models: Stability, Error Bounds and Noise Schedules",
-      "scope": "中文译稿（范围见原页面；未计入全文验收）",
-      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-10-12-03c3642f12989295.md",
-      "source_page_path": "papers/translations/2026-10-12-03c3642f12989295.md",
-      "paper_ids": [
-        "03c3642f12989295"
-      ],
-      "source_arxiv_ids": [
-        "2610.03414"
-      ],
-      "external": true,
-      "qa_complete": false,
-      "superseded_by": "/papers/translations/2026-10-12-07cd9352cec539825a82cc81/#paper-03c3642f12989295"
     },
     {
       "date": "2026-10-12",
