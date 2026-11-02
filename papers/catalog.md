@@ -363,6 +363,36 @@ toc: true
 
 ## 推荐论文
 
+### 2026-11-03 · [Few-Step Generation via Data-Space Iteration](/papers/items/7342ab30ff421c7f/)
+
+给固定NFE下每次计算该细化什么提供简洁替代结构，适合以后做单独压缩分支。
+
+[本篇日报](/papers/items/7342ab30ff421c7f/#paper-report)
+
+### 2026-11-03 · [RMPrior: Bridging Propagation Priors and Diffusion Refinement for Efficient Radio Map Construction](/papers/items/df43fa3be5813f1c/)
+
+提供成本低、容易否证的先验质量×计算预算实验，也暴露过早截断对先验失配的放大。
+
+[本篇日报](/papers/items/df43fa3be5813f1c/#paper-report)
+
+### 2026-11-03 · [Diffusion Models for Radio Map Estimation: Theoretical Performance Analysis and Sampling Rate Guideline](/papers/items/b2db156c1d8dde55/)
+
+可帮助解释条件先验何时失效、何时继续增加观测收益饱和，同时提供必须审计的理论条件。
+
+[本篇日报](/papers/items/b2db156c1d8dde55/#paper-report)
+
+### 2026-11-03 · [Automatic Differentiation with Constraints in Forward and Inverse Problems](/papers/items/bab6e10f08b83b0a/)
+
+给数据一致性内层和可解释协方差端到端学习提供明确工程接口，避免为反传完整展开昂贵求解轨迹。
+
+[本篇日报](/papers/items/bab6e10f08b83b0a/#paper-report)
+
+### 2026-11-03 · [Geometry-Informed Neural Network for Pilot-Limited Channel Estimation via Sensing from Uplink Traffic](/papers/items/93836e40a67de25b/)
+
+今天最接近当前问题的论文：从带误差历史感知得到可解释先验，并通过解析观测更新恢复当前复信道。
+
+[本篇日报](/papers/items/93836e40a67de25b/#paper-report)
+
 ### 2026-11-02 · [Active Perception for Radio Map Reconstruction in Uncharted 3D Air-Ground Environments](/papers/items/06c412124f26d651/)
 
 与昨日单点主动采样形成明确区别，加入可达性、行程和三维几何不完整约束，同时有诚实的实测边界。
