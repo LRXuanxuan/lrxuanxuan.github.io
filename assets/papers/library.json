@@ -139,7 +139,13 @@
       "report_entry_url": "/papers/reports/2026-11-02/#paper-06c412124f26d651",
       "paper_url": "/papers/items/06c412124f26d651/",
       "paper_report_url": "/papers/items/06c412124f26d651/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-02-2606-12844-active-perception-for-radio-map-reconstruction-in-uncharted-3d-air/",
+          "scope": "全文覆盖：摘要、正文各节（含 §III–IV、§V-F、§VI）、表 I/XI 逐格、图 12–13 等图注、式 (1)–(N) 编号、参考文献英文原条目；许可：CC BY 4.0；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+          "title": "未知 3D 空地环境中的无线电地图重建主动感知｜中文全文译文"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2606.12844",
         "https://arxiv.org/abs/2606.12844",
@@ -153,9 +159,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/06c412124f26d651/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-02-2606-12844-active-perception-for-radio-map-reconstruction-in-uncharted-3d-air/",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "bca80d269736373f",
@@ -188,7 +194,13 @@
       "report_entry_url": "/papers/reports/2026-11-02/#paper-bca80d269736373f",
       "paper_url": "/papers/items/bca80d269736373f/",
       "paper_report_url": "/papers/items/bca80d269736373f/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-02-2610-08977-snr-gated-lstm-conditioned-diffusion-model-for-mimo-channel-estimation/",
+          "scope": "全文覆盖：摘要、正文各节（含 §II Eq7–8、§III Eq13–15）、式 (1)–(15) 编号、图 1–5 图注、表格逐格、参考文献英文原条目；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+          "title": "SNR 门控 LSTM 条件扩散模型用于 MIMO 信道估计｜中文全文译文"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2610.08977",
         "https://arxiv.org/abs/2610.08977",
@@ -205,9 +217,9 @@
       "hosted_pdfs": [],
       "status": "已接受待刊",
       "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/bca80d269736373f/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-02-2610-08977-snr-gated-lstm-conditioned-diffusion-model-for-mimo-channel-estimation/",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "a372011476d9d171",
@@ -240,7 +252,13 @@
       "report_entry_url": "/papers/reports/2026-11-02/#paper-a372011476d9d171",
       "paper_url": "/papers/items/a372011476d9d171/",
       "paper_report_url": "/papers/items/a372011476d9d171/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-02-2609-32836-radiomap-blind-prediction-under-incomplete-observation/",
+          "scope": "全文覆盖：摘要、正文各节（含 §III–§V）、Proposition 1–2、式 (1)–(N) 编号、表 II–IV 逐格、图 1–N 图注、参考文献英文原条目；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+          "title": "不完整观测下的无线电地图盲预测：误差刻画与可纠正传播先验学习｜中文全文译文"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.32836",
         "https://arxiv.org/abs/2609.32836",
@@ -255,9 +273,9 @@
       "hosted_pdfs": [],
       "status": "在投",
       "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/a372011476d9d171/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-02-2609-32836-radiomap-blind-prediction-under-incomplete-observation/",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "3e271bfeaf1775d0",
@@ -290,7 +308,13 @@
       "report_entry_url": "/papers/reports/2026-11-02/#paper-3e271bfeaf1775d0",
       "paper_url": "/papers/items/3e271bfeaf1775d0/",
       "paper_report_url": "/papers/items/3e271bfeaf1775d0/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-02-2610-26025-tamedflow-trajectory-aware-distillation-for-teacher-assisted-diffusion/",
+          "scope": "全文覆盖：摘要、正文各节（含 §3.2 Proposition 3.1、§4–§6）、式 (1)–(N) 编号、算法、表 1–2 逐格、图 1–N 图注、附录 F/H、参考文献英文原条目；许可：CC BY 4.0；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+          "title": "TamedFlow：面向教师辅助扩散采样的轨迹感知蒸馏｜中文全文译文"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2610.26025",
         "https://arxiv.org/abs/2610.26025",
@@ -304,9 +328,9 @@
       "hosted_pdfs": [],
       "status": "在投",
       "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/3e271bfeaf1775d0/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-02-2610-26025-tamedflow-trajectory-aware-distillation-for-teacher-assisted-diffusion/",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "c5cf757a8893191c",
@@ -339,7 +363,13 @@
       "report_entry_url": "/papers/reports/2026-11-02/#paper-c5cf757a8893191c",
       "paper_url": "/papers/items/c5cf757a8893191c/",
       "paper_report_url": "/papers/items/c5cf757a8893191c/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-02-2606-21014-bayesfp-feynman-kac-posterior-estimation-flow-policies/",
+          "scope": "全文覆盖：摘要、正文各节（含 §4、§6–§7）、附录 C/D/F、式 (1)–(N) 编号、算法、表 1–2 逐格、图 1–N 图注、参考文献英文原条目；许可：CC BY 4.0；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+          "title": "BayesFP：基于 Feynman–Kac 采样的流策略后验估计｜中文全文译文"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2606.21014",
         "https://arxiv.org/abs/2606.21014",
@@ -357,9 +387,9 @@
       "hosted_pdfs": [],
       "status": "已接受待刊",
       "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/c5cf757a8893191c/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-02-2606-21014-bayesfp-feynman-kac-posterior-estimation-flow-policies/",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "543be3b86f217d5c",
@@ -23591,6 +23621,116 @@
     }
   ],
   "translations": [
+    {
+      "date": "2026-11-02",
+      "slug": "2026-11-02-2610-26025-tamedflow-trajectory-aware-distillation-for-teacher-assisted-diffusion",
+      "title": "TamedFlow：面向教师辅助扩散采样的轨迹感知蒸馏｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节（含 §3.2 Proposition 3.1、§4–§6）、式 (1)–(N) 编号、算法、表 1–2 逐格、图 1–N 图注、附录 F/H、参考文献英文原条目；许可：CC BY 4.0；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-11-02-2610-26025-tamedflow-trajectory-aware-distillation-for-teacher-assisted-diffusion/",
+      "source_file": "2026-11-02-2610-26025-tamedflow-trajectory-aware-distillation-for-teacher-assisted-diffusion.md",
+      "source_page_path": "papers/translations/2026-11-02-2610-26025-tamedflow-trajectory-aware-distillation-for-teacher-assisted-diffusion.md",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-11-02-2610-26025-tamedflow-trajectory-aware-distillation-for-teacher-assisted-diffusion.md",
+      "paper_ids": [
+        "3e271bfeaf1775d0"
+      ],
+      "source_arxiv_ids": [
+        "2610.26025"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "cc_by",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-11-02",
+      "slug": "2026-11-02-2610-08977-snr-gated-lstm-conditioned-diffusion-model-for-mimo-channel-estimation",
+      "title": "SNR 门控 LSTM 条件扩散模型用于 MIMO 信道估计｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节（含 §II Eq7–8、§III Eq13–15）、式 (1)–(15) 编号、图 1–5 图注、表格逐格、参考文献英文原条目；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-11-02-2610-08977-snr-gated-lstm-conditioned-diffusion-model-for-mimo-channel-estimation/",
+      "source_file": "2026-11-02-2610-08977-snr-gated-lstm-conditioned-diffusion-model-for-mimo-channel-estimation.md",
+      "source_page_path": "papers/translations/2026-11-02-2610-08977-snr-gated-lstm-conditioned-diffusion-model-for-mimo-channel-estimation.md",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-11-02-2610-08977-snr-gated-lstm-conditioned-diffusion-model-for-mimo-channel-estimation.md",
+      "paper_ids": [
+        "bca80d269736373f"
+      ],
+      "source_arxiv_ids": [
+        "2610.08977"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-11-02",
+      "slug": "2026-11-02-2609-32836-radiomap-blind-prediction-under-incomplete-observation",
+      "title": "不完整观测下的无线电地图盲预测：误差刻画与可纠正传播先验学习｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节（含 §III–§V）、Proposition 1–2、式 (1)–(N) 编号、表 II–IV 逐格、图 1–N 图注、参考文献英文原条目；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-11-02-2609-32836-radiomap-blind-prediction-under-incomplete-observation/",
+      "source_file": "2026-11-02-2609-32836-radiomap-blind-prediction-under-incomplete-observation.md",
+      "source_page_path": "papers/translations/2026-11-02-2609-32836-radiomap-blind-prediction-under-incomplete-observation.md",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-11-02-2609-32836-radiomap-blind-prediction-under-incomplete-observation.md",
+      "paper_ids": [
+        "a372011476d9d171"
+      ],
+      "source_arxiv_ids": [
+        "2609.32836"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "arxiv",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-11-02",
+      "slug": "2026-11-02-2606-21014-bayesfp-feynman-kac-posterior-estimation-flow-policies",
+      "title": "BayesFP：基于 Feynman–Kac 采样的流策略后验估计｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节（含 §4、§6–§7）、附录 C/D/F、式 (1)–(N) 编号、算法、表 1–2 逐格、图 1–N 图注、参考文献英文原条目；许可：CC BY 4.0；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-11-02-2606-21014-bayesfp-feynman-kac-posterior-estimation-flow-policies/",
+      "source_file": "2026-11-02-2606-21014-bayesfp-feynman-kac-posterior-estimation-flow-policies.md",
+      "source_page_path": "papers/translations/2026-11-02-2606-21014-bayesfp-feynman-kac-posterior-estimation-flow-policies.md",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-11-02-2606-21014-bayesfp-feynman-kac-posterior-estimation-flow-policies.md",
+      "paper_ids": [
+        "c5cf757a8893191c"
+      ],
+      "source_arxiv_ids": [
+        "2606.21014"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "cc_by",
+      "final_proofread_done": false
+    },
+    {
+      "date": "2026-11-02",
+      "slug": "2026-11-02-2606-12844-active-perception-for-radio-map-reconstruction-in-uncharted-3d-air",
+      "title": "未知 3D 空地环境中的无线电地图重建主动感知｜中文全文译文",
+      "scope": "全文覆盖：摘要、正文各节（含 §III–IV、§V-F、§VI）、表 I/XI 逐格、图 12–13 等图注、式 (1)–(N) 编号、参考文献英文原条目；许可：CC BY 4.0；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+      "url": "/papers/translations/2026-11-02-2606-12844-active-perception-for-radio-map-reconstruction-in-uncharted-3d-air/",
+      "source_file": "2026-11-02-2606-12844-active-perception-for-radio-map-reconstruction-in-uncharted-3d-air.md",
+      "source_page_path": "papers/translations/2026-11-02-2606-12844-active-perception-for-radio-map-reconstruction-in-uncharted-3d-air.md",
+      "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-11-02-2606-12844-active-perception-for-radio-map-reconstruction-in-uncharted-3d-air.md",
+      "paper_ids": [
+        "06c412124f26d651"
+      ],
+      "source_arxiv_ids": [
+        "2606.12844"
+      ],
+      "qa_complete": true,
+      "external": true,
+      "primary_translation": true,
+      "coverage": "full",
+      "license": "cc_by",
+      "final_proofread_done": false
+    },
     {
       "date": "2026-11-01",
       "slug": "2026-11-01-2610-32185-pnp-flow-matching-for-full-waveform-inversion-on-breast-imaging",
