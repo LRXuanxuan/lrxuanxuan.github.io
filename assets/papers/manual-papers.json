@@ -1770,7 +1770,7 @@
     "id": "0e3383368163214a",
     "date": "2026-11-03",
     "title": "QuaDRiGa: A MIMO channel model for land mobile satellite",
-    "status": "题录核验，原摘要待补",
+    "status": "摘要已核验",
     "sheet": "网站端补充",
     "row": "—",
     "source": "公开论文题录及摘要（2026-11-03）",
@@ -1780,19 +1780,22 @@
     "github": [],
     "links": [
       "https://doi.org/10.1109/EUCAP.2014.6902008",
-      "https://github.com/fraunhoferhhi/QuaDRiGa"
+      "https://github.com/fraunhoferhhi/QuaDRiGa",
+      "https://scispace.com/papers/quadriga-a-mimo-channel-model-for-land-mobile-satellite-2nnpovf3s1"
     ],
     "hyperlinks": {
       "摘要来源": "https://doi.org/10.1109/EUCAP.2014.6902008",
-      "代码或数据链接": "https://github.com/fraunhoferhhi/QuaDRiGa"
+      "代码或数据链接": "https://github.com/fraunhoferhhi/QuaDRiGa",
+      "摘要补充核验来源": "https://scispace.com/papers/quadriga-a-mimo-channel-model-for-land-mobile-satellite-2nnpovf3s1"
     },
     "fields": {
       "日期": "2026-11-03",
       "标题": "QuaDRiGa: A MIMO channel model for land mobile satellite",
-      "内容": "研究 QuaDRiGa 在陆地移动卫星 MIMO 信道建模中的应用；当前原始摘要不可用，具体模型参数与实验结论保留待核验。",
+      "内容": "将几何结构与统计传播参数相结合的 QuaDRiGa 信道生成器扩展到陆地移动卫星场景。模型能够体现天线效应及圆极化传输的时序特性，参数来自传播实测，尤其包含城市环境下的宽带特征。",
       "摘要来源": "https://doi.org/10.1109/EUCAP.2014.6902008",
       "公开代码状态": "已找到相关 QuaDRiGa 开源仿真平台；未确认其包含这篇论文的复现实验代码。 https://github.com/fraunhoferhhi/QuaDRiGa",
-      "代码/数据状态": "已找到相关 QuaDRiGa 开源仿真平台；未确认其包含这篇论文的复现实验代码。 https://github.com/fraunhoferhhi/QuaDRiGa"
+      "代码/数据状态": "已找到相关 QuaDRiGa 开源仿真平台；未确认其包含这篇论文的复现实验代码。 https://github.com/fraunhoferhhi/QuaDRiGa",
+      "摘要补充核验来源": "https://scispace.com/papers/quadriga-a-mimo-channel-model-for-land-mobile-satellite-2nnpovf3s1"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -3130,7 +3133,7 @@
     "id": "49b8016d2adb88d1",
     "date": "2026-11-03",
     "title": "Reverse-time diffusion equation models",
-    "status": "题录已核验，摘要待补",
+    "status": "摘要已核验",
     "sheet": "网站端补充",
     "row": "—",
     "source": "论文检索与摘要（2026-11-03）",
@@ -3139,18 +3142,21 @@
     "hosted_pdfs": [],
     "github": [],
     "links": [
-      "https://doi.org/10.1016/0304-4149(82)90051-5"
+      "https://doi.org/10.1016/0304-4149(82)90051-5",
+      "https://researchportalplus.anu.edu.au/en/publications/reverse-time-diffusion-equation-models/"
     ],
     "hyperlinks": {
-      "文献来源": "https://doi.org/10.1016/0304-4149(82)90051-5"
+      "文献来源": "https://doi.org/10.1016/0304-4149(82)90051-5",
+      "摘要补充核验来源": "https://researchportalplus.anu.edu.au/en/publications/reverse-time-diffusion-equation-models/"
     },
     "fields": {
       "日期": "2026-11-03",
       "标题": "Reverse-time diffusion equation models",
-      "内容": "讨论反向时间扩散方程的数学表示，是后来分数生成模型的重要理论背景。原文摘要尚未取得，具体定理假设待核验。",
+      "内容": "定义反向时间随机扩散方程模型，并证明大多数具有常规前向时间扩散表示的随机过程也存在对应的反向时间表示。这一结论为用逆向随机微分方程描述扩散过程奠定基础。",
       "文献来源": "https://doi.org/10.1016/0304-4149(82)90051-5",
       "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
-      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "摘要补充核验来源": "https://researchportalplus.anu.edu.au/en/publications/reverse-time-diffusion-equation-models/"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -3887,7 +3893,7 @@
     "id": "497bccea54ed06ef",
     "date": "2026-11-03",
     "title": "Is what you measure what you expect? Factors affecting smartphone-based mobile network measurement",
-    "status": "题录已核验，摘要待核验",
+    "status": "摘要已核验",
     "sheet": "网站端补充",
     "row": "—",
     "source": "公开学术题录与论文摘要（2026-11-03）",
@@ -3896,18 +3902,21 @@
     "hosted_pdfs": [],
     "github": [],
     "links": [
-      "https://doi.org/10.1109/INFOCOM.2017.8057166"
+      "https://doi.org/10.1109/INFOCOM.2017.8057166",
+      "https://cslxue.github.io/papers/appprofile.pdf"
     ],
     "hyperlinks": {
-      "原文来源": "https://doi.org/10.1109/INFOCOM.2017.8057166"
+      "原文来源": "https://doi.org/10.1109/INFOCOM.2017.8057166",
+      "摘要补充核验来源": "https://cslxue.github.io/papers/appprofile.pdf"
     },
     "fields": {
       "日期": "2026-11-03",
       "标题": "Is what you measure what you expect? Factors affecting smartphone-based mobile network measurement",
-      "内容": "讨论手机进行移动网络测量时影响结果准确性的因素。由于未取得原始摘要，具体实验条件和结论待核验。",
+      "内容": "系统研究智能手机移动网络测量结果受到应用实现、Android 系统配置及网络协议影响而产生的偏差。作者提出静态与动态分析工具，设计 MobiScope 测量应用缓解这些因素，并改进测量应用说明文字的准确性。",
       "原文来源": "https://doi.org/10.1109/INFOCOM.2017.8057166",
       "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
-      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "摘要补充核验来源": "https://cslxue.github.io/papers/appprofile.pdf"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -4307,7 +4316,7 @@
     "id": "866cb5c3c24ed18d",
     "date": "2026-11-03",
     "title": "Adaptive Unpacking of Android Apps",
-    "status": "题录已核验，摘要待核验",
+    "status": "摘要已核验",
     "sheet": "网站端补充",
     "row": "—",
     "source": "公开学术题录与论文摘要（2026-11-03）",
@@ -4316,18 +4325,21 @@
     "hosted_pdfs": [],
     "github": [],
     "links": [
-      "https://doi.org/10.1109/ICSE.2017.40"
+      "https://doi.org/10.1109/ICSE.2017.40",
+      "https://pure.psu.edu/en/publications/adaptive-unpacking-of-android-apps/"
     ],
     "hyperlinks": {
-      "原文来源": "https://doi.org/10.1109/ICSE.2017.40"
+      "原文来源": "https://doi.org/10.1109/ICSE.2017.40",
+      "摘要补充核验来源": "https://pure.psu.edu/en/publications/adaptive-unpacking-of-android-apps/"
     },
     "fields": {
       "日期": "2026-11-03",
       "标题": "Adaptive Unpacking of Android Apps",
-      "内容": "研究 Android 应用的自适应脱壳与分析技术。原始论文摘要尚未取得，具体算法和性能结论待补。",
+      "内容": "提出自适应 Android 应用脱壳方法 PackerGrind，以应对持续变化的应用加壳技术。系统分析加壳保护机制并恢复 Dex 可执行文件；作者在真实加壳应用上验证其有效性和较低开销。",
       "原文来源": "https://doi.org/10.1109/ICSE.2017.40",
       "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
-      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "摘要补充核验来源": "https://pure.psu.edu/en/publications/adaptive-unpacking-of-android-apps/"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -4552,7 +4564,7 @@
     "id": "aae7e59b0e62f817",
     "date": "2026-11-03",
     "title": "Secrecy degrees of freedom of a MIMO Gaussian wiretap channel with a cooperative jammer",
-    "status": "题录已核验，摘要待核验",
+    "status": "摘要已核验",
     "sheet": "网站端补充",
     "row": "—",
     "source": "公开学术题录与论文摘要（2026-11-03）",
@@ -4561,18 +4573,21 @@
     "hosted_pdfs": [],
     "github": [],
     "links": [
-      "https://doi.org/10.1109/ICASSP.2016.7472325"
+      "https://doi.org/10.1109/ICASSP.2016.7472325",
+      "https://dihana.cps.unizar.es/proceedings/ICASSP/2016/pdfs/0003486.pdf"
     ],
     "hyperlinks": {
-      "原文来源": "https://doi.org/10.1109/ICASSP.2016.7472325"
+      "原文来源": "https://doi.org/10.1109/ICASSP.2016.7472325",
+      "摘要补充核验来源": "https://dihana.cps.unizar.es/proceedings/ICASSP/2016/pdfs/0003486.pdf"
     },
     "fields": {
       "日期": "2026-11-03",
       "标题": "Secrecy degrees of freedom of a MIMO Gaussian wiretap channel with a cooperative jammer",
-      "内容": "探讨协作干扰器辅助的 MIMO 高斯窃听信道保密自由度。原始摘要未取得，具体定理与假设待核验。",
+      "内容": "研究多天线协作干扰节点辅助的 MIMO 高斯窃听信道，设计使合法接收端信息与干扰分离、窃听端信息与干扰对齐的传输方案，并给出最大可达保密自由度及实现该自由度的预编码矩阵解析解。",
       "原文来源": "https://doi.org/10.1109/ICASSP.2016.7472325",
       "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
-      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "摘要补充核验来源": "https://dihana.cps.unizar.es/proceedings/ICASSP/2016/pdfs/0003486.pdf"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -4622,7 +4637,7 @@
     "id": "15b5e2f255f00f8c",
     "date": "2026-11-03",
     "title": "Robust transmit design for secure AF relay networks based on worst-case optimization",
-    "status": "题录已核验，摘要待核验",
+    "status": "摘要已核验",
     "sheet": "网站端补充",
     "row": "—",
     "source": "公开学术题录与论文摘要（2026-11-03）",
@@ -4631,18 +4646,21 @@
     "hosted_pdfs": [],
     "github": [],
     "links": [
-      "https://doi.org/10.1109/ICASSP.2014.6854094"
+      "https://doi.org/10.1109/ICASSP.2014.6854094",
+      "https://www.researchgate.net/publication/269295027_Robust_transmit_design_for_secure_AF_relay_networks_based_on_worst-case_optimization"
     ],
     "hyperlinks": {
-      "原文来源": "https://doi.org/10.1109/ICASSP.2014.6854094"
+      "原文来源": "https://doi.org/10.1109/ICASSP.2014.6854094",
+      "摘要补充核验来源": "https://www.researchgate.net/publication/269295027_Robust_transmit_design_for_secure_AF_relay_networks_based_on_worst-case_optimization"
     },
     "fields": {
       "日期": "2026-11-03",
       "标题": "Robust transmit design for secure AF relay networks based on worst-case optimization",
-      "内容": "面向安全放大转发中继网络研究最坏情形鲁棒传输。原始摘要未取得，具体误差集和求解方法待核验。",
+      "内容": "针对放大转发中继的安全通信，假设窃听链路 CSI 具有确定性有界误差，在总中继功率及逐中继功率约束下联合设计协作转发与人工干扰，最大化最坏情形保密速率。",
       "原文来源": "https://doi.org/10.1109/ICASSP.2014.6854094",
       "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
-      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "摘要补充核验来源": "https://www.researchgate.net/publication/269295027_Robust_transmit_design_for_secure_AF_relay_networks_based_on_worst-case_optimization"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -4762,7 +4780,7 @@
     "id": "32c0be8cd856f53f",
     "date": "2026-11-03",
     "title": "On Secrecy Capacity of Gaussian Wiretap Channel Aided by A Cooperative Jammer",
-    "status": "题录已核验，摘要待核验",
+    "status": "摘要已核验",
     "sheet": "网站端补充",
     "row": "—",
     "source": "公开学术题录与论文摘要（2026-11-03）",
@@ -4771,18 +4789,21 @@
     "hosted_pdfs": [],
     "github": [],
     "links": [
-      "https://doi.org/10.1109/LSP.2014.2336803"
+      "https://doi.org/10.1109/LSP.2014.2336803",
+      "https://www.researchgate.net/publication/263894647_On_Secrecy_Capacity_of_Gaussian_Wiretap_Channel_Aided_by_A_Cooperative_Jammer"
     ],
     "hyperlinks": {
-      "原文来源": "https://doi.org/10.1109/LSP.2014.2336803"
+      "原文来源": "https://doi.org/10.1109/LSP.2014.2336803",
+      "摘要补充核验来源": "https://www.researchgate.net/publication/263894647_On_Secrecy_Capacity_of_Gaussian_Wiretap_Channel_Aided_by_A_Cooperative_Jammer"
     },
     "fields": {
       "日期": "2026-11-03",
       "标题": "On Secrecy Capacity of Gaussian Wiretap Channel Aided by A Cooperative Jammer",
-      "内容": "探讨协作干扰器辅助的高斯窃听信道保密容量；未取得原始摘要，不推断容量公式与成立条件。",
+      "内容": "研究具有外部协作干扰节点的高斯窃听信道，发送端和合法接收端均为单天线，窃听端和干扰端分别配置多天线。论文分析这些天线配置对保密容量的作用，讨论该信道难以直接获得解析容量表达式的问题。",
       "原文来源": "https://doi.org/10.1109/LSP.2014.2336803",
       "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
-      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "摘要补充核验来源": "https://www.researchgate.net/publication/263894647_On_Secrecy_Capacity_of_Gaussian_Wiretap_Channel_Aided_by_A_Cooperative_Jammer"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -4832,7 +4853,7 @@
     "id": "619e60405f766cf1",
     "date": "2026-11-03",
     "title": "Non-asymptotic analysis of secrecy capacity in massive MIMO system",
-    "status": "题录已核验，摘要待核验",
+    "status": "摘要已核验",
     "sheet": "网站端补充",
     "row": "—",
     "source": "公开学术题录与论文摘要（2026-11-03）",
@@ -4841,18 +4862,21 @@
     "hosted_pdfs": [],
     "github": [],
     "links": [
-      "https://doi.org/10.1109/ICC.2015.7249046"
+      "https://doi.org/10.1109/ICC.2015.7249046",
+      "https://scispace.com/papers/non-asymptotic-analysis-of-secrecy-capacity-in-massive-mimo-2c015vxofm"
     ],
     "hyperlinks": {
-      "原文来源": "https://doi.org/10.1109/ICC.2015.7249046"
+      "原文来源": "https://doi.org/10.1109/ICC.2015.7249046",
+      "摘要补充核验来源": "https://scispace.com/papers/non-asymptotic-analysis-of-secrecy-capacity-in-massive-mimo-2c015vxofm"
     },
     "fields": {
       "日期": "2026-11-03",
       "标题": "Non-asymptotic analysis of secrecy capacity in massive MIMO system",
-      "内容": "研究大规模 MIMO 系统保密容量的非渐近刻画；原始摘要未取得，具体容量界及信道假设待核验。",
+      "内容": "采用非渐近随机矩阵理论的集中测度分析有限天线数量的大规模 MIMO 窃听信道，获得保密容量的概率界与遍历保密容量界，并分析界间隙随合法链路、窃听链路信噪比和发射天线数变化的规律。",
       "原文来源": "https://doi.org/10.1109/ICC.2015.7249046",
       "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
-      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "摘要补充核验来源": "https://scispace.com/papers/non-asymptotic-analysis-of-secrecy-capacity-in-massive-mimo-2c015vxofm"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -5462,7 +5486,7 @@
     "id": "71057433b0f5760b",
     "date": "2026-11-03",
     "title": "Cooperative Secrecy Beamforming in Wiretap Interference Channels",
-    "status": "题录已核验，原摘要待补",
+    "status": "摘要已核验",
     "sheet": "网站端补充",
     "row": "—",
     "source": "论文题录与摘要（2026-11-03）",
@@ -5471,18 +5495,21 @@
     "hosted_pdfs": [],
     "github": [],
     "links": [
-      "https://doi.org/10.1109/LSP.2015.2490602"
+      "https://doi.org/10.1109/LSP.2015.2490602",
+      "https://www.researchgate.net/publication/283798204_Cooperative_Secrecy_Beamforming_in_Wiretap_Interference_Channels"
     ],
     "hyperlinks": {
-      "文献来源": "https://doi.org/10.1109/LSP.2015.2490602"
+      "文献来源": "https://doi.org/10.1109/LSP.2015.2490602",
+      "摘要补充核验来源": "https://www.researchgate.net/publication/283798204_Cooperative_Secrecy_Beamforming_in_Wiretap_Interference_Channels"
     },
     "fields": {
       "日期": "2026-11-03",
       "标题": "Cooperative Secrecy Beamforming in Wiretap Interference Channels",
-      "内容": "研究干扰窃听信道中的协作保密波束成形；原始摘要暂未核验，不推断具体优化模型与数值结果。",
+      "内容": "研究两组发送端—接收端—窃听者构成的同频干扰窃听信道，利用协作波束成形将同频干扰转化为安全资源。作者给出实现保密自由度对 (1,1) 的必要充分条件及闭式波束向量。",
       "文献来源": "https://doi.org/10.1109/LSP.2015.2490602",
       "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
-      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "摘要补充核验来源": "https://www.researchgate.net/publication/283798204_Cooperative_Secrecy_Beamforming_in_Wiretap_Interference_Channels"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -5497,7 +5524,7 @@
     "id": "65b02cbf1f83cc73",
     "date": "2026-11-03",
     "title": "Artificial-noise aided transmit design for outage constrained service integration",
-    "status": "题录已核验，原摘要待补",
+    "status": "摘要已核验",
     "sheet": "网站端补充",
     "row": "—",
     "source": "论文题录与摘要（2026-11-03）",
@@ -5506,18 +5533,21 @@
     "hosted_pdfs": [],
     "github": [],
     "links": [
-      "https://doi.org/10.1109/ICC.2016.7511401"
+      "https://doi.org/10.1109/ICC.2016.7511401",
+      "https://www.researchgate.net/publication/305319763_Artificial-noise_aided_transmit_design_for_outage_constrained_service_integration"
     ],
     "hyperlinks": {
-      "文献来源": "https://doi.org/10.1109/ICC.2016.7511401"
+      "文献来源": "https://doi.org/10.1109/ICC.2016.7511401",
+      "摘要补充核验来源": "https://www.researchgate.net/publication/305319763_Artificial-noise_aided_transmit_design_for_outage_constrained_service_integration"
     },
     "fields": {
       "日期": "2026-11-03",
       "标题": "Artificial-noise aided transmit design for outage constrained service integration",
-      "内容": "研究服务融合场景中人工噪声辅助的中断概率约束传输设计；由于原始摘要未取得，具体方法与约束待补。",
+      "内容": "针对同时传输公共组播消息和机密单播消息的多用户 MISO 系统，考虑非授权接收端的 CSI 不确定性，联合优化组播信号、机密信号及人工噪声协方差，在组播中断概率限制下提高机密消息的中断保密速率。",
       "文献来源": "https://doi.org/10.1109/ICC.2016.7511401",
       "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
-      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "摘要补充核验来源": "https://www.researchgate.net/publication/305319763_Artificial-noise_aided_transmit_design_for_outage_constrained_service_integration"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -5637,7 +5667,7 @@
     "id": "d89b91bbc4ebd32e",
     "date": "2026-11-03",
     "title": "A survey on terahertz communications",
-    "status": "题录已核验，原摘要待补",
+    "status": "摘要已核验",
     "sheet": "网站端补充",
     "row": "—",
     "source": "论文题录与摘要（2026-11-03）",
@@ -5646,18 +5676,21 @@
     "hosted_pdfs": [],
     "github": [],
     "links": [
-      "https://www.semanticscholar.org/paper/614867de2938badb567fc0d513447bb25cb4dfc5"
+      "https://www.semanticscholar.org/paper/614867de2938badb567fc0d513447bb25cb4dfc5",
+      "https://www.scinapse.io/papers/2921466771"
     ],
     "hyperlinks": {
-      "文献来源": "https://www.semanticscholar.org/paper/614867de2938badb567fc0d513447bb25cb4dfc5"
+      "文献来源": "https://www.semanticscholar.org/paper/614867de2938badb567fc0d513447bb25cb4dfc5",
+      "摘要补充核验来源": "https://www.scinapse.io/papers/2921466771"
     },
     "fields": {
       "日期": "2026-11-03",
       "标题": "A survey on terahertz communications",
-      "内容": "综述太赫兹通信的机遇与关键技术。原始摘要暂未核验，因此不推断作者采用的具体分类或未来路线。",
+      "内容": "综述面向后 5G 的太赫兹超宽带通信，梳理太赫兹接收机、调制器及天线的硬件挑战，并讨论传播衰减、信道建模和高增益波束成形等系统关键问题。",
       "文献来源": "https://www.semanticscholar.org/paper/614867de2938badb567fc0d513447bb25cb4dfc5",
       "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
-      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "摘要补充核验来源": "https://www.scinapse.io/papers/2921466771"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -5707,7 +5740,7 @@
     "id": "9308b493532bdc7e",
     "date": "2026-11-03",
     "title": "A Full-Duplex Bob in the MIMO Gaussian Wiretap Channel: Scheme and Performance",
-    "status": "题录已核验，原摘要待补",
+    "status": "摘要已核验",
     "sheet": "网站端补充",
     "row": "—",
     "source": "论文题录与摘要（2026-11-03）",
@@ -5716,18 +5749,21 @@
     "hosted_pdfs": [],
     "github": [],
     "links": [
-      "https://doi.org/10.1109/LSP.2015.2504396"
+      "https://doi.org/10.1109/LSP.2015.2504396",
+      "https://www.researchgate.net/publication/285362652_A_Full-Duplex_Bob_in_the_MIMO_Gaussian_Wiretap_Channel_Scheme_and_Performance"
     ],
     "hyperlinks": {
-      "文献来源": "https://doi.org/10.1109/LSP.2015.2504396"
+      "文献来源": "https://doi.org/10.1109/LSP.2015.2504396",
+      "摘要补充核验来源": "https://www.researchgate.net/publication/285362652_A_Full-Duplex_Bob_in_the_MIMO_Gaussian_Wiretap_Channel_Scheme_and_Performance"
     },
     "fields": {
       "日期": "2026-11-03",
       "标题": "A Full-Duplex Bob in the MIMO Gaussian Wiretap Channel: Scheme and Performance",
-      "内容": "研究 MIMO 高斯窃听信道中全双工 Bob 的保密传输方案及其性能；原始摘要未核实，具体方案条件待补。",
+      "内容": "考虑 MIMO 高斯窃听信道中采用全双工的合法接收端 Bob，将部分接收天线用于发送干扰以削弱窃听端信道。研究高信噪比下的最大可达保密自由度，并比较全双工与半双工接收配置。",
       "文献来源": "https://doi.org/10.1109/LSP.2015.2504396",
       "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
-      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "摘要补充核验来源": "https://www.researchgate.net/publication/285362652_A_Full-Duplex_Bob_in_the_MIMO_Gaussian_Wiretap_Channel_Scheme_and_Performance"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -6237,7 +6273,7 @@
     "id": "cea79dc6619dfc60",
     "date": "2026-11-03",
     "title": "Distributed optimization in fog radio access networks — channel estimation and multi-user detection",
-    "status": "题录已核验，原摘要待补",
+    "status": "摘要已核验",
     "sheet": "网站端补充",
     "row": "—",
     "source": "论文题录与摘要（2026-11-03）",
@@ -6246,18 +6282,21 @@
     "hosted_pdfs": [],
     "github": [],
     "links": [
-      "https://doi.org/10.23919/WIOPT.2018.8362821"
+      "https://doi.org/10.23919/WIOPT.2018.8362821",
+      "https://dl.ifip.org/db/conf/wiopt/wiopt2018/1570420115.pdf"
     ],
     "hyperlinks": {
-      "文献来源": "https://doi.org/10.23919/WIOPT.2018.8362821"
+      "文献来源": "https://doi.org/10.23919/WIOPT.2018.8362821",
+      "摘要补充核验来源": "https://dl.ifip.org/db/conf/wiopt/wiopt2018/1570420115.pdf"
     },
     "fields": {
       "日期": "2026-11-03",
       "标题": "Distributed optimization in fog radio access networks — channel estimation and multi-user detection",
-      "内容": "研究雾无线接入网中的分布式优化、信道估计和多用户检测；原始摘要未获取，具体优化变量与模型条件待核验。",
+      "内容": "针对雾无线接入网的联合信道估计与多用户检测，构造利用用户活动和信号空间结构的混合 ℓ2,1 正则化目标，提出串行及并行块坐标下降求解方案，在雾接入点和云端之间分布式执行。",
       "文献来源": "https://doi.org/10.23919/WIOPT.2018.8362821",
       "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
-      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "摘要补充核验来源": "https://dl.ifip.org/db/conf/wiopt/wiopt2018/1570420115.pdf"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -6342,7 +6381,7 @@
     "id": "8189b64364185394",
     "date": "2026-11-03",
     "title": "An iteratively reweighted method for recovery of block-sparse signal with unknown block partition",
-    "status": "题录已核验，原摘要待补",
+    "status": "摘要已核验",
     "sheet": "网站端补充",
     "row": "—",
     "source": "论文题录与摘要（2026-11-03）",
@@ -6351,18 +6390,21 @@
     "hosted_pdfs": [],
     "github": [],
     "links": [
-      "https://doi.org/10.1109/ICASSP.2016.7472526"
+      "https://doi.org/10.1109/ICASSP.2016.7472526",
+      "https://scispace.com/papers/an-iteratively-reweighted-method-for-recovery-of-block-cfelzi7ekg"
     ],
     "hyperlinks": {
-      "文献来源": "https://doi.org/10.1109/ICASSP.2016.7472526"
+      "文献来源": "https://doi.org/10.1109/ICASSP.2016.7472526",
+      "摘要补充核验来源": "https://scispace.com/papers/an-iteratively-reweighted-method-for-recovery-of-block-cfelzi7ekg"
     },
     "fields": {
       "日期": "2026-11-03",
       "标题": "An iteratively reweighted method for recovery of block-sparse signal with unknown block partition",
-      "内容": "研究未知块划分条件下块稀疏信号的迭代重加权恢复；原始摘要未核实，具体算法权重和理论保证待补。",
+      "内容": "针对未知块划分的块稀疏信号，提出元素重叠对数和惩罚，同时鼓励稀疏性与非零系数成簇。通过逐步最小化凸上界构造迭代重加权最小二乘算法，交替估计信号和权重，并分析局部收敛。",
       "文献来源": "https://doi.org/10.1109/ICASSP.2016.7472526",
       "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
-      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "摘要补充核验来源": "https://scispace.com/papers/an-iteratively-reweighted-method-for-recovery-of-block-cfelzi7ekg"
     },
     "translations": [],
     "full_translation_label": "查看摘要",

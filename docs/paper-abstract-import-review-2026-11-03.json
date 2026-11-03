@@ -2,7 +2,7 @@
   "date": "2026-11-03",
   "source": "文献标题_合并去重.txt",
   "input": 183,
-  "verified_added": 30,
+  "verified_added": 180,
   "existing_manual": [
     39
   ],
@@ -36,5 +36,12 @@
       "corrected_title": "Decoupled Diffusion Models with Explicit Transition Probability"
     }
   ],
-  "total_unique_target": 181
+  "total_unique_target": 181,
+  "newly_added_records": 180,
+  "abstract_missing_titles": [
+    "3GPP channel model developments for 5G NR requirements and testing",
+    "A Novel Cross-Layer Protocol for Random Access in Massive Machine-Type Communications",
+    "面向通信感知一体化的干扰抑制、波形设计和资源优化"
+  ],
+  "abstract_verification_note": "有原始摘要依据的条目采用中文概述；未取得原摘要的记录仅列研究范围，不伪造作者摘要。"
 }

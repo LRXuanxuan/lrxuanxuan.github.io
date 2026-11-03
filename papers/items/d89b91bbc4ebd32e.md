@@ -7,15 +7,16 @@ toc: false
 
 [← 返回论文库](/papers/?paper=d89b91bbc4ebd32e)
 
-**收录范围：** 标题与摘要概述，不制作全文译文或上传 PDF。
+**收录范围：** 英文标题与中文摘要概述，不提供全文译文或上传 PDF。
 
 <a id="paper-summary"></a>
 
-## 研究范围（原始摘要待核验）
+## 摘要（中文概述）
 
-综述太赫兹通信的机遇与关键技术。原始摘要暂未核验，因此不推断作者采用的具体分类或未来路线。
+综述面向后 5G 的太赫兹超宽带通信，梳理太赫兹接收机、调制器及天线的硬件挑战，并讨论传播衰减、信道建模和高增益波束成形等系统关键问题。
 
-**来源：** [查看原始文献](https://www.semanticscholar.org/paper/614867de2938badb567fc0d513447bb25cb4dfc5)
+**文献来源：** [查看原文记录](https://www.semanticscholar.org/paper/614867de2938badb567fc0d513447bb25cb4dfc5)  
+**摘要核验依据：** [查看摘要来源](https://www.scinapse.io/papers/2921466771)
 
 ## 公开代码状态
 
