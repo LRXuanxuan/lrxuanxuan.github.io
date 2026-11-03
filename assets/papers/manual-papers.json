@@ -5142,5 +5142,1340 @@
     "report_entry_url": null,
     "paper_report_url": "",
     "report_section": ""
+  },
+  {
+    "id": "335774e118c4913b",
+    "date": "2026-11-03",
+    "title": "Joint Communication and Control for mmWave/THz Beam Alignment in V2X Networks",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/335774e118c4913b/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/jiot.2021.3126651"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/jiot.2021.3126651"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Joint Communication and Control for mmWave/THz Beam Alignment in V2X Networks",
+      "内容": "针对 V2X 高速移动造成的毫米波/太赫兹窄波束失配，联合设计车辆运动控制、感知和通信策略以维持可靠链路。",
+      "文献来源": "https://doi.org/10.1109/jiot.2021.3126651",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/335774e118c4913b/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "94db2b0cd4d587ea",
+    "date": "2026-11-03",
+    "title": "Improving Wireless Physical Layer Security via Exploiting Co-Channel Interference",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/94db2b0cd4d587ea/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/JSTSP.2016.2600516"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/JSTSP.2016.2600516"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Improving Wireless Physical Layer Security via Exploiting Co-Channel Interference",
+      "内容": "在存在合法干扰链路的 MIMO 窃听网络中，分析如何利用同频干扰提高保密传输自由度，并设计协作式安全传输。",
+      "文献来源": "https://doi.org/10.1109/JSTSP.2016.2600516",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/94db2b0cd4d587ea/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "32fecfbc88c5cb21",
+    "date": "2026-11-03",
+    "title": "Improving THz Transmission Distance for Delay-Sensitive Services via Mobile Computing",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/32fecfbc88c5cb21/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/TVT.2022.3211434"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/TVT.2022.3211434"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Improving THz Transmission Distance for Delay-Sensitive Services via Mobile Computing",
+      "内容": "将太赫兹通信和移动计算协同设计，联合优化任务卸载与频段选择，以在低时延约束下提高有效传输距离。",
+      "文献来源": "https://doi.org/10.1109/TVT.2022.3211434",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/32fecfbc88c5cb21/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "b5db04263655f727",
+    "date": "2026-11-03",
+    "title": "Improving Security of THz Communication with Intelligent Reflecting Surface",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/b5db04263655f727/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/GCWkshps45667.2019.9024636"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/GCWkshps45667.2019.9024636"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Improving Security of THz Communication with Intelligent Reflecting Surface",
+      "内容": "在太赫兹 MISO 窃听信道中引入智能反射面，联合设计发射波束与反射系数，在传播损耗限制下提高保密性能。",
+      "文献来源": "https://doi.org/10.1109/GCWkshps45667.2019.9024636",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/b5db04263655f727/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "6b361b20f3107296",
+    "date": "2026-11-03",
+    "title": "Enhancing THz/mmWave Network Beam Alignment With Integrated Sensing and Communication",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/6b361b20f3107296/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/lcomm.2022.3171291"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/lcomm.2022.3171291"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Enhancing THz/mmWave Network Beam Alignment With Integrated Sensing and Communication",
+      "内容": "利用 ISAC 感知信息辅助毫米波/太赫兹网络波束对齐，减少窄波束在节点移动和环境变化中产生的失配。",
+      "文献来源": "https://doi.org/10.1109/lcomm.2022.3171291",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/6b361b20f3107296/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "1fc3bf4daa962db0",
+    "date": "2026-11-03",
+    "title": "Enhancing Terahertz Communications Coverage with ISAC-Assisted Beam Management",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/1fc3bf4daa962db0/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/MWC.002.2300291"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/MWC.002.2300291"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Enhancing Terahertz Communications Coverage with ISAC-Assisted Beam Management",
+      "内容": "提出 ISAC 辅助太赫兹波束管理，利用感知信息跟踪目标及障碍物，改善高传播损耗与视距遮挡条件下的网络覆盖。",
+      "文献来源": "https://doi.org/10.1109/MWC.002.2300291",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/1fc3bf4daa962db0/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "1421434e50b59e83",
+    "date": "2026-11-03",
+    "title": "Dynamic Pricing for Resource-Quota Sharing in Multi-Access Edge Computing",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/1421434e50b59e83/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/TNSE.2020.3003051"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/TNSE.2020.3003051"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Dynamic Pricing for Resource-Quota Sharing in Multi-Access Edge Computing",
+      "内容": "研究移动边缘计算中的计算资源配额共享，以动态价格机制协调不同用户对剩余资源的买卖与需求变化。",
+      "文献来源": "https://doi.org/10.1109/TNSE.2020.3003051",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/1421434e50b59e83/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "7242132dcba94f7b",
+    "date": "2026-11-03",
+    "title": "Directional Terahertz Radio Map-Assisted Federated Obstacle Sensing",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/7242132dcba94f7b/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/ICASSPW62465.2024.10626572"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/ICASSPW62465.2024.10626572"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Directional Terahertz Radio Map-Assisted Federated Obstacle Sensing",
+      "内容": "联合利用多方向太赫兹接收信号强度地图与联邦学习，在不集中各终端测量数据的情况下推断障碍物分布。",
+      "文献来源": "https://doi.org/10.1109/ICASSPW62465.2024.10626572",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/7242132dcba94f7b/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "b6fa3482afd680ac",
+    "date": "2026-11-03",
+    "title": "Coverage Modeling and Analysis for Outdoor THz Networks With Blockage and Molecular Absorption",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/b6fa3482afd680ac/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/LWC.2021.3056525"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/LWC.2021.3056525"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Coverage Modeling and Analysis for Outdoor THz Networks With Blockage and Molecular Absorption",
+      "内容": "建立室外太赫兹网络覆盖概率模型，综合考虑方向性天线、障碍物遮挡和频率相关分子吸收。",
+      "文献来源": "https://doi.org/10.1109/LWC.2021.3056525",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/b6fa3482afd680ac/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "71057433b0f5760b",
+    "date": "2026-11-03",
+    "title": "Cooperative Secrecy Beamforming in Wiretap Interference Channels",
+    "status": "题录已核验，原摘要待补",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/71057433b0f5760b/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/LSP.2015.2490602"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/LSP.2015.2490602"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Cooperative Secrecy Beamforming in Wiretap Interference Channels",
+      "内容": "研究干扰窃听信道中的协作保密波束成形；原始摘要暂未核验，不推断具体优化模型与数值结果。",
+      "文献来源": "https://doi.org/10.1109/LSP.2015.2490602",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/71057433b0f5760b/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "65b02cbf1f83cc73",
+    "date": "2026-11-03",
+    "title": "Artificial-noise aided transmit design for outage constrained service integration",
+    "status": "题录已核验，原摘要待补",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/65b02cbf1f83cc73/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/ICC.2016.7511401"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/ICC.2016.7511401"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Artificial-noise aided transmit design for outage constrained service integration",
+      "内容": "研究服务融合场景中人工噪声辅助的中断概率约束传输设计；由于原始摘要未取得，具体方法与约束待补。",
+      "文献来源": "https://doi.org/10.1109/ICC.2016.7511401",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/65b02cbf1f83cc73/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "571d62151d784bcc",
+    "date": "2026-11-03",
+    "title": "An Incentive-Aware Job Offloading Control Framework for Multi-Access Edge Computing",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/571d62151d784bcc/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/TMC.2019.2941934"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/TMC.2019.2941934"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "An Incentive-Aware Job Offloading Control Framework for Multi-Access Edge Computing",
+      "内容": "研究多接入边缘计算的任务卸载激励机制，把终端任务延时与物理链路成本纳入定价策略，协调有限计算资源。",
+      "文献来源": "https://doi.org/10.1109/TMC.2019.2941934",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/571d62151d784bcc/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "f5119849f9efe100",
+    "date": "2026-11-03",
+    "title": "An Analytical Range-Angle Dependent Beam Focusing Model for Terahertz Linear Antenna Array",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/f5119849f9efe100/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/LWC.2022.3184926"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/LWC.2022.3184926"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "An Analytical Range-Angle Dependent Beam Focusing Model for Terahertz Linear Antenna Array",
+      "内容": "针对太赫兹线阵近场波束聚焦，推导波束焦域与距离、角度、载频和阵列孔径之间的解析关系。",
+      "文献来源": "https://doi.org/10.1109/LWC.2022.3184926",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/f5119849f9efe100/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "936e489ddd829294",
+    "date": "2026-11-03",
+    "title": "Adaptive Beamwidth Design for High-Mobility Terahertz Joint Radar and Communication Systems",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/936e489ddd829294/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/GCWkshps56602.2022.10008715"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/GCWkshps56602.2022.10008715"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Adaptive Beamwidth Design for High-Mobility Terahertz Joint Radar and Communication Systems",
+      "内容": "面向高速移动的太赫兹雷达通信一体化系统，按用户时变距离和角度自适应调整波束宽度，以兼顾探测与通信。",
+      "文献来源": "https://doi.org/10.1109/GCWkshps56602.2022.10008715",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/936e489ddd829294/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "d89b91bbc4ebd32e",
+    "date": "2026-11-03",
+    "title": "A survey on terahertz communications",
+    "status": "题录已核验，原摘要待补",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/d89b91bbc4ebd32e/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://www.semanticscholar.org/paper/614867de2938badb567fc0d513447bb25cb4dfc5"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://www.semanticscholar.org/paper/614867de2938badb567fc0d513447bb25cb4dfc5"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "A survey on terahertz communications",
+      "内容": "综述太赫兹通信的机遇与关键技术。原始摘要暂未核验，因此不推断作者采用的具体分类或未来路线。",
+      "文献来源": "https://www.semanticscholar.org/paper/614867de2938badb567fc0d513447bb25cb4dfc5",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/d89b91bbc4ebd32e/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "63faa42afd62b997",
+    "date": "2026-11-03",
+    "title": "A Sharing-Economy Inspired Pricing Mechanism for Multi-Access Edge Computing",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/63faa42afd62b997/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/GLOBECOM42002.2020.9322554"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/GLOBECOM42002.2020.9322554"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "A Sharing-Economy Inspired Pricing Mechanism for Multi-Access Edge Computing",
+      "内容": "基于共享经济视角设计 MEC 计算资源定价，使负载不均衡基站之间的资源配置更加灵活，减少闲置配额。",
+      "文献来源": "https://doi.org/10.1109/GLOBECOM42002.2020.9322554",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/63faa42afd62b997/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "9308b493532bdc7e",
+    "date": "2026-11-03",
+    "title": "A Full-Duplex Bob in the MIMO Gaussian Wiretap Channel: Scheme and Performance",
+    "status": "题录已核验，原摘要待补",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/9308b493532bdc7e/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/LSP.2015.2504396"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/LSP.2015.2504396"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "A Full-Duplex Bob in the MIMO Gaussian Wiretap Channel: Scheme and Performance",
+      "内容": "研究 MIMO 高斯窃听信道中全双工 Bob 的保密传输方案及其性能；原始摘要未核实，具体方案条件待补。",
+      "文献来源": "https://doi.org/10.1109/LSP.2015.2504396",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/9308b493532bdc7e/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "013da2ee6affdfbb",
+    "date": "2026-11-03",
+    "title": "A DBO-Based Improved 2D-MUSIC Algorithm for Localization Using OFDM",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/013da2ee6affdfbb/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/WCNC61545.2025.10978288"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/WCNC61545.2025.10978288"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "A DBO-Based Improved 2D-MUSIC Algorithm for Localization Using OFDM",
+      "内容": "将改进的二维 MUSIC 与蜣螂优化（DBO）结合，对 OFDM-ISAC 回波的目标距离和角度开展联合定位。",
+      "文献来源": "https://doi.org/10.1109/WCNC61545.2025.10978288",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/013da2ee6affdfbb/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "87a7ca3486244538",
+    "date": "2026-11-03",
+    "title": "Adaptive power allocation and beamwidth design for terahertz joint radar and communication",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/87a7ca3486244538/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1117/12.2662347"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1117/12.2662347"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Adaptive power allocation and beamwidth design for terahertz joint radar and communication",
+      "内容": "针对太赫兹双功能雷达通信，联合调整发射功率与波束宽度，以降低波束失配对雷达感知和数据传输的损害。",
+      "文献来源": "https://doi.org/10.1117/12.2662347",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/87a7ca3486244538/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "bad34777a0a3f8bd",
+    "date": "2026-11-03",
+    "title": "Let’s Share VMs: Optimal Placement and Pricing across Base Stations in MEC Systems",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/bad34777a0a3f8bd/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/INFOCOM42981.2021.9488854"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/INFOCOM42981.2021.9488854"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Let’s Share VMs: Optimal Placement and Pricing across Base Stations in MEC Systems",
+      "内容": "研究 MEC 基站之间的虚拟机共享、部署和定价，联合决定 VM 在何处配置及向资源需求方收取的费用，改善负载不平衡。",
+      "文献来源": "https://doi.org/10.1109/INFOCOM42981.2021.9488854",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/bad34777a0a3f8bd/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "d106ab3a055b3d0d",
+    "date": "2026-11-03",
+    "title": "Advancing THz Radio Map Construction and Obstacle Sensing: An Integrated Generative Framework in ISAC",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/d106ab3a055b3d0d/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://arxiv.org/abs/2503.23055"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://arxiv.org/abs/2503.23055"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Advancing THz Radio Map Construction and Obstacle Sensing: An Integrated Generative Framework in ISAC",
+      "内容": "提出用于太赫兹 ISAC 的联合生成式框架，使无线电地图构建与障碍物感知相互支持，以利用 RSS 分布推断传播环境。",
+      "文献来源": "https://arxiv.org/abs/2503.23055",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/d106ab3a055b3d0d/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "bcf7f13852f28052",
+    "date": "2026-11-03",
+    "title": "Improving THz Coverage for 6G URLLC Services via Exploiting Mobile Computing",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/bcf7f13852f28052/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://arxiv.org/abs/2105.11834"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://arxiv.org/abs/2105.11834"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Improving THz Coverage for 6G URLLC Services via Exploiting Mobile Computing",
+      "内容": "将太赫兹频谱资源与移动边缘计算卸载联合设计，以改善超可靠低时延业务在高路径损耗条件下的服务覆盖。",
+      "文献来源": "https://arxiv.org/abs/2105.11834",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/bcf7f13852f28052/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "6c7ca11b0810c9d4",
+    "date": "2026-11-03",
+    "title": "High-speed 0.22 THz communication system with 84 Gbps for real-time uncompressed 8K video transmission of live events",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/6c7ca11b0810c9d4/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1038/s41467-024-52370-x"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1038/s41467-024-52370-x"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "High-speed 0.22 THz communication system with 84 Gbps for real-time uncompressed 8K video transmission of live events",
+      "内容": "报告 0.22 THz 通信实验系统，实现 84 Gbps 空中接口速率，并展示用于现场活动的实时无压缩 8K 视频传输。",
+      "文献来源": "https://doi.org/10.1038/s41467-024-52370-x",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/6c7ca11b0810c9d4/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "64dafecd8788acc1",
+    "date": "2026-11-03",
+    "title": "ISAC-Enabled Beam Alignment for Terahertz Networks: Scheme Design and Coverage Analysis",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/64dafecd8788acc1/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/TVT.2024.3441534"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/TVT.2024.3441534"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "ISAC-Enabled Beam Alignment for Terahertz Networks: Scheme Design and Coverage Analysis",
+      "内容": "利用太赫兹感知信息辅助网络波束对齐，联合分析波束设计和网络覆盖概率，缓解窄波束失配和遮挡。",
+      "文献来源": "https://doi.org/10.1109/TVT.2024.3441534",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/64dafecd8788acc1/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "66ade3a10ab39f2e",
+    "date": "2026-11-03",
+    "title": "Two-Way Semantic Communications Without Feedback",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/66ade3a10ab39f2e/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [
+      "https://github.com/KevinKaiwenYu/TW-SemanticComm"
+    ],
+    "links": [
+      "https://doi.org/10.1109/TVT.2024.3352666",
+      "https://github.com/KevinKaiwenYu/TW-SemanticComm"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/TVT.2024.3352666",
+      "公开代码": "https://github.com/KevinKaiwenYu/TW-SemanticComm"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Two-Way Semantic Communications Without Feedback",
+      "内容": "提出不依赖训练过程双向反馈的双向语义通信架构，面向低信噪比机器通信减少语义传输的反馈与训练负担。",
+      "文献来源": "https://doi.org/10.1109/TVT.2024.3352666",
+      "公开代码状态": "已核实公开论文代码：https://github.com/KevinKaiwenYu/TW-SemanticComm；未独立运行。",
+      "代码/数据状态": "已核实公开论文代码：https://github.com/KevinKaiwenYu/TW-SemanticComm；未独立运行。",
+      "公开代码": "https://github.com/KevinKaiwenYu/TW-SemanticComm"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/66ade3a10ab39f2e/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "d96778ff2b90b94f",
+    "date": "2026-11-03",
+    "title": "Toward Massive Connectivity for IoT in Mixed-ADC Distributed Massive MIMO",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/d96778ff2b90b94f/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/JIOT.2019.2957281"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/JIOT.2019.2957281"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Toward Massive Connectivity for IoT in Mixed-ADC Distributed Massive MIMO",
+      "内容": "针对混合 ADC 分布式大规模 MIMO 的物联网海量接入，将终端划分为不同业务负载类别，研究低复杂度接入与检测。",
+      "文献来源": "https://doi.org/10.1109/JIOT.2019.2957281",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/d96778ff2b90b94f/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "326b6acd53cc1f59",
+    "date": "2026-11-03",
+    "title": "Robust Semantic Transmission of Images with Generative Adversarial Networks",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/326b6acd53cc1f59/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/GLOBECOM48099.2022.10000735"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/GLOBECOM48099.2022.10000735"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Robust Semantic Transmission of Images with Generative Adversarial Networks",
+      "内容": "使用 GAN 训练图像语义传输网络，使图像特征编码与信道传输联合适配时变信道，提高图像恢复鲁棒性。",
+      "文献来源": "https://doi.org/10.1109/GLOBECOM48099.2022.10000735",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/326b6acd53cc1f59/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "4c9fbe17a62c50e0",
+    "date": "2026-11-03",
+    "title": "Robust Optimization for Energy Efficiency in Multicast Downlink C-RAN",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/4c9fbe17a62c50e0/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/WCNC.2017.7925529"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/WCNC.2017.7925529"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Robust Optimization for Energy Efficiency in Multicast Downlink C-RAN",
+      "内容": "比较数据共享与压缩两类组播下行 C-RAN 传输，考虑信道不确定性以最坏情形能量效率为目标进行鲁棒资源设计。",
+      "文献来源": "https://doi.org/10.1109/WCNC.2017.7925529",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/4c9fbe17a62c50e0/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "2f233c6832a8f6f7",
+    "date": "2026-11-03",
+    "title": "Partial Sampling-based Semantic Communications for Internet of Things",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/2f233c6832a8f6f7/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/VTC2024-Spring62846.2024.10683541"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/VTC2024-Spring62846.2024.10683541"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Partial Sampling-based Semantic Communications for Internet of Things",
+      "内容": "提出部分采样式物联网语义通信策略，根据数据的任务相关性选择性采样和上传，以减少带宽与边缘计算负担。",
+      "文献来源": "https://doi.org/10.1109/VTC2024-Spring62846.2024.10683541",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/2f233c6832a8f6f7/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "30b67e6981a0f9a5",
+    "date": "2026-11-03",
+    "title": "Learning of Constellation Shaping with Maximum Norms for Terahertz Communication",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/30b67e6981a0f9a5/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/VTC2024-Spring62846.2024.10683271"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/VTC2024-Spring62846.2024.10683271"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Learning of Constellation Shaping with Maximum Norms for Terahertz Communication",
+      "内容": "面向太赫兹硬件相位噪声及 IQ 失衡，利用深度学习优化具有最大范数约束的星座成形，提高非理想收发机性能。",
+      "文献来源": "https://doi.org/10.1109/VTC2024-Spring62846.2024.10683271",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/30b67e6981a0f9a5/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "08612049ddb22be1",
+    "date": "2026-11-03",
+    "title": "Joint Transmission and Understanding of Semantics with Edge Intelligence",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/08612049ddb22be1/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/ICC45041.2023.10279072"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/ICC45041.2023.10279072"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Joint Transmission and Understanding of Semantics with Edge Intelligence",
+      "内容": "在网络边缘联合进行结构化语义传输与语义理解，直接提取用户意图与槽位等机器可用信息以减少云端通信开销。",
+      "文献来源": "https://doi.org/10.1109/ICC45041.2023.10279072",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/08612049ddb22be1/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "cea79dc6619dfc60",
+    "date": "2026-11-03",
+    "title": "Distributed optimization in fog radio access networks — channel estimation and multi-user detection",
+    "status": "题录已核验，原摘要待补",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/cea79dc6619dfc60/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.23919/WIOPT.2018.8362821"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.23919/WIOPT.2018.8362821"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Distributed optimization in fog radio access networks — channel estimation and multi-user detection",
+      "内容": "研究雾无线接入网中的分布式优化、信道估计和多用户检测；原始摘要未获取，具体优化变量与模型条件待核验。",
+      "文献来源": "https://doi.org/10.23919/WIOPT.2018.8362821",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/cea79dc6619dfc60/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "fee9f6f4c9129bd6",
+    "date": "2026-11-03",
+    "title": "Compressive Channel Estimation and User Activity Detection in Distributed-Input Distributed-Output Systems",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/fee9f6f4c9129bd6/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/LCOMM.2018.2858241"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/LCOMM.2018.2858241"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Compressive Channel Estimation and User Activity Detection in Distributed-Input Distributed-Output Systems",
+      "内容": "针对分布式输入输出架构中的海量机器通信，联合利用用户活动稀疏性和信道结构，采用压缩感知进行信道估计与活动检测。",
+      "文献来源": "https://doi.org/10.1109/LCOMM.2018.2858241",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/fee9f6f4c9129bd6/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "e19affc6dceb802d",
+    "date": "2026-11-03",
+    "title": "Compressive channel estimation and multi-user detection in C-RAN",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/e19affc6dceb802d/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/ICC.2017.7996388"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/ICC.2017.7996388"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Compressive channel estimation and multi-user detection in C-RAN",
+      "内容": "利用 C-RAN 中活跃用户的群稀疏性，设计混合范数正则化的压缩感知模型，联合求解信道估计与多用户检测。",
+      "文献来源": "https://doi.org/10.1109/ICC.2017.7996388",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/e19affc6dceb802d/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "8189b64364185394",
+    "date": "2026-11-03",
+    "title": "An iteratively reweighted method for recovery of block-sparse signal with unknown block partition",
+    "status": "题录已核验，原摘要待补",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/8189b64364185394/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/ICASSP.2016.7472526"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/ICASSP.2016.7472526"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "An iteratively reweighted method for recovery of block-sparse signal with unknown block partition",
+      "内容": "研究未知块划分条件下块稀疏信号的迭代重加权恢复；原始摘要未核实，具体算法权重和理论保证待补。",
+      "文献来源": "https://doi.org/10.1109/ICASSP.2016.7472526",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/8189b64364185394/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "6d8fa493a29665cf",
+    "date": "2026-11-03",
+    "title": "A Weighted MMSE Approach to Amorphous Cell for Mixed-ADC Distributed Massive MIMO",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/6d8fa493a29665cf/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/ACSSC.2018.8645097"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/ACSSC.2018.8645097"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "A Weighted MMSE Approach to Amorphous Cell for Mixed-ADC Distributed Massive MIMO",
+      "内容": "针对混合 ADC 的分布式大规模 MIMO 接入阶段，研究基于加权 MMSE 的低复杂度协作检测方案。",
+      "文献来源": "https://doi.org/10.1109/ACSSC.2018.8645097",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/6d8fa493a29665cf/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "9c939de588768de3",
+    "date": "2026-11-03",
+    "title": "A Novel Cross-Layer Protocol for Random Access in Massive Machine-Type Communications",
+    "status": "题录已核验，原摘要待补",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/9c939de588768de3/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/ICCW.2018.8403603"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/ICCW.2018.8403603"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "A Novel Cross-Layer Protocol for Random Access in Massive Machine-Type Communications",
+      "内容": "探讨海量机器型通信的跨层随机接入协议；原始摘要未取得，暂不推断具体碰撞控制与性能数字。",
+      "文献来源": "https://doi.org/10.1109/ICCW.2018.8403603",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/9c939de588768de3/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "190994153949f886",
+    "date": "2026-11-03",
+    "title": "A Low-Complexity Transceiver Design for Terahertz Communication based on Deep Learning",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文题录与摘要（2026-11-03）",
+    "paper_url": "/papers/items/190994153949f886/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/iccworkshops53468.2022.9814636"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/iccworkshops53468.2022.9814636"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "A Low-Complexity Transceiver Design for Terahertz Communication based on Deep Learning",
+      "内容": "在太赫兹信道和硬件响应难以精确建模的条件下，利用深度学习从实测信号拟合收发机非理想特性，并设计低复杂度传输方案。",
+      "文献来源": "https://doi.org/10.1109/iccworkshops53468.2022.9814636",
+      "公开代码状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。",
+      "代码/数据状态": "本次尚未确认与该论文直接对应的公开代码；不能因此认定作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/190994153949f886/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
   }
 ]
