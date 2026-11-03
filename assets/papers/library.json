@@ -1,11 +1,11 @@
 {
   "schema_version": 2,
   "source": "每日论文推荐.xlsx",
-  "source_sha256": "824f86fc009cb85c6dd4f53f2697331161f6be8fb8a7b191e6350bcaae3e10d8",
+  "source_sha256": "1141a6d6f666d93781aaa767b8f80235dda953e93ef5ec9f9d120640c8bc6c7a",
   "translation_progress": {
     "target": 315,
-    "completed": 260,
-    "public_full_text": 252,
+    "completed": 271,
+    "public_full_text": 264,
     "local_only": 12,
     "status_counts": {
       "access_blocked": 3,
@@ -23,7 +23,7 @@
   "sheets": [
     {
       "name": "每日论文推荐",
-      "count": 430,
+      "count": 435,
       "headers": [
         "日期",
         "标题",
@@ -45,8 +45,9 @@
       ]
     }
   ],
-  "total": 430,
+  "total": 435,
   "dates": {
+    "2026-11-04": 5,
     "2026-11-03": 5,
     "2026-11-02": 5,
     "2026-11-01": 5,
@@ -107,8 +108,258 @@
     "2026-07-12": 5,
     "2026-07-11": 5
   },
-  "latest_date": "2026-11-03",
+  "latest_date": "2026-11-04",
   "papers": [
+    {
+      "id": "04fa65dc9dd5428c",
+      "date": "2026-11-04",
+      "title": "AFDM Channel Parameter Estimation: Exploiting its Shift Properties and Input-Output Relationship",
+      "sheet": "每日论文推荐",
+      "row": 436,
+      "fields": {
+        "日期": "2026-11-04",
+        "标题": "AFDM Channel Parameter Estimation: Exploiting its Shift Properties and Input-Output Relationship",
+        "内容": "作者：Jialiang Zhu; Zeping Sui; Zilong Liu; Arman Farhang。问题：AFDM整数延迟/分数Doppler联合估计通常依赖大字典或较高导频开销。 方法：利用时域与仿射域移位建立两个线性方程估整数延迟/Doppler，再用冲激导频泄漏估分数Doppler，逐径SIC。 结果：§VI设N1024、4-QAM、三径、lmax5/νmax2与完美同步；对应字典分辨率下复乘数约比峰值搜索/OMP少300/800倍；SNR>15dB参数及信道NMSE较好。 局限：低SNR弱径峰值漏检，参数NMSE有明确惩罚规则；300/800倍是特定字典配置复乘数，不是运行时间或任意MIMO加速。SISO/少径与完美同步模型不直接覆盖CFO/大阵列/稠密散射；补全摘要截断以全文为准。",
+        "契合方向": "高速移动；AFDM；分数Doppler；低复杂度估计",
+        "推荐理由": "提供独立的物理参数基线，避免把生成先验误认为解决Doppler可辨识性的唯一来源。",
+        "顶刊顶会/机构依据": "arXiv预印本；未确认正式venue；预印本/状态未确认；官方arXiv记录与所读PDF未提供可确认录用的公开声明；排版模板不作录用证据。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2610.11758",
+        "检索来源": "https://arxiv.org/abs/2610.11758",
+        "筛选备注": "理论启发或基线；高速移动后续独立课题基线：先复现冲激导频+分数Doppler模型，再研究CKM角延迟/路径先验引导峰值候选，保留传统OMP与参数估计对照。；移位关系与估计式、§V复杂度、§VI/Figs2–6",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；已查官方页面及全文实现链接，精确标题与arXiv ID检索未发现可确认的作者实现；GitHub连接器拒绝repository search端点，公开API与网页搜索的覆盖边界见审计记录；不是证明代码不存在。证据：https://arxiv.org/abs/2610.11758；https://github.com/search?q=2610.11758&type=repositories",
+        "反馈匹配": "相对已有CKM/flow恢复，研究的是波形移位与参数可辨识，不需要生成网络；不是对未来CSI预测的证据。",
+        "反馈权重说明": "独立机制；事实/迁移推断/待验证假设分开；同预算配对，不预设提升。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-11-04/",
+      "report_section": "## 5. AFDM Channel Parameter Estimation: Exploiting its Shift Properties and Input-Output Relationship\n\n**作者/年份/venue**：Jialiang Zhu; Zeping Sui; Zilong Liu; Arman Farhang；2026；arXiv预印本；未确认正式venue。\n\n**发表状态及证据**：预印本/状态未确认。官方arXiv记录与所读PDF未提供可确认录用的公开声明；排版模板不作录用证据。\n\n**方向**：高速移动；AFDM；分数Doppler；低复杂度估计\n\n**问题**：AFDM整数延迟/分数Doppler联合估计通常依赖大字典或较高导频开销。\n\n**论文方法**：利用时域与仿射域移位建立两个线性方程估整数延迟/Doppler，再用冲激导频泄漏估分数Doppler，逐径SIC。\n\n**论文结果**：§VI设N1024、4-QAM、三径、lmax5/νmax2与完美同步；对应字典分辨率下复乘数约比峰值搜索/OMP少300/800倍；SNR>15dB参数及信道NMSE较好。\n\n**局限与审计判断**：低SNR弱径峰值漏检，参数NMSE有明确惩罚规则；300/800倍是特定字典配置复乘数，不是运行时间或任意MIMO加速。SISO/少径与完美同步模型不直接覆盖CFO/大阵列/稠密散射；补全摘要截断以全文为准。\n\n**迁移类型**：理论启发或基线\n\n**研究接口（迁移推断）**：高速移动后续独立课题基线：先复现冲激导频+分数Doppler模型，再研究CKM角延迟/路径先验引导峰值候选，保留传统OMP与参数估计对照。\n\n**与既有阅读差异**：相对已有CKM/flow恢复，研究的是波形移位与参数可辨识，不需要生成网络；不是对未来CSI预测的证据。\n\n**推荐理由**：提供独立的物理参数基线，避免把生成先验误认为解决Doppler可辨识性的唯一来源。\n\n**代码状态**：未发现公开代码\n\n**代码证据**：已查官方页面及全文实现链接，精确标题与arXiv ID检索未发现可确认的作者实现；GitHub连接器拒绝repository search端点，公开API与网页搜索的覆盖边界见审计记录；不是证明代码不存在。证据：https://arxiv.org/abs/2610.11758；https://github.com/search?q=2610.11758&type=repositories\n\n**全文定位**：移位关系与估计式、§V复杂度、§VI/Figs2–6\n\n**身份与版本**：arXiv:2610.11758；DOI 10.48550/arXiv.2610.11758；Submission history From: Jialiang Zhu [ view email ] [v1] Thu, 8 Oct 2026 11:43:27 UTC (123 KB)\n\n[官方页面](https://arxiv.org/abs/2610.11758)；[官方PDF](https://arxiv.org/pdf/2610.11758)；[原文PDF](https://arxiv.org/pdf/2610.11758)。完整PDF可访问，共7页。\n\n[本篇全文翻译/状态](https://lrxuanxuan.github.io/papers/items/04fa65dc9dd5428c/#paper-translation)：job `a1367e1c8aae5cc35f53e066`已入队，gpt-6-luna/xhigh；原worker找不到会话，未启动。\n\n[原文许可](https://creativecommons.org/licenses/by/4.0/)：允许验收完成、保留归属/许可/翻译说明后的译文分享。PDF只保留本地与官方链接。",
+      "report_entry_url": "/papers/reports/2026-11-04/#paper-04fa65dc9dd5428c",
+      "paper_url": "/papers/items/04fa65dc9dd5428c/",
+      "paper_report_url": "/papers/items/04fa65dc9dd5428c/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2610.11758",
+        "https://arxiv.org/abs/2610.11758",
+        "https://github.com/search?q=2610.11758&type=repositories",
+        "https://lrxuanxuan.github.io/papers/items/04fa65dc9dd5428c/#paper-translation)：job",
+        "https://creativecommons.org/licenses/by/4.0/)：允许验收完成、保留归属/许可/翻译说明后的译文分享"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2610.11758"
+      ],
+      "hosted_pdfs": [],
+      "status": "预印本/状态未确认",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/04fa65dc9dd5428c/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "aa0a8273e3a452db",
+      "date": "2026-11-04",
+      "title": "P-Flow: Proxy-gradient Flows for Linear Inverse Problems",
+      "sheet": "每日论文推荐",
+      "row": 435,
+      "fields": {
+        "日期": "2026-11-04",
+        "标题": "P-Flow: Proxy-gradient Flows for Linear Inverse Problems",
+        "内容": "作者：Zehua Jiang; Fenghao Zhu; Xinquan Wang; Chongwen Huang; Zhaoyang Zhang。问题：源噪声优化穿过完整ODE的长Jacobian链，反传内存与数值代价较高。 方法：完整flow前向生成后，用数据空间梯度的标量代理更新同维源变量，再投影到半径sqrt(d)球面，避开整段ODE反传。 结果：Table1 FFHQ超分PSNR27.64dB，对照PnP-Flow24.58；但去模糊28.07低于DiffPIR29.41。Table2 AFHQ随机补全32.73低于PnP-Flow33.90；不能称全面领先。 局限：近直线轨迹不推出logdet常数或Jacobian为标量；用近似丢掉logdet须另验证。固定半径球面是Gaussian典型集启发，径向分布已改变，不是精确Gaussian/后验保证。每次外迭代仍需完整ODE前向，不能只统计外循环。",
+        "契合方向": "Flow逆问题；源空间优化；代理梯度",
+        "推荐理由": "为固定flow先验下减少反向传播提供明确工具，也便于实测梯度偏差。",
+        "顶刊顶会/机构依据": "arXiv预印本；未确认正式venue；预印本/状态未确认；官方arXiv记录与所读PDF未提供可确认录用的公开声明；排版模板不作录用证据。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2605.08328",
+        "检索来源": "https://arxiv.org/abs/2605.08328",
+        "筛选备注": "可改造工具；独立求解分支：与同一flow的精确源梯度、代理源梯度配对，使用相同导频/先验与总NFE，报告显存、耗时、可观测/零空间误差。；Eq9–16、§3.2、Tables1–2、AppendixC球面消融",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；已查官方页面及全文实现链接，精确标题与arXiv ID检索未发现可确认的作者实现；GitHub连接器拒绝repository search端点，公开API与网页搜索的覆盖边界见审计记录；不是证明代码不存在。证据：https://arxiv.org/abs/2605.08328；https://github.com/search?q=2605.08328&type=repositories",
+        "反馈匹配": "相对HP改变的是源空间梯度而不是时间调度；相对D-Flow-SGLD不以探索后验多样性为主要保证。",
+        "反馈权重说明": "独立机制；事实/迁移推断/待验证假设分开；同预算配对，不预设提升。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-11-04/",
+      "report_section": "## 4. P-Flow: Proxy-gradient Flows for Linear Inverse Problems\n\n**作者/年份/venue**：Zehua Jiang; Fenghao Zhu; Xinquan Wang; Chongwen Huang; Zhaoyang Zhang；2026；arXiv预印本；未确认正式venue。\n\n**发表状态及证据**：预印本/状态未确认。官方arXiv记录与所读PDF未提供可确认录用的公开声明；排版模板不作录用证据。\n\n**方向**：Flow逆问题；源空间优化；代理梯度\n\n**问题**：源噪声优化穿过完整ODE的长Jacobian链，反传内存与数值代价较高。\n\n**论文方法**：完整flow前向生成后，用数据空间梯度的标量代理更新同维源变量，再投影到半径sqrt(d)球面，避开整段ODE反传。\n\n**论文结果**：Table1 FFHQ超分PSNR27.64dB，对照PnP-Flow24.58；但去模糊28.07低于DiffPIR29.41。Table2 AFHQ随机补全32.73低于PnP-Flow33.90；不能称全面领先。\n\n**局限与审计判断**：近直线轨迹不推出logdet常数或Jacobian为标量；用近似丢掉logdet须另验证。固定半径球面是Gaussian典型集启发，径向分布已改变，不是精确Gaussian/后验保证。每次外迭代仍需完整ODE前向，不能只统计外循环。\n\n**迁移类型**：可改造工具\n\n**研究接口（迁移推断）**：独立求解分支：与同一flow的精确源梯度、代理源梯度配对，使用相同导频/先验与总NFE，报告显存、耗时、可观测/零空间误差。\n\n**与既有阅读差异**：相对HP改变的是源空间梯度而不是时间调度；相对D-Flow-SGLD不以探索后验多样性为主要保证。\n\n**推荐理由**：为固定flow先验下减少反向传播提供明确工具，也便于实测梯度偏差。\n\n**代码状态**：未发现公开代码\n\n**代码证据**：已查官方页面及全文实现链接，精确标题与arXiv ID检索未发现可确认的作者实现；GitHub连接器拒绝repository search端点，公开API与网页搜索的覆盖边界见审计记录；不是证明代码不存在。证据：https://arxiv.org/abs/2605.08328；https://github.com/search?q=2605.08328&type=repositories\n\n**全文定位**：Eq9–16、§3.2、Tables1–2、AppendixC球面消融\n\n**身份与版本**：arXiv:2605.08328；DOI 10.48550/arXiv.2605.08328；Submission history From: Zehua Jiang [ view email ] [v1] Fri, 8 May 2026 17:07:36 UTC (18,810 KB) [v2] Tue, 12 May 2026 06:13:53 UTC (18,809 KB) [v3] Fri, 31 Jul 2026 10:43:18 UTC (18,809 KB)\n\n[官方页面](https://arxiv.org/abs/2605.08328)；[官方PDF](https://arxiv.org/pdf/2605.08328)；[原文PDF](https://arxiv.org/pdf/2605.08328)。完整PDF可访问，共24页。\n\n[本篇全文翻译/状态](https://lrxuanxuan.github.io/papers/items/aa0a8273e3a452db/#paper-translation)：job `3b6f5fc50ee46612fea615b7`已入队，gpt-6-luna/xhigh；原worker找不到会话，未启动。\n\n[原文许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：公开译文许可未确认，先保留本地。PDF只保留本地与官方链接。",
+      "report_entry_url": "/papers/reports/2026-11-04/#paper-aa0a8273e3a452db",
+      "paper_url": "/papers/items/aa0a8273e3a452db/",
+      "paper_report_url": "/papers/items/aa0a8273e3a452db/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2605.08328",
+        "https://arxiv.org/abs/2605.08328",
+        "https://github.com/search?q=2605.08328&type=repositories",
+        "https://lrxuanxuan.github.io/papers/items/aa0a8273e3a452db/#paper-translation)：job",
+        "https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：公开译文许可未确认"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2605.08328"
+      ],
+      "hosted_pdfs": [],
+      "status": "预印本/状态未确认",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/aa0a8273e3a452db/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "a4af8916bad0d6c0",
+      "date": "2026-11-04",
+      "title": "HP-PnP-Flow: Hybrid Time Scheduling and Projection for Plug-and-Play Image Restoration via Flow Matching",
+      "sheet": "每日论文推荐",
+      "row": 434,
+      "fields": {
+        "日期": "2026-11-04",
+        "标题": "HP-PnP-Flow: Hybrid Time Scheduling and Projection for Plug-and-Play Image Restoration via Flow Matching",
+        "内容": "作者：Yong Li; Xiaojie Wang; Xiaoyan Zhang。问题：原PnP-Flow有限线性调度与可和尾项条件存在距离，迭代有界性也需明确保证。 方法：几何段+线性段调度，正初始时间偏移，去噪后投影至[-1,1]^d；证明预算族的尾项界与终端输出收敛。 结果：CelebA/AFHQ-Cat各100图、五种退化实验；作者报告AFHQ-Cat去模糊与超分可由500降到100次迭代保持可比或更好质量。该数字是指定任务迭代数，不等于所有任务5倍端到端加速。 局限：Theorem3.3要求连续向量场、C1保真、有界支撑基分布及跨预算相同初值/噪声序列；Gaussian基分布不满足有界支撑。结论是输出收敛，不是MAP驻点/全局最优/精确后验；图像像素裁剪不能直接搬到无界复信道。",
+        "契合方向": "PnP-Flow；混合时间调度；有界投影",
+        "推荐理由": "可用最小改动检验现有PnP-Flow的调度敏感性与稳定性。",
+        "顶刊顶会/机构依据": "arXiv预印本；未确认正式venue；预印本/状态未确认；官方arXiv记录与所读PDF未提供可确认录用的公开声明；排版模板不作录用证据。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2610.26183",
+        "检索来源": "https://arxiv.org/abs/2610.26183",
+        "筛选备注": "可改造工具；可改造solver基线；将复信道实化后须单独定义有物理依据的能量约束，先做调度和投影独立消融；不改会议稿既有结论。；Eq3.1/3.3–3.5、Proposition3.1、Theorem3.3、Tables1–3",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；已查官方页面及全文实现链接，精确标题与arXiv ID检索未发现可确认的作者实现；GitHub连接器拒绝repository search端点，公开API与网页搜索的覆盖边界见审计记录；不是证明代码不存在。证据：https://arxiv.org/abs/2610.26183；https://github.com/search?q=2610.26183&type=repositories",
+        "反馈匹配": "与已有PnP-Flow差异集中在调度、初始偏移和投影，不是新条件先验；相对S3不训练score。",
+        "反馈权重说明": "独立机制；事实/迁移推断/待验证假设分开；同预算配对，不预设提升。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-11-04/",
+      "report_section": "## 3. HP-PnP-Flow: Hybrid Time Scheduling and Projection for Plug-and-Play Image Restoration via Flow Matching\n\n**作者/年份/venue**：Yong Li; Xiaojie Wang; Xiaoyan Zhang；2026；arXiv预印本；未确认正式venue。\n\n**发表状态及证据**：预印本/状态未确认。官方arXiv记录与所读PDF未提供可确认录用的公开声明；排版模板不作录用证据。\n\n**方向**：PnP-Flow；混合时间调度；有界投影\n\n**问题**：原PnP-Flow有限线性调度与可和尾项条件存在距离，迭代有界性也需明确保证。\n\n**论文方法**：几何段+线性段调度，正初始时间偏移，去噪后投影至[-1,1]^d；证明预算族的尾项界与终端输出收敛。\n\n**论文结果**：CelebA/AFHQ-Cat各100图、五种退化实验；作者报告AFHQ-Cat去模糊与超分可由500降到100次迭代保持可比或更好质量。该数字是指定任务迭代数，不等于所有任务5倍端到端加速。\n\n**局限与审计判断**：Theorem3.3要求连续向量场、C1保真、有界支撑基分布及跨预算相同初值/噪声序列；Gaussian基分布不满足有界支撑。结论是输出收敛，不是MAP驻点/全局最优/精确后验；图像像素裁剪不能直接搬到无界复信道。\n\n**迁移类型**：可改造工具\n\n**研究接口（迁移推断）**：可改造solver基线；将复信道实化后须单独定义有物理依据的能量约束，先做调度和投影独立消融；不改会议稿既有结论。\n\n**与既有阅读差异**：与已有PnP-Flow差异集中在调度、初始偏移和投影，不是新条件先验；相对S3不训练score。\n\n**推荐理由**：可用最小改动检验现有PnP-Flow的调度敏感性与稳定性。\n\n**代码状态**：未发现公开代码\n\n**代码证据**：已查官方页面及全文实现链接，精确标题与arXiv ID检索未发现可确认的作者实现；GitHub连接器拒绝repository search端点，公开API与网页搜索的覆盖边界见审计记录；不是证明代码不存在。证据：https://arxiv.org/abs/2610.26183；https://github.com/search?q=2610.26183&type=repositories\n\n**全文定位**：Eq3.1/3.3–3.5、Proposition3.1、Theorem3.3、Tables1–3\n\n**身份与版本**：arXiv:2610.26183；DOI 10.48550/arXiv.2610.26183；Submission history From: Xiaoyan Zhang [ view email ] [v1] Mon, 19 Oct 2026 11:15:11 UTC (29,586 KB) [v2] Mon, 2 Nov 2026 13:23:01 UTC (29,595 KB)\n\n[官方页面](https://arxiv.org/abs/2610.26183)；[官方PDF](https://arxiv.org/pdf/2610.26183)；[原文PDF](https://arxiv.org/pdf/2610.26183)。完整PDF可访问，共30页。\n\n[本篇全文翻译/状态](https://lrxuanxuan.github.io/papers/items/a4af8916bad0d6c0/#paper-translation)：job `f8ce10ddbda3cf9953d5ac12`已入队，gpt-6-luna/xhigh；原worker找不到会话，未启动。\n\n[原文许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：公开译文许可未确认，先保留本地。PDF只保留本地与官方链接。",
+      "report_entry_url": "/papers/reports/2026-11-04/#paper-a4af8916bad0d6c0",
+      "paper_url": "/papers/items/a4af8916bad0d6c0/",
+      "paper_report_url": "/papers/items/a4af8916bad0d6c0/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2610.26183",
+        "https://arxiv.org/abs/2610.26183",
+        "https://github.com/search?q=2610.26183&type=repositories",
+        "https://lrxuanxuan.github.io/papers/items/a4af8916bad0d6c0/#paper-translation)：job",
+        "https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：公开译文许可未确认"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2610.26183"
+      ],
+      "hosted_pdfs": [],
+      "status": "预印本/状态未确认",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/a4af8916bad0d6c0/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "1c24c652f66fb3a3",
+      "date": "2026-11-04",
+      "title": "$\\mathrm{S}^3$-PnP: Plug-and-Play Denoising for Scientific Imaging with Self-Supervised Score Priors",
+      "sheet": "每日论文推荐",
+      "row": 433,
+      "fields": {
+        "日期": "2026-11-04",
+        "标题": "$\\mathrm{S}^3$-PnP: Plug-and-Play Denoising for Scientific Imaging with Self-Supervised Score Priors",
+        "内容": "作者：Yukun Cui; Jiangshe Zhang; Shuang Xu; Lilun Deng; Haowen Bai; Tao Feng; Haotong Qin; Konrad Schindler; Zixiang Zhao。问题：目标域失配之外，ADMM含dual反馈的去噪输入也不等于score训练的加性Gaussian输入。 方法：从观测生成的ADMM中间状态在测试时训练score，在解析先验更新之前修正输入；互补正交子空间分别学习与控制校正。 结果：Table2青浦HSI Gaussian/mixed平均PSNR40.47/37.88dB，对照CF-INR40.32/35.86；Table3 M4Raw FLAIR为32.83dB，低于C2S33.02，不能说所有条件均胜。 局限：Theorem1依赖理想score、固定算子、H正定二次保真及r_H(1+2βL)<1；误差改善还有额外不等式，不保证实际训练score或稀疏导频秩亏保真下成立；测试时训练开销必须计入。Hipandas/M4Raw链接分别为数据/基线，非本论文实现。",
+        "契合方向": "ADMM输入失配；自监督score；解析正则",
+        "推荐理由": "与当前dual输入分布及先验失配直接相关，可为解释solver输入统计提供更具体的对照。",
+        "顶刊顶会/机构依据": "arXiv预印本；未确认正式venue；预印本/状态未确认；官方arXiv记录与所读PDF未提供可确认录用的公开声明；排版模板不作录用证据。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2610.18458",
+        "检索来源": "https://arxiv.org/abs/2610.18458",
+        "筛选备注": "可改造工具；期刊扩展候选：先收集固定FlowADMM的H更新+dual输入残差统计，再研究自监督校正；不是直接增加一个网络即可保证收益。；§3 Eq2/6、Theorem1与Appendix A.2；Tables1–3/16",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；已查官方页面及全文实现链接，精确标题与arXiv ID检索未发现可确认的作者实现；GitHub连接器拒绝repository search端点，公开API与网页搜索的覆盖边界见审计记录；不是证明代码不存在。证据：https://arxiv.org/abs/2610.18458；https://github.com/search?q=2610.18458&type=repositories",
+        "反馈匹配": "相对外部预训练diffusion/PnP，改变的是训练样本来源与解析先验输入，须独立于更换solver进行归因。",
+        "反馈权重说明": "独立机制；事实/迁移推断/待验证假设分开；同预算配对，不预设提升。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-11-04/",
+      "report_section": "## 2. $\\mathrm{S}^3$-PnP: Plug-and-Play Denoising for Scientific Imaging with Self-Supervised Score Priors\n\n**作者/年份/venue**：Yukun Cui; Jiangshe Zhang; Shuang Xu; Lilun Deng; Haowen Bai; Tao Feng; Haotong Qin; Konrad Schindler; Zixiang Zhao；2026；arXiv预印本；未确认正式venue。\n\n**发表状态及证据**：预印本/状态未确认。官方arXiv记录与所读PDF未提供可确认录用的公开声明；排版模板不作录用证据。\n\n**方向**：ADMM输入失配；自监督score；解析正则\n\n**问题**：目标域失配之外，ADMM含dual反馈的去噪输入也不等于score训练的加性Gaussian输入。\n\n**论文方法**：从观测生成的ADMM中间状态在测试时训练score，在解析先验更新之前修正输入；互补正交子空间分别学习与控制校正。\n\n**论文结果**：Table2青浦HSI Gaussian/mixed平均PSNR40.47/37.88dB，对照CF-INR40.32/35.86；Table3 M4Raw FLAIR为32.83dB，低于C2S33.02，不能说所有条件均胜。\n\n**局限与审计判断**：Theorem1依赖理想score、固定算子、H正定二次保真及r_H(1+2βL)<1；误差改善还有额外不等式，不保证实际训练score或稀疏导频秩亏保真下成立；测试时训练开销必须计入。Hipandas/M4Raw链接分别为数据/基线，非本论文实现。\n\n**迁移类型**：可改造工具\n\n**研究接口（迁移推断）**：期刊扩展候选：先收集固定FlowADMM的H更新+dual输入残差统计，再研究自监督校正；不是直接增加一个网络即可保证收益。\n\n**与既有阅读差异**：相对外部预训练diffusion/PnP，改变的是训练样本来源与解析先验输入，须独立于更换solver进行归因。\n\n**推荐理由**：与当前dual输入分布及先验失配直接相关，可为解释solver输入统计提供更具体的对照。\n\n**代码状态**：未发现公开代码\n\n**代码证据**：已查官方页面及全文实现链接，精确标题与arXiv ID检索未发现可确认的作者实现；GitHub连接器拒绝repository search端点，公开API与网页搜索的覆盖边界见审计记录；不是证明代码不存在。证据：https://arxiv.org/abs/2610.18458；https://github.com/search?q=2610.18458&type=repositories\n\n**全文定位**：§3 Eq2/6、Theorem1与Appendix A.2；Tables1–3/16\n\n**身份与版本**：arXiv:2610.18458；DOI 10.48550/arXiv.2610.18458；Submission history From: Yukun Cui [ view email ] [v1] Tue, 13 Oct 2026 14:26:37 UTC (4,772 KB)\n\n[官方页面](https://arxiv.org/abs/2610.18458)；[官方PDF](https://arxiv.org/pdf/2610.18458)；[原文PDF](https://arxiv.org/pdf/2610.18458)。完整PDF可访问，共31页。\n\n[本篇全文翻译/状态](https://lrxuanxuan.github.io/papers/items/1c24c652f66fb3a3/#paper-translation)：job `cb41816fa93f40b143a7c474`已入队，gpt-6-luna/xhigh；原worker找不到会话，未启动。\n\n[原文许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：公开译文许可未确认，先保留本地。PDF只保留本地与官方链接。",
+      "report_entry_url": "/papers/reports/2026-11-04/#paper-1c24c652f66fb3a3",
+      "paper_url": "/papers/items/1c24c652f66fb3a3/",
+      "paper_report_url": "/papers/items/1c24c652f66fb3a3/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2610.18458",
+        "https://arxiv.org/abs/2610.18458",
+        "https://github.com/search?q=2610.18458&type=repositories",
+        "https://lrxuanxuan.github.io/papers/items/1c24c652f66fb3a3/#paper-translation)：job",
+        "https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：公开译文许可未确认"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2610.18458"
+      ],
+      "hosted_pdfs": [],
+      "status": "预印本/状态未确认",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/1c24c652f66fb3a3/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "948f4c96a3e26dd6",
+      "date": "2026-11-04",
+      "title": "INLA for Adaptive UAV Sampling of Radio Environment Maps in IoT Networks: Prior Width Governs Accuracy and Calibration",
+      "sheet": "每日论文推荐",
+      "row": 432,
+      "fields": {
+        "日期": "2026-11-04",
+        "标题": "INLA for Adaptive UAV Sampling of Radio Environment Maps in IoT Networks: Prior Width Governs Accuracy and Calibration",
+        "内容": "作者：Changhao He; Kaichuang Yang; Xiaojuan Zhang。问题：非Gaussian计数观测下，选点准则的精细差异是否比先验宽度更重要？ 方法：Matérn GMRF空间先验、INLA后验更新、熵预筛与Sherman–Morrison可达域前瞻；分析Skew-Normal校正的六阶熵效应。 结果：19个保留射线窗口中Random/lawnmower的残余NMSE中位数比后验选点高18.0%/14.0%，换算为相对两基线降低15.3%/12.3%；信息型规则之间差异未解决。30个实测LoRaWAN传播窗口搭配模拟计数，GP-UCB名义NMSE还低3–5%。 局限：先验6→10.025dB的改善依赖语料，4–16dB扫描未见拐点；仍过度自信；在线估宽约6.5dB未恢复收益。实测传播配模拟计数且只评收到的格点，不是完整真实计数闭环；未证明最优宽度跨城通用。",
+        "契合方向": "无线地图；主动采样；先验失配与不确定性校准",
+        "推荐理由": "直接提醒MC-CKM先验失配与覆盖率可能比更复杂的采样准则更值得验证。",
+        "顶刊顶会/机构依据": "arXiv预印本；未确认正式venue；预印本/状态未确认；官方arXiv记录与所读PDF未提供可确认录用的公开声明；排版模板不作录用证据。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2610.40723",
+        "检索来源": "https://arxiv.org/abs/2610.40723",
+        "筛选备注": "理论启发或基线；后续独立分支：先固定地图/采样器，检查位置失配和协方差宽度的覆盖率与NMSE，再考虑主动采样；不将RSS地图直接当瞬时复CSI先验。；§I、先验与观测模型、熵展开(13–16)、19/30窗口实验与讨论",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；已查官方页面及全文实现链接，精确标题与arXiv ID检索未发现可确认的作者实现；GitHub连接器拒绝repository search端点，公开API与网页搜索的覆盖边界见审计记录；不是证明代码不存在。证据：https://arxiv.org/abs/2610.40723；https://github.com/search?q=2610.40723&type=repositories",
+        "反馈匹配": "相对既读主动学习diffusion地图构建，重点是先验规格敏感性及否定/未决证据，而非新增生成骨干。",
+        "反馈权重说明": "独立机制；事实/迁移推断/待验证假设分开；同预算配对，不预设提升。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-11-04/",
+      "report_section": "## 1. INLA for Adaptive UAV Sampling of Radio Environment Maps in IoT Networks: Prior Width Governs Accuracy and Calibration\n\n**作者/年份/venue**：Changhao He; Kaichuang Yang; Xiaojuan Zhang；2026；arXiv预印本；未确认正式venue。\n\n**发表状态及证据**：预印本/状态未确认。官方arXiv记录与所读PDF未提供可确认录用的公开声明；排版模板不作录用证据。\n\n**方向**：无线地图；主动采样；先验失配与不确定性校准\n\n**问题**：非Gaussian计数观测下，选点准则的精细差异是否比先验宽度更重要？\n\n**论文方法**：Matérn GMRF空间先验、INLA后验更新、熵预筛与Sherman–Morrison可达域前瞻；分析Skew-Normal校正的六阶熵效应。\n\n**论文结果**：19个保留射线窗口中Random/lawnmower的残余NMSE中位数比后验选点高18.0%/14.0%，换算为相对两基线降低15.3%/12.3%；信息型规则之间差异未解决。30个实测LoRaWAN传播窗口搭配模拟计数，GP-UCB名义NMSE还低3–5%。\n\n**局限与审计判断**：先验6→10.025dB的改善依赖语料，4–16dB扫描未见拐点；仍过度自信；在线估宽约6.5dB未恢复收益。实测传播配模拟计数且只评收到的格点，不是完整真实计数闭环；未证明最优宽度跨城通用。\n\n**迁移类型**：理论启发或基线\n\n**研究接口（迁移推断）**：后续独立分支：先固定地图/采样器，检查位置失配和协方差宽度的覆盖率与NMSE，再考虑主动采样；不将RSS地图直接当瞬时复CSI先验。\n\n**与既有阅读差异**：相对既读主动学习diffusion地图构建，重点是先验规格敏感性及否定/未决证据，而非新增生成骨干。\n\n**推荐理由**：直接提醒MC-CKM先验失配与覆盖率可能比更复杂的采样准则更值得验证。\n\n**代码状态**：未发现公开代码\n\n**代码证据**：已查官方页面及全文实现链接，精确标题与arXiv ID检索未发现可确认的作者实现；GitHub连接器拒绝repository search端点，公开API与网页搜索的覆盖边界见审计记录；不是证明代码不存在。证据：https://arxiv.org/abs/2610.40723；https://github.com/search?q=2610.40723&type=repositories\n\n**全文定位**：§I、先验与观测模型、熵展开(13–16)、19/30窗口实验与讨论\n\n**身份与版本**：arXiv:2610.40723；DOI 10.48550/arXiv.2610.40723；Submission history From: Kaichuang Yang [ view email ] [v1] Thu, 29 Oct 2026 06:18:50 UTC (312 KB)\n\n[官方页面](https://arxiv.org/abs/2610.40723)；[官方PDF](https://arxiv.org/pdf/2610.40723)；[原文PDF](https://arxiv.org/pdf/2610.40723)。完整PDF可访问，共11页。\n\n[本篇全文翻译/状态](https://lrxuanxuan.github.io/papers/items/948f4c96a3e26dd6/#paper-translation)：job `eb761dad0ebab4a6db94c798`已入队，gpt-6-luna/xhigh；原worker找不到会话，未启动。\n\n[原文许可](https://creativecommons.org/licenses/by/4.0/)：允许验收完成、保留归属/许可/翻译说明后的译文分享。PDF只保留本地与官方链接。",
+      "report_entry_url": "/papers/reports/2026-11-04/#paper-948f4c96a3e26dd6",
+      "paper_url": "/papers/items/948f4c96a3e26dd6/",
+      "paper_report_url": "/papers/items/948f4c96a3e26dd6/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2610.40723",
+        "https://arxiv.org/abs/2610.40723",
+        "https://github.com/search?q=2610.40723&type=repositories",
+        "https://lrxuanxuan.github.io/papers/items/948f4c96a3e26dd6/#paper-translation)：job",
+        "https://creativecommons.org/licenses/by/4.0/)：允许验收完成、保留归属/许可/翻译说明后的译文分享"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2610.40723"
+      ],
+      "hosted_pdfs": [],
+      "status": "预印本/状态未确认",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/948f4c96a3e26dd6/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
     {
       "id": "7342ab30ff421c7f",
       "date": "2026-11-03",
@@ -23308,6 +23559,17 @@
   ],
   "reports": [
     {
+      "date": "2026-11-04",
+      "url": "/papers/reports/2026-11-04/",
+      "source_file": "2026-11-04_每日前沿论文推荐.md",
+      "slug": "2026-11-04",
+      "covered_dates": [
+        "2026-11-04"
+      ],
+      "title": "11_4前沿论文推荐",
+      "download": "/assets/papers/reports/2026-11-04.md"
+    },
+    {
       "date": "2026-11-03",
       "url": "/papers/reports/2026-11-03/",
       "source_file": "2026-11-03_每日前沿论文推荐.md",
@@ -30503,9 +30765,9 @@
   "pdf_mode": "links_only",
   "workbook_table": {
     "url": "/papers/table/",
-    "source_sha256": "824f86fc009cb85c6dd4f53f2697331161f6be8fb8a7b191e6350bcaae3e10d8",
+    "source_sha256": "1141a6d6f666d93781aaa767b8f80235dda953e93ef5ec9f9d120640c8bc6c7a",
     "sheet": "每日论文推荐",
-    "row_count": 430,
+    "row_count": 435,
     "headers": [
       "日期",
       "标题",

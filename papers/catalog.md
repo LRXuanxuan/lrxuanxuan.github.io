@@ -373,6 +373,36 @@ toc: true
 
 ## 推荐论文
 
+### 2026-11-04 · [AFDM Channel Parameter Estimation: Exploiting its Shift Properties and Input-Output Relationship](/papers/items/04fa65dc9dd5428c/)
+
+提供独立的物理参数基线，避免把生成先验误认为解决Doppler可辨识性的唯一来源。
+
+[本篇日报](/papers/items/04fa65dc9dd5428c/#paper-report)
+
+### 2026-11-04 · [P-Flow: Proxy-gradient Flows for Linear Inverse Problems](/papers/items/aa0a8273e3a452db/)
+
+为固定flow先验下减少反向传播提供明确工具，也便于实测梯度偏差。
+
+[本篇日报](/papers/items/aa0a8273e3a452db/#paper-report)
+
+### 2026-11-04 · [HP-PnP-Flow: Hybrid Time Scheduling and Projection for Plug-and-Play Image Restoration via Flow Matching](/papers/items/a4af8916bad0d6c0/)
+
+可用最小改动检验现有PnP-Flow的调度敏感性与稳定性。
+
+[本篇日报](/papers/items/a4af8916bad0d6c0/#paper-report)
+
+### 2026-11-04 · [$\mathrm{S}^3$-PnP: Plug-and-Play Denoising for Scientific Imaging with Self-Supervised Score Priors](/papers/items/1c24c652f66fb3a3/)
+
+与当前dual输入分布及先验失配直接相关，可为解释solver输入统计提供更具体的对照。
+
+[本篇日报](/papers/items/1c24c652f66fb3a3/#paper-report)
+
+### 2026-11-04 · [INLA for Adaptive UAV Sampling of Radio Environment Maps in IoT Networks: Prior Width Governs Accuracy and Calibration](/papers/items/948f4c96a3e26dd6/)
+
+直接提醒MC-CKM先验失配与覆盖率可能比更复杂的采样准则更值得验证。
+
+[本篇日报](/papers/items/948f4c96a3e26dd6/#paper-report)
+
 ### 2026-11-03 · [Few-Step Generation via Data-Space Iteration](/papers/items/7342ab30ff421c7f/)
 
 给固定NFE下每次计算该细化什么提供简洁替代结构，适合以后做单独压缩分支。
