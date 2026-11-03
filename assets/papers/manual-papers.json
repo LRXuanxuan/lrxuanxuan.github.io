@@ -1240,5 +1240,1001 @@
     "report_entry_url": null,
     "paper_report_url": "",
     "report_section": ""
+  },
+  {
+    "id": "0107e24549c64505",
+    "date": "2026-11-03",
+    "title": "On the performance of uplink pinching antenna systems (PASS)",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开论文题录及摘要（2026-11-03）",
+    "paper_url": "/papers/items/0107e24549c64505/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/TCOMM.2025.3618726"
+    ],
+    "hyperlinks": {
+      "摘要来源": "https://doi.org/10.1109/TCOMM.2025.3618726"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "On the performance of uplink pinching antenna systems (PASS)",
+      "内容": "研究夹持式天线系统的上行链路，对单用户与多用户、单辐射点与多辐射点的组合优化夹持位置，并推导相应遍历速率，分析灵活辐射位置带来的性能收益。",
+      "摘要来源": "https://doi.org/10.1109/TCOMM.2025.3618726",
+      "公开代码状态": "尚未确认直接对应的公开代码，不代表作者没有开源。",
+      "代码/数据状态": "尚未确认直接对应的公开代码，不代表作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/0107e24549c64505/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "12976d578342d065",
+    "date": "2026-11-03",
+    "title": "TR 138 901 - V17.0.0 - 5G; study on channel model for frequencies from 0.5 to 100 GHz (3GPP TR 38.901 version 17.0.0 release 17)",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开论文题录及摘要（2026-11-03）",
+    "paper_url": "/papers/items/12976d578342d065/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://www.etsi.org/deliver/etsi_tr/138900_138999/138901/17.00.00_60/tr_138901v170000p.pdf"
+    ],
+    "hyperlinks": {
+      "摘要来源": "https://www.etsi.org/deliver/etsi_tr/138900_138999/138901/17.00.00_60/tr_138901v170000p.pdf"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "TR 138 901 - V17.0.0 - 5G; study on channel model for frequencies from 0.5 to 100 GHz (3GPP TR 38.901 version 17.0.0 release 17)",
+      "内容": "3GPP TR 38.901 Release 17 规定 0.5–100 GHz 的无线信道建模框架，覆盖场景、路径损耗、遮挡、空间一致性、大尺度与小尺度衰落等。此条为技术报告而非研究论文。",
+      "摘要来源": "https://www.etsi.org/deliver/etsi_tr/138900_138999/138901/17.00.00_60/tr_138901v170000p.pdf",
+      "公开代码状态": "尚未确认直接对应的公开代码，不代表作者没有开源。",
+      "代码/数据状态": "尚未确认直接对应的公开代码，不代表作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/12976d578342d065/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "f61909233ae570d4",
+    "date": "2026-11-03",
+    "title": "Bidirectional integrated sensing and communication: Full-duplex or half-duplex?",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开论文题录及摘要（2026-11-03）",
+    "paper_url": "/papers/items/f61909233ae570d4/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/TWC.2023.3344229"
+    ],
+    "hyperlinks": {
+      "摘要来源": "https://doi.org/10.1109/TWC.2023.3344229"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Bidirectional integrated sensing and communication: Full-duplex or half-duplex?",
+      "内容": "建立双向 ISAC 模型，使两个收发节点同时完成数据交换与相互感知，比较窄带和宽带系统中的全双工、半双工工作方式及波束成形折中。",
+      "摘要来源": "https://doi.org/10.1109/TWC.2023.3344229",
+      "公开代码状态": "尚未确认直接对应的公开代码，不代表作者没有开源。",
+      "代码/数据状态": "尚未确认直接对应的公开代码，不代表作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/f61909233ae570d4/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "4cd6971de1b9267e",
+    "date": "2026-11-03",
+    "title": "STARS enabled integrated sensing and communications",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开论文题录及摘要（2026-11-03）",
+    "paper_url": "/papers/items/4cd6971de1b9267e/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/TWC.2023.3245297"
+    ],
+    "hyperlinks": {
+      "摘要来源": "https://doi.org/10.1109/TWC.2023.3245297"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "STARS enabled integrated sensing and communications",
+      "内容": "利用同时透射与反射表面（STARS）划分感知和通信区域，并在表面部署感知接收装置。以目标估计的克拉美—罗界为准则联合优化表面控制与发射波束。",
+      "摘要来源": "https://doi.org/10.1109/TWC.2023.3245297",
+      "公开代码状态": "尚未确认直接对应的公开代码，不代表作者没有开源。",
+      "代码/数据状态": "尚未确认直接对应的公开代码，不代表作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/4cd6971de1b9267e/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "8e8b8d5833a5bb83",
+    "date": "2026-11-03",
+    "title": "NOMA-aided joint communication, sensing, and multi-tier computing systems",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开论文题录及摘要（2026-11-03）",
+    "paper_url": "/papers/items/8e8b8d5833a5bb83/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/JSAC.2022.3229447"
+    ],
+    "hyperlinks": {
+      "摘要来源": "https://doi.org/10.1109/JSAC.2022.3229447"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "NOMA-aided joint communication, sensing, and multi-tier computing systems",
+      "内容": "提出 NOMA 辅助通信、感知及多层计算协同框架，多功能基站完成目标感知与用户服务，并利用多层边缘计算分担处理任务，研究资源分配优化。",
+      "摘要来源": "https://doi.org/10.1109/JSAC.2022.3229447",
+      "公开代码状态": "尚未确认直接对应的公开代码，不代表作者没有开源。",
+      "代码/数据状态": "尚未确认直接对应的公开代码，不代表作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/8e8b8d5833a5bb83/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "cfd36c47607f11ca",
+    "date": "2026-11-03",
+    "title": "Semi-integrated-sensing-and-communication (semi-ISaC): From OMA to NOMA",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开论文题录及摘要（2026-11-03）",
+    "paper_url": "/papers/items/cfd36c47607f11ca/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/TCOMM.2023.3241940"
+    ],
+    "hyperlinks": {
+      "摘要来源": "https://doi.org/10.1109/TCOMM.2023.3241940"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Semi-integrated-sensing-and-communication (semi-ISaC): From OMA to NOMA",
+      "内容": "提出半集成式通信感知（Semi-ISaC）频谱划分，让部分带宽由通信或雷达独占，其余共享；分析 OMA 与 NOMA 对通信和感知服务的影响。",
+      "摘要来源": "https://doi.org/10.1109/TCOMM.2023.3241940",
+      "公开代码状态": "尚未确认直接对应的公开代码，不代表作者没有开源。",
+      "代码/数据状态": "尚未确认直接对应的公开代码，不代表作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/cfd36c47607f11ca/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "44a829f4d2b25d3b",
+    "date": "2026-11-03",
+    "title": "Wireless sensing via pinching-antenna systems",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开论文题录及摘要（2026-11-03）",
+    "paper_url": "/papers/items/44a829f4d2b25d3b/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/LWC.2025.3595160"
+    ],
+    "hyperlinks": {
+      "摘要来源": "https://doi.org/10.1109/LWC.2025.3595160"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Wireless sensing via pinching-antenna systems",
+      "内容": "设计夹持式天线无线感知系统，通过可调整辐射点位置增强照射，采用泄漏同轴电缆采集回波，并利用多目标参数的克拉美—罗界评价感知性能。",
+      "摘要来源": "https://doi.org/10.1109/LWC.2025.3595160",
+      "公开代码状态": "尚未确认直接对应的公开代码，不代表作者没有开源。",
+      "代码/数据状态": "尚未确认直接对应的公开代码，不代表作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/44a829f4d2b25d3b/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "63819fccd7aece76",
+    "date": "2026-11-03",
+    "title": "Full-duplex communication in bidirectional ISAC",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开论文题录及摘要（2026-11-03）",
+    "paper_url": "/papers/items/63819fccd7aece76/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/ICCWorkshops57953.2023.10283611"
+    ],
+    "hyperlinks": {
+      "摘要来源": "https://doi.org/10.1109/ICCWorkshops57953.2023.10283611"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Full-duplex communication in bidirectional ISAC",
+      "内容": "研究双向 ISAC 节点在全双工工作模式下的通信和相互感知，在目标回波与自干扰存在时优化发射波束，分析通信与感知性能折中。",
+      "摘要来源": "https://doi.org/10.1109/ICCWorkshops57953.2023.10283611",
+      "公开代码状态": "尚未确认直接对应的公开代码，不代表作者没有开源。",
+      "代码/数据状态": "尚未确认直接对应的公开代码，不代表作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/63819fccd7aece76/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "7b1bc8acb1f0ec92",
+    "date": "2026-11-03",
+    "title": "A mobile edge generation approach",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开论文题录及摘要（2026-11-03）",
+    "paper_url": "/papers/items/7b1bc8acb1f0ec92/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/GLOBECOM52923.2024.10901654"
+    ],
+    "hyperlinks": {
+      "摘要来源": "https://doi.org/10.1109/GLOBECOM52923.2024.10901654"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "A mobile edge generation approach",
+      "内容": "提出移动边缘生成（MEG）架构，将生成式 AI 模型分布到边缘服务器和用户终端，共同完成文本到图像生成，研究计算协作及网络资源分担。",
+      "摘要来源": "https://doi.org/10.1109/GLOBECOM52923.2024.10901654",
+      "公开代码状态": "尚未确认直接对应的公开代码，不代表作者没有开源。",
+      "代码/数据状态": "尚未确认直接对应的公开代码，不代表作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/7b1bc8acb1f0ec92/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "4614a1c2d16805e5",
+    "date": "2026-11-03",
+    "title": "Tri-hybrid beamforming design for fully-connected pinching antenna systems",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开论文题录及摘要（2026-11-03）",
+    "paper_url": "/papers/items/4614a1c2d16805e5/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://arxiv.org/abs/2511.14517"
+    ],
+    "hyperlinks": {
+      "摘要来源": "https://arxiv.org/abs/2511.14517"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Tri-hybrid beamforming design for fully-connected pinching antenna systems",
+      "内容": "构造全连接夹持式天线的三重混合波束成形，将数字预编码、射频移相器网络与夹持位置调整联合设计，比较不同连接架构下的加权和速率。",
+      "摘要来源": "https://arxiv.org/abs/2511.14517",
+      "公开代码状态": "尚未确认直接对应的公开代码，不代表作者没有开源。",
+      "代码/数据状态": "尚未确认直接对应的公开代码，不代表作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/4614a1c2d16805e5/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "9d69269722e2a4ad",
+    "date": "2026-11-03",
+    "title": "Pinching-antenna systems (PASS): A tutorial",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开论文题录及摘要（2026-11-03）",
+    "paper_url": "/papers/items/9d69269722e2a4ad/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/TCOMM.2026.3658289"
+    ],
+    "hyperlinks": {
+      "摘要来源": "https://doi.org/10.1109/TCOMM.2026.3658289"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Pinching-antenna systems (PASS): A tutorial",
+      "内容": "系统讲解夹持式天线系统的物理机理、波导结构、传播模型、波束成形、信道估计与应用，并总结硬件实现及大规模部署挑战。",
+      "摘要来源": "https://doi.org/10.1109/TCOMM.2026.3658289",
+      "公开代码状态": "尚未确认直接对应的公开代码，不代表作者没有开源。",
+      "代码/数据状态": "尚未确认直接对应的公开代码，不代表作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/9d69269722e2a4ad/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "c801863b6e40b913",
+    "date": "2026-11-03",
+    "title": "Modeling and beamforming optimization for pinching-antenna systems",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开论文题录及摘要（2026-11-03）",
+    "paper_url": "/papers/items/c801863b6e40b913/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/TCOMM.2025.3621049"
+    ],
+    "hyperlinks": {
+      "摘要来源": "https://doi.org/10.1109/TCOMM.2025.3621049"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Modeling and beamforming optimization for pinching-antenna systems",
+      "内容": "建立夹持式天线在波导内传播并向自由空间辐射的通信模型，联合优化夹持位置与传输波束，分析其对用户信号增益和干扰的影响。",
+      "摘要来源": "https://doi.org/10.1109/TCOMM.2025.3621049",
+      "公开代码状态": "尚未确认直接对应的公开代码，不代表作者没有开源。",
+      "代码/数据状态": "尚未确认直接对应的公开代码，不代表作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/c801863b6e40b913/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "a8753fe98499485c",
+    "date": "2026-11-03",
+    "title": "GDM4MMIMO: Generative diffusion models for massive MIMO communications",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开论文题录及摘要（2026-11-03）",
+    "paper_url": "/papers/items/a8753fe98499485c/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/MCOM.001.2500399"
+    ],
+    "hyperlinks": {
+      "摘要来源": "https://doi.org/10.1109/MCOM.001.2500399"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "GDM4MMIMO: Generative diffusion models for massive MIMO communications",
+      "内容": "综述生成式扩散模型在大规模 MIMO 通信中的潜在应用，介绍生成模型先验和近场信道估计案例，并讨论高维 CSI 获取及部署难题。",
+      "摘要来源": "https://doi.org/10.1109/MCOM.001.2500399",
+      "公开代码状态": "尚未确认直接对应的公开代码，不代表作者没有开源。",
+      "代码/数据状态": "尚未确认直接对应的公开代码，不代表作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/a8753fe98499485c/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "8bc6f0956c1aae36",
+    "date": "2026-11-03",
+    "title": "Generative diffusion model-based variational inference for MIMO channel estimation",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开论文题录及摘要（2026-11-03）",
+    "paper_url": "/papers/items/8bc6f0956c1aae36/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/TCOMM.2025.3556753"
+    ],
+    "hyperlinks": {
+      "摘要来源": "https://doi.org/10.1109/TCOMM.2025.3556753"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Generative diffusion model-based variational inference for MIMO channel estimation",
+      "内容": "利用扩散模型学习信道的分数先验，并以该生成先验支持 MIMO 信道估计的变分推断，讨论低导频条件下后验近似与计算开销。",
+      "摘要来源": "https://doi.org/10.1109/TCOMM.2025.3556753",
+      "公开代码状态": "尚未确认直接对应的公开代码，不代表作者没有开源。",
+      "代码/数据状态": "尚未确认直接对应的公开代码，不代表作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/8bc6f0956c1aae36/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "df7bb5d4d006195e",
+    "date": "2026-11-03",
+    "title": "3GPP channel model developments for 5G NR requirements and testing",
+    "status": "题录核验，原摘要待补",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开论文题录及摘要（2026-11-03）",
+    "paper_url": "/papers/items/df7bb5d4d006195e/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1049/CP.2018.0877"
+    ],
+    "hyperlinks": {
+      "摘要来源": "https://doi.org/10.1049/CP.2018.0877"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "3GPP channel model developments for 5G NR requirements and testing",
+      "内容": "该文讨论 3GPP 信道模型如何适应 5G NR 测试要求。当前仅核实文献题录，未取得可复核的原始摘要，因此不添加具体实验结论。",
+      "摘要来源": "https://doi.org/10.1049/CP.2018.0877",
+      "公开代码状态": "尚未确认直接对应的公开代码，不代表作者没有开源。",
+      "代码/数据状态": "尚未确认直接对应的公开代码，不代表作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/df7bb5d4d006195e/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "0e3383368163214a",
+    "date": "2026-11-03",
+    "title": "QuaDRiGa: A MIMO channel model for land mobile satellite",
+    "status": "题录核验，原摘要待补",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开论文题录及摘要（2026-11-03）",
+    "paper_url": "/papers/items/0e3383368163214a/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/EUCAP.2014.6902008",
+      "https://github.com/fraunhoferhhi/QuaDRiGa"
+    ],
+    "hyperlinks": {
+      "摘要来源": "https://doi.org/10.1109/EUCAP.2014.6902008",
+      "代码或数据链接": "https://github.com/fraunhoferhhi/QuaDRiGa"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "QuaDRiGa: A MIMO channel model for land mobile satellite",
+      "内容": "研究 QuaDRiGa 在陆地移动卫星 MIMO 信道建模中的应用；当前原始摘要不可用，具体模型参数与实验结论保留待核验。",
+      "摘要来源": "https://doi.org/10.1109/EUCAP.2014.6902008",
+      "公开代码状态": "已找到相关 QuaDRiGa 开源仿真平台；未确认其包含这篇论文的复现实验代码。 https://github.com/fraunhoferhhi/QuaDRiGa",
+      "代码/数据状态": "已找到相关 QuaDRiGa 开源仿真平台；未确认其包含这篇论文的复现实验代码。 https://github.com/fraunhoferhhi/QuaDRiGa"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/0e3383368163214a/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "6539256321360086",
+    "date": "2026-11-03",
+    "title": "Flow matching-based generative models for MIMO channel estimation",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开论文题录及摘要（2026-11-03）",
+    "paper_url": "/papers/items/6539256321360086/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://arxiv.org/abs/2511.10941"
+    ],
+    "hyperlinks": {
+      "摘要来源": "https://arxiv.org/abs/2511.10941"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Flow matching-based generative models for MIMO channel estimation",
+      "内容": "利用流匹配建立从含噪 MIMO 信道到真实信道的连续概率路径，通过学习速度场和快速 ODE 采样实现信道精化，减少传统扩散模型的迭代开销。",
+      "摘要来源": "https://arxiv.org/abs/2511.10941",
+      "公开代码状态": "尚未确认直接对应的公开代码，不代表作者没有开源。",
+      "代码/数据状态": "尚未确认直接对应的公开代码，不代表作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/6539256321360086/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "34474f542893ad30",
+    "date": "2026-11-03",
+    "title": "Denoising diffusion implicit models",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开论文题录及摘要（2026-11-03）",
+    "paper_url": "/papers/items/34474f542893ad30/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [
+      "https://github.com/ermongroup/ddim"
+    ],
+    "links": [
+      "https://arxiv.org/abs/2010.02502",
+      "https://github.com/ermongroup/ddim"
+    ],
+    "hyperlinks": {
+      "摘要来源": "https://arxiv.org/abs/2010.02502",
+      "代码或数据链接": "https://github.com/ermongroup/ddim"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Denoising diffusion implicit models",
+      "内容": "提出去噪扩散隐式模型（DDIM），将 DDPM 的马尔可夫反向生成改为兼容其训练目标的非马尔可夫生成过程，从而实现确定性或低步数采样。",
+      "摘要来源": "https://arxiv.org/abs/2010.02502",
+      "公开代码状态": "已找到可公开访问的实现仓库；尚未实际复现。 https://github.com/ermongroup/ddim",
+      "代码/数据状态": "已找到可公开访问的实现仓库；尚未实际复现。 https://github.com/ermongroup/ddim"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/34474f542893ad30/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "905b86a34b003594",
+    "date": "2026-11-03",
+    "title": "Environment-aware channel inference via cross-modal flow: From multimodal sensing to wireless channels",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开论文题录及摘要（2026-11-03）",
+    "paper_url": "/papers/items/905b86a34b003594/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/TMC.2026.3717110"
+    ],
+    "hyperlinks": {
+      "摘要来源": "https://doi.org/10.1109/TMC.2026.3717110"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Environment-aware channel inference via cross-modal flow: From multimodal sensing to wireless channels",
+      "内容": "利用多模态环境感知输入预测无线信道，提出跨模态流模型以关联视觉或其他传感器观测与无线 CSI，减少高移动 MIMO 场景的导频负担。",
+      "摘要来源": "https://doi.org/10.1109/TMC.2026.3717110",
+      "公开代码状态": "尚未确认直接对应的公开代码，不代表作者没有开源。",
+      "代码/数据状态": "尚未确认直接对应的公开代码，不代表作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/905b86a34b003594/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "c47aea33f223b456",
+    "date": "2026-11-03",
+    "title": "Zero-shot image restoration using denoising diffusion null-space model",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开论文题录及摘要（2026-11-03）",
+    "paper_url": "/papers/items/c47aea33f223b456/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [
+      "https://github.com/wyhuai/DDNM"
+    ],
+    "links": [
+      "https://arxiv.org/abs/2212.00490",
+      "https://github.com/wyhuai/DDNM"
+    ],
+    "hyperlinks": {
+      "摘要来源": "https://arxiv.org/abs/2212.00490",
+      "代码或数据链接": "https://github.com/wyhuai/DDNM"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Zero-shot image restoration using denoising diffusion null-space model",
+      "内容": "提出去噪扩散零空间模型（DDNM），利用线性观测算子的已知值域分量保证数据一致性，并在零空间上运用扩散生成先验，处理多类零样本图像恢复问题。",
+      "摘要来源": "https://arxiv.org/abs/2212.00490",
+      "公开代码状态": "已找到可公开访问的实现仓库；尚未实际复现。 https://github.com/wyhuai/DDNM",
+      "代码/数据状态": "已找到可公开访问的实现仓库；尚未实际复现。 https://github.com/wyhuai/DDNM"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/c47aea33f223b456/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "1fa17ca6fef07fd7",
+    "date": "2026-11-03",
+    "title": "Physics-informed representation alignment for sparse radio-map reconstruction",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开论文题录及摘要（2026-11-03）",
+    "paper_url": "/papers/items/1fa17ca6fef07fd7/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1145/3746027.3758161"
+    ],
+    "hyperlinks": {
+      "摘要来源": "https://doi.org/10.1145/3746027.3758161"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Physics-informed representation alignment for sparse radio-map reconstruction",
+      "内容": "提出物理信息约束的表征对齐策略，从有限无线电观测中恢复无线电地图，降低空间稀疏采样与复杂传播条件引起的重建误差。",
+      "摘要来源": "https://doi.org/10.1145/3746027.3758161",
+      "公开代码状态": "尚未确认直接对应的公开代码，不代表作者没有开源。",
+      "代码/数据状态": "尚未确认直接对应的公开代码，不代表作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/1fa17ca6fef07fd7/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "2c011fe1be497683",
+    "date": "2026-11-03",
+    "title": "Deep learning-based CKM construction with image super-resolution",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开论文题录及摘要（2026-11-03）",
+    "paper_url": "/papers/items/2c011fe1be497683/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/VTC2025-Spring65109.2025.11174933"
+    ],
+    "hyperlinks": {
+      "摘要来源": "https://doi.org/10.1109/VTC2025-Spring65109.2025.11174933"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Deep learning-based CKM construction with image super-resolution",
+      "内容": "将基于少量位置测量构建完整 CKM 类比为图像超分辨率，训练深度网络推断空间细节，提升地图分辨率并减少测量开销。",
+      "摘要来源": "https://doi.org/10.1109/VTC2025-Spring65109.2025.11174933",
+      "公开代码状态": "尚未确认直接对应的公开代码，不代表作者没有开源。",
+      "代码/数据状态": "尚未确认直接对应的公开代码，不代表作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/2c011fe1be497683/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "c77f31b8e9dbedd7",
+    "date": "2026-11-03",
+    "title": "Generating CKM using others' data: Cross-AP CKM inference with deep learning",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开论文题录及摘要（2026-11-03）",
+    "paper_url": "/papers/items/c77f31b8e9dbedd7/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/TVT.2025.3604862"
+    ],
+    "hyperlinks": {
+      "摘要来源": "https://doi.org/10.1109/TVT.2025.3604862"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Generating CKM using others' data: Cross-AP CKM inference with deep learning",
+      "内容": "研究跨接入点信道知识地图推断，利用已有接入点的 CKM 与场景相关性生成新接入点地图，从而减少网络密集部署下的独立测量需求。",
+      "摘要来源": "https://doi.org/10.1109/TVT.2025.3604862",
+      "公开代码状态": "尚未确认直接对应的公开代码，不代表作者没有开源。",
+      "代码/数据状态": "尚未确认直接对应的公开代码，不代表作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/c77f31b8e9dbedd7/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "da153178b2f0997a",
+    "date": "2026-11-03",
+    "title": "AI-based environment-aware XL-MIMO channel estimation with location-specific prior knowledge enabled by CKM",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开论文题录及摘要（2026-11-03）",
+    "paper_url": "/papers/items/da153178b2f0997a/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://arxiv.org/abs/2507.06066"
+    ],
+    "hyperlinks": {
+      "摘要来源": "https://arxiv.org/abs/2507.06066"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "AI-based environment-aware XL-MIMO channel estimation with location-specific prior knowledge enabled by CKM",
+      "内容": "结合特定位置 CKM 所提供的环境先验进行超大规模 MIMO 信道估计，旨在降低高维阵列尤其近场传播环境中的导频测量开销。",
+      "摘要来源": "https://arxiv.org/abs/2507.06066",
+      "公开代码状态": "尚未确认直接对应的公开代码，不代表作者没有开源。",
+      "代码/数据状态": "尚未确认直接对应的公开代码，不代表作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/da153178b2f0997a/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "44cbc5c28aec7bfa",
+    "date": "2026-11-03",
+    "title": "Scalable diffusion models with transformers",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开论文题录及摘要（2026-11-03）",
+    "paper_url": "/papers/items/44cbc5c28aec7bfa/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [
+      "https://github.com/facebookresearch/DiT"
+    ],
+    "links": [
+      "https://doi.org/10.1109/ICCV51070.2023.00387",
+      "https://github.com/facebookresearch/DiT"
+    ],
+    "hyperlinks": {
+      "摘要来源": "https://doi.org/10.1109/ICCV51070.2023.00387",
+      "代码或数据链接": "https://github.com/facebookresearch/DiT"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Scalable diffusion models with transformers",
+      "内容": "提出扩散 Transformer（DiT），用处理潜空间图像块的 Transformer 替代常用 U-Net 扩散骨干，研究模型计算规模与生成质量的关系。",
+      "摘要来源": "https://doi.org/10.1109/ICCV51070.2023.00387",
+      "公开代码状态": "已找到可公开访问的实现仓库；尚未实际复现。 https://github.com/facebookresearch/DiT",
+      "代码/数据状态": "已找到可公开访问的实现仓库；尚未实际复现。 https://github.com/facebookresearch/DiT"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/44cbc5c28aec7bfa/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "eaa6e7cf5bae1cf8",
+    "date": "2026-11-03",
+    "title": "CKMImageNet: A dataset for AI-based channel knowledge map towards environment-aware communication and sensing",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开论文题录及摘要（2026-11-03）",
+    "paper_url": "/papers/items/eaa6e7cf5bae1cf8/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/TCOMM.2025.3615778",
+      "https://github.com/zyktzCKM/CKMImageNet"
+    ],
+    "hyperlinks": {
+      "摘要来源": "https://doi.org/10.1109/TCOMM.2025.3615778",
+      "代码或数据链接": "https://github.com/zyktzCKM/CKMImageNet"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "CKMImageNet: A dataset for AI-based channel knowledge map towards environment-aware communication and sensing",
+      "内容": "提出 CKMImageNet 数据集，建立环境视觉信息与特定位置的无线传播知识之间的对应关系，支持视觉驱动的 CKM 构建与环境感知通信研究。",
+      "摘要来源": "https://doi.org/10.1109/TCOMM.2025.3615778",
+      "公开代码状态": "已找到公开数据集仓库；不等于算法实现。 https://github.com/zyktzCKM/CKMImageNet",
+      "代码/数据状态": "已找到公开数据集仓库；不等于算法实现。 https://github.com/zyktzCKM/CKMImageNet"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/eaa6e7cf5bae1cf8/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "c14d82a39ad8127e",
+    "date": "2026-11-03",
+    "title": "Understanding diffusion models: A unified perspective",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开论文题录及摘要（2026-11-03）",
+    "paper_url": "/papers/items/c14d82a39ad8127e/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://arxiv.org/abs/2208.11970"
+    ],
+    "hyperlinks": {
+      "摘要来源": "https://arxiv.org/abs/2208.11970"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Understanding diffusion models: A unified perspective",
+      "内容": "从变分推断与分数匹配角度统一解释扩散模型，推导不同生成扩散过程和训练目标的联系，为理解扩散与连续时间模型提供数学框架。",
+      "摘要来源": "https://arxiv.org/abs/2208.11970",
+      "公开代码状态": "尚未确认直接对应的公开代码，不代表作者没有开源。",
+      "代码/数据状态": "尚未确认直接对应的公开代码，不代表作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/c14d82a39ad8127e/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "80fcc451fac26199",
+    "date": "2026-11-03",
+    "title": "DLTER: A deep learning assisted 3D environmental reconstruction framework in terahertz ISAC systems",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开论文题录及摘要（2026-11-03）",
+    "paper_url": "/papers/items/80fcc451fac26199/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/FCN64323.2024.10985533"
+    ],
+    "hyperlinks": {
+      "摘要来源": "https://doi.org/10.1109/FCN64323.2024.10985533"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "DLTER: A deep learning assisted 3D environmental reconstruction framework in terahertz ISAC systems",
+      "内容": "探索利用深度学习重建太赫兹 ISAC 系统的三维传播环境，以感知与通信观测恢复空间几何并应对稀疏数据条件。",
+      "摘要来源": "https://doi.org/10.1109/FCN64323.2024.10985533",
+      "公开代码状态": "尚未确认直接对应的公开代码，不代表作者没有开源。",
+      "代码/数据状态": "尚未确认直接对应的公开代码，不代表作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/80fcc451fac26199/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
   }
 ]
