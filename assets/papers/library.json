@@ -163,7 +163,7 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
+      "translation_status": "complete",
       "full_translation_public": true,
       "full_translation_url": "/papers/translations/2026-11-03-2610-12102-data-space-iteration-few-step-generation/",
       "full_translation_label": "阅读全文翻译"
@@ -219,7 +219,7 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
+      "translation_status": "complete",
       "full_translation_public": true,
       "full_translation_url": "/papers/translations/2026-11-03-2606-03074-rmprior-propagation-priors-diffusion-refinement-radio-map/",
       "full_translation_label": "阅读全文翻译"
@@ -275,7 +275,7 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
+      "translation_status": "complete",
       "full_translation_public": true,
       "full_translation_url": "/papers/translations/2026-11-03-2606-25310-diffusion-models-for-radio-map-estimation-performance-analysis/",
       "full_translation_label": "阅读全文翻译"
@@ -388,7 +388,7 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
+      "translation_status": "complete",
       "full_translation_public": true,
       "full_translation_url": "/papers/translations/2026-11-03-2610-08992-trace-geometry-informed-pilot-limited-channel-estimation/",
       "full_translation_label": "阅读全文翻译"
@@ -443,7 +443,7 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
+      "translation_status": "complete",
       "full_translation_public": true,
       "full_translation_url": "/papers/translations/2026-11-02-2606-12844-active-perception-for-radio-map-reconstruction-in-uncharted-3d-air/",
       "full_translation_label": "阅读全文翻译"
@@ -501,7 +501,7 @@
       ],
       "hosted_pdfs": [],
       "status": "已接受待刊",
-      "translation_status": "pending",
+      "translation_status": "complete",
       "full_translation_public": true,
       "full_translation_url": "/papers/translations/2026-11-02-2610-08977-snr-gated-lstm-conditioned-diffusion-model-for-mimo-channel-estimation/",
       "full_translation_label": "阅读全文翻译"
@@ -557,7 +557,7 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "pending",
+      "translation_status": "complete",
       "full_translation_public": true,
       "full_translation_url": "/papers/translations/2026-11-02-2609-32836-radiomap-blind-prediction-under-incomplete-observation/",
       "full_translation_label": "阅读全文翻译"
@@ -612,7 +612,7 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "pending",
+      "translation_status": "complete",
       "full_translation_public": true,
       "full_translation_url": "/papers/translations/2026-11-02-2610-26025-tamedflow-trajectory-aware-distillation-for-teacher-assisted-diffusion/",
       "full_translation_label": "阅读全文翻译"
@@ -671,7 +671,7 @@
       ],
       "hosted_pdfs": [],
       "status": "已接受待刊",
-      "translation_status": "pending",
+      "translation_status": "complete",
       "full_translation_public": true,
       "full_translation_url": "/papers/translations/2026-11-02-2606-21014-bayesfp-feynman-kac-posterior-estimation-flow-policies/",
       "full_translation_label": "阅读全文翻译"

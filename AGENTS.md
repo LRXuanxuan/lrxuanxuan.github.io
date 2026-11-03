@@ -150,3 +150,10 @@
 - 本机喜好通过共同标签及创作者相似性影响将来尚未抽出的推荐，但不上传云端或强行改写历史；换设备需主动导入备份。每类有 100 项，正常抽取时优先避开已用 ID，直到全类耗尽才循环。
 - 以站长现有 Top 10 与私人反馈为参考，同时兼顾探索性、题材/年代/作者多样性。优先推荐具体可识别的歌曲、书籍和电影；避免把推测包装成事实。保持轻量 JSON 与原生 JS，不为扩池添加封面、媒体文件、网络 API 或第三方追踪。
 - 验收核对三类均至少 100 项、全局 ID 唯一、每类标题＋作者不重复、字段完整、历史 ID 未被重编；检查当日三个条目、评价保存及往日归档。
+
+## 译文标签与状态回填（2026-11-03 用户要求）
+
+- 规则：每次补入一篇论文的全文中译后，必须在**同一批提交**里把它从「全文翻译（待补齐）」改为「阅读全文翻译」：回填 `full_translation_label` 为「阅读全文翻译」、`full_translation_url` 指向 `/papers/translations/<slug>/`、`translation_status` 改为 `complete`，并在 `assets/papers/external-translations.json` 中登记 `qa_complete=true`、`primary_translation=true`、`coverage=full`。不得让已补译条目继续显示「全文翻译（待补齐）」或 `pending`。
+- `/papers/` 首页卡片与单篇页的标签来自 `library.json` 的 `full_translation_label`/`full_translation_url`；`assets/papers/library.js` 还会在运行时用 external-translations 注册表再校正一次（`qa_complete` 为真时显示「阅读全文翻译」），两部分必须一致；详情行的「全文译稿：」状态统一显示中文（已完成／待补齐／进行中／未完成／访问受限）。
+- 未完成或仅本地保存的译稿仍显示「全文翻译（仅本地）」或「待补齐」，并保留真实状态说明；不得把未合并、未部署说成「已上线」，也不得手动改线上数据。
+- 该规则对 `site_sync/export_library.py` 同样生效：导出时对已登记且 `qa_complete=true` 的论文应把 `translation_status` 置为 `complete`。
