@@ -38,7 +38,9 @@
     if(p.report_section){const section=make('details');section.append(make('summary','日报中的逐篇说明'));section.append(make('div',p.report_section,'pl-section'));d.append(section);}
     const more=make('div',undefined,'pl-links');p.links.forEach((u,i)=>appendLink(more,'证据 '+(i+1),u));d.append(more);
     for(const a of p.hosted_pdfs){const att=make('p',`${a.title} · ${a.authors||''} · 未修改原文。`,'pl-meta');appendLink(att,'原文授权',a.license_url);d.append(att);}
-    d.append(make('small',`来源：${data.source} · ${p.sheet} 第 ${p.row} 行 · 全文译稿：${p.translation_status}`,'pl-meta'));c.append(d);return c;
+    const stMap={complete:'已完成',pending:'待补齐',running:'进行中',in_progress:'进行中',incomplete:'未完成',access_blocked:'访问受限',superseded:'已被取代'};
+    const stText=p.full_translation_public?'已完成':(stMap[p.translation_status]||p.translation_status||'待补齐');
+    d.append(make('small',`来源：${data.source} · ${p.sheet} 第 ${p.row} 行 · 全文译稿：${stText}`,'pl-meta'));c.append(d);return c;
   }
   function matchesReadingMark(p, selected) {
     if (!selected) return true;
