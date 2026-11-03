@@ -3812,5 +3812,1335 @@
     "report_entry_url": null,
     "paper_report_url": "",
     "report_section": ""
+  },
+  {
+    "id": "69288296a492433f",
+    "date": "2026-11-03",
+    "title": "Privacy-Preserving Federated Primal-Dual Learning for Non-Convex Problems With Non-Smooth Regularization",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/69288296a492433f/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/MLSP55844.2023.10285949"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/MLSP55844.2023.10285949"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Privacy-Preserving Federated Primal-Dual Learning for Non-Convex Problems With Non-Smooth Regularization",
+      "内容": "研究含非凸目标和非光滑正则项的联邦学习，采用隐私保护原始—对偶方法处理分布式优化与通信开销，并分析其性能。",
+      "原文来源": "https://doi.org/10.1109/MLSP55844.2023.10285949",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/69288296a492433f/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "b92d49688dde982d",
+    "date": "2026-11-03",
+    "title": "Privacy-Preserving Federated Primal—Dual Learning for Nonconvex and Nonsmooth Problems With Model Sparsification",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/b92d49688dde982d/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/JIOT.2024.3376552"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/JIOT.2024.3376552"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Privacy-Preserving Federated Primal—Dual Learning for Nonconvex and Nonsmooth Problems With Model Sparsification",
+      "内容": "在非凸且非光滑的联邦优化中引入模型稀疏化与隐私保护原始—对偶更新，降低参数传输成本。",
+      "原文来源": "https://doi.org/10.1109/JIOT.2024.3376552",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/b92d49688dde982d/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "497bccea54ed06ef",
+    "date": "2026-11-03",
+    "title": "Is what you measure what you expect? Factors affecting smartphone-based mobile network measurement",
+    "status": "题录已核验，摘要待核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/497bccea54ed06ef/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/INFOCOM.2017.8057166"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/INFOCOM.2017.8057166"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Is what you measure what you expect? Factors affecting smartphone-based mobile network measurement",
+      "内容": "讨论手机进行移动网络测量时影响结果准确性的因素。由于未取得原始摘要，具体实验条件和结论待核验。",
+      "原文来源": "https://doi.org/10.1109/INFOCOM.2017.8057166",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/497bccea54ed06ef/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "774e39f1e29e009e",
+    "date": "2026-11-03",
+    "title": "Federated Matrix Factorization: Algorithm Design and Application to Data Clustering",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/774e39f1e29e009e/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/tsp.2022.3151505"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/tsp.2022.3151505"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Federated Matrix Factorization: Algorithm Design and Application to Data Clustering",
+      "内容": "提出联邦矩阵分解算法，研究客户端数据异构与变量耦合，并将该框架用于分布式数据聚类。",
+      "原文来源": "https://doi.org/10.1109/tsp.2022.3151505",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/774e39f1e29e009e/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "3ee2cc43a009ed5a",
+    "date": "2026-11-03",
+    "title": "Enhancing the Description-to-Behavior Fidelity in Android Apps with Privacy Policy",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/3ee2cc43a009ed5a/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/TSE.2017.2730198"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/TSE.2017.2730198"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Enhancing the Description-to-Behavior Fidelity in Android Apps with Privacy Policy",
+      "内容": "研究 Android 应用的描述、隐私政策及实际行为之间的一致性，改善应用行为披露及隐私风险识别。",
+      "原文来源": "https://doi.org/10.1109/TSE.2017.2730198",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/3ee2cc43a009ed5a/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "a71a0722a3c453bb",
+    "date": "2026-11-03",
+    "title": "Energy Efficiency Maximization for Downlink NOMA Designs via Symbol-Level Precoding",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/a71a0722a3c453bb/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/TVT.2024.3404817"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/TVT.2024.3404817"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Energy Efficiency Maximization for Downlink NOMA Designs via Symbol-Level Precoding",
+      "内容": "在下行 NOMA 设计中采用符号级预编码，以符号结构辅助资源优化，在用户服务质量约束下改善能量效率。",
+      "原文来源": "https://doi.org/10.1109/TVT.2024.3404817",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/a71a0722a3c453bb/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "0ae99174108393d9",
+    "date": "2026-11-03",
+    "title": "Differentially Private Federated Stochastic Primal-Dual Learning for Internet of Vehicles",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/0ae99174108393d9/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/JIOT.2025.3534982"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/JIOT.2025.3534982"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Differentially Private Federated Stochastic Primal-Dual Learning for Internet of Vehicles",
+      "内容": "针对车联网提出具差分隐私机制的联邦随机原始—对偶算法，兼顾数据保护和训练效率。",
+      "原文来源": "https://doi.org/10.1109/JIOT.2025.3534982",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/0ae99174108393d9/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "0efe5116bd53ea56",
+    "date": "2026-11-03",
+    "title": "Differentially Private Federated Clustering Over Non-IID Data",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/0efe5116bd53ea56/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/JIOT.2023.3312852"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/JIOT.2023.3312852"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Differentially Private Federated Clustering Over Non-IID Data",
+      "内容": "研究非独立同分布客户端数据上的联邦聚类，设计差分隐私算法以保护数据且保持聚类效果。",
+      "原文来源": "https://doi.org/10.1109/JIOT.2023.3312852",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/0efe5116bd53ea56/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "ea7a8e71df0a5abf",
+    "date": "2026-11-03",
+    "title": "Differentially Private and Heterogeneity-Robust Federated Learning With Theoretical Guarantee",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/ea7a8e71df0a5abf/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/TAI.2024.3446759"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/TAI.2024.3446759"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Differentially Private and Heterogeneity-Robust Federated Learning With Theoretical Guarantee",
+      "内容": "设计能够同时应对数据异构和差分隐私噪声的联邦学习方法，并给出相应的理论性能保证。",
+      "原文来源": "https://doi.org/10.1109/TAI.2024.3446759",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/ea7a8e71df0a5abf/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "6b08ea3185161e11",
+    "date": "2026-11-03",
+    "title": "Demystifying Model Averaging for Communication-Efficient Federated Matrix Factorization",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/6b08ea3185161e11/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/ICASSP39728.2021.9413927"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/ICASSP39728.2021.9413927"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Demystifying Model Averaging for Communication-Efficient Federated Matrix Factorization",
+      "内容": "研究模型平均在联邦矩阵分解中的收敛与通信收益，分析多次本地更新后模型聚合的影响。",
+      "原文来源": "https://doi.org/10.1109/ICASSP39728.2021.9413927",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/6b08ea3185161e11/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "47e86eabbdedb27e",
+    "date": "2026-11-03",
+    "title": "Clustering by Orthogonal Non-negative Matrix Factorization: A Sequential Non-convex Penalty Approach",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/47e86eabbdedb27e/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/ICASSP.2019.8683466"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/ICASSP.2019.8683466"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Clustering by Orthogonal Non-negative Matrix Factorization: A Sequential Non-convex Penalty Approach",
+      "内容": "将正交非负矩阵分解的困难正交约束转化为顺序非凸罚函数优化问题，用于数据聚类。",
+      "原文来源": "https://doi.org/10.1109/ICASSP.2019.8683466",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/47e86eabbdedb27e/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "e4851aae296ea2e1",
+    "date": "2026-11-03",
+    "title": "Clustering by Orthogonal NMF Model and Non-Convex Penalty Optimization",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/e4851aae296ea2e1/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/tsp.2021.3102106"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/tsp.2021.3102106"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Clustering by Orthogonal NMF Model and Non-Convex Penalty Optimization",
+      "内容": "采用非凸罚函数优化正交非负矩阵分解模型，处理非负性和正交性耦合约束并用于聚类。",
+      "原文来源": "https://doi.org/10.1109/tsp.2021.3102106",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/e4851aae296ea2e1/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "31f309fb0d0361cc",
+    "date": "2026-11-03",
+    "title": "Cell Subclass Identification in Single-Cell RNA-Sequencing Data Using Orthogonal Nonnegative Matrix Factorization",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/31f309fb0d0361cc/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/ICASSP.2018.8462055"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/ICASSP.2018.8462055"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Cell Subclass Identification in Single-Cell RNA-Sequencing Data Using Orthogonal Nonnegative Matrix Factorization",
+      "内容": "将正交非负矩阵分解用于单细胞 RNA 测序数据中的亚类识别，通过矩阵结构提取细胞群体信息。",
+      "原文来源": "https://doi.org/10.1109/ICASSP.2018.8462055",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/31f309fb0d0361cc/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "a7997276313be8ab",
+    "date": "2026-11-03",
+    "title": "Attribute-Based Access Control Encryption",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/a7997276313be8ab/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/TDSC.2024.3481497"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/TDSC.2024.3481497"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Attribute-Based Access Control Encryption",
+      "内容": "提出基于属性的访问控制加密模型，使授权策略不再依赖逐一列举用户身份，支持更灵活的访问权限表达。",
+      "原文来源": "https://doi.org/10.1109/TDSC.2024.3481497",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/a7997276313be8ab/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "866cb5c3c24ed18d",
+    "date": "2026-11-03",
+    "title": "Adaptive Unpacking of Android Apps",
+    "status": "题录已核验，摘要待核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/866cb5c3c24ed18d/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/ICSE.2017.40"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/ICSE.2017.40"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Adaptive Unpacking of Android Apps",
+      "内容": "研究 Android 应用的自适应脱壳与分析技术。原始论文摘要尚未取得，具体算法和性能结论待补。",
+      "原文来源": "https://doi.org/10.1109/ICSE.2017.40",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/866cb5c3c24ed18d/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "9ef8be64cd0bde10",
+    "date": "2026-11-03",
+    "title": "Beyond ADMM: A Unified Client-variance-reduced Adaptive Federated Learning Framework",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/9ef8be64cd0bde10/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.48550/arXiv.2212.01519"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.48550/arXiv.2212.01519"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Beyond ADMM: A Unified Client-variance-reduced Adaptive Federated Learning Framework",
+      "内容": "提出客户端方差缩减的自适应联邦优化框架，在标准 ADMM 思路之上协调客户端抽样和异构更新。",
+      "原文来源": "https://doi.org/10.48550/arXiv.2212.01519",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/9ef8be64cd0bde10/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "5c8dff1721f367dc",
+    "date": "2026-11-03",
+    "title": "Toward Fast Personalized Semi-Supervised Federated Learning in Edge Networks: Algorithm Design and Theoretical Guarantee",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/5c8dff1721f367dc/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/TWC.2023.3286990"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/TWC.2023.3286990"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Toward Fast Personalized Semi-Supervised Federated Learning in Edge Networks: Algorithm Design and Theoretical Guarantee",
+      "内容": "提出 FedCPSL 个性化半监督联邦学习框架，将伪标签、个性化插值、客户端方差缩减和动量结合，分析边缘设备异质性下的收敛。",
+      "原文来源": "https://doi.org/10.1109/TWC.2023.3286990",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/5c8dff1721f367dc/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "89a2a5a5b5c3cae1",
+    "date": "2026-11-03",
+    "title": "Wideband Terahertz Communications with AoSA: Beam Split Aggregation and Multiplexing",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/89a2a5a5b5c3cae1/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/GLOBECOM48099.2022.10001065"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/GLOBECOM48099.2022.10001065"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Wideband Terahertz Communications with AoSA: Beam Split Aggregation and Multiplexing",
+      "内容": "针对太赫兹宽带子阵列（AoSA）的波束分裂，提出分裂聚合及多路复用设计，改善宽带多用户传输。",
+      "原文来源": "https://doi.org/10.1109/GLOBECOM48099.2022.10001065",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/89a2a5a5b5c3cae1/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "d2445e1cde74c075",
+    "date": "2026-11-03",
+    "title": "Towards THz-based Obstacle Sensing: A Generative Radio Environment Awareness Framework",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/d2445e1cde74c075/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/GLOBECOM52923.2024.10901826"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/GLOBECOM52923.2024.10901826"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Towards THz-based Obstacle Sensing: A Generative Radio Environment Awareness Framework",
+      "内容": "利用太赫兹接收信号强度与障碍物几何之间的关系，通过生成式环境感知框架推断障碍物并辅助波束管理。",
+      "原文来源": "https://doi.org/10.1109/GLOBECOM52923.2024.10901826",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/d2445e1cde74c075/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "ae993eb02e92d0a3",
+    "date": "2026-11-03",
+    "title": "Terahertz Wireless Communications for 2030 and Beyond: A Cutting-Edge Frontier",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/ae993eb02e92d0a3/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/MCOM.011.2100195"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/MCOM.011.2100195"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Terahertz Wireless Communications for 2030 and Beyond: A Cutting-Edge Frontier",
+      "内容": "展望 2030 年及以后的太赫兹通信，讨论超宽带、高速率、低时延、感知定位与传播损耗、硬件功耗的矛盾。",
+      "原文来源": "https://doi.org/10.1109/MCOM.011.2100195",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/ae993eb02e92d0a3/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "d3741150244370c9",
+    "date": "2026-11-03",
+    "title": "Smart Antenna Allocation for Wireless Surveillance",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/d3741150244370c9/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/ICNC47757.2020.9049654"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/ICNC47757.2020.9049654"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Smart Antenna Allocation for Wireless Surveillance",
+      "内容": "研究全双工无线监测节点的发射与接收天线分配，使节点能同时接收可疑链路信号和发送干扰，提高监测成功率。",
+      "原文来源": "https://doi.org/10.1109/ICNC47757.2020.9049654",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/d3741150244370c9/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "aae7e59b0e62f817",
+    "date": "2026-11-03",
+    "title": "Secrecy degrees of freedom of a MIMO Gaussian wiretap channel with a cooperative jammer",
+    "status": "题录已核验，摘要待核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/aae7e59b0e62f817/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/ICASSP.2016.7472325"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/ICASSP.2016.7472325"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Secrecy degrees of freedom of a MIMO Gaussian wiretap channel with a cooperative jammer",
+      "内容": "探讨协作干扰器辅助的 MIMO 高斯窃听信道保密自由度。原始摘要未取得，具体定理与假设待核验。",
+      "原文来源": "https://doi.org/10.1109/ICASSP.2016.7472325",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/aae7e59b0e62f817/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "a6f3a23298cb7d51",
+    "date": "2026-11-03",
+    "title": "Robust transmit design for secure AF relay networks with imperfect CSI",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/a6f3a23298cb7d51/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1186/s13638-016-0641-1"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1186/s13638-016-0641-1"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Robust transmit design for secure AF relay networks with imperfect CSI",
+      "内容": "在放大转发安全中继系统中考虑有界和统计 CSI 不确定性，联合设计信息转发及干扰以提高鲁棒保密性能。",
+      "原文来源": "https://doi.org/10.1186/s13638-016-0641-1",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/a6f3a23298cb7d51/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "15b5e2f255f00f8c",
+    "date": "2026-11-03",
+    "title": "Robust transmit design for secure AF relay networks based on worst-case optimization",
+    "status": "题录已核验，摘要待核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/15b5e2f255f00f8c/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/ICASSP.2014.6854094"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/ICASSP.2014.6854094"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Robust transmit design for secure AF relay networks based on worst-case optimization",
+      "内容": "面向安全放大转发中继网络研究最坏情形鲁棒传输。原始摘要未取得，具体误差集和求解方法待核验。",
+      "原文来源": "https://doi.org/10.1109/ICASSP.2014.6854094",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/15b5e2f255f00f8c/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "fae92af6414a96db",
+    "date": "2026-11-03",
+    "title": "Reliable and energy-aware job offloading at terahertz frequencies for mobile edge computing",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/fae92af6414a96db/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.23919/JCC.2020.12.002"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.23919/JCC.2020.12.002"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Reliable and energy-aware job offloading at terahertz frequencies for mobile edge computing",
+      "内容": "联合设计太赫兹移动边缘计算的发射功率与任务卸载决策，在超可靠低时延约束下降低通信能耗。",
+      "原文来源": "https://doi.org/10.23919/JCC.2020.12.002",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/fae92af6414a96db/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "f86b8ae54cae9bb2",
+    "date": "2026-11-03",
+    "title": "Optimal Pricing for Job Offloading in the MEC System With Two Priority Classes",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/f86b8ae54cae9bb2/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/TVT.2021.3090935"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/TVT.2021.3090935"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Optimal Pricing for Job Offloading in the MEC System With Two Priority Classes",
+      "内容": "为 MEC 系统中延时需求不同的两类任务研究卸载定价，利用价格调节共享计算资源的竞争。",
+      "原文来源": "https://doi.org/10.1109/TVT.2021.3090935",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/f86b8ae54cae9bb2/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "f7999bcf21da7f84",
+    "date": "2026-11-03",
+    "title": "Optimal Beam Steering Design for Large-Scale mmWave MIMO Wiretap Channel",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/f7999bcf21da7f84/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/GLOCOM.2018.8647769"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/GLOCOM.2018.8647769"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Optimal Beam Steering Design for Large-Scale mmWave MIMO Wiretap Channel",
+      "内容": "研究大规模毫米波 MIMO 窃听信道中的保密波束指向，在硬件与方向性限制下优化安全传输。",
+      "原文来源": "https://doi.org/10.1109/GLOCOM.2018.8647769",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/f7999bcf21da7f84/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "32c0be8cd856f53f",
+    "date": "2026-11-03",
+    "title": "On Secrecy Capacity of Gaussian Wiretap Channel Aided by A Cooperative Jammer",
+    "status": "题录已核验，摘要待核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/32c0be8cd856f53f/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/LSP.2014.2336803"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/LSP.2014.2336803"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "On Secrecy Capacity of Gaussian Wiretap Channel Aided by A Cooperative Jammer",
+      "内容": "探讨协作干扰器辅助的高斯窃听信道保密容量；未取得原始摘要，不推断容量公式与成立条件。",
+      "原文来源": "https://doi.org/10.1109/LSP.2014.2336803",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/32c0be8cd856f53f/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "d36a30e993c18479",
+    "date": "2026-11-03",
+    "title": "On Artificial-Noise-Aided Transmit Design for Multiuser MISO Systems With Integrated Services",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/d36a30e993c18479/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/TVT.2017.2676244"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/TVT.2017.2676244"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "On Artificial-Noise-Aided Transmit Design for Multiuser MISO Systems With Integrated Services",
+      "内容": "在多用户 MISO 中同时承载公共组播和保密单播，联合优化人工噪声与发送波束以满足不同服务的约束。",
+      "原文来源": "https://doi.org/10.1109/TVT.2017.2676244",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/d36a30e993c18479/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "619e60405f766cf1",
+    "date": "2026-11-03",
+    "title": "Non-asymptotic analysis of secrecy capacity in massive MIMO system",
+    "status": "题录已核验，摘要待核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/619e60405f766cf1/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/ICC.2015.7249046"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/ICC.2015.7249046"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Non-asymptotic analysis of secrecy capacity in massive MIMO system",
+      "内容": "研究大规模 MIMO 系统保密容量的非渐近刻画；原始摘要未取得，具体容量界及信道假设待核验。",
+      "原文来源": "https://doi.org/10.1109/ICC.2015.7249046",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/619e60405f766cf1/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "27f44b767539de23",
+    "date": "2026-11-03",
+    "title": "Near-Field Beam Training in THz Communications: The Merits of Uniform Circular Array",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/27f44b767539de23/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/LWC.2023.3234001"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/LWC.2023.3234001"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Near-Field Beam Training in THz Communications: The Merits of Uniform Circular Array",
+      "内容": "提出使用均匀圆形阵列进行太赫兹近场波束训练，利用距离—角度结构降低搜索复杂度。",
+      "原文来源": "https://doi.org/10.1109/LWC.2023.3234001",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/27f44b767539de23/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "c1144e9a785cbcac",
+    "date": "2026-11-03",
+    "title": "Multi-IRS-Aided Multi-User MIMO in mmWave/THz Communications: A Space-Orthogonal Scheme",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/c1144e9a785cbcac/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/TCOMM.2022.3216344"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/TCOMM.2022.3216344"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Multi-IRS-Aided Multi-User MIMO in mmWave/THz Communications: A Space-Orthogonal Scheme",
+      "内容": "研究多 IRS 辅助毫米波/太赫兹多用户 MIMO，利用空间正交结构降低主动和被动波束设计的耦合。",
+      "原文来源": "https://doi.org/10.1109/TCOMM.2022.3216344",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/c1144e9a785cbcac/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "f89a429377f63ad0",
+    "date": "2026-11-03",
+    "title": "Mobility and Blockage-induced Beam Misalignment and Throughput Analysis for THz Networks",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/f89a429377f63ad0/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/GLOBECOM46510.2021.9685541"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/GLOBECOM46510.2021.9685541"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Mobility and Blockage-induced Beam Misalignment and Throughput Analysis for THz Networks",
+      "内容": "分析移动性和障碍阻塞导致的太赫兹窄波束失配，建立吞吐量模型评价对齐频率与网络性能。",
+      "原文来源": "https://doi.org/10.1109/GLOBECOM46510.2021.9685541",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/f89a429377f63ad0/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "1e404147215210e8",
+    "date": "2026-11-03",
+    "title": "MIMO Secret Communications Against an Active Eavesdropper",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/1e404147215210e8/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/TIFS.2017.2705618"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/TIFS.2017.2705618"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "MIMO Secret Communications Against an Active Eavesdropper",
+      "内容": "在主动窃听者可同时干扰和窃听的条件下，研究全双工合法节点发射干扰以保护 MIMO 保密通信。",
+      "原文来源": "https://doi.org/10.1109/TIFS.2017.2705618",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/1e404147215210e8/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "a730972acc2bdb22",
+    "date": "2026-11-03",
+    "title": "Near-Field Beam Training in Terahertz Communications with Hybrid Beamforming Architecture",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/a730972acc2bdb22/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.3390/mi14040880"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.3390/mi14040880"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Near-Field Beam Training in Terahertz Communications with Hybrid Beamforming Architecture",
+      "内容": "面向太赫兹近场混合波束成形阵列，设计同时定位角度和距离的波束训练，以降低射频链受限情况下的训练复杂度。",
+      "原文来源": "https://doi.org/10.3390/mi14040880",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/a730972acc2bdb22/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "58edc2f86b93d93f",
+    "date": "2026-11-03",
+    "title": "Linear Precoder Design for an MIMO Gaussian Wiretap Channel With Full-Duplex Source and Destination Nodes",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/58edc2f86b93d93f/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/TIFS.2017.2756350"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/TIFS.2017.2756350"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Linear Precoder Design for an MIMO Gaussian Wiretap Channel With Full-Duplex Source and Destination Nodes",
+      "内容": "研究全双工源端与目的端的 MIMO 高斯窃听信道，通过线性预编码和自干扰管理优化保密速率。",
+      "原文来源": "https://doi.org/10.1109/TIFS.2017.2756350",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/58edc2f86b93d93f/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "1b82717712ddbeb7",
+    "date": "2026-11-03",
+    "title": "JointRec: A Deep-Learning-Based Joint Cloud Video Recommendation Framework for Mobile IoT",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/1b82717712ddbeb7/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/JIOT.2019.2944889"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/JIOT.2019.2944889"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "JointRec: A Deep-Learning-Based Joint Cloud Video Recommendation Framework for Mobile IoT",
+      "内容": "设计面向移动物联网的分布式云端深度视频推荐框架，使多地云服务器协同利用用户数据改善推荐结果。",
+      "原文来源": "https://doi.org/10.1109/JIOT.2019.2944889",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/1b82717712ddbeb7/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "3ffc041ea3227dd8",
+    "date": "2026-11-03",
+    "title": "Joint Sensing, Control, and Communication Scheduling for THz Beam Alignment in Cellular Connected UAV Networks (Invited Paper)",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "公开学术题录与论文摘要（2026-11-03）",
+    "paper_url": "/papers/items/3ffc041ea3227dd8/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/DySPAN53946.2021.9677081"
+    ],
+    "hyperlinks": {
+      "原文来源": "https://doi.org/10.1109/DySPAN53946.2021.9677081"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Joint Sensing, Control, and Communication Scheduling for THz Beam Alignment in Cellular Connected UAV Networks (Invited Paper)",
+      "内容": "面向蜂窝连接无人机的太赫兹链路，联合调度感知、无人机控制和通信以缓解快速移动引起的波束失配。",
+      "原文来源": "https://doi.org/10.1109/DySPAN53946.2021.9677081",
+      "公开代码状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。",
+      "代码/数据状态": "未确认到与该论文直接对应的公开代码；这不代表论文没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/3ffc041ea3227dd8/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不提供全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
   }
 ]
