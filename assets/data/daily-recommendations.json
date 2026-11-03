@@ -1108,6 +1108,1106 @@
           "民谣"
         ],
         "note": "用简洁的自白触碰自由、亏欠以及人际关系的重量。"
+      },
+      {
+        "id": "s101",
+        "title": "The Musical Box",
+        "creator": "Genesis",
+        "tags": [
+          "前卫摇滚",
+          "戏剧叙事",
+          "变奏"
+        ],
+        "note": "从童话般的开场走向紧张的戏剧冲突，一曲便像演完一场古怪戏剧。"
+      },
+      {
+        "id": "s102",
+        "title": "The Carpet Crawlers",
+        "creator": "Genesis",
+        "tags": [
+          "前卫摇滚",
+          "梦境",
+          "抒情"
+        ],
+        "note": "柔软而神秘的旋律，为复杂概念专辑留下一段可独立聆听的梦。"
+      },
+      {
+        "id": "s103",
+        "title": "Heart of the Sunrise",
+        "creator": "Yes",
+        "tags": [
+          "前卫摇滚",
+          "强弱反差",
+          "器乐"
+        ],
+        "note": "猛烈的节奏与透明的人声轮番出现，结构复杂却不失情绪推动。"
+      },
+      {
+        "id": "s104",
+        "title": "Awaken",
+        "creator": "Yes",
+        "tags": [
+          "前卫摇滚",
+          "史诗",
+          "合唱"
+        ],
+        "note": "管风琴般的庄严质感层层展开，把一首长歌推进到近乎仪式的高度。"
+      },
+      {
+        "id": "s105",
+        "title": "Lady Fantasy",
+        "creator": "Camel",
+        "tags": [
+          "前卫摇滚",
+          "吉他",
+          "幻想"
+        ],
+        "note": "旋律不断回返、改写，兼有温柔的歌唱与舒展的器乐长段。"
+      },
+      {
+        "id": "s106",
+        "title": "Ice",
+        "creator": "Camel",
+        "tags": [
+          "器乐摇滚",
+          "吉他",
+          "哀婉"
+        ],
+        "note": "几乎不靠歌词叙事，一段吉他独奏就足以写出完整的情绪弧线。"
+      },
+      {
+        "id": "s107",
+        "title": "Nine Feet Underground",
+        "creator": "Caravan",
+        "tags": [
+          "坎特伯雷之声",
+          "组曲",
+          "奇趣"
+        ],
+        "note": "长篇组曲在爵士摇摆与摇滚推进之间穿梭，俏皮又精细。"
+      },
+      {
+        "id": "s108",
+        "title": "A Plague of Lighthouse Keepers",
+        "creator": "Van der Graaf Generator",
+        "tags": [
+          "前卫摇滚",
+          "心理戏",
+          "阴郁"
+        ],
+        "note": "灯塔守望者的孤绝被切分成多个音乐章节，冲突感异常强烈。"
+      },
+      {
+        "id": "s109",
+        "title": "Man-Erg",
+        "creator": "Van der Graaf Generator",
+        "tags": [
+          "前卫摇滚",
+          "人性",
+          "张力"
+        ],
+        "note": "温柔与暴烈轮流占据主导，仿佛在听一场不愿和解的内心辩论。"
+      },
+      {
+        "id": "s110",
+        "title": "Tarkus",
+        "creator": "Emerson, Lake & Palmer",
+        "tags": [
+          "前卫摇滚",
+          "键盘",
+          "奇想"
+        ],
+        "note": "夸张的键盘演奏和连环段落构成音乐怪兽，技术炫目却有整体戏剧性。"
+      },
+      {
+        "id": "s111",
+        "title": "Rhayader",
+        "creator": "Camel",
+        "tags": [
+          "器乐摇滚",
+          "长笛",
+          "轻盈"
+        ],
+        "note": "长笛与吉他的简洁呼应，像童话插画忽然有了流动的声音。"
+      },
+      {
+        "id": "s112",
+        "title": "21st Century Schizoid Man",
+        "creator": "King Crimson",
+        "tags": [
+          "前卫摇滚",
+          "失真",
+          "时代焦虑"
+        ],
+        "note": "粗粝的人声与疾驰的器乐段落，把现代焦虑压进极具冲击力的声音里。"
+      },
+      {
+        "id": "s113",
+        "title": "Larks' Tongues in Aspic, Part One",
+        "creator": "King Crimson",
+        "tags": [
+          "实验摇滚",
+          "打击乐",
+          "动态"
+        ],
+        "note": "从几乎静止的细响突然跃入猛烈齐奏，很适合感受动态对比。"
+      },
+      {
+        "id": "s114",
+        "title": "Ommadawn (Part One)",
+        "creator": "Mike Oldfield",
+        "tags": [
+          "器乐",
+          "民谣元素",
+          "层叠"
+        ],
+        "note": "主题在不断叠加的乐器间生长，最后汇成令人心潮起伏的合奏。"
+      },
+      {
+        "id": "s115",
+        "title": "Tubular Bells (Part One)",
+        "creator": "Mike Oldfield",
+        "tags": [
+          "器乐",
+          "极简动机",
+          "编配"
+        ],
+        "note": "少量动机不断变形换装，适合留意每一次新乐器入场带来的差异。"
+      },
+      {
+        "id": "s116",
+        "title": "Song of Scheherazade",
+        "creator": "Renaissance",
+        "tags": [
+          "交响摇滚",
+          "叙事",
+          "女声"
+        ],
+        "note": "借用一千零一夜的想象，把古典色彩与摇滚乐队编织成大型组曲。"
+      },
+      {
+        "id": "s117",
+        "title": "Ashes Are Burning",
+        "creator": "Renaissance",
+        "tags": [
+          "交响摇滚",
+          "女声",
+          "爆发"
+        ],
+        "note": "清澈的歌声与后半段的器乐爆发形成一条壮阔的上升线。"
+      },
+      {
+        "id": "s118",
+        "title": "Thick as a Brick (Part 1)",
+        "creator": "Jethro Tull",
+        "tags": [
+          "前卫摇滚",
+          "讽刺",
+          "长篇"
+        ],
+        "note": "假托少年诗篇的文字游戏，在不断转折的音乐里透出机敏与幽默。"
+      },
+      {
+        "id": "s119",
+        "title": "Aqualung",
+        "creator": "Jethro Tull",
+        "tags": [
+          "经典摇滚",
+          "人物速写",
+          "社会观察"
+        ],
+        "note": "从街头人物的凝视切入，吉他重击与轻柔段落让叙述很有棱角。"
+      },
+      {
+        "id": "s120",
+        "title": "Free Hand",
+        "creator": "Gentle Giant",
+        "tags": [
+          "前卫摇滚",
+          "复调",
+          "律动"
+        ],
+        "note": "复杂声部彼此咬合却不混乱，听起来像精密齿轮忽然跳起舞。"
+      },
+      {
+        "id": "s121",
+        "title": "The Weaver's Answer",
+        "creator": "Family",
+        "tags": [
+          "英伦摇滚",
+          "寓言",
+          "沧桑"
+        ],
+        "note": "借织工问答回顾人的一生，粗粝唱腔为寓言添上岁月重量。"
+      },
+      {
+        "id": "s122",
+        "title": "The Raven That Refused to Sing",
+        "creator": "Steven Wilson",
+        "tags": [
+          "前卫摇滚",
+          "哀悼",
+          "故事"
+        ],
+        "note": "以幽灵故事处理难以说出口的丧失，钢琴与吉他的积蓄尤其动人。"
+      },
+      {
+        "id": "s123",
+        "title": "Routine",
+        "creator": "Steven Wilson",
+        "tags": [
+          "艺术摇滚",
+          "家庭",
+          "创伤"
+        ],
+        "note": "日常劳动与悲痛记忆相互缠绕，音乐越克制，后段越有力量。"
+      },
+      {
+        "id": "s124",
+        "title": "Arriving Somewhere but Not Here",
+        "creator": "Porcupine Tree",
+        "tags": [
+          "前卫金属",
+          "长篇",
+          "氛围"
+        ],
+        "note": "缓慢铺陈的声景最终转成沉重律动，适合完整听完而非只截取高潮。"
+      },
+      {
+        "id": "s125",
+        "title": "Trains",
+        "creator": "Porcupine Tree",
+        "tags": [
+          "前卫摇滚",
+          "怀旧",
+          "节奏"
+        ],
+        "note": "轻快的节奏承载对往昔的追忆，复杂编配却保持亲近的旋律感。"
+      },
+      {
+        "id": "s126",
+        "title": "The Sound of Silence",
+        "creator": "Simon & Garfunkel",
+        "tags": [
+          "民谣",
+          "孤独",
+          "现代社会"
+        ],
+        "note": "清淡的和声下是对交流失效的尖锐观察，简单而耐反复聆听。"
+      },
+      {
+        "id": "s127",
+        "title": "I Am a Rock",
+        "creator": "Simon & Garfunkel",
+        "tags": [
+          "民谣摇滚",
+          "自我防御",
+          "孤独"
+        ],
+        "note": "用看似坚硬的自我宣言写脆弱，明亮旋律与歌词的落差值得玩味。"
+      },
+      {
+        "id": "s128",
+        "title": "The Dangling Conversation",
+        "creator": "Simon & Garfunkel",
+        "tags": [
+          "民谣",
+          "文学意象",
+          "疏离"
+        ],
+        "note": "知识与修辞并不能填补两人之间的沉默，叙述尤其细腻。"
+      },
+      {
+        "id": "s129",
+        "title": "Hearts and Bones",
+        "creator": "Paul Simon",
+        "tags": [
+          "唱作",
+          "亲密关系",
+          "回望"
+        ],
+        "note": "在旅行与情感的碎片间整理旧关系，语言朴素而不轻易裁判谁对谁错。"
+      },
+      {
+        "id": "s130",
+        "title": "The Obvious Child",
+        "creator": "Paul Simon",
+        "tags": [
+          "世界音乐",
+          "鼓乐",
+          "成长"
+        ],
+        "note": "热烈的打击乐与关于年龄的自问并置，明快里透出时间感。"
+      },
+      {
+        "id": "s131",
+        "title": "Slip Slidin' Away",
+        "creator": "Paul Simon",
+        "tags": [
+          "民谣流行",
+          "人生",
+          "克制"
+        ],
+        "note": "几个平凡人物的小故事，被写成关于计划与现实错位的温柔观察。"
+      },
+      {
+        "id": "s132",
+        "title": "The Circle Game",
+        "creator": "Joni Mitchell",
+        "tags": [
+          "民谣",
+          "成长",
+          "时间"
+        ],
+        "note": "旋转木马的意象连接童年与成年，轻盈地唱出无法挽留的变化。"
+      },
+      {
+        "id": "s133",
+        "title": "Amelia",
+        "creator": "Joni Mitchell",
+        "tags": [
+          "民谣",
+          "远行",
+          "孤独"
+        ],
+        "note": "把飞行先驱的命运与私人的远行经验并置，辽阔又疏离。"
+      },
+      {
+        "id": "s134",
+        "title": "Hejira",
+        "creator": "Joni Mitchell",
+        "tags": [
+          "爵士民谣",
+          "流浪",
+          "自省"
+        ],
+        "note": "低回的贝斯与自由句法让旅途成为一场持续不断的自我审视。"
+      },
+      {
+        "id": "s135",
+        "title": "Help Me",
+        "creator": "Joni Mitchell",
+        "tags": [
+          "爵士流行",
+          "恋爱",
+          "轻快"
+        ],
+        "note": "轻盈的旋律里不断权衡靠近与退让，细节远比表面甜美复杂。"
+      },
+      {
+        "id": "s136",
+        "title": "The Times They Are A-Changin'",
+        "creator": "Bob Dylan",
+        "tags": [
+          "抗议民谣",
+          "时代",
+          "号召"
+        ],
+        "note": "最直接的时代号角之一，不靠复杂编曲也有充足的推进力。"
+      },
+      {
+        "id": "s137",
+        "title": "Desolation Row",
+        "creator": "Bob Dylan",
+        "tags": [
+          "长篇叙事",
+          "荒诞",
+          "群像"
+        ],
+        "note": "形形色色的文化人物挤进同一条街，像一幅永远解释不尽的壁画。"
+      },
+      {
+        "id": "s138",
+        "title": "Visions of Johanna",
+        "creator": "Bob Dylan",
+        "tags": [
+          "诗性叙事",
+          "夜晚",
+          "朦胧"
+        ],
+        "note": "一系列跳跃意象让缺席的人物比在场者更鲜明，耐于细读。"
+      },
+      {
+        "id": "s139",
+        "title": "Tangled Up in Blue",
+        "creator": "Bob Dylan",
+        "tags": [
+          "民谣摇滚",
+          "非线性",
+          "回忆"
+        ],
+        "note": "人物与时间不断换位，像一部被拆散再重拼的爱情小说。"
+      },
+      {
+        "id": "s140",
+        "title": "A Hard Rain's A-Gonna Fall",
+        "creator": "Bob Dylan",
+        "tags": [
+          "抗议民谣",
+          "末世意象",
+          "问答"
+        ],
+        "note": "连续的问答把战争、恐惧与希望串成一场密集的想象之旅。"
+      },
+      {
+        "id": "s141",
+        "title": "The Needle and the Damage Done",
+        "creator": "Neil Young",
+        "tags": [
+          "原声吉他",
+          "哀悼",
+          "克制"
+        ],
+        "note": "短短几分钟直面成瘾带来的毁坏，没有多余的抒情装饰。"
+      },
+      {
+        "id": "s142",
+        "title": "After the Gold Rush",
+        "creator": "Neil Young",
+        "tags": [
+          "民谣",
+          "生态",
+          "梦境"
+        ],
+        "note": "梦境里的历史与未来交错，末尾的希望显得格外脆弱。"
+      },
+      {
+        "id": "s143",
+        "title": "Old Man",
+        "creator": "Neil Young",
+        "tags": [
+          "民谣摇滚",
+          "代际",
+          "共情"
+        ],
+        "note": "年轻人与老人之间的差别，在几句歌声里慢慢缩小。"
+      },
+      {
+        "id": "s144",
+        "title": "Northern Sky",
+        "creator": "Nick Drake",
+        "tags": [
+          "民谣",
+          "温柔",
+          "夜色"
+        ],
+        "note": "有一份不常见的明亮，温暖的键盘与歌声像在黑夜里留灯。"
+      },
+      {
+        "id": "s145",
+        "title": "River Man",
+        "creator": "Nick Drake",
+        "tags": [
+          "室内民谣",
+          "弦乐",
+          "神秘"
+        ],
+        "note": "不寻常的拍号与弦乐让日常景象显出幽深的流动感。"
+      },
+      {
+        "id": "s146",
+        "title": "Pink Moon",
+        "creator": "Nick Drake",
+        "tags": [
+          "极简民谣",
+          "孤独",
+          "夜晚"
+        ],
+        "note": "只有极少的声音，却能留下强烈且无法轻易解释的余味。"
+      },
+      {
+        "id": "s147",
+        "title": "These Days",
+        "creator": "Nico",
+        "tags": [
+          "民谣",
+          "回望",
+          "疏离"
+        ],
+        "note": "简洁吉他伴奏下的低声自述，像把生活的迟疑逐条数清。"
+      },
+      {
+        "id": "s148",
+        "title": "Blue",
+        "creator": "Joni Mitchell",
+        "tags": [
+          "钢琴",
+          "脆弱",
+          "自白"
+        ],
+        "note": "直白得近乎没有掩饰的人声，让私人情绪成为可以仔细辨认的形状。"
+      },
+      {
+        "id": "s149",
+        "title": "Hallelujah",
+        "creator": "Leonard Cohen",
+        "tags": [
+          "吟唱",
+          "信仰意象",
+          "矛盾"
+        ],
+        "note": "圣经意象与世俗欲望彼此交错，听来更像复杂人性的独白。"
+      },
+      {
+        "id": "s150",
+        "title": "Avalanche",
+        "creator": "Leonard Cohen",
+        "tags": [
+          "诗性",
+          "阴影",
+          "低吟"
+        ],
+        "note": "低沉的唱腔与反复拨弦制造咒语般的气氛，文字颇具戏剧威胁。"
+      },
+      {
+        "id": "s151",
+        "title": "Chelsea Hotel #2",
+        "creator": "Leonard Cohen",
+        "tags": [
+          "回忆",
+          "人物",
+          "抒情"
+        ],
+        "note": "几笔具体的往事留下没有被美化的亲密与遗憾。"
+      },
+      {
+        "id": "s152",
+        "title": "The Mercy Seat",
+        "creator": "Nick Cave & The Bad Seeds",
+        "tags": [
+          "叙事摇滚",
+          "审判",
+          "执念"
+        ],
+        "note": "电椅上的独白不断重复、扭曲，像困在自己辩词里的意识。"
+      },
+      {
+        "id": "s153",
+        "title": "Jubilee Street",
+        "creator": "Nick Cave & The Bad Seeds",
+        "tags": [
+          "叙事",
+          "累积",
+          "爆发"
+        ],
+        "note": "从近乎低语的开场积累到洪流般的尾声，人物故事随着音乐升温。"
+      },
+      {
+        "id": "s154",
+        "title": "Into the Mystic",
+        "creator": "Van Morrison",
+        "tags": [
+          "灵魂乐",
+          "海洋",
+          "抒情"
+        ],
+        "note": "海风、号角与柔和人声交织，一首歌就有驶向远方的开阔感。"
+      },
+      {
+        "id": "s155",
+        "title": "And It Stoned Me",
+        "creator": "Van Morrison",
+        "tags": [
+          "灵魂乐",
+          "童年",
+          "回忆"
+        ],
+        "note": "把少年时极平常的遭遇唱成顿悟时刻，温暖而不做作。"
+      },
+      {
+        "id": "s156",
+        "title": "Pyramid Song",
+        "creator": "Radiohead",
+        "tags": [
+          "艺术摇滚",
+          "钢琴",
+          "时间感"
+        ],
+        "note": "看似难以踩准的节拍最终显出独特流动，像在水下慢慢前进。"
+      },
+      {
+        "id": "s157",
+        "title": "How to Disappear Completely",
+        "creator": "Radiohead",
+        "tags": [
+          "氛围",
+          "疏离",
+          "弦乐"
+        ],
+        "note": "反复的自我否认与漂浮弦乐，让现实一点点失去边界。"
+      },
+      {
+        "id": "s158",
+        "title": "Weird Fishes/Arpeggi",
+        "creator": "Radiohead",
+        "tags": [
+          "艺术摇滚",
+          "复节奏",
+          "沉浸"
+        ],
+        "note": "循环吉他线条层层交叠，逐渐构成仿佛不断下潜的深海景象。"
+      },
+      {
+        "id": "s159",
+        "title": "Idioteque",
+        "creator": "Radiohead",
+        "tags": [
+          "电子摇滚",
+          "危机感",
+          "节拍"
+        ],
+        "note": "冰冷节拍配上近乎惊惶的人声，像在灾难预警中跳舞。"
+      },
+      {
+        "id": "s160",
+        "title": "Reckoner",
+        "creator": "Radiohead",
+        "tags": [
+          "艺术摇滚",
+          "律动",
+          "空灵"
+        ],
+        "note": "清脆打击乐与高处悬浮的歌声相衬，精致又不显雕琢。"
+      },
+      {
+        "id": "s161",
+        "title": "Neighborhood #1 (Tunnels)",
+        "creator": "Arcade Fire",
+        "tags": [
+          "独立摇滚",
+          "青春",
+          "幻想"
+        ],
+        "note": "以雪封住街道的想象开篇，把两个人的亲近写得很有画面感。"
+      },
+      {
+        "id": "s162",
+        "title": "Wake Up",
+        "creator": "Arcade Fire",
+        "tags": [
+          "合唱",
+          "成长",
+          "现场感"
+        ],
+        "note": "万人齐唱般的旋律不只是热闹，也含着对童年消逝的哀伤。"
+      },
+      {
+        "id": "s163",
+        "title": "Sprawl II (Mountains Beyond Mountains)",
+        "creator": "Arcade Fire",
+        "tags": [
+          "合成器流行",
+          "城市",
+          "反抗"
+        ],
+        "note": "明亮舞曲包裹着对都市生活的抗拒，快乐与压抑形成反差。"
+      },
+      {
+        "id": "s164",
+        "title": "All My Friends",
+        "creator": "LCD Soundsystem",
+        "tags": [
+          "舞曲摇滚",
+          "时间",
+          "友情"
+        ],
+        "note": "重复的钢琴音型一直向前，像一晚狂欢逐渐变成回望青春。"
+      },
+      {
+        "id": "s165",
+        "title": "Someone Great",
+        "creator": "LCD Soundsystem",
+        "tags": [
+          "电子流行",
+          "失去",
+          "克制"
+        ],
+        "note": "用近乎平稳的节拍承托失落，让情绪在细节里悄悄浮现。"
+      },
+      {
+        "id": "s166",
+        "title": "Dance Yrself Clean",
+        "creator": "LCD Soundsystem",
+        "tags": [
+          "电子",
+          "动态对比",
+          "释放"
+        ],
+        "note": "漫长的安静铺垫之后突然爆发，是用音量写成的戏剧转折。"
+      },
+      {
+        "id": "s167",
+        "title": "Enjoy the Silence",
+        "creator": "Depeche Mode",
+        "tags": [
+          "合成器流行",
+          "亲密",
+          "克制"
+        ],
+        "note": "把语言的局限唱成一支精密而忧郁的舞曲。"
+      },
+      {
+        "id": "s168",
+        "title": "Never Let Me Down Again",
+        "creator": "Depeche Mode",
+        "tags": [
+          "电子摇滚",
+          "暗色",
+          "合唱"
+        ],
+        "note": "宏大的合成器铺陈和不安的歌词相伴，具有强烈现场气质。"
+      },
+      {
+        "id": "s169",
+        "title": "Blue Monday",
+        "creator": "New Order",
+        "tags": [
+          "电子舞曲",
+          "后朋克",
+          "冷感"
+        ],
+        "note": "机械节拍与冷淡人声碰撞，听得出摇滚乐队走向舞池的转折。"
+      },
+      {
+        "id": "s170",
+        "title": "Ceremony",
+        "creator": "New Order",
+        "tags": [
+          "后朋克",
+          "告别",
+          "重生"
+        ],
+        "note": "吉他始终向前奔跑，在哀悼与新开始之间留下动人的张力。"
+      },
+      {
+        "id": "s171",
+        "title": "Love Will Tear Us Apart",
+        "creator": "Joy Division",
+        "tags": [
+          "后朋克",
+          "亲密关系",
+          "疏离"
+        ],
+        "note": "几乎轻快的旋律反衬歌词中的崩塌，成为经典自有原因。"
+      },
+      {
+        "id": "s172",
+        "title": "Atmosphere",
+        "creator": "Joy Division",
+        "tags": [
+          "后朋克",
+          "肃穆",
+          "空间感"
+        ],
+        "note": "鼓点仿佛缓慢行进的队伍，稀疏的声音留出巨大的空白。"
+      },
+      {
+        "id": "s173",
+        "title": "Disorder",
+        "creator": "Joy Division",
+        "tags": [
+          "后朋克",
+          "焦虑",
+          "速度"
+        ],
+        "note": "奔涌的贝斯与吉他把焦灼情绪直接转成前进的动力。"
+      },
+      {
+        "id": "s174",
+        "title": "Bizarre Love Triangle",
+        "creator": "New Order",
+        "tags": [
+          "合成器流行",
+          "矛盾",
+          "律动"
+        ],
+        "note": "欢快得近乎透明的舞曲中，藏着无法简单处理的情感纠葛。"
+      },
+      {
+        "id": "s175",
+        "title": "Just Like Heaven",
+        "creator": "The Cure",
+        "tags": [
+          "另类摇滚",
+          "浪漫",
+          "明亮"
+        ],
+        "note": "吉他与键盘层层铺开的瞬间，就像记忆突然被照亮。"
+      },
+      {
+        "id": "s176",
+        "title": "Pictures of You",
+        "creator": "The Cure",
+        "tags": [
+          "氛围摇滚",
+          "怀旧",
+          "失去"
+        ],
+        "note": "漫长前奏慢慢浮现一段旧关系，旋律带着失焦照片的质感。"
+      },
+      {
+        "id": "s177",
+        "title": "A Forest",
+        "creator": "The Cure",
+        "tags": [
+          "后朋克",
+          "冷峻",
+          "迷失"
+        ],
+        "note": "重复贝斯与稀薄吉他制造一座不见出口的夜间森林。"
+      },
+      {
+        "id": "s178",
+        "title": "This Charming Man",
+        "creator": "The Smiths",
+        "tags": [
+          "独立摇滚",
+          "机智",
+          "吉他"
+        ],
+        "note": "轻盈的吉他与曲折的文字互相竞速，几分钟里充满锋利趣味。"
+      },
+      {
+        "id": "s179",
+        "title": "How Soon Is Now?",
+        "creator": "The Smiths",
+        "tags": [
+          "另类摇滚",
+          "孤独",
+          "音色"
+        ],
+        "note": "震颤的吉他声墙为孤独披上一层宏大而奇异的外衣。"
+      },
+      {
+        "id": "s180",
+        "title": "The Whole of the Moon",
+        "creator": "The Waterboys",
+        "tags": [
+          "摇滚",
+          "理想主义",
+          "昂扬"
+        ],
+        "note": "铜管与鼓点一路高举，适合听一首毫不遮掩的赞叹之歌。"
+      },
+      {
+        "id": "s181",
+        "title": "The Engine Driver",
+        "creator": "The Decemberists",
+        "tags": [
+          "独立民谣",
+          "职业意象",
+          "叙事"
+        ],
+        "note": "把不同职业的细节编入情感叙述，像翻开一本薄薄的短篇集。"
+      },
+      {
+        "id": "s182",
+        "title": "The Mariner's Revenge Song",
+        "creator": "The Decemberists",
+        "tags": [
+          "叙事民谣",
+          "复仇",
+          "黑色幽默"
+        ],
+        "note": "船难、复仇与荒诞细节接踵而来，一首歌讲完一则离奇传奇。"
+      },
+      {
+        "id": "s183",
+        "title": "O Valencia!",
+        "creator": "The Decemberists",
+        "tags": [
+          "独立摇滚",
+          "爱情",
+          "悲剧"
+        ],
+        "note": "爽朗的旋律讲述一段急转直下的恋情，越热闹越觉辛酸。"
+      },
+      {
+        "id": "s184",
+        "title": "The Crane Wife 3",
+        "creator": "The Decemberists",
+        "tags": [
+          "民谣摇滚",
+          "传说",
+          "遗憾"
+        ],
+        "note": "借鹤妻传说写爱与索取，重复旋律有令人难忘的哀婉。"
+      },
+      {
+        "id": "s185",
+        "title": "The Suburbs",
+        "creator": "Arcade Fire",
+        "tags": [
+          "独立摇滚",
+          "城郊",
+          "成长"
+        ],
+        "note": "没有急于批判郊区生活，而是写出记忆与城市一起改变的复杂心情。"
+      },
+      {
+        "id": "s186",
+        "title": "The Wilhelm Scream",
+        "creator": "James Blake",
+        "tags": [
+          "电子灵魂乐",
+          "失重",
+          "人声"
+        ],
+        "note": "重复的短句不断沉入低频，制造出近乎悬浮的眩晕感。"
+      },
+      {
+        "id": "s187",
+        "title": "Retrograde",
+        "creator": "James Blake",
+        "tags": [
+          "电子",
+          "灵魂乐",
+          "渐强"
+        ],
+        "note": "简洁的人声动机在合成器推进中渐渐发亮，情绪克制却充沛。"
+      },
+      {
+        "id": "s188",
+        "title": "Archangel",
+        "creator": "Burial",
+        "tags": [
+          "UK Garage",
+          "夜行",
+          "碎片采样"
+        ],
+        "note": "破碎的人声与潮湿节拍拼出一座匿名的夜间城市。"
+      },
+      {
+        "id": "s189",
+        "title": "Untrue",
+        "creator": "Burial",
+        "tags": [
+          "电子",
+          "孤独",
+          "都市氛围"
+        ],
+        "note": "游移节拍与遥远人声像隔着玻璃的灯火，适合深夜耳机聆听。"
+      },
+      {
+        "id": "s190",
+        "title": "Everything in Its Right Place",
+        "creator": "Radiohead",
+        "tags": [
+          "电子摇滚",
+          "循环",
+          "异化"
+        ],
+        "note": "只用少数和弦和人声切片，就把熟悉的世界变得陌生。"
+      },
+      {
+        "id": "s191",
+        "title": "Teardrop",
+        "creator": "Massive Attack",
+        "tags": [
+          "Trip-hop",
+          "人声",
+          "脉动"
+        ],
+        "note": "持续的脉搏般节拍衬出空灵歌声，细微变化尤其耐听。"
+      },
+      {
+        "id": "s192",
+        "title": "Angel",
+        "creator": "Massive Attack",
+        "tags": [
+          "Trip-hop",
+          "低频",
+          "压迫感"
+        ],
+        "note": "低频像影子逐渐逼近，缓慢堆积出令人无法忽视的巨大压力。"
+      },
+      {
+        "id": "s193",
+        "title": "Glory Box",
+        "creator": "Portishead",
+        "tags": [
+          "Trip-hop",
+          "复古",
+          "渴望"
+        ],
+        "note": "旧唱片般的音色与强烈的人声诉求交织，慵懒中暗藏锋芒。"
+      },
+      {
+        "id": "s194",
+        "title": "Sour Times",
+        "creator": "Portishead",
+        "tags": [
+          "Trip-hop",
+          "黑色电影感",
+          "冷调"
+        ],
+        "note": "音色带着老电影的阴影，歌词与节拍共同制造不安的亲密。"
+      },
+      {
+        "id": "s195",
+        "title": "All Is Full of Love",
+        "creator": "Björk",
+        "tags": [
+          "艺术流行",
+          "温柔",
+          "电子"
+        ],
+        "note": "冰冷的电子纹理托起柔和的歌声，让技术感与情感并不对立。"
+      },
+      {
+        "id": "s196",
+        "title": "Bachelorette",
+        "creator": "Björk",
+        "tags": [
+          "艺术流行",
+          "弦乐",
+          "戏剧"
+        ],
+        "note": "浓烈管弦编配与童话式隐喻交错，像一部会呼吸的小型歌剧。"
+      },
+      {
+        "id": "s197",
+        "title": "Space Oddity",
+        "creator": "David Bowie",
+        "tags": [
+          "太空叙事",
+          "民谣摇滚",
+          "孤独"
+        ],
+        "note": "从发射倒数唱到失联的漂流，科技奇观与人的孤独同样醒目。"
+      },
+      {
+        "id": "s198",
+        "title": "Rock 'n' Roll Suicide",
+        "creator": "David Bowie",
+        "tags": [
+          "戏剧摇滚",
+          "救赎",
+          "合唱"
+        ],
+        "note": "从孤单的自白走向热烈的呼喊，终点像一场观众共同参与的告别。"
+      },
+      {
+        "id": "s199",
+        "title": "The Man Who Sold the World",
+        "creator": "David Bowie",
+        "tags": [
+          "艺术摇滚",
+          "身份",
+          "神秘"
+        ],
+        "note": "一场与另一个自我的相遇，被写成难以捉摸的旋律谜题。"
+      },
+      {
+        "id": "s200",
+        "title": "Under Pressure",
+        "creator": "Queen & David Bowie",
+        "tags": [
+          "摇滚",
+          "合作",
+          "共情"
+        ],
+        "note": "紧绷的贝斯线支撑两种声音，最终落到人与人之间的理解。"
       }
     ],
     "book": [
