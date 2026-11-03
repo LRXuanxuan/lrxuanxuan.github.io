@@ -1,0 +1,112 @@
+[
+  {
+    "id": "08d65dfa65c570c1",
+    "arxiv_id": "2303.01469",
+    "date": "2026-11-03",
+    "title": "Consistency Models",
+    "status": "正式发表",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "网站端手动补充（2026-11-03）",
+    "paper_url": "/papers/items/08d65dfa65c570c1/",
+    "pdf_sources": [
+      "https://proceedings.mlr.press/v202/song23a/song23a.pdf"
+    ],
+    "hosted_pdfs": [],
+    "github": [
+      "https://github.com/openai/consistency_models"
+    ],
+    "links": [
+      "https://proceedings.mlr.press/v202/song23a.html",
+      "https://arxiv.org/abs/2303.01469",
+      "https://github.com/openai/consistency_models"
+    ],
+    "hyperlinks": {
+      "论文下载链接": "https://proceedings.mlr.press/v202/song23a/song23a.pdf",
+      "检索来源": "https://proceedings.mlr.press/v202/song23a.html",
+      "代码链接": "https://github.com/openai/consistency_models"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Consistency Models",
+      "内容": "作者：Yang Song、Prafulla Dhariwal、Mark Chen、Ilya Sutskever。提出将概率流 ODE 同一轨迹上的状态映射至相同端点的一致性函数，实现一步或少步采样。既可通过 Consistency Distillation 蒸馏预训练扩散模型，也可通过 Consistency Training 独立训练。论文报告 CIFAR-10 一步采样 FID 3.55（蒸馏设置）；并支持零样本图像编辑。须区分蒸馏与非蒸馏训练，NFE 不等于训练总成本。",
+      "契合方向": "生成模型；Consistency Models；少步采样；Diffusion/Flow",
+      "推荐理由": "对比低 NFE 生成机制：以轨迹一致性取代逐步 ODE 积分；区分 Consistency Distillation 与独立 Consistency Training。",
+      "顶刊顶会/机构依据": "ICML 2023；PMLR 202:32211–32252；已正式发表。",
+      "发表年份": "2023",
+      "论文下载链接": "https://proceedings.mlr.press/v202/song23a/song23a.pdf",
+      "检索来源": "https://proceedings.mlr.press/v202/song23a.html",
+      "筛选备注": "低 NFE 机制性对照：轨迹一致性不等同于一般蒸馏。研究条件逆问题时须额外处理观测约束，不能直接把无条件一步生成 FID 当作重建质量证据。",
+      "是否略读": "☐",
+      "是否精读": "☐",
+      "备注": "2026-11-03 网站端手动补充；暂未制作全文翻译。",
+      "代码链接": "https://github.com/openai/consistency_models",
+      "代码/数据状态": "作者公开官方实现；本次未实际运行。",
+      "反馈匹配": "与 Drifting Model 的分布匹配式单步生成形成机制对照。",
+      "反馈权重说明": "按原文结论登记，未将 benchmark 性能推断为通信信道估计效果。"
+    },
+    "translations": [],
+    "full_translation_label": "全文翻译（待补齐）",
+    "full_translation_url": "/papers/items/08d65dfa65c570c1/#paper-translation",
+    "full_translation_public": false,
+    "translation_status": "pending",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "559408cea3232316",
+    "arxiv_id": "2602.04770",
+    "date": "2026-11-03",
+    "title": "Generative Modeling via Drifting",
+    "status": "已接收待刊",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "网站端手动补充（2026-11-03）",
+    "paper_url": "/papers/items/559408cea3232316/",
+    "pdf_sources": [
+      "https://arxiv.org/pdf/2602.04770"
+    ],
+    "hosted_pdfs": [],
+    "github": [
+      "https://github.com/lambertae/drifting"
+    ],
+    "links": [
+      "https://arxiv.org/abs/2602.04770",
+      "https://lambertae.github.io/projects/drifting/",
+      "https://github.com/lambertae/drifting"
+    ],
+    "hyperlinks": {
+      "论文下载链接": "https://arxiv.org/pdf/2602.04770",
+      "检索来源": "https://arxiv.org/abs/2602.04770",
+      "代码链接": "https://github.com/lambertae/drifting"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Generative Modeling via Drifting",
+      "内容": "作者：Mingyang Deng、He Li、Tianhong Li、Yilun Du、Kaiming He。直接学习噪声到数据的单步生成映射，通过由真实分布与当前生成分布共同构造的吸引—排斥 drifting field，在训练阶段逐步调整生成分布；无需预训练扩散生成教师。作者报告 ImageNet 256×256 一步生成 FID：潜空间 1.54、像素空间 1.61。高质量结果依赖预训练特征编码器，不能把 1 NFE 理解为整个方法无额外训练成本。",
+      "契合方向": "生成模型；Drifting Models；分布匹配；单步采样",
+      "推荐理由": "考察不依赖多步生成教师的原生单步生成训练范式，比较分布匹配与轨迹一致性两种低 NFE 路径。",
+      "顶刊顶会/机构依据": "作者项目页标注 NeurIPS 2026 Oral；截至 2026-11-03 按录用信息登记，未核验会议正式出版卷页。",
+      "发表年份": "2026",
+      "论文下载链接": "https://arxiv.org/pdf/2602.04770",
+      "检索来源": "https://arxiv.org/abs/2602.04770",
+      "筛选备注": "对照 Consistency Models：不学习预先给定的多步轨迹，而直接通过漂移场优化推前分布。关注漂移场平衡的可辨识性、核函数选择、高维表征及训练计算成本。",
+      "是否略读": "☐",
+      "是否精读": "☐",
+      "备注": "2026-11-03 网站端手动补充；暂未制作全文翻译。",
+      "代码链接": "https://github.com/lambertae/drifting",
+      "代码/数据状态": "官方 JAX 代码、推理脚本和预训练权重已公开；本次未实际复现。",
+      "反馈匹配": "与 Consistency Models 一起作为低 NFE 生成模型机制比较的阅读条目。",
+      "反馈权重说明": "ImageNet FID 属原文报告，不代表通信任务性能。"
+    },
+    "translations": [],
+    "full_translation_label": "全文翻译（待补齐）",
+    "full_translation_url": "/papers/items/559408cea3232316/#paper-translation",
+    "full_translation_public": false,
+    "translation_status": "pending",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  }
+]
