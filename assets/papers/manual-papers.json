@@ -958,24 +958,24 @@
     "pdf_sources": [],
     "hosted_pdfs": [],
     "github": [
-      "https://github.com/le-liang/Diffusion-models-for-channel-estimation"
+      "https://github.com/STARainZ/Diffusion-models-for-channel-estimation"
     ],
     "links": [
       "https://doi.org/10.1109/TWC.2025.3549592",
-      "https://github.com/le-liang/Diffusion-models-for-channel-estimation"
+      "https://github.com/STARainZ/Diffusion-models-for-channel-estimation"
     ],
     "hyperlinks": {
       "摘要来源": "https://doi.org/10.1109/TWC.2025.3549592",
-      "代码/数据来源": "https://github.com/le-liang/Diffusion-models-for-channel-estimation"
+      "代码/数据来源": "https://github.com/STARainZ/Diffusion-models-for-channel-estimation"
     },
     "fields": {
       "日期": "2026-11-03",
       "标题": "Generative diffusion models for high dimensional channel estimation",
       "内容": "用扩散生成先验重建高维及低比特量化的 MIMO 信道，并借助 Stein 无偏风险估计减少对真值信道的依赖。",
       "摘要来源": "https://doi.org/10.1109/TWC.2025.3549592",
-      "公开代码状态": "第三方代码副本：找到带训练和测试脚本的论文同名实现。仓库 README 自称代码副本，作者身份尚未确认。 https://github.com/le-liang/Diffusion-models-for-channel-estimation",
-      "代码/数据状态": "第三方代码副本：找到带训练和测试脚本的论文同名实现。仓库 README 自称代码副本，作者身份尚未确认。 https://github.com/le-liang/Diffusion-models-for-channel-estimation",
-      "代码/数据来源": "https://github.com/le-liang/Diffusion-models-for-channel-estimation"
+      "公开代码状态": "已找到与论文一致、含训练/测试脚本的公开仓库：https://github.com/STARainZ/Diffusion-models-for-channel-estimation。原先发现的仓库是该仓库的 fork；当前尚未核验上游仓库所有者是否为论文作者。",
+      "代码/数据状态": "已找到与论文一致、含训练/测试脚本的公开仓库：https://github.com/STARainZ/Diffusion-models-for-channel-estimation。原先发现的仓库是该仓库的 fork；当前尚未核验上游仓库所有者是否为论文作者。",
+      "代码/数据来源": "https://github.com/STARainZ/Diffusion-models-for-channel-estimation"
     },
     "translations": [],
     "full_translation_label": "查看摘要",

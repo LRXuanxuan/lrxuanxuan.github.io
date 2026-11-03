@@ -22,6 +22,6 @@ toc: false
 
 ## 公开代码状态
 
-找到带训练和测试脚本的论文同名实现。仓库 README 自称代码副本，作者身份尚未确认。
+已找到对应论文的公开训练/测试代码及数据下载说明，但未核实仓库所有者是否为原论文作者，也未进行独立复现。
 
-[查看第三方代码副本](https://github.com/le-liang/Diffusion-models-for-channel-estimation)
+[查看上游仓库](https://github.com/STARainZ/Diffusion-models-for-channel-estimation)
