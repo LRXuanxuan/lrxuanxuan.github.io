@@ -1,4 +1,84 @@
 {
+ "bab6e10f08b83b0a": {
+  "url": "/papers/translations/2026-11-03-2610-27888-implicit-ad-constrained-automatic-differentiation/",
+  "title": "前向与逆问题中带约束的自动微分｜中文全文译文",
+  "scope": "全文覆盖：摘要与关键词、第 1–6 节全部正文与全部小节（§3.1–3.3、§4.1–4.5）、式 (1)–(25)、图 1–5 图注、参考文献 [1]–[37]（英文原条目）；许可：CC BY-NC-ND 4.0；按用户 2026-11-03 明确要求公开本篇译文；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "c5cf757a8893191c": {
+  "url": "/papers/translations/2026-11-02-2606-21014-bayesfp-feynman-kac-posterior-estimation-flow-policies/",
+  "title": "BayesFP：基于 Feynman–Kac 采样的流策略后验估计｜中文全文译文",
+  "scope": "全文覆盖：摘要、正文各节（含 §4、§6–§7）、附录 C/D/F、式 (1)–(N) 编号、算法、表 1–2 逐格、图 1–N 图注、参考文献英文原条目；许可：CC BY 4.0；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "3e271bfeaf1775d0": {
+  "url": "/papers/translations/2026-11-02-2610-26025-tamedflow-trajectory-aware-distillation-for-teacher-assisted-diffusion/",
+  "title": "TamedFlow：面向教师辅助扩散采样的轨迹感知蒸馏｜中文全文译文",
+  "scope": "全文覆盖：摘要、正文各节（含 §3.2 Proposition 3.1、§4–§6）、式 (1)–(N) 编号、算法、表 1–2 逐格、图 1–N 图注、附录 F/H、参考文献英文原条目；许可：CC BY 4.0；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "a372011476d9d171": {
+  "url": "/papers/translations/2026-11-02-2609-32836-radiomap-blind-prediction-under-incomplete-observation/",
+  "title": "不完整观测下的无线电地图盲预测：误差刻画与可纠正传播先验学习｜中文全文译文",
+  "scope": "全文覆盖：摘要、正文各节（含 §III–§V）、Proposition 1–2、式 (1)–(N) 编号、表 II–IV 逐格、图 1–N 图注、参考文献英文原条目；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "bca80d269736373f": {
+  "url": "/papers/translations/2026-11-02-2610-08977-snr-gated-lstm-conditioned-diffusion-model-for-mimo-channel-estimation/",
+  "title": "SNR 门控 LSTM 条件扩散模型用于 MIMO 信道估计｜中文全文译文",
+  "scope": "全文覆盖：摘要、正文各节（含 §II Eq7–8、§III Eq13–15）、式 (1)–(15) 编号、图 1–5 图注、表格逐格、参考文献英文原条目；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "06c412124f26d651": {
+  "url": "/papers/translations/2026-11-02-2606-12844-active-perception-for-radio-map-reconstruction-in-uncharted-3d-air/",
+  "title": "未知 3D 空地环境中的无线电地图重建主动感知｜中文全文译文",
+  "scope": "全文覆盖：摘要、正文各节（含 §III–IV、§V-F、§VI）、表 I/XI 逐格、图 12–13 等图注、式 (1)–(N) 编号、参考文献英文原条目；许可：CC BY 4.0；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "93836e40a67de25b": {
+  "url": "/papers/translations/2026-11-03-2610-08992-trace-geometry-informed-pilot-limited-channel-estimation/",
+  "title": "TRACE：由上行流量感知的几何信息网络用于稀疏导频信道估计｜中文全文译文",
+  "scope": "全文覆盖：摘要、正文各节（§2–§4）、式 (1)–(N) 编号、图 1–N 图注、表 1–3 逐格、参考文献英文原条目；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "b2db156c1d8dde55": {
+  "url": "/papers/translations/2026-11-03-2606-25310-diffusion-models-for-radio-map-estimation-performance-analysis/",
+  "title": "扩散模型无线电地图估计：理论性能分析与采样率准则｜中文全文译文",
+  "scope": "全文覆盖：摘要、正文各节（含 §VI A1–A4、§VII Theorem 1–3、§VIII Corollary 1–3）、式 (1)–(N) 编号、图 4–6 等图注、表格逐格、参考文献英文原条目；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "df43fa3be5813f1c": {
+  "url": "/papers/translations/2026-11-03-2606-03074-rmprior-propagation-priors-diffusion-refinement-radio-map/",
+  "title": "RMPrior：传播先验与扩散精修桥接的无线电地图高效构建｜中文全文译文",
+  "scope": "全文覆盖：摘要、正文各节（含 Eq6–14、§IV、Table I–III）、式编号、图注、参考文献英文原条目；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "7342ab30ff421c7f": {
+  "url": "/papers/translations/2026-11-03-2610-12102-data-space-iteration-few-step-generation/",
+  "title": "数据空间迭代的少步生成｜中文全文译文",
+  "scope": "全文覆盖：摘要、§2–§3、式 (1)–(N) 编号、表 1–3 逐格、图注、附录 E/G、参考文献英文原条目；许可：CC BY 4.0；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
  "be32642a596c1b20": {
   "url": "/papers/translations/2026-11-01-2610-05371-robust-ensemble-guidance-for-scientific-inverse-problems/",
   "title": "面向科学逆问题的稳健集成引导（REG）｜中文全文译文",
