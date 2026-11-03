@@ -19,3 +19,7 @@ toc: false
 **依据：** [论文公开摘要与出版信息](https://mlanthology.org/iclr/2023/lipman2023iclr-flow/)。
 
 *以上为中文摘要概述，尚未独立复现实验。*
+
+## 公开代码状态
+
+已找到[公开代码仓库](https://github.com/facebookresearch/flow_matching)。尚未运行或复现。
