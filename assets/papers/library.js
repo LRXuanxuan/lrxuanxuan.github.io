@@ -40,7 +40,7 @@
     for(const a of p.hosted_pdfs){const att=make('p',`${a.title} · ${a.authors||''} · 未修改原文。`,'pl-meta');appendLink(att,'原文授权',a.license_url);d.append(att);}
     const stMap={complete:'已完成',pending:'待补齐',running:'进行中',in_progress:'进行中',incomplete:'未完成',access_blocked:'访问受限',superseded:'已被取代'};
     const stText=p.full_translation_public?'已完成':(stMap[p.translation_status]||p.translation_status||'待补齐');
-    d.append(make('small',`来源：${data.source} · ${p.sheet} 第 ${p.row} 行 · 全文译稿：${stText}`,'pl-meta'));c.append(d);return c;
+    d.append(make('small',`来源：${p.source||data.source} · ${p.sheet}${p.row==='—'?'':' 第 '+p.row+' 行'} · 全文译稿：${stText}`,'pl-meta'));c.append(d);return c;
   }
   function matchesReadingMark(p, selected) {
     if (!selected) return true;
@@ -63,6 +63,28 @@
   }
   fetch(root.dataset.source,{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(async json=>{
     data=json;
+    // Lightweight, website-only paper additions. Keep exported workbook rows immutable.
+    try {
+      const response = await fetch('/assets/papers/manual-papers.json', {cache:'no-cache'});
+      if (response.ok) {
+        const additions = await response.json();
+        if (Array.isArray(additions)) {
+          const existing = data.papers || [];
+          const fresh = additions.filter(a => !existing.some(p =>
+            p.id === a.id ||
+            (p.title || '').trim().toLowerCase() === (a.title || '').trim().toLowerCase() ||
+            (a.arxiv_id && [...(p.pdf_sources || []), ...(p.links || []), ...Object.values(p.hyperlinks || {})]
+              .some(u => typeof u === 'string' && u.includes(a.arxiv_id)))
+          ));
+          if (fresh.length) {
+            data.papers = [...fresh, ...existing];
+            data.total = (Number(data.total) || existing.length) + fresh.length;
+            data.dates = data.dates || {};
+            fresh.forEach(p => { data.dates[p.date] = (data.dates[p.date] || 0) + 1; });
+          }
+        }
+      }
+    } catch(err) { console.warn('网站补充论文暂不可用', err); }
     // The static index can lag behind newly committed hand-curated translations.
     // Merge only the public translation registry; do not modify QA counts or paper statistics.
     try {
