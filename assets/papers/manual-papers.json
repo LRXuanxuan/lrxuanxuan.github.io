@@ -6477,5 +6477,75 @@
     "report_entry_url": null,
     "paper_report_url": "",
     "report_section": ""
+  },
+  {
+    "id": "5adb46a7a05574c0",
+    "date": "2026-11-03",
+    "title": "面向通信感知一体化的干扰抑制、波形设计和资源优化",
+    "status": "题录已核验，原摘要待补",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "校订题名与学术来源（2026-11-03）",
+    "paper_url": "/papers/items/5adb46a7a05574c0/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://cnki.istiz.org.cn/kcms/detail/search.aspx?dbcode=CJFQ&sfield=kw&skey=interference+suppression"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://cnki.istiz.org.cn/kcms/detail/search.aspx?dbcode=CJFQ&sfield=kw&skey=interference+suppression"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "面向通信感知一体化的干扰抑制、波形设计和资源优化",
+      "内容": "浙江大学 2023 年博士学位论文，作者何映晖。原上传标题误识为“何晓峰”。目前仅核实题录，尚未取得原始摘要，不能根据题名推断其方法与实验结果。",
+      "文献来源": "https://cnki.istiz.org.cn/kcms/detail/search.aspx?dbcode=CJFQ&sfield=kw&skey=interference+suppression",
+      "公开代码状态": "公开代码未确认：本次未找到经身份核实的专属实现仓库，不能推断作者没有开源。",
+      "代码/数据状态": "公开代码未确认：本次未找到经身份核实的专属实现仓库，不能推断作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/5adb46a7a05574c0/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "689730ee3ccfd7de",
+    "date": "2026-11-03",
+    "title": "Decoupled Diffusion Models with Explicit Transition Probability",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "校订题名与学术来源（2026-11-03）",
+    "paper_url": "/papers/items/689730ee3ccfd7de/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://arxiv.org/abs/2306.13720"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://arxiv.org/abs/2306.13720"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Decoupled Diffusion Models with Explicit Transition Probability",
+      "内容": "提出解耦扩散模型，将复杂扩散过程拆分为具有显式状态转移概率的组成部分，以降低反向采样过程的复杂性，并研究其生成任务表现。原始记录是下载文件名，已恢复规范题名。",
+      "文献来源": "https://arxiv.org/abs/2306.13720",
+      "公开代码状态": "公开代码未确认：本次未找到经身份核实的专属实现仓库，不能推断作者没有开源。",
+      "代码/数据状态": "公开代码未确认：本次未找到经身份核实的专属实现仓库，不能推断作者没有开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/689730ee3ccfd7de/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
   }
 ]

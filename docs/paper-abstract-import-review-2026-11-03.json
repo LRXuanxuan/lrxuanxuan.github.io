@@ -6,31 +6,35 @@
   "existing_manual": [
     39
   ],
-  "pending": [
-    {
-      "number": 20,
-      "title": "Pinching-antenna systems (PASS): Architecture designs, opportunities, and outlook",
-      "status": "待核对原始摘要"
-    },
-    {
-      "number": 71,
-      "title": "1. 面向通信感知一体化的干扰抑制、波形设计和资源优化-何晓峰-博士学位论文",
-      "status": "待核对原始摘要"
-    },
-    {
-      "number": 72,
-      "title": "678_Decoupled_Diffusion_Models",
-      "status": "待核对原始摘要"
-    },
-    {
-      "number": 73,
-      "title": "Fig: Flow with interpolant guidance for lin- ear inverse problems",
-      "status": "待核对原始摘要"
-    }
-  ],
+  "pending": [],
   "notes": [
     "020疑似与004同篇",
     "073疑似017的图片标题误录",
     "072疑似下载文件名，非标准文献题名"
-  ]
+  ],
+  "deduplicated": [
+    20,
+    73
+  ],
+  "corrections": [
+    {
+      "number": 20,
+      "duplicate_of": 4,
+      "reason": "同一篇 PASS 架构综述，正式 DOI 10.1109/MCOM.001.2500037"
+    },
+    {
+      "number": 73,
+      "duplicate_of": 17,
+      "reason": "截图图片标题被误作为论文条目"
+    },
+    {
+      "number": 71,
+      "corrected_author": "何映晖"
+    },
+    {
+      "number": 72,
+      "corrected_title": "Decoupled Diffusion Models with Explicit Transition Probability"
+    }
+  ],
+  "total_unique_target": 181
 }
