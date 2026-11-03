@@ -2236,5 +2236,1581 @@
     "report_entry_url": null,
     "paper_report_url": "",
     "report_section": ""
+  },
+  {
+    "id": "3d524582d6c417aa",
+    "date": "2026-11-03",
+    "title": "Sensing-Assisted Sparse Channel Recovery for Massive Antenna Systems",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/3d524582d6c417aa/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/TVT.2024.3422663"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/TVT.2024.3422663"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Sensing-Assisted Sparse Channel Recovery for Massive Antenna Systems",
+      "内容": "利用感知得到的散射体几何信息建立稀疏信道先验，再结合通信导频对大规模阵列进行稀疏路径恢复，以降低训练开销。",
+      "文献来源": "https://doi.org/10.1109/TVT.2024.3422663",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/3d524582d6c417aa/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "7c8254e890cba563",
+    "date": "2026-11-03",
+    "title": "Environment-Aware Near-Field Channel Estimation Leveraging CKM and ISAC",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/7c8254e890cba563/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.48550/arXiv.2604.04031"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.48550/arXiv.2604.04031"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Environment-Aware Near-Field Channel Estimation Leveraging CKM and ISAC",
+      "内容": "融合信道知识地图的静态传播先验与 ISAC 获取的动态环境特征，对超大规模阵列近场路径进行结构化估计。",
+      "文献来源": "https://doi.org/10.48550/arXiv.2604.04031",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/7c8254e890cba563/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "ce4ab603364c681e",
+    "date": "2026-11-03",
+    "title": "CKM-Assisted LoS Identification and Predictive Beamforming for Cellular-Connected UAV",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/ce4ab603364c681e/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/ICC45041.2023.10278702"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/ICC45041.2023.10278702"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "CKM-Assisted LoS Identification and Predictive Beamforming for Cellular-Connected UAV",
+      "内容": "由 CKM 判断无人机移动路径上的视距及阻塞条件，提前预测毫米波波束选择，减少实时链路训练。",
+      "文献来源": "https://doi.org/10.1109/ICC45041.2023.10278702",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/ce4ab603364c681e/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "b40defd0c090a55e",
+    "date": "2026-11-03",
+    "title": "Channel Knowledge Map Enabled Low-Altitude ISAC Networks: Joint Air Corridor Planning and Base Station Deployment",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/b40defd0c090a55e/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/LWC.2025.3642429"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/LWC.2025.3642429"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Channel Knowledge Map Enabled Low-Altitude ISAC Networks: Joint Air Corridor Planning and Base Station Deployment",
+      "内容": "利用 CKM 反映低空空间通信和感知质量，联合优化无人机空中走廊与基站位置，以满足双重覆盖。",
+      "文献来源": "https://doi.org/10.1109/LWC.2025.3642429",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/b40defd0c090a55e/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "5d9a34e6b378ff24",
+    "date": "2026-11-03",
+    "title": "Channel Knowledge Map (CKM)-Assisted Multi-UAV Wireless Network: CKM Construction and UAV Placement",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/5d9a34e6b378ff24/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.48550/arXiv.2207.01931"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.48550/arXiv.2207.01931"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Channel Knowledge Map (CKM)-Assisted Multi-UAV Wireless Network: CKM Construction and UAV Placement",
+      "内容": "研究多无人机网络的 CKM 构建与应用，先依据稀疏测量预测完整地图，再在地图约束下优化无人机部署。",
+      "文献来源": "https://doi.org/10.48550/arXiv.2207.01931",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/5d9a34e6b378ff24/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "9b2bb158dbd7ab0a",
+    "date": "2026-11-03",
+    "title": "Environment-Aware IRS Deployment via Channel Knowledge Map: Joint Sensing-Communications Coverage Optimization",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/9b2bb158dbd7ab0a/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/TNSE.2026.3691866"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/TNSE.2026.3691866"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Environment-Aware IRS Deployment via Channel Knowledge Map: Joint Sensing-Communications Coverage Optimization",
+      "内容": "利用 CKM 中的环境传播知识优化智能反射面部署和配置，提高 ISAC 网络的通信与感知覆盖。",
+      "文献来源": "https://doi.org/10.1109/TNSE.2026.3691866",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/9b2bb158dbd7ab0a/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "af28b8502da91fcd",
+    "date": "2026-11-03",
+    "title": "Online Maneuver Design for UAV-Enabled NOMA Systems via Reinforcement Learning",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/af28b8502da91fcd/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/WCNC45663.2020.9120492"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/WCNC45663.2020.9120492"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Online Maneuver Design for UAV-Enabled NOMA Systems via Reinforcement Learning",
+      "内容": "通过强化学习为无人机辅助上行 NOMA 设计在线机动策略，以应对移动用户与变化信道并增加累计吞吐量。",
+      "文献来源": "https://doi.org/10.1109/WCNC45663.2020.9120492",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/af28b8502da91fcd/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "8360a2fc7fa39801",
+    "date": "2026-11-03",
+    "title": "Joint Maneuver and Beamforming Design for UAV-Enabled Integrated Sensing and Communication",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/8360a2fc7fa39801/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/TWC.2022.3211533"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/TWC.2022.3211533"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Joint Maneuver and Beamforming Design for UAV-Enabled Integrated Sensing and Communication",
+      "内容": "研究 UAV 作为 ISAC 接入点时的机动与阵列波束联合优化，在地面用户服务与目标感知之间实现折中。",
+      "文献来源": "https://doi.org/10.1109/TWC.2022.3211533",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/8360a2fc7fa39801/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "f015ea4926c6f497",
+    "date": "2026-11-03",
+    "title": "Environment-Aware Hybrid Beamforming by Leveraging Channel Knowledge Map",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/f015ea4926c6f497/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/TWC.2023.3323941"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/TWC.2023.3323941"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Environment-Aware Hybrid Beamforming by Leveraging Channel Knowledge Map",
+      "内容": "用 CKM 提供的场景化角度和波束知识指导混合模拟—数字波束成形，降低实时波束扫描与训练负担。",
+      "文献来源": "https://doi.org/10.1109/TWC.2023.3323941",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/f015ea4926c6f497/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "8ea7fc2a3cda6cf8",
+    "date": "2026-11-03",
+    "title": "CLIMB-flow: Coupled Linear Inverse posterior sampling via Multiscale-Based flow",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/8ea7fc2a3cda6cf8/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://arxiv.org/abs/2609.33834"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://arxiv.org/abs/2609.33834"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "CLIMB-flow: Coupled Linear Inverse posterior sampling via Multiscale-Based flow",
+      "内容": "将多尺度建模与流生成先验结合用于线性逆问题后验采样，缓解潜空间压缩丢失图像细节的影响。",
+      "文献来源": "https://arxiv.org/abs/2609.33834",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/8ea7fc2a3cda6cf8/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "94fde7feb9603e06",
+    "date": "2026-11-03",
+    "title": "Point-Cloud-Assistant Localized Statistical Channel Prediction by Tangent Gaussian Splatting",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/94fde7feb9603e06/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/TWC.2026.3696997"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/TWC.2026.3696997"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Point-Cloud-Assistant Localized Statistical Channel Prediction by Tangent Gaussian Splatting",
+      "内容": "利用点云与切平面高斯泼溅表示环境几何，并预测位置相关角功率谱，改进局部统计信道推断。",
+      "文献来源": "https://doi.org/10.1109/TWC.2026.3696997",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/94fde7feb9603e06/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "e9a6398aa7092e7e",
+    "date": "2026-11-03",
+    "title": "A Highway Vehicular Channel Model for OTFS Performance Evaluation",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/e9a6398aa7092e7e/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/TCOMM.2026.3663522"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/TCOMM.2026.3663522"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "A Highway Vehicular Channel Model for OTFS Performance Evaluation",
+      "内容": "提出公路车辆场景 V-TDL 信道模型，刻画路径增益、传播时延及多普勒的统计特性，用于 OTFS 仿真评估。",
+      "文献来源": "https://doi.org/10.1109/TCOMM.2026.3663522",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/e9a6398aa7092e7e/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "2413bc6fa8e46f4f",
+    "date": "2026-11-03",
+    "title": "A Group-Wise Narrow Beam Design for Uplink Channel Estimation in Hybrid Beamforming Systems",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/2413bc6fa8e46f4f/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/TWC.2026.3729645"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/TWC.2026.3729645"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "A Group-Wise Narrow Beam Design for Uplink Channel Estimation in Hybrid Beamforming Systems",
+      "内容": "针对部分连接混合波束成形系统，以分组窄波束完成导频训练，减少上行信道估计的时隙需求。",
+      "文献来源": "https://doi.org/10.1109/TWC.2026.3729645",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/2413bc6fa8e46f4f/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "16420f559814b1ae",
+    "date": "2026-11-03",
+    "title": "Generative CKM Construction Using Partially Observed Data with Diffusion Model",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/16420f559814b1ae/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/VTC2025-Spring65109.2025.11174670"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/VTC2025-Spring65109.2025.11174670"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Generative CKM Construction Using Partially Observed Data with Diffusion Model",
+      "内容": "将部分观测下的 CKM 构建视为欠定逆问题，以扩散生成先验从稀疏位置测量推断完整信道知识地图。",
+      "文献来源": "https://doi.org/10.1109/VTC2025-Spring65109.2025.11174670",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/16420f559814b1ae/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "17637b4eaf17c761",
+    "date": "2026-11-03",
+    "title": "Sub-THz Communications: Perspective and Results From the Hexa-X-II Project",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/17637b4eaf17c761/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/OJCOMS.2025.3591836"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/OJCOMS.2025.3591836"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Sub-THz Communications: Perspective and Results From the Hexa-X-II Project",
+      "内容": "总结 Hexa-X-II 项目亚太赫兹通信的研究视角与结果，讨论传播、射频器件、宽带信道、波束管理及部署挑战。",
+      "文献来源": "https://doi.org/10.1109/OJCOMS.2025.3591836",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/17637b4eaf17c761/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "4f49460530f35596",
+    "date": "2026-11-03",
+    "title": "Language Modeling with Gated Convolutional Networks",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/4f49460530f35596/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://arxiv.org/abs/1612.08083"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://arxiv.org/abs/1612.08083"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Language Modeling with Gated Convolutional Networks",
+      "内容": "提出门控卷积语言模型，利用可并行堆叠卷积处理序列上下文，缓解循环结构的训练瓶颈。",
+      "文献来源": "https://arxiv.org/abs/1612.08083",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/4f49460530f35596/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "ba17cc8d3ce6afe4",
+    "date": "2026-11-03",
+    "title": "Predicting distributions with Linearizing Belief Networks",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/ba17cc8d3ce6afe4/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://arxiv.org/abs/1511.05622"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://arxiv.org/abs/1511.05622"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Predicting distributions with Linearizing Belief Networks",
+      "内容": "利用随机二值隐变量切换深层线性路径，构造可学习多模态条件输出分布的线性化置信网络。",
+      "文献来源": "https://arxiv.org/abs/1511.05622",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/ba17cc8d3ce6afe4/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "dc4c98722dd01359",
+    "date": "2026-11-03",
+    "title": "FiLM: Visual Reasoning with a General Conditioning Layer",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/dc4c98722dd01359/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1609/aaai.v32i1.11671",
+      "https://github.com/ethanjperez/film"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1609/aaai.v32i1.11671",
+      "代码或数据链接": "https://github.com/ethanjperez/film"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "FiLM: Visual Reasoning with a General Conditioning Layer",
+      "内容": "提出 FiLM 特征逐元素线性调制，由条件信息预测特征缩放和偏置，用于视觉问答的多步推理。",
+      "文献来源": "https://doi.org/10.1609/aaai.v32i1.11671",
+      "公开代码状态": "第三方 fork，非官方代码身份未核实：https://github.com/ethanjperez/film。未运行复现实验。",
+      "代码/数据状态": "第三方 fork，非官方代码身份未核实：https://github.com/ethanjperez/film。未运行复现实验。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/dc4c98722dd01359/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "99aa96b898d78cd4",
+    "date": "2026-11-03",
+    "title": "Physics-Informed Generative Modeling of Wireless Channels",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/99aa96b898d78cd4/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [
+      "https://github.com/beneboeck/phy-inf-gen-mod-wireless"
+    ],
+    "links": [
+      "https://arxiv.org/abs/2502.10137",
+      "https://github.com/beneboeck/phy-inf-gen-mod-wireless"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://arxiv.org/abs/2502.10137",
+      "代码或数据链接": "https://github.com/beneboeck/phy-inf-gen-mod-wireless"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Physics-Informed Generative Modeling of Wireless Channels",
+      "内容": "将无线传播物理约束纳入场景化信道生成建模，降低纯数据拟合对训练样本的依赖，改善泛化。",
+      "文献来源": "https://arxiv.org/abs/2502.10137",
+      "公开代码状态": "论文公开实现：https://github.com/beneboeck/phy-inf-gen-mod-wireless。未运行复现实验。",
+      "代码/数据状态": "论文公开实现：https://github.com/beneboeck/phy-inf-gen-mod-wireless。未运行复现实验。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/99aa96b898d78cd4/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "c501b9f7f283fbd9",
+    "date": "2026-11-03",
+    "title": "Enhancing Deep Reinforcement Learning: A Tutorial on Generative Diffusion Models in Network Optimization",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/c501b9f7f283fbd9/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/COMST.2024.3400011"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/COMST.2024.3400011"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Enhancing Deep Reinforcement Learning: A Tutorial on Generative Diffusion Models in Network Optimization",
+      "内容": "综述生成式扩散模型与深度强化学习在无线网络优化中的结合方式及资源分配应用。",
+      "文献来源": "https://doi.org/10.1109/COMST.2024.3400011",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/c501b9f7f283fbd9/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "c6e020c9334d9bf5",
+    "date": "2026-11-03",
+    "title": "Flow Matching Guide and Code",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/c6e020c9334d9bf5/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [
+      "https://github.com/facebookresearch/flow_matching"
+    ],
+    "links": [
+      "https://doi.org/10.48550/arXiv.2412.06264",
+      "https://github.com/facebookresearch/flow_matching"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.48550/arXiv.2412.06264",
+      "代码或数据链接": "https://github.com/facebookresearch/flow_matching"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Flow Matching Guide and Code",
+      "内容": "系统整理流匹配的条件概率路径、速度场训练与采样设计，提供相应的 PyTorch 代码和示例。",
+      "文献来源": "https://doi.org/10.48550/arXiv.2412.06264",
+      "公开代码状态": "公开流匹配代码库：https://github.com/facebookresearch/flow_matching。未运行复现实验。",
+      "代码/数据状态": "公开流匹配代码库：https://github.com/facebookresearch/flow_matching。未运行复现实验。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/c6e020c9334d9bf5/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "0016a594a1b41e0c",
+    "date": "2026-11-03",
+    "title": "Robust Network Optimization by Deep Generative Models and Stochastic Optimization",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/0016a594a1b41e0c/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/TWC.2025.3551316"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/TWC.2025.3551316"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Robust Network Optimization by Deep Generative Models and Stochastic Optimization",
+      "内容": "使用深度生成模型学习无线网络中的随机环境分布，再开展随机资源分配优化，提高决策鲁棒性。",
+      "文献来源": "https://doi.org/10.1109/TWC.2025.3551316",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/0016a594a1b41e0c/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "b32d8c998f46638d",
+    "date": "2026-11-03",
+    "title": "Dataset of Pathloss and ToA Radio Maps With Localization Application",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/b32d8c998f46638d/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.48550/arXiv.2212.11777"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.48550/arXiv.2212.11777"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Dataset of Pathloss and ToA Radio Maps With Localization Application",
+      "内容": "发布密集城市的路径损耗与到达时间无线电地图数据集，供传播预测、位置估计与地图学习研究使用。",
+      "文献来源": "https://doi.org/10.48550/arXiv.2212.11777",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/b32d8c998f46638d/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "aa237ac6387efd7f",
+    "date": "2026-11-03",
+    "title": "Scaling Rectified Flow Transformers for High-Resolution Image Synthesis",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/aa237ac6387efd7f/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.48550/arXiv.2403.03206"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.48550/arXiv.2403.03206"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Scaling Rectified Flow Transformers for High-Resolution Image Synthesis",
+      "内容": "研究 Rectified Flow 与 Transformer 在高分辨率图像合成中的扩展性，分析流路径和训练设计对生成质量的影响。",
+      "文献来源": "https://doi.org/10.48550/arXiv.2403.03206",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/aa237ac6387efd7f/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "0f2c49be89ac9163",
+    "date": "2026-11-03",
+    "title": "Learning Transferable Visual Models From Natural Language Supervision",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/0f2c49be89ac9163/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [
+      "https://github.com/openai/CLIP"
+    ],
+    "links": [
+      "https://arxiv.org/abs/2103.00020",
+      "https://github.com/openai/CLIP"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://arxiv.org/abs/2103.00020",
+      "代码或数据链接": "https://github.com/openai/CLIP"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Learning Transferable Visual Models From Natural Language Supervision",
+      "内容": "提出 CLIP，通过大规模图文配对数据学习视觉—语言共同表示，支持无需特定类别监督的零样本视觉迁移。",
+      "文献来源": "https://arxiv.org/abs/2103.00020",
+      "公开代码状态": "官方公开实现：https://github.com/openai/CLIP。未运行复现实验。",
+      "代码/数据状态": "官方公开实现：https://github.com/openai/CLIP。未运行复现实验。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/0f2c49be89ac9163/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "49b8016d2adb88d1",
+    "date": "2026-11-03",
+    "title": "Reverse-time diffusion equation models",
+    "status": "题录已核验，摘要待补",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/49b8016d2adb88d1/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1016/0304-4149(82)90051-5"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1016/0304-4149(82)90051-5"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Reverse-time diffusion equation models",
+      "内容": "讨论反向时间扩散方程的数学表示，是后来分数生成模型的重要理论背景。原文摘要尚未取得，具体定理假设待核验。",
+      "文献来源": "https://doi.org/10.1016/0304-4149(82)90051-5",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/49b8016d2adb88d1/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "6954ea19aeeafe15",
+    "date": "2026-11-03",
+    "title": "CKMImageNet: A Comprehensive Dataset to Enable Channel Knowledge Map Construction via Computer Vision",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/6954ea19aeeafe15/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1109/ICCCWorkshops62562.2024.10693754",
+      "https://github.com/zyktzCKM/CKMImageNet"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1109/ICCCWorkshops62562.2024.10693754",
+      "代码或数据链接": "https://github.com/zyktzCKM/CKMImageNet"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "CKMImageNet: A Comprehensive Dataset to Enable Channel Knowledge Map Construction via Computer Vision",
+      "内容": "构建视觉环境与空间无线信道数据对应的 CKMImageNet 数据，为图像驱动的信道知识地图推断提供基准。",
+      "文献来源": "https://doi.org/10.1109/ICCCWorkshops62562.2024.10693754",
+      "公开代码状态": "公开数据仓库（非算法代码）：https://github.com/zyktzCKM/CKMImageNet。未运行复现实验。",
+      "代码/数据状态": "公开数据仓库（非算法代码）：https://github.com/zyktzCKM/CKMImageNet。未运行复现实验。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/6954ea19aeeafe15/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "2cc3671409396eda",
+    "date": "2026-11-03",
+    "title": "FunDiff: diffusion models over function spaces for physics-informed generative modeling",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/2cc3671409396eda/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1038/s41467-026-72292-0"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1038/s41467-026-72292-0"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "FunDiff: diffusion models over function spaces for physics-informed generative modeling",
+      "内容": "提出函数空间生成模型 FunDiff，使扩散过程直接作用于连续场变量，用于具有物理约束的函数样本建模。",
+      "文献来源": "https://doi.org/10.1038/s41467-026-72292-0",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/2cc3671409396eda/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "04c23849a7dfaa33",
+    "date": "2026-11-03",
+    "title": "Classifier-Free Diffusion Guidance",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/04c23849a7dfaa33/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.48550/arXiv.2207.12598"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.48550/arXiv.2207.12598"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Classifier-Free Diffusion Guidance",
+      "内容": "提出无分类器引导，将有条件与无条件扩散预测结合调节样本保真度和多样性，无需独立分类器。",
+      "文献来源": "https://doi.org/10.48550/arXiv.2207.12598",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/04c23849a7dfaa33/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "504518f3f130f4e4",
+    "date": "2026-11-03",
+    "title": "Diffusion Models Beat GANs on Image Synthesis",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/504518f3f130f4e4/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [
+      "https://github.com/openai/guided-diffusion"
+    ],
+    "links": [
+      "https://arxiv.org/abs/2105.05233",
+      "https://github.com/openai/guided-diffusion"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://arxiv.org/abs/2105.05233",
+      "代码或数据链接": "https://github.com/openai/guided-diffusion"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Diffusion Models Beat GANs on Image Synthesis",
+      "内容": "通过改进扩散网络与引导机制提高图像合成质量，展示扩散模型在当时的图像基准上优于 GAN 的结果。",
+      "文献来源": "https://arxiv.org/abs/2105.05233",
+      "公开代码状态": "官方相关实现：https://github.com/openai/guided-diffusion。未运行复现实验。",
+      "代码/数据状态": "官方相关实现：https://github.com/openai/guided-diffusion。未运行复现实验。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/504518f3f130f4e4/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "340eaee35c0a2435",
+    "date": "2026-11-03",
+    "title": "Hierarchical Text-Conditional Image Generation with CLIP Latents",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/340eaee35c0a2435/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.48550/arXiv.2204.06125"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.48550/arXiv.2204.06125"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Hierarchical Text-Conditional Image Generation with CLIP Latents",
+      "内容": "构造以 CLIP 图像嵌入为中间变量的文本生成图像系统，由先验预测嵌入再由扩散解码器生成图像。",
+      "文献来源": "https://doi.org/10.48550/arXiv.2204.06125",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/340eaee35c0a2435/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "4604864d5eb8d483",
+    "date": "2026-11-03",
+    "title": "Cascaded Diffusion Models for High Fidelity Image Generation",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/4604864d5eb8d483/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://arxiv.org/abs/2106.15282"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://arxiv.org/abs/2106.15282"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Cascaded Diffusion Models for High Fidelity Image Generation",
+      "内容": "以多个不同分辨率的扩散模型逐级生成图像，先确定低分辨整体结构，再用扩散超分辨率模型增加细节。",
+      "文献来源": "https://arxiv.org/abs/2106.15282",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/4604864d5eb8d483/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "897194297b69c031",
+    "date": "2026-11-03",
+    "title": "A Connection Between Score Matching and Denoising Autoencoders",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/897194297b69c031/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1162/NECO_a_00142"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1162/NECO_a_00142"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "A Connection Between Score Matching and Denoising Autoencoders",
+      "内容": "研究分数匹配与去噪自动编码器的联系，解释加噪后的重建目标与数据对数密度梯度之间的关系。",
+      "文献来源": "https://doi.org/10.1162/NECO_a_00142",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/897194297b69c031/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "c3eecedb6cdb949e",
+    "date": "2026-11-03",
+    "title": "Estimation of Non-Normalized Statistical Models by Score Matching",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/c3eecedb6cdb949e/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://www.semanticscholar.org/paper/9966e890f2eedb4577e11b9d5a66380a4d9341fe"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://www.semanticscholar.org/paper/9966e890f2eedb4577e11b9d5a66380a4d9341fe"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Estimation of Non-Normalized Statistical Models by Score Matching",
+      "内容": "通过匹配数据和模型的对数概率密度梯度学习未归一化统计模型，避免计算配分函数。",
+      "文献来源": "https://www.semanticscholar.org/paper/9966e890f2eedb4577e11b9d5a66380a4d9341fe",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/c3eecedb6cdb949e/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "1c0be6f8967e0270",
+    "date": "2026-11-03",
+    "title": "Improved Techniques for Training Score-Based Generative Models",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/1c0be6f8967e0270/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [
+      "https://github.com/ermongroup/ncsnv2"
+    ],
+    "links": [
+      "https://arxiv.org/abs/2006.09011",
+      "https://github.com/ermongroup/ncsnv2"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://arxiv.org/abs/2006.09011",
+      "代码或数据链接": "https://github.com/ermongroup/ncsnv2"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Improved Techniques for Training Score-Based Generative Models",
+      "内容": "分析分数模型在高维生成中的训练和采样问题，改进噪声尺度及网络方法以提高稳定性与样本质量。",
+      "文献来源": "https://arxiv.org/abs/2006.09011",
+      "公开代码状态": "官方实现：https://github.com/ermongroup/ncsnv2。未运行复现实验。",
+      "代码/数据状态": "官方实现：https://github.com/ermongroup/ncsnv2。未运行复现实验。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/1c0be6f8967e0270/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "cc02060ebfa514a2",
+    "date": "2026-11-03",
+    "title": "A Tutorial on Energy-Based Learning",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/cc02060ebfa514a2/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://www.semanticscholar.org/paper/7fc604e1a3e45cd2d2742f96d62741930a363efa"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://www.semanticscholar.org/paper/7fc604e1a3e45cd2d2742f96d62741930a363efa"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "A Tutorial on Energy-Based Learning",
+      "内容": "介绍能量模型利用标量能量表示变量配置的基本思想，以及能量最小化推断、学习与结构设计。",
+      "文献来源": "https://www.semanticscholar.org/paper/7fc604e1a3e45cd2d2742f96d62741930a363efa",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/cc02060ebfa514a2/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "61cd32ebe3bf3918",
+    "date": "2026-11-03",
+    "title": "Generative Modeling by Estimating Gradients of the Data Distribution",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/61cd32ebe3bf3918/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [
+      "https://github.com/ermongroup/ncsn"
+    ],
+    "links": [
+      "https://arxiv.org/abs/1907.05600",
+      "https://github.com/ermongroup/ncsn"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://arxiv.org/abs/1907.05600",
+      "代码或数据链接": "https://github.com/ermongroup/ncsn"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Generative Modeling by Estimating Gradients of the Data Distribution",
+      "内容": "使用多噪声尺度的分数估计和朗之万采样生成样本，缓解低维数据流形上概率梯度难以估计的问题。",
+      "文献来源": "https://arxiv.org/abs/1907.05600",
+      "公开代码状态": "官方实现：https://github.com/ermongroup/ncsn。未运行复现实验。",
+      "代码/数据状态": "官方实现：https://github.com/ermongroup/ncsn。未运行复现实验。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/61cd32ebe3bf3918/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "034a068f60be2aa1",
+    "date": "2026-11-03",
+    "title": "Tweedie’s Formula and Selection Bias",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/034a068f60be2aa1/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://doi.org/10.1198/jasa.2011.tm11181"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://doi.org/10.1198/jasa.2011.tm11181"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Tweedie’s Formula and Selection Bias",
+      "内容": "从经验贝叶斯角度使用 Tweedie 公式修正选择偏差，说明极端观测值的回归均值现象。",
+      "文献来源": "https://doi.org/10.1198/jasa.2011.tm11181",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/034a068f60be2aa1/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "9c76ce280acb7f35",
+    "date": "2026-11-03",
+    "title": "Variational Diffusion Models",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/9c76ce280acb7f35/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [
+      "https://github.com/google-research/vdm"
+    ],
+    "links": [
+      "https://arxiv.org/abs/2107.00630",
+      "https://github.com/google-research/vdm"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://arxiv.org/abs/2107.00630",
+      "代码或数据链接": "https://github.com/google-research/vdm"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Variational Diffusion Models",
+      "内容": "提出变分扩散模型，从似然目标出发设计扩散生成训练，分析变分下界与噪声调度的作用。",
+      "文献来源": "https://arxiv.org/abs/2107.00630",
+      "公开代码状态": "公开相关实现：https://github.com/google-research/vdm。未运行复现实验。",
+      "代码/数据状态": "公开相关实现：https://github.com/google-research/vdm。未运行复现实验。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/9c76ce280acb7f35/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "86af3521e175dbb3",
+    "date": "2026-11-03",
+    "title": "Deep Unsupervised Learning using Nonequilibrium Thermodynamics",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/86af3521e175dbb3/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://arxiv.org/abs/1503.03585"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://arxiv.org/abs/1503.03585"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Deep Unsupervised Learning using Nonequilibrium Thermodynamics",
+      "内容": "基于非平衡热力学构造逐步加噪并学习逆向恢复的生成机制，为后续扩散概率生成模型奠定基础。",
+      "文献来源": "https://arxiv.org/abs/1503.03585",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/86af3521e175dbb3/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "d0fa091560e7dfc8",
+    "date": "2026-11-03",
+    "title": "Variational Bayesian Inference with Stochastic Search",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/d0fa091560e7dfc8/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://arxiv.org/abs/1206.6430"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://arxiv.org/abs/1206.6430"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Variational Bayesian Inference with Stochastic Search",
+      "内容": "提出利用随机搜索估计难以解析积分的变分目标，为复杂潜变量模型提供可扩展的近似贝叶斯推断。",
+      "文献来源": "https://arxiv.org/abs/1206.6430",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/d0fa091560e7dfc8/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "9dfd522a1cc16b60",
+    "date": "2026-11-03",
+    "title": "Ladder Variational Autoencoders",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/9dfd522a1cc16b60/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://arxiv.org/abs/1602.02282"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://arxiv.org/abs/1602.02282"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Ladder Variational Autoencoders",
+      "内容": "提出阶梯式变分自编码器，由观测数据的自底向上证据逐层修正生成分布，提升深层随机潜变量建模。",
+      "文献来源": "https://arxiv.org/abs/1602.02282",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/9dfd522a1cc16b60/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "ab97c45d6bd8578d",
+    "date": "2026-11-03",
+    "title": "Improving Variational Autoencoders with Inverse Autoregressive Flow",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/ab97c45d6bd8578d/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [
+      "https://github.com/openai/iaf"
+    ],
+    "links": [
+      "https://www.semanticscholar.org/paper/d9cd99c95e0810b46f6467a04d1355489d63a656",
+      "https://github.com/openai/iaf"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://www.semanticscholar.org/paper/d9cd99c95e0810b46f6467a04d1355489d63a656",
+      "代码或数据链接": "https://github.com/openai/iaf"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Improving Variational Autoencoders with Inverse Autoregressive Flow",
+      "内容": "提出逆自回归流（IAF），使用可逆自回归变换增强变分后验分布的表达能力，同时保持高效计算。",
+      "文献来源": "https://www.semanticscholar.org/paper/d9cd99c95e0810b46f6467a04d1355489d63a656",
+      "公开代码状态": "论文复现代码：https://github.com/openai/iaf。未运行复现实验。",
+      "代码/数据状态": "论文复现代码：https://github.com/openai/iaf。未运行复现实验。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/ab97c45d6bd8578d/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
+  },
+  {
+    "id": "6c4578afaf82f281",
+    "date": "2026-11-03",
+    "title": "Auto-Encoding Variational Bayes",
+    "status": "摘要已核验",
+    "sheet": "网站端补充",
+    "row": "—",
+    "source": "论文检索与摘要（2026-11-03）",
+    "paper_url": "/papers/items/6c4578afaf82f281/",
+    "pdf_sources": [],
+    "hosted_pdfs": [],
+    "github": [],
+    "links": [
+      "https://arxiv.org/abs/1312.6114"
+    ],
+    "hyperlinks": {
+      "文献来源": "https://arxiv.org/abs/1312.6114"
+    },
+    "fields": {
+      "日期": "2026-11-03",
+      "标题": "Auto-Encoding Variational Bayes",
+      "内容": "提出变分自编码器（VAE）及重参数化梯度方法，使连续潜变量生成模型可以用随机梯度高效训练。",
+      "文献来源": "https://arxiv.org/abs/1312.6114",
+      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
+      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+    },
+    "translations": [],
+    "full_translation_label": "查看摘要",
+    "full_translation_url": "/papers/items/6c4578afaf82f281/#paper-summary",
+    "full_translation_public": false,
+    "translation_status": "不制作全文译文",
+    "report_entry_url": null,
+    "paper_report_url": "",
+    "report_section": ""
   }
 ]
