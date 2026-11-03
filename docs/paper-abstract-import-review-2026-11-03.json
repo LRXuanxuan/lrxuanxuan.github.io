@@ -1,0 +1,776 @@
+{
+  "date": "2026-11-03",
+  "source": "文献标题_合并去重.txt",
+  "input": 183,
+  "verified_added": 30,
+  "existing_manual": [
+    39
+  ],
+  "pending": [
+    {
+      "number": 5,
+      "title": "On the performance of uplink pinching antenna systems (PASS)",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 9,
+      "title": "TR 138 901 - V17.0.0 - 5G; study on channel model for frequencies from 0.5 to 100 GHz (3GPP TR 38.901 version 17.0.0 release 17)",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 20,
+      "title": "Pinching-antenna systems (PASS): Architecture designs, opportunities, and outlook",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 21,
+      "title": "Bidirectional integrated sensing and communication: Full-duplex or half-duplex?",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 22,
+      "title": "STARS enabled integrated sensing and communications",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 23,
+      "title": "NOMA-aided joint communication, sensing, and multi-tier computing systems",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 24,
+      "title": "Semi-integrated-sensing-and-communication (semi-ISaC): From OMA to NOMA",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 25,
+      "title": "Wireless sensing via pinching-antenna systems",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 26,
+      "title": "Full-duplex communication in bidirectional ISAC",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 27,
+      "title": "A mobile edge generation approach",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 28,
+      "title": "Tri-hybrid beamforming design for fully-connected pinching antenna systems",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 29,
+      "title": "Pinching-antenna systems (PASS): A tutorial",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 30,
+      "title": "Modeling and beamforming optimization for pinching-antenna systems",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 31,
+      "title": "GDM4MMIMO: Generative diffusion models for massive MIMO communications",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 36,
+      "title": "Generative diffusion model-based variational inference for MIMO channel estimation",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 37,
+      "title": "3GPP channel model developments for 5G NR requirements and testing",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 38,
+      "title": "QuaDRiGa: A MIMO channel model for land mobile satellite",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 42,
+      "title": "Flow matching-based generative models for MIMO channel estimation",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 43,
+      "title": "Denoising diffusion implicit models",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 44,
+      "title": "Environment-aware channel inference via cross-modal flow: From multimodal sensing to wireless channels",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 45,
+      "title": "Zero-shot image restoration using denoising diffusion null-space model",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 47,
+      "title": "Physics-informed representation alignment for sparse radio-map reconstruction",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 48,
+      "title": "Deep learning-based CKM construction with image super-resolution",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 49,
+      "title": "Generating CKM using others' data: Cross-AP CKM inference with deep learning",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 50,
+      "title": "AI-based environment-aware XL-MIMO channel estimation with location-specific prior knowledge enabled by CKM",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 52,
+      "title": "Scalable diffusion models with transformers",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 53,
+      "title": "CKMImageNet: A dataset for AI-based channel knowledge map towards environment-aware communication and sensing",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 54,
+      "title": "Understanding diffusion models: A unified perspective",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 55,
+      "title": "DLTER: A deep learning assisted 3D environmental reconstruction framework in terahertz ISAC systems",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 56,
+      "title": "Sensing-assisted sparse channel recovery for massive antenna systems",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 57,
+      "title": "Environment-aware near-field channel estimation leveraging CKM and ISAC",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 58,
+      "title": "CKM-assisted LoS identification and predictive beamforming for cellular-connected UAV",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 59,
+      "title": "Channel knowledge map enabled low-altitude ISAC networks: Joint air corridor planning and base station deployment",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 60,
+      "title": "Channel knowledge map (CKM)-assisted multi-UAV wireless network: CKM construction and UAV placement",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 63,
+      "title": "Environment-aware IRS deployment via channel knowledge map: Joint sensing-communications coverage optimization",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 64,
+      "title": "Online maneuver design for UAV-enabled NOMA systems via reinforcement learning",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 65,
+      "title": "Joint maneuver and beamforming design for UAV-enabled integrated sensing and communication",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 66,
+      "title": "Environment-aware hybrid beamforming by leveraging channel knowledge map",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 67,
+      "title": "CLIMB-flow: coupled linear inverse posterior sampling via multiscale-based flow",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 68,
+      "title": "Point-cloud-assistant localized statistical channel prediction by tangent gaussian splatting",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 69,
+      "title": "A highway vehicular channel model for OTFS performance evaluation",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 70,
+      "title": "A group-wise narrow beam design for uplink channel estimation in hybrid beamforming systems",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 71,
+      "title": "1. 面向通信感知一体化的干扰抑制、波形设计和资源优化-何晓峰-博士学位论文",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 72,
+      "title": "678_Decoupled_Diffusion_Models",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 73,
+      "title": "Fig: Flow with interpolant guidance for lin- ear inverse problems",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 74,
+      "title": "Generative CKM construction using partially observed data with diffusion model",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 75,
+      "title": "Sub-THz communications: Perspective and results from the hexa-X-II project",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 76,
+      "title": "Language modeling with gated convolutional networks",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 77,
+      "title": "Predicting distributions with linearizing belief networks",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 78,
+      "title": "FiLM: Visual reasoning with a general conditioning layer",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 80,
+      "title": "Physics-informed generative modeling of wireless channels",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 81,
+      "title": "Enhancing deep reinforcement learning: A tutorial on generative diffusion models in network optimization",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 82,
+      "title": "Flow matching guide and code",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 83,
+      "title": "Robust network optimization by deep generative models and stochastic optimization",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 84,
+      "title": "Dataset of pathloss and ToA radio maps with localization application",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 85,
+      "title": "Scaling rectified flow transformers for high-resolution image synthesis",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 86,
+      "title": "Learning transferable visual models from natural language supervision",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 87,
+      "title": "Reverse-time diffusion equation models",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 88,
+      "title": "CKMImageNet: A comprehensive dataset to enable channel knowledge map construction via computer vision",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 90,
+      "title": "FunDiff: Diffusion models over function spaces for physics-informed generative modeling",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 91,
+      "title": "Classifier-free diffusion guidance",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 92,
+      "title": "Diffusion models beat GANs on image synthesis",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 93,
+      "title": "Hierarchical text-conditional image generation with CLIP latents",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 94,
+      "title": "Cascaded diffusion models for high fidelity image generation",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 95,
+      "title": "A connection between score matching and denoising autoencoders",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 96,
+      "title": "Estimation of non-normalized statistical models by score matching",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 97,
+      "title": "Improved techniques for training score-based generative models",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 99,
+      "title": "A tutorial on energy-based learning",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 100,
+      "title": "Generative modeling by estimating gradients of the data distribution",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 101,
+      "title": "Tweedie's formula and selection bias",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 102,
+      "title": "Variational diffusion models",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 103,
+      "title": "Deep unsupervised learning using nonequilibrium thermodynamics",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 104,
+      "title": "Variational bayesian inference with stochastic search",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 105,
+      "title": "Ladder variational autoencoders",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 106,
+      "title": "Improving variational inference with inverse autoregressive flow",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 107,
+      "title": "Auto-encoding variational bayes",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 108,
+      "title": "Privacy-preserving federated primal-dual learning for non-convex problems with non-smooth regularization",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 109,
+      "title": "Privacy-preserving federated primal—dual learning for nonconvex and nonsmooth problems with model sparsification",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 110,
+      "title": "Is what you measure what you expect? Factors affecting smartphone-based mobile network measurement",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 111,
+      "title": "Federated matrix factorization: Algorithm design and application to data clustering",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 112,
+      "title": "Enhancing the description-to-behavior fidelity in android apps with privacy",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 113,
+      "title": "Energy efficiency maximization for downlink NOMA designs via symbol-level precoding",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 114,
+      "title": "Differentially private federated stochastic primal-dual learning for internet of vehicles",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 115,
+      "title": "Differentially private federated clustering over non-IID data",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 116,
+      "title": "Differentially private and heterogeneity-robust federated learning with theoretical guarantee",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 117,
+      "title": "Demystifying model averaging for communication-efficient federated matrix factorization",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 118,
+      "title": "Clustering by orthogonal non-negative matrix factorization: A sequential non-convex penalty approach",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 119,
+      "title": "Clustering by orthogonal NMF model and non-convex penalty optimization",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 120,
+      "title": "Cell subclass identification in single-cell RNA-sequencing data using orthogonal nonnegative matrix factorization",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 121,
+      "title": "Attribute-based access control encryption",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 122,
+      "title": "Adaptive unpacking of android apps",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 123,
+      "title": "Beyond ADMM: A unified client-variance-reduced adaptive federated learning framework",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 124,
+      "title": "Towards fast personalized semi-supervised federated learning in edge networks: Algorithm and convergence guarantee",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 125,
+      "title": "Wideband terahertz communications with AoSA: Beam split aggregation and multiplexing",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 126,
+      "title": "Towards THz-based obstacle sensing: A generative radio environment awareness framework",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 127,
+      "title": "Terahertz wireless communications for 2030 and beyond: A cutting-edge frontier",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 128,
+      "title": "Smart antenna allocation for wireless surveillance",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 129,
+      "title": "Secrecy degrees of freedom of a MIMO gaussian wiretap channel with a cooperative jammer",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 130,
+      "title": "Robust transmit design for secure AF relay networks with imperfect CSI",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 131,
+      "title": "Robust transmit design for secure AF relay networks based on worst-case optimization",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 132,
+      "title": "Reliable and energy-aware job offloading at terahertz frequencies for mobile edge computing",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 133,
+      "title": "Optimal pricing for job offloading in the MEC system with two priority classes",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 134,
+      "title": "Optimal beam steering design for large-scale mmWave MIMO wiretap channel",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 135,
+      "title": "On secrecy capacity of gaussian wiretap channel aided by a cooperative jammer",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 136,
+      "title": "On artificial-noise-aided transmit design for multiuser MISO systems with integrated services",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 137,
+      "title": "Non-asymptotic analysis of secrecy capacity in massive MIMO system",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 138,
+      "title": "Near-field beam training in THz communications: The merits of uniform circular array",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 139,
+      "title": "Multi-IRS-aided multi-user MIMO in mmWave/THz communications: A space-orthogonal scheme",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 140,
+      "title": "Mobility and blockage-induced beam misalignment and throughput analysis for THz networks",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 141,
+      "title": "MIMO secret communications against an active eavesdropper",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 142,
+      "title": "Near-field beam training in terahertz communications with hybrid beamforming architecture",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 143,
+      "title": "Linear precoder design for a MIMO gaussian wiretap channel with full-duplex source and destination nodes",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 144,
+      "title": "JointRec: A deep-learning-based joint cloud video recommendation framework for mobile IoT",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 145,
+      "title": "Joint sensing, control, and communication scheduling for THz beam alignment in cellular connected UAV networks (invited paper)",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 146,
+      "title": "Joint communication and control for mmWave/THz beam alignment in V2X networks",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 147,
+      "title": "Improving wireless physical layer security via exploiting co-channel interference",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 148,
+      "title": "Improving THz transmission distance for delay-sensitive services via mobile computing",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 149,
+      "title": "Improving security of THz communication with intelligent reflecting surface",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 150,
+      "title": "Enhancing THz/mmWave network beam alignment with integrated sensing and communication",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 151,
+      "title": "Enhancing terahertz communications coverage with ISAC-assisted beam management",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 152,
+      "title": "Dynamic pricing for resource-quota sharing in multi-access edge computing",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 153,
+      "title": "Directional terahertz radio map-assisted federated obstacle sensing",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 154,
+      "title": "Coverage modeling and analysis for outdoor THz networks with blockage and molecular absorption",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 155,
+      "title": "Cooperative secrecy beamforming in wiretap interference channels",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 156,
+      "title": "Artificial-noise aided transmit design for outage constrained service integration",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 157,
+      "title": "An incentive-aware job offloading control framework for multi-access edge computing",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 158,
+      "title": "An analytical range-angle dependent beam focusing model for terahertz linear antenna array",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 159,
+      "title": "Adaptive beamwidth design for high-mobility terahertz joint radar and communication systems",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 160,
+      "title": "A survey on terahertz communications",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 161,
+      "title": "A sharing-economy inspired pricing mechanism for multi-access edge computing",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 162,
+      "title": "A full-duplex bob in the MIMO gaussian wiretap channel: Scheme and performance",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 163,
+      "title": "A DBO-based improved 2D-MUSIC algorithm for localization using OFDM",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 164,
+      "title": "Adaptive power allocation and beamwidth design for terahertz joint radar and communication",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 165,
+      "title": "Let's_Share_VMs_Optimal_Placement_and_Pricing",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 166,
+      "title": "Advancing THz radio map construction and obstacle sensing: An integrated generative framework in ISAC",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 167,
+      "title": "Improving THz coverage for 6G URLLC services via exploiting mobile computing",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 168,
+      "title": "High-speed 0.22 THz communication system with 84 gbps for real-time uncompressed 8K video transmission of live events",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 169,
+      "title": "ISAC-enabled beam alignment for terahertz networks: Scheme design and coverage analysis",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 170,
+      "title": "Two-way semantic communications without feedback",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 171,
+      "title": "Toward massive connectivity for IoT in mixed-ADC distributed massive MIMO",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 172,
+      "title": "Robust semantic transmission of images with generative adversarial networks",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 173,
+      "title": "Robust optimization for energy efficiency in multicast downlink C-RAN",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 174,
+      "title": "Partial sampling-based semantic communications for internet of things",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 175,
+      "title": "Learning of constellation shaping with maximum norms for terahertz communication",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 176,
+      "title": "Joint transmission and understanding of semantics with edge intelligence",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 177,
+      "title": "Distributed optimization in fog radio access networks — channel estimation and multi-user detection",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 178,
+      "title": "Compressive channel estimation and user activity detection in distributed-input distributed-output systems",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 179,
+      "title": "Compressive channel estimation and multi-user detection in C-RAN",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 180,
+      "title": "An iteratively reweighted method for recovery of block-sparse signal with unknown block partition",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 181,
+      "title": "A weighted MMSE approach to amorphous cell for mixed-ADC distributed massive MIMO",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 182,
+      "title": "A novel cross-layer protocol for random access in massive machine-type communications",
+      "status": "待核对原始摘要"
+    },
+    {
+      "number": 183,
+      "title": "A low-complexity transceiver design for terahertz communication based on deep learning",
+      "status": "待核对原始摘要"
+    }
+  ],
+  "notes": [
+    "020疑似与004同篇",
+    "073疑似017的图片标题误录",
+    "072疑似下载文件名，非标准文献题名"
+  ]
+}
