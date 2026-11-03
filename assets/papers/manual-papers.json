@@ -458,20 +458,25 @@
     "paper_url": "/papers/items/1958eaac861eaea5/",
     "pdf_sources": [],
     "hosted_pdfs": [],
-    "github": [],
+    "github": [
+      "https://github.com/benediktfesl/Diffusion_channel_est"
+    ],
     "links": [
-      "https://doi.org/10.1109/LWC.2024.3474570"
+      "https://doi.org/10.1109/LWC.2024.3474570",
+      "https://github.com/benediktfesl/Diffusion_channel_est"
     ],
     "hyperlinks": {
-      "摘要来源": "https://doi.org/10.1109/LWC.2024.3474570"
+      "摘要来源": "https://doi.org/10.1109/LWC.2024.3474570",
+      "代码/数据来源": "https://github.com/benediktfesl/Diffusion_channel_est"
     },
     "fields": {
       "日期": "2026-11-03",
       "标题": "Diffusion-based generative prior for low-complexity MIMO channel estimation",
       "内容": "在稀疏角域训练含信噪比条件的轻量扩散网络，通过避免重采样和截断推断步骤降低 MIMO 信道估计复杂度。",
       "摘要来源": "https://doi.org/10.1109/LWC.2024.3474570",
-      "公开代码状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。",
-      "代码/数据状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。"
+      "公开代码状态": "已公开论文代码：已找到论文作者的公开实现，含信道估计及训练代码；未实际复现。 https://github.com/benediktfesl/Diffusion_channel_est",
+      "代码/数据状态": "已公开论文代码：已找到论文作者的公开实现，含信道估计及训练代码；未实际复现。 https://github.com/benediktfesl/Diffusion_channel_est",
+      "代码/数据来源": "https://github.com/benediktfesl/Diffusion_channel_est"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -952,20 +957,25 @@
     "paper_url": "/papers/items/e5bbd55e4fceb1ed/",
     "pdf_sources": [],
     "hosted_pdfs": [],
-    "github": [],
+    "github": [
+      "https://github.com/le-liang/Diffusion-models-for-channel-estimation"
+    ],
     "links": [
-      "https://doi.org/10.1109/TWC.2025.3549592"
+      "https://doi.org/10.1109/TWC.2025.3549592",
+      "https://github.com/le-liang/Diffusion-models-for-channel-estimation"
     ],
     "hyperlinks": {
-      "摘要来源": "https://doi.org/10.1109/TWC.2025.3549592"
+      "摘要来源": "https://doi.org/10.1109/TWC.2025.3549592",
+      "代码/数据来源": "https://github.com/le-liang/Diffusion-models-for-channel-estimation"
     },
     "fields": {
       "日期": "2026-11-03",
       "标题": "Generative diffusion models for high dimensional channel estimation",
       "内容": "用扩散生成先验重建高维及低比特量化的 MIMO 信道，并借助 Stein 无偏风险估计减少对真值信道的依赖。",
       "摘要来源": "https://doi.org/10.1109/TWC.2025.3549592",
-      "公开代码状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。",
-      "代码/数据状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。"
+      "公开代码状态": "第三方代码副本：找到带训练和测试脚本的论文同名实现。仓库 README 自称代码副本，作者身份尚未确认。 https://github.com/le-liang/Diffusion-models-for-channel-estimation",
+      "代码/数据状态": "第三方代码副本：找到带训练和测试脚本的论文同名实现。仓库 README 自称代码副本，作者身份尚未确认。 https://github.com/le-liang/Diffusion-models-for-channel-estimation",
+      "代码/数据来源": "https://github.com/le-liang/Diffusion-models-for-channel-estimation"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -988,20 +998,25 @@
     "paper_url": "/papers/items/cfe0a93242b6fbf7/",
     "pdf_sources": [],
     "hosted_pdfs": [],
-    "github": [],
+    "github": [
+      "https://github.com/cpfpengfei/PCFM"
+    ],
     "links": [
-      "https://proceedings.neurips.cc/paper_files/paper/2025/hash/eacce1f7d11e2c3a7568468e0eff5d33-Abstract-Conference.html"
+      "https://proceedings.neurips.cc/paper_files/paper/2025/hash/eacce1f7d11e2c3a7568468e0eff5d33-Abstract-Conference.html",
+      "https://github.com/cpfpengfei/PCFM"
     ],
     "hyperlinks": {
-      "摘要来源": "https://proceedings.neurips.cc/paper_files/paper/2025/hash/eacce1f7d11e2c3a7568468e0eff5d33-Abstract-Conference.html"
+      "摘要来源": "https://proceedings.neurips.cc/paper_files/paper/2025/hash/eacce1f7d11e2c3a7568468e0eff5d33-Abstract-Conference.html",
+      "代码/数据来源": "https://github.com/cpfpengfei/PCFM"
     },
     "fields": {
       "日期": "2026-11-03",
       "标题": "Physics-constrained flow matching: Sampling generative models with hard constraints",
       "内容": "物理约束流匹配（PCFM）对预训练流模型的采样中间状态施加物理修正，使生成解满足守恒律等非线性硬约束。",
       "摘要来源": "https://proceedings.neurips.cc/paper_files/paper/2025/hash/eacce1f7d11e2c3a7568468e0eff5d33-Abstract-Conference.html",
-      "公开代码状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。",
-      "代码/数据状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。"
+      "公开代码状态": "已公开论文代码：已找到 PCFM 的公开论文实现，含安装和实验说明；尚未实际复现。 https://github.com/cpfpengfei/PCFM",
+      "代码/数据状态": "已公开论文代码：已找到 PCFM 的公开论文实现，含安装和实验说明；尚未实际复现。 https://github.com/cpfpengfei/PCFM",
+      "代码/数据来源": "https://github.com/cpfpengfei/PCFM"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -2568,18 +2583,21 @@
     "hosted_pdfs": [],
     "github": [],
     "links": [
-      "https://arxiv.org/abs/2609.33834"
+      "https://arxiv.org/abs/2609.33834",
+      "https://github.com/Zeqiu-Yu/CLIMB-Flow"
     ],
     "hyperlinks": {
-      "文献来源": "https://arxiv.org/abs/2609.33834"
+      "文献来源": "https://arxiv.org/abs/2609.33834",
+      "代码/数据来源": "https://github.com/Zeqiu-Yu/CLIMB-Flow"
     },
     "fields": {
       "日期": "2026-11-03",
       "标题": "CLIMB-flow: Coupled Linear Inverse posterior sampling via Multiscale-Based flow",
       "内容": "将多尺度建模与流生成先验结合用于线性逆问题后验采样，缓解潜空间压缩丢失图像细节的影响。",
       "文献来源": "https://arxiv.org/abs/2609.33834",
-      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
-      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+      "公开代码状态": "官方项目页，代码待发布：已找到官方仓库，但 README 明确说明 Code coming soon：代码仍待发布，不能视为开源实现。 https://github.com/Zeqiu-Yu/CLIMB-Flow",
+      "代码/数据状态": "官方项目页，代码待发布：已找到官方仓库，但 README 明确说明 Code coming soon：代码仍待发布，不能视为开源实现。 https://github.com/Zeqiu-Yu/CLIMB-Flow",
+      "代码/数据来源": "https://github.com/Zeqiu-Yu/CLIMB-Flow"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -3215,20 +3233,25 @@
     "paper_url": "/papers/items/2cc3671409396eda/",
     "pdf_sources": [],
     "hosted_pdfs": [],
-    "github": [],
+    "github": [
+      "https://github.com/sifanexisted/fundiff"
+    ],
     "links": [
-      "https://doi.org/10.1038/s41467-026-72292-0"
+      "https://doi.org/10.1038/s41467-026-72292-0",
+      "https://github.com/sifanexisted/fundiff"
     ],
     "hyperlinks": {
-      "文献来源": "https://doi.org/10.1038/s41467-026-72292-0"
+      "文献来源": "https://doi.org/10.1038/s41467-026-72292-0",
+      "代码/数据来源": "https://github.com/sifanexisted/fundiff"
     },
     "fields": {
       "日期": "2026-11-03",
       "标题": "FunDiff: diffusion models over function spaces for physics-informed generative modeling",
       "内容": "提出函数空间生成模型 FunDiff，使扩散过程直接作用于连续场变量，用于具有物理约束的函数样本建模。",
       "文献来源": "https://doi.org/10.1038/s41467-026-72292-0",
-      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
-      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+      "公开代码状态": "已公开论文代码：已找到论文公开实现，含 JAX/Flax 安装说明、训练流程和数据集链接；未实际复现。 https://github.com/sifanexisted/fundiff",
+      "代码/数据状态": "已公开论文代码：已找到论文公开实现，含 JAX/Flax 安装说明、训练流程和数据集链接；未实际复现。 https://github.com/sifanexisted/fundiff",
+      "代码/数据来源": "https://github.com/sifanexisted/fundiff"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -3721,20 +3744,25 @@
     "paper_url": "/papers/items/9dfd522a1cc16b60/",
     "pdf_sources": [],
     "hosted_pdfs": [],
-    "github": [],
+    "github": [
+      "https://github.com/casperkaae/LVAE"
+    ],
     "links": [
-      "https://arxiv.org/abs/1602.02282"
+      "https://arxiv.org/abs/1602.02282",
+      "https://github.com/casperkaae/LVAE"
     ],
     "hyperlinks": {
-      "文献来源": "https://arxiv.org/abs/1602.02282"
+      "文献来源": "https://arxiv.org/abs/1602.02282",
+      "代码/数据来源": "https://github.com/casperkaae/LVAE"
     },
     "fields": {
       "日期": "2026-11-03",
       "标题": "Ladder Variational Autoencoders",
       "内容": "提出阶梯式变分自编码器，由观测数据的自底向上证据逐层修正生成分布，提升深层随机潜变量建模。",
       "文献来源": "https://arxiv.org/abs/1602.02282",
-      "公开代码状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。",
-      "代码/数据状态": "尚未核实本篇直接对应的公开代码；不能据此认定未开源。"
+      "公开代码状态": "作者实验代码：已找到论文作者提供的原始 LVAE 实验代码；未实际复现。 https://github.com/casperkaae/LVAE",
+      "代码/数据状态": "作者实验代码：已找到论文作者提供的原始 LVAE 实验代码；未实际复现。 https://github.com/casperkaae/LVAE",
+      "代码/数据来源": "https://github.com/casperkaae/LVAE"
     },
     "translations": [],
     "full_translation_label": "查看摘要",

@@ -19,4 +19,6 @@ toc: false
 
 ## 公开代码状态
 
-尚未核实本篇直接对应的公开代码；不能据此认定未开源。
+已找到官方仓库，但 README 明确说明 Code coming soon：代码仍待发布，不能视为开源实现。
+
+[查看官方项目页，代码待发布](https://github.com/Zeqiu-Yu/CLIMB-Flow)
