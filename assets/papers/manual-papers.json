@@ -24,7 +24,8 @@
     "hyperlinks": {
       "论文下载链接": "https://proceedings.mlr.press/v202/song23a/song23a.pdf",
       "检索来源": "https://proceedings.mlr.press/v202/song23a.html",
-      "代码链接": "https://github.com/openai/consistency_models"
+      "代码链接": "https://github.com/openai/consistency_models",
+      "公开代码链接": "https://github.com/openai/consistency_models"
     },
     "fields": {
       "日期": "2026-11-03",
@@ -41,9 +42,11 @@
       "是否精读": "☐",
       "备注": "2026-11-03 网站端手动补充；暂未制作全文翻译。",
       "代码链接": "https://github.com/openai/consistency_models",
-      "代码/数据状态": "作者公开官方实现；本次未实际运行。",
+      "代码/数据状态": "已找到公开实现：https://github.com/openai/consistency_models（尚未独立复现）。",
       "反馈匹配": "与 Drifting Model 的分布匹配式单步生成形成机制对照。",
-      "反馈权重说明": "按原文结论登记，未将 benchmark 性能推断为通信信道估计效果。"
+      "反馈权重说明": "按原文结论登记，未将 benchmark 性能推断为通信信道估计效果。",
+      "公开代码状态": "已找到公开实现：https://github.com/openai/consistency_models（尚未独立复现）。",
+      "公开代码链接": "https://github.com/openai/consistency_models"
     },
     "translations": [],
     "full_translation_label": "全文翻译（待补齐）",
@@ -79,7 +82,8 @@
     "hyperlinks": {
       "论文下载链接": "https://arxiv.org/pdf/2602.04770",
       "检索来源": "https://arxiv.org/abs/2602.04770",
-      "代码链接": "https://github.com/lambertae/drifting"
+      "代码链接": "https://github.com/lambertae/drifting",
+      "公开代码链接": "https://github.com/lambertae/drifting"
     },
     "fields": {
       "日期": "2026-11-03",
@@ -96,9 +100,11 @@
       "是否精读": "☐",
       "备注": "2026-11-03 网站端手动补充；暂未制作全文翻译。",
       "代码链接": "https://github.com/lambertae/drifting",
-      "代码/数据状态": "官方 JAX 代码、推理脚本和预训练权重已公开；本次未实际复现。",
+      "代码/数据状态": "已找到公开实现：https://github.com/lambertae/drifting（尚未独立复现）。",
       "反馈匹配": "与 Consistency Models 一起作为低 NFE 生成模型机制比较的阅读条目。",
-      "反馈权重说明": "ImageNet FID 属原文报告，不代表通信任务性能。"
+      "反馈权重说明": "ImageNet FID 属原文报告，不代表通信任务性能。",
+      "公开代码状态": "已找到公开实现：https://github.com/lambertae/drifting（尚未独立复现）。",
+      "公开代码链接": "https://github.com/lambertae/drifting"
     },
     "translations": [],
     "full_translation_label": "全文翻译（待补齐）",
@@ -132,7 +138,9 @@
       "日期": "2026-11-03",
       "标题": "Robust MIMO channel estimation using energy-based generative diffusion models",
       "内容": "将能量函数与 Metropolis–Hastings 校正纳入扩散模型，用于导频有限条件下的鲁棒 MIMO 信道后验估计。",
-      "摘要来源": "https://arxiv.org/abs/2510.22230"
+      "摘要来源": "https://arxiv.org/abs/2510.22230",
+      "公开代码状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。",
+      "代码/数据状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -166,7 +174,9 @@
       "日期": "2026-11-03",
       "标题": "Pinching-antenna systems-enabled multi-user communications: Transmission structures and beamforming optimization",
       "内容": "研究夹持式天线系统的波导复用、划分和切换结构，面向单播与组播设计最大最小公平性波束成形优化。",
-      "摘要来源": "https://doi.org/10.1109/TCOMM.2025.3643993"
+      "摘要来源": "https://doi.org/10.1109/TCOMM.2025.3643993",
+      "公开代码状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。",
+      "代码/数据状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -189,18 +199,25 @@
     "paper_url": "/papers/items/0d7a12984ca4e576/",
     "pdf_sources": [],
     "hosted_pdfs": [],
-    "github": [],
+    "github": [
+      "https://github.com/annegnx/PnP-Flow"
+    ],
     "links": [
-      "https://proceedings.iclr.cc/paper_files/paper/2025/hash/708e58b0b99e3e62d42022b4564bad7a-Abstract-Conference.html"
+      "https://proceedings.iclr.cc/paper_files/paper/2025/hash/708e58b0b99e3e62d42022b4564bad7a-Abstract-Conference.html",
+      "https://github.com/annegnx/PnP-Flow"
     ],
     "hyperlinks": {
-      "摘要来源": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/708e58b0b99e3e62d42022b4564bad7a-Abstract-Conference.html"
+      "摘要来源": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/708e58b0b99e3e62d42022b4564bad7a-Abstract-Conference.html",
+      "公开代码链接": "https://github.com/annegnx/PnP-Flow"
     },
     "fields": {
       "日期": "2026-11-03",
       "标题": "PnP-flow: Plug-and-play image restoration with flow matching",
       "内容": "结合即插即用图像重建和预训练流匹配，通过数据保真更新、流路径投影与去噪交替求解逆问题，无需通过 ODE 反传。",
-      "摘要来源": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/708e58b0b99e3e62d42022b4564bad7a-Abstract-Conference.html"
+      "摘要来源": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/708e58b0b99e3e62d42022b4564bad7a-Abstract-Conference.html",
+      "公开代码状态": "已找到公开实现：https://github.com/annegnx/PnP-Flow（尚未独立复现）。",
+      "代码/数据状态": "已找到公开实现：https://github.com/annegnx/PnP-Flow（尚未独立复现）。",
+      "公开代码链接": "https://github.com/annegnx/PnP-Flow"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -233,7 +250,9 @@
       "日期": "2026-11-03",
       "标题": "Pinching-antenna systems: Architecture designs, opportunities, and outlook",
       "内容": "介绍介质波导上的可重构夹持式辐射天线，讨论系统架构、传播特性、传输设计和应用前景。",
-      "摘要来源": "https://doi.org/10.1109/MCOM.001.2500037"
+      "摘要来源": "https://doi.org/10.1109/MCOM.001.2500037",
+      "公开代码状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。",
+      "代码/数据状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -256,18 +275,25 @@
     "paper_url": "/papers/items/b1f82665b1512070/",
     "pdf_sources": [],
     "hosted_pdfs": [],
-    "github": [],
+    "github": [
+      "https://github.com/UNIC-Lab/RadioDiff"
+    ],
     "links": [
-      "https://arxiv.org/abs/2408.08593"
+      "https://arxiv.org/abs/2408.08593",
+      "https://github.com/UNIC-Lab/RadioDiff"
     ],
     "hyperlinks": {
-      "摘要来源": "https://arxiv.org/abs/2408.08593"
+      "摘要来源": "https://arxiv.org/abs/2408.08593",
+      "公开代码链接": "https://github.com/UNIC-Lab/RadioDiff"
     },
     "fields": {
       "日期": "2026-11-03",
       "标题": "RadioDiff: An effective generative diffusion model for sampling-free dynamic radio map construction",
       "内容": "把无现场路径损耗采样的动态无线电地图构建表述为条件生成问题，以含注意力和傅里叶模块的扩散网络提升重建质量。",
-      "摘要来源": "https://arxiv.org/abs/2408.08593"
+      "摘要来源": "https://arxiv.org/abs/2408.08593",
+      "公开代码状态": "已找到公开实现：https://github.com/UNIC-Lab/RadioDiff（尚未独立复现）。",
+      "代码/数据状态": "已找到公开实现：https://github.com/UNIC-Lab/RadioDiff（尚未独立复现）。",
+      "公开代码链接": "https://github.com/UNIC-Lab/RadioDiff"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -301,7 +327,9 @@
       "日期": "2026-11-03",
       "标题": "Plug-and-play unplugged: Optimization free reconstruction using consensus equilibrium",
       "内容": "提出一致性均衡框架，用无需显式代价函数的平衡方程结合物理前向模型与学习先验，并讨论 ADMM 及牛顿求解。",
-      "摘要来源": "https://doi.org/10.1137/17M1122451"
+      "摘要来源": "https://doi.org/10.1137/17M1122451",
+      "公开代码状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。",
+      "代码/数据状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -334,7 +362,9 @@
       "日期": "2026-11-03",
       "标题": "Unveiling radio environment semantics via terahertz propagation informed diffusion model",
       "内容": "在太赫兹传播知识约束下，以条件扩散方法联合构建多方向无线电地图并推断环境结构。",
-      "摘要来源": "https://doi.org/10.1109/GLOBECOM59602.2025.11432672"
+      "摘要来源": "https://doi.org/10.1109/GLOBECOM59602.2025.11432672",
+      "公开代码状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。",
+      "代码/数据状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -368,7 +398,9 @@
       "日期": "2026-11-03",
       "标题": "An introduction to flow matching and diffusion models",
       "内容": "MIT 教学讲义，系统介绍 ODE、SDE、流匹配、分数匹配、无分类器引导及图像和视频生成机制。",
-      "摘要来源": "https://arxiv.org/abs/2506.02070"
+      "摘要来源": "https://arxiv.org/abs/2506.02070",
+      "公开代码状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。",
+      "代码/数据状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -402,7 +434,9 @@
       "日期": "2026-11-03",
       "标题": "Plug-and-play priors as a score-based method",
       "内容": "建立即插即用去噪先验与分数生成模型的数学联系，使预训练扩散网络能够直接复用于经典 PnP 重建算法。",
-      "摘要来源": "https://arxiv.org/abs/2412.11108"
+      "摘要来源": "https://arxiv.org/abs/2412.11108",
+      "公开代码状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。",
+      "代码/数据状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -435,7 +469,9 @@
       "日期": "2026-11-03",
       "标题": "Diffusion-based generative prior for low-complexity MIMO channel estimation",
       "内容": "在稀疏角域训练含信噪比条件的轻量扩散网络，通过避免重采样和截断推断步骤降低 MIMO 信道估计复杂度。",
-      "摘要来源": "https://doi.org/10.1109/LWC.2024.3474570"
+      "摘要来源": "https://doi.org/10.1109/LWC.2024.3474570",
+      "公开代码状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。",
+      "代码/数据状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -458,18 +494,25 @@
     "paper_url": "/papers/items/c0eabcd8053d3e24/",
     "pdf_sources": [],
     "hosted_pdfs": [],
-    "github": [],
+    "github": [
+      "https://github.com/DPS2022/diffusion-posterior-sampling"
+    ],
     "links": [
-      "https://arxiv.org/abs/2209.14687"
+      "https://arxiv.org/abs/2209.14687",
+      "https://github.com/DPS2022/diffusion-posterior-sampling"
     ],
     "hyperlinks": {
-      "摘要来源": "https://arxiv.org/abs/2209.14687"
+      "摘要来源": "https://arxiv.org/abs/2209.14687",
+      "公开代码链接": "https://github.com/DPS2022/diffusion-posterior-sampling"
     },
     "fields": {
       "日期": "2026-11-03",
       "标题": "Diffusion posterior sampling for general noisy inverse problems",
       "内容": "扩散后验采样（DPS）结合扩散先验与观测似然梯度，求解含高斯或泊松噪声的线性、非线性逆问题。",
-      "摘要来源": "https://arxiv.org/abs/2209.14687"
+      "摘要来源": "https://arxiv.org/abs/2209.14687",
+      "公开代码状态": "已找到公开实现：https://github.com/DPS2022/diffusion-posterior-sampling（尚未独立复现）。",
+      "代码/数据状态": "已找到公开实现：https://github.com/DPS2022/diffusion-posterior-sampling（尚未独立复现）。",
+      "公开代码链接": "https://github.com/DPS2022/diffusion-posterior-sampling"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -492,18 +535,25 @@
     "paper_url": "/papers/items/8d4e03e9cb050422/",
     "pdf_sources": [],
     "hosted_pdfs": [],
-    "github": [],
+    "github": [
+      "https://github.com/utcsilab/score-based-channels"
+    ],
     "links": [
-      "https://doi.org/10.1109/TWC.2022.3220784"
+      "https://doi.org/10.1109/TWC.2022.3220784",
+      "https://github.com/utcsilab/score-based-channels"
     ],
     "hyperlinks": {
-      "摘要来源": "https://doi.org/10.1109/TWC.2022.3220784"
+      "摘要来源": "https://doi.org/10.1109/TWC.2022.3220784",
+      "公开代码链接": "https://github.com/utcsilab/score-based-channels"
     },
     "fields": {
       "日期": "2026-11-03",
       "标题": "MIMO channel estimation using score-based generative models",
       "内容": "学习无线 MIMO 信道的分数函数，利用导频观测进行后验采样，并分析分布外鲁棒性、导频密度和推断复杂度。",
-      "摘要来源": "https://doi.org/10.1109/TWC.2022.3220784"
+      "摘要来源": "https://doi.org/10.1109/TWC.2022.3220784",
+      "公开代码状态": "已找到公开实现：https://github.com/utcsilab/score-based-channels（尚未独立复现）。",
+      "代码/数据状态": "已找到公开实现：https://github.com/utcsilab/score-based-channels（尚未独立复现）。",
+      "公开代码链接": "https://github.com/utcsilab/score-based-channels"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -526,18 +576,25 @@
     "paper_url": "/papers/items/e5ba4f679057b740/",
     "pdf_sources": [],
     "hosted_pdfs": [],
-    "github": [],
+    "github": [
+      "https://github.com/hojonathanho/diffusion"
+    ],
     "links": [
-      "https://proceedings.nips.cc/paper/2020/hash/4c5bcfec8584af0d967f1ab10179ca4b-Abstract.html"
+      "https://proceedings.nips.cc/paper/2020/hash/4c5bcfec8584af0d967f1ab10179ca4b-Abstract.html",
+      "https://github.com/hojonathanho/diffusion"
     ],
     "hyperlinks": {
-      "摘要来源": "https://proceedings.nips.cc/paper/2020/hash/4c5bcfec8584af0d967f1ab10179ca4b-Abstract.html"
+      "摘要来源": "https://proceedings.nips.cc/paper/2020/hash/4c5bcfec8584af0d967f1ab10179ca4b-Abstract.html",
+      "公开代码链接": "https://github.com/hojonathanho/diffusion"
     },
     "fields": {
       "日期": "2026-11-03",
       "标题": "Denoising diffusion probabilistic models",
       "内容": "提出去噪扩散概率模型（DDPM），联系正向加噪、反向去噪与加权变分训练目标，用于高质量图像生成。",
-      "摘要来源": "https://proceedings.nips.cc/paper/2020/hash/4c5bcfec8584af0d967f1ab10179ca4b-Abstract.html"
+      "摘要来源": "https://proceedings.nips.cc/paper/2020/hash/4c5bcfec8584af0d967f1ab10179ca4b-Abstract.html",
+      "公开代码状态": "已找到公开实现：https://github.com/hojonathanho/diffusion（尚未独立复现）。",
+      "代码/数据状态": "已找到公开实现：https://github.com/hojonathanho/diffusion（尚未独立复现）。",
+      "公开代码链接": "https://github.com/hojonathanho/diffusion"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -571,7 +628,9 @@
       "日期": "2026-11-03",
       "标题": "Plug-and-play ADMM for image restoration: Fixed point convergence and applications",
       "内容": "分析即插即用 ADMM 在有界去噪器及延续参数策略下的不动点收敛性，并应用于图像超分辨率与单光子成像。",
-      "摘要来源": "https://arxiv.org/abs/1605.01710"
+      "摘要来源": "https://arxiv.org/abs/1605.01710",
+      "公开代码状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。",
+      "代码/数据状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -593,18 +652,25 @@
     "paper_url": "/papers/items/42e47c30ff2e042a/",
     "pdf_sources": [],
     "hosted_pdfs": [],
-    "github": [],
+    "github": [
+      "https://github.com/riccizz/FIG"
+    ],
     "links": [
-      "https://riccizz.github.io/FIG/"
+      "https://riccizz.github.io/FIG/",
+      "https://github.com/riccizz/FIG"
     ],
     "hyperlinks": {
-      "摘要来源": "https://riccizz.github.io/FIG/"
+      "摘要来源": "https://riccizz.github.io/FIG/",
+      "公开代码链接": "https://github.com/riccizz/FIG"
     },
     "fields": {
       "日期": "2026-11-03",
       "标题": "Flow with interpolant guidance for linear inverse problems",
       "内容": "FIG 将测量插值序列用于预训练流或扩散模型的逆向采样引导，重点处理高噪声与严重病态线性图像逆问题。",
-      "摘要来源": "https://riccizz.github.io/FIG/"
+      "摘要来源": "https://riccizz.github.io/FIG/",
+      "公开代码状态": "已找到公开实现：https://github.com/riccizz/FIG（尚未独立复现）。",
+      "代码/数据状态": "已找到公开实现：https://github.com/riccizz/FIG（尚未独立复现）。",
+      "公开代码链接": "https://github.com/riccizz/FIG"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -638,7 +704,9 @@
       "日期": "2026-11-03",
       "标题": "Null-space flow matching for MIMO channel estimation in latency-constrained systems",
       "内容": "把导频受限的 MIMO 信道分成值域恢复与零空间生成，仅对零空间使用流匹配迭代，配合自适应噪声修正降低推断时延。",
-      "摘要来源": "https://arxiv.org/abs/2604.22005"
+      "摘要来源": "https://arxiv.org/abs/2604.22005",
+      "公开代码状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。",
+      "代码/数据状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -671,7 +739,9 @@
       "日期": "2026-11-03",
       "标题": "Wireless channel map enabled instantaneous channel state information acquisition in high-mobility scenarios",
       "内容": "利用无线信道地图提供的角度—时延功率谱密度构建先验，联合估计高移动双选择性信道的复增益与载波频偏。",
-      "摘要来源": "https://doi.org/10.1109/TCOMM.2026.3663282"
+      "摘要来源": "https://doi.org/10.1109/TCOMM.2026.3663282",
+      "公开代码状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。",
+      "代码/数据状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -705,7 +775,9 @@
       "日期": "2026-11-03",
       "标题": "One-step generative channel estimation via average velocity field",
       "内容": "学习平均速度场以实现单步生成式信道估计，减少传统扩散生成推断的迭代时延，并比较 NMSE 性能。",
-      "摘要来源": "https://arxiv.org/abs/2512.04501"
+      "摘要来源": "https://arxiv.org/abs/2512.04501",
+      "公开代码状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。",
+      "代码/数据状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -739,7 +811,9 @@
       "日期": "2026-11-03",
       "标题": "Channel estimation in MIMO systems using flow matching models",
       "内容": "训练流匹配速度场先验并嵌入即插即用近端梯度下降，用于导频观测下的 MIMO 信道重建与低时延估计。",
-      "摘要来源": "https://arxiv.org/abs/2601.13827"
+      "摘要来源": "https://arxiv.org/abs/2601.13827",
+      "公开代码状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。",
+      "代码/数据状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -762,18 +836,25 @@
     "paper_url": "/papers/items/74bcbb83950a4122/",
     "pdf_sources": [],
     "hosted_pdfs": [],
-    "github": [],
+    "github": [
+      "https://github.com/mehrsapo/Flower"
+    ],
     "links": [
-      "https://proceedings.iclr.cc/paper_files/paper/2026/hash/939af25e6dc31d3d020fda2f64016917-Abstract-Conference.html"
+      "https://proceedings.iclr.cc/paper_files/paper/2026/hash/939af25e6dc31d3d020fda2f64016917-Abstract-Conference.html",
+      "https://github.com/mehrsapo/Flower"
     ],
     "hyperlinks": {
-      "摘要来源": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/939af25e6dc31d3d020fda2f64016917-Abstract-Conference.html"
+      "摘要来源": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/939af25e6dc31d3d020fda2f64016917-Abstract-Conference.html",
+      "公开代码链接": "https://github.com/mehrsapo/Flower"
     },
     "fields": {
       "日期": "2026-11-03",
       "标题": "Flower: A flow-matching solver for inverse problems",
       "内容": "FLOWER 在流预测的终点估计、观测可行集投影与轨迹推进之间交替更新，求解线性逆问题并近似贝叶斯后验采样。",
-      "摘要来源": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/939af25e6dc31d3d020fda2f64016917-Abstract-Conference.html"
+      "摘要来源": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/939af25e6dc31d3d020fda2f64016917-Abstract-Conference.html",
+      "公开代码状态": "已找到公开实现：https://github.com/mehrsapo/Flower（尚未独立复现）。",
+      "代码/数据状态": "已找到公开实现：https://github.com/mehrsapo/Flower（尚未独立复现）。",
+      "公开代码链接": "https://github.com/mehrsapo/Flower"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -795,18 +876,25 @@
     "paper_url": "/papers/items/83de37b9bc56ac51/",
     "pdf_sources": [],
     "hosted_pdfs": [],
-    "github": [],
+    "github": [
+      "https://github.com/FlowDPS-Inverse/FlowDPS"
+    ],
     "links": [
-      "https://openaccess.thecvf.com/content/ICCV2025/html/Kim_FlowDPS__Flow-Driven_Posterior_Sampling_for_Inverse_Problems_ICCV_2025_paper.html"
+      "https://openaccess.thecvf.com/content/ICCV2025/html/Kim_FlowDPS__Flow-Driven_Posterior_Sampling_for_Inverse_Problems_ICCV_2025_paper.html",
+      "https://github.com/FlowDPS-Inverse/FlowDPS"
     ],
     "hyperlinks": {
-      "摘要来源": "https://openaccess.thecvf.com/content/ICCV2025/html/Kim_FlowDPS__Flow-Driven_Posterior_Sampling_for_Inverse_Problems_ICCV_2025_paper.html"
+      "摘要来源": "https://openaccess.thecvf.com/content/ICCV2025/html/Kim_FlowDPS__Flow-Driven_Posterior_Sampling_for_Inverse_Problems_ICCV_2025_paper.html",
+      "公开代码链接": "https://github.com/FlowDPS-Inverse/FlowDPS"
     },
     "fields": {
       "日期": "2026-11-03",
       "标题": "FlowDPS: Flow-driven posterior sampling for inverse problems",
       "内容": "FlowDPS 将扩散逆问题求解中的生成先验与似然梯度引导扩展到流模型，在无需额外训练条件下进行线性逆问题重建。",
-      "摘要来源": "https://openaccess.thecvf.com/content/ICCV2025/html/Kim_FlowDPS__Flow-Driven_Posterior_Sampling_for_Inverse_Problems_ICCV_2025_paper.html"
+      "摘要来源": "https://openaccess.thecvf.com/content/ICCV2025/html/Kim_FlowDPS__Flow-Driven_Posterior_Sampling_for_Inverse_Problems_ICCV_2025_paper.html",
+      "公开代码状态": "已找到公开实现：https://github.com/FlowDPS-Inverse/FlowDPS（尚未独立复现）。",
+      "代码/数据状态": "已找到公开实现：https://github.com/FlowDPS-Inverse/FlowDPS（尚未独立复现）。",
+      "公开代码链接": "https://github.com/FlowDPS-Inverse/FlowDPS"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -840,7 +928,9 @@
       "日期": "2026-11-03",
       "标题": "Recursive flow: A generative framework for MIMO channel estimation",
       "内容": "递归流（RC-Flow）结合流匹配先验、串行重启、轨迹矫正和数据一致性投影，形成闭环信道精化并分析稳定性。",
-      "摘要来源": "https://arxiv.org/abs/2601.15767"
+      "摘要来源": "https://arxiv.org/abs/2601.15767",
+      "公开代码状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。",
+      "代码/数据状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -873,7 +963,9 @@
       "日期": "2026-11-03",
       "标题": "Generative diffusion models for high dimensional channel estimation",
       "内容": "用扩散生成先验重建高维及低比特量化的 MIMO 信道，并借助 Stein 无偏风险估计减少对真值信道的依赖。",
-      "摘要来源": "https://doi.org/10.1109/TWC.2025.3549592"
+      "摘要来源": "https://doi.org/10.1109/TWC.2025.3549592",
+      "公开代码状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。",
+      "代码/数据状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -907,7 +999,9 @@
       "日期": "2026-11-03",
       "标题": "Physics-constrained flow matching: Sampling generative models with hard constraints",
       "内容": "物理约束流匹配（PCFM）对预训练流模型的采样中间状态施加物理修正，使生成解满足守恒律等非线性硬约束。",
-      "摘要来源": "https://proceedings.neurips.cc/paper_files/paper/2025/hash/eacce1f7d11e2c3a7568468e0eff5d33-Abstract-Conference.html"
+      "摘要来源": "https://proceedings.neurips.cc/paper_files/paper/2025/hash/eacce1f7d11e2c3a7568468e0eff5d33-Abstract-Conference.html",
+      "公开代码状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。",
+      "代码/数据状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -929,18 +1023,25 @@
     "paper_url": "/papers/items/06fdc623791e2954/",
     "pdf_sources": [],
     "hosted_pdfs": [],
-    "github": [],
+    "github": [
+      "https://github.com/Lakonik/GMFlow"
+    ],
     "links": [
-      "https://proceedings.mlr.press/v267/chen25cl.html"
+      "https://proceedings.mlr.press/v267/chen25cl.html",
+      "https://github.com/Lakonik/GMFlow"
     ],
     "hyperlinks": {
-      "摘要来源": "https://proceedings.mlr.press/v267/chen25cl.html"
+      "摘要来源": "https://proceedings.mlr.press/v267/chen25cl.html",
+      "公开代码链接": "https://github.com/Lakonik/GMFlow"
     },
     "fields": {
       "日期": "2026-11-03",
       "标题": "Gaussian mixture flow matching models",
       "内容": "高斯混合流匹配（GMFlow）学习动态高斯混合参数及相应 SDE/ODE 求解器，以提高少步采样质量并改善引导导致的过饱和。",
-      "摘要来源": "https://proceedings.mlr.press/v267/chen25cl.html"
+      "摘要来源": "https://proceedings.mlr.press/v267/chen25cl.html",
+      "公开代码状态": "已找到公开实现：https://github.com/Lakonik/GMFlow（尚未独立复现）。",
+      "代码/数据状态": "已找到公开实现：https://github.com/Lakonik/GMFlow（尚未独立复现）。",
+      "公开代码链接": "https://github.com/Lakonik/GMFlow"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -974,7 +1075,9 @@
       "日期": "2026-11-03",
       "标题": "A tutorial on environment-aware communications via channel knowledge map for 6G",
       "内容": "综述信道知识地图（CKM）的基本概念、无环境模型与环境辅助构建、通信利用机制和研究挑战。",
-      "摘要来源": "https://doi.org/10.1109/COMST.2024.3364508"
+      "摘要来源": "https://doi.org/10.1109/COMST.2024.3364508",
+      "公开代码状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。",
+      "代码/数据状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -1008,7 +1111,9 @@
       "日期": "2026-11-03",
       "标题": "Toward environment-aware 6G communications via channel knowledge map",
       "内容": "提出 CKM 辅助环境感知 6G 通信，以位置关联的统计信道知识减轻实时 CSI 获取开销，并讨论多种高维场景。",
-      "摘要来源": "https://doi.org/10.1109/MWC.001.2000327"
+      "摘要来源": "https://doi.org/10.1109/MWC.001.2000327",
+      "公开代码状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。",
+      "代码/数据状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -1031,18 +1136,25 @@
     "paper_url": "/papers/items/dae4294dad26becb/",
     "pdf_sources": [],
     "hosted_pdfs": [],
-    "github": [],
+    "github": [
+      "https://github.com/facebookresearch/flow_matching"
+    ],
     "links": [
-      "https://mlanthology.org/iclr/2023/lipman2023iclr-flow/"
+      "https://mlanthology.org/iclr/2023/lipman2023iclr-flow/",
+      "https://github.com/facebookresearch/flow_matching"
     ],
     "hyperlinks": {
-      "摘要来源": "https://mlanthology.org/iclr/2023/lipman2023iclr-flow/"
+      "摘要来源": "https://mlanthology.org/iclr/2023/lipman2023iclr-flow/",
+      "公开代码链接": "https://github.com/facebookresearch/flow_matching"
     },
     "fields": {
       "日期": "2026-11-03",
       "标题": "Flow matching for generative modeling",
       "内容": "通过回归条件概率路径的速度场训练连续归一化流，兼容扩散路径和最优传输位移插值，减少训练对轨迹积分的依赖。",
-      "摘要来源": "https://mlanthology.org/iclr/2023/lipman2023iclr-flow/"
+      "摘要来源": "https://mlanthology.org/iclr/2023/lipman2023iclr-flow/",
+      "公开代码状态": "已找到公开实现：https://github.com/facebookresearch/flow_matching（尚未独立复现）。",
+      "代码/数据状态": "已找到公开实现：https://github.com/facebookresearch/flow_matching（尚未独立复现）。",
+      "公开代码链接": "https://github.com/facebookresearch/flow_matching"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -1075,7 +1187,9 @@
       "日期": "2026-11-03",
       "标题": "CKMDiff: A generative diffusion model for CKM construction via inverse problems with learned priors",
       "内容": "CKMDiff 使用条件扩散学习先验，由少量带噪测量实现 CKM 去噪、补全和超分辨率，并引入传播语义引导特征。",
-      "摘要来源": "https://www.nature.com/articles/s44459-026-00042-1"
+      "摘要来源": "https://www.nature.com/articles/s44459-026-00042-1",
+      "公开代码状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。",
+      "代码/数据状态": "尚未确认与该论文直接对应的公开实现；不表示一定没有开源。"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
@@ -1098,18 +1212,25 @@
     "paper_url": "/papers/items/051da4f3820893eb/",
     "pdf_sources": [],
     "hosted_pdfs": [],
-    "github": [],
+    "github": [
+      "https://github.com/yang-song/score_sde"
+    ],
     "links": [
-      "https://research.google/pubs/score-based-generative-modeling-through-stochastic-differential-equations/"
+      "https://research.google/pubs/score-based-generative-modeling-through-stochastic-differential-equations/",
+      "https://github.com/yang-song/score_sde"
     ],
     "hyperlinks": {
-      "摘要来源": "https://research.google/pubs/score-based-generative-modeling-through-stochastic-differential-equations/"
+      "摘要来源": "https://research.google/pubs/score-based-generative-modeling-through-stochastic-differential-equations/",
+      "公开代码链接": "https://github.com/yang-song/score_sde"
     },
     "fields": {
       "日期": "2026-11-03",
       "标题": "Score-based generative modeling through stochastic differential equations",
       "内容": "建立分数生成的正向与反向随机微分方程以及概率流 ODE，给出预测—校正采样和逆问题生成框架。",
-      "摘要来源": "https://research.google/pubs/score-based-generative-modeling-through-stochastic-differential-equations/"
+      "摘要来源": "https://research.google/pubs/score-based-generative-modeling-through-stochastic-differential-equations/",
+      "公开代码状态": "已找到公开实现：https://github.com/yang-song/score_sde（尚未独立复现）。",
+      "代码/数据状态": "已找到公开实现：https://github.com/yang-song/score_sde（尚未独立复现）。",
+      "公开代码链接": "https://github.com/yang-song/score_sde"
     },
     "translations": [],
     "full_translation_label": "查看摘要",
