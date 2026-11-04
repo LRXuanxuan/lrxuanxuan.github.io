@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "count": 1584,
+  "count": 1585,
   "quotes": [
     {
       "id": "b3faf27097cae9a98a228080e7ea5d2a57b4ffbc963b300cb013bb45e4dbaec7",
@@ -19613,6 +19613,19 @@
       "theme": "inspiration",
       "aspect": "rose",
       "sourceType": "film"
+    },
+    {
+      "id": "cd087ad2f9b6da1e363c502cb66c879246f8ad82df22058085044ace96d777a2",
+      "text": "牢骚太盛防肠断，风物长宜放眼量。\n莫道昆明池水浅，观鱼胜过富春江。",
+      "book": "七律·和柳亚子先生",
+      "author": "毛泽东",
+      "chapter": "1949年4月29日作｜1957年1月《诗刊》首次发表",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "inspiration",
+      "aspect": "rose",
+      "sourceType": "poetry"
     }
   ]
 }
