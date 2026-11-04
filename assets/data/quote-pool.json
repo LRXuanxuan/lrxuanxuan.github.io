@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "count": 1588,
+  "count": 1590,
   "quotes": [
     {
       "id": "b3faf27097cae9a98a228080e7ea5d2a57b4ffbc963b300cb013bb45e4dbaec7",
@@ -14324,7 +14324,7 @@
     },
     {
       "id": "39e165902c96bfb8cab1f982b1e4cf602a4387c92aada3905e087ab4eb2dcb1a",
-      "text": "Every time I see you falling\n\n每当我看见你坠落。",
+      "text": "Every time I see you falling\nI get down on my knees and pray\nI'm waiting for that final moment\nYou say the words that I can't say\n\n每当我看见你坠落，\n我便双膝跪地祈祷。\n我一直等候那最后一刻，\n等你说出那些我无法说出口的话。",
       "book": "Bizarre Love Triangle",
       "author": "New Order",
       "chapter": "演唱：New Order｜专辑：Brotherhood（发行：1986-09-29）｜首发：1986-09-29（专辑）",
@@ -19664,6 +19664,32 @@
       "quoteWeight": 1,
       "theme": "reflection",
       "aspect": "moth",
+      "sourceType": "song"
+    },
+    {
+      "id": "5f86ca001aec49e5bd720e5cbed196407ca384e76a84d4cfadcd7e88cef2a190",
+      "text": "Every time I think of you\nI feel shot right through with a bolt of blue\nIt's no problem of mine, but it's a problem I find\nLivin' a life that I can't leave behind\nThere's no sense in telling me\nThe wisdom of the fool won't set you free\nBut that's the way that it goes and it's what nobody knows\nWell, every day my confusion grows\n\n每当我想起你，\n就仿佛一道忧郁的闪电将我贯穿。\n这本不关我的事，却成了我发现自己面对的难题，\n过着一种无法抛在身后的生活。\n跟我说这些没有意义，\n愚人的智慧无法让你自由。\n可事情就是如此，而无人知晓其中缘由，\n唉，我的困惑一天比一天深。",
+      "book": "Bizarre Love Triangle",
+      "author": "New Order",
+      "chapter": "演唱：New Order｜专辑：Brotherhood（发行：1986-09-29）｜首发：1986-09-29（专辑）",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "moth",
+      "sourceType": "song"
+    },
+    {
+      "id": "aa71e5b9f8c24fb89c390601d364e1b9f61a4f0c8a4f5f973e0bcb7d6742419e",
+      "text": "I feel fine and I feel good\nI'm feeling like I never should\nWhenever I get this way, I just don't know what to say\nWhy can't we be ourselves like we were yesterday?\nI'm not sure what this could mean\nI don't think you're what you seem\nI do admit to myself that if I hurt someone else\nThen I'll never see just what we're meant to be\n\n我感觉很好，心情也不错，\n却又觉得自己不该这样。\n每当我陷入这种状态，就不知道该说些什么，\n为什么我们不能像昨天那样，坦然做自己？\n我不确定这一切意味着什么，\n我觉得你并不像表面看上去那样。\n我不得不向自己承认，如果我伤害了另一个人，\n那我就永远无法明白，我们究竟本该成为什么模样。",
+      "book": "Bizarre Love Triangle",
+      "author": "New Order",
+      "chapter": "演唱：New Order｜专辑：Brotherhood（发行：1986-09-29）｜首发：1986-09-29（专辑）",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "moon",
       "sourceType": "song"
     }
   ]
