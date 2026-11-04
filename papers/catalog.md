@@ -378,6 +378,36 @@ toc: true
 
 ## 推荐论文
 
+### 2026-11-05 · [Amortised Inference through One-Step Implicit Sampling](/papers/items/2b6b98324c5f31cd/)
+
+低NFE路径有清晰成本归属，适合小规模证伪与预算基线。
+
+[本篇日报](/papers/items/2b6b98324c5f31cd/#paper-report)
+
+### 2026-11-05 · [A Perception vs. Distortion Perspective on Score-Based Generative Channel Estimation](/papers/items/c17a299f28542f56/)
+
+给期刊扩展的任务相关评价提供依据，并明确采样不总有益。
+
+[本篇日报](/papers/items/c17a299f28542f56/#paper-report)
+
+### 2026-11-05 · [GRAM-DIFF: Gram Matrix Guided Diffusion for MIMO Channel Estimation](/papers/items/5cc5ea3c70722ac1/)
+
+为不可观测子空间增加真实观测接口，避免把所有恢复归因于先验。
+
+[本篇日报](/papers/items/5cc5ea3c70722ac1/#paper-report)
+
+### 2026-11-05 · [MissPath-FM: Flow Matching with Structured Priors for Partially Observed Time Series](/papers/items/b11481d88fdebfd1/)
+
+提供观察模式进入概率路径的具体机制，适合噪声/缺失条件研究。
+
+[本篇日报](/papers/items/b11481d88fdebfd1/#paper-report)
+
+### 2026-11-05 · [Learning Graph Beliefs for Active Radio Mapping With Decision-Certified Multi-Step Sensing](/papers/items/05774e2d53cb0cca/)
+
+把地图可信度与采样预算联系起来，适合作为独立地图获取分支。
+
+[本篇日报](/papers/items/05774e2d53cb0cca/#paper-report)
+
 ### 2026-11-04 · [AFDM Channel Parameter Estimation: Exploiting its Shift Properties and Input-Output Relationship](/papers/items/04fa65dc9dd5428c/)
 
 提供独立的物理参数基线，避免把生成先验误认为解决Doppler可辨识性的唯一来源。
