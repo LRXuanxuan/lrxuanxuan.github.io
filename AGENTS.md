@@ -69,6 +69,7 @@
 - 经用户明确指定、但未进入源推荐工作簿的论文，独立保存在 `assets/papers/manual-papers.json`。该小文件是网站端补充论文的唯一维护入口，不得为此重建或改写 `assets/papers/library.json` 中来自工作簿的历史记录。
 - `assets/papers/library.js` 读取补充文件后按稳定 ID、规范化标题与 arXiv 身份去重，再合并到论文视图并更新可见计数；补充条目使用 `papers/items/<id>.md` 详情页，沿用论文四项标记。若后续自动推荐已经正式覆盖同篇论文，优先显示自动来源的条目，防止双份展示。
 - 补充条目不应伪装成源工作簿行，不更改 `/papers/table/` 的源行数与原始排序；补充项暂不计入全文翻译统计，除非真实译稿及 QA 状态后续完成核验。后续导出与日常维护不得无意删除补充入口。
+- **2026-11-04 起补充论文并入记录/目录/表格：** `site_sync/export_library.py` 会把 `assets/papers/manual-papers.json` 中未与源工作簿重复的条目并入 `library.json` 的 `papers`（`site_addition: true`，`sheet` 为「网站端补充（2026-11-03）」、`row` 为「—」），并追加到 `papers/catalog.md` 末节「网站端补充论文」与 `/papers/table/` 的第二张表视图；源工作簿行数与排序不变（`workbook_table.row_count` 仍为源行数，另记 `supplement_count`、`display_row_count`），`total` 为全量记录数。同一原因导致的重复（标题/arXiv 身份）继续跳过，条目页仍由 `papers/items/<id>.md` 手动维护，不被导出器覆盖。
 
 ## 首页「随机漫游」约定
 
