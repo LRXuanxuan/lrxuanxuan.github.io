@@ -36,7 +36,7 @@
   function openRecord(record, field) {
     const dialog = $('wt-detail');
     $('wt-detail-title').textContent = record.title;
-    $('wt-detail-meta').textContent = `${record.date} · ${record.sheet} 第 ${record.row} 行`;
+    $('wt-detail-meta').textContent = `${record.date} · ${record.sheet}${Number.isFinite(Number(record.row)) ? ' 第 ' + record.row + ' 行' : ''}`;
     const links = $('wt-detail-links'); links.replaceChildren();
     appendLink(links, '本篇论文与证据', record.paper_url);
     appendLink(links, record.full_translation_label || '本篇全文翻译', record.full_translation_url);
@@ -64,7 +64,7 @@
     const start = page * size, rows = result.slice(start, start + size);
     const body = $('wt-grid').querySelector('tbody'); body.replaceChildren();
     for (const record of rows) {
-      const tr = el('tr'); tr.id = `workbook-row-${record.row}`; tr.dataset.paperId = record.id;
+      const tr = el('tr'); tr.id = 'workbook-row-' + (record.sheet === sheet.name ? record.row : record.id); tr.dataset.paperId = record.id;
       for (const header of headers) {
         const td = el('td'); const button = el('button', undefined, 'wt-cell'); button.type = 'button';
         button.setAttribute('aria-label', `展开第 ${record.row} 行的${header}`);
@@ -90,11 +90,20 @@
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     return response.json();
   }).then(data => {
-    const sheet = data.sheets[0];
+    const sheets = (data.sheets || []).filter(s => s && s.headers && s.count != null);
+    const sheet = sheets[0];
     if (!sheet || !sheet.headers.includes('标题')) throw new Error('主表身份列缺失');
     headers = sheet.headers.filter(Boolean);
-    records = data.papers.filter(r => r.sheet === sheet.name).sort((a, b) => a.row - b.row);
-    if (records.length !== sheet.count) throw new Error('主表条数不一致');
+    const sheetNames = new Set(sheets.map(s => s.name));
+    const sheetIndex = name => sheets.findIndex(s => s.name === name);
+    records = data.papers.filter(r => sheetNames.has(r.sheet)).sort((a, b) => {
+      const ai = sheetIndex(a.sheet), bi = sheetIndex(b.sheet);
+      if (ai !== bi) return ai - bi;
+      const ar = Number(a.row), br = Number(b.row);
+      return (Number.isFinite(ar) ? ar : 1e9) - (Number.isFinite(br) ? br : 1e9);
+    });
+    const expected = sheets.reduce((n, s) => n + (Number(s.count) || 0), 0);
+    if (records.length !== expected) throw new Error('主表与网站端补充条数不一致');
     const head = el('tr');
     headers.forEach(header => { const th = el('th', header); th.scope = 'col'; head.append(th); });
     $('wt-grid').querySelector('thead').replaceChildren(head);

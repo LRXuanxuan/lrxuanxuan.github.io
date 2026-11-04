@@ -2992,4 +2992,1034 @@ TWC近期论文且核心算法代码可审计，适合建立强通信系统基�
 与你的 WCM 东南论文讲义和 64x16 高机动数据生成器最直接相关，可作为主线论文继续深挖公式、数据结构和实验复现。
 
 [本篇日报](/papers/items/f997fa4fb49f2a25/#paper-report)
+
+
+## 网站端补充论文（2026-11-03，未回写源工作簿）
+
+### 2026-11-03 · [Consistency Models](/papers/items/08d65dfa65c570c1/)
+
+对比低 NFE 生成机制：以轨迹一致性取代逐步 ODE 积分；区分 Consistency Distillation 与独立 Consistency Training。
+
+[本篇条目](/papers/items/08d65dfa65c570c1/)
+
+### 2026-11-03 · [Generative Modeling via Drifting](/papers/items/559408cea3232316/)
+
+考察不依赖多步生成教师的原生单步生成训练范式，比较分布匹配与轨迹一致性两种低 NFE 路径。
+
+[本篇条目](/papers/items/559408cea3232316/)
+
+### 2026-11-03 · [Robust MIMO channel estimation using energy-based generative diffusion models](/papers/items/0eae476b10f5c336/)
+
+将能量函数与 Metropolis–Hastings 校正纳入扩散模型，用于导频有限条件下的鲁棒 MIMO 信道后验估计。
+
+[本篇条目](/papers/items/0eae476b10f5c336/)
+
+### 2026-11-03 · [Pinching-antenna systems-enabled multi-user communications: Transmission structures and beamforming optimization](/papers/items/8abcdb5ef6409925/)
+
+研究夹持式天线系统的波导复用、划分和切换结构，面向单播与组播设计最大最小公平性波束成形优化。
+
+[本篇条目](/papers/items/8abcdb5ef6409925/)
+
+### 2026-11-03 · [PnP-flow: Plug-and-play image restoration with flow matching](/papers/items/0d7a12984ca4e576/)
+
+结合即插即用图像重建和预训练流匹配，通过数据保真更新、流路径投影与去噪交替求解逆问题，无需通过 ODE 反传。
+
+[本篇条目](/papers/items/0d7a12984ca4e576/)
+
+### 2026-11-03 · [Pinching-antenna systems: Architecture designs, opportunities, and outlook](/papers/items/f8448c5ebf8e4b05/)
+
+介绍介质波导上的可重构夹持式辐射天线，讨论系统架构、传播特性、传输设计和应用前景。
+
+[本篇条目](/papers/items/f8448c5ebf8e4b05/)
+
+### 2026-11-03 · [RadioDiff: An effective generative diffusion model for sampling-free dynamic radio map construction](/papers/items/b1f82665b1512070/)
+
+把无现场路径损耗采样的动态无线电地图构建表述为条件生成问题，以含注意力和傅里叶模块的扩散网络提升重建质量。
+
+[本篇条目](/papers/items/b1f82665b1512070/)
+
+### 2026-11-03 · [Plug-and-play unplugged: Optimization free reconstruction using consensus equilibrium](/papers/items/6d0778d6d188670c/)
+
+提出一致性均衡框架，用无需显式代价函数的平衡方程结合物理前向模型与学习先验，并讨论 ADMM 及牛顿求解。
+
+[本篇条目](/papers/items/6d0778d6d188670c/)
+
+### 2026-11-03 · [Unveiling radio environment semantics via terahertz propagation informed diffusion model](/papers/items/40dbffbd9c4118b9/)
+
+在太赫兹传播知识约束下，以条件扩散方法联合构建多方向无线电地图并推断环境结构。
+
+[本篇条目](/papers/items/40dbffbd9c4118b9/)
+
+### 2026-11-03 · [An introduction to flow matching and diffusion models](/papers/items/d16d15f03ba16bf1/)
+
+MIT 教学讲义，系统介绍 ODE、SDE、流匹配、分数匹配、无分类器引导及图像和视频生成机制。
+
+[本篇条目](/papers/items/d16d15f03ba16bf1/)
+
+### 2026-11-03 · [Plug-and-play priors as a score-based method](/papers/items/0c229a5c0d321008/)
+
+建立即插即用去噪先验与分数生成模型的数学联系，使预训练扩散网络能够直接复用于经典 PnP 重建算法。
+
+[本篇条目](/papers/items/0c229a5c0d321008/)
+
+### 2026-11-03 · [Diffusion-based generative prior for low-complexity MIMO channel estimation](/papers/items/1958eaac861eaea5/)
+
+在稀疏角域训练含信噪比条件的轻量扩散网络，通过避免重采样和截断推断步骤降低 MIMO 信道估计复杂度。
+
+[本篇条目](/papers/items/1958eaac861eaea5/)
+
+### 2026-11-03 · [Diffusion posterior sampling for general noisy inverse problems](/papers/items/c0eabcd8053d3e24/)
+
+扩散后验采样（DPS）结合扩散先验与观测似然梯度，求解含高斯或泊松噪声的线性、非线性逆问题。
+
+[本篇条目](/papers/items/c0eabcd8053d3e24/)
+
+### 2026-11-03 · [MIMO channel estimation using score-based generative models](/papers/items/8d4e03e9cb050422/)
+
+学习无线 MIMO 信道的分数函数，利用导频观测进行后验采样，并分析分布外鲁棒性、导频密度和推断复杂度。
+
+[本篇条目](/papers/items/8d4e03e9cb050422/)
+
+### 2026-11-03 · [Denoising diffusion probabilistic models](/papers/items/e5ba4f679057b740/)
+
+提出去噪扩散概率模型（DDPM），联系正向加噪、反向去噪与加权变分训练目标，用于高质量图像生成。
+
+[本篇条目](/papers/items/e5ba4f679057b740/)
+
+### 2026-11-03 · [Plug-and-play ADMM for image restoration: Fixed point convergence and applications](/papers/items/d7d64cb4555a58d9/)
+
+分析即插即用 ADMM 在有界去噪器及延续参数策略下的不动点收敛性，并应用于图像超分辨率与单光子成像。
+
+[本篇条目](/papers/items/d7d64cb4555a58d9/)
+
+### 2026-11-03 · [Flow with interpolant guidance for linear inverse problems](/papers/items/42e47c30ff2e042a/)
+
+FIG 将测量插值序列用于预训练流或扩散模型的逆向采样引导，重点处理高噪声与严重病态线性图像逆问题。
+
+[本篇条目](/papers/items/42e47c30ff2e042a/)
+
+### 2026-11-03 · [Null-space flow matching for MIMO channel estimation in latency-constrained systems](/papers/items/bff84bfe67e6df36/)
+
+把导频受限的 MIMO 信道分成值域恢复与零空间生成，仅对零空间使用流匹配迭代，配合自适应噪声修正降低推断时延。
+
+[本篇条目](/papers/items/bff84bfe67e6df36/)
+
+### 2026-11-03 · [One-step generative channel estimation via average velocity field](/papers/items/fb8c81bc9b5ab59b/)
+
+学习平均速度场以实现单步生成式信道估计，减少传统扩散生成推断的迭代时延，并比较 NMSE 性能。
+
+[本篇条目](/papers/items/fb8c81bc9b5ab59b/)
+
+### 2026-11-03 · [Channel estimation in MIMO systems using flow matching models](/papers/items/98ecaa2f19813e58/)
+
+训练流匹配速度场先验并嵌入即插即用近端梯度下降，用于导频观测下的 MIMO 信道重建与低时延估计。
+
+[本篇条目](/papers/items/98ecaa2f19813e58/)
+
+### 2026-11-03 · [FlowDPS: Flow-driven posterior sampling for inverse problems](/papers/items/83de37b9bc56ac51/)
+
+FlowDPS 将扩散逆问题求解中的生成先验与似然梯度引导扩展到流模型，在无需额外训练条件下进行线性逆问题重建。
+
+[本篇条目](/papers/items/83de37b9bc56ac51/)
+
+### 2026-11-03 · [Generative diffusion models for high dimensional channel estimation](/papers/items/e5bbd55e4fceb1ed/)
+
+用扩散生成先验重建高维及低比特量化的 MIMO 信道，并借助 Stein 无偏风险估计减少对真值信道的依赖。
+
+[本篇条目](/papers/items/e5bbd55e4fceb1ed/)
+
+### 2026-11-03 · [Physics-constrained flow matching: Sampling generative models with hard constraints](/papers/items/cfe0a93242b6fbf7/)
+
+物理约束流匹配（PCFM）对预训练流模型的采样中间状态施加物理修正，使生成解满足守恒律等非线性硬约束。
+
+[本篇条目](/papers/items/cfe0a93242b6fbf7/)
+
+### 2026-11-03 · [Gaussian mixture flow matching models](/papers/items/06fdc623791e2954/)
+
+高斯混合流匹配（GMFlow）学习动态高斯混合参数及相应 SDE/ODE 求解器，以提高少步采样质量并改善引导导致的过饱和。
+
+[本篇条目](/papers/items/06fdc623791e2954/)
+
+### 2026-11-03 · [Toward environment-aware 6G communications via channel knowledge map](/papers/items/4670366fbc08a45e/)
+
+提出 CKM 辅助环境感知 6G 通信，以位置关联的统计信道知识减轻实时 CSI 获取开销，并讨论多种高维场景。
+
+[本篇条目](/papers/items/4670366fbc08a45e/)
+
+### 2026-11-03 · [Flow matching for generative modeling](/papers/items/dae4294dad26becb/)
+
+通过回归条件概率路径的速度场训练连续归一化流，兼容扩散路径和最优传输位移插值，减少训练对轨迹积分的依赖。
+
+[本篇条目](/papers/items/dae4294dad26becb/)
+
+### 2026-11-03 · [CKMDiff: A generative diffusion model for CKM construction via inverse problems with learned priors](/papers/items/c914d362740e87ba/)
+
+CKMDiff 使用条件扩散学习先验，由少量带噪测量实现 CKM 去噪、补全和超分辨率，并引入传播语义引导特征。
+
+[本篇条目](/papers/items/c914d362740e87ba/)
+
+### 2026-11-03 · [Score-based generative modeling through stochastic differential equations](/papers/items/051da4f3820893eb/)
+
+建立分数生成的正向与反向随机微分方程以及概率流 ODE，给出预测—校正采样和逆问题生成框架。
+
+[本篇条目](/papers/items/051da4f3820893eb/)
+
+### 2026-11-03 · [On the performance of uplink pinching antenna systems (PASS)](/papers/items/0107e24549c64505/)
+
+研究夹持式天线系统的上行链路，对单用户与多用户、单辐射点与多辐射点的组合优化夹持位置，并推导相应遍历速率，分析灵活辐射位置带来的性能收益。
+
+[本篇条目](/papers/items/0107e24549c64505/)
+
+### 2026-11-03 · [TR 138 901 - V17.0.0 - 5G; study on channel model for frequencies from 0.5 to 100 GHz (3GPP TR 38.901 version 17.0.0 release 17)](/papers/items/12976d578342d065/)
+
+3GPP TR 38.901 Release 17 规定 0.5–100 GHz 的无线信道建模框架，覆盖场景、路径损耗、遮挡、空间一致性、大尺度与小尺度衰落等。此条为技术报告而非研究论文。
+
+[本篇条目](/papers/items/12976d578342d065/)
+
+### 2026-11-03 · [Bidirectional integrated sensing and communication: Full-duplex or half-duplex?](/papers/items/f61909233ae570d4/)
+
+建立双向 ISAC 模型，使两个收发节点同时完成数据交换与相互感知，比较窄带和宽带系统中的全双工、半双工工作方式及波束成形折中。
+
+[本篇条目](/papers/items/f61909233ae570d4/)
+
+### 2026-11-03 · [STARS enabled integrated sensing and communications](/papers/items/4cd6971de1b9267e/)
+
+利用同时透射与反射表面（STARS）划分感知和通信区域，并在表面部署感知接收装置。以目标估计的克拉美—罗界为准则联合优化表面控制与发射波束。
+
+[本篇条目](/papers/items/4cd6971de1b9267e/)
+
+### 2026-11-03 · [NOMA-aided joint communication, sensing, and multi-tier computing systems](/papers/items/8e8b8d5833a5bb83/)
+
+提出 NOMA 辅助通信、感知及多层计算协同框架，多功能基站完成目标感知与用户服务，并利用多层边缘计算分担处理任务，研究资源分配优化。
+
+[本篇条目](/papers/items/8e8b8d5833a5bb83/)
+
+### 2026-11-03 · [Semi-integrated-sensing-and-communication (semi-ISaC): From OMA to NOMA](/papers/items/cfd36c47607f11ca/)
+
+提出半集成式通信感知（Semi-ISaC）频谱划分，让部分带宽由通信或雷达独占，其余共享；分析 OMA 与 NOMA 对通信和感知服务的影响。
+
+[本篇条目](/papers/items/cfd36c47607f11ca/)
+
+### 2026-11-03 · [Wireless sensing via pinching-antenna systems](/papers/items/44a829f4d2b25d3b/)
+
+设计夹持式天线无线感知系统，通过可调整辐射点位置增强照射，采用泄漏同轴电缆采集回波，并利用多目标参数的克拉美—罗界评价感知性能。
+
+[本篇条目](/papers/items/44a829f4d2b25d3b/)
+
+### 2026-11-03 · [Full-duplex communication in bidirectional ISAC](/papers/items/63819fccd7aece76/)
+
+研究双向 ISAC 节点在全双工工作模式下的通信和相互感知，在目标回波与自干扰存在时优化发射波束，分析通信与感知性能折中。
+
+[本篇条目](/papers/items/63819fccd7aece76/)
+
+### 2026-11-03 · [A mobile edge generation approach](/papers/items/7b1bc8acb1f0ec92/)
+
+提出移动边缘生成（MEG）架构，将生成式 AI 模型分布到边缘服务器和用户终端，共同完成文本到图像生成，研究计算协作及网络资源分担。
+
+[本篇条目](/papers/items/7b1bc8acb1f0ec92/)
+
+### 2026-11-03 · [Tri-hybrid beamforming design for fully-connected pinching antenna systems](/papers/items/4614a1c2d16805e5/)
+
+构造全连接夹持式天线的三重混合波束成形，将数字预编码、射频移相器网络与夹持位置调整联合设计，比较不同连接架构下的加权和速率。
+
+[本篇条目](/papers/items/4614a1c2d16805e5/)
+
+### 2026-11-03 · [Pinching-antenna systems (PASS): A tutorial](/papers/items/9d69269722e2a4ad/)
+
+系统讲解夹持式天线系统的物理机理、波导结构、传播模型、波束成形、信道估计与应用，并总结硬件实现及大规模部署挑战。
+
+[本篇条目](/papers/items/9d69269722e2a4ad/)
+
+### 2026-11-03 · [Modeling and beamforming optimization for pinching-antenna systems](/papers/items/c801863b6e40b913/)
+
+建立夹持式天线在波导内传播并向自由空间辐射的通信模型，联合优化夹持位置与传输波束，分析其对用户信号增益和干扰的影响。
+
+[本篇条目](/papers/items/c801863b6e40b913/)
+
+### 2026-11-03 · [GDM4MMIMO: Generative diffusion models for massive MIMO communications](/papers/items/a8753fe98499485c/)
+
+综述生成式扩散模型在大规模 MIMO 通信中的潜在应用，介绍生成模型先验和近场信道估计案例，并讨论高维 CSI 获取及部署难题。
+
+[本篇条目](/papers/items/a8753fe98499485c/)
+
+### 2026-11-03 · [Generative diffusion model-based variational inference for MIMO channel estimation](/papers/items/8bc6f0956c1aae36/)
+
+利用扩散模型学习信道的分数先验，并以该生成先验支持 MIMO 信道估计的变分推断，讨论低导频条件下后验近似与计算开销。
+
+[本篇条目](/papers/items/8bc6f0956c1aae36/)
+
+### 2026-11-03 · [3GPP channel model developments for 5G NR requirements and testing](/papers/items/df7bb5d4d006195e/)
+
+综述 3GPP 面向 5G NR 的信道模型标准化进展：以 TR 38.901 框架为基础，说明面向 UE/BS 需求与测试用例的链路级信道模型的构建步骤（如按载频缩放、参考信道与参数化），并讨论系统级与链路级模型的差异。
+
+[本篇条目](/papers/items/df7bb5d4d006195e/)
+
+### 2026-11-03 · [QuaDRiGa: A MIMO channel model for land mobile satellite](/papers/items/0e3383368163214a/)
+
+将几何结构与统计传播参数相结合的 QuaDRiGa 信道生成器扩展到陆地移动卫星场景。模型能够体现天线效应及圆极化传输的时序特性，参数来自传播实测，尤其包含城市环境下的宽带特征。
+
+[本篇条目](/papers/items/0e3383368163214a/)
+
+### 2026-11-03 · [Flow matching-based generative models for MIMO channel estimation](/papers/items/6539256321360086/)
+
+利用流匹配建立从含噪 MIMO 信道到真实信道的连续概率路径，通过学习速度场和快速 ODE 采样实现信道精化，减少传统扩散模型的迭代开销。
+
+[本篇条目](/papers/items/6539256321360086/)
+
+### 2026-11-03 · [Denoising diffusion implicit models](/papers/items/34474f542893ad30/)
+
+提出去噪扩散隐式模型（DDIM），将 DDPM 的马尔可夫反向生成改为兼容其训练目标的非马尔可夫生成过程，从而实现确定性或低步数采样。
+
+[本篇条目](/papers/items/34474f542893ad30/)
+
+### 2026-11-03 · [Environment-aware channel inference via cross-modal flow: From multimodal sensing to wireless channels](/papers/items/905b86a34b003594/)
+
+利用多模态环境感知输入预测无线信道，提出跨模态流模型以关联视觉或其他传感器观测与无线 CSI，减少高移动 MIMO 场景的导频负担。
+
+[本篇条目](/papers/items/905b86a34b003594/)
+
+### 2026-11-03 · [Zero-shot image restoration using denoising diffusion null-space model](/papers/items/c47aea33f223b456/)
+
+提出去噪扩散零空间模型（DDNM），利用线性观测算子的已知值域分量保证数据一致性，并在零空间上运用扩散生成先验，处理多类零样本图像恢复问题。
+
+[本篇条目](/papers/items/c47aea33f223b456/)
+
+### 2026-11-03 · [Physics-informed representation alignment for sparse radio-map reconstruction](/papers/items/1fa17ca6fef07fd7/)
+
+提出物理信息约束的表征对齐策略，从有限无线电观测中恢复无线电地图，降低空间稀疏采样与复杂传播条件引起的重建误差。
+
+[本篇条目](/papers/items/1fa17ca6fef07fd7/)
+
+### 2026-11-03 · [Deep learning-based CKM construction with image super-resolution](/papers/items/2c011fe1be497683/)
+
+将基于少量位置测量构建完整 CKM 类比为图像超分辨率，训练深度网络推断空间细节，提升地图分辨率并减少测量开销。
+
+[本篇条目](/papers/items/2c011fe1be497683/)
+
+### 2026-11-03 · [Generating CKM using others' data: Cross-AP CKM inference with deep learning](/papers/items/c77f31b8e9dbedd7/)
+
+研究跨接入点信道知识地图推断，利用已有接入点的 CKM 与场景相关性生成新接入点地图，从而减少网络密集部署下的独立测量需求。
+
+[本篇条目](/papers/items/c77f31b8e9dbedd7/)
+
+### 2026-11-03 · [Scalable diffusion models with transformers](/papers/items/44cbc5c28aec7bfa/)
+
+提出扩散 Transformer（DiT），用处理潜空间图像块的 Transformer 替代常用 U-Net 扩散骨干，研究模型计算规模与生成质量的关系。
+
+[本篇条目](/papers/items/44cbc5c28aec7bfa/)
+
+### 2026-11-03 · [CKMImageNet: A dataset for AI-based channel knowledge map towards environment-aware communication and sensing](/papers/items/eaa6e7cf5bae1cf8/)
+
+提出 CKMImageNet 数据集，建立环境视觉信息与特定位置的无线传播知识之间的对应关系，支持视觉驱动的 CKM 构建与环境感知通信研究。
+
+[本篇条目](/papers/items/eaa6e7cf5bae1cf8/)
+
+### 2026-11-03 · [Understanding diffusion models: A unified perspective](/papers/items/c14d82a39ad8127e/)
+
+从变分推断与分数匹配角度统一解释扩散模型，推导不同生成扩散过程和训练目标的联系，为理解扩散与连续时间模型提供数学框架。
+
+[本篇条目](/papers/items/c14d82a39ad8127e/)
+
+### 2026-11-03 · [DLTER: A deep learning assisted 3D environmental reconstruction framework in terahertz ISAC systems](/papers/items/80fcc451fac26199/)
+
+探索利用深度学习重建太赫兹 ISAC 系统的三维传播环境，以感知与通信观测恢复空间几何并应对稀疏数据条件。
+
+[本篇条目](/papers/items/80fcc451fac26199/)
+
+### 2026-11-03 · [Sensing-Assisted Sparse Channel Recovery for Massive Antenna Systems](/papers/items/3d524582d6c417aa/)
+
+利用感知得到的散射体几何信息建立稀疏信道先验，再结合通信导频对大规模阵列进行稀疏路径恢复，以降低训练开销。
+
+[本篇条目](/papers/items/3d524582d6c417aa/)
+
+### 2026-11-03 · [Environment-Aware Near-Field Channel Estimation Leveraging CKM and ISAC](/papers/items/7c8254e890cba563/)
+
+融合信道知识地图的静态传播先验与 ISAC 获取的动态环境特征，对超大规模阵列近场路径进行结构化估计。
+
+[本篇条目](/papers/items/7c8254e890cba563/)
+
+### 2026-11-03 · [CKM-Assisted LoS Identification and Predictive Beamforming for Cellular-Connected UAV](/papers/items/ce4ab603364c681e/)
+
+由 CKM 判断无人机移动路径上的视距及阻塞条件，提前预测毫米波波束选择，减少实时链路训练。
+
+[本篇条目](/papers/items/ce4ab603364c681e/)
+
+### 2026-11-03 · [Channel Knowledge Map (CKM)-Assisted Multi-UAV Wireless Network: CKM Construction and UAV Placement](/papers/items/5d9a34e6b378ff24/)
+
+研究多无人机网络的 CKM 构建与应用，先依据稀疏测量预测完整地图，再在地图约束下优化无人机部署。
+
+[本篇条目](/papers/items/5d9a34e6b378ff24/)
+
+### 2026-11-03 · [Environment-Aware IRS Deployment via Channel Knowledge Map: Joint Sensing-Communications Coverage Optimization](/papers/items/9b2bb158dbd7ab0a/)
+
+利用 CKM 中的环境传播知识优化智能反射面部署和配置，提高 ISAC 网络的通信与感知覆盖。
+
+[本篇条目](/papers/items/9b2bb158dbd7ab0a/)
+
+### 2026-11-03 · [Online Maneuver Design for UAV-Enabled NOMA Systems via Reinforcement Learning](/papers/items/af28b8502da91fcd/)
+
+通过强化学习为无人机辅助上行 NOMA 设计在线机动策略，以应对移动用户与变化信道并增加累计吞吐量。
+
+[本篇条目](/papers/items/af28b8502da91fcd/)
+
+### 2026-11-03 · [Joint Maneuver and Beamforming Design for UAV-Enabled Integrated Sensing and Communication](/papers/items/8360a2fc7fa39801/)
+
+研究 UAV 作为 ISAC 接入点时的机动与阵列波束联合优化，在地面用户服务与目标感知之间实现折中。
+
+[本篇条目](/papers/items/8360a2fc7fa39801/)
+
+### 2026-11-03 · [Environment-Aware Hybrid Beamforming by Leveraging Channel Knowledge Map](/papers/items/f015ea4926c6f497/)
+
+用 CKM 提供的场景化角度和波束知识指导混合模拟—数字波束成形，降低实时波束扫描与训练负担。
+
+[本篇条目](/papers/items/f015ea4926c6f497/)
+
+### 2026-11-03 · [Generative CKM Construction Using Partially Observed Data with Diffusion Model](/papers/items/16420f559814b1ae/)
+
+将部分观测下的 CKM 构建视为欠定逆问题，以扩散生成先验从稀疏位置测量推断完整信道知识地图。
+
+[本篇条目](/papers/items/16420f559814b1ae/)
+
+### 2026-11-03 · [Sub-THz Communications: Perspective and Results From the Hexa-X-II Project](/papers/items/17637b4eaf17c761/)
+
+总结 Hexa-X-II 项目亚太赫兹通信的研究视角与结果，讨论传播、射频器件、宽带信道、波束管理及部署挑战。
+
+[本篇条目](/papers/items/17637b4eaf17c761/)
+
+### 2026-11-03 · [Language Modeling with Gated Convolutional Networks](/papers/items/4f49460530f35596/)
+
+提出门控卷积语言模型，利用可并行堆叠卷积处理序列上下文，缓解循环结构的训练瓶颈。
+
+[本篇条目](/papers/items/4f49460530f35596/)
+
+### 2026-11-03 · [Predicting distributions with Linearizing Belief Networks](/papers/items/ba17cc8d3ce6afe4/)
+
+利用随机二值隐变量切换深层线性路径，构造可学习多模态条件输出分布的线性化置信网络。
+
+[本篇条目](/papers/items/ba17cc8d3ce6afe4/)
+
+### 2026-11-03 · [FiLM: Visual Reasoning with a General Conditioning Layer](/papers/items/dc4c98722dd01359/)
+
+提出 FiLM 特征逐元素线性调制，由条件信息预测特征缩放和偏置，用于视觉问答的多步推理。
+
+[本篇条目](/papers/items/dc4c98722dd01359/)
+
+### 2026-11-03 · [Enhancing Deep Reinforcement Learning: A Tutorial on Generative Diffusion Models in Network Optimization](/papers/items/c501b9f7f283fbd9/)
+
+综述生成式扩散模型与深度强化学习在无线网络优化中的结合方式及资源分配应用。
+
+[本篇条目](/papers/items/c501b9f7f283fbd9/)
+
+### 2026-11-03 · [Flow Matching Guide and Code](/papers/items/c6e020c9334d9bf5/)
+
+系统整理流匹配的条件概率路径、速度场训练与采样设计，提供相应的 PyTorch 代码和示例。
+
+[本篇条目](/papers/items/c6e020c9334d9bf5/)
+
+### 2026-11-03 · [Robust Network Optimization by Deep Generative Models and Stochastic Optimization](/papers/items/0016a594a1b41e0c/)
+
+使用深度生成模型学习无线网络中的随机环境分布，再开展随机资源分配优化，提高决策鲁棒性。
+
+[本篇条目](/papers/items/0016a594a1b41e0c/)
+
+### 2026-11-03 · [Dataset of Pathloss and ToA Radio Maps With Localization Application](/papers/items/b32d8c998f46638d/)
+
+发布密集城市的路径损耗与到达时间无线电地图数据集，供传播预测、位置估计与地图学习研究使用。
+
+[本篇条目](/papers/items/b32d8c998f46638d/)
+
+### 2026-11-03 · [Scaling Rectified Flow Transformers for High-Resolution Image Synthesis](/papers/items/aa237ac6387efd7f/)
+
+研究 Rectified Flow 与 Transformer 在高分辨率图像合成中的扩展性，分析流路径和训练设计对生成质量的影响。
+
+[本篇条目](/papers/items/aa237ac6387efd7f/)
+
+### 2026-11-03 · [Learning Transferable Visual Models From Natural Language Supervision](/papers/items/0f2c49be89ac9163/)
+
+提出 CLIP，通过大规模图文配对数据学习视觉—语言共同表示，支持无需特定类别监督的零样本视觉迁移。
+
+[本篇条目](/papers/items/0f2c49be89ac9163/)
+
+### 2026-11-03 · [Reverse-time diffusion equation models](/papers/items/49b8016d2adb88d1/)
+
+定义反向时间随机扩散方程模型，并证明大多数具有常规前向时间扩散表示的随机过程也存在对应的反向时间表示。这一结论为用逆向随机微分方程描述扩散过程奠定基础。
+
+[本篇条目](/papers/items/49b8016d2adb88d1/)
+
+### 2026-11-03 · [CKMImageNet: A Comprehensive Dataset to Enable Channel Knowledge Map Construction via Computer Vision](/papers/items/6954ea19aeeafe15/)
+
+构建视觉环境与空间无线信道数据对应的 CKMImageNet 数据，为图像驱动的信道知识地图推断提供基准。
+
+[本篇条目](/papers/items/6954ea19aeeafe15/)
+
+### 2026-11-03 · [FunDiff: diffusion models over function spaces for physics-informed generative modeling](/papers/items/2cc3671409396eda/)
+
+提出函数空间生成模型 FunDiff，使扩散过程直接作用于连续场变量，用于具有物理约束的函数样本建模。
+
+[本篇条目](/papers/items/2cc3671409396eda/)
+
+### 2026-11-03 · [Classifier-Free Diffusion Guidance](/papers/items/04c23849a7dfaa33/)
+
+提出无分类器引导，将有条件与无条件扩散预测结合调节样本保真度和多样性，无需独立分类器。
+
+[本篇条目](/papers/items/04c23849a7dfaa33/)
+
+### 2026-11-03 · [Diffusion Models Beat GANs on Image Synthesis](/papers/items/504518f3f130f4e4/)
+
+通过改进扩散网络与引导机制提高图像合成质量，展示扩散模型在当时的图像基准上优于 GAN 的结果。
+
+[本篇条目](/papers/items/504518f3f130f4e4/)
+
+### 2026-11-03 · [Hierarchical Text-Conditional Image Generation with CLIP Latents](/papers/items/340eaee35c0a2435/)
+
+构造以 CLIP 图像嵌入为中间变量的文本生成图像系统，由先验预测嵌入再由扩散解码器生成图像。
+
+[本篇条目](/papers/items/340eaee35c0a2435/)
+
+### 2026-11-03 · [Cascaded Diffusion Models for High Fidelity Image Generation](/papers/items/4604864d5eb8d483/)
+
+以多个不同分辨率的扩散模型逐级生成图像，先确定低分辨整体结构，再用扩散超分辨率模型增加细节。
+
+[本篇条目](/papers/items/4604864d5eb8d483/)
+
+### 2026-11-03 · [A Connection Between Score Matching and Denoising Autoencoders](/papers/items/897194297b69c031/)
+
+研究分数匹配与去噪自动编码器的联系，解释加噪后的重建目标与数据对数密度梯度之间的关系。
+
+[本篇条目](/papers/items/897194297b69c031/)
+
+### 2026-11-03 · [Estimation of Non-Normalized Statistical Models by Score Matching](/papers/items/c3eecedb6cdb949e/)
+
+通过匹配数据和模型的对数概率密度梯度学习未归一化统计模型，避免计算配分函数。
+
+[本篇条目](/papers/items/c3eecedb6cdb949e/)
+
+### 2026-11-03 · [Improved Techniques for Training Score-Based Generative Models](/papers/items/1c0be6f8967e0270/)
+
+分析分数模型在高维生成中的训练和采样问题，改进噪声尺度及网络方法以提高稳定性与样本质量。
+
+[本篇条目](/papers/items/1c0be6f8967e0270/)
+
+### 2026-11-03 · [A Tutorial on Energy-Based Learning](/papers/items/cc02060ebfa514a2/)
+
+介绍能量模型利用标量能量表示变量配置的基本思想，以及能量最小化推断、学习与结构设计。
+
+[本篇条目](/papers/items/cc02060ebfa514a2/)
+
+### 2026-11-03 · [Generative Modeling by Estimating Gradients of the Data Distribution](/papers/items/61cd32ebe3bf3918/)
+
+使用多噪声尺度的分数估计和朗之万采样生成样本，缓解低维数据流形上概率梯度难以估计的问题。
+
+[本篇条目](/papers/items/61cd32ebe3bf3918/)
+
+### 2026-11-03 · [Tweedie’s Formula and Selection Bias](/papers/items/034a068f60be2aa1/)
+
+从经验贝叶斯角度使用 Tweedie 公式修正选择偏差，说明极端观测值的回归均值现象。
+
+[本篇条目](/papers/items/034a068f60be2aa1/)
+
+### 2026-11-03 · [Variational Diffusion Models](/papers/items/9c76ce280acb7f35/)
+
+提出变分扩散模型，从似然目标出发设计扩散生成训练，分析变分下界与噪声调度的作用。
+
+[本篇条目](/papers/items/9c76ce280acb7f35/)
+
+### 2026-11-03 · [Deep Unsupervised Learning using Nonequilibrium Thermodynamics](/papers/items/86af3521e175dbb3/)
+
+基于非平衡热力学构造逐步加噪并学习逆向恢复的生成机制，为后续扩散概率生成模型奠定基础。
+
+[本篇条目](/papers/items/86af3521e175dbb3/)
+
+### 2026-11-03 · [Variational Bayesian Inference with Stochastic Search](/papers/items/d0fa091560e7dfc8/)
+
+提出利用随机搜索估计难以解析积分的变分目标，为复杂潜变量模型提供可扩展的近似贝叶斯推断。
+
+[本篇条目](/papers/items/d0fa091560e7dfc8/)
+
+### 2026-11-03 · [Ladder Variational Autoencoders](/papers/items/9dfd522a1cc16b60/)
+
+提出阶梯式变分自编码器，由观测数据的自底向上证据逐层修正生成分布，提升深层随机潜变量建模。
+
+[本篇条目](/papers/items/9dfd522a1cc16b60/)
+
+### 2026-11-03 · [Improving Variational Autoencoders with Inverse Autoregressive Flow](/papers/items/ab97c45d6bd8578d/)
+
+提出逆自回归流（IAF），使用可逆自回归变换增强变分后验分布的表达能力，同时保持高效计算。
+
+[本篇条目](/papers/items/ab97c45d6bd8578d/)
+
+### 2026-11-03 · [Auto-Encoding Variational Bayes](/papers/items/6c4578afaf82f281/)
+
+提出变分自编码器（VAE）及重参数化梯度方法，使连续潜变量生成模型可以用随机梯度高效训练。
+
+[本篇条目](/papers/items/6c4578afaf82f281/)
+
+### 2026-11-03 · [Privacy-Preserving Federated Primal-Dual Learning for Non-Convex Problems With Non-Smooth Regularization](/papers/items/69288296a492433f/)
+
+研究含非凸目标和非光滑正则项的联邦学习，采用隐私保护原始—对偶方法处理分布式优化与通信开销，并分析其性能。
+
+[本篇条目](/papers/items/69288296a492433f/)
+
+### 2026-11-03 · [Privacy-Preserving Federated Primal—Dual Learning for Nonconvex and Nonsmooth Problems With Model Sparsification](/papers/items/b92d49688dde982d/)
+
+在非凸且非光滑的联邦优化中引入模型稀疏化与隐私保护原始—对偶更新，降低参数传输成本。
+
+[本篇条目](/papers/items/b92d49688dde982d/)
+
+### 2026-11-03 · [Is what you measure what you expect? Factors affecting smartphone-based mobile network measurement](/papers/items/497bccea54ed06ef/)
+
+系统研究智能手机移动网络测量结果受到应用实现、Android 系统配置及网络协议影响而产生的偏差。作者提出静态与动态分析工具，设计 MobiScope 测量应用缓解这些因素，并改进测量应用说明文字的准确性。
+
+[本篇条目](/papers/items/497bccea54ed06ef/)
+
+### 2026-11-03 · [Federated Matrix Factorization: Algorithm Design and Application to Data Clustering](/papers/items/774e39f1e29e009e/)
+
+提出联邦矩阵分解算法，研究客户端数据异构与变量耦合，并将该框架用于分布式数据聚类。
+
+[本篇条目](/papers/items/774e39f1e29e009e/)
+
+### 2026-11-03 · [Enhancing the Description-to-Behavior Fidelity in Android Apps with Privacy Policy](/papers/items/3ee2cc43a009ed5a/)
+
+研究 Android 应用的描述、隐私政策及实际行为之间的一致性，改善应用行为披露及隐私风险识别。
+
+[本篇条目](/papers/items/3ee2cc43a009ed5a/)
+
+### 2026-11-03 · [Energy Efficiency Maximization for Downlink NOMA Designs via Symbol-Level Precoding](/papers/items/a71a0722a3c453bb/)
+
+在下行 NOMA 设计中采用符号级预编码，以符号结构辅助资源优化，在用户服务质量约束下改善能量效率。
+
+[本篇条目](/papers/items/a71a0722a3c453bb/)
+
+### 2026-11-03 · [Differentially Private Federated Stochastic Primal-Dual Learning for Internet of Vehicles](/papers/items/0ae99174108393d9/)
+
+针对车联网提出具差分隐私机制的联邦随机原始—对偶算法，兼顾数据保护和训练效率。
+
+[本篇条目](/papers/items/0ae99174108393d9/)
+
+### 2026-11-03 · [Differentially Private Federated Clustering Over Non-IID Data](/papers/items/0efe5116bd53ea56/)
+
+研究非独立同分布客户端数据上的联邦聚类，设计差分隐私算法以保护数据且保持聚类效果。
+
+[本篇条目](/papers/items/0efe5116bd53ea56/)
+
+### 2026-11-03 · [Differentially Private and Heterogeneity-Robust Federated Learning With Theoretical Guarantee](/papers/items/ea7a8e71df0a5abf/)
+
+设计能够同时应对数据异构和差分隐私噪声的联邦学习方法，并给出相应的理论性能保证。
+
+[本篇条目](/papers/items/ea7a8e71df0a5abf/)
+
+### 2026-11-03 · [Demystifying Model Averaging for Communication-Efficient Federated Matrix Factorization](/papers/items/6b08ea3185161e11/)
+
+研究模型平均在联邦矩阵分解中的收敛与通信收益，分析多次本地更新后模型聚合的影响。
+
+[本篇条目](/papers/items/6b08ea3185161e11/)
+
+### 2026-11-03 · [Clustering by Orthogonal Non-negative Matrix Factorization: A Sequential Non-convex Penalty Approach](/papers/items/47e86eabbdedb27e/)
+
+将正交非负矩阵分解的困难正交约束转化为顺序非凸罚函数优化问题，用于数据聚类。
+
+[本篇条目](/papers/items/47e86eabbdedb27e/)
+
+### 2026-11-03 · [Clustering by Orthogonal NMF Model and Non-Convex Penalty Optimization](/papers/items/e4851aae296ea2e1/)
+
+采用非凸罚函数优化正交非负矩阵分解模型，处理非负性和正交性耦合约束并用于聚类。
+
+[本篇条目](/papers/items/e4851aae296ea2e1/)
+
+### 2026-11-03 · [Cell Subclass Identification in Single-Cell RNA-Sequencing Data Using Orthogonal Nonnegative Matrix Factorization](/papers/items/31f309fb0d0361cc/)
+
+将正交非负矩阵分解用于单细胞 RNA 测序数据中的亚类识别，通过矩阵结构提取细胞群体信息。
+
+[本篇条目](/papers/items/31f309fb0d0361cc/)
+
+### 2026-11-03 · [Attribute-Based Access Control Encryption](/papers/items/a7997276313be8ab/)
+
+提出基于属性的访问控制加密模型，使授权策略不再依赖逐一列举用户身份，支持更灵活的访问权限表达。
+
+[本篇条目](/papers/items/a7997276313be8ab/)
+
+### 2026-11-03 · [Adaptive Unpacking of Android Apps](/papers/items/866cb5c3c24ed18d/)
+
+提出自适应 Android 应用脱壳方法 PackerGrind，以应对持续变化的应用加壳技术。系统分析加壳保护机制并恢复 Dex 可执行文件；作者在真实加壳应用上验证其有效性和较低开销。
+
+[本篇条目](/papers/items/866cb5c3c24ed18d/)
+
+### 2026-11-03 · [Beyond ADMM: A Unified Client-variance-reduced Adaptive Federated Learning Framework](/papers/items/9ef8be64cd0bde10/)
+
+提出客户端方差缩减的自适应联邦优化框架，在标准 ADMM 思路之上协调客户端抽样和异构更新。
+
+[本篇条目](/papers/items/9ef8be64cd0bde10/)
+
+### 2026-11-03 · [Toward Fast Personalized Semi-Supervised Federated Learning in Edge Networks: Algorithm Design and Theoretical Guarantee](/papers/items/5c8dff1721f367dc/)
+
+提出 FedCPSL 个性化半监督联邦学习框架，将伪标签、个性化插值、客户端方差缩减和动量结合，分析边缘设备异质性下的收敛。
+
+[本篇条目](/papers/items/5c8dff1721f367dc/)
+
+### 2026-11-03 · [Wideband Terahertz Communications with AoSA: Beam Split Aggregation and Multiplexing](/papers/items/89a2a5a5b5c3cae1/)
+
+针对太赫兹宽带子阵列（AoSA）的波束分裂，提出分裂聚合及多路复用设计，改善宽带多用户传输。
+
+[本篇条目](/papers/items/89a2a5a5b5c3cae1/)
+
+### 2026-11-03 · [Towards THz-based Obstacle Sensing: A Generative Radio Environment Awareness Framework](/papers/items/d2445e1cde74c075/)
+
+利用太赫兹接收信号强度与障碍物几何之间的关系，通过生成式环境感知框架推断障碍物并辅助波束管理。
+
+[本篇条目](/papers/items/d2445e1cde74c075/)
+
+### 2026-11-03 · [Terahertz Wireless Communications for 2030 and Beyond: A Cutting-Edge Frontier](/papers/items/ae993eb02e92d0a3/)
+
+展望 2030 年及以后的太赫兹通信，讨论超宽带、高速率、低时延、感知定位与传播损耗、硬件功耗的矛盾。
+
+[本篇条目](/papers/items/ae993eb02e92d0a3/)
+
+### 2026-11-03 · [Smart Antenna Allocation for Wireless Surveillance](/papers/items/d3741150244370c9/)
+
+研究全双工无线监测节点的发射与接收天线分配，使节点能同时接收可疑链路信号和发送干扰，提高监测成功率。
+
+[本篇条目](/papers/items/d3741150244370c9/)
+
+### 2026-11-03 · [Secrecy degrees of freedom of a MIMO Gaussian wiretap channel with a cooperative jammer](/papers/items/aae7e59b0e62f817/)
+
+研究多天线协作干扰节点辅助的 MIMO 高斯窃听信道，设计使合法接收端信息与干扰分离、窃听端信息与干扰对齐的传输方案，并给出最大可达保密自由度及实现该自由度的预编码矩阵解析解。
+
+[本篇条目](/papers/items/aae7e59b0e62f817/)
+
+### 2026-11-03 · [Robust transmit design for secure AF relay networks with imperfect CSI](/papers/items/a6f3a23298cb7d51/)
+
+在放大转发安全中继系统中考虑有界和统计 CSI 不确定性，联合设计信息转发及干扰以提高鲁棒保密性能。
+
+[本篇条目](/papers/items/a6f3a23298cb7d51/)
+
+### 2026-11-03 · [Robust transmit design for secure AF relay networks based on worst-case optimization](/papers/items/15b5e2f255f00f8c/)
+
+针对放大转发中继的安全通信，假设窃听链路 CSI 具有确定性有界误差，在总中继功率及逐中继功率约束下联合设计协作转发与人工干扰，最大化最坏情形保密速率。
+
+[本篇条目](/papers/items/15b5e2f255f00f8c/)
+
+### 2026-11-03 · [Reliable and energy-aware job offloading at terahertz frequencies for mobile edge computing](/papers/items/fae92af6414a96db/)
+
+联合设计太赫兹移动边缘计算的发射功率与任务卸载决策，在超可靠低时延约束下降低通信能耗。
+
+[本篇条目](/papers/items/fae92af6414a96db/)
+
+### 2026-11-03 · [Optimal Pricing for Job Offloading in the MEC System With Two Priority Classes](/papers/items/f86b8ae54cae9bb2/)
+
+为 MEC 系统中延时需求不同的两类任务研究卸载定价，利用价格调节共享计算资源的竞争。
+
+[本篇条目](/papers/items/f86b8ae54cae9bb2/)
+
+### 2026-11-03 · [Optimal Beam Steering Design for Large-Scale mmWave MIMO Wiretap Channel](/papers/items/f7999bcf21da7f84/)
+
+研究大规模毫米波 MIMO 窃听信道中的保密波束指向，在硬件与方向性限制下优化安全传输。
+
+[本篇条目](/papers/items/f7999bcf21da7f84/)
+
+### 2026-11-03 · [On Secrecy Capacity of Gaussian Wiretap Channel Aided by A Cooperative Jammer](/papers/items/32c0be8cd856f53f/)
+
+研究具有外部协作干扰节点的高斯窃听信道，发送端和合法接收端均为单天线，窃听端和干扰端分别配置多天线。论文分析这些天线配置对保密容量的作用，讨论该信道难以直接获得解析容量表达式的问题。
+
+[本篇条目](/papers/items/32c0be8cd856f53f/)
+
+### 2026-11-03 · [On Artificial-Noise-Aided Transmit Design for Multiuser MISO Systems With Integrated Services](/papers/items/d36a30e993c18479/)
+
+在多用户 MISO 中同时承载公共组播和保密单播，联合优化人工噪声与发送波束以满足不同服务的约束。
+
+[本篇条目](/papers/items/d36a30e993c18479/)
+
+### 2026-11-03 · [Non-asymptotic analysis of secrecy capacity in massive MIMO system](/papers/items/619e60405f766cf1/)
+
+采用非渐近随机矩阵理论的集中测度分析有限天线数量的大规模 MIMO 窃听信道，获得保密容量的概率界与遍历保密容量界，并分析界间隙随合法链路、窃听链路信噪比和发射天线数变化的规律。
+
+[本篇条目](/papers/items/619e60405f766cf1/)
+
+### 2026-11-03 · [Near-Field Beam Training in THz Communications: The Merits of Uniform Circular Array](/papers/items/27f44b767539de23/)
+
+提出使用均匀圆形阵列进行太赫兹近场波束训练，利用距离—角度结构降低搜索复杂度。
+
+[本篇条目](/papers/items/27f44b767539de23/)
+
+### 2026-11-03 · [Multi-IRS-Aided Multi-User MIMO in mmWave/THz Communications: A Space-Orthogonal Scheme](/papers/items/c1144e9a785cbcac/)
+
+研究多 IRS 辅助毫米波/太赫兹多用户 MIMO，利用空间正交结构降低主动和被动波束设计的耦合。
+
+[本篇条目](/papers/items/c1144e9a785cbcac/)
+
+### 2026-11-03 · [Mobility and Blockage-induced Beam Misalignment and Throughput Analysis for THz Networks](/papers/items/f89a429377f63ad0/)
+
+分析移动性和障碍阻塞导致的太赫兹窄波束失配，建立吞吐量模型评价对齐频率与网络性能。
+
+[本篇条目](/papers/items/f89a429377f63ad0/)
+
+### 2026-11-03 · [MIMO Secret Communications Against an Active Eavesdropper](/papers/items/1e404147215210e8/)
+
+在主动窃听者可同时干扰和窃听的条件下，研究全双工合法节点发射干扰以保护 MIMO 保密通信。
+
+[本篇条目](/papers/items/1e404147215210e8/)
+
+### 2026-11-03 · [Near-Field Beam Training in Terahertz Communications with Hybrid Beamforming Architecture](/papers/items/a730972acc2bdb22/)
+
+面向太赫兹近场混合波束成形阵列，设计同时定位角度和距离的波束训练，以降低射频链受限情况下的训练复杂度。
+
+[本篇条目](/papers/items/a730972acc2bdb22/)
+
+### 2026-11-03 · [Linear Precoder Design for an MIMO Gaussian Wiretap Channel With Full-Duplex Source and Destination Nodes](/papers/items/58edc2f86b93d93f/)
+
+研究全双工源端与目的端的 MIMO 高斯窃听信道，通过线性预编码和自干扰管理优化保密速率。
+
+[本篇条目](/papers/items/58edc2f86b93d93f/)
+
+### 2026-11-03 · [JointRec: A Deep-Learning-Based Joint Cloud Video Recommendation Framework for Mobile IoT](/papers/items/1b82717712ddbeb7/)
+
+设计面向移动物联网的分布式云端深度视频推荐框架，使多地云服务器协同利用用户数据改善推荐结果。
+
+[本篇条目](/papers/items/1b82717712ddbeb7/)
+
+### 2026-11-03 · [Joint Sensing, Control, and Communication Scheduling for THz Beam Alignment in Cellular Connected UAV Networks (Invited Paper)](/papers/items/3ffc041ea3227dd8/)
+
+面向蜂窝连接无人机的太赫兹链路，联合调度感知、无人机控制和通信以缓解快速移动引起的波束失配。
+
+[本篇条目](/papers/items/3ffc041ea3227dd8/)
+
+### 2026-11-03 · [Joint Communication and Control for mmWave/THz Beam Alignment in V2X Networks](/papers/items/335774e118c4913b/)
+
+针对 V2X 高速移动造成的毫米波/太赫兹窄波束失配，联合设计车辆运动控制、感知和通信策略以维持可靠链路。
+
+[本篇条目](/papers/items/335774e118c4913b/)
+
+### 2026-11-03 · [Improving Wireless Physical Layer Security via Exploiting Co-Channel Interference](/papers/items/94db2b0cd4d587ea/)
+
+在存在合法干扰链路的 MIMO 窃听网络中，分析如何利用同频干扰提高保密传输自由度，并设计协作式安全传输。
+
+[本篇条目](/papers/items/94db2b0cd4d587ea/)
+
+### 2026-11-03 · [Improving THz Transmission Distance for Delay-Sensitive Services via Mobile Computing](/papers/items/32fecfbc88c5cb21/)
+
+将太赫兹通信和移动计算协同设计，联合优化任务卸载与频段选择，以在低时延约束下提高有效传输距离。
+
+[本篇条目](/papers/items/32fecfbc88c5cb21/)
+
+### 2026-11-03 · [Improving Security of THz Communication with Intelligent Reflecting Surface](/papers/items/b5db04263655f727/)
+
+在太赫兹 MISO 窃听信道中引入智能反射面，联合设计发射波束与反射系数，在传播损耗限制下提高保密性能。
+
+[本篇条目](/papers/items/b5db04263655f727/)
+
+### 2026-11-03 · [Enhancing THz/mmWave Network Beam Alignment With Integrated Sensing and Communication](/papers/items/6b361b20f3107296/)
+
+利用 ISAC 感知信息辅助毫米波/太赫兹网络波束对齐，减少窄波束在节点移动和环境变化中产生的失配。
+
+[本篇条目](/papers/items/6b361b20f3107296/)
+
+### 2026-11-03 · [Enhancing Terahertz Communications Coverage with ISAC-Assisted Beam Management](/papers/items/1fc3bf4daa962db0/)
+
+提出 ISAC 辅助太赫兹波束管理，利用感知信息跟踪目标及障碍物，改善高传播损耗与视距遮挡条件下的网络覆盖。
+
+[本篇条目](/papers/items/1fc3bf4daa962db0/)
+
+### 2026-11-03 · [Dynamic Pricing for Resource-Quota Sharing in Multi-Access Edge Computing](/papers/items/1421434e50b59e83/)
+
+研究移动边缘计算中的计算资源配额共享，以动态价格机制协调不同用户对剩余资源的买卖与需求变化。
+
+[本篇条目](/papers/items/1421434e50b59e83/)
+
+### 2026-11-03 · [Directional Terahertz Radio Map-Assisted Federated Obstacle Sensing](/papers/items/7242132dcba94f7b/)
+
+联合利用多方向太赫兹接收信号强度地图与联邦学习，在不集中各终端测量数据的情况下推断障碍物分布。
+
+[本篇条目](/papers/items/7242132dcba94f7b/)
+
+### 2026-11-03 · [Coverage Modeling and Analysis for Outdoor THz Networks With Blockage and Molecular Absorption](/papers/items/b6fa3482afd680ac/)
+
+建立室外太赫兹网络覆盖概率模型，综合考虑方向性天线、障碍物遮挡和频率相关分子吸收。
+
+[本篇条目](/papers/items/b6fa3482afd680ac/)
+
+### 2026-11-03 · [Cooperative Secrecy Beamforming in Wiretap Interference Channels](/papers/items/71057433b0f5760b/)
+
+研究两组发送端—接收端—窃听者构成的同频干扰窃听信道，利用协作波束成形将同频干扰转化为安全资源。作者给出实现保密自由度对 (1,1) 的必要充分条件及闭式波束向量。
+
+[本篇条目](/papers/items/71057433b0f5760b/)
+
+### 2026-11-03 · [Artificial-noise aided transmit design for outage constrained service integration](/papers/items/65b02cbf1f83cc73/)
+
+针对同时传输公共组播消息和机密单播消息的多用户 MISO 系统，考虑非授权接收端的 CSI 不确定性，联合优化组播信号、机密信号及人工噪声协方差，在组播中断概率限制下提高机密消息的中断保密速率。
+
+[本篇条目](/papers/items/65b02cbf1f83cc73/)
+
+### 2026-11-03 · [An Incentive-Aware Job Offloading Control Framework for Multi-Access Edge Computing](/papers/items/571d62151d784bcc/)
+
+研究多接入边缘计算的任务卸载激励机制，把终端任务延时与物理链路成本纳入定价策略，协调有限计算资源。
+
+[本篇条目](/papers/items/571d62151d784bcc/)
+
+### 2026-11-03 · [An Analytical Range-Angle Dependent Beam Focusing Model for Terahertz Linear Antenna Array](/papers/items/f5119849f9efe100/)
+
+针对太赫兹线阵近场波束聚焦，推导波束焦域与距离、角度、载频和阵列孔径之间的解析关系。
+
+[本篇条目](/papers/items/f5119849f9efe100/)
+
+### 2026-11-03 · [Adaptive Beamwidth Design for High-Mobility Terahertz Joint Radar and Communication Systems](/papers/items/936e489ddd829294/)
+
+面向高速移动的太赫兹雷达通信一体化系统，按用户时变距离和角度自适应调整波束宽度，以兼顾探测与通信。
+
+[本篇条目](/papers/items/936e489ddd829294/)
+
+### 2026-11-03 · [A survey on terahertz communications](/papers/items/d89b91bbc4ebd32e/)
+
+综述面向后 5G 的太赫兹超宽带通信，梳理太赫兹接收机、调制器及天线的硬件挑战，并讨论传播衰减、信道建模和高增益波束成形等系统关键问题。
+
+[本篇条目](/papers/items/d89b91bbc4ebd32e/)
+
+### 2026-11-03 · [A Sharing-Economy Inspired Pricing Mechanism for Multi-Access Edge Computing](/papers/items/63faa42afd62b997/)
+
+基于共享经济视角设计 MEC 计算资源定价，使负载不均衡基站之间的资源配置更加灵活，减少闲置配额。
+
+[本篇条目](/papers/items/63faa42afd62b997/)
+
+### 2026-11-03 · [A Full-Duplex Bob in the MIMO Gaussian Wiretap Channel: Scheme and Performance](/papers/items/9308b493532bdc7e/)
+
+考虑 MIMO 高斯窃听信道中采用全双工的合法接收端 Bob，将部分接收天线用于发送干扰以削弱窃听端信道。研究高信噪比下的最大可达保密自由度，并比较全双工与半双工接收配置。
+
+[本篇条目](/papers/items/9308b493532bdc7e/)
+
+### 2026-11-03 · [A DBO-Based Improved 2D-MUSIC Algorithm for Localization Using OFDM](/papers/items/013da2ee6affdfbb/)
+
+将改进的二维 MUSIC 与蜣螂优化（DBO）结合，对 OFDM-ISAC 回波的目标距离和角度开展联合定位。
+
+[本篇条目](/papers/items/013da2ee6affdfbb/)
+
+### 2026-11-03 · [Adaptive power allocation and beamwidth design for terahertz joint radar and communication](/papers/items/87a7ca3486244538/)
+
+针对太赫兹双功能雷达通信，联合调整发射功率与波束宽度，以降低波束失配对雷达感知和数据传输的损害。
+
+[本篇条目](/papers/items/87a7ca3486244538/)
+
+### 2026-11-03 · [Let’s Share VMs: Optimal Placement and Pricing across Base Stations in MEC Systems](/papers/items/bad34777a0a3f8bd/)
+
+研究 MEC 基站之间的虚拟机共享、部署和定价，联合决定 VM 在何处配置及向资源需求方收取的费用，改善负载不平衡。
+
+[本篇条目](/papers/items/bad34777a0a3f8bd/)
+
+### 2026-11-03 · [Advancing THz Radio Map Construction and Obstacle Sensing: An Integrated Generative Framework in ISAC](/papers/items/d106ab3a055b3d0d/)
+
+提出用于太赫兹 ISAC 的联合生成式框架，使无线电地图构建与障碍物感知相互支持，以利用 RSS 分布推断传播环境。
+
+[本篇条目](/papers/items/d106ab3a055b3d0d/)
+
+### 2026-11-03 · [Improving THz Coverage for 6G URLLC Services via Exploiting Mobile Computing](/papers/items/bcf7f13852f28052/)
+
+将太赫兹频谱资源与移动边缘计算卸载联合设计，以改善超可靠低时延业务在高路径损耗条件下的服务覆盖。
+
+[本篇条目](/papers/items/bcf7f13852f28052/)
+
+### 2026-11-03 · [High-speed 0.22 THz communication system with 84 Gbps for real-time uncompressed 8K video transmission of live events](/papers/items/6c7ca11b0810c9d4/)
+
+报告 0.22 THz 通信实验系统，实现 84 Gbps 空中接口速率，并展示用于现场活动的实时无压缩 8K 视频传输。
+
+[本篇条目](/papers/items/6c7ca11b0810c9d4/)
+
+### 2026-11-03 · [ISAC-Enabled Beam Alignment for Terahertz Networks: Scheme Design and Coverage Analysis](/papers/items/64dafecd8788acc1/)
+
+利用太赫兹感知信息辅助网络波束对齐，联合分析波束设计和网络覆盖概率，缓解窄波束失配和遮挡。
+
+[本篇条目](/papers/items/64dafecd8788acc1/)
+
+### 2026-11-03 · [Two-Way Semantic Communications Without Feedback](/papers/items/66ade3a10ab39f2e/)
+
+提出不依赖训练过程双向反馈的双向语义通信架构，面向低信噪比机器通信减少语义传输的反馈与训练负担。
+
+[本篇条目](/papers/items/66ade3a10ab39f2e/)
+
+### 2026-11-03 · [Toward Massive Connectivity for IoT in Mixed-ADC Distributed Massive MIMO](/papers/items/d96778ff2b90b94f/)
+
+针对混合 ADC 分布式大规模 MIMO 的物联网海量接入，将终端划分为不同业务负载类别，研究低复杂度接入与检测。
+
+[本篇条目](/papers/items/d96778ff2b90b94f/)
+
+### 2026-11-03 · [Robust Semantic Transmission of Images with Generative Adversarial Networks](/papers/items/326b6acd53cc1f59/)
+
+使用 GAN 训练图像语义传输网络，使图像特征编码与信道传输联合适配时变信道，提高图像恢复鲁棒性。
+
+[本篇条目](/papers/items/326b6acd53cc1f59/)
+
+### 2026-11-03 · [Robust Optimization for Energy Efficiency in Multicast Downlink C-RAN](/papers/items/4c9fbe17a62c50e0/)
+
+比较数据共享与压缩两类组播下行 C-RAN 传输，考虑信道不确定性以最坏情形能量效率为目标进行鲁棒资源设计。
+
+[本篇条目](/papers/items/4c9fbe17a62c50e0/)
+
+### 2026-11-03 · [Partial Sampling-based Semantic Communications for Internet of Things](/papers/items/2f233c6832a8f6f7/)
+
+提出部分采样式物联网语义通信策略，根据数据的任务相关性选择性采样和上传，以减少带宽与边缘计算负担。
+
+[本篇条目](/papers/items/2f233c6832a8f6f7/)
+
+### 2026-11-03 · [Learning of Constellation Shaping with Maximum Norms for Terahertz Communication](/papers/items/30b67e6981a0f9a5/)
+
+面向太赫兹硬件相位噪声及 IQ 失衡，利用深度学习优化具有最大范数约束的星座成形，提高非理想收发机性能。
+
+[本篇条目](/papers/items/30b67e6981a0f9a5/)
+
+### 2026-11-03 · [Joint Transmission and Understanding of Semantics with Edge Intelligence](/papers/items/08612049ddb22be1/)
+
+在网络边缘联合进行结构化语义传输与语义理解，直接提取用户意图与槽位等机器可用信息以减少云端通信开销。
+
+[本篇条目](/papers/items/08612049ddb22be1/)
+
+### 2026-11-03 · [Distributed optimization in fog radio access networks — channel estimation and multi-user detection](/papers/items/cea79dc6619dfc60/)
+
+针对雾无线接入网的联合信道估计与多用户检测，构造利用用户活动和信号空间结构的混合 ℓ2,1 正则化目标，提出串行及并行块坐标下降求解方案，在雾接入点和云端之间分布式执行。
+
+[本篇条目](/papers/items/cea79dc6619dfc60/)
+
+### 2026-11-03 · [Compressive Channel Estimation and User Activity Detection in Distributed-Input Distributed-Output Systems](/papers/items/fee9f6f4c9129bd6/)
+
+针对分布式输入输出架构中的海量机器通信，联合利用用户活动稀疏性和信道结构，采用压缩感知进行信道估计与活动检测。
+
+[本篇条目](/papers/items/fee9f6f4c9129bd6/)
+
+### 2026-11-03 · [Compressive channel estimation and multi-user detection in C-RAN](/papers/items/e19affc6dceb802d/)
+
+利用 C-RAN 中活跃用户的群稀疏性，设计混合范数正则化的压缩感知模型，联合求解信道估计与多用户检测。
+
+[本篇条目](/papers/items/e19affc6dceb802d/)
+
+### 2026-11-03 · [An iteratively reweighted method for recovery of block-sparse signal with unknown block partition](/papers/items/8189b64364185394/)
+
+针对未知块划分的块稀疏信号，提出元素重叠对数和惩罚，同时鼓励稀疏性与非零系数成簇。通过逐步最小化凸上界构造迭代重加权最小二乘算法，交替估计信号和权重，并分析局部收敛。
+
+[本篇条目](/papers/items/8189b64364185394/)
+
+### 2026-11-03 · [A Weighted MMSE Approach to Amorphous Cell for Mixed-ADC Distributed Massive MIMO](/papers/items/6d8fa493a29665cf/)
+
+针对混合 ADC 的分布式大规模 MIMO 接入阶段，研究基于加权 MMSE 的低复杂度协作检测方案。
+
+[本篇条目](/papers/items/6d8fa493a29665cf/)
+
+### 2026-11-03 · [A Novel Cross-Layer Protocol for Random Access in Massive Machine-Type Communications](/papers/items/9c939de588768de3/)
+
+面向大规模机器类通信（mMTC）提出一种跨层随机接入协议：在压缩感知框架下分别实现多用户检测与信道估计，使单个时隙可恢复多个碰撞数据包，并结合串行干扰消除进一步增强恢复能力；该协议信令开销低，有潜力支持大规模上行连接。
+
+[本篇条目](/papers/items/9c939de588768de3/)
+
+### 2026-11-03 · [A Low-Complexity Transceiver Design for Terahertz Communication based on Deep Learning](/papers/items/190994153949f886/)
+
+在太赫兹信道和硬件响应难以精确建模的条件下，利用深度学习从实测信号拟合收发机非理想特性，并设计低复杂度传输方案。
+
+[本篇条目](/papers/items/190994153949f886/)
+
+### 2026-11-03 · [面向通信感知一体化的干扰抑制、波形设计和资源优化](/papers/items/5adb46a7a05574c0/)
+
+浙江大学 2023 年博士学位论文（作者何映晖）。围绕通信感知一体化（ISAC）的干扰抑制、双功能波形设计与资源优化展开：提出 RIS 协助的通信雷达共存方案并给出 PDD 联合波束成形；研究全双工中继辅助 ISAC 系统的 ADMM 联合设计；提出基于 OFDM 零空间的感知预编码与 MM 波形优化；并研究通信感知计算一体化（ISCC）中面向动作识别的感知框架与资源分配。
+
+[本篇条目](/papers/items/5adb46a7a05574c0/)
+
+### 2026-11-03 · [Decoupled Diffusion Models with Explicit Transition Probability](/papers/items/689730ee3ccfd7de/)
+
+提出解耦扩散模型，将复杂扩散过程拆分为具有显式状态转移概率的组成部分，以降低反向采样过程的复杂性，并研究其生成任务表现。原始记录是下载文件名，已恢复规范题名。
+
+[本篇条目](/papers/items/689730ee3ccfd7de/)
+
 {% endraw %}
