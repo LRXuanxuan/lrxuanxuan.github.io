@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "count": 1585,
+  "count": 1588,
   "quotes": [
     {
       "id": "b3faf27097cae9a98a228080e7ea5d2a57b4ffbc963b300cb013bb45e4dbaec7",
@@ -17380,7 +17380,7 @@
     },
     {
       "id": "6ab0f71014000000000000000000000000000000000000000000000000000029",
-      "text": "This is my time\n\n这是属于我的时刻。",
+      "text": "I won't share you, no\nI won't share you\nWith the drive and the dreams inside\nThis is my time\n\n不，我不会与别人分享你。\n我不会与别人分享你。\n怀着心底的冲劲与梦想，\n这是属于我的时刻。",
       "book": "I Won't Share You",
       "author": "Morrissey",
       "chapter": "演唱：The Smiths｜专辑：Strangeways, Here We Come（发行：1987）｜首发：1987",
@@ -19626,6 +19626,45 @@
       "theme": "inspiration",
       "aspect": "rose",
       "sourceType": "poetry"
+    },
+    {
+      "id": "82d1ee061f4413c7e54393e6019195ac41554b88a9440a819597f7fdb73741cf",
+      "text": "I want the freedom and I want the guile\nI want the freedom and the guile\nOh, life tends to come and go\nAs long as you know\nKnow, know, know, know\nKnow, know, know, know\nI won't share you\n\n我想要自由，也想要狡黠。\n我想要自由与狡黠。\n噢，人生总是来来去去。\n只要你明白，\n明白，明白，明白，明白；\n明白，明白，明白，明白。\n我不会与别人分享你。",
+      "book": "I Won't Share You",
+      "author": "Morrissey",
+      "chapter": "演唱：The Smiths｜专辑：Strangeways, Here We Come（发行：1987）｜首发：1987",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "edge",
+      "sourceType": "song"
+    },
+    {
+      "id": "c202df84b8e1c90ab5723d7e8281a42585305a5f175b3ddc364339a72dadb561",
+      "text": "I won't share you, no\nI won't share you\nWith the drive and ambition\nThe zeal I feel, this is my time\n\n不，我不会与别人分享你。\n我不会与别人分享你。\n怀着这股冲劲与雄心，\n我感受到的热忱——这是属于我的时刻。",
+      "book": "I Won't Share You",
+      "author": "Morrissey",
+      "chapter": "演唱：The Smiths｜专辑：Strangeways, Here We Come（发行：1987）｜首发：1987",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "inspiration",
+      "aspect": "edge",
+      "sourceType": "song"
+    },
+    {
+      "id": "fc1bdd65553c36240b5f1b14141c8068479755cd60b6cf00bdca844abb2e849d",
+      "text": "The note I wrote as she read\nShe said, \"Has the perrier gone\nStraight to my head\nOr is life sick and cruel, instead?\"\n\n她读着我写下的字条，\n她说：“是巴黎水\n让我一下子昏了头，\n还是人生本就病态而残酷？”",
+      "book": "I Won't Share You",
+      "author": "Morrissey",
+      "chapter": "演唱：The Smiths｜专辑：Strangeways, Here We Come（发行：1987）｜首发：1987",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "moth",
+      "sourceType": "song"
     }
   ]
 }
