@@ -6269,5 +6269,115 @@
     "coverage": "full",
     "license": "cc_by",
     "final_proofread_done": false
+  },
+  {
+    "date": "2026-11-04",
+    "slug": "2026-11-04-2610-40723-inla-adaptive-uav-sampling-radio-environment-maps",
+    "title": "INLA 驱动的无人机自适应无线环境地图采样：先验宽度决定精度与校准｜中文全文译文",
+    "scope": "全文覆盖：摘要、§I 等全部章节、先验与观测模型、熵展开式 (13)–(16)、19/30 窗口实验与讨论、式编号、图/表逐格、参考文献英文原条目；许可：CC BY 4.0；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-11-04-2610-40723-inla-adaptive-uav-sampling-radio-environment-maps/",
+    "source_file": "2026-11-04-2610-40723-inla-adaptive-uav-sampling-radio-environment-maps.md",
+    "source_page_path": "papers/translations/2026-11-04-2610-40723-inla-adaptive-uav-sampling-radio-environment-maps.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-11-04-2610-40723-inla-adaptive-uav-sampling-radio-environment-maps.md",
+    "paper_ids": [
+      "948f4c96a3e26dd6"
+    ],
+    "source_arxiv_ids": [
+      "2610.40723"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "cc_by",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-11-04",
+    "slug": "2026-11-04-2610-18458-s3-pnp-self-supervised-score-priors-for-scientific-imaging",
+    "title": "S³-PnP：面向科学成像的自监督分数先验即插即用去噪｜中文全文译文",
+    "scope": "全文覆盖：摘要、§3（Eq2/6）、Theorem 1 与 Appendix A.2、全部正文章节、Tables 1–3/16 逐格、图注、式编号、参考文献英文原条目；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-11-04-2610-18458-s3-pnp-self-supervised-score-priors-for-scientific-imaging/",
+    "source_file": "2026-11-04-2610-18458-s3-pnp-self-supervised-score-priors-for-scientific-imaging.md",
+    "source_page_path": "papers/translations/2026-11-04-2610-18458-s3-pnp-self-supervised-score-priors-for-scientific-imaging.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-11-04-2610-18458-s3-pnp-self-supervised-score-priors-for-scientific-imaging.md",
+    "paper_ids": [
+      "1c24c652f66fb3a3"
+    ],
+    "source_arxiv_ids": [
+      "2610.18458"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-11-04",
+    "slug": "2026-11-04-2610-26183-hp-pnp-flow-hybrid-time-scheduling-projection-image-restoration",
+    "title": "HP-PnP-Flow：基于流匹配的即插即用图像恢复混合时间调度与投影｜中文全文译文",
+    "scope": "全文覆盖：摘要、Eq3.1/3.3–3.5、Proposition 3.1、Theorem 3.3、全部正文章节、Tables 1–3 逐格、图注、式编号、参考文献英文原条目；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-11-04-2610-26183-hp-pnp-flow-hybrid-time-scheduling-projection-image-restoration/",
+    "source_file": "2026-11-04-2610-26183-hp-pnp-flow-hybrid-time-scheduling-projection-image-restoration.md",
+    "source_page_path": "papers/translations/2026-11-04-2610-26183-hp-pnp-flow-hybrid-time-scheduling-projection-image-restoration.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-11-04-2610-26183-hp-pnp-flow-hybrid-time-scheduling-projection-image-restoration.md",
+    "paper_ids": [
+      "a4af8916bad0d6c0"
+    ],
+    "source_arxiv_ids": [
+      "2610.26183"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-11-04",
+    "slug": "2026-11-04-2605-08328-p-flow-proxy-gradient-flows-for-linear-inverse-problems",
+    "title": "P-Flow：面向线性逆问题的代理梯度流｜中文全文译文",
+    "scope": "全文覆盖：摘要、Eq9–16、§3.2、全部正文章节、Tables 1–2 逐格、Appendix C 球面消融、图注、式编号、参考文献英文原条目；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-11-04-2605-08328-p-flow-proxy-gradient-flows-for-linear-inverse-problems/",
+    "source_file": "2026-11-04-2605-08328-p-flow-proxy-gradient-flows-for-linear-inverse-problems.md",
+    "source_page_path": "papers/translations/2026-11-04-2605-08328-p-flow-proxy-gradient-flows-for-linear-inverse-problems.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-11-04-2605-08328-p-flow-proxy-gradient-flows-for-linear-inverse-problems.md",
+    "paper_ids": [
+      "aa0a8273e3a452db"
+    ],
+    "source_arxiv_ids": [
+      "2605.08328"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "arxiv",
+    "final_proofread_done": false
+  },
+  {
+    "date": "2026-11-04",
+    "slug": "2026-11-04-2610-11758-afdm-channel-parameter-estimation-shift-properties",
+    "title": "AFDM 信道参数估计：利用移位性质与输入输出关系｜中文全文译文",
+    "scope": "全文覆盖：摘要、移位关系与估计式、§V 复杂度、§VI 与 Figs 2–6、全部正文章节、式编号、表格逐格、参考文献英文原条目；许可：CC BY 4.0；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+    "url": "/papers/translations/2026-11-04-2610-11758-afdm-channel-parameter-estimation-shift-properties/",
+    "source_file": "2026-11-04-2610-11758-afdm-channel-parameter-estimation-shift-properties.md",
+    "source_page_path": "papers/translations/2026-11-04-2610-11758-afdm-channel-parameter-estimation-shift-properties.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-11-04-2610-11758-afdm-channel-parameter-estimation-shift-properties.md",
+    "paper_ids": [
+      "04fa65dc9dd5428c"
+    ],
+    "source_arxiv_ids": [
+      "2610.11758"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license": "cc_by",
+    "final_proofread_done": false
   }
 ]
