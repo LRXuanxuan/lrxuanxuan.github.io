@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "count": 1590,
+  "count": 1595,
   "quotes": [
     {
       "id": "b3faf27097cae9a98a228080e7ea5d2a57b4ffbc963b300cb013bb45e4dbaec7",
@@ -17185,20 +17185,7 @@
     },
     {
       "id": "10da470233909f75a42a7af13f8860ea3380731460ad71b5e4d59e9f62fc9028",
-      "text": "Heaven sent the promised land\n\n上天赐下了应许之地。",
-      "book": "Wot’s... Uh the Deal?",
-      "author": "Roger Waters、David Gilmour",
-      "chapter": "演唱：Pink Floyd｜专辑：Obscured by Clouds（发行：1972-06-02）｜首发：1972-06-02（专辑）",
-      "readerLink": "",
-      "weight": 1,
-      "quoteWeight": 1,
-      "theme": "reflection",
-      "aspect": "sky",
-      "sourceType": "song"
-    },
-    {
-      "id": "ac89ab4e5e2577824a0a9eb0aeea31d72cecb5a1d43955d4979955bac8af0672",
-      "text": "Looks alright from where I stand\n’Cause I’m the man on the outside looking in\n\n从我所站的地方看还不错\n因为我是个站在门外向里张望的人。",
+      "text": "Heaven sent the promised land\nLooks alright from where I stand\n'Cause I'm the man on the outside looking in\n\n上天赐下了应许之地。\n从我站立的地方望去，一切似乎还不错。\n因为我是那个站在门外、向里张望的人。",
       "book": "Wot’s... Uh the Deal?",
       "author": "Roger Waters、David Gilmour",
       "chapter": "演唱：Pink Floyd｜专辑：Obscured by Clouds（发行：1972-06-02）｜首发：1972-06-02（专辑）",
@@ -17210,8 +17197,8 @@
       "sourceType": "song"
     },
     {
-      "id": "4603bf9ab440581418bcee125eb3f8493b93ed06c004564601254b351ba039ee",
-      "text": "Turn my lead into gold\n\n把我的铅变成黄金吧。",
+      "id": "ac89ab4e5e2577824a0a9eb0aeea31d72cecb5a1d43955d4979955bac8af0672",
+      "text": "Waiting on the first step\nShow me where the key is kept\nPoint me down the right line because it's time\n\n等待迈出第一步，\n告诉我钥匙藏在何处，\n给我指明正确的道路吧，因为时候到了。",
       "book": "Wot’s... Uh the Deal?",
       "author": "Roger Waters、David Gilmour",
       "chapter": "演唱：Pink Floyd｜专辑：Obscured by Clouds（发行：1972-06-02）｜首发：1972-06-02（专辑）",
@@ -17219,6 +17206,19 @@
       "weight": 1,
       "quoteWeight": 1,
       "theme": "inspiration",
+      "aspect": "knock",
+      "sourceType": "song"
+    },
+    {
+      "id": "4603bf9ab440581418bcee125eb3f8493b93ed06c004564601254b351ba039ee",
+      "text": "So let me in from the cold\nTurn my lead into gold\n'Cause there's a chill wind blowing in my soul\nAnd I think I'm growing old\n\n所以，请让我从寒冷中走进来，\n把我的铅变成黄金。\n因为一阵寒风正吹过我的灵魂，\n而我觉得自己正在渐渐老去。",
+      "book": "Wot’s... Uh the Deal?",
+      "author": "Roger Waters、David Gilmour",
+      "chapter": "演唱：Pink Floyd｜专辑：Obscured by Clouds（发行：1972-06-02）｜首发：1972-06-02（专辑）",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
       "aspect": "forge",
       "sourceType": "song"
     },
@@ -19690,6 +19690,71 @@
       "quoteWeight": 1,
       "theme": "reflection",
       "aspect": "moon",
+      "sourceType": "song"
+    },
+    {
+      "id": "9ecb9bccc6e5996b271a94269e4ff945bbbbe338ad080b27852ab76276ddc441",
+      "text": "Flash the readies\nWhat's, uh the deal?\nGot to make it to the next meal\nTry to keep up with the turning of the wheel\n\n亮出手头的现钱，\n那么，呃，这买卖怎么说？\n总得设法弄到下一顿饭，\n努力跟上那不停转动的命运之轮。",
+      "book": "Wot’s... Uh the Deal?",
+      "author": "Roger Waters、David Gilmour",
+      "chapter": "演唱：Pink Floyd｜专辑：Obscured by Clouds（发行：1972-06-02）｜首发：1972-06-02（专辑）",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "edge",
+      "sourceType": "song"
+    },
+    {
+      "id": "e4765bba084388054c50687c9f8ea9ff17e83086340452a1c285a2a8c6a3fedb",
+      "text": "Fire bright by candlelight\nAnd her by my side\nAnd if she prefers we will never stir again\n\n烛光映照下，炉火明亮，\n她就在我身旁。\n如果她愿意，我们便再也不必挪动脚步。",
+      "book": "Wot’s... Uh the Deal?",
+      "author": "Roger Waters、David Gilmour",
+      "chapter": "演唱：Pink Floyd｜专辑：Obscured by Clouds（发行：1972-06-02）｜首发：1972-06-02（专辑）",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "heart",
+      "sourceType": "song"
+    },
+    {
+      "id": "d556d379937a55c68f0ba973b5d67f3805249365be18bb8282e2b64f89f36764",
+      "text": "Someone sent the promised land\nAnd I grabbed it with both hands\nNow I'm the man on the inside looking out\n\n有人送来了应许之地，\n而我伸出双手，牢牢抓住了它。\n如今，我成了那个站在门内、向外张望的人。",
+      "book": "Wot’s... Uh the Deal?",
+      "author": "Roger Waters、David Gilmour",
+      "chapter": "演唱：Pink Floyd｜专辑：Obscured by Clouds（发行：1972-06-02）｜首发：1972-06-02（专辑）",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "knock",
+      "sourceType": "song"
+    },
+    {
+      "id": "b6acf962f93babad1580e2c817048b3b70979866a3bbcce180618cdce759567f",
+      "text": "Hear me shout \"Come on in,\nWhat's the news and where you been?\"\n'Cause there's no wind left in my soul\nAnd I've grown old\n\n听我高喊：“快进来吧，\n有什么新消息？你都去了哪里？”\n因为我的灵魂里已经没有风在吹，\n而我已经老去。",
+      "book": "Wot’s... Uh the Deal?",
+      "author": "Roger Waters、David Gilmour",
+      "chapter": "演唱：Pink Floyd｜专辑：Obscured by Clouds（发行：1972-06-02）｜首发：1972-06-02（专辑）",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "winter",
+      "sourceType": "song"
+    },
+    {
+      "id": "7778de98f62257a9f18a663e2a4f96bfa8015a3c8135252dd4dbf5528fe4bc63",
+      "text": "Mile after mile (mile after mile)\nStone after stone (stone after stone)\nyou turn to speak but you're alone\nMillion miles from home, you're on your own\n\n一英里接着一英里（一英里接着一英里），\n一块石头接着一块石头（一块石头接着一块石头），\n你转身想说话，却发现自己孤身一人。\n离家已有百万英里，你只能独自前行。",
+      "book": "Wot’s... Uh the Deal?",
+      "author": "Roger Waters、David Gilmour",
+      "chapter": "演唱：Pink Floyd｜专辑：Obscured by Clouds（发行：1972-06-02）｜首发：1972-06-02（专辑）",
+      "readerLink": "",
+      "weight": 1,
+      "quoteWeight": 1,
+      "theme": "reflection",
+      "aspect": "winter",
       "sourceType": "song"
     }
   ]
