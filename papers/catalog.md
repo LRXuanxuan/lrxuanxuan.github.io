@@ -11,6 +11,11 @@ toc: true
 
 ## 中英文译文
 
+- [INLA 驱动的无人机自适应无线环境地图采样：先验宽度决定精度与校准｜中文全文译文](/papers/translations/2026-11-04-2610-40723-inla-adaptive-uav-sampling-radio-environment-maps/) · 全文覆盖：摘要、§I 等全部章节、先验与观测模型、熵展开式 (13)–(16)、19/30 窗口实验与讨论、式编号、图/表逐格、参考文献英文原条目；许可：CC BY 4.0；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
+- [HP-PnP-Flow：基于流匹配的即插即用图像恢复混合时间调度与投影｜中文全文译文](/papers/translations/2026-11-04-2610-26183-hp-pnp-flow-hybrid-time-scheduling-projection-image-restoration/) · 全文覆盖：摘要、Eq3.1/3.3–3.5、Proposition 3.1、Theorem 3.3、全部正文章节、Tables 1–3 逐格、图注、式编号、参考文献英文原条目；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
+- [S³-PnP：面向科学成像的自监督分数先验即插即用去噪｜中文全文译文](/papers/translations/2026-11-04-2610-18458-s3-pnp-self-supervised-score-priors-for-scientific-imaging/) · 全文覆盖：摘要、§3（Eq2/6）、Theorem 1 与 Appendix A.2、全部正文章节、Tables 1–3/16 逐格、图注、式编号、参考文献英文原条目；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
+- [AFDM 信道参数估计：利用移位性质与输入输出关系｜中文全文译文](/papers/translations/2026-11-04-2610-11758-afdm-channel-parameter-estimation-shift-properties/) · 全文覆盖：摘要、移位关系与估计式、§V 复杂度、§VI 与 Figs 2–6、全部正文章节、式编号、表格逐格、参考文献英文原条目；许可：CC BY 4.0；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
+- [P-Flow：面向线性逆问题的代理梯度流｜中文全文译文](/papers/translations/2026-11-04-2605-08328-p-flow-proxy-gradient-flows-for-linear-inverse-problems/) · 全文覆盖：摘要、Eq9–16、§3.2、全部正文章节、Tables 1–2 逐格、Appendix C 球面消融、图注、式编号、参考文献英文原条目；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
 - [前向与逆问题中带约束的自动微分｜中文全文译文](/papers/translations/2026-11-03-2610-27888-implicit-ad-constrained-automatic-differentiation/) · 全文覆盖：摘要与关键词、第 1–6 节全部正文与全部小节（§3.1–3.3、§4.1–4.5）、式 (1)–(25)、图 1–5 图注、参考文献 [1]–[37]（英文原条目）；许可：CC BY-NC-ND 4.0；按用户 2026-11-03 明确要求公开本篇译文；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
 - [数据空间迭代的少步生成｜中文全文译文](/papers/translations/2026-11-03-2610-12102-data-space-iteration-few-step-generation/) · 全文覆盖：摘要、§2–§3、式 (1)–(N) 编号、表 1–3 逐格、图注、附录 E/G、参考文献英文原条目；许可：CC BY 4.0；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
 - [TRACE：由上行流量感知的几何信息网络用于稀疏导频信道估计｜中文全文译文](/papers/translations/2026-11-03-2610-08992-trace-geometry-informed-pilot-limited-channel-estimation/) · 全文覆盖：摘要、正文各节（§2–§4）、式 (1)–(N) 编号、图 1–N 图注、表 1–3 逐格、参考文献英文原条目；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
