@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "source": "每日论文推荐.xlsx",
-  "source_sha256": "4f623d0064b093a7f9815b17c0bf70a90d56df36846a3a6dab75f4fd6240b8b5",
+  "source_sha256": "2532ba5a683835431915511c5ca1452de1f8f06fc1825360e8babd5561560105",
   "translation_progress": {
     "target": 315,
     "completed": 276,
@@ -23,7 +23,7 @@
   "sheets": [
     {
       "name": "每日论文推荐",
-      "count": 440,
+      "count": 445,
       "headers": [
         "日期",
         "标题",
@@ -45,8 +45,9 @@
       ]
     }
   ],
-  "total": 611,
+  "total": 616,
   "dates": [
+    "2026-11-06",
     "2026-11-05",
     "2026-11-04",
     "2026-11-03",
@@ -109,8 +110,262 @@
     "2026-07-12",
     "2026-07-11"
   ],
-  "latest_date": "2026-11-05",
+  "latest_date": "2026-11-06",
   "papers": [
+    {
+      "id": "8426d97a2d1dfa23",
+      "date": "2026-11-06",
+      "title": "RadioDiff-Inv2: Differentiable Diffusion Inversion under Location Drift from Sparse Noisy Measurements for Radio Map Estimation",
+      "sheet": "每日论文推荐",
+      "row": 446,
+      "fields": {
+        "日期": "2026-11-06",
+        "标题": "RadioDiff-Inv2: Differentiable Diffusion Inversion under Location Drift from Sparse Noisy Measurements for Radio Map Estimation",
+        "内容": "作者：Xiucheng Wang; Kailong Wang; Nan Cheng。问题：RSS采样坐标偏移改变观测算子，不能只增加加性噪声方差。 方法：环境条件确定性扩散生成器，以初始种子为优化变量；双线性高斯漂移重采样并经整个反向生成链回传。 结果：Table I采样率0.005时23.8166 vs最佳20.0272，增3.7894 dB；0.1时35.2599 vs最佳RadioDiff-Inv1 26.0809，增9.1790 dB。正文称后者最佳为Kriging并增14 dB，与表不符；不沿用摘要4–14 dB概括。 局限：已知高斯漂移协方差与噪声方差；仅RadioMapSeer模拟图。Eq.(26)是期望负对数似然，通常不等于边缘化似然的负对数（Jensen间隙），不能称精确后验；种子优化每步穿过完整生成链，不等同低成本。",
+        "契合方向": "定位漂移；观测算子失配；扩散反演",
+        "推荐理由": "为定位误差r与后验数据一致性建立直接接口；区分条件位置不准和物理采样算子不准。",
+        "顶刊顶会/机构依据": "arXiv预印本；未确认正式venue；预印本/状态未确认；官方arXiv记录与所读PDF未提供可确认录用的公开声明；排版模板不作录用证据。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2606.08439",
+        "检索来源": "https://arxiv.org/abs/2606.08439",
+        "筛选备注": "可改造工具；独立算子失配分支；先测简化观测算子再加生成器；PDF pp.6–10 Algorithm 1, Eq.(25)–(28), Table I",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；已查官方页面及全文实现链接，精确标题与arXiv ID检索未发现可确认的作者实现；公开GitHub API精确标题和编号均返回0；作者PDF/页面另行核查；不是证明代码不存在。证据：https://arxiv.org/abs/2606.08439；https://github.com/search?q=2606.08439&type=repositories",
+        "反馈匹配": "相对Robust-CKMSRF的条件模态扰动，这篇修改空间查询算子；相对RadioDiff-v2角度图应用，此处为稀疏RSS漂移反演。",
+        "反馈权重说明": "独立机制；事实/迁移推断/待验证假设分开；同预算配对，不预设提升。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-11-06/",
+      "report_section": "## 5. RadioDiff-Inv2: Differentiable Diffusion Inversion under Location Drift from Sparse Noisy Measurements for Radio Map Estimation\n\n**作者/年份/venue**：Xiucheng Wang; Kailong Wang; Nan Cheng；2026；arXiv预印本；未确认正式venue。\n\n**发表状态及证据**：预印本/状态未确认。官方arXiv记录与所读PDF未提供可确认录用的公开声明；排版模板不作录用证据。\n\n**方向**：定位漂移；观测算子失配；扩散反演\n\n**问题**：RSS采样坐标偏移改变观测算子，不能只增加加性噪声方差。\n\n**论文方法**：环境条件确定性扩散生成器，以初始种子为优化变量；双线性高斯漂移重采样并经整个反向生成链回传。\n\n**论文结果**：Table I采样率0.005时23.8166 vs最佳20.0272，增3.7894 dB；0.1时35.2599 vs最佳RadioDiff-Inv1 26.0809，增9.1790 dB。正文称后者最佳为Kriging并增14 dB，与表不符；不沿用摘要4–14 dB概括。\n\n**局限与审计判断**：已知高斯漂移协方差与噪声方差；仅RadioMapSeer模拟图。Eq.(26)是期望负对数似然，通常不等于边缘化似然的负对数（Jensen间隙），不能称精确后验；种子优化每步穿过完整生成链，不等同低成本。\n\n**迁移类型**：可改造工具\n\n**研究接口（迁移推断）**：独立算子失配分支；先测简化观测算子再加生成器\n\n**与既有阅读差异**：相对Robust-CKMSRF的条件模态扰动，这篇修改空间查询算子；相对RadioDiff-v2角度图应用，此处为稀疏RSS漂移反演。\n\n**推荐理由**：为定位误差r与后验数据一致性建立直接接口；区分条件位置不准和物理采样算子不准。\n\n**代码状态**：未发现公开代码\n\n**代码证据**：已查官方页面及全文实现链接，精确标题与arXiv ID检索未发现可确认的作者实现；公开GitHub API精确标题和编号均返回0；作者PDF/页面另行核查；不是证明代码不存在。证据：https://arxiv.org/abs/2606.08439；https://github.com/search?q=2606.08439&type=repositories\n\n**全文定位**：PDF pp.6–10 Algorithm 1, Eq.(25)–(28), Table I\n\n**身份与版本**：arXiv:2606.08439；DOI 10.48550/arXiv.2606.08439；Submission history From: Xiucheng Wang [ view email ] [v1] Sun, 7 Jun 2026 03:31:05 UTC (5,630 KB)\n\n[官方页面](https://arxiv.org/abs/2606.08439)；[官方PDF](https://arxiv.org/pdf/2606.08439)；[原文PDF](https://arxiv.org/pdf/2606.08439)。完整PDF可访问，共13页。\n\n[本篇全文翻译/状态](https://lrxuanxuan.github.io/papers/items/8426d97a2d1dfa23/#paper-translation)：job `5cbf09f5dfff59164c81ee81`已入队，gpt-6-luna/xhigh；原worker找不到会话，未启动。\n\n[原文许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：公开译文许可未确认，先保留本地。PDF只保留本地与官方链接。",
+      "report_entry_url": "/papers/reports/2026-11-06/#paper-8426d97a2d1dfa23",
+      "paper_url": "/papers/items/8426d97a2d1dfa23/",
+      "paper_report_url": "/papers/items/8426d97a2d1dfa23/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2606.08439",
+        "https://arxiv.org/abs/2606.08439",
+        "https://github.com/search?q=2606.08439&type=repositories",
+        "https://lrxuanxuan.github.io/papers/items/8426d97a2d1dfa23/#paper-translation)：job",
+        "https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：公开译文许可未确认"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2606.08439"
+      ],
+      "hosted_pdfs": [],
+      "status": "预印本/状态未确认",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/8426d97a2d1dfa23/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "3c7dcba9604157d2",
+      "date": "2026-11-06",
+      "title": "Stochastic Generative Plug-and-Play Priors",
+      "sheet": "每日论文推荐",
+      "row": 445,
+      "fields": {
+        "日期": "2026-11-06",
+        "标题": "Stochastic Generative Plug-and-Play Priors",
+        "内容": "作者：Chicago Y. Park; Edward P. Chandler; Yuyang Hu; Michael T. McCann; Cristina Garcia-Cardona; Brendt Wohlberg; Ulugbek S. Kamilov。问题：传统PnP低噪声去噪器在严重欠定任务中可能停在较差恢复；如何直接利用宽噪声扩散去噪器？ 方法：在先验去噪输入前随机重加噪；重加噪与去噪噪声层级可分离，接入PGM/ADMM/DPIR。以高斯平滑目标解释梯度与退火。 结果：Table 1：FFHQ掩膜PSNR 25.21 vs DiffPIR 25.09 dB；fastMRI 32.54 vs 29.81 dB。超分LPIPS 0.194，弱于DPS的0.140，非所有指标占优。 局限：理想MMSE去噪、光滑/有界梯度与随机场、负曲率激励、紧集和分阶段内循环等条件严格；理论主要分析特定梯度迭代，不能直接宣称实用ADMM/FlowADMM收敛或精确后验。全空间二次保真梯度并不自动有界。",
+        "契合方向": "随机PnP；扩散去噪先验；优化理论",
+        "推荐理由": "区分M次内部平均与随机输入重加噪的机制，可为当前FlowADMM构造同预算独立消融。",
+        "顶刊顶会/机构依据": "arXiv预印本；未确认正式venue；预印本/状态未确认；作者机构文献表列IEEE TCI 2026，但未查得明确录用声明/出版社文章记录；作者项目页与仓库仍引用arXiv，故维持预印本/状态未确认。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2604.03603",
+        "检索来源": "https://arxiv.org/abs/2604.03603\nhttps://cig.ece.wisc.edu/sgpnp_page/\nhttps://cig.ece.wisc.edu/publications/",
+        "筛选备注": "可改造工具；固定先验下单独研究随机重加噪，不与蒸馏同时改动；PDF pp.4–7 Eq.(17)–(21), Assumptions 1–4, Theorems 1–2, Tables 1–3",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "https://github.com/uw-cig/SGPnP",
+        "代码/数据状态": "完整开源实现；作者PDF/机构项目页直链同一仓库；已静态核查sample.py、guided_diffusion/SGPnP_iteration.py、随机/确定性PGM/ADMM/DPIR配置、fastMRI接口与权重下载说明；未下载大权重或执行作者实验。证据：https://github.com/uw-cig/SGPnP 。",
+        "反馈匹配": "相对FlowADMM的flow均值去噪及已有M扫描，此处关键是随机去噪输入及噪声层级分离；扩散MMSE定理不能直接搬到flow经验去噪器。",
+        "反馈权重说明": "独立机制；事实/迁移推断/待验证假设分开；同预算配对，不预设提升。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-11-06/",
+      "report_section": "## 4. Stochastic Generative Plug-and-Play Priors\n\n**作者/年份/venue**：Chicago Y. Park; Edward P. Chandler; Yuyang Hu; Michael T. McCann; Cristina Garcia-Cardona; Brendt Wohlberg; Ulugbek S. Kamilov；2026；arXiv预印本；未确认正式venue。\n\n**发表状态及证据**：预印本/状态未确认。作者机构文献表列IEEE TCI 2026，但未查得明确录用声明/出版社文章记录；作者项目页与仓库仍引用arXiv，故维持预印本/状态未确认。\n\n**方向**：随机PnP；扩散去噪先验；优化理论\n\n**问题**：传统PnP低噪声去噪器在严重欠定任务中可能停在较差恢复；如何直接利用宽噪声扩散去噪器？\n\n**论文方法**：在先验去噪输入前随机重加噪；重加噪与去噪噪声层级可分离，接入PGM/ADMM/DPIR。以高斯平滑目标解释梯度与退火。\n\n**论文结果**：Table 1：FFHQ掩膜PSNR 25.21 vs DiffPIR 25.09 dB；fastMRI 32.54 vs 29.81 dB。超分LPIPS 0.194，弱于DPS的0.140，非所有指标占优。\n\n**局限与审计判断**：理想MMSE去噪、光滑/有界梯度与随机场、负曲率激励、紧集和分阶段内循环等条件严格；理论主要分析特定梯度迭代，不能直接宣称实用ADMM/FlowADMM收敛或精确后验。全空间二次保真梯度并不自动有界。\n\n**迁移类型**：可改造工具\n\n**研究接口（迁移推断）**：固定先验下单独研究随机重加噪，不与蒸馏同时改动\n\n**与既有阅读差异**：相对FlowADMM的flow均值去噪及已有M扫描，此处关键是随机去噪输入及噪声层级分离；扩散MMSE定理不能直接搬到flow经验去噪器。\n\n**推荐理由**：区分M次内部平均与随机输入重加噪的机制，可为当前FlowADMM构造同预算独立消融。\n\n**代码状态**：完整开源实现\n\n**代码证据**：作者PDF/机构项目页直链同一仓库；已静态核查sample.py、guided_diffusion/SGPnP_iteration.py、随机/确定性PGM/ADMM/DPIR配置、fastMRI接口与权重下载说明；未下载大权重或执行作者实验。证据：https://github.com/uw-cig/SGPnP 。\n\n**全文定位**：PDF pp.4–7 Eq.(17)–(21), Assumptions 1–4, Theorems 1–2, Tables 1–3\n\n**身份与版本**：arXiv:2604.03603；DOI 10.48550/arXiv.2604.03603；Submission history From: Chicago Y. Park [ view email ] [v1] Sat, 4 Apr 2026 06:14:38 UTC (8,538 KB) [v2] Fri, 30 Oct 2026 21:24:40 UTC (8,545 KB)\n\n[官方页面](https://arxiv.org/abs/2604.03603)；[官方PDF](https://arxiv.org/pdf/2604.03603)；[原文PDF](https://arxiv.org/pdf/2604.03603)。完整PDF可访问，共16页。\n\n[本篇全文翻译/状态](https://lrxuanxuan.github.io/papers/items/3c7dcba9604157d2/#paper-translation)：job `961c1625a305fe2005ae10d2`已入队，gpt-6-luna/xhigh；原worker找不到会话，未启动。\n\n[原文许可](https://creativecommons.org/licenses/by/4.0/)：允许验收完成、保留归属/许可/翻译说明后的译文分享。PDF只保留本地与官方链接。",
+      "report_entry_url": "/papers/reports/2026-11-06/#paper-3c7dcba9604157d2",
+      "paper_url": "/papers/items/3c7dcba9604157d2/",
+      "paper_report_url": "/papers/items/3c7dcba9604157d2/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2604.03603",
+        "https://arxiv.org/abs/2604.03603",
+        "https://cig.ece.wisc.edu/sgpnp_page/",
+        "https://cig.ece.wisc.edu/publications/",
+        "https://github.com/uw-cig/SGPnP",
+        "https://lrxuanxuan.github.io/papers/items/3c7dcba9604157d2/#paper-translation)：job",
+        "https://creativecommons.org/licenses/by/4.0/)：允许验收完成、保留归属/许可/翻译说明后的译文分享"
+      ],
+      "github": [
+        "https://github.com/uw-cig/SGPnP"
+      ],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2604.03603"
+      ],
+      "hosted_pdfs": [],
+      "status": "预印本/状态未确认",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/3c7dcba9604157d2/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "408544de2a359006",
+      "date": "2026-11-06",
+      "title": "Consistency Learning and Distillation for One-Step MIMO-OFDM Channel Estimation",
+      "sheet": "每日论文推荐",
+      "row": 444,
+      "fields": {
+        "日期": "2026-11-06",
+        "标题": "Consistency Learning and Distillation for One-Step MIMO-OFDM Channel Estimation",
+        "内容": "作者：Fredrik Nguyen; Qiwen Wang。问题：导频污染下多次神经评估成本高，重建NMSE与检测SER排序可能不同。 方法：LS到干净信道的delay-beam路径端点一致性；冻结10步FM教师，将中间轨迹到端点监督蒸馏到小模型。 结果：Mini CMT相对一步Lite FM，未编码SER降低9.6–20.2%，参数减少74.5%、MAC减少73.0%。−10 dB时SER 0.0980 vs 0.114；但NMSE −3.16 vs −3.59 dB，未优于Lite FM；10步教师SER仍更低。 局限：仅1 km/h、QPSK、理想干扰噪声协方差；训练/验证可同轨迹，教师训练与轨迹生成未计入学生预算。非高速移动/真实后验采样；后续一致性训练反而恶化SER。",
+        "契合方向": "Consistency；CMT蒸馏；一步MIMO-OFDM",
+        "推荐理由": "与LS/导频接口直接对应，要求匹配骨干、学生预算并同时检查SER与NMSE。",
+        "顶刊顶会/机构依据": "arXiv预印本；未确认正式venue；预印本/状态未确认；官方arXiv记录与所读PDF未提供可确认录用的公开声明；排版模板不作录用证据。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2611.06271",
+        "检索来源": "https://arxiv.org/abs/2611.06271",
+        "筛选备注": "可改造工具；独立低NFE分支与下游指标基线；PDF pp.2–5 Eq.(3)–(15), Tables I–IV, Sections V–VI",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；已查官方页面及全文实现链接，精确标题与arXiv ID检索未发现可确认的作者实现；公开GitHub API精确标题和编号均返回0；作者PDF/页面另行核查；不是证明代码不存在。证据：https://arxiv.org/abs/2611.06271；https://github.com/search?q=2611.06271&type=repositories",
+        "反馈匹配": "相对已有迭代CM/PnP先验，这篇是有监督观测锚定端点估计与教师轨迹蒸馏，不等同学习CKM条件后验。",
+        "反馈权重说明": "独立机制；事实/迁移推断/待验证假设分开；同预算配对，不预设提升。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-11-06/",
+      "report_section": "## 3. Consistency Learning and Distillation for One-Step MIMO-OFDM Channel Estimation\n\n**作者/年份/venue**：Fredrik Nguyen; Qiwen Wang；2026；arXiv预印本；未确认正式venue。\n\n**发表状态及证据**：预印本/状态未确认。官方arXiv记录与所读PDF未提供可确认录用的公开声明；排版模板不作录用证据。\n\n**方向**：Consistency；CMT蒸馏；一步MIMO-OFDM\n\n**问题**：导频污染下多次神经评估成本高，重建NMSE与检测SER排序可能不同。\n\n**论文方法**：LS到干净信道的delay-beam路径端点一致性；冻结10步FM教师，将中间轨迹到端点监督蒸馏到小模型。\n\n**论文结果**：Mini CMT相对一步Lite FM，未编码SER降低9.6–20.2%，参数减少74.5%、MAC减少73.0%。−10 dB时SER 0.0980 vs 0.114；但NMSE −3.16 vs −3.59 dB，未优于Lite FM；10步教师SER仍更低。\n\n**局限与审计判断**：仅1 km/h、QPSK、理想干扰噪声协方差；训练/验证可同轨迹，教师训练与轨迹生成未计入学生预算。非高速移动/真实后验采样；后续一致性训练反而恶化SER。\n\n**迁移类型**：可改造工具\n\n**研究接口（迁移推断）**：独立低NFE分支与下游指标基线\n\n**与既有阅读差异**：相对已有迭代CM/PnP先验，这篇是有监督观测锚定端点估计与教师轨迹蒸馏，不等同学习CKM条件后验。\n\n**推荐理由**：与LS/导频接口直接对应，要求匹配骨干、学生预算并同时检查SER与NMSE。\n\n**代码状态**：未发现公开代码\n\n**代码证据**：已查官方页面及全文实现链接，精确标题与arXiv ID检索未发现可确认的作者实现；公开GitHub API精确标题和编号均返回0；作者PDF/页面另行核查；不是证明代码不存在。证据：https://arxiv.org/abs/2611.06271；https://github.com/search?q=2611.06271&type=repositories\n\n**全文定位**：PDF pp.2–5 Eq.(3)–(15), Tables I–IV, Sections V–VI\n\n**身份与版本**：arXiv:2611.06271；DOI 10.48550/arXiv.2611.06271；Submission history From: Fredrik Nguyen [ view email ] [v1] Wed, 4 Nov 2026 10:16:11 UTC (45 KB)\n\n[官方页面](https://arxiv.org/abs/2611.06271)；[官方PDF](https://arxiv.org/pdf/2611.06271)；[原文PDF](https://arxiv.org/pdf/2611.06271)。完整PDF可访问，共6页。\n\n[本篇全文翻译/状态](https://lrxuanxuan.github.io/papers/items/408544de2a359006/#paper-translation)：job `687879f5d5b8f0d9864d5c12`已入队，gpt-6-luna/xhigh；原worker找不到会话，未启动。\n\n[原文许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：公开译文许可未确认，先保留本地。PDF只保留本地与官方链接。",
+      "report_entry_url": "/papers/reports/2026-11-06/#paper-408544de2a359006",
+      "paper_url": "/papers/items/408544de2a359006/",
+      "paper_report_url": "/papers/items/408544de2a359006/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2611.06271",
+        "https://arxiv.org/abs/2611.06271",
+        "https://github.com/search?q=2611.06271&type=repositories",
+        "https://lrxuanxuan.github.io/papers/items/408544de2a359006/#paper-translation)：job",
+        "https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：公开译文许可未确认"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2611.06271"
+      ],
+      "hosted_pdfs": [],
+      "status": "预印本/状态未确认",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/408544de2a359006/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "875d1a39f636221d",
+      "date": "2026-11-06",
+      "title": "Do Ray-Traced Cities Make a Better Channel Prior for an Unseen Site? A Pre-Registered Study in Simulation, and a Test on Measured Channels that Reverses It",
+      "sheet": "每日论文推荐",
+      "row": 443,
+      "fields": {
+        "日期": "2026-11-06",
+        "标题": "Do Ray-Traced Cities Make a Better Channel Prior for an Unseen Site? A Pre-Registered Study in Simulation, and a Test on Measured Channels that Reverses It",
+        "内容": "作者：Krish Patel。问题：多城市射线追踪协方差先验是否真比免费CDL更适合未见站点？ 方法：14城市Sionna RT、留一城市LMMSE；预先记录阈值并用DICHASUS实测反证，另做室内与可微射线标定试验。 结果：仿真池化先验距站点训练参考约0.6 dB；实测街区比CDL差3.2–4.1 dB，标定走廊未测区域全阵列仍差约4.5 dB。单天线与全阵列结果不同，不能混用。 局限：单声道测量平台、少量站点/不同阵列；实测非完全盲测。距离、时间对齐和天线校准均影响结果；工厂原分析因定时偏移撤回重跑。并不证明所有射线先验都无效。",
+        "契合方向": "射线先验；跨站点泛化；负结果与实测验证",
+        "推荐理由": "为几何→PSD/协方差→稀疏导频恢复提供直接反例，要求保留CDL与少量实测混合先验控制。",
+        "顶刊顶会/机构依据": "arXiv预印本；未确认正式venue；预印本/状态未确认；官方arXiv记录与所读PDF未提供可确认录用的公开声明；排版模板不作录用证据。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2611.05128",
+        "检索来源": "https://arxiv.org/abs/2611.05128",
+        "筛选备注": "理论启发或基线；近期数据设计与跨站点实验审计优先精读；PDF pp.3–10 Sections 3–9, Tables 1–3",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；已查官方页面及全文实现链接，精确标题与arXiv ID检索未发现可确认的作者实现；公开GitHub API精确标题和编号均返回0；作者PDF/页面另行核查；不是证明代码不存在。证据：https://arxiv.org/abs/2611.05128；https://github.com/search?q=2611.05128&type=repositories PDF第10页明确代码和日志向作者索取；被引用geo2sigmap工具不是本篇实现。",
+        "反馈匹配": "相对GeoGS-CE与既有几何先验方案，本篇重点是实测反转及先验失配，未提出新生成器；相对已有三折仿真，不把同模拟器留城外推成实测收益。",
+        "反馈权重说明": "独立机制；事实/迁移推断/待验证假设分开；同预算配对，不预设提升。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-11-06/",
+      "report_section": "## 2. Do Ray-Traced Cities Make a Better Channel Prior for an Unseen Site? A Pre-Registered Study in Simulation, and a Test on Measured Channels that Reverses It\n\n**作者/年份/venue**：Krish Patel；2026；arXiv预印本；未确认正式venue。\n\n**发表状态及证据**：预印本/状态未确认。官方arXiv记录与所读PDF未提供可确认录用的公开声明；排版模板不作录用证据。\n\n**方向**：射线先验；跨站点泛化；负结果与实测验证\n\n**问题**：多城市射线追踪协方差先验是否真比免费CDL更适合未见站点？\n\n**论文方法**：14城市Sionna RT、留一城市LMMSE；预先记录阈值并用DICHASUS实测反证，另做室内与可微射线标定试验。\n\n**论文结果**：仿真池化先验距站点训练参考约0.6 dB；实测街区比CDL差3.2–4.1 dB，标定走廊未测区域全阵列仍差约4.5 dB。单天线与全阵列结果不同，不能混用。\n\n**局限与审计判断**：单声道测量平台、少量站点/不同阵列；实测非完全盲测。距离、时间对齐和天线校准均影响结果；工厂原分析因定时偏移撤回重跑。并不证明所有射线先验都无效。\n\n**迁移类型**：理论启发或基线\n\n**研究接口（迁移推断）**：近期数据设计与跨站点实验审计优先精读\n\n**与既有阅读差异**：相对GeoGS-CE与既有几何先验方案，本篇重点是实测反转及先验失配，未提出新生成器；相对已有三折仿真，不把同模拟器留城外推成实测收益。\n\n**推荐理由**：为几何→PSD/协方差→稀疏导频恢复提供直接反例，要求保留CDL与少量实测混合先验控制。\n\n**代码状态**：未发现公开代码\n\n**代码证据**：已查官方页面及全文实现链接，精确标题与arXiv ID检索未发现可确认的作者实现；公开GitHub API精确标题和编号均返回0；作者PDF/页面另行核查；不是证明代码不存在。证据：https://arxiv.org/abs/2611.05128；https://github.com/search?q=2611.05128&type=repositories PDF第10页明确代码和日志向作者索取；被引用geo2sigmap工具不是本篇实现。\n\n**全文定位**：PDF pp.3–10 Sections 3–9, Tables 1–3\n\n**身份与版本**：arXiv:2611.05128；DOI 10.48550/arXiv.2611.05128；Submission history From: Krish Patel [ view email ] [v1] Tue, 3 Nov 2026 16:13:04 UTC (165 KB)\n\n[官方页面](https://arxiv.org/abs/2611.05128)；[官方PDF](https://arxiv.org/pdf/2611.05128)；[原文PDF](https://arxiv.org/pdf/2611.05128)。完整PDF可访问，共11页。\n\n[本篇全文翻译/状态](https://lrxuanxuan.github.io/papers/items/875d1a39f636221d/#paper-translation)：job `a1ecffe6f7542087bc738b04`已入队，gpt-6-luna/xhigh；原worker找不到会话，未启动。\n\n[原文许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：公开译文许可未确认，先保留本地。PDF只保留本地与官方链接。",
+      "report_entry_url": "/papers/reports/2026-11-06/#paper-875d1a39f636221d",
+      "paper_url": "/papers/items/875d1a39f636221d/",
+      "paper_report_url": "/papers/items/875d1a39f636221d/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2611.05128",
+        "https://arxiv.org/abs/2611.05128",
+        "https://github.com/search?q=2611.05128&type=repositories",
+        "https://lrxuanxuan.github.io/papers/items/875d1a39f636221d/#paper-translation)：job",
+        "https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：公开译文许可未确认"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2611.05128"
+      ],
+      "hosted_pdfs": [],
+      "status": "预印本/状态未确认",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/875d1a39f636221d/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
+    {
+      "id": "2b04fba07f1a444c",
+      "date": "2026-11-06",
+      "title": "DyRadio: Spatiotemporal Diffusion for Dynamic Radio Map Reconstruction",
+      "sheet": "每日论文推荐",
+      "row": 442,
+      "fields": {
+        "日期": "2026-11-06",
+        "标题": "DyRadio: Spatiotemporal Diffusion for Dynamic Radio Map Reconstruction",
+        "内容": "作者：Zhijie Fan; Zhifeng Zhao; Rongpeng Li。问题：跨帧稀疏RSS既有时间状态错配又有未知测量噪声。 方法：传播先验辅助U-Net与噪声条件时空DiT联合重建；留出盲区预测均值/方差，以复合预测似然交替估计共享噪声标准差。 结果：Table IV在1%/2%/3%采样、三档噪声下相对最佳基线PSNR提高1.18–5.80 dB；摘要写1.18–5.75 dB，2%高噪声表格33.14−27.34=5.80 dB。16个CARLA/Sionna场景按12/1/3划分，无场景重叠。 局限：非实测、非跨城市证据；假设全序列独立同方差高斯噪声，预测偏差可能混入噪声估计。16帧联合输入不保证因果在线；4盲区×4样本×10步、最多3轮噪声估计，另50步重建，不能称低NFE。",
+        "契合方向": "动态无线地图；未知噪声；时空DiT",
+        "推荐理由": "区分地图预测方差与RSS观测噪声，为p(H|r,e,M)后的噪声校准提供可检验接口。",
+        "顶刊顶会/机构依据": "arXiv预印本；未确认正式venue；预印本/状态未确认；官方arXiv记录与所读PDF未提供可确认录用的公开声明；排版模板不作录用证据。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2611.01603",
+        "检索来源": "https://arxiv.org/abs/2611.01603",
+        "筛选备注": "可改造工具；独立鲁棒扩展；不直接叠加当前主方法；PDF pp.7–10 Eq.(27)–(36), Algorithms 1–2, Tables III–IV",
+        "是否略读": "☐",
+        "是否精读": "☐",
+        "备注": "",
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码；已查官方页面及全文实现链接，精确标题与arXiv ID检索未发现可确认的作者实现；公开GitHub API精确标题和编号均返回0；作者PDF/页面另行核查；不是证明代码不存在。证据：https://arxiv.org/abs/2611.01603；https://github.com/search?q=2611.01603&type=repositories",
+        "反馈匹配": "相对已读MissPath-FM的缺失路径，这篇显式估计未知噪声并处理动态RSS；相对GraphBARC，目标是时空重建而非主动采样认证。",
+        "反馈权重说明": "独立机制；事实/迁移推断/待验证假设分开；同预算配对，不预设提升。"
+      },
+      "hyperlinks": {},
+      "report_url": "/papers/reports/2026-11-06/",
+      "report_section": "## 1. DyRadio: Spatiotemporal Diffusion for Dynamic Radio Map Reconstruction\n\n**作者/年份/venue**：Zhijie Fan; Zhifeng Zhao; Rongpeng Li；2026；arXiv预印本；未确认正式venue。\n\n**发表状态及证据**：预印本/状态未确认。官方arXiv记录与所读PDF未提供可确认录用的公开声明；排版模板不作录用证据。\n\n**方向**：动态无线地图；未知噪声；时空DiT\n\n**问题**：跨帧稀疏RSS既有时间状态错配又有未知测量噪声。\n\n**论文方法**：传播先验辅助U-Net与噪声条件时空DiT联合重建；留出盲区预测均值/方差，以复合预测似然交替估计共享噪声标准差。\n\n**论文结果**：Table IV在1%/2%/3%采样、三档噪声下相对最佳基线PSNR提高1.18–5.80 dB；摘要写1.18–5.75 dB，2%高噪声表格33.14−27.34=5.80 dB。16个CARLA/Sionna场景按12/1/3划分，无场景重叠。\n\n**局限与审计判断**：非实测、非跨城市证据；假设全序列独立同方差高斯噪声，预测偏差可能混入噪声估计。16帧联合输入不保证因果在线；4盲区×4样本×10步、最多3轮噪声估计，另50步重建，不能称低NFE。\n\n**迁移类型**：可改造工具\n\n**研究接口（迁移推断）**：独立鲁棒扩展；不直接叠加当前主方法\n\n**与既有阅读差异**：相对已读MissPath-FM的缺失路径，这篇显式估计未知噪声并处理动态RSS；相对GraphBARC，目标是时空重建而非主动采样认证。\n\n**推荐理由**：区分地图预测方差与RSS观测噪声，为p(H|r,e,M)后的噪声校准提供可检验接口。\n\n**代码状态**：未发现公开代码\n\n**代码证据**：已查官方页面及全文实现链接，精确标题与arXiv ID检索未发现可确认的作者实现；公开GitHub API精确标题和编号均返回0；作者PDF/页面另行核查；不是证明代码不存在。证据：https://arxiv.org/abs/2611.01603；https://github.com/search?q=2611.01603&type=repositories\n\n**全文定位**：PDF pp.7–10 Eq.(27)–(36), Algorithms 1–2, Tables III–IV\n\n**身份与版本**：arXiv:2611.01603；DOI 10.48550/arXiv.2611.01603；Submission history From: Zhijie Fan [ view email ] [v1] Sun, 1 Nov 2026 05:39:31 UTC (1,029 KB)\n\n[官方页面](https://arxiv.org/abs/2611.01603)；[官方PDF](https://arxiv.org/pdf/2611.01603)；[原文PDF](https://arxiv.org/pdf/2611.01603)。完整PDF可访问，共13页。\n\n[本篇全文翻译/状态](https://lrxuanxuan.github.io/papers/items/2b04fba07f1a444c/#paper-translation)：job `1f29c3d56d6f370fa5945d68`已入队，gpt-6-luna/xhigh；原worker找不到会话，未启动。\n\n[原文许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：公开译文许可未确认，先保留本地。PDF只保留本地与官方链接。",
+      "report_entry_url": "/papers/reports/2026-11-06/#paper-2b04fba07f1a444c",
+      "paper_url": "/papers/items/2b04fba07f1a444c/",
+      "paper_report_url": "/papers/items/2b04fba07f1a444c/#paper-report",
+      "translations": [],
+      "links": [
+        "https://arxiv.org/pdf/2611.01603",
+        "https://arxiv.org/abs/2611.01603",
+        "https://github.com/search?q=2611.01603&type=repositories",
+        "https://lrxuanxuan.github.io/papers/items/2b04fba07f1a444c/#paper-translation)：job",
+        "https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：公开译文许可未确认"
+      ],
+      "github": [],
+      "pdf_sources": [
+        "https://arxiv.org/pdf/2611.01603"
+      ],
+      "hosted_pdfs": [],
+      "status": "预印本/状态未确认",
+      "translation_status": "pending",
+      "full_translation_public": false,
+      "full_translation_url": "/papers/items/2b04fba07f1a444c/#paper-translation",
+      "full_translation_label": "全文翻译（待补齐）"
+    },
     {
       "id": "2b6b98324c5f31cd",
       "date": "2026-11-05",
@@ -32904,6 +33159,17 @@
   ],
   "reports": [
     {
+      "date": "2026-11-06",
+      "url": "/papers/reports/2026-11-06/",
+      "source_file": "2026-11-06_每日前沿论文推荐.md",
+      "slug": "2026-11-06",
+      "covered_dates": [
+        "2026-11-06"
+      ],
+      "title": "11_6前沿论文推荐",
+      "download": "/assets/papers/reports/2026-11-06.md"
+    },
+    {
       "date": "2026-11-05",
       "url": "/papers/reports/2026-11-05/",
       "source_file": "2026-11-05_每日前沿论文推荐.md",
@@ -40264,9 +40530,9 @@
   "pdf_mode": "links_only",
   "workbook_table": {
     "url": "/papers/table/",
-    "source_sha256": "4f623d0064b093a7f9815b17c0bf70a90d56df36846a3a6dab75f4fd6240b8b5",
+    "source_sha256": "2532ba5a683835431915511c5ca1452de1f8f06fc1825360e8babd5561560105",
     "sheet": "每日论文推荐",
-    "row_count": 440,
+    "row_count": 445,
     "headers": [
       "日期",
       "标题",

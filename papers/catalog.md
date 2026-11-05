@@ -382,6 +382,36 @@ toc: true
 
 ## 推荐论文
 
+### 2026-11-06 · [RadioDiff-Inv2: Differentiable Diffusion Inversion under Location Drift from Sparse Noisy Measurements for Radio Map Estimation](/papers/items/8426d97a2d1dfa23/)
+
+为定位误差r与后验数据一致性建立直接接口；区分条件位置不准和物理采样算子不准。
+
+[本篇日报](/papers/items/8426d97a2d1dfa23/#paper-report)
+
+### 2026-11-06 · [Stochastic Generative Plug-and-Play Priors](/papers/items/3c7dcba9604157d2/)
+
+区分M次内部平均与随机输入重加噪的机制，可为当前FlowADMM构造同预算独立消融。
+
+[本篇日报](/papers/items/3c7dcba9604157d2/#paper-report)
+
+### 2026-11-06 · [Consistency Learning and Distillation for One-Step MIMO-OFDM Channel Estimation](/papers/items/408544de2a359006/)
+
+与LS/导频接口直接对应，要求匹配骨干、学生预算并同时检查SER与NMSE。
+
+[本篇日报](/papers/items/408544de2a359006/#paper-report)
+
+### 2026-11-06 · [Do Ray-Traced Cities Make a Better Channel Prior for an Unseen Site? A Pre-Registered Study in Simulation, and a Test on Measured Channels that Reverses It](/papers/items/875d1a39f636221d/)
+
+为几何→PSD/协方差→稀疏导频恢复提供直接反例，要求保留CDL与少量实测混合先验控制。
+
+[本篇日报](/papers/items/875d1a39f636221d/#paper-report)
+
+### 2026-11-06 · [DyRadio: Spatiotemporal Diffusion for Dynamic Radio Map Reconstruction](/papers/items/2b04fba07f1a444c/)
+
+区分地图预测方差与RSS观测噪声，为p(H|r,e,M)后的噪声校准提供可检验接口。
+
+[本篇日报](/papers/items/2b04fba07f1a444c/#paper-report)
+
 ### 2026-11-05 · [Amortised Inference through One-Step Implicit Sampling](/papers/items/2b6b98324c5f31cd/)
 
 低NFE路径有清晰成本归属，适合小规模证伪与预算基线。
