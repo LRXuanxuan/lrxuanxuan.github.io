@@ -194,11 +194,17 @@
       },
       "hyperlinks": {},
       "report_url": "/papers/reports/2026-11-05/",
-      "report_section": "## 4. A Perception vs. Distortion Perspective on Score-Based Generative Channel Estimation\n\n**作者/年份/venue**：Marco Skocaj; Lukas Eller; Mate Boban；2026；arXiv预印本；未确认正式venue。\n\n**发表状态及证据**：预印本/状态未确认。官方arXiv记录与所读PDF未提供可确认录用的公开声明；排版模板不作录用证据。\n\n**方向**：生成信道估计；后验决策；波束/预编码\n\n**问题**：低NMSE是否足够保证下游通信任务最优，生成后验何时值得成本。\n\n**论文方法**：区分条件均值与后验采样，以非线性下游泛函分析excess risk，并用后验样本近似Bayesian预编码决策。\n\n**论文结果**：Eq15分解单个后验样本MSE=MMSE+采样方差；高预测不确定性仿真中后验辅助预编码接近Bayes/E2E参考，低不确定性更适合低复杂度判别估计。\n\n**局限与审计判断**：单次后验样本并不因分布逼真而达到MMSE。非线性泛函的Jensen差需核查凸凹性/目标，不能泛称所有任务收益；有限样本、模型失配和端到端成本仍需测量。\n\n**迁移类型**：理论启发或基线\n\n**研究接口（迁移推断）**：将CKM/后验输出接入预编码效用，分别评价信道NMSE与任务风险；PASS/ISAC迁移未验证。\n\n**与既有阅读差异**：已有子空间NMSE解释恢复位置，本篇问恢复分布是否改变下游决策。\n\n**推荐理由**：给期刊扩展的任务相关评价提供依据，并明确采样不总有益。\n\n**代码状态**：未发现公开代码\n\n**代码证据**：已查官方页面及全文实现链接，精确标题与arXiv ID检索未发现可确认的作者实现；GitHub公开API精确标题与arXiv ID均为0个仓库结果，网页搜索未找到作者实现；不是证明代码不存在。证据：https://arxiv.org/abs/2606.16815；https://github.com/search?q=2606.16815&type=repositories\n\n**全文定位**：SecIII Eq15及excess-risk推导；预编码数值实验；PDF13页\n\n**身份与版本**：arXiv:2606.16815；DOI 10.48550/arXiv.2606.16815；Submission history From: Marco Skocaj [ view email ] [v1] Mon, 15 Jun 2026 15:00:24 UTC (8,000 KB)\n\n[官方页面](https://arxiv.org/abs/2606.16815)；[官方PDF](https://arxiv.org/pdf/2606.16815)；[原文PDF](https://arxiv.org/pdf/2606.16815)。完整PDF可访问，共13页。\n\n[本篇全文翻译/状态](https://lrxuanxuan.github.io/papers/items/c17a299f28542f56/#paper-translation)：job `ef3c77f5e300fc3d2caf30dc`已由用户授权的替代子智能体以gpt-6-luna/xhigh完成全文并通过QA；本地稿见translations/2026-11-05/index.md。\n\n[原文许可](https://creativecommons.org/licenses/by-nc-nd/4.0/)：公开译文许可未确认，先保留本地。PDF只保留本地与官方链接。",
+      "report_section": "## 4. A Perception vs. Distortion Perspective on Score-Based Generative Channel Estimation\n\n**作者/年份/venue**：Marco Skocaj; Lukas Eller; Mate Boban；2026；arXiv预印本；未确认正式venue。\n\n**发表状态及证据**：预印本/状态未确认。官方arXiv记录与所读PDF未提供可确认录用的公开声明；排版模板不作录用证据。\n\n**方向**：生成信道估计；后验决策；波束/预编码\n\n**问题**：低NMSE是否足够保证下游通信任务最优，生成后验何时值得成本。\n\n**论文方法**：区分条件均值与后验采样，以非线性下游泛函分析excess risk，并用后验样本近似Bayesian预编码决策。\n\n**论文结果**：Eq15分解单个后验样本MSE=MMSE+采样方差；高预测不确定性仿真中后验辅助预编码接近Bayes/E2E参考，低不确定性更适合低复杂度判别估计。\n\n**局限与审计判断**：单次后验样本并不因分布逼真而达到MMSE。非线性泛函的Jensen差需核查凸凹性/目标，不能泛称所有任务收益；有限样本、模型失配和端到端成本仍需测量。\n\n**迁移类型**：理论启发或基线\n\n**研究接口（迁移推断）**：将CKM/后验输出接入预编码效用，分别评价信道NMSE与任务风险；PASS/ISAC迁移未验证。\n\n**与既有阅读差异**：已有子空间NMSE解释恢复位置，本篇问恢复分布是否改变下游决策。\n\n**推荐理由**：给期刊扩展的任务相关评价提供依据，并明确采样不总有益。\n\n**代码状态**：未发现公开代码\n\n**代码证据**：已查官方页面及全文实现链接，精确标题与arXiv ID检索未发现可确认的作者实现；GitHub公开API精确标题与arXiv ID均为0个仓库结果，网页搜索未找到作者实现；不是证明代码不存在。证据：https://arxiv.org/abs/2606.16815；https://github.com/search?q=2606.16815&type=repositories\n\n**全文定位**：SecIII Eq15及excess-risk推导；预编码数值实验；PDF13页\n\n**身份与版本**：arXiv:2606.16815；DOI 10.48550/arXiv.2606.16815；Submission history From: Marco Skocaj [ view email ] [v1] Mon, 15 Jun 2026 15:00:24 UTC (8,000 KB)\n\n[官方页面](https://arxiv.org/abs/2606.16815)；[官方PDF](https://arxiv.org/pdf/2606.16815)；[原文PDF](https://arxiv.org/pdf/2606.16815)。完整PDF可访问，共13页。\n\n[本篇全文翻译/状态](https://lrxuanxuan.github.io/papers/items/c17a299f28542f56/#paper-translation)：job `ef3c77f5e300fc3d2caf30dc`已由用户授权的替代子智能体以gpt-6-luna/xhigh完成全文并通过QA；全文译稿已按用户 2026-11-05 明确要求公开发布。\n\n[原文许可](https://creativecommons.org/licenses/by-nc-nd/4.0/)：原文许可未授予公开发布全文译稿的依据，本译稿已按用户 2026-11-05 明确要求发布；原文许可保持不变。PDF只保留本地与官方链接。",
       "report_entry_url": "/papers/reports/2026-11-05/#paper-c17a299f28542f56",
       "paper_url": "/papers/items/c17a299f28542f56/",
       "paper_report_url": "/papers/items/c17a299f28542f56/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-05-ef3c77f5e300fc3d2caf30dc/#paper-c17a299f28542f56",
+          "scope": "全文中英文对照",
+          "title": "A Perception vs. Distortion Perspective on Score-Based Generative Channel Estimation"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2606.16815",
         "https://arxiv.org/abs/2606.16815",
@@ -213,9 +219,9 @@
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/c17a299f28542f56/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-05-ef3c77f5e300fc3d2caf30dc/#paper-c17a299f28542f56",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "5cc5ea3c70722ac1",
@@ -358,11 +364,17 @@
       },
       "hyperlinks": {},
       "report_url": "/papers/reports/2026-11-05/",
-      "report_section": "## 1. Learning Graph Beliefs for Active Radio Mapping With Decision-Certified Multi-Step Sensing\n\n**作者/年份/venue**：Wangqian Chen; Hao Wang; Yumeng Zhang; Chenghong Bian; Junting Chen; Jun Zhang；2026；arXiv预印本；未确认正式venue。\n\n**发表状态及证据**：预印本/状态未确认。官方arXiv记录与所读PDF未提供可确认录用的公开声明；排版模板不作录用证据。\n\n**方向**：CKM/RSS地图；主动采样；相关不确定性\n\n**问题**：逐点方差忽略采样冗余，多步路线价值计算代价大。\n\n**论文方法**：图网络产生节点/边精度因子，建立整图Gaussian belief；解析观测更新，按联合Bayes风险下降规划路线，以共享响应残差界剪枝和自适应细化。\n\n**论文结果**：Table1共同未观测网格上K4 RMSE5.293dB，BAL-EGP6.311dB，下降16.1%；K1为5.711dB。论文报告核心规划时间相对固定精度无剪枝实现减少56%。\n\n**局限与审计判断**：数值决策证书控制给定belief与候选搜索的近似误差，不证明学习的不确定性真实校准或全局最优飞行路线。每100新测量仍重训练；RSS地图实验不是复MIMO分布或跨城市保证。\n\n**迁移类型**：可改造工具\n\n**研究接口（迁移推断）**：先用于地图采样与统计先验维护，再单独验证对p(H|r,e,M)及后验修正的收益。\n\n**与既有阅读差异**：相对昨日INLA先验宽度与GP-UCB，新增学习的跨点相关结构及多步路线差值证书。\n\n**推荐理由**：把地图可信度与采样预算联系起来，适合作为独立地图获取分支。\n\n**代码状态**：未发现公开代码\n\n**代码证据**：已查官方页面及全文实现链接，精确标题与arXiv ID检索未发现可确认的作者实现；GitHub公开API精确标题与arXiv ID均为0个仓库结果，网页搜索未找到作者实现；不是证明代码不存在。证据：https://arxiv.org/abs/2610.37717；https://github.com/search?q=2610.37717&type=repositories\n\n**全文定位**：Sec2–5条件Gaussian更新与证书；Sec6/Table1–3；PDF24页\n\n**身份与版本**：arXiv:2610.37717；DOI 10.48550/arXiv.2610.37717；Submission history From: Wangqian Chen [ view email ] [v1] Tue, 27 Oct 2026 05:50:42 UTC (2,003 KB)\n\n[官方页面](https://arxiv.org/abs/2610.37717)；[官方PDF](https://arxiv.org/pdf/2610.37717)；[原文PDF](https://arxiv.org/pdf/2610.37717)。完整PDF可访问，共24页。\n\n[本篇全文翻译/状态](https://lrxuanxuan.github.io/papers/items/05774e2d53cb0cca/#paper-translation)：job `96904d0e22a1dbaf7c2ecf3a`已由用户授权的替代子智能体以gpt-6-luna/xhigh完成全文并通过QA；本地稿见translations/2026-11-05/index.md。\n\n[原文许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：公开译文许可未确认，先保留本地。PDF只保留本地与官方链接。",
+      "report_section": "## 1. Learning Graph Beliefs for Active Radio Mapping With Decision-Certified Multi-Step Sensing\n\n**作者/年份/venue**：Wangqian Chen; Hao Wang; Yumeng Zhang; Chenghong Bian; Junting Chen; Jun Zhang；2026；arXiv预印本；未确认正式venue。\n\n**发表状态及证据**：预印本/状态未确认。官方arXiv记录与所读PDF未提供可确认录用的公开声明；排版模板不作录用证据。\n\n**方向**：CKM/RSS地图；主动采样；相关不确定性\n\n**问题**：逐点方差忽略采样冗余，多步路线价值计算代价大。\n\n**论文方法**：图网络产生节点/边精度因子，建立整图Gaussian belief；解析观测更新，按联合Bayes风险下降规划路线，以共享响应残差界剪枝和自适应细化。\n\n**论文结果**：Table1共同未观测网格上K4 RMSE5.293dB，BAL-EGP6.311dB，下降16.1%；K1为5.711dB。论文报告核心规划时间相对固定精度无剪枝实现减少56%。\n\n**局限与审计判断**：数值决策证书控制给定belief与候选搜索的近似误差，不证明学习的不确定性真实校准或全局最优飞行路线。每100新测量仍重训练；RSS地图实验不是复MIMO分布或跨城市保证。\n\n**迁移类型**：可改造工具\n\n**研究接口（迁移推断）**：先用于地图采样与统计先验维护，再单独验证对p(H|r,e,M)及后验修正的收益。\n\n**与既有阅读差异**：相对昨日INLA先验宽度与GP-UCB，新增学习的跨点相关结构及多步路线差值证书。\n\n**推荐理由**：把地图可信度与采样预算联系起来，适合作为独立地图获取分支。\n\n**代码状态**：未发现公开代码\n\n**代码证据**：已查官方页面及全文实现链接，精确标题与arXiv ID检索未发现可确认的作者实现；GitHub公开API精确标题与arXiv ID均为0个仓库结果，网页搜索未找到作者实现；不是证明代码不存在。证据：https://arxiv.org/abs/2610.37717；https://github.com/search?q=2610.37717&type=repositories\n\n**全文定位**：Sec2–5条件Gaussian更新与证书；Sec6/Table1–3；PDF24页\n\n**身份与版本**：arXiv:2610.37717；DOI 10.48550/arXiv.2610.37717；Submission history From: Wangqian Chen [ view email ] [v1] Tue, 27 Oct 2026 05:50:42 UTC (2,003 KB)\n\n[官方页面](https://arxiv.org/abs/2610.37717)；[官方PDF](https://arxiv.org/pdf/2610.37717)；[原文PDF](https://arxiv.org/pdf/2610.37717)。完整PDF可访问，共24页。\n\n[本篇全文翻译/状态](https://lrxuanxuan.github.io/papers/items/05774e2d53cb0cca/#paper-translation)：job `96904d0e22a1dbaf7c2ecf3a`已由用户授权的替代子智能体以gpt-6-luna/xhigh完成全文并通过QA；全文译稿已按用户 2026-11-05 明确要求公开发布。\n\n[原文许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：原文许可未授予公开发布全文译稿的依据，本译稿已按用户 2026-11-05 明确要求发布；原文许可保持不变。PDF只保留本地与官方链接。",
       "report_entry_url": "/papers/reports/2026-11-05/#paper-05774e2d53cb0cca",
       "paper_url": "/papers/items/05774e2d53cb0cca/",
       "paper_report_url": "/papers/items/05774e2d53cb0cca/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-05-96904d0e22a1dbaf7c2ecf3a/#paper-05774e2d53cb0cca",
+          "scope": "全文中英文对照",
+          "title": "Learning Graph Beliefs for Active Radio Mapping With Decision-Certified Multi-Step Sensing"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2610.37717",
         "https://arxiv.org/abs/2610.37717",
@@ -377,9 +389,9 @@
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/05774e2d53cb0cca/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-05-96904d0e22a1dbaf7c2ecf3a/#paper-05774e2d53cb0cca",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "04fa65dc9dd5428c",
@@ -40258,6 +40270,28 @@
       "paper_id": "2610.17715",
       "license_url": "https://creativecommons.org/licenses/by/4.0/",
       "download": "/assets/papers/translations/2026-11-05-ab1234917ddfb6fcc5443a79.md"
+    },
+    {
+      "date": "2026-11-05",
+      "url": "/papers/translations/2026-11-05-ef3c77f5e300fc3d2caf30dc/",
+      "slug": "2026-11-05-ef3c77f5e300fc3d2caf30dc",
+      "source_file": "paper.md",
+      "scope": "全文中英文对照",
+      "title": "A Perception vs. Distortion Perspective on Score-Based Generative Channel Estimation",
+      "paper_id": "2606.16815",
+      "license_url": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+      "download": "/assets/papers/translations/2026-11-05-ef3c77f5e300fc3d2caf30dc.md"
+    },
+    {
+      "date": "2026-11-05",
+      "url": "/papers/translations/2026-11-05-96904d0e22a1dbaf7c2ecf3a/",
+      "slug": "2026-11-05-96904d0e22a1dbaf7c2ecf3a",
+      "source_file": "paper.md",
+      "scope": "全文中英文对照",
+      "title": "Learning Graph Beliefs for Active Radio Mapping With Decision-Certified Multi-Step Sensing",
+      "paper_id": "2610.37717",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-05-96904d0e22a1dbaf7c2ecf3a.md"
     }
   ],
   "assets": [],

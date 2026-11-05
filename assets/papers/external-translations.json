@@ -6451,5 +6451,55 @@
     "generation_model": "gpt-6-luna",
     "reasoning_effort": "xhigh",
     "checked_at": "2026-11-05T13:25:06.192917+08:00"
+  },
+  {
+    "date": "2026-11-05",
+    "slug": "2026-11-05-ef3c77f5e300fc3d2caf30dc",
+    "title": "A Perception vs. Distortion Perspective on Score-Based Generative Channel Estimation",
+    "scope": "全文中英文对照",
+    "url": "/papers/translations/2026-11-05-ef3c77f5e300fc3d2caf30dc/",
+    "source_file": "2026-11-05-ef3c77f5e300fc3d2caf30dc.md",
+    "source_page_path": "papers/translations/2026-11-05-ef3c77f5e300fc3d2caf30dc.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-11-05-ef3c77f5e300fc3d2caf30dc.md",
+    "paper_ids": [
+      "c17a299f28542f56"
+    ],
+    "source_arxiv_ids": [
+      "2606.16815"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license_url": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+    "generation_model": "gpt-6-luna",
+    "reasoning_effort": "xhigh",
+    "checked_at": "2026-11-05T18:02:00+08:00",
+    "publication_authorization": "用户 2026-11-05 明确要求公开发布；原文许可未授予公开译稿依据"
+  },
+  {
+    "date": "2026-11-05",
+    "slug": "2026-11-05-96904d0e22a1dbaf7c2ecf3a",
+    "title": "Learning Graph Beliefs for Active Radio Mapping With Decision-Certified Multi-Step Sensing",
+    "scope": "全文中英文对照",
+    "url": "/papers/translations/2026-11-05-96904d0e22a1dbaf7c2ecf3a/",
+    "source_file": "2026-11-05-96904d0e22a1dbaf7c2ecf3a.md",
+    "source_page_path": "papers/translations/2026-11-05-96904d0e22a1dbaf7c2ecf3a.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-11-05-96904d0e22a1dbaf7c2ecf3a.md",
+    "paper_ids": [
+      "05774e2d53cb0cca"
+    ],
+    "source_arxiv_ids": [
+      "2610.37717"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "generation_model": "gpt-6-luna",
+    "reasoning_effort": "xhigh",
+    "checked_at": "2026-11-05T18:02:00+08:00",
+    "publication_authorization": "用户 2026-11-05 明确要求公开发布；原文许可未授予公开译稿依据"
   }
 ]
