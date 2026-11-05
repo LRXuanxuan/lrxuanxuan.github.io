@@ -6379,5 +6379,77 @@
     "coverage": "full",
     "license": "cc_by",
     "final_proofread_done": false
+  },
+  {
+    "date": "2026-11-05",
+    "slug": "2026-11-05-ab1234917ddfb6fcc5443a79",
+    "title": "MissPath-FM: Flow Matching with Structured Priors for Partially Observed Time Series",
+    "scope": "全文中英文对照",
+    "url": "/papers/translations/2026-11-05-ab1234917ddfb6fcc5443a79/",
+    "source_file": "2026-11-05-ab1234917ddfb6fcc5443a79.md",
+    "source_page_path": "papers/translations/2026-11-05-ab1234917ddfb6fcc5443a79.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-11-05-ab1234917ddfb6fcc5443a79.md",
+    "paper_ids": [
+      "b11481d88fdebfd1"
+    ],
+    "source_arxiv_ids": [
+      "2610.17715"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "generation_model": "gpt-6-luna",
+    "reasoning_effort": "xhigh",
+    "checked_at": "2026-11-05T13:25:06.192917+08:00"
+  },
+  {
+    "date": "2026-11-05",
+    "slug": "2026-11-05-ecb492653b84b104527afc06",
+    "title": "GRAM-DIFF: Gram Matrix Guided Diffusion for MIMO Channel Estimation",
+    "scope": "全文中英文对照",
+    "url": "/papers/translations/2026-11-05-ecb492653b84b104527afc06/",
+    "source_file": "2026-11-05-ecb492653b84b104527afc06.md",
+    "source_page_path": "papers/translations/2026-11-05-ecb492653b84b104527afc06.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-11-05-ecb492653b84b104527afc06.md",
+    "paper_ids": [
+      "5cc5ea3c70722ac1"
+    ],
+    "source_arxiv_ids": [
+      "2602.15187"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "generation_model": "gpt-6-luna",
+    "reasoning_effort": "xhigh",
+    "checked_at": "2026-11-05T13:25:06.192917+08:00"
+  },
+  {
+    "date": "2026-11-05",
+    "slug": "2026-11-05-b77075cd018e2631d3efd25c",
+    "title": "Amortised Inference through One-Step Implicit Sampling",
+    "scope": "全文中英文对照",
+    "url": "/papers/translations/2026-11-05-b77075cd018e2631d3efd25c/",
+    "source_file": "2026-11-05-b77075cd018e2631d3efd25c.md",
+    "source_page_path": "papers/translations/2026-11-05-b77075cd018e2631d3efd25c.md",
+    "download": "https://raw.githubusercontent.com/LRXuanxuan/lrxuanxuan.github.io/main/papers/translations/2026-11-05-b77075cd018e2631d3efd25c.md",
+    "paper_ids": [
+      "2b6b98324c5f31cd"
+    ],
+    "source_arxiv_ids": [
+      "2610.12679"
+    ],
+    "qa_complete": true,
+    "external": true,
+    "primary_translation": true,
+    "coverage": "full",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "generation_model": "gpt-6-luna",
+    "reasoning_effort": "xhigh",
+    "checked_at": "2026-11-05T13:25:06.192917+08:00"
   }
 ]
