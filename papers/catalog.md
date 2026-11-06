@@ -11,6 +11,11 @@ toc: true
 
 ## 中英文译文
 
+- [面向一步 MIMO-OFDM 信道估计的一致性学习与蒸馏｜中文全文译文](/papers/translations/2026-11-06-2611-06271-consistency-learning-distillation-one-step-mimo-ofdm/) · 全文覆盖：摘要、全部正文章节、Eq.(3)–(15)、Tables I–IV 逐格、图注、式编号、参考文献英文原条目；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
+- [射线追踪城市能否为未见站点提供更好的信道先验？预注册仿真研究与实测反转检验｜中文全文译文](/papers/translations/2026-11-06-2611-05128-ray-traced-cities-channel-prior-unseen-site/) · 全文覆盖：摘要、§3–§9、Tables 1–3 逐格、图注、式编号、参考文献英文原条目；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
+- [DyRadio：动态无线电地图重建的时空扩散模型｜中文全文译文](/papers/translations/2026-11-06-2611-01603-dyradio-spatiotemporal-diffusion-dynamic-radio-map/) · 全文覆盖：摘要、全部正文章节、Eq.(27)–(36)、算法 1–2、表 III–IV 逐格、图注、式编号、参考文献英文原条目；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
+- [RadioDiff-Inv2：稀疏含噪测量与定位漂移下的可微扩散反演无线电地图估计｜中文全文译文](/papers/translations/2026-11-06-2606-08439-radiodiff-inv2-differentiable-diffusion-inversion/) · 全文覆盖：摘要、全部正文章节、Algorithm 1、Eq.(25)–(28)、Table I 逐格、图注、式编号、参考文献英文原条目；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
+- [随机生成式即插即用先验｜中文全文译文](/papers/translations/2026-11-06-2604-03603-stochastic-generative-plug-and-play-priors/) · 全文覆盖：摘要、全部正文章节、Eq.(17)–(21)、Assumptions 1–4、Theorems 1–2、Tables 1–3 逐格、图注、式编号、参考文献英文原条目；许可：CC BY 4.0；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
 - [MissPath-FM: Flow Matching with Structured Priors for Partially Observed Time Series](/papers/translations/2026-11-05-ab1234917ddfb6fcc5443a79/) · 全文中英文对照
 - [GRAM-DIFF: Gram Matrix Guided Diffusion for MIMO Channel Estimation](/papers/translations/2026-11-05-ecb492653b84b104527afc06/) · 全文中英文对照
 - [Amortised Inference through One-Step Implicit Sampling](/papers/translations/2026-11-05-b77075cd018e2631d3efd25c/) · 全文中英文对照
