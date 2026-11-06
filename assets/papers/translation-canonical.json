@@ -1,4 +1,44 @@
 {
+ "2b04fba07f1a444c": {
+  "url": "/papers/translations/2026-11-06-2611-01603-dyradio-spatiotemporal-diffusion-dynamic-radio-map/",
+  "title": "DyRadio：动态无线电地图重建的时空扩散模型｜中文全文译文",
+  "scope": "全文覆盖：摘要、全部正文章节、Eq.(27)–(36)、算法 1–2、表 III–IV 逐格、图注、式编号、参考文献英文原条目；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "875d1a39f636221d": {
+  "url": "/papers/translations/2026-11-06-2611-05128-ray-traced-cities-channel-prior-unseen-site/",
+  "title": "射线追踪城市能否为未见站点提供更好的信道先验？预注册仿真研究与实测反转检验｜中文全文译文",
+  "scope": "全文覆盖：摘要、§3–§9、Tables 1–3 逐格、图注、式编号、参考文献英文原条目；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "408544de2a359006": {
+  "url": "/papers/translations/2026-11-06-2611-06271-consistency-learning-distillation-one-step-mimo-ofdm/",
+  "title": "面向一步 MIMO-OFDM 信道估计的一致性学习与蒸馏｜中文全文译文",
+  "scope": "全文覆盖：摘要、全部正文章节、Eq.(3)–(15)、Tables I–IV 逐格、图注、式编号、参考文献英文原条目；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "3c7dcba9604157d2": {
+  "url": "/papers/translations/2026-11-06-2604-03603-stochastic-generative-plug-and-play-priors/",
+  "title": "随机生成式即插即用先验｜中文全文译文",
+  "scope": "全文覆盖：摘要、全部正文章节、Eq.(17)–(21)、Assumptions 1–4、Theorems 1–2、Tables 1–3 逐格、图注、式编号、参考文献英文原条目；许可：CC BY 4.0；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "8426d97a2d1dfa23": {
+  "url": "/papers/translations/2026-11-06-2606-08439-radiodiff-inv2-differentiable-diffusion-inversion/",
+  "title": "RadioDiff-Inv2：稀疏含噪测量与定位漂移下的可微扩散反演无线电地图估计｜中文全文译文",
+  "scope": "全文覆盖：摘要、全部正文章节、Algorithm 1、Eq.(25)–(28)、Table I 逐格、图注、式编号、参考文献英文原条目；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
  "948f4c96a3e26dd6": {
   "url": "/papers/translations/2026-11-04-2610-40723-inla-adaptive-uav-sampling-radio-environment-maps/",
   "title": "INLA 驱动的无人机自适应无线环境地图采样：先验宽度决定精度与校准｜中文全文译文",
