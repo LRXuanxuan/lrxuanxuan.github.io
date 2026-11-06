@@ -19,7 +19,8 @@ THEMES = {"reflection", "scenery", "inspiration"}
 SOURCE_TYPES = {"fiction", "poetry", "nonfiction", "film", "song", "speech", "other"}
 STRING_FIELDS = ("id", "text", "book", "author", "chapter", "readerLink", "theme", "aspect")
 BAD_UNICODE = re.compile(r"[\x00-\x08\x0b-\x1f\u200b-\u200f\ufeff\ufffc\ufffd]")
-NOISY_TITLE = re.compile(r"(?i)z-library|1lib\.sk|\.pdf$|纯文字版$")
+NOISY_TITLE = re.compile(r"(?i)z-library|1lib\.sk|\.pdf$|纯文字版$|译林幻系列|世界科幻大师丛书|科幻世界出品|增订版[）)]|中英法三语插图典藏本|来自半个世纪前|Star Maker造星主")
+NOISY_AUTHOR = re.compile(r"^\s*(?:\[[^]]+\]|【[^】]+】)|[（）()]|(?:\s*(?:编著|主编|著))$|(?:[^\s、；，])等$|(?:原曲|作词|歌词|音乐|演唱|录音对白)[:：]")
 UNIQUE_ID = re.compile(r"^[0-9a-f]{64}$")
 
 # Creators explicitly excluded from future daily-sign imports by the site owner.
@@ -81,6 +82,8 @@ def check_pool(pool: object) -> list[str]:
             errors.append(f"{label}.text: control/invisible characters or surrounding whitespace")
         if NOISY_TITLE.search(book):
             errors.append(f"{label}.book: edition/download artefact in title")
+        if NOISY_AUTHOR.search(row["author"]):
+            errors.append(f"{label}.author: keep only full creator names, without nationality/edition/credit notes")
         if row["aspect"] not in ASPECTS:
             errors.append(f"{label}.aspect: explicitly select one of the 14 principles")
         if row["theme"] not in THEMES:
