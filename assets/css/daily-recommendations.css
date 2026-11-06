@@ -53,7 +53,3 @@
 .rc-rec-empty{font-size:.82rem;color:var(--text-muted-color)}
 @media(max-width:720px){.rc-rec-day .rc-rec-items{grid-template-columns:1fr;gap:.1rem}.rc-rec-day .rc-rec-entry{border-left:0;border-top:1px solid var(--main-border-color);padding:.65rem 0}}
 @media(prefers-reduced-motion:reduce){.rc-rec-actions button,.rc-rec-tool{transition:none}}
-
-/* One Lucide icon for each daily recommendation category. */
-.rc-rec-kind { display: flex; align-items: center; gap: .4rem; }
-.rc-rec-kind .rc-icon { width: 1.05em; height: 1.05em; }

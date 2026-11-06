@@ -11,8 +11,7 @@
   const kinds = ['song', 'book', 'film'];
   const votes = ['like', 'meh', 'dislike', 'seen'];
   const voteNames = {like: '♡ 喜欢', meh: '～ 一般', dislike: '× 不喜欢', seen: '✓ 接触过'};
-  const kindNames = {song: '今日歌曲', book: '今日书籍', film: '今日电影'};
-  const kindIcons = {song: 'headphones', book: 'book-open', film: 'film'};
+  const kindNames = {song: '♪ 今日歌曲', book: '◇ 今日书籍', film: '▣ 今日电影'};
   const seenNames = {song: '✓ 听过', book: '✓ 读过', film: '✓ 看过'};
   let pool, state = {version: 1, days: {}, votes: {}}, storageOK = true, archiveLimit = 14;
 
@@ -22,16 +21,6 @@
     if (text != null) node.textContent = String(text);
     return node;
   };
-  function makeIcon(name) {
-    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-    svg.setAttribute('class', 'rc-icon');
-    svg.setAttribute('aria-hidden', 'true');
-    svg.setAttribute('focusable', 'false');
-    use.setAttribute('href', '/assets/icons/lucide-sprite.svg#' + name);
-    svg.append(use);
-    return svg;
-  }
   function localDay() {
     const parts = new Intl.DateTimeFormat('en-US', {
       timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit'
@@ -158,9 +147,7 @@
   }
   function makeEntry(kind, item) {
     const entry = make('article', 'rc-rec-entry');
-    const label = make('p', 'rc-rec-kind');
-    label.append(makeIcon(kindIcons[kind]), document.createTextNode(kindNames[kind]));
-    entry.append(label);
+    entry.append(make('p', 'rc-rec-kind', kindNames[kind]));
     entry.append(make('div', 'rc-rec-title', item.title));
     entry.append(make('div', 'rc-rec-creator', item.creator));
     const tags = make('div', 'rc-rec-tags');

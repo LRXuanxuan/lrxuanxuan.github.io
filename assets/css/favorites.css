@@ -155,8 +155,3 @@
 @media (prefers-reduced-motion: reduce) {
   .fm-favorites .fm-nav a { transition: none; }
 }
-
-/* Icons follow the current Chirpy light/dark palette. */
-.fm-favorites .fm-nav .rc-icon { color: var(--link-color); font-size: 1rem; }
-.fm-favorites .fm-section-title h2 .rc-icon { color: var(--link-color); font-size: .95em; margin-right: .24rem; }
-.fm-favorites .fm-info h3 .fm-external { vertical-align: -.08em; }

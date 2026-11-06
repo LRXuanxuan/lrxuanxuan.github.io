@@ -13,10 +13,10 @@ toc: false
     <p class="fm-eyebrow">A LITTLE PERSONAL CANON</p>
     <h2>我喜欢的书、唱片与游戏</h2>
     <nav class="fm-nav" aria-label="切换书籍与音乐榜单">
-      <a href="#daily-picks">{% include rc-icon.html name="calendar-days" %} 每日推荐</a>
-      <a href="#books">{% include rc-icon.html name="book-open" %} 书籍 Top 10</a>
-      <a href="#albums">{% include rc-icon.html name="headphones" %} 音乐 Top 10</a>
-      <a href="#games">{% include rc-icon.html name="gamepad-2" %} 游戏 Top 10</a>
+      <a href="#daily-picks"><i class="fas fa-calendar-day" aria-hidden="true"></i> 每日推荐</a>
+      <a href="#books"><i class="fas fa-book-open" aria-hidden="true"></i> 书籍 Top 10</a>
+      <a href="#albums"><i class="fas fa-music" aria-hidden="true"></i> 音乐 Top 10</a>
+      <a href="#games"><i class="fas fa-gamepad" aria-hidden="true"></i> 游戏 Top 10</a>
     </nav>
   </header>
 
@@ -25,7 +25,7 @@ toc: false
     <div class="fm-section-title">
       <div>
         <p class="fm-category">A LITTLE SOMETHING FOR TODAY</p>
-        <h2 id="fm-daily-picks-title">{% include rc-icon.html name="calendar-days" %} 每日推荐 · 一曲一书一影</h2>
+        <h2 id="fm-daily-picks-title">每日推荐 · 一曲一书一影</h2>
       </div>
       <time class="fm-count rc-rec-date" data-rec-date></time>
     </div>
@@ -66,7 +66,7 @@ toc: false
     <div class="fm-section-title">
       <div>
         <p class="fm-category">THE BOOKSHELF</p>
-        <h2 id="fm-books-title">{% include rc-icon.html name="book-open" %} 书籍 · Top 10</h2>
+        <h2 id="fm-books-title">书籍 · Top 10</h2>
       </div>
       <time class="fm-count" datetime="2026-10-11">更新于 2026-10-11</time>
     </div>
@@ -75,7 +75,7 @@ toc: false
       <li class="fm-item">
         <span class="fm-rank" aria-label="第 {{ forloop.index }} 名">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
         <div class="fm-info">
-          <h3><a href="{{ book.link }}" target="_blank" rel="noopener noreferrer" title="在豆瓣查看作品：{{ book.title | escape }}">{{ book.title }} {% include rc-icon.html name="external-link" class="fm-external" %}</a></h3>
+          <h3><a href="{{ book.link }}" target="_blank" rel="noopener noreferrer" title="在豆瓣查看作品：{{ book.title | escape }}">{{ book.title }} <i class="fas fa-arrow-up-right-from-square fm-external" aria-hidden="true"></i></a></h3>
           <p class="fm-byline"><span>{{ book.creator }}</span>{% if book.year %}<span class="fm-year"> · {{ book.year }}</span>{% endif %}</p>
         </div>
       </li>
@@ -87,7 +87,7 @@ toc: false
     <div class="fm-section-title">
       <div>
         <p class="fm-category">THE RECORD SHELF</p>
-        <h2 id="fm-albums-title">{% include rc-icon.html name="headphones" %} 音乐 · Top 10</h2>
+        <h2 id="fm-albums-title">音乐 · Top 10</h2>
       </div>
       <time class="fm-count" datetime="2026-10-11">更新于 2026-10-11</time>
     </div>
@@ -96,7 +96,7 @@ toc: false
       <li class="fm-item">
         <span class="fm-rank" aria-label="第 {{ forloop.index }} 名">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
         <div class="fm-info">
-          <h3><a href="{{ album.link }}" target="_blank" rel="noopener noreferrer" title="在豆瓣查看唱片：{{ album.title | escape }}">{{ album.title }} {% include rc-icon.html name="external-link" class="fm-external" %}</a></h3>
+          <h3><a href="{{ album.link }}" target="_blank" rel="noopener noreferrer" title="在豆瓣查看唱片：{{ album.title | escape }}">{{ album.title }} <i class="fas fa-arrow-up-right-from-square fm-external" aria-hidden="true"></i></a></h3>
           <p class="fm-byline"><span>{{ album.creator }}</span>{% if album.year %}<span class="fm-year"> · {{ album.year }}</span>{% endif %}</p>
         </div>
       </li>
@@ -108,7 +108,7 @@ toc: false
     <div class="fm-section-title">
       <div>
         <p class="fm-category">THE GAME SHELF</p>
-        <h2 id="fm-games-title">{% include rc-icon.html name="gamepad-2" %} 游戏 · Top 10</h2>
+        <h2 id="fm-games-title">游戏 · Top 10</h2>
       </div>
       <time class="fm-count" datetime="2026-10-11">更新于 2026-10-11</time>
     </div>
@@ -117,7 +117,7 @@ toc: false
       <li class="fm-item">
         <span class="fm-rank" aria-label="第 {{ forloop.index }} 名">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
         <div class="fm-info">
-          <h3><a href="{{ game.link }}" target="_blank" rel="noopener noreferrer" title="查看官方游戏页面：{{ game.title | escape }}">{{ game.title }} {% include rc-icon.html name="external-link" class="fm-external" %}</a></h3>
+          <h3><a href="{{ game.link }}" target="_blank" rel="noopener noreferrer" title="查看官方游戏页面：{{ game.title | escape }}">{{ game.title }} <i class="fas fa-arrow-up-right-from-square fm-external" aria-hidden="true"></i></a></h3>
           {% if game.zh %}<p class="fm-localized">{{ game.zh }}</p>{% elsif game.alias %}<p class="fm-localized">{{ game.alias }}</p>{% endif %}
           <p class="fm-byline"><span>{{ game.creator }}</span><span class="fm-year"> · {{ game.year }}</span></p>
         </div>

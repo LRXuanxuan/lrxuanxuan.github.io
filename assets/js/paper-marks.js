@@ -3,21 +3,11 @@
   'use strict';
   const STORE = 'rc-paper-marks-v1';
   const FLAGS = [
-    { bit: 1, name: '已略读', icon: 'eye' },
-    { bit: 2, name: '已精读', icon: 'book-open-check' },
-    { bit: 4, name: '已参考', icon: 'quote' },
-    { bit: 8, name: '收藏', icon: 'bookmark' }
+    { bit: 1, name: '已略读' },
+    { bit: 2, name: '已精读' },
+    { bit: 4, name: '已参考' },
+    { bit: 8, name: '收藏' }
   ];
-  function makeIcon(name) {
-    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-    svg.setAttribute('class', 'rc-icon');
-    svg.setAttribute('aria-hidden', 'true');
-    svg.setAttribute('focusable', 'false');
-    use.setAttribute('href', '/assets/icons/lucide-sprite.svg#' + name);
-    svg.append(use);
-    return svg;
-  }
   const validId = id => typeof id === 'string' && /^[a-f0-9]{16}$/i.test(id);
   let state = read();
 
@@ -41,6 +31,9 @@
         const active = Boolean(current & Number(button.dataset.pmBit));
         button.setAttribute('aria-pressed', String(active));
         button.classList.toggle('is-set', active);
+        if (button.dataset.pmBit === '8') {
+          button.querySelector('.pm-star').textContent = active ? '★' : '☆';
+        }
       });
     });
   }
@@ -76,7 +69,13 @@
       button.dataset.pmBit = String(flag.bit);
       button.setAttribute('aria-pressed', 'false');
       button.setAttribute('title', '点击切换：' + flag.name + '（保存在此浏览器）');
-      button.append(makeIcon(flag.icon), document.createTextNode(flag.name));
+      if (flag.bit === 8) {
+        const star = document.createElement('span');
+        star.className = 'pm-star';
+        star.setAttribute('aria-hidden', 'true');
+        star.textContent = '☆';
+        button.append(star, document.createTextNode(' ' + flag.name));
+      } else button.textContent = flag.name;
       button.addEventListener('click', () => toggle(id, flag.bit, toolbar));
       toolbar.append(button);
     });
@@ -93,6 +92,7 @@
       const active = Boolean(selected & Number(button.dataset.pmBit));
       button.setAttribute('aria-pressed', String(active));
       button.classList.toggle('is-set', active);
+      if (button.dataset.pmBit === '8') button.querySelector('.pm-star').textContent = active ? '★' : '☆';
     });
     return toolbar;
   }

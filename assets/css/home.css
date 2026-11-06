@@ -271,9 +271,3 @@
 .rc-home .rc-sign-preferences summary:focus-visible{outline:2px solid var(--link-color);outline-offset:2px}
 .rc-home .rc-sign-preferences:not([open]) [data-sign-mix]{display:none}
 .rc-home .rc-sign-preferences[open]{display:inline-flex;gap:.5rem}
-
-/* Lucide: prominent card symbols, restrained headings and controls. */
-.rc-home .rc-card-icon .rc-icon { width: 1.4rem; height: 1.4rem; }
-.rc-home .rc-section-heading h2 .rc-icon { color: var(--link-color); font-size: .94em; margin-right: .27rem; }
-.rc-home .rc-card h3 .rc-arrow { font-size: .76rem; }
-.rc-home .rc-wander-actions button .rc-icon { margin-right: .3em; vertical-align: -.13em; }

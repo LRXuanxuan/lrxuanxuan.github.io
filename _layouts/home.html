@@ -65,23 +65,23 @@ layout: default
     </div>
     <div class="rc-card-grid">
       <a class="rc-card" href="{{ '/papers/' | relative_url }}">
-        <span class="rc-card-icon" aria-hidden="true">{% include rc-icon.html name="radio-tower" %}</span>
-        <h3>科研与论文 {% include rc-icon.html name="external-link" class="rc-arrow" %}</h3>
+        <span class="rc-card-icon" aria-hidden="true"><i class="fas fa-satellite-dish"></i></span>
+        <h3>科研与论文 <i class="fas fa-arrow-up-right-from-square rc-arrow" aria-hidden="true"></i></h3>
         <p>无线通信、信号处理、生成模型；每日论文记录与阅读资料。</p>
       </a>
       <a class="rc-card" href="{{ '/translations/' | relative_url }}">
-        <span class="rc-card-icon" aria-hidden="true">{% include rc-icon.html name="book-open" %}</span>
-        <h3>科幻与翻译 {% include rc-icon.html name="external-link" class="rc-arrow" %}</h3>
+        <span class="rc-card-icon" aria-hidden="true"><i class="fas fa-book-open"></i></span>
+        <h3>科幻与翻译 <i class="fas fa-arrow-up-right-from-square rc-arrow" aria-hidden="true"></i></h3>
         <p>斯特普尔顿、谢克里，以及由 LLM 翻译、整理成册的中文译本。</p>
       </a>
       <a class="rc-card" href="{{ '/favorites/' | relative_url }}">
-        <span class="rc-card-icon" aria-hidden="true">{% include rc-icon.html name="headphones" %}</span>
-        <h3>书籍、音乐与游戏 {% include rc-icon.html name="external-link" class="rc-arrow" %}</h3>
+        <span class="rc-card-icon" aria-hidden="true"><i class="fas fa-book-reader"></i></span>
+        <h3>书籍、音乐与游戏 <i class="fas fa-arrow-up-right-from-square rc-arrow" aria-hidden="true"></i></h3>
         <p>私人书籍、音乐与游戏 Top 10；另有每日一曲、一书、一影与往日推荐手帖。</p>
       </a>
       <a class="rc-card" href="{{ '/playthings/' | relative_url }}">
-        <span class="rc-card-icon" aria-hidden="true">{% include rc-icon.html name="dices" %}</span>
-        <h3>奇怪的小玩意 {% include rc-icon.html name="external-link" class="rc-arrow" %}</h3>
+        <span class="rc-card-icon" aria-hidden="true"><i class="fas fa-dice"></i></span>
+        <h3>奇怪的小玩意 <i class="fas fa-arrow-up-right-from-square rc-arrow" aria-hidden="true"></i></h3>
         <p>收藏每天抽过的日签、照明之咪摇奖机，以及偶尔冒出来的小实验。</p>
       </a>
     </div>
@@ -89,7 +89,7 @@ layout: default
 
   <section class="rc-section" aria-labelledby="rc-publications-heading">
     <div class="rc-section-heading">
-      <h2 id="rc-publications-heading">{% include rc-icon.html name="chart-no-axes-combined" %} 研究成果</h2>
+      <h2 id="rc-publications-heading">研究成果</h2>
       <p>无线通信、信号处理与生成模型方向的论文工作；点击标题查看论文资料与代码仓库。</p>
     </div>
     <ol class="rc-publications">
@@ -113,7 +113,7 @@ layout: default
 
   <section class="rc-section rc-wander" data-wander-index="{{ '/assets/data/random-walk.json' | relative_url }}" aria-labelledby="rc-wander-heading">
     <div class="rc-section-heading">
-      <h2 id="rc-wander-heading">{% include rc-icon.html name="compass" %} 随机漫游</h2>
+      <h2 id="rc-wander-heading">随机漫游</h2>
       <p>随手翻开科幻章节、豆知识或论文译稿的一页，让旧文字也出来散散步。</p>
     </div>
     <div class="rc-wander-panel">
@@ -129,7 +129,7 @@ layout: default
         <p class="rc-wander-teaser" data-wander-teaser>从已有的文章和收藏中，随机挑选一篇来阅读。</p>
       </div>
       <div class="rc-wander-actions">
-        <button type="button" data-wander-next disabled>{% include rc-icon.html name="shuffle" %} 再逛逛</button>
+        <button type="button" data-wander-next disabled><i class="fas fa-random" aria-hidden="true"></i> 再逛逛</button>
         <a data-wander-open href="{{ '/translations/' | relative_url }}">先去科幻书架看看 ↗</a>
         <span class="rc-wander-status" data-wander-status role="status">正在整理漫游路线…</span>
       </div>

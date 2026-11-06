@@ -1,7 +1,6 @@
 /* Four lightweight, independent, browser-local paper flags. */
 .pm-marks { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: .38rem; }
 .pm-marks button {
-  display: inline-flex; align-items: center; gap: .27rem;
   font: inherit; font-size: .75rem; font-weight: 550; line-height: 1.35;
   padding: .32rem .57rem; border: 1px solid var(--main-border-color, #d0d9df);
   border-radius: 999px; color: var(--text-muted-color, #64748b);
@@ -16,8 +15,7 @@
   font-weight: 700;
 }
 .pm-marks button:focus-visible { outline: 2px solid var(--link-color, #177e86); outline-offset: 2px; }
-.pm-marks button .rc-icon { width: 1em; height: 1em; }
-.pm-marks button[data-pm-bit="8"].is-set .rc-icon { fill: currentColor; fill-opacity: .14; }
+.pm-marks .pm-star { font-size: .94em; }
 .pm-marks .pm-note { font-size: .72rem; color: var(--text-muted-color, #64748b); flex-basis: 100%; text-align: right; }
 .pm-marks .pm-note:empty { display: none; }
 .pm-detail { display: flex; justify-content: flex-end; margin: .15rem 0 .95rem; }
