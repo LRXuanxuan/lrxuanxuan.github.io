@@ -387,6 +387,36 @@ toc: true
 
 ## 推荐论文
 
+### 2026-11-07 · [RadioTraj3D: Height-Aware Adaptive Sampling for 3D Radio-Map Reconstruction from Ultra-Sparse Trajectories](/papers/items/dc9fc8fe38453a8e/)
+
+帮助把几何采样收益、网络收益和实测适配成本拆开归因。
+
+[本篇日报](/papers/items/dc9fc8fe38453a8e/#paper-report)
+
+### 2026-11-07 · [GIST: Location-Dependent Uplink Path Structure Transfer for FDD Downlink Channel Estimation](/papers/items/862131e0203bb5c6/)
+
+最直接检验当前网格CKM插值能否升级为有物理结构的连续先验。
+
+[本篇日报](/papers/items/862131e0203bb5c6/#paper-report)
+
+### 2026-11-07 · [Vision-Aided Near-Field Channel Estimation for XL-MIMO](/papers/items/0fd15d2af2474a2d/)
+
+不训练生成器即可验证环境信息是否真正压缩物理搜索域。
+
+[本篇日报](/papers/items/0fd15d2af2474a2d/#paper-report)
+
+### 2026-11-07 · [Dual Flow: Joint Image-Measurement Flow for Inverse Problems](/papers/items/7ccf741e41965618/)
+
+充分统计量和初始零空间投影直接对应秩亏导频接口。
+
+[本篇日报](/papers/items/7ccf741e41965618/#paper-report)
+
+### 2026-11-07 · [FLINT: Coupling Proximal Initialization and Bounded Stochasticity for Flow-Matching Inverse Problems](/papers/items/13da591a06f7322e/)
+
+直接检验相同总预算下初始化和后续扰动如何配合。
+
+[本篇日报](/papers/items/13da591a06f7322e/#paper-report)
+
 ### 2026-11-06 · [RadioDiff-Inv2: Differentiable Diffusion Inversion under Location Drift from Sparse Noisy Measurements for Radio Map Estimation](/papers/items/8426d97a2d1dfa23/)
 
 为定位误差r与后验数据一致性建立直接接口；区分条件位置不准和物理采样算子不准。
