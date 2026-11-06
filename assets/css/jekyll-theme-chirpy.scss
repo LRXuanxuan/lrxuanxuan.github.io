@@ -176,3 +176,19 @@
 :root[data-bs-theme='dark'] .highlight .w {
   background-color: var(--highlight-bg-color);
 }
+
+
+/* Small, locally hosted Lucide symbols; no icon runtime or external requests. */
+.rc-icon {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 1em;
+  height: 1em;
+  vertical-align: -.12em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}

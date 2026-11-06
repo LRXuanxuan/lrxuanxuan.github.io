@@ -12,13 +12,13 @@ toc: false
 <link rel="stylesheet" href="{{ '/assets/css/argument-practice.css' | relative_url }}?v=20261018">
 <div class="rc-playthings">
   <p class="rc-playthings-lead">抽过的签，和偶尔心血来潮的小玩意，都放在这里喵。</p>
-  <a class="rc-toy-link" href="{{ '/fortune/' | relative_url }}"><span aria-hidden="true">🎲</span><span><strong>照明之咪摇奖机</strong><small>去看看今天会摇到什么。</small></span><span aria-hidden="true">↗</span></a>
+  <a class="rc-toy-link" href="{{ '/fortune/' | relative_url }}"><span class="rc-toy-icon" aria-hidden="true">{% include rc-icon.html name="dices" %}</span><span><strong>照明之咪摇奖机</strong><small>去看看今天会摇到什么。</small></span><span aria-hidden="true">↗</span></a>
 
   <details class="rc-argument" id="argument-practice"
            data-rc-argument data-bank="{{ '/assets/data/argument-prompts.json' | relative_url }}">
     <summary>
       <span class="rc-argument-arrow" aria-hidden="true">▸</span>
-      <span class="rc-argument-heading" role="heading" aria-level="2">🗣️ 五分钟表达训练</span>
+      <span class="rc-argument-heading" role="heading" aria-level="2">{% include rc-icon.html name="message-circle" %} 五分钟表达训练</span>
       <span class="rc-argument-hint">100 道论述与辩驳题 · 每日换题 · 点击展开</span>
     </summary>
     <div class="rc-argument-body">
@@ -50,7 +50,7 @@ toc: false
   <details class="rc-tarot" id="tarot" data-rc-tarot>
     <summary>
       <span class="rc-tarot-arrow" aria-hidden="true">▸</span>
-      <span class="rc-tarot-heading" role="heading" aria-level="2">🃏 文字塔罗</span>
+      <span class="rc-tarot-heading" role="heading" aria-level="2">{% include rc-icon.html name="layers-2" %} 文字塔罗</span>
       <span class="rc-tarot-hint">78 张牌 · 无图抽牌 · 点击展开</span>
     </summary>
     <div class="rc-tarot-body">
@@ -76,7 +76,7 @@ toc: false
   {% if latest_tidbit %}
   <section class="rc-tidbit-preview" aria-labelledby="rc-tidbit-preview-title">
     <div class="rc-tidbit-preview-header">
-      <h2 id="rc-tidbit-preview-title">🫘 豆知识</h2>
+      <h2 id="rc-tidbit-preview-title">{% include rc-icon.html name="lightbulb" %} 豆知识</h2>
       <a href="{{ '/tidbits/' | relative_url }}?v={{ latest_tidbit.added_at | date: '%Y%m%d%H%M%S' }}">查看全部 {{ tidbits_by_newest.size }} 条 ↗</a>
     </div>
     <a class="rc-tidbit-latest" href="{{ '/tidbits/' | relative_url }}?v={{ latest_tidbit.added_at | date: '%Y%m%d%H%M%S' }}#{{ latest_tidbit.slug | escape }}">
@@ -92,7 +92,7 @@ toc: false
   <details class="rc-sign-archive" data-pool="{{ '/assets/data/quote-pool.json' | relative_url }}" aria-labelledby="rc-archive-title">
     <summary class="rc-archive-fold" id="rc-archive-title">
       <span class="rc-archive-fold-chevron" aria-hidden="true">▸</span>
-      <span class="rc-archive-fold-title" role="heading" aria-level="2">我的签册</span>
+      <span class="rc-archive-fold-title" role="heading" aria-level="2">{% include rc-icon.html name="notebook-tabs" %} 我的签册</span>
       <span class="rc-archive-fold-hint"><span class="rc-archive-fold-open">点击展开</span><span class="rc-archive-fold-close">点击收起</span> · 默认日签与重抽记录</span>
     </summary>
     <div class="rc-archive-content">

@@ -39,3 +39,8 @@
 .rc-archive-quote p { text-align:right; color:var(--text-muted-color); font-size:.8rem; margin:0; line-height:1.7; }
 .rc-sign-archive [hidden] { display:none; }
 @media(max-width:600px) { .rc-archive-quote { padding:.85rem 1rem; } }
+/* Small, consistent icons for toys and folded reading sections. */
+.rc-toy-link .rc-toy-icon { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 2rem; height: 2rem; border-radius: .6rem; background: var(--sidebar-hover-bg); color: var(--link-color); }
+.rc-toy-link .rc-toy-icon .rc-icon { width: 1.3rem; height: 1.3rem; }
+.rc-argument-heading .rc-icon, .rc-tarot-heading .rc-icon,
+.rc-tidbit-preview-header .rc-icon, .rc-archive-fold-title .rc-icon { color: var(--link-color); margin-right: .24em; }

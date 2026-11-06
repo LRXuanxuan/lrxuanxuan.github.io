@@ -33,3 +33,7 @@
 #paper-library #pl-more[hidden]{display:none}
 #paper-library button:focus-visible,#paper-library a:focus-visible{outline:3px solid #26a1ac;outline-offset:3px}
 @media(max-width:650px){#paper-library .pl-filters{grid-template-columns:1fr}#paper-library .pl-check{grid-column:auto}#paper-library .pl-card{padding:.85rem}#paper-library h2{font-size:1.3rem}}
+
+/* Symbol-only search and bookmark hints: controls retain their text labels. */
+#paper-library .pl-filter-label { display: inline-flex; align-items: center; gap: .3em; }
+#paper-library .pl-filter-label .rc-icon { color: var(--link-color); font-size: .95em; }
