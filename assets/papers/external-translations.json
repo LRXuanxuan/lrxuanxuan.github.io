@@ -6561,5 +6561,18 @@
     "coverage": "full",
     "license": "arxiv",
     "final_proofread_done": false
+  },
+  {
+    "date": "2026-11-07",
+    "title": "FLINT: Coupling Proximal Initialization and Bounded Stochasticity for Flow-Matching Inverse Problems",
+    "slug": "2026-11-07-8b2c646f07fd21dcfc863b1b",
+    "url": "/papers/translations/2026-11-07-8b2c646f07fd21dcfc863b1b/",
+    "scope": "全文中英文对照",
+    "paper_ids": [
+      "13da591a06f7322e"
+    ],
+    "qa_complete": true,
+    "coverage": "full",
+    "primary_translation": true
   }
 ]

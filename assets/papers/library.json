@@ -140,7 +140,7 @@
       },
       "hyperlinks": {},
       "report_url": "/papers/reports/2026-11-07/",
-      "report_section": "## 5. RadioTraj3D: Height-Aware Adaptive Sampling for 3D Radio-Map Reconstruction from Ultra-Sparse Trajectories\n\n**作者/年份/venue**：Zixuan Guo; Xiucheng Wang; Wenshuo Chen; Conghao Zhou; Chuan Huang; Ruijin Sun; Nan Cheng；2026；arXiv预印本；未确认正式venue。\n\n**发表状态及证据**：预印本/状态未确认。官方arXiv记录与所读PDF未提供可确认录用的公开声明；排版模板不作录用证据。\n\n**方向**：三维地图；采样路径；高度与预算\n\n**问题**：轨迹采样高度和建筑边界不匹配，完整体积缺少观测。\n\n**论文方法**：G-METS仅依据几何预先选高度、无碰撞路径与定额采样；3D局部/全高2D双分支用每高度一个共享有界系数融合。\n\n**论文结果**：UrbanRadio3D PSNR23.86 vs CompletionAE21.28；实测LACN 26.03 vs25.19，NMSE0.00553 vs0.00671（降17.5%）。冻结采样交叉评估收益仅0.21–0.38 dB，应与网络收益区分。\n\n**局限与审计判断**：实测三轮区域划分均用另外两区域适配800步，并置零建筑通道；该测试验证重建器而非G-METS实测航迹。目标为pathloss/RSRP非瞬时复CSI；高度共享系数不是样本级置信度。\n\n**迁移类型**：可改造工具\n\n**研究接口（迁移推断）**：无线采样/数据设计与系统约束对照\n\n**与既有阅读差异**：不同于GraphBARC观测后主动决策，G-METS航前仅看几何且精确分配预算；非动态RSS联合生成。\n\n**推荐理由**：帮助把几何采样收益、网络收益和实测适配成本拆开归因。\n\n**代码状态**：未发现公开代码\n\n**代码证据**：已查官方页面及全文实现链接，精确标题与arXiv ID检索未发现可确认的作者实现；公开GitHub API精确标题和编号均返回0；作者PDF/页面另行核查；不是证明代码不存在。证据：https://arxiv.org/abs/2610.41786；https://github.com/search?q=2610.41786&type=repositories\n\n**全文定位**：PDF pp.2–4 Eq.(1)–(10), Tables1–6\n\n**身份与版本**：arXiv:2610.41786；DOI 10.48550/arXiv.2610.41786；Submission history From: Zixuan Guo [ view email ] [v1] Fri, 30 Oct 2026 14:20:05 UTC (3,118 KB)\n\n[官方页面](https://arxiv.org/abs/2610.41786)；[官方PDF](https://arxiv.org/pdf/2610.41786)；[原文PDF](https://arxiv.org/pdf/2610.41786)。完整PDF可访问，共5页。\n\n[本篇全文翻译/状态](https://lrxuanxuan.github.io/papers/items/dc9fc8fe38453a8e/#paper-translation)：job `536afd81314a5014b30e73cf`已入队，gpt-6-luna/xhigh；原worker找不到会话，未启动。\n\n[原文许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：公开译文许可未确认，先保留本地。PDF只保留本地与官方链接。",
+      "report_section": "## 5. RadioTraj3D: Height-Aware Adaptive Sampling for 3D Radio-Map Reconstruction from Ultra-Sparse Trajectories\n\n**作者/年份/venue**：Zixuan Guo; Xiucheng Wang; Wenshuo Chen; Conghao Zhou; Chuan Huang; Ruijin Sun; Nan Cheng；2026；arXiv预印本；未确认正式venue。\n\n**发表状态及证据**：预印本/状态未确认。官方arXiv记录与所读PDF未提供可确认录用的公开声明；排版模板不作录用证据。\n\n**方向**：三维地图；采样路径；高度与预算\n\n**问题**：轨迹采样高度和建筑边界不匹配，完整体积缺少观测。\n\n**论文方法**：G-METS仅依据几何预先选高度、无碰撞路径与定额采样；3D局部/全高2D双分支用每高度一个共享有界系数融合。\n\n**论文结果**：UrbanRadio3D PSNR23.86 vs CompletionAE21.28；实测LACN 26.03 vs25.19，NMSE0.00553 vs0.00671（降17.5%）。冻结采样交叉评估收益仅0.21–0.38 dB，应与网络收益区分。\n\n**局限与审计判断**：实测三轮区域划分均用另外两区域适配800步，并置零建筑通道；该测试验证重建器而非G-METS实测航迹。目标为pathloss/RSRP非瞬时复CSI；高度共享系数不是样本级置信度。\n\n**迁移类型**：可改造工具\n\n**研究接口（迁移推断）**：无线采样/数据设计与系统约束对照\n\n**与既有阅读差异**：不同于GraphBARC观测后主动决策，G-METS航前仅看几何且精确分配预算；非动态RSS联合生成。\n\n**推荐理由**：帮助把几何采样收益、网络收益和实测适配成本拆开归因。\n\n**代码状态**：未发现公开代码\n\n**代码证据**：已查官方页面及全文实现链接，精确标题与arXiv ID检索未发现可确认的作者实现；公开GitHub API精确标题和编号均返回0；作者PDF/页面另行核查；不是证明代码不存在。证据：https://arxiv.org/abs/2610.41786；https://github.com/search?q=2610.41786&type=repositories\n\n**全文定位**：PDF pp.2–4 Eq.(1)–(10), Tables1–6\n\n**身份与版本**：arXiv:2610.41786；DOI 10.48550/arXiv.2610.41786；Submission history From: Zixuan Guo [ view email ] [v1] Fri, 30 Oct 2026 14:20:05 UTC (3,118 KB)\n\n[官方页面](https://arxiv.org/abs/2610.41786)；[官方PDF](https://arxiv.org/pdf/2610.41786)；[原文PDF](https://arxiv.org/pdf/2610.41786)。完整PDF可访问，共5页。\n\n[本篇全文翻译/状态](https://lrxuanxuan.github.io/papers/items/dc9fc8fe38453a8e/#paper-translation)：job `536afd81314a5014b30e73cf`已由 DSH 替代子智能体以 deepseek-flash 完成全文中英对照（5 页、97 块）并通过结构 QA；原论文为 arXiv 非独占分发许可，公开译文授权未确认，译稿仅本地保存（见 translations/2026-11-07/index.md），本篇页面仅显示状态。\n\n[原文许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：公开译文许可未确认，先保留本地。PDF只保留本地与官方链接。",
       "report_entry_url": "/papers/reports/2026-11-07/#paper-dc9fc8fe38453a8e",
       "paper_url": "/papers/items/dc9fc8fe38453a8e/",
       "paper_report_url": "/papers/items/dc9fc8fe38453a8e/#paper-report",
@@ -152,16 +152,18 @@
         "https://lrxuanxuan.github.io/papers/items/dc9fc8fe38453a8e/#paper-translation)：job",
         "https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：公开译文许可未确认"
       ],
-      "github": [],
+      "github": [
+        "https://github.com/search?q=2610.41786&type=repositories"
+      ],
       "pdf_sources": [
         "https://arxiv.org/pdf/2610.41786"
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
+      "translation_status": "complete",
       "full_translation_public": false,
       "full_translation_url": "/papers/items/dc9fc8fe38453a8e/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_label": "全文翻译（仅本地）"
     },
     {
       "id": "862131e0203bb5c6",
@@ -190,7 +192,7 @@
       },
       "hyperlinks": {},
       "report_url": "/papers/reports/2026-11-07/",
-      "report_section": "## 4. GIST: Location-Dependent Uplink Path Structure Transfer for FDD Downlink Channel Estimation\n\n**作者/年份/venue**：Jinghan Zhang; Xitao Gong; Qi Wang; Mate Boban; Giuseppe Caire；2026；IEEE ICC 2027投稿；尚未录用。\n\n**发表状态及证据**：在投。作者arXiv Comments明确Submitted to IEEE ICC 2027。\n\n**方向**：连续位置路径先验；UL→DL；FDD\n\n**问题**：网格/最近邻先验在未采样区域失配，DL导频昂贵。\n\n**论文方法**：位置相关Gaussian primitive预测路径角度、时延和功率；UL训练，DL用预测结构作LMMSE先验，足够导频时再NOMP修正。\n\n**论文结果**：Munich外推相对普通基线差距9–13 dB，8导频子载波达中位NMSE−15 dB而NOMP需32；1024 primitives约84 KB。实测使用DICHASUS虚拟FDD子带。\n\n**局限与审计判断**：不是跨城市零样本；位置分块同站点，训练位置精确。真实子带仅32 MHz间隔；低SNR加NOMP可恶化；GTUL只在仿真场景可作该类先验误差下界。\n\n**迁移类型**：可改造工具\n\n**研究接口（迁移推断）**：连续位置→路径/协方差→导频后验；近期优先精读\n\n**与既有阅读差异**：相对GeoGS-CE/射线池化先验，这篇从UL观测学习连续路径结构再用DL导频修正；不是生成完整CSI或把UL复增益直接搬到DL。\n\n**推荐理由**：最直接检验当前网格CKM插值能否升级为有物理结构的连续先验。\n\n**代码状态**：未发现公开代码\n\n**代码证据**：已查官方页面及全文实现链接，精确标题与arXiv ID检索未发现可确认的作者实现；公开GitHub API精确标题和编号均返回0；作者PDF/页面另行核查；不是证明代码不存在。证据：https://arxiv.org/abs/2611.03482；https://github.com/search?q=2611.03482&type=repositories\n\n**全文定位**：PDF pp.2–6 Eq.(6),(10), Figs.3–7\n\n**身份与版本**：arXiv:2611.03482；DOI 10.48550/arXiv.2611.03482；Submission history From: Jinghan Zhang [ view email ] [v1] Mon, 2 Nov 2026 17:23:17 UTC (869 KB)\n\n[官方页面](https://arxiv.org/abs/2611.03482)；[官方PDF](https://arxiv.org/pdf/2611.03482)；[原文PDF](https://arxiv.org/pdf/2611.03482)。完整PDF可访问，共6页。\n\n[本篇全文翻译/状态](https://lrxuanxuan.github.io/papers/items/862131e0203bb5c6/#paper-translation)：job `211f4c3508538beffbfff717`已入队，gpt-6-luna/xhigh；原worker找不到会话，未启动。\n\n[原文许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：公开译文许可未确认，先保留本地。PDF只保留本地与官方链接。",
+      "report_section": "## 4. GIST: Location-Dependent Uplink Path Structure Transfer for FDD Downlink Channel Estimation\n\n**作者/年份/venue**：Jinghan Zhang; Xitao Gong; Qi Wang; Mate Boban; Giuseppe Caire；2026；IEEE ICC 2027投稿；尚未录用。\n\n**发表状态及证据**：在投。作者arXiv Comments明确Submitted to IEEE ICC 2027。\n\n**方向**：连续位置路径先验；UL→DL；FDD\n\n**问题**：网格/最近邻先验在未采样区域失配，DL导频昂贵。\n\n**论文方法**：位置相关Gaussian primitive预测路径角度、时延和功率；UL训练，DL用预测结构作LMMSE先验，足够导频时再NOMP修正。\n\n**论文结果**：Munich外推相对普通基线差距9–13 dB，8导频子载波达中位NMSE−15 dB而NOMP需32；1024 primitives约84 KB。实测使用DICHASUS虚拟FDD子带。\n\n**局限与审计判断**：不是跨城市零样本；位置分块同站点，训练位置精确。真实子带仅32 MHz间隔；低SNR加NOMP可恶化；GTUL只在仿真场景可作该类先验误差下界。\n\n**迁移类型**：可改造工具\n\n**研究接口（迁移推断）**：连续位置→路径/协方差→导频后验；近期优先精读\n\n**与既有阅读差异**：相对GeoGS-CE/射线池化先验，这篇从UL观测学习连续路径结构再用DL导频修正；不是生成完整CSI或把UL复增益直接搬到DL。\n\n**推荐理由**：最直接检验当前网格CKM插值能否升级为有物理结构的连续先验。\n\n**代码状态**：未发现公开代码\n\n**代码证据**：已查官方页面及全文实现链接，精确标题与arXiv ID检索未发现可确认的作者实现；公开GitHub API精确标题和编号均返回0；作者PDF/页面另行核查；不是证明代码不存在。证据：https://arxiv.org/abs/2611.03482；https://github.com/search?q=2611.03482&type=repositories\n\n**全文定位**：PDF pp.2–6 Eq.(6),(10), Figs.3–7\n\n**身份与版本**：arXiv:2611.03482；DOI 10.48550/arXiv.2611.03482；Submission history From: Jinghan Zhang [ view email ] [v1] Mon, 2 Nov 2026 17:23:17 UTC (869 KB)\n\n[官方页面](https://arxiv.org/abs/2611.03482)；[官方PDF](https://arxiv.org/pdf/2611.03482)；[原文PDF](https://arxiv.org/pdf/2611.03482)。完整PDF可访问，共6页。\n\n[本篇全文翻译/状态](https://lrxuanxuan.github.io/papers/items/862131e0203bb5c6/#paper-translation)：job `211f4c3508538beffbfff717`已由 DSH 替代子智能体以 deepseek-flash 完成全文中英对照（6 页、115 块）并通过结构 QA；原论文为 arXiv 非独占分发许可，公开译文授权未确认，译稿仅本地保存（见 translations/2026-11-07/index.md），本篇页面仅显示状态。\n\n[原文许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：公开译文许可未确认，先保留本地。PDF只保留本地与官方链接。",
       "report_entry_url": "/papers/reports/2026-11-07/#paper-862131e0203bb5c6",
       "paper_url": "/papers/items/862131e0203bb5c6/",
       "paper_report_url": "/papers/items/862131e0203bb5c6/#paper-report",
@@ -202,16 +204,18 @@
         "https://lrxuanxuan.github.io/papers/items/862131e0203bb5c6/#paper-translation)：job",
         "https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：公开译文许可未确认"
       ],
-      "github": [],
+      "github": [
+        "https://github.com/search?q=2611.03482&type=repositories"
+      ],
       "pdf_sources": [
         "https://arxiv.org/pdf/2611.03482"
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "pending",
+      "translation_status": "complete",
       "full_translation_public": false,
       "full_translation_url": "/papers/items/862131e0203bb5c6/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_label": "全文翻译（仅本地）"
     },
     {
       "id": "0fd15d2af2474a2d",
@@ -240,7 +244,7 @@
       },
       "hyperlinks": {},
       "report_url": "/papers/reports/2026-11-07/",
-      "report_section": "## 3. Vision-Aided Near-Field Channel Estimation for XL-MIMO\n\n**作者/年份/venue**：Sachira Karunasena; Angel Lozano; Tom Drummond; Rajitha Senanayake；2026；arXiv预印本；未确认正式venue。\n\n**发表状态及证据**：在投。PDF首页作者明确声明已提交IEEE寻求发表；未指明具体venue或录用。\n\n**方向**：视觉几何约束；近场宽带XL-MIMO\n\n**问题**：全覆盖角距字典成本高且导频有限。\n\n**论文方法**：已识别TX载体的3D框与相机标定约束候选屋顶网格；白化导频LS选点，Nelder-Mead连续细化。\n\n**论文结果**：P=32/SNR10 dB时Table II达到−20 dB：宽带V-NMR只需9候选；V-CL需64。宽带V-NMR在P64达−34.1 dB。\n\n**局限与审计判断**：单LoS、块衰落；假设载体身份、3D框和标定已知。真实图像配解析合成信道，非实测CSI；未评估检测错误、多径或高速漂移。\n\n**迁移类型**：可改造工具\n\n**研究接口（迁移推断）**：几何→候选域→导频残差的低复杂度基线\n\n**与既有阅读差异**：相对一般视觉diffusion融合，直接限制连续几何搜索并显式用导频校正；未建模完整条件信道分布。\n\n**推荐理由**：不训练生成器即可验证环境信息是否真正压缩物理搜索域。\n\n**代码状态**：未发现公开代码\n\n**代码证据**：已查官方页面及全文实现链接，精确标题与arXiv ID检索未发现可确认的作者实现；公开GitHub API精确标题和编号均返回0；作者PDF/页面另行核查；不是证明代码不存在。证据：https://arxiv.org/abs/2611.06375；https://github.com/search?q=2611.06375&type=repositories\n\n**全文定位**：PDF pp.1–6 Eq.(19)–(22), Algorithms 1–3, Table II\n\n**身份与版本**：arXiv:2611.06375；DOI 10.48550/arXiv.2611.06375；Submission history From: Sachira Karunasena [ view email ] [v1] Wed, 4 Nov 2026 11:34:58 UTC (187 KB)\n\n[官方页面](https://arxiv.org/abs/2611.06375)；[官方PDF](https://arxiv.org/pdf/2611.06375)；[原文PDF](https://arxiv.org/pdf/2611.06375)。完整PDF可访问，共6页。\n\n[本篇全文翻译/状态](https://lrxuanxuan.github.io/papers/items/0fd15d2af2474a2d/#paper-translation)：job `45033f60c6257dd4ed05ec01`已入队，gpt-6-luna/xhigh；原worker找不到会话，未启动。\n\n[原文许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：公开译文许可未确认，先保留本地。PDF只保留本地与官方链接。",
+      "report_section": "## 3. Vision-Aided Near-Field Channel Estimation for XL-MIMO\n\n**作者/年份/venue**：Sachira Karunasena; Angel Lozano; Tom Drummond; Rajitha Senanayake；2026；arXiv预印本；未确认正式venue。\n\n**发表状态及证据**：在投。PDF首页作者明确声明已提交IEEE寻求发表；未指明具体venue或录用。\n\n**方向**：视觉几何约束；近场宽带XL-MIMO\n\n**问题**：全覆盖角距字典成本高且导频有限。\n\n**论文方法**：已识别TX载体的3D框与相机标定约束候选屋顶网格；白化导频LS选点，Nelder-Mead连续细化。\n\n**论文结果**：P=32/SNR10 dB时Table II达到−20 dB：宽带V-NMR只需9候选；V-CL需64。宽带V-NMR在P64达−34.1 dB。\n\n**局限与审计判断**：单LoS、块衰落；假设载体身份、3D框和标定已知。真实图像配解析合成信道，非实测CSI；未评估检测错误、多径或高速漂移。\n\n**迁移类型**：可改造工具\n\n**研究接口（迁移推断）**：几何→候选域→导频残差的低复杂度基线\n\n**与既有阅读差异**：相对一般视觉diffusion融合，直接限制连续几何搜索并显式用导频校正；未建模完整条件信道分布。\n\n**推荐理由**：不训练生成器即可验证环境信息是否真正压缩物理搜索域。\n\n**代码状态**：未发现公开代码\n\n**代码证据**：已查官方页面及全文实现链接，精确标题与arXiv ID检索未发现可确认的作者实现；公开GitHub API精确标题和编号均返回0；作者PDF/页面另行核查；不是证明代码不存在。证据：https://arxiv.org/abs/2611.06375；https://github.com/search?q=2611.06375&type=repositories\n\n**全文定位**：PDF pp.1–6 Eq.(19)–(22), Algorithms 1–3, Table II\n\n**身份与版本**：arXiv:2611.06375；DOI 10.48550/arXiv.2611.06375；Submission history From: Sachira Karunasena [ view email ] [v1] Wed, 4 Nov 2026 11:34:58 UTC (187 KB)\n\n[官方页面](https://arxiv.org/abs/2611.06375)；[官方PDF](https://arxiv.org/pdf/2611.06375)；[原文PDF](https://arxiv.org/pdf/2611.06375)。完整PDF可访问，共6页。\n\n[本篇全文翻译/状态](https://lrxuanxuan.github.io/papers/items/0fd15d2af2474a2d/#paper-translation)：job `45033f60c6257dd4ed05ec01`已由 DSH 替代子智能体以 deepseek-flash 完成全文中英对照（6 页、125 块）并通过结构 QA；原论文为 arXiv 非独占分发许可，公开译文授权未确认，译稿仅本地保存（见 translations/2026-11-07/index.md），本篇页面仅显示状态。\n\n[原文许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：公开译文许可未确认，先保留本地。PDF只保留本地与官方链接。",
       "report_entry_url": "/papers/reports/2026-11-07/#paper-0fd15d2af2474a2d",
       "paper_url": "/papers/items/0fd15d2af2474a2d/",
       "paper_report_url": "/papers/items/0fd15d2af2474a2d/#paper-report",
@@ -252,16 +256,18 @@
         "https://lrxuanxuan.github.io/papers/items/0fd15d2af2474a2d/#paper-translation)：job",
         "https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：公开译文许可未确认"
       ],
-      "github": [],
+      "github": [
+        "https://github.com/search?q=2611.06375&type=repositories"
+      ],
       "pdf_sources": [
         "https://arxiv.org/pdf/2611.06375"
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "pending",
+      "translation_status": "complete",
       "full_translation_public": false,
       "full_translation_url": "/papers/items/0fd15d2af2474a2d/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_label": "全文翻译（仅本地）"
     },
     {
       "id": "7ccf741e41965618",
@@ -290,7 +296,7 @@
       },
       "hyperlinks": {},
       "report_url": "/papers/reports/2026-11-07/",
-      "report_section": "## 2. Dual Flow: Joint Image-Measurement Flow for Inverse Problems\n\n**作者/年份/venue**：Sevket Ege Yesilyurt; Figen S. Oktem；2026；arXiv预印本；未确认正式venue。\n\n**发表状态及证据**：预印本/状态未确认。官方arXiv记录与所读PDF未提供可确认录用的公开声明；排版模板不作录用证据。\n\n**方向**：联合观测-信道flow；相关噪声充分统计量\n\n**问题**：仅在图像域引导可能低效，观测状态如何共同演化？\n\n**论文方法**：联合更新信号与无噪声观测，推导算子相关高斯去噪充分统计量；一般任务需按算子微调速度网络。\n\n**论文结果**：Table I CelebA随机补全Dual Flow-W 35.73 dB/0.18秒，PnP-Flow5 34.07/4.83秒；Table II AFHQ同任务Dual Flow-W 33.99低于PnP-Flow5 34.48。Table V核宽1→1.2时35.14→23.82 dB。\n\n**局限与审计判断**：末端A x与内部观测一致不等于拟合含噪原始y或保证精确条件后验。W为6个完整恢复平均，不是每轮M平均；需计入离线微调、算子线性求解及失配敏感性。\n\n**迁移类型**：理论启发或基线\n\n**研究接口（迁移推断）**：联合状态与零空间初始化的独立训练分支\n\n**与既有阅读差异**：不同于固定先验PnP-Flow/FlowADMM，本篇一般任务需要算子相关训练；W平均和现有内部M不同。\n\n**推荐理由**：充分统计量和初始零空间投影直接对应秩亏导频接口。\n\n**代码状态**：作者预告/部分代码\n\n**代码证据**：arXiv作者直链仓库，实际main只有README.md及LICENSE；README写Codes will be shared upon publication，不能当作完整实现。\n\n**全文定位**：PDF pp.5–7 Eq.(27)–(38), Algorithms 1–2; Tables I–V\n\n**身份与版本**：arXiv:2611.05843；DOI 10.48550/arXiv.2611.05843；Submission history From: Sevket Ege Yesilyurt [ view email ] [v1] Wed, 4 Nov 2026 02:32:34 UTC (5,504 KB)\n\n[官方页面](https://arxiv.org/abs/2611.05843)；[官方PDF](https://arxiv.org/pdf/2611.05843)；[原文PDF](https://arxiv.org/pdf/2611.05843)。完整PDF可访问，共17页。\n\n[本篇全文翻译/状态](https://lrxuanxuan.github.io/papers/items/7ccf741e41965618/#paper-translation)：job `d721e732ef6cb08edc2b3813`已入队，gpt-6-luna/xhigh；原worker找不到会话，未启动。\n\n[原文许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：公开译文许可未确认，先保留本地。PDF只保留本地与官方链接。",
+      "report_section": "## 2. Dual Flow: Joint Image-Measurement Flow for Inverse Problems\n\n**作者/年份/venue**：Sevket Ege Yesilyurt; Figen S. Oktem；2026；arXiv预印本；未确认正式venue。\n\n**发表状态及证据**：预印本/状态未确认。官方arXiv记录与所读PDF未提供可确认录用的公开声明；排版模板不作录用证据。\n\n**方向**：联合观测-信道flow；相关噪声充分统计量\n\n**问题**：仅在图像域引导可能低效，观测状态如何共同演化？\n\n**论文方法**：联合更新信号与无噪声观测，推导算子相关高斯去噪充分统计量；一般任务需按算子微调速度网络。\n\n**论文结果**：Table I CelebA随机补全Dual Flow-W 35.73 dB/0.18秒，PnP-Flow5 34.07/4.83秒；Table II AFHQ同任务Dual Flow-W 33.99低于PnP-Flow5 34.48。Table V核宽1→1.2时35.14→23.82 dB。\n\n**局限与审计判断**：末端A x与内部观测一致不等于拟合含噪原始y或保证精确条件后验。W为6个完整恢复平均，不是每轮M平均；需计入离线微调、算子线性求解及失配敏感性。\n\n**迁移类型**：理论启发或基线\n\n**研究接口（迁移推断）**：联合状态与零空间初始化的独立训练分支\n\n**与既有阅读差异**：不同于固定先验PnP-Flow/FlowADMM，本篇一般任务需要算子相关训练；W平均和现有内部M不同。\n\n**推荐理由**：充分统计量和初始零空间投影直接对应秩亏导频接口。\n\n**代码状态**：作者预告/部分代码\n\n**代码证据**：arXiv作者直链仓库，实际main只有README.md及LICENSE；README写Codes will be shared upon publication，不能当作完整实现。\n\n**全文定位**：PDF pp.5–7 Eq.(27)–(38), Algorithms 1–2; Tables I–V\n\n**身份与版本**：arXiv:2611.05843；DOI 10.48550/arXiv.2611.05843；Submission history From: Sevket Ege Yesilyurt [ view email ] [v1] Wed, 4 Nov 2026 02:32:34 UTC (5,504 KB)\n\n[官方页面](https://arxiv.org/abs/2611.05843)；[官方PDF](https://arxiv.org/pdf/2611.05843)；[原文PDF](https://arxiv.org/pdf/2611.05843)。完整PDF可访问，共17页。\n\n[本篇全文翻译/状态](https://lrxuanxuan.github.io/papers/items/7ccf741e41965618/#paper-translation)：job `d721e732ef6cb08edc2b3813`已由 DSH 替代子智能体以 deepseek-flash 完成全文中英对照（17 页、261 块）并通过结构 QA；原论文为 arXiv 非独占分发许可，公开译文授权未确认，译稿仅本地保存（见 translations/2026-11-07/index.md），本篇页面仅显示状态。\n\n[原文许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：公开译文许可未确认，先保留本地。PDF只保留本地与官方链接。",
       "report_entry_url": "/papers/reports/2026-11-07/#paper-7ccf741e41965618",
       "paper_url": "/papers/items/7ccf741e41965618/",
       "paper_report_url": "/papers/items/7ccf741e41965618/#paper-report",
@@ -310,10 +316,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
+      "translation_status": "complete",
       "full_translation_public": false,
       "full_translation_url": "/papers/items/7ccf741e41965618/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_label": "全文翻译（仅本地）"
     },
     {
       "id": "13da591a06f7322e",
@@ -342,11 +348,17 @@
       },
       "hyperlinks": {},
       "report_url": "/papers/reports/2026-11-07/",
-      "report_section": "## 1. FLINT: Coupling Proximal Initialization and Bounded Stochasticity for Flow-Matching Inverse Problems\n\n**作者/年份/venue**：Junseo Bang; Daewon Choi; Dong Ju Mun; Se Young Chun；2026；作者标注NeurIPS 2026；未独立确认正式出版。\n\n**发表状态及证据**：预印本/状态未确认。arXiv comments、作者项目页与仓库标注NeurIPS 2026，未查得明确接受声明或正式论文集条目，保守维持状态未确认。\n\n**方向**：Flow反演；初始化与随机预算\n\n**问题**：源空间优化收益可能被后续随机采样冲淡。\n\n**论文方法**：少量截断ODE和shortcut梯度优化初始噪声，再用钟形有界噪声调度进行引导采样。\n\n**论文结果**：Table 1 FFHQ高斯去模糊PSNR 29.88，对FLAIR 28.68 dB；但DIV2K×12超分20.35 dB低于Flower 21.69，非所有任务占优。总50 NFE=21初始化+29采样。\n\n**局限与审计判断**：命题3.1仅界相对参考ODE轨迹的偏差，需单侧Lipschitz条件；非真值误差或精确后验证明。充分接近区间来自特定实验；NFE不含等价反传成本，需同时计时。\n\n**迁移类型**：可改造工具\n\n**研究接口（迁移推断）**：独立求解器扩展，固定当前条件先验\n\n**与既有阅读差异**：不同于昨日SGPnP每轮重加噪，本篇重点是初始源优化与后续随机预算的耦合；不直接套用FlowADMM收敛。\n\n**推荐理由**：直接检验相同总预算下初始化和后续扰动如何配合。\n\n**代码状态**：完整开源实现\n\n**代码证据**：作者项目页直链仓库；静态核查solve.py、flint_sampler.py、8个任务配置、算子与eval.py及模型许可/权重下载说明。未执行作者实验。\n\n**全文定位**：PDF pp.4–9 Proposition 3.1, Table 1, Algorithm 1\n\n**身份与版本**：arXiv:2611.05945；DOI 10.48550/arXiv.2611.05945；Submission history From: Junseo Bang [ view email ] [v1] Wed, 4 Nov 2026 04:36:39 UTC (11,454 KB)\n\n[官方页面](https://arxiv.org/abs/2611.05945)；[官方PDF](https://arxiv.org/pdf/2611.05945)；[原文PDF](https://arxiv.org/pdf/2611.05945)。完整PDF可访问，共39页。\n\n[本篇全文翻译/状态](https://lrxuanxuan.github.io/papers/items/13da591a06f7322e/#paper-translation)：job `8b2c646f07fd21dcfc863b1b`已入队，gpt-6-luna/xhigh；原worker找不到会话，未启动。\n\n[原文许可](https://creativecommons.org/licenses/by/4.0/)：允许验收完成、保留归属/许可/翻译说明后的译文分享。PDF只保留本地与官方链接。",
+      "report_section": "## 1. FLINT: Coupling Proximal Initialization and Bounded Stochasticity for Flow-Matching Inverse Problems\n\n**作者/年份/venue**：Junseo Bang; Daewon Choi; Dong Ju Mun; Se Young Chun；2026；作者标注NeurIPS 2026；未独立确认正式出版。\n\n**发表状态及证据**：预印本/状态未确认。arXiv comments、作者项目页与仓库标注NeurIPS 2026，未查得明确接受声明或正式论文集条目，保守维持状态未确认。\n\n**方向**：Flow反演；初始化与随机预算\n\n**问题**：源空间优化收益可能被后续随机采样冲淡。\n\n**论文方法**：少量截断ODE和shortcut梯度优化初始噪声，再用钟形有界噪声调度进行引导采样。\n\n**论文结果**：Table 1 FFHQ高斯去模糊PSNR 29.88，对FLAIR 28.68 dB；但DIV2K×12超分20.35 dB低于Flower 21.69，非所有任务占优。总50 NFE=21初始化+29采样。\n\n**局限与审计判断**：命题3.1仅界相对参考ODE轨迹的偏差，需单侧Lipschitz条件；非真值误差或精确后验证明。充分接近区间来自特定实验；NFE不含等价反传成本，需同时计时。\n\n**迁移类型**：可改造工具\n\n**研究接口（迁移推断）**：独立求解器扩展，固定当前条件先验\n\n**与既有阅读差异**：不同于昨日SGPnP每轮重加噪，本篇重点是初始源优化与后续随机预算的耦合；不直接套用FlowADMM收敛。\n\n**推荐理由**：直接检验相同总预算下初始化和后续扰动如何配合。\n\n**代码状态**：完整开源实现\n\n**代码证据**：作者项目页直链仓库；静态核查solve.py、flint_sampler.py、8个任务配置、算子与eval.py及模型许可/权重下载说明。未执行作者实验。\n\n**全文定位**：PDF pp.4–9 Proposition 3.1, Table 1, Algorithm 1\n\n**身份与版本**：arXiv:2611.05945；DOI 10.48550/arXiv.2611.05945；Submission history From: Junseo Bang [ view email ] [v1] Wed, 4 Nov 2026 04:36:39 UTC (11,454 KB)\n\n[官方页面](https://arxiv.org/abs/2611.05945)；[官方PDF](https://arxiv.org/pdf/2611.05945)；[原文PDF](https://arxiv.org/pdf/2611.05945)。完整PDF可访问，共39页。\n\n[本篇全文翻译/状态](https://lrxuanxuan.github.io/papers/items/13da591a06f7322e/#paper-translation)：job `8b2c646f07fd21dcfc863b1b`已由 DSH 替代子智能体以 deepseek-flash 完成全文中英对照（39 页、403 块）并通过结构 QA；原论文为 CC BY 4.0，全文译稿已按许可公开：/papers/translations/2026-11-07-8b2c646f07fd21dcfc863b1b/（本地稿见 translations/2026-11-07/index.md）。\n\n[原文许可](https://creativecommons.org/licenses/by/4.0/)：允许验收完成、保留归属/许可/翻译说明后的译文分享。PDF只保留本地与官方链接。",
       "report_entry_url": "/papers/reports/2026-11-07/#paper-13da591a06f7322e",
       "paper_url": "/papers/items/13da591a06f7322e/",
       "paper_report_url": "/papers/items/13da591a06f7322e/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-07-8b2c646f07fd21dcfc863b1b/#paper-13da591a06f7322e",
+          "scope": "全文中英文对照",
+          "title": "FLINT: Coupling Proximal Initialization and Bounded Stochasticity for Flow-Matching Inverse Problems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2611.05945",
         "https://arxiv.org/abs/2611.05945",
@@ -363,10 +375,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/13da591a06f7322e/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-07-8b2c646f07fd21dcfc863b1b/#paper-13da591a06f7322e",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "8426d97a2d1dfa23",
@@ -34098,6 +34110,17 @@
     }
   ],
   "translations": [
+    {
+      "date": "2026-11-07",
+      "url": "/papers/translations/2026-11-07-8b2c646f07fd21dcfc863b1b/",
+      "slug": "2026-11-07-8b2c646f07fd21dcfc863b1b",
+      "source_file": "paper.md",
+      "scope": "全文中英文对照",
+      "title": "FLINT: Coupling Proximal Initialization and Bounded Stochasticity for Flow-Matching Inverse Problems",
+      "paper_id": "2611.05945",
+      "license_url": "",
+      "download": "/assets/papers/translations/2026-11-07-8b2c646f07fd21dcfc863b1b.md"
+    },
     {
       "date": "2026-11-06",
       "slug": "2026-11-06-2611-06271-consistency-learning-distillation-one-step-mimo-ofdm",

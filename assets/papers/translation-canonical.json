@@ -3062,5 +3062,13 @@
   "full": false,
   "public": false,
   "label": "阅读已有译稿（非全文）"
+ },
+ "13da591a06f7322e": {
+  "url": "/papers/translations/2026-11-07-8b2c646f07fd21dcfc863b1b/",
+  "title": "FLINT: Coupling Proximal Initialization and Bounded Stochasticity for Flow-Matching Inverse Problems",
+  "scope": "全文中英文对照：标题、摘要、正文（含附录 A–G 与 NeurIPS Checklist）、式 (1)–(10)/(S1)–(S27)、表 1–5 与表 S1–S7 逐格、算法 1–2、17 条图注、参考文献 [1]–[68] 英文原条目；许可：CC BY 4.0；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
  }
 }
