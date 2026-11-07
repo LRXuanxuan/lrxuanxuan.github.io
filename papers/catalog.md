@@ -389,6 +389,36 @@ toc: true
 
 ## 推荐论文
 
+### 2026-11-08 · [Deep Plug-and-Play Proximal Distance Algorithm for Robust Principal Component Analysis](/papers/items/56ef263bc56cfed1/)
+
+可在原求解器中隔离结构化观测异常，而非改造整个先验。
+
+[本篇日报](/papers/items/56ef263bc56cfed1/#paper-report)
+
+### 2026-11-08 · [RadioDreamer: A World Model for Radio Map Forecasting and Imagination-Based Optimization](/papers/items/62d3bbae299d0452/)
+
+可区分预测精度和决策回报，并有解码地图规划对照。
+
+[本篇日报](/papers/items/62d3bbae299d0452/#paper-report)
+
+### 2026-11-08 · [Grid-Refinement SBL for AFDM Channel Estimation Under Fractional Delay and Fractional Doppler Channels](/papers/items/832366af268a421d/)
+
+提供双分数泄漏下的非神经基线。
+
+[本篇日报](/papers/items/832366af268a421d/#paper-report)
+
+### 2026-11-08 · [Channel Estimation for Stacked Intelligent Metasurfaces with Mutual Coupling](/papers/items/ecdd7cffe623c1dd/)
+
+训练算子的秩、偏差和相干块开销均可单独量化。
+
+[本篇日报](/papers/items/ecdd7cffe623c1dd/#paper-report)
+
+### 2026-11-08 · [Accelerating posterior sampling in Bayesian inverse problems with diffusion models: an online-offline perspective](/papers/items/13b77c6e9dd80aeb/)
+
+把部署复用次数、反传和算子调用纳入比较。
+
+[本篇日报](/papers/items/13b77c6e9dd80aeb/#paper-report)
+
 ### 2026-11-07 · [RadioTraj3D: Height-Aware Adaptive Sampling for 3D Radio-Map Reconstruction from Ultra-Sparse Trajectories](/papers/items/dc9fc8fe38453a8e/)
 
 帮助把几何采样收益、网络收益和实测适配成本拆开归因。
