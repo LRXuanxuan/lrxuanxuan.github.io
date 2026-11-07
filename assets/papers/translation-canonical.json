@@ -3066,7 +3066,39 @@
  "13da591a06f7322e": {
   "url": "/papers/translations/2026-11-07-8b2c646f07fd21dcfc863b1b/",
   "title": "FLINT: Coupling Proximal Initialization and Bounded Stochasticity for Flow-Matching Inverse Problems",
-  "scope": "全文中英文对照：标题、摘要、正文（含附录 A–G 与 NeurIPS Checklist）、式 (1)–(10)/(S1)–(S27)、表 1–5 与表 S1–S7 逐格、算法 1–2、17 条图注、参考文献 [1]–[68] 英文原条目；许可：CC BY 4.0；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "scope": "全文中英文对照：标题、摘要、正文（含附录 A–G 与 NeurIPS Checklist）、式 (1)–(10)/(S1)–(S27)、表 1–5 与表 S1–S7 逐格、算法 1–2、17 条图注、参考文献 [1]–[68] 英文原条目；许可：CC BY 4.0；逐句逐式终校未做。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "7ccf741e41965618": {
+  "url": "/papers/translations/2026-11-07-d721e732ef6cb08edc2b3813/",
+  "title": "Dual Flow: Joint Image-Measurement Flow for Inverse Problems",
+  "scope": "全文中英文对照：标题、摘要、正文与附录、式 (1)–(39)、表 I–V 逐格、算法 1–2、图 1–8 图注与图内标注、参考文献 [1]–[52] 英文原条目；许可：arXiv 非独占（按用户 2026-11-07 明确授权发布）；逐句逐式终校未做。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "0fd15d2af2474a2d": {
+  "url": "/papers/translations/2026-11-07-45033f60c6257dd4ed05ec01/",
+  "title": "Vision-Aided Near-Field Channel Estimation for XL-MIMO",
+  "scope": "全文中英文对照：标题、摘要、正文 6 页全节、式 (1)–(25)、表 I–II 逐格、算法 1–3、图 1–4 图注、参考文献 [1]–[16] 英文原条目；许可：arXiv 非独占（按用户 2026-11-07 明确授权发布）；逐句逐式终校未做。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "862131e0203bb5c6": {
+  "url": "/papers/translations/2026-11-07-211f4c3508538beffbfff717/",
+  "title": "GIST: Location-Dependent Uplink Path Structure Transfer for FDD Downlink Channel Estimation",
+  "scope": "全文中英文对照：标题、摘要、正文 I–V 节、式 (1)–(10)、图 1–7 图注与图内标注、参考文献 [1]–[22] 英文原条目；许可：arXiv 非独占（按用户 2026-11-07 明确授权发布）；逐句逐式终校未做。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "dc9fc8fe38453a8e": {
+  "url": "/papers/translations/2026-11-07-536afd81314a5014b30e73cf/",
+  "title": "RadioTraj3D: Height-Aware Adaptive Sampling for 3D Radio-Map Reconstruction from Ultra-Sparse Trajectories",
+  "scope": "全文中英文对照：标题、摘要、正文全节、式 (1)–(10)、表 1–6 逐格、图 1–6 图注与图内标注、参考文献 [1]–[15] 英文原条目；许可：arXiv 非独占（按用户 2026-11-07 明确授权发布）；逐句逐式终校未做。",
   "full": true,
   "public": true,
   "label": "阅读全文翻译"

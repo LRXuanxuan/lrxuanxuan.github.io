@@ -6574,5 +6574,57 @@
     "qa_complete": true,
     "coverage": "full",
     "primary_translation": true
+  },
+  {
+    "date": "2026-11-07",
+    "title": "Dual Flow: Joint Image-Measurement Flow for Inverse Problems",
+    "slug": "2026-11-07-d721e732ef6cb08edc2b3813",
+    "url": "/papers/translations/2026-11-07-d721e732ef6cb08edc2b3813/",
+    "scope": "全文中英文对照",
+    "paper_ids": [
+      "7ccf741e41965618"
+    ],
+    "qa_complete": true,
+    "coverage": "full",
+    "primary_translation": true
+  },
+  {
+    "date": "2026-11-07",
+    "title": "Vision-Aided Near-Field Channel Estimation for XL-MIMO",
+    "slug": "2026-11-07-45033f60c6257dd4ed05ec01",
+    "url": "/papers/translations/2026-11-07-45033f60c6257dd4ed05ec01/",
+    "scope": "全文中英文对照",
+    "paper_ids": [
+      "0fd15d2af2474a2d"
+    ],
+    "qa_complete": true,
+    "coverage": "full",
+    "primary_translation": true
+  },
+  {
+    "date": "2026-11-07",
+    "title": "GIST: Location-Dependent Uplink Path Structure Transfer for FDD Downlink Channel Estimation",
+    "slug": "2026-11-07-211f4c3508538beffbfff717",
+    "url": "/papers/translations/2026-11-07-211f4c3508538beffbfff717/",
+    "scope": "全文中英文对照",
+    "paper_ids": [
+      "862131e0203bb5c6"
+    ],
+    "qa_complete": true,
+    "coverage": "full",
+    "primary_translation": true
+  },
+  {
+    "date": "2026-11-07",
+    "title": "RadioTraj3D: Height-Aware Adaptive Sampling for 3D Radio-Map Reconstruction from Ultra-Sparse Trajectories",
+    "slug": "2026-11-07-536afd81314a5014b30e73cf",
+    "url": "/papers/translations/2026-11-07-536afd81314a5014b30e73cf/",
+    "scope": "全文中英文对照",
+    "paper_ids": [
+      "dc9fc8fe38453a8e"
+    ],
+    "qa_complete": true,
+    "coverage": "full",
+    "primary_translation": true
   }
 ]

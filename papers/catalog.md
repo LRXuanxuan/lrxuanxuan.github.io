@@ -11,6 +11,10 @@ toc: true
 
 ## 中英文译文
 
+- [Dual Flow: Joint Image-Measurement Flow for Inverse Problems](/papers/translations/2026-11-07-d721e732ef6cb08edc2b3813/) · 全文中英文对照：标题、摘要、正文与附录、式 (1)–(39)、表 I–V 逐格、算法 1–2、图 1–8 图注与图内标注、参考文献 [1]–[52] 英文原条目；许可：arXiv 非独占（按用户 2026-11-07 明确授权发布）；逐句逐式终校未做。
+- [Vision-Aided Near-Field Channel Estimation for XL-MIMO](/papers/translations/2026-11-07-45033f60c6257dd4ed05ec01/) · 全文中英文对照：标题、摘要、正文 6 页全节、式 (1)–(25)、表 I–II 逐格、算法 1–3、图 1–4 图注、参考文献 [1]–[16] 英文原条目；许可：arXiv 非独占（按用户 2026-11-07 明确授权发布）；逐句逐式终校未做。
+- [GIST: Location-Dependent Uplink Path Structure Transfer for FDD Downlink Channel Estimation](/papers/translations/2026-11-07-211f4c3508538beffbfff717/) · 全文中英文对照：标题、摘要、正文 I–V 节、式 (1)–(10)、图 1–7 图注与图内标注、参考文献 [1]–[22] 英文原条目；许可：arXiv 非独占（按用户 2026-11-07 明确授权发布）；逐句逐式终校未做。
+- [RadioTraj3D: Height-Aware Adaptive Sampling for 3D Radio-Map Reconstruction from Ultra-Sparse Trajectories](/papers/translations/2026-11-07-536afd81314a5014b30e73cf/) · 全文中英文对照：标题、摘要、正文全节、式 (1)–(10)、表 1–6 逐格、图 1–6 图注与图内标注、参考文献 [1]–[15] 英文原条目；许可：arXiv 非独占（按用户 2026-11-07 明确授权发布）；逐句逐式终校未做。
 - [FLINT: Coupling Proximal Initialization and Bounded Stochasticity for Flow-Matching Inverse Problems](/papers/translations/2026-11-07-8b2c646f07fd21dcfc863b1b/) · 全文中英文对照：标题、摘要、正文（含附录 A–G 与 NeurIPS Checklist）、式 (1)–(10)/(S1)–(S27)、表 1–5 与表 S1–S7 逐格、算法 1–2、17 条图注、参考文献 [1]–[68] 英文原条目；许可：CC BY 4.0；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
 - [面向一步 MIMO-OFDM 信道估计的一致性学习与蒸馏｜中文全文译文](/papers/translations/2026-11-06-2611-06271-consistency-learning-distillation-one-step-mimo-ofdm/) · 全文覆盖：摘要、全部正文章节、Eq.(3)–(15)、Tables I–IV 逐格、图注、式编号、参考文献英文原条目；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
 - [射线追踪城市能否为未见站点提供更好的信道先验？预注册仿真研究与实测反转检验｜中文全文译文](/papers/translations/2026-11-06-2611-05128-ray-traced-cities-channel-prior-unseen-site/) · 全文覆盖：摘要、§3–§9、Tables 1–3 逐格、图注、式编号、参考文献英文原条目；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
