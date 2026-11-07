@@ -1,8 +1,0 @@
-Publish two user-authorized Nov 5 full Chinese translations (rebuilt on latest main)
-
-- papers/translations/2026-11-05-ef3c77f5e300fc3d2caf30dc.md: 13 pp; eq (1)-(34), Tables I-IV, Algorithm 1, refs [1]-[45]; original licence CC BY-NC-ND 4.0, published per user request 2026-11-05
-- papers/translations/2026-11-05-96904d0e22a1dbaf7c2ecf3a.md: 24 pp; eq (1)-(71), Tables 1-5, Algorithm 1, appendices A.1-A.6, refs; original licence arXiv non-exclusive, published per user request 2026-11-05
-- assets/papers/translations: raw Markdown downloads plus extracted table images
-- library.json / external-translations.json / item pages / catalog / 2026-11-05 report: link to the published full translations, label 阅读全文翻译; original licences and user authorization recorded
-- keep the original Chinese technical reading guides on both item pages
-- supersedes unmerged branch dsh/translations-20261105 (never merged, so live site was unchanged)
