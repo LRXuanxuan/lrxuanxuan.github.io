@@ -19,6 +19,8 @@ toc: true
 - [MissPath-FM: Flow Matching with Structured Priors for Partially Observed Time Series](/papers/translations/2026-11-05-ab1234917ddfb6fcc5443a79/) · 全文中英文对照
 - [GRAM-DIFF: Gram Matrix Guided Diffusion for MIMO Channel Estimation](/papers/translations/2026-11-05-ecb492653b84b104527afc06/) · 全文中英文对照
 - [Amortised Inference through One-Step Implicit Sampling](/papers/translations/2026-11-05-b77075cd018e2631d3efd25c/) · 全文中英文对照
+- [A Perception vs. Distortion Perspective on Score-Based Generative Channel Estimation](/papers/translations/2026-11-05-ef3c77f5e300fc3d2caf30dc/) · 全文中英文对照
+- [Learning Graph Beliefs for Active Radio Mapping With Decision-Certified Multi-Step Sensing](/papers/translations/2026-11-05-96904d0e22a1dbaf7c2ecf3a/) · 全文中英文对照
 
 - [INLA 驱动的无人机自适应无线环境地图采样：先验宽度决定精度与校准｜中文全文译文](/papers/translations/2026-11-04-2610-40723-inla-adaptive-uav-sampling-radio-environment-maps/) · 全文覆盖：摘要、§I 等全部章节、先验与观测模型、熵展开式 (13)–(16)、19/30 窗口实验与讨论、式编号、图/表逐格、参考文献英文原条目；许可：CC BY 4.0；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
 - [HP-PnP-Flow：基于流匹配的即插即用图像恢复混合时间调度与投影｜中文全文译文](/papers/translations/2026-11-04-2610-26183-hp-pnp-flow-hybrid-time-scheduling-projection-image-restoration/) · 全文覆盖：摘要、Eq3.1/3.3–3.5、Proposition 3.1、Theorem 3.3、全部正文章节、Tables 1–3 逐格、图注、式编号、参考文献英文原条目；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。
