@@ -19,7 +19,7 @@
   };
   const appendLink = (parent, text, url) => { const a = link(text, url); if (a) parent.append(a); };
   const checked = value => /[☑✅✓✔]|^(?:true|1|是|已略读|已精读|已读)$/i.test(String(value || '').trim());
-  let records = [], headers = [], page = 0;
+  let records = [], headers = [], page = 0, primarySheetName = '';
   function fullText(parent, text) {
     // Links remain usable, while all workbook content is inserted as text.
     const pattern = /https?:\/\/[^\s<>\[\]"。；，）]+/g;
@@ -64,7 +64,7 @@
     const start = page * size, rows = result.slice(start, start + size);
     const body = $('wt-grid').querySelector('tbody'); body.replaceChildren();
     for (const record of rows) {
-      const tr = el('tr'); tr.id = 'workbook-row-' + (record.sheet === sheet.name ? record.row : record.id); tr.dataset.paperId = record.id;
+      const tr = el('tr'); tr.id = 'workbook-row-' + (record.sheet === primarySheetName ? record.row : record.id); tr.dataset.paperId = record.id;
       for (const header of headers) {
         const td = el('td'); const button = el('button', undefined, 'wt-cell'); button.type = 'button';
         button.setAttribute('aria-label', `展开第 ${record.row} 行的${header}`);
@@ -93,6 +93,7 @@
     const sheets = (data.sheets || []).filter(s => s && s.headers && s.count != null);
     const sheet = sheets[0];
     if (!sheet || !sheet.headers.includes('标题')) throw new Error('主表身份列缺失');
+    primarySheetName = sheet.name;
     headers = sheet.headers.filter(Boolean);
     const sheetNames = new Set(sheets.map(s => s.name));
     const sheetIndex = name => sheets.findIndex(s => s.name === name);
