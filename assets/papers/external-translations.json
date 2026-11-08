@@ -6611,5 +6611,135 @@
     "reasoning_effort": "xhigh",
     "checked_at": "2026-11-07T12:35:00+08:00",
     "publication_authorization": "用户 2026-11-05 明确要求公开发布；原文许可未授予公开译稿依据"
+  },
+  {
+    "date": "2026-11-08",
+    "title": "Accelerating posterior sampling in Bayesian inverse problems with diffusion models: an online-offline perspective",
+    "slug": "2026-11-08-638ffe83931f859bdd752d44",
+    "url": "/papers/translations/2026-11-08-638ffe83931f859bdd752d44/",
+    "scope": "全文中英文对照",
+    "paper_ids": [
+      "13b77c6e9dd80aeb"
+    ],
+    "qa_complete": true,
+    "coverage": "full",
+    "primary_translation": true
+  },
+  {
+    "date": "2026-11-08",
+    "title": "Channel Estimation for Stacked Intelligent Metasurfaces with Mutual Coupling",
+    "slug": "2026-11-08-d4f93852507d7e32a21c42b9",
+    "url": "/papers/translations/2026-11-08-d4f93852507d7e32a21c42b9/",
+    "scope": "全文中英文对照",
+    "paper_ids": [
+      "ecdd7cffe623c1dd"
+    ],
+    "qa_complete": true,
+    "coverage": "full",
+    "primary_translation": true
+  },
+  {
+    "date": "2026-11-08",
+    "title": "Deep Plug-and-Play Proximal Distance Algorithm for Robust Principal Component Analysis",
+    "slug": "2026-11-08-2d0204d0072f745a5a78485f",
+    "url": "/papers/translations/2026-11-08-2d0204d0072f745a5a78485f/",
+    "scope": "全文中英文对照",
+    "paper_ids": [
+      "56ef263bc56cfed1"
+    ],
+    "qa_complete": true,
+    "coverage": "full",
+    "primary_translation": true
+  },
+  {
+    "date": "2026-11-08",
+    "title": "Grid-Refinement SBL for AFDM Channel Estimation Under Fractional Delay and Fractional Doppler Channels",
+    "slug": "2026-11-08-07061061de4dffab8754ee16",
+    "url": "/papers/translations/2026-11-08-07061061de4dffab8754ee16/",
+    "scope": "全文中英文对照",
+    "paper_ids": [
+      "832366af268a421d"
+    ],
+    "qa_complete": true,
+    "coverage": "full",
+    "primary_translation": true
+  },
+  {
+    "date": "2026-11-08",
+    "title": "RadioDreamer: A World Model for Radio Map Forecasting and Imagination-Based Optimization",
+    "slug": "2026-11-08-245e5642ffae535ed02e0e76",
+    "url": "/papers/translations/2026-11-08-245e5642ffae535ed02e0e76/",
+    "scope": "全文中英文对照",
+    "paper_ids": [
+      "62d3bbae299d0452"
+    ],
+    "qa_complete": true,
+    "coverage": "full",
+    "primary_translation": true
+  },
+  {
+    "date": "2026-11-07",
+    "title": "FLINT: Coupling Proximal Initialization and Bounded Stochasticity for Flow-Matching Inverse Problems",
+    "slug": "2026-11-07-8b2c646f07fd21dcfc863b1b",
+    "url": "/papers/translations/2026-11-07-8b2c646f07fd21dcfc863b1b/",
+    "scope": "全文中英文对照",
+    "paper_ids": [
+      "13da591a06f7322e"
+    ],
+    "qa_complete": true,
+    "coverage": "full",
+    "primary_translation": true
+  },
+  {
+    "date": "2026-11-07",
+    "title": "Dual Flow: Joint Image-Measurement Flow for Inverse Problems",
+    "slug": "2026-11-07-d721e732ef6cb08edc2b3813",
+    "url": "/papers/translations/2026-11-07-d721e732ef6cb08edc2b3813/",
+    "scope": "全文中英文对照",
+    "paper_ids": [
+      "7ccf741e41965618"
+    ],
+    "qa_complete": true,
+    "coverage": "full",
+    "primary_translation": true
+  },
+  {
+    "date": "2026-11-07",
+    "title": "Vision-Aided Near-Field Channel Estimation for XL-MIMO",
+    "slug": "2026-11-07-45033f60c6257dd4ed05ec01",
+    "url": "/papers/translations/2026-11-07-45033f60c6257dd4ed05ec01/",
+    "scope": "全文中英文对照",
+    "paper_ids": [
+      "0fd15d2af2474a2d"
+    ],
+    "qa_complete": true,
+    "coverage": "full",
+    "primary_translation": true
+  },
+  {
+    "date": "2026-11-07",
+    "title": "GIST: Location-Dependent Uplink Path Structure Transfer for FDD Downlink Channel Estimation",
+    "slug": "2026-11-07-211f4c3508538beffbfff717",
+    "url": "/papers/translations/2026-11-07-211f4c3508538beffbfff717/",
+    "scope": "全文中英文对照",
+    "paper_ids": [
+      "862131e0203bb5c6"
+    ],
+    "qa_complete": true,
+    "coverage": "full",
+    "primary_translation": true
+  },
+  {
+    "date": "2026-11-07",
+    "title": "RadioTraj3D: Height-Aware Adaptive Sampling for 3D Radio-Map Reconstruction from Ultra-Sparse Trajectories",
+    "slug": "2026-11-07-536afd81314a5014b30e73cf",
+    "url": "/papers/translations/2026-11-07-536afd81314a5014b30e73cf/",
+    "scope": "全文中英文对照",
+    "paper_ids": [
+      "dc9fc8fe38453a8e"
+    ],
+    "qa_complete": true,
+    "coverage": "full",
+    "primary_translation": true
   }
 ]
