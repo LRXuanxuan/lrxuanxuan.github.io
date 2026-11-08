@@ -399,6 +399,36 @@ toc: true
 
 ## 推荐论文
 
+### 2026-11-09 · [Learning Joint Synchronization, Channel Estimation, and Decoding: Comparison with a Finite-Blocklength Achievability Bound](/papers/items/2d6029f847fafd1e/)
+
+同一研究中的 BER 与 BLER 排序不同，便于审视物理层目标的适用范围。
+
+[本篇日报](/papers/items/2d6029f847fafd1e/#paper-report)
+
+### 2026-11-09 · [RadioGen3D: 3D Radio Map Generation via Adversarial Learning on Large-Scale Synthetic Data](/papers/items/0eacd0a97ee922cf/)
+
+能把合成数据成本和目标域偏差作为独立因素衡量。
+
+[本篇日报](/papers/items/0eacd0a97ee922cf/#paper-report)
+
+### 2026-11-09 · [Channel Estimation for mmWave MIMO-OFDM Systems in High-Mobility Scenarios: Instantaneous Model or Statistical Model?](/papers/items/3af0a75e099274ea/)
+
+补上不依赖神经模型的高速 MIMO-OFDM 可辨识性基线。
+
+[本篇日报](/papers/items/3af0a75e099274ea/#paper-report)
+
+### 2026-11-09 · [Mean Flow Distillation: Robust and Stable Distillation for Flow Matching Models](/papers/items/1db0f4d9999805c6/)
+
+将先验加速与观测求解器的效果分开估计。
+
+[本篇日报](/papers/items/1db0f4d9999805c6/#paper-report)
+
+### 2026-11-09 · [Sensing the Variation of Wireless Propagation Environment Based on Channel Knowledge Map](/papers/items/0e49929bd183dfc7/)
+
+有可解释的结构变化信号，可将地图老化与一般测量噪声区分开做对照。
+
+[本篇日报](/papers/items/0e49929bd183dfc7/#paper-report)
+
 ### 2026-11-08 · [Deep Plug-and-Play Proximal Distance Algorithm for Robust Principal Component Analysis](/papers/items/56ef263bc56cfed1/)
 
 可在原求解器中隔离结构化观测异常，而非改造整个先验。
