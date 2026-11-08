@@ -3062,5 +3062,85 @@
   "full": false,
   "public": false,
   "label": "阅读已有译稿（非全文）"
+ },
+ "13da591a06f7322e": {
+  "url": "/papers/translations/2026-11-07-8b2c646f07fd21dcfc863b1b/",
+  "title": "FLINT：耦合近端初始化与有界随机性的 Flow-Matching 反问题方法｜中文全文译文",
+  "scope": "全文中英文对照：标题、摘要、正文 39 页全节；49 个编号/独立公式块；10 个表格逐格；2 个算法；17 条图注；参考文献 68 条英文原条目；许可：CC BY 4.0；逐句逐式终校未做。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "7ccf741e41965618": {
+  "url": "/papers/translations/2026-11-07-d721e732ef6cb08edc2b3813/",
+  "title": "Dual Flow：面向反问题的图像–测量联合流模型｜中文全文译文",
+  "scope": "全文中英文对照：标题、摘要、正文 17 页全节；40 个编号/独立公式块；5 个表格逐格；2 个算法；8 条图注；参考文献 54 条英文原条目；许可：https://arxiv.org/licenses/nonexclusive-distrib/1.0/；逐句逐式终校未做。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "0fd15d2af2474a2d": {
+  "url": "/papers/translations/2026-11-07-45033f60c6257dd4ed05ec01/",
+  "title": "面向 XL-MIMO 的视觉辅助近场信道估计｜中文全文译文",
+  "scope": "全文中英文对照：标题、摘要、正文 6 页全节；24 个编号/独立公式块；2 个表格逐格；3 个算法；4 条图注；参考文献 16 条英文原条目；许可：https://arxiv.org/licenses/nonexclusive-distrib/1.0/；逐句逐式终校未做。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "862131e0203bb5c6": {
+  "url": "/papers/translations/2026-11-07-211f4c3508538beffbfff717/",
+  "title": "GIST：用于 FDD 下行信道估计的位置相关上行路径结构迁移｜中文全文译文",
+  "scope": "全文中英文对照：标题、摘要、正文 6 页全节；10 个编号/独立公式块；7 条图注；参考文献 22 条英文原条目；许可：https://arxiv.org/licenses/nonexclusive-distrib/1.0/；逐句逐式终校未做。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "dc9fc8fe38453a8e": {
+  "url": "/papers/translations/2026-11-07-536afd81314a5014b30e73cf/",
+  "title": "RadioTraj3D：面向超稀疏轨迹三维无线电地图重建的高度感知自适应采样｜中文全文译文",
+  "scope": "全文中英文对照：标题、摘要、正文 5 页全节；10 个编号/独立公式块；6 个表格逐格；6 条图注；参考文献 15 条英文原条目；许可：https://arxiv.org/licenses/nonexclusive-distrib/1.0/；逐句逐式终校未做。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "13b77c6e9dd80aeb": {
+  "url": "/papers/translations/2026-11-08-638ffe83931f859bdd752d44/",
+  "title": "用扩散模型加速贝叶斯反问题中的后验采样：在线—离线视角｜中文全文译文",
+  "scope": "全文中英文对照：标题、摘要、正文 7 页全节；11 个编号/独立公式块；参考文献 32 条英文原条目；许可：CC BY 4.0；逐句逐式终校未做。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "ecdd7cffe623c1dd": {
+  "url": "/papers/translations/2026-11-08-d4f93852507d7e32a21c42b9/",
+  "title": "含互耦的堆叠智能超表面信道估计｜中文全文译文",
+  "scope": "全文中英文对照：标题、摘要、正文 5 页全节；20 个编号/独立公式块；2 条图注；参考文献 13 条英文原条目；许可：CC BY 4.0；逐句逐式终校未做。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "56ef263bc56cfed1": {
+  "url": "/papers/translations/2026-11-08-2d0204d0072f745a5a78485f/",
+  "title": "面向鲁棒主成分分析的深度即插即用近端距离算法｜中文全文译文",
+  "scope": "全文中英文对照：标题、摘要、正文 5 页全节；25 个编号/独立公式块；2 个表格逐格；1 个算法；1 条图注；参考文献 30 条英文原条目；许可：CC0 1.0；逐句逐式终校未做。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "832366af268a421d": {
+  "url": "/papers/translations/2026-11-08-07061061de4dffab8754ee16/",
+  "title": "分数时延与分数多普勒信道下 AFDM 信道估计的网格精化 SBL 方法｜中文全文译文",
+  "scope": "全文中英文对照：标题、摘要、正文 6 页全节；30 个编号/独立公式块；6 条图注；参考文献 16 条英文原条目；许可：CC BY-NC-SA 4.0（译文按相同许可发布，禁止商业使用）；逐句逐式终校未做。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "62d3bbae299d0452": {
+  "url": "/papers/translations/2026-11-08-245e5642ffae535ed02e0e76/",
+  "title": "RadioDreamer：面向无线电地图预测与基于想象优化的世界模型｜中文全文译文",
+  "scope": "全文中英文对照：标题、摘要、正文 10 页全节；31 个编号/独立公式块；5 个表格逐格；7 条图注；参考文献 38 条英文原条目；许可：CC BY 4.0；逐句逐式终校未做。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
  }
 }
