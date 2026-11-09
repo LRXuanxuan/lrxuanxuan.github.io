@@ -6741,5 +6741,31 @@
     "qa_complete": true,
     "coverage": "full",
     "primary_translation": true
+  },
+  {
+    "date": "2026-11-09",
+    "title": "Mean Flow Distillation: Robust and Stable Distillation for Flow Matching Models",
+    "slug": "2026-11-09-02480e2f337de8bbbb632b90",
+    "url": "/papers/translations/2026-11-09-02480e2f337de8bbbb632b90/",
+    "scope": "全文中英文对照",
+    "paper_ids": [
+      "1db0f4d9999805c6"
+    ],
+    "qa_complete": true,
+    "coverage": "full",
+    "primary_translation": true
+  },
+  {
+    "date": "2026-11-09",
+    "title": "Learning Joint Synchronization, Channel Estimation, and Decoding: Comparison with a Finite-Blocklength Achievability Bound",
+    "slug": "2026-11-09-8d79f6caae6f0c2661ee8346",
+    "url": "/papers/translations/2026-11-09-8d79f6caae6f0c2661ee8346/",
+    "scope": "全文中英文对照",
+    "paper_ids": [
+      "2d6029f847fafd1e"
+    ],
+    "qa_complete": true,
+    "coverage": "full",
+    "primary_translation": true
   }
 ]
