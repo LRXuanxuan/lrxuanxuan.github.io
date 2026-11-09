@@ -9,7 +9,7 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=0eacd0a97ee922cf)
 
-[本篇日报说明](/papers/items/0eacd0a97ee922cf/#paper-report) · [全文翻译（待补齐）](/papers/items/0eacd0a97ee922cf/#paper-translation)
+[本篇日报说明](/papers/items/0eacd0a97ee922cf/#paper-report) · [全文翻译（仅本地）](/papers/items/0eacd0a97ee922cf/#paper-translation)
 
 **推荐日期：** 2026-11-09 · **发表状态：** 预印本/状态未确认
 
@@ -17,7 +17,7 @@ toc: true
 
 ## 本篇全文翻译
 
-本篇已列入全文翻译清单，尚未完成。完成并允许公开后，此入口将直达本篇全文译稿。
+本篇全文译稿已在本地完成，当前未确认允许公开分享的授权，暂不提供公开全文下载；原文入口见下方。
 
 <span id="paper-report"></span>
 
@@ -61,7 +61,7 @@ toc: true
 
 [官方页面](https://arxiv.org/abs/2602.18744)；[官方PDF](https://arxiv.org/pdf/2602.18744)；[原文PDF](https://arxiv.org/pdf/2602.18744)。完整PDF可访问，共13页。
 
-[本篇全文翻译/状态](https://lrxuanxuan.github.io/papers/items/0eacd0a97ee922cf/#paper-translation)：job `0c4ec2313ba6a3c57c225d08`已入队，gpt-6-luna/xhigh；原worker找不到会话，未启动。
+[本篇全文翻译/状态](https://lrxuanxuan.github.io/papers/items/0eacd0a97ee922cf/#paper-translation)：job `0c4ec2313ba6a3c57c225d08`已由 DSH 替代子智能体以 deepseek-flash 完成全文中英对照（13 页、228 块）并通过结构 QA；原论文为 arXiv 非独占分发许可（公开译文授权未确认），译稿仅本地保存（见 translations/2026-11-09/index.md），本篇页面仅显示翻译状态。
 
 [原文许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：公开译文许可未确认，先保留本地。PDF只保留本地与官方链接。
 
