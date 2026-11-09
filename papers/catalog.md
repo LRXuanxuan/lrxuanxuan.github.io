@@ -404,6 +404,36 @@ toc: true
 
 ## 推荐论文
 
+### 2026-11-10 · [Beam-STeP: Generative Site-Specific Beam Prediction with Spatio-Temporal Priors](/papers/items/ab04499159612fbe/)
+
+明确估计端到波束端的评价接口及线上时延口径。
+
+[本篇日报](/papers/items/ab04499159612fbe/#paper-report)
+
+### 2026-11-10 · [Modeling Diffuse Scattering in Mobility Scenarios: Ray Tracing Model and Measurement Validation](/papers/items/70d240b2f0dda0a1/)
+
+为高速移动仿真提供比逐帧随机路径更严格的时间一致性对照。
+
+[本篇日报](/papers/items/70d240b2f0dda0a1/#paper-report)
+
+### 2026-11-10 · [Survey-Free Radio Map Construction via HMM-Based Coarse-to-Fine Inference](/papers/items/0b39535272e77169/)
+
+为定位标签不完备时的地图先验提供可解释基线。
+
+[本篇日报](/papers/items/0b39535272e77169/#paper-report)
+
+### 2026-11-10 · [Trajectory as the Teacher: Few-Step Discrete Flow Matching via Energy-Navigated Distillation](/papers/items/107f53b4d46879e9/)
+
+分离教师轨迹质量、学生容量和在线采样预算。
+
+[本篇日报](/papers/items/107f53b4d46879e9/#paper-report)
+
+### 2026-11-10 · [Regularization by denoising: Bayesian model and Langevin-within-split Gibbs sampling](/papers/items/c0f46ce7f9a5495c/)
+
+同时比较点估计误差与校准，避免用单一 NMSE 衡量后验。
+
+[本篇日报](/papers/items/c0f46ce7f9a5495c/#paper-report)
+
 ### 2026-11-09 · [Learning Joint Synchronization, Channel Estimation, and Decoding: Comparison with a Finite-Blocklength Achievability Bound](/papers/items/2d6029f847fafd1e/)
 
 同一研究中的 BER 与 BLER 排序不同，便于审视物理层目标的适用范围。
