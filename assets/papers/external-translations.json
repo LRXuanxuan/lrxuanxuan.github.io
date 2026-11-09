@@ -6767,5 +6767,44 @@
     "qa_complete": true,
     "coverage": "full",
     "primary_translation": true
+  },
+  {
+    "date": "2026-11-09",
+    "title": "Sensing the Variation of Wireless Propagation Environment Based on Channel Knowledge Map",
+    "slug": "2026-11-09-c5a5cb113ce090a34eb01bfe",
+    "url": "/papers/translations/2026-11-09-c5a5cb113ce090a34eb01bfe/",
+    "scope": "全文中英文对照",
+    "paper_ids": [
+      "0e49929bd183dfc7"
+    ],
+    "qa_complete": true,
+    "coverage": "full",
+    "primary_translation": true
+  },
+  {
+    "date": "2026-11-09",
+    "title": "RadioGen3D: 3D Radio Map Generation via Adversarial Learning on Large-Scale Synthetic Data",
+    "slug": "2026-11-09-0c4ec2313ba6a3c57c225d08",
+    "url": "/papers/translations/2026-11-09-0c4ec2313ba6a3c57c225d08/",
+    "scope": "全文中英文对照",
+    "paper_ids": [
+      "0eacd0a97ee922cf"
+    ],
+    "qa_complete": true,
+    "coverage": "full",
+    "primary_translation": true
+  },
+  {
+    "date": "2026-11-09",
+    "title": "Channel Estimation for mmWave MIMO-OFDM Systems in High-Mobility Scenarios: Instantaneous Model or Statistical Model?",
+    "slug": "2026-11-09-e160bca2b9325ba8cf748684",
+    "url": "/papers/translations/2026-11-09-e160bca2b9325ba8cf748684/",
+    "scope": "全文中英文对照",
+    "paper_ids": [
+      "3af0a75e099274ea"
+    ],
+    "qa_complete": true,
+    "coverage": "full",
+    "primary_translation": true
   }
 ]

@@ -3158,5 +3158,29 @@
   "full": true,
   "public": true,
   "label": "阅读全文翻译"
+ },
+ "0e49929bd183dfc7": {
+  "url": "/papers/translations/2026-11-09-c5a5cb113ce090a34eb01bfe/",
+  "title": "基于信道知识地图的无线传播环境变化感知｜中文全文译文",
+  "scope": "全文中英文对照：标题、摘要、正文 14 页全节；39 个编号/独立公式块；3 个表格逐格；2 个算法；14 条图注；参考文献 44 条英文原条目；许可：CC BY-NC-ND 4.0（原许可含 ND 禁止演绎条款；按用户 2026-11-09 明确授权发布，权利人如有异议可移除）；逐句逐式终校未做。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "0eacd0a97ee922cf": {
+  "url": "/papers/translations/2026-11-09-0c4ec2313ba6a3c57c225d08/",
+  "title": "RadioGen3D：基于大规模合成数据对抗学习的 3D 无线电地图生成｜中文全文译文",
+  "scope": "全文中英文对照：标题、摘要、正文 13 页全节；35 个编号/独立公式块；4 个表格逐格；9 条图注；参考文献 37 条英文原条目；许可：https://arxiv.org/licenses/nonexclusive-distrib/1.0/（按用户 2026-11-09 明确授权发布，原文许可保持不变）；逐句逐式终校未做。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "3af0a75e099274ea": {
+  "url": "/papers/translations/2026-11-09-e160bca2b9325ba8cf748684/",
+  "title": "高移动场景下毫米波 MIMO-OFDM 系统的信道估计：瞬时模型还是统计模型？｜中文全文译文",
+  "scope": "全文中英文对照：标题、摘要、正文 13 页全节；76 个编号/独立公式块；1 个算法；9 条图注；参考文献 44 条英文原条目；许可：https://arxiv.org/licenses/nonexclusive-distrib/1.0/（按用户 2026-11-09 明确授权发布，原文许可保持不变）；逐句逐式终校未做。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
  }
 }
