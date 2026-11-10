@@ -27,13 +27,17 @@
     const parts = formatted.split(/(\n{2,})/);
     const divided = parts.length > 1;
     element.classList.toggle('rc-sign-has-stanzas', divided);
-    if (!divided) { element.textContent = formatted; return; }
+    if (!formatted.includes('\n')) { element.textContent = formatted; return; }
     const nodes = [];
     parts.forEach((part, index) => {
       if (index % 2) { nodes.push(document.createTextNode(part)); return; }
       const stanza = document.createElement('span');
       stanza.className = 'rc-sign-stanza';
-      stanza.textContent = part;
+      // Explicit <br> elements preserve verse lines even if inherited CSS changes.
+      part.split('\n').forEach((line, lineIndex) => {
+        if (lineIndex) stanza.append(document.createElement('br'));
+        stanza.append(document.createTextNode(line));
+      });
       nodes.push(stanza);
     });
     element.replaceChildren(...nodes);
