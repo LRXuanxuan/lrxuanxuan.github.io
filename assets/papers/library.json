@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "source": "每日论文推荐.xlsx",
-  "source_sha256": "32f179096d767aa900882bee78a64d5cdf4496f2744dae6107ef1d64e68484d9",
+  "source_sha256": "31977c9cdcd0f7efcf950e431c349120d76b78760eb361d09d9942fedfb44b02",
   "translation_progress": {
     "target": 315,
     "completed": 281,
@@ -126,7 +126,7 @@
       "fields": {
         "日期": "2026-11-11",
         "标题": "CHANNELS4WORLD: An Environment-Scale Dataset for Wireless Foundation Models",
-        "内容": "作者：Joonkyu Jang; Hyung-Joo Moon; Kwang Soon Kim; Seong-Lyun Kim; Jakob Hoydis; Robert W. Jr. Heath; Chan-Byoung Chae。问题：少量场景内密采样难以回答增加场景广度能否改善未见环境泛化。 方法：程序化生成 10 万户外场景，将几何、材料、收发位置、3.5/7 GHz 路径和传播交互按场景对齐；场景级固定 90K/10K 划分。 结果：作者报告 524.3 亿物理链路、约 29.14 TB。固定训练暴露下更多场景有利于未见场景，但等 episode 对照显示场景数本身不足以解释收益。 局限：程序化场景和射线求解有模拟偏差；双频和保留路径规则限制外推，论文训练对照不能作为实测跨城结论。",
+        "内容": "作者：Joonkyu Jang; Hyung-Joo Moon; Kwang Soon Kim; Seong-Lyun Kim; Jakob Hoydis; Robert W. Heath Jr.; Chan-Byoung Chae。问题：少量场景内密采样难以回答增加场景广度能否改善未见环境泛化。 方法：程序化生成 10 万户外场景，将几何、材料、收发位置、3.5/7 GHz 路径和传播交互按场景对齐；场景级固定 90K/10K 划分。 结果：作者报告 524.3 亿物理链路、约 29.14 TB。固定训练暴露下更多场景有利于未见场景，但等 episode 对照显示场景数本身不足以解释收益。 局限：程序化场景和射线求解有模拟偏差；双频和保留路径规则限制外推，论文训练对照不能作为实测跨城结论。",
         "契合方向": "场景级数据／跨环境泛化／频率与传播交互",
         "推荐理由": "能检验 p(H|r,e,M) 的环境泛化收益来自更多场景还是更多场景内观测。",
         "顶刊顶会/机构依据": "arXiv预印本；未确认正式venue；预印本/状态未确认；官方arXiv记录与所读PDF未提供可确认录用的公开声明。",
@@ -138,13 +138,13 @@
         "是否精读": "☐",
         "备注": "",
         "代码链接": "",
-        "代码/数据状态": "未发现公开代码；官方页面、全文和 GitHub 精确标题、arXiv 编号检索未找到作者实现。搜索证据 https://github.com/search?q=2611.11428&type=repositories。论文 §V-D 声明由作者站提供数据。当前未核实实际下载入口。",
+        "代码/数据状态": "未发现公开代码；官方页面、全文和 GitHub 精确标题、arXiv 编号检索未找到作者实现。搜索证据 https://github.com/search?q=2611.11428&type=repositories。论文 §V-D 声明由作者站提供数据。作者主页的项目入口返回 HTTP 404，数据下载暂未验证。",
         "反馈匹配": "相对 RadioGen3D 的地图生成与 Radio3DMix 合成工具，这篇直接提供场景级拆分和广度／密度对照。",
         "反馈权重说明": "独立机制；事实/迁移推断/待验证假设分开；同预算配对，不预设提升。"
       },
       "hyperlinks": {},
       "report_url": "/papers/reports/2026-11-11/",
-      "report_section": "## 5. CHANNELS4WORLD: An Environment-Scale Dataset for Wireless Foundation Models\n\n**作者/年份/venue**：Joonkyu Jang; Hyung-Joo Moon; Kwang Soon Kim; Seong-Lyun Kim; Jakob Hoydis; Robert W. Jr. Heath; Chan-Byoung Chae；2026；arXiv预印本；未确认正式venue。\n\n**发表状态及证据**：预印本/状态未确认。官方arXiv记录与所读PDF未提供可确认录用的公开声明。\n\n**方向**：场景级数据／跨环境泛化／频率与传播交互\n\n**问题**：少量场景内密采样难以回答增加场景广度能否改善未见环境泛化。\n\n**论文方法**：程序化生成 10 万户外场景，将几何、材料、收发位置、3.5/7 GHz 路径和传播交互按场景对齐；场景级固定 90K/10K 划分。\n\n**论文结果**：作者报告 524.3 亿物理链路、约 29.14 TB。固定训练暴露下更多场景有利于未见场景，但等 episode 对照显示场景数本身不足以解释收益。\n\n**局限与审计判断**：程序化场景和射线求解有模拟偏差；双频和保留路径规则限制外推，论文训练对照不能作为实测跨城结论。\n\n**迁移类型**：可改造工具\n\n**研究接口（迁移推断）**：用论文描述的 200 场景分层小规模起步，锁定总样本数，正交改变训练场景数和场景内采样密度。\n\n**与既有阅读差异**：相对 RadioGen3D 的地图生成与 Radio3DMix 合成工具，这篇直接提供场景级拆分和广度／密度对照。\n\n**推荐理由**：能检验 p(H|r,e,M) 的环境泛化收益来自更多场景还是更多场景内观测。\n\n**待验证假设**：场景级拆分会比同场景随机划分更能暴露地图条件过拟合。\n\n**代码状态**：未发现公开代码\n\n**代码证据**：官方页面、全文和 GitHub 精确标题、arXiv 编号检索未找到作者实现。搜索证据 https://github.com/search?q=2611.11428&type=repositories。论文 §V-D 声明由作者站提供数据。当前未核实实际下载入口。\n\n**全文定位**：PDF pp. 11–12、15–17，§V–VII 与表VII\n\n**身份与版本**：arXiv:2611.11428；DOI 10.48550/arXiv.2611.11428；Submission history From: Chan-Byoung Chae [ view email ] [v1] Sun, 8 Nov 2026 14:46:15 UTC (3,337 KB)；[发表或版本证据](https://www.cbchae.org/)\n\n[官方页面](https://arxiv.org/abs/2611.11428)；[官方PDF](https://arxiv.org/pdf/2611.11428)；[原文PDF](https://arxiv.org/pdf/2611.11428)。完整PDF可访问，共21页。\n\n[本篇全文翻译/状态](https://lrxuanxuan.github.io/papers/items/6b88bae7e948a2f3/#paper-translation)：job `1d870e10120267429200c431`已入队，gpt-6-luna/xhigh；原worker找不到会话，未启动。\n\n[原文许可](https://creativecommons.org/licenses/by/4.0/)：允许验收完成、保留归属/许可/翻译说明后的译文分享。PDF只保留本地与官方链接。",
+      "report_section": "## 5. CHANNELS4WORLD: An Environment-Scale Dataset for Wireless Foundation Models\n\n**作者/年份/venue**：Joonkyu Jang; Hyung-Joo Moon; Kwang Soon Kim; Seong-Lyun Kim; Jakob Hoydis; Robert W. Heath Jr.; Chan-Byoung Chae；2026；arXiv预印本；未确认正式venue。\n\n**发表状态及证据**：预印本/状态未确认。官方arXiv记录与所读PDF未提供可确认录用的公开声明。\n\n**方向**：场景级数据／跨环境泛化／频率与传播交互\n\n**问题**：少量场景内密采样难以回答增加场景广度能否改善未见环境泛化。\n\n**论文方法**：程序化生成 10 万户外场景，将几何、材料、收发位置、3.5/7 GHz 路径和传播交互按场景对齐；场景级固定 90K/10K 划分。\n\n**论文结果**：作者报告 524.3 亿物理链路、约 29.14 TB。固定训练暴露下更多场景有利于未见场景，但等 episode 对照显示场景数本身不足以解释收益。\n\n**局限与审计判断**：程序化场景和射线求解有模拟偏差；双频和保留路径规则限制外推，论文训练对照不能作为实测跨城结论。\n\n**迁移类型**：可改造工具\n\n**研究接口（迁移推断）**：用论文描述的 200 场景分层小规模起步，锁定总样本数，正交改变训练场景数和场景内采样密度。\n\n**与既有阅读差异**：相对 RadioGen3D 的地图生成与 Radio3DMix 合成工具，这篇直接提供场景级拆分和广度／密度对照。\n\n**推荐理由**：能检验 p(H|r,e,M) 的环境泛化收益来自更多场景还是更多场景内观测。\n\n**待验证假设**：场景级拆分会比同场景随机划分更能暴露地图条件过拟合。\n\n**代码状态**：未发现公开代码\n\n**代码证据**：官方页面、全文和 GitHub 精确标题、arXiv 编号检索未找到作者实现。搜索证据 https://github.com/search?q=2611.11428&type=repositories。论文 §V-D 声明由作者站提供数据。作者主页的项目入口返回 HTTP 404，数据下载暂未验证。\n\n**全文定位**：PDF pp. 11–12、15–17，§V–VII 与表VII\n\n**身份与版本**：arXiv:2611.11428；DOI 10.48550/arXiv.2611.11428；Submission history From: Chan-Byoung Chae [ view email ] [v1] Sun, 8 Nov 2026 14:46:15 UTC (3,337 KB)；[发表或版本证据](https://www.cbchae.org/)\n\n[官方页面](https://arxiv.org/abs/2611.11428)；[官方PDF](https://arxiv.org/pdf/2611.11428)；[原文PDF](https://arxiv.org/pdf/2611.11428)。完整PDF可访问，共21页。\n\n[本篇全文翻译/状态](https://lrxuanxuan.github.io/papers/items/6b88bae7e948a2f3/#paper-translation)：job `1d870e10120267429200c431`已入队，gpt-6-luna/xhigh；原worker找不到会话，未启动。\n\n[原文许可](https://creativecommons.org/licenses/by/4.0/)：允许验收完成、保留归属/许可/翻译说明后的译文分享。PDF只保留本地与官方链接。",
       "report_entry_url": "/papers/reports/2026-11-11/#paper-6b88bae7e948a2f3",
       "paper_url": "/papers/items/6b88bae7e948a2f3/",
       "paper_report_url": "/papers/items/6b88bae7e948a2f3/#paper-report",
@@ -42405,7 +42405,7 @@
   "pdf_mode": "links_only",
   "workbook_table": {
     "url": "/papers/table/",
-    "source_sha256": "32f179096d767aa900882bee78a64d5cdf4496f2744dae6107ef1d64e68484d9",
+    "source_sha256": "31977c9cdcd0f7efcf950e431c349120d76b78760eb361d09d9942fedfb44b02",
     "sheet": "每日论文推荐",
     "row_count": 470,
     "headers": [
