@@ -409,6 +409,36 @@ toc: true
 
 ## 推荐论文
 
+### 2026-11-11 · [CHANNELS4WORLD: An Environment-Scale Dataset for Wireless Foundation Models](/papers/items/6b88bae7e948a2f3/)
+
+能检验 p(H|r,e,M) 的环境泛化收益来自更多场景还是更多场景内观测。
+
+[本篇日报](/papers/items/6b88bae7e948a2f3/#paper-report)
+
+### 2026-11-11 · [From Discrete Snapshots to Geometric Entity: Motion-Native Channel Tracking for THz Near-Field XL-MIMO](/papers/items/dadfc3395cad19a6/)
+
+提供可解释的移动约束基线，能独立检查共享轨迹是否优于后验平滑。
+
+[本篇日报](/papers/items/dadfc3395cad19a6/#paper-report)
+
+### 2026-11-11 · [DeepRT-Cal: Learning to Calibrate Ray-Traced Twin Channel Statistics with Low-Fidelity Environmental Geometry](/papers/items/b92a56da7bc9bb4f/)
+
+给出直接可控的先验失配因素与 NLoS 分组口径。
+
+[本篇日报](/papers/items/b92a56da7bc9bb4f/#paper-report)
+
+### 2026-11-11 · [FANO: Anchored Forward-Noise Optimization for Diffusion Inverse Problems](/papers/items/e4a7aec36b5f9a28/)
+
+给出可直接记录的中间诊断量，便于判断低导频率时观测修正是否损伤先验。
+
+[本篇日报](/papers/items/e4a7aec36b5f9a28/#paper-report)
+
+### 2026-11-11 · [Receiver-Resolution APS-PDP Maps for Wireless Channels: Benchmarking and Coarse-to-Fine Modeling](/papers/items/a0c5851717617355/)
+
+提供接收机分辨率、波束效用与 NFE 的同一评价口径，可把目标定义收益和生成器收益分开。
+
+[本篇日报](/papers/items/a0c5851717617355/#paper-report)
+
 ### 2026-11-10 · [Beam-STeP: Generative Site-Specific Beam Prediction with Spatio-Temporal Priors](/papers/items/ab04499159612fbe/)
 
 明确估计端到波束端的评价接口及线上时延口径。
