@@ -3182,5 +3182,45 @@
   "full": true,
   "public": true,
   "label": "阅读全文翻译"
+ },
+ "2402.12292": {
+  "url": "/papers/translations/2026-11-10-1bf1b22380a1801d44f0d9f4/",
+  "title": "正则化去噪：贝叶斯模型与内嵌 Langevin 的 split Gibbs 采样｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 16 页全节；编号公式 49 式；表格 5 个；参考文献英文原条目；许可：https://creativecommons.org/licenses/by/4.0/；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "2605.11038": {
+  "url": "/papers/translations/2026-11-10-327c5cfba60fe172f688316b/",
+  "title": "免勘察的无线电地图构建：基于隐马尔可夫模型的由粗到细推断｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 14 页全节；编号公式 24 式；表格 7 个；参考文献英文原条目；许可：https://creativecommons.org/licenses/by/4.0/；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "2610.20387": {
+  "url": "/papers/translations/2026-11-10-3fcd6b638040e98d64c41326/",
+  "title": "移动场景中的漫散射建模：射线追踪模型与测量验证｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 5 页全节；编号公式 12 式；表格 1 个；参考文献英文原条目；许可：https://creativecommons.org/licenses/by/4.0/；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "2605.07924": {
+  "url": "/papers/translations/2026-11-10-c95fd426f8ba6c524a045869/",
+  "title": "以轨迹为教师：基于能量导航蒸馏的少步离散流匹配｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 40 页全节；编号公式 28 式；表格 23 个；参考文献英文原条目；许可：https://creativecommons.org/licenses/by/4.0/；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "2610.20282": {
+  "url": "/papers/translations/2026-11-10-e1119acda86433a83f5554a8/",
+  "title": "Beam-STeP：融合时空先验的生成式站点特定波束预测｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 13 页全节；编号公式 41 式；表格 4 个；参考文献英文原条目；许可：https://arxiv.org/licenses/nonexclusive-distrib/1.0/；本译稿按用户 2026-11-10 明确要求发布，原文许可保持不变，权利人如有异议可移除；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
  }
 }

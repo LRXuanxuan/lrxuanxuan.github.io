@@ -147,7 +147,13 @@
       "report_entry_url": "/papers/reports/2026-11-10/#paper-ab04499159612fbe",
       "paper_url": "/papers/items/ab04499159612fbe/",
       "paper_report_url": "/papers/items/ab04499159612fbe/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-10-e1119acda86433a83f5554a8/#paper-ab04499159612fbe",
+          "scope": "全文中文译文",
+          "title": "Beam-STeP: Generative Site-Specific Beam Prediction with Spatio-Temporal Priors"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2610.20282",
         "https://arxiv.org/abs/2610.20282",
@@ -155,16 +161,18 @@
         "https://lrxuanxuan.github.io/papers/items/ab04499159612fbe/#paper-translation)：job",
         "https://arxiv.org/licenses/nonexclusive-distrib/1.0/)：公开译文许可未确认"
       ],
-      "github": [],
+      "github": [
+        "https://github.com/search?q=2610.20282&type=repositories"
+      ],
       "pdf_sources": [
         "https://arxiv.org/pdf/2610.20282"
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/ab04499159612fbe/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-10-e1119acda86433a83f5554a8/#paper-ab04499159612fbe",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "70d240b2f0dda0a1",
@@ -197,7 +205,13 @@
       "report_entry_url": "/papers/reports/2026-11-10/#paper-70d240b2f0dda0a1",
       "paper_url": "/papers/items/70d240b2f0dda0a1/",
       "paper_report_url": "/papers/items/70d240b2f0dda0a1/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-10-3fcd6b638040e98d64c41326/#paper-70d240b2f0dda0a1",
+          "scope": "全文中文译文",
+          "title": "Modeling Diffuse Scattering in Mobility Scenarios: Ray Tracing Model and Measurement Validation"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2610.20387",
         "https://arxiv.org/abs/2610.20387",
@@ -205,16 +219,18 @@
         "https://lrxuanxuan.github.io/papers/items/70d240b2f0dda0a1/#paper-translation)：job",
         "https://creativecommons.org/licenses/by/4.0/)：允许验收完成、保留归属/许可/翻译说明后的译文分享"
       ],
-      "github": [],
+      "github": [
+        "https://github.com/search?q=2610.20387&type=repositories"
+      ],
       "pdf_sources": [
         "https://arxiv.org/pdf/2610.20387"
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/70d240b2f0dda0a1/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-10-3fcd6b638040e98d64c41326/#paper-70d240b2f0dda0a1",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "0b39535272e77169",
@@ -247,7 +263,13 @@
       "report_entry_url": "/papers/reports/2026-11-10/#paper-0b39535272e77169",
       "paper_url": "/papers/items/0b39535272e77169/",
       "paper_report_url": "/papers/items/0b39535272e77169/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-10-327c5cfba60fe172f688316b/#paper-0b39535272e77169",
+          "scope": "全文中文译文",
+          "title": "Survey-Free Radio Map Construction via HMM-Based Coarse-to-Fine Inference"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2605.11038",
         "https://arxiv.org/abs/2605.11038",
@@ -255,16 +277,18 @@
         "https://lrxuanxuan.github.io/papers/items/0b39535272e77169/#paper-translation)：job",
         "https://creativecommons.org/licenses/by/4.0/)：允许验收完成、保留归属/许可/翻译说明后的译文分享"
       ],
-      "github": [],
+      "github": [
+        "https://github.com/search?q=2605.11038&type=repositories"
+      ],
       "pdf_sources": [
         "https://arxiv.org/pdf/2605.11038"
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/0b39535272e77169/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-10-327c5cfba60fe172f688316b/#paper-0b39535272e77169",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "107f53b4d46879e9",
@@ -297,7 +321,13 @@
       "report_entry_url": "/papers/reports/2026-11-10/#paper-107f53b4d46879e9",
       "paper_url": "/papers/items/107f53b4d46879e9/",
       "paper_report_url": "/papers/items/107f53b4d46879e9/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-10-c95fd426f8ba6c524a045869/#paper-107f53b4d46879e9",
+          "scope": "全文中文译文",
+          "title": "Trajectory as the Teacher: Few-Step Discrete Flow Matching via Energy-Navigated Distillation"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2605.07924",
         "https://arxiv.org/abs/2605.07924",
@@ -305,16 +335,18 @@
         "https://lrxuanxuan.github.io/papers/items/107f53b4d46879e9/#paper-translation)：job",
         "https://creativecommons.org/licenses/by/4.0/)：允许验收完成、保留归属/许可/翻译说明后的译文分享"
       ],
-      "github": [],
+      "github": [
+        "https://github.com/search?q=2605.07924&type=repositories"
+      ],
       "pdf_sources": [
         "https://arxiv.org/pdf/2605.07924"
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/107f53b4d46879e9/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-10-c95fd426f8ba6c524a045869/#paper-107f53b4d46879e9",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "c0f46ce7f9a5495c",
@@ -347,7 +379,13 @@
       "report_entry_url": "/papers/reports/2026-11-10/#paper-c0f46ce7f9a5495c",
       "paper_url": "/papers/items/c0f46ce7f9a5495c/",
       "paper_report_url": "/papers/items/c0f46ce7f9a5495c/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-10-1bf1b22380a1801d44f0d9f4/#paper-c0f46ce7f9a5495c",
+          "scope": "全文中文译文",
+          "title": "Regularization by denoising: Bayesian model and Langevin-within-split Gibbs sampling"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2402.12292",
         "https://arxiv.org/abs/2402.12292",
@@ -358,16 +396,18 @@
         "https://lrxuanxuan.github.io/papers/items/c0f46ce7f9a5495c/#paper-translation)：job",
         "https://creativecommons.org/licenses/by/4.0/)：允许验收完成、保留归属/许可/翻译说明后的译文分享"
       ],
-      "github": [],
+      "github": [
+        "https://github.com/search?q=2402.12292&type=repositories"
+      ],
       "pdf_sources": [
         "https://arxiv.org/pdf/2402.12292"
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/c0f46ce7f9a5495c/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-10-1bf1b22380a1801d44f0d9f4/#paper-c0f46ce7f9a5495c",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "2d6029f847fafd1e",
@@ -35020,6 +35060,62 @@
     }
   ],
   "translations": [
+    {
+      "date": "2026-11-10",
+      "url": "/papers/translations/2026-11-10-e1119acda86433a83f5554a8/",
+      "slug": "2026-11-10-e1119acda86433a83f5554a8",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Beam-STeP: Generative Site-Specific Beam Prediction with Spatio-Temporal Priors",
+      "paper_id": "2610.20282",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-10-e1119acda86433a83f5554a8.md",
+      "publication_authorization": "用户 2026-11-10 明确要求「五篇都推送」；原文许可为 arXiv 非独占分发许可，未授予公开译稿依据；权利人如有异议可移除。原文许可保持不变。"
+    },
+    {
+      "date": "2026-11-10",
+      "url": "/papers/translations/2026-11-10-c95fd426f8ba6c524a045869/",
+      "slug": "2026-11-10-c95fd426f8ba6c524a045869",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Trajectory as the Teacher: Few-Step Discrete Flow Matching via Energy-Navigated Distillation",
+      "paper_id": "2605.07924",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-10-c95fd426f8ba6c524a045869.md"
+    },
+    {
+      "date": "2026-11-10",
+      "url": "/papers/translations/2026-11-10-3fcd6b638040e98d64c41326/",
+      "slug": "2026-11-10-3fcd6b638040e98d64c41326",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Modeling Diffuse Scattering in Mobility Scenarios: Ray Tracing Model and Measurement Validation",
+      "paper_id": "2610.20387",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-10-3fcd6b638040e98d64c41326.md"
+    },
+    {
+      "date": "2026-11-10",
+      "url": "/papers/translations/2026-11-10-327c5cfba60fe172f688316b/",
+      "slug": "2026-11-10-327c5cfba60fe172f688316b",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Survey-Free Radio Map Construction via HMM-Based Coarse-to-Fine Inference",
+      "paper_id": "2605.11038",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-10-327c5cfba60fe172f688316b.md"
+    },
+    {
+      "date": "2026-11-10",
+      "url": "/papers/translations/2026-11-10-1bf1b22380a1801d44f0d9f4/",
+      "slug": "2026-11-10-1bf1b22380a1801d44f0d9f4",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Regularization by denoising: Bayesian model and Langevin-within-split Gibbs sampling",
+      "paper_id": "2402.12292",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-10-1bf1b22380a1801d44f0d9f4.md"
+    },
     {
       "date": "2026-11-09",
       "url": "/papers/translations/2026-11-09-e160bca2b9325ba8cf748684/",
