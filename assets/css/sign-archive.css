@@ -35,7 +35,11 @@
 .rc-archive-day h3 { font-size:1rem; color:var(--heading-color); font-variant-numeric:tabular-nums; }
 .rc-archive-day h3 span, .rc-archive-kind { font-size:.72rem; font-weight:normal; margin-left:.6rem; color:var(--text-muted-color); }
 .rc-archive-quote { border:1px solid var(--main-border-color); border-radius:12px; background:var(--card-bg); padding:1rem 1.2rem; margin:.7rem 0; }
-.rc-archive-quote blockquote { margin:.4rem 0 .75rem; padding:0; border:0; color:var(--heading-color); line-height:1.9; white-space:pre-line; overflow-wrap:anywhere; }
+.rc-archive-quote blockquote { margin:.4rem 0 .75rem; padding:0; border:0; color:var(--heading-color); line-height:1.9; white-space:pre-wrap; overflow-wrap:anywhere; }
+/* Match the homepage's lightweight verse/stanza rendering. */
+.rc-archive-quote blockquote.rc-sign-has-stanzas { white-space:normal; }
+.rc-archive-quote .rc-sign-stanza { display:block; white-space:pre-wrap; }
+.rc-archive-quote .rc-sign-stanza + .rc-sign-stanza { margin-top:.8em; }
 .rc-archive-quote p { text-align:right; color:var(--text-muted-color); font-size:.8rem; margin:0; line-height:1.7; }
 .rc-sign-archive [hidden] { display:none; }
 @media(max-width:600px) { .rc-archive-quote { padding:.85rem 1rem; } }

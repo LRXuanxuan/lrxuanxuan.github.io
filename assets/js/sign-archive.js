@@ -20,6 +20,25 @@
     return [...lines.slice(0,prefixEnd),'',...lines.slice(boundary)].join('\n');
   }
 
+  // Keep the original text intact while rendering every verse line and stanza.
+  // Using text nodes prevents lyrics/poetry from being interpreted as HTML.
+  function displayQuote(element, value) {
+    const formatted = formatBilingualText(value).replace(/\r\n?/g, '\n');
+    const parts = formatted.split(/(\n{2,})/);
+    const divided = parts.length > 1;
+    element.classList.toggle('rc-sign-has-stanzas', divided);
+    if (!divided) { element.textContent = formatted; return; }
+    const nodes = [];
+    parts.forEach((part, index) => {
+      if (index % 2) { nodes.push(document.createTextNode(part)); return; }
+      const stanza = document.createElement('span');
+      stanza.className = 'rc-sign-stanza';
+      stanza.textContent = part;
+      nodes.push(stanza);
+    });
+    element.replaceChildren(...nodes);
+  }
+
   function updateVoteSummary() {
     if(!votes||!voteTotal) return;
     const summary=votes.totals();
@@ -102,7 +121,7 @@
         const kind=document.createElement('span');kind.className='rc-archive-kind';kind.textContent=quote.kind==='daily'?'默认日签':quote.kind==='legacy'?'旧版重抽签':'重抽签';
         const text=document.createElement('blockquote');
         // Old browser-local records may retain prior editorial commentary.
-        text.textContent=formatBilingualText(quote.text);
+        displayQuote(text,quote.text);
         const source=document.createElement('p');
         if ((quote.chapter||'').startsWith('演唱：')) {
           const performer=((quote.chapter.match(/演唱：([^｜]+)/)||[])[1]||quote.author||'').trim();

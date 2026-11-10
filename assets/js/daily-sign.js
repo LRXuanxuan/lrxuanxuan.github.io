@@ -16,8 +16,27 @@
     while(prefixEnd>0&&lines[prefixEnd-1]==='')prefixEnd--;
     return [...lines.slice(0,prefixEnd),'',...lines.slice(boundary)].join('\n');
   }
+  // Keep the original text intact while rendering every verse line and stanza.
+  // Using text nodes prevents lyrics/poetry from being interpreted as HTML.
+  function displayQuote(element, value) {
+    const formatted = formatBilingualText(value).replace(/\r\n?/g, '\n');
+    const parts = formatted.split(/(\n{2,})/);
+    const divided = parts.length > 1;
+    element.classList.toggle('rc-sign-has-stanzas', divided);
+    if (!divided) { element.textContent = formatted; return; }
+    const nodes = [];
+    parts.forEach((part, index) => {
+      if (index % 2) { nodes.push(document.createTextNode(part)); return; }
+      const stanza = document.createElement('span');
+      stanza.className = 'rc-sign-stanza';
+      stanza.textContent = part;
+      nodes.push(stanza);
+    });
+    element.replaceChildren(...nodes);
+  }
+
   let initialText = formatBilingualText(text.textContent);
-  text.textContent=initialText;
+  displayQuote(text,initialText);
   let initialSource = source.cloneNode(true);
   const records = globalThis.RCSignRecords;
   const calendar = globalThis.RCSignCalendar;
@@ -143,7 +162,7 @@
   }
   function render(quote) {
     currentQuote=quote;
-    text.textContent = formatBilingualText(quote.text);
+    displayQuote(text,quote.text);
     showVotes(quote);
     voteStatus.textContent='';
     showAspect(quote);
@@ -210,7 +229,7 @@
     currentQuote=initialQuote;
     showVotes(initialQuote);
     voteStatus.textContent='';
-    text.textContent = formatBilingualText(initialText);
+    displayQuote(text,initialText);
     showAspect(initialQuote);
     source.replaceChildren(...[...initialSource.childNodes].map(node => node.cloneNode(true)));
     reset.hidden = true;
