@@ -3222,5 +3222,45 @@
   "full": true,
   "public": true,
   "label": "阅读全文翻译"
+ },
+ "a0c5851717617355": {
+  "url": "/papers/translations/2026-11-11-010cb8c1cb85f2aeb340bd98/",
+  "title": "无线信道的接收机分辨率 APS–PDP 图谱：基准构建与由粗到细建模｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 18 页全节；编号公式 12 式；表格 109 行；参考文献英文原条目；许可：https://arxiv.org/licenses/nonexclusive-distrib/1.0/；本译稿按用户 2026-11-11 明确要求发布，原文许可保持不变，权利人如有异议可移除；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "e4a7aec36b5f9a28": {
+  "url": "/papers/translations/2026-11-11-b446a02250cde55efd903c5e/",
+  "title": "FANO：面向扩散逆问题的锚定前向噪声优化｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 26 页全节；编号公式 8 式；表格 158 行；参考文献英文原条目；许可：https://creativecommons.org/licenses/by/4.0/；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "b92a56da7bc9bb4f": {
+  "url": "/papers/translations/2026-11-11-0c452128ba99a690e72b1d05/",
+  "title": "DeepRT-Cal：以低保真环境几何学习校准射线追踪所得孪生信道统计量｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 16 页全节；编号公式 40 式；表格 75 行；参考文献英文原条目；许可：https://creativecommons.org/licenses/by/4.0/；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "dadfc3395cad19a6": {
+  "url": "/papers/translations/2026-11-11-09e479285524a98946ad998c/",
+  "title": "从离散快照到几何实体：面向 THz 近场 XL-MIMO 的运动原生信道跟踪｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 16 页全节；编号公式 59 式；表格 88 行；参考文献英文原条目；许可：https://arxiv.org/licenses/nonexclusive-distrib/1.0/；本译稿按用户 2026-11-11 明确要求发布，原文许可保持不变，权利人如有异议可移除；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "6b88bae7e948a2f3": {
+  "url": "/papers/translations/2026-11-11-1d870e10120267429200c431/",
+  "title": "CHANNELS4WORLD：面向无线基础模型的环境尺度数据集｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 21 页全节；编号公式 20 式；表格 99 行；参考文献英文原条目；许可：https://creativecommons.org/licenses/by/4.0/；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
  }
 }

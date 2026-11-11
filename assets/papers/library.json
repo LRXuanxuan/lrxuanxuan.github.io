@@ -148,7 +148,13 @@
       "report_entry_url": "/papers/reports/2026-11-11/#paper-6b88bae7e948a2f3",
       "paper_url": "/papers/items/6b88bae7e948a2f3/",
       "paper_report_url": "/papers/items/6b88bae7e948a2f3/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-11-1d870e10120267429200c431/#paper-6b88bae7e948a2f3",
+          "scope": "全文中文译文",
+          "title": "CHANNELS4WORLD: An Environment-Scale Dataset for Wireless Foundation Models"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2611.11428",
         "https://arxiv.org/abs/2611.11428",
@@ -163,10 +169,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/6b88bae7e948a2f3/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-11-1d870e10120267429200c431/#paper-6b88bae7e948a2f3",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "dadfc3395cad19a6",
@@ -199,7 +205,13 @@
       "report_entry_url": "/papers/reports/2026-11-11/#paper-dadfc3395cad19a6",
       "paper_url": "/papers/items/dadfc3395cad19a6/",
       "paper_report_url": "/papers/items/dadfc3395cad19a6/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-11-09e479285524a98946ad998c/#paper-dadfc3395cad19a6",
+          "scope": "全文中文译文",
+          "title": "From Discrete Snapshots to Geometric Entity: Motion-Native Channel Tracking for THz Near-Field XL-MIMO"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2611.10587",
         "https://arxiv.org/abs/2611.10587",
@@ -213,10 +225,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/dadfc3395cad19a6/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-11-09e479285524a98946ad998c/#paper-dadfc3395cad19a6",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "b92a56da7bc9bb4f",
@@ -249,7 +261,13 @@
       "report_entry_url": "/papers/reports/2026-11-11/#paper-b92a56da7bc9bb4f",
       "paper_url": "/papers/items/b92a56da7bc9bb4f/",
       "paper_report_url": "/papers/items/b92a56da7bc9bb4f/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-11-0c452128ba99a690e72b1d05/#paper-b92a56da7bc9bb4f",
+          "scope": "全文中文译文",
+          "title": "DeepRT-Cal: Learning to Calibrate Ray-Traced Twin Channel Statistics with Low-Fidelity Environmental Geometry"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2611.09079",
         "https://arxiv.org/abs/2611.09079",
@@ -263,10 +281,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/b92a56da7bc9bb4f/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-11-0c452128ba99a690e72b1d05/#paper-b92a56da7bc9bb4f",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "e4a7aec36b5f9a28",
@@ -299,7 +317,13 @@
       "report_entry_url": "/papers/reports/2026-11-11/#paper-e4a7aec36b5f9a28",
       "paper_url": "/papers/items/e4a7aec36b5f9a28/",
       "paper_report_url": "/papers/items/e4a7aec36b5f9a28/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-11-b446a02250cde55efd903c5e/#paper-e4a7aec36b5f9a28",
+          "scope": "全文中文译文",
+          "title": "FANO: Anchored Forward-Noise Optimization for Diffusion Inverse Problems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2611.08923",
         "https://arxiv.org/abs/2611.08923",
@@ -313,10 +337,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/e4a7aec36b5f9a28/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-11-b446a02250cde55efd903c5e/#paper-e4a7aec36b5f9a28",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "a0c5851717617355",
@@ -349,7 +373,13 @@
       "report_entry_url": "/papers/reports/2026-11-11/#paper-a0c5851717617355",
       "paper_url": "/papers/items/a0c5851717617355/",
       "paper_report_url": "/papers/items/a0c5851717617355/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-11-010cb8c1cb85f2aeb340bd98/#paper-a0c5851717617355",
+          "scope": "全文中文译文",
+          "title": "Receiver-Resolution APS-PDP Maps for Wireless Channels: Benchmarking and Coarse-to-Fine Modeling"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2611.10581",
         "https://arxiv.org/abs/2611.10581",
@@ -363,10 +393,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/a0c5851717617355/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-11-010cb8c1cb85f2aeb340bd98/#paper-a0c5851717617355",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "ab04499159612fbe",
@@ -35323,6 +35353,63 @@
     }
   ],
   "translations": [
+    {
+      "date": "2026-11-11",
+      "url": "/papers/translations/2026-11-11-010cb8c1cb85f2aeb340bd98/",
+      "slug": "2026-11-11-010cb8c1cb85f2aeb340bd98",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Receiver-Resolution APS-PDP Maps for Wireless Channels: Benchmarking and Coarse-to-Fine Modeling",
+      "paper_id": "2611.10581",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-11-010cb8c1cb85f2aeb340bd98.md",
+      "publication_authorization": "用户 2026-11-11 明确要求「全都发布」；原文许可为 arXiv 非独占分发许可，未授予公开译稿依据；本译稿按用户要求公开发布，原文许可保持不变，权利人如有异议可移除。"
+    },
+    {
+      "date": "2026-11-11",
+      "url": "/papers/translations/2026-11-11-b446a02250cde55efd903c5e/",
+      "slug": "2026-11-11-b446a02250cde55efd903c5e",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "FANO: Anchored Forward-Noise Optimization for Diffusion Inverse Problems",
+      "paper_id": "2611.08923",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-11-b446a02250cde55efd903c5e.md"
+    },
+    {
+      "date": "2026-11-11",
+      "url": "/papers/translations/2026-11-11-0c452128ba99a690e72b1d05/",
+      "slug": "2026-11-11-0c452128ba99a690e72b1d05",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "DeepRT-Cal: Learning to Calibrate Ray-Traced Twin Channel Statistics with Low-Fidelity Environmental Geometry",
+      "paper_id": "2611.09079",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-11-0c452128ba99a690e72b1d05.md"
+    },
+    {
+      "date": "2026-11-11",
+      "url": "/papers/translations/2026-11-11-09e479285524a98946ad998c/",
+      "slug": "2026-11-11-09e479285524a98946ad998c",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "From Discrete Snapshots to Geometric Entity: Motion-Native Channel Tracking for THz Near-Field XL-MIMO",
+      "paper_id": "2611.10587",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-11-09e479285524a98946ad998c.md",
+      "publication_authorization": "用户 2026-11-11 明确要求「全都发布」；原文许可为 arXiv 非独占分发许可，未授予公开译稿依据；本译稿按用户要求公开发布，原文许可保持不变，权利人如有异议可移除。"
+    },
+    {
+      "date": "2026-11-11",
+      "url": "/papers/translations/2026-11-11-1d870e10120267429200c431/",
+      "slug": "2026-11-11-1d870e10120267429200c431",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "CHANNELS4WORLD: An Environment-Scale Dataset for Wireless Foundation Models",
+      "paper_id": "2611.11428",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-11-1d870e10120267429200c431.md"
+    },
     {
       "date": "2026-11-10",
       "url": "/papers/translations/2026-11-10-e1119acda86433a83f5554a8/",
