@@ -419,6 +419,66 @@ toc: true
 
 ## 推荐论文
 
+### 2026-11-13 · [Cross-Domain Channel Estimation for MU-MIMO-OFDM](/papers/items/98b6c69cf45ea99b/)
+
+可检验显式先验的收益是否已被稀疏支撑解释。
+
+[本篇日报](/papers/items/98b6c69cf45ea99b/#paper-report)
+
+### 2026-11-13 · [Ray-Tracing-Based Dynamic Channel Sounding With Autoregressive Wi-Fi CSI Prediction](/papers/items/a5935a8faea15e2f/)
+
+将概率输出转换成可量化的调度动作。
+
+[本篇日报](/papers/items/a5935a8faea15e2f/#paper-report)
+
+### 2026-11-13 · [Missed Interferers in Ray-Traced Radio Maps: A Digital-Twin and Stochastic Geometry Study of Aerial Coverage](/papers/items/3c397329adf10cfe/)
+
+为合成标签覆盖与尾部偏差提供反例。
+
+[本篇日报](/papers/items/3c397329adf10cfe/#paper-report)
+
+### 2026-11-13 · [WiSER: A Wireless Scene Encoder for Geometry-Grounded Multi-View Wireless Prediction](/papers/items/b0da9ed537ec4ad8/)
+
+有助于设计不同接收分辨率下可核验的地图先验。
+
+[本篇日报](/papers/items/b0da9ed537ec4ad8/#paper-report)
+
+### 2026-11-13 · [Channel Charting-Based Channel Prediction on Real-World Distributed Massive MIMO CSI](/papers/items/9f868af09b526558/)
+
+适合校验预测时距与波束收益的关系。
+
+[本篇日报](/papers/items/9f868af09b526558/#paper-report)
+
+### 2026-11-13 · [CSI Prediction Frameworks for Enhanced 5G Link Adaptation: Performance-Complexity Trade-offs](/papers/items/cb0783afa5fb9ec6/)
+
+检验更复杂预测器是否产生吞吐价值。
+
+[本篇日报](/papers/items/cb0783afa5fb9ec6/#paper-report)
+
+### 2026-11-13 · [Neural Network-Based Delay-Doppler-Assisted Channel Estimation for OFDM](/papers/items/070e317576bbf249/)
+
+直接对应观测算子失配。
+
+[本篇日报](/papers/items/070e317576bbf249/#paper-report)
+
+### 2026-11-13 · [Basis Expansion Extrapolation based Long-Term Channel Prediction for Massive MIMO OTFS Systems](/papers/items/d51ae4a7815afbb3/)
+
+给可解释线性动力模型设置有竞争力的对照。
+
+[本篇日报](/papers/items/d51ae4a7815afbb3/#paper-report)
+
+### 2026-11-13 · [RAG-CSI: Global Local Retrieval via Joint State and Dynamics Matching for CSI Prediction](/papers/items/291d7605fff4702e/)
+
+可检验场景信息增量，并分离状态相近与动态相近。
+
+[本篇日报](/papers/items/291d7605fff4702e/#paper-report)
+
+### 2026-11-13 · [MIMO Channel Prediction via Deep Learning-based Conformal Bayes Filter](/papers/items/15838c5c909db319/)
+
+给 Gaussian 与 Flow 比较加入独立校准对照。
+
+[本篇日报](/papers/items/15838c5c909db319/#paper-report)
+
 ### 2026-11-12 · [Joint Air Corridor and BS Coverage Planning for Large-Scale High-Density Low-Altitude Aerial Networks via Channel Knowledge Maps](/papers/items/944e60bc47061a09/)
 
 补足从无线地图到网络级约束决策的接口。
