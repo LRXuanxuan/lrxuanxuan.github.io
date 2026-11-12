@@ -414,6 +414,36 @@ toc: true
 
 ## 推荐论文
 
+### 2026-11-12 · [Joint Air Corridor and BS Coverage Planning for Large-Scale High-Density Low-Altitude Aerial Networks via Channel Knowledge Maps](/papers/items/944e60bc47061a09/)
+
+补足从无线地图到网络级约束决策的接口。
+
+[本篇日报](/papers/items/944e60bc47061a09/#paper-report)
+
+### 2026-11-12 · [Achieving Robust Channel Estimation Neural Networks on Doppler effects by Designed Training Data](/papers/items/6134aa676e459ad1/)
+
+给出与更换网络架构无关的高速训练对照。
+
+[本篇日报](/papers/items/6134aa676e459ad1/#paper-report)
+
+### 2026-11-12 · [MPSi: Neural Extraction of Site-Specific Multipath Propagation Properties for Massive MIMO](/papers/items/c74a75b80327bc57/)
+
+给出从观测到站点统计先验的可实现接口。
+
+[本篇日报](/papers/items/c74a75b80327bc57/#paper-report)
+
+### 2026-11-12 · [AdjointFlow: Accelerating Scientific Inverse Problems with Physics-Based Transport](/papers/items/bf996f7361c75518/)
+
+可把运输路径和迭代后验细化的成本拆开验证。
+
+[本篇日报](/papers/items/bf996f7361c75518/#paper-report)
+
+### 2026-11-12 · [Plug-and-Play ADMM for Inverse Problems with Flow Matching Denoiser](/papers/items/a8160cff8e35dfea/)
+
+便于检验对偶反馈与流轨迹校正各自的贡献。
+
+[本篇日报](/papers/items/a8160cff8e35dfea/#paper-report)
+
 ### 2026-11-11 · [CHANNELS4WORLD: An Environment-Scale Dataset for Wireless Foundation Models](/papers/items/6b88bae7e948a2f3/)
 
 能检验 p(H|r,e,M) 的环境泛化收益来自更多场景还是更多场景内观测。
