@@ -3262,5 +3262,45 @@
   "full": true,
   "public": true,
   "label": "阅读全文翻译"
+ },
+ "a8160cff8e35dfea": {
+  "url": "/papers/translations/2026-11-12-c1713fa3122f24faa368c653/",
+  "title": "面向流匹配去噪器的即插即用 ADMM 反问题求解｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 31 页全节；编号公式 33 式；表格 83 行；参考文献英文原条目；许可：https://creativecommons.org/licenses/by/4.0/；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "bf996f7361c75518": {
+  "url": "/papers/translations/2026-11-12-bd982faa7b4f94a028538d2d/",
+  "title": "AdjointFlow：借助基于物理的输运加速科学反问题｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 51 页全节；编号公式 55 式（附录 32 个编号公式保留原编号）；表格 175 行；参考文献英文原条目；许可：https://creativecommons.org/licenses/by/4.0/；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "c74a75b80327bc57": {
+  "url": "/papers/translations/2026-11-12-391e3f5e126cfafed576fa02/",
+  "title": "MPSi：面向大规模 MIMO 的站址特定多径传播特性的神经提取｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 14 页全节；编号公式 52 式；表格 27 行；参考文献英文原条目；许可：https://creativecommons.org/licenses/by/4.0/；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "6134aa676e459ad1": {
+  "url": "/papers/translations/2026-11-12-33db848b803e2259ac0b7a07/",
+  "title": "通过设计训练数据实现抗多普勒效应的鲁棒信道估计神经网络｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 15 页全节；编号公式 40 式；表格 25 行；参考文献英文原条目；许可：https://creativecommons.org/licenses/by/4.0/；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "944e60bc47061a09": {
+  "url": "/papers/translations/2026-11-12-50acaf4eb89577080cb71ea4/",
+  "title": "基于信道知识地图的大规模高密度低空航空网络航路与基站覆盖联合规划｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 13 页全节；编号公式 74 式；表格 34 行；参考文献英文原条目；许可：https://arxiv.org/licenses/nonexclusive-distrib/1.0/；本译稿按用户 2026-11-12 明确要求发布，原文许可保持不变，权利人如有异议可移除；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
  }
 }
