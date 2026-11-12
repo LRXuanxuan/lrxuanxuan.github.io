@@ -149,7 +149,13 @@
       "report_entry_url": "/papers/reports/2026-11-12/#paper-944e60bc47061a09",
       "paper_url": "/papers/items/944e60bc47061a09/",
       "paper_report_url": "/papers/items/944e60bc47061a09/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-12-50acaf4eb89577080cb71ea4/#paper-944e60bc47061a09",
+          "scope": "全文中文译文",
+          "title": "Joint Air Corridor and BS Coverage Planning for Large-Scale High-Density Low-Altitude Aerial Networks via Channel Knowledge Maps"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2611.13574",
         "https://arxiv.org/abs/2611.13574",
@@ -163,10 +169,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/944e60bc47061a09/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-12-50acaf4eb89577080cb71ea4/#paper-944e60bc47061a09",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "6134aa676e459ad1",
@@ -199,7 +205,13 @@
       "report_entry_url": "/papers/reports/2026-11-12/#paper-6134aa676e459ad1",
       "paper_url": "/papers/items/6134aa676e459ad1/",
       "paper_report_url": "/papers/items/6134aa676e459ad1/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-12-33db848b803e2259ac0b7a07/#paper-6134aa676e459ad1",
+          "scope": "全文中文译文",
+          "title": "Achieving Robust Channel Estimation Neural Networks on Doppler effects by Designed Training Data"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2611.14267",
         "https://arxiv.org/abs/2611.14267",
@@ -214,10 +226,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/6134aa676e459ad1/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-12-33db848b803e2259ac0b7a07/#paper-6134aa676e459ad1",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "c74a75b80327bc57",
@@ -250,7 +262,13 @@
       "report_entry_url": "/papers/reports/2026-11-12/#paper-c74a75b80327bc57",
       "paper_url": "/papers/items/c74a75b80327bc57/",
       "paper_report_url": "/papers/items/c74a75b80327bc57/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-12-391e3f5e126cfafed576fa02/#paper-c74a75b80327bc57",
+          "scope": "全文中文译文",
+          "title": "MPSi: Neural Extraction of Site-Specific Multipath Propagation Properties for Massive MIMO"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2611.10954",
         "https://arxiv.org/abs/2611.10954",
@@ -267,10 +285,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/c74a75b80327bc57/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-12-391e3f5e126cfafed576fa02/#paper-c74a75b80327bc57",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "bf996f7361c75518",
@@ -303,7 +321,13 @@
       "report_entry_url": "/papers/reports/2026-11-12/#paper-bf996f7361c75518",
       "paper_url": "/papers/items/bf996f7361c75518/",
       "paper_report_url": "/papers/items/bf996f7361c75518/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-12-bd982faa7b4f94a028538d2d/#paper-bf996f7361c75518",
+          "scope": "全文中文译文",
+          "title": "AdjointFlow: Accelerating Scientific Inverse Problems with Physics-Based Transport"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2611.13389",
         "https://arxiv.org/abs/2611.13389",
@@ -317,10 +341,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/bf996f7361c75518/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-12-bd982faa7b4f94a028538d2d/#paper-bf996f7361c75518",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "a8160cff8e35dfea",
@@ -353,7 +377,13 @@
       "report_entry_url": "/papers/reports/2026-11-12/#paper-a8160cff8e35dfea",
       "paper_url": "/papers/items/a8160cff8e35dfea/",
       "paper_report_url": "/papers/items/a8160cff8e35dfea/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-12-c1713fa3122f24faa368c653/#paper-a8160cff8e35dfea",
+          "scope": "全文中文译文",
+          "title": "Plug-and-Play ADMM for Inverse Problems with Flow Matching Denoiser"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2611.13742",
         "https://arxiv.org/abs/2611.13742",
@@ -371,10 +401,10 @@
       ],
       "hosted_pdfs": [],
       "status": "已接受待刊",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/a8160cff8e35dfea/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-12-c1713fa3122f24faa368c653/#paper-a8160cff8e35dfea",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "6b88bae7e948a2f3",
@@ -35623,6 +35653,62 @@
     }
   ],
   "translations": [
+    {
+      "date": "2026-11-12",
+      "url": "/papers/translations/2026-11-12-c1713fa3122f24faa368c653/",
+      "slug": "2026-11-12-c1713fa3122f24faa368c653",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Plug-and-Play ADMM for Inverse Problems with Flow Matching Denoiser",
+      "paper_id": "2611.13742",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-12-c1713fa3122f24faa368c653.md"
+    },
+    {
+      "date": "2026-11-12",
+      "url": "/papers/translations/2026-11-12-bd982faa7b4f94a028538d2d/",
+      "slug": "2026-11-12-bd982faa7b4f94a028538d2d",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "AdjointFlow: Accelerating Scientific Inverse Problems with Physics-Based Transport",
+      "paper_id": "2611.13389",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-12-bd982faa7b4f94a028538d2d.md"
+    },
+    {
+      "date": "2026-11-12",
+      "url": "/papers/translations/2026-11-12-391e3f5e126cfafed576fa02/",
+      "slug": "2026-11-12-391e3f5e126cfafed576fa02",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "MPSi: Neural Extraction of Site-Specific Multipath Propagation Properties for Massive MIMO",
+      "paper_id": "2611.10954",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-12-391e3f5e126cfafed576fa02.md"
+    },
+    {
+      "date": "2026-11-12",
+      "url": "/papers/translations/2026-11-12-33db848b803e2259ac0b7a07/",
+      "slug": "2026-11-12-33db848b803e2259ac0b7a07",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Achieving Robust Channel Estimation Neural Networks on Doppler effects by Designed Training Data",
+      "paper_id": "2611.14267",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-12-33db848b803e2259ac0b7a07.md"
+    },
+    {
+      "date": "2026-11-12",
+      "url": "/papers/translations/2026-11-12-50acaf4eb89577080cb71ea4/",
+      "slug": "2026-11-12-50acaf4eb89577080cb71ea4",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Joint Air Corridor and BS Coverage Planning for Large-Scale High-Density Low-Altitude Aerial Networks via Channel Knowledge Maps",
+      "paper_id": "2611.13574",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-12-50acaf4eb89577080cb71ea4.md",
+      "publication_authorization": "用户 2026-11-12 明确要求「五篇全推」；原文许可为 arXiv 非独占分发许可，未授予公开译稿依据；本译稿按用户要求公开发布，原文许可保持不变，权利人如有异议可移除。"
+    },
     {
       "date": "2026-11-11",
       "url": "/papers/translations/2026-11-11-010cb8c1cb85f2aeb340bd98/",
