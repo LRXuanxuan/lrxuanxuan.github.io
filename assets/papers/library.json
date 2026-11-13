@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "source": "每日论文推荐.xlsx",
-  "source_sha256": "8f7e1f5238f25f43feb340393e48e810cb86f984df8fa9c54b63782f0660196c",
+  "source_sha256": "b9cd28c9d72b3521e7c429bcf4fefabbb1a1d85f45281f6f61163035596e6a03",
   "translation_progress": {
     "target": 315,
     "completed": 281,
@@ -390,7 +390,7 @@
         "内容": "作者 Abdollah Masoud Darya、Saeed Abdallah。问题：LEO 上行中未补偿 Doppler 会扭曲导频估计，硬判决反馈也受噪声影响。 方法：先导频 MMSE，再估计 Doppler，以 DD-MMSE 或软决策 EM 引入后续数据。比较 pilot-only、Kalman 和 Doppler 估计对照。 结果：图 1 显示 EM 在该仿真的 SNR≥5 dB 区间优于 Kalman 的信道 NMSE。DD-MMSE 更轻量。 局限：LEO 参数和几何条件限定有效性，数据辅助只可使用截止时刻已到达的数据。",
         "契合方向": "Doppler 跟踪基线",
         "推荐理由": "提供有数据辅助和无数据辅助两套可区分的信息条件。",
-        "顶刊顶会/机构依据": "IEEE Wireless Communications Letters。已接受待刊。作者的公开版本明确指向同行评审稿，IEEE 条目可定位，卷期与 Early Access 阶段未核实。",
+        "顶刊顶会/机构依据": "IEEE Wireless Communications Letters。正式发表。IEEE Xplore 列为第 15 卷，出版登记页码为 3726–3730。",
         "发表年份": "2026",
         "论文下载链接": "https://arxiv.org/pdf/2606.16750",
         "检索来源": "https://arxiv.org/abs/2606.16750\nhttps://doi.org/10.1109/LWC.2026.3704614\nhttps://ieeexplore.ieee.org/document/11569914",
@@ -405,7 +405,7 @@
       },
       "hyperlinks": {},
       "report_url": "/papers/reports/2026-11-14/",
-      "report_section": "## 5. Data-Aided Channel and Doppler Estimation for mMIMO LEO SatComs with Uncompensated Doppler\n\n**作者与出版信息**　Abdollah Masoud Darya、Saeed Abdallah，2026，IEEE Wireless Communications Letters。已接受待刊。作者的公开版本明确指向同行评审稿，IEEE 条目可定位，卷期与 Early Access 阶段未核实。\n\n**方向**　Doppler 跟踪基线\n\n**问题**　LEO 上行中未补偿 Doppler 会扭曲导频估计，硬判决反馈也受噪声影响。\n\n**论文方法**　先导频 MMSE，再估计 Doppler，以 DD-MMSE 或软决策 EM 引入后续数据。比较 pilot-only、Kalman 和 Doppler 估计对照。\n\n**论文结果**　图 1 显示 EM 在该仿真的 SNR≥5 dB 区间优于 Kalman 的信道 NMSE。DD-MMSE 更轻量。\n\n**局限**　LEO 参数和几何条件限定有效性，数据辅助只可使用截止时刻已到达的数据。\n\n**原文定位**　§II–IV，图 1\n\n**迁移类型**　理论启发或基线\n\n**研究接口（迁移推断）**　同一合法历史上比较 pilot-only、硬反馈和软反馈，显式标记附加观测。\n\n**与既有阅读的差异**　相对仅依赖 CSI 序列的外推，把判决质量和未补偿 Doppler 纳入基线。\n\n**推荐理由**　提供有数据辅助和无数据辅助两套可区分的信息条件。\n\n**待验证假设**　软反馈收益是否随历史 SNR 和调度波束的可观测性变化有待验证。\n\n**代码状态**　未发现公开代码。核对原文、arXiv 页面和 GitHub 题名及 ID，未定位作者实现。 [GitHub 检索](https://github.com/search?q=%222606.16750%22&type=repositories)\n\n2606.16750。Submission history From: Abdollah Darya [ view email ] [v1] Mon, 15 Jun 2026 14:09:09 UTC (120 KB) [arXiv 条目](https://arxiv.org/abs/2606.16750) [原文 PDF](https://arxiv.org/pdf/2606.16750) [正式 DOI](https://doi.org/10.1109/LWC.2026.3704614) [机构出版记录](https://ieeexplore.ieee.org/document/11569914)\n\n全文 5 页。已进入 gpt-6-luna / xhigh 队列。 [本篇全文翻译](https://lrxuanxuan.github.io/papers/items/e58b0523a9e134b3/#paper-translation) [原文许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)",
+      "report_section": "## 5. Data-Aided Channel and Doppler Estimation for mMIMO LEO SatComs with Uncompensated Doppler\n\n**作者与出版信息**　Abdollah Masoud Darya、Saeed Abdallah，2026，IEEE Wireless Communications Letters。正式发表。IEEE Xplore 列为第 15 卷，出版登记页码为 3726–3730。\n\n**方向**　Doppler 跟踪基线\n\n**问题**　LEO 上行中未补偿 Doppler 会扭曲导频估计，硬判决反馈也受噪声影响。\n\n**论文方法**　先导频 MMSE，再估计 Doppler，以 DD-MMSE 或软决策 EM 引入后续数据。比较 pilot-only、Kalman 和 Doppler 估计对照。\n\n**论文结果**　图 1 显示 EM 在该仿真的 SNR≥5 dB 区间优于 Kalman 的信道 NMSE。DD-MMSE 更轻量。\n\n**局限**　LEO 参数和几何条件限定有效性，数据辅助只可使用截止时刻已到达的数据。\n\n**原文定位**　§II–IV，图 1\n\n**迁移类型**　理论启发或基线\n\n**研究接口（迁移推断）**　同一合法历史上比较 pilot-only、硬反馈和软反馈，显式标记附加观测。\n\n**与既有阅读的差异**　相对仅依赖 CSI 序列的外推，把判决质量和未补偿 Doppler 纳入基线。\n\n**推荐理由**　提供有数据辅助和无数据辅助两套可区分的信息条件。\n\n**待验证假设**　软反馈收益是否随历史 SNR 和调度波束的可观测性变化有待验证。\n\n**代码状态**　未发现公开代码。核对原文、arXiv 页面和 GitHub 题名及 ID，未定位作者实现。 [GitHub 检索](https://github.com/search?q=%222606.16750%22&type=repositories)\n\n2606.16750。Submission history From: Abdollah Darya [ view email ] [v1] Mon, 15 Jun 2026 14:09:09 UTC (120 KB) [arXiv 条目](https://arxiv.org/abs/2606.16750) [原文 PDF](https://arxiv.org/pdf/2606.16750) [正式 DOI](https://doi.org/10.1109/LWC.2026.3704614) [机构出版记录](https://ieeexplore.ieee.org/document/11569914)\n\n全文 5 页。已进入 gpt-6-luna / xhigh 队列。 [本篇全文翻译](https://lrxuanxuan.github.io/papers/items/e58b0523a9e134b3/#paper-translation) [原文许可](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)",
       "report_entry_url": "/papers/reports/2026-11-14/#paper-e58b0523a9e134b3",
       "paper_url": "/papers/items/e58b0523a9e134b3/",
       "paper_report_url": "/papers/items/e58b0523a9e134b3/#paper-report",
@@ -424,7 +424,7 @@
         "https://arxiv.org/pdf/2606.16750"
       ],
       "hosted_pdfs": [],
-      "status": "Early Access",
+      "status": "正式发表",
       "translation_status": "pending",
       "full_translation_public": false,
       "full_translation_url": "/papers/items/e58b0523a9e134b3/#paper-translation",
@@ -442,7 +442,7 @@
         "内容": "作者 Mauro Marchese、Pietro Savazzi。问题：分数时延和 Doppler 会破坏基于整数网格或忽略 ICI 的叠加导频估计。 方法：在 DD 域叠加单导频，分离估计分数时延与 Doppler，再用利用信道结构的 Landweber 迭代均衡。 结果：仿真比较不同调制、速度和导频数据功率比，分数 DD 情形下所提接收机维持较稳定有效吞吐。 局限：SISO 结果依赖功率配比和迭代开销。阵列、波束调度及真实射频误差需另外建模。",
         "契合方向": "导频观测算子与 ICI",
         "推荐理由": "分离观测失配与先验表示失配所需的波形级对照。",
-        "顶刊顶会/机构依据": "IEEE Transactions on Vehicular Technology。预印本/状态未确认。arXiv 作者记录列出 TVT 与期刊 DOI，机构库可查记录。正式卷期或 Early Access 阶段未核实。",
+        "顶刊顶会/机构依据": "IEEE Transactions on Vehicular Technology。正式发表。出版登记为第 75 卷第 10 期，24361–24373 页。",
         "发表年份": "2026",
         "论文下载链接": "https://arxiv.org/pdf/2512.16496",
         "检索来源": "https://arxiv.org/abs/2512.16496\nhttps://doi.org/10.1109/TVT.2026.3709034\nhttps://iris.unipv.it/handle/11571/1559422",
@@ -457,7 +457,7 @@
       },
       "hyperlinks": {},
       "report_url": "/papers/reports/2026-11-14/",
-      "report_section": "## 4. Robust 6G OFDM High-Mobility Communications Using Delay-Doppler Superimposed Pilots\n\n**作者与出版信息**　Mauro Marchese、Pietro Savazzi，2026，IEEE Transactions on Vehicular Technology。预印本/状态未确认。arXiv 作者记录列出 TVT 与期刊 DOI，机构库可查记录。正式卷期或 Early Access 阶段未核实。\n\n**方向**　导频观测算子与 ICI\n\n**问题**　分数时延和 Doppler 会破坏基于整数网格或忽略 ICI 的叠加导频估计。\n\n**论文方法**　在 DD 域叠加单导频，分离估计分数时延与 Doppler，再用利用信道结构的 Landweber 迭代均衡。\n\n**论文结果**　仿真比较不同调制、速度和导频数据功率比，分数 DD 情形下所提接收机维持较稳定有效吞吐。\n\n**局限**　SISO 结果依赖功率配比和迭代开销。阵列、波束调度及真实射频误差需另外建模。\n\n**原文定位**　§III–V，图 6–9\n\n**迁移类型**　可改造工具\n\n**研究接口（迁移推断）**　用含 ICI 的前向算子替换对角 CTF 近似，比较历史拟合残差和链路输出。\n\n**与既有阅读的差异**　相对块导频后判决方案，本篇检验导频与数据同资源叠加的观测契约。\n\n**推荐理由**　分离观测失配与先验表示失配所需的波形级对照。\n\n**待验证假设**　固定真实路径、导频功率与接收噪声后，显式 ICI 模型能否降低系统性残差需要实测。\n\n**代码状态**　未发现公开代码。核对原文、arXiv 页面和 GitHub 题名及 ID，未定位作者实现。 [GitHub 检索](https://github.com/search?q=%222512.16496%22&type=repositories)\n\n2512.16496。Submission history From: Mauro Marchese [ view email ] [v1] Thu, 18 Dec 2025 13:03:54 UTC (132 KB) [arXiv 条目](https://arxiv.org/abs/2512.16496) [原文 PDF](https://arxiv.org/pdf/2512.16496) [正式 DOI](https://doi.org/10.1109/TVT.2026.3709034) [机构出版记录](https://iris.unipv.it/handle/11571/1559422)\n\n全文 11 页。已进入 gpt-6-luna / xhigh 队列。 [本篇全文翻译](https://lrxuanxuan.github.io/papers/items/5ae83277cc79af12/#paper-translation) [原文许可](https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+      "report_section": "## 4. Robust 6G OFDM High-Mobility Communications Using Delay-Doppler Superimposed Pilots\n\n**作者与出版信息**　Mauro Marchese、Pietro Savazzi，2026，IEEE Transactions on Vehicular Technology。正式发表。出版登记为第 75 卷第 10 期，24361–24373 页。\n\n**方向**　导频观测算子与 ICI\n\n**问题**　分数时延和 Doppler 会破坏基于整数网格或忽略 ICI 的叠加导频估计。\n\n**论文方法**　在 DD 域叠加单导频，分离估计分数时延与 Doppler，再用利用信道结构的 Landweber 迭代均衡。\n\n**论文结果**　仿真比较不同调制、速度和导频数据功率比，分数 DD 情形下所提接收机维持较稳定有效吞吐。\n\n**局限**　SISO 结果依赖功率配比和迭代开销。阵列、波束调度及真实射频误差需另外建模。\n\n**原文定位**　§III–V，图 6–9\n\n**迁移类型**　可改造工具\n\n**研究接口（迁移推断）**　用含 ICI 的前向算子替换对角 CTF 近似，比较历史拟合残差和链路输出。\n\n**与既有阅读的差异**　相对块导频后判决方案，本篇检验导频与数据同资源叠加的观测契约。\n\n**推荐理由**　分离观测失配与先验表示失配所需的波形级对照。\n\n**待验证假设**　固定真实路径、导频功率与接收噪声后，显式 ICI 模型能否降低系统性残差需要实测。\n\n**代码状态**　未发现公开代码。核对原文、arXiv 页面和 GitHub 题名及 ID，未定位作者实现。 [GitHub 检索](https://github.com/search?q=%222512.16496%22&type=repositories)\n\n2512.16496。Submission history From: Mauro Marchese [ view email ] [v1] Thu, 18 Dec 2025 13:03:54 UTC (132 KB) [arXiv 条目](https://arxiv.org/abs/2512.16496) [原文 PDF](https://arxiv.org/pdf/2512.16496) [正式 DOI](https://doi.org/10.1109/TVT.2026.3709034) [机构出版记录](https://iris.unipv.it/handle/11571/1559422)\n\n全文 11 页。已进入 gpt-6-luna / xhigh 队列。 [本篇全文翻译](https://lrxuanxuan.github.io/papers/items/5ae83277cc79af12/#paper-translation) [原文许可](https://creativecommons.org/licenses/by-nc-sa/4.0/)",
       "report_entry_url": "/papers/reports/2026-11-14/#paper-5ae83277cc79af12",
       "paper_url": "/papers/items/5ae83277cc79af12/",
       "paper_report_url": "/papers/items/5ae83277cc79af12/#paper-report",
@@ -476,7 +476,7 @@
         "https://arxiv.org/pdf/2512.16496"
       ],
       "hosted_pdfs": [],
-      "status": "Early Access",
+      "status": "正式发表",
       "translation_status": "pending",
       "full_translation_public": false,
       "full_translation_url": "/papers/items/5ae83277cc79af12/#paper-translation",
@@ -44066,7 +44066,7 @@
   "pdf_mode": "links_only",
   "workbook_table": {
     "url": "/papers/table/",
-    "source_sha256": "8f7e1f5238f25f43feb340393e48e810cb86f984df8fa9c54b63782f0660196c",
+    "source_sha256": "b9cd28c9d72b3521e7c429bcf4fefabbb1a1d85f45281f6f61163035596e6a03",
     "sheet": "每日论文推荐",
     "row_count": 495,
     "headers": [
