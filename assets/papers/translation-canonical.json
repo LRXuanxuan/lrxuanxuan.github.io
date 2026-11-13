@@ -3302,5 +3302,85 @@
   "full": true,
   "public": true,
   "label": "阅读全文翻译"
+ },
+ "15838c5c909db319": {
+  "url": "/papers/translations/2026-11-13-f7da14e5e3dbc0f48f0aca72/",
+  "title": "基于深度学习的共形贝叶斯滤波器的 MIMO 信道预测｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 5 页全节；编号公式 17 式；表格 6 行；参考文献英文原条目；许可：https://arxiv.org/licenses/nonexclusive-distrib/1.0/；本译稿按用户 2026-11-13 明确要求发布，原文许可保持不变，权利人如有异议可移除；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "070e317576bbf249": {
+  "url": "/papers/translations/2026-11-13-f58f78711987165f263aed08/",
+  "title": "面向 OFDM 的基于神经网络的时延–多普勒辅助信道估计｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 6 页全节；编号公式 27 式；无表格；参考文献英文原条目；许可：https://arxiv.org/licenses/nonexclusive-distrib/1.0/；本译稿按用户 2026-11-13 明确要求发布，原文许可保持不变，权利人如有异议可移除；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "b0da9ed537ec4ad8": {
+  "url": "/papers/translations/2026-11-13-d0bb06690106ac63e0eb034c/",
+  "title": "WiSER：面向几何根基多视图无线预测的无线场景编码器｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 13 页全节；编号公式 33 式；表格 23 行；参考文献英文原条目；许可：https://creativecommons.org/licenses/by/4.0/；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "cb0783afa5fb9ec6": {
+  "url": "/papers/translations/2026-11-13-beec105b83cab44eb8a5b35c/",
+  "title": "面向增强型 5G 链路自适应的 CSI 预测框架：性能–复杂度权衡｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 13 页全节；编号公式 23 式；表格 17 行；参考文献英文原条目；许可：https://arxiv.org/licenses/nonexclusive-distrib/1.0/；本译稿按用户 2026-11-13 明确要求发布，原文许可保持不变，权利人如有异议可移除；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "98b6c69cf45ea99b": {
+  "url": "/papers/translations/2026-11-13-98682940a1d1c7d541bde9b9/",
+  "title": "面向 MU-MIMO-OFDM 的跨域信道估计｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 6 页全节；编号公式 20 式；无表格；参考文献英文原条目；许可：https://arxiv.org/licenses/nonexclusive-distrib/1.0/；本译稿按用户 2026-11-13 明确要求发布，原文许可保持不变，权利人如有异议可移除；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "9f868af09b526558": {
+  "url": "/papers/translations/2026-11-13-85c9bac4a1a089601f5d6013/",
+  "title": "基于信道图的真实世界分布式大规模 MIMO CSI 信道预测｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 6 页全节；编号公式 4 式；表格 10 行；参考文献英文原条目；许可：https://arxiv.org/licenses/nonexclusive-distrib/1.0/；本译稿按用户 2026-11-13 明确要求发布，原文许可保持不变，权利人如有异议可移除；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "a5935a8faea15e2f": {
+  "url": "/papers/translations/2026-11-13-7972151f4114fbe517da96ef/",
+  "title": "基于射线追踪的动态信道探测与自回归 Wi-Fi CSI 预测｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 13 页全节；编号公式 27 式；表格 14 行；参考文献英文原条目；许可：https://arxiv.org/licenses/nonexclusive-distrib/1.0/；本译稿按用户 2026-11-13 明确要求发布，原文许可保持不变，权利人如有异议可移除；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "3c397329adf10cfe": {
+  "url": "/papers/translations/2026-11-13-59694d4f943e67124eae0430/",
+  "title": "射线追踪无线电地图中被遗漏的干扰源：面向空中覆盖的数字孪生与随机几何研究｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 6 页全节；编号公式 12 式；表格 10 行；参考文献英文原条目；许可：https://arxiv.org/licenses/nonexclusive-distrib/1.0/；本译稿按用户 2026-11-13 明确要求发布，原文许可保持不变，权利人如有异议可移除；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "d51ae4a7815afbb3": {
+  "url": "/papers/translations/2026-11-13-49aa0eec78af69418e2c5cb3/",
+  "title": "基于基扩展外推的大规模 MIMO OTFS 系统长期信道预测｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 16 页全节；编号公式 55 式；表格 30 行；参考文献英文原条目；许可：https://arxiv.org/licenses/nonexclusive-distrib/1.0/；本译稿按用户 2026-11-13 明确要求发布，原文许可保持不变，权利人如有异议可移除；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "291d7605fff4702e": {
+  "url": "/papers/translations/2026-11-13-086702eae68eb1737d088afa/",
+  "title": "RAG-CSI：基于状态与动态联合匹配的全局–局部检索 CSI 预测｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 6 页全节；编号公式 18 式；表格 35 行；参考文献英文原条目；许可：https://arxiv.org/licenses/nonexclusive-distrib/1.0/；本译稿按用户 2026-11-13 明确要求发布，原文许可保持不变，权利人如有异议可移除；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
  }
 }
