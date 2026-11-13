@@ -429,6 +429,66 @@ toc: true
 
 ## 推荐论文
 
+### 2026-11-14 · [Physics-Informed Uncertainty-Aware Beamforming for HAPS Massive MIMO under Imperfect CSI](/papers/items/e0787a8b594c9b22/)
+
+可检验预测不确定性是否带来链路收益。
+
+[本篇日报](/papers/items/e0787a8b594c9b22/#paper-report)
+
+### 2026-11-14 · [MercerFlow: Flow Matching in a Kernel-Induced Latent Space for Probabilistic Forecasting](/papers/items/a5b5f0280f9037b7/)
+
+可将表示收益和分布建模收益分离。
+
+[本篇日报](/papers/items/a5b5f0280f9037b7/#paper-report)
+
+### 2026-11-14 · [Geometry-Based Channel Estimation, Prediction, and Fusion](/papers/items/874485a76afb84a3/)
+
+原文给出融合失利的场景，可用于设计地图失配对照。
+
+[本篇日报](/papers/items/874485a76afb84a3/#paper-report)
+
+### 2026-11-14 · [Location-Agnostic Channel Knowledge Map Construction for Dynamic Scenes](/papers/items/952d429b350426db/)
+
+可作为缺位置和缺 DL 条件的受控对照。
+
+[本篇日报](/papers/items/952d429b350426db/#paper-report)
+
+### 2026-11-14 · [MIMO Zak-OTFS: Channel Estimation, Detection, and Throughput Analysis](/papers/items/e97a5f78fbea63e1/)
+
+提供复 CSI 改善未必对应吞吐改善的波形对照。
+
+[本篇日报](/papers/items/e97a5f78fbea63e1/#paper-report)
+
+### 2026-11-14 · [Data-Aided Channel and Doppler Estimation for mMIMO LEO SatComs with Uncompensated Doppler](/papers/items/e58b0523a9e134b3/)
+
+提供有数据辅助和无数据辅助两套可区分的信息条件。
+
+[本篇日报](/papers/items/e58b0523a9e134b3/#paper-report)
+
+### 2026-11-14 · [Robust 6G OFDM High-Mobility Communications Using Delay-Doppler Superimposed Pilots](/papers/items/5ae83277cc79af12/)
+
+分离观测失配与先验表示失配所需的波形级对照。
+
+[本篇日报](/papers/items/5ae83277cc79af12/#paper-report)
+
+### 2026-11-14 · [6G OFDM Communications with High Mobility Transceivers and Scatterers via Angle-Domain Processing and Deep Learning](/papers/items/12881ac90e21ad36/)
+
+可用于定位 ICI 与空间投影的误差来源。
+
+[本篇日报](/papers/items/12881ac90e21ad36/#paper-report)
+
+### 2026-11-14 · [Dual-Band Super-Resolution Channel Prediction in High-Mobility MIMO Systems](/papers/items/238b71fb3ff3fb42/)
+
+能解释为什么细时间步预测不一定能靠时序模型容量解决。
+
+[本篇日报](/papers/items/238b71fb3ff3fb42/#paper-report)
+
+### 2026-11-14 · [Structured Time-Frequency Representation for Channel Prediction](/papers/items/476c64ed58269ee0/)
+
+可直接检查跨频与预测时距是否被模型混用。
+
+[本篇日报](/papers/items/476c64ed58269ee0/#paper-report)
+
 ### 2026-11-13 · [Cross-Domain Channel Estimation for MU-MIMO-OFDM](/papers/items/98b6c69cf45ea99b/)
 
 可检验显式先验的收益是否已被稀疏支撑解释。
