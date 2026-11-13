@@ -9,7 +9,7 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=b0da9ed537ec4ad8)
 
-[本篇日报说明](/papers/items/b0da9ed537ec4ad8/#paper-report) · [全文翻译（待补齐）](/papers/items/b0da9ed537ec4ad8/#paper-translation)
+[本篇日报说明](/papers/items/b0da9ed537ec4ad8/#paper-report) · [阅读全文翻译](/papers/translations/2026-11-13-d0bb06690106ac63e0eb034c/)
 
 **推荐日期：** 2026-11-13 · **发表状态：** 预印本/状态未确认
 
@@ -17,7 +17,7 @@ toc: true
 
 ## 本篇全文翻译
 
-本篇已列入全文翻译清单，尚未完成。完成并允许公开后，此入口将直达本篇全文译稿。
+全文中文译稿已发布，请使用页首的「阅读全文翻译」入口。
 
 <span id="paper-report"></span>
 

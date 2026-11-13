@@ -150,7 +150,13 @@
       "report_entry_url": "/papers/reports/2026-11-13/#paper-98b6c69cf45ea99b",
       "paper_url": "/papers/items/98b6c69cf45ea99b/",
       "paper_report_url": "/papers/items/98b6c69cf45ea99b/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-13-98682940a1d1c7d541bde9b9/#paper-98b6c69cf45ea99b",
+          "scope": "全文中文译文",
+          "title": "Cross-Domain Channel Estimation for MU-MIMO-OFDM"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2611.10052",
         "https://arxiv.org/abs/2611.10052",
@@ -164,10 +170,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/98b6c69cf45ea99b/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-13-98682940a1d1c7d541bde9b9/#paper-98b6c69cf45ea99b",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "a5935a8faea15e2f",
@@ -200,7 +206,13 @@
       "report_entry_url": "/papers/reports/2026-11-13/#paper-a5935a8faea15e2f",
       "paper_url": "/papers/items/a5935a8faea15e2f/",
       "paper_report_url": "/papers/items/a5935a8faea15e2f/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-13-7972151f4114fbe517da96ef/#paper-a5935a8faea15e2f",
+          "scope": "全文中文译文",
+          "title": "Ray-Tracing-Based Dynamic Channel Sounding With Autoregressive Wi-Fi CSI Prediction"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2611.05970",
         "https://arxiv.org/abs/2611.05970",
@@ -214,10 +226,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/a5935a8faea15e2f/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-13-7972151f4114fbe517da96ef/#paper-a5935a8faea15e2f",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "3c397329adf10cfe",
@@ -250,7 +262,13 @@
       "report_entry_url": "/papers/reports/2026-11-13/#paper-3c397329adf10cfe",
       "paper_url": "/papers/items/3c397329adf10cfe/",
       "paper_report_url": "/papers/items/3c397329adf10cfe/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-13-59694d4f943e67124eae0430/#paper-3c397329adf10cfe",
+          "scope": "全文中文译文",
+          "title": "Missed Interferers in Ray-Traced Radio Maps: A Digital-Twin and Stochastic Geometry Study of Aerial Coverage"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2611.10867",
         "https://arxiv.org/abs/2611.10867",
@@ -264,10 +282,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/3c397329adf10cfe/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-13-59694d4f943e67124eae0430/#paper-3c397329adf10cfe",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "b0da9ed537ec4ad8",
@@ -300,7 +318,13 @@
       "report_entry_url": "/papers/reports/2026-11-13/#paper-b0da9ed537ec4ad8",
       "paper_url": "/papers/items/b0da9ed537ec4ad8/",
       "paper_report_url": "/papers/items/b0da9ed537ec4ad8/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-13-d0bb06690106ac63e0eb034c/#paper-b0da9ed537ec4ad8",
+          "scope": "全文中文译文",
+          "title": "WiSER: A Wireless Scene Encoder for Geometry-Grounded Multi-View Wireless Prediction"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2606.04770",
         "https://arxiv.org/abs/2606.04770",
@@ -317,10 +341,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/b0da9ed537ec4ad8/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-13-d0bb06690106ac63e0eb034c/#paper-b0da9ed537ec4ad8",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "9f868af09b526558",
@@ -353,7 +377,13 @@
       "report_entry_url": "/papers/reports/2026-11-13/#paper-9f868af09b526558",
       "paper_url": "/papers/items/9f868af09b526558/",
       "paper_report_url": "/papers/items/9f868af09b526558/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-13-85c9bac4a1a089601f5d6013/#paper-9f868af09b526558",
+          "scope": "全文中文译文",
+          "title": "Channel Charting-Based Channel Prediction on Real-World Distributed Massive MIMO CSI"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2410.11486",
         "https://arxiv.org/abs/2410.11486",
@@ -372,10 +402,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/9f868af09b526558/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-13-85c9bac4a1a089601f5d6013/#paper-9f868af09b526558",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "cb0783afa5fb9ec6",
@@ -408,7 +438,13 @@
       "report_entry_url": "/papers/reports/2026-11-13/#paper-cb0783afa5fb9ec6",
       "paper_url": "/papers/items/cb0783afa5fb9ec6/",
       "paper_report_url": "/papers/items/cb0783afa5fb9ec6/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-13-beec105b83cab44eb8a5b35c/#paper-cb0783afa5fb9ec6",
+          "scope": "全文中文译文",
+          "title": "CSI Prediction Frameworks for Enhanced 5G Link Adaptation: Performance-Complexity Trade-offs"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2511.20160",
         "https://arxiv.org/abs/2511.20160",
@@ -422,10 +458,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/cb0783afa5fb9ec6/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-13-beec105b83cab44eb8a5b35c/#paper-cb0783afa5fb9ec6",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "070e317576bbf249",
@@ -458,7 +494,13 @@
       "report_entry_url": "/papers/reports/2026-11-13/#paper-070e317576bbf249",
       "paper_url": "/papers/items/070e317576bbf249/",
       "paper_report_url": "/papers/items/070e317576bbf249/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-13-f58f78711987165f263aed08/#paper-070e317576bbf249",
+          "scope": "全文中文译文",
+          "title": "Neural Network-Based Delay-Doppler-Assisted Channel Estimation for OFDM"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2608.29056",
         "https://arxiv.org/abs/2608.29056",
@@ -472,10 +514,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/070e317576bbf249/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-13-f58f78711987165f263aed08/#paper-070e317576bbf249",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "d51ae4a7815afbb3",
@@ -508,7 +550,13 @@
       "report_entry_url": "/papers/reports/2026-11-13/#paper-d51ae4a7815afbb3",
       "paper_url": "/papers/items/d51ae4a7815afbb3/",
       "paper_report_url": "/papers/items/d51ae4a7815afbb3/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-13-49aa0eec78af69418e2c5cb3/#paper-d51ae4a7815afbb3",
+          "scope": "全文中文译文",
+          "title": "Basis Expansion Extrapolation based Long-Term Channel Prediction for Massive MIMO OTFS Systems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2507.01445",
         "https://arxiv.org/abs/2507.01445",
@@ -524,10 +572,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/d51ae4a7815afbb3/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-13-49aa0eec78af69418e2c5cb3/#paper-d51ae4a7815afbb3",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "291d7605fff4702e",
@@ -560,7 +608,13 @@
       "report_entry_url": "/papers/reports/2026-11-13/#paper-291d7605fff4702e",
       "paper_url": "/papers/items/291d7605fff4702e/",
       "paper_report_url": "/papers/items/291d7605fff4702e/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-13-086702eae68eb1737d088afa/#paper-291d7605fff4702e",
+          "scope": "全文中文译文",
+          "title": "RAG-CSI: Global Local Retrieval via Joint State and Dynamics Matching for CSI Prediction"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2610.36881",
         "https://arxiv.org/abs/2610.36881",
@@ -574,10 +628,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/291d7605fff4702e/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-13-086702eae68eb1737d088afa/#paper-291d7605fff4702e",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "15838c5c909db319",
@@ -610,7 +664,13 @@
       "report_entry_url": "/papers/reports/2026-11-13/#paper-15838c5c909db319",
       "paper_url": "/papers/items/15838c5c909db319/",
       "paper_report_url": "/papers/items/15838c5c909db319/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-13-f7da14e5e3dbc0f48f0aca72/#paper-15838c5c909db319",
+          "scope": "全文中文译文",
+          "title": "MIMO Channel Prediction via Deep Learning-based Conformal Bayes Filter"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2603.04764",
         "https://arxiv.org/abs/2603.04764",
@@ -624,10 +684,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/15838c5c909db319/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-13-f7da14e5e3dbc0f48f0aca72/#paper-15838c5c909db319",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "944e60bc47061a09",
@@ -36175,6 +36235,116 @@
     }
   ],
   "translations": [
+    {
+      "date": "2026-11-13",
+      "url": "/papers/translations/2026-11-13-f7da14e5e3dbc0f48f0aca72/",
+      "slug": "2026-11-13-f7da14e5e3dbc0f48f0aca72",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "MIMO Channel Prediction via Deep Learning-based Conformal Bayes Filter",
+      "paper_id": "2603.04764",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-13-f7da14e5e3dbc0f48f0aca72.md"
+    },
+    {
+      "date": "2026-11-13",
+      "url": "/papers/translations/2026-11-13-f58f78711987165f263aed08/",
+      "slug": "2026-11-13-f58f78711987165f263aed08",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Neural Network-Based Delay-Doppler-Assisted Channel Estimation for OFDM",
+      "paper_id": "2608.29056",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-13-f58f78711987165f263aed08.md"
+    },
+    {
+      "date": "2026-11-13",
+      "url": "/papers/translations/2026-11-13-d0bb06690106ac63e0eb034c/",
+      "slug": "2026-11-13-d0bb06690106ac63e0eb034c",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "WiSER: A Wireless Scene Encoder for Geometry-Grounded Multi-View Wireless Prediction",
+      "paper_id": "2606.04770",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-13-d0bb06690106ac63e0eb034c.md"
+    },
+    {
+      "date": "2026-11-13",
+      "url": "/papers/translations/2026-11-13-beec105b83cab44eb8a5b35c/",
+      "slug": "2026-11-13-beec105b83cab44eb8a5b35c",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "CSI Prediction Frameworks for Enhanced 5G Link Adaptation: Performance-Complexity Trade-offs",
+      "paper_id": "2511.20160",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-13-beec105b83cab44eb8a5b35c.md"
+    },
+    {
+      "date": "2026-11-13",
+      "url": "/papers/translations/2026-11-13-98682940a1d1c7d541bde9b9/",
+      "slug": "2026-11-13-98682940a1d1c7d541bde9b9",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Cross-Domain Channel Estimation for MU-MIMO-OFDM",
+      "paper_id": "2611.10052",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-13-98682940a1d1c7d541bde9b9.md"
+    },
+    {
+      "date": "2026-11-13",
+      "url": "/papers/translations/2026-11-13-85c9bac4a1a089601f5d6013/",
+      "slug": "2026-11-13-85c9bac4a1a089601f5d6013",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Channel Charting-Based Channel Prediction on Real-World Distributed Massive MIMO CSI",
+      "paper_id": "2410.11486",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-13-85c9bac4a1a089601f5d6013.md"
+    },
+    {
+      "date": "2026-11-13",
+      "url": "/papers/translations/2026-11-13-7972151f4114fbe517da96ef/",
+      "slug": "2026-11-13-7972151f4114fbe517da96ef",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Ray-Tracing-Based Dynamic Channel Sounding With Autoregressive Wi-Fi CSI Prediction",
+      "paper_id": "2611.05970",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-13-7972151f4114fbe517da96ef.md"
+    },
+    {
+      "date": "2026-11-13",
+      "url": "/papers/translations/2026-11-13-59694d4f943e67124eae0430/",
+      "slug": "2026-11-13-59694d4f943e67124eae0430",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Missed Interferers in Ray-Traced Radio Maps: A Digital-Twin and Stochastic Geometry Study of Aerial Coverage",
+      "paper_id": "2611.10867",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-13-59694d4f943e67124eae0430.md"
+    },
+    {
+      "date": "2026-11-13",
+      "url": "/papers/translations/2026-11-13-49aa0eec78af69418e2c5cb3/",
+      "slug": "2026-11-13-49aa0eec78af69418e2c5cb3",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Basis Expansion Extrapolation based Long-Term Channel Prediction for Massive MIMO OTFS Systems",
+      "paper_id": "2507.01445",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-13-49aa0eec78af69418e2c5cb3.md"
+    },
+    {
+      "date": "2026-11-13",
+      "url": "/papers/translations/2026-11-13-086702eae68eb1737d088afa/",
+      "slug": "2026-11-13-086702eae68eb1737d088afa",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "RAG-CSI: Global Local Retrieval via Joint State and Dynamics Matching for CSI Prediction",
+      "paper_id": "2610.36881",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-13-086702eae68eb1737d088afa.md"
+    },
     {
       "date": "2026-11-12",
       "url": "/papers/translations/2026-11-12-c1713fa3122f24faa368c653/",
