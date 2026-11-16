@@ -3542,5 +3542,85 @@
   "full": true,
   "public": true,
   "label": "阅读全文翻译"
+ },
+ "25f7c36a209bda09": {
+  "url": "/papers/translations/2026-11-16-f7012e3866c0b604e7c9744b/",
+  "title": "面向 OFDM 的一种新颖跨域信道估计方案｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 7 页全节；编号公式 28 式；无表格；参考文献英文原条目；许可：https://arxiv.org/licenses/nonexclusive-distrib/1.0/；本译稿按用户 2026-11-15 常设授权发布，原文许可保持不变，权利人如有异议可移除；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "f9071a999d339ed2": {
+  "url": "/papers/translations/2026-11-16-ed6c849bd4485935f63b9cc2/",
+  "title": "面向 6G 及未来的延迟-多普勒域信号处理辅助 OFDM（DD-a-OFDM）｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 16 页全节；编号公式 53 式；表格 12 行；参考文献英文原条目；许可：https://arxiv.org/licenses/nonexclusive-distrib/1.0/；本译稿按用户 2026-11-15 常设授权发布，原文许可保持不变，权利人如有异议可移除；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "38bda0c74364c9b5": {
+  "url": "/papers/translations/2026-11-16-969352eebe6e3bacf02d8ef5/",
+  "title": "论时变瑞利衰落环境下 MU-MIMO 系统的可达 SINR｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 15 页全节；编号公式 74 式；表格 42 行；参考文献英文原条目；许可：https://arxiv.org/licenses/nonexclusive-distrib/1.0/；本译稿按用户 2026-11-15 常设授权发布，原文许可保持不变，权利人如有异议可移除；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "a8c9dd043e5dbe33": {
+  "url": "/papers/translations/2026-11-16-94474fbd2b068245f1377b89/",
+  "title": "基于似然泛函流匹配的无分辨率气候降尺度｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 32 页全节；编号公式 0 式；表格 59 行；参考文献英文原条目；许可：https://creativecommons.org/licenses/by/4.0/（署名 4.0）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "cfece781785ec93b": {
+  "url": "/papers/translations/2026-11-16-39e36bbb34c68e2898482a44/",
+  "title": "MIMO 系统中几何感知的信道老化：Kronecker 可分性何时足够？｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 5 页全节；编号公式 21 式；表格 16 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "78b22d62220eb257": {
+  "url": "/papers/translations/2026-11-16-1a30904d85c609281b3953fb/",
+  "title": "SimART：面向 6G 通信感知一体化的统一、开放、真实世界多模态仿真平台｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 7 页全节；编号公式 0 式；表格 12 行；参考文献英文原条目；许可：https://arxiv.org/licenses/nonexclusive-distrib/1.0/；本译稿按用户 2026-11-15 常设授权发布，原文许可保持不变，权利人如有异议可移除；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "2ad8aa7a42bcf917": {
+  "url": "/papers/translations/2026-11-16-142600eb2954a1c88271edec/",
+  "title": "CPMamba：面向高机动环境的 MIMO 信道预测选择性状态空间模型｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 13 页全节；编号公式 41 式；表格 24 行；参考文献英文原条目；许可：https://arxiv.org/licenses/nonexclusive-distrib/1.0/；本译稿按用户 2026-11-15 常设授权发布，原文许可保持不变，权利人如有异议可移除；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "8226b0b98e50e162": {
+  "url": "/papers/translations/2026-11-16-0e51a0fa599611bd163e320e/",
+  "title": "Multimodal-Wireless：面向感知与通信的大规模数据集｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 6 页全节；编号公式 4 式；表格 51 行；参考文献英文原条目；许可：https://arxiv.org/licenses/nonexclusive-distrib/1.0/；本译稿按用户 2026-11-15 常设授权发布，原文许可保持不变，权利人如有异议可移除；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "e6ac6c75a8f868cd": {
+  "url": "/papers/translations/2026-11-16-0999a880ebe0ecf40ef9eb93/",
+  "title": "面向车载分布式 MIMO 信道预测的序列模型与生成式模型｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 7 页全节；编号公式 13 式；表格 20 行；参考文献英文原条目；许可：https://creativecommons.org/licenses/by-nc-sa/4.0/（署名—非商业性使用—相同方式共享）；本译稿按相同许可发布，禁止商业使用；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "e3fd6181aeede169": {
+  "url": "/papers/translations/2026-11-16-081ebf1151ca76b91e799c56/",
+  "title": "稀疏时变信道估计与预测的模型、方法与波形｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 15 页全节；编号公式 77 式；表格 2 行；参考文献英文原条目；许可：https://arxiv.org/licenses/nonexclusive-distrib/1.0/；本译稿按用户 2026-11-15 常设授权发布，原文许可保持不变，权利人如有异议可移除；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
  }
 }
