@@ -160,7 +160,13 @@
       "report_entry_url": "/papers/reports/2026-11-23/#paper-789ea8816b82bfa8",
       "paper_url": "/papers/items/789ea8816b82bfa8/",
       "paper_report_url": "/papers/items/789ea8816b82bfa8/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-23-3c9812531fe152c3f3b4caa1/#paper-789ea8816b82bfa8",
+          "scope": "全文中文译文",
+          "title": "Uncertainty Quantification in Data-Driven Dynamical Models via Inverse Problem Solving"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2602.19889v2",
         "https://arxiv.org/abs/2602.19889",
@@ -175,10 +181,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/789ea8816b82bfa8/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-23-3c9812531fe152c3f3b4caa1/#paper-789ea8816b82bfa8",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "11c51e64d7d37df1",
@@ -211,7 +217,13 @@
       "report_entry_url": "/papers/reports/2026-11-23/#paper-11c51e64d7d37df1",
       "paper_url": "/papers/items/11c51e64d7d37df1/",
       "paper_report_url": "/papers/items/11c51e64d7d37df1/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-23-be985907c09e8505e14c2d43/#paper-11c51e64d7d37df1",
+          "scope": "全文中文译文",
+          "title": "Conditional Wasserstein Distances with Applications in Bayesian OT Flow Matching"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2403.18705v3",
         "https://arxiv.org/abs/2403.18705",
@@ -228,10 +240,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/11c51e64d7d37df1/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-23-be985907c09e8505e14c2d43/#paper-11c51e64d7d37df1",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "a6b673244a882da9",
@@ -264,7 +276,13 @@
       "report_entry_url": "/papers/reports/2026-11-23/#paper-a6b673244a882da9",
       "paper_url": "/papers/items/a6b673244a882da9/",
       "paper_report_url": "/papers/items/a6b673244a882da9/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-23-55006e097d49302bae42411b/#paper-a6b673244a882da9",
+          "scope": "全文中文译文",
+          "title": "On the Inverse Flow Matching Problem in the One-Dimensional and Gaussian Cases"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2512.23265v1",
         "https://arxiv.org/abs/2512.23265",
@@ -280,10 +298,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/a6b673244a882da9/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-23-55006e097d49302bae42411b/#paper-a6b673244a882da9",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "46e61c69a639d194",
@@ -316,7 +334,13 @@
       "report_entry_url": "/papers/reports/2026-11-23/#paper-46e61c69a639d194",
       "paper_url": "/papers/items/46e61c69a639d194/",
       "paper_report_url": "/papers/items/46e61c69a639d194/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-23-97c9ddeb5e40a26a1ab4bc6c/#paper-46e61c69a639d194",
+          "scope": "全文中文译文",
+          "title": "Uncertainty Quantification for Landweber Iteration with Randomized Normal-Operator Approximation"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2610.00882v1",
         "https://arxiv.org/abs/2610.00882",
@@ -331,10 +355,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/46e61c69a639d194/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-23-97c9ddeb5e40a26a1ab4bc6c/#paper-46e61c69a639d194",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "2732bd24da9215ab",
@@ -367,7 +391,13 @@
       "report_entry_url": "/papers/reports/2026-11-23/#paper-2732bd24da9215ab",
       "paper_url": "/papers/items/2732bd24da9215ab/",
       "paper_report_url": "/papers/items/2732bd24da9215ab/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-23-6015a910b2c1489e4785db64/#paper-2732bd24da9215ab",
+          "scope": "全文中文译文",
+          "title": "Self-Supervised Conformal Prediction with Equivariant Bootstrapping for Image Uncertainty Quantification"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2605.18655v1",
         "https://arxiv.org/abs/2605.18655",
@@ -382,10 +412,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/2732bd24da9215ab/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-23-6015a910b2c1489e4785db64/#paper-2732bd24da9215ab",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "54b0a552f279d86c",
@@ -418,7 +448,13 @@
       "report_entry_url": "/papers/reports/2026-11-23/#paper-54b0a552f279d86c",
       "paper_url": "/papers/items/54b0a552f279d86c/",
       "paper_report_url": "/papers/items/54b0a552f279d86c/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-23-ef754df89549d39ddcd79bcb/#paper-54b0a552f279d86c",
+          "scope": "全文中文译文",
+          "title": "Self-supervised Conformal Prediction for Uncertainty Quantification in Imaging Problems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2502.05127v1",
         "https://arxiv.org/abs/2502.05127",
@@ -433,10 +469,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/54b0a552f279d86c/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-23-ef754df89549d39ddcd79bcb/#paper-54b0a552f279d86c",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "03dd1c6cea963dc6",
@@ -469,7 +505,13 @@
       "report_entry_url": "/papers/reports/2026-11-23/#paper-03dd1c6cea963dc6",
       "paper_url": "/papers/items/03dd1c6cea963dc6/",
       "paper_report_url": "/papers/items/03dd1c6cea963dc6/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-23-bf9ca680a4e910a9311508b8/#paper-03dd1c6cea963dc6",
+          "scope": "全文中文译文",
+          "title": "Flow-Based Conformal Predictive Distributions"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2602.07633v3",
         "https://arxiv.org/abs/2602.07633",
@@ -484,10 +526,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/03dd1c6cea963dc6/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-23-bf9ca680a4e910a9311508b8/#paper-03dd1c6cea963dc6",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "2e1df49a149176a7",
@@ -520,7 +562,13 @@
       "report_entry_url": "/papers/reports/2026-11-23/#paper-2e1df49a149176a7",
       "paper_url": "/papers/items/2e1df49a149176a7/",
       "paper_report_url": "/papers/items/2e1df49a149176a7/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-23-5f638798f6c69964acbe7e51/#paper-2e1df49a149176a7",
+          "scope": "全文中文译文",
+          "title": "Post-Hoc Conformal Prediction for Reliable Wireless Communications"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.26625v1",
         "https://arxiv.org/abs/2609.26625",
@@ -535,10 +583,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/2e1df49a149176a7/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-23-5f638798f6c69964acbe7e51/#paper-2e1df49a149176a7",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "32477a60b275c35b",
@@ -571,7 +619,13 @@
       "report_entry_url": "/papers/reports/2026-11-23/#paper-32477a60b275c35b",
       "paper_url": "/papers/items/32477a60b275c35b/",
       "paper_report_url": "/papers/items/32477a60b275c35b/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-23-de0adea2adae3b28d0298c63/#paper-32477a60b275c35b",
+          "scope": "全文中文译文",
+          "title": "Minimax Multi-Target Conformal Prediction with Applications to Imaging Inverse Problems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2511.13533v2",
         "https://arxiv.org/abs/2511.13533",
@@ -589,10 +643,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/32477a60b275c35b/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-23-de0adea2adae3b28d0298c63/#paper-32477a60b275c35b",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "ae7cd77283c97ef3",
@@ -625,7 +679,13 @@
       "report_entry_url": "/papers/reports/2026-11-23/#paper-ae7cd77283c97ef3",
       "paper_url": "/papers/items/ae7cd77283c97ef3/",
       "paper_report_url": "/papers/items/ae7cd77283c97ef3/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-23-6dfce2a88bdcbec1cf213776/#paper-ae7cd77283c97ef3",
+          "scope": "全文中文译文",
+          "title": "Optimal low-rank posterior covariance approximation in linear Gaussian inverse problems on Hilbert spaces"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2411.01112v6",
         "https://arxiv.org/abs/2411.01112",
@@ -641,10 +701,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/ae7cd77283c97ef3/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-23-6dfce2a88bdcbec1cf213776/#paper-ae7cd77283c97ef3",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "05386021d997dd11",
@@ -677,7 +737,13 @@
       "report_entry_url": "/papers/reports/2026-11-22/#paper-05386021d997dd11",
       "paper_url": "/papers/items/05386021d997dd11/",
       "paper_report_url": "/papers/items/05386021d997dd11/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-22-6da650549f74727d38ddba8e/#paper-05386021d997dd11",
+          "scope": "全文中文译文",
+          "title": "Plug-and-play Diffusion Models for Image Compressive Sensing with Data Consistency Projection"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2509.09365v1",
         "https://arxiv.org/abs/2509.09365",
@@ -692,10 +758,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/05386021d997dd11/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-22-6da650549f74727d38ddba8e/#paper-05386021d997dd11",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "ef3e3a384c199962",
@@ -728,7 +794,13 @@
       "report_entry_url": "/papers/reports/2026-11-22/#paper-ef3e3a384c199962",
       "paper_url": "/papers/items/ef3e3a384c199962/",
       "paper_report_url": "/papers/items/ef3e3a384c199962/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-22-a8a52bf3c7d6f22e86289ef4/#paper-ef3e3a384c199962",
+          "scope": "全文中文译文",
+          "title": "Bayesian Signal Separation via Plug-and-Play Diffusion-Within-Gibbs Sampling"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2509.12857v1",
         "https://arxiv.org/abs/2509.12857",
@@ -743,10 +815,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/ef3e3a384c199962/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-22-a8a52bf3c7d6f22e86289ef4/#paper-ef3e3a384c199962",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "c590ea291e657e83",
@@ -779,7 +851,13 @@
       "report_entry_url": "/papers/reports/2026-11-22/#paper-c590ea291e657e83",
       "paper_url": "/papers/items/c590ea291e657e83/",
       "paper_report_url": "/papers/items/c590ea291e657e83/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-22-26291417bec2ba54612d604b/#paper-c590ea291e657e83",
+          "scope": "全文中文译文",
+          "title": "Improving Decoupled Posterior Sampling for Inverse Problems using Data Consistency Constraint"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2412.00664v2",
         "https://arxiv.org/abs/2412.00664",
@@ -794,10 +872,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/c590ea291e657e83/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-22-26291417bec2ba54612d604b/#paper-c590ea291e657e83",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "3dd90c1c7d130ef5",
@@ -830,7 +908,13 @@
       "report_entry_url": "/papers/reports/2026-11-22/#paper-3dd90c1c7d130ef5",
       "paper_url": "/papers/items/3dd90c1c7d130ef5/",
       "paper_report_url": "/papers/items/3dd90c1c7d130ef5/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-22-e2942aed28e1db1f1b0579d0/#paper-3dd90c1c7d130ef5",
+          "scope": "全文中文译文",
+          "title": "Sequential Posterior Sampling with Diffusion Models"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2409.05399v1",
         "https://arxiv.org/abs/2409.05399",
@@ -846,10 +930,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/3dd90c1c7d130ef5/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-22-e2942aed28e1db1f1b0579d0/#paper-3dd90c1c7d130ef5",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "a889c60646b82033",
@@ -882,7 +966,13 @@
       "report_entry_url": "/papers/reports/2026-11-22/#paper-a889c60646b82033",
       "paper_url": "/papers/items/a889c60646b82033/",
       "paper_report_url": "/papers/items/a889c60646b82033/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-22-6e8d8598a939cbae7e295fab/#paper-a889c60646b82033",
+          "scope": "全文中文译文",
+          "title": "Plug-and-Play Posterior Sampling for Blind Inverse Problems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2505.22923v1",
         "https://arxiv.org/abs/2505.22923",
@@ -897,10 +987,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/a889c60646b82033/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-22-6e8d8598a939cbae7e295fab/#paper-a889c60646b82033",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "7cb357bf8ab0d32c",
@@ -933,7 +1023,13 @@
       "report_entry_url": "/papers/reports/2026-11-22/#paper-7cb357bf8ab0d32c",
       "paper_url": "/papers/items/7cb357bf8ab0d32c/",
       "paper_report_url": "/papers/items/7cb357bf8ab0d32c/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-22-a5cc0868643309af37a04035/#paper-7cb357bf8ab0d32c",
+          "scope": "全文中文译文",
+          "title": "GeoFunFlow: Geometric function flow matching for joint probabilistic inference of physical fields and complex geometries"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2509.24117v2",
         "https://arxiv.org/abs/2509.24117",
@@ -948,10 +1044,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/7cb357bf8ab0d32c/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-22-a5cc0868643309af37a04035/#paper-7cb357bf8ab0d32c",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "b4a6c32140ccbbdd",
@@ -984,7 +1080,13 @@
       "report_entry_url": "/papers/reports/2026-11-22/#paper-b4a6c32140ccbbdd",
       "paper_url": "/papers/items/b4a6c32140ccbbdd/",
       "paper_report_url": "/papers/items/b4a6c32140ccbbdd/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-22-b8eb7dcf0e479d756174f437/#paper-b4a6c32140ccbbdd",
+          "scope": "全文中文译文",
+          "title": "Flow Matching for Posterior Inference with Simulator Feedback"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2410.22573v1",
         "https://arxiv.org/abs/2410.22573",
@@ -1001,10 +1103,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/b4a6c32140ccbbdd/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-22-b8eb7dcf0e479d756174f437/#paper-b4a6c32140ccbbdd",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "bf5f295dfd213dc5",
@@ -1037,7 +1139,13 @@
       "report_entry_url": "/papers/reports/2026-11-22/#paper-bf5f295dfd213dc5",
       "paper_url": "/papers/items/bf5f295dfd213dc5/",
       "paper_report_url": "/papers/items/bf5f295dfd213dc5/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-22-ab829debf8cc4ee650192b9c/#paper-bf5f295dfd213dc5",
+          "scope": "全文中文译文",
+          "title": "Flow Matching Posterior Sampling: A Training-free Conditional Generation for Flow Matching"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2411.07625v3",
         "https://arxiv.org/abs/2411.07625",
@@ -1052,10 +1160,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/bf5f295dfd213dc5/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-22-ab829debf8cc4ee650192b9c/#paper-bf5f295dfd213dc5",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "a8e8321d4befc0a2",
@@ -1088,7 +1196,13 @@
       "report_entry_url": "/papers/reports/2026-11-22/#paper-a8e8321d4befc0a2",
       "paper_url": "/papers/items/a8e8321d4befc0a2/",
       "paper_report_url": "/papers/items/a8e8321d4befc0a2/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-22-d1f63994367474e07a206a1b/#paper-a8e8321d4befc0a2",
+          "scope": "全文中文译文",
+          "title": "DAWN-FM: Data-Aware and Noise-Informed Flow Matching for Solving Inverse Problems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2412.04766v3",
         "https://arxiv.org/abs/2412.04766",
@@ -1106,10 +1220,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/a8e8321d4befc0a2/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-22-d1f63994367474e07a206a1b/#paper-a8e8321d4befc0a2",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "9947e4f41d6d76cd",
@@ -1142,7 +1256,13 @@
       "report_entry_url": "/papers/reports/2026-11-22/#paper-9947e4f41d6d76cd",
       "paper_url": "/papers/items/9947e4f41d6d76cd/",
       "paper_report_url": "/papers/items/9947e4f41d6d76cd/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-22-0b66f41b4eaf5a47b174c1d4/#paper-9947e4f41d6d76cd",
+          "scope": "全文中文译文",
+          "title": "Solving Room Impulse Response Inverse Problems Using Flow Matching with Analytic Wiener Denoiser"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2602.00652v1",
         "https://arxiv.org/abs/2602.00652",
@@ -1157,10 +1277,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/9947e4f41d6d76cd/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-22-0b66f41b4eaf5a47b174c1d4/#paper-9947e4f41d6d76cd",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "b782c8c86873ffb0",
@@ -1193,7 +1313,13 @@
       "report_entry_url": "/papers/reports/2026-11-21/#paper-b782c8c86873ffb0",
       "paper_url": "/papers/items/b782c8c86873ffb0/",
       "paper_report_url": "/papers/items/b782c8c86873ffb0/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-21-9883b570942841c9db61fdba/#paper-b782c8c86873ffb0",
+          "scope": "全文中文译文",
+          "title": "Leveraging Channel Knowledge Map for Multi-User Hierarchical Beam Training Under Position Uncertainty"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2511.22902v1",
         "https://arxiv.org/abs/2511.22902",
@@ -1208,10 +1334,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/b782c8c86873ffb0/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-21-9883b570942841c9db61fdba/#paper-b782c8c86873ffb0",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "6e703ef179cd115e",
@@ -1244,7 +1370,13 @@
       "report_entry_url": "/papers/reports/2026-11-21/#paper-6e703ef179cd115e",
       "paper_url": "/papers/items/6e703ef179cd115e/",
       "paper_report_url": "/papers/items/6e703ef179cd115e/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-21-21bb7aedd2a6eb3ac847bcda/#paper-6e703ef179cd115e",
+          "scope": "全文中文译文",
+          "title": "Prototyping and Experimental Results for Environment-Aware Millimeter Wave Beam Alignment via Channel Knowledge Map"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2403.08200v1",
         "https://arxiv.org/abs/2403.08200",
@@ -1259,10 +1391,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/6e703ef179cd115e/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-21-21bb7aedd2a6eb3ac847bcda/#paper-6e703ef179cd115e",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "ba20e0e8412d04d1",
@@ -1295,7 +1427,13 @@
       "report_entry_url": "/papers/reports/2026-11-21/#paper-ba20e0e8412d04d1",
       "paper_url": "/papers/items/ba20e0e8412d04d1/",
       "paper_report_url": "/papers/items/ba20e0e8412d04d1/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-21-1907f9f14a1705b03416d9e8/#paper-ba20e0e8412d04d1",
+          "scope": "全文中文译文",
+          "title": "Efficient Near Field Beam Tracking via Thompson Sampling"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2604.24006v1",
         "https://arxiv.org/abs/2604.24006",
@@ -1310,10 +1448,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/ba20e0e8412d04d1/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-21-1907f9f14a1705b03416d9e8/#paper-ba20e0e8412d04d1",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "9883d0aedf49cfd3",
@@ -1346,7 +1484,13 @@
       "report_entry_url": "/papers/reports/2026-11-21/#paper-9883d0aedf49cfd3",
       "paper_url": "/papers/items/9883d0aedf49cfd3/",
       "paper_report_url": "/papers/items/9883d0aedf49cfd3/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-21-ce9d6164c9e2c91939e011ed/#paper-9883d0aedf49cfd3",
+          "scope": "全文中文译文",
+          "title": "Energy-Efficient Spiking Neural Networks for Sensing-Aided Beam Prediction"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2610.12507v1",
         "https://arxiv.org/abs/2610.12507",
@@ -1361,10 +1505,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/9883d0aedf49cfd3/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-21-ce9d6164c9e2c91939e011ed/#paper-9883d0aedf49cfd3",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "8cc8c654e7ababe7",
@@ -1397,7 +1541,13 @@
       "report_entry_url": "/papers/reports/2026-11-21/#paper-8cc8c654e7ababe7",
       "paper_url": "/papers/items/8cc8c654e7ababe7/",
       "paper_report_url": "/papers/items/8cc8c654e7ababe7/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-21-3b5af50bfdfe8ca00daa1121/#paper-8cc8c654e7ababe7",
+          "scope": "全文中文译文",
+          "title": "AMBER: An Adaptive Multimodal Mask Transformer for Beam Prediction with Missing Modalities"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2512.11331v2",
         "https://arxiv.org/abs/2512.11331",
@@ -1412,10 +1562,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/8cc8c654e7ababe7/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-21-3b5af50bfdfe8ca00daa1121/#paper-8cc8c654e7ababe7",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "a03a38b1597f4664",
@@ -1448,7 +1598,13 @@
       "report_entry_url": "/papers/reports/2026-11-21/#paper-a03a38b1597f4664",
       "paper_url": "/papers/items/a03a38b1597f4664/",
       "paper_report_url": "/papers/items/a03a38b1597f4664/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-21-cdde80f5185a2bb9a6495835/#paper-a03a38b1597f4664",
+          "scope": "全文中文译文",
+          "title": "Segment-Wise Flow Matching for Vision-Aided mmWave V2I Beam Prediction"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2511.20265v3",
         "https://arxiv.org/abs/2511.20265",
@@ -1463,10 +1619,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/a03a38b1597f4664/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-21-cdde80f5185a2bb9a6495835/#paper-a03a38b1597f4664",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "0466a26ad8ff0e79",
@@ -1499,7 +1655,13 @@
       "report_entry_url": "/papers/reports/2026-11-21/#paper-0466a26ad8ff0e79",
       "paper_url": "/papers/items/0466a26ad8ff0e79/",
       "paper_report_url": "/papers/items/0466a26ad8ff0e79/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-21-faf323f8f61b79532cce79cb/#paper-0466a26ad8ff0e79",
+          "scope": "全文中文译文",
+          "title": "Cooperative Sensing-Assisted Predictive Beam Tracking for MIMO-OFDM Networked ISAC Systems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2508.12723v1",
         "https://arxiv.org/abs/2508.12723",
@@ -1514,10 +1676,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/0466a26ad8ff0e79/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-21-faf323f8f61b79532cce79cb/#paper-0466a26ad8ff0e79",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "069ce4389743b76a",
@@ -1550,7 +1712,13 @@
       "report_entry_url": "/papers/reports/2026-11-21/#paper-069ce4389743b76a",
       "paper_url": "/papers/items/069ce4389743b76a/",
       "paper_report_url": "/papers/items/069ce4389743b76a/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-21-decbdfc940da76891f62af17/#paper-069ce4389743b76a",
+          "scope": "全文中文译文",
+          "title": "Sensing-Aided Near-Field Beam Tracking"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2512.00655v1",
         "https://arxiv.org/abs/2512.00655",
@@ -1565,10 +1733,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/069ce4389743b76a/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-21-decbdfc940da76891f62af17/#paper-069ce4389743b76a",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "9d208f4c01cd331b",
@@ -1601,7 +1769,13 @@
       "report_entry_url": "/papers/reports/2026-11-21/#paper-9d208f4c01cd331b",
       "paper_url": "/papers/items/9d208f4c01cd331b/",
       "paper_report_url": "/papers/items/9d208f4c01cd331b/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-21-7e91beb3d36d509bba55fcc7/#paper-9d208f4c01cd331b",
+          "scope": "全文中文译文",
+          "title": "Channel Charting based Fast Beam Tracking Design and Implementation"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2510.08144v1",
         "https://arxiv.org/abs/2510.08144",
@@ -1616,10 +1790,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/9d208f4c01cd331b/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-21-7e91beb3d36d509bba55fcc7/#paper-9d208f4c01cd331b",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "1f3d65848f0c5f9a",
@@ -1652,7 +1826,13 @@
       "report_entry_url": "/papers/reports/2026-11-21/#paper-1f3d65848f0c5f9a",
       "paper_url": "/papers/items/1f3d65848f0c5f9a/",
       "paper_report_url": "/papers/items/1f3d65848f0c5f9a/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-21-9a4c637c3bcb71c310030d07/#paper-1f3d65848f0c5f9a",
+          "scope": "全文中文译文",
+          "title": "Lightweight Vision-Aided Beam Tracking for Cross-Environment mmWave Communications"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2607.00936v1",
         "https://arxiv.org/abs/2607.00936",
@@ -1667,10 +1847,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/1f3d65848f0c5f9a/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-21-9a4c637c3bcb71c310030d07/#paper-1f3d65848f0c5f9a",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "f7b5c97696b0845a",
@@ -1703,7 +1883,13 @@
       "report_entry_url": "/papers/reports/2026-11-20/#paper-f7b5c97696b0845a",
       "paper_url": "/papers/items/f7b5c97696b0845a/",
       "paper_report_url": "/papers/items/f7b5c97696b0845a/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-20-88ab7f2517e187c709c6d324/#paper-f7b5c97696b0845a",
+          "scope": "全文中文译文",
+          "title": "Channel Modeling Framework for Both Communications and Bistatic Sensing Under 3GPP Standard"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2408.11295v1",
         "https://arxiv.org/abs/2408.11295",
@@ -1719,10 +1905,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/f7b5c97696b0845a/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-20-88ab7f2517e187c709c6d324/#paper-f7b5c97696b0845a",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "b0421c82f1b07cad",
@@ -1755,7 +1941,13 @@
       "report_entry_url": "/papers/reports/2026-11-20/#paper-b0421c82f1b07cad",
       "paper_url": "/papers/items/b0421c82f1b07cad/",
       "paper_report_url": "/papers/items/b0421c82f1b07cad/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-20-d28bfdda1c21b92038609ef2/#paper-b0421c82f1b07cad",
+          "scope": "全文中文译文",
+          "title": "A Geometry-based Stochastic Wireless Channel Model using Generative Neural Networks"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2608.01840v1",
         "https://arxiv.org/abs/2608.01840",
@@ -1772,10 +1964,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/b0421c82f1b07cad/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-20-d28bfdda1c21b92038609ef2/#paper-b0421c82f1b07cad",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "d8107d33c85d43ea",
@@ -1808,7 +2000,13 @@
       "report_entry_url": "/papers/reports/2026-11-20/#paper-d8107d33c85d43ea",
       "paper_url": "/papers/items/d8107d33c85d43ea/",
       "paper_report_url": "/papers/items/d8107d33c85d43ea/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-20-2a6ab4f2f89a86a5c20acfd2/#paper-d8107d33c85d43ea",
+          "scope": "全文中文译文",
+          "title": "A Novel Dynamic Ray-Tracing Channel Model for 6G LEO Satellite-to-Ground Communication Systems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2609.32621v1",
         "https://arxiv.org/abs/2609.32621",
@@ -1823,10 +2021,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/d8107d33c85d43ea/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-20-2a6ab4f2f89a86a5c20acfd2/#paper-d8107d33c85d43ea",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "3a03c7b29606b18f",
@@ -1859,7 +2057,13 @@
       "report_entry_url": "/papers/reports/2026-11-20/#paper-3a03c7b29606b18f",
       "paper_url": "/papers/items/3a03c7b29606b18f/",
       "paper_report_url": "/papers/items/3a03c7b29606b18f/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-20-8ef67abce74c5a5e19f4474b/#paper-3a03c7b29606b18f",
+          "scope": "全文中文译文",
+          "title": "CITYMPC: A Large-Scale Physics-Informed Benchmark and Tool for Generative Complete Multipath Wireless Channel Modeling"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2605.15471v1",
         "https://arxiv.org/abs/2605.15471",
@@ -1874,10 +2078,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/3a03c7b29606b18f/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-20-8ef67abce74c5a5e19f4474b/#paper-3a03c7b29606b18f",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "7537cab3dca842a3",
@@ -1910,7 +2114,13 @@
       "report_entry_url": "/papers/reports/2026-11-20/#paper-7537cab3dca842a3",
       "paper_url": "/papers/items/7537cab3dca842a3/",
       "paper_report_url": "/papers/items/7537cab3dca842a3/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-20-cdd6385f1a77b36349aa8081/#paper-7537cab3dca842a3",
+          "scope": "全文中文译文",
+          "title": "Open Wireless Digital Twin: End-to-End 5G Mobility Emulation with OpenAirInterface and Ray Tracing"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2503.12177v4",
         "https://arxiv.org/abs/2503.12177",
@@ -1926,10 +2136,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/7537cab3dca842a3/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-20-cdd6385f1a77b36349aa8081/#paper-7537cab3dca842a3",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "3b2596847bcc73da",
@@ -1962,7 +2172,13 @@
       "report_entry_url": "/papers/reports/2026-11-20/#paper-3b2596847bcc73da",
       "paper_url": "/papers/items/3b2596847bcc73da/",
       "paper_report_url": "/papers/items/3b2596847bcc73da/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-20-506f3bbc3730865ff2d361fb/#paper-3b2596847bcc73da",
+          "scope": "全文中文译文",
+          "title": "HoRAMA: Holistic Reconstruction with Automated Material Assignment for Ray Tracing using NYURay"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2602.12942v1",
         "https://arxiv.org/abs/2602.12942",
@@ -1977,10 +2193,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/3b2596847bcc73da/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-20-506f3bbc3730865ff2d361fb/#paper-3b2596847bcc73da",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "d9387e8dfba6c5d8",
@@ -2013,7 +2229,13 @@
       "report_entry_url": "/papers/reports/2026-11-20/#paper-d9387e8dfba6c5d8",
       "paper_url": "/papers/items/d9387e8dfba6c5d8/",
       "paper_report_url": "/papers/items/d9387e8dfba6c5d8/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-20-90c8324dc047f11cc90e98fe/#paper-d9387e8dfba6c5d8",
+          "scope": "全文中文译文",
+          "title": "Accelerating Ray Tracing-Based Wireless Channels Generation for Real-Time Network Digital Twins"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2504.09751v2",
         "https://arxiv.org/abs/2504.09751",
@@ -2031,10 +2253,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/d9387e8dfba6c5d8/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-20-90c8324dc047f11cc90e98fe/#paper-d9387e8dfba6c5d8",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "097976881881b42d",
@@ -2067,7 +2289,13 @@
       "report_entry_url": "/papers/reports/2026-11-20/#paper-097976881881b42d",
       "paper_url": "/papers/items/097976881881b42d/",
       "paper_report_url": "/papers/items/097976881881b42d/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-20-d2dfe74c69df5663d3ad1106/#paper-097976881881b42d",
+          "scope": "全文中文译文",
+          "title": "Prediction of Wireless Channel Statistics with Ray Tracing and Uncalibrated Digital Twin"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2411.13360v2",
         "https://arxiv.org/abs/2411.13360",
@@ -2083,10 +2311,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/097976881881b42d/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-20-d2dfe74c69df5663d3ad1106/#paper-097976881881b42d",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "8226f9c1f5fcf7c3",
@@ -2119,7 +2347,13 @@
       "report_entry_url": "/papers/reports/2026-11-20/#paper-8226f9c1f5fcf7c3",
       "paper_url": "/papers/items/8226f9c1f5fcf7c3/",
       "paper_report_url": "/papers/items/8226f9c1f5fcf7c3/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-20-61229d6f7e3cd1f3d8ed7cfd/#paper-8226f9c1f5fcf7c3",
+          "scope": "全文中文译文",
+          "title": "An Enhanced Dynamic Ray Tracing Architecture for Channel Prediction Based on Multipath Bidirectional Geometry and Field Extrapolation"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2405.02825v1",
         "https://arxiv.org/abs/2405.02825",
@@ -2134,10 +2368,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/8226f9c1f5fcf7c3/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-20-61229d6f7e3cd1f3d8ed7cfd/#paper-8226f9c1f5fcf7c3",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "607185619b6abf30",
@@ -2170,7 +2404,13 @@
       "report_entry_url": "/papers/reports/2026-11-20/#paper-607185619b6abf30",
       "paper_url": "/papers/items/607185619b6abf30/",
       "paper_report_url": "/papers/items/607185619b6abf30/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-20-1047d9195458f93d7ee72e19/#paper-607185619b6abf30",
+          "scope": "全文中文译文",
+          "title": "A Novel BVH-accelerated Dynamic Ray-Tracing Channel Model for Vehicular Communication Systems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2611.07311v1",
         "https://arxiv.org/abs/2611.07311",
@@ -2185,10 +2425,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/607185619b6abf30/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-20-1047d9195458f93d7ee72e19/#paper-607185619b6abf30",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "d03062b0266743ff",
@@ -2221,7 +2461,13 @@
       "report_entry_url": "/papers/reports/2026-11-19/#paper-d03062b0266743ff",
       "paper_url": "/papers/items/d03062b0266743ff/",
       "paper_report_url": "/papers/items/d03062b0266743ff/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-19-5ef925d7de1482dd6a5c416d/#paper-d03062b0266743ff",
+          "scope": "全文中文译文",
+          "title": "Octree-Context Gaussian Splatting with Multi-Order Propagation for Channel Knowledge Maps"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2605.22961v2",
         "https://arxiv.org/abs/2605.22961",
@@ -2236,10 +2482,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/d03062b0266743ff/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-19-5ef925d7de1482dd6a5c416d/#paper-d03062b0266743ff",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "0a1af2cd6646a4cd",
@@ -2272,7 +2518,13 @@
       "report_entry_url": "/papers/reports/2026-11-19/#paper-0a1af2cd6646a4cd",
       "paper_url": "/papers/items/0a1af2cd6646a4cd/",
       "paper_report_url": "/papers/items/0a1af2cd6646a4cd/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-19-961aae814b70ec4be6e25ad2/#paper-0a1af2cd6646a4cd",
+          "scope": "全文中文译文",
+          "title": "Positioning Error Compensation by Channel Knowledge Map in UAV Communication Missions"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2409.15798v1",
         "https://arxiv.org/abs/2409.15798",
@@ -2287,10 +2539,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/0a1af2cd6646a4cd/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-19-961aae814b70ec4be6e25ad2/#paper-0a1af2cd6646a4cd",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "542b6f39c5c441d5",
@@ -2323,7 +2575,13 @@
       "report_entry_url": "/papers/reports/2026-11-19/#paper-542b6f39c5c441d5",
       "paper_url": "/papers/items/542b6f39c5c441d5/",
       "paper_report_url": "/papers/items/542b6f39c5c441d5/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-19-aff45218f82f6b2e3f1ad60d/#paper-542b6f39c5c441d5",
+          "scope": "全文中文译文",
+          "title": "Towards Intelligent Low-Altitude Wireless Network Deployment: Differentiable Channel Knowledge Map Construction and Trajectory Design"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2605.07163v1",
         "https://arxiv.org/abs/2605.07163",
@@ -2338,10 +2596,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/542b6f39c5c441d5/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-19-aff45218f82f6b2e3f1ad60d/#paper-542b6f39c5c441d5",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "be747205a30d8cc6",
@@ -2374,7 +2632,13 @@
       "report_entry_url": "/papers/reports/2026-11-19/#paper-be747205a30d8cc6",
       "paper_url": "/papers/items/be747205a30d8cc6/",
       "paper_report_url": "/papers/items/be747205a30d8cc6/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-19-6d23a921b764ee2a62df479d/#paper-be747205a30d8cc6",
+          "scope": "全文中文译文",
+          "title": "Prototyping and Experimental Results for ISAC-based Channel Knowledge Map"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2408.06164v2",
         "https://arxiv.org/abs/2408.06164",
@@ -2389,10 +2653,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/be747205a30d8cc6/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-19-6d23a921b764ee2a62df479d/#paper-be747205a30d8cc6",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "4bee6d5783a42c74",
@@ -2425,7 +2689,13 @@
       "report_entry_url": "/papers/reports/2026-11-19/#paper-4bee6d5783a42c74",
       "paper_url": "/papers/items/4bee6d5783a42c74/",
       "paper_report_url": "/papers/items/4bee6d5783a42c74/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-19-8e163675f5fa3aecbf7fe8a9/#paper-4bee6d5783a42c74",
+          "scope": "全文中文译文",
+          "title": "Geometry-Aware Cross-Height Channel Knowledge Map Prediction for UAV-Assisted Communications With Uncertainty-Guided 3D Sensing"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2607.00887v1",
         "https://arxiv.org/abs/2607.00887",
@@ -2440,10 +2710,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/4bee6d5783a42c74/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-19-8e163675f5fa3aecbf7fe8a9/#paper-4bee6d5783a42c74",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "9cbe59b0ed20b6f8",
@@ -2476,7 +2746,13 @@
       "report_entry_url": "/papers/reports/2026-11-19/#paper-9cbe59b0ed20b6f8",
       "paper_url": "/papers/items/9cbe59b0ed20b6f8/",
       "paper_report_url": "/papers/items/9cbe59b0ed20b6f8/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-19-a1e3105c7b7b035b6463a1bb/#paper-9cbe59b0ed20b6f8",
+          "scope": "全文中文译文",
+          "title": "Towards Precise Channel Knowledge Map: Exploiting Environmental Information from 2D Visuals to 3D Point Clouds"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2510.08140v2",
         "https://arxiv.org/abs/2510.08140",
@@ -2493,10 +2769,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/9cbe59b0ed20b6f8/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-19-a1e3105c7b7b035b6463a1bb/#paper-9cbe59b0ed20b6f8",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "63b85e99a8640cde",
@@ -2529,7 +2805,13 @@
       "report_entry_url": "/papers/reports/2026-11-19/#paper-63b85e99a8640cde",
       "paper_url": "/papers/items/63b85e99a8640cde/",
       "paper_report_url": "/papers/items/63b85e99a8640cde/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-19-75385275ab3d0b56a94c5bc8/#paper-63b85e99a8640cde",
+          "scope": "全文中文译文",
+          "title": "Beamforming-Codebook-Aware Channel Knowledge Map Construction for Multi-Antenna Systems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2505.16132v1",
         "https://arxiv.org/abs/2505.16132",
@@ -2546,10 +2828,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/63b85e99a8640cde/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-19-75385275ab3d0b56a94c5bc8/#paper-63b85e99a8640cde",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "73e8a3ef23f754d0",
@@ -2582,7 +2864,13 @@
       "report_entry_url": "/papers/reports/2026-11-19/#paper-73e8a3ef23f754d0",
       "paper_url": "/papers/items/73e8a3ef23f754d0/",
       "paper_report_url": "/papers/items/73e8a3ef23f754d0/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-19-31a2a37bc865914cc5962fd3/#paper-73e8a3ef23f754d0",
+          "scope": "全文中文译文",
+          "title": "Update Strategy for Channel Knowledge Map in Complex Environments"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2512.15154v1",
         "https://arxiv.org/abs/2512.15154",
@@ -2597,10 +2885,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/73e8a3ef23f754d0/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-19-31a2a37bc865914cc5962fd3/#paper-73e8a3ef23f754d0",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "c8df26e398d478d7",
@@ -2633,7 +2921,13 @@
       "report_entry_url": "/papers/reports/2026-11-19/#paper-c8df26e398d478d7",
       "paper_url": "/papers/items/c8df26e398d478d7/",
       "paper_report_url": "/papers/items/c8df26e398d478d7/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-19-320e6cd4e8caef367ac07903/#paper-c8df26e398d478d7",
+          "scope": "全文中文译文",
+          "title": "Dynamic Channel Knowledge Map Construction in MIMO-OFDM Systems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2512.23470v1",
         "https://arxiv.org/abs/2512.23470",
@@ -2648,10 +2942,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/c8df26e398d478d7/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-19-320e6cd4e8caef367ac07903/#paper-c8df26e398d478d7",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "6bd0e53a534ff44b",
@@ -2684,7 +2978,13 @@
       "report_entry_url": "/papers/reports/2026-11-19/#paper-6bd0e53a534ff44b",
       "paper_url": "/papers/items/6bd0e53a534ff44b/",
       "paper_report_url": "/papers/items/6bd0e53a534ff44b/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-19-6bf9da21c369c96572439bf9/#paper-6bd0e53a534ff44b",
+          "scope": "全文中文译文",
+          "title": "Path-Level Radio Map-Aided Fast and Robust Channel Estimation for Pilot-Starved MIMO-OFDM Systems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2605.08720v1",
         "https://arxiv.org/abs/2605.08720",
@@ -2699,10 +2999,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/6bd0e53a534ff44b/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-19-6bf9da21c369c96572439bf9/#paper-6bd0e53a534ff44b",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "945ba683051825ae",
@@ -2735,7 +3035,13 @@
       "report_entry_url": "/papers/reports/2026-11-18/#paper-945ba683051825ae",
       "paper_url": "/papers/items/945ba683051825ae/",
       "paper_report_url": "/papers/items/945ba683051825ae/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-18-4359148a5f7a2cbcdcead786/#paper-945ba683051825ae",
+          "scope": "全文中文译文",
+          "title": "Joint Channel Estimation and Signal Detection for MIMO-OFDM: A Novel Data-Aided Approach with Reduced Computational Overhead"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2504.14463v1",
         "https://arxiv.org/abs/2504.14463",
@@ -2750,10 +3056,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/945ba683051825ae/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-18-4359148a5f7a2cbcdcead786/#paper-945ba683051825ae",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "b7da8012db1d3062",
@@ -2786,7 +3092,13 @@
       "report_entry_url": "/papers/reports/2026-11-18/#paper-b7da8012db1d3062",
       "paper_url": "/papers/items/b7da8012db1d3062/",
       "paper_report_url": "/papers/items/b7da8012db1d3062/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-18-ab9d9c129627bd60fceeba3f/#paper-b7da8012db1d3062",
+          "scope": "全文中文译文",
+          "title": "Reliable long timescale decision-directed channel estimation for OFDM system"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2402.11632v1",
         "https://arxiv.org/abs/2402.11632",
@@ -2801,10 +3113,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/b7da8012db1d3062/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-18-ab9d9c129627bd60fceeba3f/#paper-b7da8012db1d3062",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "154ec8a23f15d82c",
@@ -2837,7 +3149,13 @@
       "report_entry_url": "/papers/reports/2026-11-18/#paper-154ec8a23f15d82c",
       "paper_url": "/papers/items/154ec8a23f15d82c/",
       "paper_report_url": "/papers/items/154ec8a23f15d82c/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-18-368fa314e22a58f17a5b27a8/#paper-154ec8a23f15d82c",
+          "scope": "全文中文译文",
+          "title": "Learning-based Block-wise Planar Channel Estimation for Time-Varying MIMO OFDM"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2405.11218v1",
         "https://arxiv.org/abs/2405.11218",
@@ -2852,10 +3170,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/154ec8a23f15d82c/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-18-368fa314e22a58f17a5b27a8/#paper-154ec8a23f15d82c",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "5b53f584ca9f2e0b",
@@ -2888,7 +3206,13 @@
       "report_entry_url": "/papers/reports/2026-11-18/#paper-5b53f584ca9f2e0b",
       "paper_url": "/papers/items/5b53f584ca9f2e0b/",
       "paper_report_url": "/papers/items/5b53f584ca9f2e0b/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-18-cc6b5ec38134b6975688df43/#paper-5b53f584ca9f2e0b",
+          "scope": "全文中文译文",
+          "title": "AFDM Channel Estimation in Multi-Scale Multi-Lag Channels"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2405.02660v2",
         "https://arxiv.org/abs/2405.02660",
@@ -2904,10 +3228,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/5b53f584ca9f2e0b/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-18-cc6b5ec38134b6975688df43/#paper-5b53f584ca9f2e0b",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "ebd50f061b92dfd3",
@@ -2940,7 +3264,13 @@
       "report_entry_url": "/papers/reports/2026-11-18/#paper-ebd50f061b92dfd3",
       "paper_url": "/papers/items/ebd50f061b92dfd3/",
       "paper_report_url": "/papers/items/ebd50f061b92dfd3/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-18-450fcd75a01f14400c614aaf/#paper-ebd50f061b92dfd3",
+          "scope": "全文中文译文",
+          "title": "Learning MMSE Filters for OFDM Channel Estimation: Attention Transformer Gains at Linear Inference"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2506.00452v5",
         "https://arxiv.org/abs/2506.00452",
@@ -2957,10 +3287,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/ebd50f061b92dfd3/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-18-450fcd75a01f14400c614aaf/#paper-ebd50f061b92dfd3",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "4601aa54a3708d12",
@@ -2993,7 +3323,13 @@
       "report_entry_url": "/papers/reports/2026-11-18/#paper-4601aa54a3708d12",
       "paper_url": "/papers/items/4601aa54a3708d12/",
       "paper_report_url": "/papers/items/4601aa54a3708d12/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-18-361ca15bcb9d217d0879d8d9/#paper-4601aa54a3708d12",
+          "scope": "全文中文译文",
+          "title": "New Algorithm for Structured OFDM Channel Estimation using Subgroup Duality"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2512.08947v1",
         "https://arxiv.org/abs/2512.08947",
@@ -3008,10 +3344,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/4601aa54a3708d12/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-18-361ca15bcb9d217d0879d8d9/#paper-4601aa54a3708d12",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "406bdfd90df38b5f",
@@ -3044,7 +3380,13 @@
       "report_entry_url": "/papers/reports/2026-11-18/#paper-406bdfd90df38b5f",
       "paper_url": "/papers/items/406bdfd90df38b5f/",
       "paper_report_url": "/papers/items/406bdfd90df38b5f/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-18-969df989fc4c7f1259274433/#paper-406bdfd90df38b5f",
+          "scope": "全文中文译文",
+          "title": "Sparse MIMO-OFDM Channel Estimation via RKHS Regularization"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2511.20082v1",
         "https://arxiv.org/abs/2511.20082",
@@ -3059,10 +3401,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/406bdfd90df38b5f/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-18-969df989fc4c7f1259274433/#paper-406bdfd90df38b5f",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "123c996d97f48244",
@@ -3095,7 +3437,13 @@
       "report_entry_url": "/papers/reports/2026-11-18/#paper-123c996d97f48244",
       "paper_url": "/papers/items/123c996d97f48244/",
       "paper_report_url": "/papers/items/123c996d97f48244/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-18-4ff26c1c474fdeb750ed9d17/#paper-123c996d97f48244",
+          "scope": "全文中文译文",
+          "title": "Unsupervised Online Channel Estimation for High-Mobility OFDM via Implicit Neural Representation"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2605.10213v1",
         "https://arxiv.org/abs/2605.10213",
@@ -3110,10 +3458,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/123c996d97f48244/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-18-4ff26c1c474fdeb750ed9d17/#paper-123c996d97f48244",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "2ad11dea2b23da71",
@@ -3146,7 +3494,13 @@
       "report_entry_url": "/papers/reports/2026-11-18/#paper-2ad11dea2b23da71",
       "paper_url": "/papers/items/2ad11dea2b23da71/",
       "paper_report_url": "/papers/items/2ad11dea2b23da71/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-18-1bbe33c5b589bde35a5c8688/#paper-2ad11dea2b23da71",
+          "scope": "全文中文译文",
+          "title": "Sequential MAP Parametric OFDM Channel Estimation for Joint Sensing and Communication"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2406.08345v1",
         "https://arxiv.org/abs/2406.08345",
@@ -3161,10 +3515,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/2ad11dea2b23da71/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-18-1bbe33c5b589bde35a5c8688/#paper-2ad11dea2b23da71",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "a07cdee28aa62c45",
@@ -3197,7 +3551,13 @@
       "report_entry_url": "/papers/reports/2026-11-18/#paper-a07cdee28aa62c45",
       "paper_url": "/papers/items/a07cdee28aa62c45/",
       "paper_report_url": "/papers/items/a07cdee28aa62c45/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-18-062e34560c2d7ce451c32d58/#paper-a07cdee28aa62c45",
+          "scope": "全文中文译文",
+          "title": "Doppler-Robust Maximum Likelihood Parametric Channel Estimation for Multiuser MIMO-OFDM"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2406.08352v1",
         "https://arxiv.org/abs/2406.08352",
@@ -3212,10 +3572,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/a07cdee28aa62c45/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-18-062e34560c2d7ce451c32d58/#paper-a07cdee28aa62c45",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "5b313b1d7e984f9c",
@@ -3248,7 +3608,13 @@
       "report_entry_url": "/papers/reports/2026-11-17/#paper-5b313b1d7e984f9c",
       "paper_url": "/papers/items/5b313b1d7e984f9c/",
       "paper_report_url": "/papers/items/5b313b1d7e984f9c/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-17-6b4618e25fabcff4bb1c80ee/#paper-5b313b1d7e984f9c",
+          "scope": "全文中文译文",
+          "title": "EMForecaster: A Deep Learning Framework for Time Series Forecasting in Wireless Networks with Distribution-Free Uncertainty Quantification"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2504.00120v1",
         "https://arxiv.org/abs/2504.00120",
@@ -3263,10 +3629,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/5b313b1d7e984f9c/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-17-6b4618e25fabcff4bb1c80ee/#paper-5b313b1d7e984f9c",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "612bca3d7ffff79f",
@@ -3299,7 +3665,13 @@
       "report_entry_url": "/papers/reports/2026-11-17/#paper-612bca3d7ffff79f",
       "paper_url": "/papers/items/612bca3d7ffff79f/",
       "paper_report_url": "/papers/items/612bca3d7ffff79f/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-17-ccf6535ba26d40b6f3f86a2b/#paper-612bca3d7ffff79f",
+          "scope": "全文中文译文",
+          "title": "Wireless Channel Prediction via Gaussian Mixture Models"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2402.08351v1",
         "https://arxiv.org/abs/2402.08351",
@@ -3314,10 +3686,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/612bca3d7ffff79f/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-17-ccf6535ba26d40b6f3f86a2b/#paper-612bca3d7ffff79f",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "2b623c7dd237e210",
@@ -3350,7 +3722,13 @@
       "report_entry_url": "/papers/reports/2026-11-17/#paper-2b623c7dd237e210",
       "paper_url": "/papers/items/2b623c7dd237e210/",
       "paper_report_url": "/papers/items/2b623c7dd237e210/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-17-4f78424ace92890ed34b6668/#paper-2b623c7dd237e210",
+          "scope": "全文中文译文",
+          "title": "Large AI Model for Delay-Doppler Domain Channel Prediction in 6G OTFS-Based Vehicular Networks"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2503.01116v2",
         "https://arxiv.org/abs/2503.01116",
@@ -3365,10 +3743,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/2b623c7dd237e210/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-17-4f78424ace92890ed34b6668/#paper-2b623c7dd237e210",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "d4483a291f4f85c5",
@@ -3401,7 +3779,13 @@
       "report_entry_url": "/papers/reports/2026-11-17/#paper-d4483a291f4f85c5",
       "paper_url": "/papers/items/d4483a291f4f85c5/",
       "paper_report_url": "/papers/items/d4483a291f4f85c5/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-17-6d3917a7ff02ebab871d25bf/#paper-d4483a291f4f85c5",
+          "scope": "全文中文译文",
+          "title": "ODE-Former for Mobile Channel Prediction: A Novel Learning Structure Leveraging The Physics Continuity"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2504.19122v1",
         "https://arxiv.org/abs/2504.19122",
@@ -3416,10 +3800,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/d4483a291f4f85c5/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-17-6d3917a7ff02ebab871d25bf/#paper-d4483a291f4f85c5",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "a25d54ef1e307538",
@@ -3452,7 +3836,13 @@
       "report_entry_url": "/papers/reports/2026-11-17/#paper-a25d54ef1e307538",
       "paper_url": "/papers/items/a25d54ef1e307538/",
       "paper_report_url": "/papers/items/a25d54ef1e307538/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-17-f7eeabe7f08058ea8003f707/#paper-a25d54ef1e307538",
+          "scope": "全文中文译文",
+          "title": "LinFormer: A Linear-based Lightweight Transformer Architecture For Time-Aware MIMO Channel Prediction"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2410.21351v1",
         "https://arxiv.org/abs/2410.21351",
@@ -3467,10 +3857,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/a25d54ef1e307538/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-17-f7eeabe7f08058ea8003f707/#paper-a25d54ef1e307538",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "d4c537eb3f1efe78",
@@ -3503,7 +3893,13 @@
       "report_entry_url": "/papers/reports/2026-11-17/#paper-d4c537eb3f1efe78",
       "paper_url": "/papers/items/d4c537eb3f1efe78/",
       "paper_report_url": "/papers/items/d4c537eb3f1efe78/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-17-80515f4862344aee12e66f09/#paper-d4c537eb3f1efe78",
+          "scope": "全文中文译文",
+          "title": "Machine Learning-based Channel Prediction in Wideband Massive MIMO Systems with Small Overhead for Online Training"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2408.12134v1",
         "https://arxiv.org/abs/2408.12134",
@@ -3518,10 +3914,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/d4c537eb3f1efe78/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-17-80515f4862344aee12e66f09/#paper-d4c537eb3f1efe78",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "8459c53cf2ca3e98",
@@ -3554,7 +3950,13 @@
       "report_entry_url": "/papers/reports/2026-11-17/#paper-8459c53cf2ca3e98",
       "paper_url": "/papers/items/8459c53cf2ca3e98/",
       "paper_report_url": "/papers/items/8459c53cf2ca3e98/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-17-f86398f54366746cd811bd88/#paper-8459c53cf2ca3e98",
+          "scope": "全文中文译文",
+          "title": "Standards-Compliant DM-RS Allocation via Temporal Channel Prediction for Massive MIMO Systems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2507.11064v2",
         "https://arxiv.org/abs/2507.11064",
@@ -3570,10 +3972,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/8459c53cf2ca3e98/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-17-f86398f54366746cd811bd88/#paper-8459c53cf2ca3e98",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "2b252fb6984f6fa3",
@@ -3606,7 +4008,13 @@
       "report_entry_url": "/papers/reports/2026-11-17/#paper-2b252fb6984f6fa3",
       "paper_url": "/papers/items/2b252fb6984f6fa3/",
       "paper_report_url": "/papers/items/2b252fb6984f6fa3/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-17-2d613d0375a6485236ef44c9/#paper-2b252fb6984f6fa3",
+          "scope": "全文中文译文",
+          "title": "A Conditional Variational Framework for Channel Prediction in High-Mobility 6G OTFS Networks"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2601.03084v1",
         "https://arxiv.org/abs/2601.03084",
@@ -3621,10 +4029,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/2b252fb6984f6fa3/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-17-2d613d0375a6485236ef44c9/#paper-2b252fb6984f6fa3",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "d87211551aa1c7f9",
@@ -3657,7 +4065,13 @@
       "report_entry_url": "/papers/reports/2026-11-17/#paper-d87211551aa1c7f9",
       "paper_url": "/papers/items/d87211551aa1c7f9/",
       "paper_report_url": "/papers/items/d87211551aa1c7f9/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-17-7944faa03baf55b467055cfb/#paper-d87211551aa1c7f9",
+          "scope": "全文中文译文",
+          "title": "Tensor-Structured Bayesian Channel Prediction for Upper Mid-Band XL-MIMO Systems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2508.08491v1",
         "https://arxiv.org/abs/2508.08491",
@@ -3672,10 +4086,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/d87211551aa1c7f9/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-17-7944faa03baf55b467055cfb/#paper-d87211551aa1c7f9",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "a4977e81f3092091",
@@ -3708,7 +4122,13 @@
       "report_entry_url": "/papers/reports/2026-11-17/#paper-a4977e81f3092091",
       "paper_url": "/papers/items/a4977e81f3092091/",
       "paper_report_url": "/papers/items/a4977e81f3092091/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-17-e01a4d8f23ec1908225626f1/#paper-a4977e81f3092091",
+          "scope": "全文中文译文",
+          "title": "Inter-frame Channel Prediction for Zak-OTFS"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2607.09184v1",
         "https://arxiv.org/abs/2607.09184",
@@ -3723,10 +4143,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/a4977e81f3092091/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-17-e01a4d8f23ec1908225626f1/#paper-a4977e81f3092091",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "a8c9dd043e5dbe33",
@@ -41691,6 +42111,776 @@
     }
   ],
   "translations": [
+    {
+      "date": "2026-11-23",
+      "url": "/papers/translations/2026-11-23-ef754df89549d39ddcd79bcb/",
+      "slug": "2026-11-23-ef754df89549d39ddcd79bcb",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Self-supervised Conformal Prediction for Uncertainty Quantification in Imaging Problems",
+      "paper_id": "2502.05127",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-23-ef754df89549d39ddcd79bcb.md"
+    },
+    {
+      "date": "2026-11-23",
+      "url": "/papers/translations/2026-11-23-de0adea2adae3b28d0298c63/",
+      "slug": "2026-11-23-de0adea2adae3b28d0298c63",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Minimax Multi-Target Conformal Prediction with Applications to Imaging Inverse Problems",
+      "paper_id": "2511.13533",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-23-de0adea2adae3b28d0298c63.md"
+    },
+    {
+      "date": "2026-11-23",
+      "url": "/papers/translations/2026-11-23-bf9ca680a4e910a9311508b8/",
+      "slug": "2026-11-23-bf9ca680a4e910a9311508b8",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Flow-Based Conformal Predictive Distributions",
+      "paper_id": "2602.07633",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-23-bf9ca680a4e910a9311508b8.md"
+    },
+    {
+      "date": "2026-11-23",
+      "url": "/papers/translations/2026-11-23-be985907c09e8505e14c2d43/",
+      "slug": "2026-11-23-be985907c09e8505e14c2d43",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Conditional Wasserstein Distances with Applications in Bayesian OT Flow Matching",
+      "paper_id": "2403.18705",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-23-be985907c09e8505e14c2d43.md"
+    },
+    {
+      "date": "2026-11-23",
+      "url": "/papers/translations/2026-11-23-97c9ddeb5e40a26a1ab4bc6c/",
+      "slug": "2026-11-23-97c9ddeb5e40a26a1ab4bc6c",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Uncertainty Quantification for Landweber Iteration with Randomized Normal-Operator Approximation",
+      "paper_id": "2610.00882",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-23-97c9ddeb5e40a26a1ab4bc6c.md"
+    },
+    {
+      "date": "2026-11-23",
+      "url": "/papers/translations/2026-11-23-6dfce2a88bdcbec1cf213776/",
+      "slug": "2026-11-23-6dfce2a88bdcbec1cf213776",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Optimal low-rank posterior covariance approximation in linear Gaussian inverse problems on Hilbert spaces",
+      "paper_id": "2411.01112",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-23-6dfce2a88bdcbec1cf213776.md"
+    },
+    {
+      "date": "2026-11-23",
+      "url": "/papers/translations/2026-11-23-6015a910b2c1489e4785db64/",
+      "slug": "2026-11-23-6015a910b2c1489e4785db64",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Self-Supervised Conformal Prediction with Equivariant Bootstrapping for Image Uncertainty Quantification",
+      "paper_id": "2605.18655",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-23-6015a910b2c1489e4785db64.md"
+    },
+    {
+      "date": "2026-11-23",
+      "url": "/papers/translations/2026-11-23-5f638798f6c69964acbe7e51/",
+      "slug": "2026-11-23-5f638798f6c69964acbe7e51",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Post-Hoc Conformal Prediction for Reliable Wireless Communications",
+      "paper_id": "2609.26625",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-23-5f638798f6c69964acbe7e51.md"
+    },
+    {
+      "date": "2026-11-23",
+      "url": "/papers/translations/2026-11-23-55006e097d49302bae42411b/",
+      "slug": "2026-11-23-55006e097d49302bae42411b",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "On the Inverse Flow Matching Problem in the One-Dimensional and Gaussian Cases",
+      "paper_id": "2512.23265",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-23-55006e097d49302bae42411b.md"
+    },
+    {
+      "date": "2026-11-23",
+      "url": "/papers/translations/2026-11-23-3c9812531fe152c3f3b4caa1/",
+      "slug": "2026-11-23-3c9812531fe152c3f3b4caa1",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Uncertainty Quantification in Data-Driven Dynamical Models via Inverse Problem Solving",
+      "paper_id": "2602.19889",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-23-3c9812531fe152c3f3b4caa1.md"
+    },
+    {
+      "date": "2026-11-22",
+      "url": "/papers/translations/2026-11-22-e2942aed28e1db1f1b0579d0/",
+      "slug": "2026-11-22-e2942aed28e1db1f1b0579d0",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Sequential Posterior Sampling with Diffusion Models",
+      "paper_id": "2409.05399",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-22-e2942aed28e1db1f1b0579d0.md"
+    },
+    {
+      "date": "2026-11-22",
+      "url": "/papers/translations/2026-11-22-d1f63994367474e07a206a1b/",
+      "slug": "2026-11-22-d1f63994367474e07a206a1b",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "DAWN-FM: Data-Aware and Noise-Informed Flow Matching for Solving Inverse Problems",
+      "paper_id": "2412.04766",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-22-d1f63994367474e07a206a1b.md"
+    },
+    {
+      "date": "2026-11-22",
+      "url": "/papers/translations/2026-11-22-b8eb7dcf0e479d756174f437/",
+      "slug": "2026-11-22-b8eb7dcf0e479d756174f437",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Flow Matching for Posterior Inference with Simulator Feedback",
+      "paper_id": "2410.22573",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-22-b8eb7dcf0e479d756174f437.md"
+    },
+    {
+      "date": "2026-11-22",
+      "url": "/papers/translations/2026-11-22-ab829debf8cc4ee650192b9c/",
+      "slug": "2026-11-22-ab829debf8cc4ee650192b9c",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Flow Matching Posterior Sampling: A Training-free Conditional Generation for Flow Matching",
+      "paper_id": "2411.07625",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-22-ab829debf8cc4ee650192b9c.md"
+    },
+    {
+      "date": "2026-11-22",
+      "url": "/papers/translations/2026-11-22-a8a52bf3c7d6f22e86289ef4/",
+      "slug": "2026-11-22-a8a52bf3c7d6f22e86289ef4",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Bayesian Signal Separation via Plug-and-Play Diffusion-Within-Gibbs Sampling",
+      "paper_id": "2509.12857",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-22-a8a52bf3c7d6f22e86289ef4.md"
+    },
+    {
+      "date": "2026-11-22",
+      "url": "/papers/translations/2026-11-22-a5cc0868643309af37a04035/",
+      "slug": "2026-11-22-a5cc0868643309af37a04035",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "GeoFunFlow: Geometric function flow matching for joint probabilistic inference of physical fields and complex geometries",
+      "paper_id": "2509.24117",
+      "license_url": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+      "download": "/assets/papers/translations/2026-11-22-a5cc0868643309af37a04035.md"
+    },
+    {
+      "date": "2026-11-22",
+      "url": "/papers/translations/2026-11-22-6e8d8598a939cbae7e295fab/",
+      "slug": "2026-11-22-6e8d8598a939cbae7e295fab",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Plug-and-Play Posterior Sampling for Blind Inverse Problems",
+      "paper_id": "2505.22923",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-22-6e8d8598a939cbae7e295fab.md"
+    },
+    {
+      "date": "2026-11-22",
+      "url": "/papers/translations/2026-11-22-6da650549f74727d38ddba8e/",
+      "slug": "2026-11-22-6da650549f74727d38ddba8e",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Plug-and-play Diffusion Models for Image Compressive Sensing with Data Consistency Projection",
+      "paper_id": "2509.09365",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-22-6da650549f74727d38ddba8e.md"
+    },
+    {
+      "date": "2026-11-22",
+      "url": "/papers/translations/2026-11-22-26291417bec2ba54612d604b/",
+      "slug": "2026-11-22-26291417bec2ba54612d604b",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Improving Decoupled Posterior Sampling for Inverse Problems using Data Consistency Constraint",
+      "paper_id": "2412.00664",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-22-26291417bec2ba54612d604b.md"
+    },
+    {
+      "date": "2026-11-22",
+      "url": "/papers/translations/2026-11-22-0b66f41b4eaf5a47b174c1d4/",
+      "slug": "2026-11-22-0b66f41b4eaf5a47b174c1d4",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Solving Room Impulse Response Inverse Problems Using Flow Matching with Analytic Wiener Denoiser",
+      "paper_id": "2602.00652",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-22-0b66f41b4eaf5a47b174c1d4.md"
+    },
+    {
+      "date": "2026-11-21",
+      "url": "/papers/translations/2026-11-21-faf323f8f61b79532cce79cb/",
+      "slug": "2026-11-21-faf323f8f61b79532cce79cb",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Cooperative Sensing-Assisted Predictive Beam Tracking for MIMO-OFDM Networked ISAC Systems",
+      "paper_id": "2508.12723",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-21-faf323f8f61b79532cce79cb.md"
+    },
+    {
+      "date": "2026-11-21",
+      "url": "/papers/translations/2026-11-21-decbdfc940da76891f62af17/",
+      "slug": "2026-11-21-decbdfc940da76891f62af17",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Sensing-Aided Near-Field Beam Tracking",
+      "paper_id": "2512.00655",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-21-decbdfc940da76891f62af17.md"
+    },
+    {
+      "date": "2026-11-21",
+      "url": "/papers/translations/2026-11-21-ce9d6164c9e2c91939e011ed/",
+      "slug": "2026-11-21-ce9d6164c9e2c91939e011ed",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Energy-Efficient Spiking Neural Networks for Sensing-Aided Beam Prediction",
+      "paper_id": "2610.12507",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-21-ce9d6164c9e2c91939e011ed.md"
+    },
+    {
+      "date": "2026-11-21",
+      "url": "/papers/translations/2026-11-21-cdde80f5185a2bb9a6495835/",
+      "slug": "2026-11-21-cdde80f5185a2bb9a6495835",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Segment-Wise Flow Matching for Vision-Aided mmWave V2I Beam Prediction",
+      "paper_id": "2511.20265",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-21-cdde80f5185a2bb9a6495835.md"
+    },
+    {
+      "date": "2026-11-21",
+      "url": "/papers/translations/2026-11-21-9a4c637c3bcb71c310030d07/",
+      "slug": "2026-11-21-9a4c637c3bcb71c310030d07",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Lightweight Vision-Aided Beam Tracking for Cross-Environment mmWave Communications",
+      "paper_id": "2607.00936",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-21-9a4c637c3bcb71c310030d07.md"
+    },
+    {
+      "date": "2026-11-21",
+      "url": "/papers/translations/2026-11-21-9883b570942841c9db61fdba/",
+      "slug": "2026-11-21-9883b570942841c9db61fdba",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Leveraging Channel Knowledge Map for Multi-User Hierarchical Beam Training Under Position Uncertainty",
+      "paper_id": "2511.22902",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-21-9883b570942841c9db61fdba.md"
+    },
+    {
+      "date": "2026-11-21",
+      "url": "/papers/translations/2026-11-21-7e91beb3d36d509bba55fcc7/",
+      "slug": "2026-11-21-7e91beb3d36d509bba55fcc7",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Channel Charting based Fast Beam Tracking Design and Implementation",
+      "paper_id": "2510.08144",
+      "license_url": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+      "download": "/assets/papers/translations/2026-11-21-7e91beb3d36d509bba55fcc7.md"
+    },
+    {
+      "date": "2026-11-21",
+      "url": "/papers/translations/2026-11-21-3b5af50bfdfe8ca00daa1121/",
+      "slug": "2026-11-21-3b5af50bfdfe8ca00daa1121",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "AMBER: An Adaptive Multimodal Mask Transformer for Beam Prediction with Missing Modalities",
+      "paper_id": "2512.11331",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-21-3b5af50bfdfe8ca00daa1121.md"
+    },
+    {
+      "date": "2026-11-21",
+      "url": "/papers/translations/2026-11-21-21bb7aedd2a6eb3ac847bcda/",
+      "slug": "2026-11-21-21bb7aedd2a6eb3ac847bcda",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Prototyping and Experimental Results for Environment-Aware Millimeter Wave Beam Alignment via Channel Knowledge Map",
+      "paper_id": "2403.08200",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-21-21bb7aedd2a6eb3ac847bcda.md"
+    },
+    {
+      "date": "2026-11-21",
+      "url": "/papers/translations/2026-11-21-1907f9f14a1705b03416d9e8/",
+      "slug": "2026-11-21-1907f9f14a1705b03416d9e8",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Efficient Near Field Beam Tracking via Thompson Sampling",
+      "paper_id": "2604.24006",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-21-1907f9f14a1705b03416d9e8.md"
+    },
+    {
+      "date": "2026-11-20",
+      "url": "/papers/translations/2026-11-20-d2dfe74c69df5663d3ad1106/",
+      "slug": "2026-11-20-d2dfe74c69df5663d3ad1106",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Prediction of Wireless Channel Statistics with Ray Tracing and Uncalibrated Digital Twin",
+      "paper_id": "2411.13360",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-20-d2dfe74c69df5663d3ad1106.md"
+    },
+    {
+      "date": "2026-11-20",
+      "url": "/papers/translations/2026-11-20-d28bfdda1c21b92038609ef2/",
+      "slug": "2026-11-20-d28bfdda1c21b92038609ef2",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "A Geometry-based Stochastic Wireless Channel Model using Generative Neural Networks",
+      "paper_id": "2608.01840",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-20-d28bfdda1c21b92038609ef2.md"
+    },
+    {
+      "date": "2026-11-20",
+      "url": "/papers/translations/2026-11-20-cdd6385f1a77b36349aa8081/",
+      "slug": "2026-11-20-cdd6385f1a77b36349aa8081",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Open Wireless Digital Twin: End-to-End 5G Mobility Emulation with OpenAirInterface and Ray Tracing",
+      "paper_id": "2503.12177",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-20-cdd6385f1a77b36349aa8081.md"
+    },
+    {
+      "date": "2026-11-20",
+      "url": "/papers/translations/2026-11-20-90c8324dc047f11cc90e98fe/",
+      "slug": "2026-11-20-90c8324dc047f11cc90e98fe",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Accelerating Ray Tracing-Based Wireless Channels Generation for Real-Time Network Digital Twins",
+      "paper_id": "2504.09751",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-20-90c8324dc047f11cc90e98fe.md"
+    },
+    {
+      "date": "2026-11-20",
+      "url": "/papers/translations/2026-11-20-8ef67abce74c5a5e19f4474b/",
+      "slug": "2026-11-20-8ef67abce74c5a5e19f4474b",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "CITYMPC: A Large-Scale Physics-Informed Benchmark and Tool for Generative Complete Multipath Wireless Channel Modeling",
+      "paper_id": "2605.15471",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-20-8ef67abce74c5a5e19f4474b.md"
+    },
+    {
+      "date": "2026-11-20",
+      "url": "/papers/translations/2026-11-20-88ab7f2517e187c709c6d324/",
+      "slug": "2026-11-20-88ab7f2517e187c709c6d324",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Channel Modeling Framework for Both Communications and Bistatic Sensing Under 3GPP Standard",
+      "paper_id": "2408.11295",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-20-88ab7f2517e187c709c6d324.md"
+    },
+    {
+      "date": "2026-11-20",
+      "url": "/papers/translations/2026-11-20-61229d6f7e3cd1f3d8ed7cfd/",
+      "slug": "2026-11-20-61229d6f7e3cd1f3d8ed7cfd",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "An Enhanced Dynamic Ray Tracing Architecture for Channel Prediction Based on Multipath Bidirectional Geometry and Field Extrapolation",
+      "paper_id": "2405.02825",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-20-61229d6f7e3cd1f3d8ed7cfd.md"
+    },
+    {
+      "date": "2026-11-20",
+      "url": "/papers/translations/2026-11-20-506f3bbc3730865ff2d361fb/",
+      "slug": "2026-11-20-506f3bbc3730865ff2d361fb",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "HoRAMA: Holistic Reconstruction with Automated Material Assignment for Ray Tracing using NYURay",
+      "paper_id": "2602.12942",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-20-506f3bbc3730865ff2d361fb.md"
+    },
+    {
+      "date": "2026-11-20",
+      "url": "/papers/translations/2026-11-20-2a6ab4f2f89a86a5c20acfd2/",
+      "slug": "2026-11-20-2a6ab4f2f89a86a5c20acfd2",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "A Novel Dynamic Ray-Tracing Channel Model for 6G LEO Satellite-to-Ground Communication Systems",
+      "paper_id": "2609.32621",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-20-2a6ab4f2f89a86a5c20acfd2.md"
+    },
+    {
+      "date": "2026-11-20",
+      "url": "/papers/translations/2026-11-20-1047d9195458f93d7ee72e19/",
+      "slug": "2026-11-20-1047d9195458f93d7ee72e19",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "A Novel BVH-accelerated Dynamic Ray-Tracing Channel Model for Vehicular Communication Systems",
+      "paper_id": "2611.07311",
+      "license_url": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+      "download": "/assets/papers/translations/2026-11-20-1047d9195458f93d7ee72e19.md"
+    },
+    {
+      "date": "2026-11-19",
+      "url": "/papers/translations/2026-11-19-aff45218f82f6b2e3f1ad60d/",
+      "slug": "2026-11-19-aff45218f82f6b2e3f1ad60d",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Towards Intelligent Low-Altitude Wireless Network Deployment: Differentiable Channel Knowledge Map Construction and Trajectory Design",
+      "paper_id": "2605.07163",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-19-aff45218f82f6b2e3f1ad60d.md"
+    },
+    {
+      "date": "2026-11-19",
+      "url": "/papers/translations/2026-11-19-a1e3105c7b7b035b6463a1bb/",
+      "slug": "2026-11-19-a1e3105c7b7b035b6463a1bb",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Towards Precise Channel Knowledge Map: Exploiting Environmental Information from 2D Visuals to 3D Point Clouds",
+      "paper_id": "2510.08140",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-19-a1e3105c7b7b035b6463a1bb.md"
+    },
+    {
+      "date": "2026-11-19",
+      "url": "/papers/translations/2026-11-19-961aae814b70ec4be6e25ad2/",
+      "slug": "2026-11-19-961aae814b70ec4be6e25ad2",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Positioning Error Compensation by Channel Knowledge Map in UAV Communication Missions",
+      "paper_id": "2409.15798",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-19-961aae814b70ec4be6e25ad2.md"
+    },
+    {
+      "date": "2026-11-19",
+      "url": "/papers/translations/2026-11-19-8e163675f5fa3aecbf7fe8a9/",
+      "slug": "2026-11-19-8e163675f5fa3aecbf7fe8a9",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Geometry-Aware Cross-Height Channel Knowledge Map Prediction for UAV-Assisted Communications With Uncertainty-Guided 3D Sensing",
+      "paper_id": "2607.00887",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-19-8e163675f5fa3aecbf7fe8a9.md"
+    },
+    {
+      "date": "2026-11-19",
+      "url": "/papers/translations/2026-11-19-75385275ab3d0b56a94c5bc8/",
+      "slug": "2026-11-19-75385275ab3d0b56a94c5bc8",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Beamforming-Codebook-Aware Channel Knowledge Map Construction for Multi-Antenna Systems",
+      "paper_id": "2505.16132",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-19-75385275ab3d0b56a94c5bc8.md"
+    },
+    {
+      "date": "2026-11-19",
+      "url": "/papers/translations/2026-11-19-6d23a921b764ee2a62df479d/",
+      "slug": "2026-11-19-6d23a921b764ee2a62df479d",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Prototyping and Experimental Results for ISAC-based Channel Knowledge Map",
+      "paper_id": "2408.06164",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-19-6d23a921b764ee2a62df479d.md"
+    },
+    {
+      "date": "2026-11-19",
+      "url": "/papers/translations/2026-11-19-6bf9da21c369c96572439bf9/",
+      "slug": "2026-11-19-6bf9da21c369c96572439bf9",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Path-Level Radio Map-Aided Fast and Robust Channel Estimation for Pilot-Starved MIMO-OFDM Systems",
+      "paper_id": "2605.08720",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-19-6bf9da21c369c96572439bf9.md"
+    },
+    {
+      "date": "2026-11-19",
+      "url": "/papers/translations/2026-11-19-5ef925d7de1482dd6a5c416d/",
+      "slug": "2026-11-19-5ef925d7de1482dd6a5c416d",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Octree-Context Gaussian Splatting with Multi-Order Propagation for Channel Knowledge Maps",
+      "paper_id": "2605.22961",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-19-5ef925d7de1482dd6a5c416d.md"
+    },
+    {
+      "date": "2026-11-19",
+      "url": "/papers/translations/2026-11-19-320e6cd4e8caef367ac07903/",
+      "slug": "2026-11-19-320e6cd4e8caef367ac07903",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Dynamic Channel Knowledge Map Construction in MIMO-OFDM Systems",
+      "paper_id": "2512.23470",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-19-320e6cd4e8caef367ac07903.md"
+    },
+    {
+      "date": "2026-11-19",
+      "url": "/papers/translations/2026-11-19-31a2a37bc865914cc5962fd3/",
+      "slug": "2026-11-19-31a2a37bc865914cc5962fd3",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Update Strategy for Channel Knowledge Map in Complex Environments",
+      "paper_id": "2512.15154",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-19-31a2a37bc865914cc5962fd3.md"
+    },
+    {
+      "date": "2026-11-18",
+      "url": "/papers/translations/2026-11-18-cc6b5ec38134b6975688df43/",
+      "slug": "2026-11-18-cc6b5ec38134b6975688df43",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "AFDM Channel Estimation in Multi-Scale Multi-Lag Channels",
+      "paper_id": "2405.02660",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-18-cc6b5ec38134b6975688df43.md"
+    },
+    {
+      "date": "2026-11-18",
+      "url": "/papers/translations/2026-11-18-ab9d9c129627bd60fceeba3f/",
+      "slug": "2026-11-18-ab9d9c129627bd60fceeba3f",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Reliable long timescale decision-directed channel estimation for OFDM system",
+      "paper_id": "2402.11632",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-18-ab9d9c129627bd60fceeba3f.md"
+    },
+    {
+      "date": "2026-11-18",
+      "url": "/papers/translations/2026-11-18-969df989fc4c7f1259274433/",
+      "slug": "2026-11-18-969df989fc4c7f1259274433",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Sparse MIMO-OFDM Channel Estimation via RKHS Regularization",
+      "paper_id": "2511.20082",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-18-969df989fc4c7f1259274433.md"
+    },
+    {
+      "date": "2026-11-18",
+      "url": "/papers/translations/2026-11-18-4ff26c1c474fdeb750ed9d17/",
+      "slug": "2026-11-18-4ff26c1c474fdeb750ed9d17",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Unsupervised Online Channel Estimation for High-Mobility OFDM via Implicit Neural Representation",
+      "paper_id": "2605.10213",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-18-4ff26c1c474fdeb750ed9d17.md"
+    },
+    {
+      "date": "2026-11-18",
+      "url": "/papers/translations/2026-11-18-450fcd75a01f14400c614aaf/",
+      "slug": "2026-11-18-450fcd75a01f14400c614aaf",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Learning MMSE Filters for OFDM Channel Estimation: Attention Transformer Gains at Linear Inference",
+      "paper_id": "2506.00452",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-18-450fcd75a01f14400c614aaf.md"
+    },
+    {
+      "date": "2026-11-18",
+      "url": "/papers/translations/2026-11-18-4359148a5f7a2cbcdcead786/",
+      "slug": "2026-11-18-4359148a5f7a2cbcdcead786",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Joint Channel Estimation and Signal Detection for MIMO-OFDM: A Novel Data-Aided Approach with Reduced Computational Overhead",
+      "paper_id": "2504.14463",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-18-4359148a5f7a2cbcdcead786.md"
+    },
+    {
+      "date": "2026-11-18",
+      "url": "/papers/translations/2026-11-18-368fa314e22a58f17a5b27a8/",
+      "slug": "2026-11-18-368fa314e22a58f17a5b27a8",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Learning-based Block-wise Planar Channel Estimation for Time-Varying MIMO OFDM",
+      "paper_id": "2405.11218",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-18-368fa314e22a58f17a5b27a8.md"
+    },
+    {
+      "date": "2026-11-18",
+      "url": "/papers/translations/2026-11-18-361ca15bcb9d217d0879d8d9/",
+      "slug": "2026-11-18-361ca15bcb9d217d0879d8d9",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "New Algorithm for Structured OFDM Channel Estimation using Subgroup Duality",
+      "paper_id": "2512.08947",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-18-361ca15bcb9d217d0879d8d9.md"
+    },
+    {
+      "date": "2026-11-18",
+      "url": "/papers/translations/2026-11-18-1bbe33c5b589bde35a5c8688/",
+      "slug": "2026-11-18-1bbe33c5b589bde35a5c8688",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Sequential MAP Parametric OFDM Channel Estimation for Joint Sensing and Communication",
+      "paper_id": "2406.08345",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "download": "/assets/papers/translations/2026-11-18-1bbe33c5b589bde35a5c8688.md"
+    },
+    {
+      "date": "2026-11-18",
+      "url": "/papers/translations/2026-11-18-062e34560c2d7ce451c32d58/",
+      "slug": "2026-11-18-062e34560c2d7ce451c32d58",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Doppler-Robust Maximum Likelihood Parametric Channel Estimation for Multiuser MIMO-OFDM",
+      "paper_id": "2406.08352",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "download": "/assets/papers/translations/2026-11-18-062e34560c2d7ce451c32d58.md"
+    },
+    {
+      "date": "2026-11-17",
+      "url": "/papers/translations/2026-11-17-f86398f54366746cd811bd88/",
+      "slug": "2026-11-17-f86398f54366746cd811bd88",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Standards-Compliant DM-RS Allocation via Temporal Channel Prediction for Massive MIMO Systems",
+      "paper_id": "2507.11064",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-17-f86398f54366746cd811bd88.md"
+    },
+    {
+      "date": "2026-11-17",
+      "url": "/papers/translations/2026-11-17-f7eeabe7f08058ea8003f707/",
+      "slug": "2026-11-17-f7eeabe7f08058ea8003f707",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "LinFormer: A Linear-based Lightweight Transformer Architecture For Time-Aware MIMO Channel Prediction",
+      "paper_id": "2410.21351",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-17-f7eeabe7f08058ea8003f707.md"
+    },
+    {
+      "date": "2026-11-17",
+      "url": "/papers/translations/2026-11-17-e01a4d8f23ec1908225626f1/",
+      "slug": "2026-11-17-e01a4d8f23ec1908225626f1",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Inter-frame Channel Prediction for Zak-OTFS",
+      "paper_id": "2607.09184",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-17-e01a4d8f23ec1908225626f1.md"
+    },
+    {
+      "date": "2026-11-17",
+      "url": "/papers/translations/2026-11-17-ccf6535ba26d40b6f3f86a2b/",
+      "slug": "2026-11-17-ccf6535ba26d40b6f3f86a2b",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Wireless Channel Prediction via Gaussian Mixture Models",
+      "paper_id": "2402.08351",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-17-ccf6535ba26d40b6f3f86a2b.md"
+    },
+    {
+      "date": "2026-11-17",
+      "url": "/papers/translations/2026-11-17-80515f4862344aee12e66f09/",
+      "slug": "2026-11-17-80515f4862344aee12e66f09",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Machine Learning-based Channel Prediction in Wideband Massive MIMO Systems with Small Overhead for Online Training",
+      "paper_id": "2408.12134",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-17-80515f4862344aee12e66f09.md"
+    },
+    {
+      "date": "2026-11-17",
+      "url": "/papers/translations/2026-11-17-7944faa03baf55b467055cfb/",
+      "slug": "2026-11-17-7944faa03baf55b467055cfb",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Tensor-Structured Bayesian Channel Prediction for Upper Mid-Band XL-MIMO Systems",
+      "paper_id": "2508.08491",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-17-7944faa03baf55b467055cfb.md"
+    },
+    {
+      "date": "2026-11-17",
+      "url": "/papers/translations/2026-11-17-6d3917a7ff02ebab871d25bf/",
+      "slug": "2026-11-17-6d3917a7ff02ebab871d25bf",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "ODE-Former for Mobile Channel Prediction: A Novel Learning Structure Leveraging The Physics Continuity",
+      "paper_id": "2504.19122",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-17-6d3917a7ff02ebab871d25bf.md"
+    },
+    {
+      "date": "2026-11-17",
+      "url": "/papers/translations/2026-11-17-6b4618e25fabcff4bb1c80ee/",
+      "slug": "2026-11-17-6b4618e25fabcff4bb1c80ee",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "EMForecaster: A Deep Learning Framework for Time Series Forecasting in Wireless Networks with Distribution-Free Uncertainty Quantification",
+      "paper_id": "2504.00120",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-17-6b4618e25fabcff4bb1c80ee.md"
+    },
+    {
+      "date": "2026-11-17",
+      "url": "/papers/translations/2026-11-17-4f78424ace92890ed34b6668/",
+      "slug": "2026-11-17-4f78424ace92890ed34b6668",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Large AI Model for Delay-Doppler Domain Channel Prediction in 6G OTFS-Based Vehicular Networks",
+      "paper_id": "2503.01116",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-17-4f78424ace92890ed34b6668.md"
+    },
+    {
+      "date": "2026-11-17",
+      "url": "/papers/translations/2026-11-17-2d613d0375a6485236ef44c9/",
+      "slug": "2026-11-17-2d613d0375a6485236ef44c9",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "A Conditional Variational Framework for Channel Prediction in High-Mobility 6G OTFS Networks",
+      "paper_id": "2601.03084",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-17-2d613d0375a6485236ef44c9.md"
+    },
     {
       "date": "2026-11-16",
       "url": "/papers/translations/2026-11-16-f7012e3866c0b604e7c9744b/",
