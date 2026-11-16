@@ -153,7 +153,13 @@
       "report_entry_url": "/papers/reports/2026-11-16/#paper-a8c9dd043e5dbe33",
       "paper_url": "/papers/items/a8c9dd043e5dbe33/",
       "paper_report_url": "/papers/items/a8c9dd043e5dbe33/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-16-94474fbd2b068245f1377b89/#paper-a8c9dd043e5dbe33",
+          "scope": "全文中文译文",
+          "title": "Climate downscaling with likelihood functional flow matching"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2610.33482",
         "https://arxiv.org/abs/2610.33482",
@@ -171,10 +177,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/a8c9dd043e5dbe33/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-16-94474fbd2b068245f1377b89/#paper-a8c9dd043e5dbe33",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "e6ac6c75a8f868cd",
@@ -207,7 +213,13 @@
       "report_entry_url": "/papers/reports/2026-11-16/#paper-e6ac6c75a8f868cd",
       "paper_url": "/papers/items/e6ac6c75a8f868cd/",
       "paper_report_url": "/papers/items/e6ac6c75a8f868cd/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-16-0999a880ebe0ecf40ef9eb93/#paper-e6ac6c75a8f868cd",
+          "scope": "全文中文译文",
+          "title": "Sequential and Generative Models for Vehicular Distributed MIMO Channel Prediction"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2606.25864",
         "https://arxiv.org/abs/2606.25864",
@@ -222,10 +234,10 @@
       ],
       "hosted_pdfs": [],
       "status": "已接受待刊",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/e6ac6c75a8f868cd/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-16-0999a880ebe0ecf40ef9eb93/#paper-e6ac6c75a8f868cd",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "78b22d62220eb257",
@@ -258,7 +270,13 @@
       "report_entry_url": "/papers/reports/2026-11-16/#paper-78b22d62220eb257",
       "paper_url": "/papers/items/78b22d62220eb257/",
       "paper_report_url": "/papers/items/78b22d62220eb257/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-16-1a30904d85c609281b3953fb/#paper-78b22d62220eb257",
+          "scope": "全文中文译文",
+          "title": "SimART: A Unified and Open Real-world Multimodal Simulation Platform for 6G Integrated Sensing and Communication"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2605.13309",
         "https://arxiv.org/abs/2605.13309",
@@ -276,10 +294,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/78b22d62220eb257/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-16-1a30904d85c609281b3953fb/#paper-78b22d62220eb257",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "8226b0b98e50e162",
@@ -312,7 +330,13 @@
       "report_entry_url": "/papers/reports/2026-11-16/#paper-8226b0b98e50e162",
       "paper_url": "/papers/items/8226b0b98e50e162/",
       "paper_report_url": "/papers/items/8226b0b98e50e162/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-16-0e51a0fa599611bd163e320e/#paper-8226b0b98e50e162",
+          "scope": "全文中文译文",
+          "title": "Multimodal-Wireless: A Large-Scale Dataset for Sensing and Communication"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2511.03220",
         "https://arxiv.org/abs/2511.03220",
@@ -331,10 +355,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/8226b0b98e50e162/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-16-0e51a0fa599611bd163e320e/#paper-8226b0b98e50e162",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "38bda0c74364c9b5",
@@ -367,7 +391,13 @@
       "report_entry_url": "/papers/reports/2026-11-16/#paper-38bda0c74364c9b5",
       "paper_url": "/papers/items/38bda0c74364c9b5/",
       "paper_report_url": "/papers/items/38bda0c74364c9b5/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-16-969352eebe6e3bacf02d8ef5/#paper-38bda0c74364c9b5",
+          "scope": "全文中文译文",
+          "title": "On the Achievable SINR in MU-MIMO Systems Operating in Time-Varying Rayleigh Fading"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2203.12846",
         "https://arxiv.org/abs/2203.12846",
@@ -384,10 +414,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/38bda0c74364c9b5/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-16-969352eebe6e3bacf02d8ef5/#paper-38bda0c74364c9b5",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "cfece781785ec93b",
@@ -420,7 +450,13 @@
       "report_entry_url": "/papers/reports/2026-11-16/#paper-cfece781785ec93b",
       "paper_url": "/papers/items/cfece781785ec93b/",
       "paper_report_url": "/papers/items/cfece781785ec93b/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-16-39e36bbb34c68e2898482a44/#paper-cfece781785ec93b",
+          "scope": "全文中文译文",
+          "title": "Geometry-Aware Channel Aging in MIMO Systems: When Is Kronecker Separability Enough?"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2611.08007",
         "https://arxiv.org/abs/2611.08007",
@@ -435,10 +471,10 @@
       ],
       "hosted_pdfs": [],
       "status": "在投",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/cfece781785ec93b/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-16-39e36bbb34c68e2898482a44/#paper-cfece781785ec93b",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "2ad8aa7a42bcf917",
@@ -471,7 +507,13 @@
       "report_entry_url": "/papers/reports/2026-11-16/#paper-2ad8aa7a42bcf917",
       "paper_url": "/papers/items/2ad8aa7a42bcf917/",
       "paper_report_url": "/papers/items/2ad8aa7a42bcf917/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-16-142600eb2954a1c88271edec/#paper-2ad8aa7a42bcf917",
+          "scope": "全文中文译文",
+          "title": "CPMamba: Selective State Space Models for MIMO Channel Prediction in High-Mobility Environments"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2512.16315",
         "https://arxiv.org/abs/2512.16315",
@@ -486,10 +528,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/2ad8aa7a42bcf917/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-16-142600eb2954a1c88271edec/#paper-2ad8aa7a42bcf917",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "25f7c36a209bda09",
@@ -522,7 +564,13 @@
       "report_entry_url": "/papers/reports/2026-11-16/#paper-25f7c36a209bda09",
       "paper_url": "/papers/items/25f7c36a209bda09/",
       "paper_report_url": "/papers/items/25f7c36a209bda09/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-16-f7012e3866c0b604e7c9744b/#paper-25f7c36a209bda09",
+          "scope": "全文中文译文",
+          "title": "A Novel Cross-Domain Channel Estimation Scheme for OFDM"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2601.15067",
         "https://arxiv.org/abs/2601.15067",
@@ -539,10 +587,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/25f7c36a209bda09/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-16-f7012e3866c0b604e7c9744b/#paper-25f7c36a209bda09",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "f9071a999d339ed2",
@@ -575,7 +623,13 @@
       "report_entry_url": "/papers/reports/2026-11-16/#paper-f9071a999d339ed2",
       "paper_url": "/papers/items/f9071a999d339ed2/",
       "paper_report_url": "/papers/items/f9071a999d339ed2/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-16-ed6c849bd4485935f63b9cc2/#paper-f9071a999d339ed2",
+          "scope": "全文中文译文",
+          "title": "Delay-Doppler Domain Signal Processing Aided OFDM (DD-a-OFDM) for 6G and Beyond"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2508.04253",
         "https://arxiv.org/abs/2508.04253",
@@ -592,10 +646,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/f9071a999d339ed2/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-16-ed6c849bd4485935f63b9cc2/#paper-f9071a999d339ed2",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "e3fd6181aeede169",
@@ -628,7 +682,13 @@
       "report_entry_url": "/papers/reports/2026-11-16/#paper-e3fd6181aeede169",
       "paper_url": "/papers/items/e3fd6181aeede169/",
       "paper_report_url": "/papers/items/e3fd6181aeede169/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-16-081ebf1151ca76b91e799c56/#paper-e3fd6181aeede169",
+          "scope": "全文中文译文",
+          "title": "Models, Methods, and Waveforms for Estimation and Prediction of Sparse Time-Varying Channels"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2504.13762v2",
         "https://arxiv.org/abs/2504.13762",
@@ -645,10 +705,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/e3fd6181aeede169/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-16-081ebf1151ca76b91e799c56/#paper-e3fd6181aeede169",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "d4b974b6f4550218",
@@ -37948,6 +38008,116 @@
     }
   ],
   "translations": [
+    {
+      "date": "2026-11-16",
+      "url": "/papers/translations/2026-11-16-f7012e3866c0b604e7c9744b/",
+      "slug": "2026-11-16-f7012e3866c0b604e7c9744b",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "A Novel Cross-Domain Channel Estimation Scheme for OFDM",
+      "paper_id": "2601.15067",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-16-f7012e3866c0b604e7c9744b.md"
+    },
+    {
+      "date": "2026-11-16",
+      "url": "/papers/translations/2026-11-16-ed6c849bd4485935f63b9cc2/",
+      "slug": "2026-11-16-ed6c849bd4485935f63b9cc2",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Delay-Doppler Domain Signal Processing Aided OFDM (DD-a-OFDM) for 6G and Beyond",
+      "paper_id": "2508.04253",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-16-ed6c849bd4485935f63b9cc2.md"
+    },
+    {
+      "date": "2026-11-16",
+      "url": "/papers/translations/2026-11-16-969352eebe6e3bacf02d8ef5/",
+      "slug": "2026-11-16-969352eebe6e3bacf02d8ef5",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "On the Achievable SINR in MU-MIMO Systems Operating in Time-Varying Rayleigh Fading",
+      "paper_id": "2203.12846",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-16-969352eebe6e3bacf02d8ef5.md"
+    },
+    {
+      "date": "2026-11-16",
+      "url": "/papers/translations/2026-11-16-94474fbd2b068245f1377b89/",
+      "slug": "2026-11-16-94474fbd2b068245f1377b89",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Climate downscaling with likelihood functional flow matching",
+      "paper_id": "2610.33482",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-16-94474fbd2b068245f1377b89.md"
+    },
+    {
+      "date": "2026-11-16",
+      "url": "/papers/translations/2026-11-16-39e36bbb34c68e2898482a44/",
+      "slug": "2026-11-16-39e36bbb34c68e2898482a44",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Geometry-Aware Channel Aging in MIMO Systems: When Is Kronecker Separability Enough?",
+      "paper_id": "2611.08007",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "download": "/assets/papers/translations/2026-11-16-39e36bbb34c68e2898482a44.md"
+    },
+    {
+      "date": "2026-11-16",
+      "url": "/papers/translations/2026-11-16-1a30904d85c609281b3953fb/",
+      "slug": "2026-11-16-1a30904d85c609281b3953fb",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "SimART: A Unified and Open Real-world Multimodal Simulation Platform for 6G Integrated Sensing and Communication",
+      "paper_id": "2605.13309",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-16-1a30904d85c609281b3953fb.md"
+    },
+    {
+      "date": "2026-11-16",
+      "url": "/papers/translations/2026-11-16-142600eb2954a1c88271edec/",
+      "slug": "2026-11-16-142600eb2954a1c88271edec",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "CPMamba: Selective State Space Models for MIMO Channel Prediction in High-Mobility Environments",
+      "paper_id": "2512.16315",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-16-142600eb2954a1c88271edec.md"
+    },
+    {
+      "date": "2026-11-16",
+      "url": "/papers/translations/2026-11-16-0e51a0fa599611bd163e320e/",
+      "slug": "2026-11-16-0e51a0fa599611bd163e320e",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Multimodal-Wireless: A Large-Scale Dataset for Sensing and Communication",
+      "paper_id": "2511.03220",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-16-0e51a0fa599611bd163e320e.md"
+    },
+    {
+      "date": "2026-11-16",
+      "url": "/papers/translations/2026-11-16-0999a880ebe0ecf40ef9eb93/",
+      "slug": "2026-11-16-0999a880ebe0ecf40ef9eb93",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Sequential and Generative Models for Vehicular Distributed MIMO Channel Prediction",
+      "paper_id": "2606.25864",
+      "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "download": "/assets/papers/translations/2026-11-16-0999a880ebe0ecf40ef9eb93.md"
+    },
+    {
+      "date": "2026-11-16",
+      "url": "/papers/translations/2026-11-16-081ebf1151ca76b91e799c56/",
+      "slug": "2026-11-16-081ebf1151ca76b91e799c56",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Models, Methods, and Waveforms for Estimation and Prediction of Sparse Time-Varying Channels",
+      "paper_id": "2504.13762",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-16-081ebf1151ca76b91e799c56.md"
+    },
     {
       "date": "2026-11-15",
       "url": "/papers/translations/2026-11-15-f2eb79dcc3b2a2d86a7f7cee/",
