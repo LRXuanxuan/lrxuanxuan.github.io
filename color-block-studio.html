@@ -46,8 +46,10 @@ main{display:grid;grid-template-columns:344px minmax(0,1fr);height:calc(100vh - 
 .badge.manual{border-color:#5b4a2c;color:#e0bb73;background:#241f16}
 .hint{font-size:11px;color:var(--muted);line-height:1.6;margin:0}
 select.select{background:#14161c;color:var(--text);border:1px solid var(--line2);border-radius:7px;padding:6px 8px;font-size:12px;width:100%}
-#batchModal,#printModal,#saveModal{position:fixed;inset:0;background:rgba(8,9,12,.74);display:flex;align-items:center;justify-content:center;z-index:60;padding:20px}
-#batchModal[hidden],#printModal[hidden],#saveModal[hidden]{display:none}
+#batchModal,#printModal,#saveModal,#pasteModal{position:fixed;inset:0;background:rgba(8,9,12,.74);display:flex;align-items:center;justify-content:center;z-index:60;padding:20px}
+#batchModal[hidden],#printModal[hidden],#saveModal[hidden],#pasteModal[hidden]{display:none}
+#pasteCatcher{margin-top:14px;border:1.5px dashed #3a4150;border-radius:12px;padding:30px 20px;text-align:center;color:#8f897d;font-size:13px;outline:none;background:#14161c;cursor:text}
+#pasteCatcher:focus{border-color:var(--accent);color:#d8d2c5}
 .line-only{display:none!important}
 body.line-mode .line-only{display:flex!important;flex-direction:column}
 body.line-mode .color-only{display:none!important}
@@ -173,6 +175,7 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
       </div>
       <div class="row">
         <label class="file-btn">选择图片<input id="fileInput" type="file" accept="image/*"></label>
+        <button id="pasteBtn" class="btn ghost sm">从剪贴板粘贴</button>
         <span class="hint">也可拖入或 Ctrl+V 粘贴</span>
       </div>
       <div id="imgMeta" class="meta" hidden></div>
@@ -384,6 +387,7 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
             <li><b>2</b>点色块改颜色；线稿可调墨量、粗细、平滑</li>
             <li><b>3</b>保存原图 / 线稿 / 色块，或打印、批量处理</li>
           </ul>
+          <button id="pasteBtnEmpty" class="btn ghost sm" style="margin-top:8px">从剪贴板粘贴截图</button>
           <p class="hint">全部在本地浏览器里运算，图片不会上传到网上。</p>
         </div>
       </div>
@@ -448,6 +452,19 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
   </div>
 </div>
 
+<div id="pasteModal" hidden>
+  <div class="help-card" style="max-width:520px">
+    <button class="help-close" id="pasteClose" aria-label="关闭">✕</button>
+    <h3>粘贴截图</h3>
+    <p class="hint">把截图（Snipping Tool / 微信截图 / 书籍或影视截图）复制到剪贴板后，按 <b>Ctrl+V</b> 粘贴；也可以点下面按钮直接读取剪贴板（浏览器可能会询问剪贴板权限）。</p>
+    <div id="pasteCatcher" tabindex="0">点这里，然后按 Ctrl+V 粘贴图片…</div>
+    <div class="row" style="margin-top:16px">
+      <button id="pasteReadBtn" class="btn primary">读取剪贴板</button>
+      <button id="pasteCancel" class="btn ghost">取消</button>
+    </div>
+  </div>
+</div>
+
 <div id="saveModal" hidden>
   <div class="help-card" style="max-width:540px">
     <button class="help-close" id="saveClose" aria-label="关闭">✕</button>
@@ -488,6 +505,8 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
     <p>在「针管线稿」里打开「针管排线」后，工具会根据画面明暗在暗部/中间调自动补排线：阴影强度控制覆盖多少，排线密度控制线距，排线粗细控制笔触，排线角度可选 45° / -45° / 交叉 / 横线；还可以保留高光、保护肤色（避免脸被画脏）。轻/中/重三个预设可以快速起步。</p>
     <h4>压黑（阴影纯黑）</h4>
     <p>在「针管线稿」里打开「压黑」后，亮度低于阈值的暗部会直接填成纯黑，形成剪影/大黑块的风格化阴影；阈值越高压得越多，可保护肤色避免脸变黑。可以和排线叠加：黑块优先，其余暗部再用排线过渡。</p>
+    <h4>粘贴截图</h4>
+    <p>点「从剪贴板粘贴」：能读剪贴板时会直接载入图片；如果浏览器拦截剪贴板权限，会弹出一个粘贴框，点一下框再按 Ctrl+V 即可。也可以用截图工具截图后直接在页面任意位置 Ctrl+V。处理书籍 / 影视截图不需要先保存成文件。</p>
     <h4>保存（原图 / 线稿 / 色块）</h4>
     <p>「保存…」弹窗里可以任意勾选原图、线稿、色块、参考卡：选一项直接下载，选多项打包成 ZIP。批量处理也遵循当前画面模式；线稿批量会输出「线稿图/」文件夹，勾选「同时导出原图」可连原图一起打包。</p>
     <h4>灰度明暗模式</h4>
@@ -1556,7 +1575,14 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
     busyText: $('busyText'),
     helpBtn: $('helpBtn'),
     helpClose: $('helpClose'),
-    helpModal: $('helpModal')
+    helpModal: $('helpModal'),
+    pasteBtn: $('pasteBtn'),
+    pasteBtnEmpty: $('pasteBtnEmpty'),
+    pasteModal: $('pasteModal'),
+    pasteClose: $('pasteClose'),
+    pasteCatcher: $('pasteCatcher'),
+    pasteReadBtn: $('pasteReadBtn'),
+    pasteCancel: $('pasteCancel')
   };
 
   var origCtx = els.origCanvas.getContext('2d', { willReadFrequently: true });
@@ -2329,6 +2355,77 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
       };
       img.src = url;
     });
+  }
+
+  /* ---------------- 从剪贴板粘贴截图 ---------------- */
+  function closePasteModal() {
+    if (els.pasteModal && !els.pasteModal.hidden) els.pasteModal.hidden = true;
+  }
+
+  function openPasteModal() {
+    if (!els.pasteModal) return;
+    els.pasteModal.hidden = false;
+    setTimeout(function () {
+      try { els.pasteCatcher.focus(); } catch (e) {}
+    }, 50);
+  }
+
+  function timestampImageName(ext) {
+    var d = new Date();
+    function p(v) { return v < 10 ? '0' + v : String(v); }
+    return '剪贴板截图_' + d.getFullYear() + p(d.getMonth() + 1) + p(d.getDate()) + '_' + p(d.getHours()) + p(d.getMinutes()) + p(d.getSeconds()) + ext;
+  }
+
+  function imageExtFromType(type) {
+    if (type === 'image/jpeg') return '.jpg';
+    if (type === 'image/webp') return '.webp';
+    if (type === 'image/gif') return '.gif';
+    return '.png';
+  }
+
+  async function readClipboardImage() {
+    if (!navigator.clipboard || !navigator.clipboard.read) {
+      openPasteModal();
+      return;
+    }
+    try {
+      var items = await navigator.clipboard.read();
+      for (var i = 0; i < items.length; i++) {
+        var types = items[i].types || [];
+        for (var j = 0; j < types.length; j++) {
+          if (types[j].indexOf('image/') === 0) {
+            var blob = await items[i].getType(types[j]);
+            var ext = imageExtFromType(types[j]);
+            var f = new File([blob], timestampImageName(ext), { type: types[j] });
+            closePasteModal();
+            loadFile(f);
+            toast('已粘贴剪贴板图片');
+            return;
+          }
+        }
+      }
+      toast('剪贴板里没有图片（先截图复制一下）');
+    } catch (err) {
+      openPasteModal();
+    }
+  }
+
+  function handlePasteEvent(e) {
+    var items = e.clipboardData && e.clipboardData.items;
+    if (!items) return false;
+    for (var i = 0; i < items.length; i++) {
+      if (items[i].type && items[i].type.indexOf('image/') === 0) {
+        var f = items[i].getAsFile();
+        if (f) {
+          e.preventDefault();
+          closePasteModal();
+          loadFile(f);
+          toast('已粘贴剪贴板图片');
+          return true;
+        }
+      }
+    }
+    return false;
   }
 
   /* ---------------- 取色 ---------------- */
@@ -3704,6 +3801,24 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
   });
   els.saveGo.addEventListener('click', doSave);
 
+  els.pasteBtn.addEventListener('click', readClipboardImage);
+  els.pasteBtnEmpty.addEventListener('click', readClipboardImage);
+  els.pasteClose.addEventListener('click', closePasteModal);
+  els.pasteCancel.addEventListener('click', closePasteModal);
+  els.pasteReadBtn.addEventListener('click', readClipboardImage);
+  els.pasteModal.addEventListener('click', function (e) {
+    if (e.target === els.pasteModal) closePasteModal();
+  });
+  els.pasteCatcher.addEventListener('click', function () { try { els.pasteCatcher.focus(); } catch (e) {} });
+  els.pasteCatcher.addEventListener('paste', function (e) {
+    if (handlePasteEvent(e)) {
+      e.stopPropagation();
+      return;
+    }
+    e.preventDefault();
+    toast('剪贴板里没有图片（先截图复制一下）');
+  });
+
   els.helpBtn.addEventListener('click', function () { els.helpModal.hidden = false; });
   els.helpClose.addEventListener('click', function () { els.helpModal.hidden = true; });
   els.helpModal.addEventListener('click', function (e) {
@@ -3730,18 +3845,7 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
   });
 
   document.addEventListener('paste', function (e) {
-    var items = e.clipboardData && e.clipboardData.items;
-    if (!items) return;
-    for (var i = 0; i < items.length; i++) {
-      if (items[i].type && items[i].type.indexOf('image/') === 0) {
-        var f = items[i].getAsFile();
-        if (f) {
-          e.preventDefault();
-          loadFile(f);
-          return;
-        }
-      }
-    }
+    handlePasteEvent(e);
   });
 
   var dragDepth = 0;
@@ -3775,6 +3879,7 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
       if (!els.printModal.hidden) { els.printModal.hidden = true; return; }
       if (!els.batchModal.hidden) { els.batchModal.hidden = true; return; }
       if (!els.saveModal.hidden) { els.saveModal.hidden = true; return; }
+      if (!els.pasteModal.hidden) { els.pasteModal.hidden = true; return; }
     }
     if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'S')) {
       e.preventDefault();
@@ -4006,6 +4111,8 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
       out.sort();
       return out;
     },
+    openPaste: openPasteModal,
+    pasteFromClipboard: readClipboardImage,
     getErrors: function () { return window.__errors.slice(); }
   };
 })();
