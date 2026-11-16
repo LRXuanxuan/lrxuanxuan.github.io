@@ -75,14 +75,14 @@ albums:
     link: "https://music.douban.com/subject/1394616/"
     creator: "The Smiths"
     year: "1986"
-  - title: "Graceland"
-    link: "https://music.douban.com/subject/1419291/"
-    creator: "Paul Simon"
-    year: "1986"
-  - title: "In the Aeroplane Over the Sea"
-    link: "https://music.douban.com/subject/1439558/"
-    creator: "Neutral Milk Hotel"
-    year: "1998"
+  - title: "Yankee Hotel Foxtrot"
+    link: "https://music.douban.com/subject/1408537/"
+    creator: "Wilco"
+    year: "2002"
+  - title: "Pinkerton"
+    link: "https://music.douban.com/subject/1418381/"
+    creator: "Weezer"
+    year: "1996"
 
 # Original titles follow the game publishers' naming.
 # Chinese titles are shown only when established in the publisher's localization.
