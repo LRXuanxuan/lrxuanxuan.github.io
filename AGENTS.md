@@ -10,6 +10,7 @@
 
 - 站长已要求从「奇怪的小玩意」撤下「🗣️ 五分钟表达训练」；不要在后续页面更新中自动恢复此模块。
 - `playthings.html` 不再引用该训练的 HTML、CSS、JS 和题库；对应 `assets/css/argument-practice.css`、`assets/js/argument-practice.js`、`assets/data/argument-prompts.json` 已从现行站点删除，旧内容仍可从 Git 历史找回。
+- GitHub Pages 的 `Build and Deploy` 工作流在生成 `_site/playthings/index.html` 后校验旧模块文案与资源均不存在，未通过不得发布。
 - 不主动清空访问者浏览器中已保存的 `localStorage['rc-argument-drafts-v1']` 草稿，以免误删私人数据；需要恢复训练时须经站长重新提出。
 
 ## 推荐工作簿网页表格（2026-10-13用户授权）

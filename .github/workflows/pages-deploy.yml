@@ -73,6 +73,22 @@ jobs:
         env:
           JEKYLL_ENV: "production"
 
+      - name: Guard against removed speaking-practice files
+        run: |
+          output="_site${{ steps.pages.outputs.base_path }}"
+          page="$output/playthings/index.html"
+          test -f "$page"
+          if grep -Eq '五分钟表达训练|rc-argument|data-argument-|argument-practice|argument-prompts' "$page"; then
+            echo "::error::Retired speaking-practice component appeared in the built playthings page"
+            exit 1
+          fi
+          for path in assets/css/argument-practice.css assets/js/argument-practice.js assets/data/argument-prompts.json; do
+            if test -e "$output/$path"; then
+              echo "::error::Retired speaking-practice asset still exists: $path"
+              exit 1
+            fi
+          done
+
       - name: Test site
         run: |
           bundle exec htmlproofer _site \
