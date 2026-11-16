@@ -6,6 +6,12 @@
 
 
 
+## 五分钟表达训练已撤下（2026-11-16）
+
+- 站长已要求从「奇怪的小玩意」撤下「🗣️ 五分钟表达训练」；不要在后续页面更新中自动恢复此模块。
+- `playthings.html` 不再引用该训练的 HTML、CSS、JS 和题库；对应 `assets/css/argument-practice.css`、`assets/js/argument-practice.js`、`assets/data/argument-prompts.json` 已从现行站点删除，旧内容仍可从 Git 历史找回。
+- 不主动清空访问者浏览器中已保存的 `localStorage['rc-argument-drafts-v1']` 草稿，以免误删私人数据；需要恢复训练时须经站长重新提出。
+
 ## 推荐工作簿网页表格（2026-10-13用户授权）
 
 - `/papers/table/` 是推荐工作簿第一张主表的网页表格入口，首页原导航新增“推荐表格”，保留原导语、统计、筛选、四项个人标记和全部原有入口。
