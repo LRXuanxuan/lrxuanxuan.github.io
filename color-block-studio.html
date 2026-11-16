@@ -1,0 +1,4015 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>色块 / 线稿提炼器 · 画画参考工具</title>
+<style>
+:root{
+  --bg:#121419;
+  --panel:#171920;
+  --panel2:#20232c;
+  --line:#282c37;
+  --line2:#333846;
+  --text:#ece8df;
+  --muted:#999388;
+  --accent:#e8b04b;
+  --accent2:#66c7b8;
+  --danger:#e2705f;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Microsoft YaHei UI","Microsoft YaHei","PingFang SC","Noto Sans SC",system-ui,sans-serif;font-size:14px;overflow:hidden;-webkit-font-smoothing:antialiased}
+button,input,select{font-family:inherit}
+header{height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#1a1c23,#15171d);flex:0 0 auto}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:32px;height:32px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:3px;padding:3px;background:#0f1116;border-radius:9px;border:1px solid var(--line);transform:rotate(-3deg)}
+.logo i{border-radius:2.5px;display:block}
+.logo i:nth-child(1){background:#e8b04b}
+.logo i:nth-child(2){background:#66c7b8}
+.logo i:nth-child(3){background:#8f7cd8}
+.logo i:nth-child(4){background:#e2705f}
+h1{font-size:16px;margin:0;font-weight:650;letter-spacing:.5px}
+.brand p{margin:2px 0 0;font-size:11.5px;color:var(--muted);letter-spacing:.3px}
+.head-actions{display:flex;align-items:center;gap:10px}
+.local-tag{font-size:11px;color:#8f897d;border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+main{display:grid;grid-template-columns:344px minmax(0,1fr);height:calc(100vh - 60px);min-height:0}
+#panel{overflow-y:auto;border-right:1px solid var(--line);background:var(--panel);padding:15px 16px 24px;display:flex;flex-direction:column;gap:15px}
+#panel::-webkit-scrollbar{width:9px}
+#panel::-webkit-scrollbar-thumb{background:#2c313c;border-radius:6px}
+.sec{display:flex;flex-direction:column;gap:10px;padding-bottom:14px;border-bottom:1px dashed #262a34}
+.sec:last-child{border-bottom:none;padding-bottom:0}
+.sec h2{font-size:11.5px;margin:0;color:#b9b3a7;font-weight:600;letter-spacing:1.2px}
+.sec-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.badge{font-size:10px;padding:2px 8px;border-radius:999px;border:1px solid #333846;color:var(--muted);background:#1d2029;white-space:nowrap}
+.badge.manual{border-color:#5b4a2c;color:#e0bb73;background:#241f16}
+.hint{font-size:11px;color:var(--muted);line-height:1.6;margin:0}
+select.select{background:#14161c;color:var(--text);border:1px solid var(--line2);border-radius:7px;padding:6px 8px;font-size:12px;width:100%}
+#batchModal,#printModal,#saveModal{position:fixed;inset:0;background:rgba(8,9,12,.74);display:flex;align-items:center;justify-content:center;z-index:60;padding:20px}
+#batchModal[hidden],#printModal[hidden],#saveModal[hidden]{display:none}
+.line-only{display:none!important}
+body.line-mode .line-only{display:flex!important;flex-direction:column}
+body.line-mode .color-only{display:none!important}
+.batch-card{max-width:660px;width:100%;max-height:86vh;overflow:auto}
+.batch-list{max-height:140px;overflow:auto;margin:10px 0;padding:8px 10px;background:#14161c;border:1px solid var(--line);border-radius:8px;font-size:11.5px;color:#b8b2a6;line-height:1.65;list-style:none}
+.batch-list li{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.batch-opts{display:flex;flex-direction:column;gap:9px;margin:10px 0 12px}
+.batch-opts select{background:#14161c;color:var(--text);border:1px solid var(--line2);border-radius:7px;padding:5px 8px;font-size:12px}
+.progress{height:8px;background:#14161c;border:1px solid var(--line);border-radius:999px;overflow:hidden;margin:6px 0}
+.progress .bar{height:100%;width:0;background:var(--accent);transition:width .15s}
+.check{display:flex;align-items:center;gap:8px;font-size:12.5px;color:#d3cdc1;cursor:pointer;user-select:none}
+.check input{accent-color:var(--accent);width:15px;height:15px;margin:0;cursor:pointer}
+#grayRow input[type=range]{flex:1}
+#grayRow output{font-family:ui-monospace,Consolas,monospace;color:var(--accent);font-size:12px;min-width:30px;text-align:right}
+.meta{font-size:11px;color:#b3ada1;line-height:1.65;word-break:break-all}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.btn{border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:8px 12px;border-radius:9px;font-size:13px;cursor:pointer;transition:border-color .15s,background .15s,transform .1s;white-space:nowrap}
+.btn:hover{border-color:#3d4352;background:#272b36}
+.btn:active{transform:translateY(1px)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#1b1407;font-weight:600}
+.btn.primary:hover{filter:brightness(1.06);background:var(--accent)}
+.btn.ghost{background:transparent}
+.btn.sm{padding:6px 9px;font-size:12px}
+.btn.wide{width:100%;margin-top:2px}
+.btn.on{border-color:var(--accent2);color:var(--accent2)}
+button:disabled{opacity:.45;cursor:not-allowed}
+.field{display:flex;flex-direction:column;gap:2px}
+.field-top{display:flex;justify-content:space-between;align-items:baseline}
+.field-top label{font-size:12.5px;color:#d3cdc1}
+.field-top output{font-size:12.5px;color:var(--accent);font-family:ui-monospace,Consolas,monospace}
+input[type=range]{width:100%;accent-color:var(--accent);height:20px;cursor:pointer;margin:0}
+.file-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:1px solid var(--line2);background:#1d2029;color:var(--text);padding:9px 14px;border-radius:9px;font-size:12.5px;cursor:pointer;transition:.15s}
+.file-btn:hover{border-color:var(--accent);color:var(--accent)}
+.file-btn input{display:none}
+.palette{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.swatch{border:1px solid var(--line);background:#1c1f27;border-radius:10px;padding:5px 4px 6px;display:flex;flex-direction:column;gap:4px;cursor:pointer;color:var(--muted);transition:border-color .15s,transform .12s}
+.swatch:hover{transform:translateY(-1px);border-color:#3a4050}
+.swatch.sel{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+.swatch .chip{height:30px;border-radius:6px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.09)}
+.swatch .hex{font-family:ui-monospace,Consolas,monospace;font-size:9.5px;text-align:center;color:#cfcac0;letter-spacing:.2px}
+.swatch .pct{font-size:9.5px;text-align:center;color:var(--muted)}
+.editor{margin-top:2px;padding:10px;border:1px solid var(--line);border-radius:10px;background:#1c1f27;display:flex;flex-direction:column;gap:8px}
+.editor-top{display:flex;gap:8px;align-items:center}
+input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;cursor:pointer}
+#selHex{flex:1;min-width:0;background:#14161c;border:1px solid var(--line2);color:var(--text);border-radius:7px;padding:6px 8px;font-family:ui-monospace,Consolas,monospace;font-size:12.5px}
+#selHex:focus{outline:none;border-color:var(--accent)}
+.editor-info{font-size:11px;color:var(--muted)}
+#stage{display:flex;flex-direction:column;min-width:0;min-height:0;background:#0f1116}
+.stage-toolbar{height:52px;flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 18px;border-bottom:1px solid #21242d;gap:14px}
+.seg{display:flex;background:#1a1d24;border:1px solid #262b35;border-radius:10px;padding:3px;gap:2px}
+.seg-btn{border:none;background:transparent;color:#8d887e;font-size:12.5px;padding:6px 15px;border-radius:7px;cursor:pointer;transition:.15s}
+.seg-btn.on{background:#2b303c;color:#f1ede4}
+.seg.small .seg-btn{padding:5px 12px;font-size:12px}
+.stage-meta{font-size:11.5px;color:var(--muted);text-align:right;line-height:1.4}
+.viewer{flex:1 1 auto;position:relative;display:flex;align-items:center;justify-content:center;padding:20px;min-height:0;overflow:hidden}
+#canvasWrap{position:relative;flex:0 0 auto;box-shadow:0 18px 60px rgba(0,0,0,.5);border-radius:3px;overflow:hidden;background:#fff}
+#canvasWrap canvas{display:block;width:100%;height:100%}
+#origCanvas{position:absolute;inset:0}
+#divider{position:absolute;top:0;bottom:0;width:28px;transform:translateX(-50%);cursor:ew-resize;display:flex;align-items:center;justify-content:center;touch-action:none;z-index:3}
+#divider::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:2px;background:rgba(255,255,255,.9);transform:translateX(-50%);box-shadow:0 0 10px rgba(0,0,0,.55)}
+#divider span{position:relative;width:28px;height:28px;border-radius:50%;background:#f4efe6;color:#1b1a18;display:flex;align-items:center;justify-content:center;font-size:12px;box-shadow:0 2px 12px rgba(0,0,0,.45)}
+#canvasWrap.picking{cursor:crosshair}
+.statusbar{height:34px;flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 18px;border-top:1px solid #21242d;font-size:11.5px;color:#8d887e;background:#121419;gap:12px}
+#timingText{font-family:ui-monospace,Consolas,monospace;font-size:10.5px;color:#77716a;white-space:nowrap}
+.empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:28px}
+.empty-inner{max-width:530px;border:1.5px dashed #333a48;border-radius:18px;padding:32px 40px;text-align:center;background:rgba(23,26,33,.6)}
+.empty.drag .empty-inner{border-color:var(--accent);background:rgba(232,176,75,.08)}
+.empty-icon{color:var(--accent);margin-bottom:8px}
+.empty-inner h3{margin:2px 0 8px;font-size:18px;letter-spacing:.5px}
+.empty-inner p{margin:0 0 6px;font-size:12.5px;color:#a8a294;line-height:1.7}
+.steps{list-style:none;padding:0;margin:16px auto 12px;display:flex;flex-direction:column;gap:8px;text-align:left;max-width:370px}
+.steps li{font-size:12.5px;color:#c3bdb0;display:flex;gap:10px;align-items:baseline;line-height:1.5}
+.steps b{color:var(--accent);font-size:12px;min-width:14px}
+#helpModal{position:fixed;inset:0;background:rgba(8,9,12,.74);display:flex;align-items:center;justify-content:center;z-index:60;padding:20px}
+#helpModal[hidden]{display:none}
+.help-card{max-width:640px;max-height:84vh;overflow:auto;background:#1b1e26;border:1px solid #2c313d;border-radius:16px;padding:26px 30px 24px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.help-card h3{margin:0 0 12px;font-size:17px}
+.help-card h4{margin:16px 0 6px;font-size:12.5px;color:var(--accent);letter-spacing:.6px}
+.help-card p,.help-card li{font-size:12.5px;color:#c9c3b6;line-height:1.8;margin:0 0 3px}
+.help-card ol,.help-card ul{margin:0;padding-left:20px}
+.help-close{position:sticky;top:0;float:right;background:#262b36;border:1px solid #3a4150;color:#e9e4d9;width:30px;height:30px;border-radius:8px;cursor:pointer;font-size:14px}
+#toast{position:fixed;left:50%;bottom:38px;transform:translate(-50%,12px);background:#262b36;border:1px solid #3a4150;color:#f0ece3;padding:9px 16px;border-radius:10px;font-size:12.5px;opacity:0;pointer-events:none;transition:.2s;z-index:80;box-shadow:0 10px 30px rgba(0,0,0,.45);max-width:80vw}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+#busy{position:fixed;inset:0;background:rgba(10,11,14,.68);display:flex;flex-direction:column;gap:14px;align-items:center;justify-content:center;z-index:70}
+#busy[hidden]{display:none}
+.spinner{width:34px;height:34px;border-radius:50%;border:3px solid rgba(255,255,255,.14);border-top-color:var(--accent);animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+#busy p{margin:0;font-size:13px;color:#d8d2c5;letter-spacing:.5px}
+@media (max-width:980px){
+  main{grid-template-columns:1fr;grid-template-rows:minmax(0,42vh) minmax(0,1fr)}
+  #panel{border-right:none;border-bottom:1px solid var(--line);padding:14px}
+  .palette{grid-template-columns:repeat(6,minmax(0,1fr))}
+  header{height:54px;padding:0 14px}
+  .brand p{display:none}
+  main{height:calc(100vh - 54px)}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <span class="logo" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <div>
+      <h1>色块 / 线稿提炼器</h1>
+      <p>照片 → 色块 / 明暗 / 针管线稿 · 画画取色与构图参考</p>
+    </div>
+  </div>
+  <div class="head-actions">
+    <span class="local-tag">本地运行 · 不上传</span>
+    <button id="saveBtnTop" class="btn ghost sm">保存</button>
+    <button id="printBtnTop" class="btn ghost sm">打印</button>
+    <button id="batchBtnTop" class="btn ghost sm">批量</button>
+    <button id="helpBtn" class="btn ghost sm">使用说明</button>
+  </div>
+</header>
+
+<main>
+  <aside id="panel">
+    <section class="sec">
+      <div class="sec-head">
+        <h2>图片</h2>
+        <button id="changeBtn" class="btn ghost sm" hidden>换一张</button>
+      </div>
+      <div class="row">
+        <label class="file-btn">选择图片<input id="fileInput" type="file" accept="image/*"></label>
+        <span class="hint">也可拖入或 Ctrl+V 粘贴</span>
+      </div>
+      <div id="imgMeta" class="meta" hidden></div>
+    </section>
+
+    <section class="sec">
+      <div class="sec-head">
+        <h2>提炼</h2>
+        <span id="autoBadge" class="badge">自动配色</span>
+      </div>
+      <div class="field color-only">
+        <div class="field-top"><label for="kRange">色块数量</label><output id="kVal">8</output></div>
+        <input id="kRange" type="range" min="2" max="24" step="1" value="8">
+        <div class="field-top"><span class="hint">2 色（极简）</span><span class="hint">24 色（较写实）</span></div>
+      </div>
+      <div class="field">
+        <div class="field-top"><label>画面模式</label></div>
+        <div class="seg small" role="group" aria-label="画面模式">
+          <button id="modeColor" class="seg-btn on" type="button">彩色色块</button>
+          <button id="modeGray" class="seg-btn" type="button">灰度明暗</button>
+          <button id="modeLine" class="seg-btn" type="button">针管线稿</button>
+        </div>
+        <p class="hint" id="modeHint">彩色模式按颜色归纳；灰度只保留明暗；针管线稿输出纯黑白线条。</p>
+      </div>
+      <div class="row color-only">
+        <button id="extractBtn" class="btn ghost sm">重新提取</button>
+        <button id="shuffleBtn" class="btn ghost sm" title="同样的色数，换一组配色">换一组配色</button>
+      </div>
+      <div class="field color-only">
+        <div class="field-top"><label for="blurRange">柔化 / 去噪</label><output id="blurVal">1</output></div>
+        <input id="blurRange" type="range" min="0" max="8" step="1" value="1">
+        <p class="hint">先把相近颜色揉在一起，能减少照片噪点造成的碎麻点。</p>
+      </div>
+      <div class="field color-only">
+        <div class="field-top"><label for="minRange">合并碎块</label><output id="minVal">150</output></div>
+        <input id="minRange" type="range" min="0" max="800" step="10" value="150">
+        <p class="hint">面积小于该像素数的孤岛会并进周围的颜色，画面更平整。</p>
+      </div>
+      <label class="check color-only"><input id="smoothChk" type="checkbox" checked> 整理毛边（去碎点毛刺）</label>
+    </section>
+
+    <section class="sec line-only" id="lineSec">
+      <div class="sec-head">
+        <h2>线稿参数</h2>
+        <span class="badge" id="lineRatio">—</span>
+      </div>
+      <div class="field">
+        <div class="field-top"><label for="lineAmount">线条量（墨量）</label><output id="lineAmountVal">8%</output></div>
+        <input id="lineAmount" type="range" min="2" max="20" step="1" value="8">
+        <p class="hint">百分比越大，线条和阴影越多；觉得脏就调小。</p>
+      </div>
+      <div class="field">
+        <div class="field-top"><label for="lineWidth">线条粗细</label><output id="lineWidthVal">1</output></div>
+        <input id="lineWidth" type="range" min="0" max="4" step="1" value="1">
+      </div>
+      <div class="field">
+        <div class="field-top"><label for="lineSigma">平滑 / 细节</label><output id="lineSigmaVal">1.4</output></div>
+        <input id="lineSigma" type="range" min="0.6" max="2.6" step="0.1" value="1.4">
+        <p class="hint">数值大更平滑、碎线少；小则保留更多纹理（可能变脏）。</p>
+      </div>
+      <div class="field">
+        <div class="field-top"><label for="lineK">细节尺度</label><output id="lineKVal">1.8</output></div>
+        <input id="lineK" type="range" min="1.4" max="2.6" step="0.1" value="1.8">
+      </div>
+      <div class="field">
+        <div class="field-top"><label for="lineClean">清理碎线</label><output id="lineCleanVal">40</output></div>
+        <input id="lineClean" type="range" min="0" max="300" step="10" value="40">
+        <p class="hint">小于该像素数的孤立短线会被清掉，线条更干净。</p>
+      </div>
+      <div class="row">
+        <button id="linePresetSimple" class="btn ghost sm">简洁</button>
+        <button id="linePresetStd" class="btn ghost sm">标准</button>
+        <button id="linePresetRich" class="btn ghost sm">丰富</button>
+      </div>
+      <p class="hint">线稿模式只输出纯黑 / 纯白像素；不同照片建议用上面三个预设起步再微调。</p>
+
+      <div style="border-top:1px dashed #262a34;margin:2px 0 4px"></div>
+      <div class="sec-head">
+        <h2>针管排线（阴影）</h2>
+        <label class="check" style="gap:6px;font-size:11px"><input id="hatchOn" type="checkbox"> 开启</label>
+      </div>
+      <div id="hatchFields" hidden>
+        <div class="field">
+          <div class="field-top"><label for="hatchStrength">阴影强度</label><output id="hatchStrengthVal">60%</output></div>
+          <input id="hatchStrength" type="range" min="3" max="100" step="1" value="60">
+          <p class="hint">强度越大，暗部排线越密、覆盖越多。</p>
+        </div>
+        <div class="field">
+          <div class="field-top"><label for="hatchDensity">排线密度</label><output id="hatchDensityVal">3</output></div>
+          <input id="hatchDensity" type="range" min="1" max="5" step="1" value="3">
+        </div>
+        <div class="field">
+          <div class="field-top"><label for="hatchWidth">排线粗细</label><output id="hatchWidthVal">1</output></div>
+          <input id="hatchWidth" type="range" min="1" max="3" step="1" value="1">
+        </div>
+        <div class="field">
+          <div class="field-top"><label for="hatchAngle">排线角度</label></div>
+          <select id="hatchAngle" class="select">
+            <option value="45">45° 斜线</option>
+            <option value="-45">-45° 斜线</option>
+            <option value="cross" selected>交叉 45°</option>
+            <option value="0">0° 横线</option>
+          </select>
+        </div>
+        <div class="field">
+          <div class="field-top"><label for="hatchRange">阴影范围</label></div>
+          <select id="hatchRange" class="select">
+            <option value="dark">只暗部</option>
+            <option value="mid" selected>暗部 + 中间调</option>
+          </select>
+        </div>
+        <label class="check"><input id="hatchHighlight" type="checkbox" checked> 保留高光（亮部不排线）</label>
+        <label class="check"><input id="hatchSkin" type="checkbox" checked> 保护肤色（实验）</label>
+        <div class="row">
+          <button id="hatchPresetLight" class="btn ghost sm">轻</button>
+          <button id="hatchPresetMid" class="btn ghost sm">中</button>
+          <button id="hatchPresetHeavy" class="btn ghost sm">重</button>
+        </div>
+        <p class="hint">排线只补在线稿的暗部/中间调，像用针管笔一层层排线；觉得脏就关掉或把强度调小。</p>
+      </div>
+
+      <div style="border-top:1px dashed #262a34;margin:2px 0 4px"></div>
+      <div class="sec-head">
+        <h2>压黑（阴影纯黑）</h2>
+        <label class="check" style="gap:6px;font-size:11px"><input id="blackOn" type="checkbox"> 开启</label>
+      </div>
+      <div id="blackFields" hidden>
+        <div class="field">
+          <div class="field-top"><label for="blackThreshold">压黑阈值（亮度 ≤）</label><output id="blackThresholdVal">25%</output></div>
+          <input id="blackThreshold" type="range" min="5" max="60" step="1" value="25">
+          <p class="hint">亮度低于阈值的暗部直接填成纯黑；调大压得更多。暗背景也会被压黑，不想压背景就调低阈值。</p>
+        </div>
+        <label class="check"><input id="blackSkin" type="checkbox" checked> 保护肤色（实验）</label>
+        <p class="hint">和排线同时开时：黑块优先，排线在其余暗部/中间调继续补。输出仍是纯黑白。</p>
+      </div>
+    </section>
+
+    <section class="sec color-only">
+      <div class="sec-head">
+        <h2>调色板</h2>
+        <span id="paletteCount" class="badge" hidden></span>
+      </div>
+      <div id="paletteGrid" class="palette"></div>
+      <div id="paletteEditor" class="editor" hidden>
+        <div class="editor-top">
+          <input id="selColor" type="color" aria-label="选择颜色">
+          <input id="selHex" type="text" maxlength="7" spellcheck="false" aria-label="十六进制色值">
+        </div>
+        <div class="editor-top" id="grayRow" hidden>
+          <input id="selGray" type="range" min="0" max="255" step="1" aria-label="明度">
+          <output id="selGrayVal">128</output>
+        </div>
+        <div class="editor-info" id="selInfo"></div>
+        <div class="row">
+          <button id="delColorBtn" class="btn ghost sm">删除此色</button>
+        </div>
+      </div>
+      <div class="row">
+        <button id="addColorBtn" class="btn ghost sm">＋ 补最缺的颜色</button>
+        <button id="evenGrayBtn" class="btn ghost sm" hidden>均分明度</button>
+        <button id="pickBtn" class="btn ghost sm">从图中取色</button>
+        <button id="copyBtn" class="btn ghost sm">复制色值</button>
+      </div>
+      <p class="hint">点色块可改色，像素会自动归到最接近的颜色；拖动上方色数后可「重新提取」。</p>
+    </section>
+
+    <section class="sec">
+      <h2>导出</h2>
+      <div class="row">
+        <button id="exportBtn" class="btn primary">导出 PNG</button>
+        <button id="exportOrigBtn" class="btn ghost" title="原图长边超过 6000 px 时，按 6000 px 导出">按原图尺寸</button>
+      </div>
+      <button id="cardBtn" class="btn ghost wide">导出画板参考卡（含色板比例）</button>
+      <button id="printBtn" class="btn ghost wide">打印参考卡…</button>
+      <button id="saveBtn" class="btn primary wide">保存…（可选 原图 / 线稿 / 色块）</button>
+      <p class="hint">导出的是平涂位图；「按原图尺寸」长边上限 6000 px；线稿模式输出纯黑白 PNG；参考卡适合打印后对着画画。</p>
+    </section>
+
+    <section class="sec">
+      <h2>批量处理</h2>
+      <button id="batchBtn" class="btn ghost wide">选择文件夹批量处理…</button>
+      <p class="hint">用当前画面模式批量生成：线稿模式产线稿，色块模式产色块；可连参考卡一起打包成 ZIP 下载。</p>
+    </section>
+  </aside>
+
+  <section id="stage">
+    <div class="stage-toolbar">
+      <div class="seg" role="group" aria-label="预览模式">
+        <button id="viewResult" class="seg-btn on">结果</button>
+        <button id="viewSplit" class="seg-btn">对比</button>
+        <button id="viewOrig" class="seg-btn">原图</button>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px"><button id="exportBtnTop" class="btn primary sm">导出 PNG</button><div class="stage-meta" id="stageDims"></div></div>
+    </div>
+    <div class="viewer" id="viewer">
+      <div class="empty" id="empty">
+        <div class="empty-inner">
+          <div class="empty-icon">
+            <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="16" rx="2.5"></rect>
+              <circle cx="8.4" cy="9.4" r="1.35" fill="currentColor" stroke="none"></circle>
+              <path d="M4 17.2l4.8-4.8 3.6 3.6 2.9-2.9 4.7 4.7"></path>
+            </svg>
+          </div>
+          <h3>把图片拖进来</h3>
+          <p>或者点左侧「选择图片」/ 直接按 Ctrl+V 粘贴截图</p>
+          <ul class="steps">
+            <li><b>1</b>选「彩色色块 / 灰度明暗 / 针管线稿」并调参数</li>
+            <li><b>2</b>点色块改颜色；线稿可调墨量、粗细、平滑</li>
+            <li><b>3</b>保存原图 / 线稿 / 色块，或打印、批量处理</li>
+          </ul>
+          <p class="hint">全部在本地浏览器里运算，图片不会上传到网上。</p>
+        </div>
+      </div>
+      <div id="canvasWrap" hidden>
+        <canvas id="resultCanvas"></canvas>
+        <canvas id="origCanvas"></canvas>
+        <div id="divider" hidden><span>⇔</span></div>
+      </div>
+    </div>
+    <div class="statusbar">
+      <span id="statusText">拖入一张图片开始</span>
+      <span id="timingText"></span>
+    </div>
+  </section>
+</main>
+
+<div id="toast"></div>
+<div id="busy" hidden><div class="spinner"></div><p id="busyText">处理中…</p></div>
+<div id="printModal" hidden>
+  <div class="help-card" style="max-width:480px">
+    <h3>打印参考卡</h3>
+    <p class="hint">A4 竖版，会弹出打印窗口；在打印窗口里选打印机，或选「另存为 PDF」。</p>
+    <label class="check" style="margin-top:14px"><input id="printWithOrig" type="checkbox" checked> 同时打印原图（左右对照）</label>
+    <div class="row" style="margin-top:18px">
+      <button id="printGo" class="btn primary">打印</button>
+      <button id="printCancel" class="btn ghost">取消</button>
+    </div>
+  </div>
+</div>
+
+<div id="batchModal" hidden>
+  <div class="help-card batch-card">
+    <button class="help-close" id="batchClose" aria-label="关闭">✕</button>
+    <h3>批量处理文件夹</h3>
+    <p class="hint" id="batchModeInfo"></p>
+    <div class="row">
+      <label class="file-btn">选择文件夹<input id="batchDirInput" type="file" webkitdirectory multiple></label>
+      <label class="file-btn">选择图片<input id="batchFilesInput" type="file" accept="image/*" multiple></label>
+    </div>
+    <ul class="batch-list" id="batchList"><li>还没有选择图片。文件夹里的 jpg / png / webp 会按文件名顺序处理。</li></ul>
+    <div class="batch-opts">
+      <label class="check" id="batchUnifiedRow"><input id="batchUnified" type="checkbox"> 所有图片统一使用当前色板（不勾则每张自动提取配色）</label>
+      <label class="check"><input id="batchCards" type="checkbox"> 同时导出画板参考卡（每张一张）</label>
+      <label class="check" id="batchPaletteRow"><input id="batchPalette" type="checkbox" checked> 输出调色板文本（一张图一行色值+占比）</label>
+      <label class="check"><input id="batchOriginal" type="checkbox"> 同时导出原图（方便对照）</label>
+      <div class="row">
+        <span class="hint">批量工作尺寸（长边）</span>
+        <select id="batchSize">
+          <option value="1000">1000 px（快）</option>
+          <option value="1600" selected>1600 px（推荐）</option>
+          <option value="2000">2000 px（慢）</option>
+        </select>
+      </div>
+    </div>
+    <div class="progress" id="batchProgressWrap" hidden><div class="bar" id="batchBar"></div></div>
+    <p class="hint">图片多时处理需要几分钟，ZIP 也会比较大；可随时点「停止」并导出已完成的部分。</p>
+    <p class="hint" id="batchStatus"></p>
+    <div class="row">
+      <button id="batchStart" class="btn primary" disabled>开始处理</button>
+      <button id="batchCancel" class="btn ghost" hidden>停止</button>
+    </div>
+  </div>
+</div>
+
+<div id="saveModal" hidden>
+  <div class="help-card" style="max-width:540px">
+    <button class="help-close" id="saveClose" aria-label="关闭">✕</button>
+    <h3>保存图片</h3>
+    <p class="hint">勾选要保存的内容；选一项直接下载，选多项打包成一个 ZIP。</p>
+    <label class="check" style="margin-top:6px"><input id="saveOriginal" type="checkbox"> 原图（原始图片文件；没有原文件时导出 PNG）</label>
+    <label class="check"><input id="saveLine" type="checkbox"> 线稿（纯黑白 PNG，用当前线稿参数）</label>
+    <label class="check"><input id="saveBlock" type="checkbox"> 色块（当前调色板 / 色数生成的平涂 PNG）</label>
+    <label class="check"><input id="saveCard" type="checkbox"> 当前模式参考卡</label>
+    <p class="hint" id="saveInfo" style="margin-top:10px"></p>
+    <div class="row" style="margin-top:16px">
+      <button id="saveGo" class="btn primary">保存</button>
+      <button id="saveCancel" class="btn ghost">取消</button>
+    </div>
+  </div>
+</div>
+
+<div id="helpModal" hidden>
+  <div class="help-card">
+    <button class="help-close" id="helpClose" aria-label="关闭">✕</button>
+    <h3>使用说明</h3>
+    <p>这个工具做三件事：把照片归纳成有限色块（可改 N 色 / 具体颜色）、归纳成 N 级明暗，或提取成纯黑白的针管线稿；方便取色、分块、练构图和控笔。不生成矢量图。</p>
+    <h4>三步用它</h4>
+    <ol>
+      <li>拖入图片 / 选择图片 / Ctrl+V 粘贴。</li>
+      <li>拖动「色块数量」并松手，自动重新提炼；「柔化」减少噪点碎色；「合并碎块」把太小的孤岛并进周围。</li>
+      <li>点调色板里的色块改色；「＋ 补最缺的颜色」自动补一个画面缺失的色；「从图中取色」直接在画面上吸色。</li>
+    </ol>
+    <h4>导出</h4>
+    <ul>
+      <li><b>导出 PNG</b>：当前模式的结果图（色块 / 灰度 / 线稿）。</li>
+      <li><b>按原图尺寸</b>：按原图分辨率重算；色块最长边 6000 px，线稿最长边 3000 px（线稿算法更重，故上限更低）。</li>
+      <li><b>画板参考卡</b>：色块模式含色值/占比；线稿模式含线稿参数；打印后夹在画板上很方便。</li>
+    </ul>
+    <h4>针管线稿模式</h4>
+    <p>切到「针管线稿」后，工具把照片提取成纯黑白的线条/墨块：线条量控制墨量，线条粗细、平滑/细节、细节尺度、清理碎线都可以微调；不同照片先用「简洁 / 标准 / 丰富」预设起步。线稿可导出 PNG、按原图尺寸重算、打印、批量处理。</p>
+    <h4>针管排线 · 阴影</h4>
+    <p>在「针管线稿」里打开「针管排线」后，工具会根据画面明暗在暗部/中间调自动补排线：阴影强度控制覆盖多少，排线密度控制线距，排线粗细控制笔触，排线角度可选 45° / -45° / 交叉 / 横线；还可以保留高光、保护肤色（避免脸被画脏）。轻/中/重三个预设可以快速起步。</p>
+    <h4>压黑（阴影纯黑）</h4>
+    <p>在「针管线稿」里打开「压黑」后，亮度低于阈值的暗部会直接填成纯黑，形成剪影/大黑块的风格化阴影；阈值越高压得越多，可保护肤色避免脸变黑。可以和排线叠加：黑块优先，其余暗部再用排线过渡。</p>
+    <h4>保存（原图 / 线稿 / 色块）</h4>
+    <p>「保存…」弹窗里可以任意勾选原图、线稿、色块、参考卡：选一项直接下载，选多项打包成 ZIP。批量处理也遵循当前画面模式；线稿批量会输出「线稿图/」文件夹，勾选「同时导出原图」可连原图一起打包。</p>
+    <h4>灰度明暗模式</h4>
+    <p>切到「灰度明暗」后，工具只保留画面明度，把它归纳成 N 级灰阶（2–24 级）。点色块或用编辑器里的明度滑杆可以改每一级；「均分明度」会生成均匀的 N 级色阶，适合拿固定几级灰做明暗练习。灰度模式导出的也是灰阶图。</p>
+    <h4>批量处理</h4>
+    <p>点左侧「选择文件夹批量处理…」选一个文件夹（或一组图片），按当前色数 / 画面模式批量生成：色块图、可选参考卡、可选调色板文本，最后打包成一个 ZIP 下载。处理中可随时点「停止」，已经完成的图片仍会打包导出。图片很多时 ZIP 会比较大，建议先用 1000–1600 px 的工作尺寸。</p>
+    <h4>打印参考卡</h4>
+    <p>点「打印参考卡…」会生成一张 A4 竖版纸面并弹出打印窗口；可以勾选「同时打印原图」，做成左边原图、右边色块结果的对照页。在打印窗口里也可以选「另存为 PDF」。</p>
+    <h4>术语 &amp; 小技巧</h4>
+    <ul>
+      <li>这个功能叫「色彩量化 / 限色」，美术上也叫「色彩归纳」「色块概括」。</li>
+      <li>练明度：先把色数设到 3–5，只看大块的明暗关系。</li>
+      <li>练限色：把色板改成你手上的几种颜料色，再让画面自己贴过去。</li>
+      <li>快捷键：Ctrl+V 粘贴，Ctrl+S 导出 PNG。</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+ * 色块提炼器 · 算法核心（纯函数，不依赖 DOM）
+ * 色彩空间：CIELAB (D65)；量化：k-means++ / Lloyd
+ * ============================================================ */
+
+var LAB_XN = 0.95047;
+var LAB_YN = 1.0;
+var LAB_ZN = 1.08883;
+
+function clampNum(v, lo, hi) {
+  if (v < lo) return lo;
+  if (v > hi) return hi;
+  return v;
+}
+
+/* 可复现的伪随机数（mulberry32） */
+function mulberry32(a) {
+  a = a >>> 0;
+  return function () {
+    a = (a + 0x6D2B79F5) | 0;
+    var t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function srgbToLinear(c) {
+  c = c / 255;
+  if (c <= 0.04045) return c / 12.92;
+  return Math.pow((c + 0.055) / 1.055, 2.4);
+}
+
+function labF(t) {
+  if (t > 0.008856451679035631) return Math.cbrt(t);
+  return t * 7.787037037037035 + 0.13793103448275862;
+}
+
+/* sRGB -> CIELAB，返回 [L, a, b] */
+function rgb2labExact(r, g, b) {
+  var R = srgbToLinear(r);
+  var G = srgbToLinear(g);
+  var B = srgbToLinear(b);
+  var X = 0.4124564 * R + 0.3575761 * G + 0.1804375 * B;
+  var Y = 0.2126729 * R + 0.7151522 * G + 0.0721750 * B;
+  var Z = 0.0193339 * R + 0.1191920 * G + 0.9503041 * B;
+  var fx = labF(X / LAB_XN);
+  var fy = labF(Y / LAB_YN);
+  var fz = labF(Z / LAB_ZN);
+  return [116 * fy - 16, 500 * (fx - fy), 200 * (fy - fz)];
+}
+
+/* 5bit/通道（32^3=32768）Lab 查找表，代表色取每个格子的中心 (v<<3)+4 */
+function buildLabLUT() {
+  var lut = new Float32Array(32768 * 3);
+  for (var r = 0; r < 32; r++) {
+    for (var g = 0; g < 32; g++) {
+      for (var b = 0; b < 32; b++) {
+        var key = (r << 10) | (g << 5) | b;
+        var lab = rgb2labExact((r << 3) + 4, (g << 3) + 4, (b << 3) + 4);
+        var o = key * 3;
+        lut[o] = lab[0];
+        lut[o + 1] = lab[1];
+        lut[o + 2] = lab[2];
+      }
+    }
+  }
+  return lut;
+}
+
+/* ---------- 灰度/明度转换（感知亮度，精确到 1/255） ---------- */
+var GRAY_RES = 4096;
+var GRAY_LIN = null;
+var GRAY_OUT = null;
+
+function linearToSrgb(c) {
+  if (c <= 0.0031308) return c * 12.92;
+  return 1.055 * Math.pow(c, 1 / 2.4) - 0.055;
+}
+
+function ensureGrayTables() {
+  if (GRAY_LIN && GRAY_OUT) return;
+  GRAY_LIN = new Float32Array(256);
+  for (var i = 0; i < 256; i++) GRAY_LIN[i] = srgbToLinear(i);
+  GRAY_OUT = new Uint8Array(GRAY_RES + 1);
+  for (var j = 0; j <= GRAY_RES; j++) {
+    var v = Math.round(linearToSrgb(j / GRAY_RES) * 255);
+    GRAY_OUT[j] = v < 0 ? 0 : (v > 255 ? 255 : v);
+  }
+}
+
+/* 感知亮度：线性光加权 -> sRGB 编码 -> 0..255 */
+function rgbToGrayValue(r, g, b) {
+  ensureGrayTables();
+  var y = 0.2126729 * GRAY_LIN[r] + 0.7151522 * GRAY_LIN[g] + 0.0721750 * GRAY_LIN[b];
+  var idx = (y * GRAY_RES + 0.5) | 0;
+  if (idx < 0) idx = 0;
+  if (idx > GRAY_RES) idx = GRAY_RES;
+  return GRAY_OUT[idx];
+}
+
+/* 彩色 RGB 数组 -> 中性灰 RGB 数组 */
+function makeGrayscaleRGB(rgb) {
+  ensureGrayTables();
+  var out = new Uint8ClampedArray(rgb.length);
+  var lin = GRAY_LIN;
+  var tbl = GRAY_OUT;
+  var res = GRAY_RES;
+  for (var i = 0; i < rgb.length; i += 3) {
+    var y = 0.2126729 * lin[rgb[i]] + 0.7151522 * lin[rgb[i + 1]] + 0.0721750 * lin[rgb[i + 2]];
+    var idx = (y * res + 0.5) | 0;
+    if (idx < 0) idx = 0;
+    if (idx > res) idx = res;
+    var v = tbl[idx];
+    out[i] = v;
+    out[i + 1] = v;
+    out[i + 2] = v;
+  }
+  return out;
+}
+
+/* ---------- 模糊（两次 box blur，近似高斯） ---------- */
+function blurPassH(src, dst, w, h, r) {
+  var win = 2 * r + 1;
+  var rowLen = w * 3;
+  for (var y = 0; y < h; y++) {
+    var row = y * rowLen;
+    var sr = 0, sg = 0, sb = 0;
+    for (var k = -r; k <= r; k++) {
+      var x0 = k < 0 ? 0 : (k >= w ? w - 1 : k);
+      var o0 = row + x0 * 3;
+      sr += src[o0]; sg += src[o0 + 1]; sb += src[o0 + 2];
+    }
+    for (var x = 0; x < w; x++) {
+      var o = row + x * 3;
+      dst[o] = sr / win;
+      dst[o + 1] = sg / win;
+      dst[o + 2] = sb / win;
+      var xo = x - r;
+      if (xo < 0) xo = 0;
+      var xi = x + r + 1;
+      if (xi >= w) xi = w - 1;
+      var oo = row + xo * 3;
+      var oi = row + xi * 3;
+      sr += src[oi] - src[oo];
+      sg += src[oi + 1] - src[oo + 1];
+      sb += src[oi + 2] - src[oo + 2];
+    }
+  }
+}
+
+function blurPassV(src, dst, w, h, r) {
+  var win = 2 * r + 1;
+  var rowLen = w * 3;
+  for (var x = 0; x < w; x++) {
+    var col = x * 3;
+    var sr = 0, sg = 0, sb = 0;
+    for (var k = -r; k <= r; k++) {
+      var y0 = k < 0 ? 0 : (k >= h ? h - 1 : k);
+      var o0 = col + y0 * rowLen;
+      sr += src[o0]; sg += src[o0 + 1]; sb += src[o0 + 2];
+    }
+    for (var y = 0; y < h; y++) {
+      var o = col + y * rowLen;
+      dst[o] = sr / win;
+      dst[o + 1] = sg / win;
+      dst[o + 2] = sb / win;
+      var yo = y - r;
+      if (yo < 0) yo = 0;
+      var yi = y + r + 1;
+      if (yi >= h) yi = h - 1;
+      var oo = col + yo * rowLen;
+      var oi = col + yi * rowLen;
+      sr += src[oi] - src[oo];
+      sg += src[oi + 1] - src[oo + 1];
+      sb += src[oi + 2] - src[oo + 2];
+    }
+  }
+}
+
+/* rgb: Uint8ClampedArray，长度 w*h*3；返回新数组 */
+function blurRGB(rgb, w, h, radius) {
+  if (!(radius > 0)) return rgb;
+  var a = new Uint8ClampedArray(rgb.length);
+  a.set(rgb);
+  var b = new Uint8ClampedArray(rgb.length);
+  for (var pass = 0; pass < 2; pass++) {
+    blurPassH(a, b, w, h, radius);
+    blurPassV(b, a, w, h, radius);
+  }
+  return a;
+}
+
+/* ---------- 调色板提取（k-means++） ---------- */
+function extractPalette(rgb, w, h, k, seed, lut) {
+  var N = w * h;
+  k = Math.max(1, Math.min(32, Math.round(k)));
+  if (!N) return [];
+  var maxSamples = 60000;
+  var stride = Math.max(1, Math.floor(N / maxSamples));
+  var n = Math.ceil(N / stride);
+  var lab = new Float32Array(n * 3);
+  var srgb = new Uint8ClampedArray(n * 3);
+  var uniq = new Map();
+
+  for (var i = 0, j = 0; i < N; i += stride, j++) {
+    var o = i * 3, j3 = j * 3;
+    var r = rgb[o], g = rgb[o + 1], b = rgb[o + 2];
+    var key = ((r >> 3) << 10) | ((g >> 3) << 5) | (b >> 3);
+    var lo = key * 3;
+    lab[j3] = lut[lo]; lab[j3 + 1] = lut[lo + 1]; lab[j3 + 2] = lut[lo + 2];
+    srgb[j3] = r; srgb[j3 + 1] = g; srgb[j3 + 2] = b;
+    var e = uniq.get(key);
+    if (e) {
+      e[0]++; e[1] += r; e[2] += g; e[3] += b;
+    } else {
+      uniq.set(key, [1, r, g, b]);
+    }
+  }
+
+  /* 画面本身颜色就很少：直接取真实颜色 */
+  if (uniq.size <= k) {
+    var entries = [];
+    uniq.forEach(function (e) {
+      entries.push({ n: e[0], r: e[1] / e[0], g: e[2] / e[0], b: e[3] / e[0] });
+    });
+    entries.sort(function (p, q) { return q.n - p.n; });
+    return entries.map(function (e) {
+      return { r: Math.round(e.r), g: Math.round(e.g), b: Math.round(e.b) };
+    });
+  }
+
+  var rnd = mulberry32(seed >>> 0);
+  var cent = new Float32Array(k * 3);
+  var first = Math.floor(rnd() * n) * 3;
+  cent[0] = lab[first];
+  cent[1] = lab[first + 1];
+  cent[2] = lab[first + 2];
+
+  var d2 = new Float32Array(n);
+  d2.fill(Infinity);
+  for (var c = 0; c < k; c++) {
+    var co = c * 3, cr = cent[co], ca = cent[co + 1], cb = cent[co + 2];
+    for (var jj = 0; jj < n; jj++) {
+      var jo = jj * 3;
+      var dl = lab[jo] - cr, da = lab[jo + 1] - ca, db = lab[jo + 2] - cb;
+      var dd = dl * dl + da * da + db * db;
+      if (dd < d2[jj]) d2[jj] = dd;
+    }
+    if (c + 1 < k) {
+      var total = 0;
+      for (var t = 0; t < n; t++) total += d2[t];
+      var target = rnd() * total;
+      var pick = n - 1;
+      for (var t2 = 0; t2 < n; t2++) {
+        target -= d2[t2];
+        if (target <= 0) { pick = t2; break; }
+      }
+      var po = (c + 1) * 3, pj = pick * 3;
+      cent[po] = lab[pj];
+      cent[po + 1] = lab[pj + 1];
+      cent[po + 2] = lab[pj + 2];
+    }
+  }
+
+  var counts = new Int32Array(k);
+  var sums = new Float32Array(k * 3);
+  var sumR = new Float32Array(k);
+  var sumG = new Float32Array(k);
+  var sumB = new Float32Array(k);
+  var bestD = new Float32Array(n);
+  var maxIter = k > 12 ? 14 : 20;
+
+  for (var iter = 0; iter < maxIter; iter++) {
+    counts.fill(0);
+    sums.fill(0);
+    sumR.fill(0); sumG.fill(0); sumB.fill(0);
+    for (var si = 0; si < n; si++) {
+      var so = si * 3;
+      var sl = lab[so], sa = lab[so + 1], sb2 = lab[so + 2];
+      var best = 0, bd = Infinity;
+      for (var cc = 0; cc < k; cc++) {
+        var cco = cc * 3;
+        var ddl = sl - cent[cco], dda = sa - cent[cco + 1], ddb = sb2 - cent[cco + 2];
+        var dis = ddl * ddl + dda * dda + ddb * ddb;
+        if (dis < bd) { bd = dis; best = cc; }
+      }
+      counts[best]++;
+      bestD[si] = bd;
+      var bo = best * 3;
+      sums[bo] += sl; sums[bo + 1] += sa; sums[bo + 2] += sb2;
+      sumR[best] += srgb[so]; sumG[best] += srgb[so + 1]; sumB[best] += srgb[so + 2];
+    }
+    var maxShift = 0;
+    var hadEmpty = false;
+    for (var c2 = 0; c2 < k; c2++) {
+      if (counts[c2] === 0) {
+        hadEmpty = true;
+        var worst = 0, worstD = -1;
+        for (var wj = 0; wj < n; wj++) {
+          if (bestD[wj] > worstD) { worstD = bestD[wj]; worst = wj; }
+        }
+        var wjo = worst * 3, c2o = c2 * 3;
+        cent[c2o] = lab[wjo];
+        cent[c2o + 1] = lab[wjo + 1];
+        cent[c2o + 2] = lab[wjo + 2];
+        bestD[worst] = 0;
+        continue;
+      }
+      var m3 = c2 * 3;
+      var ml = sums[m3] / counts[c2];
+      var ma = sums[m3 + 1] / counts[c2];
+      var mb = sums[m3 + 2] / counts[c2];
+      var dL = ml - cent[m3], dA = ma - cent[m3 + 1], dB = mb - cent[m3 + 2];
+      var shift = Math.sqrt(dL * dL + dA * dA + dB * dB);
+      if (shift > maxShift) maxShift = shift;
+      cent[m3] = ml; cent[m3 + 1] = ma; cent[m3 + 2] = mb;
+    }
+    if (!hadEmpty && maxShift < 0.3) break;
+  }
+
+  var out = [];
+  var seen = {};
+  for (var c3 = 0; c3 < k; c3++) {
+    if (!counts[c3]) continue;
+    var pr = Math.round(sumR[c3] / counts[c3]);
+    var pg = Math.round(sumG[c3] / counts[c3]);
+    var pb = Math.round(sumB[c3] / counts[c3]);
+    pr = clampNum(pr, 0, 255); pg = clampNum(pg, 0, 255); pb = clampNum(pb, 0, 255);
+    var hexKey = (pr << 16) | (pg << 8) | pb;
+    if (seen[hexKey]) continue;
+    seen[hexKey] = 1;
+    out.push({ r: pr, g: pg, b: pb });
+  }
+  if (!out.length) out.push({ r: 128, g: 128, b: 128 });
+  return out;
+}
+
+/* ---------- 像素 -> 调色板索引（5bit 查找表加速） ---------- */
+function buildMapLUT(palette, lut) {
+  var k = palette.length;
+  if (!k) return new Uint8Array(32768);
+  var pl = new Float32Array(k * 3);
+  for (var j = 0; j < k; j++) {
+    var lab = rgb2labExact(palette[j].r, palette[j].g, palette[j].b);
+    pl[j * 3] = lab[0];
+    pl[j * 3 + 1] = lab[1];
+    pl[j * 3 + 2] = lab[2];
+  }
+  var out = new Uint8Array(32768);
+  for (var key = 0; key < 32768; key++) {
+    var lo = key * 3;
+    var l = lut[lo], a = lut[lo + 1], b = lut[lo + 2];
+    var best = 0, bd = Infinity;
+    for (var jj = 0; jj < k; jj++) {
+      var jo = jj * 3;
+      var dl = l - pl[jo], da = a - pl[jo + 1], db = b - pl[jo + 2];
+      var d = dl * dl + da * da + db * db;
+      if (d < bd) { bd = d; best = jj; }
+    }
+    out[key] = best;
+  }
+  /* 保证调色板颜色本身映射到自己（格子撞车时后写入的优先） */
+  for (var j2 = 0; j2 < k; j2++) {
+    var p = palette[j2];
+    var kk = ((p.r >> 3) << 10) | ((p.g >> 3) << 5) | (p.b >> 3);
+    out[kk] = j2;
+  }
+  return out;
+}
+
+function mapIndices(rgb, w, h, mapLUT) {
+  var N = w * h;
+  var out = new Uint8Array(N);
+  for (var i = 0, o = 0; i < N; i++, o += 3) {
+    out[i] = mapLUT[((rgb[o] >> 3) << 10) | ((rgb[o + 1] >> 3) << 5) | (rgb[o + 2] >> 3)];
+  }
+  return out;
+}
+
+/* ---------- 合并小色块：连通的同色区域 < minSize 像素就并进邻居主色 ---------- */
+function mergeSmallRegions(idx, w, h, k, minSize) {
+  if (!(minSize > 1) || k < 1) return 0;
+  var N = w * h;
+  if (!N) return 0;
+  var visited = new Uint8Array(N);
+  var stack = new Int32Array(N);
+  var list = new Int32Array(N);
+  var counts = new Int32Array(k);
+  var totalMerged = 0;
+
+  for (var pass = 0; pass < 2; pass++) {
+    visited.fill(0);
+    var changed = 0;
+    for (var start = 0; start < N; start++) {
+      if (visited[start]) continue;
+      var color = idx[start];
+      var top = 0, cnt = 0;
+      stack[top++] = start;
+      visited[start] = 1;
+      while (top > 0) {
+        var p = stack[--top];
+        list[cnt++] = p;
+        var x = p % w;
+        if (x > 0) {
+          var q = p - 1;
+          if (!visited[q] && idx[q] === color) { visited[q] = 1; stack[top++] = q; }
+        }
+        if (x + 1 < w) {
+          q = p + 1;
+          if (!visited[q] && idx[q] === color) { visited[q] = 1; stack[top++] = q; }
+        }
+        if (p >= w) {
+          q = p - w;
+          if (!visited[q] && idx[q] === color) { visited[q] = 1; stack[top++] = q; }
+        }
+        if (p + w < N) {
+          q = p + w;
+          if (!visited[q] && idx[q] === color) { visited[q] = 1; stack[top++] = q; }
+        }
+      }
+      if (cnt >= minSize) continue;
+      counts.fill(0);
+      var boundary = 0;
+      for (var li = 0; li < cnt; li++) {
+        var px = list[li];
+        var xx = px % w;
+        if (xx > 0) { var nb = idx[px - 1]; if (nb !== color) { counts[nb]++; boundary++; } }
+        if (xx + 1 < w) { nb = idx[px + 1]; if (nb !== color) { counts[nb]++; boundary++; } }
+        if (px >= w) { nb = idx[px - w]; if (nb !== color) { counts[nb]++; boundary++; } }
+        if (px + w < N) { nb = idx[px + w]; if (nb !== color) { counts[nb]++; boundary++; } }
+      }
+      if (!boundary) continue;
+      var bestC = 0, bestN = -1;
+      for (var cc = 0; cc < k; cc++) {
+        if (counts[cc] > bestN) { bestN = counts[cc]; bestC = cc; }
+      }
+      for (var lj = 0; lj < cnt; lj++) idx[list[lj]] = bestC;
+      changed += cnt;
+    }
+    totalMerged += changed;
+    if (!changed) break;
+  }
+  return totalMerged;
+}
+
+/* ---------- 边缘整理：3x3 众数滤波，去掉量化产生的锯齿毛边 ---------- */
+function smoothEdges(idx, w, h, k, passes) {
+  if (!(passes > 0) || k < 2) return;
+  var N = w * h;
+  if (!N) return;
+  var a = idx;
+  var b = new Uint8Array(N);
+  var counts = new Int32Array(k);
+  for (var pass = 0; pass < passes; pass++) {
+    for (var y = 0; y < h; y++) {
+      var row = y * w;
+      var y0 = y > 0 ? y - 1 : 0;
+      var y1 = y + 1 < h ? y + 1 : h - 1;
+      for (var x = 0; x < w; x++) {
+        var x0 = x > 0 ? x - 1 : 0;
+        var x1 = x + 1 < w ? x + 1 : w - 1;
+        counts.fill(0);
+        for (var yy = y0; yy <= y1; yy++) {
+          var r2 = yy * w;
+          for (var xx = x0; xx <= x1; xx++) {
+            counts[a[r2 + xx]]++;
+          }
+        }
+        var best = a[row + x];
+        var bestN = counts[best];
+        for (var c = 0; c < k; c++) {
+          if (counts[c] > bestN) {
+            bestN = counts[c];
+            best = c;
+          }
+        }
+        b[row + x] = best;
+      }
+    }
+    var t = a;
+    a = b;
+    b = t;
+  }
+  if (a !== idx) idx.set(a);
+}
+
+function countPalette(idx, k) {
+  var counts = new Int32Array(k);
+  for (var i = 0; i < idx.length; i++) counts[idx[i]]++;
+  return counts;
+}
+
+function paintFromIndices(idx, palette, out) {
+  for (var i = 0, o = 0; i < idx.length; i++, o += 4) {
+    var p = palette[idx[i]];
+    out[o] = p.r;
+    out[o + 1] = p.g;
+    out[o + 2] = p.b;
+    out[o + 3] = 255;
+  }
+}
+
+/* ---------- 辅助：找当前色板最没覆盖到的颜色 ---------- */
+function findWorstColor(rgb, w, h, palette, lut) {
+  var N = w * h;
+  if (!N) return null;
+  var k = palette.length;
+  if (!k) return { r: 128, g: 128, b: 128 };
+  var pl = new Float32Array(k * 3);
+  for (var j = 0; j < k; j++) {
+    var lab = rgb2labExact(palette[j].r, palette[j].g, palette[j].b);
+    pl[j * 3] = lab[0]; pl[j * 3 + 1] = lab[1]; pl[j * 3 + 2] = lab[2];
+  }
+  var step = Math.max(1, Math.floor(N / 40000));
+  var best = -1, bestD = -1;
+  for (var i = 0; i < N; i += step) {
+    var o = i * 3;
+    var key = ((rgb[o] >> 3) << 10) | ((rgb[o + 1] >> 3) << 5) | (rgb[o + 2] >> 3);
+    var lo = key * 3;
+    var l = lut[lo], a = lut[lo + 1], b = lut[lo + 2];
+    var md = Infinity;
+    for (var jj = 0; jj < k; jj++) {
+      var jo = jj * 3;
+      var dl = l - pl[jo], da = a - pl[jo + 1], db = b - pl[jo + 2];
+      var d = dl * dl + da * da + db * db;
+      if (d < md) md = d;
+    }
+    if (md > bestD) { bestD = md; best = i; }
+  }
+  if (best < 0) return null;
+  var oo = best * 3;
+  return { r: rgb[oo], g: rgb[oo + 1], b: rgb[oo + 2] };
+}
+
+/* 取 (cx,cy) 附近 2*rad+1 方块的平均色 */
+function sampleAverageRGB(rgb, w, h, cx, cy, rad) {
+  rad = rad | 0;
+  var rs = 0, gs = 0, bs = 0, cnt = 0;
+  var y0 = Math.max(0, cy - rad), y1 = Math.min(h - 1, cy + rad);
+  var x0 = Math.max(0, cx - rad), x1 = Math.min(w - 1, cx + rad);
+  for (var y = y0; y <= y1; y++) {
+    for (var x = x0; x <= x1; x++) {
+      var o = (y * w + x) * 3;
+      rs += rgb[o]; gs += rgb[o + 1]; bs += rgb[o + 2];
+      cnt++;
+    }
+  }
+  if (!cnt) return null;
+  return { r: Math.round(rs / cnt), g: Math.round(gs / cnt), b: Math.round(bs / cnt) };
+}
+/* ---------- 线稿（XDoG + 碎线清理 + 加粗） ---------- */
+function rgbaToGray(rgba) {
+  var n = rgba.length >> 2;
+  var out = new Uint8Array(n);
+  for (var i = 0, o = 0; i < n; i++, o += 4) {
+    out[i] = rgbToGrayValue(rgba[o], rgba[o + 1], rgba[o + 2]);
+  }
+  return out;
+}
+
+function boxBlurHFloat(src, dst, w, h, r) {
+  var win = 2 * r + 1;
+  var inv = 1 / win;
+  for (var y = 0; y < h; y++) {
+    var row = y * w;
+    var sum = 0;
+    for (var k = -r; k <= r; k++) {
+      var x0 = k < 0 ? 0 : (k >= w ? w - 1 : k);
+      sum += src[row + x0];
+    }
+    for (var x = 0; x < w; x++) {
+      dst[row + x] = sum * inv;
+      var xo = x - r;
+      if (xo < 0) xo = 0;
+      var xi = x + r + 1;
+      if (xi >= w) xi = w - 1;
+      sum += src[row + xi] - src[row + xo];
+    }
+  }
+}
+
+function boxBlurVFloat(src, dst, w, h, r) {
+  var win = 2 * r + 1;
+  var inv = 1 / win;
+  for (var x = 0; x < w; x++) {
+    var sum = 0;
+    for (var k = -r; k <= r; k++) {
+      var y0 = k < 0 ? 0 : (k >= h ? h - 1 : k);
+      sum += src[y0 * w + x];
+    }
+    for (var y = 0; y < h; y++) {
+      dst[y * w + x] = sum * inv;
+      var yo = y - r;
+      if (yo < 0) yo = 0;
+      var yi = y + r + 1;
+      if (yi >= h) yi = h - 1;
+      sum += src[yi * w + x] - src[yo * w + x];
+    }
+  }
+}
+
+/* 两次 box blur 近似高斯 */
+function blurFloat(src, w, h, sigma) {
+  if (!(sigma > 0)) return src;
+  var r = Math.max(1, Math.round(sigma * 1.1));
+  var a = new Float32Array(src.length);
+  a.set(src);
+  var b = new Float32Array(src.length);
+  for (var pass = 0; pass < 2; pass++) {
+    boxBlurHFloat(a, b, w, h, r);
+    boxBlurVFloat(b, a, w, h, r);
+  }
+  return a;
+}
+
+function removeSmallMask(mask, w, h, minSize) {
+  var N = w * h;
+  if (!(minSize > 1)) return mask;
+  var visited = new Uint8Array(N);
+  var stack = new Int32Array(N);
+  var list = new Int32Array(N);
+  var out = new Uint8Array(mask);
+  for (var start = 0; start < N; start++) {
+    if (!mask[start] || visited[start]) continue;
+    var top = 0, cnt = 0;
+    stack[top++] = start;
+    visited[start] = 1;
+    while (top > 0) {
+      var p = stack[--top];
+      list[cnt++] = p;
+      var x = p % w;
+      if (x > 0) {
+        var q = p - 1;
+        if (!visited[q] && mask[q]) { visited[q] = 1; stack[top++] = q; }
+      }
+      if (x + 1 < w) {
+        q = p + 1;
+        if (!visited[q] && mask[q]) { visited[q] = 1; stack[top++] = q; }
+      }
+      if (p >= w) {
+        q = p - w;
+        if (!visited[q] && mask[q]) { visited[q] = 1; stack[top++] = q; }
+      }
+      if (p + w < N) {
+        q = p + w;
+        if (!visited[q] && mask[q]) { visited[q] = 1; stack[top++] = q; }
+      }
+    }
+    if (cnt < minSize) {
+      for (var i = 0; i < cnt; i++) out[list[i]] = 0;
+    }
+  }
+  return out;
+}
+
+function dilateMask(mask, w, h, iterations) {
+  var cur = mask;
+  for (var it = 0; it < iterations; it++) {
+    var next = new Uint8Array(cur.length);
+    for (var y = 0; y < h; y++) {
+      var row = y * w;
+      for (var x = 0; x < w; x++) {
+        var p = row + x;
+        if (cur[p] || (x > 0 && cur[p - 1]) || (x + 1 < w && cur[p + 1]) || (y > 0 && cur[p - w]) || (y + 1 < h && cur[p + w])) {
+          next[p] = 1;
+        }
+      }
+    }
+    cur = next;
+  }
+  return cur;
+}
+
+/* gray: Uint8Array/ClampedArray，长度 N，0..255；返回 1=黑线 的 Uint8Array */
+function lineArtMask(gray, w, h, params) {
+  params = params || {};
+  var N = w * h;
+  var g = new Float32Array(N);
+  for (var i = 0; i < N; i++) g[i] = gray[i] * (1 / 255);
+  var sigma = Math.max(0.3, Math.min(3.0, +params.sigma || 1.4));
+  var k = Math.max(1.2, Math.min(3.0, +params.k || 1.8));
+  var amount = Math.max(0.5, Math.min(40, +params.amount || 8));
+  var g1 = blurFloat(g, w, h, sigma);
+  var g2 = blurFloat(g, w, h, sigma * k);
+  var d = new Float32Array(N);
+  var dmin = Infinity, dmax = -Infinity;
+  for (var j = 0; j < N; j++) {
+    var v = g1[j] - 0.98 * g2[j];
+    d[j] = v;
+    if (v < dmin) dmin = v;
+    if (v > dmax) dmax = v;
+  }
+  var span = dmax - dmin;
+  if (!(span > 1e-6)) return new Uint8Array(N);
+  var bins = 2048;
+  var hist = new Uint32Array(bins);
+  var scale = (bins - 1) / span;
+  for (var t = 0; t < N; t++) {
+    var bi = Math.floor((d[t] - dmin) * scale);
+    if (bi < 0) bi = 0;
+    if (bi >= bins) bi = bins - 1;
+    hist[bi]++;
+  }
+  var target = Math.max(1, Math.round(N * amount / 100));
+  var cum = 0, bin = 0;
+  for (var b = 0; b < bins; b++) {
+    cum += hist[b];
+    if (cum >= target) { bin = b; break; }
+  }
+  var eps = dmin + (bin + 0.5) / bins * span;
+  var mask = new Uint8Array(N);
+  for (var u = 0; u < N; u++) {
+    if (d[u] < eps) mask[u] = 1;
+  }
+  if (params.clean > 1) mask = removeSmallMask(mask, w, h, Math.round(params.clean));
+  var width = Math.max(0, Math.min(6, Math.round(params.width || 0)));
+  if (width > 0) mask = dilateMask(mask, w, h, width);
+  return mask;
+}
+
+function paintLineMask(mask, w, h, out) {
+  var N = w * h;
+  for (var i = 0, o = 0; i < N; i++, o += 4) {
+    var v = mask[i] ? 0 : 255;
+    out[o] = v;
+    out[o + 1] = v;
+    out[o + 2] = v;
+    out[o + 3] = 255;
+  }
+}
+
+function maskBlackRatio(mask) {
+  var c = 0;
+  for (var i = 0; i < mask.length; i++) if (mask[i]) c++;
+  return mask.length ? c / mask.length : 0;
+}
+
+/* ---------- 针管排线 / 阴影密度 ---------- */
+function hash2i(a, b) {
+  var h = Math.imul(a ^ 0x9e3779b9, 0x85ebca6b) ^ b;
+  h ^= h >>> 13;
+  h = Math.imul(h, 0xc2b2ae35);
+  h ^= h >>> 16;
+  return h >>> 0;
+}
+
+function isSkinRGB(r, g, b) {
+  var y = 0.299 * r + 0.587 * g + 0.114 * b;
+  if (y <= 50) return false;
+  var cb = 128 - 0.168736 * r - 0.331264 * g + 0.5 * b;
+  var cr = 128 + 0.5 * r - 0.418688 * g - 0.081312 * b;
+  return cb >= 77 && cb <= 127 && cr >= 133 && cr <= 173;
+}
+
+/*
+ * gray: 灰度 Uint8；
+ * pixels: 用于肤色保护的颜色数据，packed RGB（hasAlpha=false）或 RGBA（hasAlpha=true），可为 null；
+ * params: { strength 0-100, density 1-5, width 1-3, angle '45'|'-45'|'cross'|'0',
+ *           range 'dark'|'mid', highlight 0..1, protectSkin bool }
+ */
+function hatchMask(gray, pixels, hasAlpha, w, h, params) {
+  params = params || {};
+  var strength = Math.max(0, Math.min(100, +params.strength || 0)) / 100;
+  var out = new Uint8Array(w * h);
+  if (strength <= 0.001) return out;
+  var scale = Math.max(0.5, Math.min(2.5, Math.max(w, h) / 1600));
+  var density = Math.max(1, Math.min(5, Math.round(+params.density || 3)));
+  var lineW = Math.max(1, Math.min(4, (+params.width || 1) * scale));
+  var baseSpacing = (14 - 2.2 * density) * scale;
+  if (baseSpacing < lineW * 1.8) baseSpacing = lineW * 1.8;
+  var angleSel = params.angle || '45';
+  var cross = angleSel === 'cross';
+  var a1 = angleSel === '-45' ? -Math.PI / 4 : (angleSel === '0' ? 0 : Math.PI / 4);
+  var a2 = cross ? -a1 : a1;
+  var rangeMid = params.range === 'mid';
+  var baseGate = (rangeMid ? 0.62 : 0.72) - 0.67 * Math.pow(strength, 1.1);
+  var highlight = params.highlight != null ? Math.max(0, Math.min(1, +params.highlight)) : 0.80;
+  var highlightOff = highlight >= 0.999;
+  var protectSkin = !!params.protectSkin && !!pixels;
+
+  var g = new Float32Array(w * h);
+  var g2 = new Float32Array(w * h);
+  for (var i = 0; i < g.length; i++) {
+    g[i] = gray[i] * (1 / 255);
+    g2[i] = g[i] * g[i];
+  }
+  var toneSigma = Math.max(1, 4 * scale);
+  var tone = blurFloat(g, w, h, toneSigma);
+  var tone2 = blurFloat(g2, w, h, toneSigma);
+  var stdGate = 0.012;
+
+  var layers = [
+    { spacing: baseSpacing * 1.8, gate: baseGate, ang: a1 },
+    { spacing: baseSpacing * 1.2, gate: baseGate + 0.10, ang: a2 },
+    { spacing: baseSpacing * 0.8, gate: baseGate + 0.18, ang: a1 }
+  ];
+  if (strength > 0.75) layers.push({ spacing: baseSpacing * 1.4, gate: baseGate + 0.05, ang: a2 });
+  var cosA = [], sinA = [];
+  for (var li = 0; li < layers.length; li++) {
+    cosA.push(Math.cos(layers[li].ang));
+    sinA.push(Math.sin(layers[li].ang));
+  }
+
+  for (var y = 0; y < h; y++) {
+    var row = y * w;
+    for (var x = 0; x < w; x++) {
+      var p = row + x;
+      var t = tone[p];
+      if (t > highlight) continue;
+      var sd = Math.sqrt(Math.max(tone2[p] - t * t, 0));
+      if (sd < stdGate) continue;
+      var d = 1 - t;
+      var tex = Math.abs(g[p] - t);
+      var texAllow = highlightOff && strength > 0.20 && tex > 0.012 && d >= 0.03;
+      if (protectSkin) {
+        var o = hasAlpha ? p * 4 : p * 3;
+        if (isSkinRGB(pixels[o], pixels[o + 1], pixels[o + 2])) continue;
+      }
+      for (var lj = 0; lj < layers.length; lj++) {
+        var lay = layers[lj];
+        if (d < lay.gate && !texAllow) continue;
+        var u = -x * sinA[lj] + y * cosA[lj];
+        var lineIdx = Math.floor(u / lay.spacing);
+        var jit = ((hash2i(lineIdx, lj + 1) & 1023) / 1023 - 0.5) * lay.spacing * 0.30;
+        var frac = u + jit - lineIdx * lay.spacing;
+        if (frac < 0 || frac >= lineW) continue;
+        var seg = hash2i(lineIdx, 101 + ((x / 18) | 0) + ((y / 18) | 0) * 7);
+        if ((seg & 15) === 0) continue;
+        out[p] = 1;
+        break;
+      }
+    }
+  }
+  return out;
+}
+
+/* 压黑：把亮度低于阈值的暗部直接填纯黑 */
+function blackFillMask(gray, pixels, hasAlpha, w, h, params) {
+  params = params || {};
+  var out = new Uint8Array(w * h);
+  if (!params.enabled) return out;
+  var threshold = Math.max(1, Math.min(95, +params.threshold || 25));
+  var scale = Math.max(0.5, Math.min(2.5, Math.max(w, h) / 1600));
+  var g = new Float32Array(w * h);
+  for (var i = 0; i < g.length; i++) g[i] = gray[i] * (1 / 255);
+  var tone = blurFloat(g, w, h, Math.max(1, 4 * scale));
+  var protectSkin = !!params.protectSkin && !!pixels;
+  for (var p = 0; p < tone.length; p++) {
+    if (tone[p] * 100 > threshold) continue;
+    if (protectSkin) {
+      var o = hasAlpha ? p * 4 : p * 3;
+      if (isSkinRGB(pixels[o], pixels[o + 1], pixels[o + 2])) continue;
+    }
+    out[p] = 1;
+  }
+  return out;
+}
+
+function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams, blackParams) {
+  var mask = lineArtMask(gray, w, h, lineParams);
+  if (hatchParams && hatchParams.enabled && (+hatchParams.strength || 0) > 0) {
+    var hm = hatchMask(gray, pixels, hasAlpha, w, h, hatchParams);
+    for (var i = 0; i < mask.length; i++) if (hm[i]) mask[i] = 1;
+  }
+  if (blackParams && blackParams.enabled) {
+    var bm = blackFillMask(gray, pixels, hasAlpha, w, h, blackParams);
+    for (var j = 0; j < mask.length; j++) if (bm[j]) mask[j] = 1;
+  }
+  return mask;
+}
+
+/* ================= CORE-END ================= */
+
+/* ============================================================
+ * 色块提炼器 · 界面层
+ * ============================================================ */
+(function () {
+  'use strict';
+
+  var $ = function (id) { return document.getElementById(id); };
+
+  var LAB_LUT = buildLabLUT();
+
+  var state = {
+    ready: false,
+    img: null,
+    name: 'image',
+    naturalW: 0,
+    naturalH: 0,
+    workW: 0,
+    workH: 0,
+    baseRGB: null,
+    workRGB: null,
+    workRGBKey: '',
+    gray: false,
+    line: false,
+    grayBase: null,
+    lineGray: null,
+    lineMs: 0,
+    lineRatioVal: 0,
+    lineParams: { amount: 8, sigma: 1.4, k: 1.8, width: 1, clean: 40 },
+    hatch: { enabled: false, strength: 45, density: 3, width: 1, angle: '45', range: 'dark', protectHighlight: true, protectSkin: true },
+    black: { enabled: false, threshold: 25, protectSkin: true },
+    srcFile: null,
+    k: 8,
+    blur: 1,
+    minRegion: 150,
+    smooth: 1,
+    palette: [],
+    paletteAuto: true,
+    mapLUT: null,
+    mapLUTKey: '',
+    indices: null,
+    counts: null,
+    imageData: null,
+    seed: 20261116,
+    lastExtractMs: 0,
+    lastRecolorMs: 0,
+    view: 'result',
+    split: 0.5,
+    pickMode: false,
+    selected: -1,
+    dragging: false
+  };
+
+  var els = {
+    fileInput: $('fileInput'),
+    changeBtn: $('changeBtn'),
+    imgMeta: $('imgMeta'),
+    kRange: $('kRange'),
+    kVal: $('kVal'),
+    extractBtn: $('extractBtn'),
+    shuffleBtn: $('shuffleBtn'),
+    blurRange: $('blurRange'),
+    blurVal: $('blurVal'),
+    minRange: $('minRange'),
+    minVal: $('minVal'),
+    smoothChk: $('smoothChk'),
+    modeColor: $('modeColor'),
+    modeGray: $('modeGray'),
+    modeHint: $('modeHint'),
+    grayRow: $('grayRow'),
+    selGray: $('selGray'),
+    selGrayVal: $('selGrayVal'),
+    evenGrayBtn: $('evenGrayBtn'),
+    modeLine: $('modeLine'),
+    lineAmount: $('lineAmount'),
+    lineAmountVal: $('lineAmountVal'),
+    lineWidth: $('lineWidth'),
+    lineWidthVal: $('lineWidthVal'),
+    lineSigma: $('lineSigma'),
+    lineSigmaVal: $('lineSigmaVal'),
+    lineK: $('lineK'),
+    lineKVal: $('lineKVal'),
+    lineClean: $('lineClean'),
+    lineCleanVal: $('lineCleanVal'),
+    lineRatio: $('lineRatio'),
+    linePresetSimple: $('linePresetSimple'),
+    linePresetStd: $('linePresetStd'),
+    linePresetRich: $('linePresetRich'),
+    hatchOn: $('hatchOn'),
+    hatchFields: $('hatchFields'),
+    hatchStrength: $('hatchStrength'),
+    hatchStrengthVal: $('hatchStrengthVal'),
+    hatchDensity: $('hatchDensity'),
+    hatchDensityVal: $('hatchDensityVal'),
+    hatchWidth: $('hatchWidth'),
+    hatchWidthVal: $('hatchWidthVal'),
+    hatchAngle: $('hatchAngle'),
+    hatchRange: $('hatchRange'),
+    hatchHighlight: $('hatchHighlight'),
+    hatchSkin: $('hatchSkin'),
+    hatchPresetLight: $('hatchPresetLight'),
+    hatchPresetMid: $('hatchPresetMid'),
+    hatchPresetHeavy: $('hatchPresetHeavy'),
+    blackOn: $('blackOn'),
+    blackFields: $('blackFields'),
+    blackThreshold: $('blackThreshold'),
+    blackThresholdVal: $('blackThresholdVal'),
+    blackSkin: $('blackSkin'),
+    saveBtn: $('saveBtn'),
+    saveBtnTop: $('saveBtnTop'),
+    saveModal: $('saveModal'),
+    saveClose: $('saveClose'),
+    saveOriginal: $('saveOriginal'),
+    saveLine: $('saveLine'),
+    saveBlock: $('saveBlock'),
+    saveCard: $('saveCard'),
+    saveInfo: $('saveInfo'),
+    saveGo: $('saveGo'),
+    saveCancel: $('saveCancel'),
+    batchOriginal: $('batchOriginal'),
+    batchUnifiedRow: $('batchUnifiedRow'),
+    batchPaletteRow: $('batchPaletteRow'),
+    autoBadge: $('autoBadge'),
+    paletteGrid: $('paletteGrid'),
+    paletteCount: $('paletteCount'),
+    paletteEditor: $('paletteEditor'),
+    selColor: $('selColor'),
+    selHex: $('selHex'),
+    selInfo: $('selInfo'),
+    delColorBtn: $('delColorBtn'),
+    addColorBtn: $('addColorBtn'),
+    pickBtn: $('pickBtn'),
+    copyBtn: $('copyBtn'),
+    exportBtn: $('exportBtn'),
+    exportBtnTop: $('exportBtnTop'),
+    exportOrigBtn: $('exportOrigBtn'),
+    cardBtn: $('cardBtn'),
+    printBtn: $('printBtn'),
+    printBtnTop: $('printBtnTop'),
+    batchBtnTop: $('batchBtnTop'),
+    printModal: $('printModal'),
+    printWithOrig: $('printWithOrig'),
+    printGo: $('printGo'),
+    printCancel: $('printCancel'),
+    batchBtn: $('batchBtn'),
+    batchModal: $('batchModal'),
+    batchClose: $('batchClose'),
+    batchDirInput: $('batchDirInput'),
+    batchFilesInput: $('batchFilesInput'),
+    batchList: $('batchList'),
+    batchUnified: $('batchUnified'),
+    batchCards: $('batchCards'),
+    batchPalette: $('batchPalette'),
+    batchSize: $('batchSize'),
+    batchProgressWrap: $('batchProgressWrap'),
+    batchBar: $('batchBar'),
+    batchStatus: $('batchStatus'),
+    batchStart: $('batchStart'),
+    batchCancel: $('batchCancel'),
+    batchModeInfo: $('batchModeInfo'),
+    viewResult: $('viewResult'),
+    viewSplit: $('viewSplit'),
+    viewOrig: $('viewOrig'),
+    stageDims: $('stageDims'),
+    empty: $('empty'),
+    canvasWrap: $('canvasWrap'),
+    resultCanvas: $('resultCanvas'),
+    origCanvas: $('origCanvas'),
+    divider: $('divider'),
+    viewer: $('viewer'),
+    statusText: $('statusText'),
+    timingText: $('timingText'),
+    toast: $('toast'),
+    busy: $('busy'),
+    busyText: $('busyText'),
+    helpBtn: $('helpBtn'),
+    helpClose: $('helpClose'),
+    helpModal: $('helpModal')
+  };
+
+  var origCtx = els.origCanvas.getContext('2d', { willReadFrequently: true });
+  var resultCtx = els.resultCanvas.getContext('2d');
+
+  /* ---------------- 小工具 ---------------- */
+  function toHex(p) {
+    var out = '#';
+    var vals = [p.r, p.g, p.b];
+    for (var i = 0; i < 3; i++) {
+      var v = Math.max(0, Math.min(255, Math.round(vals[i])));
+      var h = v.toString(16);
+      if (h.length < 2) h = '0' + h;
+      out += h;
+    }
+    return out;
+  }
+
+  function parseHex(s) {
+    s = String(s == null ? '' : s).trim();
+    if (s.charAt(0) === '#') s = s.slice(1);
+    if (s.length === 3) s = s.charAt(0) + s.charAt(0) + s.charAt(1) + s.charAt(1) + s.charAt(2) + s.charAt(2);
+    if (s.length !== 6) return null;
+    for (var i = 0; i < 6; i++) {
+      if ('0123456789abcdefABCDEF'.indexOf(s.charAt(i)) < 0) return null;
+    }
+    return {
+      r: parseInt(s.slice(0, 2), 16),
+      g: parseInt(s.slice(2, 4), 16),
+      b: parseInt(s.slice(4, 6), 16)
+    };
+  }
+
+  function canvasToBlob(canvas) {
+    return new Promise(function (resolve, reject) {
+      canvas.toBlob(function (blob) {
+        if (blob) resolve(blob);
+        else reject(new Error('canvas toBlob failed'));
+      }, 'image/png');
+    });
+  }
+
+  function downloadBlob(blob, filename) {
+    var a = document.createElement('a');
+    var url = URL.createObjectURL(blob);
+    a.href = url;
+    a.download = filename;
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(function () { URL.revokeObjectURL(url); }, 5000);
+  }
+
+  function nextFrame() {
+    return new Promise(function (resolve) {
+      requestAnimationFrame(function () { resolve(); });
+    });
+  }
+
+  function yieldToUi() {
+    return new Promise(function (resolve) {
+      setTimeout(resolve, 0);
+    });
+  }
+
+  function showBusy(text) {
+    els.busyText.textContent = text || '处理中…';
+    els.busy.hidden = false;
+  }
+
+  function hideBusy() {
+    els.busy.hidden = true;
+  }
+
+  var toastTimer = 0;
+  function toast(msg) {
+    els.toast.textContent = msg;
+    els.toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { els.toast.classList.remove('show'); }, 2400);
+  }
+
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise(function (resolve, reject) {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (err) { ok = false; }
+      ta.remove();
+      if (ok) resolve();
+      else reject(new Error('copy failed'));
+    });
+  }
+
+  /* ---------------- 画布尺寸与视图 ---------------- */
+  function fitCanvas() {
+    if (!state.ready) return;
+    var vw = Math.max(120, els.viewer.clientWidth - 44);
+    var vh = Math.max(80, els.viewer.clientHeight - 44);
+    var s = Math.min(vw / state.workW, vh / state.workH);
+    s = Math.min(s, 4);
+    els.canvasWrap.style.width = Math.max(40, Math.round(state.workW * s)) + 'px';
+    els.canvasWrap.style.height = Math.max(30, Math.round(state.workH * s)) + 'px';
+  }
+
+  function applyView() {
+    els.viewResult.classList.toggle('on', state.view === 'result');
+    els.viewSplit.classList.toggle('on', state.view === 'split');
+    els.viewOrig.classList.toggle('on', state.view === 'orig');
+    if (!state.ready) {
+      els.divider.hidden = true;
+      return;
+    }
+    els.resultCanvas.style.visibility = state.view === 'orig' ? 'hidden' : 'visible';
+    els.origCanvas.style.visibility = state.view === 'result' ? 'hidden' : 'visible';
+    els.divider.hidden = state.view !== 'split';
+    if (state.view === 'split') {
+      els.origCanvas.style.clipPath = 'inset(0 ' + ((1 - state.split) * 100).toFixed(2) + '% 0 0)';
+      els.divider.style.left = (state.split * 100).toFixed(2) + '%';
+    } else {
+      els.origCanvas.style.clipPath = 'none';
+    }
+  }
+
+  function updateSplitFromEvent(e) {
+    var rect = els.canvasWrap.getBoundingClientRect();
+    if (!rect.width) return;
+    var f = (e.clientX - rect.left) / rect.width;
+    state.split = Math.max(0.02, Math.min(0.98, f));
+    applyView();
+  }
+
+  function onSplitMove(e) {
+    if (!state.dragging) return;
+    updateSplitFromEvent(e);
+  }
+
+  function onSplitUp() {
+    state.dragging = false;
+    window.removeEventListener('pointermove', onSplitMove);
+    window.removeEventListener('pointerup', onSplitUp);
+  }
+
+  function startSplitDrag(e) {
+    state.dragging = true;
+    updateSplitFromEvent(e);
+    window.addEventListener('pointermove', onSplitMove);
+    window.addEventListener('pointerup', onSplitUp);
+  }
+
+  /* ---------------- 提示文字 ---------------- */
+  function updateBadge() {
+    if (state.line) {
+      els.autoBadge.textContent = '线稿';
+      els.autoBadge.classList.remove('manual');
+      return;
+    }
+    els.autoBadge.textContent = state.paletteAuto ? (state.gray ? '自动明度' : '自动配色') : (state.gray ? '手动明度' : '手动调色');
+    els.autoBadge.classList.toggle('manual', !state.paletteAuto);
+  }
+
+  function updateStatus() {
+    if (!state.ready) {
+      els.statusText.textContent = '拖入一张图片开始';
+      els.timingText.textContent = '';
+      return;
+    }
+    if (state.line) {
+      var lp = state.lineParams;
+      els.statusText.textContent = '工作 ' + state.workW + '×' + state.workH + ' · 线稿 · 墨量 ' + lp.amount + '% · 粗细 ' + lp.width + ' · 平滑 ' + Number(lp.sigma).toFixed(1) + ' · 清理 ' + lp.clean + 'px' + (state.hatch.enabled ? (' · 排线 ' + state.hatch.strength + '%') : '') + (state.black.enabled ? (' · 压黑 ' + state.black.threshold + '%') : '');
+      els.timingText.textContent = '线稿 ' + Math.round(state.lineMs) + ' ms · 黑线 ' + (state.lineRatioVal * 100).toFixed(1) + '%';
+      return;
+    }
+    els.statusText.textContent = '工作 ' + state.workW + '×' + state.workH + ' · ' + (state.gray ? '灰度 ' + state.palette.length + ' 级' : state.palette.length + ' 色') + ' · 柔化 ' + state.blur + ' · 碎块 ' + state.minRegion + 'px' + (state.paletteAuto ? '' : ' · 手动调色');
+    var parts = [];
+    if (state.lastExtractMs > 0) parts.push('提取 ' + Math.round(state.lastExtractMs) + ' ms');
+    parts.push('渲染 ' + Math.round(state.lastRecolorMs) + ' ms');
+    els.timingText.textContent = parts.join(' / ');
+  }
+
+  function updateImageMeta() {
+    els.imgMeta.hidden = false;
+    els.imgMeta.textContent = state.name + ' · ' + state.naturalW + '×' + state.naturalH + ' px · 工作尺寸 ' + state.workW + '×' + state.workH;
+    els.stageDims.textContent = '原图 ' + state.naturalW + '×' + state.naturalH + ' · 工作 ' + state.workW + '×' + state.workH;
+  }
+
+  function updatePickUi() {
+    els.pickBtn.classList.toggle('on', state.pickMode);
+    els.pickBtn.textContent = state.pickMode ? '点图片取色…' : '从图中取色';
+    els.canvasWrap.classList.toggle('picking', state.pickMode);
+  }
+
+  /* ---------------- 画面模式（彩色 / 灰度 / 线稿） ---------------- */
+  function grayHex(v) {
+    v = Math.max(0, Math.min(255, Math.round(v)));
+    var h = v.toString(16);
+    if (h.length < 2) h = '0' + h;
+    return '#' + h + h + h;
+  }
+
+  var LINE_PRESETS = {
+    simple: { amount: 5, sigma: 1.8, k: 2.0, width: 1, clean: 60 },
+    std: { amount: 8, sigma: 1.4, k: 1.8, width: 1, clean: 40 },
+    rich: { amount: 12, sigma: 1.0, k: 1.7, width: 1, clean: 25 }
+  };
+
+  var HATCH_PRESETS = {
+    light: { strength: 35, density: 2, width: 1, angle: '45', range: 'dark' },
+    mid: { strength: 60, density: 3, width: 1, angle: 'cross', range: 'mid' },
+    heavy: { strength: 90, density: 4, width: 2, angle: 'cross', range: 'mid' }
+  };
+
+  function hatchAngleLabel(v) {
+    if (v === '-45') return '-45°';
+    if (v === 'cross') return '交叉';
+    if (v === '0') return '横线';
+    return '45°';
+  }
+
+  function getHatchParams() {
+    var h = state.hatch;
+    return {
+      enabled: h.enabled,
+      strength: h.strength,
+      density: h.density,
+      width: h.width,
+      angle: h.angle,
+      range: h.range,
+      highlight: h.protectHighlight ? 0.80 : 1.0,
+      protectSkin: h.protectSkin
+    };
+  }
+
+  function getBlackParams() {
+    var b = state.black;
+    return { enabled: b.enabled, threshold: b.threshold, protectSkin: b.protectSkin };
+  }
+
+  function syncBlackUi() {
+    var b = state.black;
+    els.blackOn.checked = b.enabled;
+    els.blackFields.hidden = !b.enabled;
+    els.blackThreshold.value = String(b.threshold);
+    els.blackThresholdVal.textContent = b.threshold + '%';
+    els.blackSkin.checked = !!b.protectSkin;
+  }
+
+  function readBlackInputs() {
+    var b = state.black;
+    b.threshold = parseInt(els.blackThreshold.value, 10);
+    b.protectSkin = els.blackSkin.checked;
+    els.blackThresholdVal.textContent = b.threshold + '%';
+    scheduleLinePreview();
+  }
+
+  function syncHatchUi() {
+    var h = state.hatch;
+    els.hatchOn.checked = h.enabled;
+    els.hatchFields.hidden = !h.enabled;
+    els.hatchStrength.value = String(h.strength);
+    els.hatchStrengthVal.textContent = h.strength + '%';
+    els.hatchDensity.value = String(h.density);
+    els.hatchDensityVal.textContent = String(h.density);
+    els.hatchWidth.value = String(h.width);
+    els.hatchWidthVal.textContent = String(h.width);
+    els.hatchAngle.value = h.angle;
+    els.hatchRange.value = h.range;
+    els.hatchHighlight.checked = !!h.protectHighlight;
+    els.hatchSkin.checked = !!h.protectSkin;
+  }
+
+  function readHatchInputs() {
+    var h = state.hatch;
+    h.strength = parseInt(els.hatchStrength.value, 10);
+    h.density = parseInt(els.hatchDensity.value, 10);
+    h.width = parseInt(els.hatchWidth.value, 10);
+    h.angle = els.hatchAngle.value;
+    h.range = els.hatchRange.value;
+    h.protectHighlight = els.hatchHighlight.checked;
+    h.protectSkin = els.hatchSkin.checked;
+    els.hatchStrengthVal.textContent = h.strength + '%';
+    els.hatchDensityVal.textContent = String(h.density);
+    els.hatchWidthVal.textContent = String(h.width);
+    scheduleLinePreview();
+  }
+
+  function setHatchPreset(name) {
+    var p = HATCH_PRESETS[name];
+    if (!p) return;
+    state.hatch.enabled = true;
+    state.hatch.strength = p.strength;
+    state.hatch.density = p.density;
+    state.hatch.width = p.width;
+    state.hatch.angle = p.angle;
+    state.hatch.range = p.range;
+    syncHatchUi();
+    if (state.line && state.ready) computeLinePreview();
+  }
+
+  function ensureLineGray() {
+    if (!state.baseRGB) return null;
+    if (state.lineGray) return state.lineGray;
+    var rgb = state.baseRGB;
+    var n = rgb.length / 3;
+    var g = new Uint8Array(n);
+    for (var i = 0, o = 0; i < n; i++, o += 3) {
+      g[i] = rgbToGrayValue(rgb[o], rgb[o + 1], rgb[o + 2]);
+    }
+    state.lineGray = g;
+    return g;
+  }
+
+  function computeLinePreview() {
+    if (!state.ready || !state.line) return;
+    var t0 = performance.now();
+    var gray = ensureLineGray();
+    if (!gray) return;
+    var mask = lineArtWithHatch(gray, state.baseRGB, false, state.workW, state.workH, state.lineParams, getHatchParams(), getBlackParams());
+    paintLineMask(mask, state.workW, state.workH, state.imageData.data);
+    resultCtx.putImageData(state.imageData, 0, 0);
+    state.lineMs = performance.now() - t0;
+    state.lineRatioVal = maskBlackRatio(mask);
+    if (els.lineRatio) els.lineRatio.textContent = '黑线 ' + (state.lineRatioVal * 100).toFixed(1) + '%';
+    updateStatus();
+  }
+
+  var lineTimer = 0;
+  function scheduleLinePreview() {
+    clearTimeout(lineTimer);
+    lineTimer = setTimeout(computeLinePreview, 180);
+  }
+
+  function syncLineInputs() {
+    var p = state.lineParams;
+    els.lineAmount.value = String(p.amount);
+    els.lineAmountVal.textContent = p.amount + '%';
+    els.lineWidth.value = String(p.width);
+    els.lineWidthVal.textContent = String(p.width);
+    els.lineSigma.value = String(p.sigma);
+    els.lineSigmaVal.textContent = Number(p.sigma).toFixed(1);
+    els.lineK.value = String(p.k);
+    els.lineKVal.textContent = Number(p.k).toFixed(1);
+    els.lineClean.value = String(p.clean);
+    els.lineCleanVal.textContent = String(p.clean);
+  }
+
+  function readLineInputs() {
+    state.lineParams.amount = parseInt(els.lineAmount.value, 10);
+    state.lineParams.width = parseInt(els.lineWidth.value, 10);
+    state.lineParams.sigma = parseFloat(els.lineSigma.value);
+    state.lineParams.k = parseFloat(els.lineK.value);
+    state.lineParams.clean = parseInt(els.lineClean.value, 10);
+    els.lineAmountVal.textContent = state.lineParams.amount + '%';
+    els.lineWidthVal.textContent = String(state.lineParams.width);
+    els.lineSigmaVal.textContent = Number(state.lineParams.sigma).toFixed(1);
+    els.lineKVal.textContent = Number(state.lineParams.k).toFixed(1);
+    els.lineCleanVal.textContent = String(state.lineParams.clean);
+    scheduleLinePreview();
+  }
+
+  function setLinePreset(name) {
+    var p = LINE_PRESETS[name];
+    if (!p) return;
+    state.lineParams.amount = p.amount;
+    state.lineParams.sigma = p.sigma;
+    state.lineParams.k = p.k;
+    state.lineParams.width = p.width;
+    state.lineParams.clean = p.clean;
+    syncLineInputs();
+    if (state.ready && state.line) computeLinePreview();
+  }
+
+  function updateModeUi() {
+    var line = state.line;
+    var gray = state.gray && !line;
+    els.modeColor.classList.toggle('on', !gray && !line);
+    els.modeGray.classList.toggle('on', gray);
+    els.modeLine.classList.toggle('on', line);
+    document.body.classList.toggle('line-mode', line);
+    els.modeHint.textContent = line
+      ? '线稿模式：把照片提取成纯黑白线稿；用左侧「线稿参数」微调墨量、粗细和干净程度。'
+      : (gray ? '灰度模式：只保留明度，归纳成 N 级明暗块；点色块或拖明度滑杆可调每一级。' : '彩色模式按颜色归纳；切到灰度只保留明暗；针管线稿输出纯黑白线条。');
+    els.selColor.hidden = line || gray;
+    els.grayRow.hidden = !gray;
+    if (els.evenGrayBtn) els.evenGrayBtn.hidden = !(gray && state.ready && state.palette.length > 0);
+    if (els.cardBtn) els.cardBtn.textContent = line ? '导出线稿参考卡' : '导出画板参考卡（含色板比例）';
+    if (els.exportOrigBtn) els.exportOrigBtn.title = line ? '按原图尺寸重算线稿（长边上限 3000 px）' : '原图长边超过 6000 px 时，按 6000 px 导出';
+    if (els.lineRatio) {
+      if (line && state.ready) els.lineRatio.textContent = '黑线 ' + (state.lineRatioVal * 100).toFixed(1) + '%';
+      else els.lineRatio.textContent = '纯黑白';
+    }
+    updateBadge();
+  }
+
+  function setMode(mode) {
+    var wantGray = mode === 'gray';
+    var wantLine = mode === 'line';
+    if (state.gray === wantGray && state.line === wantLine) {
+      updateModeUi();
+      return;
+    }
+    state.gray = wantGray;
+    state.line = wantLine;
+    state.workRGB = null;
+    state.workRGBKey = '';
+    state.paletteAuto = true;
+    updateModeUi();
+    if (!state.ready) {
+      updateStatus();
+      return;
+    }
+    if (state.line) {
+      state.selected = -1;
+      computeLinePreview();
+      toast('已切到针管线稿模式');
+    } else {
+      state.selected = 0;
+      extractAndRecolor();
+      toast(wantGray ? '已切到灰度明暗模式' : '已切回彩色色块模式');
+    }
+  }
+
+  function setGrayMode(on) {
+    setMode(on ? 'gray' : 'color');
+  }
+
+  function setLineMode(on) {
+    setMode(on ? 'line' : 'color');
+  }
+
+  function evenGrayLevels() {
+    if (!state.ready || !state.gray) return;
+    var n = Math.max(2, Math.min(32, state.palette.length || state.k));
+    var arr = [];
+    for (var i = 0; i < n; i++) {
+      var v = Math.round(255 * i / (n - 1));
+      arr.push({ r: v, g: v, b: v });
+    }
+    state.palette = arr;
+    state.selected = 0;
+    state.paletteAuto = false;
+    state.mapLUTKey = '';
+    updateBadge();
+    recolor();
+    toast('已均分成 ' + n + ' 级明度');
+  }
+
+  /* ---------------- 调色板渲染 ---------------- */
+  function palettePercent(i) {
+    var total = 0;
+    if (state.counts) {
+      for (var j = 0; j < state.counts.length; j++) total += state.counts[j];
+    }
+    if (!total || !state.counts) return 0;
+    return (state.counts[i] || 0) * 100 / total;
+  }
+
+  function updateSelectedInfo() {
+    if (state.selected < 0 || state.selected >= state.palette.length) {
+      els.selInfo.textContent = '';
+      return;
+    }
+    var p = state.palette[state.selected];
+    var lab = rgb2labExact(p.r, p.g, p.b);
+    els.selInfo.textContent = 'L* ' + lab[0].toFixed(0) + ' · 占比 ' + palettePercent(state.selected).toFixed(1) + '%';
+  }
+
+  function renderEditor() {
+    var i = state.selected;
+    if (i < 0 || i >= state.palette.length) {
+      els.paletteEditor.hidden = true;
+      return;
+    }
+    els.paletteEditor.hidden = false;
+    var hex = toHex(state.palette[i]);
+    els.selColor.hidden = state.gray;
+    els.grayRow.hidden = !state.gray;
+    els.selColor.value = hex;
+    if (document.activeElement !== els.selHex) els.selHex.value = hex;
+    if (state.gray) {
+      els.selGray.value = String(state.palette[i].r);
+      els.selGrayVal.textContent = String(state.palette[i].r);
+    }
+    updateSelectedInfo();
+  }
+
+  function renderPalette() {
+    var parts = [];
+    for (var i = 0; i < state.palette.length; i++) {
+      var hex = toHex(state.palette[i]);
+      var pct = palettePercent(i);
+      var pctTxt = pct >= 10 ? pct.toFixed(0) : pct.toFixed(1);
+      parts.push('<button class="swatch' + (i === state.selected ? ' sel' : '') + '" data-i="' + i + '" title="点击编辑 ' + hex + '">' +
+        '<span class="chip" style="background:' + hex + '"></span>' +
+        '<span class="hex">' + hex.slice(1) + '</span>' +
+        '<span class="pct">' + pctTxt + '%</span>' +
+        '</button>');
+    }
+    els.paletteGrid.innerHTML = parts.length ? parts.join('') : '<p class="hint" style="grid-column:1/-1">还没有调色板：载入图片会自动提取，或点「＋」手动添加颜色。</p>';
+    els.paletteCount.textContent = state.palette.length ? (state.gray ? (state.palette.length + ' 级') : (state.palette.length + ' 色')) : '';
+    els.paletteCount.hidden = !state.palette.length;
+    if (els.evenGrayBtn) els.evenGrayBtn.hidden = !(state.gray && state.ready && state.palette.length > 0);
+    renderEditor();
+  }
+
+  function selectPalette(i) {
+    state.selected = i;
+    renderPalette();
+  }
+
+  /* ---------------- 算法流程 ---------------- */
+  function workKey() { return (state.gray ? 'g' : 'c') + ':' + state.blur; }
+
+  function ensureWorkRGB() {
+    if (!state.baseRGB) return null;
+    var key = workKey();
+    if (state.workRGB && state.workRGBKey === key) return state.workRGB;
+    var src = state.baseRGB;
+    if (state.gray) {
+      if (!state.grayBase) state.grayBase = makeGrayscaleRGB(state.baseRGB);
+      src = state.grayBase;
+    }
+    state.workRGB = state.blur > 0 ? blurRGB(src, state.workW, state.workH, state.blur) : src;
+    state.workRGBKey = key;
+    return state.workRGB;
+  }
+
+  function recolor() {
+    if (state.line) return;
+    if (!state.ready || !state.palette.length || !state.imageData) return;
+    var t0 = performance.now();
+    var work = ensureWorkRGB();
+    if (!work) return;
+    var k = state.palette.length;
+    var key = state.palette.map(toHex).join(',');
+    if (key !== state.mapLUTKey) {
+      state.mapLUT = buildMapLUT(state.palette, LAB_LUT);
+      state.mapLUTKey = key;
+    }
+    var idx = mapIndices(work, state.workW, state.workH, state.mapLUT);
+    if (state.smooth > 0) smoothEdges(idx, state.workW, state.workH, k, state.smooth);
+    if (state.minRegion > 1) mergeSmallRegions(idx, state.workW, state.workH, k, state.minRegion);
+    state.indices = idx;
+    state.counts = countPalette(idx, k);
+    paintFromIndices(idx, state.palette, state.imageData.data);
+    resultCtx.putImageData(state.imageData, 0, 0);
+    state.lastRecolorMs = performance.now() - t0;
+    renderPalette();
+    updateStatus();
+  }
+
+  function extractAndRecolor() {
+    if (state.line) {
+      computeLinePreview();
+      return;
+    }
+    if (!state.ready) {
+      toast('先载入一张图片');
+      return;
+    }
+    var t0 = performance.now();
+    var work = ensureWorkRGB();
+    if (!work) return;
+    var pal = extractPalette(work, state.workW, state.workH, state.k, state.seed, LAB_LUT);
+    state.palette = pal;
+    state.paletteAuto = true;
+    state.selected = pal.length ? 0 : -1;
+    state.mapLUTKey = '';
+    state.lastExtractMs = performance.now() - t0;
+    recolor();
+    updateBadge();
+    if (pal.length && pal.length !== state.k) {
+      toast('这张图颜色较少，实际提炼出 ' + pal.length + ' 色');
+    }
+  }
+
+  var recolorTimer = 0;
+  function scheduleRecolor() {
+    clearTimeout(recolorTimer);
+    recolorTimer = setTimeout(function () { recolor(); }, 90);
+  }
+
+  function applySelectedColor(hexStr, immediate) {
+    var i = state.selected;
+    if (i < 0 || i >= state.palette.length) return;
+    var c = parseHex(hexStr);
+    if (!c) return;
+    state.palette[i] = c;
+    state.paletteAuto = false;
+    state.mapLUTKey = '';
+    updateBadge();
+    var hex = toHex(c);
+    var sw = els.paletteGrid.querySelector('[data-i="' + i + '"]');
+    if (sw) {
+      var chip = sw.querySelector('.chip');
+      if (chip) chip.style.background = hex;
+      var lab = sw.querySelector('.hex');
+      if (lab) lab.textContent = hex.slice(1);
+    }
+    if (document.activeElement !== els.selHex) els.selHex.value = hex;
+    updateSelectedInfo();
+    if (immediate) recolor();
+    else scheduleRecolor();
+  }
+
+  function deleteSelectedColor() {
+    if (!state.ready) return;
+    if (state.palette.length <= 1) {
+      toast('至少保留一种颜色');
+      return;
+    }
+    if (state.selected < 0) return;
+    state.palette.splice(state.selected, 1);
+    if (state.selected >= state.palette.length) state.selected = state.palette.length - 1;
+    state.paletteAuto = false;
+    state.mapLUTKey = '';
+    updateBadge();
+    recolor();
+  }
+
+  function addSmartColor() {
+    if (!state.ready) {
+      toast('先载入一张图片');
+      return;
+    }
+    if (state.palette.length >= 32) {
+      toast('最多 32 色');
+      return;
+    }
+    var work = ensureWorkRGB();
+    var c = findWorstColor(work, state.workW, state.workH, state.palette, LAB_LUT);
+    if (!c) c = { r: 128, g: 128, b: 128 };
+    state.palette.push(c);
+    state.selected = state.palette.length - 1;
+    state.paletteAuto = false;
+    state.mapLUTKey = '';
+    updateBadge();
+    recolor();
+    toast('补了一个画面里缺的颜色 ' + toHex(c));
+  }
+
+  function copyPalette() {
+    if (!state.ready || !state.palette.length) {
+      toast('还没有色板');
+      return;
+    }
+    var lines = [];
+    for (var i = 0; i < state.palette.length; i++) {
+      lines.push(toHex(state.palette[i]).toUpperCase() + '  ' + palettePercent(i).toFixed(1) + '%');
+    }
+    var text = lines.join(String.fromCharCode(10));
+    copyText(text).then(function () {
+      toast('色值已复制');
+    }).catch(function () {
+      toast('复制失败：可点色块看色值');
+    });
+  }
+
+  /* ---------------- 图片读取 ---------------- */
+  function applyImage(src, name, sourceFile) {
+    var nw = src.width || src.naturalWidth || 0;
+    var nh = src.height || src.naturalHeight || 0;
+    if (!nw || !nh) {
+      toast('无法读取这张图片');
+      return;
+    }
+    if (state.img && state.img !== src && state.img.close) {
+      try { state.img.close(); } catch (e) {}
+    }
+    state.img = src;
+    state.srcFile = sourceFile || null;
+    state.naturalW = nw;
+    state.naturalH = nh;
+    var base = String(name || 'image');
+    var dot = base.lastIndexOf('.');
+    if (dot > 0) base = base.slice(0, dot);
+    state.name = base || 'image';
+
+    var MAX = 2000;
+    var scale = Math.min(1, MAX / Math.max(nw, nh));
+    state.workW = Math.max(1, Math.round(nw * scale));
+    state.workH = Math.max(1, Math.round(nh * scale));
+
+    els.origCanvas.width = state.workW;
+    els.origCanvas.height = state.workH;
+    els.resultCanvas.width = state.workW;
+    els.resultCanvas.height = state.workH;
+
+    origCtx.fillStyle = '#ffffff';
+    origCtx.fillRect(0, 0, state.workW, state.workH);
+    origCtx.imageSmoothingEnabled = true;
+    origCtx.imageSmoothingQuality = 'high';
+    origCtx.drawImage(src, 0, 0, state.workW, state.workH);
+
+    var id = origCtx.getImageData(0, 0, state.workW, state.workH);
+    var rgba = id.data;
+    var rgb = new Uint8ClampedArray(state.workW * state.workH * 3);
+    for (var i = 0, o = 0; i < rgba.length; i += 4, o += 3) {
+      rgb[o] = rgba[i];
+      rgb[o + 1] = rgba[i + 1];
+      rgb[o + 2] = rgba[i + 2];
+    }
+    state.baseRGB = rgb;
+    state.workRGB = null;
+    state.workRGBKey = '';
+    state.grayBase = null;
+    state.lineGray = null;
+    state.lineRatioVal = 0;
+    state.imageData = resultCtx.createImageData(state.workW, state.workH);
+    state.mapLUTKey = '';
+    state.ready = true;
+    state.paletteAuto = true;
+    state.pickMode = false;
+    state.selected = -1;
+
+    els.changeBtn.hidden = false;
+    els.empty.hidden = true;
+    els.canvasWrap.hidden = false;
+    updatePickUi();
+    setControlsEnabled(true);
+    updateModeUi();
+    updateImageMeta();
+    updateBadge();
+    applyView();
+    if (state.line) computeLinePreview();
+    else extractAndRecolor();
+    requestAnimationFrame(fitCanvas);
+    els.fileInput.value = '';
+  }
+
+  function loadFile(file) {
+    if (!file) return;
+    if (!file.type || file.type.indexOf('image/') !== 0) {
+      toast('请选择图片文件');
+      els.fileInput.value = '';
+      return;
+    }
+    var url = URL.createObjectURL(file);
+    var img = new Image();
+    img.onload = function () {
+      applyImage(img, file.name || 'image', file);
+      URL.revokeObjectURL(url);
+    };
+    img.onerror = function () {
+      URL.revokeObjectURL(url);
+      els.fileInput.value = '';
+      toast('图片读取失败，换一张试试');
+    };
+    img.src = url;
+  }
+
+  function loadURL(url, name) {
+    return new Promise(function (resolve, reject) {
+      var img = new Image();
+      img.onload = function () {
+        applyImage(img, name || 'image', null);
+        resolve(true);
+      };
+      img.onerror = function () {
+        toast('图片载入失败');
+        reject(new Error('image load failed'));
+      };
+      img.src = url;
+    });
+  }
+
+  /* ---------------- 取色 ---------------- */
+  function pickAt(e) {
+    var rect = els.canvasWrap.getBoundingClientRect();
+    if (!rect.width || !rect.height) return;
+    var x = Math.floor((e.clientX - rect.left) / rect.width * state.workW);
+    var y = Math.floor((e.clientY - rect.top) / rect.height * state.workH);
+    x = Math.max(0, Math.min(state.workW - 1, x));
+    y = Math.max(0, Math.min(state.workH - 1, y));
+    var c = sampleAverageRGB(state.baseRGB, state.workW, state.workH, x, y, 2);
+    if (!c) {
+      toast('取色失败');
+      return;
+    }
+    if (state.gray) {
+      var gv = rgbToGrayValue(c.r, c.g, c.b);
+      c = { r: gv, g: gv, b: gv };
+    }
+    if (state.palette.length >= 32) {
+      state.pickMode = false;
+      updatePickUi();
+      toast('最多 32 色');
+      return;
+    }
+    var pickedHex = toHex(c);
+    for (var pi = 0; pi < state.palette.length; pi++) {
+      var pp = state.palette[pi];
+      var dr = pp.r - c.r, dg = pp.g - c.g, db = pp.b - c.b;
+      if (toHex(pp) === pickedHex || dr * dr + dg * dg + db * db <= 16) {
+        state.selected = pi;
+        state.pickMode = false;
+        updatePickUi();
+        renderPalette();
+        toast('这个颜色已经在色板里了（' + pickedHex + '）');
+        return;
+      }
+    }
+    state.palette.push(c);
+    state.selected = state.palette.length - 1;
+    state.paletteAuto = false;
+    state.mapLUTKey = '';
+    state.pickMode = false;
+    updatePickUi();
+    updateBadge();
+    recolor();
+    toast('已加入 ' + pickedHex);
+  }
+
+  /* ---------------- 导出 ---------------- */
+  function paletteLabel() {
+    if (state.line) return '线稿';
+    return state.gray ? ('灰度' + state.palette.length + '级') : (state.palette.length + '色');
+  }
+
+  function exportPNG() {
+    if (!state.ready) {
+      toast('先载入一张图片');
+      return;
+    }
+    els.resultCanvas.toBlob(function (blob) {
+      if (!blob) {
+        toast('导出失败');
+        return;
+      }
+      downloadBlob(blob, state.name + '_' + paletteLabel() + '_' + state.workW + 'x' + state.workH + '.png');
+      toast('已导出 ' + state.workW + '×' + state.workH + ' PNG');
+    }, 'image/png');
+  }
+
+  async function renderFullRes() {
+    var nw = state.naturalW;
+    var nh = state.naturalH;
+    var cap = 6000;
+    var scale = Math.min(1, cap / Math.max(nw, nh));
+    var ew = Math.max(1, Math.round(nw * scale));
+    var eh = Math.max(1, Math.round(nh * scale));
+    var c = document.createElement('canvas');
+    c.width = ew;
+    c.height = eh;
+    var ctx = c.getContext('2d', { willReadFrequently: true });
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, ew, eh);
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
+    ctx.drawImage(state.img, 0, 0, ew, eh);
+    var rgba = ctx.getImageData(0, 0, ew, eh).data;
+    var rgb = new Uint8ClampedArray(ew * eh * 3);
+    for (var i = 0, o = 0; i < rgba.length; i += 4, o += 3) {
+      rgb[o] = rgba[i];
+      rgb[o + 1] = rgba[i + 1];
+      rgb[o + 2] = rgba[i + 2];
+    }
+    var ratio = ew / state.workW;
+    var rad = Math.round(state.blur * ratio);
+    var work = rad > 0 ? blurRGB(rgb, ew, eh, rad) : rgb;
+    var mapLUT = buildMapLUT(state.palette, LAB_LUT);
+    var idx = mapIndices(work, ew, eh, mapLUT);
+    var smoothPasses = state.smooth > 0 ? Math.min(2, Math.max(1, Math.round(state.smooth * ratio))) : 0;
+    if (smoothPasses > 0) smoothEdges(idx, ew, eh, state.palette.length, smoothPasses);
+    if (state.minRegion > 1) {
+      mergeSmallRegions(idx, ew, eh, state.palette.length, Math.max(2, Math.round(state.minRegion * ratio * ratio)));
+    }
+    var out = ctx.createImageData(ew, eh);
+    paintFromIndices(idx, state.palette, out.data);
+    ctx.putImageData(out, 0, 0);
+    return { canvas: c, w: ew, h: eh };
+  }
+
+  async function exportLineOriginal() {
+    if (!state.ready || !state.img) {
+      toast('先载入一张图片');
+      return;
+    }
+    showBusy('正在按较大尺寸生成线稿…');
+    await nextFrame();
+    await nextFrame();
+    try {
+      var cap = 3000;
+      var nw = state.naturalW, nh = state.naturalH;
+      var scale = Math.min(1, cap / Math.max(nw, nh));
+      var ew = Math.max(1, Math.round(nw * scale));
+      var eh = Math.max(1, Math.round(nh * scale));
+      var c = document.createElement('canvas');
+      c.width = ew;
+      c.height = eh;
+      var ctx = c.getContext('2d', { willReadFrequently: true });
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, ew, eh);
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
+      ctx.drawImage(state.img, 0, 0, ew, eh);
+      var rgba = ctx.getImageData(0, 0, ew, eh).data;
+      var gray = rgbaToGray(rgba);
+      var mask = lineArtWithHatch(gray, rgba, true, ew, eh, state.lineParams, getHatchParams(), getBlackParams());
+      var out = ctx.createImageData(ew, eh);
+      paintLineMask(mask, ew, eh, out.data);
+      ctx.putImageData(out, 0, 0);
+      var blob = await canvasToBlob(c);
+      downloadBlob(blob, state.name + '_线稿_原图' + ew + 'x' + eh + '.png');
+      toast('已导出线稿 ' + ew + '×' + eh + '（长边上限 3000 px）');
+    } catch (err) {
+      console.error(err);
+      toast('线稿导出失败：' + (err && err.message ? err.message : String(err)));
+    } finally {
+      hideBusy();
+    }
+  }
+
+  async function exportOriginal() {
+    if (!state.ready || !state.img) {
+      toast('先载入一张图片');
+      return;
+    }
+    if (state.line) {
+      await exportLineOriginal();
+      return;
+    }
+    if (Math.max(state.naturalW, state.naturalH) <= Math.max(state.workW, state.workH) + 1) {
+      exportPNG();
+      return;
+    }
+    showBusy('正在按原图尺寸重算（长边上限 6000 px）…');
+    await nextFrame();
+    await nextFrame();
+    try {
+      var res = await renderFullRes();
+      var blob = await canvasToBlob(res.canvas);
+      downloadBlob(blob, state.name + '_' + paletteLabel() + '_原图' + res.w + 'x' + res.h + '.png');
+      var capped = res.w < state.naturalW || res.h < state.naturalH;
+      toast('已导出 ' + res.w + '×' + res.h + (capped ? '（原图超 6000 px，按上限导出）' : ''));
+    } catch (err) {
+      console.error(err);
+      toast('原图导出失败：' + (err && err.message ? err.message : String(err)));
+    } finally {
+      hideBusy();
+    }
+  }
+
+  function drawSwatch(ctx, x, y, size, color) {
+    var r = Math.max(3, Math.round(size * 0.16));
+    ctx.fillStyle = toHex(color);
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(x, y, size, size, r);
+    else ctx.rect(x, y, size, size);
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(0,0,0,.22)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  }
+
+  function buildReferenceCardFrom(imageCanvas, palette, counts, meta) {
+    if (!imageCanvas || !palette || !palette.length) return null;
+    var n = palette.length;
+    var total = 0;
+    if (counts) {
+      for (var t = 0; t < counts.length; t++) total += counts[t];
+    }
+    var box = 1400;
+    var sc = Math.min(1, box / Math.max(meta.workW, meta.workH));
+    var iw = Math.max(1, Math.round(meta.workW * sc));
+    var ih = Math.max(1, Math.round(meta.workH * sc));
+    var u = Math.max(0.62, Math.min(1.45, iw / 1000));
+    var pad = Math.round(38 * u);
+    var cols = Math.max(2, Math.min(6, Math.ceil(Math.sqrt(n * 1.6))));
+    var cellH = Math.round(74 * u);
+    var headerH = Math.round(150 * u);
+    var rows = Math.ceil(n / cols);
+    var cardW = Math.max(iw + pad * 2, 760);
+    var cellW = Math.floor((cardW - pad * 2) / cols);
+    var cardH = pad + headerH + ih + Math.round(pad * 0.7) + rows * cellH + pad;
+
+    var c = document.createElement('canvas');
+    c.width = cardW;
+    c.height = cardH;
+    var ctx = c.getContext('2d');
+    ctx.fillStyle = '#f6f1e7';
+    ctx.fillRect(0, 0, cardW, cardH);
+
+    ctx.fillStyle = '#221f1a';
+    ctx.font = '700 ' + Math.round(34 * u) + 'px "Microsoft YaHei", "PingFang SC", sans-serif';
+    ctx.fillText((meta.gray ? '灰阶提炼 · ' : '色块提炼 · ') + n + (meta.gray ? ' 级' : ' 色'), pad, pad + Math.round(38 * u));
+    ctx.fillStyle = '#7a7367';
+    ctx.font = Math.round(15 * u) + 'px "Microsoft YaHei", "PingFang SC", sans-serif';
+    var cardName = String(meta.name || 'image');
+    if (cardName.length > 46) cardName = cardName.slice(0, 44) + '…';
+    var sub = cardName + ' · ' + meta.workW + '×' + meta.workH + 'px · ' + (meta.gray ? '灰度明暗 · ' : '') + '柔化 ' + meta.blur + ' · 合并碎块 ' + meta.minRegion + 'px';
+    ctx.fillText(sub, pad, pad + Math.round(66 * u));
+    ctx.strokeStyle = '#ddd5c6';
+    ctx.lineWidth = Math.max(1, Math.round(u));
+    var lineY = pad + Math.round(84 * u);
+    ctx.beginPath();
+    ctx.moveTo(pad, lineY);
+    ctx.lineTo(cardW - pad, lineY);
+    ctx.stroke();
+
+    var imgY = pad + headerH;
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
+    var imgX = Math.round((cardW - iw) / 2);
+    ctx.drawImage(imageCanvas, imgX, imgY, iw, ih);
+    ctx.strokeStyle = 'rgba(0,0,0,.18)';
+    ctx.strokeRect(imgX + 0.5, imgY + 0.5, iw - 1, ih - 1);
+
+    var py = imgY + ih + Math.round(pad * 0.7);
+    for (var i = 0; i < n; i++) {
+      var col = i % cols;
+      var row = Math.floor(i / cols);
+      var x = pad + col * cellW;
+      var y = py + row * cellH;
+      var sw = Math.round(42 * u);
+      drawSwatch(ctx, x, y, sw, palette[i]);
+      var pct = total && counts ? (counts[i] || 0) * 100 / total : 0;
+      ctx.fillStyle = '#221f1a';
+      ctx.font = '600 ' + Math.round(16 * u) + 'px ui-monospace, Consolas, monospace';
+      ctx.fillText(toHex(palette[i]).toUpperCase(), x + sw + Math.round(12 * u), y + Math.round(19 * u));
+      ctx.fillStyle = '#7a7367';
+      ctx.font = Math.round(12.5 * u) + 'px "Microsoft YaHei", sans-serif';
+      ctx.fillText(pct.toFixed(pct >= 10 ? 0 : 1) + '%', x + sw + Math.round(12 * u), y + Math.round(36 * u));
+    }
+
+    ctx.fillStyle = '#a09889';
+    ctx.font = Math.round(11 * u) + 'px "Microsoft YaHei", sans-serif';
+    ctx.fillText('色块提炼器 · 本地生成 · 仅作画画参考', pad, cardH - Math.round(16 * u));
+    return c;
+  }
+
+  function buildLineCardFrom(imageCanvas, meta) {
+    if (!imageCanvas) return null;
+    var p = meta.params || state.lineParams;
+    var box = 1400;
+    var sc = Math.min(1, box / Math.max(meta.workW, meta.workH));
+    var iw = Math.max(1, Math.round(meta.workW * sc));
+    var ih = Math.max(1, Math.round(meta.workH * sc));
+    var u = Math.max(0.62, Math.min(1.45, iw / 1000));
+    var pad = Math.round(38 * u);
+    var headerH = Math.round(150 * u);
+    var infoH = Math.round(92 * u);
+    var cardW = Math.max(iw + pad * 2, 760);
+    var cardH = pad + headerH + ih + Math.round(pad * 0.7) + infoH + pad;
+
+    var c = document.createElement('canvas');
+    c.width = cardW;
+    c.height = cardH;
+    var ctx = c.getContext('2d');
+    ctx.fillStyle = '#f6f1e7';
+    ctx.fillRect(0, 0, cardW, cardH);
+    ctx.fillStyle = '#221f1a';
+    ctx.font = '700 ' + Math.round(34 * u) + 'px "Microsoft YaHei", "PingFang SC", sans-serif';
+    ctx.fillText('针管线稿 · 墨量 ' + p.amount + '%', pad, pad + Math.round(38 * u));
+    ctx.fillStyle = '#7a7367';
+    ctx.font = Math.round(15 * u) + 'px "Microsoft YaHei", "PingFang SC", sans-serif';
+    var cardName = String(meta.name || 'image');
+    if (cardName.length > 46) cardName = cardName.slice(0, 44) + '…';
+    ctx.fillText(cardName + ' · ' + meta.workW + '×' + meta.workH + 'px · 纯黑白线稿', pad, pad + Math.round(66 * u));
+    ctx.strokeStyle = '#ddd5c6';
+    ctx.lineWidth = Math.max(1, Math.round(u));
+    var lineY = pad + Math.round(84 * u);
+    ctx.beginPath();
+    ctx.moveTo(pad, lineY);
+    ctx.lineTo(cardW - pad, lineY);
+    ctx.stroke();
+
+    var imgY = pad + headerH;
+    var imgX = Math.round((cardW - iw) / 2);
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
+    ctx.drawImage(imageCanvas, imgX, imgY, iw, ih);
+    ctx.strokeStyle = 'rgba(0,0,0,.18)';
+    ctx.strokeRect(imgX + 0.5, imgY + 0.5, iw - 1, ih - 1);
+
+    var py = imgY + ih + Math.round(pad * 0.8);
+    ctx.fillStyle = '#4b463d';
+    ctx.font = '600 ' + Math.round(15 * u) + 'px "Microsoft YaHei", sans-serif';
+    ctx.fillText('线条量 ' + p.amount + '% · 粗细 ' + p.width + ' · 平滑/细节 ' + Number(p.sigma).toFixed(1) + ' · 细节尺度 ' + Number(p.k).toFixed(1) + ' · 清理 ' + p.clean + 'px', pad, py);
+    ctx.fillStyle = '#7a7367';
+    ctx.font = Math.round(13 * u) + 'px "Microsoft YaHei", sans-serif';
+    var hh = meta.hatch || state.hatch;
+    var hatchTxt = (hh && hh.enabled) ? ('排线 ' + hh.strength + '% · 密度 ' + hh.density + ' · ' + hatchAngleLabel(hh.angle) + ' · ' + (hh.range === 'mid' ? '暗部+中间调' : '只暗部') + ' · ') : '';
+    var blackTxt = (state.black.enabled) ? ('压黑 ≤' + state.black.threshold + '% · ') : '';
+    hatchTxt = blackTxt + hatchTxt;
+    ctx.fillText(hatchTxt + '黑线占比 ' + (meta.ratio * 100).toFixed(1) + '% · 纯黑白输出', pad, py + Math.round(26 * u));
+    ctx.fillStyle = '#a09889';
+    ctx.font = Math.round(11 * u) + 'px "Microsoft YaHei", sans-serif';
+    ctx.fillText('色块提炼器 · 本地生成 · 仅作画画参考', pad, cardH - Math.round(16 * u));
+    return c;
+  }
+
+  function buildReferenceCard() {
+    if (!state.ready) return null;
+    if (state.line) {
+      return buildLineCardFrom(els.resultCanvas, { name: state.name, workW: state.workW, workH: state.workH, params: state.lineParams, ratio: state.lineRatioVal, hatch: state.hatch });
+    }
+    if (!state.palette.length) return null;
+    return buildReferenceCardFrom(els.resultCanvas, state.palette, state.counts, {
+      name: state.name,
+      workW: state.workW,
+      workH: state.workH,
+      gray: state.gray,
+      blur: state.blur,
+      minRegion: state.minRegion
+    });
+  }
+
+  function exportCard() {
+    if (!state.ready) {
+      toast('先载入一张图片');
+      return;
+    }
+    var c = buildReferenceCard();
+    if (!c) {
+      toast('还没有可导出的内容');
+      return;
+    }
+    c.toBlob(function (blob) {
+      if (!blob) {
+        toast('导出失败');
+        return;
+      }
+      downloadBlob(blob, state.name + '_' + paletteLabel() + '_参考卡.png');
+      toast('参考卡已导出');
+    }, 'image/png');
+  }
+
+  /* ---------------- 保存（原图 / 线稿 / 色块） ---------------- */
+  function canvasToPngBytes(canvas) {
+    return new Promise(function (resolve, reject) {
+      canvas.toBlob(function (blob) {
+        if (!blob) { reject(new Error('PNG 生成失败')); return; }
+        blobToUint8(blob).then(resolve, reject);
+      }, 'image/png');
+    });
+  }
+
+  function renderBlockForSave() {
+    if (!state.baseRGB) return null;
+    var work = state.blur > 0 ? blurRGB(state.baseRGB, state.workW, state.workH, state.blur) : state.baseRGB;
+    var pal = state.palette.slice();
+    if (state.paletteAuto || !pal.length) {
+      pal = extractPalette(work, state.workW, state.workH, state.k, state.seed, LAB_LUT);
+    }
+    if (!pal.length) return null;
+    var mapLUT = buildMapLUT(pal, LAB_LUT);
+    var idx = mapIndices(work, state.workW, state.workH, mapLUT);
+    if (state.smooth > 0) smoothEdges(idx, state.workW, state.workH, pal.length, state.smooth);
+    if (state.minRegion > 1) mergeSmallRegions(idx, state.workW, state.workH, pal.length, state.minRegion);
+    var c = document.createElement('canvas');
+    c.width = state.workW;
+    c.height = state.workH;
+    var ctx = c.getContext('2d');
+    var out = ctx.createImageData(state.workW, state.workH);
+    paintFromIndices(idx, pal, out.data);
+    ctx.putImageData(out, 0, 0);
+    return { canvas: c, palette: pal, counts: countPalette(idx, pal.length) };
+  }
+
+  function renderLineForSave() {
+    if (!state.baseRGB) return null;
+    var gray = ensureLineGray();
+    if (!gray) return null;
+    var mask = lineArtWithHatch(gray, state.baseRGB, false, state.workW, state.workH, state.lineParams, getHatchParams(), getBlackParams());
+    var c = document.createElement('canvas');
+    c.width = state.workW;
+    c.height = state.workH;
+    var ctx = c.getContext('2d');
+    var out = ctx.createImageData(state.workW, state.workH);
+    paintLineMask(mask, state.workW, state.workH, out.data);
+    ctx.putImageData(out, 0, 0);
+    return c;
+  }
+
+  function fileExt(name, type) {
+    var s = String(name || '');
+    var dot = s.lastIndexOf('.');
+    if (dot >= 0 && s.length - dot <= 6) return s.slice(dot).toLowerCase();
+    if (type === 'image/png') return '.png';
+    if (type === 'image/webp') return '.webp';
+    if (type === 'image/gif') return '.gif';
+    return '.jpg';
+  }
+
+  function stripExt(name) {
+    var s = String(name || 'image');
+    var dot = s.lastIndexOf('.');
+    if (dot > 0) return s.slice(0, dot);
+    return s;
+  }
+
+  async function originalSaveEntry() {
+    if (state.srcFile) {
+      var buf = await new Promise(function (resolve, reject) {
+        var fr = new FileReader();
+        fr.onload = function () { resolve(new Uint8Array(fr.result)); };
+        fr.onerror = function () { reject(new Error('原图读取失败')); };
+        fr.readAsArrayBuffer(state.srcFile);
+      });
+      var fname = state.srcFile.name || (state.name + fileExt('', state.srcFile.type));
+      return { folder: '原图', name: fname, data: buf, type: state.srcFile.type || 'application/octet-stream' };
+    }
+    var cap = 6000;
+    var nw = state.naturalW, nh = state.naturalH;
+    var sc = Math.min(1, cap / Math.max(nw, nh));
+    var ew = Math.max(1, Math.round(nw * sc));
+    var eh = Math.max(1, Math.round(nh * sc));
+    var c = document.createElement('canvas');
+    c.width = ew;
+    c.height = eh;
+    var ctx = c.getContext('2d');
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, ew, eh);
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
+    ctx.drawImage(state.img, 0, 0, ew, eh);
+    return { folder: '原图', name: state.name + '_原图_' + ew + 'x' + eh + '.png', data: await canvasToPngBytes(c), type: 'image/png' };
+  }
+
+  async function buildSaveEntries(opts) {
+    var entries = [];
+    if (opts.original) entries.push(await originalSaveEntry());
+    if (opts.line) {
+      var lc = renderLineForSave();
+      if (lc) entries.push({ folder: '线稿', name: state.name + '_线稿_' + state.workW + 'x' + state.workH + '.png', data: await canvasToPngBytes(lc), type: 'image/png' });
+    }
+    if (opts.block) {
+      var br = renderBlockForSave();
+      if (br) {
+        var lab = (state.gray ? '灰度' + br.palette.length + '级' : br.palette.length + '色');
+        entries.push({ folder: '色块', name: state.name + '_' + lab + '_' + state.workW + 'x' + state.workH + '.png', data: await canvasToPngBytes(br.canvas), type: 'image/png' });
+      }
+    }
+    if (opts.card) {
+      var card = buildReferenceCard();
+      if (card) entries.push({ folder: '参考卡', name: state.name + '_' + paletteLabel() + '_参考卡.png', data: await canvasToPngBytes(card), type: 'image/png' });
+    }
+    return entries;
+  }
+
+  async function doSave() {
+    if (!state.ready) {
+      toast('先载入一张图片');
+      return;
+    }
+    var opts = {
+      original: els.saveOriginal.checked,
+      line: els.saveLine.checked,
+      block: els.saveBlock.checked,
+      card: els.saveCard.checked
+    };
+    if (!opts.original && !opts.line && !opts.block && !opts.card) {
+      toast('请至少勾选一项');
+      return;
+    }
+    els.saveModal.hidden = true;
+    showBusy('正在生成保存内容…');
+    await nextFrame();
+    try {
+      var entries = await buildSaveEntries(opts);
+      if (!entries.length) {
+        toast('没有可保存的内容');
+        return;
+      }
+      if (entries.length === 1) {
+        var e = entries[0];
+        downloadBlob(new Blob([e.data], { type: e.type || 'application/octet-stream' }), e.name);
+        toast('已保存 ' + e.name);
+      } else {
+        var zipEntries = entries.map(function (x) { return { name: x.folder + '/' + zipSafe(x.name), data: x.data }; });
+        var zipBlob = makeZipBlob(zipEntries);
+        downloadBlob(zipBlob, state.name + '_保存.zip');
+        toast('已保存 ' + entries.length + ' 项（ZIP）');
+      }
+    } catch (err) {
+      console.error(err);
+      toast('保存失败：' + (err && err.message ? err.message : String(err)));
+    } finally {
+      hideBusy();
+    }
+  }
+
+  function openSaveModal() {
+    if (!state.ready) {
+      toast('先载入一张图片');
+      return;
+    }
+    els.saveModal.hidden = false;
+    els.saveOriginal.checked = false;
+    els.saveLine.checked = !!state.line;
+    els.saveBlock.checked = !state.line && !!state.palette.length;
+    els.saveCard.checked = false;
+    els.saveInfo.textContent = '线稿 / 色块按当前工作尺寸 ' + state.workW + '×' + state.workH + ' px 生成；原图使用原始尺寸（没有原文件时导出 PNG）。';
+  }
+
+  /* ---------------- 批量处理 ---------------- */
+  var batchFiles = [];
+  var batchRunning = false;
+  var batchCancelFlag = false;
+
+  function isImageFile(f) {
+    if (f.type && f.type.indexOf('image/') === 0) return true;
+    var name = (f.name || '').toLowerCase();
+    var exts = ['.jpg', '.jpeg', '.png', '.webp', '.bmp', '.gif'];
+    for (var i = 0; i < exts.length; i++) {
+      if (name.length >= exts[i].length && name.slice(-exts[i].length) === exts[i]) return true;
+    }
+    return false;
+  }
+
+  function batchBaseName(file) {
+    var path = file.webkitRelativePath || file.name || 'image';
+    var slash = path.lastIndexOf('/');
+    if (slash >= 0) path = path.slice(slash + 1);
+    var dot = path.lastIndexOf('.');
+    if (dot > 0) path = path.slice(0, dot);
+    return path || 'image';
+  }
+
+  function batchSetFiles(files) {
+    var arr = [];
+    for (var i = 0; i < files.length; i++) if (isImageFile(files[i])) arr.push(files[i]);
+    arr.sort(function (a, b) {
+      var an = String(a.webkitRelativePath || a.name || '').toLowerCase();
+      var bn = String(b.webkitRelativePath || b.name || '').toLowerCase();
+      return an < bn ? -1 : (an > bn ? 1 : 0);
+    });
+    batchFiles = arr;
+    var items = [];
+    var show = Math.min(8, arr.length);
+    for (var k = 0; k < show; k++) {
+      var nm = arr[k].webkitRelativePath || arr[k].name;
+      items.push('<li>' + String(nm).replace(/[<>&]/g, '') + '</li>');
+    }
+    if (arr.length > show) items.push('<li>… 还有 ' + (arr.length - show) + ' 张</li>');
+    if (!arr.length) items = ['<li>没有找到图片：文件夹里需要有 jpg / png / webp 等图片文件。</li>'];
+    els.batchList.innerHTML = items.join('');
+    els.batchStart.disabled = !arr.length || batchRunning;
+    els.batchStatus.textContent = arr.length ? ('已选 ' + arr.length + ' 张图片') : '';
+  }
+
+  function batchOpen() {
+    els.batchModal.hidden = false;
+    var lineMode = state.line;
+    if (lineMode) {
+      var lp = state.lineParams;
+      els.batchModeInfo.textContent = '当前模式：针管线稿 · 墨量 ' + lp.amount + '% · 粗细 ' + lp.width + ' · 平滑 ' + Number(lp.sigma).toFixed(1);
+    } else {
+      els.batchModeInfo.textContent = '当前设置：' + (state.gray ? '灰度明暗' : '彩色色块') + ' · ' + (state.palette.length ? paletteLabel() : '自动 ' + state.k + ' 色') + ' · ' + (state.paletteAuto ? '自动配色' : '手动色板');
+    }
+    els.batchUnifiedRow.hidden = lineMode;
+    els.batchPaletteRow.hidden = lineMode;
+    if (lineMode) {
+      els.batchUnified.checked = false;
+      els.batchPalette.checked = false;
+    } else {
+      els.batchUnified.disabled = !state.palette.length;
+      if (!state.palette.length) els.batchUnified.checked = false;
+    }
+    batchUpdateStart();
+  }
+
+  function batchUpdateStart() {
+    els.batchStart.disabled = batchRunning || !batchFiles.length;
+    els.batchCancel.hidden = !batchRunning;
+    els.batchProgressWrap.hidden = !batchRunning;
+  }
+
+  function loadImageElementFromURL(url) {
+    return new Promise(function (resolve, reject) {
+      var img = new Image();
+      img.onload = function () { resolve(img); };
+      img.onerror = function () { reject(new Error('图片解码失败')); };
+      img.src = url;
+    });
+  }
+
+  async function processBatchFile(file, opts) {
+    var url = URL.createObjectURL(file);
+    var img;
+    try {
+      img = await loadImageElementFromURL(url);
+    } finally {
+      setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+    }
+    var nw = img.naturalWidth || img.width;
+    var nh = img.naturalHeight || img.height;
+    if (!nw || !nh) throw new Error('图片尺寸读取失败');
+    var sc = Math.min(1, opts.maxSide / Math.max(nw, nh));
+    var w = Math.max(1, Math.round(nw * sc));
+    var h = Math.max(1, Math.round(nh * sc));
+    var c = document.createElement('canvas');
+    c.width = w;
+    c.height = h;
+    var ctx = c.getContext('2d', { willReadFrequently: true });
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, w, h);
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
+    ctx.drawImage(img, 0, 0, w, h);
+    var rgba = ctx.getImageData(0, 0, w, h).data;
+    var rgb = new Uint8ClampedArray(w * h * 3);
+    for (var i = 0, o = 0; i < rgba.length; i += 4, o += 3) {
+      rgb[o] = rgba[i];
+      rgb[o + 1] = rgba[i + 1];
+      rgb[o + 2] = rgba[i + 2];
+    }
+    if (opts.line) {
+      var gray = rgbaToGray(rgba);
+      var mask = lineArtWithHatch(gray, rgba, true, w, h, state.lineParams, getHatchParams(), getBlackParams());
+      var lout = ctx.createImageData(w, h);
+      paintLineMask(mask, w, h, lout.data);
+      ctx.putImageData(lout, 0, 0);
+      return { canvas: c, line: true, workW: w, workH: h, name: batchBaseName(file), ratio: maskBlackRatio(mask) };
+    }
+    var work = rgb;
+    if (opts.gray) work = makeGrayscaleRGB(rgb);
+    if (state.blur > 0) work = blurRGB(work, w, h, state.blur);
+    var palette;
+    if (opts.unified && opts.basePalette && opts.basePalette.length) {
+      palette = opts.basePalette.map(function (p) { return { r: p.r, g: p.g, b: p.b }; });
+    } else {
+      palette = extractPalette(work, w, h, opts.k, (state.seed + opts.index) >>> 0, LAB_LUT);
+    }
+    if (opts.gray) {
+      palette = palette.map(function (p) {
+        var g = Math.round((p.r + p.g + p.b) / 3);
+        return { r: g, g: g, b: g };
+      });
+    }
+    var mapLUT = buildMapLUT(palette, LAB_LUT);
+    var idx = mapIndices(work, w, h, mapLUT);
+    if (state.smooth > 0) smoothEdges(idx, w, h, palette.length, state.smooth);
+    if (state.minRegion > 1) mergeSmallRegions(idx, w, h, palette.length, state.minRegion);
+    var counts = countPalette(idx, palette.length);
+    var out = ctx.createImageData(w, h);
+    paintFromIndices(idx, palette, out.data);
+    ctx.putImageData(out, 0, 0);
+    return { canvas: c, palette: palette, counts: counts, workW: w, workH: h, name: batchBaseName(file) };
+  }
+
+  function blobToUint8(blob) {
+    return new Promise(function (resolve, reject) {
+      var fr = new FileReader();
+      fr.onload = function () { resolve(new Uint8Array(fr.result)); };
+      fr.onerror = function () { reject(new Error('读取图片数据失败')); };
+      fr.readAsArrayBuffer(blob);
+    });
+  }
+
+  var crcTable = null;
+  function getCrcTable() {
+    if (crcTable) return crcTable;
+    crcTable = new Uint32Array(256);
+    for (var n = 0; n < 256; n++) {
+      var c = n;
+      for (var k = 0; k < 8; k++) c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);
+      crcTable[n] = c >>> 0;
+    }
+    return crcTable;
+  }
+
+  function crc32Bytes(bytes) {
+    var table = getCrcTable();
+    var crc = 0xFFFFFFFF;
+    for (var i = 0; i < bytes.length; i++) crc = table[(crc ^ bytes[i]) & 0xFF] ^ (crc >>> 8);
+    return (crc ^ 0xFFFFFFFF) >>> 0;
+  }
+
+  function makeZipBlob(entries) {
+    var enc = new TextEncoder();
+    var now = new Date();
+    var dosTime = ((now.getHours() << 11) | (now.getMinutes() << 5) | Math.floor(now.getSeconds() / 2)) & 0xFFFF;
+    var dosDate = (((now.getFullYear() - 1980) << 9) | ((now.getMonth() + 1) << 5) | now.getDate()) & 0xFFFF;
+    var parts = [];
+    var centralParts = [];
+    var offset = 0;
+    for (var i = 0; i < entries.length; i++) {
+      var entry = entries[i];
+      var nameBytes = enc.encode(entry.name);
+      var data = entry.data;
+      var crc = crc32Bytes(data);
+      var local = new Uint8Array(30 + nameBytes.length);
+      var dv = new DataView(local.buffer);
+      dv.setUint32(0, 0x04034B50, true);
+      dv.setUint16(4, 20, true);
+      dv.setUint16(6, 0x0800, true);
+      dv.setUint16(8, 0, true);
+      dv.setUint16(10, dosTime, true);
+      dv.setUint16(12, dosDate, true);
+      dv.setUint32(14, crc, true);
+      dv.setUint32(18, data.length, true);
+      dv.setUint32(22, data.length, true);
+      dv.setUint16(26, nameBytes.length, true);
+      dv.setUint16(28, 0, true);
+      local.set(nameBytes, 30);
+      parts.push(local, data);
+
+      var central = new Uint8Array(46 + nameBytes.length);
+      var dv2 = new DataView(central.buffer);
+      dv2.setUint32(0, 0x02014B50, true);
+      dv2.setUint16(4, 20, true);
+      dv2.setUint16(6, 20, true);
+      dv2.setUint16(8, 0x0800, true);
+      dv2.setUint16(10, 0, true);
+      dv2.setUint16(12, dosTime, true);
+      dv2.setUint16(14, dosDate, true);
+      dv2.setUint32(16, crc, true);
+      dv2.setUint32(20, data.length, true);
+      dv2.setUint32(24, data.length, true);
+      dv2.setUint16(28, nameBytes.length, true);
+      dv2.setUint16(30, 0, true);
+      dv2.setUint16(32, 0, true);
+      dv2.setUint16(34, 0, true);
+      dv2.setUint16(36, 0, true);
+      dv2.setUint32(38, 0, true);
+      dv2.setUint32(42, offset, true);
+      central.set(nameBytes, 46);
+      centralParts.push(central);
+      offset += local.length + data.length;
+    }
+    var centralSize = 0;
+    for (var ci = 0; ci < centralParts.length; ci++) centralSize += centralParts[ci].length;
+    var eocd = new Uint8Array(22);
+    var ev = new DataView(eocd.buffer);
+    ev.setUint32(0, 0x06054B50, true);
+    ev.setUint16(4, 0, true);
+    ev.setUint16(6, 0, true);
+    ev.setUint16(8, entries.length, true);
+    ev.setUint16(10, entries.length, true);
+    ev.setUint32(12, centralSize, true);
+    ev.setUint32(16, offset, true);
+    ev.setUint16(20, 0, true);
+    var all = parts.concat(centralParts);
+    all.push(eocd);
+    return new Blob(all, { type: 'application/zip' });
+  }
+
+  function zipSafe(name) {
+    return String(name).replace(/[\\/:*?"<>|]/g, '_');
+  }
+
+  function batchPaletteTextLine(meta, palette, counts) {
+    var total = 0;
+    if (counts) for (var i = 0; i < counts.length; i++) total += counts[i];
+    var parts = [];
+    for (var j = 0; j < palette.length; j++) {
+      var pct = total ? (counts[j] || 0) * 100 / total : 0;
+      parts.push(toHex(palette[j]).toUpperCase() + ' ' + pct.toFixed(1) + '%');
+    }
+    return meta.name + '	' + meta.workW + 'x' + meta.workH + '	' + parts.join('  ');
+  }
+
+  function addOriginalZipEntry(file, zipEntries) {
+    return new Promise(function (resolve) {
+      var fr = new FileReader();
+      fr.onload = function () {
+        var nm = file.name || 'image';
+        var dot = nm.lastIndexOf('.');
+        var ext = dot >= 0 ? nm.slice(dot) : fileExt('', file.type);
+        zipEntries.push({ name: '原图/' + zipSafe(stripExt(nm)) + ext, data: new Uint8Array(fr.result) });
+        resolve();
+      };
+      fr.onerror = function () { resolve(); };
+      fr.readAsArrayBuffer(file);
+    });
+  }
+
+  async function runBatch(files, opts, hooks) {
+    var items = [];
+    var zipEntries = [];
+    var paletteLines = [];
+    var total = files.length;
+    var stamp = new Date();
+    function pad2(v) { return v < 10 ? '0' + v : String(v); }
+    var zipName = (opts.line ? '线稿批量_' : '色块批量_') + stamp.getFullYear() + pad2(stamp.getMonth() + 1) + pad2(stamp.getDate()) + '_' + pad2(stamp.getHours()) + pad2(stamp.getMinutes()) + '.zip';
+    var basePalette = state.palette.map(function (p) { return { r: p.r, g: p.g, b: p.b }; });
+    var done = 0;
+    var processed = 0;
+    var errors = [];
+    for (var i = 0; i < total; i++) {
+      if (batchCancelFlag) break;
+      var file = files[i];
+      if (hooks && hooks.onProgress) hooks.onProgress(processed, total, file.name || 'image');
+      try {
+        var res = await processBatchFile(file, {
+          maxSide: opts.maxSide,
+          gray: opts.gray,
+          unified: opts.unified,
+          basePalette: basePalette,
+          k: opts.k,
+          line: opts.line,
+          index: i
+        });
+        var pngBlob = await new Promise(function (resolve) { res.canvas.toBlob(resolve, 'image/png'); });
+        if (res.line) {
+          if (pngBlob) zipEntries.push({ name: '线稿图/' + zipSafe(res.name) + '_线稿.png', data: await blobToUint8(pngBlob) });
+          if (opts.cards) {
+            var lcard = buildLineCardFrom(res.canvas, { name: res.name, workW: res.workW, workH: res.workH, params: state.lineParams, ratio: res.ratio, hatch: state.hatch });
+            if (lcard) {
+              var lcardBlob = await new Promise(function (resolve) { lcard.toBlob(resolve, 'image/png'); });
+              if (lcardBlob) zipEntries.push({ name: '参考卡/' + zipSafe(res.name) + '_线稿参考卡.png', data: await blobToUint8(lcardBlob) });
+            }
+          }
+          items.push({ name: res.name, workW: res.workW, workH: res.workH, line: true, ratio: res.ratio });
+        } else {
+          var label = (opts.gray ? '灰度' : '') + res.palette.length + (opts.gray ? '级' : '色');
+          if (pngBlob) zipEntries.push({ name: '色块图/' + zipSafe(res.name) + '_' + label + '.png', data: await blobToUint8(pngBlob) });
+          if (opts.cards) {
+            var card = buildReferenceCardFrom(res.canvas, res.palette, res.counts, {
+              name: res.name,
+              workW: res.workW,
+              workH: res.workH,
+              gray: opts.gray,
+              blur: state.blur,
+              minRegion: state.minRegion
+            });
+            if (card) {
+              var cardBlob = await new Promise(function (resolve) { card.toBlob(resolve, 'image/png'); });
+              if (cardBlob) zipEntries.push({ name: '参考卡/' + zipSafe(res.name) + '_参考卡.png', data: await blobToUint8(cardBlob) });
+            }
+          }
+          if (opts.paletteTxt) paletteLines.push(batchPaletteTextLine(res, res.palette, res.counts));
+          items.push({ name: res.name, workW: res.workW, workH: res.workH, palette: res.palette.map(toHex), counts: Array.prototype.slice.call(res.counts) });
+        }
+        if (opts.original) await addOriginalZipEntry(file, zipEntries);
+        done++;
+      } catch (err) {
+        errors.push({ name: file.name || 'image', message: (err && err.message) ? err.message : String(err) });
+        if (hooks && hooks.onError) hooks.onError(file.name || 'image', err);
+      }
+      processed++;
+      if (hooks && hooks.onProgress) hooks.onProgress(processed, total, file.name || 'image');
+      await yieldToUi();
+    }
+    if (paletteLines.length) {
+      var colorDesc = opts.unified ? ('统一色板 ' + basePalette.length + (opts.gray ? ' 级' : ' 色')) : ('自动提取，每张最多 ' + opts.k + (opts.gray ? ' 级' : ' 色') + '（实际见每行）');
+      var header = ['# 色块提炼器批量导出', '# 时间：' + stamp.toLocaleString('zh-CN', { hour12: false }), '# 模式：' + (opts.gray ? '灰度明暗' : '彩色色块'), '# 色数：' + colorDesc, '# 柔化：' + state.blur + '；合并碎块：' + state.minRegion + 'px', '# 说明：文件名<TAB>尺寸<TAB>色值 占比', ''];
+      var txt = header.concat(paletteLines).join(String.fromCharCode(10)) + String.fromCharCode(10);
+      zipEntries.push({ name: '调色板.txt', data: new TextEncoder().encode(txt) });
+    }
+    var readmeLines = ['色块提炼器批量导出', '模式：' + (opts.line ? '针管线稿' : (opts.gray ? '灰度明暗' : '彩色色块')), '工作尺寸长边：' + opts.maxSide + 'px', '成功：' + done + ' 张' + (errors.length ? ('，跳过：' + errors.length + ' 张') : '')];
+    var included = [opts.line ? '线稿图/' : '色块图/'];
+    if (opts.cards) included.push('参考卡/');
+    if (!opts.line && opts.paletteTxt) included.push('调色板.txt');
+    if (opts.original) included.push('原图/');
+    readmeLines.push('包含：' + included.join('、'));
+    if (errors.length) {
+      readmeLines.push('跳过的图片：');
+      for (var ei = 0; ei < errors.length; ei++) readmeLines.push(' - ' + errors[ei].name + '：' + errors[ei].message);
+    }
+    readmeLines.push('生成时间：' + stamp.toLocaleString('zh-CN', { hour12: false }));
+    var readme = readmeLines.join(String.fromCharCode(10));
+    zipEntries.push({ name: '说明.txt', data: new TextEncoder().encode(readme) });
+    var zipBlob = makeZipBlob(zipEntries);
+    return {
+      name: zipName,
+      count: done,
+      skipped: errors,
+      items: items,
+      zipBlob: zipBlob,
+      zipBytes: await blobToUint8(zipBlob)
+    };
+  }
+
+  async function startBatch() {
+    if (batchRunning) return;
+    if (!batchFiles.length) {
+      toast('还没有选择图片');
+      return;
+    }
+    var opts = {
+      maxSide: parseInt(els.batchSize.value, 10) || 1600,
+      gray: state.gray,
+      line: state.line,
+      unified: !state.line && els.batchUnified.checked,
+      cards: els.batchCards.checked,
+      paletteTxt: !state.line && els.batchPalette.checked,
+      original: els.batchOriginal.checked,
+      k: state.k
+    };
+    batchRunning = true;
+    batchCancelFlag = false;
+    els.batchStart.disabled = true;
+    els.batchCancel.hidden = false;
+    els.batchProgressWrap.hidden = false;
+    els.batchBar.style.width = '0%';
+    try {
+      var result = await runBatch(batchFiles, opts, {
+        onProgress: function (doneCount, totalCount, name) {
+          var pct = totalCount ? Math.round(doneCount * 100 / totalCount) : 0;
+          els.batchBar.style.width = pct + '%';
+          els.batchStatus.textContent = doneCount >= totalCount ? ('完成 ' + totalCount + ' 张，正在打包 ZIP…') : ('正在处理 ' + (doneCount + 1) + '/' + totalCount + '：' + (name || ''));
+        }
+      });
+      downloadBlob(result.zipBlob, result.name);
+      var skippedN = result.skipped ? result.skipped.length : 0;
+      var summary = '批量完成：' + result.count + ' 张' + (skippedN ? ('，跳过 ' + skippedN + ' 张') : '') + '，已下载 ZIP（' + Math.max(1, Math.round(result.zipBytes.length / 1024)) + ' KB）';
+      if (result.count === 0 && skippedN > 0) summary = '没有成功处理的图片（' + skippedN + ' 张读取失败），已下载说明文件';
+      if (batchCancelFlag) summary = '已停止：导出已完成 ' + result.count + ' 张' + (skippedN ? ('，跳过 ' + skippedN + ' 张') : '') + '（' + result.name + '）';
+      els.batchStatus.textContent = summary;
+      toast(summary);
+    } catch (err) {
+      console.error(err);
+      els.batchStatus.textContent = '批量处理失败：' + (err && err.message ? err.message : String(err));
+      toast('批量处理失败：' + (err && err.message ? err.message : String(err)));
+    } finally {
+      batchRunning = false;
+      els.batchCancel.hidden = true;
+      els.batchProgressWrap.hidden = true;
+      els.batchStart.disabled = !batchFiles.length;
+    }
+  }
+
+  function bytesToBase64(bytes) {
+    var bin = '';
+    var chunk = 0x8000;
+    for (var i = 0; i < bytes.length; i += chunk) {
+      bin += String.fromCharCode.apply(null, bytes.subarray(i, i + chunk));
+    }
+    return btoa(bin);
+  }
+
+  /* ---------------- 打印参考卡（A4） ---------------- */
+  function printPaletteCols(n) {
+    return Math.min(4, Math.max(3, Math.ceil(Math.sqrt(n))));
+  }
+
+  function drawPrintImage(ctx, src, x, y, w, h, label) {
+    if (!src || !src.width || !src.height) return y;
+    ctx.fillStyle = '#6f685c';
+    ctx.font = '600 16px "Microsoft YaHei", sans-serif';
+    ctx.fillText(label, x, y + 16);
+    var top = y + 26;
+    var availH = h - 26;
+    if (availH < 10) return y + 26;
+    var scale = Math.min(w / src.width, availH / src.height);
+    var dw = Math.max(1, Math.round(src.width * scale));
+    var dh = Math.max(1, Math.round(src.height * scale));
+    var dx = x + Math.round((w - dw) / 2);
+    var dy = top;
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
+    ctx.drawImage(src, dx, dy, dw, dh);
+    ctx.strokeStyle = 'rgba(0,0,0,.2)';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(dx + 0.5, dy + 0.5, dw - 1, dh - 1);
+    return dy + dh;
+  }
+
+  function drawPrintPalette(ctx, palette, counts, x, y, w) {
+    var n = palette.length;
+    var cols = printPaletteCols(n);
+    var cellW = w / cols;
+    var rowH = 82;
+    var total = 0;
+    if (counts) {
+      for (var t = 0; t < counts.length; t++) total += counts[t];
+    }
+    ctx.fillStyle = '#4b463d';
+    ctx.font = '600 15px "Microsoft YaHei", sans-serif';
+    ctx.fillText('色板', x, y + 4);
+    var top = y + 16;
+    for (var i = 0; i < n; i++) {
+      var col = i % cols;
+      var row = Math.floor(i / cols);
+      var sx = x + col * cellW;
+      var sy = top + row * rowH;
+      drawSwatch(ctx, sx, sy, 46, palette[i]);
+      var pct = total && counts ? (counts[i] || 0) * 100 / total : 0;
+      ctx.fillStyle = '#221f1a';
+      ctx.font = '600 16px ui-monospace, Consolas, monospace';
+      ctx.fillText(toHex(palette[i]).toUpperCase(), sx + 58, sy + 20);
+      ctx.fillStyle = '#7a7367';
+      ctx.font = '13px "Microsoft YaHei", sans-serif';
+      ctx.fillText(pct.toFixed(pct >= 10 ? 0 : 1) + '%', sx + 58, sy + 40);
+    }
+  }
+
+  function buildLinePrintCanvas(includeOriginal) {
+    if (!state.ready) return null;
+    var W = 1240, H = 1754, M = 62;
+    var p = state.lineParams;
+    var c = document.createElement('canvas');
+    c.width = W;
+    c.height = H;
+    var ctx = c.getContext('2d');
+    ctx.fillStyle = '#fbf9f4';
+    ctx.fillRect(0, 0, W, H);
+    ctx.fillStyle = '#2a2620';
+    ctx.font = '700 40px "Microsoft YaHei", "PingFang SC", sans-serif';
+    ctx.fillText('针管线稿 · 墨量 ' + p.amount + '%', M, M + 40);
+    ctx.fillStyle = '#7a7367';
+    ctx.font = '18px "Microsoft YaHei", sans-serif';
+    var nm = String(state.name || 'image');
+    if (nm.length > 40) nm = nm.slice(0, 38) + '…';
+    ctx.fillText(nm + ' · ' + state.workW + '×' + state.workH + 'px · 纯黑白 · ' + new Date().toLocaleDateString('zh-CN'), M, M + 74);
+    var ruleY = M + 96;
+    ctx.strokeStyle = '#ddd5c6';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(M, ruleY);
+    ctx.lineTo(W - M, ruleY);
+    ctx.stroke();
+
+    var top = ruleY + 24;
+    var infoH = 124;
+    var footerH = 36;
+    var imgW = W - 2 * M;
+    var imgH = H - M - footerH - infoH - top;
+    var imgBottom = top;
+    if (includeOriginal) {
+      var aspect = state.workW / state.workH;
+      if (aspect >= 1.15) {
+        var eachH = Math.floor((imgH - 30) / 2);
+        drawPrintImage(ctx, els.origCanvas, M, top, imgW, eachH, '原图');
+        imgBottom = drawPrintImage(ctx, els.resultCanvas, M, top + eachH + 30, imgW, eachH, '线稿');
+      } else {
+        var gap = 26;
+        var colW = Math.floor((imgW - gap) / 2);
+        var b1 = drawPrintImage(ctx, els.origCanvas, M, top, colW, imgH, '原图');
+        var b2 = drawPrintImage(ctx, els.resultCanvas, M + colW + gap, top, colW, imgH, '线稿');
+        imgBottom = Math.max(b1, b2);
+      }
+    } else {
+      imgBottom = drawPrintImage(ctx, els.resultCanvas, M, top, imgW, imgH, '线稿');
+    }
+    var sy = imgBottom + 28;
+    ctx.fillStyle = '#4b463d';
+    ctx.font = '600 16px "Microsoft YaHei", sans-serif';
+    var hp = state.hatch;
+    var hatchPrint = hp.enabled ? (' · 排线 ' + hp.strength + '%/' + hatchAngleLabel(hp.angle) + '/密度 ' + hp.density) : '';
+    hatchPrint += state.black.enabled ? (' · 压黑 ≤' + state.black.threshold + '%') : '';
+    ctx.fillText('线条量 ' + p.amount + '% · 线条粗细 ' + p.width + ' · 平滑/细节 ' + Number(p.sigma).toFixed(1) + ' · 细节尺度 ' + Number(p.k).toFixed(1) + ' · 清理碎线 ' + p.clean + 'px' + hatchPrint, M, sy);
+    ctx.fillStyle = '#7a7367';
+    ctx.font = '14px "Microsoft YaHei", sans-serif';
+    ctx.fillText('黑线占比 ' + (state.lineRatioVal * 100).toFixed(1) + '% · 纯黑白输出 · 适合控笔 / 描线 / 临摹练习', M, sy + 26);
+    ctx.fillStyle = '#a09889';
+    ctx.font = '14px "Microsoft YaHei", sans-serif';
+    ctx.fillText('色块提炼器 · 本地生成 · 仅作画画参考', M, H - M + 8);
+    return c;
+  }
+
+  function buildPrintCanvas(includeOriginal) {
+    if (state.line) return buildLinePrintCanvas(includeOriginal);
+    if (!state.ready || !state.palette.length) return null;
+    var W = 1240;
+    var H = 1754;
+    var M = 62;
+    var c = document.createElement('canvas');
+    c.width = W;
+    c.height = H;
+    var ctx = c.getContext('2d');
+    ctx.fillStyle = '#fbf9f4';
+    ctx.fillRect(0, 0, W, H);
+
+    ctx.fillStyle = '#2a2620';
+    ctx.font = '700 40px "Microsoft YaHei", "PingFang SC", sans-serif';
+    ctx.fillText(state.gray ? ('灰阶提炼 · ' + state.palette.length + ' 级') : ('色块提炼 · ' + state.palette.length + ' 色'), M, M + 40);
+    ctx.fillStyle = '#7a7367';
+    ctx.font = '18px "Microsoft YaHei", sans-serif';
+    var printName = String(state.name || 'image');
+    if (printName.length > 40) printName = printName.slice(0, 38) + '…';
+    var sub = printName + ' · ' + state.workW + '×' + state.workH + 'px · ' + (state.gray ? '灰度明暗 · ' : '') + '柔化 ' + state.blur + ' · 合并碎块 ' + state.minRegion + 'px · ' + new Date().toLocaleDateString('zh-CN');
+    ctx.fillText(sub, M, M + 74);
+    var ruleY = M + 96;
+    ctx.strokeStyle = '#ddd5c6';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(M, ruleY);
+    ctx.lineTo(W - M, ruleY);
+    ctx.stroke();
+
+    var top = ruleY + 24;
+    var n = state.palette.length;
+    var cols = printPaletteCols(n);
+    var paletteH = Math.ceil(n / cols) * 82 + 42;
+    var footerH = 36;
+    var imgW = W - 2 * M;
+    var imgH = H - M - footerH - paletteH - top;
+    var imgBottom = top;
+    if (includeOriginal) {
+      var aspect = state.workW / state.workH;
+      if (aspect >= 1.15) {
+        var eachH = Math.floor((imgH - 30) / 2);
+        drawPrintImage(ctx, els.origCanvas, M, top, imgW, eachH, '原图');
+        imgBottom = drawPrintImage(ctx, els.resultCanvas, M, top + eachH + 30, imgW, eachH, '色块结果');
+      } else {
+        var gap = 26;
+        var colW = Math.floor((imgW - gap) / 2);
+        var b1 = drawPrintImage(ctx, els.origCanvas, M, top, colW, imgH, '原图');
+        var b2 = drawPrintImage(ctx, els.resultCanvas, M + colW + gap, top, colW, imgH, '色块结果');
+        imgBottom = Math.max(b1, b2);
+      }
+    } else {
+      imgBottom = drawPrintImage(ctx, els.resultCanvas, M, top, imgW, imgH, '色块结果');
+    }
+    drawPrintPalette(ctx, state.palette, state.counts, M, Math.min(imgBottom + 22, H - M - footerH - paletteH), imgW);
+
+    ctx.fillStyle = '#a09889';
+    ctx.font = '14px "Microsoft YaHei", sans-serif';
+    ctx.fillText('色块提炼器 · 本地生成 · 仅作画画参考', M, H - M + 8);
+    return c;
+  }
+
+  function openPrintWindow(includeOriginal) {
+    if (!state.ready) {
+      toast('先载入一张图片');
+      return;
+    }
+    var c = buildPrintCanvas(!!includeOriginal);
+    if (!c) {
+      toast('打印内容生成失败');
+      return;
+    }
+    var dataURL = c.toDataURL('image/png');
+    var win = window.open('', '_blank');
+    if (!win) {
+      toast('浏览器拦截了打印窗口，请允许弹出窗口后重试');
+      return;
+    }
+    var html = '<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><title>打印参考卡</title>' +
+      '<style>@page{size:A4 portrait;margin:0}html,body{margin:0;padding:0;background:#fff}img{display:block;width:100%;height:auto}</style>' +
+      '</head><body><img alt="参考卡" src="' + dataURL + '" onload="setTimeout(function(){window.focus();window.print();},200)"></body></html>';
+    win.document.open();
+    win.document.write(html);
+    win.document.close();
+  }
+
+  /* ---------------- 控件启用状态 ---------------- */
+  var controlButtons = null;
+  function setControlsEnabled(on) {
+    if (!controlButtons) {
+      controlButtons = [els.extractBtn, els.shuffleBtn, els.addColorBtn, els.pickBtn, els.copyBtn, els.exportBtn, els.exportBtnTop, els.exportOrigBtn, els.cardBtn, els.printBtn, els.printBtnTop, els.saveBtn, els.saveBtnTop, els.batchBtn, els.batchBtnTop];
+    }
+    for (var i = 0; i < controlButtons.length; i++) controlButtons[i].disabled = !on;
+    if (els.batchBtn) els.batchBtn.disabled = false;
+    if (els.batchBtnTop) els.batchBtnTop.disabled = false;
+  }
+
+  /* ---------------- 事件绑定 ---------------- */
+  els.fileInput.addEventListener('change', function () {
+    if (els.fileInput.files && els.fileInput.files.length) loadFile(els.fileInput.files[0]);
+  });
+  els.changeBtn.addEventListener('click', function () { els.fileInput.click(); });
+
+  els.kRange.addEventListener('input', function () {
+    els.kVal.textContent = els.kRange.value;
+    state.k = parseInt(els.kRange.value, 10);
+  });
+  els.kRange.addEventListener('change', function () {
+    state.k = parseInt(els.kRange.value, 10);
+    extractAndRecolor();
+  });
+  els.extractBtn.addEventListener('click', extractAndRecolor);
+  els.shuffleBtn.addEventListener('click', function () {
+    state.seed = (state.seed + 0x9E3779B9) >>> 0;
+    extractAndRecolor();
+  });
+
+  els.blurRange.addEventListener('input', function () {
+    els.blurVal.textContent = els.blurRange.value;
+    state.blur = parseInt(els.blurRange.value, 10);
+    state.workRGB = null;
+    state.workRGBKey = '';
+    state.grayBase = null;
+  });
+  els.blurRange.addEventListener('change', function () {
+    state.blur = parseInt(els.blurRange.value, 10);
+    state.workRGB = null;
+    state.workRGBKey = '';
+    state.grayBase = null;
+    if (!state.ready) return;
+    if (state.paletteAuto) extractAndRecolor();
+    else recolor();
+  });
+
+  els.minRange.addEventListener('input', function () {
+    els.minVal.textContent = els.minRange.value;
+    state.minRegion = parseInt(els.minRange.value, 10);
+  });
+  els.minRange.addEventListener('change', function () {
+    state.minRegion = parseInt(els.minRange.value, 10);
+    if (state.ready) recolor();
+  });
+
+  els.modeColor.addEventListener('click', function () { setMode('color'); });
+  els.modeGray.addEventListener('click', function () { setMode('gray'); });
+  els.modeLine.addEventListener('click', function () { setMode('line'); });
+  els.evenGrayBtn.addEventListener('click', evenGrayLevels);
+
+  els.lineAmount.addEventListener('input', readLineInputs);
+  els.lineWidth.addEventListener('input', readLineInputs);
+  els.lineSigma.addEventListener('input', readLineInputs);
+  els.lineK.addEventListener('input', readLineInputs);
+  els.lineClean.addEventListener('input', readLineInputs);
+  els.hatchOn.addEventListener('change', function () {
+    state.hatch.enabled = els.hatchOn.checked;
+    syncHatchUi();
+    scheduleLinePreview();
+  });
+  els.hatchStrength.addEventListener('input', readHatchInputs);
+  els.hatchDensity.addEventListener('input', readHatchInputs);
+  els.hatchWidth.addEventListener('input', readHatchInputs);
+  els.hatchAngle.addEventListener('change', readHatchInputs);
+  els.hatchRange.addEventListener('change', readHatchInputs);
+  els.hatchHighlight.addEventListener('change', readHatchInputs);
+  els.hatchSkin.addEventListener('change', readHatchInputs);
+  els.hatchPresetLight.addEventListener('click', function () { setHatchPreset('light'); });
+  els.hatchPresetMid.addEventListener('click', function () { setHatchPreset('mid'); });
+  els.hatchPresetHeavy.addEventListener('click', function () { setHatchPreset('heavy'); });
+
+  els.blackOn.addEventListener('change', function () {
+    state.black.enabled = els.blackOn.checked;
+    syncBlackUi();
+    scheduleLinePreview();
+  });
+  els.blackThreshold.addEventListener('input', readBlackInputs);
+  els.blackSkin.addEventListener('change', readBlackInputs);
+
+  els.linePresetSimple.addEventListener('click', function () { setLinePreset('simple'); });
+  els.linePresetStd.addEventListener('click', function () { setLinePreset('std'); });
+  els.linePresetRich.addEventListener('click', function () { setLinePreset('rich'); });
+
+  els.smoothChk.addEventListener('change', function () {
+    state.smooth = els.smoothChk.checked ? 1 : 0;
+    if (state.ready) recolor();
+  });
+
+  els.viewResult.addEventListener('click', function () { state.view = 'result'; applyView(); });
+  els.viewSplit.addEventListener('click', function () { state.view = 'split'; applyView(); });
+  els.viewOrig.addEventListener('click', function () { state.view = 'orig'; applyView(); });
+
+  els.paletteGrid.addEventListener('click', function (e) {
+    var btn = e.target.closest ? e.target.closest('.swatch') : null;
+    if (!btn) return;
+    selectPalette(parseInt(btn.getAttribute('data-i'), 10));
+  });
+
+  els.selColor.addEventListener('input', function () {
+    applySelectedColor(els.selColor.value, false);
+  });
+  els.selColor.addEventListener('change', function () {
+    applySelectedColor(els.selColor.value, true);
+  });
+  els.selHex.addEventListener('change', function () {
+    var c = parseHex(els.selHex.value);
+    if (!c) {
+      toast('色值格式应为 #RRGGBB');
+      renderEditor();
+      return;
+    }
+    if (state.gray) {
+      var gv = rgbToGrayValue(c.r, c.g, c.b);
+      c = { r: gv, g: gv, b: gv };
+    }
+    applySelectedColor(toHex(c), true);
+  });
+  els.selHex.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      els.selHex.blur();
+    }
+  });
+  els.selGray.addEventListener('input', function () {
+    var v = parseInt(els.selGray.value, 10);
+    els.selGrayVal.textContent = String(v);
+    applySelectedColor(grayHex(v), false);
+  });
+  els.selGray.addEventListener('change', function () {
+    applySelectedColor(grayHex(parseInt(els.selGray.value, 10)), true);
+  });
+  els.delColorBtn.addEventListener('click', deleteSelectedColor);
+  els.addColorBtn.addEventListener('click', addSmartColor);
+  els.pickBtn.addEventListener('click', function () {
+    if (!state.ready) {
+      toast('先载入一张图片');
+      return;
+    }
+    state.pickMode = !state.pickMode;
+    updatePickUi();
+    if (state.pickMode) toast('在画面上点一下取色');
+  });
+  els.copyBtn.addEventListener('click', copyPalette);
+  els.exportBtn.addEventListener('click', exportPNG);
+  els.exportBtnTop.addEventListener('click', exportPNG);
+  els.exportOrigBtn.addEventListener('click', exportOriginal);
+  els.cardBtn.addEventListener('click', exportCard);
+
+  els.batchBtn.addEventListener('click', batchOpen);
+  els.batchClose.addEventListener('click', function () {
+    if (!batchRunning) els.batchModal.hidden = true;
+  });
+  els.batchModal.addEventListener('click', function (e) {
+    if (e.target === els.batchModal && !batchRunning) els.batchModal.hidden = true;
+  });
+  els.batchDirInput.addEventListener('change', function () {
+    batchSetFiles(els.batchDirInput.files || []);
+    els.batchDirInput.value = '';
+  });
+  els.batchFilesInput.addEventListener('change', function () {
+    batchSetFiles(els.batchFilesInput.files || []);
+    els.batchFilesInput.value = '';
+  });
+  els.batchStart.addEventListener('click', startBatch);
+  els.batchCancel.addEventListener('click', function () {
+    batchCancelFlag = true;
+    els.batchStatus.textContent = '正在停止…';
+  });
+
+  function openPrintModal() {
+    if (!state.ready) {
+      toast('先载入一张图片');
+      return;
+    }
+    els.printModal.hidden = false;
+  }
+  els.printBtn.addEventListener('click', openPrintModal);
+  els.printBtnTop.addEventListener('click', openPrintModal);
+  els.batchBtnTop.addEventListener('click', batchOpen);
+  els.printCancel.addEventListener('click', function () { els.printModal.hidden = true; });
+  els.printModal.addEventListener('click', function (e) {
+    if (e.target === els.printModal) els.printModal.hidden = true;
+  });
+  els.printGo.addEventListener('click', function () {
+    els.printModal.hidden = true;
+    openPrintWindow(els.printWithOrig.checked);
+  });
+
+  els.saveBtn.addEventListener('click', openSaveModal);
+  els.saveBtnTop.addEventListener('click', openSaveModal);
+  els.saveClose.addEventListener('click', function () { els.saveModal.hidden = true; });
+  els.saveCancel.addEventListener('click', function () { els.saveModal.hidden = true; });
+  els.saveModal.addEventListener('click', function (e) {
+    if (e.target === els.saveModal) els.saveModal.hidden = true;
+  });
+  els.saveGo.addEventListener('click', doSave);
+
+  els.helpBtn.addEventListener('click', function () { els.helpModal.hidden = false; });
+  els.helpClose.addEventListener('click', function () { els.helpModal.hidden = true; });
+  els.helpModal.addEventListener('click', function (e) {
+    if (e.target === els.helpModal) els.helpModal.hidden = true;
+  });
+
+  els.canvasWrap.addEventListener('pointerdown', function (e) {
+    if (!state.ready) return;
+    if (state.pickMode) {
+      e.preventDefault();
+      pickAt(e);
+      return;
+    }
+    if (state.view === 'split') {
+      e.preventDefault();
+      startSplitDrag(e);
+    }
+  });
+
+  els.divider.addEventListener('pointerdown', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    startSplitDrag(e);
+  });
+
+  document.addEventListener('paste', function (e) {
+    var items = e.clipboardData && e.clipboardData.items;
+    if (!items) return;
+    for (var i = 0; i < items.length; i++) {
+      if (items[i].type && items[i].type.indexOf('image/') === 0) {
+        var f = items[i].getAsFile();
+        if (f) {
+          e.preventDefault();
+          loadFile(f);
+          return;
+        }
+      }
+    }
+  });
+
+  var dragDepth = 0;
+  document.addEventListener('dragenter', function (e) {
+    e.preventDefault();
+    dragDepth++;
+    els.empty.classList.add('drag');
+  });
+  document.addEventListener('dragover', function (e) {
+    e.preventDefault();
+  });
+  document.addEventListener('dragleave', function (e) {
+    dragDepth--;
+    if (dragDepth <= 0) {
+      dragDepth = 0;
+      els.empty.classList.remove('drag');
+    }
+  });
+  document.addEventListener('drop', function (e) {
+    e.preventDefault();
+    dragDepth = 0;
+    els.empty.classList.remove('drag');
+    var dt = e.dataTransfer;
+    if (!dt) return;
+    if (dt.files && dt.files.length) loadFile(dt.files[0]);
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      if (!els.helpModal.hidden) { els.helpModal.hidden = true; return; }
+      if (!els.printModal.hidden) { els.printModal.hidden = true; return; }
+      if (!els.batchModal.hidden) { els.batchModal.hidden = true; return; }
+      if (!els.saveModal.hidden) { els.saveModal.hidden = true; return; }
+    }
+    if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'S')) {
+      e.preventDefault();
+      exportPNG();
+    }
+  });
+
+  window.addEventListener('resize', fitCanvas);
+  if (window.ResizeObserver) {
+    new ResizeObserver(function () { fitCanvas(); }).observe(els.viewer);
+  }
+
+  window.__errors = [];
+  window.addEventListener('error', function (e) {
+    window.__errors.push(String(e.message || e));
+  });
+  window.addEventListener('unhandledrejection', function (e) {
+    window.__errors.push('rejection: ' + String(e.reason));
+  });
+
+  /* 初始状态 */
+  els.smoothChk.checked = state.smooth > 0;
+  syncLineInputs();
+  syncHatchUi();
+  syncBlackUi();
+  updateModeUi();
+  setControlsEnabled(false);
+  updateBadge();
+  renderPalette();
+  applyView();
+
+  /* 调试 / 自动化测试接口（本地工具，无安全顾虑） */
+  window.__APP = {
+    loadURL: loadURL,
+    loadDataURL: loadURL,
+    getState: function () {
+      return {
+        ready: state.ready,
+        k: state.k,
+        blur: state.blur,
+        minRegion: state.minRegion,
+        smooth: state.smooth,
+        gray: state.gray,
+        line: state.line,
+        lineRatio: state.lineRatioVal,
+        lineParams: { amount: state.lineParams.amount, sigma: state.lineParams.sigma, k: state.lineParams.k, width: state.lineParams.width, clean: state.lineParams.clean },
+        hatch: { enabled: state.hatch.enabled, strength: state.hatch.strength, density: state.hatch.density, width: state.hatch.width, angle: state.hatch.angle, range: state.hatch.range, protectHighlight: state.hatch.protectHighlight, protectSkin: state.hatch.protectSkin },
+        black: { enabled: state.black.enabled, threshold: state.black.threshold, protectSkin: state.black.protectSkin },
+        palette: state.palette.map(toHex),
+        counts: state.counts ? Array.prototype.slice.call(state.counts) : [],
+        workW: state.workW,
+        workH: state.workH,
+        naturalW: state.naturalW,
+        naturalH: state.naturalH,
+        paletteAuto: state.paletteAuto,
+        selected: state.selected,
+        view: state.view,
+        name: state.name,
+        lastExtractMs: state.lastExtractMs,
+        lastRecolorMs: state.lastRecolorMs
+      };
+    },
+    setParams: function (o) {
+      if (!o) return;
+      if (o.k != null) {
+        state.k = Math.max(1, Math.min(32, Math.round(o.k)));
+        els.kRange.value = String(Math.min(24, Math.max(2, state.k)));
+        els.kVal.textContent = String(state.k);
+      }
+      if (o.blur != null) {
+        state.blur = Math.max(0, Math.min(8, Math.round(o.blur)));
+        els.blurRange.value = String(state.blur);
+        els.blurVal.textContent = String(state.blur);
+        state.workRGB = null;
+        state.workRGBKey = ''
+      }
+      if (o.minRegion != null) {
+        state.minRegion = Math.max(0, Math.round(o.minRegion));
+        var snapped = Math.round(state.minRegion / 10) * 10;
+        els.minRange.value = String(Math.min(800, snapped));
+        els.minVal.textContent = String(snapped);
+      }
+      if (o.smooth != null) {
+        state.smooth = Math.max(0, Math.min(3, Math.round(o.smooth)));
+        els.smoothChk.checked = state.smooth > 0;
+      }
+      if (o.lineParams) {
+        if (o.lineParams.amount != null) state.lineParams.amount = Math.max(2, Math.min(20, Math.round(o.lineParams.amount)));
+        if (o.lineParams.sigma != null) state.lineParams.sigma = Math.max(0.6, Math.min(2.6, +o.lineParams.sigma));
+        if (o.lineParams.k != null) state.lineParams.k = Math.max(1.4, Math.min(2.6, +o.lineParams.k));
+        if (o.lineParams.width != null) state.lineParams.width = Math.max(0, Math.min(4, Math.round(o.lineParams.width)));
+        if (o.lineParams.clean != null) state.lineParams.clean = Math.max(0, Math.min(300, Math.round(o.lineParams.clean)));
+        syncLineInputs();
+      }
+      if (o.gray != null && !!o.gray !== state.gray) {
+        state.gray = !!o.gray;
+        state.grayBase = null;
+        state.workRGB = null;
+        state.workRGBKey = '';
+        state.paletteAuto = true;
+        updateModeUi();
+      }
+      if (state.ready) {
+        if (state.line) {
+          if (o.lineParams || o.gray != null) computeLinePreview();
+        } else if (o.k != null || o.blur != null || o.gray != null) {
+          extractAndRecolor();
+        } else {
+          recolor();
+        }
+      }
+    },
+    setPalette: function (hexes) {
+      if (!state.ready || !hexes || !hexes.length) return false;
+      var arr = [];
+      for (var i = 0; i < hexes.length; i++) {
+        var c = parseHex(hexes[i]);
+        if (c) arr.push(c);
+      }
+      if (!arr.length) return false;
+      if (arr.length > 32) arr = arr.slice(0, 32);
+      state.palette = arr;
+      state.selected = 0;
+      state.paletteAuto = false;
+      state.mapLUTKey = '';
+      updateBadge();
+      if (!state.line) recolor();
+      return true;
+    },
+    extract: extractAndRecolor,
+    recolor: recolor,
+    setGray: setGrayMode,
+    setLine: setLineMode,
+    setMode: setMode,
+    evenGrayLevels: evenGrayLevels,
+    setLineParams: function (o) {
+      if (!o) return;
+      if (o.amount != null) state.lineParams.amount = Math.max(2, Math.min(20, Math.round(o.amount)));
+      if (o.sigma != null) state.lineParams.sigma = Math.max(0.6, Math.min(2.6, +o.sigma));
+      if (o.k != null) state.lineParams.k = Math.max(1.4, Math.min(2.6, +o.k));
+      if (o.width != null) state.lineParams.width = Math.max(0, Math.min(4, Math.round(o.width)));
+      if (o.clean != null) state.lineParams.clean = Math.max(0, Math.min(300, Math.round(o.clean)));
+      syncLineInputs();
+      if (state.line && state.ready) computeLinePreview();
+    },
+    setBlack: function (o) {
+      if (!o) return;
+      var b = state.black;
+      if (o.enabled != null) b.enabled = !!o.enabled;
+      if (o.threshold != null) b.threshold = Math.max(5, Math.min(60, Math.round(o.threshold)));
+      if (o.protectSkin != null) b.protectSkin = !!o.protectSkin;
+      syncBlackUi();
+      if (state.line && state.ready) computeLinePreview();
+    },
+    setHatch: function (o) {
+      if (!o) return;
+      var h = state.hatch;
+      if (o.enabled != null) h.enabled = !!o.enabled;
+      if (o.strength != null) h.strength = Math.max(3, Math.min(100, Math.round(o.strength)));
+      if (o.density != null) h.density = Math.max(1, Math.min(5, Math.round(o.density)));
+      if (o.width != null) h.width = Math.max(1, Math.min(3, Math.round(o.width)));
+      if (o.angle != null) h.angle = String(o.angle);
+      if (o.range != null) h.range = String(o.range);
+      if (o.protectHighlight != null) h.protectHighlight = !!o.protectHighlight;
+      if (o.protectSkin != null) h.protectSkin = !!o.protectSkin;
+      syncHatchUi();
+      if (state.line && state.ready) computeLinePreview();
+    },
+    saveTest: async function (opts) {
+      opts = opts || { line: true, block: false };
+      var entries = await buildSaveEntries({
+        original: !!opts.original,
+        line: !!opts.line,
+        block: !!opts.block,
+        card: !!opts.card
+      });
+      if (!entries.length) return { count: 0, names: [] };
+      if (entries.length === 1) {
+        return { count: 1, names: [entries[0].name], dataBase64: bytesToBase64(entries[0].data), type: entries[0].type || 'image/png' };
+      }
+      var zip = makeZipBlob(entries.map(function (e) { return { name: e.folder + '/' + zipSafe(e.name), data: e.data }; }));
+      var bytes = await blobToUint8(zip);
+      return { count: entries.length, names: entries.map(function (e) { return e.folder + '/' + e.name; }), zipBase64: bytesToBase64(bytes), zipSize: bytes.length };
+    },
+    setView: function (v) { state.view = v; applyView(); },
+    resultPNG: function () { return els.resultCanvas.toDataURL('image/png'); },
+    origPNG: function () { return els.origCanvas.toDataURL('image/png'); },
+    cardPNG: function () { var c = buildReferenceCard(); return c ? c.toDataURL('image/png') : null; },
+    printCanvasDataURL: function (includeOriginal) { var c = buildPrintCanvas(!!includeOriginal); return c ? c.toDataURL('image/png') : null; },
+    batchFromDataURLs: async function (urls, names, opts) {
+      opts = opts || {};
+      var files = [];
+      for (var i = 0; i < urls.length; i++) {
+        var res = await fetch(urls[i]);
+        var blob = await res.blob();
+        files.push(new File([blob], (names && names[i]) || ('image_' + i + '.png'), { type: blob.type || 'image/png' }));
+      }
+      var o = {
+        maxSide: opts.maxSide || 800,
+        gray: opts.gray != null ? !!opts.gray : state.gray,
+        line: !!opts.line,
+        original: !!opts.original,
+        unified: !!opts.unified,
+        cards: !!opts.cards,
+        paletteTxt: opts.paletteTxt !== false,
+        k: opts.k || state.k
+      };
+      var result = await runBatch(files, o, null);
+      return { name: result.name, count: result.count, skipped: result.skipped, items: result.items, zipBase64: bytesToBase64(result.zipBytes), zipSize: result.zipBytes.length };
+    },
+    fullResPNG: async function () {
+      var r = await renderFullRes();
+      return { dataURL: r.canvas.toDataURL('image/png'), w: r.w, h: r.h };
+    },
+    uniqueColors: function () {
+      var c = els.resultCanvas;
+      var d = resultCtx.getImageData(0, 0, c.width, c.height).data;
+      var seen = {};
+      var out = [];
+      for (var i = 0; i < d.length; i += 4) {
+        var key = (d[i] << 16) | (d[i + 1] << 8) | d[i + 2];
+        if (!seen[key]) {
+          seen[key] = 1;
+          var h = key.toString(16);
+          while (h.length < 6) h = '0' + h;
+          out.push('#' + h);
+        }
+      }
+      out.sort();
+      return out;
+    },
+    getErrors: function () { return window.__errors.slice(); }
+  };
+})();
+
+</script>
+</body>
+</html>
