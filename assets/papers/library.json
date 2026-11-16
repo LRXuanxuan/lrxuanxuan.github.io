@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "source": "每日论文推荐.xlsx",
-  "source_sha256": "29ef7018c85764aa3729491f01f689f4b26907dd0a25e08cf5c08ff5f5cc777d",
+  "source_sha256": "b84e9e17fe2703d0452a5c601f6e42a20db8329737f3058573ad5e2e5e1c4001",
   "translation_progress": {
     "target": 315,
     "completed": 281,
@@ -2293,56 +2293,54 @@
       "full_translation_label": "全文翻译（待补齐）"
     },
     {
-      "id": "d6ec66a057f57abe",
+      "id": "542b6f39c5c441d5",
       "date": "2026-11-19",
-      "title": "CKMImageNet: A Comprehensive Dataset to Enable Channel Knowledge Map Construction via Computer Vision",
+      "title": "Towards Intelligent Low-Altitude Wireless Network Deployment: Differentiable Channel Knowledge Map Construction and Trajectory Design",
       "sheet": "每日论文推荐",
       "row": 544,
       "fields": {
         "日期": "2026-11-19",
-        "标题": "CKMImageNet: A Comprehensive Dataset to Enable Channel Knowledge Map Construction via Computer Vision",
-        "内容": "Di Wu、Zijian Wu、Yuelong Qiu、Shen Fu、Yong Zeng。CKMImageNet 将位置标注的射线追踪信道与环境图像配对，支持视觉建图的输入输出验证。",
+        "标题": "Towards Intelligent Low-Altitude Wireless Network Deployment: Differentiable Channel Knowledge Map Construction and Trajectory Design",
+        "内容": "Le Zhao、Zesong Fei、Wenge Shi、Xinyi Wang、Jingxuan Huang、Jihao Luo、Yong Zeng。将连续坐标采样的环境特征送入条件回归器预测增益，再对多 UAV 轨迹、功率和带宽做交替优化，仿真比较了最小吞吐。",
         "契合方向": "动态 CKM、地图刷新和地图失配",
-        "推荐理由": "适合作为地图接口和按场景切分的数据资源。商业射线标签的可复查范围与实测泛化分开记录。",
+        "推荐理由": "在同一地图数据上测坐标求导的有限差分误差和未见路线的插值，进一步核对地图增益偏差如何传入路线决策。",
         "顶刊顶会/机构依据": "arXiv。预印本/状态未确认。以 arXiv 所列公开版本编年。",
-        "发表年份": "2024",
-        "论文下载链接": "https://arxiv.org/pdf/2410.07219v1",
-        "检索来源": "https://arxiv.org/abs/2410.07219",
-        "筛选备注": "可改造工具或对照。适合作为地图接口和按场景切分的数据资源。商业射线标签的可复查范围与实测泛化分开记录。",
+        "发表年份": "2026",
+        "论文下载链接": "https://arxiv.org/pdf/2605.07163v1",
+        "检索来源": "https://arxiv.org/abs/2605.07163",
+        "筛选备注": "可改造工具或对照。在同一地图数据上测坐标求导的有限差分误差和未见路线的插值，进一步核对地图增益偏差如何传入路线决策。",
         "是否略读": "☐",
         "是否精读": "☐",
         "备注": "",
-        "代码链接": "https://github.com/Darwen9/CKD",
-        "代码/数据状态": "作者预告/部分代码。作者公开数据入口，方法实现的覆盖程度未确认。",
-        "反馈匹配": "CKMImageNet 将位置标注的射线追踪信道与环境图像配对，支持视觉建图的输入输出验证。",
-        "反馈权重说明": "适合作为地图接口和按场景切分的数据资源。商业射线标签的可复查范围与实测泛化分开记录。"
+        "代码链接": "",
+        "代码/数据状态": "未发现公开代码。在原文和 arXiv 条目中未找到可归属于本论文的公开实现入口。",
+        "反馈匹配": "将连续坐标采样的环境特征送入条件回归器预测增益，再对多 UAV 轨迹、功率和带宽做交替优化，仿真比较了最小吞吐。",
+        "反馈权重说明": "在同一地图数据上测坐标求导的有限差分误差和未见路线的插值，进一步核对地图增益偏差如何传入路线决策。"
       },
       "hyperlinks": {},
       "report_url": "/papers/reports/2026-11-19/",
-      "report_section": "## 8. CKMImageNet: A Comprehensive Dataset to Enable Channel Knowledge Map Construction via Computer Vision\n\n**作者与出版信息**　Di Wu、Zijian Wu、Yuelong Qiu、Shen Fu、Yong Zeng。2024，arXiv。预印本/状态未确认。以 arXiv 所列公开版本编年。\n\n**论文方法与证据**　CKMImageNet 将位置标注的射线追踪信道与环境图像配对，支持视觉建图的输入输出验证。\n\n**研究接口与适用边界**　适合作为地图接口和按场景切分的数据资源。商业射线标签的可复查范围与实测泛化分开记录。\n\n**代码**　作者预告/部分代码。作者公开数据入口，方法实现的覆盖程度未确认。 [作者仓库](https://github.com/Darwen9/CKD) [GitHub 精确题名检索入口](https://github.com/search?q=%22CKMImageNet%3A+A+Comprehensive+Dataset+to+Enable+Channel+Knowledge+Map+Construction+via+Computer+Vision%22&type=repositories)\n\narXiv 2410.07219。公开原文 6 页。 [arXiv](https://arxiv.org/abs/2410.07219) [版本固定 PDF](https://arxiv.org/pdf/2410.07219v1) [本篇全文翻译](https://lrxuanxuan.github.io/papers/items/d6ec66a057f57abe/#paper-translation)",
-      "report_entry_url": "/papers/reports/2026-11-19/#paper-d6ec66a057f57abe",
-      "paper_url": "/papers/items/d6ec66a057f57abe/",
-      "paper_report_url": "/papers/items/d6ec66a057f57abe/#paper-report",
+      "report_section": "## 8. Towards Intelligent Low-Altitude Wireless Network Deployment: Differentiable Channel Knowledge Map Construction and Trajectory Design\n\n**作者与出版信息**　Le Zhao、Zesong Fei、Wenge Shi、Xinyi Wang、Jingxuan Huang、Jihao Luo、Yong Zeng。2026，arXiv。预印本/状态未确认。以 arXiv 所列公开版本编年。\n\n**论文方法与证据**　将连续坐标采样的环境特征送入条件回归器预测增益，再对多 UAV 轨迹、功率和带宽做交替优化，仿真比较了最小吞吐。\n\n**研究接口与适用边界**　在同一地图数据上测坐标求导的有限差分误差和未见路线的插值，进一步核对地图增益偏差如何传入路线决策。\n\n**代码**　未发现公开代码。在原文和 arXiv 条目中未找到可归属于本论文的公开实现入口。 [GitHub 精确题名检索入口](https://github.com/search?q=%22Towards+Intelligent+Low-Altitude+Wireless+Network+Deployment%3A+Differentiable+Channel+Knowledge+Map+Construction+and+Trajectory+Design%22&type=repositories)\n\narXiv 2605.07163。公开原文 13 页。 [arXiv](https://arxiv.org/abs/2605.07163) [版本固定 PDF](https://arxiv.org/pdf/2605.07163v1) [本篇全文翻译](https://lrxuanxuan.github.io/papers/items/542b6f39c5c441d5/#paper-translation)",
+      "report_entry_url": "/papers/reports/2026-11-19/#paper-542b6f39c5c441d5",
+      "paper_url": "/papers/items/542b6f39c5c441d5/",
+      "paper_report_url": "/papers/items/542b6f39c5c441d5/#paper-report",
       "translations": [],
       "links": [
-        "https://arxiv.org/pdf/2410.07219v1",
-        "https://arxiv.org/abs/2410.07219",
-        "https://github.com/Darwen9/CKD",
-        "https://github.com/search?q=%22CKMImageNet%3A+A+Comprehensive+Dataset+to+Enable+Channel+Knowledge+Map+Construction+via+Computer+Vision%22&type=repositories",
-        "https://lrxuanxuan.github.io/papers/items/d6ec66a057f57abe/#paper-translation"
+        "https://arxiv.org/pdf/2605.07163v1",
+        "https://arxiv.org/abs/2605.07163",
+        "https://github.com/search?q=%22Towards+Intelligent+Low-Altitude+Wireless+Network+Deployment%3A+Differentiable+Channel+Knowledge+Map+Construction+and+Trajectory+Design%22&type=repositories",
+        "https://lrxuanxuan.github.io/papers/items/542b6f39c5c441d5/#paper-translation"
       ],
       "github": [
-        "https://github.com/Darwen9/CKD",
-        "https://github.com/search?q=%22CKMImageNet%3A+A+Comprehensive+Dataset+to+Enable+Channel+Knowledge+Map+Construction+via+Computer+Vision%22&type=repositories"
+        "https://github.com/search?q=%22Towards+Intelligent+Low-Altitude+Wireless+Network+Deployment%3A+Differentiable+Channel+Knowledge+Map+Construction+and+Trajectory+Design%22&type=repositories"
       ],
       "pdf_sources": [
-        "https://arxiv.org/pdf/2410.07219v1"
+        "https://arxiv.org/pdf/2605.07163v1"
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
       "translation_status": "pending",
       "full_translation_public": false,
-      "full_translation_url": "/papers/items/d6ec66a057f57abe/#paper-translation",
+      "full_translation_url": "/papers/items/542b6f39c5c441d5/#paper-translation",
       "full_translation_label": "全文翻译（待补齐）"
     },
     {
@@ -49328,7 +49326,7 @@
   "pdf_mode": "links_only",
   "workbook_table": {
     "url": "/papers/table/",
-    "source_sha256": "29ef7018c85764aa3729491f01f689f4b26907dd0a25e08cf5c08ff5f5cc777d",
+    "source_sha256": "b84e9e17fe2703d0452a5c601f6e42a20db8329737f3058573ad5e2e5e1c4001",
     "sheet": "每日论文推荐",
     "row_count": 585,
     "headers": [

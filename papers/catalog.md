@@ -4717,11 +4717,11 @@ CKMDiff 使用条件扩散学习先验，由少量带噪测量实现 CKM 去噪�
 
 [本篇日报](/papers/items/0a1af2cd6646a4cd/#paper-report)
 
-### 2026-11-19 · [CKMImageNet: A Comprehensive Dataset to Enable Channel Knowledge Map Construction via Computer Vision](/papers/items/d6ec66a057f57abe/)
+### 2026-11-19 · [Towards Intelligent Low-Altitude Wireless Network Deployment: Differentiable Channel Knowledge Map Construction and Trajectory Design](/papers/items/542b6f39c5c441d5/)
 
-适合作为地图接口和按场景切分的数据资源。商业射线标签的可复查范围与实测泛化分开记录。
+在同一地图数据上测坐标求导的有限差分误差和未见路线的插值，进一步核对地图增益偏差如何传入路线决策。
 
-[本篇日报](/papers/items/d6ec66a057f57abe/#paper-report)
+[本篇日报](/papers/items/542b6f39c5c441d5/#paper-report)
 
 ### 2026-11-19 · [Prototyping and Experimental Results for ISAC-based Channel Knowledge Map](/papers/items/be747205a30d8cc6/)
 
