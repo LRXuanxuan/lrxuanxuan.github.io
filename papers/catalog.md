@@ -4464,3 +4464,423 @@ CKMDiff 使用条件扩散学习先验，由少量带噪测量实现 CKM 去噪�
 [本篇条目](/papers/items/689730ee3ccfd7de/)
 
 {% endraw %}
+
+### 2026-11-23 · [Uncertainty Quantification in Data-Driven Dynamical Models via Inverse Problem Solving](/papers/items/789ea8816b82bfa8/)
+
+用作轨迹演化诊断，在多对一或部分可观测系统中检查逆问题本身的不可辨识性。
+
+[本篇日报](/papers/items/789ea8816b82bfa8/#paper-report)
+
+### 2026-11-23 · [Conditional Wasserstein Distances with Applications in Bayesian OT Flow Matching](/papers/items/11c51e64d7d37df1/)
+
+固定相同条件配对与网络，比较批量 OT 和独立配对的 NFE、似然一致性及校准。
+
+[本篇日报](/papers/items/11c51e64d7d37df1/#paper-report)
+
+### 2026-11-23 · [On the Inverse Flow Matching Problem in the One-Dimensional and Gaussian Cases](/papers/items/a6b673244a882da9/)
+
+用 Gaussian 玩具问题检查等价流蒸馏和端点分布。理论适用范围限于论文证明的情形。
+
+[本篇日报](/papers/items/a6b673244a882da9/#paper-report)
+
+### 2026-11-23 · [Uncertainty Quantification for Landweber Iteration with Randomized Normal-Operator Approximation](/papers/items/46e61c69a639d194/)
+
+可将子空间近似误差与接收噪声分开评估，检查近似秩对弱奇异方向区间的影响。
+
+[本篇日报](/papers/items/46e61c69a639d194/#paper-report)
+
+### 2026-11-23 · [Self-Supervised Conformal Prediction with Equivariant Bootstrapping for Image Uncertainty Quantification](/papers/items/2732bd24da9215ab/)
+
+仅在导频算子和方向变换满足等变时应用。随机子载波缺失可用来检验等变失配。
+
+[本篇日报](/papers/items/2732bd24da9215ab/#paper-report)
+
+### 2026-11-23 · [Self-supervised Conformal Prediction for Uncertainty Quantification in Imaging Problems](/papers/items/54b0a552f279d86c/)
+
+在已知噪声协方差的白化导频中比较；秩亏不可观测方向需检查代理风险对完整误差的覆盖。
+
+[本篇日报](/papers/items/54b0a552f279d86c/#paper-report)
+
+### 2026-11-23 · [Flow-Based Conformal Predictive Distributions](/papers/items/03dd1c6cea963dc6/)
+
+在固定点预测下比较共形 Gaussian 和流式分布，联合报告 Energy Score、覆盖与锐度。
+
+[本篇日报](/papers/items/03dd1c6cea963dc6/#paper-report)
+
+### 2026-11-23 · [Post-Hoc Conformal Prediction for Reliable Wireless Communications](/papers/items/2e1df49a149176a7/)
+
+按独立路线分组校准激活阈值，检查覆盖和平均候选波束数。域漂移时另测条件覆盖。
+
+[本篇日报](/papers/items/2e1df49a149176a7/#paper-report)
+
+### 2026-11-23 · [Minimax Multi-Target Conformal Prediction with Applications to Imaging Inverse Problems](/papers/items/32477a60b275c35b/)
+
+同时校准 NMSE 风险、波束功率损失等不同目标。多目标联合与逐目标覆盖分别验收。
+
+[本篇日报](/papers/items/32477a60b275c35b/#paper-report)
+
+### 2026-11-23 · [Optimal low-rank posterior covariance approximation in linear Gaussian inverse problems on Hilbert spaces](/papers/items/ae7cd77283c97ef3/)
+
+构造复导频的线性 Gaussian 参照，沿信息增益特征方向评估秩截断。非 Gaussian 先验需另行检验。
+
+[本篇日报](/papers/items/ae7cd77283c97ef3/#paper-report)
+
+### 2026-11-22 · [Plug-and-play Diffusion Models for Image Compressive Sensing with Data Consistency Projection](/papers/items/05386021d997dd11/)
+
+比较等计算预算单一白化残差和混合保真。对多项增益检查是否由一致性权重变化引起。
+
+[本篇日报](/papers/items/05386021d997dd11/#paper-report)
+
+### 2026-11-22 · [Bayesian Signal Separation via Plug-and-Play Diffusion-Within-Gibbs Sampling](/papers/items/ef3e3a384c199962/)
+
+借鉴静态背景与动态残差的独立先验。用已知二维 Gaussian 混合对照检查样本相关和收敛。
+
+[本篇日报](/papers/items/ef3e3a384c199962/#paper-report)
+
+### 2026-11-22 · [Improving Decoupled Posterior Sampling for Inverse Problems using Data Consistency Constraint](/papers/items/c590ea291e657e83/)
+
+沿用同一先验和 NFE，对照软约束与强投影。目标观测含噪时强投影可能过拟合。
+
+[本篇日报](/papers/items/c590ea291e657e83/#paper-report)
+
+### 2026-11-22 · [Sequential Posterior Sampling with Diffusion Models](/papers/items/3dd90c1c7d130ef5/)
+
+比较从上一步热启动与每步独立初始化。路径突变时监控前一时刻后验造成的偏差。
+
+[本篇日报](/papers/items/3dd90c1c7d130ef5/#paper-report)
+
+### 2026-11-22 · [Plug-and-Play Posterior Sampling for Blind Inverse Problems](/papers/items/a889c60646b82033/)
+
+用可辨识的 CFO 或小量化误差做受控算子失配，量化算子与信道误差的耦合。
+
+[本篇日报](/papers/items/a889c60646b82033/#paper-report)
+
+### 2026-11-22 · [GeoFunFlow: Geometric function flow matching for joint probabilistic inference of physical fields and complex geometries](/papers/items/7cb357bf8ab0d32c/)
+
+可借鉴几何条件与场变量联合建模。先在低维错配地图场景检查几何后验的可辨识性。
+
+[本篇日报](/papers/items/7cb357bf8ab0d32c/#paper-report)
+
+### 2026-11-22 · [Flow Matching for Posterior Inference with Simulator Feedback](/papers/items/b4a6c32140ccbbdd/)
+
+用相同配对训练条目，只增减物理仿真反馈。仿真器系统误差会进入条件后验。
+
+[本篇日报](/papers/items/b4a6c32140ccbbdd/#paper-report)
+
+### 2026-11-22 · [Flow Matching Posterior Sampling: A Training-free Conditional Generation for Flow Matching](/papers/items/bf5f295dfd213dc5/)
+
+固定先验与初始噪声，在等 NFE 下比较观测残差、零空间方差和总体 NMSE。
+
+[本篇日报](/papers/items/bf5f295dfd213dc5/#paper-report)
+
+### 2026-11-22 · [DAWN-FM: Data-Aware and Noise-Informed Flow Matching for Solving Inverse Problems](/papers/items/a8e8321d4befc0a2/)
+
+与固定先验的推理后校正比较同一测量预算。未知导频模式和噪声分布需要独立测试。
+
+[本篇日报](/papers/items/a8e8321d4befc0a2/#paper-report)
+
+### 2026-11-22 · [Solving Room Impulse Response Inverse Problems Using Flow Matching with Analytic Wiener Denoiser](/papers/items/9947e4f41d6d76cd/)
+
+替换成复 Gaussian LMMSE 端点估计并固定 flow 与观测近端，比较零空间恢复以及近似偏差。
+
+[本篇日报](/papers/items/9947e4f41d6d76cd/#paper-report)
+
+### 2026-11-21 · [Leveraging Channel Knowledge Map for Multi-User Hierarchical Beam Training Under Position Uncertainty](/papers/items/b782c8c86873ffb0/)
+
+扫描定位方差和地图老化，比较 Top-k 命中率与训练往返数。旁瓣干扰强度改变时需重估。
+
+[本篇日报](/papers/items/b782c8c86873ffb0/#paper-report)
+
+### 2026-11-21 · [Prototyping and Experimental Results for Environment-Aware Millimeter Wave Beam Alignment via Channel Knowledge Map](/papers/items/6e703ef179cd115e/)
+
+记录真实姿态可用率，控制同一探测开销，对比位置条件与位置加姿态条件。
+
+[本篇日报](/papers/items/6e703ef179cd115e/#paper-report)
+
+### 2026-11-21 · [Efficient Near Field Beam Tracking via Thompson Sampling](/papers/items/ba20e0e8412d04d1/)
+
+与等开销多波束对照，跟踪长期不更新时的失锁概率及后验方差失配。
+
+[本篇日报](/papers/items/ba20e0e8412d04d1/#paper-report)
+
+### 2026-11-21 · [Energy-Efficient Spiking Neural Networks for Sensing-Aided Beam Prediction](/papers/items/9883d0aedf49cfd3/)
+
+固定传感器和稀疏度，在目标硬件上同时计前处理、访存和推理。文中能耗口径需匹配。
+
+[本篇日报](/papers/items/9883d0aedf49cfd3/#paper-report)
+
+### 2026-11-21 · [AMBER: An Adaptive Multimodal Mask Transformer for Beam Prediction with Missing Modalities](/papers/items/8cc8c654e7ababe7/)
+
+用同一缺失机制对照零填充和有显式掩码。连续掉帧与独立随机缺失应分别测。
+
+[本篇日报](/papers/items/8cc8c654e7ababe7/#paper-report)
+
+### 2026-11-21 · [Segment-Wise Flow Matching for Vision-Aided mmWave V2I Beam Prediction](/papers/items/a03a38b1597f4664/)
+
+选束目标是功率排序。复 CSI 的相位、比例恢复和条件样本分歧需要独立验证。
+
+[本篇日报](/papers/items/a03a38b1597f4664/#paper-report)
+
+### 2026-11-21 · [Cooperative Sensing-Assisted Predictive Beam Tracking for MIMO-OFDM Networked ISAC Systems](/papers/items/0466a26ad8ff0e79/)
+
+固定历史感知和网络功率，把预测误差传播至约束违反率。跨站同步与通信代价单列。
+
+[本篇日报](/papers/items/0466a26ad8ff0e79/#paper-report)
+
+### 2026-11-21 · [Sensing-Aided Near-Field Beam Tracking](/papers/items/069ce4389743b76a/)
+
+从匹配波束功率衰减定更新门槛。使用相同感知占空，比较定周期与相干时间触发。
+
+[本篇日报](/papers/items/069ce4389743b76a/#paper-report)
+
+### 2026-11-21 · [Channel Charting based Fast Beam Tracking Design and Implementation](/papers/items/9d208f4c01cd331b/)
+
+固定码本比较图表邻域和物理坐标邻域。单独测轨迹离开图表支撑后的退化。
+
+[本篇日报](/papers/items/9d208f4c01cd331b/#paper-report)
+
+### 2026-11-21 · [Lightweight Vision-Aided Beam Tracking for Cross-Environment mmWave Communications](/papers/items/1f3d65848f0c5f9a/)
+
+按未见场景而非随机图像切分。与硬标签基线共用功率数据和网络，报告选束损失。
+
+[本篇日报](/papers/items/1f3d65848f0c5f9a/#paper-report)
+
+### 2026-11-20 · [Channel Modeling Framework for Both Communications and Bistatic Sensing Under 3GPP Standard](/papers/items/f7b5c97696b0845a/)
+
+在固定通信簇时只新增感知反射，检查遮挡事件与通信链路是否能被一致重放。
+
+[本篇日报](/papers/items/f7b5c97696b0845a/#paper-report)
+
+### 2026-11-20 · [A Geometry-based Stochastic Wireless Channel Model using Generative Neural Networks](/papers/items/b0421c82f1b07cad/)
+
+以按链路重采样的经验生成器为对照，检查延迟–角度联合矩、有效秩和条件插值边界。
+
+[本篇日报](/papers/items/b0421c82f1b07cad/#paper-report)
+
+### 2026-11-20 · [A Novel Dynamic Ray-Tracing Channel Model for 6G LEO Satellite-to-Ground Communication Systems](/papers/items/d8107d33c85d43ea/)
+
+可借鉴跨尺度传播分解和轨迹契约。LEO 远距离和平行射线条件限制向地面近场迁移。
+
+[本篇日报](/papers/items/d8107d33c85d43ea/#paper-report)
+
+### 2026-11-20 · [CITYMPC: A Large-Scale Physics-Informed Benchmark and Tool for Generative Complete Multipath Wireless Channel Modeling](/papers/items/3a03c7b29606b18f/)
+
+保留独立城市作外推验证，分别测边缘分布与跨路径联合结构。参考标签来自射线追踪。
+
+[本篇日报](/papers/items/3a03c7b29606b18f/#paper-report)
+
+### 2026-11-20 · [Open Wireless Digital Twin: End-to-End 5G Mobility Emulation with OpenAirInterface and Ray Tracing](/papers/items/7537cab3dca842a3/)
+
+可用于对接有效信道与吞吐、HARQ 等指标。先验证射线采样时钟与协议模拟时钟的同步。
+
+[本篇日报](/papers/items/7537cab3dca842a3/#paper-report)
+
+### 2026-11-20 · [HoRAMA: Holistic Reconstruction with Automated Material Assignment for Ray Tracing using NYURay](/papers/items/3b2596847bcc73da/)
+
+用人工材质和自动材质共享几何来分离材质误差，论文配对路径功率误差限于可匹配分量。
+
+[本篇日报](/papers/items/3b2596847bcc73da/#paper-report)
+
+### 2026-11-20 · [Accelerating Ray Tracing-Based Wireless Channels Generation for Real-Time Network Digital Twins](/papers/items/d9387e8dfba6c5d8/)
+
+选择一条有遮挡突变的路线同时测相位和多径生灭。连续插值的适用范围取决于路径关联。
+
+[本篇日报](/papers/items/d9387e8dfba6c5d8/#paper-report)
+
+### 2026-11-20 · [Prediction of Wireless Channel Statistics with Ray Tracing and Uncalibrated Digital Twin](/papers/items/097976881881b42d/)
+
+把测得统计量固定，比较平稳核和几何核；重点检查材料误差下的保守速率与覆盖。
+
+[本篇日报](/papers/items/097976881881b42d/#paper-report)
+
+### 2026-11-20 · [An Enhanced Dynamic Ray Tracing Architecture for Channel Prediction Based on Multipath Bidirectional Geometry and Field Extrapolation](/papers/items/8226f9c1f5fcf7c3/)
+
+离线生成数据可以双向平滑，在线预测只保留因果路径信息。对照路径出生死亡附近的偏差。
+
+[本篇日报](/papers/items/8226f9c1f5fcf7c3/#paper-report)
+
+### 2026-11-20 · [A Novel BVH-accelerated Dynamic Ray-Tracing Channel Model for Vehicular Communication Systems](/papers/items/607185619b6abf30/)
+
+在同一路线上固定波形，仅改变几何更新间隔，分别测路径事件漏检、相位连续性和运行时间。
+
+[本篇日报](/papers/items/607185619b6abf30/#paper-report)
+
+### 2026-11-19 · [Octree-Context Gaussian Splatting with Multi-Order Propagation for Channel Knowledge Maps](/papers/items/d03062b0266743ff/)
+
+将其方向功率用于角域协方差先验。复系数相位和跨路径相关性需由独立观测校准。
+
+[本篇日报](/papers/items/d03062b0266743ff/#paper-report)
+
+### 2026-11-19 · [Positioning Error Compensation by Channel Knowledge Map in UAV Communication Missions](/papers/items/0a1af2cd6646a4cd/)
+
+对地图查询坐标加入相关误差，跟踪通信约束违约概率。置信区间随定位误差模型而变。
+
+[本篇日报](/papers/items/0a1af2cd6646a4cd/#paper-report)
+
+### 2026-11-19 · [CKMImageNet: A Comprehensive Dataset to Enable Channel Knowledge Map Construction via Computer Vision](/papers/items/d6ec66a057f57abe/)
+
+适合作为地图接口和按场景切分的数据资源。商业射线标签的可复查范围与实测泛化分开记录。
+
+[本篇日报](/papers/items/d6ec66a057f57abe/#paper-report)
+
+### 2026-11-19 · [Prototyping and Experimental Results for ISAC-based Channel Knowledge Map](/papers/items/be747205a30d8cc6/)
+
+按原型数据流核对在线位置与反馈延迟。将位置误差加到实际查询坐标后再统计失锁率。
+
+[本篇日报](/papers/items/be747205a30d8cc6/#paper-report)
+
+### 2026-11-19 · [Geometry-Aware Cross-Height Channel Knowledge Map Prediction for UAV-Assisted Communications With Uncertainty-Guided 3D Sensing](/papers/items/4bee6d5783a42c74/)
+
+用留场景、留高度和少样本适配区分三种难度，比较区间校准与新增测量预算。
+
+[本篇日报](/papers/items/4bee6d5783a42c74/#paper-report)
+
+### 2026-11-19 · [Towards Precise Channel Knowledge Map: Exploiting Environmental Information from 2D Visuals to 3D Point Clouds](/papers/items/9cbe59b0ed20b6f8/)
+
+核对点云和信道的坐标系、时间戳及测线上相邻点泄漏。用匹配与错配点云隔离环境信息增益。
+
+[本篇日报](/papers/items/9cbe59b0ed20b6f8/#paper-report)
+
+### 2026-11-19 · [Beamforming-Codebook-Aware Channel Knowledge Map Construction for Multi-Antenna Systems](/papers/items/63b85e99a8640cde/)
+
+固定建图数据和观测量，比较预测空间功率与直接预测码本增益。更换阵列码本时验证表示迁移。
+
+[本篇日报](/papers/items/63b85e99a8640cde/#paper-report)
+
+### 2026-11-19 · [Update Strategy for Channel Knowledge Map in Complex Environments](/papers/items/73e8a3ef23f754d0/)
+
+用遮挡持续时间与重测成本标定策略。检查环境转移概率变化后同一阈值是否仍有效。
+
+[本篇日报](/papers/items/73e8a3ef23f754d0/#paper-report)
+
+### 2026-11-19 · [Dynamic Channel Knowledge Map Construction in MIMO-OFDM Systems](/papers/items/c8df26e398d478d7/)
+
+冻结地图库，控制同步偏置和动态路径增益；将只做同步修正与只用地图分别消融。
+
+[本篇日报](/papers/items/c8df26e398d478d7/#paper-report)
+
+### 2026-11-19 · [Path-Level Radio Map-Aided Fast and Robust Channel Estimation for Pilot-Starved MIMO-OFDM Systems](/papers/items/6bd0e53a534ff44b/)
+
+固定导频对照三维 OMP、匹配地图和失配地图。论文速度收益应在相同硬件和同类实现重测。
+
+[本篇日报](/papers/items/6bd0e53a534ff44b/#paper-report)
+
+### 2026-11-18 · [Joint Channel Estimation and Signal Detection for MIMO-OFDM: A Novel Data-Aided Approach with Reduced Computational Overhead](/papers/items/945ba683051825ae/)
+
+区分每个时隙可用的软判决与未来标签。记录相同迭代预算下的 BER 和 NMSE。
+
+[本篇日报](/papers/items/945ba683051825ae/#paper-report)
+
+### 2026-11-18 · [Reliable long timescale decision-directed channel estimation for OFDM system](/papers/items/b7da8012db1d3062/)
+
+扫置信门限并记录连续错误长度。固定导频并分别测试被筛选频点聚集与分散的情形。
+
+[本篇日报](/papers/items/b7da8012db1d3062/#paper-report)
+
+### 2026-11-18 · [Learning-based Block-wise Planar Channel Estimation for Time-Varying MIMO OFDM](/papers/items/154ec8a23f15d82c/)
+
+先只用三参数平面做低自由度对照，分别在平滑区和遮挡切换区测残差。
+
+[本篇日报](/papers/items/154ec8a23f15d82c/#paper-report)
+
+### 2026-11-18 · [AFDM Channel Estimation in Multi-Scale Multi-Lag Channels](/papers/items/5b53f584ca9f2e0b/)
+
+用于诊断大带宽下单 Doppler 近似的边界。切换波形时单列同步、资源和解调差异。
+
+[本篇日报](/papers/items/5b53f584ca9f2e0b/#paper-report)
+
+### 2026-11-18 · [Learning MMSE Filters for OFDM Channel Estimation: Attention Transformer Gains at Linear Inference](/papers/items/ebd50f061b92dfd3/)
+
+固定协方差训练样本，用验证数据匹配滤波秩，报告跨路线退化与推理 FLOPs。
+
+[本篇日报](/papers/items/ebd50f061b92dfd3/#paper-report)
+
+### 2026-11-18 · [New Algorithm for Structured OFDM Channel Estimation using Subgroup Duality](/papers/items/4601aa54a3708d12/)
+
+验证导频和离栅格路径偏离代数结构后的性能。该结构条件决定了简化是否适用。
+
+[本篇日报](/papers/items/4601aa54a3708d12/#paper-report)
+
+### 2026-11-18 · [Sparse MIMO-OFDM Channel Estimation via RKHS Regularization](/papers/items/406bdfd90df38b5f/)
+
+以核正则作为固定先验基线，对照汇总统计 LMMSE。核尺度与有效自由度必须在源验证集选定。
+
+[本篇日报](/papers/items/406bdfd90df38b5f/#paper-report)
+
+### 2026-11-18 · [Unsupervised Online Channel Estimation for High-Mobility OFDM via Implicit Neural Representation](/papers/items/123c996d97f48244/)
+
+固定迭代预算和观测，单独打开伪导频开关。按实收 SNR 报告错误传播、BER 与延迟。
+
+[本篇日报](/papers/items/123c996d97f48244/#paper-report)
+
+### 2026-11-18 · [Sequential MAP Parametric OFDM Channel Estimation for Joint Sensing and Communication](/papers/items/2ad11dea2b23da71/)
+
+给路径参数加入可解释的地图先验方差并扫描失配强度。跟踪 MAP 的初始化敏感性与局部极值。
+
+[本篇日报](/papers/items/2ad11dea2b23da71/#paper-report)
+
+### 2026-11-18 · [Doppler-Robust Maximum Likelihood Parametric Channel Estimation for Multiuser MIMO-OFDM](/papers/items/a07cdee28aa62c45/)
+
+固定导频和路径数，比较含 ICI 与忽略 ICI 的估计残差。路径间隔低于有效分辨率时检查不可辨识性。
+
+[本篇日报](/papers/items/a07cdee28aa62c45/#paper-report)
+
+### 2026-11-17 · [EMForecaster: A Deep Learning Framework for Time Series Forecasting in Wireless Networks with Distribution-Free Uncertainty Quantification](/papers/items/5b313b1d7e984f9c/)
+
+复用覆盖与宽度的报告方法，按相干路线分块校准。其标量场强证据不约束复 CSI 的联合覆盖。
+
+[本篇日报](/papers/items/5b313b1d7e984f9c/#paper-report)
+
+### 2026-11-17 · [Wireless Channel Prediction via Gaussian Mixture Models](/papers/items/612bca3d7ffff79f/)
+
+用同一含噪历史比较单 Gaussian LMMSE 与 GMM 条件均值，检查混合权重在新路线上的退化。
+
+[本篇日报](/papers/items/612bca3d7ffff79f/#paper-report)
+
+### 2026-11-17 · [Large AI Model for Delay-Doppler Domain Channel Prediction in 6G OTFS-Based Vehicular Networks](/papers/items/2b623c7dd237e210/)
+
+路径参数输入应从合法历史导频估计，另列理想路径输入对照。跟踪关联错误会传递到信道重建。
+
+[本篇日报](/papers/items/2b623c7dd237e210/#paper-report)
+
+### 2026-11-17 · [ODE-Former for Mobile Channel Prediction: A Novel Learning Structure Leveraging The Physics Continuity](/papers/items/d4483a291f4f85c5/)
+
+固定网络输入，按真实时间戳对照离散状态更新与连续积分。移动遮挡引发的突变和积分开销应单列。
+
+[本篇日报](/papers/items/d4483a291f4f85c5/#paper-report)
+
+### 2026-11-17 · [LinFormer: A Linear-based Lightweight Transformer Architecture For Time-Aware MIMO Channel Prediction](/papers/items/a25d54ef1e307538/)
+
+冻结频率表示和历史窗口，建立轻量确定性基线并报告端到端时延。防止训练增强改变测试信息边界。
+
+[本篇日报](/papers/items/a25d54ef1e307538/#paper-report)
+
+### 2026-11-17 · [Machine Learning-based Channel Prediction in Wideband Massive MIMO Systems with Small Overhead for Online Training](/papers/items/d4c537eb3f1efe78/)
+
+按独立路线切分后再切天线或频率，避免同一轨迹片段越过边界。记录达到相同 NMSE 所需现场帧数。
+
+[本篇日报](/papers/items/d4c537eb3f1efe78/#paper-report)
+
+### 2026-11-17 · [Standards-Compliant DM-RS Allocation via Temporal Channel Prediction for Massive MIMO Systems](/papers/items/8459c53cf2ca3e98/)
+
+固定 MCS、重传和导频规则，检验 NMSE 改善是否伴随有效吞吐提升。收益取决于链路自适应条件。
+
+[本篇日报](/papers/items/8459c53cf2ca3e98/#paper-report)
+
+### 2026-11-17 · [A Conditional Variational Framework for Channel Prediction in High-Mobility 6G OTFS Networks](/papers/items/2b252fb6984f6fa3/)
+
+冻结历史输入和划分，比较条件均值、Gaussian 残差和 CVAE。点预测收益与后验校准需分别测。
+
+[本篇日报](/papers/items/2b252fb6984f6fa3/#paper-report)
+
+### 2026-11-17 · [Tensor-Structured Bayesian Channel Prediction for Upper Mid-Band XL-MIMO Systems](/papers/items/d87211551aa1c7f9/)
+
+同一波束采样下比较独立路径和张量共支撑。单独检查近场斜率及非平稳可见区域的失配。
+
+[本篇日报](/papers/items/d87211551aa1c7f9/#paper-report)
+
+### 2026-11-17 · [Inter-frame Channel Prediction for Zak-OTFS](/papers/items/a4977e81f3092091/)
+
+固定 DD 导频和窗口，测跨帧子空间夹角与 NMSE。路径出生死亡会破坏持续子空间假设。
+
+[本篇日报](/papers/items/a4977e81f3092091/#paper-report)
