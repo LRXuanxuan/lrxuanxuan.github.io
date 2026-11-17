@@ -89,6 +89,13 @@ input[type=range]{width:100%;accent-color:var(--accent);height:20px;cursor:point
 .swatch:hover{transform:translateY(-1px);border-color:#3a4050}
 .swatch.sel{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
 .swatch .chip{height:30px;border-radius:6px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.09)}
+.swatch .chip.clear{background-color:#20232a;background-image:repeating-conic-gradient(#3a3e48 0 25%,#20232a 0 50%);background-size:10px 10px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.14)}
+.swatch .chip.white{background:#fff;box-shadow:inset 0 0 0 1px #888}
+.swatch.clear .hex{color:#d9b47a}
+.swatch.white .hex{color:#e8e2d4}
+.alphaRow{display:flex;gap:6px;margin-top:2px}
+.alphaRow .btn{flex:1;padding:6px 4px;font-size:12px}
+.alphaRow .btn.on{border-color:var(--accent);color:var(--accent);background:rgba(232,176,75,.10)}
 .swatch .hex{font-family:ui-monospace,Consolas,monospace;font-size:9.5px;text-align:center;color:#cfcac0;letter-spacing:.2px}
 .swatch .pct{font-size:9.5px;text-align:center;color:var(--muted)}
 .editor{margin-top:2px;padding:10px;border:1px solid var(--line);border-radius:10px;background:#1c1f27;display:flex;flex-direction:column;gap:8px}
@@ -105,7 +112,7 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
 .seg.small .seg-btn{padding:5px 12px;font-size:12px}
 .stage-meta{font-size:11.5px;color:var(--muted);text-align:right;line-height:1.4}
 .viewer{flex:1 1 auto;position:relative;display:flex;align-items:center;justify-content:center;padding:20px;min-height:0;overflow:hidden}
-#canvasWrap{position:relative;flex:0 0 auto;box-shadow:0 18px 60px rgba(0,0,0,.5);border-radius:3px;overflow:hidden;background:#fff}
+#canvasWrap{position:relative;flex:0 0 auto;box-shadow:0 18px 60px rgba(0,0,0,.5);border-radius:3px;overflow:hidden;background-color:#252830;background-image:repeating-conic-gradient(#31343d 0 25%,#252830 0 50%);background-size:16px 16px}
 #canvasWrap canvas{display:block;width:100%;height:100%}
 #origCanvas{position:absolute;inset:0}
 #divider{position:absolute;top:0;bottom:0;width:28px;transform:translateX(-50%);cursor:ew-resize;display:flex;align-items:center;justify-content:center;touch-action:none;z-index:3}
@@ -329,8 +336,15 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
           <output id="selGrayVal">128</output>
         </div>
         <div class="editor-info" id="selInfo"></div>
+        <div class="alphaRow" id="alphaRow" title="透明/白色只影响色块/灰度输出">
+          <button id="alphaNormal" class="btn ghost sm on">正常</button>
+          <button id="alphaClear" class="btn ghost sm">透明</button>
+          <button id="alphaWhite" class="btn ghost sm">白色</button>
+        </div>
+        <p class="hint" style="font-size:10.5px">透明：导出 PNG 带 alpha，预览显示棋盘格；白色：像素直接变白。可多选几个色块分别设置。</p>
         <div class="row">
           <button id="delColorBtn" class="btn ghost sm">删除此色</button>
+          <button id="resetModesBtn" class="btn ghost sm">全部恢复正常</button>
         </div>
       </div>
       <div class="row">
@@ -339,7 +353,7 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
         <button id="pickBtn" class="btn ghost sm">从图中取色</button>
         <button id="copyBtn" class="btn ghost sm">复制色值</button>
       </div>
-      <p class="hint">点色块可改色，像素会自动归到最接近的颜色；拖动上方色数后可「重新提取」。</p>
+      <p class="hint">点色块可改色，像素会自动归到最接近的颜色；点色块后可选「正常 / 透明 / 白色」来抓型（透明导出为 PNG alpha，白色直接变白）。</p>
     </section>
 
     <section class="sec">
@@ -507,6 +521,8 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
     <p>在「针管线稿」里打开「压黑」后，亮度低于阈值的暗部会直接填成纯黑，形成剪影/大黑块的风格化阴影；阈值越高压得越多，可保护肤色避免脸变黑。可以和排线叠加：黑块优先，其余暗部再用排线过渡。</p>
     <h4>粘贴截图</h4>
     <p>点「从剪贴板粘贴」：能读剪贴板时会直接载入图片；如果浏览器拦截剪贴板权限，会弹出一个粘贴框，点一下框再按 Ctrl+V 即可。也可以用截图工具截图后直接在页面任意位置 Ctrl+V。处理书籍 / 影视截图不需要先保存成文件。</p>
+    <h4>透明色 / 白色（抓型）</h4>
+    <p>「色块」和「灰度」模式里，点一个色块，下方有「正常 / 透明 / 白色」三个按钮。把背景色或不需要的颜色设为透明/白色，只留下主体形状，便于抓型。透明会导出带 alpha 的 PNG（预览显示棋盘格，打印/参考卡按纸白处理）；白色则把像素直接改成白色，导出不带透明。多个颜色可以分别设置，点「全部恢复正常」可一键复原。</p>
     <h4>保存（原图 / 线稿 / 色块）</h4>
     <p>「保存…」弹窗里可以任意勾选原图、线稿、色块、参考卡：选一项直接下载，选多项打包成 ZIP。批量处理也遵循当前画面模式；线稿批量会输出「线稿图/」文件夹，勾选「同时导出原图」可连原图一起打包。</p>
     <h4>灰度明暗模式</h4>
@@ -1021,10 +1037,17 @@ function countPalette(idx, k) {
 function paintFromIndices(idx, palette, out) {
   for (var i = 0, o = 0; i < idx.length; i++, o += 4) {
     var p = palette[idx[i]];
-    out[o] = p.r;
-    out[o + 1] = p.g;
-    out[o + 2] = p.b;
-    out[o + 3] = 255;
+    var mode = p.mode || 'normal';
+    if (mode === 'clear') {
+      out[o] = 0; out[o + 1] = 0; out[o + 2] = 0; out[o + 3] = 0;
+    } else if (mode === 'white') {
+      out[o] = 255; out[o + 1] = 255; out[o + 2] = 255; out[o + 3] = 255;
+    } else {
+      out[o] = p.r;
+      out[o + 1] = p.g;
+      out[o + 2] = p.b;
+      out[o + 3] = 255;
+    }
   }
 }
 
@@ -1527,6 +1550,10 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
     selColor: $('selColor'),
     selHex: $('selHex'),
     selInfo: $('selInfo'),
+    alphaNormal: $('alphaNormal'),
+    alphaClear: $('alphaClear'),
+    alphaWhite: $('alphaWhite'),
+    resetModesBtn: $('resetModesBtn'),
     delColorBtn: $('delColorBtn'),
     addColorBtn: $('addColorBtn'),
     pickBtn: $('pickBtn'),
@@ -1614,6 +1641,22 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
       g: parseInt(s.slice(2, 4), 16),
       b: parseInt(s.slice(4, 6), 16)
     };
+  }
+
+  function colorMode(p) { return (p && p.mode) || 'normal'; }
+
+  function colorModeLabel(p) {
+    var m = colorMode(p);
+    if (m === 'clear') return '透明';
+    if (m === 'white') return '白色';
+    return toHex(p).toUpperCase();
+  }
+
+  function colorTextLabel(p) {
+    var m = colorMode(p);
+    if (m === 'clear') return '透明';
+    if (m === 'white') return '白色';
+    return toHex(p).slice(1);
   }
 
   function canvasToBlob(canvas) {
@@ -2027,7 +2070,7 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
     var arr = [];
     for (var i = 0; i < n; i++) {
       var v = Math.round(255 * i / (n - 1));
-      arr.push({ r: v, g: v, b: v });
+      arr.push({ r: v, g: v, b: v, mode: 'normal' });
     }
     state.palette = arr;
     state.selected = 0;
@@ -2055,7 +2098,9 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
     }
     var p = state.palette[state.selected];
     var lab = rgb2labExact(p.r, p.g, p.b);
-    els.selInfo.textContent = 'L* ' + lab[0].toFixed(0) + ' · 占比 ' + palettePercent(state.selected).toFixed(1) + '%';
+    var mode = colorMode(p);
+    var extra = mode === 'clear' ? ' · 输出：透明' : (mode === 'white' ? ' · 输出：白色' : '');
+    els.selInfo.textContent = 'L* ' + lab[0].toFixed(0) + ' · 占比 ' + palettePercent(state.selected).toFixed(1) + '%' + extra;
   }
 
   function renderEditor() {
@@ -2065,7 +2110,13 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
       return;
     }
     els.paletteEditor.hidden = false;
+    var mode = colorMode(state.palette[i]);
     var hex = toHex(state.palette[i]);
+    if (els.alphaNormal) {
+      els.alphaNormal.classList.toggle('on', mode === 'normal');
+      els.alphaClear.classList.toggle('on', mode === 'clear');
+      els.alphaWhite.classList.toggle('on', mode === 'white');
+    }
     els.selColor.hidden = state.gray;
     els.grayRow.hidden = !state.gray;
     els.selColor.value = hex;
@@ -2080,12 +2131,18 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
   function renderPalette() {
     var parts = [];
     for (var i = 0; i < state.palette.length; i++) {
-      var hex = toHex(state.palette[i]);
+      var p = state.palette[i];
+      var hex = toHex(p);
+      var mode = colorMode(p);
       var pct = palettePercent(i);
       var pctTxt = pct >= 10 ? pct.toFixed(0) : pct.toFixed(1);
-      parts.push('<button class="swatch' + (i === state.selected ? ' sel' : '') + '" data-i="' + i + '" title="点击编辑 ' + hex + '">' +
-        '<span class="chip" style="background:' + hex + '"></span>' +
-        '<span class="hex">' + hex.slice(1) + '</span>' +
+      var chipCls = 'chip' + (mode === 'clear' ? ' clear' : (mode === 'white' ? ' white' : ''));
+      var chipStyle = mode === 'normal' ? ' style="background:' + hex + '"' : '';
+      var swCls = 'swatch' + (i === state.selected ? ' sel' : '') + (mode === 'clear' ? ' clear' : '') + (mode === 'white' ? ' white' : '');
+      var title = mode === 'normal' ? ('点击编辑 ' + hex) : ('点击编辑 ' + colorModeLabel(p) + '（原色 ' + hex + '）');
+      parts.push('<button class="' + swCls + '" data-i="' + i + '" title="' + title + '">' +
+        '<span class="' + chipCls + '"' + chipStyle + '></span>' +
+        '<span class="hex">' + (mode === 'normal' ? hex.slice(1) : colorTextLabel(p)) + '</span>' +
         '<span class="pct">' + pctTxt + '%</span>' +
         '</button>');
     }
@@ -2178,22 +2235,40 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
     if (i < 0 || i >= state.palette.length) return;
     var c = parseHex(hexStr);
     if (!c) return;
+    c.mode = 'normal';
     state.palette[i] = c;
     state.paletteAuto = false;
     state.mapLUTKey = '';
     updateBadge();
     var hex = toHex(c);
-    var sw = els.paletteGrid.querySelector('[data-i="' + i + '"]');
-    if (sw) {
-      var chip = sw.querySelector('.chip');
-      if (chip) chip.style.background = hex;
-      var lab = sw.querySelector('.hex');
-      if (lab) lab.textContent = hex.slice(1);
-    }
+    renderPalette();
     if (document.activeElement !== els.selHex) els.selHex.value = hex;
-    updateSelectedInfo();
     if (immediate) recolor();
     else scheduleRecolor();
+  }
+
+  function setSelectedMode(mode) {
+    var i = state.selected;
+    if (i < 0 || i >= state.palette.length) return;
+    state.palette[i].mode = mode;
+    state.paletteAuto = false;
+    updateBadge();
+    renderPalette();
+    recolor();
+    toast('此色已设为' + (mode === 'clear' ? '透明' : (mode === 'white' ? '白色' : '正常')));
+  }
+
+  function resetPaletteModes() {
+    var changed = false;
+    for (var i = 0; i < state.palette.length; i++) {
+      if (colorMode(state.palette[i]) !== 'normal') { state.palette[i].mode = 'normal'; changed = true; }
+    }
+    if (!changed) { toast('所有颜色已经是正常状态'); return; }
+    state.paletteAuto = false;
+    updateBadge();
+    renderPalette();
+    recolor();
+    toast('已全部恢复正常颜色');
   }
 
   function deleteSelectedColor() {
@@ -2223,6 +2298,7 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
     var work = ensureWorkRGB();
     var c = findWorstColor(work, state.workW, state.workH, state.palette, LAB_LUT);
     if (!c) c = { r: 128, g: 128, b: 128 };
+    c.mode = 'normal';
     state.palette.push(c);
     state.selected = state.palette.length - 1;
     state.paletteAuto = false;
@@ -2239,7 +2315,7 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
     }
     var lines = [];
     for (var i = 0; i < state.palette.length; i++) {
-      lines.push(toHex(state.palette[i]).toUpperCase() + '  ' + palettePercent(i).toFixed(1) + '%');
+      lines.push(colorModeLabel(state.palette[i]) + '  ' + palettePercent(i).toFixed(1) + '%');
     }
     var text = lines.join(String.fromCharCode(10));
     copyText(text).then(function () {
@@ -2607,13 +2683,35 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
 
   function drawSwatch(ctx, x, y, size, color) {
     var r = Math.max(3, Math.round(size * 0.16));
-    ctx.fillStyle = toHex(color);
+    var mode = colorMode(color);
+    ctx.save();
     ctx.beginPath();
     if (ctx.roundRect) ctx.roundRect(x, y, size, size, r);
     else ctx.rect(x, y, size, size);
-    ctx.fill();
-    ctx.strokeStyle = 'rgba(0,0,0,.22)';
+    ctx.clip();
+    if (mode === 'clear') {
+      var step = Math.max(4, Math.round(size / 6));
+      ctx.fillStyle = '#d9d2c4';
+      ctx.fillRect(x, y, size, size);
+      ctx.fillStyle = '#b7ae9e';
+      for (var cy = 0; cy < size; cy += step) {
+        for (var cx = 0; cx < size; cx += step) {
+          if (((cx / step) + (cy / step)) % 2 === 0) ctx.fillRect(x + cx, y + cy, step, step);
+        }
+      }
+    } else if (mode === 'white') {
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(x, y, size, size);
+    } else {
+      ctx.fillStyle = toHex(color);
+      ctx.fillRect(x, y, size, size);
+    }
+    ctx.restore();
+    ctx.strokeStyle = 'rgba(0,0,0,.25)';
     ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(x + 0.5, y + 0.5, size - 1, size - 1, r);
+    else ctx.rect(x + 0.5, y + 0.5, size - 1, size - 1);
     ctx.stroke();
   }
 
@@ -2681,7 +2779,7 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
       var pct = total && counts ? (counts[i] || 0) * 100 / total : 0;
       ctx.fillStyle = '#221f1a';
       ctx.font = '600 ' + Math.round(16 * u) + 'px ui-monospace, Consolas, monospace';
-      ctx.fillText(toHex(palette[i]).toUpperCase(), x + sw + Math.round(12 * u), y + Math.round(19 * u));
+      ctx.fillText(colorModeLabel(palette[i]), x + sw + Math.round(12 * u), y + Math.round(19 * u));
       ctx.fillStyle = '#7a7367';
       ctx.font = Math.round(12.5 * u) + 'px "Microsoft YaHei", sans-serif';
       ctx.fillText(pct.toFixed(pct >= 10 ? 0 : 1) + '%', x + sw + Math.round(12 * u), y + Math.round(36 * u));
@@ -3083,14 +3181,14 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
     if (state.blur > 0) work = blurRGB(work, w, h, state.blur);
     var palette;
     if (opts.unified && opts.basePalette && opts.basePalette.length) {
-      palette = opts.basePalette.map(function (p) { return { r: p.r, g: p.g, b: p.b }; });
+      palette = opts.basePalette.map(function (p) { return { r: p.r, g: p.g, b: p.b, mode: p.mode || 'normal' }; });
     } else {
       palette = extractPalette(work, w, h, opts.k, (state.seed + opts.index) >>> 0, LAB_LUT);
     }
     if (opts.gray) {
       palette = palette.map(function (p) {
         var g = Math.round((p.r + p.g + p.b) / 3);
-        return { r: g, g: g, b: g };
+        return { r: g, g: g, b: g, mode: p.mode || 'normal' };
       });
     }
     var mapLUT = buildMapLUT(palette, LAB_LUT);
@@ -3211,7 +3309,7 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
     var parts = [];
     for (var j = 0; j < palette.length; j++) {
       var pct = total ? (counts[j] || 0) * 100 / total : 0;
-      parts.push(toHex(palette[j]).toUpperCase() + ' ' + pct.toFixed(1) + '%');
+      parts.push(colorModeLabel(palette[j]) + ' ' + pct.toFixed(1) + '%');
     }
     return meta.name + '	' + meta.workW + 'x' + meta.workH + '	' + parts.join('  ');
   }
@@ -3239,7 +3337,7 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
     var stamp = new Date();
     function pad2(v) { return v < 10 ? '0' + v : String(v); }
     var zipName = (opts.line ? '线稿批量_' : '色块批量_') + stamp.getFullYear() + pad2(stamp.getMonth() + 1) + pad2(stamp.getDate()) + '_' + pad2(stamp.getHours()) + pad2(stamp.getMinutes()) + '.zip';
-    var basePalette = state.palette.map(function (p) { return { r: p.r, g: p.g, b: p.b }; });
+    var basePalette = state.palette.map(function (p) { return { r: p.r, g: p.g, b: p.b, mode: p.mode || 'normal' }; });
     var done = 0;
     var processed = 0;
     var errors = [];
@@ -3286,7 +3384,7 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
             }
           }
           if (opts.paletteTxt) paletteLines.push(batchPaletteTextLine(res, res.palette, res.counts));
-          items.push({ name: res.name, workW: res.workW, workH: res.workH, palette: res.palette.map(toHex), counts: Array.prototype.slice.call(res.counts) });
+          items.push({ name: res.name, workW: res.workW, workH: res.workH, palette: res.palette.map(toHex), modes: res.palette.map(function (p) { return p.mode || 'normal'; }), counts: Array.prototype.slice.call(res.counts) });
         }
         if (opts.original) await addOriginalZipEntry(file, zipEntries);
         done++;
@@ -3435,7 +3533,7 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
       var pct = total && counts ? (counts[i] || 0) * 100 / total : 0;
       ctx.fillStyle = '#221f1a';
       ctx.font = '600 16px ui-monospace, Consolas, monospace';
-      ctx.fillText(toHex(palette[i]).toUpperCase(), sx + 58, sy + 20);
+      ctx.fillText(colorModeLabel(palette[i]), sx + 58, sy + 20);
       ctx.fillStyle = '#7a7367';
       ctx.font = '13px "Microsoft YaHei", sans-serif';
       ctx.fillText(pct.toFixed(pct >= 10 ? 0 : 1) + '%', sx + 58, sy + 40);
@@ -3735,6 +3833,10 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
   els.selGray.addEventListener('change', function () {
     applySelectedColor(grayHex(parseInt(els.selGray.value, 10)), true);
   });
+  els.alphaNormal.addEventListener('click', function () { setSelectedMode('normal'); });
+  els.alphaClear.addEventListener('click', function () { setSelectedMode('clear'); });
+  els.alphaWhite.addEventListener('click', function () { setSelectedMode('white'); });
+  els.resetModesBtn.addEventListener('click', resetPaletteModes);
   els.delColorBtn.addEventListener('click', deleteSelectedColor);
   els.addColorBtn.addEventListener('click', addSmartColor);
   els.pickBtn.addEventListener('click', function () {
@@ -3929,6 +4031,7 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
         hatch: { enabled: state.hatch.enabled, strength: state.hatch.strength, density: state.hatch.density, width: state.hatch.width, angle: state.hatch.angle, range: state.hatch.range, protectHighlight: state.hatch.protectHighlight, protectSkin: state.hatch.protectSkin },
         black: { enabled: state.black.enabled, threshold: state.black.threshold, protectSkin: state.black.protectSkin },
         palette: state.palette.map(toHex),
+        paletteModes: state.palette.map(function (p) { return p.mode || 'normal'; }),
         counts: state.counts ? Array.prototype.slice.call(state.counts) : [],
         workW: state.workW,
         workH: state.workH,
@@ -3997,7 +4100,7 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
       var arr = [];
       for (var i = 0; i < hexes.length; i++) {
         var c = parseHex(hexes[i]);
-        if (c) arr.push(c);
+        if (c) { c.mode = 'normal'; arr.push(c); }
       }
       if (!arr.length) return false;
       if (arr.length > 32) arr = arr.slice(0, 32);
@@ -4009,6 +4112,17 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
       if (!state.line) recolor();
       return true;
     },
+    setPaletteMode: function (i, mode) {
+      if (!state.ready || i < 0 || i >= state.palette.length) return false;
+      if (mode !== 'normal' && mode !== 'clear' && mode !== 'white') return false;
+      state.palette[i].mode = mode;
+      state.paletteAuto = false;
+      updateBadge();
+      renderPalette();
+      if (!state.line) recolor();
+      return true;
+    },
+    resetPaletteModes: resetPaletteModes,
     extract: extractAndRecolor,
     recolor: recolor,
     setGray: setGrayMode,
