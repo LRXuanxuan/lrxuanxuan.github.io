@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#f2f8ff">
-<title>色块 / 线稿提炼器 · Ruixuan's Corner</title>
+<title>绘画归纳练习室 · Ruixuan's Corner</title>
 <script>
 (function () {
   'use strict';
@@ -344,13 +344,14 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
   *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
 }
 </style>
+<link rel="stylesheet" href="/assets/color-block-studio/study.css?v=20261120-1">
 </head>
 <body>
 <header>
   <div class="brand">
     <span class="logo" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
     <div>
-      <h1>色块 / 线稿提炼器</h1>
+      <h1>绘画归纳练习室</h1>
       <p><a href="/playthings/">Ruixuan's Corner</a><span aria-hidden="true">/</span>画画参考工具</p>
     </div>
   </div>
@@ -385,30 +386,93 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
       <div id="imgMeta" class="meta" hidden></div>
     </section>
 
-    <section class="sec">
-      <div class="sec-head">
-        <h2>提炼</h2>
-        <span id="autoBadge" class="badge">自动配色</span>
-      </div>
-      <div class="field color-only">
-        <div class="field-top"><label for="kRange">色块数量</label><output id="kVal">8</output></div>
-        <input id="kRange" type="range" min="2" max="24" step="1" value="8">
-        <div class="field-top"><span class="hint">2 色（极简）</span><span class="hint">24 色（较写实）</span></div>
-      </div>
-      <div class="field">
+<section class="sec study-navigation" aria-labelledby="studyTitle">
+  <div class="sec-head">
+    <h2 id="studyTitle">今天练什么</h2>
+    <span class="study-eyebrow">观察 → 取舍 → 对照</span>
+  </div>
+  <div class="study-mode-grid" role="group" aria-label="练习方向">
+    <button type="button" class="study-mode" data-study-mode="value" aria-pressed="true"><span class="study-mode-number">01</span><span>明暗归纳</span></button>
+    <button type="button" class="study-mode" data-study-mode="color" aria-pressed="false"><span class="study-mode-number">02</span><span>色彩归纳</span></button>
+    <button type="button" class="study-mode" data-study-mode="line" aria-pressed="false"><span class="study-mode-number">03</span><span>线条取舍</span></button>
+    <button type="button" class="study-mode" data-study-mode="black" aria-pressed="false"><span class="study-mode-number">04</span><span>局部压黑</span></button>
+  </div>
+  <p class="study-guidance" id="studyHint" aria-live="polite">先把画面归成亮、灰、暗三组，再看大形能否读清。</p>
+</section>
+<details class="sec study-lessons" open>
+  <summary><span>跟着一张图练</span><span class="study-summary-note">分步骤观察</span></summary>
+  <p class="hint">选一张参考图，逐步比较大块、线条和黑白关系。</p>
+  <div id="lessonList" class="study-lesson-list" aria-label="参考图练习"></div>
+  <button type="button" id="lessonChange" class="btn ghost sm" hidden>换一张示例</button>
+  <div id="lessonSteps" class="study-lesson-steps" aria-live="polite"></div>
+  <p class="study-source">示例保留原图署名；自动分组是观察起点，局部取舍由你决定。</p>
+</details>
+<section class="sec study-parameters" id="studyValuePanel" data-study-panel="value" aria-labelledby="studyValueTitle">
+  <div class="sec-head"><h2 id="studyValueTitle">先分明暗，再定灰阶</h2><span class="badge">从三组起步</span></div>
+  <div class="study-segment" role="group" aria-label="明暗分组数量">
+    <button type="button" data-value-levels="2" aria-pressed="false">2 组<span>看剪影</span></button>
+    <button type="button" data-value-levels="3" aria-pressed="true">3 组<span>看主次</span></button>
+    <button type="button" data-value-levels="5" aria-pressed="false">5 组<span>添转折</span></button>
+  </div>
+  <div class="field">
+    <div class="field-top"><label for="valueDark">暗组分界</label><output id="valueDarkVal" for="valueDark">35 L*</output></div>
+    <input id="valueDark" type="range" min="1" max="98" step="1" value="35" aria-describedby="studyValueHelp">
+  </div>
+  <div class="field" id="valueLightField">
+    <div class="field-top"><label for="valueLight">亮组分界</label><output id="valueLightVal" for="valueLight">72 L*</output></div>
+    <input id="valueLight" type="range" min="2" max="99" step="1" value="72" aria-describedby="studyValueHelp">
+  </div>
+  <p class="hint" id="studyValueHelp">分界决定哪些区域归在一起；下方色板决定每组画多深。先观察，再调整。</p>
+</section>
+<section class="sec study-parameters" id="studyColorPanel" data-study-panel="color" aria-labelledby="studyColorTitle" hidden>
+  <h2 id="studyColorTitle">保持形状，比较配色</h2>
+  <label class="check"><input id="lockRegions" type="checkbox" checked> 固定分块，只改颜色</label>
+  <p class="hint">锁定后改色不会带着边界移动，适合比较同一组形状的冷暖与明度。</p>
+  <button type="button" id="remapBtn" class="btn ghost sm">按当前色板重新分块</button>
+  <label class="check"><input id="studyColorGray" type="checkbox"> 灰度检查配色（仅预览）</label>
+</section>
+<section class="sec study-brush" id="studyBrushTools" aria-labelledby="studyBrushTitle" hidden>
+  <div class="sec-head"><h2 id="studyBrushTitle">自己做取舍</h2><span class="badge">在结果图上涂画</span></div>
+  <div class="study-brush-grid" role="group" aria-label="局部修改工具">
+    <button type="button" class="study-tool" data-study-tool="inspect" aria-pressed="true">观察</button>
+    <button type="button" class="study-tool" data-study-tool="black" data-study-for="line black" aria-pressed="false">补黑</button>
+    <button type="button" class="study-tool" data-study-tool="white" data-study-for="black" aria-pressed="false">留白</button>
+    <button type="button" class="study-tool" data-study-tool="line-keep" data-study-for="line" aria-pressed="false" hidden>保留线条</button>
+    <button type="button" class="study-tool" data-study-tool="line-remove" data-study-for="line" aria-pressed="false" hidden>删去线条</button>
+    <button type="button" class="study-tool" data-study-tool="line-soft" data-study-for="line" aria-pressed="false" hidden>减弱线条</button>
+    <button type="button" class="study-tool" data-study-tool="erase" aria-pressed="false" title="擦掉局部修改，恢复自动结果">擦除修改</button>
+  </div>
+  <div class="field">
+    <div class="field-top"><label for="studyBrushSize">笔刷大小</label><output id="studyBrushSizeVal" for="studyBrushSize">18</output></div>
+    <input id="studyBrushSize" type="range" min="2" max="80" step="1" value="18">
+  </div>
+  <label class="check" data-study-for="black"><input id="blackOnly" type="checkbox" checked> 只看黑块，暂时藏起线条</label>
+  <p class="hint" id="studyBrushHint">先找遮挡和接触处，再决定哪些暗部连成一块；给关键间隙留白。</p>
+  <p class="study-metrics" id="studyMetrics" role="status">载入图片后，可查看当前黑块面积。</p>
+</section>
+    <section class="sec color-only" id="extractionSection">
+      <div class="sec-head"><h2>分块设置</h2><span id="autoBadge" class="badge">明暗归纳</span></div>
+      <div hidden>      <div class="field">
         <div class="field-top"><label>画面模式</label></div>
         <div class="seg small" role="group" aria-label="画面模式">
           <button id="modeColor" class="seg-btn on" type="button">彩色色块</button>
           <button id="modeGray" class="seg-btn" type="button">灰度明暗</button>
           <button id="modeLine" class="seg-btn" type="button">针管线稿</button>
         </div>
-        <p class="hint" id="modeHint">彩色模式按颜色归纳；灰度只保留明暗；针管线稿输出纯黑白线条。</p>
+        <p class="hint" id="modeHint">色彩和明暗分别归纳；线条与黑块可以局部取舍，减弱线条会保留灰阶。</p>
+      </div>
+</div>
+      <div data-study-for="color" hidden>      <div class="field color-only">
+        <div class="field-top"><label for="kRange">色块数量</label><output id="kVal">8</output></div>
+        <input id="kRange" type="range" min="2" max="24" step="1" value="8">
+        <div class="field-top"><span class="hint">2 色（极简）</span><span class="hint">24 色（较写实）</span></div>
       </div>
       <div class="row color-only">
         <button id="extractBtn" class="btn ghost sm">重新提取</button>
         <button id="shuffleBtn" class="btn ghost sm" title="同样的色数，换一组配色">换一组配色</button>
       </div>
-      <div class="field color-only">
+</div>
+      <details class="study-advanced"><summary>细化分块：柔化、碎块与毛边</summary>      <div class="field color-only">
         <div class="field-top"><label for="blurRange">柔化 / 去噪</label><output id="blurVal">1</output></div>
         <input id="blurRange" type="range" min="0" max="8" step="1" value="1">
         <p class="hint">先把相近颜色揉在一起，能减少照片噪点造成的碎麻点。</p>
@@ -419,9 +483,9 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
         <p class="hint">面积小于该像素数的孤岛会并进周围的颜色，画面更平整。</p>
       </div>
       <label class="check color-only"><input id="smoothChk" type="checkbox" checked> 整理毛边（去碎点毛刺）</label>
+</details>
     </section>
-
-    <section class="sec line-only" id="lineSec">
+    <details class="sec study-advanced line-only" id="lineSec" data-study-for="line"><summary>线条候选参数与排线示意</summary>
       <div class="sec-head">
         <h2>线稿参数</h2>
         <span class="badge" id="lineRatio">—</span>
@@ -454,11 +518,11 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
         <button id="linePresetStd" class="btn ghost sm">标准</button>
         <button id="linePresetRich" class="btn ghost sm">丰富</button>
       </div>
-      <p class="hint">线稿模式只输出纯黑 / 纯白像素；不同照片建议用上面三个预设起步再微调。</p>
+      <p class="hint">自动边缘仅作候选，无法判断轮廓、遮挡和花纹；减弱工具会输出浅灰线。</p>
 
       <div style="border-top:1px solid var(--line);margin:2px 0 4px"></div>
       <div class="sec-head">
-        <h2>针管排线（阴影）</h2>
+        <h2>排线明暗示意</h2>
         <label class="check" style="gap:6px;font-size:11px"><input id="hatchOn" type="checkbox"> 开启</label>
       </div>
       <div id="hatchFields" hidden>
@@ -498,22 +562,23 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
           <button id="hatchPresetMid" class="btn ghost sm">中</button>
           <button id="hatchPresetHeavy" class="btn ghost sm">重</button>
         </div>
-        <p class="hint">排线只补在线稿的暗部/中间调，像用针管笔一层层排线；觉得脏就关掉或把强度调小。</p>
+        <p class="hint">固定方向的排线只示意明暗密度，不会随人体或衣褶转面。默认关闭，可辅助比较。</p>
       </div>
 
-      <div style="border-top:1px solid var(--line);margin:2px 0 4px"></div>
+    </details>
+    <section class="sec" data-study-for="black" hidden>
       <div class="sec-head">
-        <h2>压黑（阴影纯黑）</h2>
-        <label class="check" style="gap:6px;font-size:11px"><input id="blackOn" type="checkbox"> 开启</label>
+        <h2>黑块候选</h2>
+        <label class="check" style="gap:6px;font-size:11px" hidden><input id="blackOn" type="checkbox"> 开启</label>
       </div>
       <div id="blackFields" hidden>
         <div class="field">
-          <div class="field-top"><label for="blackThreshold">压黑阈值（亮度 ≤）</label><output id="blackThresholdVal">25%</output></div>
+          <div class="field-top"><label for="blackThreshold">暗部候选分界（L* ≤）</label><output id="blackThresholdVal">25%</output></div>
           <input id="blackThreshold" type="range" min="5" max="60" step="1" value="25">
-          <p class="hint">亮度低于阈值的暗部直接填成纯黑；调大压得更多。暗背景也会被压黑，不想压背景就调低阈值。</p>
+          <p class="hint">分界采用 L* 明度（0 暗—100 亮）。低于分界的区域作为黑块候选；深衣物与暗背景也会进入，需要你判断。</p>
         </div>
         <label class="check"><input id="blackSkin" type="checkbox" checked> 保护肤色（实验）</label>
-        <p class="hint">和排线同时开时：黑块优先，排线在其余暗部/中间调继续补。输出仍是纯黑白。</p>
+        <p class="hint">肤色色域保护只是颜色近似，不能识别人脸；局部留白可手动保护关键区域。</p>
       </div>
     </section>
 
@@ -522,6 +587,7 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
         <h2>调色板</h2>
         <span id="paletteCount" class="badge" hidden></span>
       </div>
+      <label class="check study-isolate"><input id="isolateGroup" type="checkbox"> 点色块时，只看这组覆盖哪里</label>
       <div id="paletteGrid" class="palette"></div>
       <div id="paletteEditor" class="editor" hidden>
         <div class="editor-top">
@@ -529,7 +595,7 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
           <input id="selHex" type="text" maxlength="7" spellcheck="false" aria-label="十六进制色值">
         </div>
         <div class="editor-top" id="grayRow" hidden>
-          <input id="selGray" type="range" min="0" max="255" step="1" aria-label="明度">
+          <input id="selGray" type="range" min="0" max="255" step="1" aria-label="所选组输出灰度，0黑255白">
           <output id="selGrayVal">128</output>
         </div>
         <div class="editor-info" id="selInfo"></div>
@@ -540,7 +606,7 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
         </div>
         <p class="hint" style="font-size:10.5px">透明：导出 PNG 带 alpha，预览显示棋盘格；白色：像素直接变白。可多选几个色块分别设置。</p>
         <div class="row">
-          <button id="delColorBtn" class="btn ghost sm">删除此色</button>
+          <button id="delColorBtn" class="btn ghost sm">删除并重新分块</button>
           <button id="resetModesBtn" class="btn ghost sm">全部恢复正常</button>
         </div>
       </div>
@@ -550,26 +616,31 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
         <button id="pickBtn" class="btn ghost sm">从图中取色</button>
         <button id="copyBtn" class="btn ghost sm">复制色值</button>
       </div>
-      <p class="hint">点色块可改色，像素会自动归到最接近的颜色；点色块后可选「正常 / 透明 / 白色」来抓型（透明导出为 PNG alpha，白色直接变白）。</p>
+      <div class="study-merge" data-study-for="color" hidden>
+        <label for="studyMergeTarget">把选中组并入</label>
+        <select id="studyMergeTarget" class="select" aria-label="合并目标色组"></select>
+        <button type="button" id="studyMerge" class="btn ghost sm">合并两组</button>
+      </div>
+      <p class="hint">点色块编辑输出颜色与灰阶。覆盖位置视图用于观察，导出保留完整结果；透明输出含 PNG alpha。</p>
     </section>
 
-    <section class="sec">
-      <h2>导出</h2>
+    <details class="sec study-advanced">
+      <summary>更多保存与打印</summary>
       <div class="row">
         <button id="exportBtn" class="btn primary">导出 PNG</button>
         <button id="exportOrigBtn" class="btn ghost" title="原图长边超过 6000 px 时，按 6000 px 导出">按原图尺寸</button>
       </div>
       <button id="cardBtn" class="btn ghost wide">导出画板参考卡（含色板比例）</button>
       <button id="printBtn" class="btn ghost wide">打印参考卡…</button>
-      <button id="saveBtn" class="btn primary wide">保存…（可选 原图 / 线稿 / 色块）</button>
-      <p class="hint">导出的是平涂位图；「按原图尺寸」长边上限 6000 px；线稿模式输出纯黑白 PNG；参考卡适合打印后对着画画。</p>
-    </section>
+      <button id="saveBtn" class="btn primary wide">保存…（原图 / 练习图 / 参考卡）</button>
+      <p class="hint">当前 PNG、参考卡和打印均包含局部修改。按原图尺寸导出会保持当前分块与笔画，长边上限 6000 px，不重新推算细节。</p>
+    </details>
 
-    <section class="sec">
-      <h2>批量处理</h2>
+    <details class="sec study-advanced">
+      <summary>批量处理</summary>
       <button id="batchBtn" class="btn ghost wide">选择文件夹批量处理…</button>
-      <p class="hint">用当前画面模式批量生成：线稿模式产线稿，色块模式产色块；可连参考卡一起打包成 ZIP 下载。</p>
-    </section>
+      <p class="hint">按当前参数处理其他图片，每张重新计算区域；本图的局部笔画不会套到其他图片。</p>
+    </details>
   </aside>
 
   <section id="stage">
@@ -581,6 +652,31 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
       </div>
       <div class="stage-actions"><button id="exportBtnTop" class="btn primary sm">导出 PNG</button><div class="stage-meta" id="stageDims"></div></div>
     </div>
+<div class="study-toolbar" aria-label="练习对照与画布设置">
+  <div class="study-toolbar-group" role="group" aria-label="操作历史">
+    <button type="button" id="undoStudy" class="btn ghost sm" title="撤销上一步（Ctrl / ⌘ Z）">撤销</button>
+    <button type="button" id="redoStudy" class="btn ghost sm" title="重做（Ctrl / ⌘ Shift Z）">重做</button>
+  </div>
+  <div class="study-toolbar-group study-ab" role="group" aria-label="方案对照">
+    <button type="button" id="saveAB" class="btn ghost sm" title="记录此刻的结果，继续修改后再比较">记为 A</button>
+    <button type="button" id="showAB" class="btn ghost sm" aria-pressed="false" title="在已记录的 A 与当前结果之间切换">查看 A</button>
+  </div>
+  <div class="study-canvas-tones" role="group" aria-label="画布周围底色，不改变导出图片">
+    <span>衬底</span>
+    <button type="button" data-canvas-tone="light" aria-pressed="false" aria-label="浅色衬底" title="浅色衬底"><i aria-hidden="true"></i></button>
+    <button type="button" data-canvas-tone="neutral" aria-pressed="true" aria-label="中灰衬底" title="中灰衬底"><i aria-hidden="true"></i></button>
+    <button type="button" data-canvas-tone="dark" aria-pressed="false" aria-label="深色衬底" title="深色衬底"><i aria-hidden="true"></i></button>
+  </div>
+  <span id="studyCompareStatus" class="study-compare-status" aria-live="polite"></span>
+</div>
+    <div class="study-zoom" role="group" aria-label="同步缩放与平移">
+      <button type="button" id="studyZoomOut" class="btn ghost sm" aria-label="缩小">−</button>
+      <span id="studyZoomLabel">100%</span>
+      <button type="button" id="studyZoomIn" class="btn ghost sm" aria-label="放大">＋</button>
+      <button type="button" id="studyFit" class="btn ghost sm">适合画布</button>
+      <button type="button" id="studyPan" class="btn ghost sm" aria-pressed="false">拖动画布</button>
+      <span class="hint">原图与结果同步缩放 · 右上角看整体</span>
+    </div>
     <div class="viewer" id="viewer">
       <div class="empty" id="empty">
         <div class="empty-inner">
@@ -591,13 +687,14 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
               <path d="M4 17.2l4.8-4.8 3.6 3.6 2.9-2.9 4.7 4.7"></path>
             </svg>
           </div>
-          <h3>把图片拖进来</h3>
+          <h3>从大关系，练到每一笔</h3>
           <p>或者点左侧「选择图片」/ 直接按 Ctrl+V 粘贴截图</p>
           <ul class="steps">
-            <li><b>1</b>选「彩色色块 / 灰度明暗 / 针管线稿」并调参数</li>
-            <li><b>2</b>点色块改颜色；线稿可调墨量、粗细、平滑</li>
-            <li><b>3</b>保存原图 / 线稿 / 色块，或打印、批量处理</li>
+            <li><b>01</b>把明暗和色彩收进几组清楚的大形</li>
+            <li><b>02</b>保留必要的线，减掉花纹与碎细节</li>
+            <li><b>03</b>补黑、留白，记录 A / B 比较取舍</li>
           </ul>
+          <button id="lessonStarter" type="button" class="btn primary">用参考图开始练习</button>
           <button id="pasteBtnEmpty" class="btn ghost sm" style="margin-top:8px">从剪贴板粘贴截图</button>
           <p class="hint">全部在本地浏览器里运算，图片不会上传到网上。</p>
         </div>
@@ -682,8 +779,8 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
     <h3>保存图片</h3>
     <p class="hint">勾选要保存的内容；选一项直接下载，选多项打包成一个 ZIP。</p>
     <label class="check" style="margin-top:6px"><input id="saveOriginal" type="checkbox"> 原图（原始图片文件；没有原文件时导出 PNG）</label>
-    <label class="check"><input id="saveLine" type="checkbox"> 线稿（纯黑白 PNG，用当前线稿参数）</label>
-    <label class="check"><input id="saveBlock" type="checkbox"> 色块（当前调色板 / 色数生成的平涂 PNG）</label>
+    <label class="check"><input id="saveLine" type="checkbox"> 线条 / 黑块练习（包含局部修改）</label>
+    <label class="check"><input id="saveBlock" type="checkbox"> 色块 / 明暗结果（平涂 PNG）</label>
     <label class="check"><input id="saveCard" type="checkbox"> 当前模式参考卡</label>
     <p class="hint" id="saveInfo" style="margin-top:10px"></p>
     <div class="row" style="margin-top:16px">
@@ -697,49 +794,60 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
   <div class="help-card">
     <button class="help-close" id="helpClose" aria-label="关闭">✕</button>
     <h3>使用说明</h3>
-    <p>这个工具做三件事：把照片归纳成有限色块（可改 N 色 / 具体颜色）、归纳成 N 级明暗，或提取成纯黑白的针管线稿；方便取色、分块、练构图和控笔。不生成矢量图。</p>
+    <p>围绕明暗归纳、色彩归纳、线条取舍和局部压黑练习。自动处理给出观察起点，取舍由你完成；不会自动判断形体结构或给绘画评分。</p>
+    <h4>分组、改色与局部修改</h4>
+    <p>明暗支持 2 / 3 / 5 组，分界采用 L* 明度；色板调整输出灰阶。勾选覆盖位置后点色块，可对照该组在原图中的范围。色彩默认固定分块，改色不移动边界；重新分块、合并两组均是独立操作。</p>
+    <p>在线条取舍中，可以补画、恢复候选、删线或减弱线条；在局部压黑中，可以补黑、留白和擦除修改。笔刷支持鼠标、触控笔和触摸。放大后可开启拖动画布，原图和结果始终对齐。</p>
+    <h4>撤销与方案对照</h4>
+    <p>撤销 / 重做覆盖参数、色板、模式切换与局部笔画，快捷键 Ctrl / ⌘ Z 和 Ctrl / ⌘ Shift Z。保留最多 20 步，复杂大图会按内存占用缩短。记为 A 后继续修改 B，查看 A 时是只读状态，返回 B 后继续编辑和导出。</p>
+    <p>四个练习方向分别保留当前图片的设置，来回切换不会丢掉调色和笔画。换图或刷新会开始新的练习，请先导出要保留的结果。自选图片在浏览器处理；示例缩略图按需显示，完整示例图在选择后加载。</p>
+    <h4>示例练习</h4>
+    <p>四张参考图均来自使用者提供的图片，保留构图与水印。每张有四步观察提示；返回已练过的步骤会保留修改，“恢复本步起点”可以重新载入该步参数，且可撤销。</p>
     <h4>界面外观</h4>
     <p>右上角可选浅色、深色或跟随系统，与博客共用外观偏好。切换只改变界面，不改变图片、调色板和导出文件的颜色。</p>
-    <h4>三步用它</h4>
+    <h4>开始一次练习</h4>
     <ol>
-      <li>拖入图片 / 选择图片 / Ctrl+V 粘贴。</li>
-      <li>拖动「色块数量」并松手，自动重新提炼；「柔化」减少噪点碎色；「合并碎块」把太小的孤岛并进周围。</li>
-      <li>点调色板里的色块改色；「＋ 补最缺的颜色」自动补一个画面缺失的色；「从图中取色」直接在画面上吸色。</li>
+      <li>选择一张示例，或拖入图片、选择本机图片、Ctrl+V 粘贴。</li>
+      <li>选一个练习方向，先看大块关系。需要细调时再展开柔化、碎块或线条候选参数。</li>
+      <li>记为 A 后调整分组、色板或局部笔画，再与 A 对照，最后导出要保留的结果。</li>
     </ol>
     <h4>导出</h4>
     <ul>
-      <li><b>导出 PNG</b>：当前模式的结果图（色块 / 灰度 / 线稿）。</li>
-      <li><b>按原图尺寸</b>：按原图分辨率重算；色块最长边 6000 px，线稿最长边 3000 px（线稿算法更重，故上限更低）。</li>
-      <li><b>画板参考卡</b>：色块模式含色值/占比；线稿模式含线稿参数；打印后夹在画板上很方便。</li>
+      <li><b>导出 PNG</b>：当前练习的结果图，包含局部修改。工作图长边最多 2000 px。</li>
+      <li><b>按原图尺寸</b>：把当前结果按原图比例缩放，长边上限 6000 px。保留当前分块和笔画，不重新推算细节；放大不会增加原本没有的细节。</li>
+      <li><b>参考卡与打印</b>：使用当前结果；色彩与明暗卡含色值、占比，线条与黑块卡记录候选参数。减弱线条会以灰色保留。</li>
     </ul>
-    <h4>针管线稿模式</h4>
-    <p>切到「针管线稿」后，工具把照片提取成纯黑白的线条/墨块：线条量控制墨量，线条粗细、平滑/细节、细节尺度、清理碎线都可以微调；不同照片先用「简洁 / 标准 / 丰富」预设起步。线稿可导出 PNG、按原图尺寸重算、打印、批量处理。</p>
-    <h4>针管排线 · 阴影</h4>
-    <p>在「针管线稿」里打开「针管排线」后，工具会根据画面明暗在暗部/中间调自动补排线：阴影强度控制覆盖多少，排线密度控制线距，排线粗细控制笔触，排线角度可选 45° / -45° / 交叉 / 横线；还可以保留高光、保护肤色（避免脸被画脏）。轻/中/重三个预设可以快速起步。</p>
-    <h4>压黑（阴影纯黑）</h4>
-    <p>在「针管线稿」里打开「压黑」后，亮度低于阈值的暗部会直接填成纯黑，形成剪影/大黑块的风格化阴影；阈值越高压得越多，可保护肤色避免脸变黑。可以和排线叠加：黑块优先，其余暗部再用排线过渡。</p>
+    <h4>线条取舍</h4>
+    <p>自动边缘是待选择的候选，不能区分外轮廓、遮挡、结构转折与衣服花纹。用补画、删去、减弱来表达主次；“保留线条”和“擦除修改”会恢复该处的自动候选。线条量、粗细、平滑和清理碎线可在折叠参数中微调，或从简洁 / 标准 / 丰富预设起步。</p>
+    <h4>排线明暗示意</h4>
+    <p>排线默认关闭。它按照画面明暗，用固定方向与密度示意暗部；不会识别人体或衣褶的转面方向。角度、密度和强度可用于比较，不能把结果当作顺着形体排线的答案。肤色保护仅是颜色近似，也可能影响木头、暖色衣物等区域。</p>
+    <h4>局部压黑</h4>
+    <p>切到「局部压黑」，用 L* 明度分界生成黑块候选，再手动补黑或留白。候选也会包含深色衣物、头发和暗背景，不能把它们都当成投影。先单看黑块的大形，必要时关闭“只看黑块”以叠加线条；纯黑面积仅作观察记录，没有固定合格比例。</p>
     <h4>粘贴截图</h4>
     <p>点「从剪贴板粘贴」：能读剪贴板时会直接载入图片；如果浏览器拦截剪贴板权限，会弹出一个粘贴框，点一下框再按 Ctrl+V 即可。也可以用截图工具截图后直接在页面任意位置 Ctrl+V。处理书籍 / 影视截图不需要先保存成文件。</p>
     <h4>透明色 / 白色（抓型）</h4>
     <p>「色块」和「灰度」模式里，点一个色块，下方有「正常 / 透明 / 白色」三个按钮。把背景色或不需要的颜色设为透明/白色，只留下主体形状，便于抓型。透明会导出带 alpha 的 PNG（预览显示棋盘格，打印/参考卡按纸白处理）；白色则把像素直接改成白色，导出不带透明。多个颜色可以分别设置，点「全部恢复正常」可一键复原。</p>
-    <h4>保存（原图 / 线稿 / 色块）</h4>
-    <p>「保存…」弹窗里可以任意勾选原图、线稿、色块、参考卡：选一项直接下载，选多项打包成 ZIP。批量处理也遵循当前画面模式；线稿批量会输出「线稿图/」文件夹，勾选「同时导出原图」可连原图一起打包。</p>
-    <h4>灰度明暗模式</h4>
-    <p>切到「灰度明暗」后，工具只保留画面明度，把它归纳成 N 级灰阶（2–24 级）。点色块或用编辑器里的明度滑杆可以改每一级；「均分明度」会生成均匀的 N 级色阶，适合拿固定几级灰做明暗练习。灰度模式导出的也是灰阶图。</p>
+    <h4>保存多种结果</h4>
+    <p>「保存…」中可勾选原图、线条 / 黑块、色块 / 明暗、参考卡：选一项直接下载，选多项打包成 ZIP。当前线条或黑块结果保留局部笔画；从别的模式保存时，优先使用本张图片已保留的模式结果。换图或刷新前请主动保存。</p>
+    <h4>明暗归纳</h4>
+    <p>支持 2 / 3 / 5 组。分界使用 L* 明度（0 暗—100 亮）；五组时，在暗端和亮端各自动细分一级。输出灰阶滑杆使用 0–255（0 黑、255 白），它改变每组呈现的深浅，不移动分组边界。“均分明度”按输出灰度值均分，不代表 L* 等距，也不是唯一合适的明暗安排。</p>
     <h4>批量处理</h4>
-    <p>点左侧「选择文件夹批量处理…」选一个文件夹（或一组图片），按当前色数 / 画面模式批量生成：色块图、可选参考卡、可选调色板文本，最后打包成一个 ZIP 下载。处理中可随时点「停止」，已经完成的图片仍会打包导出。图片很多时 ZIP 会比较大，建议先用 1000–1600 px 的工作尺寸。</p>
+    <p>展开「批量处理」，选择文件夹或一组图片，按当前模式和参数分别计算，再打包为 ZIP。本图的固定分块与局部笔画不会套到其他图片。处理中可停止，已完成的结果仍会打包；图片较多时，建议使用 1000–1600 px 工作尺寸。</p>
     <h4>打印参考卡</h4>
     <p>点「打印参考卡…」会生成一张 A4 竖版纸面并弹出打印窗口；可以勾选「同时打印原图」，做成左边原图、右边色块结果的对照页。在打印窗口里也可以选「另存为 PDF」。</p>
     <h4>术语 &amp; 小技巧</h4>
     <ul>
       <li>这个功能叫「色彩量化 / 限色」，美术上也叫「色彩归纳」「色块概括」。</li>
-      <li>练明度：先把色数设到 3–5，只看大块的明暗关系。</li>
-      <li>练限色：把色板改成你手上的几种颜料色，再让画面自己贴过去。</li>
+      <li>练明暗：从三组开始，缩小看大形，再决定是否需要五组。</li>
+      <li>练限色：先固定分块，再把色板换成手上的颜料色，单独比较颜色关系。</li>
       <li>快捷键：Ctrl+V 粘贴，Ctrl+S 导出 PNG。</li>
     </ul>
   </div>
 </div>
 
+<script src="/assets/color-block-studio/study-core.js?v=20261120-1"></script>
+<script src="/assets/color-block-studio/lessons.js?v=20261120-1"></script>
+<script src="/assets/color-block-studio/studio-study.js?v=20261120-1"></script>
 <script>
 /* ============================================================
  * 色块提炼器 · 算法核心（纯函数，不依赖 DOM）
@@ -2002,7 +2110,7 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
     }
     if (state.line) {
       var lp = state.lineParams;
-      els.statusText.textContent = '工作 ' + state.workW + '×' + state.workH + ' · 线稿 · 墨量 ' + lp.amount + '% · 粗细 ' + lp.width + ' · 平滑 ' + Number(lp.sigma).toFixed(1) + ' · 清理 ' + lp.clean + 'px' + (state.hatch.enabled ? (' · 排线 ' + state.hatch.strength + '%') : '') + (state.black.enabled ? (' · 压黑 ' + state.black.threshold + '%') : '');
+      els.statusText.textContent = '工作 ' + state.workW + '×' + state.workH + ' · 线稿 · 墨量 ' + lp.amount + '% · 粗细 ' + lp.width + ' · 平滑 ' + Number(lp.sigma).toFixed(1) + ' · 清理 ' + lp.clean + 'px' + (state.hatch.enabled ? (' · 排线 ' + state.hatch.strength + '%') : '') + (state.black.enabled ? (' · 黑块分界 ' + state.black.threshold + ' L*') : '');
       els.timingText.textContent = '线稿 ' + Math.round(state.lineMs) + ' ms · 黑线 ' + (state.lineRatioVal * 100).toFixed(1) + '%';
       return;
     }
@@ -2076,7 +2184,7 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
     els.blackOn.checked = b.enabled;
     els.blackFields.hidden = !b.enabled;
     els.blackThreshold.value = String(b.threshold);
-    els.blackThresholdVal.textContent = b.threshold + '%';
+    els.blackThresholdVal.textContent = b.threshold + ' L*';
     els.blackSkin.checked = !!b.protectSkin;
   }
 
@@ -2084,7 +2192,7 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
     var b = state.black;
     b.threshold = parseInt(els.blackThreshold.value, 10);
     b.protectSkin = els.blackSkin.checked;
-    els.blackThresholdVal.textContent = b.threshold + '%';
+    els.blackThresholdVal.textContent = b.threshold + ' L*';
     scheduleLinePreview();
   }
 
@@ -2213,16 +2321,16 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
     els.modeLine.classList.toggle('on', line);
     document.body.classList.toggle('line-mode', line);
     els.modeHint.textContent = line
-      ? '线稿模式：把照片提取成纯黑白线稿；用左侧「线稿参数」微调墨量、粗细和干净程度。'
-      : (gray ? '灰度模式：只保留明度，归纳成 N 级明暗块；点色块或拖明度滑杆可调每一级。' : '彩色模式按颜色归纳；切到灰度只保留明暗；针管线稿输出纯黑白线条。');
+      ? '线条候选可局部补画、删去或减弱；减弱的线条保留灰阶。'
+      : (gray ? '灰度模式：只保留明度，归纳成 N 级明暗块；点色块或拖明度滑杆可调每一级。' : '色彩按颜色归纳，明暗按 L* 分组；线条和黑块由你取舍。');
     els.selColor.hidden = line || gray;
     els.grayRow.hidden = !gray;
     if (els.evenGrayBtn) els.evenGrayBtn.hidden = !(gray && state.ready && state.palette.length > 0);
     if (els.cardBtn) els.cardBtn.textContent = line ? '导出线稿参考卡' : '导出画板参考卡（含色板比例）';
-    if (els.exportOrigBtn) els.exportOrigBtn.title = line ? '按原图尺寸重算线稿（长边上限 3000 px）' : '原图长边超过 6000 px 时，按 6000 px 导出';
+    if (els.exportOrigBtn) els.exportOrigBtn.title = line ? '保留当前练习结果，按原图比例导出（长边上限 6000 px）' : '原图长边超过 6000 px 时，按 6000 px 导出';
     if (els.lineRatio) {
       if (line && state.ready) els.lineRatio.textContent = '黑线 ' + (state.lineRatioVal * 100).toFixed(1) + '%';
-      else els.lineRatio.textContent = '纯黑白';
+      else els.lineRatio.textContent = '边缘候选';
     }
     updateBadge();
   }
@@ -2247,7 +2355,7 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
     if (state.line) {
       state.selected = -1;
       computeLinePreview();
-      toast('已切到针管线稿模式');
+      toast('已切到线条取舍');
     } else {
       state.selected = 0;
       extractAndRecolor();
@@ -2757,6 +2865,10 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
   }
 
   function exportPNG() {
+    if (study && study.inspect().showA) {
+      toast('正在查看只读方案 A，请返回 B 后导出当前练习');
+      return;
+    }
     if (!state.ready) {
       toast('先载入一张图片');
       return;
@@ -2840,8 +2952,8 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
       paintLineMask(mask, ew, eh, out.data);
       ctx.putImageData(out, 0, 0);
       var blob = await canvasToBlob(c);
-      downloadBlob(blob, state.name + '_线稿_原图' + ew + 'x' + eh + '.png');
-      toast('已导出线稿 ' + ew + '×' + eh + '（长边上限 3000 px）');
+      downloadBlob(blob, state.name + '_线条黑块_原图' + ew + 'x' + eh + '.png');
+      toast('已导出线条练习 ' + ew + '×' + eh);
     } catch (err) {
       console.error(err);
       toast('线稿导出失败：' + (err && err.message ? err.message : String(err)));
@@ -2863,7 +2975,7 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
       exportPNG();
       return;
     }
-    showBusy('正在按原图尺寸重算（长边上限 6000 px）…');
+    showBusy('正在按原图比例导出当前练习（长边上限 6000 px）…');
     await nextFrame();
     await nextFrame();
     try {
@@ -3012,12 +3124,12 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
     ctx.fillRect(0, 0, cardW, cardH);
     ctx.fillStyle = '#221f1a';
     ctx.font = '700 ' + Math.round(34 * u) + 'px "Microsoft YaHei", "PingFang SC", sans-serif';
-    ctx.fillText('针管线稿 · 墨量 ' + p.amount + '%', pad, pad + Math.round(38 * u));
+    ctx.fillText('线条 / 黑块练习', pad, pad + Math.round(38 * u));
     ctx.fillStyle = '#7a7367';
     ctx.font = Math.round(15 * u) + 'px "Microsoft YaHei", "PingFang SC", sans-serif';
     var cardName = String(meta.name || 'image');
     if (cardName.length > 46) cardName = cardName.slice(0, 44) + '…';
-    ctx.fillText(cardName + ' · ' + meta.workW + '×' + meta.workH + 'px · 纯黑白线稿', pad, pad + Math.round(66 * u));
+    ctx.fillText(cardName + ' · ' + meta.workW + '×' + meta.workH + 'px · 当前练习结果', pad, pad + Math.round(66 * u));
     ctx.strokeStyle = '#ddd5c6';
     ctx.lineWidth = Math.max(1, Math.round(u));
     var lineY = pad + Math.round(84 * u);
@@ -3042,9 +3154,9 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
     ctx.font = Math.round(13 * u) + 'px "Microsoft YaHei", sans-serif';
     var hh = meta.hatch || state.hatch;
     var hatchTxt = (hh && hh.enabled) ? ('排线 ' + hh.strength + '% · 密度 ' + hh.density + ' · ' + hatchAngleLabel(hh.angle) + ' · ' + (hh.range === 'mid' ? '暗部+中间调' : '只暗部') + ' · ') : '';
-    var blackTxt = (state.black.enabled) ? ('压黑 ≤' + state.black.threshold + '% · ') : '';
+    var blackTxt = (state.black.enabled) ? ('黑块分界 ' + state.black.threshold + ' L* · ') : '';
     hatchTxt = blackTxt + hatchTxt;
-    ctx.fillText(hatchTxt + '黑线占比 ' + (meta.ratio * 100).toFixed(1) + '% · 纯黑白输出', pad, py + Math.round(26 * u));
+    ctx.fillText(hatchTxt + '纯黑面积 ' + (meta.ratio * 100).toFixed(1) + '% · 面积仅作观察记录', pad, py + Math.round(26 * u));
     ctx.fillStyle = '#a09889';
     ctx.font = Math.round(11 * u) + 'px "Microsoft YaHei", sans-serif';
     ctx.fillText('色块提炼器 · 本地生成 · 仅作画画参考', pad, cardH - Math.round(16 * u));
@@ -3099,7 +3211,8 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
 
   function renderBlockForSave() {
     if (!state.baseRGB) return null;
-    var work = state.blur > 0 ? blurRGB(state.baseRGB, state.workW, state.workH, state.blur) : state.baseRGB;
+    var saveRGB = state.gray ? makeGrayscaleRGB(state.baseRGB) : state.baseRGB;
+    var work = state.blur > 0 ? blurRGB(saveRGB, state.workW, state.workH, state.blur) : saveRGB;
     var pal = state.palette.slice();
     if (state.paletteAuto || !pal.length) {
       pal = extractPalette(work, state.workW, state.workH, state.k, state.seed, LAB_LUT);
@@ -3184,7 +3297,7 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
     if (opts.original) entries.push(await originalSaveEntry());
     if (opts.line) {
       var lc = renderLineForSave();
-      if (lc) entries.push({ folder: '线稿', name: state.name + '_线稿_' + state.workW + 'x' + state.workH + '.png', data: await canvasToPngBytes(lc), type: 'image/png' });
+      if (lc) entries.push({ folder: '线条黑块', name: state.name + '_线条黑块_' + state.workW + 'x' + state.workH + '.png', data: await canvasToPngBytes(lc), type: 'image/png' });
     }
     if (opts.block) {
       var br = renderBlockForSave();
@@ -3306,7 +3419,9 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
     var lineMode = state.line;
     if (lineMode) {
       var lp = state.lineParams;
-      els.batchModeInfo.textContent = '当前模式：针管线稿 · 墨量 ' + lp.amount + '% · 粗细 ' + lp.width + ' · 平滑 ' + Number(lp.sigma).toFixed(1);
+      var practiceMode = study.inspect();
+      els.batchModeInfo.textContent = practiceMode.mode === 'black' ? ('局部压黑 · 分界 ' + state.black.threshold + ' L* · ' + (practiceMode.blackOnly ? '只看黑块' : '黑块与线条')) : ('线条候选 · 线条量 ' + lp.amount + '% · 粗细 ' + lp.width);
+      els.batchModeInfo.textContent += ' · 不套用本图局部笔画';
     } else {
       els.batchModeInfo.textContent = '当前设置：' + (state.gray ? '灰度明暗' : '彩色色块') + ' · ' + (state.palette.length ? paletteLabel() : '自动 ' + state.k + ' 色') + ' · ' + (state.paletteAuto ? '自动配色' : '手动色板');
     }
@@ -3366,6 +3481,19 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
       rgb[o] = rgba[i];
       rgb[o + 1] = rgba[i + 1];
       rgb[o + 2] = rgba[i + 2];
+    }
+    if (study) {
+      var practice = study.renderBatch(rgb, w, h, opts);
+      var practiceOut = ctx.createImageData(w, h);
+      if (practice.line) {
+        for (var pi = 0, po = 0; pi < practice.values.length; pi++, po += 4) {
+          practiceOut.data[po] = practiceOut.data[po + 1] = practiceOut.data[po + 2] = practice.values[pi];
+          practiceOut.data[po + 3] = 255;
+        }
+      } else paintFromIndices(practice.indices, practice.palette, practiceOut.data);
+      ctx.putImageData(practiceOut, 0, 0);
+      return { canvas: c, line: !!practice.line, ratio: practice.ratio,
+        palette: practice.palette, counts: practice.counts, workW: w, workH: h, name: batchBaseName(file) };
     }
     if (opts.line) {
       var gray = rgbaToGray(rgba);
@@ -3556,12 +3684,12 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
         });
         var pngBlob = await new Promise(function (resolve) { res.canvas.toBlob(resolve, 'image/png'); });
         if (res.line) {
-          if (pngBlob) zipEntries.push({ name: '线稿图/' + zipSafe(res.name) + '_线稿.png', data: await blobToUint8(pngBlob) });
+          if (pngBlob) zipEntries.push({ name: '线条黑块图/' + zipSafe(res.name) + '_线条黑块.png', data: await blobToUint8(pngBlob) });
           if (opts.cards) {
             var lcard = buildLineCardFrom(res.canvas, { name: res.name, workW: res.workW, workH: res.workH, params: state.lineParams, ratio: res.ratio, hatch: state.hatch });
             if (lcard) {
               var lcardBlob = await new Promise(function (resolve) { lcard.toBlob(resolve, 'image/png'); });
-              if (lcardBlob) zipEntries.push({ name: '参考卡/' + zipSafe(res.name) + '_线稿参考卡.png', data: await blobToUint8(lcardBlob) });
+              if (lcardBlob) zipEntries.push({ name: '参考卡/' + zipSafe(res.name) + '_线条黑块参考卡.png', data: await blobToUint8(lcardBlob) });
             }
           }
           items.push({ name: res.name, workW: res.workW, workH: res.workH, line: true, ratio: res.ratio });
@@ -3601,12 +3729,13 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
       var txt = header.concat(paletteLines).join(String.fromCharCode(10)) + String.fromCharCode(10);
       zipEntries.push({ name: '调色板.txt', data: new TextEncoder().encode(txt) });
     }
-    var readmeLines = ['色块提炼器批量导出', '模式：' + (opts.line ? '针管线稿' : (opts.gray ? '灰度明暗' : '彩色色块')), '工作尺寸长边：' + opts.maxSide + 'px', '成功：' + done + ' 张' + (errors.length ? ('，跳过：' + errors.length + ' 张') : '')];
+    var readmeLines = ['色块提炼器批量导出', '模式：' + (opts.line ? '线条 / 黑块练习' : (opts.gray ? '明暗归纳' : '色彩归纳')), '工作尺寸长边：' + opts.maxSide + 'px', '成功：' + done + ' 张' + (errors.length ? ('，跳过：' + errors.length + ' 张') : '')];
     var included = [opts.line ? '线稿图/' : '色块图/'];
     if (opts.cards) included.push('参考卡/');
     if (!opts.line && opts.paletteTxt) included.push('调色板.txt');
     if (opts.original) included.push('原图/');
     readmeLines.push('包含：' + included.join('、'));
+    readmeLines.push('每张图片按当前参数重新生成候选；当前图片的局部笔画不套用到其他图片。');
     if (errors.length) {
       readmeLines.push('跳过的图片：');
       for (var ei = 0; ei < errors.length; ei++) readmeLines.push(' - ' + errors[ei].name + '：' + errors[ei].message);
@@ -3751,12 +3880,12 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
     ctx.fillRect(0, 0, W, H);
     ctx.fillStyle = '#2a2620';
     ctx.font = '700 40px "Microsoft YaHei", "PingFang SC", sans-serif';
-    ctx.fillText('针管线稿 · 墨量 ' + p.amount + '%', M, M + 40);
+    ctx.fillText('线条 / 黑块练习', M, M + 40);
     ctx.fillStyle = '#7a7367';
     ctx.font = '18px "Microsoft YaHei", sans-serif';
     var nm = String(state.name || 'image');
     if (nm.length > 40) nm = nm.slice(0, 38) + '…';
-    ctx.fillText(nm + ' · ' + state.workW + '×' + state.workH + 'px · 纯黑白 · ' + new Date().toLocaleDateString('zh-CN'), M, M + 74);
+    ctx.fillText(nm + ' · ' + state.workW + '×' + state.workH + 'px · 当前练习结果 · ' + new Date().toLocaleDateString('zh-CN'), M, M + 74);
     var ruleY = M + 96;
     ctx.strokeStyle = '#ddd5c6';
     ctx.lineWidth = 1;
@@ -3792,11 +3921,11 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
     ctx.font = '600 16px "Microsoft YaHei", sans-serif';
     var hp = state.hatch;
     var hatchPrint = hp.enabled ? (' · 排线 ' + hp.strength + '%/' + hatchAngleLabel(hp.angle) + '/密度 ' + hp.density) : '';
-    hatchPrint += state.black.enabled ? (' · 压黑 ≤' + state.black.threshold + '%') : '';
+    hatchPrint += state.black.enabled ? (' · 黑块分界 ' + state.black.threshold + ' L*') : '';
     ctx.fillText('线条量 ' + p.amount + '% · 线条粗细 ' + p.width + ' · 平滑/细节 ' + Number(p.sigma).toFixed(1) + ' · 细节尺度 ' + Number(p.k).toFixed(1) + ' · 清理碎线 ' + p.clean + 'px' + hatchPrint, M, sy);
     ctx.fillStyle = '#7a7367';
     ctx.font = '14px "Microsoft YaHei", sans-serif';
-    ctx.fillText('黑线占比 ' + (state.lineRatioVal * 100).toFixed(1) + '% · 纯黑白输出 · 适合控笔 / 描线 / 临摹练习', M, sy + 26);
+    ctx.fillText('纯黑面积 ' + (state.lineRatioVal * 100).toFixed(1) + '% · 面积仅作观察记录 · 减弱线条保留灰阶', M, sy + 26);
     ctx.fillStyle = '#a09889';
     ctx.font = '14px "Microsoft YaHei", sans-serif';
     ctx.fillText('色块提炼器 · 本地生成 · 仅作画画参考', M, H - M + 8);
@@ -3899,6 +4028,25 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
     if (els.batchBtn) els.batchBtn.disabled = false;
     if (els.batchBtnTop) els.batchBtnTop.disabled = false;
   }
+
+  /* Educational practice layer: shared renderer keeps preview, edits and exports consistent. */
+  var study = window.ColorBlockStudy.create({
+    state: state, els: els, labLUT: LAB_LUT,
+    legacy: { recolor: recolor, computeLinePreview: computeLinePreview, extractAndRecolor: extractAndRecolor,
+      setMode: setMode, applyImage: applyImage, updateModeUi: updateModeUi, applyView: applyView,
+      selectPalette: selectPalette, fitCanvas: fitCanvas, renderBlockForSave: renderBlockForSave,
+      renderLineForSave: renderLineForSave, deleteSelectedColor: deleteSelectedColor, addSmartColor: addSmartColor },
+    helpers: { toHex: toHex, renderPalette: renderPalette, updateStatus: updateStatus, updatePickUi: updatePickUi,
+      syncLineInputs: syncLineInputs, syncHatchUi: syncHatchUi, syncBlackUi: syncBlackUi,
+      ensureLineGray: ensureLineGray, getHatchParams: getHatchParams, toast: toast,
+      showBusy: showBusy, hideBusy: hideBusy, downloadBlob: downloadBlob, canvasToBlob: canvasToBlob }
+  });
+  recolor = study.recolor; computeLinePreview = study.computeLinePreview; extractAndRecolor = study.extractAndRecolor;
+  setMode = study.setMode; applyImage = study.applyImage; updateModeUi = study.updateModeUi;
+  applyView = study.applyView; selectPalette = study.selectPalette; fitCanvas = study.fitCanvas;
+  renderBlockForSave = study.renderBlockForSave; renderLineForSave = study.renderLineForSave;
+  renderFullRes = study.renderFullRes; exportLineOriginal = study.exportLineOriginal;
+  deleteSelectedColor = study.deleteSelectedColor; addSmartColor = study.addSmartColor;
 
   /* ---------------- 事件绑定 ---------------- */
   els.fileInput.addEventListener('change', function () {
@@ -4212,8 +4360,12 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
   renderPalette();
   applyView();
 
+  study.init();
+
   /* 调试 / 自动化测试接口（本地工具，无安全顾虑） */
   window.__APP = {
+    studyState: study.inspect,
+    studyTest: study.test,
     loadURL: loadURL,
     loadDataURL: loadURL,
     getState: function () {
