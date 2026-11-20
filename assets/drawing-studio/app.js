@@ -3,7 +3,7 @@
   'use strict';
   const $ = id => document.getElementById(id);
   const all = selector => Array.from(document.querySelectorAll(selector));
-  const Core = window.DrawingCore;
+  const Core = window.DrawingCore, Marks = window.DrawingMarks;
   const MAX_PIXELS = 12000000, LAYER_PIXELS = 36000000, MAX_LAYERS = 16;
   const HISTORY_BYTES = 48 * 1024 * 1024, PROJECT_BYTES = 160 * 1024 * 1024;
   const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
@@ -33,6 +33,57 @@
   let referenceCache = null, referenceVersion = 0, referenceCacheVersion = -1, lastReferenceKey = '';
   let toastTimer = 0, savingErrorShown = false, vectorResult = null, vectorKey = '', vectorURL = '';
   let lastPressure = 0, lastPointerType = 'mouse', fileSavedRevision = -1;
+  let colorPicker = null, referenceSplitter = null, lastReferencePort = null;
+  const MARK_FONTS = {
+    system: 'system-ui, -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif',
+    yahei: '"Microsoft YaHei", "PingFang SC", sans-serif', heiti: '"SimHei", "Heiti SC", sans-serif',
+    song: '"SimSun", "Songti SC", serif', kai: '"KaiTi", "Kaiti SC", "STKaiti", serif',
+    fangsong: '"FangSong", "STFangsong", serif', arial: 'Arial, "Helvetica Neue", sans-serif',
+    times: '"Times New Roman", Times, "Songti SC", serif', georgia: 'Georgia, "Times New Roman", serif',
+    mono: 'Consolas, "Courier New", monospace'
+  };
+  const MARK_DEFAULTS = {
+    shapeKind: 'rect', shapeConstrain: false, shapeFill: true, shapeStroke: true, shapeStrokeColor: '#263544', shapeStrokeWidth: 2,
+    textContent: '轻绘 Drawing', textFont: 'system', textSize: 48, textLineHeight: 1.3, textBold: false, textItalic: false, textAlign: 'left', textUseMaterial: false,
+    materialKind: 'solid', materialFollowInk: true, materialForeground: '#263544', materialBackground: '#ffffff', materialTransparent: false, materialSpacing: 14, materialThickness: 2, materialAngle: 45
+  };
+  function normalizeMarkSettings(value) {
+    value = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+    const next = { ...MARK_DEFAULTS };
+    for (const key of Object.keys(next)) if (typeof next[key] === 'boolean' && typeof value[key] === 'boolean') next[key] = value[key];
+    const enums = { shapeKind: ['rect', 'ellipse', 'star', 'triangle', 'heart'], textFont: Object.keys(MARK_FONTS), textAlign: ['left', 'center', 'right'], materialKind: ['solid', 'horizontal', 'vertical', 'diagonal', 'crosshatch', 'dots', 'linear', 'radial'] };
+    for (const key of Object.keys(enums)) if (enums[key].includes(value[key])) next[key] = value[key];
+    for (const key of ['shapeStrokeColor', 'materialForeground', 'materialBackground']) if (typeof value[key] === 'string' && /^#[a-f0-9]{6}$/i.test(value[key])) next[key] = value[key].toLowerCase();
+    for (const [key, lo, hi] of [['shapeStrokeWidth', .5, 80], ['textSize', 8, 360], ['textLineHeight', .8, 3], ['materialSpacing', 4, 100], ['materialThickness', 1, 24], ['materialAngle', 0, 180]]) {
+      if (typeof value[key] === 'number' || typeof value[key] === 'string') next[key] = clamp(number(value[key], next[key]), lo, hi);
+    }
+    if (typeof value.textContent === 'string') next.textContent = value.textContent.slice(0, 1200).split(/\r?\n/).slice(0, 20).join('\n');
+    return next;
+  }
+  function readMarkSettings() {
+    const value = {};
+    for (const key of Object.keys(MARK_DEFAULTS)) value[key] = typeof MARK_DEFAULTS[key] === 'boolean' ? $(key).checked : $(key).value;
+    return normalizeMarkSettings(value);
+  }
+  function applyMarkSettings(value) {
+    const settings = normalizeMarkSettings(value);
+    for (const key of Object.keys(settings)) { if (typeof settings[key] === 'boolean') $(key).checked = settings[key]; else $(key).value = settings[key]; }
+    updateMaterialUI();
+  }
+  function materialStyle(settings = readMarkSettings(), scale = 1) {
+    return { kind: settings.materialKind, foreground: settings.materialFollowInk ? ink : settings.materialForeground, background: settings.materialBackground, transparentBackground: settings.materialTransparent, spacing: settings.materialSpacing / scale, thickness: settings.materialThickness / scale, angle: settings.materialAngle };
+  }
+  function updateMaterialUI() {
+    if (!Marks) return;
+    const s = readMarkSettings(), gradient = s.materialKind === 'linear' || s.materialKind === 'radial', pattern = !gradient && s.materialKind !== 'solid';
+    $('materialName').textContent = $('materialKind').selectedOptions[0].textContent;
+    $('materialPatternOptions').hidden = !pattern; $('materialAngleField').hidden = !['diagonal', 'crosshatch', 'linear'].includes(s.materialKind);
+    $('materialBackField').hidden = s.materialKind === 'solid'; $('materialBackFromInk').hidden = s.materialKind === 'solid'; $('materialTransparentLabel').hidden = s.materialKind === 'solid';
+    $('materialFrontLabel').textContent = gradient ? '起始颜色' : s.materialKind === 'solid' ? '填充颜色' : '线 / 点颜色'; $('materialBackLabel').textContent = gradient ? '末尾颜色' : '背景颜色';
+    $('materialThicknessValue').textContent = s.materialThickness + ' px'; $('materialSpacingValue').textContent = s.materialSpacing + ' px'; $('materialAngleValue').textContent = s.materialAngle + '°';
+    if (s.materialFollowInk) $('materialForeground').value = ink;
+    const preview = $('materialPreview'), ctx = context(preview); clear(preview); ctx.fillStyle = Marks.fillStyle(ctx, materialStyle(s), { x: 0, y: 0, width: preview.width, height: preview.height }); ctx.fillRect(0, 0, preview.width, preview.height);
+  }
   function status(text) { $('status').textContent = text || '准备好了'; }
   function notify(message) {
     const text = message instanceof Error ? message.message : String(message);
@@ -44,7 +95,7 @@
   async function work(fn, message) {
     if (busy) return;
     finishPointer(); busy++; document.body.classList.add('busy');
-    const controls = all('button,input,select').map(element => [element, element.disabled]);
+    const controls = all('button,input,select,textarea').map(element => [element, element.disabled]);
     controls.forEach(([element]) => { element.disabled = true; });
     if (message) status(message);
     try { await tick(); return await fn(); }
@@ -147,7 +198,7 @@
     for (const layer of art.layers) {
       if (!layer.visible || layer.opacity <= 0) continue;
       let source = layer.canvas;
-      if (includeStroke && activePointer && activePointer.kind === 'stroke' && activePointer.layerId === layer.id) {
+      if (includeStroke && activePointer && ['stroke', 'shape', 'text'].includes(activePointer.kind) && activePointer.layerId === layer.id) {
         clear(liveCanvas); const live = context(liveCanvas); live.drawImage(layer.canvas, 0, 0);
         live.save(); live.globalAlpha = activePointer.opacity; live.globalCompositeOperation = activePointer.erase ? 'destination-out' : 'source-over'; live.drawImage(strokeCanvas, 0, 0); live.restore(); source = liveCanvas;
       }
@@ -213,6 +264,32 @@
     if (p[3] === 0) { status('这里是透明像素'); return; }
     setInk('#' + Array.from(p.slice(0, 3), v => v.toString(16).padStart(2, '0')).join(''), true); status('已取色 ' + ink.toUpperCase());
   }
+  function markOptions(kind, layer) {
+    const s = readMarkSettings(), fill = materialStyle(s, layer.scale);
+    if (kind === 'shape') return { type: s.shapeKind, constrain: s.shapeConstrain, fill: s.shapeFill ? fill : null, stroke: s.shapeStroke ? s.shapeStrokeColor : null, strokeWidth: s.shapeStrokeWidth / layer.scale, opacity: 1 };
+    return { text: s.textContent, size: s.textSize / layer.scale, fontFamily: MARK_FONTS[s.textFont], bold: s.textBold, italic: s.textItalic, align: s.textAlign, lineHeight: s.textLineHeight, fill: s.textUseMaterial ? fill : ink, stroke: null, opacity: 1 };
+  }
+  function previewMark(pointer, point, shift) {
+    clear(strokeCanvas); pointer.last = point;
+    if (pointer.kind === 'shape') {
+      pointer.bounds = Marks.paintShape(context(strokeCanvas), { ...pointer.options, x: pointer.origin.x, y: pointer.origin.y, width: point.x - pointer.origin.x, height: point.y - pointer.origin.y, constrain: pointer.options.constrain || !!shift });
+    } else pointer.bounds = Marks.paintText(context(strokeCanvas), { ...pointer.options, x: point.x, y: point.y });
+    requestRender();
+  }
+  function clippedBounds(bounds) {
+    if (!bounds || ![bounds.x, bounds.y, bounds.width, bounds.height].every(Number.isFinite)) return null;
+    const x = clamp(Math.floor(bounds.x), 0, art.width), y = clamp(Math.floor(bounds.y), 0, art.height);
+    const right = clamp(Math.ceil(bounds.x + bounds.width), 0, art.width), bottom = clamp(Math.ceil(bounds.y + bounds.height), 0, art.height);
+    return right > x && bottom > y ? { x, y, width: right - x, height: bottom - y } : null;
+  }
+  function commitPreview(pointer, layer, rawBounds, label) {
+    const b = clippedBounds(rawBounds); if (!b) return false;
+    const ctx = context(layer.canvas), before = ctx.getImageData(b.x, b.y, b.width, b.height);
+    ctx.save(); ctx.globalAlpha = pointer.opacity; ctx.globalCompositeOperation = pointer.erase ? 'destination-out' : 'source-over'; ctx.drawImage(strokeCanvas, b.x, b.y, b.width, b.height, b.x, b.y, b.width, b.height); ctx.restore();
+    const after = ctx.getImageData(b.x, b.y, b.width, b.height);
+    if (!after.data.some((v, i) => v !== before.data[i])) return false;
+    activePointer = null; addHistory({ kind: 'pixels', layerId: layer.id, x: b.x, y: b.y, before, after, label }); remember(ink); return true;
+  }
   function pointerDown(e) {
     if (busy || activePointer || document.querySelector('dialog[open]') || (e.button !== 0 && e.button !== 1 && e.button !== 5)) return;
     e.preventDefault(); viewport.focus({ preventScroll: true }); updatePressure(e);
@@ -226,6 +303,13 @@
       const layer = activeLayer();
       if (mode === 'fill' || mode === 'cutout') { fillAt(point, mode === 'cutout'); return; }
       if (mode === 'move') activePointer = { id: e.pointerId, kind: 'move', origin: point, x: layer.x, y: layer.y, layerId: layer.id, before: snapshot() };
+      else if (mode === 'shape' || mode === 'text') {
+        const options = markOptions(mode, layer);
+        if (mode === 'text' && !options.text.trim()) { notify('请先在右侧输入文字。'); return; }
+        if (mode === 'shape' && !options.fill && !options.stroke) { notify('请至少启用填充或描边。'); return; }
+        const p = strokePoint(e, layer); activePointer = { id: e.pointerId, kind: mode, layerId: layer.id, origin: p, last: p, options, opacity, bounds: null };
+        previewMark(activePointer, p, e.shiftKey);
+      }
       else {
         clear(strokeCanvas); const stroke = Core.makeStroke(context(strokeCanvas), { brush: mode === 'eraser' ? 'eraser' : brush, size: size / layer.scale, color: ink, pressure: pressureEnabled, stabilizer });
         const p = strokePoint(e, layer); stroke.start(p);
@@ -241,6 +325,7 @@
     if (activePointer.kind === 'pan') { view.x = activePointer.x + e.clientX - activePointer.clientX; view.y = activePointer.y + e.clientY - activePointer.clientY; updateView(); return; }
     const layer = art.layers.find(l => l.id === activePointer.layerId); if (!layer) return;
     if (activePointer.kind === 'move') { const p = documentPoint(e); layer.x = activePointer.x + p.x - activePointer.origin.x; layer.y = activePointer.y + p.y - activePointer.origin.y; requestRender(); return; }
+    if (activePointer.kind === 'shape' || activePointer.kind === 'text') { previewMark(activePointer, strokePoint(e, layer), e.shiftKey); return; }
     const events = e.getCoalescedEvents ? e.getCoalescedEvents() : null;
     for (const item of events && events.length ? events : [e]) { const p = strokePoint(item, layer); activePointer.stroke.move(p); activePointer.last = p; }
     requestRender();
@@ -251,13 +336,12 @@
     if (pointer.kind === 'stroke' && layer) {
       const end = e && Number.isFinite(e.clientX) && e.type === 'pointerup' ? strokePoint(e, layer) : pointer.last;
       pointer.stroke.end(end);
-      const bounds = pointer.stroke.bounds;
-      if (bounds) {
-        const ctx = context(layer.canvas), before = ctx.getImageData(bounds.x, bounds.y, bounds.width, bounds.height);
-        ctx.save(); ctx.globalAlpha = pointer.opacity; ctx.globalCompositeOperation = pointer.erase ? 'destination-out' : 'source-over'; ctx.drawImage(strokeCanvas, bounds.x, bounds.y, bounds.width, bounds.height, bounds.x, bounds.y, bounds.width, bounds.height); ctx.restore();
-        const after = ctx.getImageData(bounds.x, bounds.y, bounds.width, bounds.height);
-        activePointer = null; addHistory({ kind: 'pixels', layerId: layer.id, x: bounds.x, y: bounds.y, before, after, label: pointer.erase ? '擦除' : '笔画' }); remember(ink);
-      }
+      commitPreview(pointer, layer, pointer.stroke.bounds, pointer.erase ? '擦除' : '笔画');
+    } else if ((pointer.kind === 'shape' || pointer.kind === 'text') && layer) {
+      if (e && e.type === 'pointerup') {
+        previewMark(pointer, strokePoint(e, layer), e.shiftKey);
+        if (commitPreview(pointer, layer, pointer.bounds, pointer.kind === 'shape' ? '插入形状' : '插入文字')) status((pointer.kind === 'shape' ? '形状' : '文字') + '已落在 ' + layer.name + ' · 可撤销');
+      } else status('已取消放置');
     } else if (pointer.kind === 'move' && layer && (layer.x !== pointer.x || layer.y !== pointer.y)) {
       activePointer = null; addHistory({ kind: 'state', before: pointer.before, after: snapshot(), label: '移动图层' });
     }
@@ -272,11 +356,22 @@
     let sample = target;
     if (!erase && $('fillSample').value === 'visible') {
       const source = compositeLayers(false); resize(sampleCanvas, art.width, art.height); clear(sampleCanvas);
-      const sx = context(sampleCanvas); sx.save(); sx.scale(1 / layer.scale, 1 / layer.scale); sx.translate(-layer.x, -layer.y); sx.drawImage(source, 0, 0); sx.restore(); sample = sx.getImageData(0, 0, art.width, art.height);
+      const sx = context(sampleCanvas); sx.save(); sx.imageSmoothingEnabled = false; sx.scale(1 / layer.scale, 1 / layer.scale); sx.translate(-layer.x, -layer.y); sx.drawImage(source, 0, 0); sx.restore(); sample = sx.getImageData(0, 0, art.width, art.height);
+    }
+    const fill = materialStyle(readMarkSettings(), layer.scale);
+    const fillOptions = { tolerance: +$('tolerance').value, contiguous: $('contiguous').checked, expand: +$('fillExpand').value, erase };
+    if (!erase && fill.kind !== 'solid') {
+      const mask = ctx.createImageData(art.width, art.height), selection = Core.floodFill(mask, sample, x, y, [255, 255, 255, 255], fillOptions);
+      if (!selection.bounds) { status('这里没有可填充的区域'); return; }
+      const b = selection.bounds, temp = context(strokeCanvas); clear(strokeCanvas); temp.putImageData(mask, 0, 0);
+      temp.save(); temp.globalCompositeOperation = 'source-in'; temp.fillStyle = Marks.fillStyle(temp, fill, b); temp.fillRect(b.x, b.y, b.width, b.height); temp.restore();
+      const painted = commitPreview({ opacity, erase: false }, layer, b, '材质填充'); clear(strokeCanvas); render();
+      status(painted ? '材质已填充到 ' + layer.name : '这里没有需要改变的像素'); if (painted) remember(fill.foreground); return;
     }
     const beforeFull = new Uint8ClampedArray(target.data);
-    const rgba = [parseInt(ink.slice(1, 3), 16), parseInt(ink.slice(3, 5), 16), parseInt(ink.slice(5, 7), 16), Math.round(opacity * 255)];
-    const result = Core.floodFill(target, sample, x, y, rgba, { tolerance: +$('tolerance').value, contiguous: $('contiguous').checked, expand: +$('fillExpand').value, erase });
+    const fillColor = erase ? ink : fill.foreground;
+    const rgba = [parseInt(fillColor.slice(1, 3), 16), parseInt(fillColor.slice(3, 5), 16), parseInt(fillColor.slice(5, 7), 16), Math.round(opacity * 255)];
+    const result = Core.floodFill(target, sample, x, y, rgba, fillOptions);
     if (!result.changed || !result.bounds) { status('这里没有需要改变的像素'); return; }
     const b = result.bounds, before = ctx.createImageData(b.width, b.height), after = ctx.createImageData(b.width, b.height);
     for (let row = 0; row < b.height; row++) {
@@ -284,7 +379,7 @@
       before.data.set(beforeFull.subarray(start, end), row * b.width * 4); after.data.set(target.data.subarray(start, end), row * b.width * 4);
     }
     ctx.putImageData(after, b.x, b.y); addHistory({ kind: 'pixels', layerId: layer.id, x: b.x, y: b.y, before, after, label: erase ? '抠除背景' : '油漆桶填充' }); render();
-    status(erase ? '已抠除相近背景 · 可用橡皮修边，或撤销' : '已填充到 ' + layer.name); if (!erase) remember(ink);
+    status(erase ? '已抠除相近背景 · 可用橡皮修边，或撤销' : '已填充到 ' + layer.name); if (!erase) remember(fillColor);
   }
 
   function syncLayers() {
@@ -323,10 +418,12 @@
   function setTool(value) {
     if (busy) return; finishPointer(); tool = value;
     all('[data-tool]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.tool === tool)));
+    $('shapeSettings').hidden = tool !== 'shape'; $('textSettings').hidden = tool !== 'text'; $('materialSection').hidden = !['fill', 'shape', 'text'].includes(tool);
     $('fillSettings').hidden = tool !== 'fill' && tool !== 'cutout'; $('fillSampleLabel').hidden = tool === 'cutout';
     $('fillHint').textContent = tool === 'cutout' ? '点当前图层的背景抠除相近颜色。透明纸张与抠除已有白底是独立操作。' : '填充到当前图层，可在线稿下方另建上色层。';
+    if (tool === 'shape' || tool === 'text') { togglePanel('settings', true); $('settingsPanel').querySelector('.settings-scroll').scrollTop = 0; }
     viewport.dataset.cursor = tool; $('brushCursor').hidden = true;
-    status(({ brush: '画笔 · ' + $('brushKind').selectedOptions[0].textContent, eraser: '橡皮 · 擦除当前图层', fill: '填充 · 点选区域上色', picker: '取色 · 点击画作，或从参考图取色', move: '移层 · 拖动当前图层', hand: '平移 · 拖动画布', cutout: '抠图 · 点击当前图层的背景' })[tool]);
+    status(({ brush: '画笔 · ' + $('brushKind').selectedOptions[0].textContent, eraser: '橡皮 · 擦除当前图层', fill: '填充 · 点选区域上色，可选择材质', shape: '形状 · 拖动预览，松手放置；Shift 锁定比例', text: '文字 · 先输入内容，再点击或拖动放置', picker: '取色 · 点击画作，或从参考图取色', move: '移层 · 拖动当前图层', hand: '平移 · 拖动画布', cutout: '抠图 · 点击当前图层的背景' })[tool]);
   }
   function swatches(container, colors) {
     container.replaceChildren();
@@ -339,8 +436,9 @@
     if (typeof value !== 'string') throw new Error('请输入有效的颜色文本。');
     if (/^#[a-f0-9]{3}$/i.test(value)) value = '#' + value.slice(1).split('').map(c => c + c).join('');
     if (!/^#[a-f0-9]{6}$/i.test(value)) throw new Error('请输入 #RRGGBB 格式的颜色。');
-    ink = value.toLowerCase(); $('inkColor').value = ink; $('colorHex').value = ink; $('colorPreview').style.backgroundColor = ink;
+    ink = value.toLowerCase(); $('inkColor').value = ink;
     all('[data-color]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.color.toLowerCase() === ink)));
+    if (colorPicker) colorPicker.setColor(ink); updateMaterialUI();
     if (rememberIt) remember(ink);
   }
   function remember(color) { recentColors = [color, ...recentColors.filter(c => c !== color)].slice(0, 12); swatches($('recentSwatches'), recentColors); }
@@ -393,7 +491,17 @@
     if (!ref || !ref.getCanvas()) return;
     const source = ref.getCanvas(), r = $('referenceView').getBoundingClientRect(); if (!r.width || !r.height) return;
     refView.zoom = clamp(Math.min((r.width - 16) / source.width, (r.height - 16) / source.height), .02, 8);
-    refView.x = (r.width - source.width * refView.zoom) / 2; refView.y = (r.height - source.height * refView.zoom) / 2; updateReferenceView();
+    refView.x = (r.width - source.width * refView.zoom) / 2; refView.y = (r.height - source.height * refView.zoom) / 2; lastReferencePort = { width: r.width, height: r.height }; updateReferenceView();
+  }
+  function resizeReferenceView() {
+    const r = $('referenceView').getBoundingClientRect(); if (!r.width || !r.height || refPointer) return;
+    const previous = lastReferencePort; lastReferencePort = { width: r.width, height: r.height };
+    if (!ref || !ref.getCanvas()) return;
+    if (!previous || !previous.width || !previous.height) { fitReference(); return; }
+    const source = ref.getCanvas(), oldFit = Math.min((previous.width - 16) / source.width, (previous.height - 16) / source.height), nextFit = Math.min((r.width - 16) / source.width, (r.height - 16) / source.height);
+    if (!(oldFit > 0 && nextFit > 0)) return;
+    const focalX = (previous.width / 2 - refView.x) / refView.zoom, focalY = (previous.height / 2 - refView.y) / refView.zoom;
+    refView.zoom = clamp(refView.zoom * nextFit / oldFit, .02, 20); refView.x = r.width / 2 - focalX * refView.zoom; refView.y = r.height / 2 - focalY * refView.zoom; updateReferenceView();
   }
   function updateReferenceView() { $('referenceCanvas').style.transform = 'translate(' + refView.x + 'px,' + refView.y + 'px) scale(' + refView.zoom + ')'; }
   function zoomReference(next, x, y) {
@@ -436,7 +544,7 @@
       else { bundle = await ref.exportBundle(); if (referenceVersion === version) { referenceCache = bundle; referenceCacheVersion = version; } }
     }
     return { format: 'lrxdraw', version: 1, title: state.title, width: state.width, height: state.height, paper: state.paper, paperColor: state.paperColor, tone: state.tone, activeId: state.activeId, layers: await layersPromise, reference: bundle,
-      settings: { ink, brush, size, opacity, stabilizer, pressureEnabled, recentColors: recentColors.slice(0, 12) } };
+      settings: { ink, brush, size, opacity, stabilizer, pressureEnabled, recentColors: recentColors.slice(0, 12), marks: readMarkSettings() } };
   }
   function notifySaveError(error) {
     $('saveStatus').textContent = '草稿未保存';
@@ -530,14 +638,15 @@
       opacity: clamp(typeof inputSettings.opacity === 'number' ? number(inputSettings.opacity, 1) : 1, .01, 1),
       stabilizer: clamp(typeof inputSettings.stabilizer === 'number' ? number(inputSettings.stabilizer, 20) : 20, 0, 100),
       pressureEnabled: inputSettings.pressureEnabled !== false,
-      recentColors: Array.isArray(inputSettings.recentColors) ? inputSettings.recentColors.filter(c => typeof c === 'string' && /^#[a-f0-9]{6}$/i.test(c)).slice(0, 12) : []
+      recentColors: Array.isArray(inputSettings.recentColors) ? inputSettings.recentColors.filter(c => typeof c === 'string' && /^#[a-f0-9]{6}$/i.test(c)).slice(0, 12) : [],
+      marks: normalizeMarkSettings(inputSettings.marks)
     };
     const bundle = await decodeReference(project.reference), candidate = createReference();
     let canonicalBundle = null;
     try { if (bundle) { await candidate.loadBundle(bundle); canonicalBundle = await candidate.exportBundle(); } } catch (error) { candidate.destroy(); throw error; }
     if (ref) ref.destroy(); ref = candidate; art = next;
     undoStack = []; redoStack = []; transactions.clear(); clearTimeout(saveTimer); revision = 0; savedRevision = 0; fileSavedRevision = -1; sessionUsed = false; draftId = uid();
-    setInk(settings.ink); brush = settings.brush; $('brushKind').value = brush;
+    setInk(settings.ink); applyMarkSettings(settings.marks); brush = settings.brush; $('brushKind').value = brush;
     size = settings.size; opacity = settings.opacity; stabilizer = settings.stabilizer; pressureEnabled = settings.pressureEnabled;
     recentColors = settings.recentColors;
     $('brushSize').value = size; $('brushOpacity').value = Math.round(opacity * 100); $('brushOpacityValue').textContent = Math.round(opacity * 100) + '%'; $('stabilizer').value = stabilizer; $('stabilizerValue').textContent = stabilizer; $('penPressure').checked = pressureEnabled; swatches($('recentSwatches'), recentColors);
@@ -615,8 +724,17 @@
     on('penPressure', 'change', () => { pressureEnabled = $('penPressure').checked; });
     on('touchDraw', 'change', () => { touchDraw = $('touchDraw').checked; });
     on('inkColor', 'input', () => setInk($('inkColor').value)); on('inkColor', 'change', () => remember(ink));
-    on('colorHex', 'change', () => { try { setInk($('colorHex').value.trim(), true); } catch (error) { $('colorHex').value = ink; throw error; } });
     on('rememberColor', 'click', () => remember(ink));
+    for (const key of Object.keys(MARK_DEFAULTS)) {
+      const update = () => {
+        if (key === 'materialForeground') $('materialFollowInk').checked = false;
+        if (key === 'textFont') $('textContent').style.fontFamily = MARK_FONTS[$('textFont').value] || MARK_FONTS.system;
+        updateMaterialUI();
+      };
+      on(key, 'input', update); on(key, 'change', update);
+    }
+    on('shapeStrokeFromInk', 'click', () => { $('shapeStrokeColor').value = ink; });
+    on('materialBackFromInk', 'click', () => { $('materialBackground').value = ink; updateMaterialUI(); });
     on('palettePreset', 'change', () => { const preset = window.DrawingPalettes.find(p => p.id === $('palettePreset').value); swatches($('presetSwatches'), preset ? preset.colors : []); });
     on('tolerance', 'input', () => { $('toleranceValue').textContent = $('tolerance').value; });
     on('undo', 'click', undo); on('redo', 'click', redo);
@@ -658,7 +776,7 @@
     on('showReference', 'click', () => togglePanel('reference')); on('hideReference', 'click', () => togglePanel('reference', false));
     on('showSettings', 'click', () => togglePanel('settings')); on('hideSettings', 'click', () => togglePanel('settings', false));
     on('focusMode', 'click', () => toggleFocus());
-    on('referenceWidth', 'input', () => { document.documentElement.style.setProperty('--ref-width', $('referenceWidth').value + 'px'); });
+    on('referenceWidth', 'input', () => { if (referenceSplitter) referenceSplitter.setWidth($('referenceWidth').value); });
     on('referenceOpen', 'click', () => $('referenceFile').click());
     on('referenceFile', 'change', async () => { const file = $('referenceFile').files[0]; $('referenceFile').value = ''; await work(() => referenceFile(file), '正在读取参考…'); });
     all('[data-ref-mode]').forEach(button => button.addEventListener('click', safe(() => ref.setMode(button.dataset.refMode))));
@@ -730,6 +848,7 @@
     document.addEventListener('keydown', e => {
       if (dialogOpen() || editable(e.target) || busy) return;
       const key = e.key.toLowerCase(), command = e.ctrlKey || e.metaKey;
+      if (key === 'escape' && activePointer && ['shape', 'text'].includes(activePointer.kind)) { e.preventDefault(); finishPointer(); return; }
       if (command && key === 'z') { e.preventDefault(); e.shiftKey ? redo() : undo(); return; }
       if (command && key === 'y') { e.preventDefault(); redo(); return; }
       if (command && key === 's') { e.preventDefault(); saveProjectFile().catch(notify); return; }
@@ -737,7 +856,7 @@
       if (key === 'tab') { if (e.target === viewport || e.target === document.body || e.target === display) { e.preventDefault(); toggleFocus(); } return; }
       if (key === ' ') { if (e.target.closest && e.target.closest('button,a,summary')) return; e.preventDefault(); spacePan = true; viewport.dataset.cursor = 'hand'; return; }
       if (e.target.closest && e.target.closest('button,a,summary')) return;
-      const tools = { b: 'brush', e: 'eraser', g: 'fill', i: 'picker', v: 'move', h: 'hand' };
+      const tools = { b: 'brush', e: 'eraser', g: 'fill', i: 'picker', v: 'move', h: 'hand', u: 'shape', t: 'text' };
       if (tools[key]) { e.preventDefault(); setTool(tools[key]); }
       else if (key === '[' || key === ']') { e.preventDefault(); size = clamp(Math.round(size + (key === '[' ? -1 : 1) * Math.max(1, size * .15)), 1, 240); $('brushSize').value = size; }
       else if (key === '0') fit(); else if (key === '1') zoomTo(1);
@@ -746,14 +865,19 @@
     window.addEventListener('beforeunload', e => { finishPointer(); settleTransactions(); if (sessionUsed && revision > Math.max(savedRevision, fileSavedRevision)) { e.preventDefault(); e.returnValue = ''; } });
     if (window.ResizeObserver) {
       new ResizeObserver(() => { if (!activePointer) fit(); }).observe(viewport);
-      new ResizeObserver(() => { if (!refPointer) fitReference(); }).observe(refPort);
-    } else window.addEventListener('resize', () => { fit(); fitReference(); });
+      new ResizeObserver(resizeReferenceView).observe(refPort);
+    } else window.addEventListener('resize', () => { fit(); resizeReferenceView(); });
   }
   async function initialize() {
-    if (!Core || !window.DrawingReference || !window.DrawingStorage) { notify('画板组件未加载完整，请刷新页面。'); return; }
+    if (!Core || !Marks || !window.DrawingColorControls || !window.DrawingReference || !window.DrawingStorage) { notify('画板组件未加载完整，请刷新页面。'); return; }
     window.DrawingPalettes.forEach(preset => { const option = document.createElement('option'); option.value = preset.id; option.textContent = preset.name; $('palettePreset').append(option); });
     swatches($('presetSwatches'), window.DrawingPalettes[0].colors); setInk(ink);
     ref = createReference(); newDocument(); wireEvents();
+    colorPicker = window.DrawingColorControls.create({ host: $('colorPicker'), getColor: () => ink, getDisabled: () => !!busy || !!activePointer, onChange: (hex, detail) => { if (!busy) setInk(hex, !!detail.commit); } });
+    referenceSplitter = window.DrawingColorControls.installReferenceSplitter({ workspace: $('workspace'), panel: $('referencePanel'), handle: $('referenceSplitter'), getDisabled: () => !!busy || !!activePointer || !!refPointer, onResize: width => {
+      const bounds = referenceSplitter ? referenceSplitter.getBounds() : { min: 220, max: 640 }; $('referenceWidth').min = bounds.min; $('referenceWidth').max = bounds.max; $('referenceWidth').value = width;
+    } });
+    referenceSplitter.refresh(); updateMaterialUI();
     if (window.innerWidth <= 900) document.body.classList.add('settings-hidden');
     if (window.innerWidth <= 650) document.body.classList.add('reference-hidden');
     $('showSettings').setAttribute('aria-pressed', String(window.innerWidth > 900)); $('showReference').setAttribute('aria-pressed', String(window.innerWidth > 650));

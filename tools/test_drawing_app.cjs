@@ -193,8 +193,17 @@ function installShims(win) {
   };
   const originalRect = win.HTMLElement.prototype.getBoundingClientRect;
   win.HTMLElement.prototype.getBoundingClientRect = function () {
+    if (this.id === 'workspace') return rect(0, 120, 1280, 600);
+    if (this.id === 'referencePanel') {
+      const workspace = this.ownerDocument.getElementById('workspace');
+      const width = parseFloat(workspace?.style.getPropertyValue('--ref-width')) || 286;
+      return rect(0, 120, width, 600);
+    }
+    if (this.id === 'settingsPanel') return rect(1040, 120, 240, 600);
     if (this.id === 'canvasViewport') return rect(VIEWPORT.left, VIEWPORT.top, VIEWPORT.width, VIEWPORT.height);
     if (this.id === 'referenceView') return rect(14, 180, 260, 360);
+    if (this.dataset?.dcc === 'plane') return rect(1050, 340, 224, 160);
+    if (this.dataset?.dcc === 'hue') return rect(1050, 510, 224, 18);
     if (this.id === 'canvasSurface') {
       const canvas = this.querySelector('canvas'); return surfaceRect(this, rect(VIEWPORT.left, VIEWPORT.top, VIEWPORT.width, VIEWPORT.height), canvas.width, canvas.height);
     }
@@ -211,6 +220,17 @@ function installShims(win) {
 const hash = data => crypto.createHash('sha256').update(data).digest('hex');
 function pixels(canvas) { return Buffer.from(canvas.getContext('2d').getImageData(0, 0, canvas.width, canvas.height).data); }
 function pixel(canvas, x, y) { return Array.from(canvas.getContext('2d').getImageData(x, y, 1, 1).data); }
+function inkStats(canvas) {
+  const data = pixels(canvas); let count = 0, maxAlpha = 0, alphaSum = 0;
+  let left = canvas.width, top = canvas.height, right = -1, bottom = -1;
+  for (let y = 0; y < canvas.height; y++) for (let x = 0; x < canvas.width; x++) {
+    const alpha = data[(y * canvas.width + x) * 4 + 3];
+    if (!alpha) continue;
+    count++; alphaSum += alpha; maxAlpha = Math.max(maxAlpha, alpha);
+    left = Math.min(left, x); right = Math.max(right, x); top = Math.min(top, y); bottom = Math.max(bottom, y);
+  }
+  return { count, alphaSum, maxAlpha, left, right, top, bottom, width: count ? right - left + 1 : 0, height: count ? bottom - top + 1 : 0 };
+}
 const plain = object => JSON.parse(JSON.stringify(object));
 const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
 async function eventually(check, message, ms = 3000) {
@@ -500,6 +520,232 @@ async function main() {
     assert.equal(state().tool, before, 'Typing a layer name must not select eraser');
     element('layerName').blur(); doc.dispatchEvent(new win.KeyboardEvent('keydown', { key: 'e', bubbles: true, cancelable: true }));
     assert.equal(state().tool, 'eraser');
+  });
+
+  // These checks drive deployed controls and pointer handlers, then inspect real
+  // Canvas pixels. DOM geometry is supplied above; this is not browser layout QA.
+  const markDefaults = {
+    shapeKind: 'rect', shapeConstrain: false, shapeFill: true, shapeStroke: false,
+    shapeStrokeColor: '#253546', shapeStrokeWidth: 4,
+    textContent: 'Hi\nDrawing', textFont: 'mono', textSize: 18, textLineHeight: 1.5,
+    textBold: false, textItalic: false, textAlign: 'left', textUseMaterial: false,
+    materialKind: 'solid', materialFollowInk: false, materialForeground: '#ff0000',
+    materialBackground: '#0000ff', materialTransparent: false,
+    materialSpacing: 12, materialThickness: 3, materialAngle: 45
+  };
+  function markField(id, value) {
+    const input = element(id);
+    if (input.type === 'checkbox') check(id, value);
+    else if (input.tagName === 'SELECT') select(id, value);
+    else edit(id, value);
+  }
+  function markValues() {
+    return Object.fromEntries(Object.keys(markDefaults).map(id => {
+      const input = element(id);
+      return [id, input.type === 'checkbox' ? input.checked : /^(number|range)$/.test(input.type) ? Number(input.value) : input.value];
+    }));
+  }
+  async function freshMarks() {
+    await fresh(); check('touchDraw', false);
+    for (const [id, value] of Object.entries(markDefaults)) markField(id, value);
+    await settle();
+  }
+  const keyOn = (target, key, extra = {}) => target.dispatchEvent(new win.KeyboardEvent('keydown', { key, bubbles: true, cancelable: true, ...extra }));
+
+  await test('Shape preview is temporary, shrinks cleanly and commits frozen paint as one undo step', async () => {
+    assert.ok(requests.includes('/assets/drawing-studio/marks.js'));
+    assert.ok(requests.includes('/assets/drawing-studio/color-controls.js'));
+    await freshMarks(); edit('brushOpacity', 40); tool('shape');
+    const before = hash(pixels(active().canvas)), history = state().history;
+    pointer('pointerdown', 12, 12); pointer('pointermove', 108, 82); await settle();
+    assert.equal(hash(pixels(active().canvas)), before, 'Preview must leave persistent layer pixels untouched');
+    assert.ok(pixel(display(), 95, 70)[3] > 0, 'Preview must be visible through normal compositing');
+    pointer('pointermove', 72, 52); await settle();
+    assert.equal(pixel(display(), 95, 70)[3], 0, 'Moving a corner inward must erase the previous preview');
+    const preview = hash(pixels(display()));
+    edit('materialForeground', '#0000ff'); edit('brushOpacity', 80);
+    pointer('pointerup', 72, 52); await settle();
+    assert.equal(state().history, history + 1, 'A complete drag adds exactly one pixel operation');
+    assert.equal(hash(pixels(display())), preview, 'Pointer-down style and opacity must remain frozen until commit');
+    assert.deepEqual(pixel(active().canvas, 35, 30), [255, 0, 0, 102]);
+    const painted = hash(pixels(active().canvas)); await app.undo(); await settle();
+    assert.equal(hash(pixels(active().canvas)), before);
+    await app.redo(); await settle(); assert.equal(hash(pixels(active().canvas)), painted);
+  });
+
+  await test('Every geometric choice, reverse drag, equal proportions and separate outline reach the canvas', async () => {
+    const distinct = new Set();
+    for (const kind of ['rect', 'ellipse', 'star', 'triangle', 'heart']) {
+      await freshMarks(); select('shapeKind', kind); tool('shape'); await stroke([[100, 78], [22, 18]]);
+      const stats = inkStats(active().canvas);
+      assert.ok(stats.count > 500, kind + ' should produce a substantial shape');
+      assert.ok(stats.left >= 20 && stats.right <= 102 && stats.top >= 16 && stats.bottom <= 80, 'Reverse-drag bounds must be normalized');
+      distinct.add(hash(pixels(active().canvas)));
+    }
+    assert.equal(distinct.size, 5, 'Five shape choices must not be aliases for one rectangle');
+    await freshMarks(); check('shapeConstrain', true); tool('shape'); await stroke([[92, 78], [28, 32]]);
+    const square = inkStats(active().canvas); assert.ok(Math.abs(square.width - square.height) <= 1);
+    await freshMarks(); check('shapeFill', false); check('shapeStroke', true); edit('shapeStrokeColor', '#0000ff');
+    edit('shapeStrokeWidth', 6); tool('shape'); await stroke([[20, 20], [100, 75]]);
+    assert.equal(pixel(active().canvas, 60, 45)[3], 0, 'Outline-only shape leaves its interior transparent');
+    assert.deepEqual(pixel(active().canvas, 60, 20), [0, 0, 255, 255]);
+  });
+
+  await test('Shape and text cancellations discard previews without pixels or undo entries', async () => {
+    for (const kind of ['shape', 'text']) for (const cancellation of ['pointercancel', 'lostpointercapture', 'blur', 'escape', 'switch']) {
+      await freshMarks(); tool(kind); const before = hash(pixels(active().canvas)), history = state().history;
+      pointer('pointerdown', 18, 18); pointer('pointermove', 70, 45); await settle();
+      assert.equal(hash(pixels(active().canvas)), before, 'Preview remains off the persistent layer');
+      if (cancellation === 'blur') win.dispatchEvent(new win.Event('blur'));
+      else if (cancellation === 'escape') keyOn(doc, 'Escape');
+      else if (cancellation === 'switch') tool('brush');
+      else pointer(cancellation, 70, 45);
+      await settle();
+      assert.equal(state().drawing, false, kind + ' must release its pointer after ' + cancellation);
+      assert.equal(hash(pixels(active().canvas)), before, kind + ' cancellation must not commit pixels: ' + cancellation);
+      assert.equal(state().history, history, kind + ' cancellation must not add undo: ' + cancellation);
+      assert.equal(inkStats(display()).count, 0, 'Cancelled overlay must disappear from the composited view');
+    }
+  });
+
+  await test('New tools honor moved/scaled layer coordinates and locked/hidden layer guards', async () => {
+    await freshMarks(); tool('move'); await stroke([[20, 20], [30, 26]]); edit('layerScale', 150); await settle();
+    const meta = state().layers.find(layer => layer.id === state().activeId);
+    const world = (x, y) => [meta.x + x * meta.scale, meta.y + y * meta.scale];
+    tool('shape'); await stroke([world(20, 20), world(60, 45)]);
+    assert.deepEqual(pixel(active().canvas, 40, 30), [255, 0, 0, 255]);
+    assert.equal(pixel(active().canvas, 5, 5)[3], 0);
+    for (const kind of ['shape', 'text']) {
+      tool(kind); doc.querySelector('.layer-row.active .layer-lock').click();
+      const locked = hash(pixels(active().canvas)); await stroke([[40, 30], [85, 65]]);
+      assert.equal(hash(pixels(active().canvas)), locked, kind + ' must not paint a locked layer');
+      doc.querySelector('.layer-row.active .layer-lock').click(); doc.querySelector('.layer-row.active .layer-visibility').click();
+      const hidden = hash(pixels(active().canvas)); await stroke([[40, 30], [85, 65]]);
+      assert.equal(hash(pixels(active().canvas)), hidden, kind + ' must not paint a hidden layer');
+      doc.querySelector('.layer-row.active .layer-visibility').click();
+    }
+  });
+
+  await test('System-font multiline text is rasterized once, remains literal and survives undo/export', async () => {
+    await freshMarks(); edit('textContent', '<b>Hi</b>\nWacom 123'); edit('textSize', 14); edit('textLineHeight', 1.8);
+    check('textBold', true); check('textItalic', true); edit('brushOpacity', 60); tool('text');
+    const htmlBefore = doc.querySelectorAll('b').length, history = state().history;
+    await stroke([[8, 12]]); const stats = inkStats(active().canvas), painted = hash(pixels(active().canvas));
+    assert.ok(stats.count > 100 && stats.height > 24, 'Text should paint actual glyphs on more than one line');
+    assert.ok(stats.maxAlpha >= 150 && stats.maxAlpha <= 154, 'Text opacity must be applied once');
+    assert.equal(doc.querySelectorAll('b').length, htmlBefore, 'Text content is never interpreted as markup');
+    assert.equal(state().history, history + 1);
+    const exported = await decoded(await app.exportRaster('image/png', true, 1));
+    assert.equal(hash(pixels(exported.canvas)), painted, 'PNG contains the same rasterized letters');
+    await app.undo(); await settle(); assert.equal(inkStats(active().canvas).count, 0);
+    await app.redo(); await settle(); assert.equal(hash(pixels(active().canvas)), painted);
+    edit('textContent', ' \n '); const noText = hash(pixels(active().canvas)), noTextHistory = state().history;
+    await stroke([[30, 20]]); assert.equal(hash(pixels(active().canvas)), noText); assert.equal(state().history, noTextHistory);
+  });
+
+  await test('Pattern bucket respects merged-layer topology and transparent gaps without touching linework', async () => {
+    await freshMarks(); const lineId = state().activeId, ctx = active().canvas.getContext('2d');
+    ctx.strokeStyle = '#000000'; ctx.lineWidth = 4; ctx.strokeRect(18, 14, 94, 68); ctx.strokeRect(48, 34, 26, 28);
+    const linework = hash(pixels(active().canvas)); await app.addLayer(); const fillId = state().activeId; click('layerDown');
+    select('fillSample', 'visible'); select('fillExpand', '0'); edit('tolerance', 10); check('materialTransparent', true); tool('fill');
+    const results = new Set();
+    for (const kind of ['horizontal', 'vertical', 'diagonal', 'crosshatch', 'dots']) {
+      select('materialKind', kind); const beforeHistory = state().history; await stroke([[31, 26]]);
+      const out = app.getLayer(fillId).canvas, stats = inkStats(out);
+      assert.ok(stats.count > 100 && stats.count < 5200, kind + ' should have visible marks and transparent gaps');
+      assert.equal(pixel(out, 4, 4)[3], 0, 'The enclosing selection must not leak outward');
+      assert.equal(pixel(out, 60, 48)[3], 0, 'A closed inner hole must not be filled by a bounding rectangle');
+      assert.equal(hash(pixels(app.getLayer(lineId).canvas)), linework, 'Sampled linework must stay untouched');
+      assert.equal(state().history, beforeHistory + 1); results.add(hash(pixels(out)));
+      await app.undo(); await settle(); assert.equal(inkStats(app.getLayer(fillId).canvas).count, 0);
+    }
+    assert.ok(results.size >= 4, 'Pattern choices must lead to different rendered material');
+    select('materialKind', 'horizontal'); edit('materialThickness', 1); edit('materialSpacing', 16); await stroke([[31, 26]]);
+    const thin = inkStats(active().canvas).alphaSum; await app.undo(); await settle();
+    edit('materialThickness', 4); await stroke([[31, 26]]); const thick = inkStats(active().canvas).alphaSum;
+    assert.ok(thick > thin * 2, 'Thickness input must increase actual pattern coverage'); await app.undo(); await settle();
+    edit('materialThickness', 1); edit('materialSpacing', 8); await stroke([[31, 26]]);
+    assert.ok(inkStats(active().canvas).alphaSum > thin * 1.5, 'Smaller spacing must make lines denser');
+  });
+
+  await test('Linear/radial material uses both endpoint colors and preserves chosen opacity', async () => {
+    for (const kind of ['linear', 'radial']) {
+      await freshMarks(); select('materialKind', kind); edit('materialAngle', 0); select('fillSample', 'current');
+      select('fillExpand', '0'); edit('brushOpacity', 40); tool('fill'); await stroke([[64, 48]]);
+      const source = active().canvas, center = pixel(source, 64, 48), left = pixel(source, 3, 48), right = pixel(source, 124, 48);
+      assert.equal(center[3], 102); assert.equal(left[3], 102); assert.equal(right[3], 102);
+      if (kind === 'linear') {
+        assert.ok(left[0] > 220 && left[2] < 35, 'Linear start should use the foreground color');
+        assert.ok(right[2] > 220 && right[0] < 35, 'Linear end should use the background color');
+        assert.ok(center[0] > 90 && center[2] > 90, 'Linear midpoint should interpolate the colors');
+      } else {
+        const corner = pixel(source, 2, 2);
+        assert.ok(center[0] > center[2] + 150, 'Radial center should use the foreground color');
+        assert.ok(corner[2] > corner[0] + 150, 'Radial outer area should use the background color');
+      }
+      const painted = hash(pixels(source)); await app.undo(); await settle(); assert.equal(inkStats(active().canvas).count, 0);
+      await app.redo(); await settle(); assert.equal(hash(pixels(active().canvas)), painted);
+    }
+  });
+
+  await test('HSV editor, swatches and native color controls synchronize without changing independent background', async () => {
+    await freshMarks(); check('materialFollowInk', true); edit('materialBackground', '#1a2b3c');
+    const host = element('colorPicker'), field = name => { const node = host.querySelector('[data-dcc="' + name + '"]'); assert.ok(node); return node; };
+    field('hex').value = '#3a7'; field('hex').dispatchEvent(new win.Event('change', { bubbles: true }));
+    assert.equal(state().ink, '#33aa77'); assert.equal(element('inkColor').value, '#33aa77'); assert.equal(field('hex').value.toLowerCase(), '#33aa77');
+    assert.equal(element('materialForeground').value, '#33aa77'); assert.equal(element('materialBackground').value, '#1a2b3c');
+    assert.ok(element('recentSwatches').querySelector('[data-color="#33aa77"]'), 'Committed picker colors join the recent swatches');
+    edit('inkColor', '#112233'); assert.equal(field('hex').value.toLowerCase(), '#112233');
+    assert.deepEqual(['r', 'g', 'b'].map(name => Number(field(name).value)), [17, 34, 51]);
+    const swatch = element('presetSwatches').querySelector('button'); swatch.click();
+    assert.equal(field('hex').value.toLowerCase(), swatch.dataset.color.toLowerCase());
+    check('materialFollowInk', false); edit('materialForeground', '#aa44bb');
+    field('hex').value = '#8ac'; field('hex').dispatchEvent(new win.Event('change', { bubbles: true }));
+    assert.equal(state().ink, '#88aacc'); assert.equal(element('materialForeground').value, '#aa44bb');
+    assert.equal(element('materialBackground').value, '#1a2b3c'); click('materialBackFromInk');
+    assert.equal(element('materialBackground').value, '#88aacc', 'Explicit background action copies ink without changing foreground');
+    edit('inkColor', '#000000'); const hue = field('hue'); keyOn(hue, 'Home'); keyOn(hue, 'ArrowRight', { shiftKey: true });
+    assert.equal(Number(hue.getAttribute('aria-valuenow')), 15, 'Black does not erase a newly selected hue through the app echo');
+    assert.equal(state().ink, '#000000');
+  });
+
+  await test('Reference divider drag/keyboard clamps width while preserving drawing and reference state', async () => {
+    await freshMarks(); await stroke([[15, 15], [90, 65]]);
+    if (doc.body.classList.contains('reference-hidden')) click('showReference');
+    assert.notEqual(win.getComputedStyle(element('referencePanel')).display, 'none', 'Resize gesture starts with a visible reference panel');
+    const splitter = element('referenceSplitter'), workspace = element('workspace');
+    const before = { pixels: hash(pixels(active().canvas)), history: state().history, reference: plain(app.ref.getInfo()) };
+    const width = () => Number(splitter.getAttribute('aria-valuenow'));
+    const send = (type, x) => splitter.dispatchEvent(new win.PointerEvent(type, { bubbles: true, cancelable: true, pointerId: 22, pointerType: 'mouse', button: 0, buttons: type === 'pointerup' ? 0 : 1, clientX: x, clientY: 250 }));
+    const start = width(); send('pointerdown', 286); send('pointermove', 386); send('pointerup', 386); await settle();
+    assert.ok(width() > start, 'Dragging the actual separator should widen the reference panel');
+    assert.equal(parseFloat(workspace.style.getPropertyValue('--ref-width')), width());
+    assert.equal(Number(element('referenceWidth').value), width(), 'Range and drag handle expose one shared width');
+    keyOn(splitter, 'End'); assert.equal(width(), Number(splitter.getAttribute('aria-valuemax')));
+    keyOn(splitter, 'Home'); assert.equal(width(), Number(splitter.getAttribute('aria-valuemin')));
+    const minimum = width(); keyOn(splitter, 'ArrowRight'); assert.equal(width(), minimum + 10);
+    send('pointerdown', 220); send('pointermove', 250); send('pointercancel', 250); await settle();
+    const stopped = width(); send('pointermove', 500); await settle(); assert.equal(width(), stopped, 'Cancel releases the resize gesture');
+    assert.equal(doc.body.classList.contains('dcc-resizing-reference'), false);
+    assert.equal(hash(pixels(active().canvas)), before.pixels); assert.equal(state().history, before.history);
+    assert.deepEqual(plain(app.ref.getInfo()), before.reference, 'Resizing reference layout never replaces its source or page');
+  });
+
+  await test('Shape/text/material options and their artwork survive project round-trip and old projects still open', async () => {
+    await freshMarks(); select('shapeKind', 'ellipse'); select('materialKind', 'dots'); edit('materialSpacing', 9);
+    edit('materialThickness', 3); check('materialTransparent', true); tool('shape'); await stroke([[12, 12], [105, 80]]);
+    assert.equal(pixel(active().canvas, 12, 12)[3], 0, 'Shape material must be clipped to the ellipse');
+    tool('text'); edit('textContent', 'Layer\n2026'); select('textFont', 'arial'); edit('textSize', 16);
+    edit('textLineHeight', 1.7); check('textBold', true); check('textItalic', true); select('textAlign', 'center');
+    check('textUseMaterial', true); select('materialKind', 'linear'); edit('materialAngle', 30); check('materialTransparent', false);
+    edit('materialForeground', '#dd6633'); edit('materialBackground', '#2255aa'); await stroke([[64, 20]]);
+    const expected = markValues(), painted = hash(pixels(active().canvas)), displayed = hash(pixels(display()));
+    const json = await app.exportProject(); await freshMarks(); await app.loadProject(JSON.parse(json)); await settle();
+    assert.deepEqual(markValues(), expected, 'Every new saved option is restored through actual form controls');
+    assert.equal(hash(pixels(active().canvas)), painted); assert.equal(hash(pixels(display())), displayed);
+    const legacy = JSON.parse(json); legacy.settings = {}; await app.loadProject(legacy); await settle();
+    assert.equal(hash(pixels(active().canvas)), painted, 'Missing optional mark settings never changes existing image pixels');
+    assert.equal(element('shapeKind').value, 'rect'); assert.equal(element('materialKind').value, 'solid'); assert.equal(element('textFont').value, 'system');
   });
 
   if (errors.length) throw new Error('DOM runtime errors:\n' + errors.join('\n'));

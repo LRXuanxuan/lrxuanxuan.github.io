@@ -5,16 +5,19 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#f3f6f8">
-  <meta name="description" content="轻量本地画室：压感笔刷、图层、参考图与 PDF、取色、透明抠图及 SVG 导出。作品留在自己的浏览器。">
+  <meta name="description" content="轻量本地画室：压感笔刷、自由调色、图层、形状文字、材质填充、参考图与 PDF、透明抠图及 SVG 导出。作品留在自己的浏览器。">
   <title>轻绘 · 本地画室 · Ruixuan's Corner</title>
   <script>try{var t=localStorage.getItem('theme');document.documentElement.dataset.theme=t==='dark'||t==='light'?t:(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');}catch(e){}</script>
-  <link rel="stylesheet" href="assets/drawing-studio/style.css?v=20261120-1">
+  <link rel="stylesheet" href="assets/drawing-studio/style.css?v=20261121-1">
+  <link rel="stylesheet" href="assets/drawing-studio/color-controls.css?v=20261121-1">
   <script src="assets/drawing-studio/core.js?v=20261120-1" defer></script>
+  <script src="assets/drawing-studio/marks.js?v=20261121-1" defer></script>
+  <script src="assets/drawing-studio/color-controls.js?v=20261121-1" defer></script>
   <script src="assets/drawing-studio/palettes.js?v=20261120-1" defer></script>
   <script src="assets/drawing-studio/bridge.js?v=20261120-1" defer></script>
   <script src="assets/drawing-studio/storage.js?v=20261120-1" defer></script>
   <script src="assets/drawing-studio/reference.js?v=20261120-1" defer></script>
-  <script src="assets/drawing-studio/app.js?v=20261120-1" defer></script>
+  <script src="assets/drawing-studio/app.js?v=20261121-1" defer></script>
 </head>
 <body>
   <header class="app-header">
@@ -36,6 +39,8 @@
       <button data-tool="brush" aria-pressed="true" title="画笔 B"><span aria-hidden="true">╱</span>画笔</button>
       <button data-tool="eraser" aria-pressed="false" title="橡皮 E"><span aria-hidden="true">▱</span>橡皮</button>
       <button data-tool="fill" aria-pressed="false" title="油漆桶 G"><span aria-hidden="true">◩</span>填充</button>
+      <button data-tool="shape" aria-pressed="false" title="拖动插入形状 U"><span aria-hidden="true">□</span>形状</button>
+      <button data-tool="text" aria-pressed="false" title="点选放置文字 T"><span aria-hidden="true">T</span>文字</button>
       <button data-tool="picker" aria-pressed="false" title="吸管 I，按住 Alt 临时取色"><span aria-hidden="true">⌖</span>取色</button>
       <button data-tool="move" aria-pressed="false" title="移动当前图层 V"><span aria-hidden="true">✥</span>移层</button>
       <button data-tool="hand" aria-pressed="false" title="平移画布 H，按住空格临时平移"><span aria-hidden="true">✋</span>平移</button>
@@ -68,8 +73,9 @@
         <p class="file-caption" id="referenceName">尚未放入参考</p>
         <div class="palette-title"><h3>参考色卡</h3><select id="referencePalette" aria-label="参考色卡类型"><option value="color">色彩</option><option value="gray">灰阶</option></select><label class="color-count"><input id="referenceCount" type="number" min="2" max="24" value="8" aria-label="参考色卡色数">色</label></div>
         <div class="swatches reference-swatches" id="referenceSwatches" aria-label="点选参考颜色"></div>
-        <details class="compact-details"><summary>参考设置</summary><label class="field">面板宽度<input id="referenceWidth" type="range" min="220" max="480" value="286" aria-label="参考面板宽度"></label><div class="button-row"><button id="referenceToLayer">放入新图层</button><button id="referenceRemove">移除参考</button></div><p class="hint">参考只供观察；点“放入新图层”才会成为画作的一部分。</p></details>
+        <details class="compact-details"><summary>参考设置</summary><label class="field">面板宽度<input id="referenceWidth" type="range" min="220" max="640" value="286" aria-label="参考面板宽度"></label><div class="button-row"><button id="referenceToLayer">放入新图层</button><button id="referenceRemove">移除参考</button></div><p class="hint">拖动参考栏右边界可调整宽度；滚轮缩放图片。点“放入新图层”才会成为画作的一部分。</p></details>
       </div>
+      <div id="referenceSplitter" class="reference-splitter" role="separator" tabindex="0" aria-label="拖动调整参考栏宽度" aria-orientation="vertical" aria-controls="referencePanel" title="左右拖动调整参考栏宽度；方向键微调"></div>
     </aside>
 
     <section class="drawing-area" aria-label="绘画区域">
@@ -85,6 +91,34 @@
     <aside class="settings-panel panel" id="settingsPanel" aria-label="画笔、色卡与图层设置">
       <div class="panel-title"><h2>画具</h2><button id="hideSettings" class="icon-button" aria-label="收起设置面板" title="收起画具">›</button></div>
       <div class="settings-scroll">
+        <details id="shapeSettings" class="panel-section" open hidden><summary>插入形状</summary>
+          <label class="field">形状<select id="shapeKind"><option value="rect">矩形</option><option value="ellipse">椭圆</option><option value="star">五角星</option><option value="triangle">三角形</option><option value="heart">心形</option></select></label>
+          <label class="check"><input id="shapeConstrain" type="checkbox"> 固定 1:1 比例（正方形 / 圆形）</label>
+          <div class="button-row mark-checks"><label class="check"><input id="shapeFill" type="checkbox" checked> 填充</label><label class="check"><input id="shapeStroke" type="checkbox" checked> 描边</label></div>
+          <div class="mark-pair"><label class="field">描边颜色<input id="shapeStrokeColor" type="color" value="#263544"></label><label class="field">描边粗细 / px<input id="shapeStrokeWidth" type="number" min="0.5" max="80" step="0.5" value="2"></label></div>
+          <button id="shapeStrokeFromInk" class="wide">用当前颜色描边</button>
+          <p class="hint">拖动画布预览，松手落下；Shift 临时锁定比例，Esc 取消。填充可在下方选择材质。</p>
+        </details>
+        <details id="textSettings" class="panel-section" open hidden><summary>插入文字</summary>
+          <label class="field">文字内容<textarea id="textContent" rows="3" maxlength="1200" placeholder="输入中文或 English">轻绘 Drawing</textarea></label>
+          <label class="field">字体<select id="textFont"><option value="system">系统默认 / 无衬线</option><option value="yahei">微软雅黑 / 苹方</option><option value="heiti">黑体</option><option value="song">宋体</option><option value="kai">楷体</option><option value="fangsong">仿宋</option><option value="arial">Arial / Helvetica</option><option value="times">Times New Roman</option><option value="georgia">Georgia</option><option value="mono">Consolas / 等宽</option></select></label>
+          <div class="mark-pair"><label class="field">字号 / px<input id="textSize" type="number" min="8" max="360" value="48"></label><label class="field">行距 / 倍<input id="textLineHeight" type="number" min="0.8" max="3" step="0.1" value="1.3"></label></div>
+          <div class="button-row mark-checks"><label class="check"><input id="textBold" type="checkbox"> 粗体</label><label class="check"><input id="textItalic" type="checkbox"> 斜体</label></div>
+          <label class="field">对齐<select id="textAlign"><option value="left">左对齐</option><option value="center">居中</option><option value="right">右对齐</option></select></label>
+          <label class="check"><input id="textUseMaterial" type="checkbox"> 文字使用填充材质</label>
+          <p class="hint">点击画布放置，按住拖动可预览位置。使用电脑已有字体，未安装时自动替代。文字落下后成为像素，可撤销；独立移动请先新建图层。</p>
+        </details>
+        <details id="materialSection" class="panel-section" hidden><summary>填充材质 <span id="materialName" class="summary-count">纯色</span></summary>
+          <label class="field">材质<select id="materialKind"><option value="solid">纯色</option><option value="horizontal">横线</option><option value="vertical">竖线</option><option value="diagonal">斜线</option><option value="crosshatch">交叉排线</option><option value="dots">水玉圆点</option><option value="linear">线性渐变</option><option value="radial">径向渐变</option></select></label>
+          <canvas id="materialPreview" width="224" height="48" aria-label="填充材质预览"></canvas>
+          <label class="check"><input id="materialFollowInk" type="checkbox" checked> 前景跟随当前颜色</label>
+          <div class="mark-pair"><label class="field"><span id="materialFrontLabel">线 / 点颜色</span><input id="materialForeground" type="color" value="#263544" aria-label="材质前景颜色"></label><label class="field" id="materialBackField"><span id="materialBackLabel">背景颜色</span><input id="materialBackground" type="color" value="#ffffff" aria-label="材质背景颜色"></label></div>
+          <button id="materialBackFromInk" class="wide">用当前颜色作背景</button>
+          <label class="check" id="materialTransparentLabel"><input id="materialTransparent" type="checkbox"> 背景透明</label>
+          <div id="materialPatternOptions"><label class="field"><span>线宽 / 点径 <output id="materialThicknessValue">2 px</output></span><input id="materialThickness" type="range" min="1" max="24" value="2" aria-label="材质粗细"></label><label class="field"><span>间距（越小越密）<output id="materialSpacingValue">14 px</output></span><input id="materialSpacing" type="range" min="4" max="100" value="14" aria-label="材质间距"></label></div>
+          <label class="field" id="materialAngleField"><span>方向 <output id="materialAngleValue">45°</output></span><input id="materialAngle" type="range" min="0" max="180" value="45" aria-label="材质方向"></label>
+          <p class="hint">适用于油漆桶与形状；文字也可启用。透明背景保留原有像素，适合另建图层叠加排线。</p>
+        </details>
         <details class="panel-section" open><summary>笔触</summary>
           <label class="field"><span>防抖 <output id="stabilizerValue">20</output></span><input id="stabilizer" type="range" min="0" max="100" value="20"></label>
           <label class="check"><input id="penPressure" type="checkbox" checked> 数位笔压感控制粗细</label>
@@ -94,8 +128,9 @@
         </details>
 
         <details class="panel-section" open><summary>颜色</summary>
-          <div class="color-editor"><span id="colorPreview" aria-hidden="true"></span><input id="colorHex" type="text" value="#263544" maxlength="7" spellcheck="false" aria-label="十六进制颜色"><button id="rememberColor" aria-label="收藏当前颜色" title="加入本次常用颜色">＋</button></div>
-          <select id="palettePreset" class="wide" aria-label="默认备选色卡"></select><div id="presetSwatches" class="swatches" aria-label="点选备选颜色"></div><div id="recentSwatches" class="swatches recent-swatches" aria-label="最近使用和收藏的颜色"></div>
+          <div id="colorPicker" aria-label="自由调色盘"></div>
+          <button id="rememberColor" class="wide" aria-label="收藏当前颜色" title="加入本次常用颜色">＋ 收藏当前颜色</button>
+          <details class="compact-details"><summary>色卡与收藏</summary><select id="palettePreset" class="wide" aria-label="默认备选色卡"></select><div id="presetSwatches" class="swatches" aria-label="点选备选颜色"></div><div id="recentSwatches" class="swatches recent-swatches" aria-label="最近使用和收藏的颜色"></div></details>
         </details>
 
         <details class="panel-section layers-section" open><summary>图层 <span id="layerCount" class="summary-count">1</span></summary>
@@ -133,7 +168,7 @@
 
   <dialog id="draftDialog"><div class="dialog-title"><h2>本机草稿</h2><button type="button" data-close="draftDialog" aria-label="关闭">×</button></div><p class="hint">保留最近 4 份画作。浏览器清理数据后可能消失，请将重要作品保存为工程文件。</p><div id="draftList"></div></dialog>
 
-  <dialog id="helpDialog"><div class="dialog-title"><h2>轻绘使用说明</h2><button type="button" data-close="helpDialog" aria-label="关闭">×</button></div><div class="help-content"><h3>开始画画</h3><p>选择画笔、颜色和大小，直接落笔。G 笔与二值笔可随数位笔压感改变粗细；针管笔保持等宽，像素笔在整数网格上画方形笔触。防抖越高越稳，也会有更明显的跟随感。</p><p>数位板连接后看底部输入状态。浏览器需要收到“数位笔”事件才能使用真实压力；若一直显示鼠标，请检查 Wacom 驱动的 Windows Ink 设置，并试用最新的 Chrome 或 Edge。这里的几种笔刷是轻量数字近似。</p><h3>参考图与 PDF</h3><p>左侧选择、拖入或粘贴参考图，支持原图、灰度归纳、有限色彩和线稿四种显示。拖动参考图可移动，滚轮可缩放；点击“取色”后从图上吸色，或者直接点色卡。PDF 用页码栏翻页。归纳练习室的“带参考去画画”会保留已调整的参考结果。</p><h3>图层、填充与抠图</h3><p>图层从上到下叠放，可改名、隐藏、锁定、移动、缩放、复制和删除。油漆桶默认参考全部可见层、填在当前层；可把线稿放上层，在下层填色。“抠图”从点击处抠除相近颜色，降低容差可少抠一些；它不识别人像或物体，用橡皮擦可继续修边。抠白底与设置透明纸张是两项独立操作。</p><h3>保存与导出</h3><p>“存工程”保存 .lrxdraw 文件，保留图层、调色和参考；“打开”可继续编辑。作品会自动写入当前浏览器的本机草稿；这是本机副本，不是云备份。PNG / WebP 可保透明，JPEG 会铺背景。SVG 会将画作归纳为实色轮廓，适合有限色块与线稿。所有导出都不含参考面板。</p><p>PDF 解析组件仅在需要时从本站加载；图像和 PDF 内容都在浏览器里处理，不上传。普通画板没有外部框架、字体或分析服务。</p><h3>快捷键</h3><dl class="shortcuts"><dt>B / E / G / I</dt><dd>画笔 / 橡皮 / 填充 / 取色</dd><dt>V / H</dt><dd>移层 / 平移</dd><dt>空格 + 拖动</dt><dd>临时平移画布</dd><dt>Alt + 点选</dt><dd>从画作或参考取色</dd><dt>[ / ]</dt><dd>减小 / 增大画笔</dd><dt>Ctrl / ⌘ Z</dt><dd>撤销</dd><dt>Ctrl / ⌘ Shift Z</dt><dd>重做</dd><dt>Ctrl / ⌘ S</dt><dd>保存工程</dd><dt>Tab</dt><dd>专注模式（输入框外）</dd><dt>0 / 1</dt><dd>适应画布 / 100%</dd></dl><p class="hint">单边 32–4096 px，最多 12 百万像素；图层总像素与撤销记录均有限额。大画布、很多图层或复杂 SVG 会增加内存和处理时间。</p></div></dialog>
+  <dialog id="helpDialog"><div class="dialog-title"><h2>轻绘使用说明</h2><button type="button" data-close="helpDialog" aria-label="关闭">×</button></div><div class="help-content"><h3>开始画画</h3><p>选择画笔、颜色和大小，直接落笔。G 笔与二值笔可随数位笔压感改变粗细；针管笔保持等宽，像素笔在整数网格上画方形笔触。防抖越高越稳，也会有更明显的跟随感。</p><p>数位板连接后看底部输入状态。浏览器需要收到“数位笔”事件才能使用真实压力；若一直显示鼠标，请检查 Wacom 驱动的 Windows Ink 设置，并试用最新的 Chrome 或 Edge。这里的几种笔刷是轻量数字近似。</p><h3>参考图与 PDF</h3><p>左侧选择、拖入或粘贴参考图，支持原图、灰度归纳、有限色彩和线稿四种显示。拖动参考栏右边界可以改变栏宽与参考显示大小；拖动图像可移动，滚轮可缩放；点击“取色”后从图上吸色，或者直接点色卡。PDF 用页码栏翻页。归纳练习室的“带参考去画画”会保留已调整的参考结果。</p><h3>图层、填充与抠图</h3><p>图层从上到下叠放，可改名、隐藏、锁定、移动、缩放、复制和删除。油漆桶默认参考全部可见层、填在当前层；可把线稿放上层，在下层填色。“抠图”从点击处抠除相近颜色，降低容差可少抠一些；它不识别人像或物体，用橡皮擦可继续修边。抠白底与设置透明纸张是两项独立操作。</p><h3>自由调色、形状与文字</h3><p>右侧调色盘用彩虹条选色相，用方框横向调饱和度、纵向调明亮度，也可输入 HEX 或 RGB。形状工具支持矩形、椭圆、五角星、三角形和心形；拖动时预览，松手放置，勾选固定比例或按 Shift 可画正方形与圆形。文字工具先输入内容、选择字体，再点击画布放置；使用本机字体，未安装的字体会自动替代。</p><p>形状和文字落下后写入当前像素图层，可撤销；如需独立移动和缩放，先新建图层。拖动中按 Esc 可以取消。填充材质支持横线、竖线、斜线、交叉排线、水玉圆点和双颜色渐变，可调整粗细、间距及颜色；透明底材质会叠在现有内容上。素材现场生成，不下载图片或字体包。</p><h3>保存与导出</h3><p>“存工程”保存 .lrxdraw 文件，保留图层、调色和参考；“打开”可继续编辑。作品会自动写入当前浏览器的本机草稿；这是本机副本，不是云备份。PNG / WebP 可保透明，JPEG 会铺背景。SVG 会将画作归纳为实色轮廓，适合有限色块与线稿。所有导出都不含参考面板。</p><p>PDF 解析组件仅在需要时从本站加载；图像和 PDF 内容都在浏览器里处理，不上传。普通画板没有外部框架、字体或分析服务。</p><h3>快捷键</h3><dl class="shortcuts"><dt>B / E / G / I</dt><dd>画笔 / 橡皮 / 填充 / 取色</dd><dt>V / H</dt><dd>移层 / 平移</dd><dt>U / T</dt><dd>形状 / 文字</dd><dt>Shift / Esc</dt><dd>锁定形状比例 / 取消当前放置</dd><dt>空格 + 拖动</dt><dd>临时平移画布</dd><dt>Alt + 点选</dt><dd>从画作或参考取色</dd><dt>[ / ]</dt><dd>减小 / 增大画笔</dd><dt>Ctrl / ⌘ Z</dt><dd>撤销</dd><dt>Ctrl / ⌘ Shift Z</dt><dd>重做</dd><dt>Ctrl / ⌘ S</dt><dd>保存工程</dd><dt>Tab</dt><dd>专注模式（输入框外）</dd><dt>0 / 1</dt><dd>适应画布 / 100%</dd></dl><p class="hint">单边 32–4096 px，最多 12 百万像素；图层总像素与撤销记录均有限额。大画布、很多图层或复杂 SVG 会增加内存和处理时间。</p></div></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
   <noscript><p class="no-script">需要启用 JavaScript 才能画画。作品只在本机浏览器处理。</p></noscript>
 </body>
