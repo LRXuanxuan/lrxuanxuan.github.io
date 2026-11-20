@@ -512,6 +512,30 @@ async function main() {
     await app.loadProject(good); await settle();
   });
 
+  await test('Reference preview matches portrait and landscape images without cropping or altering artwork', async () => {
+    await fresh(); await stroke([[18, 18], [80, 55]]);
+    const originalPixels = hash(pixels(active().canvas)), history = state().history;
+    const refContent = element('referenceContent'), refView = element('referenceView');
+    async function place(width, height, name) {
+      const image = native.createCanvas(width, height), ctx = image.getContext('2d');
+      ctx.fillStyle = '#547392'; ctx.fillRect(0, 0, width, height);
+      await app.ref.load(new File([image.toBuffer('image/png')], name, { type: 'image/png' }));
+      await settle();
+    }
+    await place(90, 180, 'portrait-study.png');
+    assert.equal(refContent.classList.contains('has-reference'), true);
+    assert.equal(refView.style.aspectRatio, '90 / 180', 'Portrait reference uses its actual width and height');
+    doc.querySelector('[data-ref-mode="gray"]').click(); await settle();
+    assert.equal(refView.style.aspectRatio, '90 / 180', 'Switching reference mode must preserve its proportions');
+    await place(200, 100, 'landscape-study.png');
+    assert.equal(refView.style.aspectRatio, '200 / 100', 'Next reference replaces the preview aspect ratio');
+    assert.equal(hash(pixels(active().canvas)), originalPixels);
+    assert.equal(state().history, history, 'Reference layout changes must not alter drawing history');
+    click('referenceRemove'); await settle();
+    assert.equal(refContent.classList.contains('has-reference'), false);
+    assert.equal(refView.style.aspectRatio, '', 'Empty reference falls back to flexible placeholder');
+  });
+
   await test('Focus mode and keyboard shortcuts respect editing controls', async () => {
     click('focusMode'); assert.equal(element('focusMode').getAttribute('aria-pressed'), 'true');
     click('focusMode'); assert.equal(element('focusMode').getAttribute('aria-pressed'), 'false');

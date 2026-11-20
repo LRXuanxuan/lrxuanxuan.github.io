@@ -14,3 +14,9 @@ dialog{color:var(--text);background:var(--panel);border:1px solid var(--line);bo
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 /* Geometry, lettering and procedural fills share the existing raster layers. */
 textarea{font:inherit;color:inherit;background:var(--surface);border:1px solid var(--line);border-radius:5px;padding:7px 8px;resize:vertical;min-height:64px;max-height:220px;width:100%;line-height:1.5}textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}.mark-pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}.mark-pair .field{min-width:0}.mark-pair input[type=color]{width:100%;height:30px}.mark-checks{gap:10px}.mark-checks .check{flex:0 1 auto}#materialPreview{display:block;width:100%;height:48px;margin:8px 0;border:1px solid var(--line);border-radius:5px;background-color:var(--checker-a);background-image:repeating-conic-gradient(var(--checker-b) 0 25%,var(--checker-a) 0 50%);background-size:12px 12px}.settings-scroll>.panel-section[hidden]+.panel-section{border-top-color:var(--line)}.canvas-viewport[data-cursor=text]{cursor:text}.canvas-viewport[data-cursor=shape]{cursor:crosshair}.tool-group button{padding-inline:7px}@media(max-width:1150px){.tool-group button{padding-inline:5px}}@media(max-width:650px){.tool-group button{padding-inline:3px;font-size:11px}}
+/* Keep the reference preview at its native aspect ratio, including tall sketch pages.
+   Only the sidebar's content scrolls; the central canvas and resize divider stay put. */
+.reference-content{display:flex;flex:1;flex-direction:column;min-width:0;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+.reference-content.has-reference .reference-view{flex:0 0 auto;min-height:96px;height:auto}
+.reference-content.has-reference .reference-bottom{max-height:none;overflow:visible}
+.reference-content.has-reference .reference-top{flex-shrink:0}

@@ -473,13 +473,17 @@
   function referenceChanged(mark = true) {
     const info = ref.getInfo(), source = ref.getCanvas(), out = $('referenceCanvas');
     if (source) { resize(out, source.width, source.height); clear(out); context(out).drawImage(source, 0, 0); }
+    // Match the preview window to the image / current PDF page, not a fixed landscape slot.
+    const referenceContent = $('referenceContent'), referencePort = $('referenceView');
+    referenceContent.classList.toggle('has-reference', !!source);
+    referencePort.style.aspectRatio = source && source.width > 0 && source.height > 0 ? source.width + ' / ' + source.height : '';
     out.hidden = !source; $('referenceEmpty').hidden = !!source; syncReferenceNavigation();
     $('referenceCount').value = info.count || 8;
     all('[data-ref-mode]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.refMode === info.mode)));
     const suffix = info.importedStudy ? (info.sourceMode === 'black' ? ' · 含练习室局部压黑' : ' · 来自归纳练习室') : '';
     $('referenceName').textContent = source ? info.name + suffix : '尚未放入参考'; $('referenceName').title = $('referenceName').textContent;
     const key = info.name + '/' + info.width + '/' + info.height + '/' + info.page;
-    if (key !== lastReferenceKey) { lastReferenceKey = key; fitReference(); } else updateReferenceView();
+    if (key !== lastReferenceKey) { lastReferenceKey = key; referenceContent.scrollTop = 0; fitReference(); } else updateReferenceView();
     renderReferencePalette(); referenceVersion++; referenceCache = null;
     if (mark) changed();
   }
