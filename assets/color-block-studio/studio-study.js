@@ -112,7 +112,7 @@
         $('showAB').setAttribute('aria-pressed', String(showA));
         $('showAB').textContent = showA ? '返回 B' : '查看 A';
         $('studyCompareStatus').textContent = showA ? ('方案 A · ' + compare.name + ' · 只读') : (compare ? '当前 B · A 已记录' : '');
-        ['exportBtn', 'exportBtnTop', 'exportOrigBtn', 'cardBtn', 'printBtn', 'printBtnTop', 'saveBtn', 'saveBtnTop'].forEach(function (id) {
+        ['exportBtn', 'exportBtnTop', 'exportOrigBtn', 'cardBtn', 'printBtn', 'printBtnTop', 'saveBtn', 'saveBtnTop', 'drawingReferenceBtn'].forEach(function (id) {
           if ($(id)) $(id).disabled = !s.ready || showA;
         });
       }
@@ -342,6 +342,56 @@
         var c = document.createElement('canvas'); c.width = s.workW; c.height = s.workH;
         c.getContext('2d').drawImage(e.resultCanvas, 0, 0); return c;
       }
+      async function exportReferenceBundle() {
+        if (!s.ready) throw new Error('请先载入一张图片。');
+        if (showA) throw new Error('先返回 B，再把当前练习带到轻绘。');
+        // Read saved mode snapshots directly. Do not switch modes or touch undo,
+        // selected lesson, A/B, previews, or any local brush strokes while exporting.
+        var w = s.workW, hh = s.workH, n = w * hh, capturedMode = mode;
+        function fresh() { var c = document.createElement('canvas'); c.width = w; c.height = hh; return c; }
+        function block(which) {
+          var p = which === mode ? packedMode() : modeStates[which], c, pal, indices;
+          if (which === mode) { c = copyResultCanvas(); pal = clone(s.palette); }
+          else {
+            c = fresh();
+            var blur = p ? p.blur : s.blur, smooth = p ? p.smooth : s.smooth, minRegion = p ? p.minRegion : s.minRegion;
+            var rgb = blur ? root.blurRGB(s.baseRGB, w, hh, blur) : s.baseRGB;
+            pal = p && p.palette.length ? clone(p.palette) : which === 'value' ? core.defaultValuePalette(levels) : root.extractPalette(rgb, w, hh, 6, s.seed, a.labLUT);
+            indices = p && p.indices;
+            if (!indices) {
+              indices = which === 'value' ? core.valueIndices(rgb, w, hh, levels, dark, light) : root.mapIndices(rgb, w, hh, root.buildMapLUT(pal, a.labLUT));
+              if (smooth) root.smoothEdges(indices, w, hh, pal.length, smooth);
+              if (minRegion > 1) root.mergeSmallRegions(indices, w, hh, pal.length, minRegion);
+            }
+            var ctx = c.getContext('2d'), data = ctx.createImageData(w, hh);
+            root.paintFromIndices(indices, pal, data.data); ctx.putImageData(data, 0, 0);
+          }
+          return { canvas: c, palette: pal.filter(function (p) { return p.mode !== 'clear'; }).map(function (p) { return p.mode === 'white' ? '#ffffff' : h.toHex(p); }) };
+        }
+        function line() {
+          // When exporting a local-black study, preserve its actual black/line
+          // decisions in the monochrome reference rather than regenerate it.
+          if (mode === 'line' || mode === 'black') return copyResultCanvas();
+          var p = modeStates.line, settings = p ? p.lineParams : s.lineParams;
+          var hatch = p ? p.hatch : { enabled: false }, black = p ? p.black : { enabled: false };
+          var gray = new Uint8Array(n);
+          for (var i = 0, o = 0; i < n; i++, o += 3) gray[i] = root.rgbToGrayValue(s.baseRGB[o], s.baseRGB[o + 1], s.baseRGB[o + 2]);
+          var mask = root.lineArtWithHatch(gray, s.baseRGB, false, w, hh, settings,
+            { enabled: hatch.enabled, strength: hatch.strength, density: hatch.density, width: hatch.width, angle: hatch.angle, range: hatch.range, highlight: hatch.protectHighlight ? 0.8 : 1, protectSkin: hatch.protectSkin }, { enabled: false });
+          var values = new Uint8ClampedArray(n), blackValues = black.enabled ? core.blackMask(root.blurRGB(s.baseRGB, w, hh, Math.max(1, Math.round(Math.max(w, hh) / 1000))), w, hh, black.threshold, black.protectSkin) : null;
+          for (var j = 0; j < n; j++) values[j] = Math.min(mask[j] ? 0 : 255, blackValues ? blackValues[j] : 255);
+          values = core.applyStrokes(values, w, hh, strokes.line, 'line');
+          var c = fresh(), ctx = c.getContext('2d'), data = ctx.createImageData(w, hh);
+          for (var k = 0, q = 0; k < n; k++, q += 4) { data.data[q] = data.data[q + 1] = data.data[q + 2] = values[k]; data.data[q + 3] = 255; }
+          ctx.putImageData(data, 0, 0); return c;
+        }
+        var original = fresh(); original.getContext('2d').drawImage(e.origCanvas, 0, 0);
+        var gray = block('value'), color = block('color'), monochrome = line();
+        var encoded = await Promise.all([original, gray.canvas, color.canvas, monochrome].map(h.canvasToBlob));
+        return { version: 1, name: s.name, original: encoded[0], views: { gray: encoded[1], color: encoded[2], line: encoded[3] },
+          palettes: { gray: gray.palette, color: color.palette }, selectedMode: capturedMode === 'value' ? 'gray' : capturedMode === 'color' ? 'color' : 'line',
+          sourceMode: capturedMode, importedStudy: true };
+      }
       function renderBlockForSave() {
         if (!s.ready) return null;
         if (!s.line) { render(); return { canvas: copyResultCanvas(), palette: clone(s.palette), counts: s.counts }; }
@@ -547,6 +597,7 @@
         setMode: setMode, applyImage: applyImage, updateModeUi: syncControls, applyView: applyView,
         selectPalette: selectPalette, fitCanvas: fitCanvas,
         renderBlockForSave: renderBlockForSave, renderLineForSave: renderLineForSave,
+        exportReferenceBundle: exportReferenceBundle,
         renderFullRes: renderFullRes, exportLineOriginal: exportLineOriginal,
         renderBatch: renderBatch,
         deleteSelectedColor: function () { s.indices = null; idxKey = ''; old.deleteSelectedColor(); syncControls(); },
@@ -554,7 +605,7 @@
         inspect: function () { return { mode: mode, levels: levels, dark: dark, light: light, lock: lock, blackOnly: blackOnly,
           strokes: clone(strokes), undo: undo.length, redo: redo.length, hasA: !!compare, showA: showA, zoom: zoom,
           indicesCount: s.indices ? s.indices.length : 0 }; },
-        test: { setMode: setMode, undo: undoStep, redo: redoStep, settle: settle,
+        test: { setMode: setMode, undo: undoStep, redo: redoStep, settle: settle, reference: exportReferenceBundle,
           indices: function () { return s.indices ? Array.from(s.indices) : null; },
           stroke: function (st) { if (!s.line) throw new Error('Choose line or black'); strokes[mode].push(clone(st)); computeLine(); },
           values: function (n, d, l) { levels = n; dark = d; light = l; s.k = n; s.palette = core.defaultValuePalette(n); s.indices = null; idxKey = ''; render(); syncControls(); },

@@ -363,6 +363,8 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
     </div>
     <div class="header-tools">
     <span class="local-tag">本地运行 · 不上传</span>
+    <a class="btn ghost sm" href="/drawing-studio.html">去画画 ↗</a>
+    <button id="drawingReferenceBtn" class="btn primary sm" type="button" disabled title="把原图、灰度、色彩和线稿送到轻绘；已练过的模式保留当前修改，未练过的生成初始参考">带参考去画画</button>
     <button id="saveBtnTop" class="btn ghost sm">保存</button>
     <button id="printBtnTop" class="btn ghost sm">打印</button>
     <button id="batchBtnTop" class="btn ghost sm">批量</button>
@@ -838,7 +840,8 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
 </div>
 
 <script src="/assets/color-block-studio/study-core.js?v=20261120-1"></script>
-<script src="/assets/color-block-studio/studio-study.js?v=20261120-3"></script>
+<script src="/assets/color-block-studio/studio-study.js?v=20261120-drawing-1"></script>
+<script src="/assets/drawing-studio/bridge.js?v=20261120-1"></script>
 <script>
 /* ============================================================
  * 色块提炼器 · 算法核心（纯函数，不依赖 DOM）
@@ -4038,6 +4041,21 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
   renderBlockForSave = study.renderBlockForSave; renderLineForSave = study.renderLineForSave;
   renderFullRes = study.renderFullRes; exportLineOriginal = study.exportLineOriginal;
   deleteSelectedColor = study.deleteSelectedColor; addSmartColor = study.addSmartColor;
+
+  $('drawingReferenceBtn').addEventListener('click', async function () {
+    var button = this;
+    if (!state.ready || button.disabled) return;
+    button.disabled = true; showBusy('正在准备四种参考与色卡…');
+    try {
+      await nextFrame();
+      var reference = await study.exportReferenceBundle();
+      var token = await window.DrawingBridge.put(reference);
+      window.location.assign('/drawing-studio.html?reference=' + encodeURIComponent(token));
+    } catch (err) {
+      toast('参考传递失败：' + (err && err.message ? err.message : String(err)));
+      button.disabled = false;
+    } finally { hideBusy(); study.updateModeUi(); }
+  });
 
   /* ---------------- 事件绑定 ---------------- */
   els.fileInput.addEventListener('change', function () {

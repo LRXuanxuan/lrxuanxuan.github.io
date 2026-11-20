@@ -1,6 +1,8 @@
 # Bundler cache
 .bundle
 vendor
+!assets/drawing-studio/vendor/
+!assets/drawing-studio/vendor/**
 Gemfile.lock
 
 # Jekyll cache
