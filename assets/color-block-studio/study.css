@@ -142,6 +142,8 @@ body.line-mode details.line-only:not([hidden]){display:block!important}
   .study-compare-status{width:100%}
   .viewer{padding:12px}
   main{grid-template-rows:minmax(0,39%) minmax(0,1fr)}
+  .brand{flex:1 0 100%}
   .brand p{font-size:9px}
+  .theme-switch{margin-left:0}
   .header-tools{margin-left:auto}
 }
