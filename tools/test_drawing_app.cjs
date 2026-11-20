@@ -748,6 +748,52 @@ async function main() {
     assert.equal(element('shapeKind').value, 'rect'); assert.equal(element('materialKind').value, 'solid'); assert.equal(element('textFont').value, 'system');
   });
 
+  await test('File-input loading restores PDF navigation from current page state after work finishes', async () => {
+    // Deliberately stub document loading, not rendering: this regression concerns
+    // work() restoring stale disabled flags after the file-input event completes.
+    // Real PDF decoding and browser-worker rendering have separate verification.
+    const reference = app.ref, input = element('referenceFile');
+    const original = { load: reference.load, getInfo: reference.getInfo, setPage: reference.setPage };
+    const filesDescriptor = Object.getOwnPropertyDescriptor(input, 'files');
+    let imported = false, page = 1, loadCalls = 0, releaseLoad;
+    const pendingLoad = new Promise(resolve => { releaseLoad = resolve; });
+    reference.getInfo = function () {
+      const info = original.getInfo.call(this);
+      return imported ? { ...info, name: 'two-pages-navigation.pdf', isPDF: true, page, pageCount: 2 } : info;
+    };
+    reference.load = async function (file) {
+      loadCalls++; assert.equal(file.type, 'application/pdf'); await pendingLoad;
+      imported = true; page = 1; this.options.onChange(this.getInfo()); return true;
+    };
+    reference.setPage = async function (number) {
+      page = Math.max(1, Math.min(2, Number(number))); this.options.onChange(this.getInfo()); return true;
+    };
+    try {
+      assert.equal(reference.getInfo().isPDF, false, 'The initial reference is an image, so PDF controls start disabled');
+      assert.equal(element('pdfNext').disabled, true); assert.equal(element('pdfPrevious').disabled, true);
+      Object.defineProperty(input, 'files', { configurable: true, value: [new File(['navigation state fixture'], 'two-pages-navigation.pdf', { type: 'application/pdf' })] });
+      input.dispatchEvent(new win.Event('change', { bubbles: true }));
+      await eventually(() => loadCalls === 1 && doc.body.classList.contains('busy'), 'The real file-input handler must enter work()');
+      assert.equal(element('referenceOpen').disabled, true, 'Controls are blocked while the asynchronous import is pending');
+      releaseLoad();
+      await eventually(() => imported && !doc.body.classList.contains('busy'), 'The import must finish before checking restored controls');
+      assert.equal(element('pdfNavigation').hidden, false); assert.equal(element('pdfPageCount').textContent, '2');
+      assert.equal(element('pdfPage').value, '1'); assert.equal(element('pdfPrevious').disabled, true);
+      assert.equal(element('pdfNext').disabled, false, 'Finally must recompute navigation instead of restoring the stale disabled flag');
+      assert.equal(element('referenceOpen').disabled, false);
+      click('pdfNext'); await settle();
+      assert.equal(page, 2, 'The enabled Next button must reach the reference page handler');
+      assert.equal(element('pdfPage').value, '2'); assert.equal(element('pdfPrevious').disabled, false); assert.equal(element('pdfNext').disabled, true);
+      click('pdfPrevious'); await settle();
+      assert.equal(page, 1); assert.equal(element('pdfPrevious').disabled, true); assert.equal(element('pdfNext').disabled, false);
+      assert.ok(!requests.some(url => /vendor\/pdfjs/.test(url)), 'The navigation regression must not pretend to exercise the PDF engine');
+    } finally {
+      releaseLoad(); Object.assign(reference, original);
+      if (filesDescriptor) Object.defineProperty(input, 'files', filesDescriptor); else delete input.files;
+      reference.options.onChange(reference.getInfo());
+    }
+  });
+
   if (errors.length) throw new Error('DOM runtime errors:\n' + errors.join('\n'));
   dom.window.close();
   global.console.log('Drawing application integration: ' + passed + ' checks passed.');

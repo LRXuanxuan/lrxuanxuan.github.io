@@ -403,6 +403,7 @@
   }
   function sync() {
     syncHistory(); syncLayers();
+    if (ref) syncReferenceNavigation();
     $('canvasWidth').value = art.width; $('canvasHeight').value = art.height; $('paper').value = art.paper; $('paperColor').value = art.paperColor; $('paperColorLabel').hidden = art.paper !== 'custom';
     for (const key of ['hue', 'saturation', 'lightness']) { $(key).value = art.tone[key]; $(key + 'Value').textContent = art.tone[key] + (key === 'hue' ? '°' : ''); }
     document.title = (art.title === '未命名画作' ? '轻绘' : art.title + ' · 轻绘') + ' · 本地画室';
@@ -472,9 +473,7 @@
   function referenceChanged(mark = true) {
     const info = ref.getInfo(), source = ref.getCanvas(), out = $('referenceCanvas');
     if (source) { resize(out, source.width, source.height); clear(out); context(out).drawImage(source, 0, 0); }
-    out.hidden = !source; $('referenceEmpty').hidden = !!source; $('pdfNavigation').hidden = !info.isPDF;
-    $('pdfPage').value = info.page; $('pdfPage').max = info.pageCount; $('pdfPageCount').textContent = info.pageCount;
-    $('pdfPrevious').disabled = info.page <= 1; $('pdfNext').disabled = info.page >= info.pageCount;
+    out.hidden = !source; $('referenceEmpty').hidden = !!source; syncReferenceNavigation();
     $('referenceCount').value = info.count || 8;
     all('[data-ref-mode]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.refMode === info.mode)));
     const suffix = info.importedStudy ? (info.sourceMode === 'black' ? ' · 含练习室局部压黑' : ' · 来自归纳练习室') : '';
@@ -483,6 +482,11 @@
     if (key !== lastReferenceKey) { lastReferenceKey = key; fitReference(); } else updateReferenceView();
     renderReferencePalette(); referenceVersion++; referenceCache = null;
     if (mark) changed();
+  }
+  function syncReferenceNavigation() {
+    const info = ref.getInfo(); $('pdfNavigation').hidden = !info.isPDF;
+    $('pdfPage').value = info.page; $('pdfPage').max = info.pageCount; $('pdfPageCount').textContent = info.pageCount;
+    $('pdfPrevious').disabled = !info.isPDF || info.page <= 1; $('pdfNext').disabled = !info.isPDF || info.page >= info.pageCount;
   }
   function renderReferencePalette() {
     if (!ref) return; const info = ref.getInfo(); swatches($('referenceSwatches'), info.palettes[$('referencePalette').value] || []);
