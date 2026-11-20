@@ -121,6 +121,42 @@ async function main() {
   const dot = core.makeStroke(dotCtx, { brush: 'fineliner', size: 4 }); dot.start({ x: 8, y: 8 }); dot.end();
   assert.ok(dotCtx.getImageData(8, 8, 1, 1).data[3] > 0, 'a click is a visible dot');
 
+  // Sampled tips must deposit the same stroke under sparse/coalesced
+  // events. Verify real alpha coverage including clicks and undo patch bounds.
+  for (const brush of ['pencil', 'charcoal', 'marker', 'brushMarker', 'dry', 'airbrush', 'gouache', 'wash',
+    'spatter', 'maru', 'hairHatch', 'screentone', 'sparkle']) {
+    const preset = core.brushPresets.find(item => item.id === brush);
+    function totalInk(pressure, steps) {
+      const ctx = createCanvas(180, 84).getContext('2d');
+      const pen = core.makeStroke(ctx, { brush, size: preset.size, color: '#194661' });
+      const point = x => ({ x, y: 42, pointerType: 'pen', pressure });
+      pen.start(point(38));
+      if (steps) for (let i = 1; i <= steps; i++) pen.move(point(38 + 100 * i / steps));
+      pen.end();
+      const data = ctx.getImageData(0, 0, 180, 84).data, bounds = pen.bounds;
+      let sum = 0;
+      for (let i = 3; i < data.length; i += 4) if (data[i]) {
+        const index = (i - 3) / 4, x = index % 180, y = Math.floor(index / 180);
+        assert.ok(x >= bounds.x && x < bounds.x + bounds.width && y >= bounds.y && y < bounds.y + bounds.height, brush + ' bounds');
+        sum += data[i];
+      }
+      return sum;
+    }
+    assert.ok(totalInk(1, 0) > 0, brush + ' click');
+    const heavy = totalInk(1, 1), light = totalInk(0.12, 1);
+    assert.ok(Math.abs(heavy - totalInk(1, 100)) < heavy * 0.005, brush + ' sampling density');
+    if (brush === 'marker') assert.equal(light, heavy, 'fixed chisel nib');
+    else assert.ok(heavy > light, brush + ' pressure response');
+  }
+  // At the same size/pressure the new manga and painting tips should have
+  // distinct geometry and deposition, including separated stars and wash rims.
+  const tips = new Set();
+  for (const brush of ['gpen', 'brushMarker', 'maru', 'hairHatch', 'screentone', 'sparkle', 'spatter', 'wash', 'gouache']) {
+    const image = strokeImage(brush), key = require('node:crypto').createHash('sha256').update(image.data).digest('hex');
+    assert.ok(!tips.has(key), 'different image for ' + brush); tips.add(key);
+    if (brush === 'wash') assert.ok(get(image, 112, 49)[3] > get(image, 112, 40)[3], 'wash pools pigment at the edge');
+  }
+
   // Rasterize actual SVG output to independently check holes, topology and alpha.
   async function raster(svg, w, h) {
     const canvas = createCanvas(w, h), ctx = canvas.getContext('2d');

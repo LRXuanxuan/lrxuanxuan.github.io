@@ -28,7 +28,7 @@ class LocalResources extends ResourceLoader {
     const u = new URL(url);
     if (u.hostname !== 'color-study.test') throw new Error('Unexpected external dependency: ' + u.hostname);
     const file = path.resolve(ROOT, '.' + decodeURIComponent(u.pathname));
-    if (!file.startsWith(ROOT + '/')) throw new Error('Out-of-project resource request');
+    if (!file.startsWith(ROOT + path.sep)) throw new Error('Out-of-project resource request');
     const promise = fs.existsSync(file) ? Promise.resolve(fs.readFileSync(file)) : Promise.reject(new Error('Missing local resource ' + file));
     promise.abort = () => {};
     return promise;
@@ -170,9 +170,18 @@ async function main(){
   const source=native.createCanvas(72,48),ctx=source.getContext('2d');
   ctx.fillStyle='#d03020';ctx.fillRect(0,0,24,48);ctx.fillStyle='#20a060';ctx.fillRect(24,0,24,48);ctx.fillStyle='#3060d0';ctx.fillRect(48,0,24,48);ctx.clearRect(0,0,7,7);
   const file=new win.File([source.toBuffer('image/png')],'three.png',{type:'image/png'});
-  await test('Default palettes have valid unique colors and three complete sixty-color sets',async()=>{
-    assert.equal(win.DrawingPalettes.length,8);
+  await test('Marker palettes preserve swatch codes and grouped colors alongside the studio sets',async()=>{
+    assert.equal(win.DrawingPalettes[0].id,'marker-triads');
+    assert.equal(new Set(win.DrawingPalettes.map(p=>p.id)).size,win.DrawingPalettes.length);
     for(const palette of win.DrawingPalettes){assert.ok(palette.id&&palette.name);assert.ok(palette.colors.every(c=>/^#[a-f0-9]{6}$/i.test(c)));assert.equal(new Set(palette.colors).size,palette.colors.length);}
+    for(const [id,size] of [['marker-triads',36],['marker-portrait',15],['marker-landscape',18],['marker-grays',20]]){
+      const palette=win.DrawingPalettes.find(p=>p.id===id);
+      assert.equal(palette.colors.length,size);
+      const grouped=Array.from(palette.groups).flatMap(group=>Array.from(group.swatches));
+      assert.deepEqual(grouped.map(s=>s.hex),Array.from(palette.colors));
+      assert.ok(grouped.every(s=>s.name&&s.code));
+      assert.equal(new Set(grouped.map(s=>s.code)).size,size);
+    }
     for(const id of ['street','plants','anime'])assert.equal(win.DrawingPalettes.find(p=>p.id===id).colors.length,60);
   });
   await test('Image load produces original/color/gray reference and matching palettes without PDF loading',async()=>{
@@ -203,6 +212,21 @@ async function main(){
     const before=hash(canvasPixels(ref.getCanvas())),name=ref.getInfo().name;
     await assert.rejects(ref.load(new win.File(['not an image'],'broken.png',{type:'image/png'})),/无法解码/);
     assert.equal(hash(canvasPixels(ref.getCanvas())),before);assert.equal(ref.getInfo().name,name);
+  });
+  await test('Detached PDF retains the current page and source identity through repeated saves without reading the original',async()=>{
+    const bundle=await ref.exportBundle();
+    const externalPDF={size:105000000,fingerprint:'32af'.repeat(8)};
+    const detached=new win.DrawingReference();
+    await detached.loadBundle({...bundle,name:'study.pdf',page:62,pageCount:100,externalPDF});
+    assert.equal(detached.getInfo().externalPDF,true);
+    assert.equal(detached.getInfo().isPDF,false);
+    const saved=await detached.exportBundle();
+    assert.equal(saved.page,62);assert.equal(saved.pageCount,100);assert.equal(saved.sourceFile,null);
+    assert.equal(saved.externalPDF.fingerprint,externalPDF.fingerprint);
+    const before=hash(canvasPixels(detached.getCanvas()));
+    await assert.rejects(detached.load(new win.File(['wrong'],'other.pdf',{type:'application/pdf'}),true),/原先使用/);
+    assert.equal(detached.getInfo().page,62);assert.equal(hash(canvasPixels(detached.getCanvas())),before);
+    detached.destroy();
   });
   await test('Returning to the visible PDF page cancels an older unresolved getPage request',async()=>{
     const paged=new win.DrawingReference();await paged.load(file);

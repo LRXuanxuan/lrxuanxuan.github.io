@@ -6,7 +6,7 @@
   if (root) root.DrawingMarks = api;
 })(typeof window !== 'undefined' ? window : typeof self !== 'undefined' ? self : null, function () {
   'use strict';
-  var KINDS = ['none', 'solid', 'horizontal', 'vertical', 'diagonal', 'crosshatch', 'dots', 'linear', 'radial'];
+  var KINDS = ['none', 'solid', 'horizontal', 'vertical', 'diagonal', 'crosshatch', 'dots', 'checker', 'paper', 'stipple', 'weave', 'linear', 'radial', 'reflected'];
   var FONTS = 'system-ui, "Microsoft YaHei", "PingFang SC", sans-serif';
   var tiles = new Map();
   function number(value, fallback) { return Number.isFinite(+value) ? +value : fallback; }
@@ -52,6 +52,45 @@
   }
   function hasPaint(style) { return styleObject(style).kind !== 'none'; }
 
+  function speckledTile(ctx, kind, side, cell, line) {
+    var seed = 2027;
+    function random() { seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0; return seed / 4294967296; }
+    var count = Math.round(side / cell);
+    for (var row = 0; row < count; row++) for (var col = 0; col < count; col++) {
+      var grains = kind === 'paper' ? 10 : 2;
+      for (var i = 0; i < grains; i++) {
+        var x = (col + random()) * cell, y = (row + random()) * cell;
+        var radius = Math.min(cell * 0.4, line * (0.22 + 0.42 * random()));
+        var rx = kind === 'paper' ? radius * 1.7 : radius, ry = kind === 'paper' ? radius * 0.38 : radius;
+        var angle = random() - 0.5, pad = Math.max(rx, ry);
+        ctx.globalAlpha = kind === 'paper' ? 0.12 + 0.33 * random() : 0.68 + 0.32 * random();
+        // Wrap clipped flecks at the opposite edge so repeats have no seam.
+        var xs = x < pad ? [x, x + side] : x > side - pad ? [x, x - side] : [x];
+        var ys = y < pad ? [y, y + side] : y > side - pad ? [y, y - side] : [y];
+        for (var px of xs) for (var py of ys) {
+          ctx.beginPath(); ctx.ellipse(px, py, rx, ry, angle, 0, Math.PI * 2); ctx.fill();
+        }
+      }
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  function wovenTile(ctx, cell, line) {
+    var width = Math.min(cell * 0.68, line), gap = Math.min(cell / 2, width / 2 + Math.max(0.65, width * 0.36));
+    for (var row = 0; row < 2; row++) for (var col = 0; col < 2; col++) {
+      var x = col * cell, y = row * cell, mid = cell / 2;
+      if ((row + col) % 2) {
+        ctx.fillRect(x + mid - width / 2, y, width, cell);
+        ctx.fillRect(x, y + mid - width / 2, mid - gap, width);
+        ctx.fillRect(x + mid + gap, y + mid - width / 2, mid - gap, width);
+      } else {
+        ctx.fillRect(x, y + mid - width / 2, cell, width);
+        ctx.fillRect(x + mid - width / 2, y, width, mid - gap);
+        ctx.fillRect(x + mid - width / 2, y + mid + gap, width, mid - gap);
+      }
+    }
+  }
+
   /**
    * Coordinates/spacing/thickness are LOCAL canvas pixels. Pass the same bounds
    * for each preview/commit. Linear angle 0 points right, 90 points down; radial
@@ -66,20 +105,27 @@
     var box = normalizedBounds(bounds), x = box.x, y = box.y, w = Math.max(1, box.width), h = Math.max(1, box.height);
     var angle = number(style.angle, kind === 'diagonal' || kind === 'crosshatch' ? 45 : 0) * Math.PI / 180;
     var gradient;
-    if (kind === 'linear') {
+    if (kind === 'linear' || kind === 'reflected') {
       var dx = Math.cos(angle), dy = Math.sin(angle), half = (Math.abs(dx) * w + Math.abs(dy) * h) / 2;
       gradient = ctx.createLinearGradient(x + w / 2 - dx * half, y + h / 2 - dy * half, x + w / 2 + dx * half, y + h / 2 + dy * half);
     } else if (kind === 'radial') {
       gradient = ctx.createRadialGradient(x + w / 2, y + h / 2, 0, x + w / 2, y + h / 2, Math.hypot(w, h) / 2);
     }
-    if (gradient) { gradient.addColorStop(0, fg); gradient.addColorStop(1, style.transparentBackground ? transparent(fg) : bg); return gradient; }
+    if (gradient) {
+      var endColor = style.transparentBackground ? transparent(fg) : bg;
+      gradient.addColorStop(0, kind === 'reflected' ? endColor : fg);
+      if (kind === 'reflected') gradient.addColorStop(0.5, fg);
+      gradient.addColorStop(1, endColor);
+      return gradient;
+    }
 
     var spacing = clamp(number(style.spacing, 14), 2, 256), thickness = clamp(number(style.thickness, 2), 0.25, spacing);
     var base = kind === 'diagonal' ? 'horizontal' : kind;
+    var cells = base === 'checker' || base === 'weave' ? 2 : base === 'paper' || base === 'stipple' ? 6 : 1;
     var key = JSON.stringify([base, fg, bg, !!style.transparentBackground, spacing, thickness]);
     var tile = tiles.get(key);
     if (!tile) {
-      var side = Math.max(2, Math.ceil(spacing)), unit = side / spacing;
+      var side = clamp(Math.ceil(spacing * cells), 2, 256), cell = side / cells, unit = cell / spacing;
       tile = newCanvas(ctx, side, side); var tc = tile.getContext('2d');
       if (!style.transparentBackground) { tc.fillStyle = bg; tc.fillRect(0, 0, side, side); }
       tc.fillStyle = fg; var line = thickness * unit;
@@ -87,12 +133,15 @@
       if (base === 'horizontal' || base === 'crosshatch') { tc.fillRect(0, -line / 2, side, line); tc.fillRect(0, side - line / 2, side, line); }
       if (base === 'vertical' || base === 'crosshatch') { tc.fillRect(-line / 2, 0, line, side); tc.fillRect(side - line / 2, 0, line, side); }
       if (base === 'dots') { tc.beginPath(); tc.arc(side / 2, side / 2, line / 2, 0, Math.PI * 2); tc.fill(); }
+      if (base === 'checker') { tc.fillRect(0, 0, cell, cell); tc.fillRect(cell, cell, cell, cell); }
+      if (base === 'weave') wovenTile(tc, cell, line);
+      if (base === 'paper' || base === 'stipple') speckledTile(tc, base, side, cell, line);
       tiles.set(key, tile); if (tiles.size > 8) tiles.delete(tiles.keys().next().value);
     }
     var pattern = ctx.createPattern(tile, 'repeat');
     if (!pattern) throw new Error('当前环境无法生成材质填充。');
-    var rotation = kind === 'horizontal' || kind === 'vertical' ? 0 : angle;
-    var scale = spacing / tile.width, c = Math.cos(rotation) * scale, s = Math.sin(rotation) * scale;
+    var rotation = ['horizontal', 'vertical', 'paper', 'stipple'].includes(kind) ? 0 : angle;
+    var scale = spacing * cells / tile.width, c = Math.cos(rotation) * scale, s = Math.sin(rotation) * scale;
     if (typeof pattern.setTransform === 'function') pattern.setTransform({ a: c, b: s, c: -s, d: c, e: x, f: y });
     return pattern;
   }
@@ -109,10 +158,47 @@
     }
     return bounds;
   }
-  function shapePath(ctx, type, box) {
+  function directionalPoints(options, lineWidth) {
+    var x = clamp(number(options.x, 0), -65536, 65536), y = clamp(number(options.y, 0), -65536, 65536);
+    var dx = clamp(number(options.width, 0), -16384, 16384), dy = clamp(number(options.height, 0), -16384, 16384);
+    var length = Math.hypot(dx, dy);
+    if (length < 0.01) return null;
+    if (options.constrain) {
+      var angle = Math.round(Math.atan2(dy, dx) / (Math.PI / 4)) * Math.PI / 4;
+      dx = Math.cos(angle) * length; dy = Math.sin(angle) * length;
+    }
+    if (options.type === 'line') return [[x, y], [x + dx, y + dy]];
+    var ux = dx / length, uy = dy / length;
+    var shaft = Math.min(length * 0.085, Math.max(2, length * 0.035, lineWidth));
+    var head = Math.min(length * 0.27, shaft * 2.8), neck = length - Math.min(length * 0.43, Math.max(shaft * 3.6, length * 0.23));
+    function point(along, offset) { return [x + along * ux - offset * uy, y + along * uy + offset * ux]; }
+    return [point(0, shaft), point(neck, shaft), point(neck, head), point(length, 0),
+      point(neck, -head), point(neck, -shaft), point(0, -shaft)];
+  }
+  function pointsBox(points) {
+    var xs = points.map(function (p) { return p[0]; }), ys = points.map(function (p) { return p[1]; });
+    var x = Math.min.apply(null, xs), y = Math.min.apply(null, ys);
+    return { x: x, y: y, width: Math.max.apply(null, xs) - x, height: Math.max.apply(null, ys) - y };
+  }
+  function shapePath(ctx, type, box, vertices) {
     var x = box.x, y = box.y, w = box.width, h = box.height;
     ctx.beginPath();
-    if (type === 'ellipse') ctx.ellipse(x + w / 2, y + h / 2, w / 2, h / 2, 0, 0, Math.PI * 2);
+    if (vertices) {
+      ctx.moveTo(vertices[0][0], vertices[0][1]);
+      for (var v = 1; v < vertices.length; v++) ctx.lineTo(vertices[v][0], vertices[v][1]);
+      if (type === 'line') return;
+    } else if (type === 'roundRect') {
+      var corner = Math.min(w, h) * 0.20;
+      ctx.moveTo(x + corner, y); ctx.lineTo(x + w - corner, y); ctx.quadraticCurveTo(x + w, y, x + w, y + corner);
+      ctx.lineTo(x + w, y + h - corner); ctx.quadraticCurveTo(x + w, y + h, x + w - corner, y + h);
+      ctx.lineTo(x + corner, y + h); ctx.quadraticCurveTo(x, y + h, x, y + h - corner);
+      ctx.lineTo(x, y + corner); ctx.quadraticCurveTo(x, y, x + corner, y);
+    } else if (type === 'diamond') {
+      ctx.moveTo(x + w / 2, y); ctx.lineTo(x + w, y + h / 2); ctx.lineTo(x + w / 2, y + h); ctx.lineTo(x, y + h / 2);
+    } else if (type === 'hexagon') {
+      ctx.moveTo(x + w / 4, y); ctx.lineTo(x + w * 0.75, y); ctx.lineTo(x + w, y + h / 2);
+      ctx.lineTo(x + w * 0.75, y + h); ctx.lineTo(x + w / 4, y + h); ctx.lineTo(x, y + h / 2);
+    } else if (type === 'ellipse') ctx.ellipse(x + w / 2, y + h / 2, w / 2, h / 2, 0, 0, Math.PI * 2);
     else if (type === 'triangle') { ctx.moveTo(x + w / 2, y); ctx.lineTo(x + w, y + h); ctx.lineTo(x, y + h); }
     else if (type === 'star') {
       var points = [], left = Infinity, right = -Infinity, top = Infinity, bottom = -Infinity;
@@ -135,16 +221,25 @@
   }
   /** Returns a clipped pixel rectangle suitable for one undo patch, or null. */
   function paintShape(ctx, options) {
-    options = options || {}; var box = normalizedBounds(options, !!options.constrain);
-    if (box.width < 0.01 || box.height < 0.01) return null;
+    options = options || {};
     var fill = options.fill === undefined ? '#263544' : options.fill, stroke = options.stroke;
     var lineWidth = clamp(number(options.strokeWidth, 2), 0, 512), opacity = clamp(number(options.opacity, 1), 0, 1);
+    var vertices, box;
+    if (options.type === 'line' || options.type === 'arrow') {
+      vertices = directionalPoints(options, lineWidth);
+      if (!vertices) return null;
+      box = pointsBox(vertices);
+      if (options.type === 'line') { stroke = hasPaint(stroke) ? stroke : fill; fill = null; }
+    } else {
+      box = normalizedBounds(options, !!options.constrain);
+      if (box.width < 0.01 || box.height < 0.01) return null;
+    }
     var filled = hasPaint(fill), outlined = hasPaint(stroke) && lineWidth > 0;
     if (!filled && !outlined) return null;
     var bounds = clippedBounds(ctx, box, outlined ? lineWidth / 2 + 2 : 1);
     return paintOnce(ctx, bounds, opacity, function (paint) {
       paint.lineWidth = lineWidth; paint.lineJoin = 'round'; paint.lineCap = 'round';
-      shapePath(paint, options.type, box);
+      shapePath(paint, options.type, box, vertices);
       if (filled) { paint.fillStyle = fillStyle(paint, fill, box); paint.fill(); }
       if (outlined) { paint.strokeStyle = fillStyle(paint, stroke, box); paint.stroke(); }
     });

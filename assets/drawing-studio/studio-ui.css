@@ -1,0 +1,68 @@
+/* Shared line icons follow the active theme, including native high contrast. */
+.studio-symbols { position: absolute; overflow: hidden; pointer-events: none; }
+.studio-icon {
+  display: block; flex: 0 0 auto; width: 16px; height: 16px;
+  fill: none; stroke: currentColor; stroke-width: 1.65;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+.app-header button, .tool-group button, .history-actions button, #referenceOpen {
+  display: inline-flex; align-items: center; justify-content: center; gap: 5px;
+}
+.brand-mark {
+  width: 33px; height: 33px; border-radius: 9px;
+  background: #365e77; color: #fff;
+}
+.brand-mark .studio-icon { width: 25px; height: 25px; stroke-width: 1.45; }
+.brand h1 { font-weight: 680; }
+.header-actions button { border-radius: 6px; }
+.header-actions #themeToggle, .header-actions #helpOpen { padding-inline: 6px; }
+#exportOpen { background: #315e7a; border-color: #315e7a; color: #fff; }
+html[data-theme=dark] #exportOpen { background: #a5c9dc; border-color: #a5c9dc; color: #152e41; }
+.tool-group button[aria-pressed=true] {
+  border-color: var(--accent);
+  background: var(--accent-soft); color: var(--accent);
+  box-shadow: inset 0 -2px 0 var(--accent);
+}
+.history-actions .studio-icon { width: 17px; height: 17px; }
+.panel-title { border-bottom: 1px solid var(--line); margin-bottom: 8px; }
+.panel-title h2 { font-size: 12px; letter-spacing: .06em; }
+.panel-section summary { line-height: 1.5; }
+.panel-section summary::after {
+  content: ''; width: 5px; height: 5px; top: 5px; right: 3px;
+  transform: rotate(45deg);
+  border-bottom: 1.5px solid var(--muted); border-right: 1.5px solid var(--muted);
+}
+.panel-section[open] summary::after { content: ''; top: 8px; transform: rotate(225deg); }
+.field select, .field input[type=text], .field input[type=number] { border-radius: 6px; }
+.reference-empty .empty-glyph {
+  display: grid; place-items: center; width: 52px; height: 52px; border-radius: 14px;
+  background: var(--panel); border: 1px solid var(--line); color: var(--accent); opacity: 1;
+}
+.empty-glyph .studio-icon { width: 29px; height: 29px; stroke-width: 1.35; }
+.reference-empty strong { color: var(--text); font-weight: 600; }
+#referenceOpen { border-color: var(--line); background: var(--accent-soft); color: var(--accent); }
+#referenceOpen .studio-icon { width: 14px; height: 14px; }
+
+@media (min-width: 651px) {
+  .app-header { padding-block: 8px; }
+  .header-actions button { min-height: 31px; }
+  .tool-group { gap: 2px; }
+  .tool-group button { min-height: 31px; border-radius: 6px; }
+  .tool-group .studio-icon { width: 16px; height: 16px; }
+  .panel-title { min-height: 38px; padding-bottom: 6px; }
+}
+@media (min-width: 651px) and (max-width: 1150px) {
+  .tool-group button { gap: 3px; }
+  .tool-group .studio-icon { width: 14px; height: 14px; }
+}
+@media (max-width: 650px) {
+  .header-actions button { gap: 4px; padding-inline: 5px; }
+  .header-actions .studio-icon { width: 13px; height: 13px; }
+  .brand-mark { width: 25px; height: 25px; border-radius: 7px; }
+  .brand-mark .studio-icon { width: 20px; height: 20px; }
+}
+@media (max-width: 380px) {
+  .header-actions { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)) 28px 28px; gap: 3px; }
+  .app-header .header-actions button { flex-direction: column; gap: 2px; padding: 3px 0; min-width: 0; line-height: 1.15; }
+  .header-actions #themeToggle, .header-actions #helpOpen { padding-inline: 0; }
+}

@@ -4,6 +4,7 @@
   var script = document.currentScript;
   var PDF_BASE = new URL('vendor/pdfjs/', script && script.src ? script.src : new URL('assets/drawing-studio/reference.js', document.baseURI)).href;
   var pdfModule, MAX_SIDE = 1600, MODES = ['original', 'gray', 'color', 'line'];
+  var EMBED_PDF_BYTES = 80 * 1024 * 1024, MAX_PDF_BYTES = 1024 * 1024 * 1024;
   var yieldFrame = function () { return new Promise(function (resolve) { setTimeout(resolve, 0); }); };
   function canvas(w, h) { var c = document.createElement('canvas'); c.width = w; c.height = h; return c; }
   function context(c) { return c.getContext('2d', { willReadFrequently: true }); }
@@ -138,7 +139,7 @@
   function Reference(options) {
     this.options = options || {}; this.name = ''; this.page = 0; this.pageCount = 0; this.mode = 'original'; this.count = 8;
     this.views = {}; this.palettes = { color: [], gray: [] }; this.importedStudy = false; this.sourceMode = '';
-    this._source = null; this._pdf = null; this._task = null; this._renderTask = null; this._generation = 0; this._dead = false;
+    this._source = null; this._pdf = null; this._externalPDF = null; this._task = null; this._renderTask = null; this._generation = 0; this._dead = false;
   }
   Reference.prototype._status = function (text) { if (this.options.onStatus) this.options.onStatus(text); };
   Reference.prototype._change = function () { if (this.options.onChange) this.options.onChange(this.getInfo()); };
@@ -149,6 +150,41 @@
     return ++this._generation;
   };
   Reference.prototype._current = function (token) { return !this._dead && token === this._generation; };
+  // The parser requests just the file ranges it needs. The worker keeps its own
+  // document buffers; avoid a second file-sized ArrayBuffer on the UI thread.
+  Reference.prototype._openPDF = async function (file, token) {
+    if (file.size > MAX_PDF_BYTES) throw new Error('PDF 超过 1 GiB，请拆分后载入。');
+    var library = await loadPDFLibrary();
+    if (!this._current(token)) return null;
+    var chunkSize = 64 * 1024, initial = new Uint8Array(await file.slice(0, chunkSize).arrayBuffer());
+    if (!this._current(token)) return null;
+    var stopped = false, range = new library.PDFDataRangeTransport(file.size, initial, true);
+    var rejectRead, readFailure = new Promise(function (_, reject) { rejectRead = reject; });
+    range.abort = function () { stopped = true; };
+    range.requestDataRange = async function (begin, end) {
+      try {
+        var chunk = new Uint8Array(await file.slice(begin, end).arrayBuffer());
+        if (chunk.length !== end - begin) throw new Error('PDF 数据读取不完整。');
+        if (!stopped) range.onDataRange(begin, chunk);
+      } catch (_) {
+        if (!stopped) {
+          rejectRead(new Error('无法继续读取本机 PDF，请重新选择原文件。'));
+          stopped = true; task.destroy().catch(function () {});
+        }
+      }
+    };
+    var task = library.getDocument({ range: range, rangeChunkSize: chunkSize, disableStream: true, disableAutoFetch: true,
+      cMapUrl: PDF_BASE + 'cmaps/', cMapPacked: true, standardFontDataUrl: PDF_BASE + 'standard_fonts/',
+      wasmUrl: PDF_BASE + 'wasm/', iccUrl: PDF_BASE + 'iccs/', disableWorkerRendering: true });
+    this._task = task;
+    var password = new Promise(function (_, reject) {
+      task.onPassword = function () { reject(new Error('这份 PDF 需要密码，请先在本机解锁并另存一份后再载入。')); };
+    });
+    var pdf = await Promise.race([task.promise, password, readFailure]);
+    if (this._task === task) this._task = null;
+    if (!this._current(token)) { await disposePDF(pdf); return null; }
+    return pdf;
+  };
   Reference.prototype._prepare = function (original) {
     var color = colorView(original, this.count), gray = grayView(original, this.count);
     return { views: { original: original, color: color.canvas, gray: gray.canvas }, palettes: { color: color.palette, gray: gray.palette } };
@@ -168,27 +204,28 @@
     try { await task.promise; } finally { if (this._renderTask === task) this._renderTask = null; page.cleanup(); }
     return this._current(token) ? c : null;
   };
-  Reference.prototype.load = async function (file) {
+  Reference.prototype.load = async function (file, relink) {
     if (!file || typeof file.arrayBuffer !== 'function') throw this._fail(new Error('请选择本机图片或 PDF。'));
     var token = this._cancel(), nextPDF = null;
     var isPDF = file.type === 'application/pdf' || /\.pdf$/i.test(file.name || '');
     this._status(isPDF ? '正在本机读取 PDF…' : '正在提取参考色卡…');
     try {
       var original;
+      if (relink && (!isPDF || this._pdf || !this._externalPDF || file.size !== this._externalPDF.size)) throw new Error('请选择这份工程原先使用的 PDF。');
       if (isPDF) {
-        var library = await loadPDFLibrary(); if (!this._current(token)) return false;
-        var bytes = new Uint8Array(await file.arrayBuffer()); if (!this._current(token)) return false;
-        var task = library.getDocument({ data: bytes, cMapUrl: PDF_BASE + 'cmaps/', cMapPacked: true, standardFontDataUrl: PDF_BASE + 'standard_fonts/', wasmUrl: PDF_BASE + 'wasm/', iccUrl: PDF_BASE + 'iccs/', disableWorkerRendering: true });
-        this._task = task;
-        var passwordError = new Promise(function (_, reject) { task.onPassword = function () { reject(new Error('这份 PDF 需要密码，请先在本机解锁并另存一份后再载入。')); }; });
-        nextPDF = await Promise.race([task.promise, passwordError]); if (this._task === task) this._task = null;
-        if (!this._current(token)) { await disposePDF(nextPDF); return false; }
+        nextPDF = await this._openPDF(file, token); if (!nextPDF) return false;
+        if (relink) {
+          if (this._externalPDF.fingerprint !== nextPDF.fingerprints[0] || this.pageCount !== nextPDF.numPages) throw new Error('PDF 与保存的参考不匹配，请选择原文件。');
+          this._pdf = nextPDF; this._source = file;
+          this._status(''); this._change(); return true;
+        }
         original = await this._pageCanvas(nextPDF, 1, token);
       } else original = await decodeImage(file);
       if (!original || !this._current(token)) { await disposePDF(nextPDF); return false; }
       await yieldFrame(); if (!this._current(token)) { await disposePDF(nextPDF); return false; }
       var prepared = this._prepare(original), oldPDF = this._pdf;
       this._pdf = nextPDF; this._source = file; this.name = file.name || (isPDF ? 'PDF 参考' : '图片参考');
+      this._externalPDF = nextPDF && file.size > EMBED_PDF_BYTES ? { size: file.size, fingerprint: nextPDF.fingerprints[0] } : null;
       this.page = 1; this.pageCount = nextPDF ? nextPDF.numPages : 1; this.importedStudy = false; this.sourceMode = ''; this._install(prepared);
       disposePDF(oldPDF);
       this._status(''); this._change(); return true;
@@ -235,17 +272,18 @@
   Reference.prototype.getInfo = function () {
     var c = this.views.original;
     return { name: this.name, page: this.page, pageCount: this.pageCount, isPDF: !!this._pdf, mode: this.mode, count: this.count, width: c ? c.width : 0, height: c ? c.height : 0,
+      externalPDF: !!this._externalPDF,
       palettes: { color: this.palettes.color.slice(), gray: this.palettes.gray.slice() }, importedStudy: this.importedStudy, sourceMode: this.sourceMode };
   };
   Reference.prototype.getSourceBlob = function () { return this._source; };
   Reference.prototype.exportBundle = async function () {
     if (!this.views.original) return null;
-    var views = this.views, info = this.getInfo(), sourceFile = this._pdf ? this._source : null, count = this.count;
+    var views = this.views, info = this.getInfo(), externalPDF = this._externalPDF, sourceFile = this._pdf && !externalPDF ? this._source : null, count = this.count;
     if (sourceFile && sourceFile.type !== 'application/pdf') sourceFile = new Blob([sourceFile], { type: 'application/pdf' });
     if (!views.line) views.line = lineView(views.original);
     var encoded = await Promise.all([blob(views.original), blob(views.gray), blob(views.color), blob(views.line)]);
     return { version: 1, name: info.name, original: encoded[0], views: { gray: encoded[1], color: encoded[2], line: encoded[3] }, palettes: info.palettes,
-      selectedMode: info.mode, page: info.page, pageCount: info.pageCount, sourceFile: sourceFile, importedStudy: info.importedStudy, sourceMode: info.sourceMode, count: count };
+      selectedMode: info.mode, page: info.page, pageCount: info.pageCount, sourceFile: sourceFile, externalPDF: externalPDF || null, importedStudy: info.importedStudy, sourceMode: info.sourceMode, count: count };
   };
   Reference.prototype.loadBundle = async function (bundle) {
     if (!bundle || bundle.version !== 1 || !(bundle.original instanceof Blob)) throw this._fail(new Error('参考包无效。'));
@@ -267,17 +305,17 @@
       if (!palettes.gray.length) palettes.gray = grayView(original, this.count).palette;
       if (!palettes.color.length) palettes.color = colorView(original, this.count).palette;
       if (bundle.sourceFile instanceof Blob) {
-        var library = await loadPDFLibrary(); if (!this._current(token)) return false;
-        var bytes = new Uint8Array(await bundle.sourceFile.arrayBuffer()); if (!this._current(token)) return false;
-        var task = library.getDocument({ data: bytes, cMapUrl: PDF_BASE + 'cmaps/', cMapPacked: true, standardFontDataUrl: PDF_BASE + 'standard_fonts/', wasmUrl: PDF_BASE + 'wasm/', iccUrl: PDF_BASE + 'iccs/', disableWorkerRendering: true });
-        this._task = task;
-        var rejected = new Promise(function (_, reject) { task.onPassword = function () { reject(new Error('PDF 参考需要解锁后才能恢复翻页。')); }; });
-        nextPDF = await Promise.race([task.promise, rejected]); if (this._task === task) this._task = null;
-        if (!this._current(token)) { await disposePDF(nextPDF); return false; }
+        nextPDF = await this._openPDF(bundle.sourceFile, token); if (!nextPDF) return false;
       }
+      var externalPDF = bundle.externalPDF;
+      if (externalPDF && (!Number.isSafeInteger(externalPDF.size) || externalPDF.size < 1 || externalPDF.size > MAX_PDF_BYTES ||
+          typeof externalPDF.fingerprint !== 'string' || !/^[0-9a-f]{1,128}$/i.test(externalPDF.fingerprint) ||
+          !Number.isSafeInteger(bundle.pageCount) || bundle.pageCount < 1)) throw new Error('工程中的 PDF 关联信息无效。');
       var previousPDF = this._pdf; this._pdf = nextPDF; this._source = nextPDF ? bundle.sourceFile : bundle.original;
-      this.name = bundle.name || '练习室参考'; this.page = nextPDF ? Math.max(1, Math.min(nextPDF.numPages, bundle.page || 1)) : 1;
-      this.pageCount = nextPDF ? nextPDF.numPages : 1; this.mode = MODES.indexOf(bundle.selectedMode) >= 0 ? bundle.selectedMode : 'original';
+      this._externalPDF = nextPDF ? (bundle.sourceFile.size > EMBED_PDF_BYTES ? { size: bundle.sourceFile.size, fingerprint: nextPDF.fingerprints[0] } : null) : externalPDF || null;
+      this.pageCount = nextPDF ? nextPDF.numPages : externalPDF ? bundle.pageCount : 1;
+      this.name = bundle.name || '练习室参考'; this.page = Math.max(1, Math.min(this.pageCount, Math.round(bundle.page) || 1));
+      this.mode = MODES.indexOf(bundle.selectedMode) >= 0 ? bundle.selectedMode : 'original';
       this.importedStudy = bundle.importedStudy !== false; this.sourceMode = bundle.sourceMode || ''; this._install({ views: views, palettes: palettes });
       disposePDF(previousPDF);
       this._status(''); this._change(); return true;
@@ -286,7 +324,7 @@
       if (this._current(token)) { if (this._task) { Promise.resolve(this._task.destroy()).catch(function () {}); this._task = null; } this._status(''); throw this._fail(error); } return false;
     }
   };
-  Reference.prototype.destroy = function () { this._cancel(); this._dead = true; disposePDF(this._pdf); this._pdf = null; this._source = null; this.views = {}; this.palettes = { color: [], gray: [] }; };
+  Reference.prototype.destroy = function () { this._cancel(); this._dead = true; disposePDF(this._pdf); this._pdf = null; this._externalPDF = null; this._source = null; this.views = {}; this.palettes = { color: [], gray: [] }; };
   Reference.pdfAssets = PDF_BASE;
   root.DrawingReference = Reference;
 })(window);

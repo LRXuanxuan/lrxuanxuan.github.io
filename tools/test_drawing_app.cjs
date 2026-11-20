@@ -305,10 +305,14 @@ async function main() {
     assert.equal(pixel(display(), 120, 90)[3], 0);
   });
 
-  await test('All four brush choices draw and eraser modifies alpha without painting white', async () => {
-    for (const brush of ['gpen', 'fineliner', 'binary', 'pixel']) {
+  await test('All brush presets paint and eraser modifies alpha without painting white', async () => {
+    const brushes = ['gpen', 'fineliner', 'pencil', 'charcoal', 'marker', 'brushMarker', 'dry', 'airbrush',
+      'gouache', 'wash', 'spatter', 'maru', 'hairHatch', 'screentone', 'sparkle', 'binary', 'pixel'];
+    assert.deepEqual(Array.from(element('brushKind').options, option => option.value).sort(), [...brushes].sort());
+    for (const brush of brushes) {
       await fresh(); select('brushKind', brush); await stroke([[15, 40], [110, 40]]);
-      assert.ok(pixel(active().canvas, 60, 40)[3] > 0, brush + ' must connect the stroke');
+      const middle = active().canvas.getContext('2d').getImageData(46, 0, 28, 96).data;
+      assert.ok(middle.some((value, i) => i % 4 === 3 && value > 0), brush + ' must deposit ink along the stroke');
       if (brush === 'binary' || brush === 'pixel') assert.ok(Array.from(pixels(active().canvas)).filter((_, i) => i % 4 === 3).every(alpha => alpha === 0 || alpha === 255));
     }
     tool('eraser'); edit('brushSize', 15); await stroke([[60, 40]]);
@@ -328,7 +332,7 @@ async function main() {
   });
 
   await test('Pen pressure reaches the brush and cancelled/foreign pointers cannot leave it stuck', async () => {
-    await fresh(); select('brushKind', 'gpen'); edit('brushSize', 24);
+    await fresh(); select('brushKind', 'gpen'); edit('brushSize', 24); edit('stabilizer', 0);
     pointer('pointerdown', 15, 35, { pointerType: 'pen', pointerId: 7, pressure: 0.1 });
     pointer('pointermove', 45, 35, { pointerType: 'pen', pointerId: 7, pressure: 0.1 });
     pointer('pointermove', 90, 35, { pointerType: 'pen', pointerId: 7, pressure: 0.9 });
@@ -411,6 +415,86 @@ async function main() {
     const withPaper = await decoded(await app.exportRaster('image/png', false, 1));
     assert.equal(pixel(withPaper.canvas, 125, 90)[3], 255);
     const noPaper = await decoded(await app.exportRaster('image/png', true, 1)); assert.equal(pixel(noPaper.canvas, 125, 90)[3], 0);
+  });
+
+  await test('Paper presets, PNG print metadata and old pixel-only projects round-trip', async () => {
+    await fresh();
+    const field = (scope, key) => element(scope + 'FormatControls').querySelector('[data-format="' + key + '"]');
+    const choose = (scope, key, value) => {
+      const control = field(scope, key);
+      control.value = value;
+      control.dispatchEvent(new win.Event('change', { bubbles: true }));
+    };
+    click('newDocument');
+    choose('new', 'preset', 'a4');
+    assert.deepEqual([element('newWidth').value, element('newHeight').value], ['2480', '3508']);
+    choose('new', 'preset', 'a3');
+    assert.ok(field('new', 'density').querySelector('[value="300"]').disabled);
+    choose('new', 'preset', 'bookmark');
+    choose('new', 'density', '150');
+    element('newForm').dispatchEvent(new win.Event('submit', { bubbles: true, cancelable: true }));
+    await eventually(() => !element('newDialog').open, 'The new paper canvas should open');
+    assert.deepEqual([state().width, state().height], [295, 886]);
+    assert.equal(field('canvas', 'preset').value, 'bookmark');
+    seedLayer(active(), '#2367ab', 2, 3, 1, 1);
+    const { bytes, canvas } = await decoded(await app.exportRaster('png', true));
+    assert.deepEqual([canvas.width, canvas.height], [295, 886]);
+    assert.deepEqual(pixel(canvas, 2, 3), [35, 103, 171, 255]);
+    const types = [];
+    for (let offset = 8; offset + 12 <= bytes.length;) {
+      const length = bytes.readUInt32BE(offset), type = bytes.toString('ascii', offset + 4, offset + 8);
+      types.push(type);
+      if (type === 'pHYs') {
+        assert.equal(length, 9);
+        // 150 ppi rounds to 5906 pixels/metre. The fixture includes the known chunk CRC.
+        assert.equal(bytes.subarray(offset + 8, offset + 21).toString('hex'), '000017120000171201679fd252');
+      }
+      offset += 12 + length;
+    }
+    assert.equal(types.filter(type => type === 'pHYs').length, 1);
+    assert.ok(types.indexOf('pHYs') < types.indexOf('IDAT'));
+    const saved = JSON.parse(await app.exportProject());
+    assert.equal(saved.paperPpi, 150);
+    choose('canvas', 'preset', 'custom');
+    click('resizeCanvas');
+    assert.equal((await app.serializeProject()).paperPpi, null, 'Pixel-only format clears the density even at the same dimensions');
+    await app.undo();
+    assert.equal(field('canvas', 'preset').value, 'bookmark');
+    await app.redo();
+    assert.equal(field('canvas', 'preset').value, 'custom');
+    await app.loadProject(saved);
+    assert.equal(field('canvas', 'density').value, '150');
+    delete saved.paperPpi;
+    await app.loadProject(saved);
+    assert.equal((await app.serializeProject()).paperPpi, null, 'Old projects keep their pixel dimensions without inferring print metadata');
+    assert.equal(field('canvas', 'preset').value, 'custom');
+  });
+
+  await test('Paper samples are real reversible backgrounds with transparent export and exact sampling', async () => {
+    await fresh(96, 64, 'white');
+    const artPixels = hash(pixels(active().canvas)), paperPixels = new Set();
+    const samples = Array.from(element('paperGallery').querySelectorAll('button'));
+    assert.equal(samples.length, 4);
+    for (const button of samples) {
+      button.click(); await settle();
+      assert.equal(button.getAttribute('aria-pressed'), 'true');
+      assert.equal(state().paper, button.dataset.paper);
+      assert.equal(hash(pixels(active().canvas)), artPixels);
+      const current = hash(pixels(display())); paperPixels.add(current);
+      assert.equal(hash(pixels((await decoded(await app.exportRaster('png'))).canvas)), current);
+      assert.ok(new Set(pixels(display()).filter((_, i) => i % 4 === 0)).size > 8, 'Real tonal variation');
+    }
+    assert.equal(paperPixels.size, 4);
+    const last = state().paper, view = hash(pixels(display()));
+    const expected = pixel(display(), 30, 25).slice(0, 3).map(v => v.toString(16).padStart(2, '0')).join('');
+    tool('picker'); pointer('pointerdown', 30.25, 25.25);
+    assert.equal(state().ink.toLowerCase(), '#' + expected);
+    assert.equal(pixel((await decoded(await app.exportRaster('png', true))).canvas, 30, 25)[3], 0);
+    await app.undo(); assert.notEqual(state().paper, last);
+    await app.redo(); await settle(); assert.equal(hash(pixels(display())), view);
+    const saved = await app.exportProject(); await fresh(); await app.loadProject(saved); await settle();
+    assert.equal(state().paper, last); assert.equal(hash(pixels(display())), view);
+    assert.equal(hash(pixels(active().canvas)), artPixels);
   });
 
   await test('Non-destructive overall color adjustment agrees with exported PNG', async () => {
@@ -721,8 +805,16 @@ async function main() {
     assert.ok(element('recentSwatches').querySelector('[data-color="#33aa77"]'), 'Committed picker colors join the recent swatches');
     edit('inkColor', '#112233'); assert.equal(field('hex').value.toLowerCase(), '#112233');
     assert.deepEqual(['r', 'g', 'b'].map(name => Number(field(name).value)), [17, 34, 51]);
-    const swatch = element('presetSwatches').querySelector('button'); swatch.click();
+    edit('swatchSearch', 'e49');
+    const matched = element('presetSwatches').querySelectorAll('button');
+    assert.equal(matched.length, 1, 'A marker from the portrait palette is searchable from the default palette');
+    const swatch = matched[0]; assert.equal(swatch.textContent, 'E49'); swatch.click();
     assert.equal(field('hex').value.toLowerCase(), swatch.dataset.color.toLowerCase());
+    assert.equal(swatch.getAttribute('aria-pressed'), 'true');
+    assert.ok(element('inkReadout').textContent.includes('E49'));
+    click('rememberColor'); assert.ok(element('savedSwatches').querySelector('[data-color="' + swatch.dataset.color + '"]'));
+    click('rememberColor'); assert.equal(element('savedSwatches').querySelectorAll('button').length, 0);
+    edit('swatchSearch', '');
     check('materialFollowInk', false); edit('materialForeground', '#aa44bb');
     field('hex').value = '#8ac'; field('hex').dispatchEvent(new win.Event('change', { bubbles: true }));
     assert.equal(state().ink, '#88aacc'); assert.equal(element('materialForeground').value, '#aa44bb');
@@ -810,6 +902,11 @@ async function main() {
       assert.equal(element('pdfPage').value, '2'); assert.equal(element('pdfPrevious').disabled, false); assert.equal(element('pdfNext').disabled, true);
       click('pdfPrevious'); await settle();
       assert.equal(page, 1); assert.equal(element('pdfPrevious').disabled, true); assert.equal(element('pdfNext').disabled, false);
+      click('pdfLast'); await settle(); assert.equal(page, 2); assert.equal(element('pdfLast').disabled, true);
+      click('pdfFirst'); await settle(); assert.equal(page, 1); assert.equal(element('pdfFirst').disabled, true);
+      element('pdfPage').value = '2'; keyOn(element('pdfPage'), 'Enter'); await settle(); assert.equal(page, 2);
+      element('pdfPage').value = ''; keyOn(element('pdfPage'), 'Enter'); await settle();
+      assert.equal(element('pdfPage').value, '2', 'An empty page number leaves the current page intact');
       assert.ok(!requests.some(url => /vendor\/pdfjs/.test(url)), 'The navigation regression must not pretend to exercise the PDF engine');
     } finally {
       releaseLoad(); Object.assign(reference, original);

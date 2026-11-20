@@ -1,8 +1,71 @@
-/* Hand-picked starting palettes, not a brand chart or an industry standard. */
+/* Marker swatches sampled from Copic's digital Sketch chart. Subject palettes are studio selections. */
 (function (root) {
   'use strict';
+  const chart = 'https://copic.jp/en/color/sketch/';
+
+  // Display RGB is the per-channel median of the central 17 × 17 pixels of each official
+  // digital swatch. Paper, overlap and display settings affect the perceived ink colour.
+  // Chinese labels describe the digital swatches. Groupings are selected for this studio.
+  function group(name, entries) {
+    const swatches = entries.map(([code, rgb, label]) => ({ code, name: label, hex: '#' + rgb }));
+    return { name, swatches };
+  }
+
+  function markerSet(id, title, description, groups) {
+    const swatches = groups.flatMap(group => group.swatches);
+    return {
+      id, name: title + ' · ' + swatches.length + ' 色', description, source: chart, groups, swatches,
+      colors: swatches.map(swatch => swatch.hex)
+    };
+  }
+
+  const coolGrays = group('冷灰 C', [
+    ['C-1','e4eaf3','浅冷灰'], ['C-3','adb9c7','银灰'], ['C-5','7d8793','中冷灰'],
+    ['C-7','49525c','深冷灰'], ['C-9','2a2833','冷炭灰']
+  ]);
+  const markerTriads = markerSet('marker-triads', '马克笔基础三色组',
+    '每组从浅到深。先铺浅色，中间色过渡，深色压暗转折。', [
+      group('红 R', [['R22','fe7e71','浅虾红'], ['R24','dc4342','虾红'], ['R29','980917','唇红']]),
+      group('橙 YR', [['YR12','fdaf4e','枇杷橙'], ['YR15','fe9c27','南瓜橙'], ['YR18','cf5221','赭橙']]),
+      group('黄 Y', [['Y11','feef86','淡黄'], ['Y15','ffd331','镉黄'], ['Y19','ffab01','金黄']]),
+      group('黄绿 YG', [['YG11','d6fba3','嫩芽绿'], ['YG13','a3cb47','黄绿'], ['YG17','71a239','草绿']]),
+      group('绿 G', [['G12','c2e3aa','浅叶绿'], ['G14','68bf55','苹果绿'], ['G17','359452','森林绿']]),
+      group('蓝绿 BG', [['BG11','d0feef','月白绿'], ['BG13','73dac4','薄荷绿'], ['BG18','3e8178','深青绿']]),
+      group('蓝 B', [['B21','b8ddfe','婴儿蓝'], ['B24','63a0fb','天蓝'], ['B28','1450d9','宝蓝']]),
+      group('蓝紫 BV', [['BV00','dcbfe8','淡灰紫'], ['BV02','a298e2','浅蓝紫'], ['BV04','4550a0','蓝莓紫']]),
+      group('紫 V', [['V12','e99fde','浅丁香紫'], ['V15','be80c9','锦葵紫'], ['V17','523673','紫晶']]),
+      group('红紫 RV', [['RV21','feb6bd','浅粉'], ['RV23','fea4be','柔粉'], ['RV25','e75a8d','野玫瑰']]),
+      group('大地 E', [['E31','efc894','浅砖米'], ['E33','e29b69','沙褐'], ['E35','c9844b','麂皮棕']]),
+      { name: '冷灰 C', swatches: coolGrays.swatches.slice(0, 3) }
+    ]);
+  const portrait = markerSet('marker-portrait', '马克笔人物',
+    '按人物的局部色选底色、半调和阴影，可跨组取色。', [
+      group('浅暖底色', [['E000','ffefdf','淡杏白'], ['E00','ffead9','珍珠米'], ['E11','e1b693','麦米']]),
+      group('金棕底色', [['E21','fecf99','暖杏'], ['E23','b8724b','榛子棕'], ['E25','9e5e46','可可棕']]),
+      group('赤棕底色', [['E13','d2976a','沙土棕'], ['E15','ab663d','陶棕'], ['E18','652b1d','深铜棕']]),
+      group('深棕底色', [['E57','7c542e','浅胡桃'], ['E59','5d3e22','胡桃棕'], ['E49','3c271b','树皮褐']]),
+      group('面颊与唇色', [['R20','fec4b3','暖胭脂'], ['R32','ff9b92','桃粉'], ['R35','ff4156','珊瑚红']])
+    ]);
+  const landscape = markerSet('marker-landscape', '马克笔自然景物',
+    '用橄榄绿和苔绿区分植被，用灰蓝降低远景对比。', [
+      group('新叶', [['G40','e2f8be','浅芽绿'], ['G43','a9ca76','开心果绿'], ['G46','497845','槲寄生绿']]),
+      group('林地', [['YG61','bfd19d','浅苔绿'], ['YG63','90a964','豌豆绿'], ['YG67','496b2e','苔绿']]),
+      group('草坡', [['YG91','e3d4a9','灰稻黄'], ['YG95','99922f','浅橄榄'], ['YG99','4b4a13','深橄榄']]),
+      group('树干与岩土', [['E41','fce3bb','珍珠米白'], ['E43','bf9d72','暗象牙'], ['E47','764e3a','深褐']]),
+      group('天空与远山', [['B91','b9cde4','浅灰蓝'], ['B93','9ebede','瓷蓝'], ['B97','426491','夜蓝']]),
+      group('水面', [['BG70','e8f0f0','海雾灰'], ['BG72','9ac1c5','冰海蓝'], ['BG75','436d6f','深海青']])
+    ]);
+  const grayFamilies = markerSet('marker-grays', '马克笔四系灰',
+    '每组取 1、3、5、7、9 五档，适合先画明暗，再比较冷暖。', [
+      coolGrays,
+      group('暖灰 W', [['W-1','e3ddd1','浅暖灰'], ['W-3','bcb0a0','米灰'], ['W-5','8a7a6b','中暖灰'], ['W-7','4a4237','深暖灰'], ['W-9','342d25','暖炭灰']]),
+      group('中性灰 N', [['N-1','dbdbdb','浅中性灰'], ['N-3','999ea4','中浅中性灰'], ['N-5','5a5e61','中性灰'], ['N-7','292e31','深中性灰'], ['N-9','222625','近黑中性灰']]),
+      group('调子灰 T', [['T-1','cecece','浅调子灰'], ['T-3','9a9d97','中浅调子灰'], ['T-5','666b65','中调子灰'], ['T-7','39403b','深调子灰'], ['T-9','282c2f','炭调子灰']])
+    ]);
+
   function set(id, name, values) { return { id: id, name: name, colors: values.split(/\s+/).map(function (v) { return '#' + v; }) }; }
   root.DrawingPalettes = [
+    markerTriads, portrait, landscape, grayFamilies,
     set('ink', '勾线 · 12 色', '15191e 262938 373548 3b3331 51413d 644e47 5b493f 39474b 445861 574f66 755965 90857b'),
     set('gray', '灰阶 · 12 色', '000000 171717 2e2e2e 464646 5d5d5d 747474 8b8b8b a2a2a2 b9b9b9 d1d1d1 e8e8e8 ffffff'),
     set('skin', '肤色 · 18 色', 'fff3e5 ffe2cb f8cfb3 eebc9d e2a886 d18d6d bf7459 a65e47 874a3d 633b32 f9d4ca eeb6aa d89489 bc796e 9a605b 765050 b78e72 835d4c'),

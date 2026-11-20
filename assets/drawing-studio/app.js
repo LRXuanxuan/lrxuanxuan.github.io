@@ -31,9 +31,11 @@
   let undoStack = [], redoStack = [], frame = 0, transactions = new Map();
   let revision = 0, savedRevision = 0, sessionUsed = false, draftId = uid(), saveTimer = 0, savePromise = null;
   let referenceCache = null, referenceVersion = 0, referenceCacheVersion = -1, lastReferenceKey = '';
+  let pendingPDFPage = null;
   let toastTimer = 0, savingErrorShown = false, vectorResult = null, vectorKey = '', vectorURL = '';
   let lastPressure = 0, lastPointerType = 'mouse', fileSavedRevision = -1;
-  let colorPicker = null, referenceSplitter = null, lastReferencePort = null;
+  let colorPicker = null, colorLibrary = null, referenceSplitter = null, lastReferencePort = null;
+  let sampleFrame = 0;
   const MARK_FONTS = {
     system: 'system-ui, -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif',
     yahei: '"Microsoft YaHei", "PingFang SC", sans-serif', heiti: '"SimHei", "Heiti SC", sans-serif',
@@ -51,7 +53,7 @@
     value = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
     const next = { ...MARK_DEFAULTS };
     for (const key of Object.keys(next)) if (typeof next[key] === 'boolean' && typeof value[key] === 'boolean') next[key] = value[key];
-    const enums = { shapeKind: ['rect', 'ellipse', 'star', 'triangle', 'heart'], textFont: Object.keys(MARK_FONTS), textAlign: ['left', 'center', 'right'], materialKind: ['solid', 'horizontal', 'vertical', 'diagonal', 'crosshatch', 'dots', 'linear', 'radial'] };
+    const enums = { shapeKind: Array.from($('shapeKind').options, o => o.value), textFont: Object.keys(MARK_FONTS), textAlign: ['left', 'center', 'right'], materialKind: Array.from($('materialKind').options, o => o.value) };
     for (const key of Object.keys(enums)) if (enums[key].includes(value[key])) next[key] = value[key];
     for (const key of ['shapeStrokeColor', 'materialForeground', 'materialBackground']) if (typeof value[key] === 'string' && /^#[a-f0-9]{6}$/i.test(value[key])) next[key] = value[key].toLowerCase();
     for (const [key, lo, hi] of [['shapeStrokeWidth', .5, 80], ['textSize', 8, 360], ['textLineHeight', .8, 3], ['materialSpacing', 4, 100], ['materialThickness', 1, 24], ['materialAngle', 0, 180]]) {
@@ -75,11 +77,13 @@
   }
   function updateMaterialUI() {
     if (!Marks) return;
-    const s = readMarkSettings(), gradient = s.materialKind === 'linear' || s.materialKind === 'radial', pattern = !gradient && s.materialKind !== 'solid';
+    const s = readMarkSettings(), gradient = ['linear', 'reflected', 'radial'].includes(s.materialKind), pattern = !gradient && s.materialKind !== 'solid';
     $('materialName').textContent = $('materialKind').selectedOptions[0].textContent;
-    $('materialPatternOptions').hidden = !pattern; $('materialAngleField').hidden = !['diagonal', 'crosshatch', 'linear'].includes(s.materialKind);
+    $('materialPatternOptions').hidden = !pattern; $('materialAngleField').hidden = !['diagonal', 'crosshatch', 'linear', 'reflected', 'checker', 'weave'].includes(s.materialKind);
+    $('materialThickness').closest('label').hidden = s.materialKind === 'checker';
+    $('shapeConstraintText').textContent = ['line', 'arrow'].includes(s.shapeKind) ? '方向吸附到 45°' : '固定 1:1 比例';
     $('materialBackField').hidden = s.materialKind === 'solid'; $('materialBackFromInk').hidden = s.materialKind === 'solid'; $('materialTransparentLabel').hidden = s.materialKind === 'solid';
-    $('materialFrontLabel').textContent = gradient ? '起始颜色' : s.materialKind === 'solid' ? '填充颜色' : '线 / 点颜色'; $('materialBackLabel').textContent = gradient ? '末尾颜色' : '背景颜色';
+    $('materialFrontLabel').textContent = gradient ? '起始颜色' : s.materialKind === 'solid' ? '填充颜色' : '纹理颜色'; $('materialBackLabel').textContent = gradient ? '末尾颜色' : '背景颜色';
     $('materialThicknessValue').textContent = s.materialThickness + ' px'; $('materialSpacingValue').textContent = s.materialSpacing + ' px'; $('materialAngleValue').textContent = s.materialAngle + '°';
     if (s.materialFollowInk) $('materialForeground').value = ink;
     const preview = $('materialPreview'), ctx = context(preview); clear(preview); ctx.fillStyle = Marks.fillStyle(ctx, materialStyle(s), { x: 0, y: 0, width: preview.width, height: preview.height }); ctx.fillRect(0, 0, preview.width, preview.height);
@@ -134,13 +138,14 @@
   const activeLayer = () => art.layers.find(layer => layer.id === art.activeId) || art.layers[0];
   function metadata(layer) { return { id: layer.id, name: layer.name, visible: layer.visible, locked: layer.locked, opacity: layer.opacity, x: layer.x, y: layer.y, scale: layer.scale }; }
   function snapshot() {
-    return { title: art.title, width: art.width, height: art.height, paper: art.paper, paperColor: art.paperColor, tone: { ...art.tone }, activeId: art.activeId, layers: art.layers.map(layer => ({ ...layer })) };
+    return { title: art.title, width: art.width, height: art.height, paperPpi: art.paperPpi, paper: art.paper, paperColor: art.paperColor, tone: { ...art.tone }, activeId: art.activeId, layers: art.layers.map(layer => ({ ...layer })) };
   }
   function setGeometry() {
     resize(display, art.width, art.height); resize(composite, art.width, art.height);
     resize(strokeCanvas, art.width, art.height); resize(liveCanvas, art.width, art.height);
     surface.style.width = art.width + 'px'; surface.style.height = art.height + 'px';
     $('documentSize').textContent = art.width + ' × ' + art.height;
+    window.DrawingCanvasPresets.syncCanvas(art.width, art.height, art.paperPpi);
   }
   function restoreSnapshot(state) {
     const dimensionsChanged = !art || art.width !== state.width || art.height !== state.height;
@@ -191,7 +196,6 @@
     const entry = redoStack.pop(); undoStack.push(entry); applyEntry(entry, true); status('已重做 · ' + entry.label);
   }
   function syncHistory() { $('undo').disabled = !undoStack.length; $('redo').disabled = !redoStack.length; }
-  function paperColor() { return art.paper === 'warm' ? '#f7f3e9' : art.paper === 'custom' ? art.paperColor : '#ffffff'; }
   function toneFilter() { return 'hue-rotate(' + art.tone.hue + 'deg) saturate(' + (100 + art.tone.saturation) + '%) brightness(' + (100 + art.tone.lightness) + '%)'; }
   function compositeLayers(includeStroke = true) {
     const ctx = context(composite); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, art.width, art.height);
@@ -209,7 +213,7 @@
   function renderArtwork(target, transparent = false, includeStroke = true) {
     resize(target, art.width, art.height); clear(target);
     const ctx = context(target), source = compositeLayers(includeStroke);
-    if (!transparent && art.paper !== 'transparent') { ctx.fillStyle = paperColor(); ctx.fillRect(0, 0, art.width, art.height); }
+    if (!transparent) window.DrawingPaper.fill(ctx, art.width, art.height, art.paper, art.paperColor);
     ctx.save();
     const adjusted = art.tone.hue || art.tone.saturation || art.tone.lightness;
     if (adjusted && typeof ctx.filter === 'string') { ctx.filter = toneFilter(); ctx.drawImage(source, 0, 0); }
@@ -352,13 +356,42 @@
   function fillAt(point, erase) {
     const layer = activeLayer(), x = Math.floor((point.x - layer.x) / layer.scale), y = Math.floor((point.y - layer.y) / layer.scale);
     if (x < 0 || y < 0 || x >= art.width || y >= art.height) return;
+    const fill = materialStyle(readMarkSettings(), layer.scale), scope = $('fillScope').value;
+    if (!erase && scope !== 'match') {
+      let bounds = { x: 0, y: 0, width: art.width, height: art.height };
+      if (scope === 'inked') {
+        const ctx = context(layer.canvas);
+        let left = art.width, top = art.height, right = -1, bottom = -1;
+        for (let y0 = 0; y0 < art.height; y0 += 128) {
+          const rows = Math.min(128, art.height - y0);
+          const rgba = ctx.getImageData(0, y0, art.width, rows).data;
+          for (let row = 0, alpha = 3; row < rows; row++) {
+            for (let col = 0; col < art.width; col++, alpha += 4) {
+              if (!rgba[alpha]) continue;
+              left = Math.min(left, col); right = Math.max(right, col);
+              top = Math.min(top, y0 + row); bottom = y0 + row;
+            }
+          }
+        }
+        if (right < 0) { status('当前层还没有可改色的笔迹'); return; }
+        bounds = { x: left, y: top, width: right - left + 1, height: bottom - top + 1 };
+      }
+      const next = canvas(art.width, art.height), paint = context(next);
+      paint.drawImage(layer.canvas, 0, 0);
+      if (scope === 'inked') paint.globalCompositeOperation = 'source-atop';
+      paint.globalAlpha = opacity;
+      paint.fillStyle = Marks.fillStyle(paint, fill, bounds);
+      paint.fillRect(bounds.x, bounds.y, bounds.width, bounds.height);
+      paint.globalAlpha = 1; paint.globalCompositeOperation = 'source-over';
+      const label = scope === 'inked' ? '为已有笔迹填色' : '填充整个图层';
+      mutate(() => { layer.canvas = next; }, label); remember(fill.foreground); status(label + ' · ' + layer.name); return;
+    }
     const ctx = context(layer.canvas), target = ctx.getImageData(0, 0, art.width, art.height);
     let sample = target;
     if (!erase && $('fillSample').value === 'visible') {
       const source = compositeLayers(false); resize(sampleCanvas, art.width, art.height); clear(sampleCanvas);
       const sx = context(sampleCanvas); sx.save(); sx.imageSmoothingEnabled = false; sx.scale(1 / layer.scale, 1 / layer.scale); sx.translate(-layer.x, -layer.y); sx.drawImage(source, 0, 0); sx.restore(); sample = sx.getImageData(0, 0, art.width, art.height);
     }
-    const fill = materialStyle(readMarkSettings(), layer.scale);
     const fillOptions = { tolerance: +$('tolerance').value, contiguous: $('contiguous').checked, expand: +$('fillExpand').value, erase };
     if (!erase && fill.kind !== 'solid') {
       const mask = ctx.createImageData(art.width, art.height), selection = Core.floodFill(mask, sample, x, y, [255, 255, 255, 255], fillOptions);
@@ -404,7 +437,8 @@
   function sync() {
     syncHistory(); syncLayers();
     if (ref) syncReferenceNavigation();
-    $('canvasWidth').value = art.width; $('canvasHeight').value = art.height; $('paper').value = art.paper; $('paperColor').value = art.paperColor; $('paperColorLabel').hidden = art.paper !== 'custom';
+    $('paper').value = art.paper; $('paperColor').value = art.paperColor; $('paperColorLabel').hidden = art.paper !== 'custom';
+    window.DrawingPaper.syncCurrent();
     for (const key of ['hue', 'saturation', 'lightness']) { $(key).value = art.tone[key]; $(key + 'Value').textContent = art.tone[key] + (key === 'hue' ? '°' : ''); }
     document.title = (art.title === '未命名画作' ? '轻绘' : art.title + ' · 轻绘') + ' · 本地画室';
   }
@@ -421,10 +455,22 @@
     all('[data-tool]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.tool === tool)));
     $('shapeSettings').hidden = tool !== 'shape'; $('textSettings').hidden = tool !== 'text'; $('materialSection').hidden = !['fill', 'shape', 'text'].includes(tool);
     $('fillSettings').hidden = tool !== 'fill' && tool !== 'cutout'; $('fillSampleLabel').hidden = tool === 'cutout';
-    $('fillHint').textContent = tool === 'cutout' ? '点当前图层的背景抠除相近颜色。透明纸张与抠除已有白底是独立操作。' : '填充到当前图层，可在线稿下方另建上色层。';
-    if (tool === 'shape' || tool === 'text') { togglePanel('settings', true); $('settingsPanel').querySelector('.settings-scroll').scrollTop = 0; }
+    updateFillScope();
+    $('strokeSettings').hidden = !['brush', 'eraser', 'fill', 'cutout'].includes(tool);
+    $('brushControls').hidden = !['brush', 'eraser'].includes(tool);
+    $('brushSample').hidden = tool !== 'brush'; $('brushHint').hidden = tool !== 'brush';
+    $('strokeSettingsTitle').textContent = tool === 'fill' || tool === 'cutout' ? '选区边界' : '笔触';
+    $('brushName').hidden = tool !== 'brush';
+    if (['shape', 'text', 'fill', 'cutout'].includes(tool)) { togglePanel('settings', true); $('settingsPanel').querySelector('.settings-scroll').scrollTop = 0; }
+    if (tool === 'fill') $('materialSection').open = true;
     viewport.dataset.cursor = tool; $('brushCursor').hidden = true;
     status(({ brush: '画笔 · ' + $('brushKind').selectedOptions[0].textContent, eraser: '橡皮 · 擦除当前图层', fill: '填充 · 点选区域上色，可选择材质', shape: '形状 · 拖动预览，松手放置；Shift 锁定比例', text: '文字 · 先输入内容，再点击或拖动放置', picker: '取色 · 点击画作，或从参考图取色', move: '移层 · 拖动当前图层', hand: '平移 · 拖动画布', cutout: '抠图 · 点击当前图层的背景' })[tool]);
+  }
+  function updateFillScope() {
+    const cutout = tool === 'cutout', scope = $('fillScope').value;
+    $('fillScopeLabel').hidden = cutout; $('matchControls').hidden = !cutout && scope !== 'match';
+    $('fillHint').textContent = cutout ? '点击背景，抠除当前图层中的相近颜色。'
+      : { match: '点击色块填充，可以在线稿下方另建上色层。', inked: '点击画布，为当前层所有笔迹换色，保留透明边缘。', layer: '点击画布，把所选颜色或材质铺满当前图层。' }[scope];
   }
   function swatches(container, colors) {
     container.replaceChildren();
@@ -439,14 +485,65 @@
     if (!/^#[a-f0-9]{6}$/i.test(value)) throw new Error('请输入 #RRGGBB 格式的颜色。');
     ink = value.toLowerCase(); $('inkColor').value = ink;
     all('[data-color]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.color.toLowerCase() === ink)));
-    if (colorPicker) colorPicker.setColor(ink); updateMaterialUI();
+    if (colorPicker) colorPicker.setColor(ink);
+    if (colorLibrary) colorLibrary.syncInk();
+    scheduleBrushSample(); updateMaterialUI();
     if (rememberIt) remember(ink);
   }
   function remember(color) { recentColors = [color, ...recentColors.filter(c => c !== color)].slice(0, 12); swatches($('recentSwatches'), recentColors); }
-  function setBrush(value) {
+  function drawBrushSample(sample, settings) {
+    const ctx = context(sample); clear(sample);
+    sample.style.opacity = settings.opacity;
+    const stroke = Core.makeStroke(ctx, { ...settings, size: Math.min(settings.size, 32) });
+    let point;
+    for (let i = 0; i <= 72; i++) {
+      const t = i / 72;
+      point = { x: 19 + t * (sample.width - 38), y: sample.height / 2 - 10 * Math.sin(t * 2 * Math.PI), time: i * 6, pressure: .06 + .93 * Math.sin(Math.PI * t), pointerType: 'pen' };
+      if (i) stroke.move(point); else stroke.start(point);
+    }
+    stroke.end(point);
+  }
+  function scheduleBrushSample() {
+    if (sampleFrame) return;
+    sampleFrame = requestAnimationFrame(() => {
+      sampleFrame = 0;
+      drawBrushSample($('brushPreview'), { brush, size, opacity, color: ink, pressure: pressureEnabled, stabilizer });
+    });
+  }
+  function openBrushLibrary() {
+    const gallery = $('brushGallery');
+    if (!gallery.childElementCount) {
+      const sections = new Map();
+      Core.brushPresets.forEach(preset => {
+        if (!sections.has(preset.group)) {
+          const heading = document.createElement('h3'), grid = document.createElement('div');
+          heading.textContent = preset.group; grid.className = 'brush-grid';
+          gallery.append(heading, grid); sections.set(preset.group, grid);
+        }
+        const item = document.createElement('button'), sample = canvas(190, 52), label = document.createElement('span');
+        item.type = 'button'; item.dataset.brushPreset = preset.id; item.title = preset.hint;
+        sample.setAttribute('aria-hidden', 'true'); label.textContent = preset.name;
+        drawBrushSample(sample, { ...preset, brush: preset.id, color: '#294358', pressure: true });
+        item.append(sample, label); sections.get(preset.group).append(item);
+        item.addEventListener('click', () => {
+          $('brushDialog').close(); $('brushKind').value = preset.id; setBrush(preset.id, true);
+        });
+      });
+    }
+    all('[data-brush-preset]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.brushPreset === brush)));
+    $('brushDialog').showModal();
+  }
+  function setBrush(value, applyDefaults = false) {
     finishPointer(); brush = value;
-    $('brushHint').textContent = ({ gpen: 'G 笔随压力改变粗细。鼠标保持固定笔宽。', fineliner: '针管笔保持等宽，适合小场景、线描与排线。', binary: '二值笔使用硬边圆笔尖，适合清楚利落的勾线。', pixel: '像素笔按整数网格落笔，方形笔尖、无抗锯齿。' })[brush];
-    if (tool !== 'eraser') setTool('brush'); updateView();
+    const preset = Core.brushPresets.find(p => p.id === brush);
+    if (applyDefaults) {
+      size = preset.size; opacity = preset.opacity; stabilizer = preset.stabilizer;
+      $('brushSize').value = size; $('brushOpacity').value = Math.round(opacity * 100);
+      $('brushOpacityValue').textContent = $('brushOpacity').value + '%';
+      $('stabilizer').value = stabilizer; $('stabilizerValue').textContent = stabilizer;
+    }
+    $('brushName').textContent = preset.name; $('brushHint').textContent = preset.hint;
+    setTool('brush'); updateView(); scheduleBrushSample();
   }
   function togglePanel(name, force) {
     if (document.body.classList.contains('focus-mode')) toggleFocus(false);
@@ -459,7 +556,7 @@
   }
   function toggleFocus(force) {
     const enabled = force == null ? !document.body.classList.contains('focus-mode') : force;
-    document.body.classList.toggle('focus-mode', enabled); $('focusMode').setAttribute('aria-pressed', String(enabled)); $('focusMode').textContent = enabled ? '展开' : '专注';
+    document.body.classList.toggle('focus-mode', enabled); $('focusMode').setAttribute('aria-pressed', String(enabled)); $('focusLabel').textContent = enabled ? '展开' : '专注';
     requestAnimationFrame(() => { fitReference(); });
   }
   function createReference() {
@@ -473,7 +570,6 @@
   function referenceChanged(mark = true) {
     const info = ref.getInfo(), source = ref.getCanvas(), out = $('referenceCanvas');
     if (source) { resize(out, source.width, source.height); clear(out); context(out).drawImage(source, 0, 0); }
-    // Match the preview window to the image / current PDF page, not a fixed landscape slot.
     const referenceContent = $('referenceContent'), referencePort = $('referenceView');
     referenceContent.classList.toggle('has-reference', !!source);
     referencePort.style.aspectRatio = source && source.width > 0 && source.height > 0 ? source.width + ' / ' + source.height : '';
@@ -489,8 +585,23 @@
   }
   function syncReferenceNavigation() {
     const info = ref.getInfo(); $('pdfNavigation').hidden = !info.isPDF;
-    $('pdfPage').value = info.page; $('pdfPage').max = info.pageCount; $('pdfPageCount').textContent = info.pageCount;
-    $('pdfPrevious').disabled = !info.isPDF || info.page <= 1; $('pdfNext').disabled = !info.isPDF || info.page >= info.pageCount;
+    const page = pendingPDFPage?.reference === ref ? pendingPDFPage.page : info.page;
+    $('pdfPage').value = page; $('pdfPage').max = info.pageCount; $('pdfPageCount').textContent = info.pageCount;
+    $('pdfFirst').disabled = $('pdfPrevious').disabled = !info.isPDF || page <= 1;
+    $('pdfLast').disabled = $('pdfNext').disabled = !info.isPDF || page >= info.pageCount;
+    $('pdfSaveNote').hidden = !info.externalPDF;
+    $('pdfRelink').hidden = !info.externalPDF || info.isPDF;
+    if (info.externalPDF) $('pdfSaveNote').textContent = '第 ' + info.page + ' / ' + info.pageCount + ' 页 · 工程与草稿保留当前页，重开后选择原 PDF 可继续翻页。';
+  }
+  async function jumpPDF(value) {
+    const info = ref.getInfo(), n = Number(value);
+    if (!info.isPDF || !Number.isFinite(n) || String(value).trim() === '') { syncReferenceNavigation(); return; }
+    const page = clamp(Math.round(n), 1, info.pageCount);
+    if (pendingPDFPage?.reference === ref && pendingPDFPage.page === page) return;
+    const request = { reference: ref, page }; pendingPDFPage = request;
+    syncReferenceNavigation();
+    try { await request.reference.setPage(page); }
+    finally { if (pendingPDFPage === request) { pendingPDFPage = null; syncReferenceNavigation(); } }
   }
   function renderReferencePalette() {
     if (!ref) return; const info = ref.getInfo(); swatches($('referenceSwatches'), info.palettes[$('referencePalette').value] || []);
@@ -516,9 +627,13 @@
     if (!ref.getCanvas()) return; const r = $('referenceView').getBoundingClientRect(); x = x == null ? r.width / 2 : x; y = y == null ? r.height / 2 : y; next = clamp(next, .02, 20);
     refView.x = x - (x - refView.x) * next / refView.zoom; refView.y = y - (y - refView.y) * next / refView.zoom; refView.zoom = next; updateReferenceView();
   }
-  async function referenceFile(file) {
-    if (!file) return; if (file.size > 80 * 1024 * 1024) throw new Error('参考文件超过 80 MB，请先精简 PDF 或压缩图片，给画作和工程留一些空间。');
-    togglePanel('reference', true); await ref.load(file); fitReference(); status('参考已放好 · 拖动移动，滚轮缩放');
+  async function referenceFile(file, relink = false) {
+    if (!file) return;
+    if (file.type !== 'application/pdf' && !/\.pdf$/i.test(file.name || '') && file.size > 80 * 1024 * 1024) throw new Error('参考图片超过 80 MiB，请先压缩图片。');
+    togglePanel('reference', true);
+    if (await ref.load(file, relink)) {
+      fitReference(); status(relink ? '已关联原 PDF · 可继续翻页' : '参考已放好 · 拖动移动，滚轮缩放');
+    }
   }
   async function importImageLayer(file) {
     if (!file) return; layerBudget(art.layers.length + 1);
@@ -537,7 +652,8 @@
   function newDocument(options = {}) {
     finishPointer(); settleTransactions();
     const dimensions = validSize(options.width || 1280, options.height || 960);
-    art = { ...dimensions, title: String(options.title || '未命名画作').slice(0, 60), paper: options.paper === 'transparent' ? 'transparent' : 'white', paperColor: '#f7f3e9', tone: { hue: 0, saturation: 0, lightness: 0 }, layers: [], activeId: '' };
+    art = { ...dimensions, title: String(options.title || '未命名画作').slice(0, 60), paper: window.DrawingPaper.valid(options.paper) ? options.paper : 'white', paperColor: '#f7f3e9', tone: { hue: 0, saturation: 0, lightness: 0 }, layers: [], activeId: '' };
+    art.paperPpi = window.DrawingCanvasPresets.paperPpi(options.paperPpi);
     art.layers.push(createLayer('图层 1')); art.activeId = art.layers[0].id;
     undoStack = []; redoStack = []; transactions.clear(); revision = 0; savedRevision = 0; fileSavedRevision = -1; sessionUsed = false; draftId = uid();
     clearTimeout(saveTimer); $('saveStatus').textContent = '本机草稿'; $('canvasHint').hidden = false;
@@ -551,7 +667,7 @@
       if (referenceCache && referenceCacheVersion === version) bundle = referenceCache;
       else { bundle = await ref.exportBundle(); if (referenceVersion === version) { referenceCache = bundle; referenceCacheVersion = version; } }
     }
-    return { format: 'lrxdraw', version: 1, title: state.title, width: state.width, height: state.height, paper: state.paper, paperColor: state.paperColor, tone: state.tone, activeId: state.activeId, layers: await layersPromise, reference: bundle,
+    return { format: 'lrxdraw', version: 1, title: state.title, width: state.width, height: state.height, paperPpi: state.paperPpi, paper: state.paper, paperColor: state.paperColor, tone: state.tone, activeId: state.activeId, layers: await layersPromise, reference: bundle,
       settings: { ink, brush, size, opacity, stabilizer, pressureEnabled, recentColors: recentColors.slice(0, 12), marks: readMarkSettings() } };
   }
   function notifySaveError(error) {
@@ -621,14 +737,15 @@
     if (bundle.version !== 1 || !bundle.views) throw new Error('工程参考数据无效。');
     const colors = values => Array.isArray(values) ? values.filter(c => typeof c === 'string' && /^#[a-f0-9]{6}$/i.test(c)).slice(0, 32) : [];
     return { version: 1, name: String(bundle.name || '参考图').slice(0, 180), original: decodeBlob(bundle.original), views: { gray: decodeBlob(bundle.views.gray), color: decodeBlob(bundle.views.color), line: decodeBlob(bundle.views.line) }, palettes: { color: colors(bundle.palettes && bundle.palettes.color), gray: colors(bundle.palettes && bundle.palettes.gray) },
-      selectedMode: ['original', 'gray', 'color', 'line'].includes(bundle.selectedMode) ? bundle.selectedMode : 'original', importedStudy: bundle.importedStudy !== false, sourceMode: ['value', 'color', 'line', 'black'].includes(bundle.sourceMode) ? bundle.sourceMode : '', page: number(bundle.page, 1), count: clamp(number(bundle.count, 8), 2, 24), sourceFile: bundle.sourceFile ? decodeBlob(bundle.sourceFile, 'application/pdf') : null };
+      selectedMode: ['original', 'gray', 'color', 'line'].includes(bundle.selectedMode) ? bundle.selectedMode : 'original', importedStudy: bundle.importedStudy !== false, sourceMode: ['value', 'color', 'line', 'black'].includes(bundle.sourceMode) ? bundle.sourceMode : '', page: number(bundle.page, 1), pageCount: bundle.pageCount, externalPDF: bundle.externalPDF ? { size: bundle.externalPDF.size, fingerprint: bundle.externalPDF.fingerprint } : null, count: clamp(number(bundle.count, 8), 2, 24), sourceFile: bundle.sourceFile ? decodeBlob(bundle.sourceFile, 'application/pdf') : null };
   }
   async function loadProject(project) {
     finishPointer();
     if (typeof project === 'string') { if (project.length > PROJECT_BYTES * 1.4) throw new Error('工程文件过大。'); project = JSON.parse(project); }
     if (!project || project.format !== 'lrxdraw' || project.version !== 1 || !Array.isArray(project.layers) || !project.layers.length) throw new Error('这不是可识别的 .lrxdraw 工程。');
     const dimensions = validSize(project.width, project.height); layerBudget(project.layers.length, dimensions.width, dimensions.height);
-    const next = { ...dimensions, title: String(project.title || '未命名画作').slice(0, 60), paper: ['white', 'transparent', 'warm', 'custom'].includes(project.paper) ? project.paper : 'white', paperColor: typeof project.paperColor === 'string' && /^#[a-f0-9]{6}$/i.test(project.paperColor) ? project.paperColor : '#f7f3e9', tone: {}, layers: [], activeId: String(project.activeId || '') };
+    const next = { ...dimensions, title: String(project.title || '未命名画作').slice(0, 60), paper: window.DrawingPaper.valid(project.paper) ? project.paper : 'white', paperColor: typeof project.paperColor === 'string' && /^#[a-f0-9]{6}$/i.test(project.paperColor) ? project.paperColor : '#f7f3e9', tone: {}, layers: [], activeId: String(project.activeId || '') };
+    next.paperPpi = window.DrawingCanvasPresets.paperPpi(project.paperPpi);
     for (const key of ['hue', 'saturation', 'lightness']) next.tone[key] = clamp(number(project.tone && project.tone[key], 0), key === 'hue' ? -180 : -100, key === 'hue' ? 180 : 100);
     const ids = new Set(); let total = 0;
     for (const value of project.layers) {
@@ -641,7 +758,7 @@
     const inputSettings = project.settings && typeof project.settings === 'object' ? project.settings : {};
     const settings = {
       ink: typeof inputSettings.ink === 'string' && /^#[a-f0-9]{6}$/i.test(inputSettings.ink) ? inputSettings.ink : '#263544',
-      brush: typeof inputSettings.brush === 'string' && ['gpen', 'fineliner', 'binary', 'pixel'].includes(inputSettings.brush) ? inputSettings.brush : 'gpen',
+      brush: Core.brushPresets.some(p => p.id === inputSettings.brush) ? inputSettings.brush : 'gpen',
       size: clamp(typeof inputSettings.size === 'number' ? number(inputSettings.size, 8) : 8, 1, 240),
       opacity: clamp(typeof inputSettings.opacity === 'number' ? number(inputSettings.opacity, 1) : 1, .01, 1),
       stabilizer: clamp(typeof inputSettings.stabilizer === 'number' ? number(inputSettings.stabilizer, 20) : 20, 0, 100),
@@ -675,14 +792,20 @@
   }
   async function exportRaster(type, transparent = false, quality = .92) {
     finishPointer(); const mime = type.startsWith('image/') ? type : 'image/' + (type === 'jpg' ? 'jpeg' : type), out = canvas(art.width, art.height);
-    renderArtwork(out, transparent || (mime === 'image/jpeg' && art.paper === 'transparent'), false);
-    if (mime === 'image/jpeg') { const ctx = context(out); ctx.save(); ctx.globalCompositeOperation = 'destination-over'; ctx.fillStyle = paperColor(); ctx.fillRect(0, 0, art.width, art.height); ctx.restore(); }
-    return blobFromCanvas(out, mime, quality);
+    renderArtwork(out, transparent && mime !== 'image/jpeg', false);
+    if (mime === 'image/jpeg' && art.paper === 'transparent') { const ctx = context(out); ctx.save(); ctx.globalCompositeOperation = 'destination-over'; ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, art.width, art.height); ctx.restore(); }
+    const ppi = art.paperPpi, blob = await blobFromCanvas(out, mime, quality);
+    return mime === 'image/png' && ppi ? window.DrawingCanvasPresets.setPngDensity(blob, ppi) : blob;
   }
   function exportSettings() {
     const format = $('exportFormat').value, vector = format === 'svg'; $('qualityLabel').hidden = format !== 'jpeg' && format !== 'webp'; $('vectorSettings').hidden = !vector; $('exportTransparentLabel').hidden = format === 'jpeg';
     $('vectorThresholdLabel').hidden = $('vectorMode').value !== 'mono'; $('vectorColors').disabled = $('vectorMode').value === 'mono';
-    $('exportNote').textContent = format === 'jpeg' ? 'JPEG 不支持透明，会使用当前纸张颜色（透明画布用白色）。' : '只导出画作，不包含参考图、面板或棋盘格。';
+    const notes = [];
+    if (art.paperPpi) notes.push(format === 'png'
+      ? 'PNG 将写入 ' + art.paperPpi + ' ppi 打印密度。'
+      : '此格式按画布像素尺寸导出。需要保留纸张打印密度时请选择 PNG。');
+    notes.push(format === 'jpeg' ? 'JPEG 使用实色背景。' : '只导出画作。');
+    $('exportNote').textContent = notes.join(' ');
     $('exportSubmit').textContent = vector ? '导出 SVG' : '导出图片';
   }
   async function buildVector() {
@@ -725,14 +848,18 @@
   }
   function wireEvents() {
     all('[data-tool]').forEach(button => button.addEventListener('click', () => setTool(button.dataset.tool)));
-    on('brushKind', 'change', () => setBrush($('brushKind').value));
+    on('brushKind', 'change', () => setBrush($('brushKind').value, true));
+    on('brushSample', 'click', openBrushLibrary);
+    for (const id of ['brushSize', 'brushOpacity', 'stabilizer', 'penPressure']) {
+      $(id).addEventListener('input', scheduleBrushSample);
+      $(id).addEventListener('change', scheduleBrushSample);
+    }
     on('brushSize', 'change', () => { size = clamp(Math.round(number($('brushSize').value, 8)), 1, 240); $('brushSize').value = size; });
     on('brushOpacity', 'input', () => { opacity = +$('brushOpacity').value / 100; $('brushOpacityValue').textContent = Math.round(opacity * 100) + '%'; });
     on('stabilizer', 'input', () => { stabilizer = +$('stabilizer').value; $('stabilizerValue').textContent = stabilizer; });
     on('penPressure', 'change', () => { pressureEnabled = $('penPressure').checked; });
     on('touchDraw', 'change', () => { touchDraw = $('touchDraw').checked; });
     on('inkColor', 'input', () => setInk($('inkColor').value)); on('inkColor', 'change', () => remember(ink));
-    on('rememberColor', 'click', () => remember(ink));
     for (const key of Object.keys(MARK_DEFAULTS)) {
       const update = () => {
         if (key === 'materialForeground') $('materialFollowInk').checked = false;
@@ -743,8 +870,8 @@
     }
     on('shapeStrokeFromInk', 'click', () => { $('shapeStrokeColor').value = ink; });
     on('materialBackFromInk', 'click', () => { $('materialBackground').value = ink; updateMaterialUI(); });
-    on('palettePreset', 'change', () => { const preset = window.DrawingPalettes.find(p => p.id === $('palettePreset').value); swatches($('presetSwatches'), preset ? preset.colors : []); });
     on('tolerance', 'input', () => { $('toleranceValue').textContent = $('tolerance').value; });
+    on('fillScope', 'change', updateFillScope);
     on('undo', 'click', undo); on('redo', 'click', redo);
     on('addLayer', 'click', addLayer);
     on('duplicateLayer', 'click', () => {
@@ -767,9 +894,17 @@
     on('paperColor', 'change', () => endTransaction('paperColor', '背景颜色'));
     on('resizeCanvas', 'click', () => {
       const dimensions = validSize($('canvasWidth').value, $('canvasHeight').value); layerBudget(art.layers.length, dimensions.width, dimensions.height);
-      if (dimensions.width === art.width && dimensions.height === art.height) return;
+      const paperPpi = window.DrawingCanvasPresets.resizePpi();
+      const resized = dimensions.width !== art.width || dimensions.height !== art.height;
+      if (!resized && paperPpi === art.paperPpi) return;
       mutate(() => {
-        art.layers = art.layers.map(layer => { const c = canvas(dimensions.width, dimensions.height); context(c).drawImage(layer.canvas, 0, 0); return { ...layer, canvas: c }; }); art.width = dimensions.width; art.height = dimensions.height; setGeometry(); fit();
+        art.paperPpi = paperPpi;
+        if (resized) {
+          art.layers = art.layers.map(layer => { const c = canvas(dimensions.width, dimensions.height); context(c).drawImage(layer.canvas, 0, 0); return { ...layer, canvas: c }; });
+          art.width = dimensions.width; art.height = dimensions.height;
+        }
+        setGeometry();
+        if (resized) fit();
       }, '更改画布尺寸');
     });
     on('zoomIn', 'click', () => zoomTo(view.zoom * 1.25)); on('zoomOut', 'click', () => zoomTo(view.zoom / 1.25)); on('zoomLabel', 'click', () => zoomTo(1)); on('fitCanvas', 'click', fit);
@@ -790,8 +925,13 @@
     all('[data-ref-mode]').forEach(button => button.addEventListener('click', safe(() => ref.setMode(button.dataset.refMode))));
     on('referencePalette', 'change', renderReferencePalette);
     on('referenceCount', 'change', () => work(() => ref.setCount($('referenceCount').value), '正在归纳色卡…'));
-    on('pdfPrevious', 'click', () => ref.setPage(ref.getInfo().page - 1)); on('pdfNext', 'click', () => ref.setPage(ref.getInfo().page + 1));
-    on('pdfPage', 'change', () => ref.setPage($('pdfPage').value));
+    on('pdfFirst', 'click', () => jumpPDF(1)); on('pdfLast', 'click', () => jumpPDF(ref.getInfo().pageCount));
+    const requestedPage = () => pendingPDFPage?.reference === ref ? pendingPDFPage.page : ref.getInfo().page;
+    on('pdfPrevious', 'click', () => jumpPDF(requestedPage() - 1)); on('pdfNext', 'click', () => jumpPDF(requestedPage() + 1));
+    on('pdfPage', 'change', () => jumpPDF($('pdfPage').value));
+    on('pdfPage', 'keydown', e => { if (e.key === 'Enter') { e.preventDefault(); return jumpPDF(e.currentTarget.value); } });
+    on('pdfRelink', 'click', () => $('pdfLinkFile').click());
+    on('pdfLinkFile', 'change', () => { const file = $('pdfLinkFile').files[0]; $('pdfLinkFile').value = ''; return work(() => referenceFile(file, true), '正在关联原 PDF…'); });
     on('referenceFit', 'click', fitReference); on('referenceZoomIn', 'click', () => zoomReference(refView.zoom * 1.25)); on('referenceZoomOut', 'click', () => zoomReference(refView.zoom / 1.25));
     on('referencePick', 'click', () => { refPicking = !refPicking; $('referencePick').setAttribute('aria-pressed', String(refPicking)); $('referenceView').classList.toggle('picking', refPicking); });
     on('referenceToLayer', 'click', () => { const source = ref.getCanvas(); if (source) addSourceLayer(source, '参考 · ' + ref.getInfo().mode); else notify('请先放入参考图。'); });
@@ -823,8 +963,7 @@
     all('[data-close]').forEach(button => button.addEventListener('click', safe(() => $(button.dataset.close).close())));
     on('helpOpen', 'click', () => $('helpDialog').showModal());
     on('newDocument', 'click', () => $('newDialog').showModal());
-    all('[data-size]').forEach(button => button.addEventListener('click', () => { const values = button.dataset.size.split(','); $('newWidth').value = values[0]; $('newHeight').value = values[1]; }));
-    on('newForm', 'submit', async e => { e.preventDefault(); validSize($('newWidth').value, $('newHeight').value); await work(async () => { await flushDraft(); newDocument({ width: +$('newWidth').value, height: +$('newHeight').value, title: $('newTitle').value, paper: $('newTransparent').checked ? 'transparent' : 'white' }); $('newDialog').close(); }, '正在准备新画布…'); });
+    on('newForm', 'submit', async e => { e.preventDefault(); validSize($('newWidth').value, $('newHeight').value); await work(async () => { await flushDraft(); newDocument({ width: +$('newWidth').value, height: +$('newHeight').value, paperPpi: window.DrawingCanvasPresets.newPpi(), title: $('newTitle').value, paper: $('newTransparent').checked ? 'transparent' : $('newPaper').value }); $('newDialog').close(); }, '正在准备新画布…'); });
     on('saveProject', 'click', saveProjectFile); on('openProject', 'click', () => $('projectFile').click());
     on('projectFile', 'change', async () => {
       const file = $('projectFile').files[0]; $('projectFile').value = ''; if (!file) return;
@@ -866,7 +1005,7 @@
       if (e.target.closest && e.target.closest('button,a,summary')) return;
       const tools = { b: 'brush', e: 'eraser', g: 'fill', i: 'picker', v: 'move', h: 'hand', u: 'shape', t: 'text' };
       if (tools[key]) { e.preventDefault(); setTool(tools[key]); }
-      else if (key === '[' || key === ']') { e.preventDefault(); size = clamp(Math.round(size + (key === '[' ? -1 : 1) * Math.max(1, size * .15)), 1, 240); $('brushSize').value = size; }
+      else if (key === '[' || key === ']') { e.preventDefault(); size = clamp(Math.round(size + (key === '[' ? -1 : 1) * Math.max(1, size * .15)), 1, 240); $('brushSize').value = size; scheduleBrushSample(); }
       else if (key === '0') fit(); else if (key === '1') zoomTo(1);
     });
     document.addEventListener('keyup', e => { if (e.key === ' ') { spacePan = false; viewport.dataset.cursor = tool; } });
@@ -877,10 +1016,18 @@
     } else window.addEventListener('resize', () => { fit(); resizeReferenceView(); });
   }
   async function initialize() {
-    if (!Core || !Marks || !window.DrawingColorControls || !window.DrawingReference || !window.DrawingStorage) { notify('画板组件未加载完整，请刷新页面。'); return; }
-    window.DrawingPalettes.forEach(preset => { const option = document.createElement('option'); option.value = preset.id; option.textContent = preset.name; $('palettePreset').append(option); });
-    swatches($('presetSwatches'), window.DrawingPalettes[0].colors); setInk(ink);
-    ref = createReference(); newDocument(); wireEvents();
+    if (!Core?.brushPresets || !Marks || !window.DrawingPalettes || !window.DrawingColorLibrary || !window.DrawingCanvasPresets || !window.DrawingPaper || !window.DrawingColorControls || !window.DrawingReference || !window.DrawingStorage) { notify('画板组件未加载完整，请刷新页面。'); return; }
+    const groups = new Map();
+    for (const preset of Core.brushPresets) {
+      if (!groups.has(preset.group)) {
+        const group = document.createElement('optgroup'); group.label = preset.group;
+        groups.set(preset.group, group); $('brushKind').append(group);
+      }
+      const option = document.createElement('option'); option.value = preset.id; option.textContent = preset.name;
+      groups.get(preset.group).append(option);
+    }
+    colorLibrary = window.DrawingColorLibrary({ swatches, getInk: () => ink, setInk }); setInk(ink);
+    ref = createReference(); newDocument(); wireEvents(); setBrush(brush);
     colorPicker = window.DrawingColorControls.create({ host: $('colorPicker'), getColor: () => ink, getDisabled: () => !!busy || !!activePointer, onChange: (hex, detail) => { if (!busy) setInk(hex, !!detail.commit); } });
     referenceSplitter = window.DrawingColorControls.installReferenceSplitter({ workspace: $('workspace'), panel: $('referencePanel'), handle: $('referenceSplitter'), getDisabled: () => !!busy || !!activePointer || !!refPointer, onResize: width => {
       const bounds = referenceSplitter ? referenceSplitter.getBounds() : { min: 220, max: 640 }; $('referenceWidth').min = bounds.min; $('referenceWidth').max = bounds.max; $('referenceWidth').value = width;
@@ -889,6 +1036,15 @@
     if (window.innerWidth <= 900) document.body.classList.add('settings-hidden');
     if (window.innerWidth <= 650) document.body.classList.add('reference-hidden');
     $('showSettings').setAttribute('aria-pressed', String(window.innerWidth > 900)); $('showReference').setAttribute('aria-pressed', String(window.innerWidth > 650));
+    for (const [limit, panel] of [[900, 'settings'], [650, 'reference']]) {
+      const media = window.matchMedia('(max-width: ' + limit + 'px)');
+      media.addEventListener?.('change', event => {
+        if (event.matches) {
+          document.body.classList.add(panel + '-hidden');
+          $(panel === 'reference' ? 'showReference' : 'showSettings').setAttribute('aria-pressed', 'false');
+        }
+      });
+    }
     referenceChanged(false); fit();
     // Exposed for local contract tests and inspection; no external services use it.
     window.DrawingStudio = {

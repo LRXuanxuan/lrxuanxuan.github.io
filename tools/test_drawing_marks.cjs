@@ -22,13 +22,31 @@ function assertCovered(canvas, bounds, label) {
 }
 function alphaCount(canvas, threshold = 128) { const d = pixels(canvas); let n = 0; for (let i = 3; i < d.length; i += 4) if (d[i] >= threshold) n++; return n; }
 
-for (const type of ['rect', 'ellipse', 'star', 'triangle', 'heart']) {
+for (const type of ['rect', 'ellipse', 'star', 'triangle', 'heart', 'roundRect', 'diamond', 'hexagon']) {
   const { canvas, ctx } = make();
   const bounds = marks.paintShape(ctx, { type, x: 15, y: 15, width: 110, height: 90, fill: '#d43d28', stroke: '#213446', strokeWidth: 3 });
   assertCovered(canvas, bounds, type);
   assert.ok(at(canvas, 70, 65)[3] > 0, type + ' includes its body');
   assert.equal(at(canvas, 2, 2)[3], 0);
   if (type !== 'rect') assert.equal(at(canvas, 17, 17)[3], 0, type + ' must not be a disguised rectangular fill');
+}
+
+// Axis-aligned and reverse drags have a valid one-dimensional bounding box.
+for (const type of ['line', 'arrow']) for (const [dx, dy] of [[-65, 0], [0, 45], [65, -25], [-55, -42]]) {
+  const { canvas, ctx } = make(), x = 90, y = 70;
+  const bounds = marks.paintShape(ctx, { type, x, y, width: dx, height: dy, fill: '#34383f', strokeWidth: 4 });
+  assertCovered(canvas, bounds, type + ' reverse or axial drag');
+  assert.ok(at(canvas, Math.round(x + dx / 2), Math.round(y + dy / 2))[3] > 0);
+  if (type === 'arrow' && !dy) {
+    assert.ok(at(canvas, x - 52, y + 7)[3] > 0, 'wide arrowhead follows leftward drag');
+    assert.equal(at(canvas, x - 5, y + 8)[3], 0, 'shaft stays narrow');
+  }
+}
+{
+  const { canvas, ctx } = make();
+  marks.paintShape(ctx, { type: 'line', x: 18, y: 32, width: 90, height: 8, constrain: true, fill: '#ffff00', stroke: '#124688', strokeWidth: 3 });
+  assert.deepEqual(at(canvas, 60, 32), [18, 70, 136, 255], 'stroke color wins, Shift snaps the line to horizontal');
+  assert.equal(at(canvas, 60, 37)[3], 0);
 }
 
 // Empty outline interiors and transparent material holes remain alpha=0.
@@ -62,6 +80,17 @@ for (const kind of ['horizontal', 'vertical', 'diagonal', 'crosshatch', 'dots'])
   const transparent = make(96, 96); marks.paintShape(transparent.ctx, { type: 'rect', x: 0, y: 0, width: 96, height: 96, fill: { ...style, transparentBackground: true } });
   assert.ok(alphaCount(transparent.canvas) > 0 && alphaCount(transparent.canvas) < 96 * 96 / 2, kind + ' transparent gaps are real holes');
 }
+for (const kind of ['checker', 'paper', 'stipple', 'weave']) {
+  const preview = make(96, 96), shape = make(96, 96), box = { x: 0, y: 0, width: 96, height: 96 };
+  const style = { ...baseStyle, kind, transparentBackground: true };
+  preview.ctx.fillStyle = marks.fillStyle(preview.ctx, style, box); preview.ctx.fillRect(0, 0, 96, 96);
+  const bounds = marks.paintShape(shape.ctx, { type: 'rect', ...box, fill: style });
+  assertCovered(shape.canvas, bounds, kind);
+  assert.equal(hash(preview.canvas), hash(shape.canvas), kind + ' preview and mark share the same pattern');
+  const covered = alphaCount(shape.canvas, 1);
+  assert.ok(covered > 0 && covered < 96 * 96, kind + ' has transparent gaps');
+  if (kind === 'checker') { assert.equal(at(shape.canvas, 6, 6)[3], 255); assert.equal(at(shape.canvas, 18, 6)[3], 0); }
+}
 {
   const sparse = make(96, 96), dense = make(96, 96), thick = make(96, 96);
   const fill = { ...baseStyle, kind: 'horizontal', transparentBackground: true };
@@ -82,6 +111,9 @@ for (const kind of ['horizontal', 'vertical', 'diagonal', 'crosshatch', 'dots'])
   assert.ok(at(faded.canvas, 80, 40)[3] > 110 && at(faded.canvas, 80, 40)[3] < 140); assert.ok(at(faded.canvas, 80, 40)[0] > 240);
   const radial = make(160, 100); marks.paintShape(radial.ctx, { type: 'rect', x: 32, y: 16, width: 96, height: 48, fill: { ...fill, kind: 'radial' } });
   assert.ok(at(radial.canvas, 80, 40)[0] > 240); assert.ok(at(radial.canvas, 34, 18)[2] > 210);
+  const mirrored = make(160, 100); marks.paintShape(mirrored.ctx, { type: 'rect', x: 32, y: 16, width: 96, height: 48, fill: { ...fill, kind: 'reflected', transparentBackground: true } });
+  assert.ok(at(mirrored.canvas, 80, 40)[3] > 248);
+  assert.ok(at(mirrored.canvas, 33, 40)[3] < 15 && at(mirrored.canvas, 126, 40)[3] < 15);
 }
 
 // At 40% shape opacity, fill/outline overlap must never become 64%.
@@ -118,4 +150,4 @@ for (const align of ['left', 'center', 'right']) {
   assert.throws(() => marks.paintText(ctx, { text: Array(31).fill('a').join('\n') }), /30/);
 }
 
-console.log('Drawing marks: five shapes, reverse/square/circle bounds, material alpha/density, gradients, group opacity and English/CJK text passed.');
+console.log('Drawing marks: ten shapes, directed marks, material alpha/density, gradients, group opacity and English/CJK text passed.');
