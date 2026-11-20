@@ -478,7 +478,7 @@
         $('lessonChange').hidden = !activeLesson;
         (root.ColorBlockLessons || []).forEach(function (lesson) {
           var button = document.createElement('button'); button.type = 'button'; button.className = 'study-lesson';
-          button.dataset.lessonId = lesson.id; button.setAttribute('aria-pressed', String(activeLesson && lesson.id === activeLesson.id));
+          button.dataset.lessonId = lesson.id; button.setAttribute('aria-pressed', String(!!activeLesson && lesson.id === activeLesson.id));
           var img = document.createElement('img'); img.src = lesson.thumbnail; img.alt = lesson.alt; img.loading = 'lazy'; img.width = 160; img.height = 240;
           var title = document.createElement('strong'); title.textContent = lesson.title;
           var focus = document.createElement('span'); focus.textContent = lesson.focus;

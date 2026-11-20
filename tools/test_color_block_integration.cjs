@@ -165,6 +165,13 @@ async function main(){
     api.settle();
   }
 
+  await test('Initial lesson gallery exposes four unselected buttons',async()=>{
+    assert.equal(app.studyState().lesson,null,'No lesson should be selected at startup');
+    const cards=Array.from(doc.querySelectorAll('#lessonList button[data-lesson-id]'));
+    assert.equal(cards.length,4,'The initial gallery must expose all four lessons');
+    for(const card of cards)assert.equal(card.getAttribute('aria-pressed'),'false','An unselected lesson must expose aria-pressed="false": '+card.dataset.lessonId);
+  });
+
   await test('HTML starts with three-value study and a real image renders',async()=>{
     assert.equal(app.studyState().mode,'value');assert.equal(app.studyState().levels,3);
     await load();
