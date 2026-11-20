@@ -344,7 +344,7 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
   *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
 }
 </style>
-<link rel="stylesheet" href="/assets/color-block-studio/study.css?v=20261120-3">
+<link rel="stylesheet" href="/assets/color-block-studio/study.css?v=20261120-4">
 </head>
 <body>
 <header>
@@ -399,14 +399,6 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
   </div>
   <p class="study-guidance" id="studyHint" aria-live="polite">先把画面归成亮、灰、暗三组，再看大形能否读清。</p>
 </section>
-<details class="sec study-lessons" open>
-  <summary><span>跟着一张图练</span><span class="study-summary-note">分步骤观察</span></summary>
-  <p class="hint">选一张参考图，逐步比较大块、线条和黑白关系。</p>
-  <div id="lessonList" class="study-lesson-list" aria-label="参考图练习"></div>
-  <button type="button" id="lessonChange" class="btn ghost sm" hidden>换一张示例</button>
-  <div id="lessonSteps" class="study-lesson-steps" aria-live="polite"></div>
-  <p class="study-source">示例保留原图署名；自动分组是观察起点，局部取舍由你决定。</p>
-</details>
 <section class="sec study-parameters" id="studyValuePanel" data-study-panel="value" aria-labelledby="studyValueTitle">
   <div class="sec-head"><h2 id="studyValueTitle">先分明暗，再定灰阶</h2><span class="badge">从三组起步</span></div>
   <div class="study-segment" role="group" aria-label="明暗分组数量">
@@ -645,6 +637,7 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
 
   <section id="stage">
     <div class="stage-toolbar">
+      <button id="studyTogglePanel" type="button" class="btn ghost sm" aria-controls="panel" aria-expanded="true">收起侧栏</button>
       <div class="seg" role="group" aria-label="预览模式">
         <button id="viewResult" class="seg-btn on">结果</button>
         <button id="viewSplit" class="seg-btn">对比</button>
@@ -688,13 +681,12 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
             </svg>
           </div>
           <h3>从大关系，练到每一笔</h3>
-          <p>或者点左侧「选择图片」/ 直接按 Ctrl+V 粘贴截图</p>
+          <p>拖入本机图片，或在侧栏选择图片，也可按 Ctrl+V 粘贴截图</p>
           <ul class="steps">
             <li><b>01</b>把明暗和色彩收进几组清楚的大形</li>
             <li><b>02</b>保留必要的线，减掉花纹与碎细节</li>
             <li><b>03</b>补黑、留白，记录 A / B 比较取舍</li>
           </ul>
-          <button id="lessonStarter" type="button" class="btn primary">用参考图开始练习</button>
           <button id="pasteBtnEmpty" class="btn ghost sm" style="margin-top:8px">从剪贴板粘贴截图</button>
           <p class="hint">全部在本地浏览器里运算，图片不会上传到网上。</p>
         </div>
@@ -800,14 +792,14 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
     <p>在线条取舍中，可以补画、恢复候选、删线或减弱线条；在局部压黑中，可以补黑、留白和擦除修改。笔刷支持鼠标、触控笔和触摸。放大后可开启拖动画布，原图和结果始终对齐。</p>
     <h4>撤销与方案对照</h4>
     <p>撤销 / 重做覆盖参数、色板、模式切换与局部笔画，快捷键 Ctrl / ⌘ Z 和 Ctrl / ⌘ Shift Z。保留最多 20 步，复杂大图会按内存占用缩短。记为 A 后继续修改 B，查看 A 时是只读状态，返回 B 后继续编辑和导出。</p>
-    <p>四个练习方向分别保留当前图片的设置，来回切换不会丢掉调色和笔画。换图或刷新会开始新的练习，请先导出要保留的结果。自选图片在浏览器处理；示例缩略图按需显示，完整示例图在选择后加载。</p>
-    <h4>示例练习</h4>
-    <p>四张参考图均来自使用者提供的图片，保留构图与水印。每张有四步观察提示；返回已练过的步骤会保留修改，“恢复本步起点”可以重新载入该步参数，且可撤销。</p>
+    <p>四个练习方向分别保留当前图片的设置，来回切换不会丢掉调色和笔画。换图或刷新会开始新的练习，请先导出要保留的结果。自选图片只在浏览器中处理。</p>
+    <h4>收起侧栏</h4>
+    <p>画布上方的“收起侧栏”可隐藏参数区，为图片留出空间；同一位置点击“展开侧栏”即可继续调整。收起不会清空图片、参数或笔画。</p>
     <h4>界面外观</h4>
     <p>右上角可选浅色、深色或跟随系统，与博客共用外观偏好。切换只改变界面，不改变图片、调色板和导出文件的颜色。</p>
     <h4>开始一次练习</h4>
     <ol>
-      <li>选择一张示例，或拖入图片、选择本机图片、Ctrl+V 粘贴。</li>
+      <li>拖入图片、在侧栏选择本机图片，或按 Ctrl+V 粘贴。</li>
       <li>选一个练习方向，先看大块关系。需要细调时再展开柔化、碎块或线条候选参数。</li>
       <li>记为 A 后调整分组、色板或局部笔画，再与 A 对照，最后导出要保留的结果。</li>
     </ol>
@@ -846,8 +838,7 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
 </div>
 
 <script src="/assets/color-block-studio/study-core.js?v=20261120-1"></script>
-<script src="/assets/color-block-studio/lessons.js?v=20261120-1"></script>
-<script src="/assets/color-block-studio/studio-study.js?v=20261120-2"></script>
+<script src="/assets/color-block-studio/studio-study.js?v=20261120-3"></script>
 <script>
 /* ============================================================
  * 色块提炼器 · 算法核心（纯函数，不依赖 DOM）

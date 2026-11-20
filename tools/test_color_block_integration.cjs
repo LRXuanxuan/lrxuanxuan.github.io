@@ -98,14 +98,17 @@ function installShims(win) {
   };
   const originalRect=win.HTMLElement.prototype.getBoundingClientRect;
   win.HTMLElement.prototype.getBoundingClientRect=function(){
-    if(this.id==='viewer')return {x:0,y:0,left:0,top:0,width:1000,height:760,right:1000,bottom:760,toJSON(){}};
+    if(this.id==='viewer'){
+      const width=win.document.body.classList.contains('study-sidebar-collapsed')?1320:1000;
+      return {x:0,y:0,left:0,top:0,width,height:760,right:width,bottom:760,toJSON(){}};
+    }
     if(this.id==='canvasWrap'){
       const width=parseFloat(this.style.width)||640,height=parseFloat(this.style.height)||480;
       return {x:0,y:0,left:0,top:0,width,height,right:width,bottom:height,toJSON(){}};
     }
     return originalRect.call(this);
   };
-  Object.defineProperty(win.HTMLElement.prototype,'clientWidth',{get(){return this.id==='viewer'?1000:(parseInt(this.style.width)||0);}});
+  Object.defineProperty(win.HTMLElement.prototype,'clientWidth',{get(){return this.id==='viewer'?(win.document.body.classList.contains('study-sidebar-collapsed')?1320:1000):(parseInt(this.style.width)||0);}});
   Object.defineProperty(win.HTMLElement.prototype,'clientHeight',{get(){return this.id==='viewer'?760:(parseInt(this.style.height)||0);}});
   win.addEventListener('error',event=>errors.push(event.error?.stack || event.message));
   win.addEventListener('unhandledrejection',event=>errors.push(String(event.reason)));
@@ -165,11 +168,15 @@ async function main(){
     api.settle();
   }
 
-  await test('Initial lesson gallery exposes four unselected buttons',async()=>{
-    assert.equal(app.studyState().lesson,null,'No lesson should be selected at startup');
-    const cards=Array.from(doc.querySelectorAll('#lessonList button[data-lesson-id]'));
-    assert.equal(cards.length,4,'The initial gallery must expose all four lessons');
-    for(const card of cards)assert.equal(card.getAttribute('aria-pressed'),'false','An unselected lesson must expose aria-pressed="false": '+card.dataset.lessonId);
+  await test('The local-image tool has no hosted reference-image or lesson dependencies',async()=>{
+    assert.equal(win.ColorBlockLessons,undefined);
+    assert.equal(typeof api.lesson,'undefined');
+    assert.equal(doc.querySelectorAll('#lessonList,#lessonSteps,#lessonStarter,#lessonChange,[data-lesson-id],[data-lesson-step],img').length,0);
+    assert.equal(doc.querySelectorAll('script[src*="lessons.js"]').length,0);
+    const assets=fs.readdirSync(path.join(ROOT,'assets/color-block-studio'));
+    assert.equal(assets.includes('lessons.js'),false);
+    assert.deepEqual(assets.filter(name=>/\.(webp|jpe?g|png|gif)$/i.test(name)),[]);
+    assert.equal(app.getState().ready,false,'The tool must wait for a local image');
   });
 
   await test('HTML starts with three-value study and a real image renders',async()=>{
@@ -327,37 +334,28 @@ async function main(){
     checkNearest(edited,decoded.pixels,state.workW,state.workH,full.w,full.h);
   });
 
-  await test('All four reference examples and all four stages render; QA sheets are produced',async()=>{
-    const lessons=win.ColorBlockLessons;assert.ok(lessons.length>=3);
-    for(const lesson of lessons){
-      api.lesson(lesson.id);
-      await timeout(new Promise((resolve,reject)=>{
-        const start=Date.now();const timer=setInterval(()=>{
-          if(app.studyState().lesson===lesson.id){clearInterval(timer);resolve();}
-          else if(Date.now()-start>8000){clearInterval(timer);reject(new Error('Example did not load: '+lesson.id));}
-        },20);
-      }));
-      assert.equal(doc.querySelectorAll('[data-lesson-step]').length,4);
-      const rendered=[await native.loadImage(app.origPNG())];
-      for(let i=0;i<4;i++){
-        doc.querySelector('[data-lesson-step="'+i+'"]').click();
-        assert.equal(app.studyState().mode,lesson.steps[i].mode);
-        assert.ok(pixels().length>0);
-        assert.equal(doc.getElementById('lessonSteps').textContent.includes(lesson.steps[i].reason),true);
-        rendered.push(await native.loadImage(app.resultPNG()));
-      }
-      if(/303|323/.test(lesson.id)){
-        const sheet=native.createCanvas(1250,430),ctx=sheet.getContext('2d');
-        ctx.fillStyle='#e5e5e5';ctx.fillRect(0,0,sheet.width,sheet.height);
-        const labels=['Original','Values','Color','Lines','Blacks'];
-        rendered.forEach((img,i)=>{
-          const scale=Math.min(238/img.width,385/img.height),w=img.width*scale,h=img.height*scale;
-          ctx.fillStyle='#202020';ctx.font='16px sans-serif';ctx.fillText(labels[i],i*250+10,24);
-          ctx.drawImage(img,i*250+(250-w)/2,34,w,h);
-        });
-        if (process.env.COLOR_STUDY_QA_DIR) { const number=lesson.id.match(/303|323/)[0]; fs.mkdirSync(process.env.COLOR_STUDY_QA_DIR,{recursive:true}); fs.writeFileSync(path.join(process.env.COLOR_STUDY_QA_DIR, 'study-'+number+'.png'),sheet.toBuffer('image/png')); }
-      }
-    }
+  await test('Collapsing and expanding the sidebar preserves edits, comparison, zoom and history',async()=>{
+    click('saveAB');api.stroke({tool:'black',radius:.02,points:[[.1,.25],[.2,.35]]});
+    click('studyZoomIn');
+    const panel=doc.getElementById('panel'),toggle=doc.getElementById('studyTogglePanel');
+    assert.equal(panel.contains(toggle),false,'The expand button must remain outside the hidden panel');
+    assert.equal(panel.hidden,false);assert.equal(toggle.getAttribute('aria-expanded'),'true');
+    assert.equal(toggle.getAttribute('aria-controls'),'panel');assert.equal(toggle.textContent,'收起侧栏');
+    await new Promise(resolve=>win.requestAnimationFrame(resolve));
+    const before=JSON.parse(JSON.stringify({image:app.getState(),study:app.studyState()}));
+    const beforePixels=hash(pixels()),beforeWidth=parseFloat(doc.getElementById('canvasWrap').style.width);
+    click('studyTogglePanel');await new Promise(resolve=>win.requestAnimationFrame(resolve));
+    assert.equal(panel.hidden,true);assert.equal(doc.body.classList.contains('study-sidebar-collapsed'),true);
+    assert.equal(toggle.getAttribute('aria-expanded'),'false');assert.equal(toggle.textContent,'展开侧栏');
+    assert.ok(parseFloat(doc.getElementById('canvasWrap').style.width)>beforeWidth,'The fitted canvas should use the extra available width');
+    assert.deepEqual(JSON.parse(JSON.stringify({image:app.getState(),study:app.studyState()})),before);
+    assert.equal(hash(pixels()),beforePixels);
+    click('studyTogglePanel');await new Promise(resolve=>win.requestAnimationFrame(resolve));
+    assert.equal(panel.hidden,false);assert.equal(doc.body.classList.contains('study-sidebar-collapsed'),false);
+    assert.equal(toggle.getAttribute('aria-expanded'),'true');assert.equal(toggle.textContent,'收起侧栏');
+    assert.equal(parseFloat(doc.getElementById('canvasWrap').style.width),beforeWidth);
+    assert.deepEqual(JSON.parse(JSON.stringify({image:app.getState(),study:app.studyState()})),before);
+    assert.equal(hash(pixels()),beforePixels);
   });
 
   await test('Batch values use selected value count and current L* thresholds',async()=>{

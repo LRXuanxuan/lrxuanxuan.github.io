@@ -175,3 +175,10 @@
 - `/papers/` 首页卡片与单篇页的标签来自 `library.json` 的 `full_translation_label`/`full_translation_url`；`assets/papers/library.js` 还会在运行时用 external-translations 注册表再校正一次（`qa_complete` 为真时显示「阅读全文翻译」），两部分必须一致；详情行的「全文译稿：」状态统一显示中文（已完成／待补齐／进行中／未完成／访问受限）。
 - 未完成或仅本地保存的译稿仍显示「全文翻译（仅本地）」或「待补齐」，并保留真实状态说明；不得把未合并、未部署说成「已上线」，也不得手动改线上数据。
 - 该规则对 `site_sync/export_library.py` 同样生效：导出时对已登记且 `qa_complete=true` 的论文应把 `translation_status` 置为 `complete`。
+
+
+## 绘画归纳练习室与本机图片（2026-11-20 用户要求）
+
+- `/color-block-studio.html` 围绕明暗归纳、色彩归纳、线条取舍与局部压黑，沿用浅蓝／深蓝外观与轻量原生实现。
+- 用户明确要求删除内置例图；本工具不部署参考照片、缩略图或外链图库，不自动恢复已撤下的图片资源。选择、拖入与粘贴的图片只在当前浏览器内处理，不上传网站或公开仓库。
+- 保留画布工具栏的「收起侧栏／展开侧栏」入口。切换只调整布局与画布显示尺寸，不清除图片、参数、笔画或操作历史；按钮同步 `aria-expanded`。详细维护与验收规则见 `docs/color-block-study.md`。

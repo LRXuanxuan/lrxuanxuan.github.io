@@ -14,7 +14,6 @@
       var undo = [], redo = [], present = null, restoring = false, loading = false, transaction = false;
       var compare = null, showA = false, imageVersion = 0, monoCache = null;
       var zoom = 1, panX = 0, panY = 0, panEnabled = false, pointer = null, paintFrame = 0;
-      var activeLesson = null, lessonStep = 0, lessonVisited = {}, loadToken = 0;
       var names = { value: '明暗归纳', color: '色彩归纳', line: '线条取舍', black: '局部压黑' };
       var hints = {
         value: '先看亮、灰、暗的大形。分界调整区域归属，色板调整每组画多深。',
@@ -53,7 +52,7 @@
         Object.keys(modeStates).forEach(function (key) { slots[key] = modeStates[key]; });
         return {
           mode: mode, current: packedMode(), modes: slots, levels: levels, dark: dark, light: light,
-          lock: lock, blackOnly: blackOnly, strokes: clone(strokes), seed: s.seed, lessonVisited: clone(lessonVisited)
+          lock: lock, blackOnly: blackOnly, strokes: clone(strokes), seed: s.seed
         };
       }
       function signature(p) {
@@ -87,13 +86,11 @@
       function restore(p) {
         restoring = true; mode = p.mode; levels = p.levels; dark = p.dark; light = p.light;
         lock = p.lock; blackOnly = p.blackOnly; strokes = clone(p.strokes); s.seed = p.seed;
-        lessonVisited = clone(p.lessonVisited || {});
         modeStates = {};
         Object.keys(p.modes).forEach(function (key) { modeStates[key] = p.modes[key]; });
         unpackedMode(p.current); s.gray = mode === 'value'; s.line = mode === 'line' || mode === 'black';
         showA = false; isolate = false; tool = 'inspect'; transaction = false;
-        if (activeLesson) lessonStep = activeLesson.steps.findIndex(function (step) { return step.mode === mode; });
-        syncControls(); render(); restoring = false; present = snapshot(); syncToolbar(); renderLessonSteps();
+        syncControls(); render(); restoring = false; present = snapshot(); syncToolbar();
       }
       function undoStep() {
         settle(); if (!undo.length) return;
@@ -186,7 +183,7 @@
       }
       function extract() {
         if (s.line) { computeLine(); return; }
-        if (!s.ready) { h.toast('先载入一张图片，或选择一张示例'); return; }
+        if (!s.ready) { h.toast('先从本机载入一张图片'); return; }
         s.indices = null; idxKey = '';
         if (mode === 'value') {
           s.palette = core.defaultValuePalette(levels); s.k = levels; s.selected = 0; s.paletteAuto = true;
@@ -261,15 +258,14 @@
           if (mode === 'line') { s.hatch.enabled = false; s.black.enabled = false; }
           if (mode === 'black') { s.hatch.enabled = false; s.black.enabled = true; s.black.protectSkin = false; }
         }
-        if (activeLesson) lessonStep = activeLesson.steps.findIndex(function (step) { return step.mode === mode; });
         syncControls();
         if (s.ready) { if (!s.line && !s.palette.length) extract(); else render(); }
-        renderLessonSteps(); applyView();
+        applyView();
       }
       function applyImage(src, name, file) {
         loading = true; imageVersion++; monoCache = null; modeStates = {}; idxKey = '';
         strokes = { line: [], black: [] }; undo = []; redo = []; present = null; compare = null; showA = false;
-        activeLesson = null; lessonStep = 0; lessonVisited = {}; isolate = false; colorGray = false; tool = 'inspect';
+        isolate = false; colorGray = false; tool = 'inspect';
         zoom = 1; panX = panY = 0; pointer = null; transaction = false;
         s.indices = null; s.palette = mode === 'value' ? core.defaultValuePalette(levels) : [];
         s.gray = mode === 'value'; s.line = mode === 'line' || mode === 'black';
@@ -279,7 +275,7 @@
         sourceCanvas.getContext('2d').drawImage(e.origCanvas, 0, 0);
         originalRGBA = sourceCanvas.getContext('2d').getImageData(0, 0, s.workW, s.workH).data;
         overlay.width = s.workW; overlay.height = s.workH;
-        loading = false; present = snapshot(); syncControls(); updateDisplay(); renderLessons(); renderLessonSteps(); fitCanvas();
+        loading = false; present = snapshot(); syncControls(); updateDisplay(); fitCanvas();
       }
       function applyView() {
         old.applyView(); updateOverlay();
@@ -473,73 +469,6 @@
         if (paintFrame) cancelAnimationFrame(paintFrame); paintFrame = 0;
         if (painted) { computeLine(); commit(); }
       }
-      function renderLessons() {
-        var node = $('lessonList'); node.textContent = ''; node.hidden = !!activeLesson;
-        $('lessonChange').hidden = !activeLesson;
-        (root.ColorBlockLessons || []).forEach(function (lesson) {
-          var button = document.createElement('button'); button.type = 'button'; button.className = 'study-lesson';
-          button.dataset.lessonId = lesson.id; button.setAttribute('aria-pressed', String(!!activeLesson && lesson.id === activeLesson.id));
-          var img = document.createElement('img'); img.src = lesson.thumbnail; img.alt = lesson.alt; img.loading = 'lazy'; img.width = 160; img.height = 240;
-          var title = document.createElement('strong'); title.textContent = lesson.title;
-          var focus = document.createElement('span'); focus.textContent = lesson.focus;
-          button.appendChild(img); button.appendChild(title); button.appendChild(focus);
-          button.addEventListener('click', function () { loadLesson(lesson); }); node.appendChild(button);
-        });
-      }
-      function renderLessonSteps() {
-        var node = $('lessonSteps'); node.textContent = ''; if (!activeLesson) return;
-        var title = document.createElement('h3'); title.textContent = activeLesson.title; node.appendChild(title);
-        var nav = document.createElement('div'); nav.className = 'study-steps-nav';
-        activeLesson.steps.forEach(function (step, i) {
-          var b = document.createElement('button'); b.type = 'button'; b.className = 'study-step'; b.dataset.lessonStep = i;
-          b.setAttribute('aria-pressed', String(lessonStep === i)); b.textContent = step.title;
-          b.addEventListener('click', function () { applyLessonStep(i, false); }); nav.appendChild(b);
-        }); node.appendChild(nav);
-        var step = activeLesson.steps[lessonStep]; if (!step) return;
-        var instruction = document.createElement('p'); instruction.className = 'study-lesson-note'; instruction.textContent = step.instruction; node.appendChild(instruction);
-        var reason = document.createElement('p'); reason.className = 'study-reason'; reason.textContent = '为什么这样练：' + step.reason; node.appendChild(reason);
-        var reset = document.createElement('button'); reset.type = 'button'; reset.className = 'btn ghost sm'; reset.id = 'lessonResetStep'; reset.textContent = '恢复本步起点';
-        reset.addEventListener('click', function () { applyLessonStep(lessonStep, true); }); node.appendChild(reset);
-        var source = document.createElement('p'); source.className = 'study-source'; source.textContent = activeLesson.source; node.appendChild(source);
-      }
-      function applyLessonStep(i, reset) {
-        if (!activeLesson || !activeLesson.steps[i]) return;
-        var step = activeLesson.steps[i], settings = step.settings || {};
-        var wasRestoring = restoring; restoring = true;
-        setMode(step.mode); lessonStep = i;
-        if (!lessonVisited[step.mode] || reset) {
-          if (settings.levels) { levels = settings.levels; s.k = levels; s.palette = core.defaultValuePalette(levels); }
-          if (settings.dark != null) dark = settings.dark;
-          if (settings.light != null) light = settings.light;
-          if (settings.k) s.k = settings.k;
-          if (settings.blur != null) s.blur = settings.blur;
-          if (settings.threshold != null) s.black.threshold = settings.threshold;
-          if (settings.lineAmount != null) s.lineParams.amount = settings.lineAmount;
-          if (s.line) strokes[mode] = [];
-          if (mode === 'line') { s.hatch.enabled = false; s.black.enabled = false; }
-          if (mode === 'black') { s.black.enabled = true; s.black.protectSkin = false; blackOnly = true; }
-          s.indices = null; idxKey = ''; monoCache = null;
-          if (!s.line) extract(); else computeLine();
-          lessonVisited[step.mode] = true;
-        }
-        restoring = wasRestoring; syncControls(); render(); renderLessonSteps(); commit();
-      }
-      function loadLesson(lesson) {
-        var token = ++loadToken;
-        h.showBusy('正在载入练习示例…');
-        var img = new Image();
-        img.onload = function () {
-          if (token !== loadToken) return;
-          try {
-            applyImage(img, lesson.title, null); activeLesson = lesson; lessonVisited = {}; applyLessonStep(0, true);
-            undo = []; redo = []; present = snapshot(); renderLessons(); renderLessonSteps(); syncToolbar();
-            h.toast('示例已载入：按四个步骤观察和修改');
-          } catch (err) { h.toast('示例载入失败：' + err.message); }
-          finally { h.hideBusy(); }
-        };
-        img.onerror = function () { if (token === loadToken) { h.hideBusy(); h.toast('示例暂时无法载入，可以选择本机图片继续'); } };
-        img.src = lesson.image;
-      }
       function bind() {
         list('[data-study-mode]').forEach(function (b) { b.addEventListener('click', function () { settle(); setMode(b.dataset.studyMode); }); });
         list('[data-value-levels]').forEach(function (b) { b.addEventListener('click', function () {
@@ -579,8 +508,17 @@
         $('studyZoomOut').addEventListener('click', function () { zoom = Math.max(1, zoom - 0.5); if (zoom === 1) panX = panY = 0; fitCanvas(); });
         $('studyFit').addEventListener('click', function () { zoom = 1; panX = panY = 0; panEnabled = false; fitCanvas(); syncControls(); $('studyPan').setAttribute('aria-pressed', 'false'); });
         $('studyPan').addEventListener('click', function () { panEnabled = !panEnabled; this.setAttribute('aria-pressed', String(panEnabled)); syncControls(); });
-        $('lessonStarter').addEventListener('click', function () { if (root.ColorBlockLessons && root.ColorBlockLessons[0]) loadLesson(root.ColorBlockLessons[0]); });
-        $('lessonChange').addEventListener('click', function () { $('lessonList').hidden = !$('lessonList').hidden; });
+        var panel = $('panel'), panelToggle = $('studyTogglePanel');
+        panel.hidden = false; document.body.classList.remove('study-sidebar-collapsed');
+        panelToggle.setAttribute('aria-controls', 'panel');
+        panelToggle.setAttribute('aria-expanded', 'true'); panelToggle.textContent = '收起侧栏';
+        panelToggle.addEventListener('click', function () {
+          var collapsed = !panel.hidden;
+          panel.hidden = collapsed; document.body.classList.toggle('study-sidebar-collapsed', collapsed);
+          panelToggle.setAttribute('aria-expanded', String(!collapsed));
+          panelToggle.textContent = collapsed ? '展开侧栏' : '收起侧栏';
+          requestAnimationFrame(fitCanvas);
+        });
         e.canvasWrap.addEventListener('pointerdown', pointerDown, true);
         e.canvasWrap.addEventListener('pointermove', pointerMove);
         e.canvasWrap.addEventListener('pointerup', pointerUp);
@@ -604,7 +542,7 @@
 
       s.gray = true; s.line = false; s.k = levels; s.black.protectSkin = false;
       return {
-        init: function () { bind(); renderLessons(); syncControls(); },
+        init: function () { bind(); syncControls(); },
         recolor: recolor, computeLinePreview: computeLine, extractAndRecolor: extract,
         setMode: setMode, applyImage: applyImage, updateModeUi: syncControls, applyView: applyView,
         selectPalette: selectPalette, fitCanvas: fitCanvas,
@@ -615,14 +553,12 @@
         addSmartColor: function () { s.indices = null; idxKey = ''; old.addSmartColor(); syncControls(); },
         inspect: function () { return { mode: mode, levels: levels, dark: dark, light: light, lock: lock, blackOnly: blackOnly,
           strokes: clone(strokes), undo: undo.length, redo: redo.length, hasA: !!compare, showA: showA, zoom: zoom,
-          lesson: activeLesson && activeLesson.id, lessonStep: lessonStep,
           indicesCount: s.indices ? s.indices.length : 0 }; },
         test: { setMode: setMode, undo: undoStep, redo: redoStep, settle: settle,
           indices: function () { return s.indices ? Array.from(s.indices) : null; },
           stroke: function (st) { if (!s.line) throw new Error('Choose line or black'); strokes[mode].push(clone(st)); computeLine(); },
           values: function (n, d, l) { levels = n; dark = d; light = l; s.k = n; s.palette = core.defaultValuePalette(n); s.indices = null; idxKey = ''; render(); syncControls(); },
-          remap: function () { s.indices = null; idxKey = ''; render(); },
-          lesson: function (id) { var found = (root.ColorBlockLessons || []).find(function (item) { return item.id === id; }); if (found) loadLesson(found); }
+          remap: function () { s.indices = null; idxKey = ''; render(); }
         }
       };
     }
