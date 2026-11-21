@@ -24,6 +24,7 @@ textarea{font:inherit;color:inherit;background:var(--surface);border:1px solid v
 }
 .brush-sample canvas { display: block; width: 100%; height: auto; }
 .color-modes { margin-bottom: 9px; }
+.palette-layout { margin-top: 6px; }
 #palettePreset, #swatchSearch { min-height: 32px; font-size: 12px; }
 #swatchSearch {
   margin-top: 6px; padding: 5px 8px; color: var(--text); background: var(--surface);
@@ -106,3 +107,4 @@ button.brush-sample > span {
 @media (max-width: 380px) {
   .tool-ribbon .inline-field input[type=number]::-webkit-inner-spin-button { display: none; }
 }
+

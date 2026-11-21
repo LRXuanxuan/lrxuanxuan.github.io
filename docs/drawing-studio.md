@@ -157,6 +157,8 @@ SVG 导出共用同一合成与调色流程。半透明像素在 Canvas 预乘 a
 默认色卡对应 Copic Sketch 原厂 36 色套装，也可选择漫画插画 24 色、海洋与
 天空 6 色等原厂套装，每套都附厂商页面。全色号收录 357 个着色色号，原厂
 358 支系列另含一支 0 号无色调和液。全部保留原厂英文色名，可跨套装搜索。
+色卡可切换「紧凑排列 / 按色系」：前者跨色系连续排成每行六色，后者保留
+色系标题和分组。默认紧凑排列，本机记住所选模式；搜索结果也沿用该排法。
 显示色采用官方数字色样中央 17 × 17 像素各通道中位数。实体效果还取决于纸张
 与叠涂次数。[Copic Sketch 色号与色样](https://copic.jp/en/color/sketch/) · [原厂套装目录](https://copic.jp/en/product/copic-set/)
 
@@ -279,3 +281,4 @@ worker，字形或解码文件按该文档实际需要读取。详见 vendor 目
 11. 拖动参考边界和 HSV 调色盘要在真实浏览器验布局与触点；机制测试使用
     `tools/test_drawing_color_controls.cjs`、`tools/test_drawing_marks.cjs` 与
     `tools/test_drawing_app.cjs`，不把 DOM 模拟当作浏览器或 Wacom 硬件实测。
+

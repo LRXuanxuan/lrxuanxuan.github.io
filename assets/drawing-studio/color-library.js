@@ -5,6 +5,13 @@
     const byId = id => document.getElementById(id);
     const palettes = window.DrawingPalettes;
     const library = byId('presetSwatches'), menu = byId('palettePreset'), search = byId('swatchSearch');
+    const layoutButtons = Array.from(document.querySelectorAll('[data-palette-layout]'));
+    const layoutKey = 'lrx-drawing-palette-layout-v1';
+    let layout = 'compact';
+    try {
+      if (localStorage.getItem(layoutKey) === 'grouped') layout = 'grouped';
+    } catch (_) {}
+    const chart = palettes.find(p => p.id === 'sketch-chart') || palettes[0];
     const catalog = new Map();
     const storageKey = 'lrx-drawing-favorite-colors-v1';
     let favorites = [];
@@ -47,18 +54,23 @@
     function render() {
       const preset = palettes.find(p => p.id === menu.value) || palettes[0];
       const query = search.value.trim().toLowerCase().replace(/[-\s]/g, '');
-      const matches = query ? Array.from(catalog.values()).filter(c =>
-        [c.code, c.name, c.officialName, c.family, c.hex].some(value =>
-          value.toLowerCase().replace(/[-\s]/g, '').includes(query))) : [];
-      const groups = query ? [{ name: '', swatches: matches }] : preset.groups;
+      const groups = query ? chart.groups.map(group => ({
+        name: group.name,
+        swatches: group.swatches.filter(c =>
+          [c.code, c.name, c.officialName, c.family, c.hex].some(value =>
+            value.toLowerCase().replace(/[-\s]/g, '').includes(query)))
+      })).filter(group => group.swatches.length) : preset.groups;
+      const colors = groups.flatMap(group => group.swatches);
+      const rows = layout === 'compact' ? [{ name: '', swatches: colors }] : groups;
       library.classList.add('marker-library');
       library.replaceChildren(); library.scrollTop = 0;
-      groups.forEach(group => library.append(makeRow(group)));
+      rows.forEach(group => library.append(makeRow(group)));
+      layoutButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.paletteLayout === layout)));
       byId('paletteDescription').textContent = query
-        ? (matches.length ? '全部马克笔 · 找到 ' + matches.length + ' 色' : '未找到色号，可试试 B21 或「天蓝」。')
+        ? (colors.length ? '全部马克笔 · 找到 ' + colors.length + ' 色' : '未找到色号，可试试 B21 或「天蓝」。')
         : preset.description || '';
       const source = byId('swatchSource');
-      source.href = query ? palettes.find(p => p.id === 'sketch-chart').source : preset.source;
+      source.href = query ? chart.source : preset.source;
       source.textContent = (query || preset.id === 'sketch-chart' ? 'Copic 官方色卡' : '核对原厂套装') + ' ↗ · 屏幕近似色';
     }
     function syncInk() {
@@ -69,6 +81,12 @@
     }
     menu.addEventListener('change', () => { search.value = ''; render(); });
     search.addEventListener('input', render);
+    layoutButtons.forEach(button => button.addEventListener('click', () => {
+      if (layout === button.dataset.paletteLayout) return;
+      layout = button.dataset.paletteLayout;
+      try { localStorage.setItem(layoutKey, layout); } catch (_) {}
+      render();
+    }));
     const modes = Array.from(document.querySelectorAll('[data-color-mode]'));
     modes.forEach(mode => mode.addEventListener('click', () => {
       modes.forEach(button => {
@@ -87,3 +105,4 @@
     return { syncInk };
   };
 })();
+
