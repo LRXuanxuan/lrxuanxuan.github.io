@@ -9,6 +9,7 @@ vm.runInNewContext(fs.readFileSync(path.join(__dirname, '../assets/drawing-studi
 vm.runInNewContext(fs.readFileSync(path.join(__dirname, '../assets/drawing-studio/palettes-supervision.js'), 'utf8'), scope);
 vm.runInNewContext(fs.readFileSync(path.join(__dirname, '../assets/drawing-studio/palettes-holbein.js'), 'utf8'), scope);
 vm.runInNewContext(fs.readFileSync(path.join(__dirname, '../assets/drawing-studio/palettes-pilot.js'), 'utf8'), scope);
+vm.runInNewContext(fs.readFileSync(path.join(__dirname, '../assets/drawing-studio/palettes-risograph.js'), 'utf8'), scope);
 const palettes = scope.window.DrawingPalettes;
 const pixels = (...values) => ({ width: values.length, height: 1, data: new Uint8ClampedArray(values.flat()) });
 const rgb = hex => [parseInt(hex.slice(1, 3), 16), parseInt(hex.slice(3, 5), 16), parseInt(hex.slice(5, 7), 16)];

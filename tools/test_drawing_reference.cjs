@@ -165,7 +165,7 @@ async function main(){
     const found=await bridge.take(id);assert.equal(found.name,'private.png');assert.equal(await found.original.text(),'local pixels');
     await assert.rejects(bridge.take(id),/领取或已过期/);await assert.rejects(bridge.take('invalid'),/无效/);
   });
-  const reference=await environment('<!doctype html><script src="/assets/drawing-studio/palettes.js"></script><script src="/assets/drawing-studio/palettes-supervision.js"></script><script src="/assets/drawing-studio/palettes-holbein.js"></script><script src="/assets/drawing-studio/palettes-pilot.js"></script><script src="/assets/drawing-studio/palette-map.js"></script><script src="/assets/drawing-studio/reference.js"></script>');
+  const reference=await environment('<!doctype html><script src="/assets/drawing-studio/palettes.js"></script><script src="/assets/drawing-studio/palettes-supervision.js"></script><script src="/assets/drawing-studio/palettes-holbein.js"></script><script src="/assets/drawing-studio/palettes-pilot.js"></script><script src="/assets/drawing-studio/palettes-risograph.js"></script><script src="/assets/drawing-studio/palette-map.js"></script><script src="/assets/drawing-studio/reference.js"></script>');
   const win=reference.window; let changed=0;const ref=new win.DrawingReference({onChange(){changed++;}});
   const source=native.createCanvas(72,48),ctx=source.getContext('2d');
   ctx.fillStyle='#d03020';ctx.fillRect(0,0,24,48);ctx.fillStyle='#20a060';ctx.fillRect(24,0,24,48);ctx.fillStyle='#3060d0';ctx.fillRect(48,0,24,48);ctx.clearRect(0,0,7,7);

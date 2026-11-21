@@ -135,17 +135,22 @@
   }
   function updateMaterialUI() {
     if (!Marks) return;
-    const s = readMarkSettings(), centered = s.materialKind === 'radial', gradient = ['linear', 'reflected', 'radial'].includes(s.materialKind), pattern = !gradient && s.materialKind !== 'solid';
+    const s = readMarkSettings(), centered = s.materialKind === 'radial', gradient = ['linear', 'reflected', 'radial'].includes(s.materialKind), pattern = !gradient && s.materialKind !== 'solid', riso = s.materialKind.startsWith('riso-'), wetRiso = s.materialKind.startsWith('riso-wet-');
     $('materialName').textContent = $('materialKind').selectedOptions[0].textContent;
     $('materialPatternOptions').hidden = !pattern; $('materialAngleField').hidden = !['diagonal', 'crosshatch', 'linear', 'reflected', 'checker', 'weave'].includes(s.materialKind);
     $('materialThickness').closest('label').hidden = s.materialKind === 'checker';
+    $('materialThicknessLabel').textContent = riso ? '颗粒大小' : '线宽 / 点径';
+    $('materialSpacingLabel').textContent = riso ? '颗粒间距（越小越密）' : '间距（越小越密）';
+    $('materialThickness').setAttribute('aria-label', riso ? (wetRiso ? '湿印颗粒大小' : '干印颗粒大小') : '材质粗细');
+    $('materialSpacing').setAttribute('aria-label', riso ? (wetRiso ? '湿印颗粒间距' : '干印颗粒间距') : '材质间距');
+    $('materialHint').textContent = riso ? (wetRiso ? '三档湿印颗粒' : '三档干印颗粒') + '，可调大小与间距。透明背景适合另建图层叠加；油漆桶、形状和文字均可使用。' : '适用于油漆桶与形状；文字也可启用。透明背景保留原有像素，适合另建图层叠加排线。';
     $('shapeConstraintText').textContent = ['line', 'arrow'].includes(s.shapeKind) ? '方向吸附到 45°' : '固定 1:1 比例';
     const isFrame = Marks.frameKinds.includes(s.shapeKind);
     $('shapePaintFields').hidden = isFrame; $('frameFields').hidden = !isFrame;
     $('textBoxColors').hidden = s.textBoxStyle === 'none';
     if (tool === 'shape' || tool === 'text') renderMarkSample(s);
     $('materialBackField').hidden = s.materialKind === 'solid'; $('materialBackFromInk').hidden = s.materialKind === 'solid'; $('materialTransparentLabel').hidden = s.materialKind === 'solid';
-    const frontLabel = centered ? '中心颜色' : gradient ? '起始颜色' : s.materialKind === 'solid' ? '填充颜色' : '纹理颜色';
+    const frontLabel = centered ? '中心颜色' : gradient ? '起始颜色' : s.materialKind === 'solid' ? '填充颜色' : riso ? '油墨颜色' : '纹理颜色';
     const backLabel = centered ? '边缘颜色' : gradient ? '末尾颜色' : '背景颜色', transparentLabel = centered ? '边缘透明' : '背景透明';
     $('materialFrontLabel').textContent = frontLabel; $('materialBackLabel').textContent = backLabel;
     $('materialForeground').setAttribute('aria-label', frontLabel); $('materialBackground').setAttribute('aria-label', backLabel);

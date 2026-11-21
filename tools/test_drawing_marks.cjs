@@ -101,6 +101,125 @@ for (const kind of ['checker', 'paper', 'stipple', 'weave']) {
   assert.ok(alphaCount(thick.canvas) > alphaCount(sparse.canvas) * 1.8, 'Thickness controls line coverage');
 }
 
+// Riso densities share a stable ink field, and remain real alpha textures.
+{
+  const means = [], sourceTiles = [];
+  const box = { x: 23, y: 17, width: 256, height: 256 };
+  const fill = { foreground: '#ff48b1', background: '#e9dfc7', spacing: 14, thickness: 2, transparentBackground: true };
+  function meanAlpha(canvas) {
+    const d = pixels(canvas); let total = 0;
+    for (let i = 3; i < d.length; i += 4) total += d[i];
+    return total / (255 * canvas.width * canvas.height);
+  }
+  for (const kind of ['riso-sparse', 'riso-medium', 'riso-dense']) {
+    const preview = make(302, 290), committed = make(302, 290), style = { ...fill, kind };
+    const originalCreate = preview.ctx.createPattern.bind(preview.ctx);
+    preview.ctx.createPattern = function (tile, repetition) {
+      assert.ok(tile.width <= 256 && tile.height <= 256, 'Riso uses a bounded reusable tile');
+      sourceTiles.push(tile); return originalCreate(tile, repetition);
+    };
+    preview.ctx.fillStyle = marks.fillStyle(preview.ctx, style, box);
+    preview.ctx.fillRect(box.x, box.y, box.width, box.height);
+    marks.paintShape(committed.ctx, { type: 'rect', ...box, fill: style });
+    assert.equal(hash(preview.canvas), hash(committed.canvas), kind + ' preview and committed fill are identical');
+    assert.equal(at(committed.canvas, 0, 0)[3], 0, kind + ' stays within the actual shape');
+    preview.ctx.clearRect(0, 0, preview.canvas.width, preview.canvas.height);
+    preview.ctx.fillStyle = marks.fillStyle(preview.ctx, style, box);
+    preview.ctx.fillRect(box.x, box.y, box.width, box.height);
+    assert.equal(sourceTiles.at(-1), sourceTiles.at(-2), 'Repeated preview reuses the tile');
+    assert.equal(hash(preview.canvas), hash(committed.canvas), 'Rendering does not reshuffle grains');
+    const cropped = make(256, 256); cropped.ctx.drawImage(committed.canvas, box.x, box.y, 256, 256, 0, 0, 256, 256);
+    means.push(meanAlpha(cropped.canvas));
+    const d = pixels(cropped.canvas);
+    assert.ok(d.some((v, i) => i % 4 === 3 && v === 0), kind + ' retains transparent dry gaps');
+    assert.ok(d.some((v, i) => i % 4 === 3 && v > 0 && v < 255), kind + ' retains partial ink coverage');
+
+    const backed = make(256, 256), expected = make(256, 256);
+    backed.ctx.fillStyle = marks.fillStyle(backed.ctx, { ...style, transparentBackground: false }, { width: 256, height: 256 });
+    backed.ctx.fillRect(0, 0, 256, 256);
+    expected.ctx.fillStyle = fill.background; expected.ctx.fillRect(0, 0, 256, 256);
+    expected.ctx.fillStyle = marks.fillStyle(expected.ctx, style, { width: 256, height: 256 }); expected.ctx.fillRect(0, 0, 256, 256);
+    const actualPixels = pixels(backed.canvas), expectedPixels = pixels(expected.canvas);
+    for (let y = 2; y < 254; y++) for (let x = 2; x < 254; x++) for (let channel = 0; channel < 4; channel++) {
+      const i = (y * 256 + x) * 4 + channel;
+      assert.ok(Math.abs(actualPixels[i] - expectedPixels[i]) <= 2, kind + ' respects both the chosen ink and background colors');
+    }
+    assert.equal(alphaCount(backed.canvas, 255), 256 * 256, 'An opaque background covers all gaps');
+
+    const mask = make(300, 300);
+    mask.ctx.save(); mask.ctx.beginPath(); mask.ctx.rect(20, 20, 260, 260); mask.ctx.rect(100, 100, 100, 100); mask.ctx.clip('evenodd');
+    mask.ctx.fillStyle = marks.fillStyle(mask.ctx, style, { x: 20, y: 20, width: 260, height: 260 }); mask.ctx.fillRect(0, 0, 300, 300); mask.ctx.restore();
+    assert.equal(at(mask.canvas, 150, 150)[3], 0, 'A hole in the fill mask remains empty');
+    assert.equal(at(mask.canvas, 10, 150)[3], 0, 'Pattern cannot paint outside the fill mask');
+    assert.ok(alphaCount(mask.canvas, 1) > 1000, 'The selected region receives ink');
+  }
+  assert.ok(means[0] > 0.10 && means[0] < 0.30, 'Sparse leaves a light texture');
+  assert.ok(means[1] > means[0] + 0.15 && means[2] > means[1] + 0.15, 'Three densities are visibly separated');
+  assert.ok(means[2] < 0.85, 'Dense still contains dry gaps');
+
+  function painted(style, size = 256) {
+    const result = make(size, size); marks.paintShape(result.ctx, { type: 'rect', width: size, height: size, fill: style }); return result.canvas;
+  }
+  const medium = { ...fill, kind: 'riso-medium' }, normal = painted(medium);
+  assert.ok(meanAlpha(painted({ ...medium, spacing: 7 })) > meanAlpha(normal) + 0.12, 'Smaller spacing adds ink');
+  assert.ok(meanAlpha(painted({ ...medium, spacing: 28 })) < meanAlpha(normal) - 0.12, 'Larger spacing leaves more dry paper');
+  assert.ok(Math.abs(meanAlpha(painted({ ...medium, spacing: 28, thickness: 4 }, 512)) - meanAlpha(normal)) < 0.015,
+    'Scaling both spacing and thickness changes grain size without changing density');
+  const changedInk = painted({ ...medium, foreground: '#005fa8' });
+  const a = pixels(normal), b = pixels(changedInk);
+  for (let i = 3; i < a.length; i += 4) assert.equal(a[i], b[i], 'Picking another ink color preserves the texture mask');
+  assert.notEqual(hash(normal), hash(changedInk));
+  for (let i = 0; i < 12; i++) painted({ ...medium, foreground: '#' + (0x220001 + i * 0x101).toString(16) });
+  assert.equal(hash(painted(medium)), hash(normal), 'Recreating an evicted texture preserves its exact grains');
+}
+
+// Wet print uses connected translucent ink, distinct from dry speckles.
+{
+  const kinds = ['riso-wet-light', 'riso-wet-medium', 'riso-wet-dense'];
+  const style = { foreground: '#00838a', background: '#f4e9d3', transparentBackground: true, spacing: 14, thickness: 2 };
+  function render(kind, options = {}) {
+    const result = make(256, 256);
+    result.ctx.fillStyle = marks.fillStyle(result.ctx, { ...style, kind, ...options }, { width: 256, height: 256 });
+    result.ctx.fillRect(0, 0, 256, 256); return result.canvas;
+  }
+  function stats(canvas) {
+    const d = pixels(canvas); let total = 0, variation = 0, gaps = 0;
+    for (let i = 3; i < d.length; i += 4) {
+      total += d[i]; gaps += d[i] === 0;
+      if ((i >> 2) % 256 < 255) variation += Math.abs(d[i] - d[i + 4]);
+    }
+    return { mean: total / (65536 * 255), variation: variation / (256 * 255), gaps };
+  }
+  const canvases = kinds.map(kind => render(kind)), values = canvases.map(stats);
+  assert.ok(values[0].mean > 0.02 && values[0].mean < 0.15 && values[0].gaps > 1000, 'Light wet ink leaves isolated faint droplets');
+  assert.ok(values[1].mean > 0.30 && values[1].mean < 0.55, 'Medium wet ink has a translucent body');
+  assert.ok(values[2].mean > 0.70 && values[2].mean < 0.95 && values[2].gaps < 100, 'Dense wet ink retains an almost continuous translucent film');
+  const dry = render('riso-medium');
+  assert.ok(values[1].variation < stats(dry).variation * 0.5, 'Wet ink forms smoother connected pools, not recolored dry grains');
+  assert.notEqual(hash(canvases[1]), hash(dry), 'Wet and dry have different spatial ink distributions');
+
+  // Ordered concentration must hold for every pixel, including extreme ratios.
+  for (const options of [{}, { spacing: 4, thickness: 4 }, { spacing: 4, thickness: 24 }, { spacing: 100, thickness: 1 }]) {
+    const data = kinds.map(kind => pixels(render(kind, options)));
+    for (let i = 3; i < data[0].length; i += 4) {
+      assert.ok(data[0][i] <= data[1][i], 'Light never exceeds medium at any grain/spacing setting');
+      assert.ok(data[1][i] <= data[2][i], 'Medium never exceeds dense at any grain/spacing setting');
+    }
+  }
+  assert.ok(stats(render(kinds[2], { spacing: 100, thickness: 1 })).gaps > 1000, 'Larger wet spacing can open real gaps');
+  for (let index = 0; index < kinds.length; index++) {
+    const kind = kinds[index], committed = make(256, 256), options = { ...style, kind };
+    marks.paintShape(committed.ctx, { type: 'rect', width: 256, height: 256, fill: options });
+    assert.equal(hash(committed.canvas), hash(canvases[index]), 'Wet preview and committed shape are identical');
+    assert.equal(hash(render(kind)), hash(canvases[index]), 'Wet ink remains fixed across repeated previews');
+    assert.equal(alphaCount(render(kind, { transparentBackground: false }), 255), 65536, 'Wet background color covers its gaps');
+    const recolored = pixels(render(kind, { foreground: '#914e72' })), original = pixels(canvases[index]);
+    for (let i = 3; i < original.length; i += 4) assert.equal(recolored[i], original[i], 'Wet recoloring preserves alpha');
+  }
+  for (let i = 0; i < 12; i++) render(kinds[1], { foreground: '#' + (0x330001 + i * 0x101).toString(16) });
+  assert.equal(hash(render(kinds[1])), hash(canvases[1]), 'Wet cache eviction cannot change its seeded texture');
+}
+
 // A shape-bound gradient follows the shape rectangle, not the whole canvas.
 {
   const { canvas, ctx } = make(160, 100), fill = { kind: 'linear', foreground: '#ff0000', background: '#0000ff', angle: 0 };
@@ -177,4 +296,4 @@ for (const align of ['left', 'center', 'right']) {
   }
   assert.equal(cards.size,5);
 }
-console.log('Drawing marks: geometry, frames, text boxes, directed marks, material alpha/density, gradients, group opacity and English/CJK text passed.');
+console.log('Drawing marks: geometry, frames, text boxes, directed marks, material alpha/density, Riso dry/wet fills, gradients, group opacity and English/CJK text passed.');

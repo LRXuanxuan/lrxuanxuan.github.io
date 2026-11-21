@@ -6,9 +6,10 @@
   if (root) root.DrawingMarks = api;
 })(typeof window !== 'undefined' ? window : typeof self !== 'undefined' ? self : null, function () {
   'use strict';
-  var KINDS = ['none', 'solid', 'horizontal', 'vertical', 'diagonal', 'crosshatch', 'dots', 'checker', 'paper', 'stipple', 'weave', 'linear', 'radial', 'reflected'];
+  var KINDS = ['none', 'solid', 'horizontal', 'vertical', 'diagonal', 'crosshatch', 'dots', 'checker', 'paper', 'stipple', 'weave', 'riso-sparse', 'riso-medium', 'riso-dense', 'riso-wet-light', 'riso-wet-medium', 'riso-wet-dense', 'linear', 'radial', 'reflected'];
   var FONTS = 'system-ui, "Microsoft YaHei", "PingFang SC", sans-serif';
   var tiles = new Map();
+  var risoField, risoWetField;
   function number(value, fallback) { return Number.isFinite(+value) ? +value : fallback; }
   function clamp(value, low, high) { return Math.min(high, Math.max(low, value)); }
   function newCanvas(ctx, width, height) {
@@ -75,6 +76,85 @@
     ctx.globalAlpha = 1;
   }
 
+  // One lazy, periodic field gives irregular ink clusters and fine dry gaps.
+  // The three densities threshold the same field, so changing density adds ink
+  // without shuffling the texture. This is a procedural effect, not brush data.
+  function risoNoise() {
+    if (risoField) return risoField;
+    var seed = 0x5249534f;
+    function random() { seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0; return seed / 4294967296; }
+    function grid(size) {
+      var values = new Float32Array(size * size);
+      for (var i = 0; i < values.length; i++) values[i] = random();
+      return values;
+    }
+    function sample(values, size, x, y) {
+      var ix = Math.floor(x), iy = Math.floor(y), fx = x - ix, fy = y - iy;
+      var x0 = ix % size, x1 = (ix + 1) % size, y0 = (iy % size) * size, y1 = ((iy + 1) % size) * size;
+      return (values[y0 + x0] * (1 - fx) + values[y0 + x1] * fx) * (1 - fy) +
+        (values[y1 + x0] * (1 - fx) + values[y1 + x1] * fx) * fy;
+    }
+    var grains = grid(128), patches = grid(16);
+    risoField = new Float32Array(256 * 256);
+    for (var y = 0; y < 256; y++) for (var x = 0; x < 256; x++) {
+      risoField[y * 256 + x] = 0.68 * sample(grains, 128, (x + 0.5) / 2, (y + 0.5) / 2) +
+        0.22 * random() + 0.10 * sample(patches, 16, (x + 0.5) / 16, (y + 0.5) / 16);
+    }
+    return risoField;
+  }
+  // Wet-print source previews have rounded droplets at low ink levels, joined
+  // translucent ink at medium levels, and a continuous mottled film at high
+  // levels. Use a separate smooth periodic field, not softened dry speckles.
+  function risoWetNoise() {
+    if (risoWetField) return risoWetField;
+    var seed = 0x57455452, noise = new Float32Array(256 * 256), horizontal = new Float32Array(256 * 256);
+    for (var i = 0; i < noise.length; i++) {
+      seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0; noise[i] = seed / 4294967296;
+    }
+    // A wrapped binomial blur gives rounded correlated droplets without a
+    // visible square grid. The two temporary arrays are released afterwards.
+    for (var y = 0; y < 256; y++) for (var x = 0; x < 256; x++) {
+      var row = y * 256;
+      horizontal[row + x] = (noise[row + ((x - 2) & 255)] + 4 * noise[row + ((x - 1) & 255)] +
+        6 * noise[row + x] + 4 * noise[row + ((x + 1) & 255)] + noise[row + ((x + 2) & 255)]) / 16;
+    }
+    risoWetField = new Float32Array(256 * 256);
+    for (var y = 0; y < 256; y++) for (var x = 0; x < 256; x++) {
+      var i = y * 256 + x, smooth = (horizontal[((y - 2) & 255) * 256 + x] +
+        4 * horizontal[((y - 1) & 255) * 256 + x] + 6 * horizontal[i] +
+        4 * horizontal[((y + 1) & 255) * 256 + x] + horizontal[((y + 2) & 255) * 256 + x]) / 16;
+      risoWetField[i] = clamp(0.5 + 2.15 * (smooth - 0.5) + 0.025 * (noise[i] - 0.5), 0, 1);
+    }
+    return risoWetField;
+  }
+  function risoTile(ctx, kind, spacing, thickness, foreground, background, transparentBackground) {
+    var wet = kind.indexOf('riso-wet-') === 0;
+    var field = wet ? risoWetNoise() : risoNoise(), image = ctx.createImageData(256, 256), pixels = image.data;
+    var base = kind === 'riso-sparse' ? 0.59 : kind === 'riso-medium' ? 0.49 : 0.39;
+    // This ratio survives layer scaling; spacing changes density, while the
+    // pattern transform below controls grain size in local canvas coordinates.
+    var threshold = clamp(base + 0.13 * Math.log(spacing / (7 * thickness)), 0.12, 0.90);
+    var wetShift = 0.22 * Math.log(spacing / (7 * thickness));
+    for (var i = 0; i < field.length; i++) {
+      pixels[i * 4] = pixels[i * 4 + 1] = pixels[i * 4 + 2] = 255;
+      var amount = (field[i] - threshold) / 0.075;
+      if (wet) {
+        // Keep the three response curves ordered even at maximum grain size
+        // and minimum spacing. Negative input still allows real ink gaps.
+        var ink = Math.min(1, field[i] - wetShift);
+        amount = kind === 'riso-wet-light' ? (ink - 0.58) / 0.5 : kind === 'riso-wet-medium' ? (ink - 0.05) / 1.1 :
+          (0.64 + 0.34 * ink) * clamp((ink + 0.10) / 0.15, 0, 1);
+      }
+      pixels[i * 4 + 3] = Math.round(255 * clamp(amount, 0, 1));
+    }
+    ctx.putImageData(image, 0, 0);
+    ctx.globalCompositeOperation = 'source-in'; ctx.fillStyle = foreground; ctx.fillRect(0, 0, 256, 256);
+    if (!transparentBackground) {
+      ctx.globalCompositeOperation = 'destination-over'; ctx.fillStyle = background; ctx.fillRect(0, 0, 256, 256);
+    }
+    ctx.globalCompositeOperation = 'source-over';
+  }
+
   function wovenTile(ctx, cell, line) {
     var width = Math.min(cell * 0.68, line), gap = Math.min(cell / 2, width / 2 + Math.max(0.65, width * 0.36));
     for (var row = 0; row < 2; row++) for (var col = 0; col < 2; col++) {
@@ -120,14 +200,14 @@
     }
 
     var spacing = clamp(number(style.spacing, 14), 2, 256), thickness = clamp(number(style.thickness, 2), 0.25, spacing);
-    var base = kind === 'diagonal' ? 'horizontal' : kind;
+    var base = kind === 'diagonal' ? 'horizontal' : kind, riso = kind.indexOf('riso-') === 0;
     var cells = base === 'checker' || base === 'weave' ? 2 : base === 'paper' || base === 'stipple' ? 6 : 1;
     var key = JSON.stringify([base, fg, bg, !!style.transparentBackground, spacing, thickness]);
     var tile = tiles.get(key);
     if (!tile) {
-      var side = clamp(Math.ceil(spacing * cells), 2, 256), cell = side / cells, unit = cell / spacing;
+      var side = riso ? 256 : clamp(Math.ceil(spacing * cells), 2, 256), cell = side / cells, unit = cell / spacing;
       tile = newCanvas(ctx, side, side); var tc = tile.getContext('2d');
-      if (!style.transparentBackground) { tc.fillStyle = bg; tc.fillRect(0, 0, side, side); }
+      if (!riso && !style.transparentBackground) { tc.fillStyle = bg; tc.fillRect(0, 0, side, side); }
       tc.fillStyle = fg; var line = thickness * unit;
       // Repeat boundary-centered stripes, so neighboring tiles meet seamlessly.
       if (base === 'horizontal' || base === 'crosshatch') { tc.fillRect(0, -line / 2, side, line); tc.fillRect(0, side - line / 2, side, line); }
@@ -136,12 +216,13 @@
       if (base === 'checker') { tc.fillRect(0, 0, cell, cell); tc.fillRect(cell, cell, cell, cell); }
       if (base === 'weave') wovenTile(tc, cell, line);
       if (base === 'paper' || base === 'stipple') speckledTile(tc, base, side, cell, line);
+      if (riso) risoTile(tc, kind, spacing, thickness, fg, bg, !!style.transparentBackground);
       tiles.set(key, tile); if (tiles.size > 8) tiles.delete(tiles.keys().next().value);
     }
     var pattern = ctx.createPattern(tile, 'repeat');
     if (!pattern) throw new Error('当前环境无法生成材质填充。');
-    var rotation = ['horizontal', 'vertical', 'paper', 'stipple'].includes(kind) ? 0 : angle;
-    var scale = spacing * cells / tile.width, c = Math.cos(rotation) * scale, s = Math.sin(rotation) * scale;
+    var rotation = riso || ['horizontal', 'vertical', 'paper', 'stipple'].includes(kind) ? 0 : angle;
+    var scale = riso ? thickness / 2 : spacing * cells / tile.width, c = Math.cos(rotation) * scale, s = Math.sin(rotation) * scale;
     if (typeof pattern.setTransform === 'function') pattern.setTransform({ a: c, b: s, c: -s, d: c, e: x, f: y });
     return pattern;
   }

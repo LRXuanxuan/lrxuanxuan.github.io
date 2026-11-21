@@ -938,7 +938,7 @@ async function main() {
   await test('Preset matching methods and six unlabeled quick colors work across palette brands', async () => {
     await fresh();
     assert.equal(doc.getElementById('swatchSearch'), null, 'The withdrawn swatch search is not left in the UI');
-    const colorPresets = new Set(['sketch12-set', 'sketch36-set', 'sketchcomic24-set', 'sketch-chart', 'supervision-artists50', 'supervision-gray60', 'supervision-cinema60', 'holbein-yufuko12', 'holbein-nanakami12', 'holbein-lemon12', 'pilot-iroshizuku30']);
+    const colorPresets = new Set(['sketch12-set', 'sketch36-set', 'sketchcomic24-set', 'sketch-chart', 'supervision-artists50', 'supervision-gray60', 'supervision-cinema60', 'holbein-yufuko12', 'holbein-nanakami12', 'holbein-lemon12', 'pilot-iroshizuku30', 'risograph-master01', 'risograph-master02', 'risograph-master03', 'risograph-north-american', 'risograph-european', 'risograph-japanese']);
     doc.querySelector('[data-palette-layout="compact"]').click();
     for (const preset of win.DrawingPalettes) {
       select('palettePreset', preset.id); await settle();

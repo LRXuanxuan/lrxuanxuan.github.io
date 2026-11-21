@@ -49,6 +49,12 @@
 - 方形混色与发光喷枪取样当前层，会合成该层的笔画身份；普通新增笔刷与空心描边保留整笔擦除身份。当前工程与本机续画、原内存/图层上限仍按既有机制处理。
 - 这次仅更新网页版及共用前端，未重新发布 Windows / Android 安装包。下次原生发版直接复用当前资源，并复查离线资源闭包与专项笔迹回归。
 
+## 2026-11-22 共用前端更新：Risograph 色卡与干湿印填充
+
+- 新增六套用户提供的 RSCO Risograph 数字色板，统一每行五色，保留各套原始颜色顺序，继续复用右侧取色、左侧参考概括与工程预设保存。数据在 `assets/drawing-studio/palettes-risograph.js`，来源与转换规则见 [Risograph 色卡说明](drawing-risograph-palettes.md)。
+- 同时新增 Riso Dry 稀疏、中等、浓密，以及 Riso Wet 淡、中、浓，共六档程序填充，复用 `marks.js` 与原选区/透明/工程流程；HTML 中 `marks.js`、`app.js` 的缓存版本同步更新。没有新增运行时图像或原笔刷包。
+- 本次只修改网页版及共用前端资源，Windows / Android 原生版本号和已发布安装包不变。下次打包由现有脚本递归纳入新模块，需保留 HTML 的加载顺序及新色板资源；不另建一套色卡实现。
+
 ## 四、必须保留的兼容性和隐私边界
 
 - 两平台应用 ID 固定 `io.github.lrxuanxuan.lightdraw`。Windows 本机源站 `https://tauri.localhost`；Android 本机源站 `https://appassets.androidplatform.net`。不要随意变更来源、数据目录、WebView 或窗口配对流程。
