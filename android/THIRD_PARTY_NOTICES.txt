@@ -18,6 +18,13 @@ with their existing LICENSE and NOTICE files under assets/drawing-studio/vendor/
 Their README records provenance and licenses. The engine is loaded only after
 the user chooses a PDF, not at application startup.
 
+Watercolor pigment mixing:
+Spectral.js 3.0.0 — MIT, Copyright (c) 2025 Ronald van Wijnen.
+https://github.com/rvanwijnen/spectral.js
+Pinned upstream commit: bb2b05c9d1e65ae824d47e3b1cc17ea32c8ee68f.
+The unmodified runtime and complete license are bundled under
+assets/drawing-studio/vendor/spectral/.
+
 WebView:
 This application uses the device's installed Android System WebView. It does
 not bundle a browser runtime. System components remain under their own terms.

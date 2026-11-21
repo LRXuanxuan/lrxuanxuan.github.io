@@ -634,7 +634,8 @@ async function main() {
     };
     inputOnly('brushSize','61'); inputOnly('brushOpacity','46'); inputOnly('stabilizer','77');
     const getSaved = () => JSON.parse(win.localStorage.getItem('lrx-drawing-brush-v1:fountain'));
-    assert.deepEqual(getSaved(), {size:61, opacity:.46, stabilizer:77, pressureEnabled:true});
+    assert.deepEqual(getSaved(), {size:61, opacity:.46, stabilizer:77, pressureEnabled:true,
+      textureScale:1, textureDensity:1, watercolorWater:.5, watercolorEdge:.3, watercolorBloom:.2, watercolorVariation:.25});
     for (const invalid of ['', '260', '5.5']) {
       inputOnly('brushSize',invalid);
       assert.equal(element('brushSize').value,invalid,'intermediate typing remains editable');
@@ -666,11 +667,20 @@ async function main() {
 
   await test('All brush presets paint and eraser modifies alpha without painting white', async () => {
     const brushes = ['gpen', 'fineliner', 'plainSquare', 'fountain', 'wetMix', 'smudge', 'binary', 'pixel',
+      'watercolorWet', 'watercolorGlaze', 'watercolorDry',
       ...win.DrawingChuishiData.brushes.map(p => p.id), ...win.DrawingHaiguaiData.brushes.map(p => p.id),
       ...win.DrawingDongdongData.brushes.map(p => p.id)];
     assert.deepEqual(Array.from(element('brushKind').options, option => option.value).sort(), [...brushes].sort());
     for (const brush of brushes) {
-      await fresh(); select('brushKind', brush); await stroke([[15, 40], [110, 40]]);
+      await fresh(); select('brushKind', brush);
+      // This is a paintability smoke test. Synchronous dispatch otherwise turns
+      // a 95 px line into a sub-millisecond flick, whose legitimate speed-size
+      // dynamics can make an imported fine nib subpixel and fully transparent.
+      // Dedicated source-brush regressions continue to test its speed response.
+      pointer('pointerdown', 15, 40, { timeStamp: 0 });
+      pointer('pointermove', 110, 40, { timeStamp: 300 });
+      pointer('pointerup', 110, 40, { timeStamp: 316, pressure: 0 });
+      await settle();
       const middle = active().canvas.getContext('2d').getImageData(46, 0, 28, 96).data;
       assert.equal(middle.some((value, i) => i % 4 === 3 && value > 0), brush !== 'smudge', brush + ' deposits ink only if it carries color');
       if (brush === 'binary' || brush === 'pixel') assert.ok(Array.from(pixels(active().canvas)).filter((_, i) => i % 4 === 3).every(alpha => alpha === 0 || alpha === 255));

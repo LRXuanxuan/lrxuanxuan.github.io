@@ -76,6 +76,13 @@
 - 本项只更新网页版与共用前端源码，不调整原生版本号、不重新发行 Windows／Android 包。已安装的旧版本不具备新形状编辑能力；后续原生发版应复用当前代码，并验收工程中的形状参数往返，不能把像素可打开当作编辑身份已保留。
 - 维护说明与验收项见 [画室说明](drawing-studio.md)，专项回归为 `tools/test_drawing_shapes_core.cjs`、`tools/test_drawing_shape_editing.cjs`、`tools/test_drawing_shape_guides.cjs` 和 `tools/test_drawing_perspective_core.cjs`。此处记录实现和检查要求，不作为部署、原生包或真实设备测试已完成的凭据。
 
+## 2026-11-22 共用前端更新：三支淡彩水彩
+
+- 新增持续湿纸「湿水彩 · 融色」、干后透明「干水彩 · 罩染」及露白「枯笔水彩 · 颗粒」，在原有 56 支之外新增三支。共用 `watercolor.js` 与固定提交的 MIT Spectral.js；加载顺序为 `vendor/spectral/spectral.js` → `watercolor.js` → `core.js` → `app.js`。
+- 默认浅淡透纸；水分、边缘斑驳、水纹、浓淡变化独立调节，原纹理粗细/密度继续可用。每笔偏好及工程均保留参数，当前预览以同一引擎绘制两笔。
+- 湿画无后台计时或隐藏湿层，直接从当前层实际 RGBA 重新混合；同层旧色可化开，其他层与纸底保持独立。干罩染/枯笔保留整笔身份，湿混色按既有规则合成记录且仍可撤销/局部擦除。
+- 专项验收见 `tools/test_drawing_watercolor.cjs`，来源/许可证与边界见 [水彩笔刷说明](drawing-watercolor.md)。此次更新网页版和共用资源，未重发 Windows / Android 安装包；下次打包纳入模块及许可证，不覆盖既有发行。
+
 ## 四、必须保留的兼容性和隐私边界
 
 - 两平台应用 ID 固定 `io.github.lrxuanxuan.lightdraw`。Windows 本机源站 `https://tauri.localhost`；Android 本机源站 `https://appassets.androidplatform.net`。不要随意变更来源、数据目录、WebView 或窗口配对流程。

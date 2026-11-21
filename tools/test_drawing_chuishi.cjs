@@ -142,10 +142,10 @@ function uiFor(dom) {
 }
 
 async function main() {
-  await test('Imported collections keep file order and only the eight requested original brushes remain', () => {
+  await test('Imported collections keep file order, the eight retained pens and the new watercolor group', () => {
     assert.equal(chuishi.brushes.length, 13); assert.equal(haiguai.brushes.length, 15); assert.equal(dongdong.brushes.length, 20);
-    assert.equal(core.brushPresets.length, 56);
-    assert.equal(new Set(core.brushPresets.map(p => p.id)).size, 56);
+    assert.equal(core.brushPresets.length, 59);
+    assert.equal(new Set(core.brushPresets.map(p => p.id)).size, 59);
     for (const id of ['stoneChalk', 'softRound', 'squarePaint']) assert.ok(!core.brushPresets.some(p => p.id === id));
     for (const preset of presets) assert.ok(core.brushPresets.some(p => p.id === preset.id), preset.id);
     for (const id of ['gpen', 'fineliner', 'plainSquare', 'fountain', 'wetMix', 'smudge', 'binary', 'pixel'])
@@ -155,7 +155,9 @@ async function main() {
       ['wetMix', '混色与推抹'], ['smudge', '混色与推抹'], ['binary', '硬边与像素'], ['pixel', '硬边与像素']
     ]);
     const imported = new Set(presets.map(p => p.id));
-    assert.equal(core.brushPresets.filter(p => !imported.has(p.id)).length, 8);
+    const watercolorIds = ['watercolorWet', 'watercolorGlaze', 'watercolorDry'];
+    assert.deepEqual(core.brushPresets.slice(8, 11).map(p => p.id), watercolorIds);
+    assert.equal(core.brushPresets.filter(p => !imported.has(p.id)).length, 11);
     for (const data of datasets) {
       const ids = new Set(data.brushes.map(p => p.id));
       assert.deepEqual(core.brushPresets.filter(p => ids.has(p.id)).map(p => p.id), data.brushes.map(p => p.id));

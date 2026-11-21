@@ -2,10 +2,11 @@
 (function (root, factory) {
   'use strict';
   var imported = typeof module === 'object' && module.exports ? require('./brushes-chuishi.js') : root && root.DrawingChuishiBrushes;
-  var api = factory(imported);
+  var watercolor = typeof module === 'object' && module.exports ? require('./watercolor.js') : root && root.DrawingWatercolor;
+  var api = factory(imported, watercolor);
   if (typeof module === 'object' && module.exports) module.exports = api;
   if (root) root.DrawingCore = api;
-})(typeof window !== 'undefined' ? window : typeof self !== 'undefined' ? self : null, function (Imported) {
+})(typeof window !== 'undefined' ? window : typeof self !== 'undefined' ? self : null, function (Imported, Watercolor) {
   'use strict';
 
   function clamp(value, min, max) { return Math.min(max, Math.max(min, value)); }
@@ -42,6 +43,10 @@
 
   // Imported presets carry source parameters and compact masks, with an
   // independent stamp renderer shared by the three source collections.
+  // The SVG worker can use the pixel helpers without loading brush modules.
+  var watercolorPresets = Watercolor ? Watercolor.presets : [];
+  brushPresets.push.apply(brushPresets, watercolorPresets);
+  var watercolorIds = new Set(watercolorPresets.map(function (preset) { return preset.id; }));
   var importedPresets = Imported ? Imported.presets : [];
   brushPresets.push.apply(brushPresets, importedPresets);
   var importedIds = new Set(importedPresets.map(function (preset) { return preset.id; }));
@@ -128,6 +133,8 @@
     options = options || {};
     var resolved = resolveBrushId(options.brush);
     var preset = brushPresets.find(function (item) { return item.id === resolved; });
+    if (options.brush !== 'eraser' && watercolorIds.has(preset.id))
+      return Watercolor.makeStroke(ctx, Object.assign({}, options, { brush: preset.id }));
     if (options.brush !== 'eraser' && importedIds.has(preset.id))
       return Imported.makeStroke(ctx, Object.assign({}, options, { brush: preset.id }));
     var brush = options.brush === 'eraser' ? 'eraser' : preset.id;

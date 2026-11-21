@@ -35,7 +35,8 @@
   let art, ref, activePointer = null, refPointer = null, spacePan = false, busy = 0;
   let view = { zoom: 1, x: 0, y: 0 }, refView = { zoom: 1, x: 0, y: 0 };
   let tool = 'brush', brush = 'gpen', ink = '#263544', size = 8, opacity = 1, stabilizer = 20;
-  let textureScale = 1, textureDensity = 1;
+  let textureScale = 1, textureDensity = 1, watercolorWater = .5;
+  let watercolorEdge = .3, watercolorBloom = .2, watercolorVariation = .25;
   let shapeMode = 'insert', shapeTransform = 'resize', shapeSelection = null, shapeStyleBaseline = null, lineReference = null;
   let pressureEnabled = true, touchDraw = false, penOnlyBrush = true, refPicking = false, recentColors = [], fillPalettePending = false;
   // A device-local preference, not an artwork setting. New installations start with mouse brushing disabled.
@@ -61,6 +62,9 @@
   function textureSetting(value, maximum) {
     return Number.isFinite(value) ? clamp(Math.round(value * 20) / 20, .25, maximum) : 1;
   }
+  function waterSetting(value, fallback = .5) {
+    return Number.isFinite(value) ? clamp(Math.round(value * 20) / 20, 0, 1) : fallback;
+  }
   function brushProfile(preset) {
     let saved = brushProfiles.get(preset.id);
     if (!saved) {
@@ -70,12 +74,16 @@
     return { size: setting('size', 1, 240), opacity: setting('opacity', .01, 1),
       stabilizer: setting('stabilizer', 0, 100), pressureEnabled: (saved?.pressureEnabled ?? preset.pressureEnabled) !== false,
       textureScale: textureSetting(setting('textureScale', .25, 4), 4),
-      textureDensity: textureSetting(setting('textureDensity', .25, 2), 2) };
+      textureDensity: textureSetting(setting('textureDensity', .25, 2), 2),
+      watercolorWater: waterSetting(setting('watercolorWater', 0, 1)),
+      watercolorEdge: waterSetting(setting('watercolorEdge', 0, 1), .3),
+      watercolorBloom: waterSetting(setting('watercolorBloom', 0, 1), .2),
+      watercolorVariation: waterSetting(setting('watercolorVariation', 0, 1), .25) };
   }
   function storeBrushProfile() {
     if (tool !== 'brush' && tool !== 'eraser') return;
     const id = tool === 'eraser' ? 'eraser' : brush;
-    const profile = { size, opacity, stabilizer, pressureEnabled, textureScale, textureDensity };
+    const profile = { size, opacity, stabilizer, pressureEnabled, textureScale, textureDensity, watercolorWater, watercolorEdge, watercolorBloom, watercolorVariation };
     brushProfiles.set(id, profile);
     try { localStorage.setItem(brushKey + id, JSON.stringify(profile)); } catch (_) {
       if (!brushStorageWarning) { brushStorageWarning = true; notify('浏览器未能保存笔刷偏好，本次打开画室期间仍会记住。'); }
@@ -88,12 +96,28 @@
   function applyBrushProfile(profile) {
     ({ size, opacity, stabilizer, pressureEnabled } = profile);
     textureScale = textureSetting(profile.textureScale, 4); textureDensity = textureSetting(profile.textureDensity, 2);
+    watercolorWater = waterSetting(profile.watercolorWater);
+    watercolorEdge = waterSetting(profile.watercolorEdge, .3);
+    watercolorBloom = waterSetting(profile.watercolorBloom, .2);
+    watercolorVariation = waterSetting(profile.watercolorVariation, .25);
     $('brushSize').value = size; syncOpacityUI();
     $('stabilizer').value = stabilizer; $('stabilizerValue').textContent = stabilizer;
     $('penPressure').checked = pressureEnabled; syncBrushTextureUI(); scheduleBrushSample();
   }
   function syncBrushTextureUI() {
     const preset = Core.brushPresets.find(p => p.id === brush), enabled = tool === 'brush' && !!preset?.textureControls;
+    const waterEnabled = tool === 'brush' && !!preset?.watercolor;
+    $('watercolorControls').hidden = !waterEnabled;
+    for (const [id, value] of Object.entries({ watercolorWater, watercolorEdge, watercolorBloom, watercolorVariation })) {
+      const percent = Math.round(value * 100);
+      $(id).disabled = !waterEnabled; $(id).value = percent;
+      $(id + 'Value').textContent = percent + '%'; $(id).setAttribute('aria-valuetext', percent + '%');
+    }
+    $('watercolorHint').textContent = preset?.id === 'watercolorWet'
+      ? '持续湿纸，换色后仍可融色；水分越多边缘越柔。同层旧色会化开，线稿可放另一层。'
+      : preset?.id === 'watercolorDry'
+        ? '少水时纸纹露白，增加水分可连成色块；抬笔后再次经过会叠深。'
+        : '每次抬笔后成为一层透明罩染，下一笔保留重叠色边；水分控制笔边柔和度。';
     $('brushTextureControls').hidden = !enabled;
     $('brushTextureHint').textContent = '100% 为原效果。粗细越大纹理越粗，密度越高落墨越密；每支笔分别记住。' + (preset?.textureHint || '');
     for (const [id, value] of [['brushTextureScale', textureScale], ['brushTextureDensity', textureDensity]]) {
@@ -952,7 +976,7 @@
         const sampledLayer = mode === 'brush' && Core.brushPresets.some(p => p.id === brush && p.samplesLayer);
         const paint = context(strokeCanvas);
         if (sampledLayer) paint.drawImage(layer.canvas, 0, 0);
-        const stroke = Core.makeStroke(paint, { brush: mode === 'eraser' ? 'eraser' : brush, size: size / layer.scale, color: ink, pressure: pressureEnabled, stabilizer, textureScale, textureDensity });
+        const stroke = Core.makeStroke(paint, { brush: mode === 'eraser' ? 'eraser' : brush, size: size / layer.scale, color: ink, pressure: pressureEnabled, stabilizer, textureScale, textureDensity, watercolorWater, watercolorEdge, watercolorBloom, watercolorVariation });
         const p = strokePoint(e, layer); stroke.start(p);
         activePointer = { id: e.pointerId, kind: 'stroke', layerId: layer.id, stroke, opacity, sampledLayer, erase: mode === 'eraser', last: p };
         viewport.classList.add('drawing'); requestRender();
@@ -1285,6 +1309,38 @@
   function remember(color) { recentColors = [color, ...recentColors.filter(c => c !== color)].slice(0, 12); swatches($('recentSwatches'), recentColors); }
   function drawBrushSample(sample, settings) {
     const ctx = context(sample); clear(sample);
+    const preset = Core.brushPresets.find(p => p.id === settings.brush);
+    if (preset?.watercolor) {
+      // Two actual pen-downs show wet fusion versus dry glazing; the preview
+      // shares the renderer, alpha rule and settings of the artwork.
+      sample.style.opacity = 1;
+      const work = canvas(sample.width, sample.height), paint = context(work);
+      for (let pass = 0; pass < 2; pass++) {
+        clear(work);
+        if (preset.samplesLayer) paint.drawImage(sample, 0, 0);
+        const stroke = Core.makeStroke(paint, { ...settings, size: Math.min(settings.size, 25),
+          color: pass === 0 && preset.samplesLayer ? '#eab934' : settings.color });
+        let point;
+        for (let i = 0; i <= 36; i++) {
+          const t = i / 36;
+          point = { x: 19 + t * (sample.width - 38),
+            y: sample.height * (pass ? .60 : .40) + (pass ? -9 : 5) * Math.sin(t * 2 * Math.PI),
+            time: i * 12, pressure: .3 + .68 * Math.sin(Math.PI * t), pointerType: 'pen' };
+          if (i) stroke.move(point); else stroke.start(point);
+        }
+        stroke.end(point);
+        const b = stroke.bounds;
+        if (!b) continue;
+        ctx.save(); ctx.globalAlpha = settings.opacity;
+        if (preset.samplesLayer) {
+          ctx.globalCompositeOperation = 'destination-out'; ctx.fillStyle = '#000';
+          ctx.fillRect(b.x, b.y, b.width, b.height); ctx.globalCompositeOperation = 'lighter';
+        }
+        ctx.drawImage(work, b.x, b.y, b.width, b.height, b.x, b.y, b.width, b.height); ctx.restore();
+      }
+      work.width = work.height = 1;
+      return;
+    }
     sample.style.opacity = settings.opacity;
     if (Core.brushPresets.some(p => p.id === settings.brush && p.samplesLayer)) {
       const w = sample.width, h = sample.height;
@@ -1304,7 +1360,7 @@
     if (sampleFrame) return;
     sampleFrame = requestAnimationFrame(() => {
       sampleFrame = 0;
-      drawBrushSample($('brushPreview'), { brush, size, opacity, color: ink, pressure: pressureEnabled, stabilizer, textureScale, textureDensity });
+      drawBrushSample($('brushPreview'), { brush, size, opacity, color: ink, pressure: pressureEnabled, stabilizer, textureScale, textureDensity, watercolorWater, watercolorEdge, watercolorBloom, watercolorVariation });
     });
   }
   function queueBrushCard(button) {
@@ -1361,6 +1417,7 @@
       const id = button.dataset.brushPreset, preset = Core.brushPresets.find(p => p.id === id), profile = brushProfile(preset);
       button.title = preset.hint + ' · ' + profile.size + ' px · 浓度 ' + Math.round(profile.opacity * 100) + '% · 防抖 ' + profile.stabilizer;
       if (preset.textureControls) button.title += ' · 纹理粗细 ' + Math.round(profile.textureScale * 100) + '% · 密度 ' + Math.round(profile.textureDensity * 100) + '%';
+      if (preset.watercolor) button.title += ' · 水分 ' + Math.round(profile.watercolorWater * 100) + '%';
       button.setAttribute('aria-pressed', String(id === brush));
       if (!galleryObserver || button.dataset.sampleVisible === 'true') queueBrushCard(button);
     });
@@ -1516,7 +1573,7 @@
   async function serializeProject(state = snapshot(), includeReference = true) {
     const version = referenceVersion;
     const selectedBrush = brush, selectedInk = ink, selectedToneScope = toneScope;
-    const brushSettings = tool === 'brush' ? { size, opacity, stabilizer, pressureEnabled, textureScale, textureDensity }
+    const brushSettings = tool === 'brush' ? { size, opacity, stabilizer, pressureEnabled, textureScale, textureDensity, watercolorWater, watercolorEdge, watercolorBloom, watercolorVariation }
       : brushProfile(Core.brushPresets.find(p => p.id === selectedBrush));
     const layersPromise = Promise.all(state.layers.map(async layer => {
       const strokes = Strokes.exportBundle(layer.strokeRecords);
@@ -1698,6 +1755,10 @@
       opacity: importedNumber('opacity', .01, 1), stabilizer: importedNumber('stabilizer', 0, 100),
       pressureEnabled: inputSettings.pressureEnabled !== false,
       textureScale: textureSetting(inputSettings.textureScale, 4), textureDensity: textureSetting(inputSettings.textureDensity, 2),
+      watercolorWater: waterSetting(importedNumber('watercolorWater', 0, 1)),
+      watercolorEdge: waterSetting(importedNumber('watercolorEdge', 0, 1), .3),
+      watercolorBloom: waterSetting(importedNumber('watercolorBloom', 0, 1), .2),
+      watercolorVariation: waterSetting(importedNumber('watercolorVariation', 0, 1), .25),
       eraserMode: inputSettings.eraserMode === 'stroke' ? 'stroke' : 'local',
       toneScope: inputSettings.toneScope === 'current' ? 'current' : 'all',
       recentColors: Array.isArray(inputSettings.recentColors) ? inputSettings.recentColors.filter(c => typeof c === 'string' && /^#[a-f0-9]{6}$/i.test(c)).slice(0, 12) : [],
@@ -1799,7 +1860,7 @@
     });
     on('brushKind', 'change', () => setBrush($('brushKind').value, true));
     on('brushSample', 'click', openBrushLibrary);
-    for (const id of ['brushSize', 'brushOpacity', 'stabilizer', 'penPressure', 'brushTextureScale', 'brushTextureDensity']) {
+    for (const id of ['brushSize', 'brushOpacity', 'stabilizer', 'penPressure', 'brushTextureScale', 'brushTextureDensity', 'watercolorWater', 'watercolorEdge', 'watercolorBloom', 'watercolorVariation']) {
       $(id).addEventListener('input', scheduleBrushSample);
       $(id).addEventListener('change', scheduleBrushSample);
     }
@@ -1823,6 +1884,18 @@
         if ($(id).disabled) return;
         if (id === 'brushTextureScale') textureScale = textureSetting($(id).valueAsNumber / 100, 4);
         else textureDensity = textureSetting($(id).valueAsNumber / 100, 2);
+        syncBrushTextureUI(); storeBrushProfile();
+      };
+      on(id, 'input', update); on(id, 'change', update);
+    }
+    for (const id of ['watercolorWater', 'watercolorEdge', 'watercolorBloom', 'watercolorVariation']) {
+      const update = () => {
+        if ($(id).disabled) return;
+        const value = waterSetting($(id).valueAsNumber / 100);
+        if (id === 'watercolorWater') watercolorWater = value;
+        else if (id === 'watercolorEdge') watercolorEdge = value;
+        else if (id === 'watercolorBloom') watercolorBloom = value;
+        else watercolorVariation = value;
         syncBrushTextureUI(); storeBrushProfile();
       };
       on(id, 'input', update); on(id, 'change', update);
@@ -2078,7 +2151,7 @@
     } else window.addEventListener('resize', () => { fit(); resizeReferenceView(); });
   }
   async function initialize() {
-    if (!Core?.brushPresets || !window.DrawingChuishiBrushes || !window.DrawingChuishiData || !window.DrawingHaiguaiData || !window.DrawingDongdongData || !Marks || !Strokes || !window.DrawingPalettes || !window.DrawingPaletteMap || !window.DrawingColorLibrary || !window.DrawingCanvasPresets || !window.DrawingPaper || !window.DrawingColorControls || !window.DrawingReference || !window.DrawingStorage) { notify('画板组件未加载完整，请刷新页面。'); return; }
+    if (!Core?.brushPresets || !window.DrawingWatercolor || !window.spectral || !window.DrawingChuishiBrushes || !window.DrawingChuishiData || !window.DrawingHaiguaiData || !window.DrawingDongdongData || !Marks || !Strokes || !window.DrawingPalettes || !window.DrawingPaletteMap || !window.DrawingColorLibrary || !window.DrawingCanvasPresets || !window.DrawingPaper || !window.DrawingColorControls || !window.DrawingReference || !window.DrawingStorage) { notify('画板组件未加载完整，请刷新页面。'); return; }
     const groups = new Map();
     for (const preset of Core.brushPresets) {
       if (!groups.has(preset.group)) {
