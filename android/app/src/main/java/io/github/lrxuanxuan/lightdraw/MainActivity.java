@@ -1,5 +1,6 @@
 package io.github.lrxuanxuan.lightdraw;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
@@ -738,6 +739,9 @@ public final class MainActivity extends Activity {
         }
     }
 
+    // API 26–32 fallback. On API 33+ onCreate registers OnBackInvokedCallback,
+    // including predictive back on target 36; both routes use the same save guard.
+    @SuppressLint("GestureBackNavigation")
     @Override public void onBackPressed() { handleBack(); }
 
     @Override protected void onPause() {
