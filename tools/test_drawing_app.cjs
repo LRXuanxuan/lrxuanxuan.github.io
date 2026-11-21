@@ -238,18 +238,19 @@ async function eventually(check, message, ms = 3000) {
   do { if (check()) return; await wait(15); } while (Date.now() < deadline);
   assert.ok(check(), message);
 }
-async function test(name, run) { await run(); passed++; console.log('PASS ' + name); }
+const testFilter = process.env.DRAWING_TEST_FILTER && new RegExp(process.env.DRAWING_TEST_FILTER, 'i');
+async function test(name, run) { if (testFilter && !testFilter.test(name)) return; await run(); passed++; console.log('PASS ' + name); }
 async function decoded(blob) {
   const bytes = Buffer.from(await blob.arrayBuffer()), image = await native.loadImage(bytes);
   const canvas = native.createCanvas(image.width, image.height); canvas.getContext('2d').drawImage(image, 0, 0);
   return { canvas, bytes, type: blob.type };
 }
 
-async function openStudio(database = new IDBFactory()) {
+async function openStudio(database = new IDBFactory(), configure = () => {}) {
   const console = new VirtualConsole(); console.on('jsdomError', error => errors.push(error.stack || String(error)));
   const dom = new JSDOM(fs.readFileSync(path.join(ROOT, 'drawing-studio.html'), 'utf8'), {
     url: 'https://drawing-app.test/drawing-studio.html', runScripts: 'dangerously', resources: new LocalResources(),
-    pretendToBeVisual: true, beforeParse(win) { installShims(win); win.indexedDB = database; }, virtualConsole: console
+    pretendToBeVisual: true, beforeParse(win) { installShims(win); win.indexedDB = database; configure(win); }, virtualConsole: console
   });
   const win = dom.window;
   await new Promise(resolve => win.addEventListener('load', resolve, { once: true }));
@@ -298,6 +299,130 @@ async function main() {
     assert.ok(requests.includes('/assets/drawing-studio/core.js'));
     assert.ok(!requests.some(url => /pdf(?:\.worker)?\.mjs|vendor\/pdfjs/.test(url)), 'PDF must not load on an empty image-free startup');
     assert.ok(element('palettePreset').options.length >= 6); assert.ok(element('presetSwatches').querySelectorAll('button').length > 0);
+  });
+
+  await test('Desktop close drains an older autosave and commits the final stroke, slider and layer movement', async () => {
+    await fresh();
+    const layer = active(), encode = layer.canvas.toBlob.bind(layer.canvas);
+    let releaseEncoder, holdOnce = true, closed = false;
+    layer.canvas.toBlob = (callback, ...args) => encode(blob => {
+      if (holdOnce) { holdOnce = false; releaseEncoder = () => callback(blob); }
+      else callback(blob);
+    }, ...args);
+    try {
+      pointer('pointerdown', 10, 15); pointer('pointermove', 50, 15); pointer('pointerup', 50, 15);
+      const older = app.saveDraft();
+      await eventually(() => !!releaseEncoder, 'First revision must be held in its real PNG encoder');
+      const slider = element('layerOpacity'); slider.value = '42'; slider.dispatchEvent(new win.Event('input', { bubbles: true }));
+      pointer('pointerdown', 15, 45); pointer('pointermove', 65, 45);
+      assert.equal(state().drawing, true);
+      const closing = app.prepareToClose().then(result => { closed = true; return result; });
+      await wait(25);
+      assert.equal(closed, false, 'Closing cannot finish while an older save is still serializing');
+      assert.equal(state().drawing, false); assert.ok(doc.body.classList.contains('busy'));
+      const expected = hash(pixels(layer.canvas)), finalRevision = state().revision;
+      pointer('pointerdown', 80, 70); pointer('pointerup', 90, 70);
+      assert.equal(state().revision, finalRevision, 'New drawing is blocked while closing is saving');
+      releaseEncoder(); releaseEncoder = null;
+      await older;
+      assert.equal(await closing, true);
+      assert.equal(state().savedRevision, finalRevision); assert.equal(state().dirty, false);
+      const stored = (await win.DrawingStorage.readCurrent()).project;
+      assert.equal(stored.layers[0].opacity, .42);
+      assert.equal(hash((await decoded(stored.layers[0].image)).canvas.getContext('2d').getImageData(0, 0, 128, 96).data), expected);
+      tool('move'); pointer('pointerdown', 30, 30); pointer('pointermove', 42, 39);
+      assert.equal(await app.prepareToClose(), true);
+      const moved = (await win.DrawingStorage.readCurrent()).project.layers[0];
+      assert.ok(Math.abs(moved.x - 12) < 1e-8); assert.ok(Math.abs(moved.y - 9) < 1e-8);
+    } finally { if (releaseEncoder) releaseEncoder(); layer.canvas.toBlob = encode; }
+  });
+
+  await test('Desktop close waits for the storage queue and keeps failed saves open for retry', async () => {
+    await fresh();
+    const storage = win.DrawingStorage;
+    let releaseRead, completed = false;
+    win.DrawingStorage = { ...storage, readCurrent: () => new Promise(resolve => { releaseRead = async () => resolve(await storage.readCurrent()); }) };
+    try {
+      const closing = app.prepareToClose().then(result => { completed = true; return result; });
+      await eventually(() => !!releaseRead, 'Close must enter the storage queue barrier');
+      await wait(20); assert.equal(completed, false);
+      await releaseRead(); assert.equal(await closing, true);
+      win.DrawingStorage = { ...storage, writeCurrent: async () => { throw new Error('Desktop test quota failure'); } };
+      pointer('pointerdown', 10, 10); pointer('pointermove', 50, 30);
+      await assert.rejects(app.prepareToClose(), /Desktop test quota failure/);
+      assert.equal(state().drawing, false); assert.equal(state().dirty, true);
+      assert.equal(doc.body.classList.contains('busy'), false);
+      assert.ok(inkStats(active().canvas).count > 0, 'Failed closing save must retain pixels');
+      win.DrawingStorage = storage;
+      assert.equal(await app.prepareToClose(), true); assert.equal(state().dirty, false);
+    } finally { win.DrawingStorage = storage; }
+  });
+
+  await test('Desktop project exports only count as saved after the native write completes', async () => {
+    await fresh();
+    const storage = win.DrawingStorage, before = downloads.length;
+    let finishSave, calls = 0;
+    win.DrawingStorage = { ...storage, writeCurrent: async () => { throw new Error('Desktop export quota fixture'); } };
+    win.DrawingDesktop = { save: async () => { calls++; return false; }, ready: async () => {} };
+    function unloadBlocked() {
+      const event = new win.Event('beforeunload', { cancelable: true }); win.dispatchEvent(event); return event.defaultPrevented;
+    }
+    try {
+      await stroke([[15, 25], [70, 25]]);
+      assert.equal(state().dirty, true); assert.equal(unloadBlocked(), true);
+      click('saveProject');
+      await eventually(() => calls === 1 && !doc.body.classList.contains('busy'), 'Canceled native save must finish without a success state');
+      assert.match(element('status').textContent, /已取消保存工程/);
+      assert.equal(unloadBlocked(), true, 'Canceled file save must not mark the revision as exported');
+      win.DrawingDesktop.save = (blob, name) => {
+        calls++; assert.equal(blob.type, 'application/json'); assert.match(name, /\.lrxdraw$/);
+        return new Promise(resolve => { finishSave = resolve; });
+      };
+      click('saveProject'); await eventually(() => !!finishSave, 'Native writer must receive the real project Blob');
+      assert.equal(await app.prepareToClose(), false, 'A pending export is busy, so closing must be refused');
+      assert.equal(unloadBlocked(), true); assert.doesNotMatch(element('status').textContent, /工程已导出/);
+      finishSave(true); finishSave = null;
+      await eventually(() => !doc.body.classList.contains('busy'), 'Successful native write must release the UI');
+      assert.match(element('status').textContent, /工程已导出/); assert.equal(unloadBlocked(), false);
+      assert.equal(downloads.length, before, 'Desktop exports must not create browser anchor downloads');
+    } finally {
+      if (finishSave) finishSave(false);
+      delete win.DrawingDesktop; win.DrawingStorage = storage; await app.saveDraft();
+    }
+  });
+
+  await test('Desktop raster cancellation preserves the export dialog and browser fallback still downloads', async () => {
+    await fresh();
+    const before = downloads.length;
+    win.DrawingDesktop = { save: async () => false, ready: async () => {} };
+    try {
+      click('exportOpen'); select('exportFormat', 'png');
+      element('exportForm').dispatchEvent(new win.Event('submit', { bubbles: true, cancelable: true }));
+      await eventually(() => !doc.body.classList.contains('busy'), 'Canceled raster export must release the UI');
+      assert.equal(element('exportDialog').open, true); assert.match(element('status').textContent, /已取消导出/);
+      assert.equal(downloads.length, before);
+      delete win.DrawingDesktop;
+      element('exportForm').dispatchEvent(new win.Event('submit', { bubbles: true, cancelable: true }));
+      await eventually(() => downloads.length === before + 1 && !doc.body.classList.contains('busy'), 'Web fallback must preserve normal local downloads');
+      assert.equal(element('exportDialog').open, false); assert.match(downloads.at(-1).name, /\.png$/);
+    } finally { delete win.DrawingDesktop; element('exportDialog').close(); }
+  });
+
+  await test('Desktop ready is signaled after restoring the saved artwork and exposing the closing API', async () => {
+    await fresh(92, 68); await stroke([[12, 18], [64, 41]]); await app.prepareToClose();
+    const original = state(); let ready = false;
+    const restored = await openStudio(win.indexedDB, other => {
+      other.DrawingDesktop = { save: async () => false, ready: async () => {
+        assert.equal(other.DrawingStudio.inspect().width, original.width);
+        assert.equal(other.DrawingStudio.inspect().height, original.height);
+        assert.equal(other.DrawingStudio.inspect().activeId, original.activeId);
+        assert.equal(other.document.body.classList.contains('busy'), false);
+        assert.equal(await other.DrawingStudio.prepareToClose(), true);
+        ready = true;
+      } };
+    });
+    try { await eventually(() => ready, 'Native ready callback must run only after automatic restoration'); }
+    finally { restored.window.close(); }
   });
 
   await test('Transparent canvas, stroke opacity and per-stroke undo/redo retain actual pixels', async () => {

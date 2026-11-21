@@ -1,0 +1,29 @@
+[package]
+name = "lightdraw-desktop"
+version = "0.1.0"
+description = "轻绘：本机绘画与参考练习室"
+authors = ["Li Ruixuan"]
+edition = "2021"
+rust-version = "1.90"
+publish = false
+
+[[bin]]
+name = "Lightdraw"
+path = "src/main.rs"
+
+[build-dependencies]
+tauri-build = { version = "=2.7.6", features = [] }
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+tauri = { version = "=2.12.7", features = [] }
+tauri-plugin-dialog = "=2.8.4"
+tauri-plugin-opener = "=2.7.3"
+tauri-plugin-single-instance = "=2.5.5"
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+lto = true
+opt-level = "s"
+strip = true

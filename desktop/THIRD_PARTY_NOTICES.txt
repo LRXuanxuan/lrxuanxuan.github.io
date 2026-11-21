@@ -1,0 +1,31 @@
+轻绘 / Lightdraw desktop
+
+The drawing studio and study pages are maintained in:
+https://github.com/LRXuanxuan/lrxuanxuan.github.io
+The repository's original LICENSE is retained as LICENSE.txt in the frontend.
+
+Native shell:
+Tauri — MIT OR Apache-2.0
+https://github.com/tauri-apps/tauri
+https://github.com/tauri-apps/tauri/blob/dev/LICENSE_MIT
+https://github.com/tauri-apps/tauri/blob/dev/LICENSE_APACHE-2.0
+Tauri plugins — MIT OR Apache-2.0
+https://github.com/tauri-apps/plugins-workspace
+The release executable also embeds licenses/ with the resolved Rust dependency
+inventory, upstream license/notice texts, and Cargo.lock. The same files are
+included as readable text in the ZIP distribution.
+
+PDF runtime:
+PDF.js 6.5.438 and its upstream font, CMap, ICC and WebAssembly resources are
+bundled without alteration. All existing LICENSE and NOTICE files are retained
+under assets/drawing-studio/vendor/pdfjs/. Its README records provenance and
+the licenses of PDF.js, Adobe CMaps, Foxit/Liberation fonts, OpenJPEG, JBIG2,
+QCMS and QuickJS resources. The PDF engine is loaded only when needed.
+
+WebView2:
+The Windows application uses Microsoft's installed WebView2 Runtime under
+Microsoft's terms. The large browser runtime is not embedded in Lightdraw.
+
+Palette values are approximate screen references. Their existing sources are
+recorded in the drawing-palette documentation in the source repository.
+Reference photographs, user artwork and documents are not bundled.

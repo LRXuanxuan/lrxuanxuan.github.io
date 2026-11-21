@@ -1,0 +1,13 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "desktop-local",
+  "description": "Only bundled studio windows can listen for native events, choose export destinations, and open browser links.",
+  "local": true,
+  "windows": ["main", "studio-*"],
+  "permissions": [
+    "core:event:allow-listen",
+    "core:event:allow-unlisten",
+    "desktop-downloads",
+    "desktop-external-links"
+  ]
+}

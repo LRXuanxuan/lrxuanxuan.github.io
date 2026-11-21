@@ -16,6 +16,12 @@ _site
 # NPM dependencies
 node_modules
 package-lock.json
+!desktop/package-lock.json
+desktop/dist/
+desktop/generated-licenses/
+desktop/release/
+desktop/src-tauri/gen/
+desktop/src-tauri/target/
 
 # IDE configurations
 .idea

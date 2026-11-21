@@ -1,0 +1,308 @@
+name: Build Lightdraw for Windows
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'desktop/**'
+      - 'tools/build_drawing_desktop.py'
+      - '.github/workflows/drawing-desktop.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: lightdraw-windows-release
+  cancel-in-progress: false
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 45
+    env:
+      CARGO_TERM_COLOR: always
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: desktop/package-lock.json
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: x86_64-pc-windows-msvc
+          components: rustfmt
+
+      - name: Cache Rust compilation
+        uses: swatinem/rust-cache@v2
+        with:
+          workspaces: desktop/src-tauri
+
+      - name: Validate release version
+        id: version
+        shell: pwsh
+        run: |
+          $config = Get-Content desktop/src-tauri/tauri.conf.json -Raw | ConvertFrom-Json
+          $package = Get-Content desktop/package.json -Raw | ConvertFrom-Json
+          $cargoText = Get-Content desktop/src-tauri/Cargo.toml -Raw
+          $cargoVersion = [regex]::Match($cargoText, '(?m)^version\s*=\s*"([^"]+)"').Groups[1].Value
+          $version = $config.version
+          if ($version -notmatch '^\d+\.\d+\.\d+$' -or $version -ne $package.version -or $version -ne $cargoVersion) {
+            throw 'Update tauri.conf.json, package.json, and Cargo.toml to the same release version.'
+          }
+          "version=$version" >> $env:GITHUB_OUTPUT
+          "tag=lightdraw-v$version" >> $env:GITHUB_OUTPUT
+          "prefix=lightdraw-$version-windows-x64" >> $env:GITHUB_OUTPUT
+
+      - name: Inspect existing release
+        id: release
+        shell: pwsh
+        env:
+          RELEASE_TAG: ${{ steps.version.outputs.tag }}
+        run: |
+          $releaseJson = gh release view $env:RELEASE_TAG --repo $env:GITHUB_REPOSITORY --json id 2>$null
+          if ($LASTEXITCODE -eq 0) {
+            'exists=true' >> $env:GITHUB_OUTPUT
+            Write-Host "Release $env:RELEASE_TAG already exists. This run will verify/build only; bump the app version to publish an update."
+          } else {
+            'exists=false' >> $env:GITHUB_OUTPUT
+          }
+          exit 0
+
+      - name: Install pinned desktop tooling
+        working-directory: desktop
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Check Rust formatting
+        working-directory: desktop/src-tauri
+        run: cargo fmt --check
+
+      - name: Resolve Rust dependency lockfile
+        working-directory: desktop/src-tauri
+        shell: pwsh
+        run: |
+          if (-not (Test-Path Cargo.lock)) {
+            cargo generate-lockfile
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          }
+          cargo metadata --locked --format-version 1 --no-deps | Out-Null
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Gather licenses before embedding application assets
+        shell: pwsh
+        run: |
+          $licenseRoot = New-Item -ItemType Directory -Force desktop/generated-licenses
+          $metadataJson = cargo metadata --manifest-path desktop/src-tauri/Cargo.toml --locked --filter-platform x86_64-pc-windows-msvc --format-version 1
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $metadata = $metadataJson | ConvertFrom-Json
+          $resolved = [System.Collections.Generic.HashSet[string]]::new()
+          $metadata.resolve.nodes | ForEach-Object { [void]$resolved.Add($_.id) }
+          $notices = @()
+          foreach ($dependency in $metadata.packages) {
+            if (-not $dependency.source -or -not $resolved.Contains($dependency.id)) { continue }
+            $crateRoot = Split-Path $dependency.manifest_path
+            $crateLicenses = "$licenseRoot/rust/$($dependency.name)-$($dependency.version)"
+            $licenseFiles = @(Get-ChildItem $crateRoot | Where-Object { $_.Name -match '^(LICEN[CS]ES?|COPYING|NOTICE)([._-]|$)' })
+            if ($licenseFiles.Count -gt 0) {
+              New-Item -ItemType Directory -Force $crateLicenses | Out-Null
+              $licenseFiles | ForEach-Object { Copy-Item $_.FullName $crateLicenses -Recurse }
+            }
+            if ($dependency.license_file) {
+              $licensePath = if ([System.IO.Path]::IsPathRooted($dependency.license_file)) { $dependency.license_file } else { Join-Path $crateRoot $dependency.license_file }
+              if (Test-Path $licensePath) {
+                New-Item -ItemType Directory -Force $crateLicenses | Out-Null
+                Copy-Item $licensePath $crateLicenses -Force
+              }
+            }
+            $notices += [ordered]@{ name = $dependency.name; version = $dependency.version; license = $dependency.license; repository = $dependency.repository }
+          }
+          $notices | ConvertTo-Json -Depth 4 | Set-Content "$licenseRoot/rust-dependencies.json" -Encoding utf8NoBOM
+          Copy-Item desktop/src-tauri/Cargo.lock "$licenseRoot/Cargo.lock"
+          Write-Host "Collected license metadata for $($notices.Count) resolved Rust dependencies."
+
+      - name: Build offline application and NSIS installer
+        working-directory: desktop
+        run: npm run build -- --target x86_64-pc-windows-msvc --bundles nsis -- --locked
+
+      - name: Smoke test Windows launch, document title, and close
+        id: smoke
+        timeout-minutes: 5
+        shell: pwsh
+        run: |
+          $diagnostics = New-Item -ItemType Directory -Force desktop/smoke
+          function Get-WebViewRuntime {
+            $roots = @('HKLM:\SOFTWARE\WOW6432Node\Microsoft\EdgeUpdate\Clients', 'HKLM:\SOFTWARE\Microsoft\EdgeUpdate\Clients', 'HKCU:\SOFTWARE\Microsoft\EdgeUpdate\Clients', 'HKCU:\SOFTWARE\WOW6432Node\Microsoft\EdgeUpdate\Clients')
+            foreach ($root in $roots) {
+              Get-ItemProperty "$root\*" -ErrorAction SilentlyContinue | Where-Object {
+                $_.name -match 'WebView2' -and $_.pv -and $_.pv -ne '0.0.0.0'
+              } | Select-Object name, pv, PSPath
+            }
+          }
+          $runtime = @(Get-WebViewRuntime)
+          if ($runtime.Count -eq 0) {
+            # The hosted image does not promise a pinned Evergreen runtime. Install
+            # Microsoft's signed bootstrapper on the disposable runner if missing.
+            $bootstrap = Join-Path $env:RUNNER_TEMP 'Lightdraw-WebView2Bootstrapper.exe'
+            Invoke-WebRequest 'https://go.microsoft.com/fwlink/p/?LinkId=2124703' -OutFile $bootstrap -TimeoutSec 60
+            $signature = Get-AuthenticodeSignature $bootstrap
+            if ($signature.Status -ne 'Valid' -or $signature.SignerCertificate.Subject -notmatch 'Microsoft Corporation') {
+              throw 'WebView2 bootstrapper signature validation failed; smoke test cannot run safely.'
+            }
+            $setup = Start-Process -FilePath $bootstrap -ArgumentList '/silent', '/install' -PassThru
+            if (-not $setup.WaitForExit(180000)) {
+              $setup.Kill($true)
+              throw 'Runner WebView2 installation timed out; application launch was not verified.'
+            }
+            if ($setup.ExitCode -notin 0, 3010) { throw "Runner WebView2 installation failed: $($setup.ExitCode)" }
+            $runtime = @(Get-WebViewRuntime)
+          }
+          $runtime | ConvertTo-Json -Depth 3 | Set-Content "$diagnostics/webview-runtime.json" -Encoding utf8NoBOM
+          if ($runtime.Count -eq 0) { throw 'No WebView2 runtime was detected; application launch was not verified.' }
+          Write-Host "WebView2: $($runtime.pv -join ', '); interactive desktop: $([Environment]::UserInteractive)"
+          $executable = (Resolve-Path 'desktop/src-tauri/target/x86_64-pc-windows-msvc/release/Lightdraw.exe').Path
+          $lightdrawProcess = $null
+          try {
+            $lightdrawProcess = Start-Process -FilePath $executable -WorkingDirectory (Split-Path $executable) -PassThru -RedirectStandardOutput "$diagnostics/stdout.txt" -RedirectStandardError "$diagnostics/stderr.txt"
+            $deadline = [DateTime]::UtcNow.AddSeconds(30)
+            $documentLoaded = $false
+            do {
+              $lightdrawProcess.Refresh()
+              if ($lightdrawProcess.HasExited) { throw "Lightdraw exited before displaying the page (exit $($lightdrawProcess.ExitCode))." }
+              if ($lightdrawProcess.MainWindowHandle -ne 0 -and $lightdrawProcess.MainWindowTitle -eq '轻绘 · 本地画室') {
+                $documentLoaded = $true
+                break
+              }
+              Start-Sleep -Milliseconds 250
+            } while ([DateTime]::UtcNow -lt $deadline)
+            if (-not $documentLoaded) { throw "Expected document title was not observed in 30 seconds; last title: $($lightdrawProcess.MainWindowTitle)" }
+            Write-Host 'Observed the bundled drawing document title in the native window.'
+            Start-Sleep -Milliseconds 500
+            if (-not $lightdrawProcess.CloseMainWindow()) { throw 'Could not send the native close request.' }
+            if (-not $lightdrawProcess.WaitForExit(15000)) { throw 'The initial blank drawing did not close normally within 15 seconds.' }
+            if ($lightdrawProcess.ExitCode -ne 0) { throw "Lightdraw closed with exit code $($lightdrawProcess.ExitCode)." }
+            Write-Host 'PASS: Windows process, bundled document title, and initial blank close only. This does not test Wacom or export dialogs.'
+          } catch {
+            if ($lightdrawProcess) {
+              $lightdrawProcess.Refresh()
+              $lightdrawProcess | Select-Object Id, ProcessName, HasExited, MainWindowHandle, MainWindowTitle, Responding | ConvertTo-Json | Set-Content "$diagnostics/lightdraw-process.json" -Encoding utf8NoBOM
+            }
+            Get-CimInstance Win32_Process -Filter "Name = 'Lightdraw.exe' OR Name = 'msedgewebview2.exe'" | Select-Object Name, ProcessId, ParentProcessId, ExecutablePath | ConvertTo-Json -Depth 3 | Set-Content "$diagnostics/webview-processes.json" -Encoding utf8NoBOM
+            if (Test-Path "$diagnostics/stderr.txt") { Get-Content "$diagnostics/stderr.txt" -Tail 60 }
+            throw
+          } finally {
+            if ($lightdrawProcess) {
+              $lightdrawProcess.Refresh()
+              if (-not $lightdrawProcess.HasExited) { $lightdrawProcess.Kill($true) }
+              $lightdrawProcess.Dispose()
+            }
+          }
+
+      - name: Keep smoke failure diagnostics
+        if: failure() && steps.smoke.outcome == 'failure'
+        uses: actions/upload-artifact@v7
+        with:
+          name: lightdraw-windows-smoke-diagnostics
+          path: desktop/smoke/
+          if-no-files-found: warn
+          retention-days: 7
+
+      - name: Package installer and standalone executable
+        shell: pwsh
+        env:
+          RELEASE_VERSION: ${{ steps.version.outputs.version }}
+          RELEASE_PREFIX: ${{ steps.version.outputs.prefix }}
+        run: |
+          $target = 'desktop/src-tauri/target/x86_64-pc-windows-msvc/release'
+          $output = New-Item -ItemType Directory -Force desktop/release
+          $portable = New-Item -ItemType Directory -Force desktop/release/portable
+          $installer = @(Get-ChildItem "$target/bundle/nsis/*-setup.exe")
+          if ($installer.Count -ne 1) { throw 'Expected exactly one NSIS setup executable.' }
+          if (-not (Test-Path "$target/Lightdraw.exe")) { throw 'Standalone application EXE is missing.' }
+          Copy-Item $installer[0].FullName "$output/$env:RELEASE_PREFIX-setup.exe"
+          Copy-Item "$target/Lightdraw.exe" "$output/$env:RELEASE_PREFIX.exe"
+          Copy-Item "$target/Lightdraw.exe" "$portable/Lightdraw.exe"
+          Copy-Item desktop/README.txt "$portable/README.txt"
+          Copy-Item desktop/THIRD_PARTY_NOTICES.txt "$portable/THIRD_PARTY_NOTICES.txt"
+          if (Test-Path LICENSE) { Copy-Item LICENSE "$portable/LICENSE" }
+          $licenses = New-Item -ItemType Directory -Force "$portable/licenses"
+          Copy-Item desktop/generated-licenses/* $licenses -Recurse
+          if (Test-Path desktop/src-tauri/licenses) {
+            Copy-Item desktop/src-tauri/licenses/* $licenses -Recurse
+          }
+          $pdfRoot = (Resolve-Path assets/drawing-studio/vendor/pdfjs).Path
+          Get-ChildItem $pdfRoot -File -Recurse | Where-Object { $_.Name -match '^(LICENSE|NOTICE)' } | ForEach-Object {
+            $relative = [System.IO.Path]::GetRelativePath($pdfRoot, $_.FullName)
+            $destination = Join-Path "$licenses/pdfjs" $relative
+            New-Item -ItemType Directory -Force (Split-Path $destination) | Out-Null
+            Copy-Item $_.FullName $destination
+          }
+          Compress-Archive -Path "$portable/*" -DestinationPath "$output/$env:RELEASE_PREFIX.zip" -CompressionLevel Optimal
+          $lines = Get-ChildItem $output -File | Where-Object { $_.Extension -in '.exe', '.zip' } | Sort-Object Name | ForEach-Object {
+            $hash = (Get-FileHash $_.FullName -Algorithm SHA256).Hash.ToLowerInvariant()
+            "$hash  $($_.Name)"
+          }
+          $lines | Set-Content "$output/SHA256SUMS.txt" -Encoding utf8NoBOM
+          $body = @(
+            "## 轻绘 $env:RELEASE_VERSION · Windows 64 位",
+            '',
+            '- 首次使用可下载 setup.exe 安装版；它会在需要时补装 Microsoft WebView2。',
+            '- ZIP 内的 Lightdraw.exe 可以直接运行；电脑需已有 WebView2。免安装版的数据仍保存在本机用户目录。',
+            '- 画板、教学页和 PDF 资源随程序提供，图片、文档及绘画在本机处理。',
+            '- 网页版作品请先导出 .lrxdraw 工程，再在桌面版导入。',
+            '- 此初版没有商业代码签名证书，Windows 可能提示来源或信誉；不建议关闭系统安全保护。',
+            '',
+            'SHA256SUMS.txt 可用于核对三个下载文件。ZIP 内附使用说明和第三方许可。',
+            '',
+            "Source commit: $env:GITHUB_SHA"
+          )
+          $body | Set-Content "$output/release-notes.md" -Encoding utf8NoBOM
+
+      - name: Keep build artifacts and resolved dependency lockfile
+        uses: actions/upload-artifact@v7
+        with:
+          name: lightdraw-windows-${{ steps.version.outputs.version }}
+          path: |
+            desktop/release/*.exe
+            desktop/release/*.zip
+            desktop/release/SHA256SUMS.txt
+            desktop/src-tauri/Cargo.lock
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Publish new version without replacing existing releases
+        if: steps.release.outputs.exists != 'true'
+        shell: pwsh
+        env:
+          RELEASE_TAG: ${{ steps.version.outputs.tag }}
+          RELEASE_VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          # A published or draft release is immutable to this workflow. Reruns never clobber assets.
+          gh release view $env:RELEASE_TAG --repo $env:GITHUB_REPOSITORY --json id 2>$null
+          if ($LASTEXITCODE -eq 0) {
+            Write-Host 'Release appeared while building; leaving it unchanged.'
+            exit 0
+          }
+          $tagRef = gh api "repos/$env:GITHUB_REPOSITORY/git/ref/tags/$env:RELEASE_TAG" 2>$null
+          if ($LASTEXITCODE -eq 0) {
+            throw 'The version tag already exists without a release. Inspect it before publishing; this workflow will not move an existing tag.'
+          }
+          $files = @(Get-ChildItem desktop/release -File | Where-Object { $_.Extension -in '.exe', '.zip' -or $_.Name -eq 'SHA256SUMS.txt' } | ForEach-Object { $_.FullName })
+          gh release create $env:RELEASE_TAG @files --repo $env:GITHUB_REPOSITORY --target $env:GITHUB_SHA --title "轻绘 $env:RELEASE_VERSION · Windows" --notes-file desktop/release/release-notes.md --draft
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          # Publish only after every asset upload completed successfully.
+          gh release edit $env:RELEASE_TAG --repo $env:GITHUB_REPOSITORY --draft=false
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }

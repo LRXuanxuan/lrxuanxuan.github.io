@@ -1,0 +1,40 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "轻绘",
+  "version": "0.1.0",
+  "identifier": "io.github.lrxuanxuan.lightdraw",
+  "build": {
+    "beforeDevCommand": "python ../tools/build_drawing_desktop.py",
+    "beforeBuildCommand": "python ../tools/build_drawing_desktop.py",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [],
+    "security": {
+      "csp": null,
+      "capabilities": ["desktop-local", "desktop-main"]
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "publisher": "Li Ruixuan",
+    "category": "GraphicsAndDesign",
+    "shortDescription": "轻巧的本机画室与绘画参考工具",
+    "icon": ["icons/icon.png", "icons/icon.ico"],
+    "windows": {
+      "webviewInstallMode": {
+        "type": "downloadBootstrapper",
+        "silent": true
+      },
+      "nsis": {
+        "installMode": "currentUser",
+        "languages": ["SimpChinese"],
+        "displayLanguageSelector": false,
+        "installerIcon": "icons/icon.ico",
+        "compression": "lzma"
+      }
+    }
+  }
+}

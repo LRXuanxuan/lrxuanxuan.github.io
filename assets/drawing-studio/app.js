@@ -33,6 +33,7 @@
   let undoStack = [], redoStack = [], frame = 0, transactions = new Map();
   let revision = 0, savedRevision = 0, sessionUsed = false, draftId = uid(), saveTimer = 0, savePromise = null;
   let currentStamp = null, currentReady = false, switchingCurrent = false, currentConflict = false;
+  let initialized = false, closePromise = null;
   let referenceCache = null, referenceVersion = 0, referenceCacheVersion = -1, lastReferenceKey = '';
   let pendingPDFPage = null;
   let toastTimer = 0, savingErrorShown = false, vectorResult = null, vectorKey = '', vectorURL = '';
@@ -168,10 +169,12 @@
       image.src = url;
     });
   }
-  function download(blob, name) {
+  async function download(blob, name) {
+    if (window.DrawingDesktop) return window.DrawingDesktop.save(blob, name);
     const a = document.createElement('a'), url = URL.createObjectURL(blob);
     a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(url), 60000);
+    return true;
   }
   function filename(name) { return String(name || '未命名画作').replace(/[<>:"/\\|?*\u0000-\u001f]/g, '_').slice(0, 80).trim() || '未命名画作'; }
   function createLayer(name, dimensions = art) {
@@ -939,6 +942,40 @@
     })();
     try { return await savePromise; } finally { savePromise = null; }
   }
+  async function prepareToClose() {
+    if (closePromise) return closePromise;
+    if (!initialized || busy || switchingCurrent || pendingPDFPage) return false;
+    closePromise = work(async () => {
+      settleTransactions();
+      if (refPointer) {
+        try { $('referenceView').releasePointerCapture(refPointer.id); } catch (_) {}
+        refPointer = null;
+      }
+      spacePan = false;
+      clearTimeout(saveTimer); saveTimer = 0;
+      try {
+        if (!currentReady) throw new Error('当前作品尚未读取完成，请稍后再关闭，或先另存工程。');
+        for (;;) {
+          if (currentConflict) throw Object.assign(new Error('另一窗口已更新当前作品，请先另存工程。'), { code: 'CURRENT_CONFLICT' });
+          // An earlier autosave may contain an older revision. Drain it, then
+          // serialize again until the last stroke and parameter changes commit.
+          if (savePromise || (sessionUsed && revision > savedRevision)) {
+            await saveDraft();
+            clearTimeout(saveTimer); saveTimer = 0;
+            continue;
+          }
+          // This also waits for storage operations queued outside saveDraft.
+          const current = await window.DrawingStorage.readCurrent();
+          if (current.stamp !== currentStamp) throw Object.assign(new Error('另一窗口已更新当前作品，请先另存工程。'), { code: 'CURRENT_CONFLICT' });
+          if (savePromise || (sessionUsed && revision > savedRevision)) continue;
+          return !switchingCurrent && !pendingPDFPage && !activePointer && !transactions.size;
+        }
+      } catch (error) {
+        notifySaveError(error); throw error;
+      }
+    }, '正在保存当前作品…');
+    try { return await closePromise; } finally { closePromise = null; }
+  }
   async function replaceCurrent(action) {
     finishPointer(); settleTransactions(); switchingCurrent = true; clearTimeout(saveTimer); saveTimer = 0;
     try { if (savePromise) await savePromise.catch(() => {}); return await action(); }
@@ -1130,8 +1167,10 @@
   function saveProjectFile() {
     return work(async () => {
       settleTransactions(); const r = revision, text = await exportProject();
-      download(new Blob([text], { type: 'application/json' }), window.studioExportName() + '.lrxdraw'); fileSavedRevision = r; status('工程已导出 · 保留图层与参考');
+      if (!await download(new Blob([text], { type: 'application/json' }), window.studioExportName() + '.lrxdraw')) { status('已取消保存工程'); return false; }
+      fileSavedRevision = r; status('工程已导出 · 保留图层与参考');
       saveDraft().catch(notifySaveError);
+      return true;
     }, '正在打包工程…');
   }
   function wireEvents() {
@@ -1322,7 +1361,8 @@
         const name = input.value.trim() && input.value !== input.defaultValue ? filename(input.value) : window.studioExportName(); let blob, extension;
         if (format === 'svg') { const result = await buildVector(); blob = new Blob([result.svg], { type: 'image/svg+xml' }); extension = 'svg'; }
         else { blob = await exportRaster(format, $('exportTransparent').checked, +$('quality').value / 100); extension = ({ 'image/png': 'png', 'image/jpeg': 'jpg', 'image/webp': 'webp' })[blob.type] || 'png'; }
-        download(blob, name + '.' + extension); $('exportDialog').close(); status('已导出 ' + extension.toUpperCase() + ' · ' + (blob.size / 1024).toFixed(1) + ' KB');
+        if (!await download(blob, name + '.' + extension)) { status('已取消导出'); return; }
+        $('exportDialog').close(); status('已导出 ' + extension.toUpperCase() + ' · ' + (blob.size / 1024).toFixed(1) + ' KB');
         if (format !== 'svg' && blob.type !== 'image/' + format) notify('当前浏览器改用了 ' + extension.toUpperCase() + ' 格式，文件扩展名已对应调整。');
       }, '正在导出画作…');
     });
@@ -1415,7 +1455,7 @@
     window.DrawingStudio = {
       inspect: () => ({ width: art.width, height: art.height, title: art.title, paper: art.paper, paperColor: art.paperColor, paperOpacity: art.paperOpacity, paperTexture: art.paperTexture, textureStrength: art.textureStrength, tone: { ...art.tone }, view: { ...view }, layers: art.layers.map(metadata), activeId: art.activeId, tool, brush, ink, size, opacity, stabilizer, eraserMode, strokeCount: Strokes.count(activeLayer().strokeRecords), strokeBytes: Strokes.bytes(art.layers.map(layer => layer.strokeRecords)), historyBytes: memory(), pressure: lastPressure, pointerType: lastPointerType, dirty: revision > savedRevision, history: undoStack.length, redo: redoStack.length, revision, savedRevision, draftId, drawing: !!activePointer, reference: ref.getInfo() }),
       newDocument, addLayer, selectLayer, undo, redo, render, exportRaster, exportProject, loadProject, serializeProject,
-      get ref() { return ref; }, getLayer: id => art.layers.find(layer => layer.id === id), saveDraft, setTool, setInk
+      get ref() { return ref; }, getLayer: id => art.layers.find(layer => layer.id === id), saveDraft, prepareToClose, setTool, setInk
     };
     async function acceptReference(token) {
       if (busy || activePointer || refPointer) throw new Error('轻绘正在操作中，请先完成当前操作后重试。');
@@ -1434,6 +1474,8 @@
       } catch (error) { notify(error); }
       url.searchParams.delete('reference'); try { history.replaceState(null, '', url.pathname + url.search + url.hash); } catch (_) {}
     }
+    initialized = true;
+    if (window.DrawingDesktop) await window.DrawingDesktop.ready();
   }
   initialize().catch(notify);
 })();

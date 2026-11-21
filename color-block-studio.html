@@ -837,7 +837,7 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
 </div>
 
 <script src="/assets/color-block-studio/study-core.js?v=20261120-1"></script>
-<script src="/assets/color-block-studio/studio-study.js?v=20261121-9"></script>
+<script src="/assets/color-block-studio/studio-study.js?v=20261121-10"></script>
 <script src="/assets/drawing-studio/bridge.js?v=20261121-9"></script>
 <script>
 /* ============================================================
@@ -1966,11 +1966,13 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
     });
   }
 
-  function downloadBlob(blob, filename) {
+  async function downloadBlob(blob, filename) {
+    var name = window.studioExportName() + filename.slice(filename.lastIndexOf('.'));
+    if (window.DrawingDesktop) return await window.DrawingDesktop.save(blob, name) ? name : false;
     var a = document.createElement('a');
     var url = URL.createObjectURL(blob);
     a.href = url;
-    a.download = window.studioExportName() + filename.slice(filename.lastIndexOf('.'));
+    a.download = name;
     a.style.display = 'none';
     document.body.appendChild(a);
     a.click();
@@ -2856,7 +2858,7 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
     return state.gray ? ('灰度' + state.palette.length + '级') : (state.palette.length + '色');
   }
 
-  function exportPNG() {
+  async function exportPNG() {
     if (study && study.inspect().showA) {
       toast('正在查看只读方案 A，请返回 B 后导出当前练习');
       return;
@@ -2865,14 +2867,11 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
       toast('先载入一张图片');
       return;
     }
-    els.resultCanvas.toBlob(function (blob) {
-      if (!blob) {
-        toast('导出失败');
-        return;
-      }
-      downloadBlob(blob, state.name + '_' + paletteLabel() + '_' + state.workW + 'x' + state.workH + '.png');
+    try {
+      var blob = await canvasToBlob(els.resultCanvas);
+      if (!await downloadBlob(blob, state.name + '_' + paletteLabel() + '_' + state.workW + 'x' + state.workH + '.png')) { toast('已取消导出'); return; }
       toast('已导出 ' + state.workW + '×' + state.workH + ' PNG');
-    }, 'image/png');
+    } catch (err) { toast('导出失败：' + (err && err.message ? err.message : String(err))); }
   }
 
   async function renderFullRes() {
@@ -2944,7 +2943,7 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
       paintLineMask(mask, ew, eh, out.data);
       ctx.putImageData(out, 0, 0);
       var blob = await canvasToBlob(c);
-      downloadBlob(blob, state.name + '_线条黑块_原图' + ew + 'x' + eh + '.png');
+      if (!await downloadBlob(blob, state.name + '_线条黑块_原图' + ew + 'x' + eh + '.png')) { toast('已取消导出'); return; }
       toast('已导出线条练习 ' + ew + '×' + eh);
     } catch (err) {
       console.error(err);
@@ -2964,7 +2963,7 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
       return;
     }
     if (Math.max(state.naturalW, state.naturalH) <= Math.max(state.workW, state.workH) + 1) {
-      exportPNG();
+      await exportPNG();
       return;
     }
     showBusy('正在按原图比例导出当前练习（长边上限 6000 px）…');
@@ -2973,7 +2972,7 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
     try {
       var res = await renderFullRes();
       var blob = await canvasToBlob(res.canvas);
-      downloadBlob(blob, state.name + '_' + paletteLabel() + '_原图' + res.w + 'x' + res.h + '.png');
+      if (!await downloadBlob(blob, state.name + '_' + paletteLabel() + '_原图' + res.w + 'x' + res.h + '.png')) { toast('已取消导出'); return; }
       var capped = res.w < state.naturalW || res.h < state.naturalH;
       toast('已导出 ' + res.w + '×' + res.h + (capped ? '（原图超 6000 px，按上限导出）' : ''));
     } catch (err) {
@@ -3171,7 +3170,7 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
     });
   }
 
-  function exportCard() {
+  async function exportCard() {
     if (!state.ready) {
       toast('先载入一张图片');
       return;
@@ -3181,14 +3180,11 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
       toast('还没有可导出的内容');
       return;
     }
-    c.toBlob(function (blob) {
-      if (!blob) {
-        toast('导出失败');
-        return;
-      }
-      downloadBlob(blob, state.name + '_' + paletteLabel() + '_参考卡.png');
+    try {
+      var blob = await canvasToBlob(c);
+      if (!await downloadBlob(blob, state.name + '_' + paletteLabel() + '_参考卡.png')) { toast('已取消导出'); return; }
       toast('参考卡已导出');
-    }, 'image/png');
+    } catch (err) { toast('导出失败：' + (err && err.message ? err.message : String(err))); }
   }
 
   /* ---------------- 保存（原图 / 线稿 / 色块） ---------------- */
@@ -3331,12 +3327,13 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
       }
       if (entries.length === 1) {
         var e = entries[0];
-        var savedName = downloadBlob(new Blob([e.data], { type: e.type || 'application/octet-stream' }), e.name);
+        var savedName = await downloadBlob(new Blob([e.data], { type: e.type || 'application/octet-stream' }), e.name);
+        if (!savedName) { toast('已取消保存'); return; }
         toast('已保存 ' + savedName);
       } else {
         var zipEntries = entries.map(function (x) { return { name: x.folder + '/' + zipSafe(x.name), data: x.data }; });
         var zipBlob = makeZipBlob(zipEntries);
-        downloadBlob(zipBlob, state.name + '_保存.zip');
+        if (!await downloadBlob(zipBlob, state.name + '_保存.zip')) { toast('已取消保存'); return; }
         toast('已保存 ' + entries.length + ' 项（ZIP）');
       }
     } catch (err) {
@@ -3776,7 +3773,8 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
           els.batchStatus.textContent = doneCount >= totalCount ? ('完成 ' + totalCount + ' 张，正在打包 ZIP…') : ('正在处理 ' + (doneCount + 1) + '/' + totalCount + '：' + (name || ''));
         }
       });
-      result.name = downloadBlob(result.zipBlob, result.name);
+      result.name = await downloadBlob(result.zipBlob, result.name);
+      if (!result.name) { els.batchStatus.textContent = '已取消保存 ZIP'; toast('已取消保存 ZIP'); return; }
       var skippedN = result.skipped ? result.skipped.length : 0;
       var summary = '批量完成：' + result.count + ' 张' + (skippedN ? ('，跳过 ' + skippedN + ' 张') : '') + '，已下载 ZIP（' + Math.max(1, Math.round(result.zipBytes.length / 1024)) + ' KB）';
       if (result.count === 0 && skippedN > 0) summary = '没有成功处理的图片（' + skippedN + ' 张读取失败），已下载说明文件';

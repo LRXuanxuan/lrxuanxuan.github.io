@@ -1,0 +1,41 @@
+轻绘 · Windows 桌面版 0.1.0
+================================
+
+适用系统：Windows 10 / 11，64位（x64）。
+
+使用安装版
+双击 lightdraw-0.1.0-windows-x64-setup.exe，按提示安装。
+它安装在当前用户目录，可从开始菜单或桌面快捷方式打开。
+缺少 Microsoft WebView2 Runtime 时，首次安装需要联网补装。
+
+使用免安装版
+解压 ZIP 后运行 Lightdraw.exe。需要电脑已有 WebView2 Runtime。
+应用的自动保存数据仍在当前Windows用户目录，不会跟随EXE或U盘移动。
+
+绘画与离线
+画板、笔刷、色卡、教学页和PDF组件已经随应用打包。
+安装所需运行环境准备好后，画画、导入本机图片/PDF、翻页和导出可离线使用。
+“小玩意”、配色来源和“查看新版”等外部链接仍需要联网，在系统浏览器打开。
+Wacom沿用数位笔压力输入；实际效果取决于驱动与Windows Ink设置。
+
+把网页上的画作带过来
+1. 在网页版点击“存工程”，保存 .lrxdraw 文件。
+2. 在桌面版点击“打开”，选择这个工程文件。
+桌面版与Chrome/Edge网页分别保存本机草稿，不会自动读取对方的数据。
+保存工程可保留图层、参考与参数；仅导出PNG/JPEG不包含这些编辑信息。
+
+保存
+“存工程”和图片导出会显示Windows保存对话框，成功写入后显示保存位置。
+主画窗退出前会尝试保存最后的修改。存储失败时保留窗口，方便先导出工程。
+重要画作请定期用“存工程”保存为独立文件。
+
+更新
+应用不会在后台下载更新。到下列页面下载新版安装包即可：
+https://lrxuanxuan.github.io/drawing-desktop.html
+
+这是未使用付费代码签名证书签名的个人项目版本。
+可从同一GitHub Release取得SHA256SUMS.txt核对文件；不需要关闭系统安全设置。
+
+代码、版本与许可
+https://github.com/LRXuanxuan/lrxuanxuan.github.io
+见随附 LICENSE、THIRD_PARTY_NOTICES.txt 和 PDF组件的上游许可。

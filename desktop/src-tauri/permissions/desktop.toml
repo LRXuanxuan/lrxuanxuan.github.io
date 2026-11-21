@@ -1,0 +1,14 @@
+[[permission]]
+identifier = "desktop-downloads"
+description = "Let bundled studio pages request a user-selected save destination for their own Blob downloads."
+commands.allow = ["prepare_download", "cancel_download"]
+
+[[permission]]
+identifier = "desktop-external-links"
+description = "Open validated HTTP(S) links in the system browser."
+commands.allow = ["open_external"]
+
+[[permission]]
+identifier = "desktop-lifecycle"
+description = "Let the main drawing page acknowledge startup and finish a saved close request."
+commands.allow = ["desktop_ready", "finish_close"]

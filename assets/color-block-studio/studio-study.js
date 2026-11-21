@@ -435,7 +435,7 @@
         h.showBusy('正在导出当前练习…');
         try {
           var result = await renderFullRes();
-          h.downloadBlob(await h.canvasToBlob(result.canvas), s.name + '_' + names[mode] + '_' + result.w + 'x' + result.h + '.png');
+          if (!await h.downloadBlob(await h.canvasToBlob(result.canvas), s.name + '_' + names[mode] + '_' + result.w + 'x' + result.h + '.png')) { h.toast('已取消导出'); return; }
           h.toast('已按原图比例导出，保留当前取舍');
         } catch (err) { h.toast('导出失败：' + err.message); } finally { h.hideBusy(); }
       }
