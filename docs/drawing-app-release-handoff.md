@@ -6,9 +6,9 @@
 
 - **唯一代码仓库**：[LRXuanxuan/lrxuanxuan.github.io](https://github.com/LRXuanxuan/lrxuanxuan.github.io)，默认分支 `main`。网页版 `drawing-studio.html`、`color-block-studio.html` 与 `assets/drawing-studio/` 是**三个平台共同使用的绘画实现**；绝不为 Windows / Android 复制第二套画板。
 - **Windows 桌面版：已发布的基线为 0.1.2。** GitHub Release [`lightdraw-v0.1.2`](https://github.com/LRXuanxuan/lrxuanxuan.github.io/releases/tag/lightdraw-v0.1.2)，标签指向固定提交 `d21f7958b75de70d2a15dc6c101b06fbcc4f5c70`。下载页 [`/drawing-desktop/`](https://lrxuanxuan.github.io/drawing-desktop/) 指向这一版的 NSIS 安装 EXE、免安装 ZIP 和 SHA-256 校验清单。发行还包含独立 EXE。平台：Windows 10/11 x64；Tauri 2 + 系统 WebView2。Windows 安装包本身不代表已进行 Windows 代码签名。
-- **Android：当前源码版本为 0.1.0（`versionCode=1`）。** `android/app/build.gradle` 中 `applicationId=io.github.lrxuanxuan.lightdraw`，`minSdk=26`，`targetSdk=36`。此前会话曾制作已签名的 0.1.0 APK、SHA-256 清单和**私密签名备份**，但**本仓库和这份交接文件都不包含这些二进制文件或签名密钥**。不能凭此条声称签名 APK 已有永久公开下载链接；在下一次升级前，应先确认用户手中的正式 APK 和原始签名备份仍可取得。
-- **源码与安装包的区别：** Git 仓库保存可修改源码及构建脚本；Windows 已发布的安装文件存 GitHub Release；Android CI 暂时只产生未签名 release APK，Actions artifact 保留 **14 天**，不能视作长期备份。用户保存的私密签名备份是另一个不可替代的资产。
-- 截至本记录，`main` 比 Windows 0.1.2 发行标签前进了两个提交，主要涉及 Android 测试及下载页等；后续修改应从**最新 main** 开始，而不是退回 0.1.2 发行标签再丢弃新变更。
+- **Android：当前主分支源码版本为 0.1.1（`versionCode=2`），尚需正式签名与发布核验。** `android/app/build.gradle` 中 `applicationId=io.github.lrxuanxuan.lightdraw`，`minSdk=26`，`targetSdk=36`。此前会话曾制作已签名的 0.1.0 APK、SHA-256 清单和**私密签名备份**，但**本仓库和这份交接文件都不包含这些二进制文件或签名密钥**。不能凭此条声称签名 APK 已有永久公开下载链接；在下一次升级前，应先确认用户手中的正式 APK 和原始签名备份仍可取得。
+- **源码与安装包的区别：** Git 仓库保存可修改源码及构建脚本；Windows 已发布的安装文件存 GitHub Release，目前主分支已将 Windows 源码版本提升到 0.1.3，尚未核实对应正式 Release；Android CI 暂时只产生未签名 release APK，Actions artifact 保留 **14 天**，不能视作长期备份。用户保存的私密签名备份是另一个不可替代的资产。
+- 2026-11-22 已检视到**数位笔优先输入分流**：网页版新增默认开启的「画笔仅限数位笔」，鼠标左键在画笔模式改为平移；鼠标仍可使用其他编辑工具，手指绘画另有开关。Windows 源码版本 0.1.3 和 Android 源码版本 0.1.1 已纳入此功能与测试；这**不意味着对应原生安装包已经发行**。新会话应从**最新 main** 开始，避免回退或丢掉其他新修改。
 
 ## 二、文件与构建入口
 
@@ -31,8 +31,8 @@
 1. 先读取本页、`AGENTS.md`、`docs/drawing-studio.md` 和两个平台的详细文档，再检查 `main` 最新提交、版本号、构建工作流及 GitHub Release。始终保留用户既有项目、图层、签名和存储约定。
 2. 只修改共同前端一次；必要时再分别调整 `desktop/` 或 `android/` 的原生适配。网页版完成部署 **不代表** 已安装的 Windows/Android 程序自动更新。
 3. 运行相关 Node/Canvas 像素、图层、填充、工程保存、原生消息合同测试，之后运行 Windows CI 启动检查与 Android 模拟器测试。**不可把自动化检查写成真实设备、数位板或触控笔验收。**
-4. 发布新版 Windows：从 0.1.2 递增到尚未占用的版本；同步 `desktop/package.json`、`desktop/src-tauri/Cargo.toml`、`desktop/src-tauri/tauri.conf.json`、关联锁文件/使用说明/网页下载入口。构建并核验 NSIS 安装包、独立 EXE、免安装 ZIP 和 SHA-256，再发布**新** `lightdraw-vX.Y.Z` 标签，不覆盖旧 Release。必要时用 workflow_dispatch 启动构建（仅改共享资源不一定触发 Windows 的路径过滤）。
-5. 发布新版 Android：先核验原签名备份；`versionName` 递增到未用版本、`versionCode` **严格大于 1**，保留 `applicationId`。CI 构建/验证 unsigned APK，必须在安全环境用**同一把长期正式签名密钥**签名，执行签名验证、应用 ID/版本核查及覆盖升级测试，再交付/发布已签名 APK 与 SHA-256。**没有旧密钥就暂停覆盖升级方案**，不能换成调试签名或新签名假称可覆盖安装。
+4. 发布新版 Windows：核对已发行 0.1.2 和主分支待发布的 0.1.3，使用尚未占用的版本；同步 `desktop/package.json`、`desktop/src-tauri/Cargo.toml`、`desktop/src-tauri/tauri.conf.json`、关联锁文件/使用说明/网页下载入口。构建并核验 NSIS 安装包、独立 EXE、免安装 ZIP 和 SHA-256，再发布**新** `lightdraw-vX.Y.Z` 标签，不覆盖旧 Release。必要时用 workflow_dispatch 启动构建（仅改共享资源不一定触发 Windows 的路径过滤）。
+5. 发布新版 Android：先核验原签名备份；主分支暂为 `0.1.1` / `versionCode 2`，发布前须核对已分发的正式 APK，确保新版本的 `versionCode` **严格大于实际安装版本**，保留 `applicationId`。CI 构建/验证 unsigned APK，必须在安全环境用**同一把长期正式签名密钥**签名，执行签名验证、应用 ID/版本核查及覆盖升级测试，再交付/发布已签名 APK 与 SHA-256。**没有旧密钥就暂停覆盖升级方案**，不能换成调试签名或新签名假称可覆盖安装。
 6. 每次真正确认发布成功后，回写本页：平台版本、源码提交 SHA、Release 或私密交付位置、产物 SHA-256、签名证书指纹（仅公开证书指纹、绝不公开密钥）、关键验证证据及仍未实测的部分。
 
 ## 四、必须保留的兼容性和隐私边界
