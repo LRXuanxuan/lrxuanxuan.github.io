@@ -92,3 +92,14 @@ Rust 在 `finish_close` 再检查所有窗口的待选路径和正在下载项�
 原生 API/发行策略依据：[Tauri Windows 安装程序](https://v2.tauri.app/distribute/windows-installer/)、
 [WebviewWindowBuilder](https://docs.rs/tauri/2.12.7/tauri/webview/struct.WebviewWindowBuilder.html)、
 [Tauri GitHub Actions](https://v2.tauri.app/distribute/pipelines/github/)。
+
+
+
+## 0.1.1 前端同步
+
+用户要求 EXE 同步归纳练习室最新的左上角 logo。0.1.1 继续复用现有
+网页源码，包含单 SVG logo 的单格布局修正以及本轮手机和平板界面微调。
+应用 identifier、数据目录、文件格式和原生保存流程保持一致。
+
+安装版、独立 EXE 和免安装 ZIP 按新版本构建，不替换已发布的 0.1.0。
+网站下载入口只在新版本发布并核对资产后切换到 0.1.1。

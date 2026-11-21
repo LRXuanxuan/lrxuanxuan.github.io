@@ -33,7 +33,8 @@ android {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
-    sourceSets.main.assets.srcDir(layout.buildDirectory.dir('generated/lightdrawAssets'))
+    // AGP 9 rejects Providers in SourceSet; preBuild below wires generation explicitly.
+    sourceSets.main.assets.srcDir(layout.buildDirectory.dir('generated/lightdrawAssets').get().asFile)
     packaging.resources.excludes += ['META-INF/DEPENDENCIES']
     lint { abortOnError true }
 }
