@@ -91,3 +91,7 @@ html[data-theme=dark] #exportOpen { background: #a5c9dc; border-color: #a5c9dc; 
   .hide-settings-label { display: inline; }
   #hideSettings { width: auto; padding: 4px 9px; font-size: 12px; }
 }
+@media (pointer: coarse) and (max-width: 1440px) {
+  #showReference, #hideReference, #showSettings { min-height: 36px; }
+  #referencePanel, .settings-scroll { overscroll-behavior: contain; }
+}

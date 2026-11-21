@@ -559,16 +559,17 @@
         $('studyFit').addEventListener('click', function () { zoom = 1; panX = panY = 0; panEnabled = false; fitCanvas(); syncControls(); $('studyPan').setAttribute('aria-pressed', 'false'); });
         $('studyPan').addEventListener('click', function () { panEnabled = !panEnabled; this.setAttribute('aria-pressed', String(panEnabled)); syncControls(); });
         var panel = $('panel'), panelToggle = $('studyTogglePanel');
-        panel.hidden = false; document.body.classList.remove('study-sidebar-collapsed');
-        panelToggle.setAttribute('aria-controls', 'panel');
-        panelToggle.setAttribute('aria-expanded', 'true'); panelToggle.textContent = '收起侧栏';
-        panelToggle.addEventListener('click', function () {
-          var collapsed = !panel.hidden;
+        var compactPanel = window.matchMedia('(max-width: 1024px), (max-width: 1440px) and (pointer: coarse)');
+        function setPanelCollapsed(collapsed) {
           panel.hidden = collapsed; document.body.classList.toggle('study-sidebar-collapsed', collapsed);
           panelToggle.setAttribute('aria-expanded', String(!collapsed));
           panelToggle.textContent = collapsed ? '展开侧栏' : '收起侧栏';
           requestAnimationFrame(fitCanvas);
-        });
+        }
+        panelToggle.setAttribute('aria-controls', 'panel');
+        setPanelCollapsed(compactPanel.matches);
+        compactPanel.addEventListener?.('change', function (event) { if (event.matches) setPanelCollapsed(true); });
+        panelToggle.addEventListener('click', function () { setPanelCollapsed(!panel.hidden); });
         e.canvasWrap.addEventListener('pointerdown', pointerDown, true);
         e.canvasWrap.addEventListener('pointermove', pointerMove);
         e.canvasWrap.addEventListener('pointerup', pointerUp);

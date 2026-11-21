@@ -2,6 +2,7 @@
 (function () {
   'use strict';
   const $ = id => document.getElementById(id);
+  const compactReference = window.matchMedia('(max-width: 1024px), (max-width: 1440px) and (pointer: coarse)');
   const all = selector => Array.from(document.querySelectorAll(selector));
   const Core = window.DrawingCore, Marks = window.DrawingMarks, Strokes = window.DrawingStrokeRecords;
   const MAX_PIXELS = 12000000, LAYER_PIXELS = 36000000, MAX_LAYERS = 16;
@@ -1427,17 +1428,13 @@
       const bounds = referenceSplitter ? referenceSplitter.getBounds() : { min: 220, max: 640 }; $('referenceWidth').min = bounds.min; $('referenceWidth').max = bounds.max; $('referenceWidth').value = width;
     } });
     referenceSplitter.refresh(); updateMaterialUI();
-    if (window.innerWidth <= 900) document.body.classList.add('settings-hidden');
-    if (window.innerWidth <= 650) document.body.classList.add('reference-hidden');
-    $('showSettings').setAttribute('aria-pressed', String(window.innerWidth > 900)); $('showReference').setAttribute('aria-pressed', String(window.innerWidth > 650));
-    for (const [limit, panel] of [[900, 'settings'], [650, 'reference']]) {
-      const media = window.matchMedia('(max-width: ' + limit + 'px)');
-      media.addEventListener?.('change', event => {
-        if (event.matches) {
-          document.body.classList.add(panel + '-hidden');
-          $(panel === 'reference' ? 'showReference' : 'showSettings').setAttribute('aria-pressed', 'false');
-        }
-      });
+    for (const [media, panel, button] of [
+      [compactReference, 'reference', $('showReference')],
+      [window.matchMedia('(max-width: 900px)'), 'settings', $('showSettings')]
+    ]) {
+      const hide = () => { document.body.classList.add(panel + '-hidden'); button.setAttribute('aria-pressed', 'false'); };
+      if (media.matches) hide();
+      media.addEventListener?.('change', event => { if (event.matches) hide(); });
     }
     referenceChanged(false); fit();
     await work(async () => {
@@ -1462,7 +1459,8 @@
       await work(async () => {
         const bundle = await window.DrawingBridge.take(token);
         await ref.loadBundle(bundle);
-        togglePanel('reference', true); fitReference(); status('已接收练习室参考 · 点色卡就能开始画');
+        if (!compactReference.matches) togglePanel('reference', true);
+        fitReference(); status(document.body.classList.contains('reference-hidden') ? '已收到参考 · 点「参考」查看' : '已接收练习室参考 · 点色卡就能开始画');
       }, '正在接收练习室参考…');
     }
     window.DrawingBridge.setReceiver(acceptReference);
