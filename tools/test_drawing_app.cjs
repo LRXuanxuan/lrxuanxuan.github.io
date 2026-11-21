@@ -706,7 +706,7 @@ async function main() {
   await test('Preset matching methods and five unlabeled line colors work across palette brands', async () => {
     await fresh();
     assert.equal(doc.getElementById('swatchSearch'), null, 'The withdrawn swatch search is not left in the UI');
-    const colorPresets = new Set(['sketch12-set', 'sketch36-set', 'sketchcomic24-set', 'sketch-chart', 'supervision-artists50', 'supervision-gray60', 'holbein-yufuko12', 'holbein-nanakami12', 'holbein-lemon12', 'pilot-iroshizuku30']);
+    const colorPresets = new Set(['sketch12-set', 'sketch36-set', 'sketchcomic24-set', 'sketch-chart', 'supervision-artists50', 'supervision-gray60', 'supervision-cinema60', 'holbein-yufuko12', 'holbein-nanakami12', 'holbein-lemon12', 'pilot-iroshizuku30']);
     doc.querySelector('[data-palette-layout="compact"]').click();
     for (const preset of win.DrawingPalettes) {
       select('palettePreset', preset.id); await settle();
@@ -731,7 +731,7 @@ async function main() {
     for (const [name, first] of [['莫奈', 121], ['穆夏', 141]]) {
       const colors = win.DrawingPalettes.find(p => p.id === 'supervision-artists50').groups.find(g => g.name === name).swatches;
       const buttons = Array.from(element('presetSwatches').querySelectorAll('button'));
-      assert.deepEqual(colors.map(c => c.code), Array.from({ length: 10 }, (_, i) => String(first + i)));
+      assert.deepEqual(Array.from(colors, c => c.code), Array.from({ length: 10 }, (_, i) => String(first + i)));
       assert.equal(new Set(colors.map(c => c.hex)).size, 10, 'Each numbered swatch stays independently selectable');
       for (const color of [colors[0], colors[9]]) {
         const button = buttons.find(button => button.textContent === color.code && button.dataset.color === color.hex);
@@ -764,7 +764,7 @@ async function main() {
         assert.ok(reference.querySelector('[data-color="' + hex + '"]'), 'Reference summary always retains ' + hex);
       }
     }
-    for (const [id, groupCount, menu] of [['supervision-artists50', 5, 'palettePreset'], ['supervision-gray60', 6, 'referenceCopicPreset']]) {
+    for (const [id, groupCount, menu] of [['supervision-artists50', 5, 'palettePreset'], ['supervision-gray60', 6, 'referenceCopicPreset'], ['supervision-cinema60', 6, 'palettePreset']]) {
       const preset = win.DrawingPalettes.find(item => item.id === id);
       assert.ok(preset, 'Missing Super Vision preset ' + id);
       select(menu, id); await settle();
@@ -784,6 +784,11 @@ async function main() {
       assert.equal(library.querySelectorAll('.marker-row > span').length, 0, 'Compact mode has no group breaks');
       assert.deepEqual(order(library), groupedOrder, 'Switching layout preserves original color order');
       checkColumnsAndBasics(5);
+      for (const color of [preset.swatches[0], preset.swatches.at(-1)]) {
+        const button = Array.from(library.querySelectorAll('button')).find(button => button.textContent === color.code && button.dataset.color === color.hex);
+        assert.ok(button, 'Displayed source-order swatches remain selectable: ' + id + ' ' + color.code);
+        button.click(); assert.equal(element('inkColor').value, color.hex);
+      }
     }
     doc.querySelector('[data-ref-mode="original"]').click(); await settle();
     assert.equal(reference.classList.contains('copic-swatches'), false);

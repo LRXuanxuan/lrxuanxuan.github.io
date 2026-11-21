@@ -1,6 +1,6 @@
-/* Super Vision watercolor sets. Display RGB is sampled from flat color blocks
-   in published product charts; it is not manufacturer-specified RGB.
-   Monet/Mucha numbers are user-assigned display indices, not verified factory codes.
+/* Super Vision watercolor sets. Display RGB is sampled from product charts
+   and photographed paper swatches; it is not manufacturer-specified RGB.
+   Monet/Mucha and cinema numbers are display indices, not verified factory codes.
    Sources and limitations: docs/drawing-supervision-palettes.md. */
 (function (root) {
   'use strict';
@@ -19,6 +19,14 @@
       ["风韵雅宋", "031:ccb5bd|032:b8c7ca|033:a0c3bd|034:caa378|035:796c5b|036:a56d76|037:8a9aa7|038:cabe6a|039:e4dad9|040:864e73"],
       ["落日旅行", "041:63718b|042:73698c|043:76546d|044:4f3b57|045:7f3b3c|046:b55b52|047:df9280|048:f0c382|049:d3996b|050:825341"],
       ["长安宫乐", "051:8c1d23|052:540b16|053:e88f29|054:f6e07b|055:d75531|056:5d3619|057:166063|058:4c8274|059:0b2f3d|060:22140b"]
+    ]],
+    ["supervision-cinema60", "电影 60 色", "6 个十色系列 · 01–60", [
+      ["致爱丽丝", "01:a68692|02:9c81cf|03:7380e5|04:d68eba|05:db89bb|06:f88870|07:fc5530|08:7184a0|09:70c4ec|10:02c6c4"],
+      ["妖猫物语", "11:b9c8e6|12:018fcf|13:816caa|14:8d72c3|15:dc6a93|16:f0175a|17:f26e3b|18:f14a4f|19:d87c1c|20:3ed2aa"],
+      ["风林火山", "21:fa85c6|22:fc6ba6|23:f59e9f|24:f0b774|25:959de8|26:9a56b5|27:c454ac|28:1bcee1|29:90e0b7|30:dbf0ad"],
+      ["赛博朋克", "31:5ce6da|32:96f9ad|33:22d7d8|34:6759fb|35:fa55e3|36:fa90cf|37:b6298a|38:7b3eb3|39:d54878|40:fc96c8"],
+      ["坠入", "41:01a3b8|42:6492ba|43:f6aba8|44:fd6e69|45:f65c5f|46:b04d87|47:502f77|48:d42d45|49:fc9e04|50:efe001"],
+      ["回到未来", "51:dbd6a6|52:f97903|53:fe71cc|54:f07276|55:dd8035|56:d89d5f|57:b4715b|58:bfd995|59:87d1c9|60:73b298"]
     ]]
   ];
   const source = 'https://github.com/LRXuanxuan/lrxuanxuan.github.io/blob/main/docs/drawing-supervision-palettes.md';
@@ -28,7 +36,7 @@
       swatches: entries.split('|').map(entry => {
         const [code, rgb] = entry.split(':');
         return { code: code || family, name: family,
-          originalCode: (family === '莫奈' || family === '穆夏') ? null : (code || null), family: family, hex: '#' + rgb };
+          originalCode: (id === 'supervision-cinema60' || family === '莫奈' || family === '穆夏') ? null : (code || null), family: family, hex: '#' + rgb };
       })
     }));
     const swatches = groups.flatMap(group => group.swatches);

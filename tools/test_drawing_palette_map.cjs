@@ -28,19 +28,23 @@ test('Four requested sets use color; specialty sets use lightness and all keep f
   }
 });
 
-test('Super Vision preserves ten-color series, user-numbered Monet/Mucha colors and leading zeros', () => {
+test('Super Vision preserves ten-color series, assigned display numbers and leading zeros', () => {
   const artist = palettes.find(p => p.id === 'supervision-artists50');
   const gray = palettes.find(p => p.id === 'supervision-gray60');
+  const cinema = palettes.find(p => p.id === 'supervision-cinema60');
   assert.deepEqual(Array.from(artist.groups, g => g.name), ['葛饰北斋', '莫兰迪', '莫奈', '梵高', '穆夏']);
   assert.deepEqual(Array.from(gray.groups, g => g.name), ['棉花糖', '普罗旺斯', '仲夏游园', '风韵雅宋', '落日旅行', '长安宫乐']);
+  assert.deepEqual(Array.from(cinema.groups, g => g.name), ['致爱丽丝', '妖猫物语', '风林火山', '赛博朋克', '坠入', '回到未来']);
   assert.deepEqual(Array.from(gray.swatches, c => c.code), Array.from({ length: 60 }, (_, i) => String(i + 1).padStart(3, '0')));
+  assert.deepEqual(Array.from(cinema.swatches, c => c.code), Array.from({ length: 60 }, (_, i) => String(i + 1).padStart(2, '0')));
+  assert.ok(cinema.groups.every(g => g.swatches.every(c => c.name === g.name && c.originalCode === null)), 'Cinema labels are simple display numbers in their source series');
   assert.equal(artist.swatches.filter(c => c.originalCode === null).length, 20);
   for (const [name, first] of [['莫奈', 121], ['穆夏', 141]]) {
     const group = artist.groups.find(g => g.name === name);
     assert.deepEqual(Array.from(group.swatches, c => c.code), Array.from({ length: 10 }, (_, i) => String(first + i)));
     assert.ok(group.swatches.every(c => c.name === name && c.originalCode === null), 'Assigned display numbers are not asserted as verified factory codes');
   }
-  for (const [p, count] of [[artist, 50], [gray, 60]]) {
+  for (const [p, count] of [[artist, 50], [gray, 60], [cinema, 60]]) {
     assert.equal(p.category, '视爵水彩'); assert.equal(p.columns, 5);
     assert.equal(p.swatches.length, count);
     assert.ok(p.groups.every(g => g.swatches.length === 10));
