@@ -6,7 +6,7 @@
   if (root) root.DrawingMarks = api;
 })(typeof window !== 'undefined' ? window : typeof self !== 'undefined' ? self : null, function () {
   'use strict';
-  var KINDS = ['none', 'solid', 'horizontal', 'vertical', 'diagonal', 'crosshatch', 'dots', 'checker', 'paper', 'stipple', 'weave', 'riso-sparse', 'riso-medium', 'riso-dense', 'riso-wet-light', 'riso-wet-medium', 'riso-wet-dense', 'linear', 'radial', 'reflected'];
+  var KINDS = ['none', 'solid', 'horizontal', 'vertical', 'diagonal', 'crosshatch', 'dots', 'sprinkles', 'checker', 'paper', 'stipple', 'weave', 'riso-sparse', 'riso-medium', 'riso-dense', 'riso-wet-light', 'riso-wet-medium', 'riso-wet-dense', 'linear', 'radial', 'reflected'];
   var FONTS = 'system-ui, "Microsoft YaHei", "PingFang SC", sans-serif';
   var tiles = new Map();
   var risoField, risoWetField;
@@ -53,7 +53,21 @@
   }
   function hasPaint(style) { return styleObject(style).kind !== 'none'; }
 
-  function speckledTile(ctx, kind, side, cell, line) {
+  // Indexed noise keeps each mark fixed while colors or variation amounts change.
+  function markNoise(index, channel) {
+    var n = Math.imul(index + 1, 0x45d9f3b) ^ Math.imul(channel + 2027, 0x27d4eb2d);
+    n = Math.imul(n ^ (n >>> 16), 0x85ebca6b);
+    n = Math.imul(n ^ (n >>> 13), 0xc2b2ae35);
+    return ((n ^ (n >>> 16)) >>> 0) / 4294967296;
+  }
+  function markScale(index, amount) { return 1 + (markNoise(index, 1) * 2 - 1) * 0.55 * amount; }
+  function wrapMark(ctx, side, x, y, pad, paint) {
+    for (var dx = -side; dx <= side; dx += side) for (var dy = -side; dy <= side; dy += side) {
+      if (x + dx + pad < 0 || x + dx - pad > side || y + dy + pad < 0 || y + dy - pad > side) continue;
+      ctx.save(); ctx.translate(x + dx, y + dy); paint(); ctx.restore();
+    }
+  }
+  function speckledTile(ctx, kind, side, cell, line, palette, sizeVariation, shapeVariation) {
     var seed = 2027;
     function random() { seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0; return seed / 4294967296; }
     var count = Math.round(side / cell);
@@ -63,7 +77,15 @@
         var x = (col + random()) * cell, y = (row + random()) * cell;
         var radius = Math.min(cell * 0.4, line * (0.22 + 0.42 * random()));
         var rx = kind === 'paper' ? radius * 1.7 : radius, ry = kind === 'paper' ? radius * 0.38 : radius;
-        var angle = random() - 0.5, pad = Math.max(rx, ry);
+        var angle = random() - 0.5;
+        if (palette) {
+          var index = (row * count + col) * grains + i, scale = markScale(index, sizeVariation);
+          var aspect = (markNoise(index, 2) * 2 - 1) * 0.38 * shapeVariation;
+          rx *= scale * (1 + aspect); ry *= scale * (1 - aspect);
+          angle += (markNoise(index, 3) * 2 - 1) * shapeVariation;
+          ctx.fillStyle = palette[index % palette.length];
+        }
+        var pad = Math.max(rx, ry);
         ctx.globalAlpha = kind === 'paper' ? 0.12 + 0.33 * random() : 0.68 + 0.32 * random();
         // Wrap clipped flecks at the opposite edge so repeats have no seam.
         var xs = x < pad ? [x, x + side] : x > side - pad ? [x, x - side] : [x];
@@ -171,6 +193,103 @@
     }
   }
 
+  // These small periodic tiles are used only for multi-color or varied patterns.
+  // The original single-color, zero-variation branch below remains unchanged.
+  function variedTile(ctx, kind, side, cells, line, palette, sizeVariation, shapeVariation) {
+    var cell = side / cells, tau = Math.PI * 2;
+    function ink(index) { return palette[index % palette.length]; }
+    function wave(index, position) {
+      return cell * 0.13 * shapeVariation * Math.sin(tau * position / side + tau * markNoise(index, 4));
+    }
+    function stripe(vertical, index, start, end, center, width, wrap) {
+      ctx.fillStyle = ctx.strokeStyle = ink(index);
+      ctx.lineWidth = width; ctx.lineCap = 'butt'; ctx.lineJoin = 'round';
+      for (var offset = wrap ? -side : 0; offset <= (wrap ? side : 0); offset += side) {
+        if (!shapeVariation) {
+          if (vertical) ctx.fillRect(center + offset - width / 2, start, width, end - start);
+          else ctx.fillRect(start, center + offset - width / 2, end - start, width);
+        } else {
+          ctx.beginPath();
+          var steps = Math.max(3, Math.ceil((end - start) / cell * 5));
+          for (var j = 0; j <= steps; j++) {
+            var along = start + (end - start) * j / steps, across = center + offset + wave(index, along);
+            var px = vertical ? across : along, py = vertical ? along : across;
+            if (!j) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+          }
+          ctx.stroke();
+        }
+      }
+    }
+    if (kind === 'horizontal' || kind === 'vertical' || kind === 'crosshatch') {
+      for (var i = 0; i < cells; i++) {
+        if (kind !== 'vertical') stripe(false, i, -cell, side + cell, i * cell, line * markScale(i, sizeVariation), true);
+        if (kind !== 'horizontal') stripe(true, i + cells, -cell, side + cell, i * cell, line * markScale(i + cells, sizeVariation), true);
+      }
+      return;
+    }
+    if (kind === 'paper' || kind === 'stipple') {
+      speckledTile(ctx, kind, side, cell, line, palette, sizeVariation, shapeVariation); return;
+    }
+    for (var row = 0; row < cells; row++) for (var col = 0; col < cells; col++) {
+      var index = row * cells + col, scale = markScale(index, sizeVariation);
+      var x = (col + 0.5) * cell, y = (row + 0.5) * cell;
+      ctx.fillStyle = ctx.strokeStyle = ink(index);
+      if (kind === 'dots') {
+        var radius = line / 2 * scale, aspect = (markNoise(index, 2) * 2 - 1) * 0.38 * shapeVariation;
+        var rx = radius * (1 + aspect), ry = radius * (1 - aspect), angle = tau * markNoise(index, 3);
+        wrapMark(ctx, side, x, y, Math.max(rx, ry), function () {
+          ctx.beginPath(); ctx.ellipse(0, 0, rx, ry, angle, 0, tau); ctx.fill();
+        });
+      } else if (kind === 'sprinkles') {
+        x += (markNoise(index, 5) * 2 - 1) * cell * 0.4;
+        y += (markNoise(index, 6) * 2 - 1) * cell * 0.4;
+        var width = line * scale, length = Math.min(line * 2.6, cell * 0.68) * scale;
+        length *= 1 + (markNoise(index, 2) * 2 - 1) * 0.35 * shapeVariation;
+        var bend = length * (markNoise(index, 3) * 2 - 1) * 0.28 * shapeVariation;
+        var turn = tau * markNoise(index, 7);
+        wrapMark(ctx, side, x, y, length / 2 + width / 2 + Math.abs(bend), function () {
+          ctx.rotate(turn); ctx.lineWidth = width; ctx.lineCap = 'round';
+          ctx.beginPath(); ctx.moveTo(-length / 2, 0); ctx.quadraticCurveTo(0, bend, length / 2, 0); ctx.stroke();
+        });
+      } else if (kind === 'checker') {
+        if ((row + col) % 2) continue;
+        ctx.fillStyle = ink((row * cells + col) / 2 | 0);
+        var half = cell / 2 * (1 + (scale - 1) * 0.55), corner = shapeVariation * 0.22, points = [];
+        for (var v = 0; v < 4; v++) {
+          points.push([(v === 0 || v === 3 ? -half : half) + (markNoise(index, 10 + v * 2) * 2 - 1) * cell * 0.10 * shapeVariation,
+            (v < 2 ? -half : half) + (markNoise(index, 11 + v * 2) * 2 - 1) * cell * 0.10 * shapeVariation]);
+        }
+        wrapMark(ctx, side, x, y, half + cell * 0.15, function () {
+          if (!shapeVariation) { ctx.fillRect(-half, -half, half * 2, half * 2); return; }
+          ctx.beginPath();
+          for (var j = 0; j < 4; j++) {
+            var prev = points[(j + 3) % 4], here = points[j], next = points[(j + 1) % 4];
+            var ax = here[0] + (prev[0] - here[0]) * corner, ay = here[1] + (prev[1] - here[1]) * corner;
+            if (!j) ctx.moveTo(ax, ay); else ctx.lineTo(ax, ay);
+            ctx.quadraticCurveTo(here[0], here[1], here[0] + (next[0] - here[0]) * corner, here[1] + (next[1] - here[1]) * corner);
+          }
+          ctx.closePath(); ctx.fill();
+        });
+      } else if (kind === 'weave') {
+        var horizontal = Math.min(cell * 0.68, line * markScale(row, sizeVariation));
+        var vertical = Math.min(cell * 0.68, line * markScale(col + cells, sizeVariation));
+        var gapX = Math.min(cell * 0.46, vertical / 2 + Math.max(0.65, vertical * 0.36));
+        var gapY = Math.min(cell * 0.46, horizontal / 2 + Math.max(0.65, horizontal * 0.36));
+        var crossX = clamp(x + wave(col + cells, y), col * cell + gapX, (col + 1) * cell - gapX);
+        var crossY = clamp(y + wave(row, x), row * cell + gapY, (row + 1) * cell - gapY);
+        if ((row + col) % 2) {
+          stripe(true, col + cells, row * cell, (row + 1) * cell, x, vertical, false);
+          stripe(false, row, col * cell, crossX - gapX, y, horizontal, false);
+          stripe(false, row, crossX + gapX, (col + 1) * cell, y, horizontal, false);
+        } else {
+          stripe(false, row, col * cell, (col + 1) * cell, y, horizontal, false);
+          stripe(true, col + cells, row * cell, crossY - gapY, x, vertical, false);
+          stripe(true, col + cells, crossY + gapY, (row + 1) * cell, x, vertical, false);
+        }
+      }
+    }
+  }
+
   /**
    * Coordinates/spacing/thickness are LOCAL canvas pixels. Pass the same bounds
    * for each preview/commit. Linear angle 0 points right, 90 points down; radial
@@ -201,27 +320,41 @@
 
     var spacing = clamp(number(style.spacing, 14), 2, 256), thickness = clamp(number(style.thickness, 2), 0.25, spacing);
     var base = kind === 'diagonal' ? 'horizontal' : kind, riso = kind.indexOf('riso-') === 0;
+    var palette = [];
+    if (!riso && Array.isArray(style.colors)) style.colors.slice(0, 6).forEach(function (entry) {
+      var selected = color(ctx, entry, fg); if (palette.indexOf(selected) < 0) palette.push(selected);
+    });
+    if (!palette.length) palette = [fg];
+    fg = palette[0];
+    var sizeVariation = riso ? 0 : clamp(number(style.variationSize, 0), 0, 1);
+    var shapeVariation = riso ? 0 : clamp(number(style.variationShape, 0), 0, 1);
+    var varied = !riso && (base === 'sprinkles' || palette.length > 1 || sizeVariation > 0 || shapeVariation > 0);
     var cells = base === 'checker' || base === 'weave' ? 2 : base === 'paper' || base === 'stipple' ? 6 : 1;
-    var key = JSON.stringify([base, fg, bg, !!style.transparentBackground, spacing, thickness]);
+    if (varied) cells = base === 'paper' || base === 'stipple' || base === 'sprinkles' ? 6 :
+      Math.max(sizeVariation || shapeVariation ? 6 : 1, palette.length * (base === 'checker' || base === 'weave' ? 2 : 1));
+    var key = JSON.stringify([base, fg, bg, !!style.transparentBackground, spacing, thickness, palette, sizeVariation, shapeVariation]);
     var tile = tiles.get(key);
     if (!tile) {
       var side = riso ? 256 : clamp(Math.ceil(spacing * cells), 2, 256), cell = side / cells, unit = cell / spacing;
       tile = newCanvas(ctx, side, side); var tc = tile.getContext('2d');
       if (!riso && !style.transparentBackground) { tc.fillStyle = bg; tc.fillRect(0, 0, side, side); }
       tc.fillStyle = fg; var line = thickness * unit;
-      // Repeat boundary-centered stripes, so neighboring tiles meet seamlessly.
-      if (base === 'horizontal' || base === 'crosshatch') { tc.fillRect(0, -line / 2, side, line); tc.fillRect(0, side - line / 2, side, line); }
-      if (base === 'vertical' || base === 'crosshatch') { tc.fillRect(-line / 2, 0, line, side); tc.fillRect(side - line / 2, 0, line, side); }
-      if (base === 'dots') { tc.beginPath(); tc.arc(side / 2, side / 2, line / 2, 0, Math.PI * 2); tc.fill(); }
-      if (base === 'checker') { tc.fillRect(0, 0, cell, cell); tc.fillRect(cell, cell, cell, cell); }
-      if (base === 'weave') wovenTile(tc, cell, line);
-      if (base === 'paper' || base === 'stipple') speckledTile(tc, base, side, cell, line);
+      if (varied) variedTile(tc, base, side, cells, line, palette, sizeVariation, shapeVariation);
+      else {
+        // Repeat boundary-centered stripes, so neighboring tiles meet seamlessly.
+        if (base === 'horizontal' || base === 'crosshatch') { tc.fillRect(0, -line / 2, side, line); tc.fillRect(0, side - line / 2, side, line); }
+        if (base === 'vertical' || base === 'crosshatch') { tc.fillRect(-line / 2, 0, line, side); tc.fillRect(side - line / 2, 0, line, side); }
+        if (base === 'dots') { tc.beginPath(); tc.arc(side / 2, side / 2, line / 2, 0, Math.PI * 2); tc.fill(); }
+        if (base === 'checker') { tc.fillRect(0, 0, cell, cell); tc.fillRect(cell, cell, cell, cell); }
+        if (base === 'weave') wovenTile(tc, cell, line);
+        if (base === 'paper' || base === 'stipple') speckledTile(tc, base, side, cell, line);
+      }
       if (riso) risoTile(tc, kind, spacing, thickness, fg, bg, !!style.transparentBackground);
       tiles.set(key, tile); if (tiles.size > 8) tiles.delete(tiles.keys().next().value);
     }
     var pattern = ctx.createPattern(tile, 'repeat');
     if (!pattern) throw new Error('当前环境无法生成材质填充。');
-    var rotation = riso || ['horizontal', 'vertical', 'paper', 'stipple'].includes(kind) ? 0 : angle;
+    var rotation = riso || ['horizontal', 'vertical', 'paper', 'stipple', 'sprinkles'].includes(kind) ? 0 : angle;
     var scale = riso ? thickness / 2 : spacing * cells / tile.width, c = Math.cos(rotation) * scale, s = Math.sin(rotation) * scale;
     if (typeof pattern.setTransform === 'function') pattern.setTransform({ a: c, b: s, c: -s, d: c, e: x, f: y });
     return pattern;

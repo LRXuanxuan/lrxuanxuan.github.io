@@ -117,12 +117,16 @@
     times: '"Times New Roman", Times, "Songti SC", serif', georgia: 'Georgia, "Times New Roman", serif',
     mono: 'Consolas, "Courier New", monospace'
   };
+  const MULTICOLOR_MATERIALS = ['horizontal', 'vertical', 'diagonal', 'crosshatch', 'dots', 'checker', 'paper', 'stipple', 'weave', 'sprinkles'];
+  const MATERIAL_EXTRA_COLORS = ['materialColor2', 'materialColor3', 'materialColor4', 'materialColor5', 'materialColor6'];
   const MARK_DEFAULTS = {
     shapeKind: 'rect', shapeConstrain: false, shapeFill: true, shapeStroke: true, shapeStrokeColor: '#263544', shapeStrokeWidth: 2,
     frameColor: '#354953', frameAccent: '#d4b583', frameWidth: 12,
     textBoxStyle: 'none', textBoxColor: '#fff4df', textBoxAccent: '#886d52',
     textContent: '轻绘 Drawing', textFont: 'system', textSize: 48, textLineHeight: 1.3, textBold: false, textItalic: false, textAlign: 'left', textUseMaterial: false,
-    materialKind: 'solid', materialFollowInk: true, materialForeground: '#263544', materialBackground: '#ffffff', materialTransparent: false, materialSpacing: 14, materialThickness: 2, materialAngle: 45
+    materialKind: 'solid', materialFollowInk: true, materialForeground: '#263544', materialBackground: '#ffffff', materialTransparent: false, materialSpacing: 14, materialThickness: 2, materialAngle: 45,
+    materialColorCount: 1, materialColor2: '#ed8fa8', materialColor3: '#e7ba59', materialColor4: '#69bcb8', materialColor5: '#879ed4', materialColor6: '#b195c7',
+    materialNatural: false, materialVariationSize: 35, materialVariationShape: 25
   };
   function normalizeMarkSettings(value) {
     value = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
@@ -130,10 +134,11 @@
     for (const key of Object.keys(next)) if (typeof next[key] === 'boolean' && typeof value[key] === 'boolean') next[key] = value[key];
     const enums = { shapeKind: Array.from($('shapeKind').options, o => o.value), textBoxStyle: Array.from($('textBoxStyle').options, o => o.value), textFont: Object.keys(MARK_FONTS), textAlign: ['left', 'center', 'right'], materialKind: Array.from($('materialKind').options, o => o.value) };
     for (const key of Object.keys(enums)) if (enums[key].includes(value[key])) next[key] = value[key];
-    for (const key of ['shapeStrokeColor', 'materialForeground', 'materialBackground', 'frameColor', 'frameAccent', 'textBoxColor', 'textBoxAccent']) if (typeof value[key] === 'string' && /^#[a-f0-9]{6}$/i.test(value[key])) next[key] = value[key].toLowerCase();
-    for (const [key, lo, hi] of [['shapeStrokeWidth', .5, 80], ['frameWidth', 1, 240], ['textSize', 8, 360], ['textLineHeight', .8, 3], ['materialSpacing', 4, 100], ['materialThickness', 1, 24], ['materialAngle', 0, 180]]) {
+    for (const key of ['shapeStrokeColor', 'materialForeground', 'materialBackground', 'frameColor', 'frameAccent', 'textBoxColor', 'textBoxAccent', ...MATERIAL_EXTRA_COLORS]) if (typeof value[key] === 'string' && /^#[a-f0-9]{6}$/i.test(value[key])) next[key] = value[key].toLowerCase();
+    for (const [key, lo, hi] of [['shapeStrokeWidth', .5, 80], ['frameWidth', 1, 240], ['textSize', 8, 360], ['textLineHeight', .8, 3], ['materialSpacing', 4, 100], ['materialThickness', 1, 24], ['materialAngle', 0, 180], ['materialColorCount', 1, 6], ['materialVariationSize', 0, 100], ['materialVariationShape', 0, 100]]) {
       if (typeof value[key] === 'number' || typeof value[key] === 'string') next[key] = clamp(number(value[key], next[key]), lo, hi);
     }
+    next.materialColorCount = Math.round(next.materialColorCount);
     if (typeof value.textContent === 'string') next.textContent = value.textContent.slice(0, 1200).split(/\r?\n/).slice(0, 20).join('\n');
     return next;
   }
@@ -148,26 +153,37 @@
     updateMaterialUI();
   }
   function materialStyle(settings = readMarkSettings(), scale = 1) {
-    return { kind: settings.materialKind, foreground: settings.materialFollowInk ? ink : settings.materialForeground, background: settings.materialBackground, transparentBackground: settings.materialTransparent, spacing: settings.materialSpacing / scale, thickness: settings.materialThickness / scale, angle: settings.materialAngle };
+    const foreground = settings.materialFollowInk ? ink : settings.materialForeground;
+    const varied = MULTICOLOR_MATERIALS.includes(settings.materialKind), natural = varied && settings.materialNatural;
+    return { kind: settings.materialKind, foreground, background: settings.materialBackground, transparentBackground: settings.materialTransparent, spacing: settings.materialSpacing / scale, thickness: settings.materialThickness / scale, angle: settings.materialAngle,
+      colors: varied ? [foreground, ...MATERIAL_EXTRA_COLORS.map(key => settings[key])].slice(0, settings.materialColorCount) : [foreground],
+      variationSize: natural ? settings.materialVariationSize / 100 : 0, variationShape: natural ? settings.materialVariationShape / 100 : 0 };
   }
   function updateMaterialUI() {
     if (!Marks) return;
-    const s = readMarkSettings(), centered = s.materialKind === 'radial', gradient = ['linear', 'reflected', 'radial'].includes(s.materialKind), pattern = !gradient && s.materialKind !== 'solid', riso = s.materialKind.startsWith('riso-'), wetRiso = s.materialKind.startsWith('riso-wet-');
+    const s = readMarkSettings(), centered = s.materialKind === 'radial', gradient = ['linear', 'reflected', 'radial'].includes(s.materialKind), pattern = !gradient && s.materialKind !== 'solid', riso = s.materialKind.startsWith('riso-'), wetRiso = s.materialKind.startsWith('riso-wet-'), sprinkles = s.materialKind === 'sprinkles', varied = MULTICOLOR_MATERIALS.includes(s.materialKind);
     $('materialName').textContent = $('materialKind').selectedOptions[0].textContent;
     $('materialPatternOptions').hidden = !pattern; $('materialAngleField').hidden = !['diagonal', 'crosshatch', 'linear', 'reflected', 'checker', 'weave'].includes(s.materialKind);
     $('materialThickness').closest('label').hidden = s.materialKind === 'checker';
-    $('materialThicknessLabel').textContent = riso ? '颗粒大小' : '线宽 / 点径';
+    $('materialThicknessLabel').textContent = riso ? '颗粒大小' : sprinkles ? '糖针粗细' : '线宽 / 点径';
     $('materialSpacingLabel').textContent = riso ? '颗粒间距（越小越密）' : '间距（越小越密）';
-    $('materialThickness').setAttribute('aria-label', riso ? (wetRiso ? '湿印颗粒大小' : '干印颗粒大小') : '材质粗细');
+    $('materialThickness').setAttribute('aria-label', riso ? (wetRiso ? '湿印颗粒大小' : '干印颗粒大小') : sprinkles ? '糖针粗细' : '材质粗细');
     $('materialSpacing').setAttribute('aria-label', riso ? (wetRiso ? '湿印颗粒间距' : '干印颗粒间距') : '材质间距');
-    $('materialHint').textContent = riso ? (wetRiso ? '三档湿印颗粒' : '三档干印颗粒') + '，可调大小与间距。透明背景适合另建图层叠加；油漆桶、形状和文字均可使用。' : '适用于油漆桶与形状；文字也可启用。透明背景保留原有像素，适合另建图层叠加排线。';
+    $('materialHint').textContent = riso ? (wetRiso ? '三档湿印颗粒' : '三档干印颗粒') + '，可调大小与间距。透明背景适合另建图层叠加；油漆桶、形状和文字均可使用。' : sprinkles ? '圆头小糖针散落成片，可混搭多色。开启自然变化，可让长短和形状更加错落。' : '适用于油漆桶与形状；文字也可启用。透明背景保留原有像素，适合另建图层叠加排线。';
+    $('materialColorOptions').hidden = !varied;
+    $('materialExtraColors').hidden = s.materialColorCount === 1;
+    MATERIAL_EXTRA_COLORS.forEach((key, index) => { $(key + 'Field').hidden = index + 2 > s.materialColorCount; });
+    $('materialNaturalField').hidden = !varied;
+    $('materialVariationOptions').hidden = !varied || !s.materialNatural;
+    $('materialVariationSizeValue').textContent = s.materialVariationSize + '%';
+    $('materialVariationShapeValue').textContent = s.materialVariationShape + '%';
     $('shapeConstraintText').textContent = ['line', 'arrow'].includes(s.shapeKind) ? '方向吸附到 45°' : '固定 1:1 比例';
     const isFrame = Marks.frameKinds.includes(s.shapeKind);
     $('shapePaintFields').hidden = isFrame; $('frameFields').hidden = !isFrame;
     $('textBoxColors').hidden = s.textBoxStyle === 'none';
     if (tool === 'shape' || tool === 'text') renderMarkSample(s);
     $('materialBackField').hidden = s.materialKind === 'solid'; $('materialBackFromInk').hidden = s.materialKind === 'solid'; $('materialTransparentLabel').hidden = s.materialKind === 'solid';
-    const frontLabel = centered ? '中心颜色' : gradient ? '起始颜色' : s.materialKind === 'solid' ? '填充颜色' : riso ? '油墨颜色' : '纹理颜色';
+    const frontLabel = centered ? '中心颜色' : gradient ? '起始颜色' : s.materialKind === 'solid' ? '填充颜色' : riso ? '油墨颜色' : s.materialColorCount > 1 ? '纹理色 1' : '纹理颜色';
     const backLabel = centered ? '边缘颜色' : gradient ? '末尾颜色' : '背景颜色', transparentLabel = centered ? '边缘透明' : '背景透明';
     $('materialFrontLabel').textContent = frontLabel; $('materialBackLabel').textContent = backLabel;
     $('materialForeground').setAttribute('aria-label', frontLabel); $('materialBackground').setAttribute('aria-label', backLabel);
@@ -1493,6 +1509,7 @@
     on('shapeStrokeFromInk', 'click', () => { $('shapeStrokeColor').value = ink; });
     on('applyCanvasFrame', 'click', frameCanvas);
     on('materialBackFromInk', 'click', () => { $('materialBackground').value = ink; updateMaterialUI(); });
+    for (const key of MATERIAL_EXTRA_COLORS) on(key + 'FromInk', 'click', () => { $(key).value = ink; updateMaterialUI(); });
     on('tolerance', 'input', () => { $('toleranceValue').textContent = $('tolerance').value; });
     on('fillScope', 'change', () => { finishPointer(); updateFillScope(); });
     on('fillPalette', 'click', () => {

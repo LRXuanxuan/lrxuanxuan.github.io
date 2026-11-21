@@ -61,6 +61,12 @@
 - 共用 `brushes-chuishi.js` 处理独立纸纹和柔和机理笔尖纹理，`app.js` 与 `drawing-studio.html` 接入控件。继续使用原有素材与小缓存，不添加运行时库或纹理包。定向验收见 `tools/test_drawing_brush_texture.cjs`。
 - 此项更新网页版和共用资源，未重新发布 Windows / Android 安装包。后续原生发版直接纳入当前资源，并运行纹理与原有笔刷像素回归；不得将网页更新说成已安装程序自动升级。
 
+## 2026-11-22 共用前端更新：糖针、多色与自然变化
+
+- 填充材质新增圆头短条「糖针」（`sprinkles`）。排线、水玉、棋盘、纸纹、点描、编织与糖针可选择 1–6 种纹理色，背景色/透明保持独立；第一色沿用当前前景，其余颜色分别设置。
+- 「自然变化」默认关闭；开启后分别调节大小和形状变化。共享 `marks.js` 以固定种子生成小图块，预览与提交同源，新增字段随原有 `settings.marks` 保存和恢复。Riso 和渐变沿用原有选项。维护与像素验收见 `docs/drawing-studio.md`、`tools/test_drawing_pattern_variation.cjs` 及原填充回归。
+- 本次仅修改网页版和共用前端，不递增 Windows / Android 原生版本，也不重新发布 EXE/APK。下次打包直接复用当前资源；保留现有安装包、签名及数据目录约定。
+
 ## 四、必须保留的兼容性和隐私边界
 
 - 两平台应用 ID 固定 `io.github.lrxuanxuan.lightdraw`。Windows 本机源站 `https://tauri.localhost`；Android 本机源站 `https://appassets.androidplatform.net`。不要随意变更来源、数据目录、WebView 或窗口配对流程。
