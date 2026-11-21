@@ -415,48 +415,23 @@ async function main() {
     click('resetBrushProfile');
   });
 
-  await test('Cubic pen anchors stay editable until a single undoable stroke or fill is committed', async () => {
-    await fresh(); tool('pen');
-    const blank = hash(pixels(active().canvas));
-    await stroke([[18,34],[32,10]]); await stroke([[82,39],[91,60]]);
-    assert.ok(element('penOverlay').querySelector('path').getAttribute('d').includes('C'));
-    assert.equal(hash(pixels(active().canvas)),blank);
-    click('penStroke'); assert.notEqual(hash(pixels(active().canvas)),blank); assert.equal(state().history,1);
-    app.undo(); assert.equal(hash(pixels(active().canvas)),blank);
-    for (const p of [[14,14],[100,18],[60,80]]) await stroke([p]);
-    click('penFill'); assert.ok(pixel(active().canvas,55,35)[3]>240);
-    app.undo(); assert.equal(hash(pixels(active().canvas)),blank);
-    await stroke([[20,20]]); click('penCancel'); assert.equal(element('penOverlay').childElementCount,0);
-  });
-
-  await test('Unpainted pen anchors survive tool, layer, project and draft switches, independently of committed pixels', async () => {
-    await fresh(); tool('pen');
-    const contour = () => element('penOverlay').querySelectorAll('rect').length;
-    const first = state().activeId;
-    await stroke([[20,20],[23,30]]); await stroke([[80,50]]);
-    edit('brushSize',14); edit('brushOpacity',65);
-    assert.ok(state().revision > 0, 'Adding anchors is an edit even before a path is committed'); assert.equal(state().history,0);
-    tool('hand'); assert.equal(contour(),0); tool('pen'); assert.equal(contour(),2);
-    const second = app.addLayer(); assert.equal(contour(),0); assert.equal(element('penStroke').disabled,true);
-    await stroke([[33,15]]); app.selectLayer(first); assert.equal(contour(),2);
-    await app.saveDraft();
-    const savedDraft = await win.DrawingStorage.readCurrent();
-    assert.equal(savedDraft.project.layers[0].pendingPath.nodes.length,2);
+  await test('Path pen is removed while the soft fountain brush and old raster projects remain usable', async () => {
+    await fresh();
+    assert.equal(doc.querySelector('[data-tool="pen"]'), null);
+    assert.equal(doc.getElementById('penOverlay'), null);
+    assert.equal(doc.getElementById('penQuick'), null);
+    assert.ok(Array.from(element('brushKind').options).some(option => option.value === 'fountain' && option.textContent.includes('软尖钢笔')));
+    select('brushKind', 'fountain'); await stroke([[15, 35], [105, 60]]);
+    const before = hash(pixels(active().canvas));
     const project = JSON.parse(await app.exportProject());
-    assert.equal(project.layers[1].pendingPath.layerId,second);
-    await fresh(); assert.equal(contour(),0); await app.loadProject(project);
-    assert.equal(state().tool,'pen'); assert.equal(contour(),2);
-    assert.equal(state().size,14); assert.equal(state().opacity,.65);
-    click('penStroke'); assert.equal(contour(),0); assert.equal(state().history,1);
-    app.undo(); app.redo(); assert.equal(contour(),0);
-    assert.equal((await app.serializeProject()).layers[0].pendingPath,undefined);
-    app.selectLayer(second); assert.equal(contour(),1);
-    click('penCancel'); assert.equal(contour(),0);
-    project.layers[0].pendingPath.nodes[0].x=1e20;
-    project.layers[1].pendingPath.layerId='other-work';
-    await app.loadProject(project); tool('pen'); assert.equal(contour(),0);
-    assert.equal(element('penCancel').disabled,true);
-    assert.ok((await app.serializeProject()).layers.every(layer => !layer.pendingPath));
+    project.settings.tool = 'pen';
+    project.layers[0].pendingPath = { version: 1, layerId: project.layers[0].id, nodes: [{ x: 10, y: 10 }, { x: 50, y: 20 }] };
+    await app.loadProject(project);
+    assert.equal(state().tool, 'brush'); assert.equal(state().brush, 'fountain');
+    assert.equal(hash(pixels(active().canvas)), before, 'Removing the editing tool must retain committed pixels');
+    const history = state().history;
+    for (const key of ['p', 'Enter']) doc.dispatchEvent(new win.KeyboardEvent('keydown', { key, bubbles: true, cancelable: true }));
+    assert.equal(state().history, history); assert.equal(hash(pixels(active().canvas)), before);
   });
 
   await test('All brush presets paint and eraser modifies alpha without painting white', async () => {
@@ -728,10 +703,10 @@ async function main() {
     element('exportDialog').close();
   });
 
-  await test('Preset matching methods and fixed black/white work across palette brands', async () => {
+  await test('Preset matching methods and five unlabeled line colors work across palette brands', async () => {
     await fresh();
     assert.equal(doc.getElementById('swatchSearch'), null, 'The withdrawn swatch search is not left in the UI');
-    const colorPresets = new Set(['sketch12-set', 'sketch36-set', 'sketchcomic24-set', 'sketch-chart', 'supervision-artists50', 'supervision-gray60']);
+    const colorPresets = new Set(['sketch12-set', 'sketch36-set', 'sketchcomic24-set', 'sketch-chart', 'supervision-artists50', 'supervision-gray60', 'holbein-yufuko12', 'holbein-nanakami12', 'holbein-lemon12', 'pilot-iroshizuku30']);
     doc.querySelector('[data-palette-layout="compact"]').click();
     for (const preset of win.DrawingPalettes) {
       select('palettePreset', preset.id); await settle();
@@ -740,16 +715,31 @@ async function main() {
       assert.equal(info.paletteMethod, colorPresets.has(preset.id) ? 'color' : 'gray', preset.name);
       assert.equal(element('presetSwatches').querySelectorAll('button').length, preset.swatches.length);
       assert.equal(element('presetSwatches').querySelectorAll('.marker-chips').length, 1, 'Compact cards use one continuous grid');
-      assert.deepEqual(Array.from(element('baseSwatches').querySelectorAll('button'), button => button.dataset.color).sort(), ['#000000', '#ffffff']);
-      assert.equal(element('presetSwatches').contains(element('baseSwatches')), false, 'Fixed black/white must not break 12/36-card row counts');
+      assert.deepEqual(Array.from(element('baseSwatches').querySelectorAll('button'), button => button.dataset.color), ['#000000', '#3f271f', '#75503b', '#3a3a3a', '#808080']);
+      assert.ok(Array.from(element('baseSwatches').querySelectorAll('button')).every(button => button.textContent === '' && button.getAttribute('aria-label')), 'Quick line colors have no visible labels but retain accessible names');
+      assert.equal(element('presetSwatches').contains(element('baseSwatches')), false, 'Quick line colors must not break palette row counts');
     }
     for (const [id, count] of [['sketch12-set', 12], ['sketch36-set', 36]]) {
       select('palettePreset', id); await settle();
       assert.equal(element('presetSwatches').querySelectorAll('button').length, count);
     }
+    for (const button of element('baseSwatches').querySelectorAll('button')) {
+      button.click();
+      assert.equal(element('inkColor').value, button.dataset.color, 'Each unlabeled quick color selects the actual ink');
+    }
+    select('palettePreset', 'supervision-artists50'); await settle();
+    for (const name of ['莫奈', '穆夏']) {
+      const buttons = Array.from(element('presetSwatches').querySelectorAll('button')).filter(button => button.textContent === name);
+      assert.equal(buttons.length, 10, 'Unknown codes show the series name only');
+      assert.equal(new Set(buttons.map(button => button.dataset.color)).size, 10, 'Repeated labels must retain distinct selectable colors');
+      for (const button of [buttons[0], buttons[9]]) {
+        button.click(); assert.equal(element('inkColor').value, button.dataset.color);
+        assert.equal(element('inkReadout').textContent, name, 'The selected series label is concise too');
+      }
+    }
   });
 
-  await test('Super Vision keeps ten-color groups, compact order and five columns while Copic returns to six', async () => {
+  await test('Super Vision keeps ten-color groups and five columns while Holbein, Pilot and Copic use six', async () => {
     await fresh();
     const image = native.createCanvas(12, 4), ctx = image.getContext('2d');
     ['#000000', '#de7c91', '#ffffff'].forEach((color, index) => {
@@ -766,7 +756,7 @@ async function main() {
       }
       assert.ok(reference.classList.contains('copic-swatches'));
       const basics = element('baseSwatches');
-      assert.deepEqual(Array.from(basics.querySelectorAll('button'), button => button.dataset.color).sort(), ['#000000', '#ffffff']);
+      assert.deepEqual(Array.from(basics.querySelectorAll('button'), button => button.dataset.color), ['#000000', '#3f271f', '#75503b', '#3a3a3a', '#808080']);
       assert.equal(basics.hidden, false); assert.equal(library.contains(basics), false);
       for (const hex of ['#000000', '#ffffff']) {
         assert.ok(reference.querySelector('[data-color="' + hex + '"]'), 'Reference summary always retains ' + hex);
@@ -802,12 +792,16 @@ async function main() {
     }
     doc.querySelector('[data-ref-mode="copic"]').click(); await settle();
     checkColumnsAndBasics(5);
-    select('referenceCopicPreset', 'sketch12-set'); await settle();
-    assert.equal(element('palettePreset').value, 'sketch12-set');
-    for (const layout of ['grouped', 'compact']) {
-      doc.querySelector('[data-palette-layout="' + layout + '"]').click(); await settle();
-      checkColumnsAndBasics(6);
-      assert.equal(library.querySelectorAll('button').length, 12, 'Returning to Copic retains its original card');
+    for (const [id, count] of [['sketch12-set', 12], ['holbein-yufuko12', 12], ['holbein-nanakami12', 12], ['holbein-lemon12', 12], ['pilot-iroshizuku30', 30]]) {
+      select('referenceCopicPreset', id); await settle();
+      assert.equal(element('palettePreset').value, id);
+      for (const layout of ['grouped', 'compact']) {
+        doc.querySelector('[data-palette-layout="' + layout + '"]').click(); await settle();
+        checkColumnsAndBasics(6);
+        assert.equal(library.querySelectorAll('button').length, count, id + ' retains its selected colors');
+        if (id.startsWith('holbein-')) assert.equal(library.querySelectorAll('.marker-chips').length, 1, 'Each artist selection stays in two rows of six');
+        if (id === 'pilot-iroshizuku30') assert.equal(library.querySelectorAll('.marker-chips').length, layout === 'compact' ? 1 : 5);
+      }
     }
     // New drawing canvases retain reference settings, so restore the mode this
     // UI exercise changed before the next test loads its reference fixture.

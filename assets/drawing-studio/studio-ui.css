@@ -75,13 +75,7 @@ html[data-theme=dark] #exportOpen { background: #a5c9dc; border-color: #a5c9dc; 
   background: repeating-conic-gradient(var(--checker-a) 0 25%, var(--checker-b) 0 50%) 0 0 / 12px 12px;
 }
 
-#penOverlay { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; }
-.pen-geometry > * { fill: none; stroke: #356f93; stroke-width: 1.4; vector-effect: non-scaling-stroke; }
-.pen-geometry .pen-underlay { stroke: white; stroke-width: 3.5; }
-.pen-geometry circle, .pen-geometry rect { fill: white; }
-.pen-geometry .selected { fill: #377c9d; stroke: white; }
-#penSettings .button-row { margin-top: 8px; }
-#penQuick, .hide-settings-label { display: none; }
+.hide-settings-label { display: none; }
 #resetBrushProfile { margin-top: 5px; color: var(--muted); font-size: 11px; }
 #wastebasket { display: inline-flex; align-items: center; justify-content: center; }
 #wastebasketDialog p { line-height: 1.7; margin-block: 14px 20px; }
@@ -89,13 +83,11 @@ html[data-theme=dark] #exportOpen { background: #a5c9dc; border-color: #a5c9dc; 
 #discardWork { color: white; background: #974132; border-color: #974132; }
 #discardWork:hover { background: #803328; }
 @media(max-width:650px) {
-  .tool-ribbon .tool-group { grid-template-columns: repeat(10,minmax(0,1fr)); }
+  .tool-ribbon .tool-group { grid-template-columns: repeat(9,minmax(0,1fr)); }
   .tool-ribbon .inline-field input[type=number] { appearance: textfield; padding-inline: 2px; }
   .tool-ribbon .inline-field input[type=number]::-webkit-inner-spin-button { display: none; }
   .settings-panel { top: auto; bottom: 28px; left: 0; right: 0; width: 100%; height: min(40vh, 320px); height: min(40dvh, 320px); border: 0; border-top: 1px solid var(--line); box-shadow: 0 -4px 14px #0001; }
   .hide-settings-icon { display: none; }
   .hide-settings-label { display: inline; }
   #hideSettings { width: auto; padding: 4px 9px; font-size: 12px; }
-  .settings-hidden #penQuick:not([hidden]) { position: absolute; z-index: 2; bottom: 34px; left: 50%; transform: translateX(-50%); display: flex; gap: 4px; width: max-content; padding: 4px; border: 1px solid var(--line); background: var(--panel); border-radius: 7px; }
-  #penQuick button { min-height: 30px; }
 }

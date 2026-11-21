@@ -3,7 +3,7 @@
   'use strict';
   const $ = id => document.getElementById(id);
   const all = selector => Array.from(document.querySelectorAll(selector));
-  const Core = window.DrawingCore, Marks = window.DrawingMarks;
+  const Core = window.DrawingCore, Marks = window.DrawingMarks, Strokes = window.DrawingStrokeRecords;
   const MAX_PIXELS = 12000000, LAYER_PIXELS = 36000000, MAX_LAYERS = 16;
   const HISTORY_BYTES = 48 * 1024 * 1024, PROJECT_BYTES = 160 * 1024 * 1024;
   const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
@@ -28,6 +28,8 @@
   let view = { zoom: 1, x: 0, y: 0 }, refView = { zoom: 1, x: 0, y: 0 };
   let tool = 'brush', brush = 'gpen', ink = '#263544', size = 8, opacity = 1, stabilizer = 20;
   let pressureEnabled = true, touchDraw = false, refPicking = false, recentColors = [];
+  let eraserMode = 'local';
+  try { if (localStorage.getItem('lrx-drawing-eraser-mode-v1') === 'stroke') eraserMode = 'stroke'; } catch (_) {}
   let undoStack = [], redoStack = [], frame = 0, transactions = new Map();
   let revision = 0, savedRevision = 0, sessionUsed = false, draftId = uid(), saveTimer = 0, savePromise = null;
   let currentStamp = null, currentReady = false, switchingCurrent = false, currentConflict = false;
@@ -37,41 +39,6 @@
   let lastPressure = 0, lastPointerType = 'mouse', fileSavedRevision = -1;
   let colorPicker = null, colorLibrary = null, referenceSplitter = null, lastReferencePort = null;
   let sampleFrame = 0;
-  const penPath = window.createStudioPenPath($('penOverlay'), count => {
-    $('penStroke').disabled = count < 2; $('penFill').disabled = count < 3;
-    $('penDelete').disabled = $('penCancel').disabled = !count;
-    $('penQuick').hidden = !count;
-    $('quickPenStroke').disabled = count < 2; $('quickPenFill').disabled = count < 3;
-  });
-  function syncPenPath() {
-    const layer = activeLayer();
-    penPath.attach(tool === 'pen' && layer.visible && !layer.locked ? layer : null, view.zoom);
-    if (penPath.length && layer.penDraft.size != null) {
-      ({ size, opacity } = layer.penDraft);
-      $('brushSize').value = size; $('brushOpacity').value = Math.round(opacity * 100);
-      $('brushOpacityValue').textContent = $('brushOpacity').value + '%';
-    }
-  }
-  function rememberPenStyle(markChange = false) {
-    if (!penPath.length) return;
-    const path = activeLayer().penDraft;
-    if (size === path.size && opacity === path.opacity) return;
-    path.size = size; path.opacity = opacity;
-    if (markChange) changed();
-  }
-  function editPenPath(action) {
-    if (action()) { changed(); syncLayers(); }
-  }
-  function commitPenPath(closed) {
-    if (activePointer || !penPath.length || !canDraw()) return;
-    const layer = activeLayer(); clear(strokeCanvas);
-    const bounds = penPath.paint(context(strokeCanvas), layer, closed, size, ink);
-    if (!bounds) return;
-    if (commitPreview({ opacity, erase:false }, layer, bounds, closed ? '钢笔闭合填色' : '钢笔路径描边')) {
-      penPath.reset(); syncLayers();
-    } else notify('路径没有改变图层像素，可继续调整锚点。');
-    clear(strokeCanvas); render();
-  }
   const brushKey = 'lrx-drawing-brush-v1:';
   const brushProfiles = new Map();
   const eraserPreset = { id: 'eraser', size: 18, opacity: 1, stabilizer: 12 };
@@ -208,7 +175,7 @@
   }
   function filename(name) { return String(name || '未命名画作').replace(/[<>:"/\\|?*\u0000-\u001f]/g, '_').slice(0, 80).trim() || '未命名画作'; }
   function createLayer(name, dimensions = art) {
-    return { id: uid(), name: name || '图层 ' + (art ? art.layers.length + 1 : 1), visible: true, locked: false, opacity: 1, x: 0, y: 0, scale: 1, penDraft: penPath.read(null), canvas: canvas(dimensions.width, dimensions.height) };
+    return { id: uid(), name: name || '图层 ' + (art ? art.layers.length + 1 : 1), visible: true, locked: false, opacity: 1, x: 0, y: 0, scale: 1, strokeRecords: null, canvas: canvas(dimensions.width, dimensions.height) };
   }
   const activeLayer = () => art.layers.find(layer => layer.id === art.activeId) || art.layers[0];
   function metadata(layer) { return { id: layer.id, name: layer.name, visible: layer.visible, locked: layer.locked, opacity: layer.opacity, x: layer.x, y: layer.y, scale: layer.scale }; }
@@ -227,15 +194,26 @@
     art = { ...state, tone: { ...state.tone }, layers: state.layers.map(layer => ({ ...layer })) };
     setGeometry(); if (dimensionsChanged) fit(); sync(); render();
   }
+  const recordSnapshot = () => art.layers.map(layer => ({ id: layer.id, state: layer.strokeRecords || null }));
+  function restoreRecords(records) {
+    if (!records) return;
+    const states = new Map(records.map(item => [item.id, item.state]));
+    for (const layer of art.layers) if (states.has(layer.id)) layer.strokeRecords = states.get(layer.id);
+  }
   function memory() {
     const live = new Set(art.layers.map(l => l.canvas)), seen = new Set(); let total = 0;
+    const records = art.layers.map(layer => layer.strokeRecords);
     for (const entry of undoStack.concat(redoStack)) {
-      if (entry.kind === 'pixels') total += entry.before.data.byteLength + entry.after.data.byteLength;
-      else for (const state of [entry.before, entry.after]) for (const layer of state.layers) {
+      if (entry.kind === 'pixels' || entry.kind === 'tiles') {
+        if (entry.kind === 'pixels') total += entry.before.data.byteLength + entry.after.data.byteLength;
+        else for (const p of entry.patches) total += p.before.image.data.byteLength + p.after.image.data.byteLength;
+        for (const snapshot of [entry.recordsBefore, entry.recordsAfter]) if (snapshot) records.push(...snapshot.map(item => item.state));
+      } else for (const state of [entry.before, entry.after]) for (const layer of state.layers) {
+        records.push(layer.strokeRecords);
         if (!live.has(layer.canvas) && !seen.has(layer.canvas)) { seen.add(layer.canvas); total += layer.canvas.width * layer.canvas.height * 4; }
       }
     }
-    return total;
+    return total + Strokes.bytes(records, new Set(), true);
   }
   function changed() {
     revision++; sessionUsed = true; vectorKey = ''; savingErrorShown = false;
@@ -250,8 +228,12 @@
   }
   function addHistory(entry) {
     undoStack.push(entry); redoStack = [];
-    while (undoStack.length > 40 || (undoStack.length > 1 && memory() > HISTORY_BYTES)) undoStack.shift();
+    trimHistory();
     changed(); syncHistory(); syncLayers();
+  }
+  function trimHistory() {
+    while (undoStack.length > 40 || (undoStack.length > 1 && memory() > HISTORY_BYTES)) undoStack.shift();
+    while (redoStack.length > 1 && memory() > HISTORY_BYTES) redoStack.shift();
   }
   function mutate(fn, label) {
     finishPointer(); const before = snapshot(); fn(); addHistory({ kind: 'state', before, after: snapshot(), label }); sync(); requestRender();
@@ -265,7 +247,14 @@
   function settleTransactions() { for (const key of Array.from(transactions.keys())) endTransaction(key, '参数调整'); }
   function applyEntry(entry, redo) {
     if (entry.kind === 'state') restoreSnapshot(redo ? entry.after : entry.before);
-    else { const layer = art.layers.find(l => l.id === entry.layerId); if (layer) context(layer.canvas).putImageData(redo ? entry.after : entry.before, entry.x, entry.y); }
+    else {
+      const layer = art.layers.find(l => l.id === entry.layerId);
+      if (layer) {
+        if (entry.kind === 'tiles') for (const p of entry.patches) { const value = redo ? p.after : p.before; context(layer.canvas).putImageData(value.image, value.x, value.y); }
+        else context(layer.canvas).putImageData(redo ? entry.after : entry.before, entry.x, entry.y);
+      }
+      restoreRecords(redo ? entry.recordsAfter : entry.recordsBefore);
+    }
     changed(); sync(); render();
   }
   function undo() {
@@ -295,7 +284,10 @@
     for (const layer of art.layers) {
       if (!layer.visible || layer.opacity <= 0) continue;
       let source = layer.canvas;
-      if (includeStroke && activePointer && ['stroke', 'shape', 'text'].includes(activePointer.kind) && activePointer.layerId === layer.id) {
+      if (includeStroke && activePointer && activePointer.kind === 'stroke-erase' && activePointer.layerId === layer.id && activePointer.preview) {
+        clear(liveCanvas); context(liveCanvas).drawImage(layer.canvas, 0, 0);
+        Strokes.render(activePointer.preview.state, liveCanvas, activePointer.preview.keys); source = liveCanvas;
+      } else if (includeStroke && activePointer && ['stroke', 'shape', 'text'].includes(activePointer.kind) && activePointer.layerId === layer.id) {
         if (activePointer.stroke) activePointer.stroke.flush();
         clear(liveCanvas); const live = context(liveCanvas); live.drawImage(layer.canvas, 0, 0);
         const patch = activePointer.sampledLayer ? activePointer.stroke.bounds : { x: 0, y: 0, width: art.width, height: art.height };
@@ -323,7 +315,6 @@
     surface.style.transform = 'translate(' + view.x + 'px,' + view.y + 'px) scale(' + view.zoom + ')';
     surface.classList.toggle('pixel-view', brush === 'pixel' || view.zoom >= 3);
     $('zoomLabel').textContent = Math.round(view.zoom * 100) + '%';
-    if (penPath.length) penPath.show(view.zoom);
   }
   function fit() {
     if (!art) return;
@@ -409,11 +400,42 @@
   }
   function commitPreview(pointer, layer, rawBounds, label) {
     const b = clippedBounds(rawBounds); if (!b) return false;
-    const ctx = context(layer.canvas), before = ctx.getImageData(b.x, b.y, b.width, b.height);
+    const ctx = context(layer.canvas), before = ctx.getImageData(b.x, b.y, b.width, b.height), recordsBefore = recordSnapshot();
+    const preserve = !pointer.sampledLayer && !pointer.resetRecords;
+    const nextRecords = preserve ? Strokes.append(layer.strokeRecords, layer.canvas, strokeCanvas, b,
+      { id: uid(), kind: pointer.erase ? 'erase' : pointer.kind === 'stroke' ? 'stroke' : 'overlay', opacity: pointer.opacity }) : null;
     applyStrokePatch(ctx, pointer, b);
     const after = ctx.getImageData(b.x, b.y, b.width, b.height);
-    if (!after.data.some((v, i) => v !== before.data[i])) return false;
-    activePointer = null; addHistory({ kind: 'pixels', layerId: layer.id, x: b.x, y: b.y, before, after, label }); remember(ink); return true;
+    // Two opaque, identical strokes still are two pen-down actions. Keeping
+    // their provenance lets whole erasure remove the upper one independently.
+    const newIdentity = preserve && !pointer.erase && nextRecords !== layer.strokeRecords && (nextRecords || layer.strokeRecords);
+    if (!newIdentity && !after.data.some((v, i) => v !== before.data[i])) return false;
+    layer.strokeRecords = nextRecords; Strokes.limit(art.layers);
+    activePointer = null; addHistory({ kind: 'pixels', layerId: layer.id, x: b.x, y: b.y, before, after, recordsBefore, recordsAfter: recordSnapshot(), label }); remember(ink); return true;
+  }
+  function eraseWholeAt(pointer, point) {
+    const previous = pointer.last || point, distance = Math.hypot(point.x - previous.x, point.y - previous.y);
+    const steps = Math.max(1, Math.ceil(distance / Math.max(1, Math.min(8, pointer.radius * .75))));
+    let changed = false;
+    for (let i = 1; i <= steps; i++) {
+      const x = previous.x + (point.x - previous.x) * i / steps, y = previous.y + (point.y - previous.y) * i / steps;
+      // Always hit-test the gesture's initial stack. Repeated events over a
+      // crossing cannot peel off another stroke revealed by this same gesture.
+      const id = Strokes.hit(pointer.initial, x, y, pointer.radius);
+      if (id && !pointer.removed.has(id)) { pointer.removed.add(id); changed = true; }
+    }
+    pointer.last = point;
+    if (changed) { pointer.preview = Strokes.remove(pointer.initial, pointer.removed); requestRender(); }
+  }
+  function finishWholeErase(pointer, layer) {
+    if (!pointer.preview || !pointer.removed.size || !layer.visible || layer.locked) return;
+    const recordsBefore = recordSnapshot(), before = Strokes.capture(pointer.initial, layer.canvas, pointer.preview.keys);
+    Strokes.render(pointer.preview.state, layer.canvas, pointer.preview.keys);
+    const after = Strokes.capture(pointer.initial, layer.canvas, pointer.preview.keys);
+    layer.strokeRecords = Strokes.clean(pointer.preview.state);
+    activePointer = null;
+    addHistory({ kind: 'tiles', layerId: layer.id, patches: before.map((p, i) => ({ before: p, after: after[i] })), recordsBefore, recordsAfter: recordSnapshot(), label: '整笔擦除' });
+    status('已整笔擦除 ' + pointer.removed.size + ' 笔 · 可撤销');
   }
   function pointerDown(e) {
     if (busy || activePointer || document.querySelector('dialog[open]') || (e.button !== 0 && e.button !== 1 && e.button !== 5)) return;
@@ -430,11 +452,13 @@
       if (!canDraw()) return;
       const layer = activeLayer();
       if (mode === 'fill' || mode === 'cutout') { fillAt(point, mode === 'cutout'); return; }
-      if (mode === 'pen') {
-        if (!penPath.start(point, view.zoom)) return;
-        activePointer = { id:e.pointerId, kind:'pen-node', layerId:layer.id };
+      if (mode === 'move') activePointer = { id: e.pointerId, kind: 'move', origin: point, x: layer.x, y: layer.y, layerId: layer.id, before: snapshot() };
+      else if (mode === 'eraser' && eraserMode === 'stroke') {
+        if (!Strokes.count(layer.strokeRecords)) { notify('当前层没有可追溯笔画，请改用“局部”橡皮。'); return; }
+        const p = strokePoint(e, layer);
+        activePointer = { id: e.pointerId, kind: 'stroke-erase', layerId: layer.id, initial: layer.strokeRecords, removed: new Set(), preview: null, radius: size / (2 * layer.scale), last: p };
+        eraseWholeAt(activePointer, p); viewport.classList.add('drawing');
       }
-      else if (mode === 'move') activePointer = { id: e.pointerId, kind: 'move', origin: point, x: layer.x, y: layer.y, layerId: layer.id, before: snapshot() };
       else if (mode === 'shape' || mode === 'text') {
         const options = markOptions(mode, layer);
         if (mode === 'text' && !options.text.trim()) { notify('请先在右侧输入文字。'); return; }
@@ -460,17 +484,23 @@
     e.preventDefault();
     if (activePointer.kind === 'pan') { view.x = activePointer.x + e.clientX - activePointer.clientX; view.y = activePointer.y + e.clientY - activePointer.clientY; updateView(); return; }
     const layer = art.layers.find(l => l.id === activePointer.layerId); if (!layer) return;
-    if (activePointer.kind === 'pen-node') { penPath.move(documentPoint(e), view.zoom); return; }
     if (activePointer.kind === 'move') { const p = documentPoint(e); layer.x = activePointer.x + p.x - activePointer.origin.x; layer.y = activePointer.y + p.y - activePointer.origin.y; requestRender(); return; }
     if (activePointer.kind === 'shape' || activePointer.kind === 'text') { previewMark(activePointer, strokePoint(e, layer), e.shiftKey); return; }
     const events = e.getCoalescedEvents ? e.getCoalescedEvents() : null;
-    for (const item of events && events.length ? events : [e]) { const p = strokePoint(item, layer); activePointer.stroke.move(p); activePointer.last = p; }
+    for (const item of events && events.length ? events : [e]) {
+      const p = strokePoint(item, layer);
+      if (activePointer.kind === 'stroke-erase') eraseWholeAt(activePointer, p);
+      else { activePointer.stroke.move(p); activePointer.last = p; }
+    }
     requestRender();
   }
   function finishPointer(e) {
     if (!activePointer || (e && e.pointerId != null && e.pointerId !== activePointer.id)) return;
     const pointer = activePointer, layer = art.layers.find(l => l.id === pointer.layerId);
-    if (pointer.kind === 'stroke' && layer) {
+    if (pointer.kind === 'stroke-erase' && layer) {
+      if (e && e.type === 'pointerup') eraseWholeAt(pointer, strokePoint(e, layer));
+      finishWholeErase(pointer, layer);
+    } else if (pointer.kind === 'stroke' && layer) {
       const end = e && Number.isFinite(e.clientX) && e.type === 'pointerup' ? strokePoint(e, layer) : pointer.last;
       pointer.stroke.end(end);
       commitPreview(pointer, layer, pointer.stroke.bounds, pointer.erase ? '擦除' : '笔画');
@@ -479,9 +509,6 @@
         previewMark(pointer, strokePoint(e, layer), e.shiftKey);
         if (commitPreview(pointer, layer, pointer.bounds, pointer.kind === 'shape' ? '插入形状' : '插入文字')) status((pointer.kind === 'shape' ? '形状' : '文字') + '已落在 ' + layer.name + ' · 可撤销');
       } else status('已取消放置');
-    } else if (pointer.kind === 'pen-node') {
-      if (e?.type === 'pointerup') penPath.move(documentPoint(e), view.zoom);
-      if (penPath.stop(e?.type !== 'pointerup', view.zoom)) { rememberPenStyle(); changed(); syncLayers(); }
     } else if (pointer.kind === 'move' && layer && (layer.x !== pointer.x || layer.y !== pointer.y)) {
       activePointer = null; addHistory({ kind: 'state', before: pointer.before, after: snapshot(), label: '移动图层' });
     }
@@ -521,7 +548,7 @@
       paint.fillRect(bounds.x, bounds.y, bounds.width, bounds.height);
       paint.globalAlpha = 1; paint.globalCompositeOperation = 'source-over';
       const label = scope === 'inked' ? '为已有笔迹填色' : '填充整个图层';
-      mutate(() => { layer.canvas = next; }, label); remember(fill.foreground); status(label + ' · ' + layer.name); return;
+      mutate(() => { layer.canvas = next; layer.strokeRecords = null; }, label); remember(fill.foreground); status(label + ' · ' + layer.name); return;
     }
     const ctx = context(layer.canvas), target = ctx.getImageData(0, 0, art.width, art.height);
     let sample = target;
@@ -535,7 +562,7 @@
       if (!selection.bounds) { status('这里没有可填充的区域'); return; }
       const b = selection.bounds, temp = context(strokeCanvas); clear(strokeCanvas); temp.putImageData(mask, 0, 0);
       temp.save(); temp.globalCompositeOperation = 'source-in'; temp.fillStyle = Marks.fillStyle(temp, fill, b); temp.fillRect(b.x, b.y, b.width, b.height); temp.restore();
-      const painted = commitPreview({ opacity, erase: false }, layer, b, '材质填充'); clear(strokeCanvas); render();
+      const painted = commitPreview({ opacity, erase: false, resetRecords: true }, layer, b, '材质填充'); clear(strokeCanvas); render();
       status(painted ? '材质已填充到 ' + layer.name : '这里没有需要改变的像素'); if (painted) remember(fill.foreground); return;
     }
     const beforeFull = new Uint8ClampedArray(target.data);
@@ -548,13 +575,13 @@
       const start = ((b.y + row) * art.width + b.x) * 4, end = start + b.width * 4;
       before.data.set(beforeFull.subarray(start, end), row * b.width * 4); after.data.set(target.data.subarray(start, end), row * b.width * 4);
     }
-    ctx.putImageData(after, b.x, b.y); addHistory({ kind: 'pixels', layerId: layer.id, x: b.x, y: b.y, before, after, label: erase ? '抠除背景' : '油漆桶填充' }); render();
+    const recordsBefore = recordSnapshot(); layer.strokeRecords = null;
+    ctx.putImageData(after, b.x, b.y); addHistory({ kind: 'pixels', layerId: layer.id, x: b.x, y: b.y, before, after, recordsBefore, recordsAfter: recordSnapshot(), label: erase ? '抠除背景' : '油漆桶填充' }); render();
     status(erase ? '已抠除相近背景 · 可用橡皮修边，或撤销' : '已填充到 ' + layer.name); if (!erase) remember(fillColor);
   }
 
   function syncLayers() {
     if (!art) return;
-    syncPenPath();
     const list = $('layerList'); list.replaceChildren(); $('layerCount').textContent = art.layers.length;
     art.layers.slice().reverse().forEach(layer => {
       const row = document.createElement('div'); row.className = 'layer-row' + (layer.id === art.activeId ? ' active' : '') + (!layer.visible ? ' hidden-layer' : ''); row.setAttribute('role', 'listitem');
@@ -564,7 +591,6 @@
       const thumb = canvas(31, 31); thumb.className = 'layer-thumb'; thumb.setAttribute('aria-hidden', 'true');
       const scale = Math.min(31 / art.width, 31 / art.height); context(thumb).drawImage(layer.canvas, (31 - art.width * scale) / 2, (31 - art.height * scale) / 2, art.width * scale, art.height * scale);
       const label = document.createElement('div'), name = document.createElement('span'), info = document.createElement('small'); name.textContent = layer.name; info.textContent = Math.round(layer.opacity * 100) + '% · ' + Math.round(layer.scale * 100) + '%'; label.append(name, info); select.append(thumb, label); select.addEventListener('click', () => selectLayer(layer.id));
-      if (layer.penDraft.nodes.length) info.textContent += ' · 有钢笔路径';
       const lock = document.createElement('button'); lock.className = 'layer-lock'; lock.textContent = layer.locked ? '锁' : '·'; lock.title = layer.locked ? '解锁图层' : '锁定图层'; lock.setAttribute('aria-label', lock.title + ' ' + layer.name); lock.setAttribute('aria-pressed', String(layer.locked)); lock.addEventListener('click', () => { if (!busy) mutate(() => { layer.locked = !layer.locked; }, '切换图层锁定'); });
       row.append(visible, select, lock); list.append(row);
     });
@@ -572,6 +598,7 @@
     $('layerName').value = layer.name; $('layerOpacity').value = Math.round(layer.opacity * 100); $('layerOpacityValue').textContent = Math.round(layer.opacity * 100) + '%';
     $('layerScale').value = Math.round(layer.scale * 100); $('layerScaleValue').textContent = Math.round(layer.scale * 100) + '%';
     $('layerUp').disabled = index === art.layers.length - 1; $('layerDown').disabled = index === 0;
+    syncEraser();
   }
   function sync() {
     syncHistory(); syncLayers();
@@ -592,11 +619,11 @@
   }
   function setTool(value, keepProfile = false) {
     if (busy && !keepProfile) return; finishPointer();
-    $('penSettings').hidden = value !== 'pen';
+    if (!['brush', 'eraser', 'fill', 'cutout', 'picker', 'move', 'hand', 'shape', 'text'].includes(value)) value = 'brush';
     if (value !== tool && !keepProfile && (value === 'brush' || value === 'eraser')) {
       applyBrushProfile(brushProfile(value === 'eraser' ? eraserPreset : Core.brushPresets.find(p => p.id === brush)));
     }
-    tool = value; syncPenPath();
+    tool = value;
     all('[data-tool]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.tool === tool)));
     $('shapeSettings').hidden = tool !== 'shape'; $('textSettings').hidden = tool !== 'text'; $('materialSection').hidden = !['fill', 'shape', 'text'].includes(tool);
     $('fillSettings').hidden = tool !== 'fill' && tool !== 'cutout'; $('fillSampleLabel').hidden = tool === 'cutout';
@@ -606,14 +633,25 @@
     $('brushSample').hidden = tool !== 'brush'; $('brushHint').hidden = tool !== 'brush';
     $('strokeSettingsTitle').textContent = tool === 'fill' || tool === 'cutout' ? '选区边界' : '笔触';
     $('brushName').hidden = tool !== 'brush';
-    if (['shape', 'text', 'fill', 'cutout', 'pen'].includes(tool)) {
+    syncEraser();
+    if (['shape', 'text', 'fill', 'cutout'].includes(tool)) {
       if (window.innerWidth > 650) togglePanel('settings', true);
       $('settingsPanel').querySelector('.settings-scroll').scrollTop = 0;
     }
     if (tool === 'fill') $('materialSection').open = true;
     if (tool === 'shape' || tool === 'text') updateMaterialUI();
     viewport.dataset.cursor = tool; $('brushCursor').hidden = true;
-    status(({ pen: '钢笔路径 · 点击落点，拖动手柄，Enter 描边', brush: '画笔 · ' + $('brushKind').selectedOptions[0].textContent, eraser: '橡皮 · 擦除当前图层', fill: '填充 · 点选区域上色，可选择材质', shape: '形状 · 拖动预览，松手放置；Shift 锁定比例', text: '文字 · 先输入内容，再点击或拖动放置', picker: '取色 · 点击画作，或从参考图取色', move: '移层 · 拖动当前图层', hand: '平移 · 拖动画布', cutout: '抠图 · 点击当前图层的背景' })[tool]);
+    status(({ brush: '画笔 · ' + $('brushKind').selectedOptions[0].textContent, eraser: eraserMode === 'stroke' ? '整笔橡皮 · 轻触或扫过当前层笔画' : '局部橡皮 · 擦除当前图层像素', fill: '填充 · 点选区域上色，可选择材质', shape: '形状 · 拖动预览，松手放置；Shift 锁定比例', text: '文字 · 先输入内容，再点击或拖动放置', picker: '取色 · 点击画作，或从参考图取色', move: '移层 · 拖动当前图层', hand: '平移 · 拖动画布', cutout: '抠图 · 点击当前图层的背景' })[tool]);
+  }
+  function syncEraser() {
+    const whole = tool === 'eraser' && eraserMode === 'stroke';
+    $('eraserModeField').hidden = tool !== 'eraser'; $('eraserMode').value = eraserMode;
+    $('eraserHint').hidden = tool !== 'eraser';
+    $('brushControls').hidden = !['brush', 'eraser'].includes(tool) || whole;
+    document.querySelector('.brush-opacity').hidden = whole;
+    $('eraserHint').textContent = whole
+      ? '整笔删除当前层的一次落笔，交叉处只选最上面一笔。本层可追溯 ' + Strokes.count(activeLayer().strokeRecords) + ' 笔。旧图、填色/抠图/混色或裁切前的笔迹请用局部橡皮。'
+      : '沿经过的位置擦除像素，大小、浓度和压感均有效。';
   }
   function updateFillScope() {
     const cutout = tool === 'cutout', scope = $('fillScope').value;
@@ -849,18 +887,21 @@
     const selectedBrush = brush, selectedInk = ink;
     const brushSettings = tool === 'brush' ? { size, opacity, stabilizer, pressureEnabled }
       : brushProfile(Core.brushPresets.find(p => p.id === selectedBrush));
-    const resumePen = tool === 'pen' && !!state.layers.find(layer => layer.id === state.activeId)?.penDraft.nodes.length;
     const layersPromise = Promise.all(state.layers.map(async layer => {
-      const pendingPath = penPath.serialize(layer);
-      return { ...metadata(layer), ...(pendingPath ? { pendingPath } : {}), image: await blobFromCanvas(layer.canvas) };
+      const strokes = Strokes.exportBundle(layer.strokeRecords);
+      return { ...metadata(layer), ...(strokes ? { strokes } : {}), image: await blobFromCanvas(layer.canvas) };
     }));
     let bundle = null;
     if (includeReference && ref && ref.getCanvas()) {
       if (referenceCache && referenceCacheVersion === version) bundle = referenceCache;
       else { bundle = await ref.exportBundle(); if (referenceVersion === version) { referenceCache = bundle; referenceCacheVersion = version; } }
     }
-    return { format: 'lrxdraw', version: 1, title: state.title, width: state.width, height: state.height, paperPpi: state.paperPpi, paper: state.paper, paperColor: state.paperColor, paperOpacity: state.paperOpacity, paperTexture: state.paperTexture, textureStrength: state.textureStrength, tone: state.tone, activeId: state.activeId, layers: await layersPromise, reference: bundle,
-      settings: { ink: selectedInk, brush: selectedBrush, ...brushSettings, ...(resumePen ? { resumePen: true } : {}), recentColors: recentColors.slice(0, 12), marks: readMarkSettings() } };
+    const layers = await layersPromise;
+    // Cached immutable tile Blobs avoid re-encoding every stroke at autosave;
+    // their bytes also count against the existing history budget.
+    trimHistory(); syncHistory();
+    return { format: 'lrxdraw', version: 1, title: state.title, width: state.width, height: state.height, paperPpi: state.paperPpi, paper: state.paper, paperColor: state.paperColor, paperOpacity: state.paperOpacity, paperTexture: state.paperTexture, textureStrength: state.textureStrength, tone: state.tone, activeId: state.activeId, layers, reference: bundle,
+      settings: { ink: selectedInk, brush: selectedBrush, ...brushSettings, eraserMode, recentColors: recentColors.slice(0, 12), marks: readMarkSettings() } };
   }
   function notifySaveError(error) {
     if (error?.code === 'CURRENT_CONFLICT') {
@@ -947,7 +988,7 @@
     }
     if (!value || typeof value.$blob !== 'string' || value.$blob.length > PROJECT_BYTES * 1.4) throw new Error('工程缺少有效的图片数据。');
     const match = /^data:([a-z0-9.+/-]+);base64,([A-Za-z0-9+/=\r\n]+)$/i.exec(value.$blob);
-    if (!match || !['image/png', 'image/jpeg', 'image/webp', 'application/pdf'].includes(match[1]) || (mime && match[1] !== mime)) throw new Error('工程包含不支持的文件格式。');
+    if (!match || (!['image/png', 'image/jpeg', 'image/webp', 'application/pdf'].includes(match[1]) && !(mime === 'application/octet-stream' && match[1] === mime)) || (mime && match[1] !== mime)) throw new Error('工程包含不支持的文件格式。');
     const raw = atob(match[2]), bytes = new Uint8Array(raw.length); for (let i = 0; i < raw.length; i++) bytes[i] = raw.charCodeAt(i);
     return new Blob([bytes], { type: match[1] });
   }
@@ -978,9 +1019,10 @@
       const blob = decodeBlob(value.image, 'image/png'); total += blob.size; if (total > PROJECT_BYTES) throw new Error('工程图层占用过大。');
       if (saveAsCurrent) layerImages.push(blob);
       await checkLayerPNG(blob, next.width, next.height); const image = await loadImage(blob), c = canvas(next.width, next.height); context(c).drawImage(image, 0, 0);
-      next.layers.push({ id: value.id, name: String(value.name || '图层').slice(0, 40), visible: value.visible !== false, locked: !!value.locked, opacity: clamp(number(value.opacity, 1), 0, 1), x: clamp(number(value.x, 0), -65536, 65536), y: clamp(number(value.y, 0), -65536, 65536), scale: clamp(number(value.scale, 1), .1, 3), canvas: c });
+      const strokeRecords = await Strokes.importBundle(value.strokes, c, decodeBlob, blobArray);
+      next.layers.push({ id: value.id, name: String(value.name || '图层').slice(0, 40), visible: value.visible !== false, locked: !!value.locked, opacity: clamp(number(value.opacity, 1), 0, 1), x: clamp(number(value.x, 0), -65536, 65536), y: clamp(number(value.y, 0), -65536, 65536), scale: clamp(number(value.scale, 1), .1, 3), canvas: c, strokeRecords });
+      if (Strokes.bytes(next.layers.map(layer => layer.strokeRecords)) > Strokes.MAX_BYTES) throw new Error('工程的整笔记录超过 16 MiB 轻量限额。');
     }
-    next.layers.forEach((layer, index) => { layer.penDraft = penPath.read(project.layers[index].pendingPath, layer.id); });
     if (!ids.has(next.activeId)) next.activeId = next.layers[0].id;
     const inputSettings = project.settings && typeof project.settings === 'object' ? project.settings : {};
     const importedBrush = Core.brushPresets.find(p => p.id === inputSettings.brush) || Core.brushPresets[0];
@@ -991,6 +1033,7 @@
       brush: importedBrush.id, size: importedNumber('size', 1, 240),
       opacity: importedNumber('opacity', .01, 1), stabilizer: importedNumber('stabilizer', 0, 100),
       pressureEnabled: inputSettings.pressureEnabled !== false,
+      eraserMode: inputSettings.eraserMode === 'stroke' ? 'stroke' : 'local',
       recentColors: Array.isArray(inputSettings.recentColors) ? inputSettings.recentColors.filter(c => typeof c === 'string' && /^#[a-f0-9]{6}$/i.test(c)).slice(0, 12) : [],
       marks: normalizeMarkSettings(inputSettings.marks)
     };
@@ -1000,21 +1043,21 @@
       if (bundle) { await candidate.loadBundle(bundle); canonicalBundle = await candidate.exportBundle(); }
       if (saveAsCurrent) {
         const layers = next.layers.map((layer, index) => {
-          const pendingPath = penPath.serialize(layer);
-          return { ...metadata(layer), ...(pendingPath ? { pendingPath } : {}), image: layerImages[index] };
+          const strokes = Strokes.exportBundle(layer.strokeRecords);
+          return { ...metadata(layer), ...(strokes ? { strokes } : {}), image: layerImages[index] };
         });
         await writeCurrent({ format: 'lrxdraw', version: 1, ...next, layers, reference: canonicalBundle,
-          settings: { ...settings, resumePen: inputSettings.resumePen === true } });
+          settings });
       }
     } catch (error) { candidate.destroy(); throw error; }
     if (ref) ref.destroy(); ref = candidate; art = next;
     undoStack = []; redoStack = []; transactions.clear(); clearTimeout(saveTimer); saveTimer = 0; revision = 0; savedRevision = 0; fileSavedRevision = -1; sessionUsed = false; draftId = uid();
+    eraserMode = settings.eraserMode;
     setInk(settings.ink); applyMarkSettings(settings.marks); brush = settings.brush; $('brushKind').value = brush;
     applyBrushProfile(brushProfile({ ...settings, id: brush }));
     recentColors = settings.recentColors;
     $('brushSize').value = size; $('brushOpacity').value = Math.round(opacity * 100); $('brushOpacityValue').textContent = Math.round(opacity * 100) + '%'; $('stabilizer').value = stabilizer; $('stabilizerValue').textContent = stabilizer; $('penPressure').checked = pressureEnabled; swatches($('recentSwatches'), recentColors);
     setGeometry(); sync(); setBrush(brush); render(); fit(); lastReferenceKey = ''; referenceChanged(false); referenceCache = canonicalBundle; referenceCacheVersion = referenceVersion;
-    if (inputSettings.resumePen === true && activeLayer().penDraft.nodes.length && activeLayer().visible && !activeLayer().locked) setTool('pen', true);
     $('saveStatus').textContent = '已打开 · 等待编辑'; $('canvasHint').hidden = true; status('已打开工程 · ' + art.title); return true;
   }
   async function showDrafts() {
@@ -1092,12 +1135,12 @@
     }, '正在打包工程…');
   }
   function wireEvents() {
-    on('penStroke', 'click', () => commitPenPath(false));
-    on('penFill', 'click', () => commitPenPath(true));
-    for (const id of ['penDelete', 'quickPenDelete']) on(id, 'click', () => editPenPath(() => penPath.remove(view.zoom)));
-    on('penCancel', 'click', () => editPenPath(() => penPath.reset()));
-    on('quickPenStroke', 'click', () => commitPenPath(false)); on('quickPenFill', 'click', () => commitPenPath(true));
     all('[data-tool]').forEach(button => button.addEventListener('click', () => setTool(button.dataset.tool)));
+    on('eraserMode', 'change', () => {
+      finishPointer(); eraserMode = $('eraserMode').value === 'stroke' ? 'stroke' : 'local';
+      try { localStorage.setItem('lrx-drawing-eraser-mode-v1', eraserMode); } catch (_) {}
+      syncEraser(); status(eraserMode === 'stroke' ? '整笔橡皮 · 一次擦除可撤销' : '局部橡皮 · 沿位置擦除像素');
+    });
     on('brushKind', 'change', () => setBrush($('brushKind').value, true));
     on('brushSample', 'click', openBrushLibrary);
     for (const id of ['brushSize', 'brushOpacity', 'stabilizer', 'penPressure']) {
@@ -1120,10 +1163,6 @@
       const preset = tool === 'eraser' ? eraserPreset : Core.brushPresets.find(p => p.id === brush);
       applyBrushProfile({ ...preset, pressureEnabled: true }); storeBrushProfile(); status('已恢复这支笔的推荐参数');
     });
-    for (const id of ['brushSize', 'brushOpacity']) {
-      on(id, 'input', () => rememberPenStyle(true));
-      on(id, 'change', () => rememberPenStyle(true));
-    }
     on('touchDraw', 'change', () => { touchDraw = $('touchDraw').checked; });
     on('inkColor', 'input', () => setInk($('inkColor').value)); on('inkColor', 'change', () => remember(ink));
     for (const key of Object.keys(MARK_DEFAULTS)) {
@@ -1144,9 +1183,9 @@
     on('duplicateLayer', 'click', () => {
       layerBudget(art.layers.length + 1); mutate(() => {
         const source = activeLayer(), copy = { ...source, id: uid(), name: (source.name + ' 副本').slice(0, 40), canvas: canvas(art.width, art.height), locked: false };
-        copy.penDraft = penPath.read(penPath.serialize(source), source.id);
         context(copy.canvas).drawImage(source.canvas, 0, 0);
         art.layers.splice(art.layers.indexOf(source) + 1, 0, copy); art.activeId = copy.id;
+        Strokes.limit(art.layers);
       }, '复制图层');
     });
     on('deleteLayer', 'click', () => mutate(() => { const index = art.layers.indexOf(activeLayer()); art.layers.splice(index, 1); if (!art.layers.length) art.layers.push(createLayer('图层 1')); art.activeId = art.layers[Math.max(0, index - 1)].id; }, '删除图层'));
@@ -1185,7 +1224,7 @@
       mutate(() => {
         art.paperPpi = paperPpi;
         if (resized) {
-          art.layers = art.layers.map(layer => { const c = canvas(dimensions.width, dimensions.height); context(c).drawImage(layer.canvas, 0, 0); return { ...layer, canvas: c }; });
+          art.layers = art.layers.map(layer => { const c = canvas(dimensions.width, dimensions.height); context(c).drawImage(layer.canvas, 0, 0); return { ...layer, canvas: c, strokeRecords: null }; });
           art.width = dimensions.width; art.height = dimensions.height;
         }
         setGeometry();
@@ -1304,11 +1343,6 @@
     document.addEventListener('keydown', e => {
       if (dialogOpen() || editable(e.target) || busy) return;
       const key = e.key.toLowerCase(), command = e.ctrlKey || e.metaKey;
-      if (tool === 'pen' && penPath.length && !command && !e.altKey && !(e.target.closest && e.target.closest('button,a,summary'))) {
-        if (key === 'enter') { e.preventDefault(); commitPenPath(e.shiftKey); return; }
-        if (key === 'escape') { e.preventDefault(); finishPointer(); editPenPath(() => penPath.reset()); return; }
-        if (key === 'backspace' || key === 'delete') { e.preventDefault(); if (!activePointer) editPenPath(() => penPath.remove(view.zoom)); return; }
-      }
       if (key === 'escape' && activePointer && ['shape', 'text'].includes(activePointer.kind)) { e.preventDefault(); finishPointer(); return; }
       if (command && key === 'z') { e.preventDefault(); e.shiftKey ? redo() : undo(); return; }
       if (command && key === 'y') { e.preventDefault(); redo(); return; }
@@ -1317,9 +1351,9 @@
       if (key === 'tab') { if (e.target === viewport || e.target === document.body || e.target === display) { e.preventDefault(); toggleFocus(); } return; }
       if (key === ' ') { if (e.target.closest && e.target.closest('button,a,summary')) return; e.preventDefault(); spacePan = true; viewport.dataset.cursor = 'hand'; return; }
       if (e.target.closest && e.target.closest('button,a,summary')) return;
-      const tools = { b: 'brush', p: 'pen', e: 'eraser', g: 'fill', i: 'picker', v: 'move', h: 'hand', u: 'shape', t: 'text' };
+      const tools = { b: 'brush', e: 'eraser', g: 'fill', i: 'picker', v: 'move', h: 'hand', u: 'shape', t: 'text' };
       if (tools[key]) { e.preventDefault(); setTool(tools[key]); }
-      else if (key === '[' || key === ']') { e.preventDefault(); size = clamp(Math.round(size + (key === '[' ? -1 : 1) * Math.max(1, size * .15)), 1, 240); $('brushSize').value = size; storeBrushProfile(); rememberPenStyle(true); scheduleBrushSample(); }
+      else if (key === '[' || key === ']') { e.preventDefault(); size = clamp(Math.round(size + (key === '[' ? -1 : 1) * Math.max(1, size * .15)), 1, 240); $('brushSize').value = size; storeBrushProfile(); scheduleBrushSample(); }
       else if (key === '0') fit(); else if (key === '1') zoomTo(1);
     });
     document.addEventListener('keyup', e => { if (e.key === ' ') { spacePan = false; viewport.dataset.cursor = tool; } });
@@ -1330,7 +1364,7 @@
     } else window.addEventListener('resize', () => { fit(); resizeReferenceView(); });
   }
   async function initialize() {
-    if (!Core?.brushPresets || !Marks || !window.DrawingPalettes || !window.DrawingPaletteMap || !window.DrawingColorLibrary || !window.DrawingCanvasPresets || !window.DrawingPaper || !window.DrawingColorControls || !window.DrawingReference || !window.DrawingStorage) { notify('画板组件未加载完整，请刷新页面。'); return; }
+    if (!Core?.brushPresets || !Marks || !Strokes || !window.DrawingPalettes || !window.DrawingPaletteMap || !window.DrawingColorLibrary || !window.DrawingCanvasPresets || !window.DrawingPaper || !window.DrawingColorControls || !window.DrawingReference || !window.DrawingStorage) { notify('画板组件未加载完整，请刷新页面。'); return; }
     const groups = new Map();
     for (const preset of Core.brushPresets) {
       if (!groups.has(preset.group)) {
@@ -1379,7 +1413,7 @@
     }, '正在读取当前作品…');
     // Exposed for local contract tests and inspection; no external services use it.
     window.DrawingStudio = {
-      inspect: () => ({ width: art.width, height: art.height, title: art.title, paper: art.paper, paperColor: art.paperColor, paperOpacity: art.paperOpacity, paperTexture: art.paperTexture, textureStrength: art.textureStrength, tone: { ...art.tone }, view: { ...view }, layers: art.layers.map(metadata), activeId: art.activeId, tool, brush, ink, size, opacity, stabilizer, pressure: lastPressure, pointerType: lastPointerType, dirty: revision > savedRevision, history: undoStack.length, redo: redoStack.length, revision, savedRevision, draftId, drawing: !!activePointer, reference: ref.getInfo() }),
+      inspect: () => ({ width: art.width, height: art.height, title: art.title, paper: art.paper, paperColor: art.paperColor, paperOpacity: art.paperOpacity, paperTexture: art.paperTexture, textureStrength: art.textureStrength, tone: { ...art.tone }, view: { ...view }, layers: art.layers.map(metadata), activeId: art.activeId, tool, brush, ink, size, opacity, stabilizer, eraserMode, strokeCount: Strokes.count(activeLayer().strokeRecords), strokeBytes: Strokes.bytes(art.layers.map(layer => layer.strokeRecords)), historyBytes: memory(), pressure: lastPressure, pointerType: lastPointerType, dirty: revision > savedRevision, history: undoStack.length, redo: redoStack.length, revision, savedRevision, draftId, drawing: !!activePointer, reference: ref.getInfo() }),
       newDocument, addLayer, selectLayer, undo, redo, render, exportRaster, exportProject, loadProject, serializeProject,
       get ref() { return ref; }, getLayer: id => art.layers.find(layer => layer.id === id), saveDraft, setTool, setInk
     };

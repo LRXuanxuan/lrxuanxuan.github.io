@@ -12,7 +12,13 @@
       if (localStorage.getItem(layoutKey) === 'grouped') layout = 'grouped';
     } catch (_) {}
     const catalog = [];
-    const basics = window.DrawingPaletteMap.describe(palettes[0]).swatches.filter(color => color.base);
+    const basics = [
+      { code: '纯黑', name: '纯黑', hex: '#000000' },
+      { code: '深棕', name: '深棕', hex: '#3f271f' },
+      { code: '中棕', name: '中棕', hex: '#75503b' },
+      { code: '深灰', name: '深灰', hex: '#3a3a3a' },
+      { code: '中灰', name: '中灰', hex: '#808080' }
+    ];
     const storageKey = 'lrx-drawing-favorite-colors-v1';
     let favorites = [];
     try {
@@ -74,7 +80,7 @@
     function syncInk() {
       const hex = getInk(), preset = palettes.find(p => p.id === menu.value);
       const color = basics.find(c => c.hex === hex) || (preset && preset.swatches.find(c => c.hex === hex)) || byHex.get(hex), saved = favorites.includes(hex);
-      byId('inkReadout').textContent = color ? color.code + ' · ' + color.name : hex.toUpperCase();
+      byId('inkReadout').textContent = color ? [...new Set([color.code, color.name].filter(Boolean))].join(' · ') : hex.toUpperCase();
       byId('rememberColor').textContent = saved ? '移出收藏' : '收藏当前色';
       byId('rememberColor').title = (saved ? '移除 ' : '在此浏览器收藏 ') + hex.toUpperCase();
     }
@@ -106,7 +112,7 @@
       try { localStorage.setItem(storageKey, JSON.stringify(favorites)); } catch (_) {}
       swatches(byId('savedSwatches'), favorites); syncInk();
     });
-    byId('baseSwatches').replaceChildren(...basics.map(color => makeButton(color, color.name)));
+    byId('baseSwatches').replaceChildren(...basics.map(color => makeButton(color, '')));
     swatches(byId('savedSwatches'), favorites); render(); syncInk();
     return { syncInk, setPreset, getPreset: () => menu.value };
   };

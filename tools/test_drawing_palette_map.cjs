@@ -7,6 +7,8 @@ const mapper = require('../assets/drawing-studio/palette-map.js');
 const scope = { window: {} };
 vm.runInNewContext(fs.readFileSync(path.join(__dirname, '../assets/drawing-studio/palettes.js'), 'utf8'), scope);
 vm.runInNewContext(fs.readFileSync(path.join(__dirname, '../assets/drawing-studio/palettes-supervision.js'), 'utf8'), scope);
+vm.runInNewContext(fs.readFileSync(path.join(__dirname, '../assets/drawing-studio/palettes-holbein.js'), 'utf8'), scope);
+vm.runInNewContext(fs.readFileSync(path.join(__dirname, '../assets/drawing-studio/palettes-pilot.js'), 'utf8'), scope);
 const palettes = scope.window.DrawingPalettes;
 const pixels = (...values) => ({ width: values.length, height: 1, data: new Uint8ClampedArray(values.flat()) });
 const rgb = hex => [parseInt(hex.slice(1, 3), 16), parseInt(hex.slice(3, 5), 16), parseInt(hex.slice(5, 7), 16)];
@@ -26,7 +28,7 @@ test('Four requested sets use color; specialty sets use lightness and all keep f
   }
 });
 
-test('Super Vision preserves its original ten-color series, leading zeros and explicitly unknown codes', () => {
+test('Super Vision preserves ten-color series, leading zeros and simple series labels for unknown codes', () => {
   const artist = palettes.find(p => p.id === 'supervision-artists50');
   const gray = palettes.find(p => p.id === 'supervision-gray60');
   assert.deepEqual(Array.from(artist.groups, g => g.name), ['葛饰北斋', '莫兰迪', '莫奈', '梵高', '穆夏']);
@@ -34,14 +36,13 @@ test('Super Vision preserves its original ten-color series, leading zeros and ex
   assert.deepEqual(Array.from(gray.swatches, c => c.code), Array.from({ length: 60 }, (_, i) => String(i + 1).padStart(3, '0')));
   assert.equal(artist.swatches.filter(c => c.originalCode === null).length, 20);
   for (const group of artist.groups.filter(g => ['莫奈', '穆夏'].includes(g.name))) {
-    assert.deepEqual(Array.from(group.swatches, c => c.code), Array.from({ length: 10 }, (_, i) => group.name + '·' + (i + 1)));
-    assert.ok(group.swatches.every(c => c.originalCode === null && c.name.includes('非原厂色号')));
+    assert.ok(group.swatches.every(c => c.code === group.name && c.name === group.name && c.originalCode === null));
   }
   for (const [p, count] of [[artist, 50], [gray, 60]]) {
     assert.equal(p.category, '视爵水彩'); assert.equal(p.columns, 5);
     assert.equal(p.swatches.length, count);
     assert.ok(p.groups.every(g => g.swatches.length === 10));
-    assert.equal(new Set(p.swatches.map(c => c.code)).size, count);
+    assert.equal(new Set(p.swatches.map(c => c.hex)).size, count);
     assert.ok(p.swatches.every(c => /^#[a-f0-9]{6}$/.test(c.hex)));
     const description = mapper.describe(p);
     assert.equal(description.method, 'color'); assert.equal(description.swatches.length, count + 2);
@@ -59,6 +60,46 @@ test('Exact palette colors, including all 359 candidates, are preserved without 
   assert.deepEqual(input.data, before);
   assert.notEqual(result.data, input.data);
   assert.equal(result.swatches.length, 359);
+});
+
+test('Holbein artist selections retain twelve colors and share consistent swatches across sets', () => {
+  const expected = {
+    'holbein-yufuko12': 'W012 W007 W026 W047 W030 W031 W077 W093 W098 W116 W110 W136',
+    'holbein-nanakami12': 'W031 W050 W025 W019 W015 W065 W104 W102 W117 W113 W156 W153',
+    'holbein-lemon12': 'W015 W025 W032 W037 W047 W061 W094 W104 W115 W133 W136 W153'
+  };
+  const shared = new Map();
+  for (const [id, codes] of Object.entries(expected)) {
+    const p = palettes.find(item => item.id === id);
+    assert.deepEqual(Array.from(p.swatches, c => c.code), codes.split(' '));
+    assert.equal(p.category, '荷尔拜因水彩'); assert.equal(p.columns, 6);
+    assert.equal(p.groups.length, 1); assert.equal(p.groups[0].swatches.length, 12);
+    for (const color of p.swatches) {
+      assert.match(color.hex, /^#[a-f0-9]{6}$/);
+      if (shared.has(color.code)) assert.equal(color.hex, shared.get(color.code));
+      shared.set(color.code, color.hex);
+    }
+    const view = mapper.describe(p); assert.equal(view.method, 'color');
+    const input = pixels(...view.swatches.map(c => [...rgb(c.hex), 255]));
+    assert.deepEqual(mapper.map(input, p).data, input.data);
+  }
+  assert.equal(shared.size, 29);
+});
+
+test('Pilot contains all thirty historical regular colors in five six-color families', () => {
+  const p = palettes.find(item => item.id === 'pilot-iroshizuku30');
+  assert.equal(p.category, '百乐彩墨'); assert.equal(p.columns, 6);
+  assert.equal(p.swatches.length, 30); assert.equal(p.groups.length, 5);
+  assert.ok(p.groups.every(group => group.swatches.length === 6));
+  assert.equal(new Set(p.swatches.map(color => color.originalCode)).size, 30);
+  assert.ok(p.swatches.every(color => color.code === color.name && /^INK-50-[A-Z]+$/.test(color.originalCode)));
+  for (const name of ['露草', '稻穗', '土笔', '雾雨', '踯躅', '秋樱', '燈路', '春晓', '六花']) {
+    assert.ok(p.swatches.some(color => color.name === name), 'Missing historical or new color ' + name);
+  }
+  const view = mapper.describe(p); assert.equal(view.method, 'color');
+  assert.equal(view.swatches.length, 31, 'The official Takesumi screen swatch shares pure black; only white adds another distinct candidate');
+  const input = pixels(...view.swatches.map(color => [...rgb(color.hex), 255]));
+  assert.deepEqual(mapper.map(input, p).data, input.data);
 });
 
 test('Color mapping and lightness mapping produce distinct, meaningful choices', () => {

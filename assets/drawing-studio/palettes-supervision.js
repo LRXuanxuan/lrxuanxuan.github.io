@@ -1,11 +1,11 @@
 /* Super Vision watercolor sets. Display RGB is sampled from flat color blocks
    in published product charts; it is not manufacturer-specified RGB.
-   Blank codes are deliberately shown as group ordinals, never inferred.
+   Unknown manufacturer codes use the series name as the display label.
    Sources and limitations: docs/drawing-supervision-palettes.md. */
 (function (root) {
   'use strict';
   const sets = [
-    ["supervision-artists50", "大艺术家 50 色", "5 个十色系列 · 莫奈/穆夏为组内序号，非原色号", [
+    ["supervision-artists50", "大艺术家 50 色", "5 个十色系列 · 每组两行五色", [
       ["葛饰北斋", "101:e1c5a0|102:c8b16e|103:8fafba|104:2e5977|105:172242|106:daa593|107:73291c|108:675e59|109:15392f|110:709d7e"],
       ["莫兰迪", "111:d7ca9e|112:a2836f|113:664b42|114:8e847b|115:aeafa7|116:485961|117:635b80|118:1c2d59|119:505c84|120:c5ac8e"],
       ["莫奈", ":decfd6|:d294a7|:ae97b2|:9793c5|:405790|:6a5e70|:b7a29f|:dda575|:6c89b0|:2b4b5a"],
@@ -25,10 +25,9 @@
   for (const [id, name, description, series] of sets) {
     const groups = series.map(([family, entries]) => ({
       name: family,
-      swatches: entries.split('|').map((entry, index) => {
+      swatches: entries.split('|').map(entry => {
         const [code, rgb] = entry.split(':');
-        return { code: code || family + '·' + (index + 1),
-          name: code ? family : '组内第 ' + (index + 1) + ' 色（非原厂色号）',
+        return { code: code || family, name: family,
           originalCode: code || null, family: family, hex: '#' + rgb };
       })
     }));

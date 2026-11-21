@@ -12,7 +12,7 @@
 | 电影 60 色 | 待完整色卡核验 | 暂不收录 | 尚缺完整可核验的六组色卡 | 不创建占位套装 |
 
 两套已收录预设归入「视爵水彩」，使用 `assets/drawing-studio/palettes-supervision.js`
-维护小型静态数据，沿用画室的取色、概括、黑白辅助色和工程保存流程。
+维护小型静态数据，沿用画室的取色、概括、勾线快捷色和工程保存流程。
 视爵是水彩配色参考；不要把它归入 Copic 马克笔，或沿用“其余 Copic 套装按明暗”的规则。
 
 视爵的「紧凑排列」跨小系列连续排成每行五色；「按色系」保留上述原版
@@ -20,9 +20,11 @@
 十色小系列，不是重新按红、黄、蓝等色相分类。Copic 继续每行六色。
 排法偏好在本机保存，切换品牌或套装时使用对应列数。
 
-纯黑 `#000000` 和纯白 `#ffffff` 作为默认线稿色、背景色单独常驻，
-不计入 50／60 色，不占用任何小系列的十个位置，也不增加色卡网格中的空位。
-概括用色仍保留黑白；参考图原有透明度继续由原映射流程保护。
+右侧快捷栏单独常驻五个无文字勾线色块：纯黑 `#000000`、深棕 `#3f271f`、
+中棕 `#75503b`、深灰 `#3a3a3a`、中灰 `#808080`。它们替换原来的线稿黑／背景白
+快捷项，不计入 50／60 色，不占任何小系列的十个位置，也不增加色卡网格中的空位。
+概括算法仍在当前套装之外保留纯黑 `#000000` 和纯白 `#ffffff` 两个候选，
+不从右侧快捷栏生成候选列表；参考图原有透明度继续由原映射流程保护。
 
 ## 色号、色名与数据边界
 
@@ -30,11 +32,11 @@
 - 大艺术家中葛饰北斋 `101`–`110`、莫兰迪 `111`–`120`、梵高 `131`–`140`
   来自可辨认的带编号品牌色卡图。莫奈、穆夏的十个色块和原图顺序已核实，
   原厂色号仍留空；不能根据相邻范围补造编号。
-- 莫奈显示为「莫奈·1」至「莫奈·10」，穆夏显示为「穆夏·1」至「穆夏·10」。
-  数字表示组内位置，必须在套装说明中明确“组内序号，非原厂色号”。
+- 按用户最新要求，莫奈的十个色块均只显示「莫奈」，穆夏的十个色块均只显示「穆夏」。
+  不附组内序号或编号提示；内部 `originalCode` 仍为空，颜色通过各自 HEX 区分。
   穆夏也常译为“慕夏”，别名只辅助识别，不另建一套十色。
 - 高级灰组名是「风韵雅宋」，末字为“宋”，依据包装上的「風韻雅宋」。
-- 尚未核实两套的官方逐色色名，不按屏幕外观编造色名；使用已核实色号或明确标注的组内序号。
+- 尚未核实两套的官方逐色色名，不按屏幕外观编造色名；使用已核实色号，未核实色号的莫奈、穆夏只用小系列名称。
 - 所有 HEX 均为**从图像取得的屏幕近似值，不是厂家发布的官方 RGB/HEX 或颜料标准测色值**。
   颜色数与原版分组已核实，不代表数字颜色与实体水彩在任何条件下完全一致。
 
@@ -48,9 +50,9 @@
 | --- | --- | --- | --- |
 | 葛饰北斋 | `101–110` | [产品页](https://lettersbyjessshop.com/products/acuarelas-supervision-los-grandes-artistas-de-la-acuarela-en-tubo-8ml-set-hokusai-x10) | [品牌色卡图](https://lettersbyjessshop.com/cdn/shop/files/acuarelas-supervision-los-grandes-artistas-de-la-acuarela-en-tubo-8ml-set-hokusai-x10-306732.jpg) |
 | 莫兰迪 | `111–120` | [产品页](https://lettersbyjessshop.com/products/acuarelas-supervision-los-grandes-artistas-de-la-acuarela-en-tubo-8ml-set-morandi-x10) | [品牌色卡图](https://lettersbyjessshop.com/cdn/shop/files/acuarelas-supervision-los-grandes-artistas-de-la-acuarela-en-tubo-8ml-set-giorgio-morandi-x10-673894.jpg) |
-| 莫奈 | 「莫奈·1」至「莫奈·10」；原色号未核实 | [产品页](https://www.walmart.com/ip/16493361105) | [品牌色卡图](https://i5.walmartimages.com/asr/4389165f-1b68-4861-a656-83fffd11ef78.89c8311f0a2d2cf3ac35010705ad85f0.jpeg) |
+| 莫奈 | 「莫奈」；原色号未核实 | [产品页](https://www.walmart.com/ip/16493361105) | [品牌色卡图](https://i5.walmartimages.com/asr/4389165f-1b68-4861-a656-83fffd11ef78.89c8311f0a2d2cf3ac35010705ad85f0.jpeg) |
 | 梵高 | `131–140` | [产品页](https://lettersbyjessshop.com/products/acuarelas-supervision-los-grandes-artistas-de-la-acuarela-en-tubo-8ml-set-van-gogh-x10) | [品牌色卡图](https://lettersbyjessshop.com/cdn/shop/files/acuarelas-supervision-los-grandes-artistas-de-la-acuarela-en-tubo-8ml-set-van-gogh-x10-868505.jpg) |
-| 穆夏（慕夏） | 「穆夏·1」至「穆夏·10」；原色号未核实 | [产品页](https://www.walmart.com/ip/16493361105) | [品牌色卡图](https://i5.walmartimages.com/asr/4389165f-1b68-4861-a656-83fffd11ef78.89c8311f0a2d2cf3ac35010705ad85f0.jpeg) |
+| 穆夏（慕夏） | 「穆夏」；原色号未核实 | [产品页](https://www.walmart.com/ip/16493361105) | [品牌色卡图](https://i5.walmartimages.com/asr/4389165f-1b68-4861-a656-83fffd11ef78.89c8311f0a2d2cf3ac35010705ad85f0.jpeg) |
 
 同一套装的手涂水彩色样另可在
 [Grandado 的十色系列产品页](https://esp.grandado.com/products/acuarela-solida-super-vision-conjunto-de-pintura-de-acuarela-de-artista-suministros-de-arte-morandi-macaron-candy-advanced-gray-10-colores-1ml?variant=UHJvZHVjdFZhcmlhbnQ6NDU0MjU1Nzg4)
@@ -128,16 +130,18 @@
 或原厂可核验链接。补充资料应能辨认每组名称、十个颜色及其对应原色号。
 在资料齐全前，不根据电影名自行配色，不拿其他套装凑数，也不添加可选但虚假的
 “电影 60 色”占位预设。莫奈、穆夏若补到可读的带编号色卡，再把对应二十色的
-组内序号补为已核实原色号，保留小系列身份、顺序及既有工程的套装关联。
+内部 `originalCode` 补为已核实原色号；界面继续优先服从用户的简洁命名偏好，
+保留小系列身份、顺序及既有工程的套装关联。
 
 以下是本功能的维护检查要求，不表示已经完成真实浏览器或线上验收：
 
-1. 大艺术家恰为 5 组 × 10 色，高级灰恰为 6 组 × 10 色；默认黑白单独提供。
+1. 大艺术家恰为 5 组 × 10 色，高级灰恰为 6 组 × 10 色。右侧五种勾线快捷色
+   无文字且不占套装位置，概括算法的额外候选仍为黑白。
 2. 视爵紧凑模式连续五列，按色系模式每组两行五列；切回 Copic 后恢复六列。
    紧凑模式不保留分组造成的断行，按色系模式不重新按色相聚类。
 3. 核对高级灰 `001`–`060` 的前导零，以及葛饰北斋、莫兰迪、梵高的已核实范围。
-   莫奈、穆夏明确显示组内序号；保留穆夏／慕夏别名，不出现推测的原厂编号或色名。
-4. 两套视爵默认按色彩距离进行概括，固定黑白、透明度、左右预设同步和工程恢复
+   莫奈、穆夏只显示组名，不出现组内序号或编号警告；保留穆夏／慕夏别名。
+4. 两套视爵默认按色彩距离进行概括，算法保留黑白、透明度、左右预设同步和工程恢复
    沿用现有行为；Copic 的色彩／明暗规则不因新增品牌改变。
 5. 点选色块能同步当前画笔与原生调色盘；换套装、换参考图及 PDF 页时，概括用色
    与当前预设一致，派生图不额外存入工程。
