@@ -316,7 +316,7 @@ async function main() {
     assert.ok(buttons.every(button => button.textContent === ''), 'Quick colors remain unlabeled visually');
     assert.match(buttons[5].getAttribute('aria-label'), /纯白/, 'White swatch keeps an accessible label');
     const css = fs.readFileSync(path.join(ROOT, 'assets/drawing-studio/style.css'), 'utf8');
-    assert.match(css, /\\.palette-basics\\s*\\{[^}]*grid-template-columns:\\s*repeat\\(6,/,
+    assert.ok(css.includes('.palette-basics { display: grid; grid-template-columns: repeat(6,'),
       'Six quick colors fit in a single CSS grid row');
     buttons[5].click();
     assert.equal(state().ink, '#ffffff', 'Clicking white selects the pure white brush color');
