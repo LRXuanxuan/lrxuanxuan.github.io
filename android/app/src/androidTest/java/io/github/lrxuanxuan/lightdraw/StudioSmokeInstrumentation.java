@@ -169,9 +169,18 @@ public final class StudioSmokeInstrumentation extends Instrumentation {
             if (view != null) {
                 JSONObject value = state(view,
                         "({page:location.pathname,found:!!document.getElementById('" + element + "'),"
+                        + "loaded:document.readyState==='complete',"
+                        + "initialized:location.pathname.endsWith('drawing-studio.html')"
+                        + "?!!window.DrawingStudio&&typeof window.DrawingStudio.inspect==='function'"
+                        + ":!!window.__APP,"
                         + "busy:document.body?document.body.classList.contains('busy'):true})");
                 last = value.toString();
-                if (value.optString("page").endsWith(page) && value.optBoolean("found") && !value.optBoolean("busy")) return;
+                // DOM elements exist before deferred application scripts have run.
+                // DrawingStudio is exposed after sidebar setup and local project loading;
+                // the teaching page exposes __APP after study.init().
+                if (value.optString("page").endsWith(page) && value.optBoolean("found")
+                        && value.optBoolean("loaded") && value.optBoolean("initialized")
+                        && !value.optBoolean("busy")) return;
             }
             SystemClock.sleep(150);
         }
