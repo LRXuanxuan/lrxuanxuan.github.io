@@ -15,9 +15,9 @@
   <script src="assets/drawing-studio/brushes-chuishi-data.js?v=20261122-4" defer></script>
   <script src="assets/drawing-studio/brushes-haiguai-data.js?v=20261122-4" defer></script>
   <script src="assets/drawing-studio/brushes-dongdong-data.js?v=20261122-4" defer></script>
-  <script src="assets/drawing-studio/brushes-chuishi.js?v=20261122-6" defer></script>
+  <script src="assets/drawing-studio/brushes-chuishi.js?v=20261122-texture-zero-1" defer></script>
   <script src="assets/drawing-studio/vendor/spectral/spectral.js?v=3.0.0" defer></script>
-  <script src="assets/drawing-studio/watercolor.js?v=20261122-1" defer></script>
+  <script src="assets/drawing-studio/watercolor.js?v=20261122-texture-zero-1" defer></script>
   <script src="assets/drawing-studio/core.js?v=20261122-watercolor-1" defer></script>
   <script src="assets/drawing-studio/stroke-records.js?v=20261122-shapes-1" defer></script>
   <script src="assets/drawing-studio/marks.js?v=20261122-shapes-1" defer></script>
@@ -35,7 +35,7 @@
   <script src="assets/drawing-studio/canvas-presets.js?v=20261121-1" defer></script>
   <script src="assets/drawing-studio/textures/paper001.js?v=1" defer></script>
   <script src="assets/drawing-studio/paper.js?v=20261121-9" defer></script>
-  <script src="assets/drawing-studio/app.js?v=20261122-watercolor-1" defer></script>
+  <script src="assets/drawing-studio/app.js?v=20261122-texture-zero-1" defer></script>
 </head>
 <body>
   <svg class="studio-symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="0" height="0"><defs>
@@ -244,9 +244,9 @@
             <p class="hint" id="watercolorHint">水分越多，笔边越柔和；每支水彩笔分别记住。</p>
           </div>
           <div id="brushTextureControls" hidden>
-            <label class="field"><span>颗粒 / 纹理粗细 <output id="brushTextureScaleValue" for="brushTextureScale">100%</output></span><input id="brushTextureScale" type="range" min="25" max="400" step="5" value="100" aria-label="颗粒与纹理粗细" aria-describedby="brushTextureHint" disabled></label>
-            <label class="field"><span>颗粒 / 纹理密度 <output id="brushTextureDensityValue" for="brushTextureDensity">100%</output></span><input id="brushTextureDensity" type="range" min="25" max="200" step="5" value="100" aria-label="颗粒与纹理密度" aria-describedby="brushTextureHint" disabled></label>
-            <p class="hint" id="brushTextureHint">100% 为原效果。粗细越大纹理越粗，密度越高落墨越密；每支笔分别记住。</p>
+            <label class="field"><span>颗粒 / 纹理粗细 <output id="brushTextureScaleValue" for="brushTextureScale">100%</output></span><input id="brushTextureScale" type="range" min="0" max="400" step="5" value="100" aria-label="颗粒与纹理粗细" aria-describedby="brushTextureHint" disabled></label>
+            <label class="field"><span>颗粒 / 纹理密度 <output id="brushTextureDensityValue" for="brushTextureDensity">100%</output></span><input id="brushTextureDensity" type="range" min="0" max="200" step="5" value="100" aria-label="颗粒与纹理密度" aria-describedby="brushTextureHint" disabled></label>
+            <p class="hint" id="brushTextureHint">任一项为 0% 时关闭颗粒与纹理，100% 为原效果。开启后粗细越大纹理越粗，密度越高落墨越密；每支笔分别记住。</p>
           </div>
           <label class="field"><span>防抖 <output id="stabilizerValue">20</output></span><input id="stabilizer" type="range" min="0" max="100" value="20"></label>
           <label class="check"><input id="penPressure" type="checkbox" checked> 启用数位笔压感</label>

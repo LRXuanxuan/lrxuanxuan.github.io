@@ -122,7 +122,8 @@ async function main() {
   });
 
   await test('Density increases actual ink coverage without merely fading the whole stroke', () => {
-    for (const { id } of core.brushPresets.filter(p => p.textureControls)) {
+    // Watercolor has its own continuous pigment model and dedicated suite.
+    for (const { id } of imported.presets.filter(p => p.textureControls)) {
       const sparse = render(id, { textureDensity: .25 }), normal = render(id), dense = render(id, { textureDensity: 2 });
       assert.ok(sparse.stats.count > 0, id + ' remains visible at the minimum density');
       assert.ok(sparse.stats.alphaSum < normal.stats.alphaSum && normal.stats.alphaSum <= dense.stats.alphaSum,
@@ -132,10 +133,43 @@ async function main() {
     }
   });
 
+  await test('Either zero endpoint disables texture without suppressing ink or depending on the other setting', () => {
+    for (const { id } of imported.presets.filter(p => p.textureControls)) {
+      const zero = render(id, { textureScale: 0, textureDensity: 0 });
+      assert.ok(zero.stats.count > 0, id + ' must still paint when texture is off');
+      for (const [textureScale, textureDensity] of [[0, 1], [1, 0], [0, .05], [0, 2], [4, 0]]) {
+        assert.equal(render(id, { textureScale, textureDensity }).hash, zero.hash,
+          id + ' treats either zero as the same disabled texture');
+      }
+      assert.deepEqual(zero.bounds, render(id).bounds, id + ' retains its pen size and movement envelope');
+    }
+    const plainNib = render('dongdong-soft-texture', { textureDensity: 0 });
+    const texturedNib = render('dongdong-soft-texture');
+    assert.notEqual(plainNib.hash, texturedNib.hash, 'The texture carried by an embedded nib must also switch off');
+    assert.ok(plainNib.stats.alphaSum > texturedNib.stats.alphaSum,
+      'Removing embedded nib texture fills internal gaps instead of removing the brush');
+  });
+
+  await test('Small positive texture values remain finite, drawable and distinct from the off endpoint', () => {
+    for (const id of ['chuishi-hatching-grain', 'chuishi-linework', 'dongdong-rough-inking', 'dongdong-soft-texture']) {
+      const off = render(id, { textureDensity: 0 });
+      for (const value of [.05, .10, .20]) {
+        for (const options of [{ textureScale: value }, { textureDensity: value }, { textureScale: value, textureDensity: value }]) {
+          const result = render(id, options);
+          assert.ok(result.stats.count > 0, id + ' paints at ' + JSON.stringify(options));
+          assert.ok(Number.isFinite(result.stats.alphaSum));
+          assert.deepEqual(result.bounds, off.bounds, id + ' keeps a bounded drawing envelope');
+        }
+        assert.notEqual(render(id, { textureDensity: value }).hash, off.hash,
+          id + ' positive density still enables texture');
+      }
+    }
+  });
+
   await test('Extreme and nonfinite parameters remain bounded and do not poison the texture caches', () => {
     const id = 'haiguai-pencil-soft';
     assert.equal(render(id, { textureScale: -100, textureDensity: -100 }).hash,
-      render(id, { textureScale: .25, textureDensity: .25 }).hash);
+      render(id, { textureScale: 0, textureDensity: 0 }).hash);
     assert.equal(render(id, { textureScale: 1000000, textureDensity: 1000000 }).hash,
       render(id, { textureScale: 4, textureDensity: 2 }).hash);
     for (const value of [NaN, Infinity, -Infinity, 'invalid'])
@@ -154,6 +188,7 @@ async function main() {
   await test('The deployed controls appear only for supported brushes and refresh the real sample', async () => {
     await ui.fresh('haiguai-pencil-soft');
     assert.equal(ui.el('brushTextureControls').hidden, false);
+    assert.equal(ui.el('brushTextureScale').min, '0'); assert.equal(ui.el('brushTextureDensity').min, '0');
     await eventually(() => inkStats(ui.el('brushPreview')).count > 0, 'Initial preview is painted');
     // Wait for the sample scheduled by fresh() before comparing a parameter edit.
     await new Promise(resolve => ui.win.requestAnimationFrame(resolve));
@@ -170,6 +205,23 @@ async function main() {
     ui.tool('brush'); assert.equal(ui.el('brushTextureControls').hidden, false);
     ui.edit('brushKind', 'gpen'); assert.equal(ui.el('brushTextureControls').hidden, true);
     ui.edit('brushKind', 'dongdong-soft-texture'); assert.equal(ui.el('brushTextureControls').hidden, false);
+  });
+
+  await test('Zero settings survive per-brush recall, new artwork and page restart', async () => {
+    ui.edit('brushKind', 'haiguai-pencil-soft'); ui.setTexture(0, 1.25);
+    ui.edit('brushKind', 'dongdong-rough-inking'); ui.setTexture(2, 0);
+    ui.edit('brushKind', 'haiguai-pencil-soft'); assert.deepEqual(ui.values(), [0, 1.25]);
+    await ui.app.newDocument({ width: 96, height: 96, paper: 'transparent' });
+    assert.deepEqual(ui.values(), [0, 1.25]);
+    const saved = Object.fromEntries(Array.from({ length: ui.win.localStorage.length }, (_, i) => {
+      const key = ui.win.localStorage.key(i); return [key, ui.win.localStorage.getItem(key)];
+    }));
+    const restarted = await studio(win => { for (const [key, value] of Object.entries(saved)) win.localStorage.setItem(key, value); });
+    assert.deepEqual(restarted.values(), [0, 1.25]);
+    restarted.edit('brushKind', 'dongdong-rough-inking'); assert.deepEqual(restarted.values(), [2, 0]);
+    restarted.edit('brushKind', 'haiguai-pencil-soft'); restarted.el('resetBrushProfile').click();
+    assert.deepEqual(restarted.values(), [1, 1]);
+    restarted.edit('brushKind', 'dongdong-rough-inking'); assert.deepEqual(restarted.values(), [2, 0]); close(restarted);
   });
 
   await test('Brush preferences remain independent through switching, new artwork, reset and page restart', async () => {
@@ -217,10 +269,51 @@ async function main() {
 
   await test('Untrusted project texture fields normalize before use', async () => {
     const saved = JSON.parse(await ui.app.exportProject());
-    for (const [scale, density, expected] of [[-100, 999, [.25, 2]], ['bad', null, [1, 1]], [1e100, -1e100, [4, .25]]]) {
+    for (const [scale, density, expected] of [[-100, 999, [0, 2]], ['bad', null, [1, 1]], [1e100, -1e100, [4, 0]], [0, 0, [0, 0]]]) {
       const fresh = await studio();
       saved.settings.textureScale = scale; saved.settings.textureDensity = density;
       await fresh.app.loadProject(saved); assert.deepEqual(fresh.values(), expected); close(fresh);
+    }
+  });
+
+  await test('Zero texture previews and real pointer strokes agree and transfer through project files', async () => {
+    for (const id of ['haiguai-pencil-soft', 'dongdong-soft-texture']) {
+      await ui.fresh(id); ui.setTexture(1, 1);
+      await new Promise(resolve => ui.win.requestAnimationFrame(resolve));
+      const originalPreview = hash(pixels(ui.el('brushPreview')));
+      let offPreview, offStroke;
+      for (const [scale, density] of [[0, 1.5], [2, 0], [0, 0]]) {
+        await ui.fresh(id); ui.setTexture(scale, density); ui.edit('brushOpacity', 57);
+        await new Promise(resolve => ui.win.requestAnimationFrame(resolve));
+        const sample = hash(pixels(ui.el('brushPreview')));
+        assert.ok(inkStats(ui.el('brushPreview')).count > 0, 'Disabling texture leaves a real preview');
+        assert.notEqual(sample, originalPreview, id + ' off preview differs from its textured default');
+        if (offPreview) assert.equal(sample, offPreview, 'Either zero produces the same preview'); else offPreview = sample;
+        assert.match(ui.el(scale === 0 ? 'brushTextureScaleValue' : 'brushTextureDensityValue').textContent, /0%/);
+        const blank = hash(pixels(ui.active().canvas)), history = ui.app.inspect().history; ui.draw();
+        const painted = hash(pixels(ui.active().canvas));
+        assert.ok(inkStats(ui.active().canvas).count > 0, 'Zero does not disable actual drawing');
+        assert.ok(inkStats(ui.active().canvas).maxAlpha <= 146, 'Texture off still applies the 57% stroke opacity once');
+        assert.equal(ui.app.inspect().strokeCount, 1, 'Texture off preserves the original stroke identity');
+        if (offStroke) assert.equal(painted, offStroke, 'Either zero produces the same actual stroke'); else offStroke = painted;
+        assert.equal(ui.app.inspect().history, history + 1);
+        ui.app.undo(); assert.equal(hash(pixels(ui.active().canvas)), blank);
+        ui.app.redo(); assert.equal(hash(pixels(ui.active().canvas)), painted);
+        const project = JSON.parse(await ui.app.exportProject());
+        assert.equal(project.settings.textureScale, scale); assert.equal(project.settings.textureDensity, density);
+        const restored = await studio(); await restored.app.loadProject(project);
+        assert.deepEqual(restored.values(), [scale, density]); assert.equal(hash(pixels(restored.active().canvas)), painted);
+        // Explicit zero is a saved preference, not an absent/falsy value that
+        // may be replaced by the next imported artwork's positive settings.
+        project.settings.textureScale = project.settings.textureDensity = 1;
+        await restored.app.loadProject(project); assert.deepEqual(restored.values(), [scale, density]); close(restored);
+        if (scale === 0 && density === 0) {
+          ui.tool('eraser'); ui.edit('eraserMode', 'stroke'); ui.edit('brushSize', 100);
+          ui.pointer('pointerdown', 95, 60); ui.pointer('pointerup', 95, 60); ui.app.render();
+          assert.equal(ui.app.inspect().strokeCount, 0); assert.equal(hash(pixels(ui.active().canvas)), blank);
+          ui.app.undo(); assert.equal(hash(pixels(ui.active().canvas)), painted);
+        }
+      }
     }
   });
 

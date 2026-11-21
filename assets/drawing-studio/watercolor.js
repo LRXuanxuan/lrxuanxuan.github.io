@@ -30,6 +30,10 @@
   var COLOR_LIMIT = 256, MIX_LIMIT = 4096;
   function clamp(n, a, b) { return Math.max(a, Math.min(b, n)); }
   function number(n, fallback) { return Number.isFinite(Number(n)) ? Number(n) : fallback; }
+  function textureValue(value, maximum) {
+    var n = Number.isFinite(value) ? clamp(value, 0, maximum) : 1;
+    return n > 0 ? Math.max(.01, n) : 0;
+  }
   function smooth(t) { t = clamp(t, 0, 1); return t * t * (3 - 2 * t); }
   function hash(x, y, seed) {
     var h = Math.imul(x + 713, 374761393) ^ Math.imul(y + 193, 668265263) ^ seed;
@@ -113,7 +117,12 @@
     var edge = clamp(number(options.watercolorEdge, preset.watercolorEdge), 0, 1);
     var bloom = clamp(number(options.watercolorBloom, preset.watercolorBloom), 0, 1);
     var variation = clamp(number(options.watercolorVariation, preset.watercolorVariation), 0, 1);
-    var scale = clamp(number(options.textureScale, 1), .25, 4), density = clamp(number(options.textureDensity, 1), .25, 2);
+    var scale = textureValue(options.textureScale, 4), density = textureValue(options.textureDensity, 2);
+    // Zero is an explicit texture-off endpoint, not zero pigment or a zero
+    // sampling period. Independent watermarks and pigment variation keep their
+    // own controls and use the neutral spatial scale while grain is disabled.
+    var textureOff = scale === 0 || density === 0;
+    if (textureOff) scale = 1;
     var match = /^#([a-f\d]{6})$/i.exec(options.color || '#263544'), packed = match ? parseInt(match[1], 16) : 0x263544;
     var ink = [packed >> 16, (packed >> 8) & 255, packed & 255], inkColor = wet ? spectralColor(ink[0], ink[1], ink[2]) : null;
     var tiles = new Map(), dirty = new Set(), columns = Math.ceil(width / TILE);
@@ -125,7 +134,10 @@
     var softness = wet ? .20 + water * .25 : dry ? .10 + water * .08 : .11 + water * .13;
     var baseAlpha = wet ? .45 - water * .15 : dry ? .65 - water * .15 : .52 - water * .16;
     var ridgeStrength = edge * (wet ? .16 + water * .05 : dry ? .08 : .30 - water * .08);
-    var threshold = (dry ? .49 - water * .12 : wet ? .19 - water * .06 : .24 - water * .07) - Math.log2(density) * .18;
+    // Continue below the old 25% limit with a bounded threshold: log2 alone
+    // would push it above all paper peaks and silently erase a low-density nib.
+    var threshold = textureOff ? 0 : (dry ? .49 - water * .12 : wet ? .19 - water * .06 : .24 - water * .07) -
+      Math.log2(Math.max(.25, density)) * .18 + Math.max(0, .25 - density) * .45;
     var bleedRadius = Math.max(1, Math.min(9, size * (.012 + water * .06)));
 
     function tileAt(tx, ty) {
@@ -220,9 +232,9 @@
           var cell = y * tile.width + x, m = tile.mask[cell] / 255;
           if (!m) continue;
           var px = tile.x + x, py = tile.y + y, i = cell * 4;
-          var tooth = paperAt(paper, px / scale, py / scale), pool = paperAt(cloud, px / scale, py / scale);
-          var grain = smooth((tooth - threshold) / (dry ? .21 : .27));
-          if (!dry) {
+          var pool = paperAt(cloud, px / scale, py / scale);
+          var grain = textureOff ? 1 : smooth((paperAt(paper, px / scale, py / scale) - threshold) / (dry ? .21 : .27));
+          if (!textureOff && !dry) {
             // A wet wash fills the valleys of the sheet. Ordinary wet/glazing
             // defaults should show slight pigment grain, not dry chalk holes.
             // The low end of density can still expose genuinely sparse paper.

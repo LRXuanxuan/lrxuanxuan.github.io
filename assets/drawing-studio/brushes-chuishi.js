@@ -91,9 +91,9 @@
     if (cursor !== w * h) throw new Error('笔刷蒙版数据不完整。');
     p.putImageData(image, 0, 0); return bounded(maskCache, key, out, 20);
   }
-  function shape(ctx, brush) {
+  function shape(ctx, brush, withoutTexture) {
     if (brush.mask) return decodeMask(ctx, brush.mask);
-    var name = brush.shapeFallback || brush.source.bundledShapePath || 'Brush-Preset-Hard.png', key = 'shape:' + name;
+    var name = brush.shapeFallback || brush.source.bundledShapePath || 'Brush-Preset-Hard.png', key = 'shape:' + name + (withoutTexture ? ':plain' : '');
     var hit = cached(maskCache, key); if (hit) return hit;
     var side = 128, out = canvas(ctx, side, side), p = paint(out), image = p.createImageData(side, side), seed = hashString(name);
     var soft = /Ultra-Soft|Intense-Water/i.test(name), medium = /Medium-Hard/i.test(name);
@@ -119,12 +119,14 @@
         var yy = /Calligraphy/i.test(name) ? (v + u * .38) : v;
         var depth = flat ? .33 : .70;
         var edge = Math.min(.90 - Math.abs(u), depth + .055 * Math.sin(x * 1.7) + .05 * coarse - Math.abs(yy));
-        a = clamp(edge * 28, 0, 1) * (.68 + .32 * fine);
+        a = clamp(edge * 28, 0, 1) * (withoutTexture ? 1 : .68 + .32 * fine);
       } else {
         var edgeNoise = .065 * Math.sin(Math.atan2(v, u) * 11) + .07 * coarse;
         var squash = /Chinese|Ink2|Paint-Dab/i.test(name) ? .70 : .86;
         a = clamp((.89 + edgeNoise - Math.hypot(u, v / squash)) * 25, 0, 1);
-        a *= scribble ? (fine < .17 ? 0 : .48 + .52 * fine) : (.72 + .28 * fine);
+        // At the off endpoint remove internal procedural speckle while
+        // retaining the original nib outline and all compound nib geometry.
+        if (!withoutTexture) a *= scribble ? (fine < .17 ? 0 : .48 + .52 * fine) : (.72 + .28 * fine);
       }
       var index = (y * side + x) * 4;
       image.data[index] = image.data[index + 1] = image.data[index + 2] = 255; image.data[index + 3] = Math.round(255 * a);
@@ -132,10 +134,11 @@
     p.putImageData(image, 0, 0); return bounded(maskCache, key, out, 20);
   }
   function texturedShape(ctx, brush, textureScale, density) {
-    var original = shape(ctx, brush);
+    var disabled = textureScale === 0 || density === 0;
+    var original = shape(ctx, brush, disabled);
     if (textureScale === 1 && density === 1) return original;
     var identity = brush.mask || brush.shapeFallback || brush.source.bundledShapePath;
-    var key = identity + ':' + textureScale + ':' + density, hit = cached(textureTipCache, key);
+    var key = identity + ':' + (disabled ? 'off' : textureScale + ':' + density), hit = cached(textureTipCache, key);
     if (hit) return hit;
     var w = original.width, h = original.height, total = w * h, profile = original.textureProfile;
     if (!profile) {
@@ -174,26 +177,34 @@
     for (var py = 0; py < h; py++) for (var px = 0; px < w; px++) {
       var pos = py * w + px, envelopeAlpha = profile.envelope[pos];
       if (!envelopeAlpha) continue;
-      var u = reflected((w - 1) / 2 + (px - (w - 1) / 2) / textureScale, w);
-      var v = reflected((h - 1) / 2 + (py - (h - 1) / 2) / textureScale, h);
-      var x0 = Math.floor(u), y0 = Math.floor(v), x1 = Math.min(w - 1, x0 + 1), y1 = Math.min(h - 1, y0 + 1), fx = u - x0, fy = v - y0;
-      var texture = profile.texture, a0 = texture[y0 * w + x0] * (1 - fx) + texture[y0 * w + x1] * fx;
-      var a1 = texture[y1 * w + x0] * (1 - fx) + texture[y1 * w + x1] * fx, amount = a0 * (1 - fy) + a1 * fy;
-      // Sparse settings open actual holes, dense settings fill those holes.
-      // No change to flow, whole-stroke opacity, spacing or nib diameter.
-      if (density < 1) { var cutoff = (1 - density) * .85; amount = clamp((amount - cutoff) / (1 - cutoff), 0, 1); }
-      else if (density > 1) amount = 1 - (1 - amount) / density;
+      // Zero is a texture-off endpoint, not an empty nib or a zero divisor.
+      // Keep the fixed envelope and its edge softness while removing only the
+      // sampled internal texture. Positive values retain their prior meaning.
+      var amount = 1;
+      if (!disabled) {
+        var u = reflected((w - 1) / 2 + (px - (w - 1) / 2) / textureScale, w);
+        var v = reflected((h - 1) / 2 + (py - (h - 1) / 2) / textureScale, h);
+        var x0 = Math.floor(u), y0 = Math.floor(v), x1 = Math.min(w - 1, x0 + 1), y1 = Math.min(h - 1, y0 + 1), fx = u - x0, fy = v - y0;
+        var texture = profile.texture, a0 = texture[y0 * w + x0] * (1 - fx) + texture[y0 * w + x1] * fx;
+        var a1 = texture[y1 * w + x0] * (1 - fx) + texture[y1 * w + x1] * fx;
+        amount = a0 * (1 - fy) + a1 * fy;
+        // Sparse settings open actual holes, dense settings fill those holes.
+        // No change to flow, whole-stroke opacity, spacing or nib diameter.
+        if (density < 1) { var cutoff = (1 - density) * .85; amount = clamp((amount - cutoff) / (1 - cutoff), 0, 1); }
+        else if (density > 1) amount = 1 - (1 - amount) / density;
+      }
       image.data[pos * 4] = image.data[pos * 4 + 1] = image.data[pos * 4 + 2] = 255;
       image.data[pos * 4 + 3] = Math.round(envelopeAlpha * amount);
     }
     p.putImageData(image, 0, 0); return bounded(textureTipCache, key, out, 8);
   }
-  function colorShape(ctx, brush, color, diameter, tipTextureScale, tipTextureDensity) {
+  function colorShape(ctx, brush, color, diameter, tipTextureScale, tipTextureDensity, withoutTexture) {
     var resolution = clamp(Math.ceil(diameter * 1.25 / 8) * 8, 8, 192);
     var key = (brush.mask || brush.shapeFallback || brush.source.bundledShapePath) + ':' + color + ':' + resolution;
+    if (withoutTexture) key += ':plain';
     if (tipTextureScale !== undefined) key += ':texture:' + tipTextureScale + ':' + tipTextureDensity;
     var hit = cached(tintCache, key); if (hit) return hit;
-    var mask = tipTextureScale === undefined ? shape(ctx, brush) : texturedShape(ctx, brush, tipTextureScale, tipTextureDensity);
+    var mask = tipTextureScale === undefined ? shape(ctx, brush, withoutTexture) : texturedShape(ctx, brush, tipTextureScale, tipTextureDensity);
     var ratio = resolution / Math.max(mask.width, mask.height);
     var out = canvas(ctx, Math.max(1, Math.round(mask.width * ratio)), Math.max(1, Math.round(mask.height * ratio))), p = paint(out);
     p.fillStyle = color; p.fillRect(0, 0, out.width, out.height); p.globalCompositeOperation = 'destination-in'; p.drawImage(mask, 0, 0, out.width, out.height);
@@ -215,6 +226,7 @@
     return mask.dotContact;
   }
   function grain(ctx, brush, density) {
+    if (density === 0) return null;
     var s = brush.source, name = brush.grainFallback || s.bundledGrainPath || '';
     if (!brush.grainMask && (!name || /Blank/i.test(name))) return null;
     var key = (brush.grainMask || name) + ':' + [s.grainDepth, s.textureContrast, s.textureBrightness, s.textureInverted, density].join(':');
@@ -274,7 +286,15 @@
     var preset = presets.find(function (p) { return p.id === options.brush; });
     if (!preset) throw new Error('找不到这支导入笔刷。');
     var source = preset.source, size = clamp(num(options.size, preset.size), .5, 512), stabilizer = clamp(num(options.stabilizer, 0), 0, 100);
-    var textureScale = clamp(num(options.textureScale, 1), .25, 4), textureDensity = clamp(num(options.textureDensity, 1), .25, 2);
+    // Only explicit finite numeric zero means off. Missing/null/invalid input
+    // keeps the original 100% rather than accidentally switching texture off.
+    var textureScale = clamp(Number.isFinite(options.textureScale) ? options.textureScale : 1, 0, 4);
+    var textureDensity = clamp(Number.isFinite(options.textureDensity) ? options.textureDensity : 1, 0, 2);
+    // The UI's first positive value is 5%. Bound smaller programmatic values
+    // away from subnormal divisors without treating them as the off endpoint.
+    if (textureScale > 0) textureScale = Math.max(.01, textureScale);
+    if (textureDensity > 0) textureDensity = Math.max(.01, textureDensity);
+    var textureDisabled = !!preset.textureControls && (textureScale === 0 || textureDensity === 0);
     var nibTexture = preset.id === 'dongdong-soft-texture' && (textureScale !== 1 || textureDensity !== 1);
     var color = options.color || '#20242b', pressureEnabled = options.pressure !== false, ink = rgba(color), carried = ink.slice();
     var glow = preset.id === 'haiguai-glow-airbrush', outline = /^haiguai-outline/.test(preset.id);
@@ -284,11 +304,15 @@
     if (preset.secondary && !outline) components.push(preset.secondary);
     var work = null, workPaint = null;
     var componentState = components.map(function (b) {
-      var texture = grain(ctx, b, textureDensity);
+      var texture = textureDisabled ? null : grain(ctx, b, textureDensity);
+      // This secondary nib is an embedded texture tile, unlike the main soft
+      // round nib or the supplied six-dot/flat/geometric silhouettes. Remove
+      // its internal variation only at zero; positive settings stay untouched.
+      var componentNibTexture = nibTexture || (textureDisabled && preset.id === 'dongdong-rough-inking' && b === preset.secondary);
       var s = b.source, scale = clamp(.25 + Math.sqrt(Math.max(0, val(s, 'textureScale', 1))) * .72, .28, 3.5);
       scale *= Math.pow(clamp(size / 32, .25, 8), .35 * clamp(val(s, 'textureZoom', 1), 0, 1));
-      scale *= textureScale;
-      return { brush: b, tip: colorShape(ctx, b, color, size, nibTexture ? textureScale : undefined, nibTexture ? textureDensity : undefined), texture: texture, grainScale: scale, pattern: null,
+      scale *= textureDisabled ? 1 : textureScale;
+      return { brush: b, tip: colorShape(ctx, b, color, size, componentNibTexture ? (textureDisabled ? 0 : textureScale) : undefined, componentNibTexture ? (textureDisabled ? 0 : textureDensity) : undefined, textureDisabled), texture: texture, grainScale: scale, pattern: null,
         contact: /hatching/.test(preset.id) ? dotContact(ctx, b) : .62 };
     });
     var paperStates = componentState.filter(function (state) { return !!state.texture; });

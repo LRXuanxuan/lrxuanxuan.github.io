@@ -60,7 +60,7 @@
   const eraserPreset = { id: 'eraser', size: 18, opacity: 1, stabilizer: 12 };
   let brushStorageWarning = false, refreshBrushAfterStroke = false;
   function textureSetting(value, maximum) {
-    return Number.isFinite(value) ? clamp(Math.round(value * 20) / 20, .25, maximum) : 1;
+    return Number.isFinite(value) ? clamp(Math.round(value * 20) / 20, 0, maximum) : 1;
   }
   function waterSetting(value, fallback = .5) {
     return Number.isFinite(value) ? clamp(Math.round(value * 20) / 20, 0, 1) : fallback;
@@ -73,8 +73,8 @@
     const setting = (key, min, max) => Number.isFinite(saved?.[key]) ? clamp(saved[key], min, max) : preset[key];
     return { size: setting('size', 1, 240), opacity: setting('opacity', .01, 1),
       stabilizer: setting('stabilizer', 0, 100), pressureEnabled: (saved?.pressureEnabled ?? preset.pressureEnabled) !== false,
-      textureScale: textureSetting(setting('textureScale', .25, 4), 4),
-      textureDensity: textureSetting(setting('textureDensity', .25, 2), 2),
+      textureScale: textureSetting(setting('textureScale', 0, 4), 4),
+      textureDensity: textureSetting(setting('textureDensity', 0, 2), 2),
       watercolorWater: waterSetting(setting('watercolorWater', 0, 1)),
       watercolorEdge: waterSetting(setting('watercolorEdge', 0, 1), .3),
       watercolorBloom: waterSetting(setting('watercolorBloom', 0, 1), .2),
@@ -119,11 +119,13 @@
         ? '少水时纸纹露白，增加水分可连成色块；抬笔后再次经过会叠深。'
         : '每次抬笔后成为一层透明罩染，下一笔保留重叠色边；水分控制笔边柔和度。';
     $('brushTextureControls').hidden = !enabled;
-    $('brushTextureHint').textContent = '100% 为原效果。粗细越大纹理越粗，密度越高落墨越密；每支笔分别记住。' + (preset?.textureHint || '');
+    const textureOff = textureScale === 0 || textureDensity === 0;
+    $('brushTextureHint').textContent = '任一项为 0% 时关闭颗粒与纹理，100% 为原效果。开启后粗细越大纹理越粗，密度越高落墨越密；每支笔分别记住。' + (textureOff ? '' : preset?.textureHint || '');
     for (const [id, value] of [['brushTextureScale', textureScale], ['brushTextureDensity', textureDensity]]) {
       const percent = Math.round(value * 100);
       $(id).disabled = !enabled; $(id).value = percent;
-      $(id + 'Value').textContent = percent + '%'; $(id).setAttribute('aria-valuetext', percent + '%');
+      const label = percent === 0 ? '0%（关闭）' : percent + '%';
+      $(id + 'Value').textContent = label; $(id).setAttribute('aria-valuetext', label);
     }
   }
   function syncOpacityUI() {
@@ -1416,7 +1418,9 @@
     all('[data-brush-preset]').forEach(button => {
       const id = button.dataset.brushPreset, preset = Core.brushPresets.find(p => p.id === id), profile = brushProfile(preset);
       button.title = preset.hint + ' · ' + profile.size + ' px · 浓度 ' + Math.round(profile.opacity * 100) + '% · 防抖 ' + profile.stabilizer;
-      if (preset.textureControls) button.title += ' · 纹理粗细 ' + Math.round(profile.textureScale * 100) + '% · 密度 ' + Math.round(profile.textureDensity * 100) + '%';
+      if (preset.textureControls) button.title += profile.textureScale === 0 || profile.textureDensity === 0
+        ? ' · 颗粒与纹理关闭'
+        : ' · 纹理粗细 ' + Math.round(profile.textureScale * 100) + '% · 密度 ' + Math.round(profile.textureDensity * 100) + '%';
       if (preset.watercolor) button.title += ' · 水分 ' + Math.round(profile.watercolorWater * 100) + '%';
       button.setAttribute('aria-pressed', String(id === brush));
       if (!galleryObserver || button.dataset.sampleVisible === 'true') queueBrushCard(button);

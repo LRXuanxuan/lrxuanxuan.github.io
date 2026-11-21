@@ -4,6 +4,7 @@
  * it does not claim a time-dependent physical fluid simulation.
  * NODE_PATH=/path/to/jsdom-and-fake-indexeddb:/path/to/runtime/node_modules \
  *   node tools/test_drawing_watercolor.cjs
+ * Optional upgrade check: DRAWING_WATERCOLOR_BASELINE=/path/to/old/watercolor.js
  */
 'use strict';
 
@@ -34,11 +35,11 @@ async function test(name, fn) {
 const preset = id => core.brushPresets.find(item => item.id === id);
 const point = (x, y, time = 0, pressure = 1) => ({ x, y, time, pressure, pointerType: 'pen' });
 
-function paint(target, id, points, options = {}) {
+function paint(target, id, points, options = {}, engine = core) {
   const work = native.createCanvas(target.width, target.height), ctx = work.getContext('2d');
   const sampled = !!preset(id)?.samplesLayer;
   if (sampled) ctx.drawImage(target, 0, 0);
-  const brush = core.makeStroke(ctx, { brush: id, size: 40, color: '#c04430',
+  const brush = engine.makeStroke(ctx, { brush: id, size: 40, color: '#c04430',
     stabilizer: 0, pressure: false, textureScale: 1, textureDensity: 1, ...options });
   brush.start(points[0]); points.slice(1).forEach(p => brush.move(p)); brush.end(points.at(-1)); brush.flush();
   const b = brush.bounds, dst = target.getContext('2d');
@@ -53,10 +54,10 @@ function paint(target, id, points, options = {}) {
   work.width = work.height = 1;
   return b;
 }
-function line(id, options = {}, steps = 1) {
+function line(id, options = {}, steps = 1, engine = core) {
   const c = native.createCanvas(256, 128), points = [];
   for (let i = 0; i <= steps; i++) points.push(point(28 + 200 * i / steps, 64, 600 * i / steps, options.penPressure ?? .8));
-  const bounds = paint(c, id, points, options);
+  const bounds = paint(c, id, points, options, engine);
   return { canvas: c, bounds, stats: inkStats(c), hash: hash(pixels(c)) };
 }
 function regionAlpha(c, x, y, w, h) {
@@ -176,6 +177,78 @@ async function main() {
       assert.notEqual(line(id, { textureDensity: .25 }).hash, line(id, { textureDensity: 2 }).hash, id + ' grain density');
       assert.equal(line(id, { textureScale: 1, textureDensity: 1, watercolorWater: preset(id).watercolorWater }).hash,
         baseline.hash, id + ' explicit defaults keep the original mark');
+    }
+  });
+
+  await test('Zero texture scale or density removes paper grain without removing watercolor ink', () => {
+    for (const id of ids) {
+      const quiet = { watercolorEdge: 0, watercolorBloom: 0, watercolorVariation: 0 };
+      const disabled = line(id, { ...quiet, textureScale: 0 });
+      assert.ok(disabled.stats.count > 300, id + ' retains a drawable brush');
+      assert.ok(disabled.stats.maxAlpha > 15 && disabled.stats.maxAlpha < 255, id + ' preserves the translucent wash');
+      assert.equal(pixel(disabled.canvas, 2, 2)[3], 0, id + ' keeps the surrounding paper transparent');
+      assert.deepEqual(disabled.bounds, line(id, quiet).bounds, id + ' keeps its pen footprint');
+      for (const [textureScale, textureDensity] of [[0, 0], [0, .05], [0, 2], [.05, 0], [1, 0], [4, 0]]) {
+        assert.equal(line(id, { ...quiet, textureScale, textureDensity }).hash, disabled.hash,
+          id + ' uses one texture-off result independently of the other knob');
+      }
+      const data = disabled.canvas.getContext('2d').getImageData(55, 58, 145, 12).data;
+      const alpha = new Set(); for (let i = 3; i < data.length; i += 4) alpha.add(data[i]);
+      assert.equal(alpha.size, 1, id + ' has no residual interior paper grain with independent effects disabled');
+      for (const key of effectKeys) {
+        assert.notEqual(line(id, { ...quiet, textureScale: 0, [key]: 1 }).hash, disabled.hash,
+          id + ' keeps the independent ' + key + ' control active');
+      }
+      assert.equal(line(id, { textureScale: 0, textureDensity: 2 }).hash,
+        line(id, { textureScale: 4, textureDensity: 0 }).hash,
+        id + ' uses the same off result with its independent effects at their normal settings');
+    }
+  });
+
+  await test('Sub-25-percent watercolor texture settings stay finite, distinct and drawable', () => {
+    for (const id of ids) for (const textureScale of [.05, .1, .2, 1, 4]) {
+      const hashes = [];
+      for (const textureDensity of [.05, .1, .2, .25]) {
+        const result = line(id, { textureScale, textureDensity }); hashes.push(result.hash);
+        assert.ok(result.stats.count > 0, id + ' remains visible at ' + textureScale + '/' + textureDensity);
+        assert.ok(result.bounds && Object.values(result.bounds).every(Number.isFinite), id + ' returns finite bounds');
+      }
+      assert.equal(new Set(hashes).size, hashes.length, id + ' continues adjusting density below the old minimum');
+    }
+    for (const watercolorWater of [0, 1]) {
+      const result = line('watercolorDry', { textureScale: .05, textureDensity: .05, watercolorWater });
+      assert.ok(result.stats.count > 0, 'Drybrush water extremes remain drawable at 5% texture settings');
+    }
+  });
+
+  await test('Watercolor texture parameters distinguish an explicit zero from invalid fields', () => {
+    for (const id of ids) {
+      const normal = line(id).hash;
+      for (const value of [undefined, null, '', '0', false, NaN, Infinity, -Infinity]) {
+        assert.equal(line(id, { textureScale: value, textureDensity: value }).hash, normal,
+          id + ' defaults invalid texture input ' + String(value));
+      }
+      assert.equal(line(id, { textureScale: -100, textureDensity: -100 }).hash,
+        line(id, { textureScale: 0, textureDensity: 0 }).hash, id + ' clamps negative values to off');
+      assert.equal(line(id, { textureScale: 1e100, textureDensity: 1e100 }).hash,
+        line(id, { textureScale: 4, textureDensity: 2 }).hash, id + ' bounds large values');
+      const tiny = line(id, { textureScale: Number.MIN_VALUE, textureDensity: Number.MIN_VALUE });
+      assert.equal(tiny.hash, line(id, { textureScale: .01, textureDensity: .01 }).hash,
+        id + ' avoids infinite texture sampling coordinates');
+      assert.ok(tiny.stats.count > 0 && Object.values(tiny.bounds).every(Number.isFinite),
+        id + ' remains drawable with tiny positive API values');
+    }
+  });
+
+  await test('Existing watercolor texture values preserve pre-upgrade pixels', () => {
+    if (!process.env.DRAWING_WATERCOLOR_BASELINE) return;
+    const engineFile = path.resolve(__dirname, '../assets/drawing-studio/watercolor.js');
+    const old = new Module(engineFile, module); old.filename = engineFile; old.paths = module.paths;
+    old._compile(fs.readFileSync(process.env.DRAWING_WATERCOLOR_BASELINE, 'utf8'), engineFile);
+    for (const id of ids) for (const [textureScale, textureDensity] of [[1, 1], [.25, .25], [.5, .75], [2, 1.5], [4, 2]]) {
+      const options = { textureScale, textureDensity };
+      assert.equal(line(id, options).hash, line(id, options, 1, old.exports).hash,
+        id + ' preserves its existing ' + textureScale + '/' + textureDensity + ' result');
     }
   });
 
