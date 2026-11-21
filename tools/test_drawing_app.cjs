@@ -349,7 +349,7 @@ async function main() {
       choose('eraser');
       drag([[25, 48], [95, 48]]);
       assert.ok(inkStats(image()).count < afterPen, 'Mouse eraser remains usable when pen-only brush is on');
-      choose('fill'); editField('fillScope', 'all');
+      choose('fill'); editField('fillScope', 'layer');
       const beforeFill = api.inspect().history;
       drag([[35, 30]]);
       assert.ok(api.inspect().history > beforeFill, 'Mouse fill still creates undoable pixels');
