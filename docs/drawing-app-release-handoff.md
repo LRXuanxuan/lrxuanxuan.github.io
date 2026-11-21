@@ -35,6 +35,12 @@
 5. 发布新版 Android：先核验原签名备份；主分支暂为 `0.1.1` / `versionCode 2`，发布前须核对已分发的正式 APK，确保新版本的 `versionCode` **严格大于实际安装版本**，保留 `applicationId`。CI 构建/验证 unsigned APK，必须在安全环境用**同一把长期正式签名密钥**签名，执行签名验证、应用 ID/版本核查及覆盖升级测试，再交付/发布已签名 APK 与 SHA-256。**没有旧密钥就暂停覆盖升级方案**，不能换成调试签名或新签名假称可覆盖安装。
 6. 每次真正确认发布成功后，回写本页：平台版本、源码提交 SHA、Release 或私密交付位置、产物 SHA-256、签名证书指纹（仅公开证书指纹、绝不公开密钥）、关键验证证据及仍未实测的部分。
 
+## 2026-11-22 共用前端更新：撤下历史草稿
+
+- 已从画室界面移除「旧版草稿」按钮、弹窗、历史列表与访问接口；`DrawingStorage` 升级 IndexedDB `rc-drawing-studio-v1` 至 schema v3，打开时自动删除旧 `drafts` 对象存储。
+- **已有 `current/artwork` 自动续画必须保留**；没有当前作品时直接空白启动，不自动迁入旧草稿。手动 `.lrxdraw` 文件不会被清理。保留跨标签页 stamp CAS、退出存储检查与失败保护。
+- 这是一项已提交到主分支的网页版源码改动，**并不表示原先安装的 Windows/Android 二进制已经自动更新**。以后重新打包时直接复用当前共用源码，不要把被撤下的恢复入口加回来。验证规范见 `AGENTS.md` 和 `tools/test_drawing_storage.cjs`。
+
 ## 四、必须保留的兼容性和隐私边界
 
 - 两平台应用 ID 固定 `io.github.lrxuanxuan.lightdraw`。Windows 本机源站 `https://tauri.localhost`；Android 本机源站 `https://appassets.androidplatform.net`。不要随意变更来源、数据目录、WebView 或窗口配对流程。
