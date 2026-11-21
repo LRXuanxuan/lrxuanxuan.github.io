@@ -41,6 +41,14 @@
 - **已有 `current/artwork` 自动续画必须保留**；没有当前作品时直接空白启动，不自动迁入旧草稿。手动 `.lrxdraw` 文件不会被清理。保留跨标签页 stamp CAS、退出存储检查与失败保护。
 - 这是一项已提交到主分支的网页版源码改动，**并不表示原先安装的 Windows/Android 二进制已经自动更新**。以后重新打包时直接复用当前共用源码，不要把被撤下的恢复入口加回来。验证规范见 `AGENTS.md` 和 `tools/test_drawing_storage.cjs`。
 
+## 2026-11-22 共用前端更新：吹石、海怪与东东笔刷
+
+- 共 56 支：保留原「勾线」「混色与推抹」「硬边与像素」8 支，新增吹石 13、海怪 15、东东 20。按用户最新指示撤下原有其余 18 支和专用绘制代码；用户无需旧工程兼容，不保留旧笔刷 ID 迁移。
+- 三份 `brushes-*-data.js` 保存精简笔尖/纹理与源参数，`brushes-chuishi.js` 是三组共用的轻量 Canvas 适配引擎。HTML 必须按数据、适配引擎、core、app 的依赖顺序加载；打包脚本递归复制 `assets/drawing-studio/`，勿漏掉新模块。
+- 缺失的原应用内置素材及部分渲染公式采用明确记录的近似。素材来源、转换命令与支持边界见 [导入笔刷说明](drawing-imported-brushes.md)，专项像素/DOM 回归见 `tools/test_drawing_chuishi.cjs`。网页不携带原始刷包、头像、重置备份或新的运行时依赖。
+- 方形混色与发光喷枪取样当前层，会合成该层的笔画身份；普通新增笔刷与空心描边保留整笔擦除身份。当前工程与本机续画、原内存/图层上限仍按既有机制处理。
+- 这次仅更新网页版及共用前端，未重新发布 Windows / Android 安装包。下次原生发版直接复用当前资源，并复查离线资源闭包与专项笔迹回归。
+
 ## 四、必须保留的兼容性和隐私边界
 
 - 两平台应用 ID 固定 `io.github.lrxuanxuan.lightdraw`。Windows 本机源站 `https://tauri.localhost`；Android 本机源站 `https://appassets.androidplatform.net`。不要随意变更来源、数据目录、WebView 或窗口配对流程。

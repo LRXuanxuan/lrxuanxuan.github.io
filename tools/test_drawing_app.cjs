@@ -577,39 +577,39 @@ async function main() {
   });
 
   await test('Brush preferences restore independently and export uses Beijing year-day-month time', async () => {
-    await fresh(); select('brushKind', 'marker'); edit('brushSize', 47); edit('brushOpacity', 38);
+    await fresh(); select('brushKind', 'haiguai-flat'); edit('brushSize', 47); edit('brushOpacity', 38);
     edit('stabilizer', 62); check('penPressure', false);
-    select('brushKind', 'pencil'); edit('brushSize', 5); edit('brushOpacity', 82);
-    select('brushKind', 'marker');
+    select('brushKind', 'haiguai-pencil-hard'); edit('brushSize', 5); edit('brushOpacity', 82);
+    select('brushKind', 'haiguai-flat');
     assert.deepEqual([state().size,state().opacity,state().stabilizer,element('penPressure').checked], [47,.38,62,false]);
     tool('eraser'); edit('brushSize', 18); tool('brush'); assert.equal(state().size,47);
-    click('resetBrushProfile'); select('brushKind','pencil'); assert.equal(state().size,5);
+    click('resetBrushProfile'); select('brushKind','haiguai-pencil-hard'); assert.equal(state().size,5);
     assert.equal(state().opacity,.82); click('resetBrushProfile');
     assert.equal(win.studioExportName(new Date('2026-11-20T16:07:00Z')), '2026年21日11月00时07分');
   });
 
   await test('Saved brush profiles survive new artwork and override older project settings without replacing its ink', async () => {
     const profile = () => [state().size, state().opacity, state().stabilizer, element('penPressure').checked];
-    await fresh(); select('brushKind', 'squarePaint');
+    await fresh(); select('brushKind', 'chuishi-square');
     edit('brushSize', 37); edit('brushOpacity', 52); edit('stabilizer', 26); check('penPressure', false);
-    select('brushKind', 'gouache'); edit('brushSize', 19); edit('brushOpacity', 83);
+    select('brushKind', 'haiguai-coloring'); edit('brushSize', 19); edit('brushOpacity', 83);
     const other = profile();
     await app.newDocument({width: 96, height: 96, paper: 'transparent'});
-    select('brushKind', 'squarePaint'); assert.deepEqual(profile(), [37,.52,26,false]);
+    select('brushKind', 'chuishi-square'); assert.deepEqual(profile(), [37,.52,26,false]);
     const old = await app.serializeProject();
-    old.settings = { ...old.settings, brush: 'squarePaint', ink: '#287040', size: 92, opacity: .29, stabilizer: 1, pressureEnabled: true };
+    old.settings = { ...old.settings, brush: 'chuishi-square', ink: '#287040', size: 92, opacity: .29, stabilizer: 1, pressureEnabled: true };
     await app.loadProject(old);
     assert.deepEqual(profile(), [37,.52,26,false], 'personal settings win when a project has an older copy');
     assert.equal(state().ink, '#287040', 'the project restores its global ink');
-    select('brushKind', 'gouache'); assert.deepEqual(profile(), other); assert.equal(state().ink, '#287040');
-    select('brushKind', 'squarePaint'); click('resetBrushProfile');
-    const recommended = win.DrawingCore.brushPresets.find(p => p.id === 'squarePaint');
+    select('brushKind', 'haiguai-coloring'); assert.deepEqual(profile(), other); assert.equal(state().ink, '#287040');
+    select('brushKind', 'chuishi-square'); click('resetBrushProfile');
+    const recommended = win.DrawingCore.brushPresets.find(p => p.id === 'chuishi-square');
     assert.deepEqual(profile(), [recommended.size, recommended.opacity, recommended.stabilizer, true]);
-    select('brushKind', 'gouache'); assert.deepEqual(profile(), other, 'reset affects just the selected brush');
-    old.settings.brush = 'spatter'; await app.loadProject(old);
+    select('brushKind', 'haiguai-coloring'); assert.deepEqual(profile(), other, 'reset affects just the selected brush');
+    old.settings.brush = 'dongdong-pressure-burst'; await app.loadProject(old);
     assert.deepEqual(profile(), [92,.29,1,true], 'a legacy project seeds an unused brush');
-    assert.deepEqual(await app.serializeProject().then(p => [p.settings.brush,p.settings.size,p.settings.ink]), ['spatter',92,'#287040']);
-    click('resetBrushProfile'); select('brushKind','gouache'); click('resetBrushProfile');
+    assert.deepEqual(await app.serializeProject().then(p => [p.settings.brush,p.settings.size,p.settings.ink]), ['dongdong-pressure-burst',92,'#287040']);
+    click('resetBrushProfile'); select('brushKind','haiguai-coloring'); click('resetBrushProfile');
   });
 
   await test('A saved preference from another tab applies after the active stroke finishes', async () => {
@@ -665,8 +665,9 @@ async function main() {
   });
 
   await test('All brush presets paint and eraser modifies alpha without painting white', async () => {
-    const brushes = ['gpen', 'fineliner', 'plainSquare', 'fountain', 'wetMix', 'smudge', 'stoneChalk', 'softRound', 'squarePaint', 'patinaInk', 'patinaGrain', 'pencil', 'charcoal', 'marker', 'brushMarker', 'dry', 'airbrush',
-      'gouache', 'wash', 'spatter', 'maru', 'hairHatch', 'screentone', 'sparkle', 'binary', 'pixel'];
+    const brushes = ['gpen', 'fineliner', 'plainSquare', 'fountain', 'wetMix', 'smudge', 'binary', 'pixel',
+      ...win.DrawingChuishiData.brushes.map(p => p.id), ...win.DrawingHaiguaiData.brushes.map(p => p.id),
+      ...win.DrawingDongdongData.brushes.map(p => p.id)];
     assert.deepEqual(Array.from(element('brushKind').options, option => option.value).sort(), [...brushes].sort());
     for (const brush of brushes) {
       await fresh(); select('brushKind', brush); await stroke([[15, 40], [110, 40]]);
@@ -674,6 +675,7 @@ async function main() {
       assert.equal(middle.some((value, i) => i % 4 === 3 && value > 0), brush !== 'smudge', brush + ' deposits ink only if it carries color');
       if (brush === 'binary' || brush === 'pixel') assert.ok(Array.from(pixels(active().canvas)).filter((_, i) => i % 4 === 3).every(alpha => alpha === 0 || alpha === 255));
     }
+    await fresh(); select('brushKind', 'pixel'); await stroke([[15, 40], [110, 40]]);
     tool('eraser'); edit('brushSize', 15); await stroke([[60, 40]]);
     assert.equal(pixel(active().canvas, 60, 40)[3], 0); assert.equal(pixel(display(), 60, 40)[3], 0);
     assert.ok(pixel(active().canvas, 25, 40)[3] > 0);
@@ -933,7 +935,7 @@ async function main() {
     element('exportDialog').close();
   });
 
-  await test('Preset matching methods and five unlabeled line colors work across palette brands', async () => {
+  await test('Preset matching methods and six unlabeled quick colors work across palette brands', async () => {
     await fresh();
     assert.equal(doc.getElementById('swatchSearch'), null, 'The withdrawn swatch search is not left in the UI');
     const colorPresets = new Set(['sketch12-set', 'sketch36-set', 'sketchcomic24-set', 'sketch-chart', 'supervision-artists50', 'supervision-gray60', 'supervision-cinema60', 'holbein-yufuko12', 'holbein-nanakami12', 'holbein-lemon12', 'pilot-iroshizuku30']);
@@ -945,7 +947,7 @@ async function main() {
       assert.equal(info.paletteMethod, colorPresets.has(preset.id) ? 'color' : 'gray', preset.name);
       assert.equal(element('presetSwatches').querySelectorAll('button').length, preset.swatches.length);
       assert.equal(element('presetSwatches').querySelectorAll('.marker-chips').length, 1, 'Compact cards use one continuous grid');
-      assert.deepEqual(Array.from(element('baseSwatches').querySelectorAll('button'), button => button.dataset.color), ['#000000', '#3f271f', '#75503b', '#3a3a3a', '#808080']);
+      assert.deepEqual(Array.from(element('baseSwatches').querySelectorAll('button'), button => button.dataset.color), ['#000000', '#3f271f', '#75503b', '#3a3a3a', '#808080', '#ffffff']);
       assert.ok(Array.from(element('baseSwatches').querySelectorAll('button')).every(button => button.textContent === '' && button.getAttribute('aria-label')), 'Quick line colors have no visible labels but retain accessible names');
       assert.equal(element('presetSwatches').contains(element('baseSwatches')), false, 'Quick line colors must not break palette row counts');
     }
@@ -988,7 +990,7 @@ async function main() {
       }
       assert.ok(reference.classList.contains('copic-swatches'));
       const basics = element('baseSwatches');
-      assert.deepEqual(Array.from(basics.querySelectorAll('button'), button => button.dataset.color), ['#000000', '#3f271f', '#75503b', '#3a3a3a', '#808080']);
+      assert.deepEqual(Array.from(basics.querySelectorAll('button'), button => button.dataset.color), ['#000000', '#3f271f', '#75503b', '#3a3a3a', '#808080', '#ffffff']);
       assert.equal(basics.hidden, false); assert.equal(library.contains(basics), false);
       for (const hex of ['#000000', '#ffffff']) {
         assert.ok(reference.querySelector('[data-color="' + hex + '"]'), 'Reference summary always retains ' + hex);

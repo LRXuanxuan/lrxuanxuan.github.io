@@ -1,10 +1,11 @@
 /* Lightweight, local raster drawing primitives. No framework or network access. */
 (function (root, factory) {
   'use strict';
-  var api = factory();
+  var imported = typeof module === 'object' && module.exports ? require('./brushes-chuishi.js') : root && root.DrawingChuishiBrushes;
+  var api = factory(imported);
   if (typeof module === 'object' && module.exports) module.exports = api;
   if (root) root.DrawingCore = api;
-})(typeof window !== 'undefined' ? window : typeof self !== 'undefined' ? self : null, function () {
+})(typeof window !== 'undefined' ? window : typeof self !== 'undefined' ? self : null, function (Imported) {
   'use strict';
 
   function clamp(value, min, max) { return Math.min(max, Math.max(min, value)); }
@@ -27,8 +28,7 @@
     return right > x && bottom > y ? { x: x, y: y, width: right - x, height: bottom - y } : null;
   }
 
-  // Original presets, informed by Krita's brush-making tutorial (size vs. flow)
-  // and preset bundle overview (paper tooth, dry bristles and marker nibs).
+  // Retained basic pens, active-layer mixing, and hard-edge/pixel tools.
   var brushPresets = [
     { id: 'gpen', name: 'G 笔', group: '勾线', size: 8, opacity: 1, stabilizer: 20, hint: '轻压出尖，重压加粗，适合勾出有粗细变化的轮廓。' },
     { id: 'fineliner', name: '针管笔', group: '勾线', size: 3, opacity: 1, stabilizer: 18, hint: '等宽圆头适合建筑线稿、排线和细部描绘。' },
@@ -36,228 +36,17 @@
     { id: 'fountain', name: '软尖钢笔', group: '勾线', size: 12, opacity: 1, stabilizer: 15, hint: '斜切笔尖顺锋细、横锋粗。轻压落出细线，重压让转折处展开。' },
     { id: 'wetMix', name: '载色混色笔', group: '混色与推抹', size: 36, opacity: 1, stabilizer: 8, samplesLayer: true, hint: '从当前色起笔，沿途蘸取本层颜色，沿色相过渡。空白处也可直接上色。' },
     { id: 'smudge', name: '无色推抹', group: '混色与推抹', size: 42, opacity: 1, stabilizer: 7, samplesLayer: true, hint: '从本层已有笔迹向外拖出颜色，压重增加带色量。在空白处起笔会等到碰到颜色再取色。' },
-    { id: 'stoneChalk', name: '石灰岩肌理', group: '吹石参考 · 原创', size: 23, opacity: 0.93, stabilizer: 8, hint: '断面的扁笔尖配粗细两层颗粒，适合轮廓粗绘与石粉般的铺色。' },
-    { id: 'softRound', name: '柔圆塑形', group: '吹石参考 · 原创', size: 35, opacity: 0.91, stabilizer: 11, hint: '实心笔腹搭配柔和边缘，轻压铺灰面、重压塑造明暗交界。' },
-    { id: 'squarePaint', name: '方头切面', group: '吹石参考 · 原创', size: 30, opacity: 0.96, stabilizer: 10, hint: '宽方头保留切面和细微边痕，适合头发色块、衣褶与建筑转角。' },
-    { id: 'patinaInk', name: '轻包浆 · 毛边线', group: '包浆与旧印', size: 4, opacity: 0.88, stabilizer: 13, hint: '小笔径保留细碎毛边，放大时纸纹同步变粗，适合旧稿和印刷感轮廓。' },
-    { id: 'patinaGrain', name: '重包浆 · 斑驳墨', group: '包浆与旧印', size: 14, opacity: 0.85, stabilizer: 7, hint: '颗粒留白和轻微重影模拟反复翻印的墨块，叠笔可加重旧印效果。' },
-    { id: 'pencil', name: 'HB 石墨铅笔', group: '素描', size: 6, opacity: 0.86, stabilizer: 8, hint: '轻压起稿，重压加深。交叉排线时可以看到细纸纹。' },
-    { id: 'charcoal', name: '侧锋炭笔', group: '素描', size: 32, opacity: 0.85, stabilizer: 6, hint: '侧锋铺出带纸纹的宽色块，轻压擦出灰调，重压加深暗部。' },
-    { id: 'marker', name: '斜头马克笔', group: '马克笔', size: 30, opacity: 0.55, stabilizer: 12, hint: '沿斜笔锋行笔可勾窄线，横过笔锋可铺宽面。抬笔再画一层会加深。' },
-    { id: 'brushMarker', name: '软头马克笔', group: '马克笔', size: 22, opacity: 0.66, stabilizer: 14, hint: '轻压收尖，重压铺开笔腹。适合弯曲轮廓、发束和小面积叠色。' },
-    { id: 'dry', name: '干鬃平笔', group: '铺色与质感', size: 28, opacity: 0.94, stabilizer: 10, hint: '成束笔毛留下断续飞白，顺着形体拉出木纹、发丝或衣褶高光。' },
-    { id: 'airbrush', name: '柔边喷枪', group: '铺色与质感', size: 74, opacity: 0.75, stabilizer: 8, hint: '低流量的柔边笔尖适合大面积渐变。轻压淡扫，往返叠出阴影。' },
-    { id: 'gouache', name: '水粉榛形笔', group: '铺色与质感', size: 38, opacity: 1, stabilizer: 12, hint: '圆扁笔腹顺着行笔转向，重压可铺实色，适合块面塑形和不透明提亮。' },
-    { id: 'wash', name: '湿边水彩', group: '铺色与质感', size: 44, opacity: 0.76, stabilizer: 12, hint: '轻扫留淡色，笔迹边缘积色较深。分笔叠染可画出花瓣、薄雾和透光阴影。' },
-    { id: 'spatter', name: '飞溅点彩', group: '铺色与质感', size: 54, opacity: 0.92, stabilizer: 4, hint: '单击洒下大小不同的色点，拖动能连续铺点。适合星尘、碎屑和粗糙表面。' },
-    { id: 'maru', name: '漫画丸笔', group: '漫画与同人', size: 4, opacity: 1, stabilizer: 19, hint: '轻压和中等压力都能保持细尖，适合睫毛、发梢、衣褶细线。' },
-    { id: 'hairHatch', name: '发丝排线', group: '漫画与同人', size: 19, opacity: 1, stabilizer: 20, hint: '一笔拉出五根随走向转弯的细线。轻压使线束收拢，重压使其散开。' },
-    { id: 'screentone', name: '漫画网点笔', group: '漫画与同人', size: 42, opacity: 1, stabilizer: 8, hint: '在局部刷入规则网点，轻压小点、重压大点。固定笔径重复涂抹时网格保持对齐。' },
-    { id: 'sparkle', name: '四角星芒笔', group: '漫画与同人', size: 24, opacity: 1, stabilizer: 4, hint: '点一下放置四角高光，拖动按间距连续印星。适合眼神光、饰品与魔法特效。' },
     { id: 'binary', name: '二值笔', group: '硬边与像素', size: 5, opacity: 1, stabilizer: 10, hint: '硬边圆笔尖保留清晰边界，方便闭合线稿后填色。' },
     { id: 'pixel', name: '像素笔', group: '硬边与像素', size: 1, opacity: 1, stabilizer: 0, hint: '方形笔尖沿整数网格落笔。设为 1 px 可逐格修整轮廓。' }
   ];
 
-  // Cache small, colorized brush tips and paper tiles, never entire strokes.
-  var tipCache = new Map();
-  function brushTile(ctx, brush, color) {
-    var key = brush + ':' + color;
-    if (tipCache.has(key)) return tipCache.get(key);
-    var side = 128, tile;
-    if (ctx.canvas.ownerDocument) tile = ctx.canvas.ownerDocument.createElement('canvas');
-    else if (typeof OffscreenCanvas !== 'undefined') tile = new OffscreenCanvas(side, side);
-    else tile = new ctx.canvas.constructor(side, side);
-    tile.width = tile.height = side;
-    // Match the CPU-backed stroke canvas, avoiding GPU readback on every dab.
-    var paint = tile.getContext('2d', { willReadFrequently: true });
-    if (brush === 'airbrush' || brush === 'brushMarker' || brush === 'softRound') {
-      var gradient = paint.createRadialGradient(side / 2, side / 2, 0, side / 2, side / 2, side / 2);
-      gradient.addColorStop(0, '#000');
-      if (brush === 'airbrush') {
-        gradient.addColorStop(0.38, 'rgba(0,0,0,0.55)');
-        gradient.addColorStop(0.72, 'rgba(0,0,0,0.14)');
-      } else if (brush === 'softRound') {
-        gradient.addColorStop(0.43, 'rgba(0,0,0,0.92)');
-        gradient.addColorStop(0.76, 'rgba(0,0,0,0.34)');
-      } else gradient.addColorStop(0.74, '#000');
-      gradient.addColorStop(1, 'transparent');
-      paint.fillStyle = gradient; paint.fillRect(0, 0, side, side);
-    } else if (brush === 'gouache') {
-      // Packed filbert fibers with a rounded belly and uneven bristle ends.
-      for (var col = 3; col < side - 3; col++) {
-        var u = (col - side / 2) / (side / 2 - 2);
-        var depth = Math.sqrt(1 - u * u) * side * 0.31;
-        var fringe = 1.7 * Math.sin(col * 3.4) + 1.4 * Math.cos(col * 0.67);
-        paint.fillRect(col, side / 2 - depth + fringe, 1, 2 * depth - fringe + 2 * Math.cos(col * 7.3));
-      }
-    } else {
-      // Fixed paper coordinates keep the tooth in place across overlapping dabs.
-      var mask = paint.createImageData(side, side), seed = 137;
-      function random() {
-        seed = (Math.imul(1664525, seed) + 1013904223) >>> 0;
-        return seed / 4294967296;
-      }
-      var coarse = new Float32Array(side * side / 4);
-      for (var i = 0; i < coarse.length; i++) coarse[i] = random();
-      for (var y = 0; y < side; y++) for (var x = 0; x < side; x++) {
-        var fleck = random();
-        if (brush === 'charcoal') fleck = 0.48 * fleck + 0.52 * coarse[(y >> 1) * (side / 2) + (x >> 1)];
-        var tooth;
-        if (brush === 'pencil') tooth = (fleck - 0.12) * 1.25;
-        else if (brush === 'dry') tooth = (fleck - 0.07) * 2.8;
-        else if (brush === 'patinaInk') tooth = 0.15 + 0.85 * Math.pow(fleck, 0.82);
-        else if (brush === 'stoneChalk' || brush === 'patinaGrain') {
-          var chip = coarse[(y >> 2) * (side / 2) + (x >> 2)];
-          var grain2 = coarse[(y >> 1) * (side / 2) + (x >> 1)];
-          tooth = brush === 'stoneChalk' ? (fleck * 0.28 + chip * 0.45 + grain2 * 0.27 - 0.28) * 2.3
-            : (fleck * 0.42 + chip * 0.32 + grain2 * 0.26 - 0.38) * 3.0;
-        }
-        else tooth = (fleck - 0.28) * 1.9;
-        mask.data[(y * side + x) * 4 + 3] = 255 * clamp(tooth, 0, 1);
-      }
-      paint.putImageData(mask, 0, 0);
-    }
-    paint.globalCompositeOperation = 'source-in';
-    paint.fillStyle = color; paint.fillRect(0, 0, side, side);
-    if (tipCache.size >= 24) tipCache.delete(tipCache.keys().next().value);
-    tipCache.set(key, tile);
-    return tile;
-  }
-
-  // Three paper fields stay fixed in layer space when the nib reverses.
-  // Wicking deforms the silhouette, valleys pool pigment, and damp fibers
-  // intermittently interrupt the drying edge.
-  var washPaper = null;
-  function paperForWash() {
-    if (washPaper) return washPaper;
-    var side = 256, seed = 7837, noise = new Float32Array(side * side);
-    for (var i = 0; i < noise.length; i++) {
-      seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
-      noise[i] = seed / 4294967296;
-    }
-    function field(x, y, scale, offset) {
-      var cx = Math.floor(x / scale), cy = Math.floor(y / scale), cells = side / scale;
-      var fx = (x % scale) / scale, fy = (y % scale) / scale;
-      fx *= fx * (3 - 2 * fx); fy *= fy * (3 - 2 * fy);
-      var col = (cx + offset) & 255, next = ((cx + 1) % cells + offset) & 255;
-      var row = ((cy + offset) & 255) * side, below = (((cy + 1) % cells + offset) & 255) * side;
-      var a = noise[row + col] * (1 - fx) + noise[row + next] * fx;
-      var b = noise[below + col] * (1 - fx) + noise[below + next] * fx;
-      return a * (1 - fy) + b * fy;
-    }
-    washPaper = new Uint8Array(side * side * 3);
-    for (var y = 0; y < side; y++) for (var x = 0; x < side; x++) {
-      var at = (y * side + x) * 3;
-      var tooth = field(x, y, 4, 11), fibers = field(x, y, 16, 27);
-      var pool = field(x, y, 32, 70), moisture = field(x, y, 64, 41);
-      washPaper[at] = 255 * (0.48 * tooth + 0.36 * fibers + 0.16 * noise[y * side + x]);
-      washPaper[at + 1] = 255 * (0.65 * pool + 0.25 * fibers + 0.10 * tooth);
-      washPaper[at + 2] = 255 * (0.48 * fibers + 0.34 * moisture + 0.18 * tooth);
-    }
-    return washPaper;
-  }
-
-  // Accumulate coverage for the whole wet area. Pigment settles near its
-  // exterior boundary, so stopped/retraced strokes have no internal stamp rims.
-  function watercolorStroke(ctx, size, color, bounds) {
-    var side = 48, columns = Math.ceil(ctx.canvas.width / side);
-    var rows = Math.ceil(ctx.canvas.height / side), tiles = new Map(), dirty = new Set();
-    // Round-Fringe's 0.882 inner mask suggests a narrow wet border. Leave an
-    // extra diffusion band and cap the lookup radius for interactive rendering.
-    var rim = clamp((size / 2) * (1 - 0.882) + size * 0.05, 1.65, 9);
-    var halo = Math.ceil(1.65 * rim) + 2, span = side + halo * 2;
-    var distances = new Float32Array(span * span), diagonal = Math.SQRT2;
-    var rgb = parseInt(color.slice(1), 16);
-    var paper = paperForWash(), bleed = clamp(size * 0.092, 0.55, 4.2);
-    function accumulate(a, b, ra, rb) {
-      var dx = b.x - a.x, dy = b.y - a.y, length2 = dx * dx + dy * dy, limit = Math.max(ra, rb) + bleed + 2;
-      var left = Math.max(0, Math.floor(Math.min(a.x, b.x) - limit)), top = Math.max(0, Math.floor(Math.min(a.y, b.y) - limit));
-      var right = Math.min(ctx.canvas.width, Math.ceil(Math.max(a.x, b.x) + limit)), bottom = Math.min(ctx.canvas.height, Math.ceil(Math.max(a.y, b.y) + limit));
-      for (var ty = Math.floor(top / side); ty < Math.ceil(bottom / side); ty++) for (var tx = Math.floor(left / side); tx < Math.ceil(right / side); tx++) {
-        var x0 = tx * side, y0 = ty * side, cx = x0 + side / 2, cy = y0 + side / 2;
-        var near = length2 ? clamp(((cx - a.x) * dx + (cy - a.y) * dy) / length2, 0, 1) : 0;
-        if (Math.hypot(cx - a.x - dx * near, cy - a.y - dy * near) > limit + side * 0.71) continue;
-        var key = ty * columns + tx, tile = tiles.get(key), changed = false;
-        for (var y = Math.max(top, y0); y < Math.min(bottom, y0 + side); y++) for (var x = Math.max(left, x0); x < Math.min(right, x0 + side); x++) {
-          var offX = x + 0.5 - a.x, offY = y + 0.5 - a.y;
-          var t = length2 ? clamp((offX * dx + offY * dy) / length2, 0, 1) : 0;
-          var pi = (((y & 255) * 256) + (x & 255)) * 3;
-          var wick = paper[pi] / 255, dampness = paper[pi + 2] / 255;
-          var radius = ra + (rb - ra) * t + (wick - 0.48) * 2 * bleed;
-          var feather = 0.8 + dampness * bleed * 0.47;
-          var distance = Math.hypot(offX - dx * t, offY - dy * t);
-          var coverage = Math.round(255 * clamp(0.5 + (radius - distance) / feather, 0, 1));
-          if (!coverage) continue;
-          if (!tile) {
-            tile = { mask: new Uint8Array(side * side), force: new Uint8Array(side * side) };
-            tiles.set(key, tile);
-          }
-          var i = (y - y0) * side + x - x0;
-          var force = Math.round(255 * (a.pressure + (b.pressure - a.pressure) * t));
-          if (tile.mask[i] >= coverage && tile.force[i] >= force) continue;
-          tile.mask[i] = Math.max(tile.mask[i], coverage); tile.force[i] = Math.max(tile.force[i], force); changed = true;
-        }
-        if (!changed) continue;
-        include(bounds, Math.max(left, x0), Math.max(top, y0), Math.min(right, x0 + side), Math.min(bottom, y0 + side));
-        // Adjacent wet tiles may lose a previously exposed internal boundary.
-        for (var ny = Math.max(0, ty - 1); ny <= Math.min(rows - 1, ty + 1); ny++) {
-          for (var nx = Math.max(0, tx - 1); nx <= Math.min(columns - 1, tx + 1); nx++) dirty.add(ny * columns + nx);
-        }
-      }
-    }
-    function shade(key) {
-      var tile = tiles.get(key); if (!tile) return;
-      var x0 = (key % columns) * side, y0 = Math.floor(key / columns) * side;
-      distances.fill(0);
-      // Load this tile and its halo into a reusable distance field.
-      for (var sy = 0; sy < span; sy++) {
-        var gy = y0 - halo + sy; if (gy < 0 || gy >= ctx.canvas.height) continue;
-        for (var sx = 0; sx < span;) {
-          var gx = x0 - halo + sx;
-          if (gx < 0) { sx -= gx; continue; }
-          if (gx >= ctx.canvas.width) break;
-          var localX = gx % side, count = Math.min(span - sx, side - localX, ctx.canvas.width - gx);
-          var neighbor = tiles.get(Math.floor(gy / side) * columns + Math.floor(gx / side));
-          if (neighbor) for (var n = 0; n < count; n++) {
-            var alpha = neighbor.mask[(gy % side) * side + localX + n];
-            distances[sy * span + sx + n] = alpha === 255 ? halo + 2 : alpha / 255;
-          }
-          sx += count;
-        }
-      }
-      // Two-pass chamfer distance to exposed paper, including diagonal paths.
-      for (var y = 1; y < span - 1; y++) for (var x = 1; x < span - 1; x++) {
-        var i = y * span + x;
-        distances[i] = Math.min(distances[i], 1 + distances[i - 1], 1 + distances[i - span],
-          diagonal + distances[i - span - 1], diagonal + distances[i - span + 1]);
-      }
-      for (var y = span - 2; y > 0; y--) for (var x = span - 2; x > 0; x--) {
-        var i = y * span + x;
-        distances[i] = Math.min(distances[i], 1 + distances[i + 1], 1 + distances[i + span],
-          diagonal + distances[i + span + 1], diagonal + distances[i + span - 1]);
-      }
-      var w = Math.min(side, ctx.canvas.width - x0), h = Math.min(side, ctx.canvas.height - y0);
-      var image = ctx.createImageData(w, h);
-      for (var y = 0; y < h; y++) for (var x = 0; x < w; x++) {
-        var j = y * side + x, coverage = tile.mask[j]; if (!coverage) continue;
-        var pi = ((((y0 + y) & 255) * 256) + ((x0 + x) & 255)) * 3;
-        var wick = paper[pi] / 255, pool = paper[pi + 1] / 255, dampness = paper[pi + 2] / 255;
-        var p = tile.force[j] / 255, inward = distances[(y + halo) * span + x + halo];
-        var edge = 1 - clamp((inward - 0.65) / (rim * (0.42 + 1.2 * dampness)), 0, 1);
-        var seed = Math.imul(x0 + x + 11, 2654435761) ^ Math.imul(y0 + y + 9, 2246822519);
-        var grain = (Math.imul(seed ^ (seed >>> 15), 3266489917) >>> 24) / 255 - 0.5;
-        // Low-flow wash body and stronger rim, informed by Krita Lines-Wet
-        // (0.15) and Spread (0.33). These are whole-stroke density ranges here.
-        var body = (0.085 + 0.15 * p) * (0.55 + 0.87 * pool) + grain * 0.019 + (wick - 0.5) * 0.031;
-        var dryRim = clamp((0.78 - dampness) * 2.1, 0.025, 1);
-        var alpha = coverage * (body + (0.11 + 0.22 * p) * edge * edge * dryRim);
-        var at = (y * w + x) * 4;
-        image.data[at] = rgb >> 16; image.data[at + 1] = (rgb >> 8) & 255;
-        image.data[at + 2] = rgb & 255; image.data[at + 3] = Math.round(alpha);
-      }
-      ctx.putImageData(image, x0, y0);
-    }
-    return { accumulate: accumulate, flush: function () { dirty.forEach(shade); dirty.clear(); } };
+  // Imported presets carry source parameters and compact masks, with an
+  // independent stamp renderer shared by the three source collections.
+  var importedPresets = Imported ? Imported.presets : [];
+  brushPresets.push.apply(brushPresets, importedPresets);
+  var importedIds = new Set(importedPresets.map(function (preset) { return preset.id; }));
+  function resolveBrushId(id) {
+    return brushPresets.some(function (preset) { return preset.id === id; }) ? id : brushPresets[0].id;
   }
 
   function mixHsl(from, to, amount) {
@@ -337,11 +126,14 @@
    */
   function makeStroke(ctx, options) {
     options = options || {};
-    var preset = brushPresets.find(function (item) { return item.id === options.brush; }) || brushPresets[0];
+    var resolved = resolveBrushId(options.brush);
+    var preset = brushPresets.find(function (item) { return item.id === resolved; });
+    if (options.brush !== 'eraser' && importedIds.has(preset.id))
+      return Imported.makeStroke(ctx, Object.assign({}, options, { brush: preset.id }));
     var brush = options.brush === 'eraser' ? 'eraser' : preset.id;
     var size = clamp(number(options.size, 8), 0.5, 512);
     var stabilized = clamp(number(options.stabilizer, 0), 0, 100);
-    var usePressure = options.pressure !== false && !['pixel', 'fineliner', 'marker', 'plainSquare'].includes(brush);
+    var usePressure = options.pressure !== false && !['pixel', 'fineliner', 'plainSquare'].includes(brush);
     var color = brush === 'eraser' ? '#000000' : (options.color || '#20242b');
     var bounds = emptyBounds(), last = null, lastRaw = null, finished = false;
     var pressure = 1;
@@ -351,24 +143,9 @@
     ctx.lineCap = 'round'; ctx.lineJoin = 'round';
     ctx.imageSmoothingEnabled = brush !== 'pixel' && brush !== 'binary';
 
-    var rough = ['stoneChalk', 'patinaInk', 'patinaGrain'].includes(brush);
-    var grain = brush === 'pencil' || brush === 'charcoal' || rough;
-    var soft = ['airbrush', 'brushMarker', 'softRound'].includes(brush);
-    var watercolor = brush === 'wash' ? watercolorStroke(ctx, size, color, bounds) : null;
     var mix = preset.samplesLayer && brush !== 'eraser' ? mixingTip(ctx, brush, color, bounds) : null;
-    var tile = grain || soft || brush === 'dry' || brush === 'gouache' ? brushTile(ctx, brush, color) : null;
-    if (grain || brush === 'dry') {
-      var texture = ctx.createPattern(tile, 'repeat');
-      if ((brush === 'patinaInk' || brush === 'patinaGrain') && texture.setTransform) {
-        var scale = clamp(Math.sqrt(size / 17), 0.42, 2.6);
-        texture.setTransform({ a: scale, b: 0, c: 0, d: scale, e: 0, f: 0 });
-      }
-      ctx.fillStyle = ctx.strokeStyle = texture;
-    }
-    var sampled = mix || grain || soft || ['dry', 'marker', 'hairHatch', 'screentone', 'sparkle', 'spatter', 'gouache', 'fountain', 'squarePaint'].includes(brush);
-    var untilDab = 0, sampleAnchor = null, fountainTravel = 0, fountainPoint = null, patinaPoint = null;
-    var lastNormal = null, scatterSeed = 1;
-    var slantX = Math.cos(-Math.PI / 6), slantY = Math.sin(-Math.PI / 6);
+    var sampled = mix || brush === 'fountain';
+    var untilDab = 0, sampleAnchor = null, fountainTravel = 0, fountainPoint = null;
 
     function getPoint(point, ending) {
       if (!point || !Number.isFinite(point.x) || !Number.isFinite(point.y)) return null;
@@ -383,153 +160,28 @@
     }
     function widthAt(point) {
       if (mix) return size * (0.48 + 0.52 * point.pressure);
-      if (brush === 'stoneChalk' || brush === 'squarePaint' || brush === 'softRound') return size * (0.67 + 0.33 * point.pressure);
       if (brush === 'fountain') return size * (0.05 + 0.95 * Math.exp(2.65 * (point.pressure - 1)));
-      if (brush === 'maru') return size * (0.065 + 0.935 * Math.pow(point.pressure, 1.7));
-      if (brush === 'wash') return size * (0.36 + 0.64 * point.pressure);
-      if (brush === 'screentone' || brush === 'spatter') return size * (0.67 + 0.33 * point.pressure);
-      if (brush === 'gouache' || brush === 'sparkle') return size * (0.32 + 0.68 * point.pressure);
-      if (brush === 'pencil') return size * (0.34 + 0.66 * point.pressure);
-      if (brush === 'charcoal' || brush === 'airbrush') return size * (0.66 + 0.34 * point.pressure);
-      if (brush === 'brushMarker') return size * (0.10 + 0.90 * Math.pow(point.pressure, 1.12));
-      if (brush === 'dry') return size * (0.38 + 0.62 * point.pressure);
       return size * (usePressure ? (0.06 + 0.94 * Math.pow(point.pressure, 0.72)) : 1);
     }
-    function dab(point) {
-      var diameter = Math.max(0.5, widthAt(point)), radius = diameter / 2, p = point.pressure;
-      if (rough || brush === 'squarePaint' || brush === 'fountain') {
-        var x = point.x, y = point.y, r = radius;
-        ctx.save();
-        if (brush === 'fountain') {
-          // Translate pointy_ink's log-pressure radius and negative initial
-          // stroke gain to a flexible, angled nib with a short entry taper.
-          if (fountainPoint) fountainTravel += Math.hypot(x - fountainPoint.x, y - fountainPoint.y);
-          fountainPoint = point;
-          r *= 0.54 + 0.46 * (1 - Math.exp(-fountainTravel / Math.max(0.6, size * 0.42)));
-          ctx.globalAlpha = 0.32;
-          ctx.beginPath(); ctx.ellipse(x, y, r, Math.max(0.18, r * 0.28), -0.76, 0, 2 * Math.PI); ctx.fill();
-          ctx.globalAlpha = 1;
-          ctx.beginPath(); ctx.ellipse(x, y, r * 0.80, Math.max(0.16, r * 0.224), -0.76, 0, 2 * Math.PI); ctx.fill();
-        } else if (brush === 'stoneChalk') {
-          ctx.globalAlpha = 0.46 + 0.42 * p;
-          ctx.beginPath(); ctx.moveTo(x - 0.91*r, y - 0.16*r); ctx.lineTo(x - 0.37*r, y - 0.71*r);
-          ctx.lineTo(x + 0.58*r, y - 0.63*r); ctx.lineTo(x + 0.96*r, y + 0.07*r);
-          ctx.lineTo(x + 0.30*r, y + 0.72*r); ctx.lineTo(x - 0.76*r, y + 0.54*r); ctx.closePath(); ctx.fill();
-        } else if (brush === 'squarePaint') {
-          ctx.translate(x, y); ctx.rotate(-0.18); ctx.fillRect(-0.83*r, -0.7*r, 1.66*r, 1.4*r);
-          ctx.globalAlpha = 0.5; ctx.fillRect(-0.93*r, -0.58*r, 0.07*r, 1.22*r);
-        } else {
-          var heavy = brush === 'patinaGrain', jitter = (randomScatter() - 0.5) * Math.min(2.2, r * 0.23);
-          // The light and coarse prints load more ink when moving slowly.
-          // Arc-length spacing prevents extra buildup from idle pointer events.
-          var deposition = 0.8;
-          if (patinaPoint && point.time > patinaPoint.time) {
-            var speed = Math.hypot(x - patinaPoint.x, y - patinaPoint.y) / (point.time - patinaPoint.time);
-            deposition = 0.52 + 0.48 / (1 + speed / (0.09 + size * 0.013));
-          }
-          patinaPoint = point;
-          ctx.globalAlpha = deposition * (heavy ? 0.27 : 0.10);
-          ctx.beginPath(); ctx.ellipse(x + r * 0.18, y + jitter, r, r * 0.88, 0, 0, Math.PI * 2); ctx.fill();
-          if (!heavy) {
-            ctx.globalAlpha = deposition * 0.16;
-            ctx.beginPath(); ctx.ellipse(x + jitter * 0.3, y + 0.24, r * 0.86, r * 0.83, 0, 0, Math.PI * 2); ctx.fill();
-          }
-          ctx.globalAlpha = deposition * (0.48 + 0.49 * p);
-          ctx.beginPath(); ctx.ellipse(x + jitter, y, r * (heavy ? 0.75 : 0.69), r * (heavy ? 0.65 : 0.72), -0.27, 0, Math.PI * 2); ctx.fill();
-        }
-        ctx.restore();
-        include(bounds, x - r * 1.3 - 1, y - r * 1.3 - 1, x + r * 1.3 + 1, y + r * 1.3 + 1);
-        // Textured ink uses six dabs per radius. The narrower short axis of
-        // the fountain nib needs closer spacing to keep fine curves connected.
-        return Math.max(0.35, diameter * (rough ? 1 / 12 : brush === 'fountain' ? 0.055 : 0.04));
-      } else if (grain) {
-        ctx.globalAlpha = 0.12 + 0.64 * p;
-        ctx.beginPath();
-        ctx.ellipse(point.x, point.y, radius, radius * (brush === 'charcoal' ? 0.45 : 0.85), -Math.PI / 6, 0, Math.PI * 2);
-        ctx.fill();
-      } else {
-        if (brush === 'softRound') ctx.globalAlpha = 0.18 + 0.30 * p;
-        else ctx.globalAlpha = brush === 'airbrush' ? 0.04 + 0.23 * p : 0.25 + 0.53 * p;
-        ctx.drawImage(tile, point.x - radius, point.y - radius, diameter, diameter);
-      }
+    function fountainDab(point) {
+      var diameter = Math.max(0.5, widthAt(point)), x = point.x, y = point.y, r = diameter / 2;
+      // Preserve the original flexible angled nib and short entry taper.
+      if (fountainPoint) fountainTravel += Math.hypot(x - fountainPoint.x, y - fountainPoint.y);
+      fountainPoint = point;
+      r *= 0.54 + 0.46 * (1 - Math.exp(-fountainTravel / Math.max(0.6, size * 0.42)));
+      ctx.save(); ctx.globalAlpha = 0.32;
+      ctx.beginPath(); ctx.ellipse(x, y, r, Math.max(0.18, r * 0.28), -0.76, 0, 2 * Math.PI); ctx.fill();
       ctx.globalAlpha = 1;
-      include(bounds, point.x - radius - 1, point.y - radius - 1, point.x + radius + 1, point.y + radius + 1);
-      var spacing = brush === 'charcoal' ? 0.08 : 0.11;
-      return Math.max(0.45, diameter * spacing);
-    }
-    function randomScatter() {
-      scatterSeed = (Math.imul(scatterSeed, 1664525) + 1013904223) >>> 0;
-      return scatterSeed / 4294967296;
-    }
-    function effectStamp(point) {
-      var x = point.x, y = point.y, d = widthAt(point), r = d / 2, p = point.pressure;
-      if (brush === 'sparkle') {
-        ctx.beginPath(); ctx.moveTo(x, y - r);
-        ctx.quadraticCurveTo(x + r * 0.12, y - r * 0.13, x + r * 0.8, y);
-        ctx.quadraticCurveTo(x + r * 0.12, y + r * 0.13, x, y + r);
-        ctx.quadraticCurveTo(x - r * 0.12, y + r * 0.13, x - r * 0.8, y);
-        ctx.quadraticCurveTo(x - r * 0.12, y - r * 0.13, x, y - r);
-        ctx.fill();
-      } else if (brush === 'spatter') {
-        var count = Math.round(3 + 12 * p);
-        for (var i = 0; i < count; i++) {
-          var angle = randomScatter() * 2 * Math.PI, spread = Math.sqrt(randomScatter()) * r * 0.91;
-          var dotSize = Math.max(0.3, d * (0.008 + 0.035 * randomScatter() ** 2));
-          circle(x + spread * Math.cos(angle), y + spread * Math.sin(angle), dotSize);
-        }
-      } else {
-        // Staggered screen fixed in layer coordinates. Dot centers do not move
-        // when a new stroke crosses the old one at the same brush size.
-        var pitch = Math.max(0.65, size * 0.145), dot = pitch * (0.13 + 0.31 * p);
-        for (var row = Math.ceil((y - r) / pitch); row <= Math.floor((y + r) / pitch); row++) {
-          var py = row * pitch, offset = Math.abs(row % 2) * pitch / 2;
-          var half = Math.sqrt(Math.max(0, r * r - (py - y) ** 2));
-          for (var col = Math.ceil((x - half - offset) / pitch); col <= Math.floor((x + half - offset) / pitch); col++)
-            circle(col * pitch + offset, py, dot);
-        }
-      }
-      include(bounds, x - r - 1, y - r - 1, x + r + 1, y + r + 1);
-      if (brush === 'sparkle') return Math.max(1, d * 1.12);
-      return Math.max(0.7, d * (brush === 'spatter' ? 0.43 : 0.14));
-    }
-    function directedTip(point) {
-      var d = widthAt(point), a = sampleAnchor || point;
-      var dx = point.x - a.x, dy = point.y - a.y, length = Math.hypot(dx, dy);
-      var normal = length > 0.0001 ? [-dy / length, dx / length] : (lastNormal || [0, 1]);
-      if (lastNormal && normal[0] * lastNormal[0] + normal[1] * lastNormal[1] < 0) normal = [-normal[0], -normal[1]];
-      if (brush === 'gouache') {
-        ctx.save(); ctx.translate(point.x, point.y); ctx.rotate(Math.atan2(normal[1], normal[0]));
-        ctx.drawImage(tile, -d / 2, -d / 2, d, d); ctx.restore();
-        var pad = d / 2 + 2; include(bounds, point.x - pad, point.y - pad, point.x + pad, point.y + pad);
-      } else {
-        var startNormal = lastNormal || normal, previousWidth = widthAt(a);
-        var strands = [-0.44, -0.25, -0.04, 0.18, 0.43];
-        for (var i = 0; i < strands.length; i++) {
-          var offset = strands[i], ax = a.x + startNormal[0] * previousWidth * offset, ay = a.y + startNormal[1] * previousWidth * offset;
-          var bx = point.x + normal[0] * d * offset, by = point.y + normal[1] * d * offset;
-          var width = Math.max(0.35, (previousWidth + d) / 2 * (i % 2 ? 0.039 : 0.059));
-          if (!length) circle(bx, by, width / 2);
-          else {
-            ctx.lineWidth = width; ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(bx, by); ctx.stroke();
-            var margin = width / 2 + 1; include(bounds, Math.min(ax, bx) - margin, Math.min(ay, by) - margin, Math.max(ax, bx) + margin, Math.max(ay, by) + margin);
-          }
-        }
-      }
-      if (length > 0.0001) lastNormal = normal;
-      sampleAnchor = point;
-      return clamp(d * 0.13, 0.65, 4);
+      ctx.beginPath(); ctx.ellipse(x, y, r * 0.80, Math.max(0.16, r * 0.224), -0.76, 0, 2 * Math.PI); ctx.fill();
+      ctx.restore();
+      include(bounds, x - r * 1.3 - 1, y - r * 1.3 - 1, x + r * 1.3 + 1, y + r * 1.3 + 1);
+      return Math.max(0.35, diameter * 0.055);
     }
     // Carry spacing through pointer events to keep deposition independent of
     // mouse/tablet reporting rate, including browsers' coalesced samples.
     function paintSample(point) {
-      if (mix) return mix(point, widthAt(point));
-      if (grain || soft || brush === 'fountain' || brush === 'squarePaint') return dab(point);
-      if (brush === 'hairHatch' || brush === 'gouache') return directedTip(point);
-      if (brush === 'screentone' || brush === 'sparkle' || brush === 'spatter') return effectStamp(point);
-      if (brush === 'dry') paintBristles(sampleAnchor || point, point);
-      else paintChisel(sampleAnchor || point, point);
       sampleAnchor = point;
-      return clamp(widthAt(point) * 0.15, 0.65, 4);
+      return mix ? mix(point, widthAt(point)) : fountainDab(point);
     }
     function paintDabs(a, b, distance) {
       if (!distance) return;
@@ -539,32 +191,6 @@
           pressure: a.pressure + (b.pressure - a.pressure) * t, time: a.time + (b.time - a.time) * t });
       }
       untilDab -= distance;
-    }
-    function paintChisel(a, b) {
-      var half = size * 0.39, ox = half * slantX, oy = half * slantY;
-      ctx.lineWidth = size * 0.22;
-      ctx.beginPath(); ctx.moveTo(a.x - ox, a.y - oy); ctx.lineTo(a.x + ox, a.y + oy);
-      ctx.lineTo(b.x + ox, b.y + oy); ctx.lineTo(b.x - ox, b.y - oy);
-      ctx.closePath(); ctx.fill(); ctx.stroke();
-      include(bounds, Math.min(a.x, b.x) - size / 2 - 1, Math.min(a.y, b.y) - size / 2 - 1,
-        Math.max(a.x, b.x) + size / 2 + 1, Math.max(a.y, b.y) + size / 2 + 1);
-    }
-    function paintBristles(a, b) {
-      var wa = widthAt(a), wb = widthAt(b);
-      var count = clamp(Math.round(size * 0.48), 4, 32);
-      for (var i = 0; i < count; i++) {
-        // Vary the fibers' widths, lateral spacing and depth within the nib.
-        var along = ((i + 0.5 + 0.18 * Math.sin(i * 13.2)) / count - 0.5) * 0.91;
-        var across = 0.09 * Math.sin(i * 8.7);
-        var ox = along * slantX - across * slantY, oy = along * slantY + across * slantX;
-        var x0 = a.x + ox * wa, y0 = a.y + oy * wa, x1 = b.x + ox * wb, y1 = b.y + oy * wb;
-        var width = Math.max(0.42, (wa + wb) * 0.5 / count * (0.40 + 0.57 * Math.cos(i * 9.2) ** 2));
-        ctx.lineWidth = width; ctx.beginPath();
-        if (x0 === x1 && y0 === y1) { ctx.arc(x0, y0, width / 2, 0, 2 * Math.PI); ctx.fill(); }
-        else { ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke(); }
-        var pad = width / 2 + 1;
-        include(bounds, Math.min(x0, x1) - pad, Math.min(y0, y1) - pad, Math.max(x0, x1) + pad, Math.max(y0, y1) + pad);
-      }
     }
     function circle(x, y, radius) {
       ctx.beginPath(); ctx.arc(x, y, Math.max(0.2, radius), 0, Math.PI * 2); ctx.fill();
@@ -598,8 +224,6 @@
         ctx.lineTo(b.x - ox, b.y + oy); ctx.lineTo(a.x - ox, a.y + oy); ctx.closePath(); ctx.fill();
         include(bounds, Math.min(a.x, b.x) - half - 1, Math.min(a.y, b.y) - half - 1,
           Math.max(a.x, b.x) + half + 1, Math.max(a.y, b.y) + half + 1);
-      } else if (watercolor) {
-        watercolor.accumulate(a, b, ra, rb);
       } else if (sampled) {
         paintDabs(a, b, distance);
       } else if (brush === 'pixel') {
@@ -637,7 +261,6 @@
       if (finished || last) return;
       last = getPoint(point, false); if (!last) return;
       lastRaw = last;
-      scatterSeed = (Math.imul(Math.floor(last.x), 2654435761) ^ Math.imul(Math.floor(last.y), 2246822519) ^ Math.floor(last.time)) >>> 0;
       if (sampled) untilDab = paintSample(last);
       else drawSegment(last, last);
     }
@@ -671,10 +294,9 @@
         }
       }
       finished = true;
-      if (watercolor) watercolor.flush();
     }
     return { start: start, move: move, end: end,
-      flush: function () { if (watercolor) watercolor.flush(); },
+      flush: function () {},
       get bounds() { return rectangle(bounds, ctx.canvas.width, ctx.canvas.height); } };
   }
 
@@ -1116,6 +738,6 @@
     return image;
   }
 
-  return { brushPresets: brushPresets, makeStroke: makeStroke, floodFill: floodFill, vectorize: vectorize, adjust: adjust, adjustFilter: adjustFilter,
+  return { brushPresets: brushPresets, resolveBrushId: resolveBrushId, makeStroke: makeStroke, floodFill: floodFill, vectorize: vectorize, adjust: adjust, adjustFilter: adjustFilter,
     rgbToHsl: rgbToHsl, hslToRgb: hslToRgb };
 });

@@ -50,7 +50,8 @@
   let toastTimer = 0, savingErrorShown = false, vectorResult = null, vectorKey = '', vectorURL = '';
   let lastPressure = 0, lastPointerType = 'mouse', fileSavedRevision = -1;
   let colorPicker = null, colorLibrary = null, referenceSplitter = null, lastReferencePort = null;
-  let sampleFrame = 0;
+  let sampleFrame = 0, galleryFrame = 0, galleryObserver = null;
+  const gallerySamples = new Map();
   const brushKey = 'lrx-drawing-brush-v1:';
   const brushProfiles = new Map();
   const eraserPreset = { id: 'eraser', size: 18, opacity: 1, stabilizer: 12 };
@@ -375,7 +376,7 @@
     const r = viewport.getBoundingClientRect(); return { x: (e.clientX - r.left - view.x) / view.zoom, y: (e.clientY - r.top - view.y) / view.zoom };
   }
   function strokePoint(e, layer) {
-    const p = documentPoint(e); return { x: (p.x - layer.x) / layer.scale, y: (p.y - layer.y) / layer.scale, pressure: number(e.pressure, 0.5), pointerType: e.pointerType || 'mouse', time: e.timeStamp };
+    const p = documentPoint(e); return { x: (p.x - layer.x) / layer.scale, y: (p.y - layer.y) / layer.scale, pressure: number(e.pressure, 0.5), pointerType: e.pointerType || 'mouse', time: e.timeStamp, tiltX: number(e.tiltX, 0), tiltY: number(e.tiltY, 0), twist: number(e.twist, 0) };
   }
   function mouseBrushPans(e) {
     // Only mouse input with the actual brush selected is re-routed. Keep Alt-picking
@@ -926,6 +927,26 @@
       drawBrushSample($('brushPreview'), { brush, size, opacity, color: ink, pressure: pressureEnabled, stabilizer });
     });
   }
+  function queueBrushCard(button) {
+    const preset = Core.brushPresets.find(p => p.id === button.dataset.brushPreset);
+    const profile = brushProfile(preset), signature = JSON.stringify(profile);
+    if (button.dataset.sampleProfile === signature) return;
+    gallerySamples.set(button, { preset, profile, signature });
+    if (!galleryFrame) galleryFrame = requestAnimationFrame(paintBrushCards);
+  }
+  function paintBrushCards() {
+    galleryFrame = 0;
+    if (!$('brushDialog').open) { gallerySamples.clear(); return; }
+    // Paint only a small batch between frames, so opening a larger collection
+    // never blocks scrolling/selection while every preview is generated.
+    for (let i = 0; i < 2 && gallerySamples.size; i++) {
+      const [button, { preset, profile, signature }] = gallerySamples.entries().next().value;
+      gallerySamples.delete(button);
+      drawBrushSample(button.querySelector('canvas'), { ...profile, brush: preset.id, color: '#294358', pressure: profile.pressureEnabled });
+      button.dataset.sampleProfile = signature;
+    }
+    if (gallerySamples.size) galleryFrame = requestAnimationFrame(paintBrushCards);
+  }
   function openBrushLibrary() {
     const gallery = $('brushGallery');
     if (!gallery.childElementCount) {
@@ -945,21 +966,28 @@
         });
       });
     }
-    all('[data-brush-preset]').forEach(button => {
-      const id = button.dataset.brushPreset, preset = Core.brushPresets.find(p => p.id === id);
-      const profile = brushProfile(preset), signature = JSON.stringify(profile);
-      if (button.dataset.sampleProfile !== signature) {
-        drawBrushSample(button.querySelector('canvas'), { ...profile, brush: id, color: '#294358', pressure: profile.pressureEnabled });
-        button.title = preset.hint + ' · ' + profile.size + ' px · 浓度 ' + Math.round(profile.opacity * 100) + '% · 防抖 ' + profile.stabilizer;
-        button.dataset.sampleProfile = signature;
-      }
-      button.setAttribute('aria-pressed', String(id === brush));
-    });
+    if (!galleryObserver && window.IntersectionObserver) {
+      galleryObserver = new IntersectionObserver(entries => {
+        for (const entry of entries) {
+          entry.target.dataset.sampleVisible = String(entry.isIntersecting);
+          if (entry.isIntersecting) queueBrushCard(entry.target);
+          else gallerySamples.delete(entry.target);
+        }
+      }, { root: $('brushDialog'), rootMargin: '80px' });
+      all('[data-brush-preset]').forEach(button => galleryObserver.observe(button));
+    }
     $('brushDialog').showModal();
+    all('[data-brush-preset]').forEach(button => {
+      const id = button.dataset.brushPreset, preset = Core.brushPresets.find(p => p.id === id), profile = brushProfile(preset);
+      button.title = preset.hint + ' · ' + profile.size + ' px · 浓度 ' + Math.round(profile.opacity * 100) + '% · 防抖 ' + profile.stabilizer;
+      button.setAttribute('aria-pressed', String(id === brush));
+      if (!galleryObserver || button.dataset.sampleVisible === 'true') queueBrushCard(button);
+    });
   }
   function setBrush(value, recall = false) {
-    finishPointer(); brush = value;
+    finishPointer(); brush = Core.resolveBrushId(value);
     const preset = Core.brushPresets.find(p => p.id === brush);
+    $('brushKind').value = brush;
     if (recall) applyBrushProfile(brushProfile(preset));
     try { localStorage.setItem(brushKey + 'selected', brush); } catch (_) {}
     $('brushName').textContent = preset.name; $('brushHint').textContent = preset.hint;
@@ -1279,7 +1307,7 @@
     }
     if (!ids.has(next.activeId)) next.activeId = next.layers[0].id;
     const inputSettings = project.settings && typeof project.settings === 'object' ? project.settings : {};
-    const importedBrush = Core.brushPresets.find(p => p.id === inputSettings.brush) || Core.brushPresets[0];
+    const importedBrush = Core.brushPresets.find(p => p.id === Core.resolveBrushId(inputSettings.brush));
     const importedNumber = (key, min, max) => Number.isFinite(inputSettings[key])
       ? clamp(inputSettings[key], min, max) : importedBrush[key];
     const settings = {
@@ -1409,7 +1437,7 @@
     on('penPressure', 'change', () => { pressureEnabled = $('penPressure').checked; storeBrushProfile(); });
     on('resetBrushProfile', 'click', () => {
       const preset = tool === 'eraser' ? eraserPreset : Core.brushPresets.find(p => p.id === brush);
-      applyBrushProfile({ ...preset, pressureEnabled: true }); storeBrushProfile(); status('已恢复这支笔的推荐参数');
+      applyBrushProfile({ ...preset, pressureEnabled: preset.pressureEnabled !== false }); storeBrushProfile(); status('已恢复这支笔的推荐参数');
     });
     on('touchDraw', 'change', () => { touchDraw = $('touchDraw').checked; });
     on('penOnlyBrush', 'change', () => {
@@ -1644,7 +1672,7 @@
     } else window.addEventListener('resize', () => { fit(); resizeReferenceView(); });
   }
   async function initialize() {
-    if (!Core?.brushPresets || !Marks || !Strokes || !window.DrawingPalettes || !window.DrawingPaletteMap || !window.DrawingColorLibrary || !window.DrawingCanvasPresets || !window.DrawingPaper || !window.DrawingColorControls || !window.DrawingReference || !window.DrawingStorage) { notify('画板组件未加载完整，请刷新页面。'); return; }
+    if (!Core?.brushPresets || !window.DrawingChuishiBrushes || !window.DrawingChuishiData || !window.DrawingHaiguaiData || !window.DrawingDongdongData || !Marks || !Strokes || !window.DrawingPalettes || !window.DrawingPaletteMap || !window.DrawingColorLibrary || !window.DrawingCanvasPresets || !window.DrawingPaper || !window.DrawingColorControls || !window.DrawingReference || !window.DrawingStorage) { notify('画板组件未加载完整，请刷新页面。'); return; }
     const groups = new Map();
     for (const preset of Core.brushPresets) {
       if (!groups.has(preset.group)) {
@@ -1658,7 +1686,7 @@
     $('referenceCopicPreset').append(...Array.from($('palettePreset').children, group => group.cloneNode(true)));
     try {
       const last = localStorage.getItem(brushKey + 'selected');
-      if (Core.brushPresets.some(p => p.id === last)) brush = last;
+      if (last) brush = Core.resolveBrushId(last);
     } catch (_) {}
     $('brushKind').value = brush;
     $('penOnlyBrush').checked = penOnlyBrush;

@@ -134,9 +134,7 @@ async function main() {
 
   // Sampled tips must deposit the same stroke under sparse/coalesced
   // events. Verify real alpha coverage including clicks and undo patch bounds.
-  for (const brush of ['pencil', 'charcoal', 'marker', 'brushMarker', 'dry', 'airbrush', 'gouache', 'wash',
-    'fountain','stoneChalk','softRound','squarePaint','patinaInk','patinaGrain',
-    'spatter', 'maru', 'hairHatch', 'screentone', 'sparkle']) {
+  for (const brush of ['fountain']) {
     const preset = core.brushPresets.find(item => item.id === brush);
     function totalInk(pressure, steps) {
       const ctx = createCanvas(180, 84).getContext('2d');
@@ -157,44 +155,10 @@ async function main() {
     assert.ok(totalInk(1, 0) > 0, brush + ' click');
     const heavy = totalInk(1, 1), light = totalInk(0.12, 1);
     assert.ok(Math.abs(heavy - totalInk(1, 100)) < heavy * 0.005, brush + ' sampling density');
-    if (brush === 'marker') assert.equal(light, heavy, 'fixed chisel nib');
-    else assert.ok(heavy > light, brush + ' pressure response');
+    assert.ok(heavy > light, brush + ' pressure response');
   }
-  // At the same size/pressure the new manga and painting tips should have
-  // distinct geometry and deposition, including separated stars and wash rims.
-  const tips = new Set();
-  for (const brush of ['gpen', 'brushMarker', 'maru', 'hairHatch', 'screentone', 'sparkle', 'spatter', 'wash', 'gouache',
-    'fountain','stoneChalk','softRound','squarePaint','patinaInk','patinaGrain']) {
-    const image = strokeImage(brush), key = require('node:crypto').createHash('sha256').update(image.data).digest('hex');
-    assert.ok(!tips.has(key), 'different image for ' + brush); tips.add(key);
-    if (brush === 'wash') assert.ok(get(image, 112, 49)[3] > get(image, 112, 40)[3], 'wash pools pigment at the edge');
-  }
-  function drawWash(points) {
-    const ctx=createCanvas(180,100).getContext('2d');
-    const pen=core.makeStroke(ctx,{brush:'wash',size:32,color:'#28709a'});
-    pen.start(points[0]); points.slice(1).forEach(p=>pen.move(p)); pen.end();
-    return ctx.getImageData(0,0,180,100);
-  }
-  const route=[{x:22,y:50},{x:140,y:50},{x:140,y:60},{x:22,y:60}];
-  const wash=drawWash(route), retraced=drawWash([...route, ...route.slice().reverse(), route[0], route[0]]);
-  assert.deepEqual(wash.data,retraced.data,'a wet stroke keeps its density when paused or retraced');
-  const rowAlpha = (image, y) => Array.from({length:90}, (_,x) => get(image,33+x,y)[3]);
-  const mean = row => row.reduce((total, value) => total + value, 0) / row.length;
-  const centerAlpha = rowAlpha(wash, 54), outerAlpha = rowAlpha(wash, 35);
-  assert.ok(Math.max(...centerAlpha)-Math.min(...centerAlpha)>8,'subtle interior pooling varies across the paper');
-  assert.ok(mean(outerAlpha)>mean(centerAlpha)+12,'outer rim carries more pigment');
-  assert.ok(Math.max(...outerAlpha)-Math.min(...outerAlpha)>24,'damp fibers break up the intensity of the outer rim');
-  const lowerOnly = drawWash([{x:22,y:60},{x:140,y:60}]);
-  assert.ok(mean(rowAlpha(lowerOnly,45))>mean(rowAlpha(wash,45))+8,'merged ribbons lose their internal rim at the same paper coordinates');
-  for (const brush of ['patinaInk', 'patinaGrain']) {
-    function deposit(duration) {
-      const ctx = createCanvas(160, 72).getContext('2d');
-      const pen = core.makeStroke(ctx, { brush, size: 17, color: '#224466' });
-      pen.start({ x: 20, y: 36, time: 0 }); pen.move({ x: 140, y: 36, time: duration }); pen.end();
-      return ctx.getImageData(0, 0, 160, 72).data.reduce((total, value, i) => total + (i % 4 === 3 ? value : 0), 0);
-    }
-    assert.ok(deposit(1100) > 1.02 * deposit(55), brush + ' deposits extra ink at lower speed');
-  }
+  // Imported source collections have separate pixel/pressure/grain regressions
+  // in test_drawing_chuishi.cjs; retired original texture brushes are not restored.
 
   // Rasterize actual SVG output to independently check holes, topology and alpha.
   async function raster(svg, w, h) {

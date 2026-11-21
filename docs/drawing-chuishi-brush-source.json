@@ -1,0 +1,5040 @@
+{
+  "series": "chuishi",
+  "inputs": [
+    {
+      "filename": "吹石-加油勾线笔.brush",
+      "sha256": "1c4b9fedaaeeeb1c09db6ff67b5ba48024aedabdaf1a3d0e99681d6c49e91838",
+      "bytes": 318249
+    },
+    {
+      "filename": "吹石-加油勾线笔2.0自用版.brush",
+      "sha256": "eed90031d875b9d482fbff0bd081845fdb7c95886a6f9c3a02d9f9dd2e336edd",
+      "bytes": 824870
+    },
+    {
+      "filename": "吹石-多功能_勾线上色两用.brush",
+      "sha256": "bd10ab4401c3e245b7ee56b95bf3cb5ffedda3f7ed3aded42820548d9f7538e4",
+      "bytes": 605183
+    },
+    {
+      "filename": "吹石-多功能二号.brush",
+      "sha256": "e68fb93d944bad3e2cee9b4441fa84c2729f4d1b9e0d2f705553fdea100301e0",
+      "bytes": 503116
+    },
+    {
+      "filename": "吹石-学生钢笔.brush",
+      "sha256": "59fbb8e3f98ba2cf15da9a95ad4f00fb661bafd42352bb909ac406e8d1d85a4a",
+      "bytes": 507229
+    },
+    {
+      "filename": "吹石-手稿笔.brush",
+      "sha256": "898db67248e3aa7d6de2e634922ba0a9420551459988c03aff3863fb3b8e29d1",
+      "bytes": 1231792
+    },
+    {
+      "filename": "吹石-排线.brush",
+      "sha256": "32df4bd2c1d9183c769bebbf239370a3461350aa970a3e2c2e1fc2b5b8c43187",
+      "bytes": 378195
+    },
+    {
+      "filename": "吹石-排线_颗粒.brush",
+      "sha256": "869a34c0c89b2abab5a643ad737035f2cea80b888afc616a1995b765b4578e2b",
+      "bytes": 778628
+    },
+    {
+      "filename": "吹石-方形画笔_自用版.brush",
+      "sha256": "42a4ecaede3d365ec95dad7159c8644706e5b94b90c53e57e91f5ff25a7d1c0f",
+      "bytes": 1844567
+    },
+    {
+      "filename": "吹石-水星_改.brush",
+      "sha256": "a856a4e3108bc6817c5d291d41fd099f7c048e4719db529cfdd233bfb9ed251d",
+      "bytes": 40994
+    },
+    {
+      "filename": "吹石-画线条.brush",
+      "sha256": "1ac6f68dd7a97bad5e25a0b7fe585325e8bdd5c58d7c6a61edacc4f1e063118a",
+      "bytes": 153425
+    },
+    {
+      "filename": "吹石-薄荷涂色_自用版.brush",
+      "sha256": "6071fa914926110552cb2b9395a8265a31bfa6dbc804f4c3d2acdecc2749fa9d",
+      "bytes": 1048034
+    },
+    {
+      "filename": "吹石-速度铅笔.brush",
+      "sha256": "fb70083089a4a0a1e854e1623abef5ff35a9125cb911d5bdef20b7f61e66785c",
+      "bytes": 426451
+    }
+  ],
+  "conversion": {
+    "converterVersion": 1,
+    "pillowVersion": "13.0.0",
+    "format": "NSKeyedArchiver inside ZIP; active Brush.archive and optional Sub01 only",
+    "maskMaxDimension": 256,
+    "maskResize": "Pillow LANCZOS, aspect ratio and full source extents retained; no enlargement",
+    "maskQuantization": "nearest multiple of 17, 16 alpha levels",
+    "maskEncoding": "base64 of run-length/alpha byte pairs; run length 1..255",
+    "grainInversion": "Embedded grain grayscale is preserved; renderer applies textureInverted once",
+    "sourceParameters": "all scalar parameters and pressure curves retained without rounding in JS; complete decoded active parameters below",
+    "omitted": "Original files, Reset, author portraits, signatures, QuickLook previews and native binary color payloads",
+    "sourceOrder": "brushset.plist order for a set; command-line input order for individual files",
+    "limitations": [
+      "No bundled Procreate grain or shape bitmap is reconstructed from its filename.",
+      "Source enum values, size/count normalization and rendering equations are not claimed to be verified.",
+      "Web pixel sizes and fallback textures are adaptation choices; original values remain available.",
+      "Any maskInferredInversion is an explicit inferred correction, not a source flag; see component provenance."
+    ]
+  },
+  "brushes": [
+    {
+      "id": "chuishi-jiayou-inking",
+      "provenance": {
+        "sourceFilename": "吹石-加油勾线笔.brush",
+        "sourceSHA256": "1c4b9fedaaeeeb1c09db6ff67b5ba48024aedabdaf1a3d0e99681d6c49e91838",
+        "sourceArchivePath": "Brush.archive",
+        "sourceArchiveSHA256": "834f93cbf359c556b35ca0339c3d2db8874c11d1e317cdfe37783c7bf752c910",
+        "sourceName": "吹石-加油勾线笔",
+        "sourceAuthor": "吹石",
+        "maskInferredInversion": false
+      },
+      "activeParameters": {
+        "grainDepthMinimum": 0.0009250813745893538,
+        "dynamicsJitterLightness": 0.0,
+        "plotSpacing": 0.003076273715123534,
+        "blendGammaCorrect": false,
+        "dynamicsPressureSecondaryColor": 0.0,
+        "dynamicsPressureSaturationCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "lightnessJitterTilt": false,
+        "textureMovement": 1.0,
+        "taperSizeLinked": false,
+        "extendedBlend": 0,
+        "dynamicsJitterDarkness": 0.0,
+        "dynamicsWetnessJitter": 0.0,
+        "shapeFilterMode": 0,
+        "shapeInverted": false,
+        "textureDepthTilt": false,
+        "grainBlendMode": 1,
+        "dynamicsTiltShapeRoundness": 1.0,
+        "dynamicsTiltAngle": 0.10000000149011612,
+        "previewSize": 0.1867409199476242,
+        "dynamicsPressureMix": 0.0,
+        "saturationJitterTiltAngle": 0.10000000149011612,
+        "taperEndLength": 0.0,
+        "dynamicsTiltBleed": 0.0,
+        "taperSize": 0.0,
+        "textureOrientation": 1,
+        "dynamicsMix": 0.0,
+        "textureContrast": 0.0,
+        "plotSmoothing": 0.09578601270914078,
+        "taperPressure": 1.0,
+        "dynamicsPressureOpacityCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dualBlendMode": 0,
+        "shapeFilter": true,
+        "maxOpacity": 1.0,
+        "dynamicsTiltBrightness": 0.0,
+        "dynamicsPressureHueCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "shapeCount": 0.0,
+        "importedFromABR": false,
+        "color": {
+          "$omittedBytes": 16,
+          "sha256": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb"
+        },
+        "dynamicsPressureSizeCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsSpeedSize": 0.8016219735145569,
+        "shapeFlipYJitter": false,
+        "shapeAzimuth": false,
+        "textureFilterMode": 0,
+        "shapeRotation": 0.0,
+        "opacityTiltAngle": 0.10000000149011612,
+        "pencilTaperSizeLinked": false,
+        "plotSpacingVersion": 1,
+        "creationDate": {
+          "NS.time": 634394896.520701,
+          "$class": "NSDate"
+        },
+        "dynamicsPressureSmoothing": 0.0,
+        "paintOpacity": 1.0,
+        "dynamicsJitterSize": 0.3750244677066803,
+        "name": "吹石-加油勾线笔",
+        "grainDepth": 0.29303649067878723,
+        "dynamicsPressureBrightnessCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "bleedTiltAngle": 0.10000000149011612,
+        "oriented": true,
+        "blendMode": 0,
+        "minSize": 0.0,
+        "smudgeSize": 0.5,
+        "dynamicsPressureSecondaryColorCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "secondaryColorTiltAngle": 0.10000000149011612,
+        "shapeRandomise": false,
+        "hueTiltAngle": 0.10000000149011612,
+        "pencilTaperSize": 0.0,
+        "renderingModulatedTransfer": false,
+        "taperVersion": 1,
+        "dynamicsPressureShapeRoundnessCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsJitterHue": 0.0,
+        "pencilTaperOpacity": 0.0,
+        "dynamicsFalloff": 0.0,
+        "textureOffsetJitter": true,
+        "grainDepthJitter": 0.0,
+        "taperOpacity": 0.0,
+        "shapeRoundness": 1.0,
+        "dynamicsPressureBleedSpeed": 0.30000001192092896,
+        "secondaryColorJitterTilt": false,
+        "minOpacity": 0.19144098460674286,
+        "dynamicsJitterStrokeLightness": 0.0,
+        "shapeFlipXJitter": false,
+        "dynamicsJitterOpacity": 0.0,
+        "textureInverted": false,
+        "dynamicsPressureResponse": 0.30000001192092896,
+        "textureApplication": 0,
+        "eraseSize": 0.5,
+        "dynamicsTiltSecondaryColor": 0.0,
+        "plotJitter": 0.0,
+        "dynamicsJitterSaturation": 0.0,
+        "dynamicsLoad": 0.19260390102863312,
+        "maxPressureSizeClamped": false,
+        "attackTiltAngle": 0.10000000149011612,
+        "dynamicsJitterStrokeHue": 0.0,
+        "pencilTaperEndLength": 0.12610119581222534,
+        "taperStartLength": 0.0,
+        "saturationJitterTilt": false,
+        "textureZoom": 1.0,
+        "plotJitterTilt": false,
+        "gradationTiltAngle": 0.10000000149011612,
+        "paintPressure": 1.0,
+        "dynamicsMixSoftening": 0.07615698873996735,
+        "shapeScatter": 0.23171722888946533,
+        "textureScale": 0.013033910654485226,
+        "dynamicsJitterStrokeDarkness": 0.0,
+        "bundledShapePath": "Acrylic-Dab.jpg",
+        "textureBrightness": 0.0,
+        "shapeCountJitter": 0.0,
+        "grainOrientation": 1,
+        "darknessJitterTilt": false,
+        "dynamicsTiltHue": 0.0,
+        "wetEdgesAmount": 0.0,
+        "dynamicsPressureSaturation": 0.0,
+        "pencilTaperShape": 0.0,
+        "jitterSecondary": 0.0,
+        "dynamicsTiltGradation": 0.0,
+        "brightnessTiltAngle": 0.10000000149011612,
+        "dynamicsWetAccumulation": 0.8139806985855103,
+        "dynamicsBlur": 0.0,
+        "shapeCountTilt": false,
+        "maxSize": 0.27229955792427063,
+        "dynamicsPressureBleed": 0.0,
+        "version": 2,
+        "eraseOpacity": 1.0,
+        "textureDepthTiltAngle": 0.10000000149011612,
+        "secondaryColorJitterTiltAngle": 0.10000000149011612,
+        "lightnessJitterTiltAngle": 0.10000000149011612,
+        "attackTilt": false,
+        "renderingMaxTransfer": false,
+        "dynamicsPressureShapeRoundness": 1.0,
+        "dynamicsPressureSizeSpeed": 0.30000001192092896,
+        "darknessJitterTiltAngle": 0.10000000149011612,
+        "smudgeOpacity": 0.800000011920929,
+        "dynamicsTiltCompression": 1.0,
+        "saturationTiltAngle": 0.10000000149011612,
+        "shapeRoundnessTiltAngle": 0.10000000149011612,
+        "dynamicsJitterStrokeSaturation": 0.0,
+        "dynamicsPressureOpacitySpeed": 0.30000001192092896,
+        "dynamicsPressureShapeRoundnessMinimum": 1.0,
+        "taperShape": 0.0,
+        "pencilTipAnimation": true,
+        "dynamicsTiltSaturation": 0.0,
+        "burntEdgesAmount": 0.0,
+        "dynamicsPressureBleedCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsPressureHue": 0.0,
+        "pencilTaperStartLength": 0.14326661825180054,
+        "dynamicsPressureOpacity": 0.3397773504257202,
+        "shapeCountTiltAngle": 0.10000000149011612,
+        "dynamicsPressureSize": 0.9520573616027832,
+        "dynamicsSpeedOpacity": 0.0,
+        "dynamicsSmudgeAccumulation": 0.5592352151870728,
+        "shapeOrientation": 1,
+        "stamp": false,
+        "sizeTiltAngle": 0.10000000149011612,
+        "renderingRecursiveMixing": true,
+        "authorName": "吹石",
+        "dynamicsGlazedFlow": 1.0,
+        "burntEdgesBlendMode": 1,
+        "hueJitterTiltAngle": 0.10000000149011612,
+        "dynamicsTiltShapeRoundnessMinimum": 1.0,
+        "textureFilter": true,
+        "dynamicsTiltSize": 0.0,
+        "dynamicsTiltOpacity": 0.0,
+        "dynamicsPressureOpacityTransfer": 0.6976365447044373,
+        "shapeAngle": 0.0,
+        "plotJitterTiltAngle": 0.10000000149011612,
+        "dynamicsPressureTransferModulationCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsBlurJitter": 0.0,
+        "paintSize": 0.21129372715950012,
+        "textureRotation": 0.0,
+        "hueJitterTilt": false,
+        "jitterStrokeSecondary": 0.0,
+        "bundledGrainPath": "Glitch.png",
+        "dynamicsPressureBrightness": 0.0,
+        "$class": "SilicaBrush"
+      }
+    },
+    {
+      "id": "chuishi-jiayou-inking-2",
+      "provenance": {
+        "sourceFilename": "吹石-加油勾线笔2.0自用版.brush",
+        "sourceSHA256": "eed90031d875b9d482fbff0bd081845fdb7c95886a6f9c3a02d9f9dd2e336edd",
+        "sourceArchivePath": "Brush.archive",
+        "sourceArchiveSHA256": "484ccc10b94f72d9eb08abb687da6e5840a61836121fdd3564a334c7fe112f10",
+        "sourceName": "吹石-加油勾线笔2.0自用版",
+        "sourceAuthor": "吹石",
+        "maskInferredInversion": false,
+        "sourceShapeSHA256": "5cdc36c267e8864dcf3de8f3ad5ff4a0842c33d941d670fce29990f51b8e3871",
+        "sourceShapeDimensions": [
+          2048,
+          2048
+        ],
+        "maskAlphaSHA256": "68aee3123b99d0f545350ed11639e4b0af1bb2c99fd4dfc1e01b97d9810ea242",
+        "maskInvertedByFlag": false
+      },
+      "activeParameters": {
+        "grainDepthMinimum": 0.0,
+        "dynamicsJitterLightness": 0.0,
+        "plotSpacing": 0.0010660329135134816,
+        "blendGammaCorrect": false,
+        "metallicScale": 0.1599999964237213,
+        "dynamicsPressureSecondaryColor": 0.0,
+        "dynamicsPressureSaturationCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "lightnessJitterTilt": false,
+        "textureMovement": 1.0,
+        "taperSizeLinked": false,
+        "extendedBlend": 0,
+        "dynamicsJitterDarkness": 0.0,
+        "dynamicsWetnessJitter": 0.0,
+        "shapeFilterMode": 0,
+        "shapeInverted": false,
+        "savedEraseSizes": [],
+        "savedPaintOpacities": [],
+        "textureDepthTilt": false,
+        "grainBlendMode": 1,
+        "dynamicsTiltShapeRoundness": 1.0,
+        "dynamicsTiltAngle": 0.178195983171463,
+        "previewSize": 1.0,
+        "dynamicsPressureMix": 0.0,
+        "saturationJitterTiltAngle": 0.10000000149011612,
+        "taperEndLength": 1.0,
+        "dynamicsTiltBleed": 0.0,
+        "taperSize": 1.0,
+        "textureOrientation": 1,
+        "dynamicsMix": 0.0,
+        "textureContrast": 0.0,
+        "plotSmoothing": 0.09578601270914078,
+        "taperPressure": 1.0,
+        "dynamicsPressureOpacityCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "roughnessScale": 0.1599999964237213,
+        "heightScale": 0.1599999964237213,
+        "dualBlendMode": 0,
+        "shapeFilter": true,
+        "roughnessGrainInverted": false,
+        "maxOpacity": 1.0,
+        "dynamicsTiltBrightness": 0.0,
+        "dynamicsPressureHueCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "shapeCount": 0.0,
+        "importedFromABR": false,
+        "color": {
+          "$omittedBytes": 16,
+          "sha256": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb"
+        },
+        "dynamicsPressureSizeCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsSpeedSize": 0.36224526166915894,
+        "shapeFlipYJitter": false,
+        "shapeAzimuth": true,
+        "textureFilterMode": 0,
+        "shapeRotation": 1.0,
+        "opacityTiltAngle": 0.10000000149011612,
+        "pencilTaperSizeLinked": false,
+        "plotSpacingVersion": 1,
+        "creationDate": {
+          "NS.time": 662489950.918819,
+          "$class": "NSDate"
+        },
+        "dynamicsPressureSmoothing": 0.0,
+        "paintOpacity": 1.0,
+        "dynamicsJitterSize": 0.047575876116752625,
+        "name": "吹石-加油勾线笔2.0自用版",
+        "plotFFTSmoothingBias": 0.0,
+        "grainDepth": 0.6262701749801636,
+        "dynamicsPressureBrightnessCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "bleedTiltAngle": 0.10000000149011612,
+        "oriented": false,
+        "blendMode": 0,
+        "metallicAmount": 0.0,
+        "minSize": 0.0,
+        "smudgeSize": 0.6260589361190796,
+        "dynamicsPressureSecondaryColorCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "secondaryColorTiltAngle": 0.10000000149011612,
+        "shapeRandomise": false,
+        "bundledRoughnessPath": null,
+        "hueTiltAngle": 0.10000000149011612,
+        "pencilTaperSize": 1.0,
+        "renderingModulatedTransfer": true,
+        "taperVersion": 0,
+        "dynamicsPressureShapeRoundnessCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsJitterHue": 0.0,
+        "pencilTaperOpacity": 0.27809324860572815,
+        "dynamicsFalloff": 0.0,
+        "grainDepthJitter": 0.0,
+        "textureOffsetJitter": true,
+        "taperOpacity": 0.0,
+        "shapeRoundness": 0.5935383439064026,
+        "dynamicsPressureBleedSpeed": 0.0,
+        "secondaryColorJitterTilt": false,
+        "dynamicsJitterStrokeLightness": 0.0,
+        "shapeFlipXJitter": false,
+        "savedSmudgeOpacities": [],
+        "dynamicsJitterOpacity": 0.08383143693208694,
+        "minOpacity": 0.09440439939498901,
+        "textureInverted": false,
+        "dynamicsPressureResponse": 0.0,
+        "bundledHeightPath": null,
+        "textureApplication": 0,
+        "eraseSize": 0.004860470537096262,
+        "dynamicsTiltSecondaryColor": 0.0,
+        "plotJitter": 0.0,
+        "dynamicsJitterSaturation": 0.0,
+        "dynamicsLoad": 0.0,
+        "maxPressureSizeClamped": false,
+        "attackTiltAngle": 0.10000000149011612,
+        "dynamicsJitterStrokeHue": 0.0,
+        "pencilTaperEndLength": 1.0,
+        "taperStartLength": 0.012846231460571289,
+        "saturationJitterTilt": false,
+        "textureZoom": 1.0,
+        "plotJitterTilt": false,
+        "gradationTiltAngle": 0.10000000149011612,
+        "paintPressure": 1.0,
+        "plotFFTSmoothingAmount": 0.0,
+        "dynamicsMixSoftening": -0.007471591234207153,
+        "shapeScatter": 0.48147040605545044,
+        "textureScale": 0.6047316193580627,
+        "metallicGrainInverted": false,
+        "dynamicsJitterStrokeDarkness": 0.0,
+        "bundledShapePath": null,
+        "textureBrightness": 0.06652054935693741,
+        "shapeCountJitter": 0.0,
+        "grainOrientation": 1,
+        "heightAmount": 0.5,
+        "darknessJitterTilt": false,
+        "dynamicsTiltHue": 0.0,
+        "wetEdgesAmount": 0.0,
+        "dynamicsPressureSaturation": 0.0,
+        "pencilTaperShape": 0.0,
+        "texturizedGrainFollowsCamera": true,
+        "jitterSecondary": 0.0,
+        "dynamicsTiltGradation": 0.0,
+        "brightnessTiltAngle": 0.10000000149011612,
+        "dynamicsWetAccumulation": 0.4940994083881378,
+        "dynamicsBlur": 0.0,
+        "shapeCountTilt": false,
+        "dynamicsPressureBleed": 0.0008404887048527598,
+        "maxSize": 0.15129366517066956,
+        "version": 2,
+        "eraseOpacity": 1.0,
+        "textureDepthTiltAngle": 0.10000000149011612,
+        "savedEraseOpacities": [],
+        "savedPaintSizes": [
+          0.08275005966424942
+        ],
+        "secondaryColorJitterTiltAngle": 0.10000000149011612,
+        "lightnessJitterTiltAngle": 0.10000000149011612,
+        "attackTilt": false,
+        "renderingMaxTransfer": true,
+        "dynamicsPressureShapeRoundness": 1.0,
+        "dynamicsPressureSizeSpeed": 0.0,
+        "darknessJitterTiltAngle": 0.10000000149011612,
+        "smudgeOpacity": 0.5,
+        "dynamicsTiltCompression": 1.0,
+        "saturationTiltAngle": 0.10000000149011612,
+        "shapeRoundnessTiltAngle": 0.10000000149011612,
+        "dynamicsJitterStrokeSaturation": 0.0,
+        "dynamicsPressureOpacitySpeed": 0.0,
+        "savedSmudgeSizes": [],
+        "dynamicsPressureShapeRoundnessMinimum": 0.595359742641449,
+        "taperShape": 0.0,
+        "pencilTipAnimation": true,
+        "roughnessAmount": 0.5,
+        "dynamicsTiltSaturation": 0.0,
+        "burntEdgesAmount": 0.0,
+        "dynamicsPressureBleedCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsPressureHue": 0.0,
+        "pencilTaperStartLength": 0.0,
+        "dynamicsPressureOpacity": 0.5066084265708923,
+        "shapeCountTiltAngle": 0.10000000149011612,
+        "dynamicsPressureSize": 0.8504655361175537,
+        "dynamicsSpeedOpacity": 0.5321113467216492,
+        "dynamicsSmudgeAccumulation": 0.5,
+        "shapeOrientation": 1,
+        "stamp": false,
+        "sizeTiltAngle": 0.10000000149011612,
+        "plotMovingAverageStabilization": 0.11805141717195511,
+        "renderingRecursiveMixing": false,
+        "authorName": "吹石",
+        "dynamicsGlazedFlow": 1.0,
+        "burntEdgesBlendMode": 1,
+        "hueJitterTiltAngle": 0.10000000149011612,
+        "dynamicsTiltShapeRoundnessMinimum": 1.0,
+        "textureFilter": true,
+        "dynamicsTiltSize": 0.0,
+        "dynamicsTiltOpacity": 0.0,
+        "dynamicsPressureOpacityTransfer": 0.1502487063407898,
+        "shapeAngle": -0.30568647384643555,
+        "plotJitterTiltAngle": 0.10000000149011612,
+        "bundledMetallicPath": null,
+        "dynamicsPressureTransferModulationCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsBlurJitter": 0.0,
+        "paintSize": 0.08275005966424942,
+        "textureRotation": 0.0,
+        "hueJitterTilt": false,
+        "jitterStrokeSecondary": 0.0,
+        "bundledGrainPath": "Brush-Artery-Charcoal-6B.jpg",
+        "dynamicsPressureBrightness": 0.0,
+        "$class": "SilicaBrush"
+      }
+    },
+    {
+      "id": "chuishi-multipurpose-inking-color",
+      "provenance": {
+        "sourceFilename": "吹石-多功能_勾线上色两用.brush",
+        "sourceSHA256": "bd10ab4401c3e245b7ee56b95bf3cb5ffedda3f7ed3aded42820548d9f7538e4",
+        "sourceArchivePath": "Brush.archive",
+        "sourceArchiveSHA256": "c6548f4403d3d8791a27c442be24fee752977364f8a9d3e76d338d1450231452",
+        "sourceName": "吹石-多功能 勾线上色两用",
+        "sourceAuthor": "吹石",
+        "maskInferredInversion": false,
+        "sourceShapeSHA256": "79ceb5bda9c41df8e45f0e545405e3925e922b223b04f7bae482d27791b41668",
+        "sourceShapeDimensions": [
+          2048,
+          2048
+        ],
+        "maskAlphaSHA256": "8d38e91176e8a1023cb1eed93430f0904ee341140246ad93dd79173f5047c52b",
+        "maskInvertedByFlag": false
+      },
+      "activeParameters": {
+        "grainDepthMinimum": 0.24272210896015167,
+        "dynamicsJitterLightness": 0.0,
+        "plotSpacing": 0.0,
+        "blendGammaCorrect": false,
+        "metallicScale": 0.1599999964237213,
+        "dynamicsPressureSecondaryColor": 0.0,
+        "dynamicsPressureSaturationCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "lightnessJitterTilt": false,
+        "textureMovement": 1.0,
+        "taperSizeLinked": false,
+        "extendedBlend": 0,
+        "dynamicsJitterDarkness": 0.0,
+        "dynamicsWetnessJitter": 0.0,
+        "shapeFilterMode": 0,
+        "shapeInverted": false,
+        "savedEraseSizes": [],
+        "savedPaintOpacities": [],
+        "textureDepthTilt": false,
+        "grainBlendMode": 1,
+        "dynamicsTiltShapeRoundness": 1.0,
+        "dynamicsTiltAngle": 0.1061454713344574,
+        "previewSize": 0.742159366607666,
+        "dynamicsPressureMix": 0.08504197746515274,
+        "saturationJitterTiltAngle": 0.10000000149011612,
+        "taperEndLength": 0.0,
+        "dynamicsTiltBleed": 0.0,
+        "taperSize": 1.0,
+        "textureOrientation": 1,
+        "dynamicsMix": 0.0,
+        "textureContrast": 0.0,
+        "plotSmoothing": 0.15448080003261566,
+        "taperPressure": 1.0,
+        "dynamicsPressureOpacityCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "roughnessScale": 0.1599999964237213,
+        "heightScale": 0.1599999964237213,
+        "dualBlendMode": 0,
+        "shapeFilter": true,
+        "roughnessGrainInverted": false,
+        "maxOpacity": 1.0,
+        "dynamicsTiltBrightness": 0.0,
+        "dynamicsPressureHueCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "shapeCount": 0.0625,
+        "importedFromABR": false,
+        "color": {
+          "$omittedBytes": 16,
+          "sha256": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb"
+        },
+        "dynamicsPressureSizeCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsSpeedSize": 0.22320938110351562,
+        "shapeFlipYJitter": false,
+        "shapeAzimuth": false,
+        "textureFilterMode": 0,
+        "shapeRotation": 1.0,
+        "opacityTiltAngle": 0.10000000149011612,
+        "pencilTaperSizeLinked": false,
+        "plotSpacingVersion": 1,
+        "creationDate": {
+          "NS.time": 631365207.311216,
+          "$class": "NSDate"
+        },
+        "dynamicsPressureSmoothing": 0.014500992372632027,
+        "paintOpacity": 1.0,
+        "dynamicsJitterSize": 0.0,
+        "name": "吹石-多功能 勾线上色两用",
+        "plotFFTSmoothingBias": 0.0,
+        "grainDepth": 0.995118260383606,
+        "dynamicsPressureBrightnessCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "bleedTiltAngle": 0.10000000149011612,
+        "oriented": true,
+        "blendMode": 0,
+        "metallicAmount": 0.0,
+        "minSize": 0.005484629422426224,
+        "smudgeSize": 0.7317103147506714,
+        "dynamicsPressureSecondaryColorCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "secondaryColorTiltAngle": 0.10000000149011612,
+        "shapeRandomise": false,
+        "bundledRoughnessPath": null,
+        "hueTiltAngle": 0.10000000149011612,
+        "pencilTaperSize": 1.0,
+        "renderingModulatedTransfer": false,
+        "taperVersion": 1,
+        "dynamicsPressureShapeRoundnessCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsJitterHue": 0.0,
+        "pencilTaperOpacity": 0.1143331378698349,
+        "dynamicsFalloff": 0.0,
+        "grainDepthJitter": 0.06092164292931557,
+        "textureOffsetJitter": true,
+        "taperOpacity": 0.16705721616744995,
+        "shapeRoundness": 0.9042550325393677,
+        "dynamicsPressureBleedSpeed": 0.30000001192092896,
+        "secondaryColorJitterTilt": false,
+        "dynamicsJitterStrokeLightness": 0.0,
+        "shapeFlipXJitter": false,
+        "savedSmudgeOpacities": [],
+        "dynamicsJitterOpacity": 0.0009763718699105084,
+        "minOpacity": 0.3279067873954773,
+        "textureInverted": false,
+        "dynamicsPressureResponse": 0.30000001192092896,
+        "bundledHeightPath": null,
+        "textureApplication": 0,
+        "eraseSize": 0.9941657781600952,
+        "dynamicsTiltSecondaryColor": 0.0,
+        "plotJitter": 5.386868906498421e-07,
+        "dynamicsJitterSaturation": 0.0,
+        "dynamicsLoad": 0.12019137293100357,
+        "maxPressureSizeClamped": false,
+        "attackTiltAngle": 0.10000000149011612,
+        "dynamicsJitterStrokeHue": 0.0,
+        "pencilTaperEndLength": 0.19119501113891602,
+        "taperStartLength": 0.0,
+        "saturationJitterTilt": false,
+        "textureZoom": 1.0,
+        "plotJitterTilt": false,
+        "gradationTiltAngle": 0.10000000149011612,
+        "paintPressure": 1.0,
+        "plotFFTSmoothingAmount": 0.0,
+        "dynamicsMixSoftening": 0.16793593764305115,
+        "shapeScatter": 0.0,
+        "textureScale": 0.26945337653160095,
+        "metallicGrainInverted": false,
+        "dynamicsJitterStrokeDarkness": 0.0,
+        "bundledShapePath": null,
+        "textureBrightness": 0.0,
+        "shapeCountJitter": 0.0,
+        "grainOrientation": 1,
+        "heightAmount": 0.5,
+        "darknessJitterTilt": false,
+        "dynamicsTiltHue": 0.0,
+        "wetEdgesAmount": 0.0,
+        "dynamicsPressureSaturation": 0.0,
+        "pencilTaperShape": 0.5195274949073792,
+        "texturizedGrainFollowsCamera": true,
+        "jitterSecondary": 0.0,
+        "dynamicsTiltGradation": 0.0,
+        "brightnessTiltAngle": 0.10000000149011612,
+        "dynamicsWetAccumulation": 1.0,
+        "dynamicsBlur": 0.10945131629705429,
+        "shapeCountTilt": false,
+        "dynamicsPressureBleed": 0.0,
+        "maxSize": 0.9978532195091248,
+        "version": 2,
+        "eraseOpacity": 1.0,
+        "textureDepthTiltAngle": 0.10000000149011612,
+        "savedEraseOpacities": [],
+        "savedPaintSizes": [],
+        "secondaryColorJitterTiltAngle": 0.10000000149011612,
+        "lightnessJitterTiltAngle": 0.10000000149011612,
+        "attackTilt": false,
+        "renderingMaxTransfer": false,
+        "dynamicsPressureShapeRoundness": 1.0,
+        "dynamicsPressureSizeSpeed": 0.30000001192092896,
+        "darknessJitterTiltAngle": 0.10000000149011612,
+        "smudgeOpacity": 0.800000011920929,
+        "dynamicsTiltCompression": 1.0,
+        "saturationTiltAngle": 0.10000000149011612,
+        "shapeRoundnessTiltAngle": 0.10000000149011612,
+        "dynamicsJitterStrokeSaturation": 0.0,
+        "dynamicsPressureOpacitySpeed": 0.30000001192092896,
+        "savedSmudgeSizes": [],
+        "dynamicsPressureShapeRoundnessMinimum": 1.0,
+        "taperShape": 0.49062830209732056,
+        "pencilTipAnimation": true,
+        "roughnessAmount": 0.5,
+        "dynamicsTiltSaturation": 0.0,
+        "burntEdgesAmount": 0.0,
+        "dynamicsPressureBleedCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsPressureHue": 0.0,
+        "pencilTaperStartLength": 0.09158104658126831,
+        "dynamicsPressureOpacity": 0.5966640114784241,
+        "shapeCountTiltAngle": 0.10000000149011612,
+        "dynamicsPressureSize": 0.9548715353012085,
+        "dynamicsSpeedOpacity": 0.0,
+        "dynamicsSmudgeAccumulation": 0.08110117167234421,
+        "shapeOrientation": 1,
+        "stamp": false,
+        "sizeTiltAngle": 0.10000000149011612,
+        "plotMovingAverageStabilization": 0.0,
+        "renderingRecursiveMixing": true,
+        "authorName": "吹石",
+        "dynamicsGlazedFlow": 1.0,
+        "burntEdgesBlendMode": 1,
+        "hueJitterTiltAngle": 0.10000000149011612,
+        "dynamicsTiltShapeRoundnessMinimum": 1.0,
+        "textureFilter": true,
+        "dynamicsTiltSize": 0.0,
+        "dynamicsTiltOpacity": 0.0,
+        "dynamicsPressureOpacityTransfer": 0.374801367521286,
+        "shapeAngle": 0.19270634651184082,
+        "plotJitterTiltAngle": 0.10000000149011612,
+        "bundledMetallicPath": null,
+        "dynamicsPressureTransferModulationCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsBlurJitter": 0.0,
+        "paintSize": 0.010052726604044437,
+        "textureRotation": 0.0,
+        "hueJitterTilt": false,
+        "jitterStrokeSecondary": 0.0,
+        "bundledGrainPath": "Brush-Artery-Charcoal-Vine.jpg",
+        "dynamicsPressureBrightness": 0.0,
+        "$class": "SilicaBrush"
+      }
+    },
+    {
+      "id": "chuishi-multipurpose-2",
+      "provenance": {
+        "sourceFilename": "吹石-多功能二号.brush",
+        "sourceSHA256": "e68fb93d944bad3e2cee9b4441fa84c2729f4d1b9e0d2f705553fdea100301e0",
+        "sourceArchivePath": "Brush.archive",
+        "sourceArchiveSHA256": "1d68e1cb3b06f6507e13c3d9415d01cb27fe545f7b107f43d49979c365ba939c",
+        "sourceName": "吹石-多功能二号",
+        "sourceAuthor": "吹石",
+        "maskInferredInversion": false
+      },
+      "activeParameters": {
+        "grainDepthMinimum": 0.4625394940376282,
+        "dynamicsJitterLightness": 0.007810975890606642,
+        "plotSpacing": 0.0,
+        "blendGammaCorrect": false,
+        "dynamicsPressureSecondaryColor": 0.0,
+        "dynamicsPressureSaturationCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "lightnessJitterTilt": false,
+        "textureMovement": 1.0,
+        "taperSizeLinked": false,
+        "extendedBlend": 0,
+        "dynamicsJitterDarkness": 0.0,
+        "dynamicsWetnessJitter": 0.0,
+        "shapeFilterMode": 0,
+        "shapeInverted": false,
+        "textureDepthTilt": false,
+        "grainBlendMode": 1,
+        "dynamicsTiltShapeRoundness": 1.0,
+        "dynamicsTiltAngle": 0.1061454713344574,
+        "previewSize": 0.8690682649612427,
+        "dynamicsPressureMix": 0.2607889175415039,
+        "saturationJitterTiltAngle": 0.10000000149011612,
+        "taperEndLength": 0.0,
+        "dynamicsTiltBleed": 0.0,
+        "taperSize": 1.0,
+        "textureOrientation": 1,
+        "dynamicsMix": 0.0,
+        "textureContrast": 0.0,
+        "plotSmoothing": 0.058427974581718445,
+        "taperPressure": 1.0,
+        "dynamicsPressureOpacityCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dualBlendMode": 0,
+        "shapeFilter": true,
+        "maxOpacity": 1.0,
+        "dynamicsTiltBrightness": 0.0,
+        "dynamicsPressureHueCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "shapeCount": 0.0625,
+        "importedFromABR": false,
+        "color": {
+          "$omittedBytes": 16,
+          "sha256": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb"
+        },
+        "dynamicsPressureSizeCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsSpeedSize": 0.6463577151298523,
+        "shapeFlipYJitter": false,
+        "shapeAzimuth": false,
+        "textureFilterMode": 0,
+        "shapeRotation": 0.0,
+        "opacityTiltAngle": 0.10000000149011612,
+        "pencilTaperSizeLinked": false,
+        "plotSpacingVersion": 1,
+        "creationDate": {
+          "NS.time": 631365207.311216,
+          "$class": "NSDate"
+        },
+        "dynamicsPressureSmoothing": 0.01696530543267727,
+        "paintOpacity": 1.0,
+        "dynamicsJitterSize": 0.0,
+        "name": "吹石-多功能二号",
+        "grainDepth": 0.7616678476333618,
+        "dynamicsPressureBrightnessCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "bleedTiltAngle": 0.10000000149011612,
+        "oriented": true,
+        "blendMode": 0,
+        "minSize": 0.0023282638285309076,
+        "smudgeSize": 0.5,
+        "dynamicsPressureSecondaryColorCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "secondaryColorTiltAngle": 0.10000000149011612,
+        "shapeRandomise": false,
+        "hueTiltAngle": 0.10000000149011612,
+        "pencilTaperSize": 1.0,
+        "renderingModulatedTransfer": true,
+        "taperVersion": 1,
+        "dynamicsPressureShapeRoundnessCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsJitterHue": 0.009260295890271664,
+        "pencilTaperOpacity": 0.1143331378698349,
+        "dynamicsFalloff": 0.0,
+        "textureOffsetJitter": true,
+        "grainDepthJitter": 0.06092164292931557,
+        "taperOpacity": 0.16705721616744995,
+        "shapeRoundness": 1.0,
+        "dynamicsPressureBleedSpeed": 0.30000001192092896,
+        "secondaryColorJitterTilt": false,
+        "minOpacity": 0.5432157516479492,
+        "dynamicsJitterStrokeLightness": 0.0,
+        "shapeFlipXJitter": false,
+        "dynamicsJitterOpacity": 0.0009763718699105084,
+        "textureInverted": false,
+        "dynamicsPressureResponse": 0.30000001192092896,
+        "textureApplication": 0,
+        "eraseSize": 0.13639438152313232,
+        "dynamicsTiltSecondaryColor": 0.0,
+        "plotJitter": 5.386868906498421e-07,
+        "dynamicsJitterSaturation": 0.0,
+        "dynamicsLoad": 1.0,
+        "maxPressureSizeClamped": false,
+        "attackTiltAngle": 0.10000000149011612,
+        "dynamicsJitterStrokeHue": 0.0,
+        "pencilTaperEndLength": 0.12751609086990356,
+        "taperStartLength": 0.0,
+        "saturationJitterTilt": false,
+        "textureZoom": 1.0,
+        "plotJitterTilt": false,
+        "gradationTiltAngle": 0.10000000149011612,
+        "paintPressure": 1.0,
+        "dynamicsMixSoftening": 0.3378247320652008,
+        "shapeScatter": 0.0,
+        "textureScale": 6.409075736999512,
+        "dynamicsJitterStrokeDarkness": 0.0,
+        "bundledShapePath": "Brush-Preset-Oval.png",
+        "textureBrightness": 0.0,
+        "shapeCountJitter": 0.0,
+        "grainOrientation": 1,
+        "darknessJitterTilt": false,
+        "dynamicsTiltHue": 0.0,
+        "wetEdgesAmount": 0.0,
+        "dynamicsPressureSaturation": 0.0,
+        "pencilTaperShape": 0.5195274949073792,
+        "jitterSecondary": 0.01024583913385868,
+        "dynamicsTiltGradation": 0.0,
+        "brightnessTiltAngle": 0.10000000149011612,
+        "dynamicsWetAccumulation": 0.1465533822774887,
+        "dynamicsBlur": 0.799746036529541,
+        "shapeCountTilt": false,
+        "maxSize": 0.9978532195091248,
+        "dynamicsPressureBleed": 1.7233342077815905e-05,
+        "version": 2,
+        "eraseOpacity": 1.0,
+        "textureDepthTiltAngle": 0.10000000149011612,
+        "secondaryColorJitterTiltAngle": 0.10000000149011612,
+        "lightnessJitterTiltAngle": 0.10000000149011612,
+        "attackTilt": false,
+        "renderingMaxTransfer": false,
+        "dynamicsPressureShapeRoundness": 1.0,
+        "dynamicsPressureSizeSpeed": 0.30000001192092896,
+        "darknessJitterTiltAngle": 0.10000000149011612,
+        "smudgeOpacity": 0.800000011920929,
+        "dynamicsTiltCompression": 1.0,
+        "saturationTiltAngle": 0.10000000149011612,
+        "shapeRoundnessTiltAngle": 0.10000000149011612,
+        "dynamicsJitterStrokeSaturation": 0.0,
+        "dynamicsPressureOpacitySpeed": 0.30000001192092896,
+        "dynamicsPressureShapeRoundnessMinimum": 1.0,
+        "taperShape": 0.49062830209732056,
+        "pencilTipAnimation": true,
+        "dynamicsTiltSaturation": 0.0,
+        "burntEdgesAmount": 0.0320768877863884,
+        "dynamicsPressureBleedCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsPressureHue": 0.0,
+        "pencilTaperStartLength": 0.09158104658126831,
+        "dynamicsPressureOpacity": 0.1528896689414978,
+        "shapeCountTiltAngle": 0.10000000149011612,
+        "dynamicsPressureSize": 0.9824250936508179,
+        "dynamicsSpeedOpacity": 0.0,
+        "dynamicsSmudgeAccumulation": 0.3496389389038086,
+        "shapeOrientation": 1,
+        "stamp": false,
+        "sizeTiltAngle": 0.10000000149011612,
+        "renderingRecursiveMixing": false,
+        "authorName": "吹石",
+        "dynamicsGlazedFlow": 1.0,
+        "burntEdgesBlendMode": 1,
+        "hueJitterTiltAngle": 0.10000000149011612,
+        "dynamicsTiltShapeRoundnessMinimum": 1.0,
+        "textureFilter": true,
+        "dynamicsTiltSize": 0.0,
+        "dynamicsTiltOpacity": 0.0,
+        "dynamicsPressureOpacityTransfer": 0.03972770273685455,
+        "shapeAngle": 0.14220654964447021,
+        "plotJitterTiltAngle": 0.10000000149011612,
+        "dynamicsPressureTransferModulationCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsBlurJitter": 0.0,
+        "paintSize": 0.07805658876895905,
+        "textureRotation": 0.0,
+        "hueJitterTilt": false,
+        "jitterStrokeSecondary": 0.0,
+        "bundledGrainPath": "Fine-Thread.jpg",
+        "dynamicsPressureBrightness": 0.0,
+        "$class": "SilicaBrush"
+      }
+    },
+    {
+      "id": "chuishi-student-fountain",
+      "provenance": {
+        "sourceFilename": "吹石-学生钢笔.brush",
+        "sourceSHA256": "59fbb8e3f98ba2cf15da9a95ad4f00fb661bafd42352bb909ac406e8d1d85a4a",
+        "sourceArchivePath": "Brush.archive",
+        "sourceArchiveSHA256": "1e45f6fbaa796c1680f050855081909c846c5183d106aea1509f1db68048e996",
+        "sourceName": "吹石-学生钢笔",
+        "sourceAuthor": "吹石",
+        "maskInferredInversion": false
+      },
+      "activeParameters": {
+        "grainDepthMinimum": 0.0,
+        "dynamicsJitterLightness": 0.0,
+        "plotSpacing": 0.0016219146782532334,
+        "blendGammaCorrect": false,
+        "metallicScale": 0.1599999964237213,
+        "dynamicsPressureSecondaryColor": 0.0,
+        "dynamicsPressureSaturationCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "lightnessJitterTilt": false,
+        "textureMovement": 1.0,
+        "taperSizeLinked": false,
+        "extendedBlend": 0,
+        "dynamicsJitterDarkness": 0.0,
+        "dynamicsWetnessJitter": 0.0,
+        "shapeFilterMode": 0,
+        "shapeInverted": false,
+        "savedEraseSizes": [],
+        "savedPaintOpacities": [],
+        "textureDepthTilt": false,
+        "grainBlendMode": 1,
+        "dynamicsTiltShapeRoundness": 1.0,
+        "dynamicsTiltAngle": 0.10000000149011612,
+        "previewSize": 1.0,
+        "dynamicsPressureMix": 0.0,
+        "saturationJitterTiltAngle": 0.10000000149011612,
+        "taperEndLength": 1.0,
+        "dynamicsTiltBleed": 0.0,
+        "taperSize": 1.0,
+        "textureOrientation": 1,
+        "dynamicsMix": 0.0,
+        "textureContrast": 0.3882980942726135,
+        "plotSmoothing": 0.07724989205598831,
+        "taperPressure": 1.0,
+        "dynamicsPressureOpacityCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "roughnessScale": 0.1599999964237213,
+        "heightScale": 0.1599999964237213,
+        "dualBlendMode": 0,
+        "shapeFilter": true,
+        "roughnessGrainInverted": false,
+        "maxOpacity": 1.0,
+        "dynamicsTiltBrightness": 0.0,
+        "dynamicsPressureHueCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "shapeCount": 0.1161637157201767,
+        "importedFromABR": false,
+        "color": {
+          "$omittedBytes": 16,
+          "sha256": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb"
+        },
+        "dynamicsPressureSizeCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsSpeedSize": 1.0,
+        "shapeFlipYJitter": false,
+        "shapeAzimuth": true,
+        "textureFilterMode": 0,
+        "shapeRotation": 1.0,
+        "opacityTiltAngle": 0.10000000149011612,
+        "pencilTaperSizeLinked": false,
+        "plotSpacingVersion": 1,
+        "creationDate": {
+          "NS.time": 662635881.801434,
+          "$class": "NSDate"
+        },
+        "dynamicsPressureSmoothing": 0.0,
+        "paintOpacity": 1.0,
+        "dynamicsJitterSize": 0.047575876116752625,
+        "name": "吹石-学生钢笔",
+        "plotFFTSmoothingBias": 0.0,
+        "grainDepth": 0.31590309739112854,
+        "dynamicsPressureBrightnessCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "bleedTiltAngle": 0.10000000149011612,
+        "oriented": false,
+        "blendMode": 0,
+        "metallicAmount": 0.0,
+        "minSize": 0.0,
+        "smudgeSize": 0.6260589361190796,
+        "dynamicsPressureSecondaryColorCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "secondaryColorTiltAngle": 0.10000000149011612,
+        "shapeRandomise": false,
+        "bundledRoughnessPath": null,
+        "hueTiltAngle": 0.10000000149011612,
+        "pencilTaperSize": 1.0,
+        "renderingModulatedTransfer": false,
+        "taperVersion": 0,
+        "dynamicsPressureShapeRoundnessCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsJitterHue": 0.0,
+        "pencilTaperOpacity": 0.0,
+        "dynamicsFalloff": 0.0,
+        "grainDepthJitter": 0.0,
+        "textureOffsetJitter": true,
+        "taperOpacity": 0.0,
+        "shapeRoundness": 0.8449810743331909,
+        "dynamicsPressureBleedSpeed": 0.0,
+        "secondaryColorJitterTilt": false,
+        "dynamicsJitterStrokeLightness": 0.0,
+        "shapeFlipXJitter": false,
+        "savedSmudgeOpacities": [],
+        "dynamicsJitterOpacity": 0.08383143693208694,
+        "minOpacity": 0.09440439939498901,
+        "textureInverted": false,
+        "dynamicsPressureResponse": 0.0,
+        "bundledHeightPath": null,
+        "textureApplication": 0,
+        "eraseSize": 0.004860470537096262,
+        "dynamicsTiltSecondaryColor": 0.0,
+        "plotJitter": 0.0,
+        "dynamicsJitterSaturation": 0.0,
+        "dynamicsLoad": 0.0,
+        "maxPressureSizeClamped": false,
+        "attackTiltAngle": 0.10000000149011612,
+        "dynamicsJitterStrokeHue": 0.0,
+        "pencilTaperEndLength": 1.0,
+        "taperStartLength": 0.012846231460571289,
+        "saturationJitterTilt": false,
+        "textureZoom": 1.0,
+        "plotJitterTilt": false,
+        "gradationTiltAngle": 0.10000000149011612,
+        "paintPressure": 1.0,
+        "plotFFTSmoothingAmount": 0.0,
+        "dynamicsMixSoftening": -0.007471591234207153,
+        "shapeScatter": 0.4507550597190857,
+        "textureScale": 0.6047316193580627,
+        "metallicGrainInverted": false,
+        "dynamicsJitterStrokeDarkness": 0.0,
+        "bundledShapePath": "Brush-Pocket-Brick.png",
+        "textureBrightness": 0.3857557475566864,
+        "shapeCountJitter": 0.0,
+        "grainOrientation": 1,
+        "heightAmount": 0.5,
+        "darknessJitterTilt": false,
+        "dynamicsTiltHue": 0.0,
+        "wetEdgesAmount": 0.0,
+        "dynamicsPressureSaturation": 0.0,
+        "pencilTaperShape": 0.0,
+        "texturizedGrainFollowsCamera": true,
+        "jitterSecondary": 0.0,
+        "dynamicsTiltGradation": 0.0,
+        "brightnessTiltAngle": 0.10000000149011612,
+        "dynamicsWetAccumulation": 0.4940994083881378,
+        "dynamicsBlur": 0.0,
+        "shapeCountTilt": false,
+        "dynamicsPressureBleed": 0.004980833735316992,
+        "maxSize": 0.20523229241371155,
+        "version": 2,
+        "eraseOpacity": 1.0,
+        "textureDepthTiltAngle": 0.10000000149011612,
+        "savedEraseOpacities": [],
+        "savedPaintSizes": [
+          0.10291391611099243,
+          0.2018316388130188,
+          0.06557575613260269
+        ],
+        "secondaryColorJitterTiltAngle": 0.10000000149011612,
+        "lightnessJitterTiltAngle": 0.10000000149011612,
+        "attackTilt": false,
+        "renderingMaxTransfer": false,
+        "dynamicsPressureShapeRoundness": 1.0,
+        "dynamicsPressureSizeSpeed": 0.0,
+        "darknessJitterTiltAngle": 0.10000000149011612,
+        "smudgeOpacity": 0.5,
+        "dynamicsTiltCompression": 1.0,
+        "saturationTiltAngle": 0.10000000149011612,
+        "shapeRoundnessTiltAngle": 0.10000000149011612,
+        "dynamicsJitterStrokeSaturation": 0.0,
+        "dynamicsPressureOpacitySpeed": 0.0,
+        "savedSmudgeSizes": [],
+        "dynamicsPressureShapeRoundnessMinimum": 0.7624028921127319,
+        "taperShape": 0.0,
+        "pencilTipAnimation": true,
+        "roughnessAmount": 0.5,
+        "dynamicsTiltSaturation": 0.0,
+        "burntEdgesAmount": 0.0,
+        "dynamicsPressureBleedCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsPressureHue": 0.0,
+        "pencilTaperStartLength": 0.0,
+        "dynamicsPressureOpacity": 0.40051034092903137,
+        "shapeCountTiltAngle": 0.10000000149011612,
+        "dynamicsPressureSize": 1.0,
+        "dynamicsSpeedOpacity": 0.7516437768936157,
+        "dynamicsSmudgeAccumulation": 0.5,
+        "shapeOrientation": 1,
+        "stamp": false,
+        "sizeTiltAngle": 0.10000000149011612,
+        "plotMovingAverageStabilization": 0.17125871777534485,
+        "renderingRecursiveMixing": true,
+        "authorName": "吹石",
+        "dynamicsGlazedFlow": 1.0,
+        "burntEdgesBlendMode": 1,
+        "hueJitterTiltAngle": 0.10000000149011612,
+        "dynamicsTiltShapeRoundnessMinimum": 1.0,
+        "textureFilter": true,
+        "dynamicsTiltSize": 0.0,
+        "dynamicsTiltOpacity": 0.0,
+        "dynamicsPressureOpacityTransfer": 0.05543933063745499,
+        "shapeAngle": -0.30568647384643555,
+        "plotJitterTiltAngle": 0.10000000149011612,
+        "bundledMetallicPath": null,
+        "dynamicsPressureTransferModulationCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsBlurJitter": 0.0,
+        "paintSize": 1.0,
+        "textureRotation": 0.0,
+        "hueJitterTilt": false,
+        "jitterStrokeSecondary": 0.0,
+        "bundledGrainPath": "Brush-Preset-Bonobo.png",
+        "dynamicsPressureBrightness": 0.0,
+        "$class": "SilicaBrush"
+      }
+    },
+    {
+      "id": "chuishi-manuscript",
+      "provenance": {
+        "sourceFilename": "吹石-手稿笔.brush",
+        "sourceSHA256": "898db67248e3aa7d6de2e634922ba0a9420551459988c03aff3863fb3b8e29d1",
+        "sourceArchivePath": "Brush.archive",
+        "sourceArchiveSHA256": "5f1feeb7a5f8148b95792be8135a532f65f591e950f625f7b86d4a0efe4252bf",
+        "sourceName": "吹石-手稿笔",
+        "sourceAuthor": "吹石",
+        "maskInferredInversion": true,
+        "sourceShapeSHA256": "bc76cf2f681b99e11af6934f36cd7b40ee8fe0fa60d530ed2cec66a4322d2884",
+        "sourceShapeDimensions": [
+          2048,
+          2048
+        ],
+        "maskAlphaSHA256": "9de3d541d341028b7a816702aeed00068479cdf20401a1676c943df42eb0f780",
+        "maskInvertedByFlag": false,
+        "maskInversionReason": "源笔尖为白底黑椭圆，shapeInverted=false；本适配按常规实心笔尖反相。这是结合笔刷用途和原预览作出的推断，不是原引擎行为的确认。"
+      },
+      "activeParameters": {
+        "grainDepthMinimum": 0.0,
+        "dynamicsJitterLightness": 0.0,
+        "plotSpacing": 0.0,
+        "blendGammaCorrect": false,
+        "metallicScale": 0.1599999964237213,
+        "dynamicsPressureSecondaryColor": 0.0,
+        "dynamicsPressureSaturationCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "lightnessJitterTilt": false,
+        "textureMovement": 1.0,
+        "taperSizeLinked": false,
+        "extendedBlend": 0,
+        "dynamicsJitterDarkness": 0.0,
+        "dynamicsWetnessJitter": 0.0,
+        "shapeFilterMode": 0,
+        "shapeInverted": false,
+        "savedEraseSizes": [],
+        "savedPaintOpacities": [],
+        "textureDepthTilt": false,
+        "grainBlendMode": 1,
+        "dynamicsTiltShapeRoundness": 1.0,
+        "dynamicsTiltAngle": -0.0,
+        "previewSize": 1.0,
+        "dynamicsPressureMix": 0.0,
+        "saturationJitterTiltAngle": 0.10000000149011612,
+        "taperEndLength": 0.0,
+        "dynamicsTiltBleed": 0.0,
+        "taperSize": 1.0,
+        "textureOrientation": 1,
+        "dynamicsMix": 0.0,
+        "textureContrast": 0.0,
+        "plotSmoothing": 0.3296037018299103,
+        "taperPressure": 1.0,
+        "dynamicsPressureOpacityCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "roughnessScale": 0.1599999964237213,
+        "heightScale": 0.1599999964237213,
+        "dualBlendMode": 0,
+        "shapeFilter": true,
+        "roughnessGrainInverted": false,
+        "maxOpacity": 1.0,
+        "dynamicsTiltBrightness": 0.0,
+        "dynamicsPressureHueCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "shapeCount": 0.0,
+        "importedFromABR": false,
+        "color": {
+          "$omittedBytes": 16,
+          "sha256": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb"
+        },
+        "dynamicsPressureSizeCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsSpeedSize": 1.0,
+        "shapeFlipYJitter": false,
+        "shapeAzimuth": false,
+        "textureFilterMode": 0,
+        "shapeRotation": 1.0,
+        "opacityTiltAngle": 0.10000000149011612,
+        "pencilTaperSizeLinked": false,
+        "plotSpacingVersion": 1,
+        "creationDate": {
+          "NS.time": 651160141.383463,
+          "$class": "NSDate"
+        },
+        "dynamicsPressureSmoothing": 0.0,
+        "paintOpacity": 1.0,
+        "dynamicsJitterSize": 0.0,
+        "name": "吹石-手稿笔",
+        "plotFFTSmoothingBias": 0.0,
+        "grainDepth": 1.0,
+        "dynamicsPressureBrightnessCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "bleedTiltAngle": 0.10000000149011612,
+        "oriented": true,
+        "blendMode": 0,
+        "metallicAmount": 0.0,
+        "minSize": 0.0,
+        "smudgeSize": 0.5,
+        "dynamicsPressureSecondaryColorCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "secondaryColorTiltAngle": 0.10000000149011612,
+        "shapeRandomise": false,
+        "bundledRoughnessPath": null,
+        "hueTiltAngle": 0.10000000149011612,
+        "pencilTaperSize": 0.37286436557769775,
+        "renderingModulatedTransfer": false,
+        "taperVersion": 1,
+        "dynamicsPressureShapeRoundnessCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsJitterHue": 0.0,
+        "pencilTaperOpacity": 0.17152529954910278,
+        "dynamicsFalloff": 0.0,
+        "grainDepthJitter": 0.0,
+        "textureOffsetJitter": true,
+        "taperOpacity": 1.0,
+        "shapeRoundness": 1.0,
+        "dynamicsPressureBleedSpeed": 0.30000001192092896,
+        "secondaryColorJitterTilt": false,
+        "dynamicsJitterStrokeLightness": 0.0,
+        "shapeFlipXJitter": false,
+        "savedSmudgeOpacities": [],
+        "dynamicsJitterOpacity": 0.0,
+        "minOpacity": 0.0,
+        "textureInverted": false,
+        "dynamicsPressureResponse": 0.30000001192092896,
+        "bundledHeightPath": null,
+        "textureApplication": 0,
+        "eraseSize": 1.0,
+        "dynamicsTiltSecondaryColor": 0.0,
+        "plotJitter": 0.0,
+        "dynamicsJitterSaturation": 0.0,
+        "dynamicsLoad": 0.5,
+        "maxPressureSizeClamped": false,
+        "attackTiltAngle": 0.10000000149011612,
+        "dynamicsJitterStrokeHue": 0.0,
+        "pencilTaperEndLength": 0.19688642024993896,
+        "taperStartLength": 0.0,
+        "saturationJitterTilt": false,
+        "textureZoom": 1.0,
+        "plotJitterTilt": false,
+        "gradationTiltAngle": 0.10000000149011612,
+        "paintPressure": 1.0,
+        "plotFFTSmoothingAmount": 0.0,
+        "dynamicsMixSoftening": 0.0,
+        "shapeScatter": 0.13593728840351105,
+        "textureScale": 0.11061659455299377,
+        "metallicGrainInverted": false,
+        "dynamicsJitterStrokeDarkness": 0.0,
+        "bundledShapePath": null,
+        "textureBrightness": 0.5404432415962219,
+        "shapeCountJitter": 0.0,
+        "grainOrientation": 1,
+        "heightAmount": 0.5,
+        "darknessJitterTilt": false,
+        "dynamicsTiltHue": 0.0,
+        "wetEdgesAmount": 0.25877645611763,
+        "dynamicsPressureSaturation": 0.0,
+        "pencilTaperShape": 0.0,
+        "texturizedGrainFollowsCamera": true,
+        "jitterSecondary": 0.0,
+        "dynamicsTiltGradation": 1.0,
+        "brightnessTiltAngle": 0.10000000149011612,
+        "dynamicsWetAccumulation": 0.75,
+        "dynamicsBlur": 0.0,
+        "shapeCountTilt": false,
+        "dynamicsPressureBleed": 7.640299008926377e-05,
+        "maxSize": 0.08071283996105194,
+        "version": 2,
+        "eraseOpacity": 1.0,
+        "textureDepthTiltAngle": 0.10000000149011612,
+        "savedEraseOpacities": [],
+        "savedPaintSizes": [],
+        "secondaryColorJitterTiltAngle": 0.10000000149011612,
+        "lightnessJitterTiltAngle": 0.10000000149011612,
+        "attackTilt": false,
+        "renderingMaxTransfer": false,
+        "dynamicsPressureShapeRoundness": 1.0,
+        "dynamicsPressureSizeSpeed": 0.30000001192092896,
+        "darknessJitterTiltAngle": 0.10000000149011612,
+        "smudgeOpacity": 0.800000011920929,
+        "dynamicsTiltCompression": 1.0,
+        "saturationTiltAngle": 0.10000000149011612,
+        "shapeRoundnessTiltAngle": 0.10000000149011612,
+        "dynamicsJitterStrokeSaturation": 0.0,
+        "dynamicsPressureOpacitySpeed": 0.30000001192092896,
+        "savedSmudgeSizes": [],
+        "dynamicsPressureShapeRoundnessMinimum": 1.0,
+        "taperShape": 0.9988709688186646,
+        "pencilTipAnimation": false,
+        "roughnessAmount": 0.5,
+        "dynamicsTiltSaturation": 0.0,
+        "burntEdgesAmount": 0.15849632024765015,
+        "dynamicsPressureBleedCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsPressureHue": 0.0,
+        "pencilTaperStartLength": 0.0,
+        "dynamicsPressureOpacity": 0.11709927767515182,
+        "shapeCountTiltAngle": 0.10000000149011612,
+        "dynamicsPressureSize": 1.0,
+        "dynamicsSpeedOpacity": 0.5621846318244934,
+        "dynamicsSmudgeAccumulation": 0.75,
+        "shapeOrientation": 1,
+        "stamp": false,
+        "sizeTiltAngle": 0.10000000149011612,
+        "plotMovingAverageStabilization": 0.0,
+        "renderingRecursiveMixing": true,
+        "authorName": "吹石",
+        "dynamicsGlazedFlow": 1.0,
+        "burntEdgesBlendMode": 1,
+        "hueJitterTiltAngle": 0.10000000149011612,
+        "dynamicsTiltShapeRoundnessMinimum": 1.0,
+        "textureFilter": true,
+        "dynamicsTiltSize": 0.4722522497177124,
+        "dynamicsTiltOpacity": 0.7778244614601135,
+        "dynamicsPressureOpacityTransfer": 0.0,
+        "shapeAngle": 0.0,
+        "plotJitterTiltAngle": 0.10000000149011612,
+        "bundledMetallicPath": null,
+        "dynamicsPressureTransferModulationCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsBlurJitter": 0.0,
+        "paintSize": 0.2733686566352844,
+        "textureRotation": 0.0,
+        "hueJitterTilt": false,
+        "jitterStrokeSecondary": 0.0,
+        "bundledGrainPath": "Brush-Preset-Oil-Pastel.jpg",
+        "dynamicsPressureBrightness": 0.0,
+        "$class": "SilicaBrush"
+      }
+    },
+    {
+      "id": "chuishi-hatching",
+      "provenance": {
+        "sourceFilename": "吹石-排线.brush",
+        "sourceSHA256": "32df4bd2c1d9183c769bebbf239370a3461350aa970a3e2c2e1fc2b5b8c43187",
+        "sourceArchivePath": "Brush.archive",
+        "sourceArchiveSHA256": "4775cbca661d6338e52bd4fc8fd72b4c2cca76996364f624327c937ddf552601",
+        "sourceName": "吹石-排线",
+        "sourceAuthor": "吹石",
+        "maskInferredInversion": false,
+        "sourceShapeSHA256": "315d670ec668d6ec39d60b0b1d04b033445d282d1d908d2b401808cb5bddbfdf",
+        "sourceShapeDimensions": [
+          2048,
+          2048
+        ],
+        "maskAlphaSHA256": "b15dc7e345b4a4c8fd47e0783f247c2078deeea74f0b3280ee618480808546b0",
+        "maskInvertedByFlag": false
+      },
+      "activeParameters": {
+        "grainDepthMinimum": 0.0,
+        "dynamicsJitterLightness": 0.0,
+        "plotSpacing": 0.0,
+        "blendGammaCorrect": false,
+        "dynamicsPressureSecondaryColor": 0.0,
+        "dynamicsPressureSaturationCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "lightnessJitterTilt": false,
+        "textureMovement": 1.0,
+        "taperSizeLinked": false,
+        "extendedBlend": 0,
+        "dynamicsJitterDarkness": 0.0,
+        "dynamicsWetnessJitter": 0.0,
+        "shapeFilterMode": 0,
+        "shapeInverted": false,
+        "textureDepthTilt": false,
+        "grainBlendMode": 1,
+        "dynamicsTiltShapeRoundness": 1.0,
+        "dynamicsTiltAngle": 0.17237690091133118,
+        "previewSize": 0.30000001192092896,
+        "dynamicsPressureMix": 0.0,
+        "saturationJitterTiltAngle": 0.10000000149011612,
+        "taperEndLength": 0.0,
+        "dynamicsTiltBleed": 0.0,
+        "taperSize": 0.0,
+        "textureOrientation": 1,
+        "dynamicsMix": 0.0,
+        "textureContrast": 0.0,
+        "plotSmoothing": 0.07480349391698837,
+        "taperPressure": 0.0,
+        "dynamicsPressureOpacityCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dualBlendMode": 0,
+        "shapeFilter": true,
+        "maxOpacity": 1.0,
+        "dynamicsTiltBrightness": 0.0,
+        "dynamicsPressureHueCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "shapeCount": 0.0625,
+        "importedFromABR": false,
+        "color": {
+          "$omittedBytes": 16,
+          "sha256": "7ab8f6c26e4f9862c95a18c8e5c50403eeb64d8869fbbf9a7a6397d9a63b7b0e"
+        },
+        "dynamicsPressureSizeCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsSpeedSize": 0.23720210790634155,
+        "shapeFlipYJitter": false,
+        "shapeAzimuth": false,
+        "textureFilterMode": 0,
+        "shapeRotation": 1.0,
+        "opacityTiltAngle": 0.10000000149011612,
+        "pencilTaperSizeLinked": false,
+        "plotSpacingVersion": 1,
+        "creationDate": {
+          "NS.time": 597028101.732277,
+          "$class": "NSDate"
+        },
+        "dynamicsPressureSmoothing": 0.0,
+        "paintOpacity": 1.0,
+        "dynamicsJitterSize": 0.0,
+        "name": "吹石-排线",
+        "grainDepth": 1.0,
+        "dynamicsPressureBrightnessCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "bleedTiltAngle": 0.10000000149011612,
+        "oriented": false,
+        "blendMode": 0,
+        "minSize": 0.0,
+        "smudgeSize": 1.0,
+        "dynamicsPressureSecondaryColorCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "secondaryColorTiltAngle": 0.10000000149011612,
+        "shapeRandomise": false,
+        "hueTiltAngle": 0.10000000149011612,
+        "pencilTaperSize": 0.0,
+        "renderingModulatedTransfer": false,
+        "taperVersion": 0,
+        "dynamicsPressureShapeRoundnessCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsJitterHue": 0.0,
+        "pencilTaperOpacity": 0.0,
+        "dynamicsFalloff": 0.0,
+        "textureOffsetJitter": true,
+        "grainDepthJitter": 0.0,
+        "taperOpacity": 0.0,
+        "shapeRoundness": 1.0,
+        "dynamicsPressureBleedSpeed": 0.4001760184764862,
+        "secondaryColorJitterTilt": false,
+        "minOpacity": 0.0,
+        "dynamicsJitterStrokeLightness": 0.0,
+        "shapeFlipXJitter": false,
+        "dynamicsJitterOpacity": 0.0,
+        "textureInverted": false,
+        "dynamicsPressureResponse": 0.4001760184764862,
+        "textureApplication": 0,
+        "eraseSize": 1.0,
+        "dynamicsTiltSecondaryColor": 0.0,
+        "plotJitter": 0.0,
+        "dynamicsJitterSaturation": 0.0,
+        "dynamicsLoad": 0.0,
+        "maxPressureSizeClamped": false,
+        "attackTiltAngle": 0.10000000149011612,
+        "dynamicsJitterStrokeHue": 0.0,
+        "pencilTaperEndLength": 0.0,
+        "taperStartLength": 0.0,
+        "saturationJitterTilt": false,
+        "textureZoom": 0.0,
+        "plotJitterTilt": false,
+        "gradationTiltAngle": 0.10000000149011612,
+        "paintPressure": 1.0,
+        "dynamicsMixSoftening": 0.0,
+        "shapeScatter": 0.0,
+        "textureScale": 1.0,
+        "dynamicsJitterStrokeDarkness": 0.0,
+        "bundledShapePath": null,
+        "textureBrightness": 0.0,
+        "shapeCountJitter": 0.0,
+        "grainOrientation": 1,
+        "darknessJitterTilt": false,
+        "dynamicsTiltHue": 0.0,
+        "wetEdgesAmount": 0.0,
+        "dynamicsPressureSaturation": 0.0,
+        "pencilTaperShape": 0.0,
+        "jitterSecondary": 0.0,
+        "dynamicsTiltGradation": 0.0,
+        "brightnessTiltAngle": 0.10000000149011612,
+        "dynamicsWetAccumulation": 0.7016128897666931,
+        "dynamicsBlur": 0.0,
+        "shapeCountTilt": false,
+        "maxSize": 1.0,
+        "dynamicsPressureBleed": 0.0,
+        "version": 2,
+        "eraseOpacity": 0.18363896012306213,
+        "textureDepthTiltAngle": 0.10000000149011612,
+        "secondaryColorJitterTiltAngle": 0.10000000149011612,
+        "lightnessJitterTiltAngle": 0.10000000149011612,
+        "attackTilt": false,
+        "renderingMaxTransfer": false,
+        "dynamicsPressureShapeRoundness": 1.0,
+        "dynamicsPressureSizeSpeed": 0.4001760184764862,
+        "darknessJitterTiltAngle": 0.10000000149011612,
+        "smudgeOpacity": 1.0,
+        "dynamicsTiltCompression": 1.0,
+        "saturationTiltAngle": 0.10000000149011612,
+        "shapeRoundnessTiltAngle": 0.10000000149011612,
+        "dynamicsJitterStrokeSaturation": 0.0,
+        "dynamicsPressureOpacitySpeed": 0.4001760184764862,
+        "dynamicsPressureShapeRoundnessMinimum": 1.0,
+        "taperShape": 0.0,
+        "pencilTipAnimation": true,
+        "dynamicsTiltSaturation": 0.0,
+        "burntEdgesAmount": 0.0,
+        "dynamicsPressureBleedCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsPressureHue": 0.09304552525281906,
+        "pencilTaperStartLength": 0.0,
+        "dynamicsPressureOpacity": 0.7404718399047852,
+        "shapeCountTiltAngle": 0.10000000149011612,
+        "dynamicsPressureSize": 0.6362220644950867,
+        "dynamicsSpeedOpacity": 0.1658697873353958,
+        "dynamicsSmudgeAccumulation": 0.8997771739959717,
+        "shapeOrientation": 1,
+        "stamp": false,
+        "sizeTiltAngle": 0.10000000149011612,
+        "renderingRecursiveMixing": true,
+        "authorName": "吹石",
+        "dynamicsGlazedFlow": 1.0,
+        "burntEdgesBlendMode": 1,
+        "hueJitterTiltAngle": 0.10000000149011612,
+        "dynamicsTiltShapeRoundnessMinimum": 1.0,
+        "textureFilter": true,
+        "dynamicsTiltSize": 0.0,
+        "dynamicsTiltOpacity": 0.0,
+        "dynamicsPressureOpacityTransfer": 0.0868200734257698,
+        "shapeAngle": -1.6204776763916016,
+        "plotJitterTiltAngle": 0.10000000149011612,
+        "dynamicsPressureTransferModulationCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsBlurJitter": 0.0,
+        "paintSize": 0.08728101849555969,
+        "textureRotation": 0.0,
+        "hueJitterTilt": false,
+        "jitterStrokeSecondary": 0.0,
+        "bundledGrainPath": "Brush-Preset-Blank.png",
+        "dynamicsPressureBrightness": 0.0,
+        "$class": "SilicaBrush"
+      }
+    },
+    {
+      "id": "chuishi-hatching-grain",
+      "provenance": {
+        "sourceFilename": "吹石-排线_颗粒.brush",
+        "sourceSHA256": "869a34c0c89b2abab5a643ad737035f2cea80b888afc616a1995b765b4578e2b",
+        "sourceArchivePath": "Brush.archive",
+        "sourceArchiveSHA256": "2c79efd6399fe82cf7da4361ec961e34e8a436311784a09f3a79320ca795ba69",
+        "sourceName": "吹石-排线 颗粒",
+        "sourceAuthor": "吹石",
+        "maskInferredInversion": false,
+        "sourceShapeSHA256": "315d670ec668d6ec39d60b0b1d04b033445d282d1d908d2b401808cb5bddbfdf",
+        "sourceShapeDimensions": [
+          2048,
+          2048
+        ],
+        "maskAlphaSHA256": "b15dc7e345b4a4c8fd47e0783f247c2078deeea74f0b3280ee618480808546b0",
+        "maskInvertedByFlag": false
+      },
+      "activeParameters": {
+        "grainDepthMinimum": 0.2407352328300476,
+        "dynamicsJitterLightness": 0.0,
+        "plotSpacing": 0.0,
+        "blendGammaCorrect": false,
+        "metallicScale": 0.1599999964237213,
+        "dynamicsPressureSecondaryColor": 0.0,
+        "dynamicsPressureSaturationCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "lightnessJitterTilt": false,
+        "textureMovement": 1.0,
+        "taperSizeLinked": false,
+        "extendedBlend": 0,
+        "dynamicsJitterDarkness": 0.0,
+        "dynamicsWetnessJitter": 0.0,
+        "shapeFilterMode": 0,
+        "shapeInverted": false,
+        "savedEraseSizes": [],
+        "savedPaintOpacities": [],
+        "textureDepthTilt": false,
+        "grainBlendMode": 1,
+        "dynamicsTiltShapeRoundness": 1.0,
+        "dynamicsTiltAngle": 0.17237690091133118,
+        "previewSize": 0.30000001192092896,
+        "dynamicsPressureMix": 0.0,
+        "saturationJitterTiltAngle": 0.10000000149011612,
+        "taperEndLength": 0.0,
+        "dynamicsTiltBleed": 0.0,
+        "taperSize": 0.0,
+        "textureOrientation": 1,
+        "dynamicsMix": 0.0,
+        "textureContrast": 1.0,
+        "plotSmoothing": 0.1375649869441986,
+        "taperPressure": 0.0,
+        "dynamicsPressureOpacityCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "roughnessScale": 0.1599999964237213,
+        "heightScale": 0.1599999964237213,
+        "dualBlendMode": 0,
+        "shapeFilter": true,
+        "roughnessGrainInverted": false,
+        "maxOpacity": 1.0,
+        "dynamicsTiltBrightness": 0.0,
+        "dynamicsPressureHueCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "shapeCount": 0.08988237380981445,
+        "importedFromABR": false,
+        "color": {
+          "$omittedBytes": 16,
+          "sha256": "7ab8f6c26e4f9862c95a18c8e5c50403eeb64d8869fbbf9a7a6397d9a63b7b0e"
+        },
+        "dynamicsPressureSizeCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsSpeedSize": 0.23720210790634155,
+        "shapeFlipYJitter": false,
+        "shapeAzimuth": false,
+        "textureFilterMode": 0,
+        "shapeRotation": 1.0,
+        "opacityTiltAngle": 0.10000000149011612,
+        "pencilTaperSizeLinked": false,
+        "plotSpacingVersion": 1,
+        "creationDate": {
+          "NS.time": 662644770.407944,
+          "$class": "NSDate"
+        },
+        "dynamicsPressureSmoothing": 0.0,
+        "paintOpacity": 1.0,
+        "dynamicsJitterSize": 0.0,
+        "name": "吹石-排线 颗粒",
+        "plotFFTSmoothingBias": 0.0,
+        "grainDepth": 1.0,
+        "dynamicsPressureBrightnessCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "bleedTiltAngle": 0.10000000149011612,
+        "oriented": false,
+        "blendMode": 0,
+        "metallicAmount": 0.0,
+        "minSize": 0.0,
+        "smudgeSize": 1.0,
+        "dynamicsPressureSecondaryColorCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "secondaryColorTiltAngle": 0.10000000149011612,
+        "shapeRandomise": false,
+        "bundledRoughnessPath": null,
+        "hueTiltAngle": 0.10000000149011612,
+        "pencilTaperSize": 0.0,
+        "renderingModulatedTransfer": false,
+        "taperVersion": 0,
+        "dynamicsPressureShapeRoundnessCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsJitterHue": 0.0,
+        "pencilTaperOpacity": 0.0,
+        "dynamicsFalloff": 0.0,
+        "grainDepthJitter": 0.0,
+        "textureOffsetJitter": true,
+        "taperOpacity": 0.0,
+        "shapeRoundness": 1.0,
+        "dynamicsPressureBleedSpeed": 0.4001760184764862,
+        "secondaryColorJitterTilt": false,
+        "dynamicsJitterStrokeLightness": 0.0,
+        "shapeFlipXJitter": false,
+        "savedSmudgeOpacities": [],
+        "dynamicsJitterOpacity": 0.0,
+        "minOpacity": 0.0,
+        "textureInverted": false,
+        "dynamicsPressureResponse": 0.4001760184764862,
+        "bundledHeightPath": null,
+        "textureApplication": 0,
+        "eraseSize": 1.0,
+        "dynamicsTiltSecondaryColor": 0.0,
+        "plotJitter": 0.0,
+        "dynamicsJitterSaturation": 0.0,
+        "dynamicsLoad": 0.0,
+        "maxPressureSizeClamped": false,
+        "attackTiltAngle": 0.10000000149011612,
+        "dynamicsJitterStrokeHue": 0.0,
+        "pencilTaperEndLength": 0.0,
+        "taperStartLength": 0.0,
+        "saturationJitterTilt": false,
+        "textureZoom": 0.0,
+        "plotJitterTilt": false,
+        "gradationTiltAngle": 0.10000000149011612,
+        "paintPressure": 1.0,
+        "plotFFTSmoothingAmount": 0.0,
+        "dynamicsMixSoftening": 0.0,
+        "shapeScatter": 0.0,
+        "textureScale": 1.0,
+        "metallicGrainInverted": false,
+        "dynamicsJitterStrokeDarkness": 0.0,
+        "bundledShapePath": null,
+        "textureBrightness": 0.3306184709072113,
+        "shapeCountJitter": 0.0,
+        "grainOrientation": 1,
+        "heightAmount": 0.5,
+        "darknessJitterTilt": false,
+        "dynamicsTiltHue": 0.0,
+        "wetEdgesAmount": 0.0,
+        "dynamicsPressureSaturation": 0.0,
+        "pencilTaperShape": 0.0,
+        "texturizedGrainFollowsCamera": true,
+        "jitterSecondary": 0.0,
+        "dynamicsTiltGradation": 0.0,
+        "brightnessTiltAngle": 0.10000000149011612,
+        "dynamicsWetAccumulation": 0.7016128897666931,
+        "dynamicsBlur": 0.0,
+        "shapeCountTilt": false,
+        "dynamicsPressureBleed": 0.0,
+        "maxSize": 1.0,
+        "version": 2,
+        "eraseOpacity": 0.18363896012306213,
+        "textureDepthTiltAngle": 0.10000000149011612,
+        "savedEraseOpacities": [],
+        "savedPaintSizes": [],
+        "secondaryColorJitterTiltAngle": 0.10000000149011612,
+        "lightnessJitterTiltAngle": 0.10000000149011612,
+        "attackTilt": false,
+        "renderingMaxTransfer": false,
+        "dynamicsPressureShapeRoundness": 1.0,
+        "dynamicsPressureSizeSpeed": 0.4001760184764862,
+        "darknessJitterTiltAngle": 0.10000000149011612,
+        "smudgeOpacity": 1.0,
+        "dynamicsTiltCompression": 1.0,
+        "saturationTiltAngle": 0.10000000149011612,
+        "shapeRoundnessTiltAngle": 0.10000000149011612,
+        "dynamicsJitterStrokeSaturation": 0.0,
+        "dynamicsPressureOpacitySpeed": 0.4001760184764862,
+        "savedSmudgeSizes": [],
+        "dynamicsPressureShapeRoundnessMinimum": 1.0,
+        "taperShape": 0.0,
+        "pencilTipAnimation": true,
+        "roughnessAmount": 0.5,
+        "dynamicsTiltSaturation": 0.0,
+        "burntEdgesAmount": 0.0,
+        "dynamicsPressureBleedCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsPressureHue": 0.0,
+        "pencilTaperStartLength": 0.0,
+        "dynamicsPressureOpacity": 0.0672445297241211,
+        "shapeCountTiltAngle": 0.10000000149011612,
+        "dynamicsPressureSize": 0.6362220644950867,
+        "dynamicsSpeedOpacity": 0.0,
+        "dynamicsSmudgeAccumulation": 0.8997771739959717,
+        "shapeOrientation": 1,
+        "stamp": false,
+        "sizeTiltAngle": 0.10000000149011612,
+        "plotMovingAverageStabilization": 0.0,
+        "renderingRecursiveMixing": true,
+        "authorName": "吹石",
+        "dynamicsGlazedFlow": 1.0,
+        "burntEdgesBlendMode": 1,
+        "hueJitterTiltAngle": 0.10000000149011612,
+        "dynamicsTiltShapeRoundnessMinimum": 1.0,
+        "textureFilter": true,
+        "dynamicsTiltSize": 0.0,
+        "dynamicsTiltOpacity": 0.0,
+        "dynamicsPressureOpacityTransfer": 0.06440526247024536,
+        "shapeAngle": -1.6204776763916016,
+        "plotJitterTiltAngle": 0.10000000149011612,
+        "bundledMetallicPath": null,
+        "dynamicsPressureTransferModulationCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsBlurJitter": 0.0,
+        "paintSize": 0.8998890519142151,
+        "textureRotation": 0.0,
+        "hueJitterTilt": false,
+        "jitterStrokeSecondary": 0.0,
+        "bundledGrainPath": "Brush-Preset-Bonobo.png",
+        "dynamicsPressureBrightness": 0.0,
+        "$class": "SilicaBrush"
+      }
+    },
+    {
+      "id": "chuishi-square",
+      "provenance": {
+        "sourceFilename": "吹石-方形画笔_自用版.brush",
+        "sourceSHA256": "42a4ecaede3d365ec95dad7159c8644706e5b94b90c53e57e91f5ff25a7d1c0f",
+        "sourceArchivePath": "Brush.archive",
+        "sourceArchiveSHA256": "167c214570c85aa0f4dea818a28d3e57f251ffdd83fbd0492601ae1156f66fe2",
+        "sourceName": "吹石-方形画笔 自用版",
+        "sourceAuthor": "吹石",
+        "maskInferredInversion": false
+      },
+      "activeParameters": {
+        "grainDepthMinimum": 0.0,
+        "dynamicsJitterLightness": 0.0,
+        "plotSpacing": 7.962141535244882e-05,
+        "blendGammaCorrect": false,
+        "metallicScale": 0.1599999964237213,
+        "dynamicsPressureSecondaryColor": 0.0,
+        "dynamicsPressureSaturationCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "lightnessJitterTilt": false,
+        "textureMovement": 1.0,
+        "taperSizeLinked": false,
+        "extendedBlend": 0,
+        "dynamicsJitterDarkness": 0.0,
+        "dynamicsWetnessJitter": 0.0,
+        "shapeFilterMode": 0,
+        "shapeInverted": false,
+        "savedEraseSizes": [],
+        "savedPaintOpacities": [],
+        "textureDepthTilt": false,
+        "grainBlendMode": 1,
+        "dynamicsTiltShapeRoundness": 1.0,
+        "dynamicsTiltAngle": 0.10000000149011612,
+        "previewSize": 0.21482376754283905,
+        "dynamicsPressureMix": 0.4753437042236328,
+        "saturationJitterTiltAngle": 0.10000000149011612,
+        "taperEndLength": 0.0,
+        "dynamicsTiltBleed": 0.0,
+        "taperSize": 1.0,
+        "textureOrientation": 1,
+        "dynamicsMix": 0.4461148977279663,
+        "textureContrast": 0.0,
+        "plotSmoothing": 0.18245665729045868,
+        "taperPressure": 1.0,
+        "dynamicsPressureOpacityCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "roughnessScale": 0.1599999964237213,
+        "heightScale": 0.1599999964237213,
+        "dualBlendMode": 0,
+        "shapeFilter": true,
+        "roughnessGrainInverted": false,
+        "maxOpacity": 1.0,
+        "dynamicsTiltBrightness": 0.0,
+        "dynamicsPressureHueCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "shapeCount": 0.0625,
+        "importedFromABR": false,
+        "color": {
+          "$omittedBytes": 16,
+          "sha256": "7ab8f6c26e4f9862c95a18c8e5c50403eeb64d8869fbbf9a7a6397d9a63b7b0e"
+        },
+        "dynamicsPressureSizeCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsSpeedSize": 0.48266589641571045,
+        "shapeFlipYJitter": false,
+        "shapeAzimuth": true,
+        "textureFilterMode": 0,
+        "shapeRotation": 0.014084458351135254,
+        "opacityTiltAngle": 0.10000000149011612,
+        "pencilTaperSizeLinked": false,
+        "plotSpacingVersion": 1,
+        "creationDate": {
+          "NS.time": 661527814.814765,
+          "$class": "NSDate"
+        },
+        "dynamicsPressureSmoothing": 0.0,
+        "paintOpacity": 1.0,
+        "dynamicsJitterSize": 0.0,
+        "name": "吹石-方形画笔 自用版",
+        "plotFFTSmoothingBias": 0.0,
+        "grainDepth": 0.8015502691268921,
+        "dynamicsPressureBrightnessCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "bleedTiltAngle": 0.10000000149011612,
+        "oriented": false,
+        "blendMode": 0,
+        "metallicAmount": 0.0,
+        "minSize": 0.0,
+        "smudgeSize": 0.7469807863235474,
+        "dynamicsPressureSecondaryColorCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "secondaryColorTiltAngle": 0.10000000149011612,
+        "shapeRandomise": false,
+        "bundledRoughnessPath": null,
+        "hueTiltAngle": 0.10000000149011612,
+        "pencilTaperSize": 1.0,
+        "renderingModulatedTransfer": true,
+        "taperVersion": 0,
+        "dynamicsPressureShapeRoundnessCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsJitterHue": 0.0,
+        "pencilTaperOpacity": 1.0,
+        "dynamicsFalloff": 0.0,
+        "grainDepthJitter": 0.0,
+        "textureOffsetJitter": false,
+        "taperOpacity": 1.0,
+        "shapeRoundness": 0.7106823325157166,
+        "dynamicsPressureBleedSpeed": 0.0,
+        "secondaryColorJitterTilt": false,
+        "dynamicsJitterStrokeLightness": 0.0,
+        "shapeFlipXJitter": false,
+        "savedSmudgeOpacities": [],
+        "dynamicsJitterOpacity": 0.0,
+        "minOpacity": 0.0,
+        "textureInverted": false,
+        "dynamicsPressureResponse": 0.0,
+        "bundledHeightPath": null,
+        "textureApplication": 0,
+        "eraseSize": 0.6695780754089355,
+        "dynamicsTiltSecondaryColor": 0.0,
+        "plotJitter": 0.0,
+        "dynamicsJitterSaturation": 0.0,
+        "dynamicsLoad": 0.7891512513160706,
+        "maxPressureSizeClamped": false,
+        "attackTiltAngle": 0.10000000149011612,
+        "dynamicsJitterStrokeHue": 0.0,
+        "pencilTaperEndLength": 0.0,
+        "taperStartLength": 0.0,
+        "saturationJitterTilt": false,
+        "textureZoom": 0.13131843507289886,
+        "plotJitterTilt": false,
+        "gradationTiltAngle": 0.10000000149011612,
+        "paintPressure": 1.0,
+        "plotFFTSmoothingAmount": 0.0,
+        "dynamicsMixSoftening": 1.0,
+        "shapeScatter": 0.0,
+        "textureScale": 2.9180209636688232,
+        "metallicGrainInverted": false,
+        "dynamicsJitterStrokeDarkness": 0.0,
+        "bundledShapePath": "Acrylic-Dab.jpg",
+        "textureBrightness": 0.1112544983625412,
+        "shapeCountJitter": 0.0,
+        "grainOrientation": 1,
+        "heightAmount": 0.5,
+        "darknessJitterTilt": false,
+        "dynamicsTiltHue": 0.0,
+        "wetEdgesAmount": 0.0,
+        "dynamicsPressureSaturation": 0.0,
+        "pencilTaperShape": 0.0,
+        "texturizedGrainFollowsCamera": true,
+        "jitterSecondary": 0.0,
+        "dynamicsTiltGradation": 0.0,
+        "brightnessTiltAngle": 0.10000000149011612,
+        "dynamicsWetAccumulation": 0.32890018820762634,
+        "dynamicsBlur": 0.3829512298107147,
+        "shapeCountTilt": false,
+        "dynamicsPressureBleed": 0.0,
+        "maxSize": 0.601468026638031,
+        "version": 2,
+        "eraseOpacity": 1.0,
+        "textureDepthTiltAngle": 0.10000000149011612,
+        "savedEraseOpacities": [],
+        "savedPaintSizes": [],
+        "secondaryColorJitterTiltAngle": 0.10000000149011612,
+        "lightnessJitterTiltAngle": 0.10000000149011612,
+        "attackTilt": false,
+        "renderingMaxTransfer": false,
+        "dynamicsPressureShapeRoundness": 1.0,
+        "dynamicsPressureSizeSpeed": 0.0,
+        "darknessJitterTiltAngle": 0.10000000149011612,
+        "smudgeOpacity": 0.9183006286621094,
+        "dynamicsTiltCompression": 1.0,
+        "saturationTiltAngle": 0.10000000149011612,
+        "shapeRoundnessTiltAngle": 0.10000000149011612,
+        "dynamicsJitterStrokeSaturation": 0.0,
+        "dynamicsPressureOpacitySpeed": 0.0,
+        "savedSmudgeSizes": [],
+        "dynamicsPressureShapeRoundnessMinimum": 0.72355055809021,
+        "taperShape": 0.0,
+        "pencilTipAnimation": true,
+        "roughnessAmount": 0.5,
+        "dynamicsTiltSaturation": 0.0,
+        "burntEdgesAmount": 0.0,
+        "dynamicsPressureBleedCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsPressureHue": 0.0,
+        "pencilTaperStartLength": 0.0,
+        "dynamicsPressureOpacity": 0.25937074422836304,
+        "shapeCountTiltAngle": 0.10000000149011612,
+        "dynamicsPressureSize": 1.0,
+        "dynamicsSpeedOpacity": 1.0,
+        "dynamicsSmudgeAccumulation": 0.4170651435852051,
+        "shapeOrientation": 1,
+        "stamp": false,
+        "sizeTiltAngle": 0.10000000149011612,
+        "plotMovingAverageStabilization": 0.0,
+        "renderingRecursiveMixing": true,
+        "authorName": "吹石",
+        "dynamicsGlazedFlow": 1.0,
+        "burntEdgesBlendMode": 1,
+        "hueJitterTiltAngle": 0.10000000149011612,
+        "dynamicsTiltShapeRoundnessMinimum": 1.0,
+        "textureFilter": true,
+        "dynamicsTiltSize": 0.0,
+        "dynamicsTiltOpacity": 0.0,
+        "dynamicsPressureOpacityTransfer": 0.6730867028236389,
+        "shapeAngle": -1.5948282480239868,
+        "plotJitterTiltAngle": 0.10000000149011612,
+        "bundledMetallicPath": null,
+        "dynamicsPressureTransferModulationCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsBlurJitter": 0.0,
+        "paintSize": 0.20986245572566986,
+        "textureRotation": 0.0,
+        "hueJitterTilt": false,
+        "jitterStrokeSecondary": 0.0,
+        "bundledGrainPath": "Brush-Artery-Charcoal-6B.jpg",
+        "dynamicsPressureBrightness": 0.0,
+        "$class": "SilicaBrush"
+      }
+    },
+    {
+      "id": "chuishi-mercury",
+      "provenance": {
+        "sourceFilename": "吹石-水星_改.brush",
+        "sourceSHA256": "a856a4e3108bc6817c5d291d41fd099f7c048e4719db529cfdd233bfb9ed251d",
+        "sourceArchivePath": "Brush.archive",
+        "sourceArchiveSHA256": "3ac6615073b2fcf97351eeb853641e7a746b2fd934990573778bbcf7d27edb11",
+        "sourceName": "吹石-水星 改",
+        "sourceAuthor": null,
+        "maskInferredInversion": false
+      },
+      "activeParameters": {
+        "grainDepthMinimum": 0.0,
+        "dynamicsJitterLightness": 0.0,
+        "plotSpacing": 0.0051112426444888115,
+        "blendGammaCorrect": false,
+        "dynamicsPressureSecondaryColor": 0.0,
+        "dynamicsPressureSaturationCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "lightnessJitterTilt": false,
+        "textureMovement": 1.0,
+        "taperSizeLinked": true,
+        "extendedBlend": 0,
+        "dynamicsJitterDarkness": 0.0,
+        "dynamicsWetnessJitter": 0.0,
+        "shapeFilterMode": 0,
+        "shapeInverted": false,
+        "textureDepthTilt": false,
+        "grainBlendMode": 27,
+        "dynamicsTiltShapeRoundness": 1.0,
+        "dynamicsTiltAngle": 0.17000000178813934,
+        "previewSize": 0.11205340921878815,
+        "dynamicsPressureMix": 1.0,
+        "saturationJitterTiltAngle": 0.10000000149011612,
+        "taperEndLength": 0.0,
+        "dynamicsTiltBleed": 0.004834069404751062,
+        "taperSize": 0.7320231795310974,
+        "textureOrientation": 3,
+        "dynamicsMix": 0.0,
+        "textureContrast": 0.0,
+        "plotSmoothing": 0.12995508313179016,
+        "taperPressure": 0.46790337562561035,
+        "dynamicsPressureOpacityCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dualBlendMode": 28,
+        "shapeFilter": true,
+        "maxOpacity": 1.0,
+        "dynamicsTiltBrightness": 0.0,
+        "dynamicsPressureHueCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "shapeCount": 0.0,
+        "importedFromABR": false,
+        "color": {
+          "$omittedBytes": 16,
+          "sha256": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb"
+        },
+        "dynamicsPressureSizeCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{0.250000, 0.330000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.25,
+              0.33
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsSpeedSize": 0.7038254737854004,
+        "shapeFlipYJitter": true,
+        "shapeAzimuth": false,
+        "textureFilterMode": 0,
+        "shapeRotation": 0.0,
+        "opacityTiltAngle": 0.10000000149011612,
+        "pencilTaperSizeLinked": false,
+        "plotSpacingVersion": 1,
+        "creationDate": {
+          "NS.time": 644164977.917683,
+          "$class": "NSDate"
+        },
+        "dynamicsPressureSmoothing": 0.0,
+        "paintOpacity": 1.0,
+        "dynamicsJitterSize": 0.0,
+        "name": "吹石-水星 改",
+        "grainDepth": 0.1428019404411316,
+        "dynamicsPressureBrightnessCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "bleedTiltAngle": 0.10000000149011612,
+        "oriented": true,
+        "blendMode": 0,
+        "minSize": 0.0,
+        "smudgeSize": 0.26222407817840576,
+        "dynamicsPressureSecondaryColorCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "secondaryColorTiltAngle": 0.10000000149011612,
+        "shapeRandomise": false,
+        "hueTiltAngle": 0.10000000149011612,
+        "pencilTaperSize": 0.2275351732969284,
+        "renderingModulatedTransfer": true,
+        "taperVersion": 1,
+        "dynamicsPressureShapeRoundnessCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsJitterHue": 0.0,
+        "pencilTaperOpacity": 0.07785415649414062,
+        "dynamicsFalloff": 0.0,
+        "textureOffsetJitter": false,
+        "grainDepthJitter": 1.0,
+        "taperOpacity": 0.07162266224622726,
+        "shapeRoundness": 1.0,
+        "dynamicsPressureBleedSpeed": 0.30000001192092896,
+        "secondaryColorJitterTilt": false,
+        "minOpacity": 0.0,
+        "dynamicsJitterStrokeLightness": 0.0,
+        "shapeFlipXJitter": true,
+        "dynamicsJitterOpacity": 0.0,
+        "textureInverted": false,
+        "dynamicsPressureResponse": 0.30000001192092896,
+        "textureApplication": 1,
+        "eraseSize": 0.26222407817840576,
+        "dynamicsTiltSecondaryColor": 0.0,
+        "plotJitter": 0.0,
+        "dynamicsJitterSaturation": 0.0,
+        "dynamicsLoad": 0.0,
+        "maxPressureSizeClamped": false,
+        "attackTiltAngle": 0.10000000149011612,
+        "dynamicsJitterStrokeHue": 0.0,
+        "pencilTaperEndLength": 0.0,
+        "taperStartLength": 0.0,
+        "saturationJitterTilt": false,
+        "textureZoom": 1.0,
+        "plotJitterTilt": false,
+        "gradationTiltAngle": 0.10000000149011612,
+        "paintPressure": 1.0,
+        "dynamicsMixSoftening": 1.0,
+        "shapeScatter": 0.11382897198200226,
+        "textureScale": 2.7284510135650635,
+        "dynamicsJitterStrokeDarkness": 0.0,
+        "bundledShapePath": "Acrylic-Stamp.png",
+        "textureBrightness": 0.0,
+        "shapeCountJitter": 0.0,
+        "grainOrientation": 3,
+        "darknessJitterTilt": false,
+        "dynamicsTiltHue": 0.0,
+        "wetEdgesAmount": 0.05394500866532326,
+        "dynamicsPressureSaturation": 0.0,
+        "pencilTaperShape": 0.7338630557060242,
+        "jitterSecondary": 0.0,
+        "dynamicsTiltGradation": 0.0251365564763546,
+        "brightnessTiltAngle": 0.10000000149011612,
+        "dynamicsWetAccumulation": 0.5613496899604797,
+        "dynamicsBlur": 1.0,
+        "shapeCountTilt": false,
+        "maxSize": 0.2405373454093933,
+        "dynamicsPressureBleed": 0.0,
+        "version": 2,
+        "eraseOpacity": 1.0,
+        "textureDepthTiltAngle": 0.10000000149011612,
+        "secondaryColorJitterTiltAngle": 0.10000000149011612,
+        "lightnessJitterTiltAngle": 0.10000000149011612,
+        "attackTilt": false,
+        "renderingMaxTransfer": false,
+        "dynamicsPressureShapeRoundness": 1.0,
+        "dynamicsPressureSizeSpeed": 0.30000001192092896,
+        "darknessJitterTiltAngle": 0.10000000149011612,
+        "smudgeOpacity": 0.800000011920929,
+        "dynamicsTiltCompression": 0.0,
+        "saturationTiltAngle": 0.10000000149011612,
+        "shapeRoundnessTiltAngle": 0.10000000149011612,
+        "dynamicsJitterStrokeSaturation": 0.0,
+        "dynamicsPressureOpacitySpeed": 0.30000001192092896,
+        "dynamicsPressureShapeRoundnessMinimum": 1.0,
+        "taperShape": 0.5036089420318604,
+        "pencilTipAnimation": false,
+        "dynamicsTiltSaturation": 0.0,
+        "burntEdgesAmount": 0.16004183888435364,
+        "dynamicsPressureBleedCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsPressureHue": 0.0,
+        "pencilTaperStartLength": 0.0,
+        "dynamicsPressureOpacity": 0.4148818850517273,
+        "shapeCountTiltAngle": 0.10000000149011612,
+        "dynamicsPressureSize": 1.0,
+        "dynamicsSpeedOpacity": 0.4527794122695923,
+        "dynamicsSmudgeAccumulation": 0.5584228038787842,
+        "shapeOrientation": 1,
+        "stamp": false,
+        "sizeTiltAngle": 0.10000000149011612,
+        "renderingRecursiveMixing": true,
+        "authorName": null,
+        "dynamicsGlazedFlow": 1.0,
+        "burntEdgesBlendMode": 1,
+        "hueJitterTiltAngle": 0.10000000149011612,
+        "dynamicsTiltShapeRoundnessMinimum": 1.0,
+        "textureFilter": false,
+        "dynamicsTiltSize": 0.5690755248069763,
+        "dynamicsTiltOpacity": 0.563990592956543,
+        "dynamicsPressureOpacityTransfer": 0.0,
+        "shapeAngle": -0.010257363319396973,
+        "plotJitterTiltAngle": 0.10000000149011612,
+        "dynamicsPressureTransferModulationCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsBlurJitter": 0.0,
+        "paintSize": 0.08137894421815872,
+        "textureRotation": 0.0,
+        "hueJitterTilt": false,
+        "jitterStrokeSecondary": 0.0,
+        "bundledGrainPath": "Gouache-Wash.jpg",
+        "dynamicsPressureBrightness": 0.0,
+        "$class": "SilicaBrush"
+      },
+      "secondary": {
+        "provenance": {
+          "sourceFilename": "吹石-水星_改.brush",
+          "sourceSHA256": "a856a4e3108bc6817c5d291d41fd099f7c048e4719db529cfdd233bfb9ed251d",
+          "sourceArchivePath": "Sub01/Brush.archive",
+          "sourceArchiveSHA256": "dddac8c6817cca4ec0d8204dde979fc2e3829aaab9fe6fae533997514539caa9",
+          "sourceName": "Mercury Secondary",
+          "sourceAuthor": null,
+          "maskInferredInversion": false
+        },
+        "activeParameters": {
+          "grainDepthMinimum": 0.0,
+          "dynamicsJitterLightness": 0.0,
+          "plotSpacing": 7.828816706023645e-06,
+          "blendGammaCorrect": false,
+          "dynamicsPressureSecondaryColor": 0.0,
+          "dynamicsPressureSaturationCurve": {
+            "points": [
+              "{0.000000, 0.000000}",
+              "{1.000000, 1.000000}"
+            ],
+            "$class": "ValkyrieMagnitudinalCurve",
+            "xy": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                1.0,
+                1.0
+              ]
+            ]
+          },
+          "lightnessJitterTilt": false,
+          "textureMovement": 1.0,
+          "taperSizeLinked": false,
+          "extendedBlend": 0,
+          "dynamicsJitterDarkness": 0.0,
+          "dynamicsWetnessJitter": 0.0,
+          "shapeFilterMode": 0,
+          "shapeInverted": false,
+          "textureDepthTilt": false,
+          "grainBlendMode": 27,
+          "dynamicsTiltShapeRoundness": 1.0,
+          "dynamicsTiltAngle": 0.17000000178813934,
+          "previewSize": 0.30000001192092896,
+          "dynamicsPressureMix": 0.20000000298023224,
+          "saturationJitterTiltAngle": 0.10000000149011612,
+          "taperEndLength": 0.0,
+          "dynamicsTiltBleed": 6.01367332819791e-07,
+          "taperSize": 0.0,
+          "textureOrientation": 1,
+          "dynamicsMix": 0.0,
+          "textureContrast": 0.5,
+          "plotSmoothing": 0.0,
+          "taperPressure": 0.0,
+          "dynamicsPressureOpacityCurve": {
+            "points": [
+              "{0.000000, 0.000000}",
+              "{1.000000, 1.000000}"
+            ],
+            "$class": "ValkyrieMagnitudinalCurve",
+            "xy": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                1.0,
+                1.0
+              ]
+            ]
+          },
+          "dualBlendMode": 0,
+          "shapeFilter": true,
+          "maxOpacity": 1.0,
+          "dynamicsTiltBrightness": 0.0,
+          "dynamicsPressureHueCurve": {
+            "points": [
+              "{0.000000, 0.000000}",
+              "{1.000000, 1.000000}"
+            ],
+            "$class": "ValkyrieMagnitudinalCurve",
+            "xy": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                1.0,
+                1.0
+              ]
+            ]
+          },
+          "shapeCount": 0.2555147111415863,
+          "importedFromABR": false,
+          "color": {
+            "$omittedBytes": 16,
+            "sha256": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb"
+          },
+          "dynamicsPressureSizeCurve": {
+            "points": [
+              "{0.000000, 0.000000}",
+              "{0.250000, 0.330000}",
+              "{1.000000, 1.000000}"
+            ],
+            "$class": "ValkyrieMagnitudinalCurve",
+            "xy": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.25,
+                0.33
+              ],
+              [
+                1.0,
+                1.0
+              ]
+            ]
+          },
+          "dynamicsSpeedSize": 0.6649731397628784,
+          "shapeFlipYJitter": true,
+          "shapeAzimuth": false,
+          "textureFilterMode": 0,
+          "shapeRotation": 0.0,
+          "opacityTiltAngle": 0.10000000149011612,
+          "pencilTaperSizeLinked": false,
+          "plotSpacingVersion": 0,
+          "creationDate": {
+            "NS.time": 593775895.605855,
+            "$class": "NSDate"
+          },
+          "dynamicsPressureSmoothing": 0.0,
+          "paintOpacity": 1.0,
+          "dynamicsJitterSize": 0.0,
+          "name": "Mercury Secondary",
+          "grainDepth": 0.08044559508562088,
+          "dynamicsPressureBrightnessCurve": {
+            "points": [
+              "{0.000000, 0.000000}",
+              "{1.000000, 1.000000}"
+            ],
+            "$class": "ValkyrieMagnitudinalCurve",
+            "xy": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                1.0,
+                1.0
+              ]
+            ]
+          },
+          "bleedTiltAngle": 0.10000000149011612,
+          "oriented": true,
+          "blendMode": 0,
+          "minSize": 0.0008548328769393265,
+          "smudgeSize": 0.19887074828147888,
+          "dynamicsPressureSecondaryColorCurve": {
+            "points": [
+              "{0.000000, 0.000000}",
+              "{1.000000, 1.000000}"
+            ],
+            "$class": "ValkyrieMagnitudinalCurve",
+            "xy": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                1.0,
+                1.0
+              ]
+            ]
+          },
+          "secondaryColorTiltAngle": 0.10000000149011612,
+          "shapeRandomise": false,
+          "hueTiltAngle": 0.10000000149011612,
+          "pencilTaperSize": 0.0,
+          "renderingModulatedTransfer": true,
+          "taperVersion": 1,
+          "dynamicsPressureShapeRoundnessCurve": {
+            "points": [
+              "{0.000000, 0.000000}",
+              "{1.000000, 1.000000}"
+            ],
+            "$class": "ValkyrieMagnitudinalCurve",
+            "xy": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                1.0,
+                1.0
+              ]
+            ]
+          },
+          "dynamicsJitterHue": 0.0,
+          "pencilTaperOpacity": 0.0,
+          "dynamicsFalloff": 0.0,
+          "textureOffsetJitter": false,
+          "grainDepthJitter": 0.0,
+          "taperOpacity": 0.0,
+          "shapeRoundness": 1.0,
+          "dynamicsPressureBleedSpeed": 0.30000001192092896,
+          "secondaryColorJitterTilt": false,
+          "minOpacity": 0.0,
+          "dynamicsJitterStrokeLightness": 0.0,
+          "shapeFlipXJitter": true,
+          "dynamicsJitterOpacity": 0.0,
+          "textureInverted": false,
+          "dynamicsPressureResponse": 0.30000001192092896,
+          "textureApplication": 0,
+          "eraseSize": 0.19887074828147888,
+          "dynamicsTiltSecondaryColor": 0.0,
+          "plotJitter": 1.4537686109542847,
+          "dynamicsJitterSaturation": 0.0,
+          "dynamicsLoad": 0.009999999776482582,
+          "maxPressureSizeClamped": false,
+          "attackTiltAngle": 0.10000000149011612,
+          "dynamicsJitterStrokeHue": 0.0,
+          "pencilTaperEndLength": 0.0,
+          "taperStartLength": 0.0,
+          "saturationJitterTilt": false,
+          "textureZoom": 1.0,
+          "plotJitterTilt": false,
+          "gradationTiltAngle": 0.10000000149011612,
+          "paintPressure": 1.0,
+          "dynamicsMixSoftening": 0.800000011920929,
+          "shapeScatter": 2.0,
+          "textureScale": 0.4130276143550873,
+          "dynamicsJitterStrokeDarkness": 0.0,
+          "bundledShapePath": "Weary-Dots.jpg",
+          "textureBrightness": 0.3329125940799713,
+          "shapeCountJitter": 0.0,
+          "grainOrientation": 1,
+          "darknessJitterTilt": false,
+          "dynamicsTiltHue": 0.0,
+          "wetEdgesAmount": 0.0,
+          "dynamicsPressureSaturation": 0.0,
+          "pencilTaperShape": 0.0,
+          "jitterSecondary": 0.0,
+          "dynamicsTiltGradation": 0.0,
+          "brightnessTiltAngle": 0.10000000149011612,
+          "dynamicsWetAccumulation": 0.10000000149011612,
+          "dynamicsBlur": 0.0,
+          "shapeCountTilt": false,
+          "maxSize": 0.27982884645462036,
+          "dynamicsPressureBleed": 0.0,
+          "version": 2,
+          "eraseOpacity": 1.0,
+          "textureDepthTiltAngle": 0.10000000149011612,
+          "secondaryColorJitterTiltAngle": 0.10000000149011612,
+          "lightnessJitterTiltAngle": 0.10000000149011612,
+          "attackTilt": false,
+          "renderingMaxTransfer": true,
+          "dynamicsPressureShapeRoundness": 1.0,
+          "dynamicsPressureSizeSpeed": 0.30000001192092896,
+          "darknessJitterTiltAngle": 0.10000000149011612,
+          "smudgeOpacity": 0.800000011920929,
+          "dynamicsTiltCompression": 0.0,
+          "saturationTiltAngle": 0.10000000149011612,
+          "shapeRoundnessTiltAngle": 0.10000000149011612,
+          "dynamicsJitterStrokeSaturation": 0.0,
+          "dynamicsPressureOpacitySpeed": 0.30000001192092896,
+          "dynamicsPressureShapeRoundnessMinimum": 1.0,
+          "taperShape": 0.0,
+          "pencilTipAnimation": false,
+          "dynamicsTiltSaturation": 0.0,
+          "burntEdgesAmount": 0.0,
+          "dynamicsPressureBleedCurve": {
+            "points": [
+              "{0.000000, 0.000000}",
+              "{1.000000, 1.000000}"
+            ],
+            "$class": "ValkyrieMagnitudinalCurve",
+            "xy": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                1.0,
+                1.0
+              ]
+            ]
+          },
+          "dynamicsPressureHue": 0.0,
+          "pencilTaperStartLength": 0.0,
+          "dynamicsPressureOpacity": 0.0,
+          "shapeCountTiltAngle": 0.10000000149011612,
+          "dynamicsPressureSize": 1.0,
+          "dynamicsSpeedOpacity": 0.38105201721191406,
+          "dynamicsSmudgeAccumulation": 0.75,
+          "shapeOrientation": 1,
+          "stamp": false,
+          "sizeTiltAngle": 0.10000000149011612,
+          "renderingRecursiveMixing": false,
+          "authorName": null,
+          "dynamicsGlazedFlow": 1.0,
+          "burntEdgesBlendMode": 1,
+          "hueJitterTiltAngle": 0.10000000149011612,
+          "dynamicsTiltShapeRoundnessMinimum": 1.0,
+          "textureFilter": false,
+          "dynamicsTiltSize": 0.1545746773481369,
+          "dynamicsTiltOpacity": 0.0,
+          "dynamicsPressureOpacityTransfer": 0.0,
+          "shapeAngle": 0.0,
+          "plotJitterTiltAngle": 0.10000000149011612,
+          "dynamicsPressureTransferModulationCurve": {
+            "points": [
+              "{0.000000, 0.000000}",
+              "{1.000000, 1.000000}"
+            ],
+            "$class": "ValkyrieMagnitudinalCurve",
+            "xy": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                1.0,
+                1.0
+              ]
+            ]
+          },
+          "dynamicsBlurJitter": 0.0,
+          "paintSize": 0.19887074828147888,
+          "textureRotation": 0.0,
+          "hueJitterTilt": false,
+          "jitterStrokeSecondary": 0.0,
+          "bundledGrainPath": "European-Paper-Coarse.jpg",
+          "dynamicsPressureBrightness": 0.0,
+          "$class": "SilicaBrush"
+        }
+      }
+    },
+    {
+      "id": "chuishi-linework",
+      "provenance": {
+        "sourceFilename": "吹石-画线条.brush",
+        "sourceSHA256": "1ac6f68dd7a97bad5e25a0b7fe585325e8bdd5c58d7c6a61edacc4f1e063118a",
+        "sourceArchivePath": "Brush.archive",
+        "sourceArchiveSHA256": "621df89a84ff9978006cc01f4c63de6387b38cd86f793e3b7d7ee75c4d1fd8a7",
+        "sourceName": "吹石-画线条",
+        "sourceAuthor": "吹石",
+        "maskInferredInversion": false
+      },
+      "activeParameters": {
+        "grainDepthMinimum": 0.578451931476593,
+        "dynamicsJitterLightness": 0.0,
+        "plotSpacing": 0.0018545787315815687,
+        "blendGammaCorrect": false,
+        "metallicScale": 0.1599999964237213,
+        "dynamicsPressureSecondaryColor": 0.0,
+        "dynamicsPressureSaturationCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "lightnessJitterTilt": false,
+        "textureMovement": 1.0,
+        "taperSizeLinked": false,
+        "extendedBlend": 0,
+        "dynamicsJitterDarkness": 0.0,
+        "dynamicsWetnessJitter": 0.0,
+        "shapeFilterMode": 0,
+        "shapeInverted": false,
+        "savedEraseSizes": [],
+        "savedPaintOpacities": [],
+        "textureDepthTilt": false,
+        "grainBlendMode": 1,
+        "dynamicsTiltShapeRoundness": 1.0,
+        "dynamicsTiltAngle": 0.0,
+        "previewSize": 0.30000001192092896,
+        "dynamicsPressureMix": 0.0,
+        "saturationJitterTiltAngle": 0.0,
+        "taperEndLength": 0.0,
+        "dynamicsTiltBleed": 0.0,
+        "taperSize": 1.0,
+        "textureOrientation": 1,
+        "dynamicsMix": 0.0,
+        "textureContrast": -0.8858333230018616,
+        "plotSmoothing": 0.1480872631072998,
+        "taperPressure": 0.617055356502533,
+        "dynamicsPressureOpacityCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "roughnessScale": 0.1599999964237213,
+        "heightScale": 0.1599999964237213,
+        "dualBlendMode": 0,
+        "shapeFilter": true,
+        "roughnessGrainInverted": false,
+        "maxOpacity": 1.0,
+        "dynamicsTiltBrightness": 0.0,
+        "dynamicsPressureHueCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "shapeCount": 0.0625,
+        "importedFromABR": false,
+        "color": {
+          "$omittedBytes": 16,
+          "sha256": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb"
+        },
+        "dynamicsPressureSizeCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsSpeedSize": 0.2794381380081177,
+        "shapeFlipYJitter": false,
+        "shapeAzimuth": false,
+        "textureFilterMode": 0,
+        "shapeRotation": 0.23074498772621155,
+        "opacityTiltAngle": 0.0,
+        "pencilTaperSizeLinked": false,
+        "plotSpacingVersion": 1,
+        "creationDate": {
+          "NS.time": 651948276.813648,
+          "$class": "NSDate"
+        },
+        "dynamicsPressureSmoothing": 0.0,
+        "paintOpacity": 1.0,
+        "dynamicsJitterSize": 0.0,
+        "name": "吹石-画线条",
+        "plotFFTSmoothingBias": 0.0,
+        "grainDepth": 1.0,
+        "dynamicsPressureBrightnessCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "bleedTiltAngle": 0.0,
+        "oriented": false,
+        "blendMode": 0,
+        "metallicAmount": 0.0,
+        "minSize": 0.0,
+        "smudgeSize": 0.05764884129166603,
+        "dynamicsPressureSecondaryColorCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "secondaryColorTiltAngle": 0.0,
+        "shapeRandomise": false,
+        "bundledRoughnessPath": null,
+        "hueTiltAngle": 0.0,
+        "pencilTaperSize": 1.0,
+        "renderingModulatedTransfer": false,
+        "taperVersion": 1,
+        "dynamicsPressureShapeRoundnessCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsJitterHue": 0.0,
+        "pencilTaperOpacity": 0.8005197048187256,
+        "dynamicsFalloff": 0.0,
+        "grainDepthJitter": 0.0,
+        "textureOffsetJitter": true,
+        "taperOpacity": 1.0,
+        "shapeRoundness": 1.0,
+        "dynamicsPressureBleedSpeed": 0.30000001192092896,
+        "secondaryColorJitterTilt": false,
+        "dynamicsJitterStrokeLightness": 0.0,
+        "shapeFlipXJitter": false,
+        "savedSmudgeOpacities": [],
+        "dynamicsJitterOpacity": 0.36924687027931213,
+        "minOpacity": 0.12085872888565063,
+        "textureInverted": false,
+        "dynamicsPressureResponse": 0.0,
+        "bundledHeightPath": null,
+        "textureApplication": 0,
+        "eraseSize": 1.0,
+        "dynamicsTiltSecondaryColor": 0.0,
+        "plotJitter": 0.0,
+        "dynamicsJitterSaturation": 0.0,
+        "dynamicsLoad": 0.0,
+        "maxPressureSizeClamped": false,
+        "attackTiltAngle": 0.0,
+        "dynamicsJitterStrokeHue": 0.0,
+        "pencilTaperEndLength": 0.38152945041656494,
+        "taperStartLength": 0.0,
+        "saturationJitterTilt": false,
+        "textureZoom": 1.0,
+        "plotJitterTilt": false,
+        "gradationTiltAngle": 0.0,
+        "paintPressure": 1.0,
+        "plotFFTSmoothingAmount": 0.0,
+        "dynamicsMixSoftening": 0.0,
+        "shapeScatter": 0.0,
+        "textureScale": 0.07114727050065994,
+        "metallicGrainInverted": false,
+        "dynamicsJitterStrokeDarkness": 0.0,
+        "bundledShapePath": "Brush-Preset-Medium-Hard.png",
+        "textureBrightness": 0.75,
+        "shapeCountJitter": 0.0,
+        "grainOrientation": 1,
+        "heightAmount": 0.5,
+        "darknessJitterTilt": false,
+        "dynamicsTiltHue": 0.0,
+        "wetEdgesAmount": 0.5724745988845825,
+        "dynamicsPressureSaturation": 0.0,
+        "pencilTaperShape": 0.0,
+        "texturizedGrainFollowsCamera": true,
+        "jitterSecondary": 0.0,
+        "dynamicsTiltGradation": 0.0,
+        "brightnessTiltAngle": 0.0,
+        "dynamicsWetAccumulation": 0.5,
+        "dynamicsBlur": 0.0,
+        "shapeCountTilt": false,
+        "dynamicsPressureBleed": 0.0,
+        "maxSize": 0.198577418923378,
+        "version": 2,
+        "eraseOpacity": 0.46078431606292725,
+        "textureDepthTiltAngle": 0.0,
+        "savedEraseOpacities": [],
+        "savedPaintSizes": [],
+        "secondaryColorJitterTiltAngle": 0.0,
+        "lightnessJitterTiltAngle": 0.0,
+        "attackTilt": false,
+        "renderingMaxTransfer": true,
+        "dynamicsPressureShapeRoundness": 1.0,
+        "dynamicsPressureSizeSpeed": 0.30000001192092896,
+        "darknessJitterTiltAngle": 0.0,
+        "smudgeOpacity": 1.0,
+        "dynamicsTiltCompression": 1.0,
+        "saturationTiltAngle": 0.0,
+        "shapeRoundnessTiltAngle": 0.0,
+        "dynamicsJitterStrokeSaturation": 0.0,
+        "dynamicsPressureOpacitySpeed": 0.30000001192092896,
+        "savedSmudgeSizes": [],
+        "dynamicsPressureShapeRoundnessMinimum": 1.0,
+        "taperShape": 0.08517636358737946,
+        "pencilTipAnimation": true,
+        "roughnessAmount": 0.5,
+        "dynamicsTiltSaturation": 0.0,
+        "burntEdgesAmount": 0.0,
+        "dynamicsPressureBleedCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsPressureHue": 0.0,
+        "pencilTaperStartLength": 0.0,
+        "dynamicsPressureOpacity": 0.32490137219429016,
+        "shapeCountTiltAngle": 0.0,
+        "dynamicsPressureSize": 0.4498019814491272,
+        "dynamicsSpeedOpacity": 0.23999999463558197,
+        "dynamicsSmudgeAccumulation": 0.5,
+        "shapeOrientation": 1,
+        "stamp": false,
+        "sizeTiltAngle": 0.0,
+        "plotMovingAverageStabilization": 0.0,
+        "renderingRecursiveMixing": false,
+        "authorName": "吹石",
+        "dynamicsGlazedFlow": 1.0,
+        "burntEdgesBlendMode": 1,
+        "hueJitterTiltAngle": 0.0,
+        "dynamicsTiltShapeRoundnessMinimum": 1.0,
+        "textureFilter": true,
+        "dynamicsTiltSize": 0.0,
+        "dynamicsTiltOpacity": 0.0,
+        "dynamicsPressureOpacityTransfer": 0.29901373386383057,
+        "shapeAngle": -0.2939920425415039,
+        "plotJitterTiltAngle": 0.0,
+        "bundledMetallicPath": null,
+        "dynamicsPressureTransferModulationCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsBlurJitter": 0.0,
+        "paintSize": 0.2692231237888336,
+        "textureRotation": 0.0,
+        "hueJitterTilt": false,
+        "jitterStrokeSecondary": 0.0,
+        "bundledGrainPath": "Brush-Pocket-Munched-Paper.png",
+        "dynamicsPressureBrightness": 0.0,
+        "$class": "SilicaBrush"
+      }
+    },
+    {
+      "id": "chuishi-mint-color",
+      "provenance": {
+        "sourceFilename": "吹石-薄荷涂色_自用版.brush",
+        "sourceSHA256": "6071fa914926110552cb2b9395a8265a31bfa6dbc804f4c3d2acdecc2749fa9d",
+        "sourceArchivePath": "Brush.archive",
+        "sourceArchiveSHA256": "852ac79afc1c073acba703c76b19ffeb9fda4785dd9783bc0cc827791a4893e8",
+        "sourceName": "吹石-薄荷涂色 自用版",
+        "sourceAuthor": "吹石",
+        "maskInferredInversion": false,
+        "sourceShapeSHA256": "9bdb0e0ac0bf197ebdbcc808fbe3b09b9f3f18ba81d76b3cbac7a977ab1fa407",
+        "sourceShapeDimensions": [
+          2048,
+          2048
+        ],
+        "maskAlphaSHA256": "e25c71093a954fdf785cbdf3ef91124879d0f423e1ba008257a87f98d6be6564",
+        "maskInvertedByFlag": false
+      },
+      "activeParameters": {
+        "grainDepthMinimum": 0.0,
+        "dynamicsJitterLightness": 0.0,
+        "plotSpacing": 0.0009085964411497116,
+        "blendGammaCorrect": false,
+        "metallicScale": 0.1599999964237213,
+        "dynamicsPressureSecondaryColor": 0.0,
+        "dynamicsPressureSaturationCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "lightnessJitterTilt": false,
+        "textureMovement": 1.0,
+        "taperSizeLinked": false,
+        "hoverOutline": 1,
+        "dynamicsJitterDarkness": 0.0,
+        "dynamicsWetnessJitter": 0.0,
+        "extendedBlend": 0,
+        "shapeFilterMode": 0,
+        "shapeInverted": false,
+        "savedEraseSizes": [],
+        "savedPaintOpacities": [],
+        "textureDepthTilt": false,
+        "grainBlendMode": 1,
+        "dynamicsTiltShapeRoundness": 1.0,
+        "dynamicsTiltAngle": 0.08389510959386826,
+        "previewSize": 0.5366107821464539,
+        "dynamicsPressureMix": 0.06141659989953041,
+        "saturationJitterTiltAngle": 0.0,
+        "taperEndLength": 0.0,
+        "dynamicsTiltBleed": 3.533179187797941e-05,
+        "taperSize": 0.0,
+        "textureOrientation": 1,
+        "dynamicsMix": 0.0,
+        "textureContrast": 0.22265391051769257,
+        "plotSmoothing": 0.08621102571487427,
+        "taperPressure": 1.0,
+        "dynamicsPressureOpacityCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "roughnessScale": 0.1599999964237213,
+        "heightScale": 0.1599999964237213,
+        "dualBlendMode": 0,
+        "shapeFilter": true,
+        "roughnessGrainInverted": false,
+        "maxOpacity": 1.0,
+        "dynamicsTiltBrightness": 0.0,
+        "dynamicsPressureHueCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "shapeCount": 0.0,
+        "importedFromABR": false,
+        "color": {
+          "$omittedBytes": 16,
+          "sha256": "7ab8f6c26e4f9862c95a18c8e5c50403eeb64d8869fbbf9a7a6397d9a63b7b0e"
+        },
+        "dynamicsPressureSizeCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsSpeedSize": 0.23759710788726807,
+        "shapeFlipYJitter": false,
+        "shapeAzimuth": false,
+        "textureFilterMode": 0,
+        "shapeRotation": 0.0,
+        "opacityTiltAngle": 0.0,
+        "pencilTaperSizeLinked": false,
+        "plotSpacingVersion": 1,
+        "creationDate": {
+          "NS.time": 687802108.224629,
+          "$class": "NSDate"
+        },
+        "dynamicsPressureSmoothing": 0.0,
+        "paintOpacity": 1.0,
+        "dynamicsJitterSize": 0.0,
+        "name": "吹石-薄荷涂色 自用版",
+        "plotFFTSmoothingBias": 0.0,
+        "grainDepth": 0.9508852362632751,
+        "dynamicsPressureBrightnessCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "bleedTiltAngle": 0.0,
+        "oriented": true,
+        "blendMode": 0,
+        "metallicAmount": 0.0,
+        "minSize": 0.0,
+        "smudgeSize": 0.6362030506134033,
+        "dynamicsPressureSecondaryColorCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "secondaryColorTiltAngle": 0.0,
+        "shapeRandomise": false,
+        "bundledRoughnessPath": null,
+        "hueTiltAngle": 0.0,
+        "pencilTaperSize": 1.0,
+        "hoverPressure": 0.10000000149011612,
+        "renderingModulatedTransfer": true,
+        "taperVersion": 0,
+        "dynamicsPressureShapeRoundnessCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsJitterHue": 0.0,
+        "pencilTaperOpacity": 0.0,
+        "dynamicsFalloff": 0.0,
+        "grainDepthJitter": 0.0,
+        "textureOffsetJitter": true,
+        "taperOpacity": 0.0,
+        "shapeRoundness": 1.0,
+        "dynamicsPressureBleedSpeed": 0.0,
+        "secondaryColorJitterTilt": false,
+        "dynamicsJitterStrokeLightness": 0.0,
+        "shapeFlipXJitter": false,
+        "savedSmudgeOpacities": [],
+        "dynamicsJitterOpacity": 0.0,
+        "hoverFill": 1,
+        "textureInverted": false,
+        "minOpacity": 0.0019916845485568047,
+        "dynamicsPressureResponse": 0.0,
+        "bundledHeightPath": null,
+        "textureApplication": 0,
+        "eraseSize": 0.320844441652298,
+        "dynamicsTiltSecondaryColor": 0.0,
+        "plotJitter": 0.0,
+        "dynamicsJitterSaturation": 0.0,
+        "dynamicsLoad": 0.1128474622964859,
+        "maxPressureSizeClamped": false,
+        "attackTiltAngle": 0.0,
+        "dynamicsJitterStrokeHue": 0.0,
+        "pencilTaperEndLength": 0.7396210432052612,
+        "taperStartLength": 0.001128554344177246,
+        "saturationJitterTilt": false,
+        "textureZoom": 0.34832632541656494,
+        "plotJitterTilt": false,
+        "gradationTiltAngle": 0.0,
+        "paintPressure": 1.0,
+        "plotFFTSmoothingAmount": 0.0,
+        "dynamicsMixSoftening": 0.0,
+        "shapeScatter": 0.0,
+        "textureScale": 2.6842708587646484,
+        "metallicGrainInverted": false,
+        "dynamicsJitterStrokeDarkness": 0.0,
+        "bundledShapePath": null,
+        "textureBrightness": 0.0,
+        "shapeCountJitter": 0.0,
+        "grainOrientation": 1,
+        "heightAmount": 0.5,
+        "darknessJitterTilt": false,
+        "dynamicsTiltHue": 0.0,
+        "wetEdgesAmount": 0.0,
+        "dynamicsPressureSaturation": 0.0,
+        "pencilTaperShape": 0.0,
+        "texturizedGrainFollowsCamera": true,
+        "jitterSecondary": 0.0,
+        "dynamicsTiltGradation": 0.03153018653392792,
+        "brightnessTiltAngle": 0.0,
+        "dynamicsWetAccumulation": 0.5,
+        "dynamicsBlur": 0.010669666342437267,
+        "shapeCountTilt": false,
+        "dynamicsPressureBleed": 0.0007161959074437618,
+        "maxSize": 1.6814472675323486,
+        "version": 2,
+        "eraseOpacity": 1.0,
+        "textureDepthTiltAngle": 0.0,
+        "savedEraseOpacities": [],
+        "savedPaintSizes": [
+          0.038463011384010315,
+          0.10310621559619904,
+          0.25379952788352966
+        ],
+        "secondaryColorJitterTiltAngle": 0.0,
+        "lightnessJitterTiltAngle": 0.0,
+        "attackTilt": false,
+        "renderingMaxTransfer": true,
+        "dynamicsPressureShapeRoundness": 1.0,
+        "dynamicsPressureSizeSpeed": 0.0,
+        "darknessJitterTiltAngle": 0.0,
+        "smudgeOpacity": 0.03324711322784424,
+        "dynamicsTiltCompression": 1.0,
+        "saturationTiltAngle": 0.0,
+        "shapeRoundnessTiltAngle": 0.0,
+        "dynamicsJitterStrokeSaturation": 0.0,
+        "dynamicsPressureOpacitySpeed": 0.0,
+        "savedSmudgeSizes": [],
+        "dynamicsPressureShapeRoundnessMinimum": 0.711595892906189,
+        "taperShape": 0.0,
+        "pencilTipAnimation": true,
+        "roughnessAmount": 0.5,
+        "dynamicsTiltSaturation": 0.0,
+        "burntEdgesAmount": 0.07811537384986877,
+        "dynamicsPressureBleedCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsPressureHue": 0.0,
+        "pencilTaperStartLength": 0.001128554344177246,
+        "dynamicsPressureOpacity": 0.31820976734161377,
+        "shapeCountTiltAngle": 0.0,
+        "dynamicsPressureSize": 0.8605936169624329,
+        "dynamicsSpeedOpacity": 0.10609686374664307,
+        "dynamicsSmudgeAccumulation": 0.3843315541744232,
+        "shapeOrientation": 1,
+        "stamp": false,
+        "sizeTiltAngle": 0.0,
+        "plotMovingAverageStabilization": 0.16751344501972198,
+        "renderingRecursiveMixing": false,
+        "authorName": "吹石",
+        "dynamicsGlazedFlow": 1.0,
+        "burntEdgesBlendMode": 1,
+        "hueJitterTiltAngle": 0.0,
+        "dynamicsTiltShapeRoundnessMinimum": 1.0,
+        "textureFilter": true,
+        "dynamicsTiltSize": 0.055289898067712784,
+        "dynamicsTiltOpacity": 0.04199043661355972,
+        "dynamicsPressureOpacityTransfer": 0.9229111075401306,
+        "shapeAngle": -1.275861144065857,
+        "plotJitterTiltAngle": 0.0,
+        "bundledMetallicPath": null,
+        "dynamicsPressureTransferModulationCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsBlurJitter": 0.0,
+        "paintSize": 0.014953594654798508,
+        "textureRotation": 0.0,
+        "hueJitterTilt": false,
+        "jitterStrokeSecondary": 0.0,
+        "bundledGrainPath": "Brush-Artery-Charcoal-Rough.jpg",
+        "dynamicsPressureBrightness": 0.0,
+        "$class": "SilicaBrush"
+      }
+    },
+    {
+      "id": "chuishi-speed-pencil",
+      "provenance": {
+        "sourceFilename": "吹石-速度铅笔.brush",
+        "sourceSHA256": "fb70083089a4a0a1e854e1623abef5ff35a9125cb911d5bdef20b7f61e66785c",
+        "sourceArchivePath": "Brush.archive",
+        "sourceArchiveSHA256": "0173551751171d60e3f7088c97a2ad8f9027047fcafa4aef32a4e671df533220",
+        "sourceName": "吹石-速度铅笔",
+        "sourceAuthor": "吹石",
+        "maskInferredInversion": false,
+        "sourceShapeSHA256": "2f4d1c7505c9fa66f2ad52582185d24a9ee0250d707fba115ff76928e573f7de",
+        "sourceShapeDimensions": [
+          1401,
+          1225
+        ],
+        "maskAlphaSHA256": "4ca59cd97b222e93ee805c7afcbd05a46ceb9d03ad30e36b651af24670f3e876",
+        "maskInvertedByFlag": false
+      },
+      "activeParameters": {
+        "grainDepthMinimum": 0.11418365687131882,
+        "dynamicsJitterLightness": 0.0,
+        "plotSpacing": 0.0,
+        "blendGammaCorrect": false,
+        "dynamicsPressureSecondaryColor": 0.0,
+        "dynamicsPressureSaturationCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "lightnessJitterTilt": false,
+        "textureMovement": 1.0,
+        "taperSizeLinked": false,
+        "extendedBlend": 0,
+        "dynamicsJitterDarkness": 0.0,
+        "dynamicsWetnessJitter": 0.0,
+        "shapeFilterMode": 0,
+        "shapeInverted": false,
+        "textureDepthTilt": false,
+        "grainBlendMode": 1,
+        "dynamicsTiltShapeRoundness": 1.0,
+        "dynamicsTiltAngle": 0.10000000149011612,
+        "previewSize": 0.8407610058784485,
+        "dynamicsPressureMix": 0.0,
+        "saturationJitterTiltAngle": 0.10000000149011612,
+        "taperEndLength": 0.0,
+        "dynamicsTiltBleed": 0.0,
+        "taperSize": 0.5936340689659119,
+        "textureOrientation": 1,
+        "dynamicsMix": 0.0,
+        "textureContrast": 0.0,
+        "plotSmoothing": 0.03902529925107956,
+        "taperPressure": 1.0,
+        "dynamicsPressureOpacityCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dualBlendMode": 0,
+        "shapeFilter": true,
+        "maxOpacity": 1.0,
+        "dynamicsTiltBrightness": 0.0,
+        "dynamicsPressureHueCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "shapeCount": 0.0,
+        "importedFromABR": false,
+        "color": {
+          "$omittedBytes": 16,
+          "sha256": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb"
+        },
+        "dynamicsPressureSizeCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsSpeedSize": 0.9122324585914612,
+        "shapeFlipYJitter": false,
+        "shapeAzimuth": false,
+        "textureFilterMode": 0,
+        "shapeRotation": 0.0,
+        "opacityTiltAngle": 0.10000000149011612,
+        "pencilTaperSizeLinked": false,
+        "plotSpacingVersion": 1,
+        "creationDate": {
+          "NS.time": 631292971.093689,
+          "$class": "NSDate"
+        },
+        "dynamicsPressureSmoothing": 0.0,
+        "paintOpacity": 1.0,
+        "dynamicsJitterSize": 0.0,
+        "name": "吹石-速度铅笔",
+        "grainDepth": 1.0,
+        "dynamicsPressureBrightnessCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "bleedTiltAngle": 0.10000000149011612,
+        "oriented": true,
+        "blendMode": 0,
+        "minSize": 0.0,
+        "smudgeSize": 0.6987638473510742,
+        "dynamicsPressureSecondaryColorCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "secondaryColorTiltAngle": 0.10000000149011612,
+        "shapeRandomise": false,
+        "hueTiltAngle": 0.10000000149011612,
+        "pencilTaperSize": 0.28031641244888306,
+        "renderingModulatedTransfer": true,
+        "taperVersion": 1,
+        "dynamicsPressureShapeRoundnessCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsJitterHue": 0.0,
+        "pencilTaperOpacity": 0.08504198491573334,
+        "dynamicsFalloff": 0.0,
+        "textureOffsetJitter": true,
+        "grainDepthJitter": 0.0,
+        "taperOpacity": 0.12116774171590805,
+        "shapeRoundness": 1.0,
+        "dynamicsPressureBleedSpeed": 0.30000001192092896,
+        "secondaryColorJitterTilt": false,
+        "minOpacity": 0.03120417706668377,
+        "dynamicsJitterStrokeLightness": 0.0,
+        "shapeFlipXJitter": false,
+        "dynamicsJitterOpacity": 0.0,
+        "textureInverted": false,
+        "dynamicsPressureResponse": 0.30000001192092896,
+        "textureApplication": 0,
+        "eraseSize": 0.5,
+        "dynamicsTiltSecondaryColor": 0.0,
+        "plotJitter": 0.0,
+        "dynamicsJitterSaturation": 0.0,
+        "dynamicsLoad": 0.3331810534000397,
+        "maxPressureSizeClamped": false,
+        "attackTiltAngle": 0.10000000149011612,
+        "dynamicsJitterStrokeHue": 0.0,
+        "pencilTaperEndLength": 0.0,
+        "taperStartLength": 0.0,
+        "saturationJitterTilt": false,
+        "textureZoom": 1.0,
+        "plotJitterTilt": false,
+        "gradationTiltAngle": 0.10000000149011612,
+        "paintPressure": 1.0,
+        "dynamicsMixSoftening": 0.0,
+        "shapeScatter": 0.1015426442027092,
+        "textureScale": 0.5002909898757935,
+        "dynamicsJitterStrokeDarkness": 0.0,
+        "bundledShapePath": null,
+        "textureBrightness": 0.0,
+        "shapeCountJitter": 0.0,
+        "grainOrientation": 1,
+        "darknessJitterTilt": false,
+        "dynamicsTiltHue": 0.0,
+        "wetEdgesAmount": 0.0,
+        "dynamicsPressureSaturation": 0.0,
+        "pencilTaperShape": 0.3358719050884247,
+        "jitterSecondary": 0.0,
+        "dynamicsTiltGradation": 0.0,
+        "brightnessTiltAngle": 0.10000000149011612,
+        "dynamicsWetAccumulation": 0.7567856311798096,
+        "dynamicsBlur": 0.0,
+        "shapeCountTilt": false,
+        "maxSize": 0.31022992730140686,
+        "dynamicsPressureBleed": 0.0,
+        "version": 2,
+        "eraseOpacity": 1.0,
+        "textureDepthTiltAngle": 0.10000000149011612,
+        "secondaryColorJitterTiltAngle": 0.10000000149011612,
+        "lightnessJitterTiltAngle": 0.10000000149011612,
+        "attackTilt": false,
+        "renderingMaxTransfer": false,
+        "dynamicsPressureShapeRoundness": 1.0,
+        "dynamicsPressureSizeSpeed": 0.30000001192092896,
+        "darknessJitterTiltAngle": 0.10000000149011612,
+        "smudgeOpacity": 0.800000011920929,
+        "dynamicsTiltCompression": 1.0,
+        "saturationTiltAngle": 0.10000000149011612,
+        "shapeRoundnessTiltAngle": 0.10000000149011612,
+        "dynamicsJitterStrokeSaturation": 0.0,
+        "dynamicsPressureOpacitySpeed": 0.30000001192092896,
+        "dynamicsPressureShapeRoundnessMinimum": 1.0,
+        "taperShape": 0.43263036012649536,
+        "pencilTipAnimation": true,
+        "dynamicsTiltSaturation": 0.0,
+        "burntEdgesAmount": 0.0,
+        "dynamicsPressureBleedCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsPressureHue": 0.0,
+        "pencilTaperStartLength": 0.0,
+        "dynamicsPressureOpacity": 0.0,
+        "shapeCountTiltAngle": 0.10000000149011612,
+        "dynamicsPressureSize": 0.9224014282226562,
+        "dynamicsSpeedOpacity": 0.8861326575279236,
+        "dynamicsSmudgeAccumulation": 0.75,
+        "shapeOrientation": 1,
+        "stamp": false,
+        "sizeTiltAngle": 0.10000000149011612,
+        "renderingRecursiveMixing": true,
+        "authorName": "吹石",
+        "dynamicsGlazedFlow": 1.0,
+        "burntEdgesBlendMode": 1,
+        "hueJitterTiltAngle": 0.10000000149011612,
+        "dynamicsTiltShapeRoundnessMinimum": 1.0,
+        "textureFilter": true,
+        "dynamicsTiltSize": 0.0,
+        "dynamicsTiltOpacity": 0.0,
+        "dynamicsPressureOpacityTransfer": 0.6519240736961365,
+        "shapeAngle": 0.3712087869644165,
+        "plotJitterTiltAngle": 0.10000000149011612,
+        "dynamicsPressureTransferModulationCurve": {
+          "points": [
+            "{0.000000, 0.000000}",
+            "{1.000000, 1.000000}"
+          ],
+          "$class": "ValkyrieMagnitudinalCurve",
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        "dynamicsBlurJitter": 0.0,
+        "paintSize": 0.24737150967121124,
+        "textureRotation": 0.0,
+        "hueJitterTilt": false,
+        "jitterStrokeSecondary": 0.0,
+        "bundledGrainPath": "Brush-Pocket-Munched-Paper.png",
+        "dynamicsPressureBrightness": 0.0,
+        "$class": "SilicaBrush"
+      }
+    }
+  ],
+  "module": {
+    "bytes": 64168,
+    "sha256": "b067553f7e1d7b4e0afbcb7c7173717140000262b71914b6dac1bc8feb34201c",
+    "maskCount": 6
+  }
+}
