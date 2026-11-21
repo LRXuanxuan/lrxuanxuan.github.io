@@ -35,7 +35,10 @@
   let art, ref, activePointer = null, refPointer = null, spacePan = false, busy = 0;
   let view = { zoom: 1, x: 0, y: 0 }, refView = { zoom: 1, x: 0, y: 0 };
   let tool = 'brush', brush = 'gpen', ink = '#263544', size = 8, opacity = 1, stabilizer = 20;
-  let pressureEnabled = true, touchDraw = false, refPicking = false, recentColors = [], fillPalettePending = false;
+  let pressureEnabled = true, touchDraw = false, penOnlyBrush = true, refPicking = false, recentColors = [], fillPalettePending = false;
+  // A device-local preference, not an artwork setting. New installations start with mouse brushing disabled.
+  const penOnlyBrushKey = 'lrx-drawing-pen-only-brush-v1';
+  try { penOnlyBrush = localStorage.getItem(penOnlyBrushKey) !== 'off'; } catch (_) {}
   let eraserMode = 'local';
   try { if (localStorage.getItem('lrx-drawing-eraser-mode-v1') === 'stroke') eraserMode = 'stroke'; } catch (_) {}
   let undoStack = [], redoStack = [], frame = 0, transactions = new Map();
@@ -374,9 +377,15 @@
   function strokePoint(e, layer) {
     const p = documentPoint(e); return { x: (p.x - layer.x) / layer.scale, y: (p.y - layer.y) / layer.scale, pressure: number(e.pressure, 0.5), pointerType: e.pointerType || 'mouse', time: e.timeStamp };
   }
+  function mouseBrushPans(e) {
+    // Only mouse input with the actual brush selected is re-routed. Keep Alt-picking
+    // and the auxiliary-button eraser, and never change other editing tools.
+    return penOnlyBrush && tool === 'brush' && (e.pointerType || 'mouse') === 'mouse'
+      && !e.altKey && e.button !== 5 && !(e.buttons & 32);
+  }
   function updatePressure(e) {
     lastPointerType = e.pointerType || 'mouse'; lastPressure = clamp(number(e.pressure, 0), 0, 1);
-    $('pressureStatus').textContent = lastPointerType === 'pen' ? '数位笔 · 压力 ' + Math.round(lastPressure * 100) + '%' : lastPointerType === 'touch' ? '触摸 · ' + (touchDraw ? '绘画' : '平移') : '鼠标 · 固定笔宽';
+    $('pressureStatus').textContent = lastPointerType === 'pen' ? '数位笔 · 压力 ' + Math.round(lastPressure * 100) + '%' : lastPointerType === 'touch' ? '触摸 · ' + (touchDraw ? '绘画' : '平移') : penOnlyBrush && tool === 'brush' ? '鼠标 · 画笔改为平移' : '鼠标 · 固定笔宽';
   }
   function canDraw() {
     const layer = activeLayer(); if (layer.locked) { notify('当前图层已锁定，请先解锁或换一层。'); return false; }
@@ -384,7 +393,7 @@
   }
   function cursor(e) {
     updatePressure(e);
-    const r = viewport.getBoundingClientRect(), c = $('brushCursor'), mode = spacePan ? 'hand' : e.altKey ? 'picker' : tool;
+    const r = viewport.getBoundingClientRect(), c = $('brushCursor'), mode = spacePan ? 'hand' : e.altKey ? 'picker' : mouseBrushPans(e) ? 'hand' : tool;
     viewport.dataset.cursor = mode;
     c.hidden = !['brush', 'eraser'].includes(mode) || e.pointerType === 'touch';
     c.style.left = (e.clientX - r.left) + 'px'; c.style.top = (e.clientY - r.top) + 'px';
@@ -535,9 +544,10 @@
     if (busy || activePointer || document.querySelector('dialog[open]') || (e.button !== 0 && e.button !== 1 && e.button !== 5)) return;
     e.preventDefault(); viewport.focus({ preventScroll: true }); updatePressure(e);
     const point = documentPoint(e), inside = point.x >= 0 && point.y >= 0 && point.x < art.width && point.y < art.height;
-    const mode = e.button === 1 || spacePan || (e.pointerType === 'touch' && !touchDraw) ? 'hand' : e.altKey ? 'picker' : (e.button === 5 || (e.buttons & 32)) ? 'eraser' : tool;
+    const mode = e.button === 1 || spacePan || (e.pointerType === 'touch' && !touchDraw) || mouseBrushPans(e) ? 'hand' : e.altKey ? 'picker' : (e.button === 5 || (e.buttons & 32)) ? 'eraser' : tool;
     if (mode === 'hand') {
       if (e.pointerType === 'touch' && !touchDraw && tool !== 'hand') status('手指平移 · 在面板顶部开启“手指绘画”可落笔');
+      else if (mouseBrushPans(e)) status('鼠标平移 · 画笔仅限数位笔；橡皮和其他工具仍可用鼠标');
       activePointer = { id: e.pointerId, kind: 'pan', clientX: e.clientX, clientY: e.clientY, x: view.x, y: view.y };
     }
     else if (!inside) return;
@@ -826,7 +836,7 @@
     if (tool === 'fill') $('materialSection').open = true;
     if (tool === 'shape' || tool === 'text') updateMaterialUI();
     viewport.dataset.cursor = tool; $('brushCursor').hidden = true;
-    status(({ brush: '画笔 · ' + $('brushKind').selectedOptions[0].textContent, eraser: eraserMode === 'stroke' ? '整笔橡皮 · 轻触或扫过当前层笔画' : '局部橡皮 · 擦除当前图层像素', fill: $('fillScope').value === 'lasso' ? '套索填充 · 拖动圈出区域，松手填色；Esc 取消' : '填充 · 点选区域上色，可选择材质', shape: '形状 · 拖动预览，松手放置；Shift 锁定比例', text: '文字 · 先输入内容，再点击或拖动放置', picker: '取色 · 点击画作，或从参考图取色', move: '移层 · 拖动当前图层', hand: '平移 · 拖动画布', cutout: '抠图 · 点击当前图层的背景' })[tool]);
+    status(({ brush: '画笔 · ' + $('brushKind').selectedOptions[0].textContent + (penOnlyBrush ? ' · 鼠标左键平移' : ''), eraser: eraserMode === 'stroke' ? '整笔橡皮 · 轻触或扫过当前层笔画' : '局部橡皮 · 擦除当前图层像素', fill: $('fillScope').value === 'lasso' ? '套索填充 · 拖动圈出区域，松手填色；Esc 取消' : '填充 · 点选区域上色，可选择材质', shape: '形状 · 拖动预览，松手放置；Shift 锁定比例', text: '文字 · 先输入内容，再点击或拖动放置', picker: '取色 · 点击画作，或从参考图取色', move: '移层 · 拖动当前图层', hand: '平移 · 拖动画布', cutout: '抠图 · 点击当前图层的背景' })[tool]);
   }
   function syncEraser() {
     const whole = tool === 'eraser' && eraserMode === 'stroke';
@@ -1414,6 +1424,13 @@
       applyBrushProfile({ ...preset, pressureEnabled: true }); storeBrushProfile(); status('已恢复这支笔的推荐参数');
     });
     on('touchDraw', 'change', () => { touchDraw = $('touchDraw').checked; });
+    on('penOnlyBrush', 'change', () => {
+      finishPointer();
+      penOnlyBrush = $('penOnlyBrush').checked;
+      try { localStorage.setItem(penOnlyBrushKey, penOnlyBrush ? 'on' : 'off'); } catch (_) {}
+      $('brushCursor').hidden = true;
+      status(penOnlyBrush ? '画笔仅限数位笔 · 鼠标左键平移；其他工具不受影响' : '鼠标画笔已启用 · 鼠标和数位笔都能画');
+    });
     on('inkColor', 'input', () => setInk($('inkColor').value)); on('inkColor', 'change', () => remember(ink));
     for (const key of Object.keys(MARK_DEFAULTS)) {
       const update = () => {
@@ -1607,6 +1624,13 @@
           if (activePointer) refreshBrushAfterStroke = true; else refreshActiveBrushProfile();
         }
       }
+      if (event.key === penOnlyBrushKey || event.key === null) {
+        try {
+          const next = (event.key === null ? localStorage.getItem(penOnlyBrushKey) : event.newValue) !== 'off';
+          if (penOnlyBrush !== next) finishPointer();
+          penOnlyBrush = next; $('penOnlyBrush').checked = next;
+        } catch (_) {}
+      }
       if (event.key === 'theme' || event.key === null) { try { const t = localStorage.getItem('theme'); document.documentElement.dataset.theme = t === 'light' || t === 'dark' ? t : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; } catch (_) {} }
     });
     document.addEventListener('keydown', e => {
@@ -1650,6 +1674,7 @@
       if (Core.brushPresets.some(p => p.id === last)) brush = last;
     } catch (_) {}
     $('brushKind').value = brush;
+    $('penOnlyBrush').checked = penOnlyBrush;
     ref = createReference(); newDocument(); wireEvents(); setBrush(brush, true);
     colorPicker = window.DrawingColorControls.create({ host: $('colorPicker'), getColor: () => ink, getDisabled: () => !!busy || !!activePointer, onChange: (hex, detail) => { if (!busy) setInk(hex, !!detail.commit); } });
     referenceSplitter = window.DrawingColorControls.installReferenceSplitter({ workspace: $('workspace'), panel: $('referencePanel'), handle: $('referenceSplitter'), getDisabled: () => !!busy || !!activePointer || !!refPointer, onResize: width => {
@@ -1678,7 +1703,7 @@
     }, '正在读取当前作品…');
     // Exposed for local contract tests and inspection; no external services use it.
     window.DrawingStudio = {
-      inspect: () => ({ width: art.width, height: art.height, title: art.title, paper: art.paper, paperColor: art.paperColor, paperOpacity: art.paperOpacity, paperTexture: art.paperTexture, textureStrength: art.textureStrength, tone: { ...art.tone }, toneScope, view: { ...view }, layers: art.layers.map(metadata), activeId: art.activeId, tool, brush, ink, size, opacity, stabilizer, eraserMode, strokeCount: Strokes.count(activeLayer().strokeRecords), strokeBytes: Strokes.bytes(art.layers.map(layer => layer.strokeRecords)), historyBytes: memory(), pressure: lastPressure, pointerType: lastPointerType, dirty: revision > savedRevision, history: undoStack.length, redo: redoStack.length, revision, savedRevision, draftId, drawing: !!activePointer, reference: ref.getInfo() }),
+      inspect: () => ({ width: art.width, height: art.height, title: art.title, paper: art.paper, paperColor: art.paperColor, paperOpacity: art.paperOpacity, paperTexture: art.paperTexture, textureStrength: art.textureStrength, tone: { ...art.tone }, toneScope, view: { ...view }, layers: art.layers.map(metadata), activeId: art.activeId, tool, brush, ink, size, opacity, stabilizer, eraserMode, penOnlyBrush, strokeCount: Strokes.count(activeLayer().strokeRecords), strokeBytes: Strokes.bytes(art.layers.map(layer => layer.strokeRecords)), historyBytes: memory(), pressure: lastPressure, pointerType: lastPointerType, dirty: revision > savedRevision, history: undoStack.length, redo: redoStack.length, revision, savedRevision, draftId, drawing: !!activePointer, reference: ref.getInfo() }),
       newDocument, addLayer, selectLayer, duplicateLayer, mergeLayerDown, toggleLayerVisibility, setToneScope, undo, redo, render, exportRaster, exportProject, loadProject, serializeProject,
       get ref() { return ref; }, getLayer: id => art.layers.find(layer => layer.id === id), saveDraft, prepareToClose, setTool, setInk
     };

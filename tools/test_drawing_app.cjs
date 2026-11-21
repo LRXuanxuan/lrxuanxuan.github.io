@@ -250,7 +250,13 @@ async function openStudio(database = new IDBFactory(), configure = () => {}) {
   const console = new VirtualConsole(); console.on('jsdomError', error => errors.push(error.stack || String(error)));
   const dom = new JSDOM(fs.readFileSync(path.join(ROOT, 'drawing-studio.html'), 'utf8'), {
     url: 'https://drawing-app.test/drawing-studio.html', runScripts: 'dangerously', resources: new LocalResources(),
-    pretendToBeVisual: true, beforeParse(win) { installShims(win); win.indexedDB = database; configure(win); }, virtualConsole: console
+    // Legacy drawing suites deliberately exercise mouse brush input. Production defaults
+    // to pen-only; individual tests can delete/override this fixture in configure().
+    pretendToBeVisual: true, beforeParse(win) {
+      installShims(win); win.indexedDB = database;
+      win.localStorage.setItem('lrx-drawing-pen-only-brush-v1', 'off');
+      configure(win);
+    }, virtualConsole: console
   });
   const win = dom.window;
   await new Promise(resolve => win.addEventListener('load', resolve, { once: true }));
@@ -299,6 +305,90 @@ async function main() {
     assert.ok(requests.includes('/assets/drawing-studio/core.js'));
     assert.ok(!requests.some(url => /pdf(?:\.worker)?\.mjs|vendor\/pdfjs/.test(url)), 'PDF must not load on an empty image-free startup');
     assert.ok(element('palettePreset').options.length >= 6); assert.ok(element('presetSwatches').querySelectorAll('button').length > 0);
+  });
+
+
+  await test('Pen-only brush defaults on and preserves mouse editing tools, pen pressure and opt-out', async () => {
+    const prefKey = 'lrx-drawing-pen-only-brush-v1';
+    const isolated = await openStudio(new IDBFactory(), w => w.localStorage.removeItem(prefKey));
+    const w = isolated.window, d = w.document, api = w.DrawingStudio;
+    const field = id => d.getElementById(id);
+    const image = () => api.getLayer(api.inspect().activeId).canvas;
+    const choose = mode => d.querySelector('[data-tool="' + mode + '"]').click();
+    const finger = (type, x, y, extra = {}) => {
+      const c = field('drawingCanvas'), r = c.getBoundingClientRect();
+      c.dispatchEvent(new w.PointerEvent(type, {
+        bubbles: true, cancelable: true, pointerId: 77, pointerType: 'mouse',
+        button: 0, buttons: type === 'pointerup' || type === 'pointercancel' ? 0 : 1,
+        clientX: r.left + x / c.width * r.width, clientY: r.top + y / c.height * r.height,
+        pressure: type === 'pointerup' ? 0 : .5, ...extra
+      }));
+    };
+    const drag = (points, extra = {}) => {
+      finger('pointerdown', ...points[0], extra);
+      for (const p of points.slice(1)) finger('pointermove', ...p, extra);
+      finger('pointerup', ...points[points.length - 1], { ...extra, pressure: 0 });
+      api.render();
+    };
+    const editField = (id, value) => {
+      field(id).value = value;
+      field(id).dispatchEvent(new w.Event('change', { bubbles: true }));
+    };
+    try {
+      await api.newDocument({ width: 128, height: 96, paper: 'transparent' });
+      assert.equal(field('penOnlyBrush').checked, true, 'A fresh installation enables this by default');
+      assert.equal(api.inspect().penOnlyBrush, true);
+      const blank = hash(pixels(image())), viewBefore = { ...api.inspect().view };
+      drag([[15, 25], [65, 25]]);
+      assert.equal(hash(pixels(image())), blank, 'Mouse brush never writes pixels');
+      assert.equal(api.inspect().history, 0, 'Mouse pan does not add undo steps');
+      assert.notEqual(api.inspect().view.x, viewBefore.x, 'Mouse drag pans the viewport instead');
+      drag([[25, 48], [95, 48]], { pointerType: 'pen', pressure: .7 });
+      assert.ok(inkStats(image()).count > 0, 'A real pen-pointer event still paints');
+      const afterPen = inkStats(image()).count;
+      choose('eraser');
+      drag([[25, 48], [95, 48]]);
+      assert.ok(inkStats(image()).count < afterPen, 'Mouse eraser remains usable when pen-only brush is on');
+      choose('fill'); editField('fillScope', 'all');
+      const beforeFill = api.inspect().history;
+      drag([[35, 30]]);
+      assert.ok(api.inspect().history > beforeFill, 'Mouse fill still creates undoable pixels');
+      choose('shape');
+      const beforeShape = api.inspect().history;
+      drag([[15, 14], [40, 30]]);
+      assert.ok(api.inspect().history > beforeShape, 'Mouse can still place shapes');
+      choose('move');
+      const beforeMove = api.getLayer(api.inspect().activeId).x;
+      drag([[15, 20], [25, 20]]);
+      assert.notEqual(api.getLayer(api.inspect().activeId).x, beforeMove, 'Mouse can still move layers');
+      choose('brush');
+      const fromMouse = hash(pixels(image())), pickerHistory = api.inspect().history;
+      drag([[30, 30]], { altKey: true });
+      assert.equal(hash(pixels(image())), fromMouse, 'Alt+mouse remains a picker, not a brush');
+      assert.equal(api.inspect().history, pickerHistory);
+      field('penOnlyBrush').checked = false;
+      field('penOnlyBrush').dispatchEvent(new w.Event('change', { bubbles: true }));
+      assert.equal(api.inspect().penOnlyBrush, false);
+      assert.equal(w.localStorage.getItem(prefKey), 'off');
+      await api.newDocument({ width: 128, height: 96, paper: 'transparent' });
+      drag([[22, 36], [87, 36]]);
+      assert.ok(inkStats(image()).count > 0, 'Disabling the option restores mouse brush drawing');
+      field('penOnlyBrush').checked = true;
+      field('penOnlyBrush').dispatchEvent(new w.Event('change', { bubbles: true }));
+      assert.equal(w.localStorage.getItem(prefKey), 'on');
+      const beforeTouch = hash(pixels(image()));
+      drag([[30, 65], [60, 65]], { pointerType: 'touch' });
+      assert.equal(hash(pixels(image())), beforeTouch, 'Touch still pans by default independently of pen-only mode');
+      field('touchDraw').checked = true;
+      field('touchDraw').dispatchEvent(new w.Event('change', { bubbles: true }));
+      drag([[30, 70], [80, 70]], { pointerType: 'touch' });
+      assert.notEqual(hash(pixels(image())), beforeTouch, 'Explicit finger-draw continues to work');
+    } finally { isolated.window.close(); }
+    const saved = await openStudio(new IDBFactory(), w => w.localStorage.setItem(prefKey, 'off'));
+    try {
+      assert.equal(saved.window.DrawingStudio.inspect().penOnlyBrush, false, 'Off preference survives startup');
+      assert.equal(saved.window.document.getElementById('penOnlyBrush').checked, false);
+    } finally { saved.window.close(); }
   });
 
   await test('Desktop close drains an older autosave and commits the final stroke, slider and layer movement', async () => {
