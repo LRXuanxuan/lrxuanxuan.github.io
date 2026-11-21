@@ -15,7 +15,7 @@
   <script src="assets/drawing-studio/brushes-chuishi-data.js?v=20261122-4" defer></script>
   <script src="assets/drawing-studio/brushes-haiguai-data.js?v=20261122-4" defer></script>
   <script src="assets/drawing-studio/brushes-dongdong-data.js?v=20261122-4" defer></script>
-  <script src="assets/drawing-studio/brushes-chuishi.js?v=20261122-4" defer></script>
+  <script src="assets/drawing-studio/brushes-chuishi.js?v=20261122-6" defer></script>
   <script src="assets/drawing-studio/core.js?v=20261122-4" defer></script>
   <script src="assets/drawing-studio/stroke-records.js?v=20261121-1" defer></script>
   <script src="assets/drawing-studio/marks.js?v=20261122-1" defer></script>
@@ -33,7 +33,7 @@
   <script src="assets/drawing-studio/canvas-presets.js?v=20261121-1" defer></script>
   <script src="assets/drawing-studio/textures/paper001.js?v=1" defer></script>
   <script src="assets/drawing-studio/paper.js?v=20261121-9" defer></script>
-  <script src="assets/drawing-studio/app.js?v=20261122-5" defer></script>
+  <script src="assets/drawing-studio/app.js?v=20261122-6" defer></script>
 </head>
 <body>
   <svg class="studio-symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="0" height="0"><defs>
@@ -203,11 +203,16 @@
         <details id="strokeSettings" class="panel-section" open><summary><span id="strokeSettingsTitle">笔触</span> <span id="brushName" class="summary-count"></span></summary>
           <div id="brushControls">
           <button id="brushSample" class="brush-sample wide" type="button" aria-haspopup="dialog" aria-label="打开笔刷库，比较笔迹" title="打开笔刷库，比较笔迹"><canvas id="brushPreview" width="248" height="54" aria-label="当前笔刷示范笔迹"></canvas><span>笔刷库</span></button>
+          <div id="brushTextureControls" hidden>
+            <label class="field"><span>颗粒 / 纹理粗细 <output id="brushTextureScaleValue" for="brushTextureScale">100%</output></span><input id="brushTextureScale" type="range" min="25" max="400" step="5" value="100" aria-label="颗粒与纹理粗细" aria-describedby="brushTextureHint" disabled></label>
+            <label class="field"><span>颗粒 / 纹理密度 <output id="brushTextureDensityValue" for="brushTextureDensity">100%</output></span><input id="brushTextureDensity" type="range" min="25" max="200" step="5" value="100" aria-label="颗粒与纹理密度" aria-describedby="brushTextureHint" disabled></label>
+            <p class="hint" id="brushTextureHint">100% 为原效果。粗细越大纹理越粗，密度越高落墨越密；每支笔分别记住。</p>
+          </div>
           <label class="field"><span>防抖 <output id="stabilizerValue">20</output></span><input id="stabilizer" type="range" min="0" max="100" value="20"></label>
           <label class="check"><input id="penPressure" type="checkbox" checked> 启用数位笔压感</label>
           <label class="check" title="默认开启：仅禁用鼠标使用画笔，鼠标左键改为平移。橡皮、填充、形状、文字、取色、移动图层仍可使用鼠标。"><input id="penOnlyBrush" type="checkbox" checked> 画笔仅限数位笔</label>
           <p class="hint" id="brushHint">G 笔随压力改变粗细。鼠标保持固定笔宽。</p>
-          <button id="resetBrushProfile" type="button" title="仅重置这支笔的大小、浓度、防抖与压感">恢复这支笔的推荐参数</button>
+          <button id="resetBrushProfile" type="button" title="仅重置这支笔的大小、浓度、纹理、防抖与压感">恢复这支笔的推荐参数</button>
           </div>
           <p class="hint" id="eraserHint" hidden></p>
           <div id="fillSettings" hidden>

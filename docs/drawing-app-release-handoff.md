@@ -55,6 +55,12 @@
 - 同时新增 Riso Dry 稀疏、中等、浓密，以及 Riso Wet 淡、中、浓，共六档程序填充，复用 `marks.js` 与原选区/透明/工程流程；HTML 中 `marks.js`、`app.js` 的缓存版本同步更新。没有新增运行时图像或原笔刷包。
 - 本次只修改网页版及共用前端资源，Windows / Android 原生版本号和已发布安装包不变。下次打包由现有脚本递归纳入新模块，需保留 HTML 的加载顺序及新色板资源；不另建一套色卡实现。
 
+## 2026-11-22 共用前端更新：笔刷颗粒与纹理参数
+
+- 纹理笔在“画具 → 笔触”提供独立粗细 25–400% 和密度 25–200%，100% 保持原效果。参数随每支笔在本机记忆，当前笔参数写入 `.lrxdraw`；试笔、笔刷库和实际绘画共用。
+- 共用 `brushes-chuishi.js` 处理独立纸纹和柔和机理笔尖纹理，`app.js` 与 `drawing-studio.html` 接入控件。继续使用原有素材与小缓存，不添加运行时库或纹理包。定向验收见 `tools/test_drawing_brush_texture.cjs`。
+- 此项更新网页版和共用资源，未重新发布 Windows / Android 安装包。后续原生发版直接纳入当前资源，并运行纹理与原有笔刷像素回归；不得将网页更新说成已安装程序自动升级。
+
 ## 四、必须保留的兼容性和隐私边界
 
 - 两平台应用 ID 固定 `io.github.lrxuanxuan.lightdraw`。Windows 本机源站 `https://tauri.localhost`；Android 本机源站 `https://appassets.androidplatform.net`。不要随意变更来源、数据目录、WebView 或窗口配对流程。

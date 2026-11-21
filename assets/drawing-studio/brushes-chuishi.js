@@ -12,11 +12,21 @@
   if (root) root.DrawingChuishiBrushes = api;
 })(typeof window !== 'undefined' ? window : typeof self !== 'undefined' ? self : null, function () {
   'use strict';
-  var presets = [], masks = {}, maskCache = new Map(), tintCache = new Map(), grainCache = new Map(), curveCache = new WeakMap();
+  var presets = [], masks = {}, maskCache = new Map(), tintCache = new Map(), grainCache = new Map(), textureTipCache = new Map(), curveCache = new WeakMap();
   for (var d = 0; d < arguments.length; d++) if (arguments[d]) {
     presets = presets.concat(arguments[d].brushes || []);
     Object.assign(masks, arguments[d].masks || {});
   }
+  function hasGrain(brush) {
+    var name = brush.grainFallback || brush.source.bundledGrainPath || '';
+    return !!brush.grainMask || !!(name && !/Blank/i.test(name));
+  }
+  // The soft-texture brush carries its texture in the actual sampled nib,
+  // rather than a separate grain map. Plain nib geometry is not a grain knob.
+  presets.forEach(function (preset) {
+    if (hasGrain(preset) || (preset.secondary && hasGrain(preset.secondary)) || preset.id === 'dongdong-soft-texture') preset.textureControls = true;
+    if (preset.id === 'chuishi-jiayou-inking' || preset.id === 'chuishi-linework') preset.textureHint = '这支笔原纹理较密，可先降低密度再调粗细。';
+  });
   function clamp(n, a, b) { return Math.min(b, Math.max(a, n)); }
   function num(n, fallback) { return Number.isFinite(Number(n)) ? Number(n) : fallback; }
   function val(s, key, fallback) { return num(s[key], fallback === undefined ? 0 : fallback); }
@@ -121,11 +131,70 @@
     }
     p.putImageData(image, 0, 0); return bounded(maskCache, key, out, 20);
   }
-  function colorShape(ctx, brush, color, diameter) {
+  function texturedShape(ctx, brush, textureScale, density) {
+    var original = shape(ctx, brush);
+    if (textureScale === 1 && density === 1) return original;
+    var identity = brush.mask || brush.shapeFallback || brush.source.bundledShapePath;
+    var key = identity + ':' + textureScale + ':' + density, hit = cached(textureTipCache, key);
+    if (hit) return hit;
+    var w = original.width, h = original.height, total = w * h, profile = original.textureProfile;
+    if (!profile) {
+      // Decompose a small nib once into a fixed envelope and its internal
+      // texture. Row/column support keeps the original silhouette; only holes
+      // enclosed by that silhouette may fill when density increases.
+      var rgba = paint(original).getImageData(0, 0, w, h).data, raw = new Uint8Array(total);
+      var rowMin = new Int16Array(h), rowMax = new Int16Array(h), colMin = new Int16Array(w), colMax = new Int16Array(w);
+      rowMin.fill(w); rowMax.fill(-1); colMin.fill(h); colMax.fill(-1);
+      for (var y = 0; y < h; y++) for (var x = 0; x < w; x++) {
+        var i = y * w + x, a = rgba[i * 4 + 3]; raw[i] = a;
+        if (a) { rowMin[y] = Math.min(rowMin[y], x); rowMax[y] = Math.max(rowMax[y], x); colMin[x] = Math.min(colMin[x], y); colMax[x] = Math.max(colMax[x], y); }
+      }
+      var horizontal = new Uint8Array(total), envelope = new Uint8Array(total), texture = new Float32Array(total);
+      var radius = Math.max(2, Math.round(Math.min(w, h) / 12));
+      for (var yy = 0; yy < h; yy++) for (var xx = 0; xx < w; xx++) {
+        var maximum = 0;
+        for (var sx = Math.max(0, xx - radius); sx <= Math.min(w - 1, xx + radius); sx++) maximum = Math.max(maximum, raw[yy * w + sx]);
+        horizontal[yy * w + xx] = maximum;
+      }
+      for (var ty = 0; ty < h; ty++) for (var tx = 0; tx < w; tx++) {
+        var index = ty * w + tx, peak = 0;
+        if (tx >= rowMin[ty] && tx <= rowMax[ty] && ty >= colMin[tx] && ty <= colMax[tx]) {
+          for (var sy = Math.max(0, ty - radius); sy <= Math.min(h - 1, ty + radius); sy++) peak = Math.max(peak, horizontal[sy * w + tx]);
+        }
+        envelope[index] = peak; texture[index] = peak ? raw[index] / peak : 0;
+      }
+      profile = original.textureProfile = { raw: raw, envelope: envelope, texture: texture };
+    }
+    var out = canvas(ctx, w, h), p = paint(out), image = p.createImageData(w, h);
+    function reflected(value, length) {
+      if (length <= 1) return 0;
+      var span = (length - 1) * 2, n = ((value % span) + span) % span;
+      return n <= length - 1 ? n : span - n;
+    }
+    for (var py = 0; py < h; py++) for (var px = 0; px < w; px++) {
+      var pos = py * w + px, envelopeAlpha = profile.envelope[pos];
+      if (!envelopeAlpha) continue;
+      var u = reflected((w - 1) / 2 + (px - (w - 1) / 2) / textureScale, w);
+      var v = reflected((h - 1) / 2 + (py - (h - 1) / 2) / textureScale, h);
+      var x0 = Math.floor(u), y0 = Math.floor(v), x1 = Math.min(w - 1, x0 + 1), y1 = Math.min(h - 1, y0 + 1), fx = u - x0, fy = v - y0;
+      var texture = profile.texture, a0 = texture[y0 * w + x0] * (1 - fx) + texture[y0 * w + x1] * fx;
+      var a1 = texture[y1 * w + x0] * (1 - fx) + texture[y1 * w + x1] * fx, amount = a0 * (1 - fy) + a1 * fy;
+      // Sparse settings open actual holes, dense settings fill those holes.
+      // No change to flow, whole-stroke opacity, spacing or nib diameter.
+      if (density < 1) { var cutoff = (1 - density) * .85; amount = clamp((amount - cutoff) / (1 - cutoff), 0, 1); }
+      else if (density > 1) amount = 1 - (1 - amount) / density;
+      image.data[pos * 4] = image.data[pos * 4 + 1] = image.data[pos * 4 + 2] = 255;
+      image.data[pos * 4 + 3] = Math.round(envelopeAlpha * amount);
+    }
+    p.putImageData(image, 0, 0); return bounded(textureTipCache, key, out, 8);
+  }
+  function colorShape(ctx, brush, color, diameter, tipTextureScale, tipTextureDensity) {
     var resolution = clamp(Math.ceil(diameter * 1.25 / 8) * 8, 8, 192);
     var key = (brush.mask || brush.shapeFallback || brush.source.bundledShapePath) + ':' + color + ':' + resolution;
+    if (tipTextureScale !== undefined) key += ':texture:' + tipTextureScale + ':' + tipTextureDensity;
     var hit = cached(tintCache, key); if (hit) return hit;
-    var mask = shape(ctx, brush), ratio = resolution / Math.max(mask.width, mask.height);
+    var mask = tipTextureScale === undefined ? shape(ctx, brush) : texturedShape(ctx, brush, tipTextureScale, tipTextureDensity);
+    var ratio = resolution / Math.max(mask.width, mask.height);
     var out = canvas(ctx, Math.max(1, Math.round(mask.width * ratio)), Math.max(1, Math.round(mask.height * ratio))), p = paint(out);
     p.fillStyle = color; p.fillRect(0, 0, out.width, out.height); p.globalCompositeOperation = 'destination-in'; p.drawImage(mask, 0, 0, out.width, out.height);
     return bounded(tintCache, key, out, 12);
@@ -145,15 +214,16 @@
     mask.dotContact = clamp(longest / Math.max(mask.width, mask.height), .001, 1);
     return mask.dotContact;
   }
-  function grain(ctx, brush) {
+  function grain(ctx, brush, density) {
     var s = brush.source, name = brush.grainFallback || s.bundledGrainPath || '';
     if (!brush.grainMask && (!name || /Blank/i.test(name))) return null;
-    var key = (brush.grainMask || name) + ':' + [s.grainDepth, s.textureContrast, s.textureBrightness, s.textureInverted].join(':');
+    var key = (brush.grainMask || name) + ':' + [s.grainDepth, s.textureContrast, s.textureBrightness, s.textureInverted, density].join(':');
     var hit = cached(grainCache, key); if (hit) return hit;
     var side = 128, out = canvas(ctx, side, side), p = paint(out), image = p.createImageData(side, side), seed = hashString(name);
     var original = brush.grainMask ? decodeMask(ctx, brush.grainMask) : null, raw;
     if (original) { p.drawImage(original, 0, 0, side, side); raw = p.getImageData(0, 0, side, side).data; }
     var depth = clamp(val(s, 'grainDepth', 1), 0, 1), contrast = clamp(val(s, 'textureContrast'), -1, 1), brightness = clamp(val(s, 'textureBrightness'), -1, 1);
+    var ranks = density === 1 ? null : new Float64Array(side * side), levels = ranks ? new Float64Array(side * side) : null, candidateCount = 0;
     for (var y = 0; y < side; y++) for (var x = 0; x < side; x++) {
       var fine = noise(x, y, seed), coarse = noise(x >> 2, y >> 2, seed), n;
       if (raw) n = raw[(y * side + x) * 4 + 3] / 255;
@@ -169,6 +239,26 @@
       var threshold = .10 + depth * .22, alpha = n < threshold ? 0 : 1;
       var i = (y * side + x) * 4;
       image.data[i] = image.data[i + 1] = image.data[i + 2] = 255; image.data[i + 3] = Math.round(alpha * 255);
+      if (ranks) {
+        // Break equal source levels deterministically without changing their
+        // texture ordering. This matters for quantized embedded grain masks.
+        var rank = n + noise(x, y, seed ^ 0x51d7348d) * 1e-9;
+        ranks[y * side + x] = rank;
+        if ((density < 1 && alpha) || (density > 1 && !alpha)) levels[candidateCount++] = rank;
+      }
+    }
+    if (candidateCount) {
+      // Use each source's actual coverage, since its brightness/contrast can
+      // make a universal threshold either solid or completely invisible.
+      // Sparse values retain that fraction of original ink; dense values fill
+      // a fraction of its original holes. The neutral stencil stays exact.
+      levels.subarray(0, candidateCount).sort();
+      var count = Math.round(candidateCount * (density < 1 ? density : density - 1));
+      var cutoff = count ? levels[candidateCount - count] : Infinity;
+      for (var cell = 0; cell < side * side; cell++) {
+        var wasInk = image.data[cell * 4 + 3] !== 0;
+        if ((density < 1 && wasInk) || (density > 1 && !wasInk)) image.data[cell * 4 + 3] = ranks[cell] >= cutoff ? 255 : 0;
+      }
     }
     out.grainAlpha = new Uint8Array(side * side);
     for (var g = 0; g < out.grainAlpha.length; g++) out.grainAlpha[g] = image.data[g * 4 + 3];
@@ -184,6 +274,8 @@
     var preset = presets.find(function (p) { return p.id === options.brush; });
     if (!preset) throw new Error('找不到这支导入笔刷。');
     var source = preset.source, size = clamp(num(options.size, preset.size), .5, 512), stabilizer = clamp(num(options.stabilizer, 0), 0, 100);
+    var textureScale = clamp(num(options.textureScale, 1), .25, 4), textureDensity = clamp(num(options.textureDensity, 1), .25, 2);
+    var nibTexture = preset.id === 'dongdong-soft-texture' && (textureScale !== 1 || textureDensity !== 1);
     var color = options.color || '#20242b', pressureEnabled = options.pressure !== false, ink = rgba(color), carried = ink.slice();
     var glow = preset.id === 'haiguai-glow-airbrush', outline = /^haiguai-outline/.test(preset.id);
     var bounds = { left: Infinity, top: Infinity, right: -Infinity, bottom: -Infinity }, dirty = null, textureDirty = null;
@@ -192,10 +284,11 @@
     if (preset.secondary && !outline) components.push(preset.secondary);
     var work = null, workPaint = null;
     var componentState = components.map(function (b) {
-      var texture = grain(ctx, b);
+      var texture = grain(ctx, b, textureDensity);
       var s = b.source, scale = clamp(.25 + Math.sqrt(Math.max(0, val(s, 'textureScale', 1))) * .72, .28, 3.5);
       scale *= Math.pow(clamp(size / 32, .25, 8), .35 * clamp(val(s, 'textureZoom', 1), 0, 1));
-      return { brush: b, tip: colorShape(ctx, b, color, size), texture: texture, grainScale: scale, pattern: null,
+      scale *= textureScale;
+      return { brush: b, tip: colorShape(ctx, b, color, size, nibTexture ? textureScale : undefined, nibTexture ? textureDensity : undefined), texture: texture, grainScale: scale, pattern: null,
         contact: /hatching/.test(preset.id) ? dotContact(ctx, b) : .62 };
     });
     var paperStates = componentState.filter(function (state) { return !!state.texture; });
@@ -454,7 +547,11 @@
     } };
   }
   return { presets: presets, makeStroke: makeStroke, diagnostics: function () {
-    var bytes = 0; [maskCache, tintCache, grainCache].forEach(function (cache) { cache.forEach(function (c) { bytes += c.width * c.height * 4; }); });
-    return { maskEntries: maskCache.size, tintEntries: tintCache.size, grainEntries: grainCache.size, canvasBytes: bytes };
+    var bytes = 0; [maskCache, tintCache, grainCache, textureTipCache].forEach(function (cache) { cache.forEach(function (c) {
+      bytes += c.width * c.height * 4;
+      if (c.grainAlpha) bytes += c.grainAlpha.byteLength;
+      if (c.textureProfile) bytes += c.textureProfile.raw.byteLength + c.textureProfile.envelope.byteLength + c.textureProfile.texture.byteLength;
+    }); });
+    return { maskEntries: maskCache.size, tintEntries: tintCache.size, grainEntries: grainCache.size, textureTipEntries: textureTipCache.size, canvasBytes: bytes };
   } };
 });

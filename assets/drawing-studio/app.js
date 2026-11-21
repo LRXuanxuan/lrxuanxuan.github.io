@@ -35,6 +35,7 @@
   let art, ref, activePointer = null, refPointer = null, spacePan = false, busy = 0;
   let view = { zoom: 1, x: 0, y: 0 }, refView = { zoom: 1, x: 0, y: 0 };
   let tool = 'brush', brush = 'gpen', ink = '#263544', size = 8, opacity = 1, stabilizer = 20;
+  let textureScale = 1, textureDensity = 1;
   let pressureEnabled = true, touchDraw = false, penOnlyBrush = true, refPicking = false, recentColors = [], fillPalettePending = false;
   // A device-local preference, not an artwork setting. New installations start with mouse brushing disabled.
   const penOnlyBrushKey = 'lrx-drawing-pen-only-brush-v1';
@@ -56,6 +57,9 @@
   const brushProfiles = new Map();
   const eraserPreset = { id: 'eraser', size: 18, opacity: 1, stabilizer: 12 };
   let brushStorageWarning = false, refreshBrushAfterStroke = false;
+  function textureSetting(value, maximum) {
+    return Number.isFinite(value) ? clamp(Math.round(value * 20) / 20, .25, maximum) : 1;
+  }
   function brushProfile(preset) {
     let saved = brushProfiles.get(preset.id);
     if (!saved) {
@@ -63,12 +67,14 @@
     }
     const setting = (key, min, max) => Number.isFinite(saved?.[key]) ? clamp(saved[key], min, max) : preset[key];
     return { size: setting('size', 1, 240), opacity: setting('opacity', .01, 1),
-      stabilizer: setting('stabilizer', 0, 100), pressureEnabled: (saved?.pressureEnabled ?? preset.pressureEnabled) !== false };
+      stabilizer: setting('stabilizer', 0, 100), pressureEnabled: (saved?.pressureEnabled ?? preset.pressureEnabled) !== false,
+      textureScale: textureSetting(setting('textureScale', .25, 4), 4),
+      textureDensity: textureSetting(setting('textureDensity', .25, 2), 2) };
   }
   function storeBrushProfile() {
     if (tool !== 'brush' && tool !== 'eraser') return;
     const id = tool === 'eraser' ? 'eraser' : brush;
-    const profile = { size, opacity, stabilizer, pressureEnabled };
+    const profile = { size, opacity, stabilizer, pressureEnabled, textureScale, textureDensity };
     brushProfiles.set(id, profile);
     try { localStorage.setItem(brushKey + id, JSON.stringify(profile)); } catch (_) {
       if (!brushStorageWarning) { brushStorageWarning = true; notify('浏览器未能保存笔刷偏好，本次打开画室期间仍会记住。'); }
@@ -80,9 +86,20 @@
   }
   function applyBrushProfile(profile) {
     ({ size, opacity, stabilizer, pressureEnabled } = profile);
+    textureScale = textureSetting(profile.textureScale, 4); textureDensity = textureSetting(profile.textureDensity, 2);
     $('brushSize').value = size; syncOpacityUI();
     $('stabilizer').value = stabilizer; $('stabilizerValue').textContent = stabilizer;
-    $('penPressure').checked = pressureEnabled; scheduleBrushSample();
+    $('penPressure').checked = pressureEnabled; syncBrushTextureUI(); scheduleBrushSample();
+  }
+  function syncBrushTextureUI() {
+    const preset = Core.brushPresets.find(p => p.id === brush), enabled = tool === 'brush' && !!preset?.textureControls;
+    $('brushTextureControls').hidden = !enabled;
+    $('brushTextureHint').textContent = '100% 为原效果。粗细越大纹理越粗，密度越高落墨越密；每支笔分别记住。' + (preset?.textureHint || '');
+    for (const [id, value] of [['brushTextureScale', textureScale], ['brushTextureDensity', textureDensity]]) {
+      const percent = Math.round(value * 100);
+      $(id).disabled = !enabled; $(id).value = percent;
+      $(id + 'Value').textContent = percent + '%'; $(id).setAttribute('aria-valuetext', percent + '%');
+    }
   }
   function syncOpacityUI() {
     const minimum = tool === 'fill' ? 0 : .01;
@@ -587,7 +604,7 @@
         const sampledLayer = mode === 'brush' && Core.brushPresets.some(p => p.id === brush && p.samplesLayer);
         const paint = context(strokeCanvas);
         if (sampledLayer) paint.drawImage(layer.canvas, 0, 0);
-        const stroke = Core.makeStroke(paint, { brush: mode === 'eraser' ? 'eraser' : brush, size: size / layer.scale, color: ink, pressure: pressureEnabled, stabilizer });
+        const stroke = Core.makeStroke(paint, { brush: mode === 'eraser' ? 'eraser' : brush, size: size / layer.scale, color: ink, pressure: pressureEnabled, stabilizer, textureScale, textureDensity });
         const p = strokePoint(e, layer); stroke.start(p);
         activePointer = { id: e.pointerId, kind: 'stroke', layerId: layer.id, stroke, opacity, sampledLayer, erase: mode === 'eraser', last: p };
         viewport.classList.add('drawing'); requestRender();
@@ -834,6 +851,7 @@
     $('brushSample').hidden = tool !== 'brush'; $('brushHint').hidden = tool !== 'brush';
     $('strokeSettingsTitle').textContent = tool === 'fill' || tool === 'cutout' ? '选区边界' : '笔触';
     $('brushName').hidden = tool !== 'brush';
+    syncBrushTextureUI();
     syncEraser();
     if (['shape', 'text', 'fill', 'cutout'].includes(tool)) {
       if (window.innerWidth > 650) togglePanel('settings', true);
@@ -929,7 +947,7 @@
     if (sampleFrame) return;
     sampleFrame = requestAnimationFrame(() => {
       sampleFrame = 0;
-      drawBrushSample($('brushPreview'), { brush, size, opacity, color: ink, pressure: pressureEnabled, stabilizer });
+      drawBrushSample($('brushPreview'), { brush, size, opacity, color: ink, pressure: pressureEnabled, stabilizer, textureScale, textureDensity });
     });
   }
   function queueBrushCard(button) {
@@ -985,6 +1003,7 @@
     all('[data-brush-preset]').forEach(button => {
       const id = button.dataset.brushPreset, preset = Core.brushPresets.find(p => p.id === id), profile = brushProfile(preset);
       button.title = preset.hint + ' · ' + profile.size + ' px · 浓度 ' + Math.round(profile.opacity * 100) + '% · 防抖 ' + profile.stabilizer;
+      if (preset.textureControls) button.title += ' · 纹理粗细 ' + Math.round(profile.textureScale * 100) + '% · 密度 ' + Math.round(profile.textureDensity * 100) + '%';
       button.setAttribute('aria-pressed', String(id === brush));
       if (!galleryObserver || button.dataset.sampleVisible === 'true') queueBrushCard(button);
     });
@@ -1139,7 +1158,7 @@
   async function serializeProject(state = snapshot(), includeReference = true) {
     const version = referenceVersion;
     const selectedBrush = brush, selectedInk = ink, selectedToneScope = toneScope;
-    const brushSettings = tool === 'brush' ? { size, opacity, stabilizer, pressureEnabled }
+    const brushSettings = tool === 'brush' ? { size, opacity, stabilizer, pressureEnabled, textureScale, textureDensity }
       : brushProfile(Core.brushPresets.find(p => p.id === selectedBrush));
     const layersPromise = Promise.all(state.layers.map(async layer => {
       const strokes = Strokes.exportBundle(layer.strokeRecords);
@@ -1320,6 +1339,7 @@
       brush: importedBrush.id, size: importedNumber('size', 1, 240),
       opacity: importedNumber('opacity', .01, 1), stabilizer: importedNumber('stabilizer', 0, 100),
       pressureEnabled: inputSettings.pressureEnabled !== false,
+      textureScale: textureSetting(inputSettings.textureScale, 4), textureDensity: textureSetting(inputSettings.textureDensity, 2),
       eraserMode: inputSettings.eraserMode === 'stroke' ? 'stroke' : 'local',
       toneScope: inputSettings.toneScope === 'current' ? 'current' : 'all',
       recentColors: Array.isArray(inputSettings.recentColors) ? inputSettings.recentColors.filter(c => typeof c === 'string' && /^#[a-f0-9]{6}$/i.test(c)).slice(0, 12) : [],
@@ -1421,7 +1441,7 @@
     });
     on('brushKind', 'change', () => setBrush($('brushKind').value, true));
     on('brushSample', 'click', openBrushLibrary);
-    for (const id of ['brushSize', 'brushOpacity', 'stabilizer', 'penPressure']) {
+    for (const id of ['brushSize', 'brushOpacity', 'stabilizer', 'penPressure', 'brushTextureScale', 'brushTextureDensity']) {
       $(id).addEventListener('input', scheduleBrushSample);
       $(id).addEventListener('change', scheduleBrushSample);
     }
@@ -1440,6 +1460,15 @@
     on('fillPaintMode', 'change', () => { finishPointer(); updateFillPaintUI(); });
     on('stabilizer', 'input', () => { stabilizer = +$('stabilizer').value; $('stabilizerValue').textContent = stabilizer; storeBrushProfile(); });
     on('penPressure', 'change', () => { pressureEnabled = $('penPressure').checked; storeBrushProfile(); });
+    for (const id of ['brushTextureScale', 'brushTextureDensity']) {
+      const update = () => {
+        if ($(id).disabled) return;
+        if (id === 'brushTextureScale') textureScale = textureSetting($(id).valueAsNumber / 100, 4);
+        else textureDensity = textureSetting($(id).valueAsNumber / 100, 2);
+        syncBrushTextureUI(); storeBrushProfile();
+      };
+      on(id, 'input', update); on(id, 'change', update);
+    }
     on('resetBrushProfile', 'click', () => {
       const preset = tool === 'eraser' ? eraserPreset : Core.brushPresets.find(p => p.id === brush);
       applyBrushProfile({ ...preset, pressureEnabled: preset.pressureEnabled !== false }); storeBrushProfile(); status('已恢复这支笔的推荐参数');
