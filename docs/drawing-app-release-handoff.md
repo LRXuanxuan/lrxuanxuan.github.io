@@ -67,6 +67,15 @@
 - 「自然变化」默认关闭；开启后分别调节大小和形状变化。共享 `marks.js` 以固定种子生成小图块，预览与提交同源，新增字段随原有 `settings.marks` 保存和恢复。Riso 和渐变沿用原有选项。维护与像素验收见 `docs/drawing-studio.md`、`tools/test_drawing_pattern_variation.cjs` 及原填充回归。
 - 本次仅修改网页版和共用前端，不递增 Windows / Android 原生版本，也不重新发布 EXE/APK。下次打包直接复用当前资源；保留现有安装包、签名及数据目录约定。
 
+## 2026-11-22 共用前端更新：形状插入后编辑
+
+- 形状面板新增「插入形状 / 选择修改」。插入自动选中，支持拖动移动、四角缩放、线条／箭头两端调整、样式应用、复制和删除；当前层形状列表可选择重叠、空心或遮挡的对象。文字仍沿用像素放置。
+- `stroke-records.js` 在既有 `kind: overlay` 中增加不可变 `shape` 参数，不改变工程版本号；复用 64 px 稀疏瓦片及原撤销、保存机制。移动和修改保留原操作顺序，后画笔迹与局部擦除仍正确参与重放；独立副本不能修改原件或历史。
+- 新形状参数随工程与本机续画保存。旧栅格没有参数，不能恢复对象身份；128 次操作／16 MiB 记录限额及填色、抠图、混色、改尺、合并等合成边界继续适用。选框不进入图片或工程图层内容。
+- 同时加入以所选直线为基准的平行／垂直绘制，以及闭合形状、画框的四角平面透视。透视投影包含描边、渐变和多色纹理；四角元数据随工程保存，支持复位和撤销。源／目标各限制为 1 MP、最长边 2048，拖动预览各 131,072 像素；大幅变形可能损失细部清晰度，不生成完整 3D 光影或镜面反射。
+- 本项只更新网页版与共用前端源码，不调整原生版本号、不重新发行 Windows／Android 包。已安装的旧版本不具备新形状编辑能力；后续原生发版应复用当前代码，并验收工程中的形状参数往返，不能把像素可打开当作编辑身份已保留。
+- 维护说明与验收项见 [画室说明](drawing-studio.md)，专项回归为 `tools/test_drawing_shapes_core.cjs`、`tools/test_drawing_shape_editing.cjs`、`tools/test_drawing_shape_guides.cjs` 和 `tools/test_drawing_perspective_core.cjs`。此处记录实现和检查要求，不作为部署、原生包或真实设备测试已完成的凭据。
+
 ## 四、必须保留的兼容性和隐私边界
 
 - 两平台应用 ID 固定 `io.github.lrxuanxuan.lightdraw`。Windows 本机源站 `https://tauri.localhost`；Android 本机源站 `https://appassets.androidplatform.net`。不要随意变更来源、数据目录、WebView 或窗口配对流程。

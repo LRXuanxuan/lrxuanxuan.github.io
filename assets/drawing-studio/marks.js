@@ -9,6 +9,7 @@
   var KINDS = ['none', 'solid', 'horizontal', 'vertical', 'diagonal', 'crosshatch', 'dots', 'sprinkles', 'checker', 'paper', 'stipple', 'weave', 'riso-sparse', 'riso-medium', 'riso-dense', 'riso-wet-light', 'riso-wet-medium', 'riso-wet-dense', 'linear', 'radial', 'reflected'];
   var FONTS = 'system-ui, "Microsoft YaHei", "PingFang SC", sans-serif';
   var tiles = new Map();
+  const perspectiveWork = new WeakMap(), MAX_WARP_PIXELS = 1024 * 1024, MAX_WARP_EDGE = 2048;
   var risoField, risoWetField;
   function number(value, fallback) { return Number.isFinite(+value) ? +value : fallback; }
   function clamp(value, low, high) { return Math.min(high, Math.max(low, value)); }
@@ -455,12 +456,12 @@
     ctx.closePath();
   }
   const frameKinds = ['frameGallery', 'frameDeco', 'frameFilm', 'frameCorners'];
-  function paintFrame(ctx, opts) {
+  function paintFrame(ctx, opts, clipToCanvas = true) {
     const b = normalizedBounds(opts, opts.constrain), side = Math.min(b.width, b.height);
     if (side < 1) return null;
     const edge = Math.min(side * .26, Math.max(.5, number(opts.frameWidth, 10)));
     const main = color(ctx, opts.frameColor, '#354953'), accent = color(ctx, opts.frameAccent, '#d4b583');
-    return paintOnce(ctx, clippedBounds(ctx, b, 1), clamp(number(opts.opacity, 1), 0, 1), paint => {
+    return paintOnce(ctx, clipToCanvas ? clippedBounds(ctx, b, 1) : b, clamp(number(opts.opacity, 1), 0, 1), paint => {
       paint.translate(b.x, b.y);
       const w = b.width, h = b.height;
       paint.beginPath(); paint.rect(0, 0, w, h); paint.clip();
@@ -499,9 +500,9 @@
     });
   }
   /** Returns a clipped pixel rectangle suitable for one undo patch, or null. */
-  function paintShape(ctx, options) {
+  function paintShapeFlat(ctx, options, clipToCanvas = true) {
     options = options || {};
-    if (frameKinds.includes(options.type)) return paintFrame(ctx, options);
+    if (frameKinds.includes(options.type)) return paintFrame(ctx, options, clipToCanvas);
     var fill = options.fill === undefined ? '#263544' : options.fill, stroke = options.stroke;
     var lineWidth = clamp(number(options.strokeWidth, 2), 0, 512), opacity = clamp(number(options.opacity, 1), 0, 1);
     var vertices, box;
@@ -516,13 +517,143 @@
     }
     var filled = hasPaint(fill), outlined = hasPaint(stroke) && lineWidth > 0;
     if (!filled && !outlined) return null;
-    var bounds = clippedBounds(ctx, box, outlined ? lineWidth / 2 + 2 : 1);
+    var bounds = clipToCanvas ? clippedBounds(ctx, box, outlined ? lineWidth / 2 + 2 : 1) : box;
     return paintOnce(ctx, bounds, opacity, function (paint) {
       paint.lineWidth = lineWidth; paint.lineJoin = 'round'; paint.lineCap = 'round';
       shapePath(paint, options.type, box, vertices);
       if (filled) { paint.fillStyle = fillStyle(paint, fill, box); paint.fill(); }
       if (outlined) { paint.strokeStyle = fillStyle(paint, stroke, box); paint.stroke(); }
     });
+  }
+
+  // The four points describe a single convex plane, in NW/NE/SE/SW order.
+  // Reversed winding is valid; folded, coincident and near-collinear corners
+  // are not. Keep this predicate aligned with the persisted-shape validator.
+  function validQuad(quad) {
+    if (!Array.isArray(quad) || quad.length !== 4 || quad.some(p => !p || typeof p !== 'object'
+      || !Number.isFinite(p.x) || !Number.isFinite(p.y) || Math.abs(p.x) > 65536 || Math.abs(p.y) > 65536)) return false;
+    const sides = quad.map((p, i) => ({ x: quad[(i + 1) % 4].x - p.x, y: quad[(i + 1) % 4].y - p.y }));
+    const longest = Math.max(...sides.map(p => p.x * p.x + p.y * p.y)), epsilon = Math.max(1e-6, longest * 1e-8);
+    let winding = 0;
+    for (let i = 0; i < 4; i++) {
+      const a = sides[i], b = sides[(i + 1) % 4], cross = a.x * b.y - a.y * b.x;
+      if (Math.abs(cross) <= epsilon || winding && Math.sign(cross) !== winding) return false;
+      winding = Math.sign(cross);
+    }
+    const a = quad[1], b = quad[2], c = quad[3], o = quad[0];
+    return Math.abs((a.x - o.x) * (b.y - o.y) - (a.y - o.y) * (b.x - o.x)
+      + (b.x - o.x) * (c.y - o.y) - (b.y - o.y) * (c.x - o.x)) > .5;
+  }
+  function quadMatrix(q) {
+    const [p0, p1, p2, p3] = q;
+    const dx1 = p1.x - p2.x, dx2 = p3.x - p2.x, dx3 = p0.x - p1.x + p2.x - p3.x;
+    const dy1 = p1.y - p2.y, dy2 = p3.y - p2.y, dy3 = p0.y - p1.y + p2.y - p3.y;
+    const determinant = dx1 * dy2 - dx2 * dy1;
+    if (!Number.isFinite(determinant) || Math.abs(determinant) < 1e-10) return null;
+    const g = (dx3 * dy2 - dx2 * dy3) / determinant, h = (dx1 * dy3 - dx3 * dy1) / determinant;
+    const a = p1.x - p0.x + g * p1.x, b = p3.x - p0.x + h * p3.x, c = p0.x;
+    const d = p1.y - p0.y + g * p1.y, e = p3.y - p0.y + h * p3.y, f = p0.y;
+    return { forward: [a, b, c, d, e, f, g, h, 1], inverse: [e - f * h, c * h - b, b * f - c * e,
+      f * g - d, a - c * g, c * d - a * f, d * h - e * g, b * g - a * h, a * e - b * d] };
+  }
+  function warpSize(width, height, maxPixels) {
+    const reduction = Math.min(1, MAX_WARP_EDGE / width, MAX_WARP_EDGE / height, Math.sqrt(maxPixels / (width * height)));
+    return { width: Math.max(1, Math.floor(width * reduction)), height: Math.max(1, Math.floor(height * reduction)) };
+  }
+  function paintPerspective(ctx, options, renderOptions) {
+    if (!validQuad(options.quad) || ['line', 'arrow'].includes(options.type)) return null;
+    const box = normalizedBounds(options, !!options.constrain), opacity = clamp(number(options.opacity, 1), 0, 1);
+    if (box.width < .01 || box.height < .01 || opacity <= 0) return null;
+    const matrix = quadMatrix(options.quad); if (!matrix) return null;
+    const transform = matrix.forward, inverse = matrix.inverse, outlined = hasPaint(options.stroke);
+    const padding = frameKinds.includes(options.type) ? 2 : outlined ? clamp(number(options.strokeWidth, 2), 0, 512) / 2 + 2 : 2;
+    const sourceBox = { x: box.x - padding, y: box.y - padding, width: box.width + padding * 2, height: box.height + padding * 2 };
+    const extended = [[-padding / box.width, -padding / box.height], [1 + padding / box.width, -padding / box.height],
+      [1 + padding / box.width, 1 + padding / box.height], [-padding / box.width, 1 + padding / box.height]];
+    const projected = [];
+    for (const [u, v] of extended) {
+      const divisor = transform[6] * u + transform[7] * v + 1;
+      // The padded plane must not cross the projective horizon. No draw has
+      // happened yet, so an extreme invalid drag can be rejected atomically.
+      if (!Number.isFinite(divisor) || divisor < 1e-6) return null;
+      const x = (transform[0] * u + transform[1] * v + transform[2]) / divisor;
+      const y = (transform[3] * u + transform[4] * v + transform[5]) / divisor;
+      if (!Number.isFinite(x) || !Number.isFinite(y)) return null;
+      projected.push({ x, y });
+    }
+    const left = Math.min(...projected.map(p => p.x)), top = Math.min(...projected.map(p => p.y));
+    const bounds = clippedBounds(ctx, { x: left, y: top, width: Math.max(...projected.map(p => p.x)) - left,
+      height: Math.max(...projected.map(p => p.y)) - top }, 1);
+    if (!bounds) return null;
+    const maxPixels = Math.floor(clamp(number(renderOptions && renderOptions.maxPixels, MAX_WARP_PIXELS), 4096, MAX_WARP_PIXELS));
+    const q = options.quad, distance = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
+    const horizontal = Math.max(distance(q[0], q[1]), distance(q[3], q[2])) / box.width;
+    const vertical = Math.max(distance(q[0], q[3]), distance(q[1], q[2])) / box.height;
+    const sourceSize = warpSize(Math.max(2, Math.ceil(sourceBox.width * horizontal)), Math.max(2, Math.ceil(sourceBox.height * vertical)), maxPixels);
+    const outputSize = warpSize(bounds.width, bounds.height, maxPixels);
+    let work = perspectiveWork.get(ctx);
+    if (!work) { work = { source: newCanvas(ctx, 1, 1), output: newCanvas(ctx, 1, 1), image: null }; perspectiveWork.set(ctx, work); }
+    for (const [target, size] of [[work.source, sourceSize], [work.output, outputSize]]) {
+      if (target.width !== size.width) target.width = size.width;
+      if (target.height !== size.height) target.height = size.height;
+    }
+    const paint = work.source.getContext('2d', { willReadFrequently: true }), out = work.output.getContext('2d');
+    const scaleX = sourceSize.width / sourceBox.width, scaleY = sourceSize.height / sourceBox.height;
+    paint.setTransform(1, 0, 0, 1, 0, 0); paint.globalAlpha = 1; paint.globalCompositeOperation = 'source-over';
+    paint.clearRect(0, 0, sourceSize.width, sourceSize.height);
+    paint.save(); paint.setTransform(scaleX, 0, 0, scaleY, -sourceBox.x * scaleX, -sourceBox.y * scaleY);
+    const flat = { ...options, opacity: 1 }; delete flat.quad;
+    const painted = paintShapeFlat(paint, flat, false); paint.restore(); if (!painted) return null;
+    const source = paint.getImageData(0, 0, sourceSize.width, sourceSize.height).data;
+    if (!work.image || work.image.width !== outputSize.width || work.image.height !== outputSize.height) work.image = out.createImageData(outputSize.width, outputSize.height);
+    const image = work.image, output = image.data; output.fill(0);
+    const stepX = bounds.width / outputSize.width, stepY = bounds.height / outputSize.height;
+    const edges = q.map((p, i) => {
+      const next = q[(i + 1) % 4], dx = next.x - p.x, dy = next.y - p.y, length = Math.hypot(dx, dy);
+      return { a: dy / length, b: -dx / length, c: (dx * p.y - dy * p.x) / length };
+    });
+    const sum = new Float64Array(4), edgeRadius = Math.max(stepX, stepY);
+    function sample(x, y, weight) {
+      const divisor = inverse[6] * x + inverse[7] * y + inverse[8];
+      if (!Number.isFinite(divisor) || Math.abs(divisor) < 1e-12) return;
+      const u = (inverse[0] * x + inverse[1] * y + inverse[2]) / divisor;
+      const v = (inverse[3] * x + inverse[4] * y + inverse[5]) / divisor;
+      const sx = (padding + u * box.width) * scaleX - .5, sy = (padding + v * box.height) * scaleY - .5;
+      if (sx < 0 || sy < 0 || sx > sourceSize.width - 1 || sy > sourceSize.height - 1) return;
+      const ix = Math.floor(sx), iy = Math.floor(sy), fx = sx - ix, fy = sy - iy;
+      const x1 = Math.min(ix + 1, sourceSize.width - 1), y1 = Math.min(iy + 1, sourceSize.height - 1);
+      const first = (iy * sourceSize.width + ix) * 4, offsetX = (x1 - ix) * 4, offsetY = (y1 - iy) * sourceSize.width * 4;
+      for (let i = 0; i < 4; i++) {
+        const index = first + (i & 1 ? offsetX : 0) + (i & 2 ? offsetY : 0);
+        const alpha = source[index + 3] * (i & 1 ? fx : 1 - fx) * (i & 2 ? fy : 1 - fy) * weight;
+        sum[0] += source[index] * alpha; sum[1] += source[index + 1] * alpha; sum[2] += source[index + 2] * alpha; sum[3] += alpha;
+      }
+    }
+    for (let y = 0; y < outputSize.height; y++) for (let x = 0; x < outputSize.width; x++) {
+      const px = bounds.x + (x + .5) * stepX, py = bounds.y + (y + .5) * stepY;
+      sum.fill(0); sample(px, py, 1);
+      // Supersample coverage near polygon borders and partially covered source
+      // pixels. Each destination pixel is still written only once: no mesh
+      // seams, doubled translucent edges, or dark RGB around transparent holes.
+      let border = false;
+      for (const edge of edges) if (Math.abs(edge.a * px + edge.b * py + edge.c) < edgeRadius) { border = true; break; }
+      if (sum[3] > .01 && sum[3] < 254.99 || border) {
+        sum.fill(0);
+        sample(px - stepX * .25, py - stepY * .25, .25); sample(px + stepX * .25, py - stepY * .25, .25);
+        sample(px - stepX * .25, py + stepY * .25, .25); sample(px + stepX * .25, py + stepY * .25, .25);
+      }
+      if (sum[3] <= .001) continue;
+      const index = (y * outputSize.width + x) * 4;
+      output[index] = sum[0] / sum[3]; output[index + 1] = sum[1] / sum[3]; output[index + 2] = sum[2] / sum[3]; output[index + 3] = sum[3];
+    }
+    out.setTransform(1, 0, 0, 1, 0, 0); out.globalAlpha = 1; out.globalCompositeOperation = 'source-over'; out.putImageData(image, 0, 0);
+    ctx.save(); ctx.globalAlpha *= opacity; ctx.imageSmoothingEnabled = true;
+    ctx.drawImage(work.output, bounds.x, bounds.y, bounds.width, bounds.height); ctx.restore();
+    return bounds;
+  }
+  /** With quad, maxPixels is a transient preview budget, never saved as a style. */
+  function paintShape(ctx, options, renderOptions) {
+    return options && options.quad != null ? paintPerspective(ctx, options, renderOptions) : paintShapeFlat(ctx, options);
   }
 
   const textBoxKinds = ['caption', 'balloon', 'ribbon', 'fold', 'bookplate'];
@@ -614,5 +745,5 @@
       placements.forEach(function (line) { if (outlined) paint.strokeText(line.text, line.x, line.y); if (filled) paint.fillText(line.text, line.x, line.y); });
     });
   }
-  return { fillStyle: fillStyle, paintShape: paintShape, paintText: paintText, normalizedBounds: normalizedBounds, frameKinds: frameKinds };
+  return { fillStyle: fillStyle, paintShape: paintShape, paintText: paintText, normalizedBounds: normalizedBounds, frameKinds: frameKinds, validQuad: validQuad };
 });

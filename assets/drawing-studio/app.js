@@ -36,6 +36,7 @@
   let view = { zoom: 1, x: 0, y: 0 }, refView = { zoom: 1, x: 0, y: 0 };
   let tool = 'brush', brush = 'gpen', ink = '#263544', size = 8, opacity = 1, stabilizer = 20;
   let textureScale = 1, textureDensity = 1;
+  let shapeMode = 'insert', shapeTransform = 'resize', shapeSelection = null, shapeStyleBaseline = null, lineReference = null;
   let pressureEnabled = true, touchDraw = false, penOnlyBrush = true, refPicking = false, recentColors = [], fillPalettePending = false;
   // A device-local preference, not an artwork setting. New installations start with mouse brushing disabled.
   const penOnlyBrushKey = 'lrx-drawing-pen-only-brush-v1';
@@ -177,7 +178,8 @@
     $('materialVariationOptions').hidden = !varied || !s.materialNatural;
     $('materialVariationSizeValue').textContent = s.materialVariationSize + '%';
     $('materialVariationShapeValue').textContent = s.materialVariationShape + '%';
-    $('shapeConstraintText').textContent = ['line', 'arrow'].includes(s.shapeKind) ? '方向吸附到 45°' : '固定 1:1 比例';
+    $('shapeConstraintText').textContent = ['line', 'arrow'].includes(s.shapeKind) ? '方向吸附到 45°' : shapeMode === 'select' ? '保持当前宽高比' : '固定 1:1 比例';
+    $('lineGuideFields').hidden = s.shapeKind !== 'line';
     const isFrame = Marks.frameKinds.includes(s.shapeKind);
     $('shapePaintFields').hidden = isFrame; $('frameFields').hidden = !isFrame;
     $('textBoxColors').hidden = s.textBoxStyle === 'none';
@@ -321,7 +323,7 @@
       }
       restoreRecords(redo ? entry.recordsAfter : entry.recordsBefore);
     }
-    changed(); sync(); render();
+    changed(); sync(); if (tool === 'shape') loadShapeStyle(); render();
   }
   function undo() {
     if (busy) return; finishPointer(); settleTransactions(); if (!undoStack.length) return;
@@ -367,7 +369,7 @@
     for (const layer of art.layers) {
       if (!layer.visible || layer.opacity <= 0) continue;
       let source = layer.canvas;
-      if (includeStroke && activePointer && activePointer.kind === 'stroke-erase' && activePointer.layerId === layer.id && activePointer.preview) {
+      if (includeStroke && activePointer && ['stroke-erase', 'shape-edit'].includes(activePointer.kind) && activePointer.layerId === layer.id && activePointer.preview) {
         clear(liveCanvas); context(liveCanvas).drawImage(layer.canvas, 0, 0);
         Strokes.render(activePointer.preview.state, liveCanvas, activePointer.preview.keys); source = liveCanvas;
       } else if (includeStroke && activePointer && ['stroke', 'shape', 'text'].includes(activePointer.kind) && activePointer.layerId === layer.id) {
@@ -392,12 +394,20 @@
     else ctx.drawImage(source, 0, 0);
     ctx.restore(); return target;
   }
-  function render() { if (!art) return; renderArtwork(display); previewLasso(); updateView(); }
+  function render() {
+    if (!art) return;
+    if (activePointer?.kind === 'shape-edit' && activePointer.pendingEdit) {
+      const pending = activePointer.pendingEdit; activePointer.pendingEdit = null;
+      previewShapeEdit(activePointer, pending.point, pending.shift, false, true);
+    }
+    renderArtwork(display); previewLasso(); updateView();
+  }
   function requestRender() { if (!frame) frame = requestAnimationFrame(() => { frame = 0; render(); }); }
   function updateView() {
     surface.style.transform = 'translate(' + view.x + 'px,' + view.y + 'px) scale(' + view.zoom + ')';
     surface.classList.toggle('pixel-view', brush === 'pixel' || view.zoom >= 3);
     $('zoomLabel').textContent = Math.round(view.zoom * 100) + '%';
+    updateShapeSelection();
   }
   function fit() {
     if (!art) return;
@@ -434,6 +444,11 @@
     updatePressure(e);
     const r = viewport.getBoundingClientRect(), c = $('brushCursor'), mode = spacePan ? 'hand' : e.altKey ? 'picker' : mouseBrushPans(e) ? 'hand' : tool;
     viewport.dataset.cursor = mode;
+    if (mode === 'shape' && shapeMode === 'select') {
+      const selection = selectedShape(), layer = activeLayer(), point = strokePoint(e, layer);
+      const handle = selection && shapeHandle(selection.op.shape, point, layer, e.pointerType === 'touch');
+      viewport.dataset.cursor = handle ? 'shape-' + handle : selection && pointInShapeBox(selection.op.shape, point, layer) ? 'shape-move' : 'shape-select';
+    }
     c.hidden = !['brush', 'eraser'].includes(mode) || e.pointerType === 'touch';
     c.style.left = (e.clientX - r.left) + 'px'; c.style.top = (e.clientY - r.top) + 'px';
     const d = Math.max(3, size * view.zoom); c.style.width = d + 'px'; c.style.height = d + 'px'; c.classList.toggle('square', (brush === 'pixel' || brush === 'plainSquare') && mode === 'brush');
@@ -449,6 +464,297 @@
     const fill = materialStyle(s, layer.scale);
     if (kind === 'shape') return { type: s.shapeKind, constrain: s.shapeConstrain, fill: s.shapeFill ? fill : null, stroke: s.shapeStroke ? s.shapeStrokeColor : null, strokeWidth: s.shapeStrokeWidth / layer.scale, frameColor: s.frameColor, frameAccent: s.frameAccent, frameWidth: s.frameWidth / layer.scale, opacity: 1 };
     return { text: s.textContent, size: s.textSize / layer.scale, fontFamily: MARK_FONTS[s.textFont], bold: s.textBold, italic: s.textItalic, align: s.textAlign, lineHeight: s.textLineHeight, fill: s.textUseMaterial ? fill : ink, stroke: null, opacity: 1, boxStyle: s.textBoxStyle, boxColor: s.textBoxColor, boxAccent: s.textBoxAccent };
+  }
+  const directionalShape = shape => ['line', 'arrow'].includes(shape.type);
+  function lineReferenceShape() {
+    if (!lineReference || !art) return null;
+    const layer = art.layers.find(item => item.id === lineReference.layerId), op = layer?.strokeRecords?.operations.find(item => item.id === lineReference.id && item.shape?.type === 'line');
+    return op && Math.hypot(op.shape.width, op.shape.height) > .01 ? { layer, op } : null;
+  }
+  function syncLineGuide() {
+    const chosen = selectedShape(), reference = lineReferenceShape();
+    $('lineSetReference').disabled = !chosen || chosen.op.shape.type !== 'line' || chosen.layer.locked || !chosen.layer.visible || !!busy;
+    $('lineReferenceHint').textContent = reference ? '基准已设为“' + reference.layer.name + '”中的直线。点“插入新形状”，可在任意位置画平行或垂直线。'
+      : lineReference ? '基准线已删除或合成，请重新选中一条直线并设为基准。' : '先插入并选中一条直线，再设为基准。';
+  }
+  function setLineReference() {
+    if (busy) return false; finishPointer();
+    const chosen = selectedShape(); if (!chosen || chosen.op.shape.type !== 'line' || !canDraw()) return false;
+    lineReference = { layerId: chosen.layer.id, id: chosen.op.id };
+    if ($('lineRelation').value === 'free') $('lineRelation').value = 'parallel';
+    syncLineGuide(); status('已设置基准直线 · 选择平行或垂直，再插入新直线'); return true;
+  }
+  function constrainedLineDirection() {
+    const relation = $('lineRelation').value; if (relation === 'free') return null;
+    if (!lineReference) {
+      const chosen = selectedShape(), layer = activeLayer(), op = chosen?.op.shape.type === 'line' ? chosen.op : [...(layer.strokeRecords?.operations || [])].reverse().find(item => item.shape?.type === 'line');
+      if (op) lineReference = { layerId: layer.id, id: op.id };
+    }
+    const reference = lineReferenceShape(); syncLineGuide();
+    if (!reference) throw new Error('请先选中一条直线并设为基准，再画平行线或垂直线。');
+    const length = Math.hypot(reference.op.shape.width, reference.op.shape.height), x = reference.op.shape.width / length, y = reference.op.shape.height / length;
+    return relation === 'perpendicular' ? { x: -y, y: x } : { x, y };
+  }
+  function shapeGeometry(options) {
+    const shape = { ...options, x: clamp(options.x, -65536, 65536), y: clamp(options.y, -65536, 65536),
+      width: clamp(options.width, -16384, 16384), height: clamp(options.height, -16384, 16384), opacity: 1 };
+    if (directionalShape(shape)) {
+      if (shape.constrain) {
+        const length = Math.hypot(shape.width, shape.height), angle = Math.round(Math.atan2(shape.height, shape.width) / (Math.PI / 4)) * Math.PI / 4;
+        shape.width = Math.cos(angle) * length; shape.height = Math.sin(angle) * length;
+      }
+    } else Object.assign(shape, Marks.normalizedBounds(shape, shape.constrain));
+    shape.constrain = false; return shape;
+  }
+  function selectedShape() {
+    if (!art || !shapeSelection || shapeSelection.layerId !== art.activeId) return null;
+    const layer = activeLayer(), op = layer.strokeRecords?.operations.find(item => item.id === shapeSelection.id && item.shape);
+    return op ? { layer, op } : null;
+  }
+  function shapeBox(shape) {
+    if (shape.quad) {
+      const xs = shape.quad.map(point => point.x), ys = shape.quad.map(point => point.y);
+      return { x: Math.min(...xs), y: Math.min(...ys), width: Math.max(...xs) - Math.min(...xs), height: Math.max(...ys) - Math.min(...ys) };
+    }
+    return { x: Math.min(shape.x, shape.x + shape.width), y: Math.min(shape.y, shape.y + shape.height), width: Math.abs(shape.width), height: Math.abs(shape.height) };
+  }
+  function shapeQuad(shape) {
+    if (shape.quad) return shape.quad;
+    const b = shapeBox(shape); return [{ x: b.x, y: b.y }, { x: b.x + b.width, y: b.y }, { x: b.x + b.width, y: b.y + b.height }, { x: b.x, y: b.y + b.height }];
+  }
+  function shapeCorners(shape) {
+    if (directionalShape(shape)) return { nw: { x: shape.x, y: shape.y }, se: { x: shape.x + shape.width, y: shape.y + shape.height } };
+    if (shapeTransform === 'perspective') { const q = shapeQuad(shape); return { nw: q[0], ne: q[1], se: q[2], sw: q[3] }; }
+    const b = shapeBox(shape);
+    return { nw: { x: b.x, y: b.y }, ne: { x: b.x + b.width, y: b.y }, sw: { x: b.x, y: b.y + b.height }, se: { x: b.x + b.width, y: b.y + b.height } };
+  }
+  function shapeHandle(shape, point, layer, touch = false) {
+    const radius = (touch ? 16 : 8) / (view.zoom * layer.scale);
+    for (const [name, corner] of Object.entries(shapeCorners(shape))) if (Math.hypot(point.x - corner.x, point.y - corner.y) <= radius) return name;
+    return null;
+  }
+  function pointInShapeBox(shape, point, layer) {
+    const b = shapeBox(shape), pad = 4 / (view.zoom * layer.scale);
+    return point.x >= b.x - pad && point.x <= b.x + b.width + pad && point.y >= b.y - pad && point.y <= b.y + b.height + pad;
+  }
+  function updateShapeSelection() {
+    const overlay = $('shapeSelection'), selection = selectedShape();
+    overlay.hidden = tool !== 'shape' || shapeMode !== 'select' || !selection || !selection.layer.visible || selection.layer.locked || selection.layer.opacity <= 0;
+    if (overlay.hidden) return;
+    const { layer, op } = selection, shape = activePointer?.kind === 'shape-edit' && activePointer.preview ? activePointer.shape : op.shape;
+    const b = shapeBox(shape), width = Math.max(b.width, 1 / (view.zoom * layer.scale)), height = Math.max(b.height, 1 / (view.zoom * layer.scale));
+    Object.assign(overlay.style, { left: layer.x + b.x * layer.scale + 'px', top: layer.y + b.y * layer.scale + 'px', width: width * layer.scale + 'px', height: height * layer.scale + 'px' });
+    overlay.style.setProperty('--shape-handle', 9 / view.zoom + 'px'); overlay.style.setProperty('--shape-outline', 1 / view.zoom + 'px');
+    const perspective = !directionalShape(shape) && shapeTransform === 'perspective'; overlay.classList.toggle('perspective-mode', perspective);
+    $('shapeGuide').style.display = shape.quad || perspective ? 'block' : 'none';
+    $('shapeGuide').setAttribute('viewBox', '0 0 ' + width * layer.scale + ' ' + height * layer.scale);
+    $('shapeGuideOutline').setAttribute('points', shapeQuad(shape).map(p => (p.x - b.x) * layer.scale + ',' + (p.y - b.y) * layer.scale).join(' '));
+    $('shapeGuideOutline').setAttribute('stroke-width', 1 / view.zoom); $('shapeGuideOutline').setAttribute('stroke-dasharray', 4 / view.zoom + ' ' + 3 / view.zoom);
+    const corners = shapeCorners(shape);
+    for (const handle of overlay.querySelectorAll('[data-corner]')) {
+      const corner = corners[handle.dataset.corner]; handle.hidden = !corner;
+      if (corner) { handle.style.left = (corner.x - b.x) / width * 100 + '%'; handle.style.top = (corner.y - b.y) / height * 100 + '%'; }
+    }
+  }
+  function syncShapeUI() {
+    if (!art) return;
+    const selection = selectedShape(); if (shapeSelection && !selection) shapeSelection = null;
+    const layer = activeLayer(), shapes = (layer.strokeRecords?.operations || []).filter(op => op.shape), usable = layer.visible && !layer.locked && layer.opacity > 0;
+    $('shapeMode').value = shapeMode;
+    $('shapeTransform').value = shapeTransform;
+    $('shapeTransform').disabled = !selection || directionalShape(selection.op.shape) || !usable;
+    $('shapeResetPerspective').hidden = !selection?.op.shape.quad; $('shapeResetPerspective').disabled = !usable || !!busy;
+    $('shapeObjectField').hidden = shapeMode !== 'select'; $('shapeEditActions').hidden = !selection || shapeMode !== 'select';
+    $('shapeObject').replaceChildren();
+    const empty = document.createElement('option'); empty.value = ''; empty.textContent = shapes.length ? '点击画布或从列表选择' : '本层没有可编辑形状'; $('shapeObject').append(empty);
+    shapes.forEach((op, index) => {
+      const option = document.createElement('option'); option.value = op.id;
+      const name = Array.from($('shapeKind').options).find(item => item.value === op.shape.type)?.textContent || '形状';
+      option.textContent = (index + 1) + ' · ' + name; $('shapeObject').append(option);
+    });
+    $('shapeObject').value = selection ? selection.op.id : ''; $('shapeObject').disabled = !usable || !shapes.length;
+    for (const id of ['shapeDuplicate', 'shapeDelete', 'shapeApplyStyle']) $(id).disabled = !selection || !usable || !!busy;
+    $('shapeEditHint').textContent = !usable ? '请先显示并解锁当前图层。'
+      : shapeMode === 'insert' ? '拖动插入，松手后可直接移动和缩放。'
+      : selection ? shapeTransform === 'perspective' && !directionalShape(selection.op.shape) ? '分别拖四角改变视角，模拟侧视或仰视；四边不能交叉。拖内部可整体移动。' : '拖动选中形状移动；拖四角缩放，Shift 保持比例。线条和箭头可拖两端。'
+      : shapes.length ? '点击当前层的形状，或从列表选中；重叠时可用列表切换。'
+      : '本层没有可编辑形状。新插入的形状可修改；旧图片或已合成像素不能重新选中。';
+    if (selection && shapeStyleBaseline && shapeStyleBaseline.id === selection.op.id && shapeStyleBaseline.scale !== selection.layer.scale) loadShapeStyle(selection);
+    $('shapeConstraintText').textContent = ['line', 'arrow'].includes($('shapeKind').value) ? '方向吸附到 45°' : shapeMode === 'select' ? '保持当前宽高比' : '固定 1:1 比例';
+    syncLineGuide(); updateShapeSelection();
+  }
+  function loadShapeStyle(selection = selectedShape()) {
+    if (!selection) return;
+    const { layer, op } = selection, shape = op.shape, fill = shape.fill;
+    const settings = { ...readMarkSettings(), shapeKind: shape.type, shapeConstrain: false, shapeFill: !!fill, shapeStroke: !!shape.stroke,
+      shapeStrokeColor: shape.stroke || '#263544', shapeStrokeWidth: shape.strokeWidth * layer.scale,
+      frameColor: shape.frameColor, frameAccent: shape.frameAccent, frameWidth: shape.frameWidth * layer.scale };
+    if (fill) Object.assign(settings, { materialKind: fill.kind, materialFollowInk: true, materialForeground: fill.foreground,
+      materialBackground: fill.background, materialTransparent: !!fill.transparentBackground, materialSpacing: fill.spacing * layer.scale,
+      materialThickness: fill.thickness * layer.scale, materialAngle: fill.angle,
+      materialColorCount: Math.max(1, Math.min(6, fill.colors?.length || 1)),
+      ...Object.fromEntries(MATERIAL_EXTRA_COLORS.map((key, index) => [key, fill.colors?.[index + 1] || MARK_DEFAULTS[key]])),
+      materialNatural: !!(fill.variationSize || fill.variationShape),
+      materialVariationSize: fill.variationSize == null ? MARK_DEFAULTS.materialVariationSize : Math.round(fill.variationSize * 100),
+      materialVariationShape: fill.variationShape == null ? MARK_DEFAULTS.materialVariationShape : Math.round(fill.variationShape * 100) });
+    // Choosing a shape restores its own colors. Changing the palette afterwards
+    // only changes the pending style until the explicit Apply button is used.
+    if (fill?.foreground && /^#[a-f0-9]{6}$/i.test(fill.foreground)) setInk(fill.foreground);
+    applyMarkSettings(settings); opacity = op.opacity; syncOpacityUI();
+    shapeStyleBaseline = { layerId: layer.id, id: op.id, scale: layer.scale, settings: readMarkSettings() };
+  }
+  function selectShape(id, loadStyle = true) {
+    finishPointer();
+    const layer = activeLayer(), op = layer.strokeRecords?.operations.find(item => item.id === id && item.shape);
+    shapeSelection = op && layer.visible && !layer.locked && layer.opacity > 0 ? { layerId: layer.id, id: op.id } : null;
+    shapeMode = 'select'; if (loadStyle && shapeSelection) loadShapeStyle();
+    syncShapeUI(); return !!shapeSelection;
+  }
+  function setShapeMode(value) {
+    if (busy) return;
+    finishPointer(); shapeMode = value === 'select' ? 'select' : 'insert';
+    if (shapeMode === 'insert') { shapeSelection = null; shapeStyleBaseline = null; }
+    syncShapeUI(); status(shapeMode === 'insert' ? '形状 · 拖动插入新形状' : '形状 · 选择当前层形状后拖动修改');
+  }
+  function shapePreviewResult(layer, op, shape, strength, preview = false) {
+    clear(strokeCanvas);
+    const bounds = Marks.paintShape(context(strokeCanvas), shape, preview ? { maxPixels: 131072 } : undefined);
+    if (!bounds) return null;
+    const result = Strokes.replaceShape(layer.strokeRecords, layer.canvas, strokeCanvas, bounds, op.id, shape, strength);
+    if (!result) return null;
+    const total = art.layers.reduce((sum, item) => sum + Strokes.bytes([item.id === layer.id ? Strokes.clean(result.state) : item.strokeRecords]), 0);
+    return total <= Strokes.MAX_BYTES ? result : null;
+  }
+  function commitShapeResult(layer, result, label) {
+    if (!result || !layer.visible || layer.locked) return false;
+    const recordsBefore = recordSnapshot(), before = Strokes.capture(result.state, layer.canvas, result.keys);
+    Strokes.render(result.state, layer.canvas, result.keys);
+    const after = Strokes.capture(result.state, layer.canvas, result.keys);
+    layer.strokeRecords = Strokes.clean(result.state); activePointer = null;
+    addHistory({ kind: 'tiles', layerId: layer.id, patches: before.map((p, i) => ({ before: p, after: after[i] })), recordsBefore, recordsAfter: recordSnapshot(), label });
+    syncShapeUI(); requestRender(); return true;
+  }
+  function applyShapeStyle() {
+    if (busy) return false; finishPointer(); settleTransactions();
+    const selection = selectedShape(); if (!selection || !canDraw() || selection.layer.opacity <= 0) return false;
+    const { layer, op } = selection, settings = readMarkSettings(), next = markOptions('shape', layer, settings);
+    // Existing shapes can exceed the insertion controls' range after a layer
+    // scale. Untouched dimensional fields retain their exact local values.
+    const baseline = shapeStyleBaseline?.id === op.id && shapeStyleBaseline.layerId === layer.id ? shapeStyleBaseline.settings : null;
+    if (baseline) {
+      if (settings.shapeStrokeWidth === baseline.shapeStrokeWidth) next.strokeWidth = op.shape.strokeWidth;
+      if (settings.frameWidth === baseline.frameWidth) next.frameWidth = op.shape.frameWidth;
+      if (next.fill && op.shape.fill) {
+        next.fill = { ...op.shape.fill, ...next.fill };
+        if (settings.materialSpacing === baseline.materialSpacing) next.fill.spacing = op.shape.fill.spacing;
+        if (settings.materialThickness === baseline.materialThickness) next.fill.thickness = op.shape.fill.thickness;
+        if (settings.materialKind === baseline.materialKind) {
+          if (settings.materialColorCount === baseline.materialColorCount && next.fill.foreground === op.shape.fill.foreground
+            && MATERIAL_EXTRA_COLORS.every(key => settings[key] === baseline[key])) {
+            if (op.shape.fill.colors) next.fill.colors = op.shape.fill.colors;
+            else delete next.fill.colors;
+          }
+          for (const [field, setting] of [['variationSize', 'materialVariationSize'], ['variationShape', 'materialVariationShape']]) {
+            if (settings.materialNatural === baseline.materialNatural && settings[setting] === baseline[setting]) {
+              if (op.shape.fill[field] == null) delete next.fill[field];
+              else next.fill[field] = op.shape.fill[field];
+            }
+          }
+        }
+      }
+    }
+    if (!Marks.frameKinds.includes(next.type) && !next.fill && !next.stroke) { notify('请至少启用填充或描边。'); return false; }
+    const shape = shapeGeometry({ ...op.shape, ...next });
+    if (directionalShape(shape)) delete shape.quad;
+    if (JSON.stringify(Strokes.normalizeShape(shape)) === JSON.stringify(op.shape) && opacity === op.opacity) return false;
+    const result = shapePreviewResult(layer, op, shape, opacity);
+    if (!result) { notify('这个样式没有可见像素或超过形状编辑限额，请缩小形状后重试。'); clear(strokeCanvas); return false; }
+    const changed = commitShapeResult(layer, result, '修改形状样式'); clear(strokeCanvas);
+    if (changed) { loadShapeStyle(); status('已修改选中形状的样式 · 可撤销'); } return changed;
+  }
+  function duplicateShape() {
+    if (busy) return false; finishPointer(); settleTransactions();
+    const selection = selectedShape(); if (!selection || !canDraw() || selection.layer.opacity <= 0) return false;
+    const { layer, op } = selection, b = shapeBox(op.shape), step = 16 / layer.scale;
+    const dx = b.x + b.width + step < art.width ? step : -step, dy = b.y + b.height + step < art.height ? step : -step;
+    const shape = { ...op.shape, x: op.shape.x + dx, y: op.shape.y + dy, ...(op.shape.quad ? { quad: op.shape.quad.map(p => ({ x: p.x + dx, y: p.y + dy })) } : {}) };
+    clear(strokeCanvas); const bounds = Marks.paintShape(context(strokeCanvas), shape);
+    const changed = commitPreview({ kind: 'shape', shape, opacity: op.opacity }, layer, bounds, '复制形状');
+    clear(strokeCanvas); requestRender(); if (changed) { loadShapeStyle(); status('已复制形状 · 拖动副本调整位置'); } return changed;
+  }
+  function resetShapePerspective() {
+    if (busy) return false; finishPointer(); settleTransactions();
+    const selection = selectedShape(); if (!selection?.op.shape.quad || !canDraw()) return false;
+    const shape = { ...selection.op.shape }; delete shape.quad;
+    const result = shapePreviewResult(selection.layer, selection.op, shape, selection.op.opacity);
+    if (!result) { notify('复位后的形状不在画布内或超过编辑限额。'); return false; }
+    const changed = commitShapeResult(selection.layer, result, '复位形状透视'); clear(strokeCanvas);
+    if (changed) status('已恢复形状正面视角 · 可撤销'); return changed;
+  }
+  function deleteShape() {
+    if (busy) return false; finishPointer(); settleTransactions();
+    const selection = selectedShape(); if (!selection || !canDraw() || selection.layer.opacity <= 0) return false;
+    const changed = commitShapeResult(selection.layer, Strokes.removeShape(selection.layer.strokeRecords, selection.op.id), '删除形状');
+    if (changed) status('已删除选中形状 · 可撤销'); return changed;
+  }
+  function beginShapeEdit(e, layer) {
+    const point = strokePoint(e, layer), selection = selectedShape();
+    let handle = selection && shapeHandle(selection.op.shape, point, layer, e.pointerType === 'touch');
+    const hit = handle ? selection.op.id : Strokes.hitShape(layer.strokeRecords, point.x, point.y, 4 / (view.zoom * layer.scale));
+    const id = hit || (selection && pointInShapeBox(selection.op.shape, point, layer) ? selection.op.id : null);
+    if (!id) { selectShape(null); status('未选中形状 · 可从“当前层形状”列表选择'); return false; }
+    if (!selection || selection.op.id !== id) { selectShape(id); handle = null; }
+    const chosen = selectedShape(); if (!chosen) return false;
+    const corner = handle && shapeCorners(chosen.op.shape)[handle];
+    activePointer = { id: e.pointerId, kind: 'shape-edit', layerId: layer.id, op: chosen.op, origin: point, handle,
+      handleOffset: corner ? { x: corner.x - point.x, y: corner.y - point.y } : null, shape: chosen.op.shape, preview: null, changed: false, invalid: false };
+    viewport.classList.add('drawing'); return true;
+  }
+  function previewShapeEdit(pointer, point, shift, schedule = true, preview = false) {
+    const layer = art.layers.find(item => item.id === pointer.layerId), original = pointer.op.shape;
+    if (!layer) return;
+    if (pointer.handleOffset) point = { x: point.x + pointer.handleOffset.x, y: point.y + pointer.handleOffset.y };
+    let shape = { ...original };
+    if (!pointer.handle) {
+      const dx = point.x - pointer.origin.x, dy = point.y - pointer.origin.y;
+      shape.x += dx; shape.y += dy;
+      if (original.quad) shape.quad = original.quad.map(p => ({ x: p.x + dx, y: p.y + dy }));
+    } else if (!directionalShape(original) && shapeTransform === 'perspective') {
+      shape.quad = shapeQuad(original).map(p => ({ ...p }));
+      const index = { nw: 0, ne: 1, se: 2, sw: 3 }[pointer.handle]; shape.quad[index] = { x: point.x, y: point.y };
+    } else if (directionalShape(original)) {
+      const start = pointer.handle === 'nw', anchor = start ? { x: original.x + original.width, y: original.y + original.height } : { x: original.x, y: original.y };
+      let dx = point.x - anchor.x, dy = point.y - anchor.y;
+      if (shift || $('shapeConstrain').checked) { const length = Math.hypot(dx, dy), angle = Math.round(Math.atan2(dy, dx) / (Math.PI / 4)) * Math.PI / 4; dx = Math.cos(angle) * length; dy = Math.sin(angle) * length; }
+      Object.assign(shape, { x: start ? anchor.x + dx : anchor.x, y: start ? anchor.y + dy : anchor.y, width: start ? -dx : dx, height: start ? -dy : dy });
+    } else {
+      const b = shapeBox(original), left = pointer.handle.includes('w'), top = pointer.handle.includes('n');
+      const anchor = { x: left ? b.x + b.width : b.x, y: top ? b.y + b.height : b.y };
+      let dx = point.x - anchor.x, dy = point.y - anchor.y;
+      const minimum = 1 / layer.scale;
+      if (shift || $('shapeConstrain').checked) {
+        const ratio = Math.max(.0001, b.width / Math.max(.0001, b.height));
+        let w = Math.max(Math.abs(dx), Math.abs(dy) * ratio, minimum), h = w / ratio;
+        if (h < minimum) { h = minimum; w = h * ratio; }
+        dx = (dx < 0 || dx === 0 && left ? -1 : 1) * w; dy = (dy < 0 || dy === 0 && top ? -1 : 1) * h;
+      } else {
+        dx = (dx < 0 || dx === 0 && left ? -1 : 1) * Math.max(minimum, Math.abs(dx));
+        dy = (dy < 0 || dy === 0 && top ? -1 : 1) * Math.max(minimum, Math.abs(dy));
+      }
+      Object.assign(shape, { x: Math.min(anchor.x, anchor.x + dx), y: Math.min(anchor.y, anchor.y + dy), width: Math.abs(dx), height: Math.abs(dy) });
+      if (original.quad) {
+        const sx = shape.width / b.width, sy = shape.height / b.height, x = shape.x, y = shape.y;
+        shape.quad = original.quad.map(p => ({ x: x + (p.x - b.x) * sx, y: y + (p.y - b.y) * sy }));
+        Object.assign(shape, { x: x + (original.x - b.x) * sx, y: y + (original.y - b.y) * sy, width: original.width * sx, height: original.height * sy });
+      }
+    }
+    const originalQuad = shapeQuad(original), quadMoved = shape.quad && shape.quad.some((p, i) => Math.abs(p.x - originalQuad[i].x) > .0001 || Math.abs(p.y - originalQuad[i].y) > .0001);
+    const moved = ['x', 'y', 'width', 'height'].some(key => Math.abs(shape[key] - original[key]) > .0001) || quadMoved;
+    pointer.changed = moved; pointer.invalid = false;
+    if (!moved) { pointer.preview = null; pointer.shape = original; if (schedule) requestRender(); return; }
+    const result = shapePreviewResult(layer, pointer.op, shape, pointer.op.opacity, preview);
+    pointer.preview = result; pointer.shape = result ? shape : original; pointer.invalid = !result;
+    if (schedule) requestRender();
   }
   function renderMarkSample(s) {
     const sample = $(tool === 'shape' ? 'shapePreview' : 'textBoxPreview');
@@ -469,15 +775,23 @@
     layerBudget(art.layers.length + 1);
     mutate(() => {
       const layer = createLayer('画框 · ' + $('shapeKind').selectedOptions[0].textContent);
-      Marks.paintShape(context(layer.canvas), { ...options, x: 0, y: 0, width: art.width, height: art.height, constrain: false });
-      layer.opacity = opacity; art.layers.push(layer); art.activeId = layer.id;
+      const shape = { ...options, x: 0, y: 0, width: art.width, height: art.height, constrain: false }, id = uid();
+      clear(strokeCanvas); const bounds = Marks.paintShape(context(strokeCanvas), shape);
+      const records = Strokes.append(null, layer.canvas, strokeCanvas, bounds, { id, kind: 'overlay', shape, opacity });
+      if (!records || Strokes.bytes([records]) + Strokes.bytes(art.layers.map(item => item.strokeRecords)) > Strokes.MAX_BYTES) throw new Error('画框超过形状编辑限额，请缩小画布或框宽后重试。');
+      const ctx = context(layer.canvas); ctx.save(); ctx.globalAlpha = opacity; ctx.drawImage(strokeCanvas, 0, 0); ctx.restore(); clear(strokeCanvas); layer.strokeRecords = records;
+      art.layers.push(layer); art.activeId = layer.id;
+      shapeSelection = { layerId: layer.id, id }; shapeMode = 'select';
     }, '添加整张画框');
-    status('画框已加入独立图层');
+    loadShapeStyle(); status('画框已加入独立图层 · 可拖动修改');
   }
   function previewMark(pointer, point, shift) {
     clear(strokeCanvas); pointer.last = point;
     if (pointer.kind === 'shape') {
-      pointer.bounds = Marks.paintShape(context(strokeCanvas), { ...pointer.options, x: pointer.origin.x, y: pointer.origin.y, width: point.x - pointer.origin.x, height: point.y - pointer.origin.y, constrain: pointer.options.constrain || !!shift });
+      let width = point.x - pointer.origin.x, height = point.y - pointer.origin.y;
+      if (pointer.lineDirection) { const along = width * pointer.lineDirection.x + height * pointer.lineDirection.y; width = along * pointer.lineDirection.x; height = along * pointer.lineDirection.y; }
+      pointer.shape = shapeGeometry({ ...pointer.options, x: pointer.origin.x, y: pointer.origin.y, width, height, constrain: !pointer.lineDirection && (pointer.options.constrain || !!shift) });
+      pointer.bounds = Marks.paintShape(context(strokeCanvas), pointer.shape);
     } else pointer.bounds = Marks.paintText(context(strokeCanvas), { ...pointer.options, x: point.x, y: point.y });
     requestRender();
   }
@@ -544,16 +858,30 @@
     const b = clippedBounds(rawBounds); if (!b) return false;
     const ctx = context(layer.canvas), before = ctx.getImageData(b.x, b.y, b.width, b.height), recordsBefore = recordSnapshot();
     const preserve = !pointer.sampledLayer && !pointer.resetRecords;
+    const id = uid(), shape = pointer.kind === 'shape' ? pointer.shape : null;
     const nextRecords = preserve ? Strokes.append(layer.strokeRecords, layer.canvas, strokeCanvas, b,
-      { id: uid(), kind: pointer.erase ? 'erase' : pointer.kind === 'stroke' ? 'stroke' : 'overlay', opacity: pointer.opacity }) : null;
+      { id, kind: pointer.erase ? 'erase' : pointer.kind === 'stroke' ? 'stroke' : 'overlay', opacity: pointer.opacity, ...(shape ? { shape } : {}) }) : null;
+    let proposedLayers = null;
+    if (shape) {
+      if (!nextRecords || nextRecords === layer.strokeRecords) { notify('形状没有可见像素或超过编辑限额，请缩小后重试。'); return false; }
+      proposedLayers = art.layers.map(item => ({ ...item, strokeRecords: item.id === layer.id ? nextRecords : item.strokeRecords }));
+      Strokes.limit(proposedLayers);
+      if (!proposedLayers.find(item => item.id === layer.id).strokeRecords?.operations.some(op => op.id === id && op.shape)) { notify('形状超过编辑限额，请缩小后重试。'); return false; }
+    }
     applyStrokePatch(ctx, pointer, b);
     const after = ctx.getImageData(b.x, b.y, b.width, b.height);
     // Two opaque, identical strokes still are two pen-down actions. Keeping
     // their provenance lets whole erasure remove the upper one independently.
     const newIdentity = preserve && !pointer.erase && nextRecords !== layer.strokeRecords && (nextRecords || layer.strokeRecords);
     if (!newIdentity && !after.data.some((v, i) => v !== before.data[i])) return false;
-    layer.strokeRecords = nextRecords; Strokes.limit(art.layers);
-    activePointer = null; addHistory({ kind: 'pixels', layerId: layer.id, x: b.x, y: b.y, before, after, recordsBefore, recordsAfter: recordSnapshot(), label }); remember(ink); return true;
+    if (proposedLayers) for (const item of art.layers) item.strokeRecords = proposedLayers.find(candidate => candidate.id === item.id).strokeRecords;
+    else { layer.strokeRecords = nextRecords; Strokes.limit(art.layers); }
+    activePointer = null; addHistory({ kind: 'pixels', layerId: layer.id, x: b.x, y: b.y, before, after, recordsBefore, recordsAfter: recordSnapshot(), label });
+    if (shape) {
+      selectShape(id, false);
+      shapeStyleBaseline = { layerId: layer.id, id, scale: layer.scale, settings: readMarkSettings() };
+    }
+    remember(ink); return true;
   }
   function eraseWholeAt(pointer, point) {
     const previous = pointer.last || point, distance = Math.hypot(point.x - previous.x, point.y - previous.y);
@@ -589,12 +917,15 @@
       else if (mouseBrushPans(e)) status('鼠标平移 · 画笔仅限数位笔；橡皮和其他工具仍可用鼠标');
       activePointer = { id: e.pointerId, kind: 'pan', clientX: e.clientX, clientY: e.clientY, x: view.x, y: view.y };
     }
-    else if (!inside) return;
+    else if (!inside && !(mode === 'shape' && shapeMode === 'select')) return;
     else if (mode === 'picker') { render(); pickFrom(display, point.x, point.y); return; }
     else {
       if (!canDraw()) return;
       const layer = activeLayer();
-      if (mode === 'fill' && $('fillScope').value === 'lasso') {
+      if (mode === 'shape' && shapeMode === 'select') {
+        if (layer.opacity <= 0 || !beginShapeEdit(e, layer)) return;
+      }
+      else if (mode === 'fill' && $('fillScope').value === 'lasso') {
         clear(strokeCanvas);
         activePointer = { id: e.pointerId, kind: 'lasso', layerId: layer.id, points: [], spacing: Math.max(.25, 2 / (view.zoom * layer.scale)),
           fill: materialStyle(readMarkSettings(), layer.scale), opacity, erase: $('fillPaintMode').value === 'transparent', resetRecords: true };
@@ -612,7 +943,8 @@
         const options = markOptions(mode, layer);
         if (mode === 'text' && !options.text.trim()) { notify('请先在右侧输入文字。'); return; }
         if (mode === 'shape' && !Marks.frameKinds.includes(options.type) && !options.fill && !options.stroke) { notify('请至少启用填充或描边。'); return; }
-        const p = strokePoint(e, layer); activePointer = { id: e.pointerId, kind: mode, layerId: layer.id, origin: p, last: p, options, opacity, bounds: null };
+        const lineDirection = mode === 'shape' && options.type === 'line' ? constrainedLineDirection() : null;
+        const p = strokePoint(e, layer); activePointer = { id: e.pointerId, kind: mode, layerId: layer.id, origin: p, last: p, options, opacity, bounds: null, lineDirection };
         previewMark(activePointer, p, e.shiftKey);
       }
       else {
@@ -634,6 +966,7 @@
     if (activePointer.kind === 'pan') { view.x = activePointer.x + e.clientX - activePointer.clientX; view.y = activePointer.y + e.clientY - activePointer.clientY; updateView(); return; }
     const layer = art.layers.find(l => l.id === activePointer.layerId); if (!layer) return;
     if (activePointer.kind === 'move') { const p = documentPoint(e); layer.x = activePointer.x + p.x - activePointer.origin.x; layer.y = activePointer.y + p.y - activePointer.origin.y; requestRender(); return; }
+    if (activePointer.kind === 'shape-edit') { activePointer.pendingEdit = { point: strokePoint(e, layer), shift: e.shiftKey }; requestRender(); return; }
     if (activePointer.kind === 'shape' || activePointer.kind === 'text') { previewMark(activePointer, strokePoint(e, layer), e.shiftKey); return; }
     const events = e.getCoalescedEvents ? e.getCoalescedEvents() : null;
     for (const item of events && events.length ? events : [e]) {
@@ -647,7 +980,15 @@
   function finishPointer(e) {
     if (!activePointer || (e && e.pointerId != null && e.pointerId !== activePointer.id)) return;
     const pointer = activePointer, layer = art.layers.find(l => l.id === pointer.layerId);
-    if (pointer.kind === 'lasso' && layer) {
+    if (pointer.kind === 'shape-edit' && layer) {
+      pointer.pendingEdit = null;
+      if (e && e.type === 'pointerup') {
+        previewShapeEdit(pointer, strokePoint(e, layer), e.shiftKey, false);
+        const perspective = pointer.handle && shapeTransform === 'perspective' && !directionalShape(pointer.op.shape);
+        if (pointer.preview && pointer.changed) { commitShapeResult(layer, pointer.preview, pointer.handle ? perspective ? '调整形状透视' : '缩放形状' : '移动形状'); status(pointer.handle ? perspective ? '已调整形状视角 · 可撤销' : '已调整形状大小 · 可撤销' : '已移动形状 · 可撤销'); }
+        else if (pointer.invalid) notify('四角不能交叉或折叠；形状需留在画布内并符合编辑限额。此次调整已取消。');
+      } else status('已取消形状调整');
+    } else if (pointer.kind === 'lasso' && layer) {
       try {
         if (e && e.type === 'pointerup') {
           addLassoPoint(pointer, strokePoint(e, layer), true);
@@ -664,7 +1005,7 @@
     } else if ((pointer.kind === 'shape' || pointer.kind === 'text') && layer) {
       if (e && e.type === 'pointerup') {
         previewMark(pointer, strokePoint(e, layer), e.shiftKey);
-        if (commitPreview(pointer, layer, pointer.bounds, pointer.kind === 'shape' ? '插入形状' : '插入文字')) status((pointer.kind === 'shape' ? '形状' : '文字') + '已落在 ' + layer.name + ' · 可撤销');
+        if (commitPreview(pointer, layer, pointer.bounds, pointer.kind === 'shape' ? '插入形状' : '插入文字')) status(pointer.kind === 'shape' ? '形状已选中 · 拖动移动，拖角缩放；可复制或修改样式' : '文字已落在 ' + layer.name + ' · 可撤销');
       } else status('已取消放置');
     } else if (pointer.kind === 'move' && layer && (layer.x !== pointer.x || layer.y !== pointer.y)) {
       activePointer = null; addHistory({ kind: 'state', before: pointer.before, after: snapshot(), label: '移动图层' });
@@ -766,7 +1107,7 @@
     const hint = reason || '仅保留画布内像素；合并前笔迹改用局部橡皮，可撤销。';
     merge.disabled = !!busy || !!reason; merge.title = '向下合并 · ' + hint; merge.parentElement.title = merge.title;
     $('layerActionHint').textContent = hint;
-    syncEraser(); syncTone();
+    syncEraser(); syncTone(); syncShapeUI();
   }
   function sync() {
     syncHistory(); syncLayers();
@@ -875,8 +1216,8 @@
     }
     if (tool === 'fill') $('materialSection').open = true;
     if (tool === 'shape' || tool === 'text') updateMaterialUI();
-    viewport.dataset.cursor = tool; $('brushCursor').hidden = true;
-    status(({ brush: '画笔 · ' + $('brushKind').selectedOptions[0].textContent + (penOnlyBrush ? ' · 鼠标左键平移' : ''), eraser: eraserMode === 'stroke' ? '整笔橡皮 · 轻触或扫过当前层笔画' : '局部橡皮 · 擦除当前图层像素', fill: $('fillScope').value === 'lasso' ? '套索填充 · 拖动圈出区域，松手填色；Esc 取消' : '填充 · 点选区域上色，可选择材质', shape: '形状 · 拖动预览，松手放置；Shift 锁定比例', text: '文字 · 先输入内容，再点击或拖动放置', picker: '取色 · 点击画作，或从参考图取色', move: '移层 · 拖动当前图层', hand: '平移 · 拖动画布', cutout: '抠图 · 点击当前图层的背景' })[tool]);
+    syncShapeUI(); viewport.dataset.cursor = tool; $('brushCursor').hidden = true;
+    status(({ brush: '画笔 · ' + $('brushKind').selectedOptions[0].textContent + (penOnlyBrush ? ' · 鼠标左键平移' : ''), eraser: eraserMode === 'stroke' ? '整笔橡皮 · 轻触或扫过当前层笔画' : '局部橡皮 · 擦除当前图层像素', fill: $('fillScope').value === 'lasso' ? '套索填充 · 拖动圈出区域，松手填色；Esc 取消' : '填充 · 点选区域上色，可选择材质', shape: shapeMode === 'select' ? '形状 · 选择后可移动、缩放、透视或复制' : '形状 · 拖动预览，松手放置；Shift 锁定比例', text: '文字 · 先输入内容，再点击或拖动放置', picker: '取色 · 点击画作，或从参考图取色', move: '移层 · 拖动当前图层', hand: '平移 · 拖动画布', cutout: '抠图 · 点击当前图层的背景' })[tool]);
   }
   function syncEraser() {
     const whole = tool === 'eraser' && eraserMode === 'stroke';
@@ -1167,6 +1508,7 @@
   }
   function newDocument(options = {}, prepared = blankArtwork(options)) {
     finishPointer(); settleTransactions(); art = prepared;
+    shapeSelection = null; shapeStyleBaseline = null; shapeMode = 'insert'; shapeTransform = 'resize'; lineReference = null; $('lineRelation').value = 'free';
     undoStack = []; redoStack = []; transactions.clear(); revision = 0; savedRevision = 0; fileSavedRevision = -1; sessionUsed = false; draftId = uid();
     clearTimeout(saveTimer); saveTimer = 0; $('saveStatus').textContent = '自动保留当前作品'; $('canvasHint').hidden = false;
     setGeometry(); sync(); render(); fit(); status('新画布 · ' + art.width + ' × ' + art.height); return art.activeId;
@@ -1374,7 +1716,7 @@
           settings });
       }
     } catch (error) { candidate.destroy(); throw error; }
-    if (ref) ref.destroy(); ref = candidate; art = next;
+    if (ref) ref.destroy(); ref = candidate; art = next; shapeSelection = null; shapeStyleBaseline = null; shapeMode = 'insert'; shapeTransform = 'resize'; lineReference = null; $('lineRelation').value = 'free';
     undoStack = []; redoStack = []; transactions.clear(); clearTimeout(saveTimer); saveTimer = 0; revision = 0; savedRevision = 0; fileSavedRevision = -1; sessionUsed = false; draftId = uid();
     eraserMode = settings.eraserMode; toneScope = settings.toneScope;
     setInk(settings.ink); applyMarkSettings(settings.marks); brush = settings.brush; $('brushKind').value = brush;
@@ -1506,7 +1848,15 @@
       };
       on(key, 'input', update); on(key, 'change', update);
     }
-    on('shapeStrokeFromInk', 'click', () => { $('shapeStrokeColor').value = ink; });
+    on('shapeMode', 'change', () => setShapeMode($('shapeMode').value));
+    on('shapeInsertNew', 'click', () => setShapeMode('insert'));
+    on('shapeObject', 'change', () => selectShape($('shapeObject').value));
+    on('shapeTransform', 'change', () => { finishPointer(); shapeTransform = $('shapeTransform').value === 'perspective' ? 'perspective' : 'resize'; syncShapeUI(); });
+    on('shapeResetPerspective', 'click', resetShapePerspective);
+    on('lineSetReference', 'click', setLineReference);
+    on('lineRelation', 'change', () => { finishPointer(); syncLineGuide(); });
+    on('shapeDuplicate', 'click', duplicateShape); on('shapeDelete', 'click', deleteShape); on('shapeApplyStyle', 'click', applyShapeStyle);
+    on('shapeStrokeFromInk', 'click', () => { $('shapeStrokeColor').value = ink; updateMaterialUI(); });
     on('applyCanvasFrame', 'click', frameCanvas);
     on('materialBackFromInk', 'click', () => { $('materialBackground').value = ink; updateMaterialUI(); });
     for (const key of MATERIAL_EXTRA_COLORS) on(key + 'FromInk', 'click', () => { $(key).value = ink; updateMaterialUI(); });
@@ -1700,12 +2050,17 @@
       if (event.key === 'theme' || event.key === null) { try { const t = localStorage.getItem('theme'); document.documentElement.dataset.theme = t === 'light' || t === 'dark' ? t : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; } catch (_) {} }
     });
     document.addEventListener('keydown', e => {
-      if (e.key.toLowerCase() === 'escape' && activePointer && ['shape', 'text', 'lasso'].includes(activePointer.kind)) { e.preventDefault(); finishPointer(); return; }
+      if (e.key.toLowerCase() === 'escape' && activePointer && ['shape', 'shape-edit', 'text', 'lasso'].includes(activePointer.kind)) { e.preventDefault(); finishPointer(); return; }
       if (dialogOpen() || editable(e.target) || busy) return;
       const key = e.key.toLowerCase(), command = e.ctrlKey || e.metaKey;
       if (command && key === 'z') { e.preventDefault(); e.shiftKey ? redo() : undo(); return; }
       if (command && key === 'y') { e.preventDefault(); redo(); return; }
       if (command && key === 's') { e.preventDefault(); saveProjectFile().catch(notify); return; }
+      if (tool === 'shape' && shapeMode === 'select' && selectedShape()) {
+        if (command && key === 'd') { e.preventDefault(); duplicateShape(); return; }
+        if (!command && !e.altKey && ['delete', 'backspace'].includes(key)) { e.preventDefault(); deleteShape(); return; }
+        if (!command && key === 'escape') { e.preventDefault(); selectShape(null); return; }
+      }
       if (command || e.altKey) return;
       if (key === 'tab') { if (e.target === viewport || e.target === document.body || e.target === display) { e.preventDefault(); toggleFocus(); } return; }
       if (key === ' ') { if (e.target.closest && e.target.closest('button,a,summary')) return; e.preventDefault(); spacePan = true; viewport.dataset.cursor = 'hand'; return; }
@@ -1770,6 +2125,7 @@
     window.DrawingStudio = {
       inspect: () => ({ width: art.width, height: art.height, title: art.title, paper: art.paper, paperColor: art.paperColor, paperOpacity: art.paperOpacity, paperTexture: art.paperTexture, textureStrength: art.textureStrength, tone: { ...art.tone }, toneScope, view: { ...view }, layers: art.layers.map(metadata), activeId: art.activeId, tool, brush, ink, size, opacity, stabilizer, eraserMode, penOnlyBrush, strokeCount: Strokes.count(activeLayer().strokeRecords), strokeBytes: Strokes.bytes(art.layers.map(layer => layer.strokeRecords)), historyBytes: memory(), pressure: lastPressure, pointerType: lastPointerType, dirty: revision > savedRevision, history: undoStack.length, redo: redoStack.length, revision, savedRevision, draftId, drawing: !!activePointer, reference: ref.getInfo() }),
       newDocument, addLayer, selectLayer, duplicateLayer, mergeLayerDown, toggleLayerVisibility, setToneScope, undo, redo, render, exportRaster, exportProject, loadProject, serializeProject,
+      shapeEditor: { getSelection: () => shapeSelection && { ...shapeSelection }, select: selectShape, duplicate: duplicateShape, remove: deleteShape, applyStyle: applyShapeStyle, setMode: setShapeMode, resetPerspective: resetShapePerspective, setLineReference },
       get ref() { return ref; }, getLayer: id => art.layers.find(layer => layer.id === id), saveDraft, prepareToClose, setTool, setInk
     };
     async function acceptReference(token) {

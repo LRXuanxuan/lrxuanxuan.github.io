@@ -35,14 +35,72 @@
     return total;
   }
   function count(state) { return state ? state.operations.reduce((n, op) => n + (op.kind === 'stroke'), 0) : 0; }
+  function hasEditable(state) { return !!state && state.operations.some(op => op.kind === 'stroke' || op.shape); }
+  function normalizedQuad(quad) {
+    if (!Array.isArray(quad) || quad.length !== 4 || quad.some(p => !p || typeof p !== 'object'
+      || !Number.isFinite(p.x) || !Number.isFinite(p.y) || Math.abs(p.x) > 65536 || Math.abs(p.y) > 65536)) return null;
+    const sides = quad.map((p, i) => ({ x: quad[(i + 1) % 4].x - p.x, y: quad[(i + 1) % 4].y - p.y }));
+    const longest = Math.max(...sides.map(p => p.x * p.x + p.y * p.y)), epsilon = Math.max(1e-6, longest * 1e-8);
+    let winding = 0;
+    for (let i = 0; i < 4; i++) {
+      const a = sides[i], b = sides[(i + 1) % 4], cross = a.x * b.y - a.y * b.x;
+      if (Math.abs(cross) <= epsilon || winding && Math.sign(cross) !== winding) return null;
+      winding = Math.sign(cross);
+    }
+    const a = quad[1], b = quad[2], c = quad[3], o = quad[0];
+    if (Math.abs((a.x - o.x) * (b.y - o.y) - (a.y - o.y) * (b.x - o.x)
+      + (b.x - o.x) * (c.y - o.y) - (b.y - o.y) * (c.x - o.x)) <= .5) return null;
+    return Object.freeze(quad.map(p => Object.freeze({ x: p.x, y: p.y })));
+  }
+  // Shape descriptions remain small JSON values, separate from their cached
+  // pixels. Copy and freeze nested material data so edits to a duplicate or a
+  // control's palette array can never change a shared undo snapshot.
+  function normalizeShape(value) {
+    if (!value || typeof value !== 'object' || Array.isArray(value)
+      || typeof value.type !== 'string' || !/^[a-z][a-z0-9-]{0,39}$/i.test(value.type)
+      || !['x', 'y', 'width', 'height'].every(k => typeof value[k] === 'number' && Number.isFinite(value[k]))
+      || Math.abs(value.x) > 65536 || Math.abs(value.y) > 65536 || Math.abs(value.width) > 16384 || Math.abs(value.height) > 16384
+      || (value.constrain != null && typeof value.constrain !== 'boolean') || (value.opacity != null && value.opacity !== 1)) return null;
+    let nodes = 0, characters = 0;
+    const copy = (input, depth = 0) => {
+      if (++nodes > 384 || depth > 5) throw new Error('Shape material is too large');
+      if (input === null || typeof input === 'boolean') return input;
+      if (typeof input === 'number') { if (!Number.isFinite(input) || Math.abs(input) > 1e9) throw new Error('Invalid material number'); return input; }
+      if (typeof input === 'string') { characters += input.length; if (input.length > 160 || characters > 4096) throw new Error('Material string is too large'); return input; }
+      if (typeof input !== 'object' || Object.prototype.toString.call(input) !== (Array.isArray(input) ? '[object Array]' : '[object Object]')) throw new Error('Material must contain JSON values');
+      if (Array.isArray(input)) { if (input.length > 64) throw new Error('Material array is too large'); return Object.freeze(input.map(item => copy(item, depth + 1))); }
+      const keys = Object.keys(input); if (keys.length > 48) throw new Error('Material has too many fields');
+      const out = {};
+      for (const name of keys) {
+        if (!/^[a-z][a-z0-9_]{0,39}$/i.test(name) || ['__proto__', 'prototype', 'constructor'].includes(name)) throw new Error('Invalid material field');
+        out[name] = copy(input[name], depth + 1);
+      }
+      return Object.freeze(out);
+    };
+    const color = (input, fallback) => input == null ? fallback : typeof input === 'string' && /^#[a-f0-9]{6}$/i.test(input) ? input.toLowerCase() : null;
+    const stroke = color(value.stroke, null), frameColor = color(value.frameColor, '#354953'), frameAccent = color(value.frameAccent, '#d4b583');
+    const strokeWidth = value.strokeWidth == null ? 2 : value.strokeWidth, frameWidth = value.frameWidth == null ? 12 : value.frameWidth;
+    const quad = value.quad == null ? null : normalizedQuad(value.quad);
+    if ((value.stroke != null && !stroke) || !frameColor || !frameAccent
+      || !Number.isFinite(strokeWidth) || strokeWidth < 0 || strokeWidth > 4096 || !Number.isFinite(frameWidth) || frameWidth < 0 || frameWidth > 4096
+      || (value.fill != null && (typeof value.fill !== 'object' || Array.isArray(value.fill)))
+      || (value.quad != null && (!quad || ['line', 'arrow'].includes(value.type)))) return null;
+    try {
+      return Object.freeze({ type: value.type, x: value.x, y: value.y, width: value.width, height: value.height,
+        constrain: !!value.constrain, fill: value.fill == null ? null : copy(value.fill), stroke, strokeWidth, frameColor, frameAccent, frameWidth, opacity: 1,
+        ...(quad ? { quad } : {}) });
+    } catch (_) { return null; }
+  }
   function clean(state) {
-    if (!state || !count(state)) return null;
+    if (!hasEditable(state)) return null;
     const used = new Set(); state.operations.forEach(op => op.tiles.forEach((p, k) => used.add(k)));
     const base = new Map(); state.base.forEach((p, k) => { if (used.has(k)) base.set(k, p); });
     return { ...state, base };
   }
   function append(state, target, source, bounds, options) {
-    if (options.kind !== 'stroke' && !count(state)) return null;
+    const shape = options.shape == null ? null : normalizeShape(options.shape);
+    if (options.shape != null && (!shape || options.kind !== 'overlay' || !Number.isFinite(options.opacity) || options.opacity <= 0 || options.opacity > 1)) return state;
+    if (options.kind !== 'stroke' && !shape && !hasEditable(state)) return null;
     if (state && (state.width !== target.width || state.height !== target.height)) state = null;
     const base = new Map(state ? state.base : []), tiles = new Map();
     const left = Math.max(0, Math.floor(bounds.x / TILE) * TILE), top = Math.max(0, Math.floor(bounds.y / TILE) * TILE);
@@ -56,14 +114,46 @@
       allocated += p.image.data.byteLength;
       // A single exceptionally large mark becomes ordinary pixels. Never grow
       // a full-canvas provenance copy beyond the explicit live budget.
-      if (allocated > MAX_BYTES) return null;
+      if (allocated > MAX_BYTES) return shape ? state : null;
       const k = key(x, y); tiles.set(k, p);
       if (!base.has(k)) base.set(k, patch(target, x, y, width, height));
     }
     if (!tiles.size) return state;
     const order = ++sequence;
-    const op = { id: options.id || 's' + order, kind: options.kind, opacity: options.opacity, order, tiles };
-    return { width: target.width, height: target.height, base, operations: [...(state ? state.operations : []), op] };
+    const op = { id: options.id || 's' + order, kind: options.kind, opacity: options.opacity, order, tiles, ...(shape ? { shape } : {}) };
+    const next = { width: target.width, height: target.height, base, operations: [...(state ? state.operations : []), op] };
+    return shape && bytes([next]) > MAX_BYTES ? state : next;
+  }
+  function replaceShape(state, target, source, bounds, id, value, opacity) {
+    const index = state ? state.operations.findIndex(op => op.id === id && op.shape) : -1, shape = normalizeShape(value);
+    if (index < 0 || !shape || !Number.isFinite(opacity) || opacity <= 0 || opacity > 1
+      || state.width !== target.width || state.height !== target.height || source.width !== target.width || source.height !== target.height
+      || !bounds || !['x', 'y', 'width', 'height'].every(k => Number.isFinite(bounds[k])) || bounds.width <= 0 || bounds.height <= 0) return null;
+    const old = state.operations[index], tiles = new Map(), base = new Map(state.base), keys = new Set(old.tiles.keys());
+    const left = Math.max(0, Math.floor(bounds.x / TILE) * TILE), top = Math.max(0, Math.floor(bounds.y / TILE) * TILE);
+    const right = Math.min(target.width, bounds.x + bounds.width), bottom = Math.min(target.height, bounds.y + bounds.height);
+    let allocated = 0;
+    for (let y = top; y < bottom; y += TILE) for (let x = left; x < right; x += TILE) {
+      const width = Math.min(TILE, target.width - x), height = Math.min(TILE, target.height - y), p = patch(source, x, y, width, height);
+      let inked = false;
+      for (let i = 3; i < p.image.data.length; i += 4) if (p.image.data[i]) { inked = true; break; }
+      if (!inked) continue;
+      allocated += p.image.data.byteLength; if (allocated > MAX_BYTES) return null;
+      const k = key(x, y); tiles.set(k, p); keys.add(k);
+      if (!base.has(k)) base.set(k, patch(target, x, y, width, height));
+    }
+    if (!tiles.size) return null;
+    const operations = state.operations.slice(); operations[index] = { ...old, shape, opacity, tiles };
+    const next = { ...state, base, operations };
+    // Keep the old-position base until the caller has rendered the union. It
+    // can then clean it up; the eventual live state must still fit the budget.
+    if (bytes([clean(next)]) > MAX_BYTES) return null;
+    return { state: next, keys };
+  }
+  function removeShape(state, id) {
+    const old = state && state.operations.find(op => op.id === id && op.shape);
+    if (!old) return null;
+    return { state: { ...state, operations: state.operations.filter(op => op !== old) }, keys: new Set(old.tiles.keys()) };
   }
   function renderTile(state, k, target, operations = state.operations) {
     const base = state.base.get(k); if (!base) return null;
@@ -108,11 +198,11 @@
   function alpha(op, k, x, y) {
     const p = op.tiles.get(k); return p ? p.image.data[((y - p.y) * p.width + x - p.x) * 4 + 3] / 255 * op.opacity : 0;
   }
-  function hit(state, x, y, radius) {
+  function hitMatching(state, x, y, radius, matches) {
     if (!state) return null;
     radius = Math.max(.75, radius); const rr = radius * radius;
     for (let index = state.operations.length - 1; index >= 0; index--) {
-      const op = state.operations[index]; if (op.kind !== 'stroke') continue;
+      const op = state.operations[index]; if (!matches(op)) continue;
       for (const [k, p] of op.tiles) {
         const left = Math.max(p.x, Math.floor(x - radius)), right = Math.min(p.x + p.width - 1, Math.ceil(x + radius));
         const top = Math.max(p.y, Math.floor(y - radius)), bottom = Math.min(p.y + p.height - 1, Math.ceil(y + radius));
@@ -129,6 +219,8 @@
     }
     return null;
   }
+  function hit(state, x, y, radius) { return hitMatching(state, x, y, radius, op => op.kind === 'stroke'); }
+  function hitShape(state, x, y, radius) { return hitMatching(state, x, y, radius, op => !!op.shape); }
   function remove(state, ids) {
     const keys = new Set(), operations = [];
     for (const op of state.operations) {
@@ -153,7 +245,7 @@
       const i = patches.length; indices.set(p, i); patches.push({ x: p.x, y: p.y, width: p.width, height: p.height, data }); return i;
     };
     const bundle = { version: 1, width: state.width, height: state.height, base: Array.from(state.base.values(), index),
-      operations: state.operations.map(op => ({ id: op.id, kind: op.kind, opacity: op.opacity, patches: Array.from(op.tiles.values(), index) })), patches };
+      operations: state.operations.map(op => ({ id: op.id, kind: op.kind, opacity: op.opacity, patches: Array.from(op.tiles.values(), index), ...(op.shape ? { shape: op.shape } : {}) })), patches };
     bundles.set(state, bundle); return bundle;
   }
   async function importBundle(bundle, target, decodeBlob, readBlob) {
@@ -190,7 +282,9 @@
         || typeof input.opacity !== 'number' || !Number.isFinite(input.opacity) || input.opacity <= 0 || input.opacity > 1) throw invalid();
       ids.add(input.id); const tiles = map(input.patches);
       if (!tiles.size || Array.from(tiles.keys()).some(k => !base.has(k))) throw invalid();
-      return { id: input.id, kind: input.kind, opacity: input.opacity, order: ++sequence, tiles };
+      const shape = input.shape == null ? null : normalizeShape(input.shape);
+      if (input.shape != null && (!shape || input.kind !== 'overlay')) throw invalid();
+      return { id: input.id, kind: input.kind, opacity: input.opacity, order: ++sequence, tiles, ...(shape ? { shape } : {}) };
     });
     const state = clean({ width: target.width, height: target.height, base, operations });
     if (!state) return null;
@@ -205,5 +299,6 @@
     }
     return state;
   }
-  return { TILE, MAX_BYTES, MAX_OPERATIONS, append, bytes, count, clean, render, limit, hit, remove, capture, exportBundle, importBundle };
+  return { TILE, MAX_BYTES, MAX_OPERATIONS, append, bytes, count, clean, render, limit, hit, remove, capture, exportBundle, importBundle,
+    normalizeShape, hasEditable, replaceShape, removeShape, hitShape };
 });

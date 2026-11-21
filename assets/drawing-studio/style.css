@@ -118,3 +118,19 @@ button.brush-sample > span {
 
 /* Compact, independent colors for procedural fill elements. */
 .material-colors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:6px 0 10px}.material-color{min-width:0}.material-color .field{margin:0 0 4px;font-size:12px}.material-color-pick{display:grid;grid-template-columns:minmax(0,1fr) 30px;gap:3px}.material-color-pick input[type=color]{width:100%;height:32px;min-width:0}.material-color-pick button{display:flex;align-items:center;justify-content:center;padding:4px;min-width:0;min-height:32px}.material-color-pick svg{width:17px;height:17px}
+
+.shape-selection { position: absolute; pointer-events: none; box-sizing: border-box; outline: var(--shape-outline, 1px) dashed #1672b6; outline-offset: 0; }
+.shape-selection.perspective-mode { outline: none; }
+#shapeGuide { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+#shapeGuideOutline { stroke: #1672b6; }
+.shape-selection > span { position: absolute; width: var(--shape-handle, 8px); height: var(--shape-handle, 8px); box-sizing: border-box; background: #fff; border: var(--shape-outline, 1px) solid #1672b6; border-radius: 1px; transform: translate(-50%, -50%); }
+.shape-selection > [data-corner="nw"] { left: 0; top: 0; }
+.shape-selection > [data-corner="ne"] { left: 100%; top: 0; }
+.shape-selection > [data-corner="sw"] { left: 0; top: 100%; }
+.shape-selection > [data-corner="se"] { left: 100%; top: 100%; }
+#shapeEditActions .button-row { margin-bottom: .4rem; }
+#shapeInsertNew { align-self: end; min-height: 34px; margin-bottom: .6rem; }
+.canvas-viewport[data-cursor="shape-select"] { cursor: default; }
+.canvas-viewport[data-cursor="shape-move"] { cursor: move; }
+.canvas-viewport[data-cursor="shape-nw"], .canvas-viewport[data-cursor="shape-se"] { cursor: nwse-resize; }
+.canvas-viewport[data-cursor="shape-ne"], .canvas-viewport[data-cursor="shape-sw"] { cursor: nesw-resize; }
