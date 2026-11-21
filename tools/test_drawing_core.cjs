@@ -111,6 +111,17 @@ async function main() {
   assert.ok(countAlpha(gpen, 30) < countAlpha(gpen, 120) / 2);
   assert.ok(countAlpha(gpen, 135) <= 24, 'pen-up zero pressure must not widen the tail');
   const fineliner = strokeImage('fineliner'); assert.equal(countAlpha(fineliner, 30), countAlpha(fineliner, 120));
+  const squarePreset = core.brushPresets.find(item => item.id === 'plainSquare');
+  assert.equal(squarePreset.opacity, 1);
+  const square = strokeImage('plainSquare');
+  assert.equal(countAlpha(square, 30), 24); assert.equal(countAlpha(square, 120), 24);
+  assert.equal(get(square, 4, 29)[3], 255, 'square nib fills the outer corner at the starting point');
+  const squareCtx = createCanvas(64, 64).getContext('2d');
+  const squareStroke = core.makeStroke(squareCtx, {brush:'plainSquare', size:6, color:'#aa5522'});
+  squareStroke.start({x:8.35,y:8.35}); squareStroke.move({x:48.35,y:40.35}); squareStroke.end();
+  const subpixelSquare = squareCtx.getImageData(0,0,64,64);
+  assert.ok(subpixelSquare.data.some((v,i)=>i%4===3 && v>0 && v<255), 'continuous square nib keeps antialiased subpixel placement');
+  assert.equal(get(subpixelSquare,28,24)[3],255,'long diagonal is filled continuously');
   const binary = strokeImage('binary');
   assert.ok(Array.from(binary.data).filter((_, i) => i % 4 === 3).every(a => a === 0 || a === 255), 'binary edge must be hard');
   const pixel = strokeImage('pixel');
@@ -124,6 +135,7 @@ async function main() {
   // Sampled tips must deposit the same stroke under sparse/coalesced
   // events. Verify real alpha coverage including clicks and undo patch bounds.
   for (const brush of ['pencil', 'charcoal', 'marker', 'brushMarker', 'dry', 'airbrush', 'gouache', 'wash',
+    'fountain','stoneChalk','softRound','squarePaint','patinaInk','patinaGrain',
     'spatter', 'maru', 'hairHatch', 'screentone', 'sparkle']) {
     const preset = core.brushPresets.find(item => item.id === brush);
     function totalInk(pressure, steps) {
@@ -151,10 +163,37 @@ async function main() {
   // At the same size/pressure the new manga and painting tips should have
   // distinct geometry and deposition, including separated stars and wash rims.
   const tips = new Set();
-  for (const brush of ['gpen', 'brushMarker', 'maru', 'hairHatch', 'screentone', 'sparkle', 'spatter', 'wash', 'gouache']) {
+  for (const brush of ['gpen', 'brushMarker', 'maru', 'hairHatch', 'screentone', 'sparkle', 'spatter', 'wash', 'gouache',
+    'fountain','stoneChalk','softRound','squarePaint','patinaInk','patinaGrain']) {
     const image = strokeImage(brush), key = require('node:crypto').createHash('sha256').update(image.data).digest('hex');
     assert.ok(!tips.has(key), 'different image for ' + brush); tips.add(key);
     if (brush === 'wash') assert.ok(get(image, 112, 49)[3] > get(image, 112, 40)[3], 'wash pools pigment at the edge');
+  }
+  function drawWash(points) {
+    const ctx=createCanvas(180,100).getContext('2d');
+    const pen=core.makeStroke(ctx,{brush:'wash',size:32,color:'#28709a'});
+    pen.start(points[0]); points.slice(1).forEach(p=>pen.move(p)); pen.end();
+    return ctx.getImageData(0,0,180,100);
+  }
+  const route=[{x:22,y:50},{x:140,y:50},{x:140,y:60},{x:22,y:60}];
+  const wash=drawWash(route), retraced=drawWash([...route, ...route.slice().reverse(), route[0], route[0]]);
+  assert.deepEqual(wash.data,retraced.data,'a wet stroke keeps its density when paused or retraced');
+  const rowAlpha = (image, y) => Array.from({length:90}, (_,x) => get(image,33+x,y)[3]);
+  const mean = row => row.reduce((total, value) => total + value, 0) / row.length;
+  const centerAlpha = rowAlpha(wash, 54), outerAlpha = rowAlpha(wash, 35);
+  assert.ok(Math.max(...centerAlpha)-Math.min(...centerAlpha)>8,'subtle interior pooling varies across the paper');
+  assert.ok(mean(outerAlpha)>mean(centerAlpha)+12,'outer rim carries more pigment');
+  assert.ok(Math.max(...outerAlpha)-Math.min(...outerAlpha)>24,'damp fibers break up the intensity of the outer rim');
+  const lowerOnly = drawWash([{x:22,y:60},{x:140,y:60}]);
+  assert.ok(mean(rowAlpha(lowerOnly,45))>mean(rowAlpha(wash,45))+8,'merged ribbons lose their internal rim at the same paper coordinates');
+  for (const brush of ['patinaInk', 'patinaGrain']) {
+    function deposit(duration) {
+      const ctx = createCanvas(160, 72).getContext('2d');
+      const pen = core.makeStroke(ctx, { brush, size: 17, color: '#224466' });
+      pen.start({ x: 20, y: 36, time: 0 }); pen.move({ x: 140, y: 36, time: duration }); pen.end();
+      return ctx.getImageData(0, 0, 160, 72).data.reduce((total, value, i) => total + (i % 4 === 3 ? value : 0), 0);
+    }
+    assert.ok(deposit(1100) > 1.02 * deposit(55), brush + ' deposits extra ink at lower speed');
   }
 
   // Rasterize actual SVG output to independently check holes, topology and alpha.

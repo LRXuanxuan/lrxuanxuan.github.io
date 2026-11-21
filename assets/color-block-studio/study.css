@@ -115,3 +115,46 @@ body.line-mode details.line-only:not([hidden]){display:block!important}
 #studyTogglePanel{flex-shrink:0}
 #panel[hidden]{display:none!important}
 body.study-sidebar-collapsed main{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr)}
+/* Match the drawing desk while keeping the study controls and the image in view. */
+:root{--header:#fbfcfd;--panel:#fbfcfd;--bg:#f1f5f7;--primary:#315e7a;--accent:#3c6e85;--accent2:#3c6e85;--accent-soft:#e4eff3;--line:#d6e2e8;--input:#fff;--text:#293f4d;--heading:#20394a}
+:root[data-bs-theme="dark"]{--header:#182832;--panel:#182832;--bg:#101b23;--input:#20323f;--line:#30434f;--text:#d8e3eb;--heading:#e4edf2;--accent:#a4c9da;--accent2:#a4c9da;--primary:#a4c9da;--accent-soft:#2c4756}
+.practice-icon{display:inline-block;width:16px;height:16px;flex:none;vertical-align:middle;fill:none;stroke:currentColor;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round}
+header .logo{display:grid;place-items:center;border:none;width:34px;height:34px;padding:0;background:#365e77;color:white;border-radius:9px}
+.logo .practice-icon{width:23px;height:23px}
+header{min-height:59px;padding:8px 18px}
+h1{letter-spacing:.025em}
+.head-actions .btn,.file-btn,.empty-inner .btn,.study-toolbar .btn,.stage-actions .btn{display:inline-flex;align-items:center;justify-content:center;gap:5px;border-radius:6px}
+#saveBtnTop,#printBtnTop,#batchBtnTop{display:none}
+#panel{gap:14px;padding:14px 16px 18px}
+.sec{padding-bottom:14px;gap:8px}
+.study-mode[aria-pressed="true"]{box-shadow:inset 3px 0 0 var(--accent)}
+.stage-toolbar{min-height:43px;padding:6px 15px;background:var(--panel)}
+.study-toolbar,.study-zoom{padding-inline:15px}
+.study-toolbar-group .practice-icon{width:14px;height:14px}
+.empty-inner{border:1px solid var(--line);box-shadow:var(--shadow);max-width:420px;padding:28px}
+.empty-icon{display:grid;place-items:center;width:52px;height:52px;margin:0 auto 12px;background:var(--accent-soft);border-radius:14px}
+.empty-icon svg{width:30px;height:30px}
+.empty-inner h3{font-size:18px}
+.empty-inner .btn{margin:10px 2px}
+@media(max-width:760px){
+  header{gap:5px;padding:6px 10px}
+  header>.brand{flex:1;min-width:0}
+  .brand p{display:none}
+  .theme-switch{margin-left:auto;flex:none}
+  .header-tools{display:grid;width:100%!important;grid-template-columns:1fr 1.5fr 1fr;gap:4px;margin:0}
+  .header-tools .btn{padding:4px;min-width:0;font-size:11px}
+  #panel{padding:9px 12px;gap:10px}
+  .stage-toolbar,.study-toolbar,.study-zoom{padding:4px 8px;gap:4px}
+  .stage-toolbar{min-height:34px}
+  .study-compare-status:empty{display:none}
+  .empty-inner{padding:13px}
+  .empty-icon{width:36px;height:36px;margin-bottom:5px}
+  .empty-icon svg{width:23px;height:23px}
+  .study-mode{display:flex;flex-direction:column;align-items:center;justify-content:center}
+}
+@media(max-width:380px){
+  header .logo{width:27px;height:27px;border-radius:7px}
+  .theme-option{padding:3px 5px}
+  .study-toolbar .btn{gap:2px}
+  .stage-toolbar .seg-btn{padding:4px 6px}
+}

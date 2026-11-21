@@ -51,5 +51,59 @@
       tx.onerror = tx.onabort = function () { db.close(); reject(new Error('本地参考读取失败，请从练习室重新传递。')); };
     });
   }
-  root.DrawingBridge = { put: put, take: take };
+  // A pair is local to these two windows. Independent drawing sessions never receive a handoff.
+  var partner = null, receiver = null, requestedPath = '';
+  function matches(page, path) {
+    try { return page && !page.closed && page.location.origin === location.origin && page.location.pathname === path; }
+    catch (_) { return false; }
+  }
+  function openStudio(href) {
+    var url = new URL(href, location.href);
+    var drawing = new URL('drawing-studio.html', location.href), study = new URL('color-block-studio.html', location.href);
+    if (url.origin !== location.origin || ![drawing.pathname, study.pathname].includes(url.pathname)) throw new Error('画室地址无效。');
+    var opening = false;
+    try { opening = partner && !partner.closed && requestedPath === url.pathname && partner.location.href === 'about:blank'; } catch (_) {}
+    if (!opening && !matches(partner, url.pathname)) {
+      var opener = root.opener;
+      if (matches(opener, url.pathname) && opener.DrawingBridge && opener.DrawingBridge.hasPartner(root)) partner = opener;
+      else partner = root.open(url.href, '_blank');
+      requestedPath = url.pathname;
+    }
+    if (!partner) throw new Error('请允许本站打开画室标签页。当前作品仍在此页。');
+    partner.focus();
+    return partner;
+  }
+  async function sendReference(page, id) {
+    var path = new URL('drawing-studio.html', location.href).pathname;
+    var deadline = Date.now() + 20000;
+    do {
+      if (page.closed) throw new Error('轻绘标签页已关闭，请再点一次传送。');
+      if (matches(page, path) && page.DrawingBridge && page.DrawingBridge.canReceive()) {
+        return page.DrawingBridge.receive(id, root);
+      }
+      await new Promise(function (resolve) { setTimeout(resolve, 100); });
+    } while (Date.now() < deadline);
+    throw new Error('轻绘尚未就绪，请检查轻绘标签页后重试。');
+  }
+  function receive(id, from) {
+    var path = new URL('color-block-studio.html', location.href).pathname;
+    if (!matches(from, path) || (from !== partner && (from !== root.opener || !from.DrawingBridge.hasPartner(root)))) {
+      throw new Error('请从与当前画室配对的练习室发送参考。');
+    }
+    partner = from;
+    return receiver(id);
+  }
+  if (root.document) root.document.addEventListener('click', function (event) {
+    var link = event.target.closest && event.target.closest('a[data-studio-switch]');
+    if (!link || event.defaultPrevented || event.button || event.ctrlKey || event.metaKey || event.altKey || event.shiftKey) return;
+    event.preventDefault();
+    try { openStudio(link.href); }
+    catch (error) { root.dispatchEvent(new CustomEvent('studio-navigation-error', { detail: error.message })); }
+  });
+  root.DrawingBridge = {
+    put: put, take: take, openStudio: openStudio, sendReference: sendReference,
+    hasPartner: function (page) { return partner === page; },
+    setReceiver: function (fn) { receiver = fn; },
+    canReceive: function () { return typeof receiver === 'function'; }, receive: receive
+  };
 })(window);

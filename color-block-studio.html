@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
+<script src="assets/js/studio-filenames.js?v=20261121-1" defer></script>
 <meta name="theme-color" content="#f2f8ff">
 <title>绘画归纳练习室 · Ruixuan's Corner</title>
 <script>
@@ -344,12 +345,12 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
   *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
 }
 </style>
-<link rel="stylesheet" href="/assets/color-block-studio/study.css?v=20261120-4">
+<link rel="stylesheet" href="/assets/color-block-studio/study.css?v=20261121-9">
 </head>
 <body>
 <header>
   <div class="brand">
-    <span class="logo" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <span class="logo" aria-hidden="true"><svg class="practice-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.8 14.8 9 9.6l5.1 5.1 2.7-2.7 4 4"/><circle cx="15.8" cy="9.4" r="1.1"/></svg></span>
     <div>
       <h1>绘画归纳练习室</h1>
       <p><a href="/playthings/">Ruixuan's Corner</a><span aria-hidden="true">/</span>画画参考工具</p>
@@ -363,12 +364,12 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
     </div>
     <div class="header-tools">
     <span class="local-tag">本地运行 · 不上传</span>
-    <a class="btn ghost sm" href="/drawing-studio.html">去画画 ↗</a>
-    <button id="drawingReferenceBtn" class="btn primary sm" type="button" disabled title="把原图、灰度、色彩和线稿送到轻绘；已练过的模式保留当前修改，未练过的生成初始参考">带参考去画画</button>
+    <a class="btn ghost sm" data-studio-switch href="/drawing-studio.html" title="打开或切换至配对的轻绘标签页，保留本页练习"><svg class="practice-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="m9 14 9-10 2 2-8 11"/><path d="M10.2 14.6c-3.7-1.6-2.7 4.3-6.3 4.4 4.2 2.1 9.7-.2 7.6-3.6"/></svg>轻绘画室</a>
+    <button id="drawingReferenceBtn" class="btn primary sm" type="button" disabled title="把原图、灰度、色彩和线稿送到轻绘；已练过的模式保留当前修改，未练过的生成初始参考"><svg class="practice-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="m3.5 10.4 17-7-6 17-3.4-7.2zM11.1 13.2l9.4-9.8"/></svg>带参考去画画</button>
     <button id="saveBtnTop" class="btn ghost sm">保存</button>
     <button id="printBtnTop" class="btn ghost sm">打印</button>
     <button id="batchBtnTop" class="btn ghost sm">批量</button>
-    <button id="helpBtn" class="btn ghost sm">使用说明</button>
+    <button id="helpBtn" class="btn ghost sm"><svg class="practice-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M9.6 9a2.5 2.5 0 1 1 4 2.2c-1.1.6-1.7 1-1.7 2.4m0 2.2h.1"/></svg>使用说明</button>
     </div>
   </div>
 </header>
@@ -381,7 +382,7 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
         <button id="changeBtn" class="btn ghost sm" hidden>换一张</button>
       </div>
       <div class="row">
-        <label class="file-btn">选择图片<input id="fileInput" type="file" accept="image/*"></label>
+        <label class="file-btn"><svg class="practice-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M12 15V4m-4 4 4-4 4 4M4.5 14v5h15v-5"/></svg>选择图片<input id="fileInput" type="file" accept="image/*"></label>
         <button id="pasteBtn" class="btn ghost sm">从剪贴板粘贴</button>
         <span class="hint">也可拖入或 Ctrl+V 粘贴</span>
       </div>
@@ -391,13 +392,13 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
 <section class="sec study-navigation" aria-labelledby="studyTitle">
   <div class="sec-head">
     <h2 id="studyTitle">今天练什么</h2>
-    <span class="study-eyebrow">观察 → 取舍 → 对照</span>
+    
   </div>
   <div class="study-mode-grid" role="group" aria-label="练习方向">
-    <button type="button" class="study-mode" data-study-mode="value" aria-pressed="true"><span class="study-mode-number">01</span><span>明暗归纳</span></button>
-    <button type="button" class="study-mode" data-study-mode="color" aria-pressed="false"><span class="study-mode-number">02</span><span>色彩归纳</span></button>
-    <button type="button" class="study-mode" data-study-mode="line" aria-pressed="false"><span class="study-mode-number">03</span><span>线条取舍</span></button>
-    <button type="button" class="study-mode" data-study-mode="black" aria-pressed="false"><span class="study-mode-number">04</span><span>局部压黑</span></button>
+    <button type="button" class="study-mode" data-study-mode="value" aria-pressed="true"><svg class="practice-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor" stroke="none"/></svg><span>明暗归纳</span></button>
+    <button type="button" class="study-mode" data-study-mode="color" aria-pressed="false"><svg class="practice-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><rect x="3.5" y="5" width="11" height="13" rx="2"/><path d="m15.5 7.5 3.8 1.1a1.7 1.7 0 0 1 1.1 2.2l-3.5 9.1-8-2.1M7 13h4"/></svg><span>色彩归纳</span></button>
+    <button type="button" class="study-mode" data-study-mode="line" aria-pressed="false"><svg class="practice-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M3 17c3-7 6-7 8-3s4 4 7-5"/><path d="m15 7 4-4 2 2-4 4-3 1z"/></svg><span>线条取舍</span></button>
+    <button type="button" class="study-mode" data-study-mode="black" aria-pressed="false"><svg class="practice-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M5 5h14v14H5z"/><path d="M8 16 16 8v8z" fill="currentColor" stroke="none"/></svg><span>局部压黑</span></button>
   </div>
   <p class="study-guidance" id="studyHint" aria-live="polite">先把画面归成亮、灰、暗三组，再看大形能否读清。</p>
 </section>
@@ -645,12 +646,12 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
         <button id="viewSplit" class="seg-btn">对比</button>
         <button id="viewOrig" class="seg-btn">原图</button>
       </div>
-      <div class="stage-actions"><button id="exportBtnTop" class="btn primary sm">导出 PNG</button><div class="stage-meta" id="stageDims"></div></div>
+      <div class="stage-actions"><button id="exportBtnTop" class="btn primary sm"><svg class="practice-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M12 3.8v11m-4-4 4 4 4-4M5 15.7V20h14v-4.3"/></svg>导出 PNG</button><div class="stage-meta" id="stageDims"></div></div>
     </div>
 <div class="study-toolbar" aria-label="练习对照与画布设置">
   <div class="study-toolbar-group" role="group" aria-label="操作历史">
-    <button type="button" id="undoStudy" class="btn ghost sm" title="撤销上一步（Ctrl / ⌘ Z）">撤销</button>
-    <button type="button" id="redoStudy" class="btn ghost sm" title="重做（Ctrl / ⌘ Shift Z）">重做</button>
+    <button type="button" id="undoStudy" class="btn ghost sm" title="撤销上一步（Ctrl / ⌘ Z）"><svg class="practice-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M8.3 4.5 4 9l4.3 4.5M4.5 9h9a5.5 5.5 0 0 1 0 11"/></svg>撤销</button>
+    <button type="button" id="redoStudy" class="btn ghost sm" title="重做（Ctrl / ⌘ Shift Z）"><svg class="practice-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="m15.7 4.5 4.3 4.5-4.3 4.5M19.5 9h-9a5.5 5.5 0 0 0 0 11"/></svg>重做</button>
   </div>
   <div class="study-toolbar-group study-ab" role="group" aria-label="方案对照">
     <button type="button" id="saveAB" class="btn ghost sm" title="记录此刻的结果，继续修改后再比较">记为 A</button>
@@ -682,13 +683,9 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
               <path d="M4 17.2l4.8-4.8 3.6 3.6 2.9-2.9 4.7 4.7"></path>
             </svg>
           </div>
-          <h3>从大关系，练到每一笔</h3>
+          <h3>放入一张参考图</h3>
           <p>拖入本机图片，或在侧栏选择图片，也可按 Ctrl+V 粘贴截图</p>
-          <ul class="steps">
-            <li><b>01</b>把明暗和色彩收进几组清楚的大形</li>
-            <li><b>02</b>保留必要的线，减掉花纹与碎细节</li>
-            <li><b>03</b>补黑、留白，记录 A / B 比较取舍</li>
-          </ul>
+          <button id="studyChooseImage" type="button" class="btn primary"><svg class="practice-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M12 15V4m-4 4 4-4 4 4M4.5 14v5h15v-5"/></svg>选择图片</button>
           <button id="pasteBtnEmpty" class="btn ghost sm" style="margin-top:8px">从剪贴板粘贴截图</button>
           <p class="hint">全部在本地浏览器里运算，图片不会上传到网上。</p>
         </div>
@@ -840,8 +837,8 @@ input[type=color]{width:40px;height:30px;border:none;background:none;padding:0;c
 </div>
 
 <script src="/assets/color-block-studio/study-core.js?v=20261120-1"></script>
-<script src="/assets/color-block-studio/studio-study.js?v=20261120-drawing-1"></script>
-<script src="/assets/drawing-studio/bridge.js?v=20261120-1"></script>
+<script src="/assets/color-block-studio/studio-study.js?v=20261121-9"></script>
+<script src="/assets/drawing-studio/bridge.js?v=20261121-9"></script>
 <script>
 /* ============================================================
  * 色块提炼器 · 算法核心（纯函数，不依赖 DOM）
@@ -1973,12 +1970,13 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
     var a = document.createElement('a');
     var url = URL.createObjectURL(blob);
     a.href = url;
-    a.download = filename;
+    a.download = window.studioExportName() + filename.slice(filename.lastIndexOf('.'));
     a.style.display = 'none';
     document.body.appendChild(a);
     a.click();
     a.remove();
     setTimeout(function () { URL.revokeObjectURL(url); }, 5000);
+    return a.download;
   }
 
   function nextFrame() {
@@ -3333,8 +3331,8 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
       }
       if (entries.length === 1) {
         var e = entries[0];
-        downloadBlob(new Blob([e.data], { type: e.type || 'application/octet-stream' }), e.name);
-        toast('已保存 ' + e.name);
+        var savedName = downloadBlob(new Blob([e.data], { type: e.type || 'application/octet-stream' }), e.name);
+        toast('已保存 ' + savedName);
       } else {
         var zipEntries = entries.map(function (x) { return { name: x.folder + '/' + zipSafe(x.name), data: x.data }; });
         var zipBlob = makeZipBlob(zipEntries);
@@ -3778,7 +3776,7 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
           els.batchStatus.textContent = doneCount >= totalCount ? ('完成 ' + totalCount + ' 张，正在打包 ZIP…') : ('正在处理 ' + (doneCount + 1) + '/' + totalCount + '：' + (name || ''));
         }
       });
-      downloadBlob(result.zipBlob, result.name);
+      result.name = downloadBlob(result.zipBlob, result.name);
       var skippedN = result.skipped ? result.skipped.length : 0;
       var summary = '批量完成：' + result.count + ' 张' + (skippedN ? ('，跳过 ' + skippedN + ' 张') : '') + '，已下载 ZIP（' + Math.max(1, Math.round(result.zipBytes.length / 1024)) + ' KB）';
       if (result.count === 0 && skippedN > 0) summary = '没有成功处理的图片（' + skippedN + ' 张读取失败），已下载说明文件';
@@ -4042,15 +4040,17 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
   renderFullRes = study.renderFullRes; exportLineOriginal = study.exportLineOriginal;
   deleteSelectedColor = study.deleteSelectedColor; addSmartColor = study.addSmartColor;
 
+  window.addEventListener('studio-navigation-error', function (event) { toast(event.detail); });
   $('drawingReferenceBtn').addEventListener('click', async function () {
     var button = this;
     if (!state.ready || button.disabled) return;
     button.disabled = true; showBusy('正在准备四种参考与色卡…');
     try {
-      await nextFrame();
+      var drawingPage = window.DrawingBridge.openStudio('/drawing-studio.html');
       var reference = await study.exportReferenceBundle();
       var token = await window.DrawingBridge.put(reference);
-      window.location.assign('/drawing-studio.html?reference=' + encodeURIComponent(token));
+      await window.DrawingBridge.sendReference(drawingPage, token);
+      toast('参考已送到轻绘，练习保留在本页。');
     } catch (err) {
       toast('参考传递失败：' + (err && err.message ? err.message : String(err)));
       button.disabled = false;
@@ -4062,6 +4062,7 @@ function lineArtWithHatch(gray, pixels, hasAlpha, w, h, lineParams, hatchParams,
     if (els.fileInput.files && els.fileInput.files.length) loadFile(els.fileInput.files[0]);
   });
   els.changeBtn.addEventListener('click', function () { els.fileInput.click(); });
+  $('studyChooseImage').addEventListener('click', function () { els.fileInput.click(); });
 
   els.kRange.addEventListener('input', function () {
     els.kVal.textContent = els.kRange.value;

@@ -245,16 +245,21 @@ async function decoded(blob) {
   return { canvas, bytes, type: blob.type };
 }
 
-async function main() {
+async function openStudio(database = new IDBFactory()) {
   const console = new VirtualConsole(); console.on('jsdomError', error => errors.push(error.stack || String(error)));
   const dom = new JSDOM(fs.readFileSync(path.join(ROOT, 'drawing-studio.html'), 'utf8'), {
     url: 'https://drawing-app.test/drawing-studio.html', runScripts: 'dangerously', resources: new LocalResources(),
-    pretendToBeVisual: true, beforeParse: installShims, virtualConsole: console
+    pretendToBeVisual: true, beforeParse(win) { installShims(win); win.indexedDB = database; }, virtualConsole: console
   });
-  const win = dom.window, doc = win.document; liveWindow = win;
+  const win = dom.window;
   await new Promise(resolve => win.addEventListener('load', resolve, { once: true }));
   if (errors.length) throw new Error('Startup errors:\n' + errors.join('\n'));
   await eventually(() => !!win.DrawingStudio, 'DrawingStudio API should initialize');
+  return dom;
+}
+
+async function main() {
+  const dom = await openStudio(), win = dom.window, doc = win.document; liveWindow = win;
   const app = win.DrawingStudio;
   const element = id => { const item = doc.getElementById(id); assert.ok(item, 'Missing UI element ' + id); return item; };
   const click = id => element(id).click();
@@ -305,19 +310,153 @@ async function main() {
     assert.equal(pixel(display(), 120, 90)[3], 0);
   });
 
+  await test('Brush preferences restore independently and export uses Beijing year-day-month time', async () => {
+    await fresh(); select('brushKind', 'marker'); edit('brushSize', 47); edit('brushOpacity', 38);
+    edit('stabilizer', 62); check('penPressure', false);
+    select('brushKind', 'pencil'); edit('brushSize', 5); edit('brushOpacity', 82);
+    select('brushKind', 'marker');
+    assert.deepEqual([state().size,state().opacity,state().stabilizer,element('penPressure').checked], [47,.38,62,false]);
+    tool('eraser'); edit('brushSize', 18); tool('brush'); assert.equal(state().size,47);
+    click('resetBrushProfile'); select('brushKind','pencil'); assert.equal(state().size,5);
+    assert.equal(state().opacity,.82); click('resetBrushProfile');
+    assert.equal(win.studioExportName(new Date('2026-11-20T16:07:00Z')), '2026年21日11月00时07分');
+  });
+
+  await test('Saved brush profiles survive new artwork and override older project settings without replacing its ink', async () => {
+    const profile = () => [state().size, state().opacity, state().stabilizer, element('penPressure').checked];
+    await fresh(); select('brushKind', 'squarePaint');
+    edit('brushSize', 37); edit('brushOpacity', 52); edit('stabilizer', 26); check('penPressure', false);
+    select('brushKind', 'gouache'); edit('brushSize', 19); edit('brushOpacity', 83);
+    const other = profile();
+    await app.newDocument({width: 96, height: 96, paper: 'transparent'});
+    select('brushKind', 'squarePaint'); assert.deepEqual(profile(), [37,.52,26,false]);
+    const old = await app.serializeProject();
+    old.settings = { ...old.settings, brush: 'squarePaint', ink: '#287040', size: 92, opacity: .29, stabilizer: 1, pressureEnabled: true };
+    await app.loadProject(old);
+    assert.deepEqual(profile(), [37,.52,26,false], 'personal settings win when a project has an older copy');
+    assert.equal(state().ink, '#287040', 'the project restores its global ink');
+    select('brushKind', 'gouache'); assert.deepEqual(profile(), other); assert.equal(state().ink, '#287040');
+    select('brushKind', 'squarePaint'); click('resetBrushProfile');
+    const recommended = win.DrawingCore.brushPresets.find(p => p.id === 'squarePaint');
+    assert.deepEqual(profile(), [recommended.size, recommended.opacity, recommended.stabilizer, true]);
+    select('brushKind', 'gouache'); assert.deepEqual(profile(), other, 'reset affects just the selected brush');
+    old.settings.brush = 'spatter'; await app.loadProject(old);
+    assert.deepEqual(profile(), [92,.29,1,true], 'a legacy project seeds an unused brush');
+    assert.deepEqual(await app.serializeProject().then(p => [p.settings.brush,p.settings.size,p.settings.ink]), ['spatter',92,'#287040']);
+    click('resetBrushProfile'); select('brushKind','gouache'); click('resetBrushProfile');
+  });
+
+  await test('A saved preference from another tab applies after the active stroke finishes', async () => {
+    await fresh(); select('brushKind', 'plainSquare'); edit('brushSize', 9); edit('brushOpacity', 100); edit('stabilizer', 0);
+    pointer('pointerdown', 12, 42, {pointerId: 4}); pointer('pointermove', 48, 42, {pointerId: 4});
+    const key = 'lrx-drawing-brush-v1:plainSquare';
+    const profile = JSON.stringify({size: 41, opacity: .47, stabilizer: 32, pressureEnabled: false});
+    win.localStorage.setItem(key, profile); win.dispatchEvent(new win.StorageEvent('storage', {key, newValue: profile}));
+    assert.equal(state().size, 9); assert.equal(state().opacity, 1); assert.ok(state().drawing);
+    pointer('pointermove', 100, 42, {pointerId: 4}); pointer('pointerup', 100, 42, {pointerId: 4}); await settle();
+    assert.deepEqual([state().size,state().opacity,state().stabilizer,element('penPressure').checked], [41,.47,32,false]);
+    assert.equal(pixel(active().canvas, 78, 32)[3], 0, 'remote wide brush did not alter the gesture');
+    assert.equal(pixel(active().canvas, 78, 42)[3], 255, 'stroke opacity was also frozen');
+    click('resetBrushProfile');
+  });
+
+  await test('A valid typed size and slider changes save on input before blur or release', async () => {
+    await fresh(); select('brushKind','fountain');
+    const inputOnly = (id, value) => {
+      const node = element(id); node.value = value;
+      node.dispatchEvent(new win.Event('input', {bubbles:true}));
+    };
+    inputOnly('brushSize','61'); inputOnly('brushOpacity','46'); inputOnly('stabilizer','77');
+    const getSaved = () => JSON.parse(win.localStorage.getItem('lrx-drawing-brush-v1:fountain'));
+    assert.deepEqual(getSaved(), {size:61, opacity:.46, stabilizer:77, pressureEnabled:true});
+    for (const invalid of ['', '260', '5.5']) {
+      inputOnly('brushSize',invalid);
+      assert.equal(element('brushSize').value,invalid,'intermediate typing remains editable');
+      assert.equal(getSaved().size,61,'an unfinished or out-of-range number does not replace a valid preference');
+    }
+    select('brushKind','gpen'); select('brushKind','fountain');
+    assert.equal(element('brushSize').value,'61'); assert.equal(state().opacity,.46); assert.equal(state().stabilizer,77);
+    click('resetBrushProfile');
+  });
+
+  await test('Cubic pen anchors stay editable until a single undoable stroke or fill is committed', async () => {
+    await fresh(); tool('pen');
+    const blank = hash(pixels(active().canvas));
+    await stroke([[18,34],[32,10]]); await stroke([[82,39],[91,60]]);
+    assert.ok(element('penOverlay').querySelector('path').getAttribute('d').includes('C'));
+    assert.equal(hash(pixels(active().canvas)),blank);
+    click('penStroke'); assert.notEqual(hash(pixels(active().canvas)),blank); assert.equal(state().history,1);
+    app.undo(); assert.equal(hash(pixels(active().canvas)),blank);
+    for (const p of [[14,14],[100,18],[60,80]]) await stroke([p]);
+    click('penFill'); assert.ok(pixel(active().canvas,55,35)[3]>240);
+    app.undo(); assert.equal(hash(pixels(active().canvas)),blank);
+    await stroke([[20,20]]); click('penCancel'); assert.equal(element('penOverlay').childElementCount,0);
+  });
+
+  await test('Unpainted pen anchors survive tool, layer, project and draft switches, independently of committed pixels', async () => {
+    await fresh(); tool('pen');
+    const contour = () => element('penOverlay').querySelectorAll('rect').length;
+    const first = state().activeId;
+    await stroke([[20,20],[23,30]]); await stroke([[80,50]]);
+    edit('brushSize',14); edit('brushOpacity',65);
+    assert.ok(state().revision > 0, 'Adding anchors is an edit even before a path is committed'); assert.equal(state().history,0);
+    tool('hand'); assert.equal(contour(),0); tool('pen'); assert.equal(contour(),2);
+    const second = app.addLayer(); assert.equal(contour(),0); assert.equal(element('penStroke').disabled,true);
+    await stroke([[33,15]]); app.selectLayer(first); assert.equal(contour(),2);
+    await app.saveDraft();
+    const savedDraft = await win.DrawingStorage.readCurrent();
+    assert.equal(savedDraft.project.layers[0].pendingPath.nodes.length,2);
+    const project = JSON.parse(await app.exportProject());
+    assert.equal(project.layers[1].pendingPath.layerId,second);
+    await fresh(); assert.equal(contour(),0); await app.loadProject(project);
+    assert.equal(state().tool,'pen'); assert.equal(contour(),2);
+    assert.equal(state().size,14); assert.equal(state().opacity,.65);
+    click('penStroke'); assert.equal(contour(),0); assert.equal(state().history,1);
+    app.undo(); app.redo(); assert.equal(contour(),0);
+    assert.equal((await app.serializeProject()).layers[0].pendingPath,undefined);
+    app.selectLayer(second); assert.equal(contour(),1);
+    click('penCancel'); assert.equal(contour(),0);
+    project.layers[0].pendingPath.nodes[0].x=1e20;
+    project.layers[1].pendingPath.layerId='other-work';
+    await app.loadProject(project); tool('pen'); assert.equal(contour(),0);
+    assert.equal(element('penCancel').disabled,true);
+    assert.ok((await app.serializeProject()).layers.every(layer => !layer.pendingPath));
+  });
+
   await test('All brush presets paint and eraser modifies alpha without painting white', async () => {
-    const brushes = ['gpen', 'fineliner', 'pencil', 'charcoal', 'marker', 'brushMarker', 'dry', 'airbrush',
+    const brushes = ['gpen', 'fineliner', 'plainSquare', 'fountain', 'wetMix', 'smudge', 'stoneChalk', 'softRound', 'squarePaint', 'patinaInk', 'patinaGrain', 'pencil', 'charcoal', 'marker', 'brushMarker', 'dry', 'airbrush',
       'gouache', 'wash', 'spatter', 'maru', 'hairHatch', 'screentone', 'sparkle', 'binary', 'pixel'];
     assert.deepEqual(Array.from(element('brushKind').options, option => option.value).sort(), [...brushes].sort());
     for (const brush of brushes) {
       await fresh(); select('brushKind', brush); await stroke([[15, 40], [110, 40]]);
       const middle = active().canvas.getContext('2d').getImageData(46, 0, 28, 96).data;
-      assert.ok(middle.some((value, i) => i % 4 === 3 && value > 0), brush + ' must deposit ink along the stroke');
+      assert.equal(middle.some((value, i) => i % 4 === 3 && value > 0), brush !== 'smudge', brush + ' deposits ink only if it carries color');
       if (brush === 'binary' || brush === 'pixel') assert.ok(Array.from(pixels(active().canvas)).filter((_, i) => i % 4 === 3).every(alpha => alpha === 0 || alpha === 255));
     }
     tool('eraser'); edit('brushSize', 15); await stroke([[60, 40]]);
     assert.equal(pixel(active().canvas, 60, 40)[3], 0); assert.equal(pixel(display(), 60, 40)[3], 0);
     assert.ok(pixel(active().canvas, 25, 40)[3] > 0);
+  });
+
+  await test('Wet mix and smudge pick up active-layer color, preserve isolation, and undo cleanly', async () => {
+    for (const kind of ['wetMix', 'smudge']) {
+      await fresh(); const under = active().canvas.getContext('2d');
+      under.fillStyle = '#00ff00'; under.fillRect(0,0,128,96);
+      const lower = active().canvas, previous = hash(pixels(lower));
+      app.addLayer(); const paint = active().canvas.getContext('2d');
+      paint.fillStyle = '#ff0000'; paint.fillRect(8,16,48,64);
+      paint.fillStyle = '#0000ff'; paint.fillRect(56,16,40,64);
+      const before = hash(pixels(active().canvas)); select('brushKind',kind);
+      edit('brushSize',22); edit('brushOpacity',100); edit('stabilizer',0);
+      edit('inkColor',kind === 'smudge' ? '#00ff00' : '#ff0000');
+      await stroke([[18,40],[48,40],[78,40],[117,40]]);
+      const blended = pixel(active().canvas,61,40), after = hash(pixels(active().canvas));
+      assert.ok(blended[0]>45 && blended[2]>45 && blended[1]<15, kind + ' red and blue produce a chromatic transition');
+      assert.ok(pixel(active().canvas,101,40)[3]>0, kind + ' carries paint across an alpha edge');
+      assert.equal(hash(pixels(lower)),previous, 'lower layer is untouched');
+      await app.undo(); assert.equal(hash(pixels(active().canvas)),before);
+      await app.redo(); assert.equal(hash(pixels(active().canvas)),after);
+    }
   });
 
   await test('Pointer coordinates remain correct after zoom and pan, with touch disabled by default', async () => {
@@ -474,27 +613,57 @@ async function main() {
     await fresh(96, 64, 'white');
     const artPixels = hash(pixels(active().canvas)), paperPixels = new Set();
     const samples = Array.from(element('paperGallery').querySelectorAll('button'));
-    assert.equal(samples.length, 4);
+    assert.equal(samples.length, 8);
     for (const button of samples) {
       button.click(); await settle();
       assert.equal(button.getAttribute('aria-pressed'), 'true');
-      assert.equal(state().paper, button.dataset.paper);
+      assert.equal(state().paperTexture, button.dataset.paper);
       assert.equal(hash(pixels(active().canvas)), artPixels);
       const current = hash(pixels(display())); paperPixels.add(current);
       assert.equal(hash(pixels((await decoded(await app.exportRaster('png'))).canvas)), current);
       assert.ok(new Set(pixels(display()).filter((_, i) => i % 4 === 0)).size > 8, 'Real tonal variation');
     }
-    assert.equal(paperPixels.size, 4);
-    const last = state().paper, view = hash(pixels(display()));
+    assert.equal(paperPixels.size, 8);
+    const last = state().paperTexture, view = hash(pixels(display()));
     const expected = pixel(display(), 30, 25).slice(0, 3).map(v => v.toString(16).padStart(2, '0')).join('');
     tool('picker'); pointer('pointerdown', 30.25, 25.25);
     assert.equal(state().ink.toLowerCase(), '#' + expected);
     assert.equal(pixel((await decoded(await app.exportRaster('png', true))).canvas, 30, 25)[3], 0);
-    await app.undo(); assert.notEqual(state().paper, last);
+    await app.undo(); assert.notEqual(state().paperTexture, last);
     await app.redo(); await settle(); assert.equal(hash(pixels(display())), view);
     const saved = await app.exportProject(); await fresh(); await app.loadProject(saved); await settle();
-    assert.equal(state().paper, last); assert.equal(hash(pixels(display())), view);
+    assert.equal(state().paperTexture, last); assert.equal(hash(pixels(display())), view);
     assert.equal(hash(pixels(active().canvas)), artPixels);
+  });
+
+  await test('Independent paper colour, relief and alpha survive exports, undo and legacy projects', async () => {
+    await fresh(96, 96);
+    edit('paperColor', '#4c729a'); edit('paperOpacity', 40);
+    await settle();
+    const source = pixel(display(), 2, 2);
+    assert.equal(source[3], 102);
+    assert.ok(Math.abs(source[2] - 154) <= 2);
+    select('paperTexture', 'cotton'); edit('textureStrength', 24); await settle();
+    const current = hash(pixels(display()));
+    assert.equal(state().paperColor, '#4c729a');
+    assert.equal(state().paperOpacity, 40);
+    assert.equal(state().textureStrength, 24);
+    assert.equal(hash(pixels((await decoded(await app.exportRaster('png'))).canvas)), current);
+    edit('paperOpacity', 0); await settle();
+    const onlyRelief = pixels(display());
+    assert.ok(onlyRelief.some((v, i) => i % 4 === 3 && v > 0 && v < 255));
+    edit('textureStrength', 0); await settle();
+    assert.ok(pixels(display()).every((v, i) => i % 4 !== 3 || v === 0));
+    await app.undo(); await app.undo(); await settle(); assert.equal(hash(pixels(display())), current);
+    const data = JSON.parse(await app.exportProject()); await fresh(); await app.loadProject(data); await settle();
+    assert.equal(hash(pixels(display())), current);
+    for (const key of ['paperOpacity', 'paperTexture', 'textureStrength']) delete data[key];
+    data.paper = 'kraft'; data.paperColor = '#f7f3e9';
+    await app.loadProject(data); await settle();
+    assert.equal(state().paperTexture, 'kraft'); assert.equal(state().paperColor, '#c19b6c');
+    assert.equal(state().paperOpacity, 100); assert.equal(state().textureStrength, 100);
+    data.paper = 'transparent'; await app.loadProject(data); await settle();
+    assert.equal(state().paperOpacity, 0); assert.equal(state().paperTexture, 'none');
   });
 
   await test('Non-destructive overall color adjustment agrees with exported PNG', async () => {
@@ -635,6 +804,8 @@ async function main() {
   const markDefaults = {
     shapeKind: 'rect', shapeConstrain: false, shapeFill: true, shapeStroke: false,
     shapeStrokeColor: '#253546', shapeStrokeWidth: 4,
+    frameColor: '#354953', frameAccent: '#d4b583', frameWidth: 12,
+    textBoxStyle: 'none', textBoxColor: '#fff4df', textBoxAccent: '#886d52',
     textContent: 'Hi\nDrawing', textFont: 'mono', textSize: 18, textLineHeight: 1.5,
     textBold: false, textItalic: false, textAlign: 'left', textUseMaterial: false,
     materialKind: 'solid', materialFollowInk: false, materialForeground: '#ff0000',
@@ -714,6 +885,26 @@ async function main() {
       assert.equal(state().history, history, kind + ' cancellation must not add undo: ' + cancellation);
       assert.equal(inkStats(display()).count, 0, 'Cancelled overlay must disappear from the composited view');
     }
+  });
+  await test('Colored artwork frame and caption box survive undo, export and editable project restoration', async () => {
+    await freshMarks(); tool('shape'); select('shapeKind','frameGallery');
+    edit('frameColor','#b34837'); edit('frameAccent','#ffcb1a'); edit('frameWidth',8);
+    assert.equal(element('frameFields').hidden,false);
+    click('applyCanvasFrame'); await settle();
+    assert.equal(state().layers.length,2); assert.deepEqual(pixel(active().canvas,2,48),[179,72,55,255]);
+    assert.equal(pixel(active().canvas,64,48)[3],0);
+    await app.undo(); await settle(); assert.equal(state().layers.length,1);
+    await app.redo(); await settle(); assert.equal(state().layers.length,2);
+    tool('text'); select('textBoxStyle','balloon'); edit('textBoxColor','#ffe4c4'); edit('textBoxAccent','#ad2f41');
+    edit('textContent','Hi'); edit('textSize',15);
+    const before=hash(pixels(active().canvas)); await stroke([[38,32]]); const after=hash(pixels(active().canvas));
+    assert.notEqual(before,after); await app.undo(); await settle(); assert.equal(hash(pixels(active().canvas)),before);
+    await app.redo(); await settle(); assert.equal(hash(pixels(active().canvas)),after);
+    const exported=await app.exportRaster('png',true); assert.ok(exported.size>0);
+    const project=await app.exportProject(); await freshMarks(); await app.loadProject(project);
+    assert.equal(element('textBoxStyle').value,'balloon'); assert.equal(element('textBoxColor').value,'#ffe4c4');
+    assert.equal(element('shapeKind').value,'frameGallery'); assert.equal(element('frameAccent').value,'#ffcb1a');
+    assert.equal(hash(pixels(active().canvas)),after);
   });
 
   await test('New tools honor moved/scaled layer coordinates and locked/hidden layer guards', async () => {
@@ -912,6 +1103,88 @@ async function main() {
       releaseLoad(); Object.assign(reference, original);
       if (filesDescriptor) Object.defineProperty(input, 'files', filesDescriptor); else delete input.files;
       reference.options.onChange(reference.getInfo());
+    }
+  });
+
+  await test('Current work reopens with the same pixels, reference and paper; discarded work cannot return from a stale tab', async () => {
+    await fresh(106, 78);
+    await stroke([[10, 14], [72, 53]]);
+    const base = state().activeId, overlay = app.addLayer();
+    await stroke([[51, 62], [84, 28]]);
+    select('paperTexture', 'linen'); edit('paperOpacity', 53); edit('textureStrength', 64);
+    const source = native.createCanvas(13, 9), ctx = source.getContext('2d');
+    ctx.fillStyle = '#784e32'; ctx.fillRect(0, 0, 13, 9);
+    await app.ref.load(new File([source.toBuffer('image/png')], 'resume-reference.png', { type: 'image/png' }));
+    // Exercise the automatic save and the normal lifecycle hook, without calling saveDraft().
+    win.dispatchEvent(new win.Event('pagehide'));
+    await eventually(() => !state().dirty, 'Finished artwork changes must reach automatic storage');
+    const original = state(), expectedBase = hash(pixels(app.getLayer(base).canvas)), expectedOverlay = hash(pixels(app.getLayer(overlay).canvas));
+    assert.equal((await win.DrawingStorage.readCurrent()).project.title, original.title);
+    assert.deepEqual(Array.from(await win.DrawingStorage.list(), row => row.id), ['integration-roundtrip'], 'New work must not create extra legacy history');
+
+    const opened = [];
+    function checkRestored(studio) {
+      const restored = studio.inspect();
+      for (const key of ['width', 'height', 'title', 'paperColor', 'paperTexture', 'paperOpacity', 'textureStrength', 'activeId']) assert.equal(restored[key], original[key], key);
+      assert.equal(restored.layers.length, 2); assert.equal(restored.reference.name, 'resume-reference.png');
+      assert.equal(hash(pixels(studio.getLayer(base).canvas)), expectedBase);
+      assert.equal(hash(pixels(studio.getLayer(overlay).canvas)), expectedOverlay);
+    }
+    async function reopen() { const result = await openStudio(win.indexedDB); opened.push(result); return result.window; }
+    let releaseEncoder;
+    try {
+      const other = await reopen(), current = other.DrawingStudio, otherDoc = other.document;
+      checkRestored(current); checkRestored(app);
+      otherDoc.getElementById('wastebasket').click();
+      assert.equal(otherDoc.getElementById('wastebasketDialog').open, true);
+      otherDoc.querySelector('#wastebasketDialog [data-close]').click();
+      assert.equal(otherDoc.getElementById('wastebasketDialog').open, false);
+      checkRestored(current);
+
+      const storage = other.DrawingStorage, saved = await storage.readCurrent();
+      other.DrawingStorage = { ...storage, writeCurrent: async () => { throw new Error('Test storage quota reached'); } };
+      otherDoc.getElementById('wastebasket').click(); otherDoc.getElementById('discardWork').click();
+      await eventually(() => otherDoc.getElementById('toast').textContent.includes('Test storage quota reached'), 'Storage failure should be visible');
+      checkRestored(current); assert.equal((await storage.readCurrent()).stamp, saved.stamp);
+      assert.equal(otherDoc.getElementById('wastebasketDialog').open, true);
+      otherDoc.querySelector('#wastebasketDialog [data-close]').click(); other.DrawingStorage = storage;
+
+      // Hold an actual PNG encoder callback until another tab commits the discard.
+      const baseCanvas = app.getLayer(base).canvas, encode = baseCanvas.toBlob.bind(baseCanvas);
+      baseCanvas.toBlob = (callback, ...args) => encode(blob => { releaseEncoder = () => callback(blob); }, ...args);
+      app.addLayer();
+      const pending = app.saveDraft().catch(() => {});
+      await eventually(() => !!releaseEncoder, 'Old tab should start serializing its changed layers');
+      otherDoc.getElementById('wastebasket').click(); otherDoc.getElementById('discardWork').click();
+      await eventually(() => !otherDoc.getElementById('wastebasketDialog').open && current.inspect().layers.length === 1, 'Discard should switch to a fresh work');
+      assert.equal(current.ref.getCanvas(), null); assert.equal(inkStats(current.getLayer(current.inspect().activeId).canvas).count, 0);
+      const tombstone = await other.DrawingStorage.readCurrent();
+      assert.ok(tombstone.stamp); assert.equal(tombstone.project, null);
+      releaseEncoder(); releaseEncoder = null;
+      baseCanvas.toBlob = encode;
+      await pending; win.dispatchEvent(new win.Event('pagehide')); await wait(70);
+      assert.equal((await other.DrawingStorage.readCurrent()).stamp, tombstone.stamp, 'Old asynchronous saves cannot revive discarded drawings');
+      assert.equal(state().layers.length, 3, 'Conflict preserves old tab pixels so the user can export them');
+      assert.equal(hash(pixels(app.getLayer(base).canvas)), expectedBase);
+      const clean = await reopen();
+      assert.equal(clean.DrawingStudio.inspect().layers.length, 1); assert.equal(clean.DrawingStudio.ref.getCanvas(), null);
+      assert.notEqual(clean.DrawingStudio.inspect().title, original.title);
+      assert.equal((await clean.DrawingStorage.readCurrent()).project, null);
+      assert.ok(await clean.DrawingStorage.load('integration-roundtrip'), 'Pre-existing legacy work remains accessible');
+
+      const importFile = element('projectFile'), foreign = new File([await clean.DrawingStudio.exportProject()], 'different-work.lrxdraw', {type: 'application/json'});
+      Object.defineProperty(importFile, 'files', { configurable: true, value: [foreign] });
+      const beforeImport = state();
+      importFile.dispatchEvent(new win.Event('change', { bubbles: true }));
+      assert.ok(doc.body.classList.contains('busy'), 'The real file picker started decoding the replacement project');
+      await eventually(() => !doc.body.classList.contains('busy') && /另一/.test(element('status').textContent), 'Stale import must tell the user another page updated their work');
+      assert.deepEqual(state().layers, beforeImport.layers);
+      assert.equal(state().draftId, beforeImport.draftId); assert.equal(state().activeId, beforeImport.activeId);
+      assert.equal(state().title, beforeImport.title); assert.equal(state().reference.name, 'resume-reference.png');
+      assert.equal(hash(pixels(app.getLayer(base).canvas)), expectedBase); assert.equal(hash(pixels(app.getLayer(overlay).canvas)), expectedOverlay);
+      assert.equal((await clean.DrawingStorage.readCurrent()).stamp, tombstone.stamp);
+    } finally {
+      if (releaseEncoder) releaseEncoder(); for (const page of opened) page.window.close();
     }
   });
 

@@ -170,19 +170,21 @@ async function main(){
   const source=native.createCanvas(72,48),ctx=source.getContext('2d');
   ctx.fillStyle='#d03020';ctx.fillRect(0,0,24,48);ctx.fillStyle='#20a060';ctx.fillRect(24,0,24,48);ctx.fillStyle='#3060d0';ctx.fillRect(48,0,24,48);ctx.clearRect(0,0,7,7);
   const file=new win.File([source.toBuffer('image/png')],'three.png',{type:'image/png'});
-  await test('Marker palettes preserve swatch codes and grouped colors alongside the studio sets',async()=>{
-    assert.equal(win.DrawingPalettes[0].id,'marker-triads');
+  await test('Official Sketch sets and the full chart preserve unique ink codes, names and product sources',async()=>{
+    assert.equal(win.DrawingPalettes[0].id,'sketch36-set');
     assert.equal(new Set(win.DrawingPalettes.map(p=>p.id)).size,win.DrawingPalettes.length);
     for(const palette of win.DrawingPalettes){assert.ok(palette.id&&palette.name);assert.ok(palette.colors.every(c=>/^#[a-f0-9]{6}$/i.test(c)));assert.equal(new Set(palette.colors).size,palette.colors.length);}
-    for(const [id,size] of [['marker-triads',36],['marker-portrait',15],['marker-landscape',18],['marker-grays',20]]){
+    for(const [id,size] of [['sketch36-set',36],['sketchcomic24-set',24],['sketch6-set-portrait',6],['sketch12cg-set',12],['sketch-chart',357]]){
       const palette=win.DrawingPalettes.find(p=>p.id===id);
       assert.equal(palette.colors.length,size);
       const grouped=Array.from(palette.groups).flatMap(group=>Array.from(group.swatches));
       assert.deepEqual(grouped.map(s=>s.hex),Array.from(palette.colors));
-      assert.ok(grouped.every(s=>s.name&&s.code));
+      assert.ok(grouped.every(s=>s.officialName&&s.name&&s.code&&s.code!=='0'));
       assert.equal(new Set(grouped.map(s=>s.code)).size,size);
     }
-    for(const id of ['street','plants','anime'])assert.equal(win.DrawingPalettes.find(p=>p.id===id).colors.length,60);
+    assert.ok(win.DrawingPalettes.every(p=>p.source.startsWith('https://copic.jp/en/')));
+    const portrait=win.DrawingPalettes.find(p=>p.id==='sketch6-set-portrait');
+    assert.deepEqual(Array.from(portrait.swatches,s=>s.code),['E000','E00','E11','E15','E18','E93']);
   });
   await test('Image load produces original/color/gray reference and matching palettes without PDF loading',async()=>{
     await ref.load(file);assert.equal(changed,1);assert.equal(ref.getInfo().width,72);assert.equal(ref.getInfo().height,48);assert.equal(ref.getInfo().isPDF,false);

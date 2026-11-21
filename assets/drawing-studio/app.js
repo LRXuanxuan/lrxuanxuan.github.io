@@ -30,12 +30,81 @@
   let pressureEnabled = true, touchDraw = false, refPicking = false, recentColors = [];
   let undoStack = [], redoStack = [], frame = 0, transactions = new Map();
   let revision = 0, savedRevision = 0, sessionUsed = false, draftId = uid(), saveTimer = 0, savePromise = null;
+  let currentStamp = null, currentReady = false, switchingCurrent = false, currentConflict = false;
   let referenceCache = null, referenceVersion = 0, referenceCacheVersion = -1, lastReferenceKey = '';
   let pendingPDFPage = null;
   let toastTimer = 0, savingErrorShown = false, vectorResult = null, vectorKey = '', vectorURL = '';
   let lastPressure = 0, lastPointerType = 'mouse', fileSavedRevision = -1;
   let colorPicker = null, colorLibrary = null, referenceSplitter = null, lastReferencePort = null;
   let sampleFrame = 0;
+  const penPath = window.createStudioPenPath($('penOverlay'), count => {
+    $('penStroke').disabled = count < 2; $('penFill').disabled = count < 3;
+    $('penDelete').disabled = $('penCancel').disabled = !count;
+    $('penQuick').hidden = !count;
+    $('quickPenStroke').disabled = count < 2; $('quickPenFill').disabled = count < 3;
+  });
+  function syncPenPath() {
+    const layer = activeLayer();
+    penPath.attach(tool === 'pen' && layer.visible && !layer.locked ? layer : null, view.zoom);
+    if (penPath.length && layer.penDraft.size != null) {
+      ({ size, opacity } = layer.penDraft);
+      $('brushSize').value = size; $('brushOpacity').value = Math.round(opacity * 100);
+      $('brushOpacityValue').textContent = $('brushOpacity').value + '%';
+    }
+  }
+  function rememberPenStyle(markChange = false) {
+    if (!penPath.length) return;
+    const path = activeLayer().penDraft;
+    if (size === path.size && opacity === path.opacity) return;
+    path.size = size; path.opacity = opacity;
+    if (markChange) changed();
+  }
+  function editPenPath(action) {
+    if (action()) { changed(); syncLayers(); }
+  }
+  function commitPenPath(closed) {
+    if (activePointer || !penPath.length || !canDraw()) return;
+    const layer = activeLayer(); clear(strokeCanvas);
+    const bounds = penPath.paint(context(strokeCanvas), layer, closed, size, ink);
+    if (!bounds) return;
+    if (commitPreview({ opacity, erase:false }, layer, bounds, closed ? '钢笔闭合填色' : '钢笔路径描边')) {
+      penPath.reset(); syncLayers();
+    } else notify('路径没有改变图层像素，可继续调整锚点。');
+    clear(strokeCanvas); render();
+  }
+  const brushKey = 'lrx-drawing-brush-v1:';
+  const brushProfiles = new Map();
+  const eraserPreset = { id: 'eraser', size: 18, opacity: 1, stabilizer: 12 };
+  let brushStorageWarning = false, refreshBrushAfterStroke = false;
+  function brushProfile(preset) {
+    let saved = brushProfiles.get(preset.id);
+    if (!saved) {
+      try { saved = JSON.parse(localStorage.getItem(brushKey + preset.id)); } catch (_) {}
+    }
+    const setting = (key, min, max) => Number.isFinite(saved?.[key]) ? clamp(saved[key], min, max) : preset[key];
+    return { size: setting('size', 1, 240), opacity: setting('opacity', .01, 1),
+      stabilizer: setting('stabilizer', 0, 100), pressureEnabled: (saved?.pressureEnabled ?? preset.pressureEnabled) !== false };
+  }
+  function storeBrushProfile() {
+    if (tool !== 'brush' && tool !== 'eraser') return;
+    const id = tool === 'eraser' ? 'eraser' : brush;
+    const profile = { size, opacity, stabilizer, pressureEnabled };
+    brushProfiles.set(id, profile);
+    try { localStorage.setItem(brushKey + id, JSON.stringify(profile)); } catch (_) {
+      if (!brushStorageWarning) { brushStorageWarning = true; notify('浏览器未能保存笔刷偏好，本次打开画室期间仍会记住。'); }
+    }
+  }
+  function refreshActiveBrushProfile() {
+    const preset = tool === 'eraser' ? eraserPreset : Core.brushPresets.find(p => p.id === brush);
+    if (tool === 'brush' || tool === 'eraser') applyBrushProfile(brushProfile(preset));
+  }
+  function applyBrushProfile(profile) {
+    ({ size, opacity, stabilizer, pressureEnabled } = profile);
+    $('brushSize').value = size; $('brushOpacity').value = Math.round(opacity * 100);
+    $('brushOpacityValue').textContent = $('brushOpacity').value + '%';
+    $('stabilizer').value = stabilizer; $('stabilizerValue').textContent = stabilizer;
+    $('penPressure').checked = pressureEnabled; scheduleBrushSample();
+  }
   const MARK_FONTS = {
     system: 'system-ui, -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif',
     yahei: '"Microsoft YaHei", "PingFang SC", sans-serif', heiti: '"SimHei", "Heiti SC", sans-serif',
@@ -46,6 +115,8 @@
   };
   const MARK_DEFAULTS = {
     shapeKind: 'rect', shapeConstrain: false, shapeFill: true, shapeStroke: true, shapeStrokeColor: '#263544', shapeStrokeWidth: 2,
+    frameColor: '#354953', frameAccent: '#d4b583', frameWidth: 12,
+    textBoxStyle: 'none', textBoxColor: '#fff4df', textBoxAccent: '#886d52',
     textContent: '轻绘 Drawing', textFont: 'system', textSize: 48, textLineHeight: 1.3, textBold: false, textItalic: false, textAlign: 'left', textUseMaterial: false,
     materialKind: 'solid', materialFollowInk: true, materialForeground: '#263544', materialBackground: '#ffffff', materialTransparent: false, materialSpacing: 14, materialThickness: 2, materialAngle: 45
   };
@@ -53,10 +124,10 @@
     value = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
     const next = { ...MARK_DEFAULTS };
     for (const key of Object.keys(next)) if (typeof next[key] === 'boolean' && typeof value[key] === 'boolean') next[key] = value[key];
-    const enums = { shapeKind: Array.from($('shapeKind').options, o => o.value), textFont: Object.keys(MARK_FONTS), textAlign: ['left', 'center', 'right'], materialKind: Array.from($('materialKind').options, o => o.value) };
+    const enums = { shapeKind: Array.from($('shapeKind').options, o => o.value), textBoxStyle: Array.from($('textBoxStyle').options, o => o.value), textFont: Object.keys(MARK_FONTS), textAlign: ['left', 'center', 'right'], materialKind: Array.from($('materialKind').options, o => o.value) };
     for (const key of Object.keys(enums)) if (enums[key].includes(value[key])) next[key] = value[key];
-    for (const key of ['shapeStrokeColor', 'materialForeground', 'materialBackground']) if (typeof value[key] === 'string' && /^#[a-f0-9]{6}$/i.test(value[key])) next[key] = value[key].toLowerCase();
-    for (const [key, lo, hi] of [['shapeStrokeWidth', .5, 80], ['textSize', 8, 360], ['textLineHeight', .8, 3], ['materialSpacing', 4, 100], ['materialThickness', 1, 24], ['materialAngle', 0, 180]]) {
+    for (const key of ['shapeStrokeColor', 'materialForeground', 'materialBackground', 'frameColor', 'frameAccent', 'textBoxColor', 'textBoxAccent']) if (typeof value[key] === 'string' && /^#[a-f0-9]{6}$/i.test(value[key])) next[key] = value[key].toLowerCase();
+    for (const [key, lo, hi] of [['shapeStrokeWidth', .5, 80], ['frameWidth', 1, 240], ['textSize', 8, 360], ['textLineHeight', .8, 3], ['materialSpacing', 4, 100], ['materialThickness', 1, 24], ['materialAngle', 0, 180]]) {
       if (typeof value[key] === 'number' || typeof value[key] === 'string') next[key] = clamp(number(value[key], next[key]), lo, hi);
     }
     if (typeof value.textContent === 'string') next.textContent = value.textContent.slice(0, 1200).split(/\r?\n/).slice(0, 20).join('\n');
@@ -82,6 +153,10 @@
     $('materialPatternOptions').hidden = !pattern; $('materialAngleField').hidden = !['diagonal', 'crosshatch', 'linear', 'reflected', 'checker', 'weave'].includes(s.materialKind);
     $('materialThickness').closest('label').hidden = s.materialKind === 'checker';
     $('shapeConstraintText').textContent = ['line', 'arrow'].includes(s.shapeKind) ? '方向吸附到 45°' : '固定 1:1 比例';
+    const isFrame = Marks.frameKinds.includes(s.shapeKind);
+    $('shapePaintFields').hidden = isFrame; $('frameFields').hidden = !isFrame;
+    $('textBoxColors').hidden = s.textBoxStyle === 'none';
+    if (tool === 'shape' || tool === 'text') renderMarkSample(s);
     $('materialBackField').hidden = s.materialKind === 'solid'; $('materialBackFromInk').hidden = s.materialKind === 'solid'; $('materialTransparentLabel').hidden = s.materialKind === 'solid';
     $('materialFrontLabel').textContent = gradient ? '起始颜色' : s.materialKind === 'solid' ? '填充颜色' : '纹理颜色'; $('materialBackLabel').textContent = gradient ? '末尾颜色' : '背景颜色';
     $('materialThicknessValue').textContent = s.materialThickness + ' px'; $('materialSpacingValue').textContent = s.materialSpacing + ' px'; $('materialAngleValue').textContent = s.materialAngle + '°';
@@ -132,13 +207,13 @@
     setTimeout(() => URL.revokeObjectURL(url), 60000);
   }
   function filename(name) { return String(name || '未命名画作').replace(/[<>:"/\\|?*\u0000-\u001f]/g, '_').slice(0, 80).trim() || '未命名画作'; }
-  function createLayer(name) {
-    return { id: uid(), name: name || '图层 ' + (art ? art.layers.length + 1 : 1), visible: true, locked: false, opacity: 1, x: 0, y: 0, scale: 1, canvas: canvas(art.width, art.height) };
+  function createLayer(name, dimensions = art) {
+    return { id: uid(), name: name || '图层 ' + (art ? art.layers.length + 1 : 1), visible: true, locked: false, opacity: 1, x: 0, y: 0, scale: 1, penDraft: penPath.read(null), canvas: canvas(dimensions.width, dimensions.height) };
   }
   const activeLayer = () => art.layers.find(layer => layer.id === art.activeId) || art.layers[0];
   function metadata(layer) { return { id: layer.id, name: layer.name, visible: layer.visible, locked: layer.locked, opacity: layer.opacity, x: layer.x, y: layer.y, scale: layer.scale }; }
   function snapshot() {
-    return { title: art.title, width: art.width, height: art.height, paperPpi: art.paperPpi, paper: art.paper, paperColor: art.paperColor, tone: { ...art.tone }, activeId: art.activeId, layers: art.layers.map(layer => ({ ...layer })) };
+    return { title: art.title, width: art.width, height: art.height, paperPpi: art.paperPpi, paper: art.paper, paperColor: art.paperColor, paperOpacity: art.paperOpacity, paperTexture: art.paperTexture, textureStrength: art.textureStrength, tone: { ...art.tone }, activeId: art.activeId, layers: art.layers.map(layer => ({ ...layer })) };
   }
   function setGeometry() {
     resize(display, art.width, art.height); resize(composite, art.width, art.height);
@@ -164,8 +239,14 @@
   }
   function changed() {
     revision++; sessionUsed = true; vectorKey = ''; savingErrorShown = false;
-    $('canvasHint').hidden = true; $('saveStatus').textContent = '待保存';
-    clearTimeout(saveTimer); saveTimer = setTimeout(() => { saveDraft().catch(notifySaveError); }, 1400);
+    $('canvasHint').hidden = true;
+    if (currentConflict) { $('saveStatus').textContent = '另一标签页已更新 · 请存工程'; return; }
+    $('saveStatus').textContent = '待保存';
+    if (!saveTimer && !savePromise) scheduleSave();
+  }
+  function scheduleSave(delay = 0) {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => { saveTimer = 0; saveDraft().catch(notifySaveError); }, delay);
   }
   function addHistory(entry) {
     undoStack.push(entry); redoStack = [];
@@ -197,14 +278,29 @@
   }
   function syncHistory() { $('undo').disabled = !undoStack.length; $('redo').disabled = !redoStack.length; }
   function toneFilter() { return 'hue-rotate(' + art.tone.hue + 'deg) saturate(' + (100 + art.tone.saturation) + '%) brightness(' + (100 + art.tone.lightness) + '%)'; }
+  function applyStrokePatch(ctx, pointer, b) {
+    ctx.save(); ctx.globalAlpha = pointer.opacity;
+    if (pointer.sampledLayer) {
+      // Interpolate between the original and edited RGBA, including transparent
+      // pixels at a smudged edge. Both contributions are premultiplied.
+      ctx.globalCompositeOperation = 'destination-out';
+      ctx.fillStyle = '#000'; ctx.fillRect(b.x, b.y, b.width, b.height);
+      ctx.globalCompositeOperation = 'lighter';
+    } else ctx.globalCompositeOperation = pointer.erase ? 'destination-out' : 'source-over';
+    ctx.drawImage(strokeCanvas, b.x, b.y, b.width, b.height, b.x, b.y, b.width, b.height);
+    ctx.restore();
+  }
   function compositeLayers(includeStroke = true) {
     const ctx = context(composite); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, art.width, art.height);
     for (const layer of art.layers) {
       if (!layer.visible || layer.opacity <= 0) continue;
       let source = layer.canvas;
       if (includeStroke && activePointer && ['stroke', 'shape', 'text'].includes(activePointer.kind) && activePointer.layerId === layer.id) {
+        if (activePointer.stroke) activePointer.stroke.flush();
         clear(liveCanvas); const live = context(liveCanvas); live.drawImage(layer.canvas, 0, 0);
-        live.save(); live.globalAlpha = activePointer.opacity; live.globalCompositeOperation = activePointer.erase ? 'destination-out' : 'source-over'; live.drawImage(strokeCanvas, 0, 0); live.restore(); source = liveCanvas;
+        const patch = activePointer.sampledLayer ? activePointer.stroke.bounds : { x: 0, y: 0, width: art.width, height: art.height };
+        if (patch) applyStrokePatch(live, activePointer, patch);
+        source = liveCanvas;
       }
       ctx.save(); ctx.globalAlpha = layer.opacity; ctx.translate(layer.x, layer.y); ctx.scale(layer.scale, layer.scale); ctx.imageSmoothingEnabled = false; ctx.drawImage(source, 0, 0); ctx.restore();
     }
@@ -213,7 +309,7 @@
   function renderArtwork(target, transparent = false, includeStroke = true) {
     resize(target, art.width, art.height); clear(target);
     const ctx = context(target), source = compositeLayers(includeStroke);
-    if (!transparent) window.DrawingPaper.fill(ctx, art.width, art.height, art.paper, art.paperColor);
+    if (!transparent) window.DrawingPaper.fill(ctx, art.width, art.height, art);
     ctx.save();
     const adjusted = art.tone.hue || art.tone.saturation || art.tone.lightness;
     if (adjusted && typeof ctx.filter === 'string') { ctx.filter = toneFilter(); ctx.drawImage(source, 0, 0); }
@@ -227,6 +323,7 @@
     surface.style.transform = 'translate(' + view.x + 'px,' + view.y + 'px) scale(' + view.zoom + ')';
     surface.classList.toggle('pixel-view', brush === 'pixel' || view.zoom >= 3);
     $('zoomLabel').textContent = Math.round(view.zoom * 100) + '%';
+    if (penPath.length) penPath.show(view.zoom);
   }
   function fit() {
     if (!art) return;
@@ -259,7 +356,7 @@
     viewport.dataset.cursor = mode;
     c.hidden = !['brush', 'eraser'].includes(mode) || e.pointerType === 'touch';
     c.style.left = (e.clientX - r.left) + 'px'; c.style.top = (e.clientY - r.top) + 'px';
-    const d = Math.max(3, size * view.zoom); c.style.width = d + 'px'; c.style.height = d + 'px'; c.classList.toggle('square', brush === 'pixel' && mode === 'brush');
+    const d = Math.max(3, size * view.zoom); c.style.width = d + 'px'; c.style.height = d + 'px'; c.classList.toggle('square', (brush === 'pixel' || brush === 'plainSquare') && mode === 'brush');
   }
   function pickFrom(c, x, y) {
     x = Math.floor(x); y = Math.floor(y);
@@ -268,10 +365,34 @@
     if (p[3] === 0) { status('这里是透明像素'); return; }
     setInk('#' + Array.from(p.slice(0, 3), v => v.toString(16).padStart(2, '0')).join(''), true); status('已取色 ' + ink.toUpperCase());
   }
-  function markOptions(kind, layer) {
-    const s = readMarkSettings(), fill = materialStyle(s, layer.scale);
-    if (kind === 'shape') return { type: s.shapeKind, constrain: s.shapeConstrain, fill: s.shapeFill ? fill : null, stroke: s.shapeStroke ? s.shapeStrokeColor : null, strokeWidth: s.shapeStrokeWidth / layer.scale, opacity: 1 };
-    return { text: s.textContent, size: s.textSize / layer.scale, fontFamily: MARK_FONTS[s.textFont], bold: s.textBold, italic: s.textItalic, align: s.textAlign, lineHeight: s.textLineHeight, fill: s.textUseMaterial ? fill : ink, stroke: null, opacity: 1 };
+  function markOptions(kind, layer, s = readMarkSettings()) {
+    const fill = materialStyle(s, layer.scale);
+    if (kind === 'shape') return { type: s.shapeKind, constrain: s.shapeConstrain, fill: s.shapeFill ? fill : null, stroke: s.shapeStroke ? s.shapeStrokeColor : null, strokeWidth: s.shapeStrokeWidth / layer.scale, frameColor: s.frameColor, frameAccent: s.frameAccent, frameWidth: s.frameWidth / layer.scale, opacity: 1 };
+    return { text: s.textContent, size: s.textSize / layer.scale, fontFamily: MARK_FONTS[s.textFont], bold: s.textBold, italic: s.textItalic, align: s.textAlign, lineHeight: s.textLineHeight, fill: s.textUseMaterial ? fill : ink, stroke: null, opacity: 1, boxStyle: s.textBoxStyle, boxColor: s.textBoxColor, boxAccent: s.textBoxAccent };
+  }
+  function renderMarkSample(s) {
+    const sample = $(tool === 'shape' ? 'shapePreview' : 'textBoxPreview');
+    clear(sample);
+    const opts = markOptions(tool, { scale: 1 }, s);
+    if (tool === 'shape') {
+      const isFrame = Marks.frameKinds.includes(opts.type), w = isFrame ? 136 : 66, h = 42;
+      Marks.paintShape(context(sample), { ...opts, frameWidth: Math.min(opts.frameWidth, 7), strokeWidth: Math.min(opts.strokeWidth, 6),
+        x: (sample.width-w)/2, y: 9, width: w, height: h, constrain: false });
+    } else {
+      const text = (opts.text.split('\n').find(line => line.trim()) || '文字预览').slice(0, 10);
+      Marks.paintText(context(sample), { ...opts, x: sample.width / 2, y: 20, text, size: 16, align: 'center' });
+    }
+  }
+  function frameCanvas() {
+    const options = markOptions('shape', { scale: 1 });
+    if (!Marks.frameKinds.includes(options.type)) return;
+    layerBudget(art.layers.length + 1);
+    mutate(() => {
+      const layer = createLayer('画框 · ' + $('shapeKind').selectedOptions[0].textContent);
+      Marks.paintShape(context(layer.canvas), { ...options, x: 0, y: 0, width: art.width, height: art.height, constrain: false });
+      layer.opacity = opacity; art.layers.push(layer); art.activeId = layer.id;
+    }, '添加整张画框');
+    status('画框已加入独立图层');
   }
   function previewMark(pointer, point, shift) {
     clear(strokeCanvas); pointer.last = point;
@@ -289,7 +410,7 @@
   function commitPreview(pointer, layer, rawBounds, label) {
     const b = clippedBounds(rawBounds); if (!b) return false;
     const ctx = context(layer.canvas), before = ctx.getImageData(b.x, b.y, b.width, b.height);
-    ctx.save(); ctx.globalAlpha = pointer.opacity; ctx.globalCompositeOperation = pointer.erase ? 'destination-out' : 'source-over'; ctx.drawImage(strokeCanvas, b.x, b.y, b.width, b.height, b.x, b.y, b.width, b.height); ctx.restore();
+    applyStrokePatch(ctx, pointer, b);
     const after = ctx.getImageData(b.x, b.y, b.width, b.height);
     if (!after.data.some((v, i) => v !== before.data[i])) return false;
     activePointer = null; addHistory({ kind: 'pixels', layerId: layer.id, x: b.x, y: b.y, before, after, label }); remember(ink); return true;
@@ -299,25 +420,36 @@
     e.preventDefault(); viewport.focus({ preventScroll: true }); updatePressure(e);
     const point = documentPoint(e), inside = point.x >= 0 && point.y >= 0 && point.x < art.width && point.y < art.height;
     const mode = e.button === 1 || spacePan || (e.pointerType === 'touch' && !touchDraw) ? 'hand' : e.altKey ? 'picker' : (e.button === 5 || (e.buttons & 32)) ? 'eraser' : tool;
-    if (mode === 'hand') activePointer = { id: e.pointerId, kind: 'pan', clientX: e.clientX, clientY: e.clientY, x: view.x, y: view.y };
+    if (mode === 'hand') {
+      if (e.pointerType === 'touch' && !touchDraw && tool !== 'hand') status('手指平移 · 在面板顶部开启“手指绘画”可落笔');
+      activePointer = { id: e.pointerId, kind: 'pan', clientX: e.clientX, clientY: e.clientY, x: view.x, y: view.y };
+    }
     else if (!inside) return;
     else if (mode === 'picker') { render(); pickFrom(display, point.x, point.y); return; }
     else {
       if (!canDraw()) return;
       const layer = activeLayer();
       if (mode === 'fill' || mode === 'cutout') { fillAt(point, mode === 'cutout'); return; }
-      if (mode === 'move') activePointer = { id: e.pointerId, kind: 'move', origin: point, x: layer.x, y: layer.y, layerId: layer.id, before: snapshot() };
+      if (mode === 'pen') {
+        if (!penPath.start(point, view.zoom)) return;
+        activePointer = { id:e.pointerId, kind:'pen-node', layerId:layer.id };
+      }
+      else if (mode === 'move') activePointer = { id: e.pointerId, kind: 'move', origin: point, x: layer.x, y: layer.y, layerId: layer.id, before: snapshot() };
       else if (mode === 'shape' || mode === 'text') {
         const options = markOptions(mode, layer);
         if (mode === 'text' && !options.text.trim()) { notify('请先在右侧输入文字。'); return; }
-        if (mode === 'shape' && !options.fill && !options.stroke) { notify('请至少启用填充或描边。'); return; }
+        if (mode === 'shape' && !Marks.frameKinds.includes(options.type) && !options.fill && !options.stroke) { notify('请至少启用填充或描边。'); return; }
         const p = strokePoint(e, layer); activePointer = { id: e.pointerId, kind: mode, layerId: layer.id, origin: p, last: p, options, opacity, bounds: null };
         previewMark(activePointer, p, e.shiftKey);
       }
       else {
-        clear(strokeCanvas); const stroke = Core.makeStroke(context(strokeCanvas), { brush: mode === 'eraser' ? 'eraser' : brush, size: size / layer.scale, color: ink, pressure: pressureEnabled, stabilizer });
+        clear(strokeCanvas);
+        const sampledLayer = mode === 'brush' && Core.brushPresets.some(p => p.id === brush && p.samplesLayer);
+        const paint = context(strokeCanvas);
+        if (sampledLayer) paint.drawImage(layer.canvas, 0, 0);
+        const stroke = Core.makeStroke(paint, { brush: mode === 'eraser' ? 'eraser' : brush, size: size / layer.scale, color: ink, pressure: pressureEnabled, stabilizer });
         const p = strokePoint(e, layer); stroke.start(p);
-        activePointer = { id: e.pointerId, kind: 'stroke', layerId: layer.id, stroke, opacity, erase: mode === 'eraser', last: p };
+        activePointer = { id: e.pointerId, kind: 'stroke', layerId: layer.id, stroke, opacity, sampledLayer, erase: mode === 'eraser', last: p };
         viewport.classList.add('drawing'); requestRender();
       }
     }
@@ -328,6 +460,7 @@
     e.preventDefault();
     if (activePointer.kind === 'pan') { view.x = activePointer.x + e.clientX - activePointer.clientX; view.y = activePointer.y + e.clientY - activePointer.clientY; updateView(); return; }
     const layer = art.layers.find(l => l.id === activePointer.layerId); if (!layer) return;
+    if (activePointer.kind === 'pen-node') { penPath.move(documentPoint(e), view.zoom); return; }
     if (activePointer.kind === 'move') { const p = documentPoint(e); layer.x = activePointer.x + p.x - activePointer.origin.x; layer.y = activePointer.y + p.y - activePointer.origin.y; requestRender(); return; }
     if (activePointer.kind === 'shape' || activePointer.kind === 'text') { previewMark(activePointer, strokePoint(e, layer), e.shiftKey); return; }
     const events = e.getCoalescedEvents ? e.getCoalescedEvents() : null;
@@ -346,10 +479,14 @@
         previewMark(pointer, strokePoint(e, layer), e.shiftKey);
         if (commitPreview(pointer, layer, pointer.bounds, pointer.kind === 'shape' ? '插入形状' : '插入文字')) status((pointer.kind === 'shape' ? '形状' : '文字') + '已落在 ' + layer.name + ' · 可撤销');
       } else status('已取消放置');
+    } else if (pointer.kind === 'pen-node') {
+      if (e?.type === 'pointerup') penPath.move(documentPoint(e), view.zoom);
+      if (penPath.stop(e?.type !== 'pointerup', view.zoom)) { rememberPenStyle(); changed(); syncLayers(); }
     } else if (pointer.kind === 'move' && layer && (layer.x !== pointer.x || layer.y !== pointer.y)) {
       activePointer = null; addHistory({ kind: 'state', before: pointer.before, after: snapshot(), label: '移动图层' });
     }
     activePointer = null; viewport.classList.remove('drawing'); clear(strokeCanvas);
+    if (refreshBrushAfterStroke) { refreshBrushAfterStroke = false; refreshActiveBrushProfile(); }
     try { if (viewport.hasPointerCapture(pointer.id)) viewport.releasePointerCapture(pointer.id); } catch (_) {}
     render();
   }
@@ -417,6 +554,7 @@
 
   function syncLayers() {
     if (!art) return;
+    syncPenPath();
     const list = $('layerList'); list.replaceChildren(); $('layerCount').textContent = art.layers.length;
     art.layers.slice().reverse().forEach(layer => {
       const row = document.createElement('div'); row.className = 'layer-row' + (layer.id === art.activeId ? ' active' : '') + (!layer.visible ? ' hidden-layer' : ''); row.setAttribute('role', 'listitem');
@@ -426,6 +564,7 @@
       const thumb = canvas(31, 31); thumb.className = 'layer-thumb'; thumb.setAttribute('aria-hidden', 'true');
       const scale = Math.min(31 / art.width, 31 / art.height); context(thumb).drawImage(layer.canvas, (31 - art.width * scale) / 2, (31 - art.height * scale) / 2, art.width * scale, art.height * scale);
       const label = document.createElement('div'), name = document.createElement('span'), info = document.createElement('small'); name.textContent = layer.name; info.textContent = Math.round(layer.opacity * 100) + '% · ' + Math.round(layer.scale * 100) + '%'; label.append(name, info); select.append(thumb, label); select.addEventListener('click', () => selectLayer(layer.id));
+      if (layer.penDraft.nodes.length) info.textContent += ' · 有钢笔路径';
       const lock = document.createElement('button'); lock.className = 'layer-lock'; lock.textContent = layer.locked ? '锁' : '·'; lock.title = layer.locked ? '解锁图层' : '锁定图层'; lock.setAttribute('aria-label', lock.title + ' ' + layer.name); lock.setAttribute('aria-pressed', String(layer.locked)); lock.addEventListener('click', () => { if (!busy) mutate(() => { layer.locked = !layer.locked; }, '切换图层锁定'); });
       row.append(visible, select, lock); list.append(row);
     });
@@ -437,7 +576,8 @@
   function sync() {
     syncHistory(); syncLayers();
     if (ref) syncReferenceNavigation();
-    $('paper').value = art.paper; $('paperColor').value = art.paperColor; $('paperColorLabel').hidden = art.paper !== 'custom';
+    $('paper').value = art.paper; $('paperColor').value = art.paperColor; $('paperTexture').value = art.paperTexture;
+    for (const id of ['paperOpacity', 'textureStrength']) { $(id).value = art[id]; $(id + 'Value').value = art[id] + '%'; }
     window.DrawingPaper.syncCurrent();
     for (const key of ['hue', 'saturation', 'lightness']) { $(key).value = art.tone[key]; $(key + 'Value').textContent = art.tone[key] + (key === 'hue' ? '°' : ''); }
     document.title = (art.title === '未命名画作' ? '轻绘' : art.title + ' · 轻绘') + ' · 本地画室';
@@ -450,8 +590,13 @@
     layerBudget(art.layers.length + 1); let added;
     mutate(() => { added = createLayer(); const index = art.layers.indexOf(activeLayer()); art.layers.splice(index + 1, 0, added); art.activeId = added.id; }, '新建图层'); return added.id;
   }
-  function setTool(value) {
-    if (busy) return; finishPointer(); tool = value;
+  function setTool(value, keepProfile = false) {
+    if (busy && !keepProfile) return; finishPointer();
+    $('penSettings').hidden = value !== 'pen';
+    if (value !== tool && !keepProfile && (value === 'brush' || value === 'eraser')) {
+      applyBrushProfile(brushProfile(value === 'eraser' ? eraserPreset : Core.brushPresets.find(p => p.id === brush)));
+    }
+    tool = value; syncPenPath();
     all('[data-tool]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.tool === tool)));
     $('shapeSettings').hidden = tool !== 'shape'; $('textSettings').hidden = tool !== 'text'; $('materialSection').hidden = !['fill', 'shape', 'text'].includes(tool);
     $('fillSettings').hidden = tool !== 'fill' && tool !== 'cutout'; $('fillSampleLabel').hidden = tool === 'cutout';
@@ -461,10 +606,14 @@
     $('brushSample').hidden = tool !== 'brush'; $('brushHint').hidden = tool !== 'brush';
     $('strokeSettingsTitle').textContent = tool === 'fill' || tool === 'cutout' ? '选区边界' : '笔触';
     $('brushName').hidden = tool !== 'brush';
-    if (['shape', 'text', 'fill', 'cutout'].includes(tool)) { togglePanel('settings', true); $('settingsPanel').querySelector('.settings-scroll').scrollTop = 0; }
+    if (['shape', 'text', 'fill', 'cutout', 'pen'].includes(tool)) {
+      if (window.innerWidth > 650) togglePanel('settings', true);
+      $('settingsPanel').querySelector('.settings-scroll').scrollTop = 0;
+    }
     if (tool === 'fill') $('materialSection').open = true;
+    if (tool === 'shape' || tool === 'text') updateMaterialUI();
     viewport.dataset.cursor = tool; $('brushCursor').hidden = true;
-    status(({ brush: '画笔 · ' + $('brushKind').selectedOptions[0].textContent, eraser: '橡皮 · 擦除当前图层', fill: '填充 · 点选区域上色，可选择材质', shape: '形状 · 拖动预览，松手放置；Shift 锁定比例', text: '文字 · 先输入内容，再点击或拖动放置', picker: '取色 · 点击画作，或从参考图取色', move: '移层 · 拖动当前图层', hand: '平移 · 拖动画布', cutout: '抠图 · 点击当前图层的背景' })[tool]);
+    status(({ pen: '钢笔路径 · 点击落点，拖动手柄，Enter 描边', brush: '画笔 · ' + $('brushKind').selectedOptions[0].textContent, eraser: '橡皮 · 擦除当前图层', fill: '填充 · 点选区域上色，可选择材质', shape: '形状 · 拖动预览，松手放置；Shift 锁定比例', text: '文字 · 先输入内容，再点击或拖动放置', picker: '取色 · 点击画作，或从参考图取色', move: '移层 · 拖动当前图层', hand: '平移 · 拖动画布', cutout: '抠图 · 点击当前图层的背景' })[tool]);
   }
   function updateFillScope() {
     const cutout = tool === 'cutout', scope = $('fillScope').value;
@@ -494,6 +643,11 @@
   function drawBrushSample(sample, settings) {
     const ctx = context(sample); clear(sample);
     sample.style.opacity = settings.opacity;
+    if (Core.brushPresets.some(p => p.id === settings.brush && p.samplesLayer)) {
+      const w = sample.width, h = sample.height;
+      ctx.fillStyle = '#db766c'; ctx.fillRect(14, h * .18, w * .33, h * .55);
+      ctx.fillStyle = '#5083c2'; ctx.fillRect(14 + w * .33, h * .18, w * .34, h * .55);
+    }
     const stroke = Core.makeStroke(ctx, { ...settings, size: Math.min(settings.size, 32) });
     let point;
     for (let i = 0; i <= 72; i++) {
@@ -523,27 +677,33 @@
         const item = document.createElement('button'), sample = canvas(190, 52), label = document.createElement('span');
         item.type = 'button'; item.dataset.brushPreset = preset.id; item.title = preset.hint;
         sample.setAttribute('aria-hidden', 'true'); label.textContent = preset.name;
-        drawBrushSample(sample, { ...preset, brush: preset.id, color: '#294358', pressure: true });
         item.append(sample, label); sections.get(preset.group).append(item);
         item.addEventListener('click', () => {
           $('brushDialog').close(); $('brushKind').value = preset.id; setBrush(preset.id, true);
         });
       });
     }
-    all('[data-brush-preset]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.brushPreset === brush)));
+    all('[data-brush-preset]').forEach(button => {
+      const id = button.dataset.brushPreset, preset = Core.brushPresets.find(p => p.id === id);
+      const profile = brushProfile(preset), signature = JSON.stringify(profile);
+      if (button.dataset.sampleProfile !== signature) {
+        drawBrushSample(button.querySelector('canvas'), { ...profile, brush: id, color: '#294358', pressure: profile.pressureEnabled });
+        button.title = preset.hint + ' · ' + profile.size + ' px · 浓度 ' + Math.round(profile.opacity * 100) + '% · 防抖 ' + profile.stabilizer;
+        button.dataset.sampleProfile = signature;
+      }
+      button.setAttribute('aria-pressed', String(id === brush));
+    });
     $('brushDialog').showModal();
   }
-  function setBrush(value, applyDefaults = false) {
+  function setBrush(value, recall = false) {
     finishPointer(); brush = value;
     const preset = Core.brushPresets.find(p => p.id === brush);
-    if (applyDefaults) {
-      size = preset.size; opacity = preset.opacity; stabilizer = preset.stabilizer;
-      $('brushSize').value = size; $('brushOpacity').value = Math.round(opacity * 100);
-      $('brushOpacityValue').textContent = $('brushOpacity').value + '%';
-      $('stabilizer').value = stabilizer; $('stabilizerValue').textContent = stabilizer;
-    }
+    if (recall) applyBrushProfile(brushProfile(preset));
+    try { localStorage.setItem(brushKey + 'selected', brush); } catch (_) {}
     $('brushName').textContent = preset.name; $('brushHint').textContent = preset.hint;
-    setTool('brush'); updateView(); scheduleBrushSample();
+    setTool('brush', true);
+    if (!recall) storeBrushProfile();
+    updateView(); scheduleBrushSample();
   }
   function togglePanel(name, force) {
     if (document.body.classList.contains('focus-mode')) toggleFocus(false);
@@ -649,56 +809,97 @@
     }, '导入图片图层');
   }
 
-  function newDocument(options = {}) {
-    finishPointer(); settleTransactions();
+  function blankArtwork(options) {
     const dimensions = validSize(options.width || 1280, options.height || 960);
-    art = { ...dimensions, title: String(options.title || '未命名画作').slice(0, 60), paper: window.DrawingPaper.valid(options.paper) ? options.paper : 'white', paperColor: '#f7f3e9', tone: { hue: 0, saturation: 0, lightness: 0 }, layers: [], activeId: '' };
-    art.paperPpi = window.DrawingCanvasPresets.paperPpi(options.paperPpi);
-    art.layers.push(createLayer('图层 1')); art.activeId = art.layers[0].id;
+    const layer = createLayer('图层 1', dimensions);
+    return { ...dimensions, title: String(options.title || '未命名画作').slice(0, 60), ...window.DrawingPaper.settings(options), paperPpi: window.DrawingCanvasPresets.paperPpi(options.paperPpi), tone: { hue: 0, saturation: 0, lightness: 0 }, layers: [layer], activeId: layer.id };
+  }
+  function newDocument(options = {}, prepared = blankArtwork(options)) {
+    finishPointer(); settleTransactions(); art = prepared;
     undoStack = []; redoStack = []; transactions.clear(); revision = 0; savedRevision = 0; fileSavedRevision = -1; sessionUsed = false; draftId = uid();
-    clearTimeout(saveTimer); $('saveStatus').textContent = '本机草稿'; $('canvasHint').hidden = false;
+    clearTimeout(saveTimer); saveTimer = 0; $('saveStatus').textContent = '自动保留当前作品'; $('canvasHint').hidden = false;
     setGeometry(); sync(); render(); fit(); status('新画布 · ' + art.width + ' × ' + art.height); return art.activeId;
   }
-  async function serializeProject() {
-    const state = snapshot(), version = referenceVersion;
-    const layersPromise = Promise.all(state.layers.map(async layer => ({ ...metadata(layer), image: await blobFromCanvas(layer.canvas) })));
+  async function serializeProject(state = snapshot(), includeReference = true) {
+    const version = referenceVersion;
+    const selectedBrush = brush, selectedInk = ink;
+    const brushSettings = tool === 'brush' ? { size, opacity, stabilizer, pressureEnabled }
+      : brushProfile(Core.brushPresets.find(p => p.id === selectedBrush));
+    const resumePen = tool === 'pen' && !!state.layers.find(layer => layer.id === state.activeId)?.penDraft.nodes.length;
+    const layersPromise = Promise.all(state.layers.map(async layer => {
+      const pendingPath = penPath.serialize(layer);
+      return { ...metadata(layer), ...(pendingPath ? { pendingPath } : {}), image: await blobFromCanvas(layer.canvas) };
+    }));
     let bundle = null;
-    if (ref && ref.getCanvas()) {
+    if (includeReference && ref && ref.getCanvas()) {
       if (referenceCache && referenceCacheVersion === version) bundle = referenceCache;
       else { bundle = await ref.exportBundle(); if (referenceVersion === version) { referenceCache = bundle; referenceCacheVersion = version; } }
     }
-    return { format: 'lrxdraw', version: 1, title: state.title, width: state.width, height: state.height, paperPpi: state.paperPpi, paper: state.paper, paperColor: state.paperColor, tone: state.tone, activeId: state.activeId, layers: await layersPromise, reference: bundle,
-      settings: { ink, brush, size, opacity, stabilizer, pressureEnabled, recentColors: recentColors.slice(0, 12), marks: readMarkSettings() } };
+    return { format: 'lrxdraw', version: 1, title: state.title, width: state.width, height: state.height, paperPpi: state.paperPpi, paper: state.paper, paperColor: state.paperColor, paperOpacity: state.paperOpacity, paperTexture: state.paperTexture, textureStrength: state.textureStrength, tone: state.tone, activeId: state.activeId, layers: await layersPromise, reference: bundle,
+      settings: { ink: selectedInk, brush: selectedBrush, ...brushSettings, ...(resumePen ? { resumePen: true } : {}), recentColors: recentColors.slice(0, 12), marks: readMarkSettings() } };
   }
   function notifySaveError(error) {
-    $('saveStatus').textContent = '草稿未保存';
+    if (error?.code === 'CURRENT_CONFLICT') {
+      currentConflict = true;
+      $('saveStatus').textContent = '另一标签页已更新 · 请存工程';
+      if (!savingErrorShown) { savingErrorShown = true; notify('另一标签页已更改当前作品。这一页仍可另存工程，刷新后可接回最新作品。'); }
+      return;
+    }
+    $('saveStatus').textContent = '本机未保存';
     if (!savingErrorShown) { savingErrorShown = true; notify('本机草稿暂时无法保存，请点“存工程”保留画作。' + (error && error.message ? ' ' + error.message : '')); }
+  }
+  async function writeCurrent(project) {
+    if (!currentReady) {
+      const current = await window.DrawingStorage.readCurrent();
+      if (current.project) throw Object.assign(new Error('本机已有当前作品，请刷新后重新打开。'), { code: 'CURRENT_CONFLICT' });
+      currentStamp = current.stamp; currentReady = true;
+    }
+    try { currentStamp = (await window.DrawingStorage.writeCurrent(project, currentStamp)).stamp; }
+    catch (error) { if (error.code === 'CURRENT_CONFLICT') notifySaveError(error); throw error; }
   }
   async function saveDraft() {
     if (savePromise) return savePromise;
-    if (!sessionUsed || revision <= savedRevision || activePointer) return;
+    if (switchingCurrent || currentConflict || !sessionUsed || revision <= savedRevision) return;
+    if (activePointer) { scheduleSave(200); return; }
     savePromise = (async () => {
-      for (let attempt = 0; attempt < 2; attempt++) {
-        const r = revision, id = draftId; $('saveStatus').textContent = '正在保存…';
-        const project = await serializeProject();
-        if (id !== draftId) return;
-        if (r !== revision || activePointer) continue;
-        try { await window.DrawingStorage.save(id, project); }
-        catch (error) { if (!error.saved) throw error; }
-        if (id === draftId) savedRevision = r;
-        $('saveStatus').textContent = revision === r ? '草稿已存本机' : '待保存'; $('restoreDraft').hidden = false;
-        if (revision === r) return;
+      const r = revision, id = draftId; $('saveStatus').textContent = '正在保存…';
+      const project = await serializeProject();
+      if (switchingCurrent || id !== draftId) return;
+      await writeCurrent(project);
+      if (id === draftId) {
+        savedRevision = r;
+        $('saveStatus').textContent = revision === r ? '已保存到本机' : '待保存';
+        if (revision !== r) scheduleSave(160);
       }
-      clearTimeout(saveTimer); saveTimer = setTimeout(() => saveDraft().catch(notifySaveError), 1400);
     })();
     try { return await savePromise; } finally { savePromise = null; }
   }
-  async function flushDraft() {
-    finishPointer(); settleTransactions(); clearTimeout(saveTimer);
-    if (revision <= fileSavedRevision) return;
-    if (savePromise) await savePromise;
-    if (sessionUsed && revision > savedRevision) await saveDraft();
-    if (sessionUsed && revision > savedRevision) throw new Error('当前画作还没有保存完成，请先点“存工程”再切换。');
+  async function replaceCurrent(action) {
+    finishPointer(); settleTransactions(); switchingCurrent = true; clearTimeout(saveTimer); saveTimer = 0;
+    try { if (savePromise) await savePromise.catch(() => {}); return await action(); }
+    finally {
+      switchingCurrent = false;
+      if (!currentConflict && sessionUsed && revision > savedRevision) scheduleSave(200);
+    }
+  }
+  async function openCurrentProject(project) {
+    await replaceCurrent(async () => {
+      await loadProject(project, true);
+      $('saveStatus').textContent = '已保存到本机';
+    });
+  }
+  async function replaceWithBlank(options, discard = false) {
+    await replaceCurrent(async () => {
+      const next = blankArtwork(options);
+      const project = discard ? null : await serializeProject(next, false);
+      if (project) { project.settings.recentColors = []; project.settings.marks = { ...MARK_DEFAULTS }; }
+      await writeCurrent(project);
+      ref.destroy(); ref = createReference(); referenceCache = null; lastReferenceKey = ''; pendingPDFPage = null;
+      recentColors = []; swatches($('recentSwatches'), recentColors); applyMarkSettings(MARK_DEFAULTS);
+      newDocument(options, next); referenceChanged(false);
+      $('saveStatus').textContent = discard ? '自动保留当前作品' : '已保存到本机';
+      if (discard) status('作品已丢弃 · 新画布');
+    });
   }
   async function encodeValues(value) {
     if (value instanceof Blob) return { $blob: await blobDataURL(value) };
@@ -739,43 +940,57 @@
     return { version: 1, name: String(bundle.name || '参考图').slice(0, 180), original: decodeBlob(bundle.original), views: { gray: decodeBlob(bundle.views.gray), color: decodeBlob(bundle.views.color), line: decodeBlob(bundle.views.line) }, palettes: { color: colors(bundle.palettes && bundle.palettes.color), gray: colors(bundle.palettes && bundle.palettes.gray) },
       selectedMode: ['original', 'gray', 'color', 'line'].includes(bundle.selectedMode) ? bundle.selectedMode : 'original', importedStudy: bundle.importedStudy !== false, sourceMode: ['value', 'color', 'line', 'black'].includes(bundle.sourceMode) ? bundle.sourceMode : '', page: number(bundle.page, 1), pageCount: bundle.pageCount, externalPDF: bundle.externalPDF ? { size: bundle.externalPDF.size, fingerprint: bundle.externalPDF.fingerprint } : null, count: clamp(number(bundle.count, 8), 2, 24), sourceFile: bundle.sourceFile ? decodeBlob(bundle.sourceFile, 'application/pdf') : null };
   }
-  async function loadProject(project) {
+  async function loadProject(project, saveAsCurrent = false) {
     finishPointer();
     if (typeof project === 'string') { if (project.length > PROJECT_BYTES * 1.4) throw new Error('工程文件过大。'); project = JSON.parse(project); }
     if (!project || project.format !== 'lrxdraw' || project.version !== 1 || !Array.isArray(project.layers) || !project.layers.length) throw new Error('这不是可识别的 .lrxdraw 工程。');
     const dimensions = validSize(project.width, project.height); layerBudget(project.layers.length, dimensions.width, dimensions.height);
-    const next = { ...dimensions, title: String(project.title || '未命名画作').slice(0, 60), paper: window.DrawingPaper.valid(project.paper) ? project.paper : 'white', paperColor: typeof project.paperColor === 'string' && /^#[a-f0-9]{6}$/i.test(project.paperColor) ? project.paperColor : '#f7f3e9', tone: {}, layers: [], activeId: String(project.activeId || '') };
+    const next = { ...dimensions, title: String(project.title || '未命名画作').slice(0, 60), ...window.DrawingPaper.settings(project), tone: {}, layers: [], activeId: String(project.activeId || '') };
     next.paperPpi = window.DrawingCanvasPresets.paperPpi(project.paperPpi);
     for (const key of ['hue', 'saturation', 'lightness']) next.tone[key] = clamp(number(project.tone && project.tone[key], 0), key === 'hue' ? -180 : -100, key === 'hue' ? 180 : 100);
-    const ids = new Set(); let total = 0;
+    const ids = new Set(), layerImages = []; let total = 0;
     for (const value of project.layers) {
       if (!value || typeof value.id !== 'string' || value.id.length > 100 || ids.has(value.id)) throw new Error('工程图层标识无效。'); ids.add(value.id);
       const blob = decodeBlob(value.image, 'image/png'); total += blob.size; if (total > PROJECT_BYTES) throw new Error('工程图层占用过大。');
+      if (saveAsCurrent) layerImages.push(blob);
       await checkLayerPNG(blob, next.width, next.height); const image = await loadImage(blob), c = canvas(next.width, next.height); context(c).drawImage(image, 0, 0);
       next.layers.push({ id: value.id, name: String(value.name || '图层').slice(0, 40), visible: value.visible !== false, locked: !!value.locked, opacity: clamp(number(value.opacity, 1), 0, 1), x: clamp(number(value.x, 0), -65536, 65536), y: clamp(number(value.y, 0), -65536, 65536), scale: clamp(number(value.scale, 1), .1, 3), canvas: c });
     }
+    next.layers.forEach((layer, index) => { layer.penDraft = penPath.read(project.layers[index].pendingPath, layer.id); });
     if (!ids.has(next.activeId)) next.activeId = next.layers[0].id;
     const inputSettings = project.settings && typeof project.settings === 'object' ? project.settings : {};
+    const importedBrush = Core.brushPresets.find(p => p.id === inputSettings.brush) || Core.brushPresets[0];
+    const importedNumber = (key, min, max) => Number.isFinite(inputSettings[key])
+      ? clamp(inputSettings[key], min, max) : importedBrush[key];
     const settings = {
       ink: typeof inputSettings.ink === 'string' && /^#[a-f0-9]{6}$/i.test(inputSettings.ink) ? inputSettings.ink : '#263544',
-      brush: Core.brushPresets.some(p => p.id === inputSettings.brush) ? inputSettings.brush : 'gpen',
-      size: clamp(typeof inputSettings.size === 'number' ? number(inputSettings.size, 8) : 8, 1, 240),
-      opacity: clamp(typeof inputSettings.opacity === 'number' ? number(inputSettings.opacity, 1) : 1, .01, 1),
-      stabilizer: clamp(typeof inputSettings.stabilizer === 'number' ? number(inputSettings.stabilizer, 20) : 20, 0, 100),
+      brush: importedBrush.id, size: importedNumber('size', 1, 240),
+      opacity: importedNumber('opacity', .01, 1), stabilizer: importedNumber('stabilizer', 0, 100),
       pressureEnabled: inputSettings.pressureEnabled !== false,
       recentColors: Array.isArray(inputSettings.recentColors) ? inputSettings.recentColors.filter(c => typeof c === 'string' && /^#[a-f0-9]{6}$/i.test(c)).slice(0, 12) : [],
       marks: normalizeMarkSettings(inputSettings.marks)
     };
     const bundle = await decodeReference(project.reference), candidate = createReference();
     let canonicalBundle = null;
-    try { if (bundle) { await candidate.loadBundle(bundle); canonicalBundle = await candidate.exportBundle(); } } catch (error) { candidate.destroy(); throw error; }
+    try {
+      if (bundle) { await candidate.loadBundle(bundle); canonicalBundle = await candidate.exportBundle(); }
+      if (saveAsCurrent) {
+        const layers = next.layers.map((layer, index) => {
+          const pendingPath = penPath.serialize(layer);
+          return { ...metadata(layer), ...(pendingPath ? { pendingPath } : {}), image: layerImages[index] };
+        });
+        await writeCurrent({ format: 'lrxdraw', version: 1, ...next, layers, reference: canonicalBundle,
+          settings: { ...settings, resumePen: inputSettings.resumePen === true } });
+      }
+    } catch (error) { candidate.destroy(); throw error; }
     if (ref) ref.destroy(); ref = candidate; art = next;
-    undoStack = []; redoStack = []; transactions.clear(); clearTimeout(saveTimer); revision = 0; savedRevision = 0; fileSavedRevision = -1; sessionUsed = false; draftId = uid();
+    undoStack = []; redoStack = []; transactions.clear(); clearTimeout(saveTimer); saveTimer = 0; revision = 0; savedRevision = 0; fileSavedRevision = -1; sessionUsed = false; draftId = uid();
     setInk(settings.ink); applyMarkSettings(settings.marks); brush = settings.brush; $('brushKind').value = brush;
-    size = settings.size; opacity = settings.opacity; stabilizer = settings.stabilizer; pressureEnabled = settings.pressureEnabled;
+    applyBrushProfile(brushProfile({ ...settings, id: brush }));
     recentColors = settings.recentColors;
     $('brushSize').value = size; $('brushOpacity').value = Math.round(opacity * 100); $('brushOpacityValue').textContent = Math.round(opacity * 100) + '%'; $('stabilizer').value = stabilizer; $('stabilizerValue').textContent = stabilizer; $('penPressure').checked = pressureEnabled; swatches($('recentSwatches'), recentColors);
     setGeometry(); sync(); setBrush(brush); render(); fit(); lastReferenceKey = ''; referenceChanged(false); referenceCache = canonicalBundle; referenceCacheVersion = referenceVersion;
+    if (inputSettings.resumePen === true && activeLayer().penDraft.nodes.length && activeLayer().visible && !activeLayer().locked) setTool('pen', true);
     $('saveStatus').textContent = '已打开 · 等待编辑'; $('canvasHint').hidden = true; status('已打开工程 · ' + art.title); return true;
   }
   async function showDrafts() {
@@ -785,7 +1000,7 @@
       const row = document.createElement('div'); row.className = 'draft-item'; const label = document.createElement('div'), title = document.createElement('strong'), info = document.createElement('small');
       title.textContent = item.title || '未命名画作'; info.textContent = new Date(item.savedAt).toLocaleString('zh-CN') + ' · ' + item.width + ' × ' + item.height + ' · ' + item.layerCount + ' 层'; label.append(title, info);
       const button = document.createElement('button'); button.textContent = '打开'; button.addEventListener('click', safe(async () => {
-        await work(async () => { const record = await window.DrawingStorage.load(item.id); if (!record) throw new Error('这份草稿已不存在。'); await flushDraft(); await loadProject(record.project); $('draftDialog').close(); }, '正在恢复草稿…');
+        await work(async () => { const record = await window.DrawingStorage.load(item.id); if (!record) throw new Error('这份草稿已不存在。'); await openCurrentProject(record.project); $('draftDialog').close(); }, '正在恢复旧版草稿…');
       })); row.append(label, button); list.append(row);
     }
     $('draftDialog').showModal();
@@ -793,7 +1008,7 @@
   async function exportRaster(type, transparent = false, quality = .92) {
     finishPointer(); const mime = type.startsWith('image/') ? type : 'image/' + (type === 'jpg' ? 'jpeg' : type), out = canvas(art.width, art.height);
     renderArtwork(out, transparent && mime !== 'image/jpeg', false);
-    if (mime === 'image/jpeg' && art.paper === 'transparent') { const ctx = context(out); ctx.save(); ctx.globalCompositeOperation = 'destination-over'; ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, art.width, art.height); ctx.restore(); }
+    if (mime === 'image/jpeg') { const ctx = context(out); ctx.save(); ctx.globalCompositeOperation = 'destination-over'; ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, art.width, art.height); ctx.restore(); }
     const ppi = art.paperPpi, blob = await blobFromCanvas(out, mime, quality);
     return mime === 'image/png' && ppi ? window.DrawingCanvasPresets.setPngDensity(blob, ppi) : blob;
   }
@@ -804,7 +1019,9 @@
     if (art.paperPpi) notes.push(format === 'png'
       ? 'PNG 将写入 ' + art.paperPpi + ' ppi 打印密度。'
       : '此格式按画布像素尺寸导出。需要保留纸张打印密度时请选择 PNG。');
-    notes.push(format === 'jpeg' ? 'JPEG 使用实色背景。' : '只导出画作。');
+    if (vector && art.paperTexture !== 'none' && art.textureStrength > 0 && !$('exportTransparent').checked)
+      notes.push('画作导出为矢量路径，纸纹使用内嵌的重复纹理小样。');
+    if (format === 'jpeg') notes.push('JPEG 将透明部分衬为白色。');
     $('exportNote').textContent = notes.join(' ');
     $('exportSubmit').textContent = vector ? '导出 SVG' : '导出图片';
   }
@@ -812,7 +1029,7 @@
     const options = { colors: +$('vectorColors').value, mode: $('vectorMode').value, threshold: +$('vectorThreshold').value, maxSize: +$('vectorSize').value, simplify: +$('vectorSimplify').value, alphaThreshold: 12 };
     const key = JSON.stringify([revision, draftId, $('exportTransparent').checked, art.paper, options]);
     if (vectorResult && vectorKey === key) return vectorResult;
-    const out = canvas(art.width, art.height); renderArtwork(out, $('exportTransparent').checked, false); const data = context(out).getImageData(0, 0, art.width, art.height);
+    const out = canvas(art.width, art.height); renderArtwork(out, true, false); const data = context(out).getImageData(0, 0, art.width, art.height);
     let result;
     if (typeof Worker === 'function' && location.protocol !== 'file:') {
       result = await new Promise((resolve, reject) => {
@@ -823,6 +1040,10 @@
         worker.postMessage({ image: { data: data.data, width: data.width, height: data.height }, options }, [data.data.buffer]);
       });
     } else { await tick(); result = Core.vectorize(data, options); }
+    if (!$('exportTransparent').checked) {
+      const background = window.DrawingPaper.svgBackground(art, result.workingWidth / art.width, result.workingHeight / art.height);
+      result.svg = result.svg.replace(/(<svg[^>]*>)/, '$1' + background);
+    }
     vectorResult = result; vectorKey = key; return result;
   }
   async function previewVector() {
@@ -842,11 +1063,16 @@
   function saveProjectFile() {
     return work(async () => {
       settleTransactions(); const r = revision, text = await exportProject();
-      download(new Blob([text], { type: 'application/json' }), filename(art.title) + '.lrxdraw'); fileSavedRevision = r; status('工程已导出 · 保留图层与参考');
+      download(new Blob([text], { type: 'application/json' }), window.studioExportName() + '.lrxdraw'); fileSavedRevision = r; status('工程已导出 · 保留图层与参考');
       saveDraft().catch(notifySaveError);
     }, '正在打包工程…');
   }
   function wireEvents() {
+    on('penStroke', 'click', () => commitPenPath(false));
+    on('penFill', 'click', () => commitPenPath(true));
+    for (const id of ['penDelete', 'quickPenDelete']) on(id, 'click', () => editPenPath(() => penPath.remove(view.zoom)));
+    on('penCancel', 'click', () => editPenPath(() => penPath.reset()));
+    on('quickPenStroke', 'click', () => commitPenPath(false)); on('quickPenFill', 'click', () => commitPenPath(true));
     all('[data-tool]').forEach(button => button.addEventListener('click', () => setTool(button.dataset.tool)));
     on('brushKind', 'change', () => setBrush($('brushKind').value, true));
     on('brushSample', 'click', openBrushLibrary);
@@ -854,10 +1080,26 @@
       $(id).addEventListener('input', scheduleBrushSample);
       $(id).addEventListener('change', scheduleBrushSample);
     }
-    on('brushSize', 'change', () => { size = clamp(Math.round(number($('brushSize').value, 8)), 1, 240); $('brushSize').value = size; });
-    on('brushOpacity', 'input', () => { opacity = +$('brushOpacity').value / 100; $('brushOpacityValue').textContent = Math.round(opacity * 100) + '%'; });
-    on('stabilizer', 'input', () => { stabilizer = +$('stabilizer').value; $('stabilizerValue').textContent = stabilizer; });
-    on('penPressure', 'change', () => { pressureEnabled = $('penPressure').checked; });
+    on('brushSize', 'input', () => {
+      const value = $('brushSize').valueAsNumber;
+      if (Number.isInteger(value) && value >= 1 && value <= 240) { size = value; storeBrushProfile(); }
+    });
+    on('brushSize', 'change', () => {
+      const field = $('brushSize');
+      size = Number.isFinite(field.valueAsNumber) ? clamp(Math.round(field.valueAsNumber), 1, 240) : size;
+      field.value = size; storeBrushProfile();
+    });
+    on('brushOpacity', 'input', () => { opacity = +$('brushOpacity').value / 100; $('brushOpacityValue').textContent = Math.round(opacity * 100) + '%'; storeBrushProfile(); });
+    on('stabilizer', 'input', () => { stabilizer = +$('stabilizer').value; $('stabilizerValue').textContent = stabilizer; storeBrushProfile(); });
+    on('penPressure', 'change', () => { pressureEnabled = $('penPressure').checked; storeBrushProfile(); });
+    on('resetBrushProfile', 'click', () => {
+      const preset = tool === 'eraser' ? eraserPreset : Core.brushPresets.find(p => p.id === brush);
+      applyBrushProfile({ ...preset, pressureEnabled: true }); storeBrushProfile(); status('已恢复这支笔的推荐参数');
+    });
+    for (const id of ['brushSize', 'brushOpacity']) {
+      on(id, 'input', () => rememberPenStyle(true));
+      on(id, 'change', () => rememberPenStyle(true));
+    }
     on('touchDraw', 'change', () => { touchDraw = $('touchDraw').checked; });
     on('inkColor', 'input', () => setInk($('inkColor').value)); on('inkColor', 'change', () => remember(ink));
     for (const key of Object.keys(MARK_DEFAULTS)) {
@@ -869,13 +1111,19 @@
       on(key, 'input', update); on(key, 'change', update);
     }
     on('shapeStrokeFromInk', 'click', () => { $('shapeStrokeColor').value = ink; });
+    on('applyCanvasFrame', 'click', frameCanvas);
     on('materialBackFromInk', 'click', () => { $('materialBackground').value = ink; updateMaterialUI(); });
     on('tolerance', 'input', () => { $('toleranceValue').textContent = $('tolerance').value; });
     on('fillScope', 'change', updateFillScope);
     on('undo', 'click', undo); on('redo', 'click', redo);
     on('addLayer', 'click', addLayer);
     on('duplicateLayer', 'click', () => {
-      layerBudget(art.layers.length + 1); mutate(() => { const source = activeLayer(), copy = { ...source, id: uid(), name: (source.name + ' 副本').slice(0, 40), canvas: canvas(art.width, art.height), locked: false }; context(copy.canvas).drawImage(source.canvas, 0, 0); art.layers.splice(art.layers.indexOf(source) + 1, 0, copy); art.activeId = copy.id; }, '复制图层');
+      layerBudget(art.layers.length + 1); mutate(() => {
+        const source = activeLayer(), copy = { ...source, id: uid(), name: (source.name + ' 副本').slice(0, 40), canvas: canvas(art.width, art.height), locked: false };
+        copy.penDraft = penPath.read(penPath.serialize(source), source.id);
+        context(copy.canvas).drawImage(source.canvas, 0, 0);
+        art.layers.splice(art.layers.indexOf(source) + 1, 0, copy); art.activeId = copy.id;
+      }, '复制图层');
     });
     on('deleteLayer', 'click', () => mutate(() => { const index = art.layers.indexOf(activeLayer()); art.layers.splice(index, 1); if (!art.layers.length) art.layers.push(createLayer('图层 1')); art.activeId = art.layers[Math.max(0, index - 1)].id; }, '删除图层'));
     for (const [id, delta] of [['layerUp', 1], ['layerDown', -1]]) on(id, 'click', () => { const i = art.layers.indexOf(activeLayer()), j = i + delta; if (j < 0 || j >= art.layers.length) return; mutate(() => { [art.layers[i], art.layers[j]] = [art.layers[j], art.layers[i]]; }, '图层排序'); });
@@ -889,8 +1137,21 @@
     on('layerFile', 'change', async () => { const file = $('layerFile').files[0]; $('layerFile').value = ''; await work(() => importImageLayer(file), '正在放入图层…'); });
     for (const key of ['hue', 'saturation', 'lightness']) bindRange(key, value => { art.tone[key] = value; $(key + 'Value').textContent = value + (key === 'hue' ? '°' : ''); }, '整体调色');
     on('resetTone', 'click', () => mutate(() => { art.tone = { hue: 0, saturation: 0, lightness: 0 }; }, '恢复原色'));
-    on('paper', 'change', () => mutate(() => { art.paper = $('paper').value; }, '画布背景'));
-    on('paperColor', 'input', () => { beginTransaction('paperColor'); art.paperColor = $('paperColor').value; requestRender(); });
+    on('paper', 'change', () => mutate(() => {
+      art.paper = $('paper').value;
+      if (art.paper === 'transparent') art.paperOpacity = 0;
+      else if (art.paper !== 'custom') {
+        art.paperColor = art.paper === 'warm' ? '#f7f3e9' : '#ffffff';
+        if (art.paperOpacity === 0) art.paperOpacity = 100;
+      }
+    }, '底色预设'));
+    on('paperTexture', 'change', () => mutate(() => { art.paperTexture = $('paperTexture').value; }, '纸纹'));
+    for (const id of ['paperOpacity', 'textureStrength']) bindRange(id, value => {
+      art[id] = value;
+      if (id === 'paperOpacity' && art.paper === 'transparent' && value > 0) art.paper = 'custom';
+      $(id + 'Value').value = value + '%';
+    }, id === 'paperOpacity' ? '底色不透明度' : '纹理强度');
+    on('paperColor', 'input', () => { beginTransaction('paperColor'); art.paperColor = $('paperColor').value; art.paper = $('paper').value = 'custom'; requestRender(); });
     on('paperColor', 'change', () => endTransaction('paperColor', '背景颜色'));
     on('resizeCanvas', 'click', () => {
       const dimensions = validSize($('canvasWidth').value, $('canvasHeight').value); layerBudget(art.layers.length, dimensions.width, dimensions.height);
@@ -915,7 +1176,9 @@
     viewport.addEventListener('contextmenu', e => e.preventDefault());
     viewport.addEventListener('wheel', e => { e.preventDefault(); if (activePointer) return; const r = viewport.getBoundingClientRect(); zoomTo(view.zoom * Math.exp(-clamp(e.deltaY, -100, 100) * .002), e.clientX - r.left, e.clientY - r.top); }, { passive: false });
     window.addEventListener('blur', () => { finishPointer(); refPointer = null; spacePan = false; $('brushCursor').hidden = true; });
-    document.addEventListener('visibilitychange', () => { if (document.hidden) { finishPointer(); settleTransactions(); saveDraft().catch(notifySaveError); } });
+    function saveOnLeave() { finishPointer(); settleTransactions(); saveDraft().catch(notifySaveError); }
+    document.addEventListener('visibilitychange', () => { if (document.hidden) saveOnLeave(); });
+    window.addEventListener('pagehide', saveOnLeave);
     on('showReference', 'click', () => togglePanel('reference')); on('hideReference', 'click', () => togglePanel('reference', false));
     on('showSettings', 'click', () => togglePanel('settings')); on('hideSettings', 'click', () => togglePanel('settings', false));
     on('focusMode', 'click', () => toggleFocus());
@@ -963,22 +1226,31 @@
     all('[data-close]').forEach(button => button.addEventListener('click', safe(() => $(button.dataset.close).close())));
     on('helpOpen', 'click', () => $('helpDialog').showModal());
     on('newDocument', 'click', () => $('newDialog').showModal());
-    on('newForm', 'submit', async e => { e.preventDefault(); validSize($('newWidth').value, $('newHeight').value); await work(async () => { await flushDraft(); newDocument({ width: +$('newWidth').value, height: +$('newHeight').value, paperPpi: window.DrawingCanvasPresets.newPpi(), title: $('newTitle').value, paper: $('newTransparent').checked ? 'transparent' : $('newPaper').value }); $('newDialog').close(); }, '正在准备新画布…'); });
+    on('newForm', 'submit', async e => {
+      e.preventDefault();
+      const options = { width: +$('newWidth').value, height: +$('newHeight').value, paperPpi: window.DrawingCanvasPresets.newPpi(), title: $('newTitle').value, paper: $('newPaperColor').value === '#ffffff' ? 'white' : 'custom', paperColor: $('newPaperColor').value, paperOpacity: +$('newPaperOpacity').value, paperTexture: $('newPaperTexture').value, textureStrength: +$('newTextureStrength').value };
+      await work(async () => { await replaceWithBlank(options); $('newDialog').close(); }, '正在准备新画布…');
+    });
+    on('wastebasket', 'click', () => $('wastebasketDialog').showModal());
+    on('discardWork', 'click', () => work(async () => {
+      await replaceWithBlank({}, true); $('wastebasketDialog').close();
+    }, '正在丢弃整幅作品…'));
     on('saveProject', 'click', saveProjectFile); on('openProject', 'click', () => $('projectFile').click());
     on('projectFile', 'change', async () => {
       const file = $('projectFile').files[0]; $('projectFile').value = ''; if (!file) return;
       if (file.size > PROJECT_BYTES) throw new Error('工程文件超过 160 MB，请使用较小的工程。');
-      await work(async () => { const text = new TextDecoder().decode(await blobArray(file)), project = JSON.parse(text); await flushDraft(); await loadProject(project); }, '正在打开工程…');
+      await work(async () => { const text = new TextDecoder().decode(await blobArray(file)); await openCurrentProject(JSON.parse(text)); }, '正在打开工程…');
     });
     on('restoreDraft', 'click', showDrafts);
-    on('exportOpen', 'click', () => { finishPointer(); settleTransactions(); $('exportName').value = art.title; $('exportTransparent').checked = art.paper === 'transparent'; exportSettings(); $('exportDialog').showModal(); });
-    on('exportFormat', 'change', exportSettings); on('vectorMode', 'change', exportSettings);
+    on('exportOpen', 'click', () => { finishPointer(); settleTransactions(); $('exportName').value = $('exportName').defaultValue = window.studioExportName(); $('exportTransparent').checked = art.paperOpacity === 0 && (art.paperTexture === 'none' || art.textureStrength === 0); exportSettings(); $('exportDialog').showModal(); });
+    on('exportFormat', 'change', exportSettings); on('vectorMode', 'change', exportSettings); on('exportTransparent', 'change', exportSettings);
     on('quality', 'input', () => { $('qualityValue').textContent = $('quality').value + '%'; });
     on('vectorThreshold', 'input', () => { $('vectorThresholdValue').textContent = $('vectorThreshold').value; });
     on('vectorPreview', 'click', previewVector);
     on('exportForm', 'submit', async e => {
       e.preventDefault(); await work(async () => {
-        const format = $('exportFormat').value, name = filename($('exportName').value); let blob, extension;
+        const input = $('exportName'), format = $('exportFormat').value;
+        const name = input.value.trim() && input.value !== input.defaultValue ? filename(input.value) : window.studioExportName(); let blob, extension;
         if (format === 'svg') { const result = await buildVector(); blob = new Blob([result.svg], { type: 'image/svg+xml' }); extension = 'svg'; }
         else { blob = await exportRaster(format, $('exportTransparent').checked, +$('quality').value / 100); extension = ({ 'image/png': 'png', 'image/jpeg': 'jpg', 'image/webp': 'webp' })[blob.type] || 'png'; }
         download(blob, name + '.' + extension); $('exportDialog').close(); status('已导出 ' + extension.toUpperCase() + ' · ' + (blob.size / 1024).toFixed(1) + ' KB');
@@ -990,11 +1262,23 @@
       try { localStorage.setItem('theme', theme); } catch (_) {}
     });
     window.addEventListener('storage', event => {
+      if (event.key === null) brushProfiles.clear();
+      if (event.key?.startsWith(brushKey) && event.key !== brushKey + 'selected') {
+        const id = event.key.slice(brushKey.length); brushProfiles.delete(id);
+        if (id === (tool === 'eraser' ? 'eraser' : brush)) {
+          if (activePointer) refreshBrushAfterStroke = true; else refreshActiveBrushProfile();
+        }
+      }
       if (event.key === 'theme' || event.key === null) { try { const t = localStorage.getItem('theme'); document.documentElement.dataset.theme = t === 'light' || t === 'dark' ? t : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; } catch (_) {} }
     });
     document.addEventListener('keydown', e => {
       if (dialogOpen() || editable(e.target) || busy) return;
       const key = e.key.toLowerCase(), command = e.ctrlKey || e.metaKey;
+      if (tool === 'pen' && penPath.length && !command && !e.altKey && !(e.target.closest && e.target.closest('button,a,summary'))) {
+        if (key === 'enter') { e.preventDefault(); commitPenPath(e.shiftKey); return; }
+        if (key === 'escape') { e.preventDefault(); finishPointer(); editPenPath(() => penPath.reset()); return; }
+        if (key === 'backspace' || key === 'delete') { e.preventDefault(); if (!activePointer) editPenPath(() => penPath.remove(view.zoom)); return; }
+      }
       if (key === 'escape' && activePointer && ['shape', 'text'].includes(activePointer.kind)) { e.preventDefault(); finishPointer(); return; }
       if (command && key === 'z') { e.preventDefault(); e.shiftKey ? redo() : undo(); return; }
       if (command && key === 'y') { e.preventDefault(); redo(); return; }
@@ -1003,9 +1287,9 @@
       if (key === 'tab') { if (e.target === viewport || e.target === document.body || e.target === display) { e.preventDefault(); toggleFocus(); } return; }
       if (key === ' ') { if (e.target.closest && e.target.closest('button,a,summary')) return; e.preventDefault(); spacePan = true; viewport.dataset.cursor = 'hand'; return; }
       if (e.target.closest && e.target.closest('button,a,summary')) return;
-      const tools = { b: 'brush', e: 'eraser', g: 'fill', i: 'picker', v: 'move', h: 'hand', u: 'shape', t: 'text' };
+      const tools = { b: 'brush', p: 'pen', e: 'eraser', g: 'fill', i: 'picker', v: 'move', h: 'hand', u: 'shape', t: 'text' };
       if (tools[key]) { e.preventDefault(); setTool(tools[key]); }
-      else if (key === '[' || key === ']') { e.preventDefault(); size = clamp(Math.round(size + (key === '[' ? -1 : 1) * Math.max(1, size * .15)), 1, 240); $('brushSize').value = size; scheduleBrushSample(); }
+      else if (key === '[' || key === ']') { e.preventDefault(); size = clamp(Math.round(size + (key === '[' ? -1 : 1) * Math.max(1, size * .15)), 1, 240); $('brushSize').value = size; storeBrushProfile(); rememberPenStyle(true); scheduleBrushSample(); }
       else if (key === '0') fit(); else if (key === '1') zoomTo(1);
     });
     document.addEventListener('keyup', e => { if (e.key === ' ') { spacePan = false; viewport.dataset.cursor = tool; } });
@@ -1027,7 +1311,12 @@
       groups.get(preset.group).append(option);
     }
     colorLibrary = window.DrawingColorLibrary({ swatches, getInk: () => ink, setInk }); setInk(ink);
-    ref = createReference(); newDocument(); wireEvents(); setBrush(brush);
+    try {
+      const last = localStorage.getItem(brushKey + 'selected');
+      if (Core.brushPresets.some(p => p.id === last)) brush = last;
+    } catch (_) {}
+    $('brushKind').value = brush;
+    ref = createReference(); newDocument(); wireEvents(); setBrush(brush, true);
     colorPicker = window.DrawingColorControls.create({ host: $('colorPicker'), getColor: () => ink, getDisabled: () => !!busy || !!activePointer, onChange: (hex, detail) => { if (!busy) setInk(hex, !!detail.commit); } });
     referenceSplitter = window.DrawingColorControls.installReferenceSplitter({ workspace: $('workspace'), panel: $('referencePanel'), handle: $('referenceSplitter'), getDisabled: () => !!busy || !!activePointer || !!refPointer, onResize: width => {
       const bounds = referenceSplitter ? referenceSplitter.getBounds() : { min: 220, max: 640 }; $('referenceWidth').min = bounds.min; $('referenceWidth').max = bounds.max; $('referenceWidth').value = width;
@@ -1046,18 +1335,37 @@
       });
     }
     referenceChanged(false); fit();
+    await work(async () => {
+      try {
+        const current = await window.DrawingStorage.readCurrent();
+        currentStamp = current.stamp; currentReady = true;
+        if (current.project) {
+          await loadProject(current.project);
+          $('saveStatus').textContent = '已保存到本机'; status('接着画 · ' + art.title);
+        }
+        $('restoreDraft').hidden = !(await window.DrawingStorage.list()).length;
+      } catch (error) { notifySaveError(error); }
+    }, '正在读取当前作品…');
     // Exposed for local contract tests and inspection; no external services use it.
     window.DrawingStudio = {
-      inspect: () => ({ width: art.width, height: art.height, title: art.title, paper: art.paper, paperColor: art.paperColor, tone: { ...art.tone }, view: { ...view }, layers: art.layers.map(metadata), activeId: art.activeId, tool, brush, ink, size, opacity, stabilizer, pressure: lastPressure, pointerType: lastPointerType, dirty: revision > savedRevision, history: undoStack.length, redo: redoStack.length, revision, savedRevision, draftId, drawing: !!activePointer, reference: ref.getInfo() }),
+      inspect: () => ({ width: art.width, height: art.height, title: art.title, paper: art.paper, paperColor: art.paperColor, paperOpacity: art.paperOpacity, paperTexture: art.paperTexture, textureStrength: art.textureStrength, tone: { ...art.tone }, view: { ...view }, layers: art.layers.map(metadata), activeId: art.activeId, tool, brush, ink, size, opacity, stabilizer, pressure: lastPressure, pointerType: lastPointerType, dirty: revision > savedRevision, history: undoStack.length, redo: redoStack.length, revision, savedRevision, draftId, drawing: !!activePointer, reference: ref.getInfo() }),
       newDocument, addLayer, selectLayer, undo, redo, render, exportRaster, exportProject, loadProject, serializeProject,
       get ref() { return ref; }, getLayer: id => art.layers.find(layer => layer.id === id), saveDraft, setTool, setInk
     };
-    try { const drafts = await window.DrawingStorage.list(); $('restoreDraft').hidden = !drafts.length; if (drafts.length) status('有本机草稿 · 可在底部恢复'); } catch (_) { $('saveStatus').textContent = '请保存工程备份'; }
+    async function acceptReference(token) {
+      if (busy || activePointer || refPointer) throw new Error('轻绘正在操作中，请先完成当前操作后重试。');
+      await work(async () => {
+        const bundle = await window.DrawingBridge.take(token);
+        await ref.loadBundle(bundle);
+        togglePanel('reference', true); fitReference(); status('已接收练习室参考 · 点色卡就能开始画');
+      }, '正在接收练习室参考…');
+    }
+    window.DrawingBridge.setReceiver(acceptReference);
+    window.addEventListener('studio-navigation-error', e => notify(e.detail));
     const url = new URL(location.href), token = url.searchParams.get('reference');
     if (token) {
       try {
-        const bundle = await window.DrawingBridge.take(token); if (!bundle) throw new Error('参考传递已过期或已读取，请回练习室重新点“带参考去画画”。');
-        await ref.loadBundle(bundle); togglePanel('reference', true); fitReference(); status('已接收练习室参考 · 点色卡就能开始画');
+        await acceptReference(token);
       } catch (error) { notify(error); }
       url.searchParams.delete('reference'); try { history.replaceState(null, '', url.pathname + url.search + url.hash); } catch (_) {}
     }

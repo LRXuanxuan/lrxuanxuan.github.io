@@ -32,6 +32,15 @@
   var brushPresets = [
     { id: 'gpen', name: 'G 笔', group: '勾线', size: 8, opacity: 1, stabilizer: 20, hint: '轻压出尖，重压加粗，适合勾出有粗细变化的轮廓。' },
     { id: 'fineliner', name: '针管笔', group: '勾线', size: 3, opacity: 1, stabilizer: 18, hint: '等宽圆头适合建筑线稿、排线和细部描绘。' },
+    { id: 'plainSquare', name: '基础方头笔', group: '勾线', size: 18, opacity: 1, stabilizer: 8, hint: '固定方向的正方笔尖，连续实色覆盖，适合平涂、直边剪影和清理色块。' },
+    { id: 'fountain', name: '软尖钢笔', group: '勾线', size: 12, opacity: 1, stabilizer: 15, hint: '斜切笔尖顺锋细、横锋粗。轻压落出细线，重压让转折处展开。' },
+    { id: 'wetMix', name: '载色混色笔', group: '混色与推抹', size: 36, opacity: 1, stabilizer: 8, samplesLayer: true, hint: '从当前色起笔，沿途蘸取本层颜色，沿色相过渡。空白处也可直接上色。' },
+    { id: 'smudge', name: '无色推抹', group: '混色与推抹', size: 42, opacity: 1, stabilizer: 7, samplesLayer: true, hint: '从本层已有笔迹向外拖出颜色，压重增加带色量。在空白处起笔会等到碰到颜色再取色。' },
+    { id: 'stoneChalk', name: '石灰岩肌理', group: '吹石参考 · 原创', size: 23, opacity: 0.93, stabilizer: 8, hint: '断面的扁笔尖配粗细两层颗粒，适合轮廓粗绘与石粉般的铺色。' },
+    { id: 'softRound', name: '柔圆塑形', group: '吹石参考 · 原创', size: 35, opacity: 0.91, stabilizer: 11, hint: '实心笔腹搭配柔和边缘，轻压铺灰面、重压塑造明暗交界。' },
+    { id: 'squarePaint', name: '方头切面', group: '吹石参考 · 原创', size: 30, opacity: 0.96, stabilizer: 10, hint: '宽方头保留切面和细微边痕，适合头发色块、衣褶与建筑转角。' },
+    { id: 'patinaInk', name: '轻包浆 · 毛边线', group: '包浆与旧印', size: 4, opacity: 0.88, stabilizer: 13, hint: '小笔径保留细碎毛边，放大时纸纹同步变粗，适合旧稿和印刷感轮廓。' },
+    { id: 'patinaGrain', name: '重包浆 · 斑驳墨', group: '包浆与旧印', size: 14, opacity: 0.85, stabilizer: 7, hint: '颗粒留白和轻微重影模拟反复翻印的墨块，叠笔可加重旧印效果。' },
     { id: 'pencil', name: 'HB 石墨铅笔', group: '素描', size: 6, opacity: 0.86, stabilizer: 8, hint: '轻压起稿，重压加深。交叉排线时可以看到细纸纹。' },
     { id: 'charcoal', name: '侧锋炭笔', group: '素描', size: 32, opacity: 0.85, stabilizer: 6, hint: '侧锋铺出带纸纹的宽色块，轻压擦出灰调，重压加深暗部。' },
     { id: 'marker', name: '斜头马克笔', group: '马克笔', size: 30, opacity: 0.55, stabilizer: 12, hint: '沿斜笔锋行笔可勾窄线，横过笔锋可铺宽面。抬笔再画一层会加深。' },
@@ -61,17 +70,15 @@
     tile.width = tile.height = side;
     // Match the CPU-backed stroke canvas, avoiding GPU readback on every dab.
     var paint = tile.getContext('2d', { willReadFrequently: true });
-    if (brush === 'airbrush' || brush === 'brushMarker' || brush === 'wash') {
+    if (brush === 'airbrush' || brush === 'brushMarker' || brush === 'softRound') {
       var gradient = paint.createRadialGradient(side / 2, side / 2, 0, side / 2, side / 2, side / 2);
-      gradient.addColorStop(0, brush === 'wash' ? 'rgba(0,0,0,0.07)' : '#000');
+      gradient.addColorStop(0, '#000');
       if (brush === 'airbrush') {
         gradient.addColorStop(0.38, 'rgba(0,0,0,0.55)');
         gradient.addColorStop(0.72, 'rgba(0,0,0,0.14)');
-      } else if (brush === 'wash') {
-        gradient.addColorStop(0.70, 'rgba(0,0,0,0.045)');
-        gradient.addColorStop(0.83, 'rgba(0,0,0,0.14)');
-        gradient.addColorStop(0.92, 'rgba(0,0,0,0.86)');
-        gradient.addColorStop(0.97, 'rgba(0,0,0,0.36)');
+      } else if (brush === 'softRound') {
+        gradient.addColorStop(0.43, 'rgba(0,0,0,0.92)');
+        gradient.addColorStop(0.76, 'rgba(0,0,0,0.34)');
       } else gradient.addColorStop(0.74, '#000');
       gradient.addColorStop(1, 'transparent');
       paint.fillStyle = gradient; paint.fillRect(0, 0, side, side);
@@ -98,6 +105,13 @@
         var tooth;
         if (brush === 'pencil') tooth = (fleck - 0.12) * 1.25;
         else if (brush === 'dry') tooth = (fleck - 0.07) * 2.8;
+        else if (brush === 'patinaInk') tooth = 0.15 + 0.85 * Math.pow(fleck, 0.82);
+        else if (brush === 'stoneChalk' || brush === 'patinaGrain') {
+          var chip = coarse[(y >> 2) * (side / 2) + (x >> 2)];
+          var grain2 = coarse[(y >> 1) * (side / 2) + (x >> 1)];
+          tooth = brush === 'stoneChalk' ? (fleck * 0.28 + chip * 0.45 + grain2 * 0.27 - 0.28) * 2.3
+            : (fleck * 0.42 + chip * 0.32 + grain2 * 0.26 - 0.38) * 3.0;
+        }
         else tooth = (fleck - 0.28) * 1.9;
         mask.data[(y * side + x) * 4 + 3] = 255 * clamp(tooth, 0, 1);
       }
@@ -108,6 +122,211 @@
     if (tipCache.size >= 24) tipCache.delete(tipCache.keys().next().value);
     tipCache.set(key, tile);
     return tile;
+  }
+
+  // Three paper fields stay fixed in layer space when the nib reverses.
+  // Wicking deforms the silhouette, valleys pool pigment, and damp fibers
+  // intermittently interrupt the drying edge.
+  var washPaper = null;
+  function paperForWash() {
+    if (washPaper) return washPaper;
+    var side = 256, seed = 7837, noise = new Float32Array(side * side);
+    for (var i = 0; i < noise.length; i++) {
+      seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
+      noise[i] = seed / 4294967296;
+    }
+    function field(x, y, scale, offset) {
+      var cx = Math.floor(x / scale), cy = Math.floor(y / scale), cells = side / scale;
+      var fx = (x % scale) / scale, fy = (y % scale) / scale;
+      fx *= fx * (3 - 2 * fx); fy *= fy * (3 - 2 * fy);
+      var col = (cx + offset) & 255, next = ((cx + 1) % cells + offset) & 255;
+      var row = ((cy + offset) & 255) * side, below = (((cy + 1) % cells + offset) & 255) * side;
+      var a = noise[row + col] * (1 - fx) + noise[row + next] * fx;
+      var b = noise[below + col] * (1 - fx) + noise[below + next] * fx;
+      return a * (1 - fy) + b * fy;
+    }
+    washPaper = new Uint8Array(side * side * 3);
+    for (var y = 0; y < side; y++) for (var x = 0; x < side; x++) {
+      var at = (y * side + x) * 3;
+      var tooth = field(x, y, 4, 11), fibers = field(x, y, 16, 27);
+      var pool = field(x, y, 32, 70), moisture = field(x, y, 64, 41);
+      washPaper[at] = 255 * (0.48 * tooth + 0.36 * fibers + 0.16 * noise[y * side + x]);
+      washPaper[at + 1] = 255 * (0.65 * pool + 0.25 * fibers + 0.10 * tooth);
+      washPaper[at + 2] = 255 * (0.48 * fibers + 0.34 * moisture + 0.18 * tooth);
+    }
+    return washPaper;
+  }
+
+  // Accumulate coverage for the whole wet area. Pigment settles near its
+  // exterior boundary, so stopped/retraced strokes have no internal stamp rims.
+  function watercolorStroke(ctx, size, color, bounds) {
+    var side = 48, columns = Math.ceil(ctx.canvas.width / side);
+    var rows = Math.ceil(ctx.canvas.height / side), tiles = new Map(), dirty = new Set();
+    // Round-Fringe's 0.882 inner mask suggests a narrow wet border. Leave an
+    // extra diffusion band and cap the lookup radius for interactive rendering.
+    var rim = clamp((size / 2) * (1 - 0.882) + size * 0.05, 1.65, 9);
+    var halo = Math.ceil(1.65 * rim) + 2, span = side + halo * 2;
+    var distances = new Float32Array(span * span), diagonal = Math.SQRT2;
+    var rgb = parseInt(color.slice(1), 16);
+    var paper = paperForWash(), bleed = clamp(size * 0.092, 0.55, 4.2);
+    function accumulate(a, b, ra, rb) {
+      var dx = b.x - a.x, dy = b.y - a.y, length2 = dx * dx + dy * dy, limit = Math.max(ra, rb) + bleed + 2;
+      var left = Math.max(0, Math.floor(Math.min(a.x, b.x) - limit)), top = Math.max(0, Math.floor(Math.min(a.y, b.y) - limit));
+      var right = Math.min(ctx.canvas.width, Math.ceil(Math.max(a.x, b.x) + limit)), bottom = Math.min(ctx.canvas.height, Math.ceil(Math.max(a.y, b.y) + limit));
+      for (var ty = Math.floor(top / side); ty < Math.ceil(bottom / side); ty++) for (var tx = Math.floor(left / side); tx < Math.ceil(right / side); tx++) {
+        var x0 = tx * side, y0 = ty * side, cx = x0 + side / 2, cy = y0 + side / 2;
+        var near = length2 ? clamp(((cx - a.x) * dx + (cy - a.y) * dy) / length2, 0, 1) : 0;
+        if (Math.hypot(cx - a.x - dx * near, cy - a.y - dy * near) > limit + side * 0.71) continue;
+        var key = ty * columns + tx, tile = tiles.get(key), changed = false;
+        for (var y = Math.max(top, y0); y < Math.min(bottom, y0 + side); y++) for (var x = Math.max(left, x0); x < Math.min(right, x0 + side); x++) {
+          var offX = x + 0.5 - a.x, offY = y + 0.5 - a.y;
+          var t = length2 ? clamp((offX * dx + offY * dy) / length2, 0, 1) : 0;
+          var pi = (((y & 255) * 256) + (x & 255)) * 3;
+          var wick = paper[pi] / 255, dampness = paper[pi + 2] / 255;
+          var radius = ra + (rb - ra) * t + (wick - 0.48) * 2 * bleed;
+          var feather = 0.8 + dampness * bleed * 0.47;
+          var distance = Math.hypot(offX - dx * t, offY - dy * t);
+          var coverage = Math.round(255 * clamp(0.5 + (radius - distance) / feather, 0, 1));
+          if (!coverage) continue;
+          if (!tile) {
+            tile = { mask: new Uint8Array(side * side), force: new Uint8Array(side * side) };
+            tiles.set(key, tile);
+          }
+          var i = (y - y0) * side + x - x0;
+          var force = Math.round(255 * (a.pressure + (b.pressure - a.pressure) * t));
+          if (tile.mask[i] >= coverage && tile.force[i] >= force) continue;
+          tile.mask[i] = Math.max(tile.mask[i], coverage); tile.force[i] = Math.max(tile.force[i], force); changed = true;
+        }
+        if (!changed) continue;
+        include(bounds, Math.max(left, x0), Math.max(top, y0), Math.min(right, x0 + side), Math.min(bottom, y0 + side));
+        // Adjacent wet tiles may lose a previously exposed internal boundary.
+        for (var ny = Math.max(0, ty - 1); ny <= Math.min(rows - 1, ty + 1); ny++) {
+          for (var nx = Math.max(0, tx - 1); nx <= Math.min(columns - 1, tx + 1); nx++) dirty.add(ny * columns + nx);
+        }
+      }
+    }
+    function shade(key) {
+      var tile = tiles.get(key); if (!tile) return;
+      var x0 = (key % columns) * side, y0 = Math.floor(key / columns) * side;
+      distances.fill(0);
+      // Load this tile and its halo into a reusable distance field.
+      for (var sy = 0; sy < span; sy++) {
+        var gy = y0 - halo + sy; if (gy < 0 || gy >= ctx.canvas.height) continue;
+        for (var sx = 0; sx < span;) {
+          var gx = x0 - halo + sx;
+          if (gx < 0) { sx -= gx; continue; }
+          if (gx >= ctx.canvas.width) break;
+          var localX = gx % side, count = Math.min(span - sx, side - localX, ctx.canvas.width - gx);
+          var neighbor = tiles.get(Math.floor(gy / side) * columns + Math.floor(gx / side));
+          if (neighbor) for (var n = 0; n < count; n++) {
+            var alpha = neighbor.mask[(gy % side) * side + localX + n];
+            distances[sy * span + sx + n] = alpha === 255 ? halo + 2 : alpha / 255;
+          }
+          sx += count;
+        }
+      }
+      // Two-pass chamfer distance to exposed paper, including diagonal paths.
+      for (var y = 1; y < span - 1; y++) for (var x = 1; x < span - 1; x++) {
+        var i = y * span + x;
+        distances[i] = Math.min(distances[i], 1 + distances[i - 1], 1 + distances[i - span],
+          diagonal + distances[i - span - 1], diagonal + distances[i - span + 1]);
+      }
+      for (var y = span - 2; y > 0; y--) for (var x = span - 2; x > 0; x--) {
+        var i = y * span + x;
+        distances[i] = Math.min(distances[i], 1 + distances[i + 1], 1 + distances[i + span],
+          diagonal + distances[i + span + 1], diagonal + distances[i + span - 1]);
+      }
+      var w = Math.min(side, ctx.canvas.width - x0), h = Math.min(side, ctx.canvas.height - y0);
+      var image = ctx.createImageData(w, h);
+      for (var y = 0; y < h; y++) for (var x = 0; x < w; x++) {
+        var j = y * side + x, coverage = tile.mask[j]; if (!coverage) continue;
+        var pi = ((((y0 + y) & 255) * 256) + ((x0 + x) & 255)) * 3;
+        var wick = paper[pi] / 255, pool = paper[pi + 1] / 255, dampness = paper[pi + 2] / 255;
+        var p = tile.force[j] / 255, inward = distances[(y + halo) * span + x + halo];
+        var edge = 1 - clamp((inward - 0.65) / (rim * (0.42 + 1.2 * dampness)), 0, 1);
+        var seed = Math.imul(x0 + x + 11, 2654435761) ^ Math.imul(y0 + y + 9, 2246822519);
+        var grain = (Math.imul(seed ^ (seed >>> 15), 3266489917) >>> 24) / 255 - 0.5;
+        // Low-flow wash body and stronger rim, informed by Krita Lines-Wet
+        // (0.15) and Spread (0.33). These are whole-stroke density ranges here.
+        var body = (0.085 + 0.15 * p) * (0.55 + 0.87 * pool) + grain * 0.019 + (wick - 0.5) * 0.031;
+        var dryRim = clamp((0.78 - dampness) * 2.1, 0.025, 1);
+        var alpha = coverage * (body + (0.11 + 0.22 * p) * edge * edge * dryRim);
+        var at = (y * w + x) * 4;
+        image.data[at] = rgb >> 16; image.data[at + 1] = (rgb >> 8) & 255;
+        image.data[at + 2] = rgb & 255; image.data[at + 3] = Math.round(alpha);
+      }
+      ctx.putImageData(image, x0, y0);
+    }
+    return { accumulate: accumulate, flush: function () { dirty.forEach(shade); dirty.clear(); } };
+  }
+
+  function mixHsl(from, to, amount) {
+    var h0 = from[1] < 0.005 ? to[0] : from[0], h1 = to[1] < 0.005 ? h0 : to[0];
+    var arc = (h1 - h0 + 1.5) % 1 - 0.5;
+    return [(h0 + arc * amount + 1) % 1, from[1] + (to[1] - from[1]) * amount, from[2] + (to[2] - from[2]) * amount];
+  }
+
+  // The caller supplies a working copy of the active layer. Gather color just
+  // ahead of the nib, including alpha, so a stroke can carry paint into a gap.
+  function mixingTip(ctx, brush, color, bounds) {
+    var carried = null, load = 0, lastPoint = null;
+    var rgb = /^#([a-f\d]{6})$/i.exec(color);
+    var packed = rgb ? parseInt(rgb[1], 16) : 0x20242b;
+    var ink = rgbToHsl(packed >> 16, (packed >> 8) & 255, packed & 255);
+    var wet = brush === 'wetMix';
+    // MyPaint smudge / smudge+paint use different pickup memories, hardness
+    // and dab spacing. Convert pickup memory to a distance along this stroke.
+    var memory = wet ? 0.28 : 0.35, hardness = wet ? 0.32 : 0.20;
+    if (wet) { carried = ink; load = 1; }
+    return function paint(point, diameter) {
+      var r = Math.max(0.75, diameter / 2), spacing = Math.max(0.85, r / (wet ? 2.66 : 2));
+      var x = point.x, y = point.y, dx = lastPoint ? x - lastPoint.x : 0, dy = lastPoint ? y - lastPoint.y : 0;
+      var travel = Math.hypot(dx, dy), first = !lastPoint;
+      var uptake = first ? 0.22 : 1 - Math.exp(-travel / Math.max(0.6, diameter * (0.45 + 1.8 * memory)));
+      lastPoint = point;
+      var left = Math.max(0, Math.floor(x - r)), top = Math.max(0, Math.floor(y - r));
+      var right = Math.min(ctx.canvas.width, Math.ceil(x + r)), bottom = Math.min(ctx.canvas.height, Math.ceil(y + r));
+      if (right <= left || bottom <= top) return spacing;
+      var image = ctx.getImageData(left, top, right - left, bottom - top), pixels = image.data;
+      var sx = x + (travel ? dx / travel * r * 0.69 : 0), sy = y + (travel ? dy / travel * r * 0.69 : 0);
+      var reach = Math.max(0.75, r * 0.22), step = Math.max(1, Math.round(reach / 3));
+      var alphaSum = 0, samples = 0, hx = 0, hy = 0, sat = 0, light = 0;
+      for (var yy = Math.max(top, Math.floor(sy - reach)); yy < Math.min(bottom, Math.ceil(sy + reach)); yy += step) {
+        for (var xx = Math.max(left, Math.floor(sx - reach)); xx < Math.min(right, Math.ceil(sx + reach)); xx += step) {
+          var index = ((yy - top) * image.width + xx - left) * 4, a = pixels[index + 3] / 255;
+          samples++; if (!a) continue;
+          var sample = rgbToHsl(pixels[index], pixels[index + 1], pixels[index + 2]);
+          hx += a * sample[1] * Math.cos(2 * Math.PI * sample[0]); hy += a * sample[1] * Math.sin(2 * Math.PI * sample[0]);
+          sat += a * sample[1]; light += a * sample[2]; alphaSum += a;
+        }
+      }
+      var sampledAlpha = alphaSum / Math.max(1, samples);
+      if (alphaSum) {
+        var pickup = [(Math.atan2(hy, hx) / (2 * Math.PI) + 1) % 1, sat / alphaSum, light / alphaSum];
+        carried = carried ? mixHsl(carried, pickup, uptake * sampledAlpha) : pickup;
+      }
+      if (wet) carried = mixHsl(carried, ink, 0.042);
+      else {
+        load = first || load < 1 / 255 ? sampledAlpha : load + (sampledAlpha - load) * uptake;
+        if (first || !carried || load < 1 / 255) return spacing;
+      }
+      var changed = false, force = 0.20 + 0.57 * point.pressure;
+      for (var py = top; py < bottom; py++) for (var px = left; px < right; px++) {
+        var norm = ((px + 0.5 - x) ** 2 + (py + 0.5 - y) ** 2) / (r * r);
+        if (norm >= 1) continue;
+        var fade = clamp((1 - Math.sqrt(norm)) / (1 - hardness), 0, 1);
+        var amount = fade * fade * (3 - 2 * fade) * force;
+        var i = ((py - top) * image.width + px - left) * 4, oldAlpha = pixels[i + 3] / 255;
+        var newAlpha = oldAlpha * (1 - amount) + load * amount;
+        var paintWeight = newAlpha > 0 ? load * amount / newAlpha : 0;
+        var c = oldAlpha ? mixHsl(rgbToHsl(pixels[i], pixels[i + 1], pixels[i + 2]), carried, paintWeight) : carried;
+        var out = hslToRgb(c[0], c[1], c[2]), alphaByte = Math.round(255 * newAlpha);
+        if (pixels[i + 3] === alphaByte && (!alphaByte || (pixels[i] === out[0] && pixels[i + 1] === out[1] && pixels[i + 2] === out[2]))) continue;
+        pixels[i] = out[0]; pixels[i + 1] = out[1]; pixels[i + 2] = out[2]; pixels[i + 3] = alphaByte; changed = true;
+      }
+      if (changed) { ctx.putImageData(image, left, top); include(bounds, left, top, right, bottom); }
+      return spacing;
+    };
   }
 
   /**
@@ -122,7 +341,7 @@
     var brush = options.brush === 'eraser' ? 'eraser' : preset.id;
     var size = clamp(number(options.size, 8), 0.5, 512);
     var stabilized = clamp(number(options.stabilizer, 0), 0, 100);
-    var usePressure = options.pressure !== false && !['pixel', 'fineliner', 'marker'].includes(brush);
+    var usePressure = options.pressure !== false && !['pixel', 'fineliner', 'marker', 'plainSquare'].includes(brush);
     var color = brush === 'eraser' ? '#000000' : (options.color || '#20242b');
     var bounds = emptyBounds(), last = null, lastRaw = null, finished = false;
     var pressure = 1;
@@ -132,12 +351,22 @@
     ctx.lineCap = 'round'; ctx.lineJoin = 'round';
     ctx.imageSmoothingEnabled = brush !== 'pixel' && brush !== 'binary';
 
-    var grain = brush === 'pencil' || brush === 'charcoal';
-    var soft = brush === 'airbrush' || brush === 'brushMarker' || brush === 'wash';
+    var rough = ['stoneChalk', 'patinaInk', 'patinaGrain'].includes(brush);
+    var grain = brush === 'pencil' || brush === 'charcoal' || rough;
+    var soft = ['airbrush', 'brushMarker', 'softRound'].includes(brush);
+    var watercolor = brush === 'wash' ? watercolorStroke(ctx, size, color, bounds) : null;
+    var mix = preset.samplesLayer && brush !== 'eraser' ? mixingTip(ctx, brush, color, bounds) : null;
     var tile = grain || soft || brush === 'dry' || brush === 'gouache' ? brushTile(ctx, brush, color) : null;
-    if (grain || brush === 'dry') ctx.fillStyle = ctx.strokeStyle = ctx.createPattern(tile, 'repeat');
-    var sampled = grain || soft || ['dry', 'marker', 'hairHatch', 'screentone', 'sparkle', 'spatter', 'gouache'].includes(brush);
-    var untilDab = 0, sampleAnchor = null;
+    if (grain || brush === 'dry') {
+      var texture = ctx.createPattern(tile, 'repeat');
+      if ((brush === 'patinaInk' || brush === 'patinaGrain') && texture.setTransform) {
+        var scale = clamp(Math.sqrt(size / 17), 0.42, 2.6);
+        texture.setTransform({ a: scale, b: 0, c: 0, d: scale, e: 0, f: 0 });
+      }
+      ctx.fillStyle = ctx.strokeStyle = texture;
+    }
+    var sampled = mix || grain || soft || ['dry', 'marker', 'hairHatch', 'screentone', 'sparkle', 'spatter', 'gouache', 'fountain', 'squarePaint'].includes(brush);
+    var untilDab = 0, sampleAnchor = null, fountainTravel = 0, fountainPoint = null, patinaPoint = null;
     var lastNormal = null, scatterSeed = 1;
     var slantX = Math.cos(-Math.PI / 6), slantY = Math.sin(-Math.PI / 6);
 
@@ -153,8 +382,12 @@
       return { x: point.x, y: point.y, pressure: p, time: number(point.time, number(point.timeStamp, NaN)) };
     }
     function widthAt(point) {
+      if (mix) return size * (0.48 + 0.52 * point.pressure);
+      if (brush === 'stoneChalk' || brush === 'squarePaint' || brush === 'softRound') return size * (0.67 + 0.33 * point.pressure);
+      if (brush === 'fountain') return size * (0.05 + 0.95 * Math.exp(2.65 * (point.pressure - 1)));
       if (brush === 'maru') return size * (0.065 + 0.935 * Math.pow(point.pressure, 1.7));
-      if (brush === 'wash' || brush === 'screentone' || brush === 'spatter') return size * (0.67 + 0.33 * point.pressure);
+      if (brush === 'wash') return size * (0.36 + 0.64 * point.pressure);
+      if (brush === 'screentone' || brush === 'spatter') return size * (0.67 + 0.33 * point.pressure);
       if (brush === 'gouache' || brush === 'sparkle') return size * (0.32 + 0.68 * point.pressure);
       if (brush === 'pencil') return size * (0.34 + 0.66 * point.pressure);
       if (brush === 'charcoal' || brush === 'airbrush') return size * (0.66 + 0.34 * point.pressure);
@@ -164,19 +397,64 @@
     }
     function dab(point) {
       var diameter = Math.max(0.5, widthAt(point)), radius = diameter / 2, p = point.pressure;
-      if (grain) {
+      if (rough || brush === 'squarePaint' || brush === 'fountain') {
+        var x = point.x, y = point.y, r = radius;
+        ctx.save();
+        if (brush === 'fountain') {
+          // Translate pointy_ink's log-pressure radius and negative initial
+          // stroke gain to a flexible, angled nib with a short entry taper.
+          if (fountainPoint) fountainTravel += Math.hypot(x - fountainPoint.x, y - fountainPoint.y);
+          fountainPoint = point;
+          r *= 0.54 + 0.46 * (1 - Math.exp(-fountainTravel / Math.max(0.6, size * 0.42)));
+          ctx.globalAlpha = 0.32;
+          ctx.beginPath(); ctx.ellipse(x, y, r, Math.max(0.18, r * 0.28), -0.76, 0, 2 * Math.PI); ctx.fill();
+          ctx.globalAlpha = 1;
+          ctx.beginPath(); ctx.ellipse(x, y, r * 0.80, Math.max(0.16, r * 0.224), -0.76, 0, 2 * Math.PI); ctx.fill();
+        } else if (brush === 'stoneChalk') {
+          ctx.globalAlpha = 0.46 + 0.42 * p;
+          ctx.beginPath(); ctx.moveTo(x - 0.91*r, y - 0.16*r); ctx.lineTo(x - 0.37*r, y - 0.71*r);
+          ctx.lineTo(x + 0.58*r, y - 0.63*r); ctx.lineTo(x + 0.96*r, y + 0.07*r);
+          ctx.lineTo(x + 0.30*r, y + 0.72*r); ctx.lineTo(x - 0.76*r, y + 0.54*r); ctx.closePath(); ctx.fill();
+        } else if (brush === 'squarePaint') {
+          ctx.translate(x, y); ctx.rotate(-0.18); ctx.fillRect(-0.83*r, -0.7*r, 1.66*r, 1.4*r);
+          ctx.globalAlpha = 0.5; ctx.fillRect(-0.93*r, -0.58*r, 0.07*r, 1.22*r);
+        } else {
+          var heavy = brush === 'patinaGrain', jitter = (randomScatter() - 0.5) * Math.min(2.2, r * 0.23);
+          // The light and coarse prints load more ink when moving slowly.
+          // Arc-length spacing prevents extra buildup from idle pointer events.
+          var deposition = 0.8;
+          if (patinaPoint && point.time > patinaPoint.time) {
+            var speed = Math.hypot(x - patinaPoint.x, y - patinaPoint.y) / (point.time - patinaPoint.time);
+            deposition = 0.52 + 0.48 / (1 + speed / (0.09 + size * 0.013));
+          }
+          patinaPoint = point;
+          ctx.globalAlpha = deposition * (heavy ? 0.27 : 0.10);
+          ctx.beginPath(); ctx.ellipse(x + r * 0.18, y + jitter, r, r * 0.88, 0, 0, Math.PI * 2); ctx.fill();
+          if (!heavy) {
+            ctx.globalAlpha = deposition * 0.16;
+            ctx.beginPath(); ctx.ellipse(x + jitter * 0.3, y + 0.24, r * 0.86, r * 0.83, 0, 0, Math.PI * 2); ctx.fill();
+          }
+          ctx.globalAlpha = deposition * (0.48 + 0.49 * p);
+          ctx.beginPath(); ctx.ellipse(x + jitter, y, r * (heavy ? 0.75 : 0.69), r * (heavy ? 0.65 : 0.72), -0.27, 0, Math.PI * 2); ctx.fill();
+        }
+        ctx.restore();
+        include(bounds, x - r * 1.3 - 1, y - r * 1.3 - 1, x + r * 1.3 + 1, y + r * 1.3 + 1);
+        // Textured ink uses six dabs per radius. The narrower short axis of
+        // the fountain nib needs closer spacing to keep fine curves connected.
+        return Math.max(0.35, diameter * (rough ? 1 / 12 : brush === 'fountain' ? 0.055 : 0.04));
+      } else if (grain) {
         ctx.globalAlpha = 0.12 + 0.64 * p;
         ctx.beginPath();
         ctx.ellipse(point.x, point.y, radius, radius * (brush === 'charcoal' ? 0.45 : 0.85), -Math.PI / 6, 0, Math.PI * 2);
         ctx.fill();
       } else {
-        if (brush === 'wash') ctx.globalAlpha = 0.045 + 0.14 * p;
+        if (brush === 'softRound') ctx.globalAlpha = 0.18 + 0.30 * p;
         else ctx.globalAlpha = brush === 'airbrush' ? 0.04 + 0.23 * p : 0.25 + 0.53 * p;
         ctx.drawImage(tile, point.x - radius, point.y - radius, diameter, diameter);
       }
       ctx.globalAlpha = 1;
       include(bounds, point.x - radius - 1, point.y - radius - 1, point.x + radius + 1, point.y + radius + 1);
-      var spacing = brush === 'wash' ? 0.037 : brush === 'charcoal' ? 0.08 : 0.11;
+      var spacing = brush === 'charcoal' ? 0.08 : 0.11;
       return Math.max(0.45, diameter * spacing);
     }
     function randomScatter() {
@@ -244,7 +522,8 @@
     // Carry spacing through pointer events to keep deposition independent of
     // mouse/tablet reporting rate, including browsers' coalesced samples.
     function paintSample(point) {
-      if (grain || soft) return dab(point);
+      if (mix) return mix(point, widthAt(point));
+      if (grain || soft || brush === 'fountain' || brush === 'squarePaint') return dab(point);
       if (brush === 'hairHatch' || brush === 'gouache') return directedTip(point);
       if (brush === 'screentone' || brush === 'sparkle' || brush === 'spatter') return effectStamp(point);
       if (brush === 'dry') paintBristles(sampleAnchor || point, point);
@@ -257,7 +536,7 @@
       while (untilDab <= distance + 1e-7) {
         var t = Math.min(1, untilDab / distance);
         untilDab += paintSample({ x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t,
-          pressure: a.pressure + (b.pressure - a.pressure) * t });
+          pressure: a.pressure + (b.pressure - a.pressure) * t, time: a.time + (b.time - a.time) * t });
       }
       untilDab -= distance;
     }
@@ -310,7 +589,18 @@
     function drawSegment(a, b) {
       var dx = b.x - a.x, dy = b.y - a.y, distance = Math.hypot(dx, dy);
       var ra = widthAt(a) / 2, rb = widthAt(b) / 2;
-      if (sampled) {
+      if (brush === 'plainSquare') {
+        // Sweep the exact square between the endpoints. Fractional positions
+        // retain antialiasing and long segments have no gaps between stamps.
+        var half = size / 2, ox = dx >= 0 ? half : -half, oy = dy >= 0 ? half : -half;
+        ctx.beginPath(); ctx.moveTo(a.x - ox, a.y - oy); ctx.lineTo(a.x + ox, a.y - oy);
+        ctx.lineTo(b.x + ox, b.y - oy); ctx.lineTo(b.x + ox, b.y + oy);
+        ctx.lineTo(b.x - ox, b.y + oy); ctx.lineTo(a.x - ox, a.y + oy); ctx.closePath(); ctx.fill();
+        include(bounds, Math.min(a.x, b.x) - half - 1, Math.min(a.y, b.y) - half - 1,
+          Math.max(a.x, b.x) + half + 1, Math.max(a.y, b.y) + half + 1);
+      } else if (watercolor) {
+        watercolor.accumulate(a, b, ra, rb);
+      } else if (sampled) {
         paintDabs(a, b, distance);
       } else if (brush === 'pixel') {
         var x0 = Math.floor(a.x), y0 = Math.floor(a.y), x1 = Math.floor(b.x), y1 = Math.floor(b.y);
@@ -381,8 +671,10 @@
         }
       }
       finished = true;
+      if (watercolor) watercolor.flush();
     }
     return { start: start, move: move, end: end,
+      flush: function () { if (watercolor) watercolor.flush(); },
       get bounds() { return rectangle(bounds, ctx.canvas.width, ctx.canvas.height); } };
   }
 

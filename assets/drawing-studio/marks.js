@@ -180,9 +180,18 @@
     var x = Math.min.apply(null, xs), y = Math.min.apply(null, ys);
     return { x: x, y: y, width: Math.max.apply(null, xs) - x, height: Math.max.apply(null, ys) - y };
   }
+  const polygons = {
+    pentagon: [[.5,0],[1,.38],[.81,1],[.19,1],[0,.38]],
+    octagon: [[.29,0],[.71,0],[1,.29],[1,.71],[.71,1],[.29,1],[0,.71],[0,.29]],
+    trapezoid: [[.23,0],[.77,0],[1,1],[0,1]],
+    parallelogram: [[.25,0],[1,0],[.75,1],[0,1]],
+    bolt: [[.41,0],[.94,0],[.64,.40],[.95,.40],[.17,1],[.39,.55],[.05,.55]],
+    sparkle: [[.5,0],[.63,.36],[1,.5],[.63,.64],[.5,1],[.37,.64],[0,.5],[.37,.36]]
+  };
   function shapePath(ctx, type, box, vertices) {
     var x = box.x, y = box.y, w = box.width, h = box.height;
     ctx.beginPath();
+    if (Object.hasOwn(polygons, type)) vertices = polygons[type].map(([px, py]) => [x + px * w, y + py * h]);
     if (vertices) {
       ctx.moveTo(vertices[0][0], vertices[0][1]);
       for (var v = 1; v < vertices.length; v++) ctx.lineTo(vertices[v][0], vertices[v][1]);
@@ -210,6 +219,17 @@
         var px = x + (point[0] - left) / (right - left) * w, py = y + (point[1] - top) / (bottom - top) * h;
         if (!index) ctx.moveTo(px, py); else ctx.lineTo(px, py);
       });
+    } else if (type === 'drop') {
+      ctx.moveTo(x + w * .55, y);
+      ctx.bezierCurveTo(x + w * .60,y + h * .27,x + w,y + h * .43,x + w,y + h * .68);
+      ctx.bezierCurveTo(x + w,y + h * 1.1,x,y + h * 1.12,x,y + h * .70);
+      ctx.bezierCurveTo(x,y + h * .47,x + w * .40,y + h * .25,x + w * .55,y);
+    } else if (type === 'cloud') {
+      ctx.moveTo(x + .19*w,y + .88*h);
+      ctx.bezierCurveTo(x - .03*w,y + .88*h,x - .04*w,y + .40*h,x + .19*w,y + .39*h);
+      ctx.bezierCurveTo(x + .18*w,y + .04*h,x + .51*w,y - .10*h,x + .64*w,y + .19*h);
+      ctx.bezierCurveTo(x + .80*w,y + .04*h,x + .94*w,y + .25*h,x + .89*w,y + .42*h);
+      ctx.bezierCurveTo(x + 1.06*w,y + .46*h,x + 1.02*w,y + .87*h,x + .81*w,y + .88*h);
     } else if (type === 'heart') {
       ctx.moveTo(x + w * 0.5, y + h * 0.25);
       ctx.bezierCurveTo(x + w * 0.4, y, x, y, x, y + h * 0.32);
@@ -219,9 +239,54 @@
     } else ctx.rect(x, y, w, h);
     ctx.closePath();
   }
+  const frameKinds = ['frameGallery', 'frameDeco', 'frameFilm', 'frameCorners'];
+  function paintFrame(ctx, opts) {
+    const b = normalizedBounds(opts, opts.constrain), side = Math.min(b.width, b.height);
+    if (side < 1) return null;
+    const edge = Math.min(side * .26, Math.max(.5, number(opts.frameWidth, 10)));
+    const main = color(ctx, opts.frameColor, '#354953'), accent = color(ctx, opts.frameAccent, '#d4b583');
+    return paintOnce(ctx, clippedBounds(ctx, b, 1), clamp(number(opts.opacity, 1), 0, 1), paint => {
+      paint.translate(b.x, b.y);
+      const w = b.width, h = b.height;
+      paint.beginPath(); paint.rect(0, 0, w, h); paint.clip();
+      function rule(inset, thickness, ink) {
+        paint.strokeStyle = ink; paint.lineWidth = thickness;
+        paint.strokeRect(inset, inset, w - 2 * inset, h - 2 * inset);
+      }
+      if (opts.type === 'frameCorners') {
+        const arm = Math.min(side / 3, edge * 4);
+        for (const [x,y,sx,sy] of [[0,0,1,1],[w,0,-1,1],[0,h,1,-1],[w,h,-1,-1]]) {
+          paint.save(); paint.translate(x,y); paint.scale(sx,sy); paint.fillStyle = main;
+          paint.fillRect(0,0,arm,edge*.38); paint.fillRect(0,0,edge*.38,arm);
+          paint.fillStyle = accent; paint.fillRect(edge*.75,edge*.75,edge*.5,edge*.5); paint.restore();
+        }
+      } else if (opts.type === 'frameFilm') {
+        paint.fillStyle = main;
+        paint.fillRect(0,0,w,edge); paint.fillRect(0,h-edge,w,edge);
+        rule(edge*.09,edge*.18, main);
+        const n = Math.min(256,Math.max(2,Math.floor(w / (edge * 1.7)))), pitch=w/n;
+        paint.fillStyle = accent;
+        for (let i=0;i<n;i++) for (const y of [edge*.30,h-edge*.70]) {
+          paint.fillRect((i+.27)*pitch,y,.46*pitch,edge*.40);
+        }
+      } else if (opts.type === 'frameDeco') {
+        rule(edge*.17,edge*.25,main); rule(edge*.76,edge*.1,accent);
+        const extent = Math.min(edge*2,side*.33);
+        for (const [x,y,sx,sy] of [[0,0,1,1],[w,0,-1,1],[0,h,1,-1],[w,h,-1,-1]]) {
+          paint.save(); paint.translate(x,y); paint.scale(sx,sy);
+          paint.strokeStyle=accent; paint.lineWidth=edge*.15; paint.lineJoin='bevel';
+          paint.beginPath(); paint.moveTo(0,extent); paint.lineTo(extent,0); paint.stroke();
+          paint.fillStyle=main; paint.fillRect(edge*.6,edge*.6,edge*.46,edge*.46); paint.restore();
+        }
+      } else {
+        rule(edge*.5,edge,main); rule(edge*.86,edge*.21,accent); rule(edge*1.12,edge*.12,main);
+      }
+    });
+  }
   /** Returns a clipped pixel rectangle suitable for one undo patch, or null. */
   function paintShape(ctx, options) {
     options = options || {};
+    if (frameKinds.includes(options.type)) return paintFrame(ctx, options);
     var fill = options.fill === undefined ? '#263544' : options.fill, stroke = options.stroke;
     var lineWidth = clamp(number(options.strokeWidth, 2), 0, 512), opacity = clamp(number(options.opacity, 1), 0, 1);
     var vertices, box;
@@ -243,6 +308,43 @@
       if (filled) { paint.fillStyle = fillStyle(paint, fill, box); paint.fill(); }
       if (outlined) { paint.strokeStyle = fillStyle(paint, stroke, box); paint.stroke(); }
     });
+  }
+
+  const textBoxKinds = ['caption', 'balloon', 'ribbon', 'fold', 'bookplate'];
+  function paintTextBox(paint, style, rect, pad, surface, accent) {
+    const { x,y,width:w,height:h } = rect;
+    const fold = Math.min(pad * 1.6, h * .35, w * .2);
+    const radius = Math.min(pad, h / 3);
+    paint.save(); paint.translate(x,y); paint.fillStyle = surface;
+    paint.strokeStyle = accent; paint.lineWidth = Math.max(.6, pad*.13); paint.lineJoin = 'round';
+    paint.beginPath();
+    if (style === 'balloon') {
+      const tail = Math.min(w*.3, pad*2.7);
+      paint.moveTo(radius,0); paint.arcTo(w,0,w,h,radius); paint.arcTo(w,h,0,h,radius);
+      paint.lineTo(tail+pad,h); paint.lineTo(tail-pad*.65,h+pad*.9); paint.lineTo(tail-pad*.3,h);
+      paint.arcTo(0,h,0,0,radius); paint.arcTo(0,0,w,0,radius);
+    } else if (style === 'ribbon') {
+      const notch = Math.min(pad*.65,w*.1);
+      paint.moveTo(0,0); paint.lineTo(w,0); paint.lineTo(w-notch,h/2); paint.lineTo(w,h);
+      paint.lineTo(0,h); paint.lineTo(notch,h/2);
+    } else if (style === 'fold') {
+      paint.moveTo(0,0); paint.lineTo(w-fold,0); paint.lineTo(w,fold); paint.lineTo(w,h); paint.lineTo(0,h);
+    } else paint.rect(0,0,w,h);
+    paint.closePath(); paint.fill();
+    if (style !== 'caption') paint.stroke();
+    paint.fillStyle = accent;
+    if (style === 'caption') paint.fillRect(0,0,Math.max(1,pad*.38),h);
+    if (style === 'fold') {
+      paint.beginPath(); paint.moveTo(w-fold,0); paint.lineTo(w,fold); paint.lineTo(w-fold,fold); paint.fill();
+    }
+    if (style === 'bookplate') {
+      const inset = pad*.36;
+      paint.strokeRect(inset,inset,w-2*inset,h-2*inset);
+      for (const cx of [inset,w-inset]) for (const cy of [inset,h-inset]) {
+        paint.beginPath(); paint.arc(cx,cy,Math.max(.7,pad*.18),0,Math.PI*2); paint.fill();
+      }
+    }
+    paint.restore();
   }
 
   /**
@@ -285,13 +387,17 @@
     }); ctx.restore();
     if (!Number.isFinite(left) || right <= left || bottom <= top) return null;
     var box = { x: left, y: top, width: right - left, height: bottom - top };
-    var bounds = clippedBounds(ctx, box, outlined ? lineWidth / 2 + 2 : 1);
+    const framed = textBoxKinds.includes(options.boxStyle), pad = Math.max(2, size * .43);
+    const backing = framed ? { x: left-pad*1.55, y: top-pad*.65, width: box.width+pad*3.1, height: box.height+pad*1.3 } : box;
+    const extent = options.boxStyle === 'balloon' ? { ...backing, height: backing.height + pad } : backing;
+    var bounds = clippedBounds(ctx, extent, Math.max(outlined ? lineWidth / 2 + 2 : 1, framed ? pad*.15 + 1 : 1));
     return paintOnce(ctx, bounds, opacity, function (paint) {
+      if (framed) paintTextBox(paint, options.boxStyle, backing, pad, color(paint,options.boxColor,'#fff4df'), color(paint,options.boxAccent,'#886d52'));
       paint.font = font; paint.textBaseline = 'alphabetic'; paint.textAlign = 'left'; paint.lineWidth = lineWidth; paint.lineJoin = 'round';
       if (filled) paint.fillStyle = fillStyle(paint, fill, box);
       if (outlined) paint.strokeStyle = fillStyle(paint, stroke, box);
       placements.forEach(function (line) { if (outlined) paint.strokeText(line.text, line.x, line.y); if (filled) paint.fillText(line.text, line.x, line.y); });
     });
   }
-  return { fillStyle: fillStyle, paintShape: paintShape, paintText: paintText, normalizedBounds: normalizedBounds };
+  return { fillStyle: fillStyle, paintShape: paintShape, paintText: paintText, normalizedBounds: normalizedBounds, frameKinds: frameKinds };
 });

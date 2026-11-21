@@ -28,7 +28,7 @@ class LocalResources extends ResourceLoader {
     const u = new URL(url);
     if (u.hostname !== 'color-study.test') throw new Error('Unexpected external dependency: ' + u.hostname);
     const file = path.resolve(ROOT, '.' + decodeURIComponent(u.pathname));
-    if (!file.startsWith(ROOT + '/')) throw new Error('Out-of-project resource request');
+    if (!file.startsWith(ROOT + path.sep)) throw new Error('Out-of-project resource request');
     const promise = fs.existsSync(file) ? Promise.resolve(fs.readFileSync(file)) : Promise.reject(new Error('Missing local resource ' + file));
     promise.abort = () => {};
     return promise;

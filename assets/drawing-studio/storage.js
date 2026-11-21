@@ -1,9 +1,11 @@
-/* Local drawing drafts. No image or project data leaves this browser. */
+/* One current artwork per browser, with read access to earlier saved drafts. */
 (function () {
   'use strict';
 
   const DB_NAME = 'rc-drawing-studio-v1';
   const STORE = 'drafts';
+  const CURRENT_STORE = 'current';
+  const CURRENT_KEY = 'artwork';
   const MAX_DRAFTS = 4;
   let databasePromise = null;
   let mutationQueue = Promise.resolve();
@@ -22,7 +24,7 @@
       let settled = false;
       try {
         if (!window.indexedDB) throw new Error('IndexedDB unavailable');
-        request = window.indexedDB.open(DB_NAME, 1);
+        request = window.indexedDB.open(DB_NAME, 2);
       } catch (error) {
         reject(failure('浏览器未允许本地草稿存储，请导出工程文件保存。', error));
         return;
@@ -34,6 +36,9 @@
           : db.createObjectStore(STORE, { keyPath: 'id' });
         if (!store.indexNames.contains('savedAt')) {
           store.createIndex('savedAt', 'savedAt', { unique: false });
+        }
+        if (!db.objectStoreNames.contains(CURRENT_STORE)) {
+          db.createObjectStore(CURRENT_STORE).createIndex('stamp', 'stamp');
         }
       };
       request.onsuccess = function () {
@@ -69,21 +74,24 @@
   }
 
   // Resolve writes on transaction completion, never just on request success.
-  function transaction(db, mode, operation) {
+  function runTransaction(db, stores, mode, operation) {
     return new Promise(function (resolve, reject) {
       let tx;
       let output;
       let error;
       try {
-        tx = db.transaction(STORE, mode);
+        tx = db.transaction(stores, mode);
         tx.oncomplete = function () { resolve(output); };
         tx.onabort = function () {
           reject(error || tx.error || failure('草稿存储事务被中断。'));
         };
         tx.onerror = function (event) {
-          error = event.target.error || tx.error;
+          error = error || event.target.error || tx.error;
         };
-        operation(tx.objectStore(STORE), function (value) { output = value; });
+        operation(tx, function (value) { output = value; }, function (reason) {
+          error = reason;
+          tx.abort();
+        });
       } catch (cause) {
         error = cause;
         if (tx) {
@@ -92,6 +100,9 @@
         reject(cause);
       }
     });
+  }
+  function transaction(db, mode, operation) {
+    return runTransaction(db, STORE, mode, function (tx, done) { operation(tx.objectStore(STORE), done); });
   }
 
   function serialize(operation) {
@@ -220,5 +231,70 @@
     });
   }
 
-  window.DrawingStorage = Object.freeze({ save: save, latest: latest, list: list, load: load, remove: remove });
+  function newStamp() {
+    if (window.crypto.randomUUID) return window.crypto.randomUUID();
+    return Array.from(window.crypto.getRandomValues(new Uint32Array(4)), part => part.toString(16).padStart(8, '0')).join('');
+  }
+
+  function readCurrent() {
+    return serialize(async function () {
+      const db = await openDatabase();
+      // The migration and its removal from the legacy list commit together.
+      return runTransaction(db, [CURRENT_STORE, STORE], 'readwrite', function (tx, done) {
+        const current = tx.objectStore(CURRENT_STORE);
+        const request = current.get(CURRENT_KEY);
+        request.onsuccess = function () {
+          if (request.result) { done(request.result); return; }
+          const newest = tx.objectStore(STORE).index('savedAt').openCursor(null, 'prev');
+          newest.onsuccess = function () {
+            const cursor = newest.result;
+            if (!cursor) { done({ project: null, stamp: null, savedAt: 0 }); return; }
+            const old = cursor.value;
+            const record = { project: old.project, stamp: newStamp(), savedAt: old.savedAt };
+            current.put(record, CURRENT_KEY);
+            cursor.delete();
+            done(record);
+          };
+        };
+      });
+    });
+  }
+
+  function currentConflict() {
+    const error = failure('另一页面已更新当前画作，请重新读取后再保存。');
+    error.code = 'CURRENT_CONFLICT';
+    return error;
+  }
+
+  function writeCurrent(project, expectedStamp) {
+    let snapshot;
+    try {
+      if (expectedStamp !== null && (typeof expectedStamp !== 'string' || !expectedStamp)) throw new TypeError('请传入读取当前画作时得到的 stamp。');
+      if (project !== null && (!project || typeof project !== 'object' || Array.isArray(project))) throw new TypeError('当前画作必须是完整的工程对象或 null。');
+      snapshot = structuredClone(project);
+    } catch (error) { return Promise.reject(error); }
+    return serialize(async function () {
+      const db = await openDatabase();
+      const stores = expectedStamp === null ? [CURRENT_STORE, STORE] : CURRENT_STORE;
+      return runTransaction(db, stores, 'readwrite', function (tx, done, abort) {
+        const current = tx.objectStore(CURRENT_STORE);
+        // A key cursor compares the revision without cloning the previous artwork.
+        const request = current.index('stamp').openKeyCursor();
+        function write() {
+          const stamp = newStamp(), savedAt = Date.now();
+          current.put({ project: snapshot, stamp, savedAt }, CURRENT_KEY);
+          done({ stamp, savedAt });
+        }
+        request.onsuccess = function () {
+          if ((request.result?.key ?? null) !== expectedStamp) { abort(currentConflict()); return; }
+          if (expectedStamp !== null) { write(); return; }
+          // An unclaimed legacy artwork must be read and migrated first.
+          const legacy = tx.objectStore(STORE).index('savedAt').openKeyCursor(null, 'prev');
+          legacy.onsuccess = function () { if (legacy.result) abort(currentConflict()); else write(); };
+        };
+      });
+    });
+  }
+
+  window.DrawingStorage = Object.freeze({ readCurrent, writeCurrent, save, latest, list, load, remove });
 })();

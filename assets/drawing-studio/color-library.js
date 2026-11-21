@@ -13,15 +13,15 @@
       if (Array.isArray(saved)) favorites = saved.filter(c => typeof c === 'string' && /^#[a-f0-9]{6}$/.test(c));
     } catch (_) {}
 
-    const markerOptions = document.createElement('optgroup'), studioOptions = document.createElement('optgroup');
-    markerOptions.label = 'Copic 马克笔'; studioOptions.label = '画室主题';
+    const kitOptions = document.createElement('optgroup'), chartOptions = document.createElement('optgroup');
+    kitOptions.label = 'Copic Sketch 原厂套装'; chartOptions.label = 'Copic Sketch 全系列';
     for (const palette of palettes) {
       const option = document.createElement('option');
       option.value = palette.id; option.textContent = palette.name;
-      (palette.groups ? markerOptions : studioOptions).append(option);
-      for (const color of palette.swatches || []) catalog.set(color.code, color);
+      (palette.id === 'sketch-chart' ? chartOptions : kitOptions).append(option);
+      for (const color of palette.swatches) catalog.set(color.code, color);
     }
-    menu.append(markerOptions, studioOptions);
+    menu.append(kitOptions, chartOptions);
     const byHex = new Map(Array.from(catalog.values(), color => [color.hex, color]));
 
     function makeRow(group) {
@@ -35,7 +35,7 @@
       group.swatches.forEach(color => {
         const button = document.createElement('button');
         button.type = 'button'; button.textContent = color.code; button.dataset.color = color.hex;
-        button.title = [color.code, color.name, color.hex.toUpperCase()].join(' · ');
+        button.title = [...new Set([color.code, color.name, color.officialName, color.hex.toUpperCase()])].join(' · ');
         button.setAttribute('aria-label', button.title);
         button.setAttribute('aria-pressed', String(color.hex === getInk()));
         button.style.setProperty('--swatch', color.hex);
@@ -48,16 +48,18 @@
       const preset = palettes.find(p => p.id === menu.value) || palettes[0];
       const query = search.value.trim().toLowerCase().replace(/[-\s]/g, '');
       const matches = query ? Array.from(catalog.values()).filter(c =>
-        (c.code + c.name + c.hex).toLowerCase().replace(/[-\s]/g, '').includes(query)) : [];
+        [c.code, c.name, c.officialName, c.family, c.hex].some(value =>
+          value.toLowerCase().replace(/[-\s]/g, '').includes(query))) : [];
       const groups = query ? [{ name: '', swatches: matches }] : preset.groups;
-      library.classList.toggle('marker-library', !!groups);
+      library.classList.add('marker-library');
       library.replaceChildren(); library.scrollTop = 0;
-      if (groups) groups.forEach(group => library.append(makeRow(group)));
-      else swatches(library, preset.colors);
+      groups.forEach(group => library.append(makeRow(group)));
       byId('paletteDescription').textContent = query
         ? (matches.length ? '全部马克笔 · 找到 ' + matches.length + ' 色' : '未找到色号，可试试 B21 或「天蓝」。')
         : preset.description || '';
-      byId('swatchSource').hidden = !groups;
+      const source = byId('swatchSource');
+      source.href = query ? palettes.find(p => p.id === 'sketch-chart').source : preset.source;
+      source.textContent = (query || preset.id === 'sketch-chart' ? 'Copic 官方色卡' : '核对原厂套装') + ' ↗ · 屏幕近似色';
     }
     function syncInk() {
       const hex = getInk(), color = byHex.get(hex), saved = favorites.includes(hex);

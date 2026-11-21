@@ -150,4 +150,31 @@ for (const align of ['left', 'center', 'right']) {
   assert.throws(() => marks.paintText(ctx, { text: Array(31).fill('a').join('\n') }), /30/);
 }
 
-console.log('Drawing marks: ten shapes, directed marks, material alpha/density, gradients, group opacity and English/CJK text passed.');
+{
+  const hashes = new Set();
+  for (const type of ['pentagon','octagon','parallelogram','trapezoid','bolt','sparkle','cloud','drop']) {
+    const {canvas,ctx}=make();
+    const bounds=marks.paintShape(ctx,{type,x:25,y:23,width:112,height:86,fill:'#ad4c32'});
+    assertCovered(canvas,bounds,type); hashes.add(hash(canvas));
+  }
+  assert.equal(hashes.size,8);
+  for (const type of marks.frameKinds) {
+    const {canvas,ctx}=make();
+    const bounds=marks.paintShape(ctx,{type,x:20,y:14,width:130,height:90,frameColor:'#ab4433',frameAccent:'#ffd900',frameWidth:12});
+    assertCovered(canvas,bounds,type);
+    assert.equal(at(canvas,80,60)[3],0,type+' keeps artwork visible through the centre');
+    const d=pixels(canvas);
+    assert(d.some((v,i)=>i%4===0&&v===171&&d[i+3]===255));
+    assert(d.some((v,i)=>i%4===0&&v===255&&d[i+1]===217&&d[i+3]===255));
+    hashes.add(hash(canvas));
+  }
+  assert.equal(hashes.size,12);
+  const cards=new Set();
+  for (const boxStyle of ['caption','balloon','ribbon','fold','bookplate']) {
+    const {canvas,ctx}=make(300,200);
+    const bounds=marks.paintText(ctx,{text:'题记\nNotes',x:50,y:40,size:23,boxStyle,boxColor:'#fcded0',boxAccent:'#ae4815',fill:'#222222'});
+    assertCovered(canvas,bounds,boxStyle); cards.add(hash(canvas));
+  }
+  assert.equal(cards.size,5);
+}
+console.log('Drawing marks: geometry, frames, text boxes, directed marks, material alpha/density, gradients, group opacity and English/CJK text passed.');
