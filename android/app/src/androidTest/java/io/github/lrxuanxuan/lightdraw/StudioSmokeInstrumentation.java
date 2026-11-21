@@ -3,6 +3,8 @@ package io.github.lrxuanxuan.lightdraw;
 import android.app.Activity;
 import android.app.Instrumentation;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
 import android.os.SystemClock;
@@ -19,7 +21,10 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.lang.reflect.Field;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
@@ -30,6 +35,7 @@ public final class StudioSmokeInstrumentation extends Instrumentation {
     private static final String TAG = "LightdrawSmoke";
     private static final String PDF = "JVBERi0xLjQKMSAwIG9iago8PCAvVHlwZSAvQ2F0YWxvZyAvUGFnZXMgMiAwIFIgPj4KZW5kb2JqCjIgMCBvYmoKPDwgL1R5cGUgL1BhZ2VzIC9LaWRzIFszIDAgUl0gL0NvdW50IDEgPj4KZW5kb2JqCjMgMCBvYmoKPDwgL1R5cGUgL1BhZ2UgL1BhcmVudCAyIDAgUiAvTWVkaWFCb3ggWzAgMCAxMDAgMTAwXSAvUmVzb3VyY2VzIDw8ID4+IC9Db250ZW50cyA0IDAgUiA+PgplbmRvYmoKNCAwIG9iago8PCAvTGVuZ3RoIDMzID4+CnN0cmVhbQowLjIgMC40IDAuOCByZwoxMCAxMCA4MCA4MCByZSBmCgplbmRzdHJlYW0KZW5kb2JqCnhyZWYKMCA1CjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDAwOSAwMDAwMCBuIAowMDAwMDAwMDU4IDAwMDAwIG4gCjAwMDAwMDAxMTUgMDAwMDAgbiAKMDAwMDAwMDIxOSAwMDAwMCBuIAp0cmFpbGVyCjw8IC9TaXplIDUgL1Jvb3QgMSAwIFIgPj4Kc3RhcnR4cmVmCjMwMQolJUVPRgo=";
     private Activity activity;
+    private WebView diagnosticView;
 
     @Override public void onCreate(Bundle arguments) {
         super.onCreate(arguments);
@@ -47,6 +53,7 @@ public final class StudioSmokeInstrumentation extends Instrumentation {
             waitForIdleSync();
             awaitReady("drawing-studio.html", "drawingCanvas");
             WebView drawing = currentWebView();
+            diagnosticView = drawing;
             JSONObject initial = state(drawing,
                     "({origin:location.origin,width:document.documentElement.clientWidth,"
                     + "scroll:document.documentElement.scrollWidth,"
@@ -95,6 +102,7 @@ public final class StudioSmokeInstrumentation extends Instrumentation {
                     + "SVG logo and two-studio back navigation. Physical devices and stylus pressure were not tested.\n");
             finish(Activity.RESULT_OK, result);
         } catch (Throwable error) {
+            captureFailureEvidence();
             Log.e(TAG, "Smoke failed", error);
             result.putString("stream", "\nLIGHTDRAW_SMOKE_FAILED\n" + Log.getStackTraceString(error));
             finish(Activity.RESULT_CANCELED, result);
@@ -128,6 +136,18 @@ public final class StudioSmokeInstrumentation extends Instrumentation {
     }
 
     private void verifyExport(WebView view) throws Exception {
+        // Observe only reply metadata; forward each event unchanged to the adapter.
+        evaluate(view, "window.__ldBridgeTrace=[];const original=LightdrawNative.onmessage;"
+                + "if(typeof original==='function')LightdrawNative.onmessage=function(event){try{const reply=JSON.parse(event.data);"
+                + "window.__ldBridgeTrace.push({id:reply.id,ok:reply.ok,kind:typeof reply.result,"
+                + "token:!!(reply.result&&reply.result.token),value:typeof reply.result==='number'||typeof reply.result==='boolean'?reply.result:null});"
+                + "}catch(_){}return original.call(this,event)};"
+                + "window.__ldReadySmoke={done:false};DrawingDesktop.ready()"
+                + ".then(value=>{window.__ldReadySmoke={done:true,value}})"
+                + ".catch(error=>{window.__ldReadySmoke={done:true,error:String(error)}});true");
+        JSONObject ready = awaitState(view, "window.__ldReadySmoke", "done", 15000);
+        require(ready.optBoolean("value") && !ready.has("error"), "Native ready reply failed: " + ready);
+        record("Actual native message reply before document export", ready.toString());
         evaluate(view, "window.__ldSaveSmoke={done:false};"
                 + "window.DrawingDesktop.save(new Blob(['lightdraw android export smoke\\n'],{type:'text/plain'}),"
                 + "'lightdraw-ci-export.txt').then(saved=>{window.__ldSaveSmoke={done:true,saved}})"
@@ -138,7 +158,13 @@ public final class StudioSmokeInstrumentation extends Instrumentation {
         while (SystemClock.uptimeMillis() < end && !clicked) {
             AccessibilityNodeInfo root = getUiAutomation().getRootInActiveWindow();
             AccessibilityNodeInfo save = findText(root, "Save", "保存");
-            if (save != null && save.isEnabled()) clicked = save.performAction(AccessibilityNodeInfo.ACTION_CLICK);
+            if (save != null && save.isEnabled()) {
+                Log.i(TAG, "System Save candidate: " + describeNode(save));
+                try { saveUiEvidence("before-save"); }
+                catch (Exception error) { Log.i(TAG, "Before-save evidence unavailable: " + error); }
+                clicked = save.performAction(AccessibilityNodeInfo.ACTION_CLICK);
+                Log.i(TAG, "System Save ACTION_CLICK accepted: " + clicked);
+            }
             if (!clicked) SystemClock.sleep(150);
         }
         require(clicked, "Could not find the system Save action");
@@ -148,6 +174,79 @@ public final class StudioSmokeInstrumentation extends Instrumentation {
         require("lightdraw android export smoke\n".equals(exported),
                 "Exported bytes do not match the test Blob: " + exported);
         record("System create-document, native chunk writes, close ACK and exported bytes", "passed");
+    }
+
+    private File evidenceDirectory() throws Exception {
+        File base = getTargetContext().getExternalFilesDir(null);
+        if (base == null) throw new java.io.IOException("Isolated test external directory is unavailable");
+        File root = new File(base, "smoke");
+        if (!root.isDirectory() && !root.mkdirs()) throw new java.io.IOException("Cannot create isolated test evidence directory");
+        return root;
+    }
+
+    private String describeNode(AccessibilityNodeInfo node) {
+        Rect bounds = new Rect();
+        node.getBoundsInScreen(bounds);
+        return "package=" + node.getPackageName() + " class=" + node.getClassName()
+                + " id=" + node.getViewIdResourceName() + " text=" + node.getText()
+                + " enabled=" + node.isEnabled() + " clickable=" + node.isClickable()
+                + " bounds=" + bounds.toShortString();
+    }
+
+    private void describeTree(AccessibilityNodeInfo node, StringBuilder text, int depth) {
+        if (node == null || depth > 24 || text.length() >= 24000) return;
+        text.append(depth).append(' ').append(describeNode(node)).append('\n');
+        for (int i = 0; i < node.getChildCount(); i++) describeTree(node.getChild(i), text, depth + 1);
+    }
+
+    private void saveUiEvidence(String name) throws Exception {
+        File root = evidenceDirectory();
+        StringBuilder tree = new StringBuilder();
+        describeTree(getUiAutomation().getRootInActiveWindow(), tree, 0);
+        try (FileOutputStream stream = new FileOutputStream(new File(root, name + "-ui.txt"))) {
+            stream.write(tree.toString().getBytes(StandardCharsets.UTF_8));
+        }
+        Bitmap screen = getUiAutomation().takeScreenshot();
+        if (screen != null) {
+            try (FileOutputStream stream = new FileOutputStream(new File(root, name + ".png"))) {
+                screen.compress(Bitmap.CompressFormat.PNG, 100, stream);
+            } finally { screen.recycle(); }
+        }
+    }
+
+    private Object readOwnField(Object owner, String name) throws Exception {
+        Field field = owner.getClass().getDeclaredField(name);
+        field.setAccessible(true);
+        return field.get(owner);
+    }
+
+    private void captureFailureEvidence() {
+        // The APK and emulator are isolated and contain only this synthetic fixture.
+        // Capture before Instrumentation.finish closes the Activity and its dialogs.
+        try {
+            saveUiEvidence("failure");
+            AccessibilityNodeInfo root = getUiAutomation().getRootInActiveWindow();
+            Log.i(TAG, "Failure active window: " + (root == null ? "none" : describeNode(root)));
+        } catch (Exception error) { Log.i(TAG, "UI evidence unavailable: " + error); }
+        try {
+            if (diagnosticView != null) Log.i(TAG, "Failure JavaScript state: " + state(diagnosticView,
+                    "({ready:window.__ldReadySmoke,save:window.__ldSaveSmoke,replies:window.__ldBridgeTrace,"
+                    + "visibility:document.visibilityState,page:location.pathname})"));
+        } catch (Exception error) { Log.i(TAG, "JavaScript evidence unavailable: " + error); }
+        try {
+            Object transfer = readOwnField(activity, "transfer");
+            JSONObject nativeState = new JSONObject().put("transfer", transfer != null);
+            if (transfer != null) {
+                nativeState.put("streamOpen", readOwnField(transfer, "stream") != null)
+                        .put("written", readOwnField(transfer, "written"))
+                        .put("size", readOwnField(transfer, "size"))
+                        .put("aborted", readOwnField(transfer, "aborted"))
+                        .put("printing", readOwnField(transfer, "printing"));
+            }
+            Log.i(TAG, "Failure native transfer state: " + nativeState);
+            Log.i(TAG, "Synthetic export bytes, if present: "
+                    + shellOutput("cat /sdcard/Download/lightdraw-ci-export.txt 2>/dev/null"));
+        } catch (Exception error) { Log.i(TAG, "Native evidence unavailable: " + error); }
     }
 
     private String shellOutput(String command) throws Exception {

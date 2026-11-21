@@ -131,9 +131,10 @@ jobs:
             adb install -r android/app/build/outputs/apk/debug/app-debug.apk
             adb install -r android/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
             adb shell am instrument -w io.github.lrxuanxuan.lightdraw.debug.test/io.github.lrxuanxuan.lightdraw.StudioSmokeInstrumentation | tee android/smoke/instrumentation.txt
+            adb pull /sdcard/Android/data/io.github.lrxuanxuan.lightdraw.debug/files/smoke/ android/smoke/device/ || true
             adb shell dumpsys webviewupdate > android/smoke/webview-provider.txt
             adb exec-out screencap -p > android/smoke/final-screen.png
-            adb logcat -d -s LightdrawSmoke AndroidRuntime > android/smoke/logcat.txt
+            adb logcat -d > android/smoke/logcat.txt
             grep -q LIGHTDRAW_SMOKE_OK android/smoke/instrumentation.txt
 
       - name: Keep emulator evidence and lint reports
