@@ -17,7 +17,8 @@
       { code: '深棕', name: '深棕', hex: '#3f271f' },
       { code: '中棕', name: '中棕', hex: '#75503b' },
       { code: '深灰', name: '深灰', hex: '#3a3a3a' },
-      { code: '中灰', name: '中灰', hex: '#808080' }
+      { code: '中灰', name: '中灰', hex: '#808080' },
+      { code: '纯白', name: '纯白', hex: '#ffffff' }
     ];
     const storageKey = 'lrx-drawing-favorite-colors-v1';
     let favorites = [];
