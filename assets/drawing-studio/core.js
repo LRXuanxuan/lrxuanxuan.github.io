@@ -678,10 +678,50 @@
       get bounds() { return rectangle(bounds, ctx.canvas.width, ctx.canvas.height); } };
   }
 
+  // Separable rolling OR for two mask bits. Each pass is O(width * height),
+  // independent of the window radius. Outside the image contributes no bits;
+  // this leaves a blank canvas fillable right up to its edges.
+  function gapWindow(input, output, width, height, before, after, vertical) {
+    var x, y, i, value, remove, add, one, two;
+    if (!vertical) {
+      for (y = 0; y < height; y++) {
+        var row = y * width; one = 0; two = 0;
+        for (x = 0; x <= Math.min(after, width - 1); x++) {
+          value = input[row + x]; one += value & 1; two += value >> 1;
+        }
+        for (x = 0; x < width; x++) {
+          output[row + x] = (one ? 1 : 0) | (two ? 2 : 0);
+          remove = x - before; add = x + after + 1;
+          if (remove >= 0) { value = input[row + remove]; one -= value & 1; two -= value >> 1; }
+          if (add < width) { value = input[row + add]; one += value & 1; two += value >> 1; }
+        }
+      }
+      return;
+    }
+    // Row-major vertical traversal keeps reads contiguous on large canvases.
+    var ones = new Uint8Array(width), twos = new Uint8Array(width);
+    for (y = 0; y <= Math.min(after, height - 1); y++) {
+      for (x = 0; x < width; x++) {
+        value = input[y * width + x]; ones[x] += value & 1; twos[x] += value >> 1;
+      }
+    }
+    for (y = 0; y < height; y++) {
+      remove = (y - before) * width; add = (y + after + 1) * width;
+      for (x = 0; x < width; x++) {
+        i = y * width + x;
+        output[i] = (ones[x] ? 1 : 0) | (twos[x] ? 2 : 0);
+        if (remove >= 0) { value = input[remove + x]; ones[x] -= value & 1; twos[x] -= value >> 1; }
+        if (add < input.length) { value = input[add + x]; ones[x] += value & 1; twos[x] += value >> 1; }
+      }
+    }
+  }
+
   /**
    * Membership is computed from sample before target is touched. This allows a
    * merged-layer sample with a different empty destination layer, and also makes
    * target===sample safe. RGBA uses 0..255 for every channel, including alpha.
+   * closeGap uses a square pixel aperture: g closes up to g missing pixels in an
+   * axis-aligned line (or g diagonal grid steps). It never edits the sample.
    */
   function floodFill(target, sample, x, y, rgba, options) {
     validImage(target); validImage(sample);
@@ -702,6 +742,19 @@
       var a = alpha / 255;
       return Math.max(Math.abs(source[p] * a - seedR), Math.abs(source[p + 1] * a - seedG), Math.abs(source[p + 2] * a - seedB)) <= tolerance;
     }
+    var gap = options.erase || options.contiguous === false ? 0 : Math.round(clamp(number(options.closeGap, 0), 0, 32));
+    var gapMask = null, gapScratch = null, enter = matches, gapBefore, gapAfter;
+    if (gap) {
+      gapMask = new Uint8Array(n); gapScratch = new Uint8Array(n);
+      for (var gi = 0; gi < n; gi++) gapMask[gi] = matches(gi) ? 0 : 1;
+      gapBefore = Math.floor(gap / 2); gapAfter = gap - gapBefore;
+      // A (g + 1)-pixel aperture cannot pass through a g-pixel opening. An
+      // asymmetric window for odd g avoids silently rounding the threshold up.
+      gapWindow(gapMask, gapScratch, width, height, gapBefore, gapAfter, false);
+      gapWindow(gapScratch, gapMask, width, height, gapBefore, gapAfter, true);
+      if (gapMask[start]) return { changed: 0, bounds: null, gapBlocked: true, reason: 'gapBlocked' };
+      enter = function (index) { return gapMask[index] === 0; };
+    }
     function select(index, xx, yy) { mask[index] = 1; include(selected, xx, yy, xx + 1, yy + 1); }
     if (options.contiguous === false) {
       for (var p = 0; p < n; p++) if (matches(p)) select(p, p % width, Math.floor(p / width));
@@ -710,23 +763,23 @@
       while (stack.length) {
         var seed = stack.pop();
         if (mask[seed]) continue;
-        if (!matches(seed)) { mask[seed] = 2; continue; }
+        if (!enter(seed)) { mask[seed] = 2; continue; }
         var yy = Math.floor(seed / width), left = seed % width;
-        while (left > 0 && !mask[yy * width + left - 1] && matches(yy * width + left - 1)) left--;
+        while (left > 0 && !mask[yy * width + left - 1] && enter(yy * width + left - 1)) left--;
         var above = false, below = false;
         for (var xx = left; xx < width; xx++) {
           var at = yy * width + xx;
           if (mask[at]) break;
-          if (!matches(at)) { mask[at] = 2; break; }
+          if (!enter(at)) { mask[at] = 2; break; }
           select(at, xx, yy);
           if (yy > 0) {
-            var up = at - width, upMatch = !mask[up] && matches(up);
+            var up = at - width, upMatch = !mask[up] && enter(up);
             if (upMatch && !above) stack.push(up);
             if (!upMatch && !mask[up]) mask[up] = 2;
             above = upMatch;
           }
           if (yy < height - 1) {
-            var down = at + width, downMatch = !mask[down] && matches(down);
+            var down = at + width, downMatch = !mask[down] && enter(down);
             if (downMatch && !below) stack.push(down);
             if (!downMatch && !mask[down]) mask[down] = 2;
             below = downMatch;
@@ -734,11 +787,27 @@
         }
       }
     }
+    if (gap) {
+      // Restore both sides of the temporary barrier independently. Bit 1 is the
+      // chosen core; bit 2 is every other core. Keep their overlap unfilled:
+      // ordinary closing alone can reconnect a break in a one-pixel diagonal.
+      for (var ci = 0; ci < n; ci++) gapMask[ci] = gapMask[ci] ? 0 : mask[ci] === 1 ? 1 : 2;
+      gapWindow(gapMask, gapScratch, width, height, gapAfter, gapBefore, false);
+      gapWindow(gapScratch, mask, width, height, gapAfter, gapBefore, true);
+      if (mask[start] !== 1) return { changed: 0, bounds: null, gapBlocked: true, reason: 'gapBlocked' };
+      selected = emptyBounds();
+      for (var gy = 0; gy < height; gy++) for (var gx = 0; gx < width; gx++) {
+        if (mask[gy * width + gx] === 1) include(selected, gx, gy, gx + 1, gy + 1);
+      }
+      enter = matches; gapMask = null;
+    }
     var selection = rectangle(selected, width, height);
     if (!selection) return { changed: 0, bounds: null };
     var expand = Math.round(clamp(number(options.expand, 0), 0, 2));
     if (expand) {
-      var dilated = new Uint8Array(n);
+      // Reuse the closing scratch, keeping its peak at three N-byte masks even
+      // when the caller also requests the existing one/two-pixel fill expansion.
+      var dilated = gapScratch || new Uint8Array(n); if (gapScratch) dilated.fill(0);
       for (var my = selection.y; my < selection.y + selection.height; my++) {
         for (var mx = selection.x; mx < selection.x + selection.width; mx++) {
           if (mask[my * width + mx] !== 1) continue;

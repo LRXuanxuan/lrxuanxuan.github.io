@@ -34,6 +34,15 @@ html[data-theme=dark] #exportOpen { background: #a5c9dc; border-color: #a5c9dc; 
 }
 .panel-section[open] summary::after { content: ''; top: 8px; transform: rotate(225deg); }
 .field select, .field input[type=text], .field input[type=number] { border-radius: 6px; }
+.layer-actions { flex-wrap: wrap; gap: 4px; }
+.layer-actions > button, .layer-action-wrap { flex: 1 0 26px; min-width: 26px; }
+.layer-actions button { display: inline-flex; align-items: center; justify-content: center; min-height: 30px; padding: 3px; }
+.layer-actions .studio-icon { width: 17px; height: 17px; }
+.layer-action-wrap { display: flex; }
+.layer-action-wrap button:disabled { pointer-events: none; }
+.layer-row .layer-visibility { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.layer-visibility .studio-icon { width: 17px; height: 17px; }
+.layer-select > div { min-width: 0; }
 .reference-empty .empty-glyph {
   display: grid; place-items: center; width: 52px; height: 52px; border-radius: 14px;
   background: var(--panel); border: 1px solid var(--line); color: var(--accent); opacity: 1;
@@ -77,6 +86,14 @@ html[data-theme=dark] #exportOpen { background: #a5c9dc; border-color: #a5c9dc; 
 
 .hide-settings-label { display: none; }
 #resetBrushProfile { margin-top: 5px; color: var(--muted); font-size: 11px; }
+.close-gap-heading, .close-gap-heading > span { display: flex; align-items: center; gap: 5px; }
+.close-gap-heading { justify-content: space-between; }
+.close-gap-heading > span { color: var(--muted); }
+.close-gap-field #closeGapNumber { width: 52px; min-height: 25px; padding: 2px 4px; text-align: right; font-variant-numeric: tabular-nums; }
+.close-gap-field .hint { margin: 0; font-size: 10px; line-height: 1.5; }
+.fill-scope-row { display: flex; align-items: flex-end; gap: 6px; }
+.fill-scope-row > .field { flex: 1; min-width: 0; }
+#fillPalette { display: inline-flex; align-items: center; justify-content: center; min-width: 32px; min-height: 32px; padding: 6px; margin-bottom: 7px; }
 #wastebasket { display: inline-flex; align-items: center; justify-content: center; }
 #wastebasketDialog p { line-height: 1.7; margin-block: 14px 20px; }
 #wastebasketDialog .button-row { display: flex; justify-content: flex-end; gap: 8px; }
@@ -98,6 +115,10 @@ html[data-theme=dark] #exportOpen { background: #a5c9dc; border-color: #a5c9dc; 
   #hideReference, #showReference, #showSettings, #zoomOut, #zoomIn, #fitCanvas,
   #undo, #redo, .reference-view-tools button, .pdf-navigation button { min-width: 36px; }
   .reference-content, .settings-scroll { overscroll-behavior: contain; }
+  .layer-actions { gap: 2px; }
+  .layer-actions > button, .layer-action-wrap { flex-basis: 36px; min-width: 36px; }
+  .layer-actions button, .layer-row .layer-visibility { min-height: 36px; }
+  .layer-row .layer-visibility { width: 36px; }
 }
 @media (pointer: coarse) and (max-width: 380px) {
   .tool-ribbon { column-gap: 3px; }

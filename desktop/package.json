@@ -1,6 +1,6 @@
 {
   "name": "lightdraw-desktop",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "description": "轻绘 Windows 桌面应用",
   "scripts": {

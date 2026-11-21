@@ -103,7 +103,7 @@ public final class StudioSmokeInstrumentation extends Instrumentation {
 
     private void verifyPdf(WebView view) throws Exception {
         evaluate(view, "window.__ldPdfSmoke={done:false};(async()=>{try{"
-                + "const path='/assets/drawing-studio/vendor/pdfjs/';"
+                + "const path=location.origin+'/assets/drawing-studio/vendor/pdfjs/';"
                 + "const response=await fetch(path+'pdf.mjs');"
                 + "if(!response.ok||!/javascript/.test(response.headers.get('content-type')||''))throw Error('PDF module MIME/load');"
                 + "const pdf=await import(path+'pdf.mjs');"

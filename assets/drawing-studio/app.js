@@ -9,6 +9,12 @@
   const HISTORY_BYTES = 48 * 1024 * 1024, PROJECT_BYTES = 160 * 1024 * 1024;
   const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
   const number = (v, fallback) => Number.isFinite(+v) ? +v : fallback;
+  function normalizeTone(value) {
+    return { hue: clamp(number(value && value.hue, 0), -180, 180),
+      saturation: clamp(number(value && value.saturation, 0), -100, 100),
+      lightness: clamp(number(value && value.lightness, 0), -100, 100) };
+  }
+  const adjustedTone = tone => !!(tone && (tone.hue || tone.saturation || tone.lightness));
   const uid = () => window.crypto && crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2);
   const tick = () => new Promise(resolve => setTimeout(resolve, 0));
   function canvas(w = 1, h = 1) { const c = document.createElement('canvas'); c.width = w; c.height = h; return c; }
@@ -25,10 +31,11 @@
   }
   const display = $('drawingCanvas'), viewport = $('canvasViewport'), surface = $('canvasSurface');
   const composite = canvas(), strokeCanvas = canvas(), liveCanvas = canvas(), sampleCanvas = canvas();
+  let toneScratch = null, toneScope = 'all';
   let art, ref, activePointer = null, refPointer = null, spacePan = false, busy = 0;
   let view = { zoom: 1, x: 0, y: 0 }, refView = { zoom: 1, x: 0, y: 0 };
   let tool = 'brush', brush = 'gpen', ink = '#263544', size = 8, opacity = 1, stabilizer = 20;
-  let pressureEnabled = true, touchDraw = false, refPicking = false, recentColors = [];
+  let pressureEnabled = true, touchDraw = false, refPicking = false, recentColors = [], fillPalettePending = false;
   let eraserMode = 'local';
   try { if (localStorage.getItem('lrx-drawing-eraser-mode-v1') === 'stroke') eraserMode = 'stroke'; } catch (_) {}
   let undoStack = [], redoStack = [], frame = 0, transactions = new Map();
@@ -69,10 +76,17 @@
   }
   function applyBrushProfile(profile) {
     ({ size, opacity, stabilizer, pressureEnabled } = profile);
-    $('brushSize').value = size; $('brushOpacity').value = Math.round(opacity * 100);
-    $('brushOpacityValue').textContent = $('brushOpacity').value + '%';
+    $('brushSize').value = size; syncOpacityUI();
     $('stabilizer').value = stabilizer; $('stabilizerValue').textContent = stabilizer;
     $('penPressure').checked = pressureEnabled; scheduleBrushSample();
+  }
+  function syncOpacityUI() {
+    const minimum = tool === 'fill' ? 0 : .01;
+    opacity = clamp(number(opacity, 1), minimum, 1);
+    const value = Math.round(opacity * 100);
+    $('brushOpacity').min = tool === 'fill' ? 0 : 1;
+    $('brushOpacity').value = value; $('brushOpacityValue').textContent = value + '%';
+    $('fillOpacity').value = value; $('fillOpacityValue').textContent = value + '%';
   }
   const MARK_FONTS = {
     system: 'system-ui, -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif',
@@ -117,7 +131,7 @@
   }
   function updateMaterialUI() {
     if (!Marks) return;
-    const s = readMarkSettings(), gradient = ['linear', 'reflected', 'radial'].includes(s.materialKind), pattern = !gradient && s.materialKind !== 'solid';
+    const s = readMarkSettings(), centered = s.materialKind === 'radial', gradient = ['linear', 'reflected', 'radial'].includes(s.materialKind), pattern = !gradient && s.materialKind !== 'solid';
     $('materialName').textContent = $('materialKind').selectedOptions[0].textContent;
     $('materialPatternOptions').hidden = !pattern; $('materialAngleField').hidden = !['diagonal', 'crosshatch', 'linear', 'reflected', 'checker', 'weave'].includes(s.materialKind);
     $('materialThickness').closest('label').hidden = s.materialKind === 'checker';
@@ -127,7 +141,12 @@
     $('textBoxColors').hidden = s.textBoxStyle === 'none';
     if (tool === 'shape' || tool === 'text') renderMarkSample(s);
     $('materialBackField').hidden = s.materialKind === 'solid'; $('materialBackFromInk').hidden = s.materialKind === 'solid'; $('materialTransparentLabel').hidden = s.materialKind === 'solid';
-    $('materialFrontLabel').textContent = gradient ? '起始颜色' : s.materialKind === 'solid' ? '填充颜色' : '纹理颜色'; $('materialBackLabel').textContent = gradient ? '末尾颜色' : '背景颜色';
+    const frontLabel = centered ? '中心颜色' : gradient ? '起始颜色' : s.materialKind === 'solid' ? '填充颜色' : '纹理颜色';
+    const backLabel = centered ? '边缘颜色' : gradient ? '末尾颜色' : '背景颜色', transparentLabel = centered ? '边缘透明' : '背景透明';
+    $('materialFrontLabel').textContent = frontLabel; $('materialBackLabel').textContent = backLabel;
+    $('materialForeground').setAttribute('aria-label', frontLabel); $('materialBackground').setAttribute('aria-label', backLabel);
+    $('materialBackFromInk').textContent = centered ? '用当前颜色作边缘' : '用当前颜色作背景';
+    $('materialTransparentText').textContent = transparentLabel; $('materialTransparent').setAttribute('aria-label', transparentLabel);
     $('materialThicknessValue').textContent = s.materialThickness + ' px'; $('materialSpacingValue').textContent = s.materialSpacing + ' px'; $('materialAngleValue').textContent = s.materialAngle + '°';
     if (s.materialFollowInk) $('materialForeground').value = ink;
     const preview = $('materialPreview'), ctx = context(preview); clear(preview); ctx.fillStyle = Marks.fillStyle(ctx, materialStyle(s), { x: 0, y: 0, width: preview.width, height: preview.height }); ctx.fillRect(0, 0, preview.width, preview.height);
@@ -179,23 +198,24 @@
   }
   function filename(name) { return String(name || '未命名画作').replace(/[<>:"/\\|?*\u0000-\u001f]/g, '_').slice(0, 80).trim() || '未命名画作'; }
   function createLayer(name, dimensions = art) {
-    return { id: uid(), name: name || '图层 ' + (art ? art.layers.length + 1 : 1), visible: true, locked: false, opacity: 1, x: 0, y: 0, scale: 1, strokeRecords: null, canvas: canvas(dimensions.width, dimensions.height) };
+    return { id: uid(), name: name || '图层 ' + (art ? art.layers.length + 1 : 1), visible: true, locked: false, opacity: 1, x: 0, y: 0, scale: 1, tone: normalizeTone(), strokeRecords: null, canvas: canvas(dimensions.width, dimensions.height) };
   }
   const activeLayer = () => art.layers.find(layer => layer.id === art.activeId) || art.layers[0];
-  function metadata(layer) { return { id: layer.id, name: layer.name, visible: layer.visible, locked: layer.locked, opacity: layer.opacity, x: layer.x, y: layer.y, scale: layer.scale }; }
+  function metadata(layer) { return { id: layer.id, name: layer.name, visible: layer.visible, locked: layer.locked, opacity: layer.opacity, x: layer.x, y: layer.y, scale: layer.scale, tone: normalizeTone(layer.tone) }; }
   function snapshot() {
-    return { title: art.title, width: art.width, height: art.height, paperPpi: art.paperPpi, paper: art.paper, paperColor: art.paperColor, paperOpacity: art.paperOpacity, paperTexture: art.paperTexture, textureStrength: art.textureStrength, tone: { ...art.tone }, activeId: art.activeId, layers: art.layers.map(layer => ({ ...layer })) };
+    return { title: art.title, width: art.width, height: art.height, paperPpi: art.paperPpi, paper: art.paper, paperColor: art.paperColor, paperOpacity: art.paperOpacity, paperTexture: art.paperTexture, textureStrength: art.textureStrength, tone: { ...art.tone }, activeId: art.activeId, layers: art.layers.map(layer => ({ ...layer, tone: normalizeTone(layer.tone) })) };
   }
   function setGeometry() {
     resize(display, art.width, art.height); resize(composite, art.width, art.height);
     resize(strokeCanvas, art.width, art.height); resize(liveCanvas, art.width, art.height);
+    if (toneScratch && (toneScratch.width !== art.width || toneScratch.height !== art.height)) resize(toneScratch, 1, 1);
     surface.style.width = art.width + 'px'; surface.style.height = art.height + 'px';
     $('documentSize').textContent = art.width + ' × ' + art.height;
     window.DrawingCanvasPresets.syncCanvas(art.width, art.height, art.paperPpi);
   }
   function restoreSnapshot(state) {
     const dimensionsChanged = !art || art.width !== state.width || art.height !== state.height;
-    art = { ...state, tone: { ...state.tone }, layers: state.layers.map(layer => ({ ...layer })) };
+    art = { ...state, tone: { ...state.tone }, layers: state.layers.map(layer => ({ ...layer, tone: normalizeTone(layer.tone) })) };
     setGeometry(); if (dimensionsChanged) fit(); sync(); render();
   }
   const recordSnapshot = () => art.layers.map(layer => ({ id: layer.id, state: layer.strokeRecords || null }));
@@ -270,7 +290,24 @@
     const entry = redoStack.pop(); undoStack.push(entry); applyEntry(entry, true); status('已重做 · ' + entry.label);
   }
   function syncHistory() { $('undo').disabled = !undoStack.length; $('redo').disabled = !redoStack.length; }
-  function toneFilter() { return 'hue-rotate(' + art.tone.hue + 'deg) saturate(' + (100 + art.tone.saturation) + '%) brightness(' + (100 + art.tone.lightness) + '%)'; }
+  function toneFilter(tone = art.tone) { return 'hue-rotate(' + tone.hue + 'deg) saturate(' + (100 + tone.saturation) + '%) brightness(' + (100 + tone.lightness) + '%)'; }
+  function drawToned(ctx, source, tone, ...destination) {
+    if (!adjustedTone(tone)) { ctx.drawImage(source, ...destination); return; }
+    if (typeof ctx.filter === 'string') {
+      ctx.save(); ctx.filter = toneFilter(tone); ctx.drawImage(source, ...destination); ctx.restore(); return;
+    }
+    // Only older Canvas implementations need this scratch. Reuse one canvas,
+    // bounded by the document's 12MP limit, with at most 128 rows of RGBA at a
+    // time (2MiB at the maximum width). Original pixels and records stay intact.
+    if (!toneScratch) toneScratch = canvas();
+    resize(toneScratch, source.width, source.height);
+    const from = context(source), to = context(toneScratch);
+    for (let y = 0; y < source.height; y += 128) {
+      const data = from.getImageData(0, y, source.width, Math.min(128, source.height - y));
+      Core.adjustFilter(data, tone); to.putImageData(data, 0, y);
+    }
+    ctx.drawImage(toneScratch, ...destination);
+  }
   function applyStrokePatch(ctx, pointer, b) {
     ctx.save(); ctx.globalAlpha = pointer.opacity;
     if (pointer.sampledLayer) {
@@ -279,7 +316,7 @@
       ctx.globalCompositeOperation = 'destination-out';
       ctx.fillStyle = '#000'; ctx.fillRect(b.x, b.y, b.width, b.height);
       ctx.globalCompositeOperation = 'lighter';
-    } else ctx.globalCompositeOperation = pointer.erase ? 'destination-out' : 'source-over';
+    } else ctx.globalCompositeOperation = pointer.erase ? 'destination-out' : pointer.atop ? 'source-atop' : 'source-over';
     ctx.drawImage(strokeCanvas, b.x, b.y, b.width, b.height, b.x, b.y, b.width, b.height);
     ctx.restore();
   }
@@ -298,7 +335,7 @@
         if (patch) applyStrokePatch(live, activePointer, patch);
         source = liveCanvas;
       }
-      ctx.save(); ctx.globalAlpha = layer.opacity; ctx.translate(layer.x, layer.y); ctx.scale(layer.scale, layer.scale); ctx.imageSmoothingEnabled = false; ctx.drawImage(source, 0, 0); ctx.restore();
+      ctx.save(); ctx.globalAlpha = layer.opacity; ctx.translate(layer.x, layer.y); ctx.scale(layer.scale, layer.scale); ctx.imageSmoothingEnabled = false; drawToned(ctx, source, layer.tone, 0, 0); ctx.restore();
     }
     return composite;
   }
@@ -313,7 +350,7 @@
     else ctx.drawImage(source, 0, 0);
     ctx.restore(); return target;
   }
-  function render() { if (!art) return; renderArtwork(display); updateView(); }
+  function render() { if (!art) return; renderArtwork(display); previewLasso(); updateView(); }
   function requestRender() { if (!frame) frame = requestAnimationFrame(() => { frame = 0; render(); }); }
   function updateView() {
     surface.style.transform = 'translate(' + view.x + 'px,' + view.y + 'px) scale(' + view.zoom + ')';
@@ -402,6 +439,59 @@
     const right = clamp(Math.ceil(bounds.x + bounds.width), 0, art.width), bottom = clamp(Math.ceil(bounds.y + bounds.height), 0, art.height);
     return right > x && bottom > y ? { x, y, width: right - x, height: bottom - y } : null;
   }
+  function addLassoPoint(pointer, point, force = false) {
+    if (!Number.isFinite(point.x) || !Number.isFinite(point.y)) return;
+    const last = pointer.points[pointer.points.length - 1], distance = last ? Math.hypot(point.x - last.x, point.y - last.y) : Infinity;
+    if (distance === 0 || (!force && distance < pointer.spacing)) return;
+    pointer.points.push({ x: point.x, y: point.y });
+    // Bound a long pen gesture without losing its start or current endpoint.
+    // Coalesced input is sampled in screen pixels, then thinned only at the cap.
+    if (pointer.points.length > 2048) {
+      const points = [pointer.points[0]];
+      for (let i = 2; i < pointer.points.length - 1; i += 2) points.push(pointer.points[i]);
+      points.push(pointer.points[pointer.points.length - 1]); pointer.points = points; pointer.spacing *= 2;
+    }
+  }
+  function traceLasso(ctx, points) {
+    ctx.beginPath(); ctx.moveTo(points[0].x, points[0].y);
+    for (let i = 1; i < points.length; i++) ctx.lineTo(points[i].x, points[i].y);
+    if (points.length > 2) ctx.closePath();
+  }
+  function lassoBounds(points) {
+    let left = Infinity, top = Infinity, right = -Infinity, bottom = -Infinity;
+    for (const p of points) { left = Math.min(left, p.x); top = Math.min(top, p.y); right = Math.max(right, p.x); bottom = Math.max(bottom, p.y); }
+    return clippedBounds({ x: left, y: top, width: right - left, height: bottom - top });
+  }
+  function previewLasso() {
+    const pointer = activePointer;
+    if (!pointer || pointer.kind !== 'lasso' || pointer.points.length < 2) return;
+    const layer = art.layers.find(l => l.id === pointer.layerId);
+    if (!layer) return;
+    // This guide lives only on the display, never in a layer or an export.
+    const ctx = context(display), unit = view.zoom * layer.scale;
+    ctx.save(); ctx.setTransform(1, 0, 0, 1, layer.x, layer.y); ctx.scale(layer.scale, layer.scale);
+    traceLasso(ctx, pointer.points); ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+    const bounds = pointer.points.length > 2 ? lassoBounds(pointer.points) : null;
+    if (bounds) {
+      ctx.globalAlpha = pointer.opacity * layer.opacity * .3;
+      ctx.fillStyle = Marks.fillStyle(ctx, pointer.fill, bounds); ctx.fill('evenodd'); ctx.globalAlpha = 1;
+    }
+    ctx.strokeStyle = '#ffffff'; ctx.lineWidth = 3 / unit; ctx.stroke();
+    ctx.strokeStyle = '#243f4c'; ctx.lineWidth = 1.25 / unit; ctx.setLineDash([5 / unit, 4 / unit]); ctx.stroke(); ctx.restore();
+  }
+  function commitLasso(pointer, layer) {
+    if (pointer.points.length < 3 || !layer.visible || layer.locked || pointer.opacity <= 0) return false;
+    const bounds = lassoBounds(pointer.points); if (!bounds) return false;
+    const paint = context(strokeCanvas); clear(strokeCanvas);
+    // Bake fill strength into coverage once, then composite the mask at alpha 1.
+    paint.save(); paint.globalAlpha = pointer.opacity; paint.globalCompositeOperation = 'source-over';
+    traceLasso(paint, pointer.points); paint.clip('evenodd');
+    paint.fillStyle = Marks.fillStyle(paint, pointer.fill, bounds);
+    paint.fillRect(bounds.x, bounds.y, bounds.width, bounds.height); paint.restore();
+    const changed = commitPreview({ ...pointer, opacity: 1 }, layer, bounds, pointer.erase ? '套索透明填充' : '套索填充');
+    if (changed && !pointer.erase) remember(pointer.fill.foreground);
+    return changed;
+  }
   function commitPreview(pointer, layer, rawBounds, label) {
     const b = clippedBounds(rawBounds); if (!b) return false;
     const ctx = context(layer.canvas), before = ctx.getImageData(b.x, b.y, b.width, b.height), recordsBefore = recordSnapshot();
@@ -455,8 +545,14 @@
     else {
       if (!canDraw()) return;
       const layer = activeLayer();
-      if (mode === 'fill' || mode === 'cutout') { fillAt(point, mode === 'cutout'); return; }
-      if (mode === 'move') activePointer = { id: e.pointerId, kind: 'move', origin: point, x: layer.x, y: layer.y, layerId: layer.id, before: snapshot() };
+      if (mode === 'fill' && $('fillScope').value === 'lasso') {
+        clear(strokeCanvas);
+        activePointer = { id: e.pointerId, kind: 'lasso', layerId: layer.id, points: [], spacing: Math.max(.25, 2 / (view.zoom * layer.scale)),
+          fill: materialStyle(readMarkSettings(), layer.scale), opacity, erase: $('fillPaintMode').value === 'transparent', resetRecords: true };
+        addLassoPoint(activePointer, strokePoint(e, layer), true); viewport.classList.add('drawing'); requestRender();
+      }
+      else if (mode === 'fill' || mode === 'cutout') { fillAt(point, mode === 'cutout'); return; }
+      else if (mode === 'move') activePointer = { id: e.pointerId, kind: 'move', origin: point, x: layer.x, y: layer.y, layerId: layer.id, before: snapshot() };
       else if (mode === 'eraser' && eraserMode === 'stroke') {
         if (!Strokes.count(layer.strokeRecords)) { notify('当前层没有可追溯笔画，请改用“局部”橡皮。'); return; }
         const p = strokePoint(e, layer);
@@ -493,7 +589,8 @@
     const events = e.getCoalescedEvents ? e.getCoalescedEvents() : null;
     for (const item of events && events.length ? events : [e]) {
       const p = strokePoint(item, layer);
-      if (activePointer.kind === 'stroke-erase') eraseWholeAt(activePointer, p);
+      if (activePointer.kind === 'lasso') addLassoPoint(activePointer, p);
+      else if (activePointer.kind === 'stroke-erase') eraseWholeAt(activePointer, p);
       else { activePointer.stroke.move(p); activePointer.last = p; }
     }
     requestRender();
@@ -501,7 +598,14 @@
   function finishPointer(e) {
     if (!activePointer || (e && e.pointerId != null && e.pointerId !== activePointer.id)) return;
     const pointer = activePointer, layer = art.layers.find(l => l.id === pointer.layerId);
-    if (pointer.kind === 'stroke-erase' && layer) {
+    if (pointer.kind === 'lasso' && layer) {
+      try {
+        if (e && e.type === 'pointerup') {
+          addLassoPoint(pointer, strokePoint(e, layer), true);
+          status(commitLasso(pointer, layer) ? (pointer.erase ? '套索已擦淡或镂空 ' : '套索已填充到 ') + layer.name + ' · 可撤销' : '套索范围没有需要改变的像素');
+        } else status('已取消套索');
+      } catch (error) { notify(error); }
+    } else if (pointer.kind === 'stroke-erase' && layer) {
       if (e && e.type === 'pointerup') eraseWholeAt(pointer, strokePoint(e, layer));
       finishWholeErase(pointer, layer);
     } else if (pointer.kind === 'stroke' && layer) {
@@ -525,6 +629,9 @@
     const layer = activeLayer(), x = Math.floor((point.x - layer.x) / layer.scale), y = Math.floor((point.y - layer.y) / layer.scale);
     if (x < 0 || y < 0 || x >= art.width || y >= art.height) return;
     const fill = materialStyle(readMarkSettings(), layer.scale), scope = $('fillScope').value;
+    const remove = !erase && $('fillPaintMode').value === 'transparent';
+    if (opacity <= 0) { status('当前强度为 0，像素保持不变'); return; }
+    if (!erase && scope === 'lasso') return;
     if (!erase && scope !== 'match') {
       let bounds = { x: 0, y: 0, width: art.width, height: art.height };
       if (scope === 'inked') {
@@ -544,15 +651,17 @@
         if (right < 0) { status('当前层还没有可改色的笔迹'); return; }
         bounds = { x: left, y: top, width: right - left + 1, height: bottom - top + 1 };
       }
-      const next = canvas(art.width, art.height), paint = context(next);
-      paint.drawImage(layer.canvas, 0, 0);
-      if (scope === 'inked') paint.globalCompositeOperation = 'source-atop';
-      paint.globalAlpha = opacity;
+      // Paint a coverage mask once. Destination-out already multiplies by the
+      // existing alpha, so a second mask from the layer would square it.
+      clear(strokeCanvas); const paint = context(strokeCanvas);
+      paint.save(); paint.globalAlpha = opacity; paint.globalCompositeOperation = 'source-over';
       paint.fillStyle = Marks.fillStyle(paint, fill, bounds);
-      paint.fillRect(bounds.x, bounds.y, bounds.width, bounds.height);
-      paint.globalAlpha = 1; paint.globalCompositeOperation = 'source-over';
-      const label = scope === 'inked' ? '为已有笔迹填色' : '填充整个图层';
-      mutate(() => { layer.canvas = next; layer.strokeRecords = null; }, label); remember(fill.foreground); status(label + ' · ' + layer.name); return;
+      paint.fillRect(bounds.x, bounds.y, bounds.width, bounds.height); paint.restore();
+      const label = remove ? '透明填充' : scope === 'inked' ? '为已有笔迹填色' : '填充整个图层';
+      const painted = commitPreview({ opacity: 1, erase: remove, atop: !remove && scope === 'inked', resetRecords: true }, layer, bounds, label);
+      clear(strokeCanvas); render();
+      if (painted && !remove) remember(fill.foreground);
+      status(painted ? label + ' · ' + layer.name : '这里没有需要改变的像素'); return;
     }
     const ctx = context(layer.canvas), target = ctx.getImageData(0, 0, art.width, art.height);
     let sample = target;
@@ -560,20 +669,21 @@
       const source = compositeLayers(false); resize(sampleCanvas, art.width, art.height); clear(sampleCanvas);
       const sx = context(sampleCanvas); sx.save(); sx.imageSmoothingEnabled = false; sx.scale(1 / layer.scale, 1 / layer.scale); sx.translate(-layer.x, -layer.y); sx.drawImage(source, 0, 0); sx.restore(); sample = sx.getImageData(0, 0, art.width, art.height);
     }
-    const fillOptions = { tolerance: +$('tolerance').value, contiguous: $('contiguous').checked, expand: +$('fillExpand').value, erase };
-    if (!erase && fill.kind !== 'solid') {
-      const mask = ctx.createImageData(art.width, art.height), selection = Core.floodFill(mask, sample, x, y, [255, 255, 255, 255], fillOptions);
-      if (!selection.bounds) { status('这里没有可填充的区域'); return; }
+    const fillOptions = { tolerance: +$('tolerance').value, contiguous: $('contiguous').checked, expand: +$('fillExpand').value, erase,
+      closeGap: !erase && scope === 'match' && $('contiguous').checked ? clamp(Math.round(number($('closeGap').value, 0)), 0, 32) : 0 };
+    if (!erase && (remove || fill.kind !== 'solid')) {
+      const mask = ctx.createImageData(art.width, art.height), selection = Core.floodFill(mask, sample, x, y, [255, 255, 255, Math.round(opacity * 255)], fillOptions);
+      if (!selection.bounds) { status(selection.reason === 'gapBlocked' ? '闭合间隙挡住了起点，请减小数值或换个点。' : '这里没有可填充的区域'); return; }
       const b = selection.bounds, temp = context(strokeCanvas); clear(strokeCanvas); temp.putImageData(mask, 0, 0);
-      temp.save(); temp.globalCompositeOperation = 'source-in'; temp.fillStyle = Marks.fillStyle(temp, fill, b); temp.fillRect(b.x, b.y, b.width, b.height); temp.restore();
-      const painted = commitPreview({ opacity, erase: false, resetRecords: true }, layer, b, '材质填充'); clear(strokeCanvas); render();
-      status(painted ? '材质已填充到 ' + layer.name : '这里没有需要改变的像素'); if (painted) remember(fill.foreground); return;
+      temp.save(); temp.globalAlpha = 1; temp.globalCompositeOperation = 'source-in'; temp.fillStyle = Marks.fillStyle(temp, fill, b); temp.fillRect(b.x, b.y, b.width, b.height); temp.restore();
+      const painted = commitPreview({ opacity: 1, erase: remove, resetRecords: true }, layer, b, remove ? '透明填充' : '材质填充'); clear(strokeCanvas); render();
+      status(painted ? (remove ? '已擦淡或镂空 ' : '材质已填充到 ') + layer.name : '这里没有需要改变的像素'); if (painted && !remove) remember(fill.foreground); return;
     }
     const beforeFull = new Uint8ClampedArray(target.data);
     const fillColor = erase ? ink : fill.foreground;
     const rgba = [parseInt(fillColor.slice(1, 3), 16), parseInt(fillColor.slice(3, 5), 16), parseInt(fillColor.slice(5, 7), 16), Math.round(opacity * 255)];
     const result = Core.floodFill(target, sample, x, y, rgba, fillOptions);
-    if (!result.changed || !result.bounds) { status('这里没有需要改变的像素'); return; }
+    if (!result.changed || !result.bounds) { status(result.reason === 'gapBlocked' ? '闭合间隙挡住了起点，请减小数值或换个点。' : '这里没有需要改变的像素'); return; }
     const b = result.bounds, before = ctx.createImageData(b.width, b.height), after = ctx.createImageData(b.width, b.height);
     for (let row = 0; row < b.height; row++) {
       const start = ((b.y + row) * art.width + b.x) * 4, end = start + b.width * 4;
@@ -589,11 +699,12 @@
     const list = $('layerList'); list.replaceChildren(); $('layerCount').textContent = art.layers.length;
     art.layers.slice().reverse().forEach(layer => {
       const row = document.createElement('div'); row.className = 'layer-row' + (layer.id === art.activeId ? ' active' : '') + (!layer.visible ? ' hidden-layer' : ''); row.setAttribute('role', 'listitem');
-      const visible = document.createElement('button'); visible.className = 'layer-visibility'; visible.textContent = layer.visible ? '◉' : '○'; visible.title = layer.visible ? '隐藏图层' : '显示图层'; visible.setAttribute('aria-label', visible.title + ' ' + layer.name); visible.setAttribute('aria-pressed', String(layer.visible));
-      visible.addEventListener('click', () => { if (!busy) mutate(() => { layer.visible = !layer.visible; }, '切换图层显示'); });
+      const visible = document.createElement('button'); visible.className = 'layer-visibility'; visible.title = layer.visible ? '隐藏图层' : '显示图层'; visible.setAttribute('aria-label', visible.title + ' ' + layer.name); visible.setAttribute('aria-pressed', String(layer.visible));
+      visible.innerHTML = '<svg class="studio-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="' + (layer.visible ? '#si-eye' : '#si-eye-off') + '"/></svg>';
+      visible.addEventListener('click', safe(() => toggleLayerVisibility(layer.id)));
       const select = document.createElement('button'); select.className = 'layer-select'; select.setAttribute('aria-label', '选中 ' + layer.name); select.setAttribute('aria-pressed', String(layer.id === art.activeId));
       const thumb = canvas(31, 31); thumb.className = 'layer-thumb'; thumb.setAttribute('aria-hidden', 'true');
-      const scale = Math.min(31 / art.width, 31 / art.height); context(thumb).drawImage(layer.canvas, (31 - art.width * scale) / 2, (31 - art.height * scale) / 2, art.width * scale, art.height * scale);
+      const scale = Math.min(31 / art.width, 31 / art.height); drawToned(context(thumb), layer.canvas, layer.tone, (31 - art.width * scale) / 2, (31 - art.height * scale) / 2, art.width * scale, art.height * scale);
       const label = document.createElement('div'), name = document.createElement('span'), info = document.createElement('small'); name.textContent = layer.name; info.textContent = Math.round(layer.opacity * 100) + '% · ' + Math.round(layer.scale * 100) + '%'; label.append(name, info); select.append(thumb, label); select.addEventListener('click', () => selectLayer(layer.id));
       const lock = document.createElement('button'); lock.className = 'layer-lock'; lock.textContent = layer.locked ? '锁' : '·'; lock.title = layer.locked ? '解锁图层' : '锁定图层'; lock.setAttribute('aria-label', lock.title + ' ' + layer.name); lock.setAttribute('aria-pressed', String(layer.locked)); lock.addEventListener('click', () => { if (!busy) mutate(() => { layer.locked = !layer.locked; }, '切换图层锁定'); });
       row.append(visible, select, lock); list.append(row);
@@ -602,7 +713,11 @@
     $('layerName').value = layer.name; $('layerOpacity').value = Math.round(layer.opacity * 100); $('layerOpacityValue').textContent = Math.round(layer.opacity * 100) + '%';
     $('layerScale').value = Math.round(layer.scale * 100); $('layerScaleValue').textContent = Math.round(layer.scale * 100) + '%';
     $('layerUp').disabled = index === art.layers.length - 1; $('layerDown').disabled = index === 0;
-    syncEraser();
+    const reason = mergeLayerReason(layer), merge = $('mergeLayerDown');
+    const hint = reason || '仅保留画布内像素；合并前笔迹改用局部橡皮，可撤销。';
+    merge.disabled = !!busy || !!reason; merge.title = '向下合并 · ' + hint; merge.parentElement.title = merge.title;
+    $('layerActionHint').textContent = hint;
+    syncEraser(); syncTone();
   }
   function sync() {
     syncHistory(); syncLayers();
@@ -610,20 +725,86 @@
     $('paper').value = art.paper; $('paperColor').value = art.paperColor; $('paperTexture').value = art.paperTexture;
     for (const id of ['paperOpacity', 'textureStrength']) { $(id).value = art[id]; $(id + 'Value').value = art[id] + '%'; }
     window.DrawingPaper.syncCurrent();
-    for (const key of ['hue', 'saturation', 'lightness']) { $(key).value = art.tone[key]; $(key + 'Value').textContent = art.tone[key] + (key === 'hue' ? '°' : ''); }
     document.title = (art.title === '未命名画作' ? '轻绘' : art.title + ' · 轻绘') + ' · 本地画室';
+  }
+  function toneOwner() { return toneScope === 'current' ? activeLayer() : art; }
+  function syncTone() {
+    const tone = normalizeTone(toneOwner().tone); $('toneScope').value = toneScope;
+    for (const key of ['hue', 'saturation', 'lightness']) { $(key).value = tone[key]; $(key + 'Value').textContent = tone[key] + (key === 'hue' ? '°' : ''); }
+    $('toneHint').textContent = toneScope === 'current'
+      ? '当前：' + activeLayer().name + '。先调本层，再应用整体调色。'
+      : '调整全部可见图层的合成结果，纸张保持原色。';
+    $('resetTone').title = toneScope === 'current' ? '只重置选中图层的调色' : '只重置所有图层的整体调色';
+    if (toneScratch && !art.layers.some(layer => adjustedTone(layer.tone))) resize(toneScratch, 1, 1);
+  }
+  function setToneScope(value) {
+    if (busy) return;
+    const next = value === 'current' ? 'current' : 'all';
+    finishPointer(); settleTransactions(); toneScope = next; syncTone();
   }
   function selectLayer(id) {
     if (busy || !art.layers.some(layer => layer.id === id)) return;
-    finishPointer(); art.activeId = id; syncLayers(); status('当前图层 · ' + activeLayer().name);
+    finishPointer(); settleTransactions(); art.activeId = id; syncLayers(); status('当前图层 · ' + activeLayer().name);
   }
   function addLayer() {
+    finishPointer(); settleTransactions();
     layerBudget(art.layers.length + 1); let added;
     mutate(() => { added = createLayer(); const index = art.layers.indexOf(activeLayer()); art.layers.splice(index + 1, 0, added); art.activeId = added.id; }, '新建图层'); return added.id;
+  }
+  function duplicateLayer() {
+    if (busy) return false;
+    finishPointer(); settleTransactions(); layerBudget(art.layers.length + 1);
+    const source = activeLayer();
+    // Portable projects decode each layer separately. Check that budget before
+    // copying, so adding a copy never retires the original layer's stroke records.
+    const recordBytes = art.layers.reduce((sum, layer) => sum + Strokes.bytes([layer.strokeRecords]), 0);
+    if (recordBytes + Strokes.bytes([source.strokeRecords]) > Strokes.MAX_BYTES) {
+      throw new Error('整笔记录已达轻量限额，暂不能完整复制。请先合并或减少图层后重试。');
+    }
+    const copy = { ...source, id: uid(), name: (source.name + ' 副本').slice(0, 40), canvas: canvas(art.width, art.height), tone: normalizeTone(source.tone), locked: false };
+    context(copy.canvas).drawImage(source.canvas, 0, 0);
+    // The sparse records are immutable; pixels are always copied independently.
+    mutate(() => { art.layers.splice(art.layers.indexOf(source) + 1, 0, copy); art.activeId = copy.id; }, '复制图层');
+    status('已复制 · ' + source.name); return copy.id;
+  }
+  function toggleLayerVisibility(id = art.activeId) {
+    if (busy) return false;
+    finishPointer(); settleTransactions();
+    const layer = art.layers.find(item => item.id === id); if (!layer) return false;
+    mutate(() => { layer.visible = !layer.visible; }, '切换图层显示');
+    status((layer.visible ? '已显示 · ' : '已隐藏 · ') + layer.name); return true;
+  }
+  function mergeLayerReason(layer = activeLayer()) {
+    const index = art.layers.indexOf(layer), lower = art.layers[index - 1];
+    if (!lower) return '当前已是最下方图层';
+    if (!layer.visible) return '当前图层已隐藏，请先显示';
+    if (layer.locked) return '当前图层已锁定，请先解锁';
+    if (!lower.visible) return '下方图层已隐藏，请先显示';
+    if (lower.locked) return '下方图层已锁定，请先解锁';
+    return '';
+  }
+  function mergeLayerDown() {
+    if (busy) return false;
+    finishPointer(); settleTransactions();
+    const upper = activeLayer(), reason = mergeLayerReason(upper);
+    if (reason) { notify('无法合并 · ' + reason); return false; }
+    const index = art.layers.indexOf(upper), lower = art.layers[index - 1];
+    const merged = { ...upper, canvas: canvas(art.width, art.height), x: 0, y: 0, scale: 1, opacity: 1, tone: normalizeTone(), strokeRecords: null };
+    const ctx = context(merged.canvas);
+    // Bake only these two layers in artwork coordinates. Keep their old canvases
+    // intact for undo; paper, global tone and other layers are composed later.
+    for (const layer of [lower, upper]) {
+      ctx.save(); ctx.globalAlpha = layer.opacity; ctx.translate(layer.x, layer.y);
+      ctx.scale(layer.scale, layer.scale); ctx.imageSmoothingEnabled = false;
+      drawToned(ctx, layer.canvas, layer.tone, 0, 0); ctx.restore();
+    }
+    mutate(() => { art.layers.splice(index - 1, 2, merged); art.activeId = merged.id; }, '向下合并图层');
+    notify('已向下合并 · 合并前笔迹请用局部橡皮，可撤销'); return merged.id;
   }
   function setTool(value, keepProfile = false) {
     if (busy && !keepProfile) return; finishPointer();
     if (!['brush', 'eraser', 'fill', 'cutout', 'picker', 'move', 'hand', 'shape', 'text'].includes(value)) value = 'brush';
+    if (value !== tool) fillPalettePending = false;
     if (value !== tool && !keepProfile && (value === 'brush' || value === 'eraser')) {
       applyBrushProfile(brushProfile(value === 'eraser' ? eraserPreset : Core.brushPresets.find(p => p.id === brush)));
     }
@@ -645,7 +826,7 @@
     if (tool === 'fill') $('materialSection').open = true;
     if (tool === 'shape' || tool === 'text') updateMaterialUI();
     viewport.dataset.cursor = tool; $('brushCursor').hidden = true;
-    status(({ brush: '画笔 · ' + $('brushKind').selectedOptions[0].textContent, eraser: eraserMode === 'stroke' ? '整笔橡皮 · 轻触或扫过当前层笔画' : '局部橡皮 · 擦除当前图层像素', fill: '填充 · 点选区域上色，可选择材质', shape: '形状 · 拖动预览，松手放置；Shift 锁定比例', text: '文字 · 先输入内容，再点击或拖动放置', picker: '取色 · 点击画作，或从参考图取色', move: '移层 · 拖动当前图层', hand: '平移 · 拖动画布', cutout: '抠图 · 点击当前图层的背景' })[tool]);
+    status(({ brush: '画笔 · ' + $('brushKind').selectedOptions[0].textContent, eraser: eraserMode === 'stroke' ? '整笔橡皮 · 轻触或扫过当前层笔画' : '局部橡皮 · 擦除当前图层像素', fill: $('fillScope').value === 'lasso' ? '套索填充 · 拖动圈出区域，松手填色；Esc 取消' : '填充 · 点选区域上色，可选择材质', shape: '形状 · 拖动预览，松手放置；Shift 锁定比例', text: '文字 · 先输入内容，再点击或拖动放置', picker: '取色 · 点击画作，或从参考图取色', move: '移层 · 拖动当前图层', hand: '平移 · 拖动画布', cutout: '抠图 · 点击当前图层的背景' })[tool]);
   }
   function syncEraser() {
     const whole = tool === 'eraser' && eraserMode === 'stroke';
@@ -660,8 +841,29 @@
   function updateFillScope() {
     const cutout = tool === 'cutout', scope = $('fillScope').value;
     $('fillScopeLabel').hidden = cutout; $('matchControls').hidden = !cutout && scope !== 'match';
+    $('fillPalette').hidden = cutout;
+    const gapEnabled = tool === 'fill' && scope === 'match' && $('contiguous').checked;
+    $('closeGapField').hidden = !gapEnabled; $('closeGap').disabled = !gapEnabled; $('closeGapNumber').disabled = !gapEnabled;
     $('fillHint').textContent = cutout ? '点击背景，抠除当前图层中的相近颜色。'
-      : { match: '点击色块填充，可以在线稿下方另建上色层。', inked: '点击画布，为当前层所有笔迹换色，保留透明边缘。', layer: '点击画布，把所选颜色或材质铺满当前图层。' }[scope];
+      : { match: '点击色块填充，可以在线稿下方另建上色层。', lasso: '拖动圈出区域，松手自动闭合填色；Esc 取消。支持当前材质与浓度。', inked: '点击画布，为当前层所有笔迹换色，保留透明边缘。', layer: '点击画布，把所选颜色或材质铺满当前图层。' }[scope];
+    updateFillPaintUI();
+  }
+  function updateFillPaintUI() {
+    const transparent = $('fillPaintMode').value === 'transparent';
+    $('fillPaintControls').hidden = tool !== 'fill';
+    $('fillPaintMode').disabled = tool !== 'fill'; $('fillOpacity').disabled = tool !== 'fill';
+    $('fillOpacityLabel').textContent = transparent ? '擦除强度' : '不透明度';
+    $('fillOpacity').setAttribute('aria-label', transparent ? '透明填充擦除强度' : '填充不透明度');
+    $('fillPaintHint').textContent = transparent
+      ? '只改当前图层：100% 挖空，降低强度擦淡；材质的透明部分保留。'
+      : '在透明图层降低不透明度，可绘制透光色块。已有底色请用透明模式擦淡。';
+    syncOpacityUI();
+  }
+  function syncCloseGap(source, commit = false) {
+    if (!Number.isFinite(source.valueAsNumber) && !commit) return;
+    const value = clamp(Math.round(Number.isFinite(source.valueAsNumber) ? source.valueAsNumber : +$('closeGap').value), 0, 32);
+    $('closeGap').value = value; $('closeGapNumber').value = value;
+    $('closeGap').setAttribute('aria-valuetext', value ? value + ' 像素' : '关闭');
   }
   function swatches(container, colors) {
     container.replaceChildren();
@@ -678,12 +880,16 @@
     if (typeof value !== 'string') throw new Error('请输入有效的颜色文本。');
     if (/^#[a-f0-9]{3}$/i.test(value)) value = '#' + value.slice(1).split('').map(c => c + c).join('');
     if (!/^#[a-f0-9]{6}$/i.test(value)) throw new Error('请输入 #RRGGBB 格式的颜色。');
+    const fillPick = fillPalettePending && tool === 'fill' && rememberIt;
+    if (fillPick) { fillPalettePending = false; $('materialFollowInk').checked = true; $('fillPaintMode').value = 'color'; }
     ink = value.toLowerCase(); $('inkColor').value = ink;
     all('[data-color]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.color.toLowerCase() === ink)));
     if (colorPicker) colorPicker.setColor(ink);
     if (colorLibrary) colorLibrary.syncInk();
     scheduleBrushSample(); updateMaterialUI();
     if (rememberIt) remember(ink);
+    if (fillPick) updateFillPaintUI();
+    if (fillPick && window.innerWidth <= 650) togglePanel('settings', false);
   }
   function remember(color) { recentColors = [color, ...recentColors.filter(c => c !== color)].slice(0, 12); swatches($('recentSwatches'), recentColors); }
   function drawBrushSample(sample, settings) {
@@ -755,6 +961,7 @@
     if (document.body.classList.contains('focus-mode')) toggleFocus(false);
     const key = name === 'reference' ? 'reference-hidden' : 'settings-hidden';
     const hidden = force == null ? !document.body.classList.contains(key) : !force;
+    if (name === 'settings' && hidden) fillPalettePending = false;
     document.body.classList.toggle(key, hidden);
     if (!hidden && window.innerWidth <= 650) document.body.classList.add(name === 'reference' ? 'settings-hidden' : 'reference-hidden');
     $('showReference').setAttribute('aria-pressed', String(!document.body.classList.contains('reference-hidden'))); $('showSettings').setAttribute('aria-pressed', String(!document.body.classList.contains('settings-hidden')));
@@ -888,7 +1095,7 @@
   }
   async function serializeProject(state = snapshot(), includeReference = true) {
     const version = referenceVersion;
-    const selectedBrush = brush, selectedInk = ink;
+    const selectedBrush = brush, selectedInk = ink, selectedToneScope = toneScope;
     const brushSettings = tool === 'brush' ? { size, opacity, stabilizer, pressureEnabled }
       : brushProfile(Core.brushPresets.find(p => p.id === selectedBrush));
     const layersPromise = Promise.all(state.layers.map(async layer => {
@@ -905,7 +1112,7 @@
     // their bytes also count against the existing history budget.
     trimHistory(); syncHistory();
     return { format: 'lrxdraw', version: 1, title: state.title, width: state.width, height: state.height, paperPpi: state.paperPpi, paper: state.paper, paperColor: state.paperColor, paperOpacity: state.paperOpacity, paperTexture: state.paperTexture, textureStrength: state.textureStrength, tone: state.tone, activeId: state.activeId, layers, reference: bundle,
-      settings: { ink: selectedInk, brush: selectedBrush, ...brushSettings, eraserMode, recentColors: recentColors.slice(0, 12), marks: readMarkSettings() } };
+      settings: { ink: selectedInk, brush: selectedBrush, ...brushSettings, eraserMode, toneScope: selectedToneScope, recentColors: recentColors.slice(0, 12), marks: readMarkSettings() } };
   }
   function notifySaveError(error) {
     if (error?.code === 'CURRENT_CONFLICT') {
@@ -1048,9 +1255,8 @@
     if (typeof project === 'string') { if (project.length > PROJECT_BYTES * 1.4) throw new Error('工程文件过大。'); project = JSON.parse(project); }
     if (!project || project.format !== 'lrxdraw' || project.version !== 1 || !Array.isArray(project.layers) || !project.layers.length) throw new Error('这不是可识别的 .lrxdraw 工程。');
     const dimensions = validSize(project.width, project.height); layerBudget(project.layers.length, dimensions.width, dimensions.height);
-    const next = { ...dimensions, title: String(project.title || '未命名画作').slice(0, 60), ...window.DrawingPaper.settings(project), tone: {}, layers: [], activeId: String(project.activeId || '') };
+    const next = { ...dimensions, title: String(project.title || '未命名画作').slice(0, 60), ...window.DrawingPaper.settings(project), tone: normalizeTone(project.tone), layers: [], activeId: String(project.activeId || '') };
     next.paperPpi = window.DrawingCanvasPresets.paperPpi(project.paperPpi);
-    for (const key of ['hue', 'saturation', 'lightness']) next.tone[key] = clamp(number(project.tone && project.tone[key], 0), key === 'hue' ? -180 : -100, key === 'hue' ? 180 : 100);
     const ids = new Set(), layerImages = []; let total = 0;
     for (const value of project.layers) {
       if (!value || typeof value.id !== 'string' || value.id.length > 100 || ids.has(value.id)) throw new Error('工程图层标识无效。'); ids.add(value.id);
@@ -1058,7 +1264,7 @@
       if (saveAsCurrent) layerImages.push(blob);
       await checkLayerPNG(blob, next.width, next.height); const image = await loadImage(blob), c = canvas(next.width, next.height); context(c).drawImage(image, 0, 0);
       const strokeRecords = await Strokes.importBundle(value.strokes, c, decodeBlob, blobArray);
-      next.layers.push({ id: value.id, name: String(value.name || '图层').slice(0, 40), visible: value.visible !== false, locked: !!value.locked, opacity: clamp(number(value.opacity, 1), 0, 1), x: clamp(number(value.x, 0), -65536, 65536), y: clamp(number(value.y, 0), -65536, 65536), scale: clamp(number(value.scale, 1), .1, 3), canvas: c, strokeRecords });
+      next.layers.push({ id: value.id, name: String(value.name || '图层').slice(0, 40), visible: value.visible !== false, locked: !!value.locked, opacity: clamp(number(value.opacity, 1), 0, 1), x: clamp(number(value.x, 0), -65536, 65536), y: clamp(number(value.y, 0), -65536, 65536), scale: clamp(number(value.scale, 1), .1, 3), tone: normalizeTone(value.tone), canvas: c, strokeRecords });
       if (Strokes.bytes(next.layers.map(layer => layer.strokeRecords)) > Strokes.MAX_BYTES) throw new Error('工程的整笔记录超过 16 MiB 轻量限额。');
     }
     if (!ids.has(next.activeId)) next.activeId = next.layers[0].id;
@@ -1072,6 +1278,7 @@
       opacity: importedNumber('opacity', .01, 1), stabilizer: importedNumber('stabilizer', 0, 100),
       pressureEnabled: inputSettings.pressureEnabled !== false,
       eraserMode: inputSettings.eraserMode === 'stroke' ? 'stroke' : 'local',
+      toneScope: inputSettings.toneScope === 'current' ? 'current' : 'all',
       recentColors: Array.isArray(inputSettings.recentColors) ? inputSettings.recentColors.filter(c => typeof c === 'string' && /^#[a-f0-9]{6}$/i.test(c)).slice(0, 12) : [],
       marks: normalizeMarkSettings(inputSettings.marks)
     };
@@ -1090,7 +1297,7 @@
     } catch (error) { candidate.destroy(); throw error; }
     if (ref) ref.destroy(); ref = candidate; art = next;
     undoStack = []; redoStack = []; transactions.clear(); clearTimeout(saveTimer); saveTimer = 0; revision = 0; savedRevision = 0; fileSavedRevision = -1; sessionUsed = false; draftId = uid();
-    eraserMode = settings.eraserMode;
+    eraserMode = settings.eraserMode; toneScope = settings.toneScope;
     setInk(settings.ink); applyMarkSettings(settings.marks); brush = settings.brush; $('brushKind').value = brush;
     applyBrushProfile(brushProfile({ ...settings, id: brush }));
     recentColors = settings.recentColors;
@@ -1160,8 +1367,8 @@
   }
 
   function bindRange(id, apply, label) {
-    on(id, 'input', () => { beginTransaction(id); apply(+$(id).value); requestRender(); });
-    on(id, 'change', () => { if (!transactions.has(id)) { beginTransaction(id); apply(+$(id).value); } endTransaction(id, label); });
+    on(id, 'input', () => { const value = +$(id).value; beginTransaction(id); $(id).value = value; apply(value); requestRender(); });
+    on(id, 'change', () => { if (!transactions.has(id)) { const value = +$(id).value; beginTransaction(id); $(id).value = value; apply(value); } endTransaction(id, label); });
   }
   function dialogOpen() { return !!document.querySelector('dialog[open]'); }
   function editable(target) { return target && target.closest && target.closest('input,textarea,select,[contenteditable="true"]'); }
@@ -1196,7 +1403,10 @@
       size = Number.isFinite(field.valueAsNumber) ? clamp(Math.round(field.valueAsNumber), 1, 240) : size;
       field.value = size; storeBrushProfile();
     });
-    on('brushOpacity', 'input', () => { opacity = +$('brushOpacity').value / 100; $('brushOpacityValue').textContent = Math.round(opacity * 100) + '%'; storeBrushProfile(); });
+    on('brushOpacity', 'input', () => { opacity = +$('brushOpacity').value / 100; syncOpacityUI(); storeBrushProfile(); });
+    on('fillOpacity', 'input', () => { opacity = +$('fillOpacity').value / 100; syncOpacityUI(); });
+    on('fillOpacity', 'change', () => { opacity = +$('fillOpacity').value / 100; syncOpacityUI(); });
+    on('fillPaintMode', 'change', () => { finishPointer(); updateFillPaintUI(); });
     on('stabilizer', 'input', () => { stabilizer = +$('stabilizer').value; $('stabilizerValue').textContent = stabilizer; storeBrushProfile(); });
     on('penPressure', 'change', () => { pressureEnabled = $('penPressure').checked; storeBrushProfile(); });
     on('resetBrushProfile', 'click', () => {
@@ -1217,17 +1427,28 @@
     on('applyCanvasFrame', 'click', frameCanvas);
     on('materialBackFromInk', 'click', () => { $('materialBackground').value = ink; updateMaterialUI(); });
     on('tolerance', 'input', () => { $('toleranceValue').textContent = $('tolerance').value; });
-    on('fillScope', 'change', updateFillScope);
+    on('fillScope', 'change', () => { finishPointer(); updateFillScope(); });
+    on('fillPalette', 'click', () => {
+      if (tool !== 'fill') return;
+      finishPointer(); fillPalettePending = true;
+      $('paletteLibrary').closest('details').open = true;
+      togglePanel('settings', true);
+      document.querySelector('[data-color-mode="paletteLibrary"]').click();
+      requestAnimationFrame(() => {
+        $('paletteLibrary').scrollIntoView?.({ block: 'start' });
+        $('palettePreset').focus({ preventScroll: true });
+      });
+      status('点选色卡作为填充颜色，保留当前填充范围与材质。');
+    });
+    on('contiguous', 'change', updateFillScope);
+    for (const id of ['closeGap', 'closeGapNumber']) {
+      on(id, 'input', () => syncCloseGap($(id)));
+      on(id, 'change', () => syncCloseGap($(id), true));
+    }
     on('undo', 'click', undo); on('redo', 'click', redo);
     on('addLayer', 'click', addLayer);
-    on('duplicateLayer', 'click', () => {
-      layerBudget(art.layers.length + 1); mutate(() => {
-        const source = activeLayer(), copy = { ...source, id: uid(), name: (source.name + ' 副本').slice(0, 40), canvas: canvas(art.width, art.height), locked: false };
-        context(copy.canvas).drawImage(source.canvas, 0, 0);
-        art.layers.splice(art.layers.indexOf(source) + 1, 0, copy); art.activeId = copy.id;
-        Strokes.limit(art.layers);
-      }, '复制图层');
-    });
+    on('duplicateLayer', 'click', duplicateLayer);
+    on('mergeLayerDown', 'click', mergeLayerDown);
     on('deleteLayer', 'click', () => mutate(() => { const index = art.layers.indexOf(activeLayer()); art.layers.splice(index, 1); if (!art.layers.length) art.layers.push(createLayer('图层 1')); art.activeId = art.layers[Math.max(0, index - 1)].id; }, '删除图层'));
     for (const [id, delta] of [['layerUp', 1], ['layerDown', -1]]) on(id, 'click', () => { const i = art.layers.indexOf(activeLayer()), j = i + delta; if (j < 0 || j >= art.layers.length) return; mutate(() => { [art.layers[i], art.layers[j]] = [art.layers[j], art.layers[i]]; }, '图层排序'); });
     on('layerName', 'change', () => { const name = $('layerName').value.trim().slice(0, 40) || '未命名图层'; if (name !== activeLayer().name) mutate(() => { activeLayer().name = name; }, '图层改名'); });
@@ -1238,8 +1459,15 @@
     on('resetLayerTransform', 'click', () => mutate(() => { const layer = activeLayer(); layer.x = 0; layer.y = 0; layer.scale = 1; }, '图层复位'));
     on('importLayer', 'click', () => $('layerFile').click());
     on('layerFile', 'change', async () => { const file = $('layerFile').files[0]; $('layerFile').value = ''; await work(() => importImageLayer(file), '正在放入图层…'); });
-    for (const key of ['hue', 'saturation', 'lightness']) bindRange(key, value => { art.tone[key] = value; $(key + 'Value').textContent = value + (key === 'hue' ? '°' : ''); }, '整体调色');
-    on('resetTone', 'click', () => mutate(() => { art.tone = { hue: 0, saturation: 0, lightness: 0 }; }, '恢复原色'));
+    on('toneScope', 'change', () => setToneScope($('toneScope').value));
+    for (const key of ['hue', 'saturation', 'lightness']) bindRange(key, value => {
+      const owner = toneOwner(); owner.tone = { ...normalizeTone(owner.tone), [key]: value };
+      $(key + 'Value').textContent = value + (key === 'hue' ? '°' : '');
+    }, '调色');
+    on('resetTone', 'click', () => {
+      finishPointer(); settleTransactions();
+      mutate(() => { toneOwner().tone = normalizeTone(); }, toneScope === 'current' ? '恢复选中图层原色' : '恢复整体原色');
+    });
     on('paper', 'change', () => mutate(() => {
       art.paper = $('paper').value;
       if (art.paper === 'transparent') art.paperOpacity = 0;
@@ -1382,9 +1610,9 @@
       if (event.key === 'theme' || event.key === null) { try { const t = localStorage.getItem('theme'); document.documentElement.dataset.theme = t === 'light' || t === 'dark' ? t : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; } catch (_) {} }
     });
     document.addEventListener('keydown', e => {
+      if (e.key.toLowerCase() === 'escape' && activePointer && ['shape', 'text', 'lasso'].includes(activePointer.kind)) { e.preventDefault(); finishPointer(); return; }
       if (dialogOpen() || editable(e.target) || busy) return;
       const key = e.key.toLowerCase(), command = e.ctrlKey || e.metaKey;
-      if (key === 'escape' && activePointer && ['shape', 'text'].includes(activePointer.kind)) { e.preventDefault(); finishPointer(); return; }
       if (command && key === 'z') { e.preventDefault(); e.shiftKey ? redo() : undo(); return; }
       if (command && key === 'y') { e.preventDefault(); redo(); return; }
       if (command && key === 's') { e.preventDefault(); saveProjectFile().catch(notify); return; }
@@ -1450,8 +1678,8 @@
     }, '正在读取当前作品…');
     // Exposed for local contract tests and inspection; no external services use it.
     window.DrawingStudio = {
-      inspect: () => ({ width: art.width, height: art.height, title: art.title, paper: art.paper, paperColor: art.paperColor, paperOpacity: art.paperOpacity, paperTexture: art.paperTexture, textureStrength: art.textureStrength, tone: { ...art.tone }, view: { ...view }, layers: art.layers.map(metadata), activeId: art.activeId, tool, brush, ink, size, opacity, stabilizer, eraserMode, strokeCount: Strokes.count(activeLayer().strokeRecords), strokeBytes: Strokes.bytes(art.layers.map(layer => layer.strokeRecords)), historyBytes: memory(), pressure: lastPressure, pointerType: lastPointerType, dirty: revision > savedRevision, history: undoStack.length, redo: redoStack.length, revision, savedRevision, draftId, drawing: !!activePointer, reference: ref.getInfo() }),
-      newDocument, addLayer, selectLayer, undo, redo, render, exportRaster, exportProject, loadProject, serializeProject,
+      inspect: () => ({ width: art.width, height: art.height, title: art.title, paper: art.paper, paperColor: art.paperColor, paperOpacity: art.paperOpacity, paperTexture: art.paperTexture, textureStrength: art.textureStrength, tone: { ...art.tone }, toneScope, view: { ...view }, layers: art.layers.map(metadata), activeId: art.activeId, tool, brush, ink, size, opacity, stabilizer, eraserMode, strokeCount: Strokes.count(activeLayer().strokeRecords), strokeBytes: Strokes.bytes(art.layers.map(layer => layer.strokeRecords)), historyBytes: memory(), pressure: lastPressure, pointerType: lastPointerType, dirty: revision > savedRevision, history: undoStack.length, redo: redoStack.length, revision, savedRevision, draftId, drawing: !!activePointer, reference: ref.getInfo() }),
+      newDocument, addLayer, selectLayer, duplicateLayer, mergeLayerDown, toggleLayerVisibility, setToneScope, undo, redo, render, exportRaster, exportProject, loadProject, serializeProject,
       get ref() { return ref; }, getLayer: id => art.layers.find(layer => layer.id === id), saveDraft, prepareToClose, setTool, setInk
     };
     async function acceptReference(token) {
