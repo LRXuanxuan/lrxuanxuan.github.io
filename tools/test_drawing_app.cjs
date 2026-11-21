@@ -308,6 +308,21 @@ async function main() {
   });
 
 
+  await test('Six quick colors include accessible pure white without changing palette presets', async () => {
+    const buttons = Array.from(element('baseSwatches').querySelectorAll('button'));
+    assert.deepEqual(buttons.map(button => button.dataset.color), [
+      '#000000', '#3f271f', '#75503b', '#3a3a3a', '#808080', '#ffffff'
+    ], 'Six standard colors stay ordered and independent of preset swatches');
+    assert.ok(buttons.every(button => button.textContent === ''), 'Quick colors remain unlabeled visually');
+    assert.match(buttons[5].getAttribute('aria-label'), /纯白/, 'White swatch keeps an accessible label');
+    const css = fs.readFileSync(path.join(ROOT, 'assets/drawing-studio/style.css'), 'utf8');
+    assert.match(css, /\\.palette-basics\\s*\\{[^}]*grid-template-columns:\\s*repeat\\(6,/,
+      'Six quick colors fit in a single CSS grid row');
+    buttons[5].click();
+    assert.equal(state().ink, '#ffffff', 'Clicking white selects the pure white brush color');
+    assert.match(element('inkReadout').textContent, /纯白/, 'White is recognized as a quick color');
+  });
+
   await test('Pen-only brush defaults on and preserves mouse editing tools, pen pressure and opt-out', async () => {
     const prefKey = 'lrx-drawing-pen-only-brush-v1';
     const isolated = await openStudio(new IDBFactory(), w => w.localStorage.removeItem(prefKey));
