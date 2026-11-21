@@ -1,0 +1,139 @@
+name: Build Lightdraw for Android
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'android/**'
+      - 'tools/build_drawing_android.py'
+      - 'tools/test_drawing_android.cjs'
+      - '.github/workflows/drawing-android.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lightdraw-android-build
+  cancel-in-progress: false
+
+jobs:
+  android:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Set up Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up pinned Gradle
+        uses: gradle/actions/setup-gradle@v6
+        with:
+          gradle-version: '9.6.0'
+          cache-disabled: true
+
+      - name: Set up Node for bridge contract tests
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+
+      - name: Verify JavaScript bridge contracts
+        run: |
+          npm install --prefix "$RUNNER_TEMP/lightdraw-tests" --no-save --ignore-scripts --no-audit --no-fund jsdom@26.1.0
+          NODE_PATH="$RUNNER_TEMP/lightdraw-tests/node_modules" node tools/test_drawing_android.cjs
+
+      - name: Verify Android SDK components
+        run: |
+          sdkmanager 'platforms;android-36' 'build-tools;36.0.0'
+          java -version
+          gradle --version
+
+      - name: Build unsigned release and isolated test APKs
+        run: gradle -p android --no-daemon --stacktrace :app:assembleRelease :app:lintRelease :app:assembleDebug :app:assembleDebugAndroidTest --write-locks
+
+      - name: Collect unsigned APK and signing inputs
+        run: |
+          mkdir -p android/release/licenses android/smoke
+          build_tools="$ANDROID_HOME/build-tools/36.0.0"
+          "$build_tools/zipalign" -P 16 -f 4 android/app/build/outputs/apk/release/app-release-unsigned.apk android/release/lightdraw-0.1.0-android-unsigned.apk
+          "$build_tools/zipalign" -c -P 16 4 android/release/lightdraw-0.1.0-android-unsigned.apk
+          "$build_tools/aapt" dump badging android/release/lightdraw-0.1.0-android-unsigned.apk > android/release/apk-badging.txt
+          cp "$build_tools/lib/apksigner.jar" android/release/apksigner.jar
+          if test -f "$build_tools/NOTICE.txt"; then cp "$build_tools/NOTICE.txt" android/release/build-tools-NOTICE.txt; fi
+          cp android/app/build/outputs/apk/release/output-metadata.json android/release/output-metadata.json
+          cp android/app/build/generated/lightdrawAssets/build-info.json android/release/build-info.json
+          cp -R android/app/build/generated/lightdrawAssets/licenses/. android/release/licenses/
+          cp android/README.txt android/THIRD_PARTY_NOTICES.txt android/release/
+          cp LICENSE android/release/LICENSE.txt
+          if test -f android/app/gradle.lockfile; then cp android/app/gradle.lockfile android/release/gradle.lockfile; fi
+          printf '%s\n' "$GITHUB_SHA" > android/release/SOURCE_COMMIT.txt
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib,json,zipfile
+          root=Path('android/release')
+          apk=root/'lightdraw-0.1.0-android-unsigned.apk'
+          with zipfile.ZipFile(apk) as z:
+              info=json.loads(z.read('assets/build-info.json'))
+              assert info['dependencyLicensesIncluded'] is True
+              for item in info['files']:
+                  data=z.read('assets/'+item['path'])
+                  assert len(data)==item['bytes'] and hashlib.sha256(data).hexdigest()==item['sha256'], item['path']
+              assert not any(name.startswith('lib/') for name in z.namelist()), 'Unexpected bundled native runtime'
+          badging=(root/'apk-badging.txt').read_text()
+          assert "name='io.github.lrxuanxuan.lightdraw'" in badging
+          assert "sdkVersion:'26'" in badging and "targetSdkVersion:'36'" in badging
+          assert 'application-debuggable' not in badging
+          (root/'SHA256SUMS-unsigned.txt').write_text(''.join(hashlib.sha256(p.read_bytes()).hexdigest()+'  '+p.name+'\n' for p in sorted(root.iterdir()) if p.is_file() and p.name.endswith(('.apk','.jar'))))
+          print('Verified bundled asset hashes, package identity, SDK levels and non-debuggable unsigned release.')
+          PY
+
+      - name: Keep unsigned build for private release signing
+        uses: actions/upload-artifact@v7
+        with:
+          name: lightdraw-android-unsigned-0.1.0
+          path: android/release/
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: Verify offline startup, PDF rendering and system file dialogs on Android
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 35
+          target: google_apis
+          arch: x86_64
+          profile: pixel_7
+          ram-size: 2048M
+          disable-animations: true
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          script: |
+            adb install -r android/app/build/outputs/apk/debug/app-debug.apk
+            adb install -r android/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
+            adb shell am instrument -w io.github.lrxuanxuan.lightdraw.debug.test/io.github.lrxuanxuan.lightdraw.StudioSmokeInstrumentation | tee android/smoke/instrumentation.txt
+            adb shell dumpsys webviewupdate > android/smoke/webview-provider.txt
+            adb exec-out screencap -p > android/smoke/final-screen.png
+            adb logcat -d -s LightdrawSmoke AndroidRuntime > android/smoke/logcat.txt
+            grep -q LIGHTDRAW_SMOKE_OK android/smoke/instrumentation.txt
+
+      - name: Keep emulator evidence and lint reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: lightdraw-android-checks-0.1.0
+          path: |
+            android/smoke/
+            android/app/build/reports/lint-results-release.*
+          if-no-files-found: warn
+          retention-days: 14

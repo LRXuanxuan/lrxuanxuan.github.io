@@ -1,0 +1,104 @@
+import groovy.json.JsonOutput
+import java.security.MessageDigest
+import java.util.zip.ZipFile
+import java.util.zip.ZipInputStream
+
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'io.github.lrxuanxuan.lightdraw'
+    compileSdk 36
+    buildToolsVersion '36.0.0'
+    defaultConfig {
+        applicationId 'io.github.lrxuanxuan.lightdraw'
+        minSdk 26
+        targetSdk 36
+        versionCode 1
+        versionName '0.1.0'
+        testInstrumentationRunner 'io.github.lrxuanxuan.lightdraw.StudioSmokeInstrumentation'
+    }
+    buildTypes {
+        release {
+            // Release keys stay outside this public repository and its build artifacts.
+            signingConfig = null
+            minifyEnabled false
+            debuggable false
+        }
+        debug {
+            applicationIdSuffix '.debug'
+            versionNameSuffix '-test'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    sourceSets.main.assets.srcDir(layout.buildDirectory.dir('generated/lightdrawAssets'))
+    packaging.resources.excludes += ['META-INF/DEPENDENCIES']
+    lint { abortOnError true }
+}
+
+dependencies { implementation 'androidx.webkit:webkit:1.18.0' }
+dependencyLocking { lockAllConfigurations() }
+
+def noticesDir = layout.buildDirectory.dir('dependency-licenses')
+tasks.register('collectDependencyNotices') {
+    outputs.dir(noticesDir)
+    outputs.upToDateWhen { false }
+    doLast {
+        def dest = noticesDir.get().asFile
+        delete dest
+        dest.mkdirs()
+        def rows = []
+        configurations.releaseRuntimeClasspath.resolvedConfiguration.resolvedArtifacts.sort {
+            it.moduleVersion.id.toString()
+        }.each { artifact ->
+            def id = artifact.moduleVersion.id
+            def coordinate = "${id.group}:${id.name}:${id.version}"
+            def target = new File(dest, "${id.group}.${id.name}-${id.version}")
+            target.mkdirs()
+            def pomConfig = configurations.detachedConfiguration(
+                dependencies.create("${coordinate}@pom"))
+            pomConfig.transitive = false
+            def pomFile = pomConfig.singleFile
+            new File(target, 'pom.xml').bytes = pomFile.bytes
+            // Include upstream license/notice files from AARs and nested classes.jar.
+            new ZipFile(artifact.file).withCloseable { archive ->
+                archive.entries().each { entry ->
+                    if (!entry.directory && entry.name ==~ /(?i).*(license|notice|copying)[^\/]*$/) {
+                        def file = new File(target, entry.name.replaceAll('[^a-zA-Z0-9._-]', '_'))
+                        file.bytes = archive.getInputStream(entry).bytes
+                    }
+                    if (!entry.directory && entry.name == 'classes.jar') {
+                        new ZipInputStream(archive.getInputStream(entry)).withCloseable { nested ->
+                            for (def item = nested.nextEntry; item != null; item = nested.nextEntry) {
+                                if (!item.directory && item.name ==~ /(?i).*(license|notice|copying)[^\/]*$/) {
+                                    new File(target, 'classes_' + item.name.replaceAll('[^a-zA-Z0-9._-]', '_')).bytes = nested.readAllBytes()
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            rows << [coordinate: coordinate, artifact: artifact.file.name,
+                     sha256: MessageDigest.getInstance('SHA-256').digest(artifact.file.bytes).encodeHex().toString(),
+                     pom: "${target.name}/pom.xml"]
+        }
+        new File(dest, 'dependencies.json').text = JsonOutput.prettyPrint(JsonOutput.toJson(rows)) + '\n'
+    }
+}
+
+tasks.register('prepareOfflineAssets', Exec) {
+    dependsOn 'collectDependencyNotices'
+    workingDir rootProject.projectDir.parentFile
+    commandLine 'python3', 'tools/build_drawing_android.py', '--license-dir', noticesDir.get().asFile.absolutePath
+    inputs.files(rootProject.file('android.js'), rootProject.file('THIRD_PARTY_NOTICES.txt'))
+    inputs.files(fileTree(rootProject.projectDir.parentFile) {
+        include 'drawing-studio.html', 'color-block-studio.html', 'LICENSE',
+                'assets/drawing-studio/**', 'assets/color-block-studio/**',
+                'assets/js/studio-filenames.js', 'tools/build_drawing_android.py'
+    })
+    outputs.dir(layout.buildDirectory.dir('generated/lightdrawAssets'))
+    outputs.upToDateWhen { false }
+}
+tasks.named('preBuild').configure { dependsOn 'prepareOfflineAssets' }

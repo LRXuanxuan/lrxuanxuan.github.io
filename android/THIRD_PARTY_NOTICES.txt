@@ -1,0 +1,27 @@
+轻绘 / Lightdraw for Android
+
+The maintained drawing studio and study pages are from:
+https://github.com/LRXuanxuan/lrxuanxuan.github.io
+The repository LICENSE is included as LICENSE.txt in the application assets.
+
+Android shell:
+AndroidX WebKit and its resolved AndroidX dependencies — Apache License 2.0.
+https://developer.android.com/jetpack/androidx/releases/webkit
+Runtime dependencies, their Maven license declarations and upstream license/
+notice files are inventoried in licenses/dependencies.json and its subfolders.
+A full Apache License 2.0 text is included in licenses/Apache-2.0.txt.
+Any additional licenses shipped by resolved dependencies are retained there.
+
+PDF runtime:
+PDF.js 6.5.438 and its fonts, CMaps, ICC and WebAssembly resources are bundled
+with their existing LICENSE and NOTICE files under assets/drawing-studio/vendor/pdfjs/.
+Their README records provenance and licenses. The engine is loaded only after
+the user chooses a PDF, not at application startup.
+
+WebView:
+This application uses the device's installed Android System WebView. It does
+not bundle a browser runtime. System components remain under their own terms.
+
+Palette values are approximate screen references. Existing sources are recorded
+in the drawing palette documentation in the source repository. No user artwork,
+reference photographs, or reference PDFs are bundled.
