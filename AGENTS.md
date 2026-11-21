@@ -6,6 +6,13 @@
 
 
 
+## 轻绘 Windows / Android 跨会话版本与发布索引（2026-11-22）
+
+- **未来新会话首先读取 [docs/drawing-app-release-handoff.md](docs/drawing-app-release-handoff.md)**，以及 `docs/drawing-desktop.md`、`docs/drawing-android.md` 和 `docs/drawing-studio.md`。不能凭旧聊天内容或标签名猜最新版。
+- Windows 已发布基线 `lightdraw-v0.1.2`，发行源码标签 `d21f7958b75de70d2a15dc6c101b06fbcc4f5c70`；Android 当前源码为 `0.1.0` / `versionCode 1`。后续新版本从最新 `main` 的共用前端与两个原生壳分别构建，不要另起炉灶或覆盖既有发行。
+- Android 的原签名密钥及私密备份**不在本公开仓库**，此前会话交付不等于永久存档。未确认用户保有原私钥之前，不得声称能发布可覆盖升级的正式 APK；不得把密钥、密码、私密 ZIP 或个人画作上传公开位置。
+- 仅更新网页版不会自动更新已装 Windows/Android。发版前执行相应 CI、像素与消息合同检查，发布后核对实际资产、源码提交、SHA-256，并更新交接索引。维护博客轻量化，安装包只通过专门发布渠道交付。
+
 ## 五分钟表达训练已撤下（2026-11-16）
 
 - 站长已要求从「奇怪的小玩意」撤下「🗣️ 五分钟表达训练」；不要在后续页面更新中自动恢复此模块。
