@@ -1,6 +1,6 @@
 /* Super Vision watercolor sets. Display RGB is sampled from flat color blocks
    in published product charts; it is not manufacturer-specified RGB.
-   Unknown manufacturer codes use the series name as the display label.
+   Monet/Mucha numbers are user-assigned display indices, not verified factory codes.
    Sources and limitations: docs/drawing-supervision-palettes.md. */
 (function (root) {
   'use strict';
@@ -8,9 +8,9 @@
     ["supervision-artists50", "大艺术家 50 色", "5 个十色系列 · 每组两行五色", [
       ["葛饰北斋", "101:e1c5a0|102:c8b16e|103:8fafba|104:2e5977|105:172242|106:daa593|107:73291c|108:675e59|109:15392f|110:709d7e"],
       ["莫兰迪", "111:d7ca9e|112:a2836f|113:664b42|114:8e847b|115:aeafa7|116:485961|117:635b80|118:1c2d59|119:505c84|120:c5ac8e"],
-      ["莫奈", ":decfd6|:d294a7|:ae97b2|:9793c5|:405790|:6a5e70|:b7a29f|:dda575|:6c89b0|:2b4b5a"],
+      ["莫奈", "121:decfd6|122:d294a7|123:ae97b2|124:9793c5|125:405790|126:6a5e70|127:b7a29f|128:dda575|129:6c89b0|130:2b4b5a"],
       ["梵高", "131:deca59|132:bc9321|133:8d4e25|134:4d714b|135:18442d|136:032139|137:1d378c|138:33698b|139:66979c|140:b2d2cf"],
-      ["穆夏", ":e4c1ab|:dbb35c|:bf9763|:d67f71|:ee7e36|:e85043|:573720|:501c11|:709277|:a4c0db"]
+      ["穆夏", "141:e4c1ab|142:dbb35c|143:bf9763|144:d67f71|145:ee7e36|146:e85043|147:573720|148:501c11|149:709277|150:a4c0db"]
     ]],
     ["supervision-gray60", "高级灰 60 色", "6 个十色系列 · 保留原色号 001–060", [
       ["棉花糖", "001:d4d9d2|002:5f7d73|003:b2af9e|004:b8d0ba|005:6f576d|006:8b8b97|007:cb7f89|008:f6d1c9|009:cfb7b5|010:7891ba"],
@@ -28,7 +28,7 @@
       swatches: entries.split('|').map(entry => {
         const [code, rgb] = entry.split(':');
         return { code: code || family, name: family,
-          originalCode: code || null, family: family, hex: '#' + rgb };
+          originalCode: (family === '莫奈' || family === '穆夏') ? null : (code || null), family: family, hex: '#' + rgb };
       })
     }));
     const swatches = groups.flatMap(group => group.swatches);

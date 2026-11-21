@@ -728,13 +728,15 @@ async function main() {
       assert.equal(element('inkColor').value, button.dataset.color, 'Each unlabeled quick color selects the actual ink');
     }
     select('palettePreset', 'supervision-artists50'); await settle();
-    for (const name of ['莫奈', '穆夏']) {
-      const buttons = Array.from(element('presetSwatches').querySelectorAll('button')).filter(button => button.textContent === name);
-      assert.equal(buttons.length, 10, 'Unknown codes show the series name only');
-      assert.equal(new Set(buttons.map(button => button.dataset.color)).size, 10, 'Repeated labels must retain distinct selectable colors');
-      for (const button of [buttons[0], buttons[9]]) {
-        button.click(); assert.equal(element('inkColor').value, button.dataset.color);
-        assert.equal(element('inkReadout').textContent, name, 'The selected series label is concise too');
+    for (const [name, first] of [['莫奈', 121], ['穆夏', 141]]) {
+      const colors = win.DrawingPalettes.find(p => p.id === 'supervision-artists50').groups.find(g => g.name === name).swatches;
+      const buttons = Array.from(element('presetSwatches').querySelectorAll('button'));
+      assert.deepEqual(colors.map(c => c.code), Array.from({ length: 10 }, (_, i) => String(first + i)));
+      assert.equal(new Set(colors.map(c => c.hex)).size, 10, 'Each numbered swatch stays independently selectable');
+      for (const color of [colors[0], colors[9]]) {
+        const button = buttons.find(button => button.textContent === color.code && button.dataset.color === color.hex);
+        assert.ok(button, 'Swatch label uses the user-specified number: ' + color.code);
+        button.click(); assert.equal(element('inkColor').value, color.hex);
       }
     }
   });

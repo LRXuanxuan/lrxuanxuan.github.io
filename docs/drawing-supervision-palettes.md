@@ -32,11 +32,11 @@
 - 大艺术家中葛饰北斋 `101`–`110`、莫兰迪 `111`–`120`、梵高 `131`–`140`
   来自可辨认的带编号品牌色卡图。莫奈、穆夏的十个色块和原图顺序已核实，
   原厂色号仍留空；不能根据相邻范围补造编号。
-- 按用户最新要求，莫奈的十个色块均只显示「莫奈」，穆夏的十个色块均只显示「穆夏」。
-  不附组内序号或编号提示；内部 `originalCode` 仍为空，颜色通过各自 HEX 区分。
+- 按用户最新要求，莫奈的十个色块按顺序显示 `121`–`130`，穆夏的十个色块显示 `141`–`150`。
+  这两组数字当前作为用户指定的显示编号，尚未从清晰的厂商编号图独立核实；内部 `originalCode` 仍为空，颜色通过各自 HEX 区分。
   穆夏也常译为“慕夏”，别名只辅助识别，不另建一套十色。
 - 高级灰组名是「风韵雅宋」，末字为“宋”，依据包装上的「風韻雅宋」。
-- 尚未核实两套的官方逐色色名，不按屏幕外观编造色名；使用已核实色号，未核实色号的莫奈、穆夏只用小系列名称。
+- 尚未核实两套的官方逐色色名，不按屏幕外观编造色名；莫奈、穆夏使用用户指定的编号作为网页显示标签。
 - 所有 HEX 均为**从图像取得的屏幕近似值，不是厂家发布的官方 RGB/HEX 或颜料标准测色值**。
   颜色数与原版分组已核实，不代表数字颜色与实体水彩在任何条件下完全一致。
 
@@ -50,9 +50,9 @@
 | --- | --- | --- | --- |
 | 葛饰北斋 | `101–110` | [产品页](https://lettersbyjessshop.com/products/acuarelas-supervision-los-grandes-artistas-de-la-acuarela-en-tubo-8ml-set-hokusai-x10) | [品牌色卡图](https://lettersbyjessshop.com/cdn/shop/files/acuarelas-supervision-los-grandes-artistas-de-la-acuarela-en-tubo-8ml-set-hokusai-x10-306732.jpg) |
 | 莫兰迪 | `111–120` | [产品页](https://lettersbyjessshop.com/products/acuarelas-supervision-los-grandes-artistas-de-la-acuarela-en-tubo-8ml-set-morandi-x10) | [品牌色卡图](https://lettersbyjessshop.com/cdn/shop/files/acuarelas-supervision-los-grandes-artistas-de-la-acuarela-en-tubo-8ml-set-giorgio-morandi-x10-673894.jpg) |
-| 莫奈 | 「莫奈」；原色号未核实 | [产品页](https://www.walmart.com/ip/16493361105) | [品牌色卡图](https://i5.walmartimages.com/asr/4389165f-1b68-4861-a656-83fffd11ef78.89c8311f0a2d2cf3ac35010705ad85f0.jpeg) |
+| 莫奈 | `121–130`（用户指定显示编号） | [产品页](https://www.walmart.com/ip/16493361105) | [品牌色卡图](https://i5.walmartimages.com/asr/4389165f-1b68-4861-a656-83fffd11ef78.89c8311f0a2d2cf3ac35010705ad85f0.jpeg) |
 | 梵高 | `131–140` | [产品页](https://lettersbyjessshop.com/products/acuarelas-supervision-los-grandes-artistas-de-la-acuarela-en-tubo-8ml-set-van-gogh-x10) | [品牌色卡图](https://lettersbyjessshop.com/cdn/shop/files/acuarelas-supervision-los-grandes-artistas-de-la-acuarela-en-tubo-8ml-set-van-gogh-x10-868505.jpg) |
-| 穆夏（慕夏） | 「穆夏」；原色号未核实 | [产品页](https://www.walmart.com/ip/16493361105) | [品牌色卡图](https://i5.walmartimages.com/asr/4389165f-1b68-4861-a656-83fffd11ef78.89c8311f0a2d2cf3ac35010705ad85f0.jpeg) |
+| 穆夏（慕夏） | `141–150`（用户指定显示编号） | [产品页](https://www.walmart.com/ip/16493361105) | [品牌色卡图](https://i5.walmartimages.com/asr/4389165f-1b68-4861-a656-83fffd11ef78.89c8311f0a2d2cf3ac35010705ad85f0.jpeg) |
 
 同一套装的手涂水彩色样另可在
 [Grandado 的十色系列产品页](https://esp.grandado.com/products/acuarela-solida-super-vision-conjunto-de-pintura-de-acuarela-de-artista-suministros-de-arte-morandi-macaron-candy-advanced-gray-10-colores-1ml?variant=UHJvZHVjdFZhcmlhbnQ6NDU0MjU1Nzg4)
@@ -130,7 +130,7 @@
 或原厂可核验链接。补充资料应能辨认每组名称、十个颜色及其对应原色号。
 在资料齐全前，不根据电影名自行配色，不拿其他套装凑数，也不添加可选但虚假的
 “电影 60 色”占位预设。莫奈、穆夏若补到可读的带编号色卡，再把对应二十色的
-内部 `originalCode` 补为已核实原色号；界面继续优先服从用户的简洁命名偏好，
+内部 `originalCode` 补为已核实原色号；当前界面的显示编号沿用用户指定的 `121–130` 和 `141–150`，
 保留小系列身份、顺序及既有工程的套装关联。
 
 以下是本功能的维护检查要求，不表示已经完成真实浏览器或线上验收：
@@ -140,7 +140,7 @@
 2. 视爵紧凑模式连续五列，按色系模式每组两行五列；切回 Copic 后恢复六列。
    紧凑模式不保留分组造成的断行，按色系模式不重新按色相聚类。
 3. 核对高级灰 `001`–`060` 的前导零，以及葛饰北斋、莫兰迪、梵高的已核实范围。
-   莫奈、穆夏只显示组名，不出现组内序号或编号警告；保留穆夏／慕夏别名。
+   莫奈编号为 `121–130`、穆夏编号为 `141–150`；保留穆夏／慕夏别名。
 4. 两套视爵默认按色彩距离进行概括，算法保留黑白、透明度、左右预设同步和工程恢复
    沿用现有行为；Copic 的色彩／明暗规则不因新增品牌改变。
 5. 点选色块能同步当前画笔与原生调色盘；换套装、换参考图及 PDF 页时，概括用色

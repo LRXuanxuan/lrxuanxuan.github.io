@@ -28,15 +28,17 @@ test('Four requested sets use color; specialty sets use lightness and all keep f
   }
 });
 
-test('Super Vision preserves ten-color series, leading zeros and simple series labels for unknown codes', () => {
+test('Super Vision preserves ten-color series, user-numbered Monet/Mucha colors and leading zeros', () => {
   const artist = palettes.find(p => p.id === 'supervision-artists50');
   const gray = palettes.find(p => p.id === 'supervision-gray60');
   assert.deepEqual(Array.from(artist.groups, g => g.name), ['葛饰北斋', '莫兰迪', '莫奈', '梵高', '穆夏']);
   assert.deepEqual(Array.from(gray.groups, g => g.name), ['棉花糖', '普罗旺斯', '仲夏游园', '风韵雅宋', '落日旅行', '长安宫乐']);
   assert.deepEqual(Array.from(gray.swatches, c => c.code), Array.from({ length: 60 }, (_, i) => String(i + 1).padStart(3, '0')));
   assert.equal(artist.swatches.filter(c => c.originalCode === null).length, 20);
-  for (const group of artist.groups.filter(g => ['莫奈', '穆夏'].includes(g.name))) {
-    assert.ok(group.swatches.every(c => c.code === group.name && c.name === group.name && c.originalCode === null));
+  for (const [name, first] of [['莫奈', 121], ['穆夏', 141]]) {
+    const group = artist.groups.find(g => g.name === name);
+    assert.deepEqual(Array.from(group.swatches, c => c.code), Array.from({ length: 10 }, (_, i) => String(first + i)));
+    assert.ok(group.swatches.every(c => c.name === name && c.originalCode === null), 'Assigned display numbers are not asserted as verified factory codes');
   }
   for (const [p, count] of [[artist, 50], [gray, 60]]) {
     assert.equal(p.category, '视爵水彩'); assert.equal(p.columns, 5);
