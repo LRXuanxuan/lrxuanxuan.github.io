@@ -11,7 +11,7 @@
     try {
       if (localStorage.getItem(layoutKey) === 'grouped') layout = 'grouped';
     } catch (_) {}
-    const catalog = new Map();
+    const catalog = [];
     const basics = window.DrawingPaletteMap.describe(palettes[0]).swatches.filter(color => color.base);
     const storageKey = 'lrx-drawing-favorite-colors-v1';
     let favorites = [];
@@ -20,16 +20,20 @@
       if (Array.isArray(saved)) favorites = saved.filter(c => typeof c === 'string' && /^#[a-f0-9]{6}$/.test(c));
     } catch (_) {}
 
-    const kitOptions = document.createElement('optgroup'), chartOptions = document.createElement('optgroup');
-    kitOptions.label = 'Copic Sketch 原厂套装'; chartOptions.label = 'Copic Sketch 全系列';
+    const optionGroups = new Map();
     for (const palette of palettes) {
+      const category = palette.category || (palette.id === 'sketch-chart' ? 'Copic Sketch 全系列' : 'Copic Sketch 原厂套装');
+      if (!optionGroups.has(category)) {
+        const group = document.createElement('optgroup');
+        group.label = category; optionGroups.set(category, group);
+      }
       const option = document.createElement('option');
       option.value = palette.id; option.textContent = palette.name;
-      (palette.id === 'sketch-chart' ? chartOptions : kitOptions).append(option);
-      for (const color of palette.swatches) catalog.set(color.code, color);
+      optionGroups.get(category).append(option);
+      catalog.push(...palette.swatches);
     }
-    menu.append(kitOptions, chartOptions);
-    const byHex = new Map(Array.from(catalog.values(), color => [color.hex, color]));
+    menu.append(...optionGroups.values());
+    const byHex = new Map(catalog.map(color => [color.hex, color]));
     basics.forEach(color => byHex.set(color.hex, color));
 
     function makeButton(color, label = color.code) {
@@ -57,16 +61,19 @@
       const preset = palettes.find(p => p.id === menu.value) || palettes[0];
       const rows = layout === 'compact' ? [{ name: '', swatches: preset.swatches }] : preset.groups;
       library.classList.add('marker-library');
+      library.style.setProperty('--palette-columns', String(preset.columns || 6));
       library.replaceChildren(); library.scrollTop = 0;
       rows.forEach(group => library.append(makeRow(group)));
       layoutButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.paletteLayout === layout)));
       byId('paletteDescription').textContent = preset.description || '';
       const source = byId('swatchSource');
       source.href = preset.source;
-      source.textContent = (preset.id === 'sketch-chart' ? 'Copic 官方色卡' : '核对原厂套装') + ' ↗ · 屏幕近似色';
+      source.textContent = (preset.sourceLabel || (preset.id === 'sketch-chart' ? 'Copic 官方色卡' : '核对原厂套装')) + ' ↗ · 屏幕近似色';
+      syncInk();
     }
     function syncInk() {
-      const hex = getInk(), color = byHex.get(hex), saved = favorites.includes(hex);
+      const hex = getInk(), preset = palettes.find(p => p.id === menu.value);
+      const color = basics.find(c => c.hex === hex) || (preset && preset.swatches.find(c => c.hex === hex)) || byHex.get(hex), saved = favorites.includes(hex);
       byId('inkReadout').textContent = color ? color.code + ' · ' + color.name : hex.toUpperCase();
       byId('rememberColor').textContent = saved ? '移出收藏' : '收藏当前色';
       byId('rememberColor').title = (saved ? '移除 ' : '在此浏览器收藏 ') + hex.toUpperCase();

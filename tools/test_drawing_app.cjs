@@ -728,10 +728,10 @@ async function main() {
     element('exportDialog').close();
   });
 
-  await test('Copic presets select the required matching method and keep black/white outside the six-column card', async () => {
+  await test('Preset matching methods and fixed black/white work across palette brands', async () => {
     await fresh();
     assert.equal(doc.getElementById('swatchSearch'), null, 'The withdrawn swatch search is not left in the UI');
-    const colorPresets = new Set(['sketch12-set', 'sketch36-set', 'sketchcomic24-set', 'sketch-chart']);
+    const colorPresets = new Set(['sketch12-set', 'sketch36-set', 'sketchcomic24-set', 'sketch-chart', 'supervision-artists50', 'supervision-gray60']);
     doc.querySelector('[data-palette-layout="compact"]').click();
     for (const preset of win.DrawingPalettes) {
       select('palettePreset', preset.id); await settle();
@@ -747,6 +747,71 @@ async function main() {
       select('palettePreset', id); await settle();
       assert.equal(element('presetSwatches').querySelectorAll('button').length, count);
     }
+  });
+
+  await test('Super Vision keeps ten-color groups, compact order and five columns while Copic returns to six', async () => {
+    await fresh();
+    const image = native.createCanvas(12, 4), ctx = image.getContext('2d');
+    ['#000000', '#de7c91', '#ffffff'].forEach((color, index) => {
+      ctx.fillStyle = color; ctx.fillRect(index * 4, 0, 4, 4);
+    });
+    await app.ref.load(new File([image.toBuffer('image/png')], 'palette-columns.png', { type: 'image/png' }));
+    click('previewPalette'); await settle();
+    assert.equal(app.ref.getInfo().mode, 'copic');
+    const library = element('presetSwatches'), reference = element('referenceSwatches');
+    const order = container => Array.from(container.querySelectorAll('button'), button => [button.textContent, button.dataset.color]);
+    function checkColumnsAndBasics(columns) {
+      for (const container of [library, reference]) {
+        assert.equal(container.style.getPropertyValue('--palette-columns'), String(columns), container.id);
+      }
+      assert.ok(reference.classList.contains('copic-swatches'));
+      const basics = element('baseSwatches');
+      assert.deepEqual(Array.from(basics.querySelectorAll('button'), button => button.dataset.color).sort(), ['#000000', '#ffffff']);
+      assert.equal(basics.hidden, false); assert.equal(library.contains(basics), false);
+      for (const hex of ['#000000', '#ffffff']) {
+        assert.ok(reference.querySelector('[data-color="' + hex + '"]'), 'Reference summary always retains ' + hex);
+      }
+    }
+    for (const [id, groupCount, menu] of [['supervision-artists50', 5, 'palettePreset'], ['supervision-gray60', 6, 'referenceCopicPreset']]) {
+      const preset = win.DrawingPalettes.find(item => item.id === id);
+      assert.ok(preset, 'Missing Super Vision preset ' + id);
+      select(menu, id); await settle();
+      assert.equal(element('palettePreset').value, id); assert.equal(element('referenceCopicPreset').value, id);
+      doc.querySelector('[data-palette-layout="grouped"]').click(); await settle();
+      const groups = Array.from(library.querySelectorAll('.marker-row'));
+      assert.equal(groups.length, groupCount);
+      assert.equal(library.querySelectorAll('.marker-chips').length, groupCount);
+      groups.forEach(group => assert.equal(group.querySelectorAll('.marker-chips > button').length, 10, 'Each original mini-series occupies two five-color rows'));
+      assert.deepEqual(groups.map(group => group.querySelector('span').textContent), Array.from(preset.groups, group => group.name));
+      const groupedOrder = order(library);
+      assert.equal(groupedOrder.length, groupCount * 10);
+      assert.deepEqual(groupedOrder, Array.from(preset.swatches, color => [color.code, color.hex]));
+      checkColumnsAndBasics(5);
+      doc.querySelector('[data-palette-layout="compact"]').click(); await settle();
+      assert.equal(library.querySelectorAll('.marker-chips').length, 1, 'Compact mode has one uninterrupted grid');
+      assert.equal(library.querySelectorAll('.marker-row > span').length, 0, 'Compact mode has no group breaks');
+      assert.deepEqual(order(library), groupedOrder, 'Switching layout preserves original color order');
+      checkColumnsAndBasics(5);
+    }
+    doc.querySelector('[data-ref-mode="original"]').click(); await settle();
+    assert.equal(reference.classList.contains('copic-swatches'), false);
+    assert.equal(reference.style.getPropertyValue('--palette-columns'), '', 'Ordinary extracted reference colors keep their original layout');
+    for (const palette of ['gray', 'color']) {
+      select('referencePalette', palette);
+      assert.deepEqual(Array.from(reference.querySelectorAll('button'), button => button.dataset.color), plain(app.ref.getInfo().palettes[palette]));
+    }
+    doc.querySelector('[data-ref-mode="copic"]').click(); await settle();
+    checkColumnsAndBasics(5);
+    select('referenceCopicPreset', 'sketch12-set'); await settle();
+    assert.equal(element('palettePreset').value, 'sketch12-set');
+    for (const layout of ['grouped', 'compact']) {
+      doc.querySelector('[data-palette-layout="' + layout + '"]').click(); await settle();
+      checkColumnsAndBasics(6);
+      assert.equal(library.querySelectorAll('button').length, 12, 'Returning to Copic retains its original card');
+    }
+    // New drawing canvases retain reference settings, so restore the mode this
+    // UI exercise changed before the next test loads its reference fixture.
+    doc.querySelector('[data-ref-mode="original"]').click(); await settle();
   });
 
   await test('Copic reference UI uses only its palette, synchronizes menus and restores projects without a redundant image', async () => {

@@ -30,7 +30,8 @@
       if (!seen.has(hex)) { swatches.push(Object.assign({}, color, { hex: hex, base: false })); seen.add(hex); }
     }
     swatches.push({ code: '白', name: '背景白', hex: '#ffffff', base: true, role: 'background' });
-    return { id: preset.id || '', name: preset.name || '', method: colorSets.has(preset.id) ? 'color' : 'gray', swatches: swatches };
+    const method = preset.matchMethod === 'color' || (preset.matchMethod !== 'gray' && colorSets.has(preset.id)) ? 'color' : 'gray';
+    return { id: preset.id || '', name: preset.name || '', method: method, swatches: swatches };
   }
   function map(image, preset) {
     const width = image && image.width, height = image && image.height;

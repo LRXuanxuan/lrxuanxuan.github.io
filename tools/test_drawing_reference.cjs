@@ -165,7 +165,7 @@ async function main(){
     const found=await bridge.take(id);assert.equal(found.name,'private.png');assert.equal(await found.original.text(),'local pixels');
     await assert.rejects(bridge.take(id),/领取或已过期/);await assert.rejects(bridge.take('invalid'),/无效/);
   });
-  const reference=await environment('<!doctype html><script src="/assets/drawing-studio/palettes.js"></script><script src="/assets/drawing-studio/palette-map.js"></script><script src="/assets/drawing-studio/reference.js"></script>');
+  const reference=await environment('<!doctype html><script src="/assets/drawing-studio/palettes.js"></script><script src="/assets/drawing-studio/palettes-supervision.js"></script><script src="/assets/drawing-studio/palette-map.js"></script><script src="/assets/drawing-studio/reference.js"></script>');
   const win=reference.window; let changed=0;const ref=new win.DrawingReference({onChange(){changed++;}});
   const source=native.createCanvas(72,48),ctx=source.getContext('2d');
   ctx.fillStyle='#d03020';ctx.fillRect(0,0,24,48);ctx.fillStyle='#20a060';ctx.fillRect(24,0,24,48);ctx.fillStyle='#3060d0';ctx.fillRect(48,0,24,48);ctx.clearRect(0,0,7,7);
@@ -173,7 +173,7 @@ async function main(){
   await test('Official Sketch sets and the full chart preserve unique ink codes, names and product sources',async()=>{
     assert.equal(win.DrawingPalettes[0].id,'sketch36-set');
     assert.equal(new Set(win.DrawingPalettes.map(p=>p.id)).size,win.DrawingPalettes.length);
-    for(const palette of win.DrawingPalettes){assert.ok(palette.id&&palette.name);assert.ok(palette.colors.every(c=>/^#[a-f0-9]{6}$/i.test(c)));assert.equal(new Set(palette.colors).size,palette.colors.length);}
+    for(const palette of win.DrawingPalettes.filter(p=>p.id.startsWith('sketch'))){assert.ok(palette.id&&palette.name);assert.ok(palette.colors.every(c=>/^#[a-f0-9]{6}$/i.test(c)));assert.equal(new Set(palette.colors).size,palette.colors.length);}
     for(const [id,size] of [['sketch36-set',36],['sketchcomic24-set',24],['sketch6-set-portrait',6],['sketch12cg-set',12],['sketch-chart',357]]){
       const palette=win.DrawingPalettes.find(p=>p.id===id);
       assert.equal(palette.colors.length,size);
@@ -182,7 +182,7 @@ async function main(){
       assert.ok(grouped.every(s=>s.officialName&&s.name&&s.code&&s.code!=='0'));
       assert.equal(new Set(grouped.map(s=>s.code)).size,size);
     }
-    assert.ok(win.DrawingPalettes.every(p=>p.source.startsWith('https://copic.jp/en/')));
+    assert.ok(win.DrawingPalettes.filter(p=>p.id.startsWith('sketch')).every(p=>p.source.startsWith('https://copic.jp/en/')));
     const portrait=win.DrawingPalettes.find(p=>p.id==='sketch6-set-portrait');
     assert.deepEqual(Array.from(portrait.swatches,s=>s.code),['E000','E00','E11','E15','E18','E93']);
   });

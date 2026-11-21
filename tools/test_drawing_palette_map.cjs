@@ -6,6 +6,7 @@ const vm = require('node:vm');
 const mapper = require('../assets/drawing-studio/palette-map.js');
 const scope = { window: {} };
 vm.runInNewContext(fs.readFileSync(path.join(__dirname, '../assets/drawing-studio/palettes.js'), 'utf8'), scope);
+vm.runInNewContext(fs.readFileSync(path.join(__dirname, '../assets/drawing-studio/palettes-supervision.js'), 'utf8'), scope);
 const palettes = scope.window.DrawingPalettes;
 const pixels = (...values) => ({ width: values.length, height: 1, data: new Uint8ClampedArray(values.flat()) });
 const rgb = hex => [parseInt(hex.slice(1, 3), 16), parseInt(hex.slice(3, 5), 16), parseInt(hex.slice(5, 7), 16)];
@@ -14,7 +15,7 @@ let passed = 0;
 function test(name, fn) { fn(); passed++; console.log('PASS ' + name); }
 
 test('Four requested sets use color; specialty sets use lightness and all keep fixed black/white', () => {
-  for (const p of palettes) {
+  for (const p of palettes.filter(p => p.id.startsWith('sketch'))) {
     const view = mapper.describe(p);
     assert.equal(view.method, ['sketch12-set', 'sketch36-set', 'sketchcomic24-set', 'sketch-chart'].includes(p.id) ? 'color' : 'gray');
     assert.equal(view.swatches[0].hex, '#000000');
@@ -22,6 +23,30 @@ test('Four requested sets use color; specialty sets use lightness and all keep f
     assert.ok(view.swatches[0].base && view.swatches.at(-1).base);
     assert.notEqual(view.swatches.at(-1).code, '0');
     assert.deepEqual(view.swatches.slice(1, -1).map(s => s.code), Array.from(p.swatches, s => s.code));
+  }
+});
+
+test('Super Vision preserves its original ten-color series, leading zeros and explicitly unknown codes', () => {
+  const artist = palettes.find(p => p.id === 'supervision-artists50');
+  const gray = palettes.find(p => p.id === 'supervision-gray60');
+  assert.deepEqual(Array.from(artist.groups, g => g.name), ['葛饰北斋', '莫兰迪', '莫奈', '梵高', '穆夏']);
+  assert.deepEqual(Array.from(gray.groups, g => g.name), ['棉花糖', '普罗旺斯', '仲夏游园', '风韵雅宋', '落日旅行', '长安宫乐']);
+  assert.deepEqual(Array.from(gray.swatches, c => c.code), Array.from({ length: 60 }, (_, i) => String(i + 1).padStart(3, '0')));
+  assert.equal(artist.swatches.filter(c => c.originalCode === null).length, 20);
+  for (const group of artist.groups.filter(g => ['莫奈', '穆夏'].includes(g.name))) {
+    assert.deepEqual(Array.from(group.swatches, c => c.code), Array.from({ length: 10 }, (_, i) => group.name + '·' + (i + 1)));
+    assert.ok(group.swatches.every(c => c.originalCode === null && c.name.includes('非原厂色号')));
+  }
+  for (const [p, count] of [[artist, 50], [gray, 60]]) {
+    assert.equal(p.category, '视爵水彩'); assert.equal(p.columns, 5);
+    assert.equal(p.swatches.length, count);
+    assert.ok(p.groups.every(g => g.swatches.length === 10));
+    assert.equal(new Set(p.swatches.map(c => c.code)).size, count);
+    assert.ok(p.swatches.every(c => /^#[a-f0-9]{6}$/.test(c.hex)));
+    const description = mapper.describe(p);
+    assert.equal(description.method, 'color'); assert.equal(description.swatches.length, count + 2);
+    const input = pixels(...description.swatches.map(c => [...rgb(c.hex), 255]));
+    assert.deepEqual(mapper.map(input, p).data, input.data, 'Exact source swatches and fixed black/white must survive mapping');
   }
 });
 

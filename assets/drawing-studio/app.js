@@ -777,8 +777,11 @@
   }
   function renderReferencePalette() {
     if (!ref) return; const info = ref.getInfo(), copic = info.mode === 'copic';
-    $('referenceSwatches').classList.toggle('copic-swatches', copic);
-    swatches($('referenceSwatches'), copic ? info.paletteSwatches : info.palettes[$('referencePalette').value] || []);
+    const container = $('referenceSwatches'), preset = window.DrawingPalettes.find(p => p.id === info.paletteId);
+    container.classList.toggle('copic-swatches', copic);
+    if (copic) container.style.setProperty('--palette-columns', String(preset?.columns || 6));
+    else container.style.removeProperty('--palette-columns');
+    swatches(container, copic ? info.paletteSwatches : info.palettes[$('referencePalette').value] || []);
   }
   function updateCopicPalette(id, show = false) {
     return work(() => {

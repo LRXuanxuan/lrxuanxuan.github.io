@@ -10,22 +10,23 @@
   <meta name="description" content="轻量本地画室：压感笔刷、自由调色、图层、形状文字、材质填充、参考图与 PDF、透明抠图及 SVG 导出。作品留在自己的浏览器。">
   <title>轻绘 · 本地画室 · Ruixuan's Corner</title>
   <script>try{var t=localStorage.getItem('theme');document.documentElement.dataset.theme=t==='dark'||t==='light'?t:(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');}catch(e){}</script>
-  <link rel="stylesheet" href="assets/drawing-studio/style.css?v=20261121-7">
+  <link rel="stylesheet" href="assets/drawing-studio/style.css?v=20261121-8">
   <link rel="stylesheet" href="assets/drawing-studio/studio-ui.css?v=20261121-9">
   <link rel="stylesheet" href="assets/drawing-studio/color-controls.css?v=20261121-1">
   <script src="assets/drawing-studio/core.js?v=20261121-9" defer></script>
   <script src="assets/drawing-studio/marks.js?v=20261121-9" defer></script>
   <script src="assets/drawing-studio/color-controls.js?v=20261121-1" defer></script>
   <script src="assets/drawing-studio/palettes.js?v=20261121-9" defer></script>
-  <script src="assets/drawing-studio/palette-map.js?v=20261121-1" defer></script>
-  <script src="assets/drawing-studio/color-library.js?v=20261121-11" defer></script>
+  <script src="assets/drawing-studio/palettes-supervision.js?v=20261121-1" defer></script>
+  <script src="assets/drawing-studio/palette-map.js?v=20261121-2" defer></script>
+  <script src="assets/drawing-studio/color-library.js?v=20261121-12" defer></script>
   <script src="assets/drawing-studio/bridge.js?v=20261121-9" defer></script>
   <script src="assets/drawing-studio/storage.js?v=20261121-9" defer></script>
   <script src="assets/drawing-studio/reference.js?v=20261121-5" defer></script>
   <script src="assets/drawing-studio/canvas-presets.js?v=20261121-1" defer></script>
   <script src="assets/drawing-studio/textures/paper001.js?v=1" defer></script>
   <script src="assets/drawing-studio/paper.js?v=20261121-9" defer></script>
-  <script src="assets/drawing-studio/app.js?v=20261121-10" defer></script>
+  <script src="assets/drawing-studio/app.js?v=20261121-11" defer></script>
 </head>
 <body>
   <svg class="studio-symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="0" height="0"><defs>
@@ -97,7 +98,7 @@
           <button data-ref-mode="copic" aria-pressed="false">色卡概括</button>
         </div>
         <div id="referenceCopicControls" hidden>
-          <label class="field">概括用色卡<select id="referenceCopicPreset" aria-label="概括用 Copic 色卡"></select></label>
+          <label class="field">概括用色卡<select id="referenceCopicPreset" aria-label="概括用色卡"></select></label>
           <p id="referenceCopicMethod" class="hint" aria-live="polite"></p>
         </div>
         <div class="pdf-navigation" id="pdfNavigation" hidden>
@@ -311,7 +312,7 @@
 
   <dialog id="draftDialog"><div class="dialog-title"><h2>旧版草稿</h2><button type="button" data-close="draftDialog" aria-label="关闭">×</button></div><p class="hint">这些是更新前留下的画作。打开后将替换当前作品，可用「存工程」另存一份。</p><div id="draftList"></div></dialog>
 
-  <dialog id="helpDialog"><div class="dialog-title"><h2>轻绘使用说明</h2><button type="button" data-close="helpDialog" aria-label="关闭">×</button></div><div class="help-content"><h3>开始画画</h3><p>从顶部选择笔刷，或点击右侧笔迹打开笔刷库。每支笔和橡皮分别记住大小、浓度、防抖和压感。下次在同一浏览器打开，或换一张画布，都会沿用上次的手感。要从头调一支笔，可点“恢复这支笔的推荐参数”。马克笔可分笔叠色，针管笔保持等宽，像素笔沿整数网格落笔。</p><p>数位板连接后看底部输入状态。浏览器需要收到“数位笔”事件才能使用真实压力；若一直显示鼠标，请检查 Wacom 驱动的 Windows Ink 设置，并试用最新的 Chrome 或 Edge。这里的几种笔刷是轻量数字近似。</p><h3>参考图与 PDF</h3><p>左侧选择、拖入或粘贴参考图，支持原图、灰度归纳、有限色彩、线稿和色卡概括五种显示。色卡概括用选定的 Copic 套装重绘参考：基础 12 色、基础 36 色、漫画插画 24 色和全色号按色彩匹配，其余套装按明暗关系选择该套装的实际墨色。每套都补上纯黑与纯白，供线稿和背景使用。下方概括用色列出实际使用的色号及黑白，点击即可取色。预览区会随图像及 PDF 当前页的宽高比调整，长页可在左栏独立滚动。拖动参考栏右边界可以改变栏宽与参考显示大小；拖动图像可移动，滚轮可缩放；点击“取色”后从图上吸色，或者直接点色卡。PDF 支持按需读取至 1 GiB。输入页码按回车直接跳转，双箭头可到首页或末页。超过 80 MiB 的 PDF 在工程和草稿中保存当前页快照；重开后选回原 PDF 即可继续翻页。归纳练习室的“带参考去画画”会保留已调整的参考结果。</p><h3>图层、填充与抠图</h3><p>图层从上到下叠放，可改名、隐藏、锁定、移动、缩放、复制和删除。油漆桶默认参考全部可见层、填在当前层；可把线稿放上层，在下层填色。“抠图”从点击处抠除相近颜色，降低容差可少抠一些；它不识别人像或物体，用橡皮擦可继续修边。抠白底与设置透明纸张是两项独立操作。</p><h3>自由调色、形状与文字</h3><p>右侧「色卡」提供 Copic Sketch 原厂套装和全色号，可切换紧凑排列与按色系分组；线稿黑和背景白始终可用。选好套装后点“用这套色卡概括参考”，可在左侧查看上色参考。「自由调色」里可调色相、饱和度和明亮度，或输入 HEX、RGB。形状工具提供 18 种图形和 4 种画框。画框可自定框体、饰线和宽度，选择“沿整张画布加框”可把边框单独放到顶部图层。拖动定义大小，松手放置；按 Shift 锁定比例，画直线或箭头时可按 45° 对齐方向。文字工具可选纯文字或对白框、折角便笺等五种文本框，输入文字、选择字体与框色后点击画布放置；使用本机字体，未安装的字体会自动替代。</p><p>形状和文字落下后写入当前像素图层，可撤销；如需独立移动和缩放，先新建图层。拖动中按 Esc 可以取消。油漆桶可填相近色、给已有笔迹改色，或铺满整个图层。形状、文字与油漆桶共用排线、点描、编织、棋盘格等材质，以及线性、径向和镜像渐变。打开透明背景可以透出下层。素材现场生成，不下载图片或字体包。</p><h3>保存与导出</h3><p>“存工程”保存 .lrxdraw 文件，保留图层、调色和参考；“打开”可继续编辑。画室只自动保存正在画的这一幅。用同一浏览器回来，会直接恢复画布、图层、纸纹和参考。新建、打开另一幅或确认丢进废纸篓都会替换当前作品。清理网站数据会清除本机续画与笔刷偏好。PNG / WebP 可保透明，JPEG 会铺背景。SVG 会将画作归纳为实色轮廓，适合有限色块与线稿。所有导出都不含参考面板。</p><p>PDF 解析组件仅在需要时从本站加载；图像和 PDF 内容都在浏览器里处理，不上传。普通画板没有外部框架、字体或分析服务。</p><h3>快捷键</h3><dl class="shortcuts"><dt>P / Enter</dt><dd>钢笔路径 / 确认描边，Shift + Enter 闭合填色</dd><dt>B / E / G / I</dt><dd>画笔 / 橡皮 / 填充 / 取色</dd><dt>V / H</dt><dd>移层 / 平移</dd><dt>U / T</dt><dd>形状 / 文字</dd><dt>Shift / Esc</dt><dd>锁定形状比例 / 取消当前放置</dd><dt>空格 + 拖动</dt><dd>临时平移画布</dd><dt>Alt + 点选</dt><dd>从画作或参考取色</dd><dt>[ / ]</dt><dd>减小 / 增大画笔</dd><dt>Ctrl / ⌘ Z</dt><dd>撤销；在画布上点右键也可撤销一步</dd><dt>Ctrl / ⌘ Shift Z</dt><dd>重做</dd><dt>Ctrl / ⌘ S</dt><dd>保存工程</dd><dt>Tab</dt><dd>专注模式（输入框外）</dd><dt>0 / 1</dt><dd>适应画布 / 100%</dd></dl><p class="hint">单边 32–4096 px，最多 12 百万像素；图层总像素与撤销记录均有限额。大画布、很多图层或复杂 SVG 会增加内存和处理时间。</p></div></dialog>
+  <dialog id="helpDialog"><div class="dialog-title"><h2>轻绘使用说明</h2><button type="button" data-close="helpDialog" aria-label="关闭">×</button></div><div class="help-content"><h3>开始画画</h3><p>从顶部选择笔刷，或点击右侧笔迹打开笔刷库。每支笔和橡皮分别记住大小、浓度、防抖和压感。下次在同一浏览器打开，或换一张画布，都会沿用上次的手感。要从头调一支笔，可点“恢复这支笔的推荐参数”。马克笔可分笔叠色，针管笔保持等宽，像素笔沿整数网格落笔。</p><p>数位板连接后看底部输入状态。浏览器需要收到“数位笔”事件才能使用真实压力；若一直显示鼠标，请检查 Wacom 驱动的 Windows Ink 设置，并试用最新的 Chrome 或 Edge。这里的几种笔刷是轻量数字近似。</p><h3>参考图与 PDF</h3><p>左侧选择、拖入或粘贴参考图，支持原图、灰度归纳、有限色彩、线稿和色卡概括五种显示。色卡概括用选定的预设色卡重绘参考：Copic 基础 12 色、基础 36 色、漫画插画 24 色和全色号按色彩匹配，其余 Copic 套装按明暗关系选色；视爵水彩按色彩匹配。每套都补上纯黑与纯白，供线稿和背景使用。下方概括用色列出实际使用的色号及黑白，点击即可取色。预览区会随图像及 PDF 当前页的宽高比调整，长页可在左栏独立滚动。拖动参考栏右边界可以改变栏宽与参考显示大小；拖动图像可移动，滚轮可缩放；点击“取色”后从图上吸色，或者直接点色卡。PDF 支持按需读取至 1 GiB。输入页码按回车直接跳转，双箭头可到首页或末页。超过 80 MiB 的 PDF 在工程和草稿中保存当前页快照；重开后选回原 PDF 即可继续翻页。归纳练习室的“带参考去画画”会保留已调整的参考结果。</p><h3>图层、填充与抠图</h3><p>图层从上到下叠放，可改名、隐藏、锁定、移动、缩放、复制和删除。油漆桶默认参考全部可见层、填在当前层；可把线稿放上层，在下层填色。“抠图”从点击处抠除相近颜色，降低容差可少抠一些；它不识别人像或物体，用橡皮擦可继续修边。抠白底与设置透明纸张是两项独立操作。</p><h3>自由调色、形状与文字</h3><p>右侧「色卡」提供 Copic Sketch 套装、全色号和视爵水彩。紧凑模式连续排列，Copic 每行六色，视爵每行五色；按色系模式中，Copic 按颜色家族分组，视爵按原有的十色小系列排列，每组两行。线稿黑和背景白始终可用。选好套装后点“用这套色卡概括参考”，可在左侧查看上色参考。「自由调色」里可调色相、饱和度和明亮度，或输入 HEX、RGB。形状工具提供 18 种图形和 4 种画框。画框可自定框体、饰线和宽度，选择“沿整张画布加框”可把边框单独放到顶部图层。拖动定义大小，松手放置；按 Shift 锁定比例，画直线或箭头时可按 45° 对齐方向。文字工具可选纯文字或对白框、折角便笺等五种文本框，输入文字、选择字体与框色后点击画布放置；使用本机字体，未安装的字体会自动替代。</p><p>形状和文字落下后写入当前像素图层，可撤销；如需独立移动和缩放，先新建图层。拖动中按 Esc 可以取消。油漆桶可填相近色、给已有笔迹改色，或铺满整个图层。形状、文字与油漆桶共用排线、点描、编织、棋盘格等材质，以及线性、径向和镜像渐变。打开透明背景可以透出下层。素材现场生成，不下载图片或字体包。</p><h3>保存与导出</h3><p>“存工程”保存 .lrxdraw 文件，保留图层、调色和参考；“打开”可继续编辑。画室只自动保存正在画的这一幅。用同一浏览器回来，会直接恢复画布、图层、纸纹和参考。新建、打开另一幅或确认丢进废纸篓都会替换当前作品。清理网站数据会清除本机续画与笔刷偏好。PNG / WebP 可保透明，JPEG 会铺背景。SVG 会将画作归纳为实色轮廓，适合有限色块与线稿。所有导出都不含参考面板。</p><p>PDF 解析组件仅在需要时从本站加载；图像和 PDF 内容都在浏览器里处理，不上传。普通画板没有外部框架、字体或分析服务。</p><h3>快捷键</h3><dl class="shortcuts"><dt>P / Enter</dt><dd>钢笔路径 / 确认描边，Shift + Enter 闭合填色</dd><dt>B / E / G / I</dt><dd>画笔 / 橡皮 / 填充 / 取色</dd><dt>V / H</dt><dd>移层 / 平移</dd><dt>U / T</dt><dd>形状 / 文字</dd><dt>Shift / Esc</dt><dd>锁定形状比例 / 取消当前放置</dd><dt>空格 + 拖动</dt><dd>临时平移画布</dd><dt>Alt + 点选</dt><dd>从画作或参考取色</dd><dt>[ / ]</dt><dd>减小 / 增大画笔</dd><dt>Ctrl / ⌘ Z</dt><dd>撤销；在画布上点右键也可撤销一步</dd><dt>Ctrl / ⌘ Shift Z</dt><dd>重做</dd><dt>Ctrl / ⌘ S</dt><dd>保存工程</dd><dt>Tab</dt><dd>专注模式（输入框外）</dd><dt>0 / 1</dt><dd>适应画布 / 100%</dd></dl><p class="hint">单边 32–4096 px，最多 12 百万像素；图层总像素与撤销记录均有限额。大画布、很多图层或复杂 SVG 会增加内存和处理时间。</p></div></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
   <noscript><p class="no-script">需要启用 JavaScript 才能画画。作品只在本机浏览器处理。</p></noscript>
 </body>
