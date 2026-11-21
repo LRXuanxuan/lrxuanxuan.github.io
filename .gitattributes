@@ -14,3 +14,8 @@
 *.png binary
 *.jpg binary
 *.ico binary
+
+# Preserve audited upstream Spectral.js bytes, including CRLF, without placing
+# Git metadata in the offline assets (Android does not package dotfiles).
+assets/drawing-studio/vendor/spectral/spectral.js -text
+assets/drawing-studio/vendor/spectral/LICENSE -text
