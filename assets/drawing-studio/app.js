@@ -1315,18 +1315,6 @@
     setGeometry(); sync(); setBrush(brush); render(); fit(); lastReferenceKey = ''; referenceChanged(false); referenceCache = canonicalBundle; referenceCacheVersion = referenceVersion;
     $('saveStatus').textContent = '已打开 · 等待编辑'; $('canvasHint').hidden = true; status('已打开工程 · ' + art.title); return true;
   }
-  async function showDrafts() {
-    const records = await window.DrawingStorage.list(), list = $('draftList'); list.replaceChildren();
-    if (!records.length) { list.textContent = '还没有保存的本机草稿。'; }
-    for (const item of records) {
-      const row = document.createElement('div'); row.className = 'draft-item'; const label = document.createElement('div'), title = document.createElement('strong'), info = document.createElement('small');
-      title.textContent = item.title || '未命名画作'; info.textContent = new Date(item.savedAt).toLocaleString('zh-CN') + ' · ' + item.width + ' × ' + item.height + ' · ' + item.layerCount + ' 层'; label.append(title, info);
-      const button = document.createElement('button'); button.textContent = '打开'; button.addEventListener('click', safe(async () => {
-        await work(async () => { const record = await window.DrawingStorage.load(item.id); if (!record) throw new Error('这份草稿已不存在。'); await openCurrentProject(record.project); $('draftDialog').close(); }, '正在恢复旧版草稿…');
-      })); row.append(label, button); list.append(row);
-    }
-    $('draftDialog').showModal();
-  }
   async function exportRaster(type, transparent = false, quality = .92) {
     finishPointer(); const mime = type.startsWith('image/') ? type : 'image/' + (type === 'jpg' ? 'jpeg' : type), out = canvas(art.width, art.height);
     renderArtwork(out, transparent && mime !== 'image/jpeg', false);
@@ -1595,7 +1583,6 @@
       if (file.size > PROJECT_BYTES) throw new Error('工程文件超过 160 MB，请使用较小的工程。');
       await work(async () => { const text = new TextDecoder().decode(await blobArray(file)); await openCurrentProject(JSON.parse(text)); }, '正在打开工程…');
     });
-    on('restoreDraft', 'click', showDrafts);
     on('exportOpen', 'click', () => { finishPointer(); settleTransactions(); $('exportName').value = $('exportName').defaultValue = window.studioExportName(); $('exportTransparent').checked = art.paperOpacity === 0 && (art.paperTexture === 'none' || art.textureStrength === 0); exportSettings(); $('exportDialog').showModal(); });
     on('exportFormat', 'change', exportSettings); on('vectorMode', 'change', exportSettings); on('exportTransparent', 'change', exportSettings);
     on('quality', 'input', () => { $('qualityValue').textContent = $('quality').value + '%'; });
@@ -1698,7 +1685,6 @@
           await loadProject(current.project);
           $('saveStatus').textContent = '已保存到本机'; status('接着画 · ' + art.title);
         }
-        $('restoreDraft').hidden = !(await window.DrawingStorage.list()).length;
       } catch (error) { notifySaveError(error); }
     }, '正在读取当前作品…');
     // Exposed for local contract tests and inspection; no external services use it.
