@@ -623,8 +623,12 @@
   }
   function swatches(container, colors) {
     container.replaceChildren();
-    colors.forEach(color => {
-      const button = document.createElement('button'); button.style.setProperty('--swatch', color); button.title = color.toUpperCase(); button.setAttribute('aria-label', '取色 ' + color.toUpperCase()); button.setAttribute('aria-pressed', String(color.toLowerCase() === ink.toLowerCase())); button.dataset.color = color;
+    colors.forEach(entry => {
+      const sample = typeof entry === 'string' ? { hex: entry } : entry, color = sample.hex;
+      const button = document.createElement('button'); button.type = 'button';
+      if (sample.code) button.textContent = sample.code;
+      button.style.setProperty('--swatch', color); button.title = [...new Set([sample.code, sample.name, sample.officialName, color.toUpperCase()].filter(Boolean))].join(' · ');
+      button.setAttribute('aria-label', '取色 ' + button.title); button.setAttribute('aria-pressed', String(color.toLowerCase() === ink.toLowerCase())); button.dataset.color = color;
       button.addEventListener('click', () => setInk(color, true)); container.append(button);
     });
   }
@@ -722,6 +726,7 @@
   function createReference() {
     let instance;
     instance = new window.DrawingReference({
+      paletteId: colorLibrary ? colorLibrary.getPreset() : 'sketch36-set',
       onChange: () => { if (ref === instance) referenceChanged(); },
       onError: message => { if (ref === instance) status(message); },
       onStatus: message => { if (ref === instance) status(message || '参考已就绪'); }
@@ -735,6 +740,13 @@
     referencePort.style.aspectRatio = source && source.width > 0 && source.height > 0 ? source.width + ' / ' + source.height : '';
     out.hidden = !source; $('referenceEmpty').hidden = !!source; syncReferenceNavigation();
     $('referenceCount').value = info.count || 8;
+    const copic = info.mode === 'copic';
+    $('referenceCopicControls').hidden = !copic;
+    $('referenceCopicPreset').value = info.paletteId;
+    $('referenceCopicMethod').textContent = info.paletteMethod === 'color' ? '按色彩匹配 · 固定保留黑白' : '按明暗匹配 · 使用套装原色，保留黑白';
+    $('referencePaletteTitle').textContent = copic ? '概括用色' : '参考色卡';
+    $('referencePalette').hidden = $('referenceCountLabel').hidden = copic;
+    if (colorLibrary) colorLibrary.setPreset(info.paletteId, false);
     all('[data-ref-mode]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.refMode === info.mode)));
     const suffix = info.importedStudy ? (info.sourceMode === 'black' ? ' · 含练习室局部压黑' : ' · 来自归纳练习室') : '';
     $('referenceName').textContent = source ? info.name + suffix : '尚未放入参考'; $('referenceName').title = $('referenceName').textContent;
@@ -764,7 +776,16 @@
     finally { if (pendingPDFPage === request) { pendingPDFPage = null; syncReferenceNavigation(); } }
   }
   function renderReferencePalette() {
-    if (!ref) return; const info = ref.getInfo(); swatches($('referenceSwatches'), info.palettes[$('referencePalette').value] || []);
+    if (!ref) return; const info = ref.getInfo(), copic = info.mode === 'copic';
+    $('referenceSwatches').classList.toggle('copic-swatches', copic);
+    swatches($('referenceSwatches'), copic ? info.paletteSwatches : info.palettes[$('referencePalette').value] || []);
+  }
+  function updateCopicPalette(id, show = false) {
+    return work(() => {
+      ref.setPalette(id);
+      if (show) { ref.setMode('copic'); togglePanel('reference', true); }
+      status(ref.getCanvas() ? (ref.getInfo().mode === 'copic' ? '色卡概括已更新 · 点下方色号取色' : '已选择 ' + ref.getInfo().paletteName) : '请在左侧放入图片或 PDF。');
+    }, '正在更新概括色卡…');
   }
   function fitReference() {
     if (!ref || !ref.getCanvas()) return;
@@ -938,7 +959,7 @@
     if (bundle.version !== 1 || !bundle.views) throw new Error('工程参考数据无效。');
     const colors = values => Array.isArray(values) ? values.filter(c => typeof c === 'string' && /^#[a-f0-9]{6}$/i.test(c)).slice(0, 32) : [];
     return { version: 1, name: String(bundle.name || '参考图').slice(0, 180), original: decodeBlob(bundle.original), views: { gray: decodeBlob(bundle.views.gray), color: decodeBlob(bundle.views.color), line: decodeBlob(bundle.views.line) }, palettes: { color: colors(bundle.palettes && bundle.palettes.color), gray: colors(bundle.palettes && bundle.palettes.gray) },
-      selectedMode: ['original', 'gray', 'color', 'line'].includes(bundle.selectedMode) ? bundle.selectedMode : 'original', importedStudy: bundle.importedStudy !== false, sourceMode: ['value', 'color', 'line', 'black'].includes(bundle.sourceMode) ? bundle.sourceMode : '', page: number(bundle.page, 1), pageCount: bundle.pageCount, externalPDF: bundle.externalPDF ? { size: bundle.externalPDF.size, fingerprint: bundle.externalPDF.fingerprint } : null, count: clamp(number(bundle.count, 8), 2, 24), sourceFile: bundle.sourceFile ? decodeBlob(bundle.sourceFile, 'application/pdf') : null };
+      selectedMode: ['original', 'gray', 'color', 'line', 'copic'].includes(bundle.selectedMode) ? bundle.selectedMode : 'original', paletteId: window.DrawingPalettes.some(p => p.id === bundle.paletteId) ? bundle.paletteId : 'sketch36-set', importedStudy: bundle.importedStudy !== false, sourceMode: ['value', 'color', 'line', 'black'].includes(bundle.sourceMode) ? bundle.sourceMode : '', page: number(bundle.page, 1), pageCount: bundle.pageCount, externalPDF: bundle.externalPDF ? { size: bundle.externalPDF.size, fingerprint: bundle.externalPDF.fingerprint } : null, count: clamp(number(bundle.count, 8), 2, 24), sourceFile: bundle.sourceFile ? decodeBlob(bundle.sourceFile, 'application/pdf') : null };
   }
   async function loadProject(project, saveAsCurrent = false) {
     finishPointer();
@@ -1173,7 +1194,11 @@
     viewport.addEventListener('pointermove', e => { try { pointerMove(e); } catch (error) { finishPointer(); notify(error); } });
     for (const name of ['pointerup', 'pointercancel', 'lostpointercapture']) viewport.addEventListener(name, e => finishPointer(e));
     viewport.addEventListener('pointerleave', () => { $('brushCursor').hidden = true; });
-    viewport.addEventListener('contextmenu', e => e.preventDefault());
+    viewport.addEventListener('contextmenu', safe(e => {
+      e.preventDefault();
+      // Only a secondary mouse/pen click undoes; keyboard menus and touch holds do not.
+      if (e.button === 2 && e.pointerType !== 'touch' && !dialogOpen()) undo();
+    }));
     viewport.addEventListener('wheel', e => { e.preventDefault(); if (activePointer) return; const r = viewport.getBoundingClientRect(); zoomTo(view.zoom * Math.exp(-clamp(e.deltaY, -100, 100) * .002), e.clientX - r.left, e.clientY - r.top); }, { passive: false });
     window.addEventListener('blur', () => { finishPointer(); refPointer = null; spacePan = false; $('brushCursor').hidden = true; });
     function saveOnLeave() { finishPointer(); settleTransactions(); saveDraft().catch(notifySaveError); }
@@ -1185,7 +1210,9 @@
     on('referenceWidth', 'input', () => { if (referenceSplitter) referenceSplitter.setWidth($('referenceWidth').value); });
     on('referenceOpen', 'click', () => $('referenceFile').click());
     on('referenceFile', 'change', async () => { const file = $('referenceFile').files[0]; $('referenceFile').value = ''; await work(() => referenceFile(file), '正在读取参考…'); });
-    all('[data-ref-mode]').forEach(button => button.addEventListener('click', safe(() => ref.setMode(button.dataset.refMode))));
+    all('[data-ref-mode]').forEach(button => button.addEventListener('click', safe(() => button.dataset.refMode === 'copic' ? updateCopicPalette(colorLibrary.getPreset(), true) : ref.setMode(button.dataset.refMode))));
+    on('referenceCopicPreset', 'change', () => updateCopicPalette($('referenceCopicPreset').value));
+    on('previewPalette', 'click', () => updateCopicPalette(colorLibrary.getPreset(), true));
     on('referencePalette', 'change', renderReferencePalette);
     on('referenceCount', 'change', () => work(() => ref.setCount($('referenceCount').value), '正在归纳色卡…'));
     on('pdfFirst', 'click', () => jumpPDF(1)); on('pdfLast', 'click', () => jumpPDF(ref.getInfo().pageCount));
@@ -1300,7 +1327,7 @@
     } else window.addEventListener('resize', () => { fit(); resizeReferenceView(); });
   }
   async function initialize() {
-    if (!Core?.brushPresets || !Marks || !window.DrawingPalettes || !window.DrawingColorLibrary || !window.DrawingCanvasPresets || !window.DrawingPaper || !window.DrawingColorControls || !window.DrawingReference || !window.DrawingStorage) { notify('画板组件未加载完整，请刷新页面。'); return; }
+    if (!Core?.brushPresets || !Marks || !window.DrawingPalettes || !window.DrawingPaletteMap || !window.DrawingColorLibrary || !window.DrawingCanvasPresets || !window.DrawingPaper || !window.DrawingColorControls || !window.DrawingReference || !window.DrawingStorage) { notify('画板组件未加载完整，请刷新页面。'); return; }
     const groups = new Map();
     for (const preset of Core.brushPresets) {
       if (!groups.has(preset.group)) {
@@ -1310,7 +1337,8 @@
       const option = document.createElement('option'); option.value = preset.id; option.textContent = preset.name;
       groups.get(preset.group).append(option);
     }
-    colorLibrary = window.DrawingColorLibrary({ swatches, getInk: () => ink, setInk }); setInk(ink);
+    colorLibrary = window.DrawingColorLibrary({ swatches, getInk: () => ink, setInk, onPresetChange: id => { if (ref) updateCopicPalette(id).catch(notify); } }); setInk(ink);
+    $('referenceCopicPreset').append(...Array.from($('palettePreset').children, group => group.cloneNode(true)));
     try {
       const last = localStorage.getItem(brushKey + 'selected');
       if (Core.brushPresets.some(p => p.id === last)) brush = last;

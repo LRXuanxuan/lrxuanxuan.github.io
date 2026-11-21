@@ -3,7 +3,8 @@
   'use strict';
   var script = document.currentScript;
   var PDF_BASE = new URL('vendor/pdfjs/', script && script.src ? script.src : new URL('assets/drawing-studio/reference.js', document.baseURI)).href;
-  var pdfModule, MAX_SIDE = 1600, MODES = ['original', 'gray', 'color', 'line'];
+  var pdfModule, MAX_SIDE = 1600, MODES = ['original', 'gray', 'color', 'line', 'copic'];
+  var DEFAULT_PALETTE = 'sketch36-set';
   var EMBED_PDF_BYTES = 80 * 1024 * 1024, MAX_PDF_BYTES = 1024 * 1024 * 1024;
   var yieldFrame = function () { return new Promise(function (resolve) { setTimeout(resolve, 0); }); };
   function canvas(w, h) { var c = document.createElement('canvas'); c.width = w; c.height = h; return c; }
@@ -11,6 +12,20 @@
   function hex(rgb) { return '#' + rgb.map(function (v) { return Math.round(v).toString(16).padStart(2, '0'); }).join(''); }
   function grayValue(r, g, b) { return Math.round(r * 0.2126 + g * 0.7152 + b * 0.0722); }
   function validPalette(values) { return Array.isArray(values) ? values.filter(function (v) { return typeof v === 'string' && /^#[a-f0-9]{6}$/i.test(v); }).slice(0, 32) : []; }
+  function findPalette(id) { return (root.DrawingPalettes || []).find(function (preset) { return preset.id === id; }); }
+  function paletteId(id) { return findPalette(id) ? id : DEFAULT_PALETTE; }
+  function describePalette(id) {
+    var preset = findPalette(id);
+    return preset && root.DrawingPaletteMap ? root.DrawingPaletteMap.describe(preset) : { id: id, name: preset ? preset.name : '', method: '', swatches: [] };
+  }
+  function copicView(source, id) {
+    var preset = findPalette(id);
+    if (!preset || !root.DrawingPaletteMap) throw new Error('色卡概括组件未加载完整，请刷新页面。');
+    var input = context(source).getImageData(0, 0, source.width, source.height);
+    var mapped = root.DrawingPaletteMap.map(input, preset), out = canvas(source.width, source.height);
+    context(out).putImageData(new ImageData(mapped.data, out.width, out.height), 0, 0);
+    return { canvas: out, swatches: mapped.swatches, palette: mapped.swatches.map(function (color) { return color.hex; }) };
+  }
   function blob(c) { return new Promise(function (resolve, reject) { c.toBlob(function (b) { if (b) resolve(b); else reject(new Error('参考图编码失败。')); }, 'image/png'); }); }
   function fitImage(image, smoothing) {
     var w = image.naturalWidth || image.width, h = image.naturalHeight || image.height;
@@ -138,7 +153,8 @@
   }
   function Reference(options) {
     this.options = options || {}; this.name = ''; this.page = 0; this.pageCount = 0; this.mode = 'original'; this.count = 8;
-    this.views = {}; this.palettes = { color: [], gray: [] }; this.importedStudy = false; this.sourceMode = '';
+    this.paletteId = paletteId(this.options.paletteId); this.paletteSwatches = [];
+    this.views = {}; this.palettes = { color: [], gray: [], copic: [] }; this.importedStudy = false; this.sourceMode = '';
     this._source = null; this._pdf = null; this._externalPDF = null; this._task = null; this._renderTask = null; this._generation = 0; this._dead = false;
   }
   Reference.prototype._status = function (text) { if (this.options.onStatus) this.options.onStatus(text); };
@@ -190,8 +206,18 @@
     return { views: { original: original, color: color.canvas, gray: gray.canvas }, palettes: { color: color.palette, gray: gray.palette } };
   };
   Reference.prototype._install = function (prepared) {
-    this.views = prepared.views; this.palettes = prepared.palettes;
-    if (this.mode === 'line' && !this.views.line) this.views.line = lineView(this.views.original);
+    if (this.mode === 'line' && !prepared.views.line) prepared.views.line = lineView(prepared.views.original);
+    if (this.mode === 'copic' && !prepared.views.copic) {
+      var mapped = copicView(prepared.views.original, this.paletteId);
+      prepared.views.copic = mapped.canvas; prepared.palettes.copic = mapped.palette; prepared.paletteSwatches = mapped.swatches;
+    }
+    this.views = prepared.views; this.palettes = prepared.palettes; this.palettes.copic = this.palettes.copic || [];
+    this.paletteSwatches = prepared.paletteSwatches || [];
+  };
+  Reference.prototype._ensureCopic = function () {
+    if (!this.views.original || this.views.copic) return;
+    var mapped = copicView(this.views.original, this.paletteId);
+    this.views.copic = mapped.canvas; this.palettes.copic = mapped.palette; this.paletteSwatches = mapped.swatches;
   };
   Reference.prototype._pageCanvas = async function (pdf, number, token) {
     var page = await pdf.getPage(number);
@@ -258,22 +284,40 @@
   Reference.prototype.setMode = function (mode) {
     if (MODES.indexOf(mode) < 0) return false;
     if (mode === 'line' && this.views.original && !this.views.line) this.views.line = lineView(this.views.original);
+    if (mode === 'copic') this._ensureCopic();
     this.mode = mode; this._change(); return true;
+  };
+  Reference.prototype.setPalette = function (id) {
+    if (!findPalette(id)) return false;
+    if (id === this.paletteId) return true;
+    var mapped = this.mode === 'copic' && this.views.original ? copicView(this.views.original, id) : null;
+    this.paletteId = id;
+    if (mapped) this.views.copic = mapped.canvas; else delete this.views.copic;
+    this.palettes.copic = mapped ? mapped.palette : []; this.paletteSwatches = mapped ? mapped.swatches : [];
+    this._change(); return true;
   };
   Reference.prototype.setCount = async function (number) {
     this.count = Math.max(2, Math.min(24, Math.round(Number(number) || 8)));
     if (!this.views.original) { this._change(); return; }
     var token = this._generation; this._status('正在重新归纳颜色…'); await yieldFrame();
     if (!this._current(token)) return;
-    var line = this.views.line; this._install(this._prepare(this.views.original)); if (line) this.views.line = line;
+    var prepared = this._prepare(this.views.original);
+    if (this.views.line) prepared.views.line = this.views.line;
+    if (this.views.copic) {
+      prepared.views.copic = this.views.copic; prepared.palettes.copic = this.palettes.copic; prepared.paletteSwatches = this.paletteSwatches;
+    }
+    this._install(prepared);
     this.importedStudy = false; this._status(''); this._change();
   };
   Reference.prototype.getCanvas = function () { return this.views[this.mode] || this.views.original || null; };
   Reference.prototype.getInfo = function () {
-    var c = this.views.original;
+    var c = this.views.original, preset = describePalette(this.paletteId);
+    var swatches = c ? this.paletteSwatches : preset.swatches.filter(function (color) { return color.hex === '#000000' || color.hex === '#ffffff'; });
     return { name: this.name, page: this.page, pageCount: this.pageCount, isPDF: !!this._pdf, mode: this.mode, count: this.count, width: c ? c.width : 0, height: c ? c.height : 0,
       externalPDF: !!this._externalPDF,
-      palettes: { color: this.palettes.color.slice(), gray: this.palettes.gray.slice() }, importedStudy: this.importedStudy, sourceMode: this.sourceMode };
+      paletteId: this.paletteId, paletteName: preset.name, paletteMethod: preset.method,
+      paletteSwatches: swatches.map(function (color) { return Object.assign({}, color); }),
+      palettes: { color: this.palettes.color.slice(), gray: this.palettes.gray.slice(), copic: swatches.map(function (color) { return color.hex; }) }, importedStudy: this.importedStudy, sourceMode: this.sourceMode };
   };
   Reference.prototype.getSourceBlob = function () { return this._source; };
   Reference.prototype.exportBundle = async function () {
@@ -282,8 +326,8 @@
     if (sourceFile && sourceFile.type !== 'application/pdf') sourceFile = new Blob([sourceFile], { type: 'application/pdf' });
     if (!views.line) views.line = lineView(views.original);
     var encoded = await Promise.all([blob(views.original), blob(views.gray), blob(views.color), blob(views.line)]);
-    return { version: 1, name: info.name, original: encoded[0], views: { gray: encoded[1], color: encoded[2], line: encoded[3] }, palettes: info.palettes,
-      selectedMode: info.mode, page: info.page, pageCount: info.pageCount, sourceFile: sourceFile, externalPDF: externalPDF || null, importedStudy: info.importedStudy, sourceMode: info.sourceMode, count: count };
+    return { version: 1, name: info.name, original: encoded[0], views: { gray: encoded[1], color: encoded[2], line: encoded[3] }, palettes: { color: info.palettes.color, gray: info.palettes.gray },
+      selectedMode: info.mode, paletteId: info.paletteId, page: info.page, pageCount: info.pageCount, sourceFile: sourceFile, externalPDF: externalPDF || null, importedStudy: info.importedStudy, sourceMode: info.sourceMode, count: count };
   };
   Reference.prototype.loadBundle = async function (bundle) {
     if (!bundle || bundle.version !== 1 || !(bundle.original instanceof Blob)) throw this._fail(new Error('参考包无效。'));
@@ -316,6 +360,7 @@
       this.pageCount = nextPDF ? nextPDF.numPages : externalPDF ? bundle.pageCount : 1;
       this.name = bundle.name || '练习室参考'; this.page = Math.max(1, Math.min(this.pageCount, Math.round(bundle.page) || 1));
       this.mode = MODES.indexOf(bundle.selectedMode) >= 0 ? bundle.selectedMode : 'original';
+      this.paletteId = paletteId(bundle.paletteId);
       this.importedStudy = bundle.importedStudy !== false; this.sourceMode = bundle.sourceMode || ''; this._install({ views: views, palettes: palettes });
       disposePDF(previousPDF);
       this._status(''); this._change(); return true;
@@ -324,7 +369,7 @@
       if (this._current(token)) { if (this._task) { Promise.resolve(this._task.destroy()).catch(function () {}); this._task = null; } this._status(''); throw this._fail(error); } return false;
     }
   };
-  Reference.prototype.destroy = function () { this._cancel(); this._dead = true; disposePDF(this._pdf); this._pdf = null; this._externalPDF = null; this._source = null; this.views = {}; this.palettes = { color: [], gray: [] }; };
+  Reference.prototype.destroy = function () { this._cancel(); this._dead = true; disposePDF(this._pdf); this._pdf = null; this._externalPDF = null; this._source = null; this.views = {}; this.palettes = { color: [], gray: [], copic: [] }; this.paletteSwatches = []; };
   Reference.pdfAssets = PDF_BASE;
   root.DrawingReference = Reference;
 })(window);

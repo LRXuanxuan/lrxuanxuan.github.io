@@ -19,7 +19,8 @@ JavaScript 和 Canvas 提供绘画、图层、参考、取色与导出；文件�
 | `assets/drawing-studio/marks.js` | `DrawingMarks.fillStyle / paintShape / paintText`；几何路径、系统字体与现场生成的材质 |
 | `assets/drawing-studio/color-controls.js`、`color-controls.css` | HSV 调色盘、HEX / RGB 输入、参考栏可拖动边界及键盘支持 |
 | `assets/drawing-studio/palettes.js` | `DrawingPalettes` 提供 Copic Sketch 10 套原厂配色与 357 个着色色号 |
-| `assets/drawing-studio/color-library.js` | 按色号、原厂英文名、中文色系、已有中文别名或 HEX 检索并收藏颜色 |
+| `assets/drawing-studio/color-library.js` | 色卡紧凑／按色系排列、固定黑白、收藏颜色及概括预设联动 |
+| `assets/drawing-studio/palette-map.js` | 本地 Oklab 色彩／明度匹配，将参考限制到指定 Copic 套装与黑白 |
 | `assets/drawing-studio/canvas-presets.js` | 新建与改尺共用纸张、屏幕规格和横竖方向控制，按纸张像素密度生成 PNG 的 `pHYs` 信息 |
 | `assets/drawing-studio/paper.js` | 独立合成自选底色、不透明度、纸纹与纹理强度，八款纹理共用预览与导出流程 |
 | `assets/drawing-studio/reference.js` | `DrawingReference`：图片和 PDF、四种参考模式、色卡、参考包保存与恢复 |
@@ -148,7 +149,7 @@ SVG 导出共用同一合成与调色流程。半透明像素在 Canvas 预乘 a
 
 ## 参考图、PDF 与取色
 
-参考可以在原图、灰度归纳、有限色彩和线稿间切换，颜色与灰阶各有色卡。
+参考可以在原图、灰度归纳、有限色彩、线稿和色卡概括间切换，颜色与灰阶各有色卡。
 参考视图的拖动和缩放独立于绘画视图；取色坐标需要换算到参考像素坐标。
 参考栏右边界可左右拖动，也可聚焦分隔条后用方向键、Shift、Home / End
 调整，设置里的宽度滑块与之同步。范围根据可用工作区计算，避免挤没画布。
@@ -156,11 +157,24 @@ SVG 导出共用同一合成与调色流程。半透明像素在 Canvas 预乘 a
 每帧强制重新居中。分隔条须支持指针捕获、触控、失焦清理与窄屏覆盖布局。
 默认色卡对应 Copic Sketch 原厂 36 色套装，也可选择漫画插画 24 色、海洋与
 天空 6 色等原厂套装，每套都附厂商页面。全色号收录 357 个着色色号，原厂
-358 支系列另含一支 0 号无色调和液。全部保留原厂英文色名，可跨套装搜索。
+358 支系列另含一支 0 号无色调和液。全部保留原厂英文色名。色号／色名搜索已按用户要求暂时撤下。
 色卡可切换「紧凑排列 / 按色系」：前者跨色系连续排成每行六色，后者保留
-色系标题和分组。默认紧凑排列，本机记住所选模式；搜索结果也沿用该排法。
+色系标题和分组。默认紧凑排列，本机记住所选模式。每套之外单独常驻纯黑
+`#000000`（线稿黑）和纯白 `#ffffff`（背景白），不挤占六列排列，不把白色标为 Copic 0 号。
 显示色采用官方数字色样中央 17 × 17 像素各通道中位数。实体效果还取决于纸张
 与叠涂次数。[Copic Sketch 色号与色样](https://copic.jp/en/color/sketch/) · [原厂套装目录](https://copic.jp/en/product/copic-set/)
+
+「色卡概括」把参考图映射到当前 Copic 套装及固定黑白：基础 12 色、基础
+36 色、漫画插画 24 色与全色号比较 Oklab 色彩距离，其余套装仅比较 Oklab
+明度 L。按明暗匹配的输出仍使用套装本身的彩色墨色。下方列出实际用色与
+始终保留的黑白，可直接取色；左右两处套装选择同步。它提供有限用色参考，
+不模拟实体马克笔、纸张与多层叠色后的实际效果。
+
+映射仅在打开该模式时计算。像素 alpha 保留，原图及教学页传来的四种结果
+不被改写；换页或套装后只保留当前概括图。5-bit RGB 桶按需匹配，索引使用
+Uint16 以覆盖 357 色与黑白；精确色卡输入直接匹配。工程只新增 `paletteId`
+和所选模式，派生概括图在恢复时重算，不另存一份 PNG。矩阵依据
+[Oklab 作者说明](https://bottosson.github.io/posts/oklab/)。
 
 参考页长边至多 **1600 px**。图片参考上限为 80 MiB，PDF 上限为 1 GiB。
 本地 PDF 通过 PDF.js 的范围读取接口按需读取 `File.slice()`，以 64 KiB
@@ -169,7 +183,7 @@ SVG 导出共用同一合成与调色流程。半透明像素在 Canvas 预乘 a
 文件会取消旧请求。页码框按回车直接跳页；两侧的单箭头逐页移动，双箭头
 跳至首页或末页。连续点击以最新请求的页码为起点。
 
-`DrawingReference` 提供 `load`、`loadBundle`、`setMode`、`setPage`、`setCount`、
+`DrawingReference` 提供 `load`、`loadBundle`、`setMode`、`setPalette`、`setPage`、`setCount`、
 `getCanvas`、`getInfo`、`getSourceBlob`、`exportBundle`、`destroy`。
 工程与草稿保存当前参考页的四种视图和色卡。80 MiB 以内的 PDF 会随工程
 保存；超过 80 MiB 的 PDF 保存当前页、页数和原件的识别信息。重开后可直接
@@ -190,6 +204,10 @@ PDF.js 6.5 的文档释放使用 `pdfDocument.loadingTask.destroy()`；不要沿
 纸张支持独立的底色、底色不透明度、纸纹和纹理强度。零底色不透明度可以保留纤维。选择导出时去底，一并去除底色与纸纹。Paper 001 使用 [ambientCG 的 CC0 高度贴图](https://ambientcg.com/view?id=Paper001) 的缩小单通道版本。
 
 ## 保存与恢复
+
+在画布视口内点击鼠标右键，会调用与工具栏撤销按钮相同的 `undo()`，一次
+右键撤销一步。右键按下不落笔；正在画的笔触先收笔，再按现有撤销流程处理。
+触控长按、键盘菜单、画布外的右键以及弹窗内操作不触发该快捷方式。
 
 默认导出名按北京时间生成，顺序为年、日、月、时、分，例如 2026年21日11月14时05分.png。画室可在导出对话框自行改名，归纳页导出的 ZIP 保留包内各结果的用途和原图文件名。工程标题保存在文件内容中。
 
@@ -281,4 +299,8 @@ worker，字形或解码文件按该文档实际需要读取。详见 vendor 目
 11. 拖动参考边界和 HSV 调色盘要在真实浏览器验布局与触点；机制测试使用
     `tools/test_drawing_color_controls.cjs`、`tools/test_drawing_marks.cjs` 与
     `tools/test_drawing_app.cjs`，不把 DOM 模拟当作浏览器或 Wacom 硬件实测。
+12. 色卡概括需检查四组色彩映射与其余明暗映射、固定黑白、透明度、超过
+    256 个候选索引、换预设／图片／PDF页、左右同步及工程往返；派生图不额外存入工程。
+13. 画布右键只撤销一次，不新增笔点；空历史、活跃笔触、重做、忙碌状态、
+    触控长按、键盘菜单及画布外右键需分别验证。
 

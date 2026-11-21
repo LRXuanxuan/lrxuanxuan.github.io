@@ -165,7 +165,7 @@ async function main(){
     const found=await bridge.take(id);assert.equal(found.name,'private.png');assert.equal(await found.original.text(),'local pixels');
     await assert.rejects(bridge.take(id),/领取或已过期/);await assert.rejects(bridge.take('invalid'),/无效/);
   });
-  const reference=await environment('<!doctype html><script src="/assets/drawing-studio/palettes.js"></script><script src="/assets/drawing-studio/reference.js"></script>');
+  const reference=await environment('<!doctype html><script src="/assets/drawing-studio/palettes.js"></script><script src="/assets/drawing-studio/palette-map.js"></script><script src="/assets/drawing-studio/reference.js"></script>');
   const win=reference.window; let changed=0;const ref=new win.DrawingReference({onChange(){changed++;}});
   const source=native.createCanvas(72,48),ctx=source.getContext('2d');
   ctx.fillStyle='#d03020';ctx.fillRect(0,0,24,48);ctx.fillStyle='#20a060';ctx.fillRect(24,0,24,48);ctx.fillStyle='#3060d0';ctx.fillRect(48,0,24,48);ctx.clearRect(0,0,7,7);
@@ -201,6 +201,61 @@ async function main(){
       ref.setMode(mode);const data=canvasPixels(ref.getCanvas()),palette=new Set(info.palettes[mode].map(c=>c.toLowerCase()));
       for(let i=0;i<data.length;i+=4)if(data[i+3]){const color='#'+Array.from(data.subarray(i,i+3),v=>v.toString(16).padStart(2,'0')).join('');assert.ok(palette.has(color),'Unrepresented pixel '+color);}
     }
+  });
+  await test('Copic reference is lazy, preserves source and alpha, and uses only its selected inks plus black and white',async()=>{
+    const limited=new win.DrawingReference({paletteId:'sketch6-set-portrait'});
+    assert.equal(limited.getInfo().paletteId,'sketch6-set-portrait');
+    assert.deepEqual(Array.from(limited.getInfo().palettes.copic).sort(),['#000000','#ffffff']);
+    await limited.load(file);const original=hash(canvasPixels(limited.getCanvas()));
+    assert.equal(limited.views.copic,undefined,'Original reference must not precompute the extra view');
+    limited.setPalette('sketch12-set');assert.equal(limited.views.copic,undefined);
+    limited.setMode('copic');assert.equal(limited.getInfo().paletteMethod,'color');
+    const allowed=new Set(win.DrawingPaletteMap.describe(win.DrawingPalettes.find(p=>p.id==='sketch12-set')).swatches.map(s=>s.hex));
+    const result=canvasPixels(limited.getCanvas());
+    for(let i=0;i<result.length;i+=4)if(result[i+3]===255){const color='#'+Array.from(result.subarray(i,i+3),v=>v.toString(16).padStart(2,'0')).join('');assert.ok(allowed.has(color));}
+    assert.equal(result[3],0);assert.equal(hash(canvasPixels(limited.views.original)),original);
+    assert.ok(limited.getInfo().palettes.copic.includes('#000000'));assert.ok(limited.getInfo().palettes.copic.includes('#ffffff'));
+    limited.setPalette('sketch6-set-portrait');assert.equal(limited.getInfo().paletteMethod,'gray');
+    const alphaSource=native.createCanvas(5,1),alphaContext=alphaSource.getContext('2d'),alphaImage=alphaContext.createImageData(5,1);
+    for(let i=0;i<5;i++)alphaImage.data.set([80+i*30,130,200-i*20,[0,64,128,192,255][i]],i*4);
+    alphaContext.putImageData(alphaImage,0,0);
+    await limited.load(new win.File([alphaSource.toBuffer('image/png')],'alpha.png',{type:'image/png'}));
+    assert.deepEqual(Array.from(canvasPixels(limited.getCanvas())).filter((_,i)=>i%4===3),[0,64,128,192,255]);
+    limited.destroy();
+  });
+  await test('Changing ordinary quantization count preserves the Copic view while switching its palette invalidates it',async()=>{
+    const limited=new win.DrawingReference();await limited.load(file);limited.setMode('copic');
+    const mapped=limited.getCanvas(),before=hash(canvasPixels(mapped)),colors=Array.from(limited.getInfo().palettes.copic);
+    await limited.setCount(3);assert.equal(limited.getCanvas(),mapped);assert.equal(hash(canvasPixels(mapped)),before);
+    assert.deepEqual(Array.from(limited.getInfo().palettes.copic),colors);
+    limited.setMode('original');limited.setPalette('sketch6-set-seasky');assert.equal(limited.views.copic,undefined);
+    limited.setMode('copic');assert.notEqual(limited.getCanvas(),mapped);assert.equal(limited.getInfo().paletteMethod,'gray');
+    const active=limited.getCanvas();assert.equal(limited.setPalette('unknown-set'),false);
+    assert.equal(limited.getCanvas(),active);assert.equal(limited.getInfo().paletteId,'sketch6-set-seasky');
+    limited.destroy();
+  });
+  await test('Copic project round-trip saves only the palette ID and rebuilds its pixels; old and unknown IDs use basic 36',async()=>{
+    const limited=new win.DrawingReference({paletteId:'sketch6-set-seasky'});await limited.load(file);limited.setMode('copic');
+    const expected=hash(canvasPixels(limited.getCanvas())),bundle=await limited.exportBundle();
+    assert.equal(bundle.paletteId,'sketch6-set-seasky');assert.equal(bundle.selectedMode,'copic');assert.equal(bundle.views.copic,undefined);assert.equal(bundle.palettes.copic,undefined);
+    const restored=new win.DrawingReference();await restored.loadBundle(bundle);
+    assert.equal(restored.getInfo().mode,'copic');assert.equal(restored.getInfo().paletteId,'sketch6-set-seasky');
+    assert.equal(hash(canvasPixels(restored.getCanvas())),expected);
+    await restored.loadBundle({...bundle,paletteId:'unknown-set'});assert.equal(restored.getInfo().paletteId,'sketch36-set');assert.equal(restored.getInfo().paletteMethod,'color');
+    const legacy={...bundle,selectedMode:'original'};delete legacy.paletteId;
+    await restored.loadBundle(legacy);assert.equal(restored.getInfo().paletteId,'sketch36-set');assert.equal(restored.views.copic,undefined);
+    restored.destroy();limited.destroy();
+  });
+  await test('Mocked PDF navigation uses the newest page and palette without installing a stale Copic result',async()=>{
+    const paged=new win.DrawingReference();await paged.load(file);paged.setMode('copic');
+    const pendingPages=new Map(),rendered=[],cleaned=[];
+    paged._pdf={getPage(number){return new Promise(resolve=>pendingPages.set(number,resolve));},loadingTask:{destroy(){return Promise.resolve();}}};paged.pageCount=3;
+    function mockPage(number){return {cleanup(){cleaned.push(number);},getViewport({scale}){return {width:72*scale,height:48*scale};},render({canvasContext}){rendered.push(number);canvasContext.fillStyle=number===3?'#c0c0c0':'#101010';canvasContext.fillRect(0,0,144,96);return {promise:Promise.resolve(),cancel(){}};}};}
+    const second=paged.setPage(2);paged.setPalette('sketch6-set-portrait');const third=paged.setPage(3);
+    pendingPages.get(3)(mockPage(3));assert.equal(await third,true);
+    const latest=hash(canvasPixels(paged.getCanvas()));assert.equal(paged.getInfo().page,3);assert.equal(paged.getInfo().paletteId,'sketch6-set-portrait');assert.equal(paged.getInfo().paletteMethod,'gray');
+    assert.equal(paged.getCanvas(),paged.views.copic);pendingPages.get(2)(mockPage(2));assert.equal(await second,false);
+    assert.equal(hash(canvasPixels(paged.getCanvas())),latest);assert.deepEqual(rendered,[3]);assert.ok(cleaned.includes(2));paged.destroy();
   });
   await test('Exported bundle restores each mode exactly and preserves hand-edited reference pixels',async()=>{
     ref.setMode('line');const line=ref.getCanvas().getContext('2d');line.fillStyle='#000000';line.fillRect(10,10,8,8);

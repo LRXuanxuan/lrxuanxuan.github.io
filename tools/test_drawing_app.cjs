@@ -310,6 +310,42 @@ async function main() {
     assert.equal(pixel(display(), 120, 90)[3], 0);
   });
 
+  await test('Canvas right-click undoes once without adding a dot; other context menus do not undo', async () => {
+    await fresh(); await stroke([[15, 25], [75, 25]]);
+    const first = hash(pixels(active().canvas));
+    await stroke([[15, 65], [75, 65]]);
+    const second = hash(pixels(active().canvas)), count = state().history;
+    pointer('pointerdown', 100, 80, { button: 2, buttons: 2 });
+    pointer('pointermove', 110, 85, { button: 2, buttons: 2 });
+    assert.equal(state().drawing, false); assert.equal(hash(pixels(active().canvas)), second);
+    const menu = new win.MouseEvent('contextmenu', { button: 2, bubbles: true, cancelable: true });
+    display().dispatchEvent(menu); pointer('pointerup', 110, 85, { button: 2, buttons: 0 }); await settle();
+    assert.equal(menu.defaultPrevented, true); assert.equal(state().history, count - 1);
+    assert.equal(hash(pixels(active().canvas)), first); assert.equal(state().redo, 1);
+    click('redo'); await settle(); assert.equal(hash(pixels(active().canvas)), second);
+    display().dispatchEvent(new win.MouseEvent('contextmenu', { button: 0, bubbles: true, cancelable: true }));
+    display().dispatchEvent(new win.PointerEvent('contextmenu', { button: 2, pointerType: 'touch', bubbles: true, cancelable: true }));
+    doc.body.dispatchEvent(new win.MouseEvent('contextmenu', { button: 2, bubbles: true, cancelable: true }));
+    element('helpDialog').showModal();
+    display().dispatchEvent(new win.MouseEvent('contextmenu', { button: 2, bubbles: true, cancelable: true }));
+    element('helpDialog').close();
+    assert.equal(state().history, count); assert.equal(hash(pixels(active().canvas)), second);
+  });
+
+  await test('Right-click finishes and undoes an active stroke and is safe on empty history', async () => {
+    await fresh();
+    display().dispatchEvent(new win.MouseEvent('contextmenu', { button: 2, bubbles: true, cancelable: true }));
+    assert.equal(state().history, 0); assert.equal(state().drawing, false);
+    await stroke([[15, 25], [75, 25]]);
+    const first = hash(pixels(active().canvas)), count = state().history;
+    pointer('pointerdown', 15, 65); pointer('pointermove', 75, 65);
+    assert.equal(state().drawing, true);
+    display().dispatchEvent(new win.MouseEvent('contextmenu', { button: 2, bubbles: true, cancelable: true }));
+    pointer('pointerup', 75, 65); await settle();
+    assert.equal(state().drawing, false); assert.equal(state().history, count);
+    assert.equal(hash(pixels(active().canvas)), first); assert.equal(state().redo, 1);
+  });
+
   await test('Brush preferences restore independently and export uses Beijing year-day-month time', async () => {
     await fresh(); select('brushKind', 'marker'); edit('brushSize', 47); edit('brushOpacity', 38);
     edit('stabilizer', 62); check('penPressure', false);
@@ -692,6 +728,84 @@ async function main() {
     element('exportDialog').close();
   });
 
+  await test('Copic presets select the required matching method and keep black/white outside the six-column card', async () => {
+    await fresh();
+    assert.equal(doc.getElementById('swatchSearch'), null, 'The withdrawn swatch search is not left in the UI');
+    const colorPresets = new Set(['sketch12-set', 'sketch36-set', 'sketchcomic24-set', 'sketch-chart']);
+    doc.querySelector('[data-palette-layout="compact"]').click();
+    for (const preset of win.DrawingPalettes) {
+      select('palettePreset', preset.id); await settle();
+      const info = app.ref.getInfo();
+      assert.equal(info.paletteId, preset.id); assert.equal(element('referenceCopicPreset').value, preset.id);
+      assert.equal(info.paletteMethod, colorPresets.has(preset.id) ? 'color' : 'gray', preset.name);
+      assert.equal(element('presetSwatches').querySelectorAll('button').length, preset.swatches.length);
+      assert.equal(element('presetSwatches').querySelectorAll('.marker-chips').length, 1, 'Compact cards use one continuous grid');
+      assert.deepEqual(Array.from(element('baseSwatches').querySelectorAll('button'), button => button.dataset.color).sort(), ['#000000', '#ffffff']);
+      assert.equal(element('presetSwatches').contains(element('baseSwatches')), false, 'Fixed black/white must not break 12/36-card row counts');
+    }
+    for (const [id, count] of [['sketch12-set', 12], ['sketch36-set', 36]]) {
+      select('palettePreset', id); await settle();
+      assert.equal(element('presetSwatches').querySelectorAll('button').length, count);
+    }
+  });
+
+  await test('Copic reference UI uses only its palette, synchronizes menus and restores projects without a redundant image', async () => {
+    await fresh(); await stroke([[10, 10], [80, 60]]);
+    const artHash = hash(pixels(active().canvas)), artHistory = state().history;
+    const image = native.createCanvas(48, 32), ctx = image.getContext('2d');
+    ['#000000', '#ffffff', '#ea8c67', '#1da7ca', '#85b43d', '#352154', '#edbf47', '#9c667e'].forEach((color, index) => {
+      ctx.fillStyle = color; ctx.fillRect(index * 6, 0, 6, 32);
+    });
+    ctx.clearRect(0, 0, 2, 2);
+    ctx.clearRect(2, 0, 2, 2); ctx.fillStyle = 'rgba(80,110,150,.5)'; ctx.fillRect(2, 0, 2, 2);
+    const file = new File([image.toBuffer('image/png')], 'copic-ui-reference.png', { type: 'image/png' });
+    await app.ref.load(file); await settle();
+    const original = pixels(app.ref.getCanvas()), originalHash = hash(original);
+    select('palettePreset', 'sketch12-set'); await settle(); click('previewPalette');
+    assert.ok(doc.body.classList.contains('busy'), 'Mapping starts within the existing protected work operation');
+    display().dispatchEvent(new win.MouseEvent('contextmenu', { button: 2, bubbles: true, cancelable: true }));
+    assert.equal(state().history, artHistory, 'A right-click while the app is busy must not undo artwork');
+    await eventually(() => !doc.body.classList.contains('busy') && app.ref.getInfo().mode === 'copic', 'Preview action should show the mapped reference');
+    await settle();
+    let info = app.ref.getInfo();
+    assert.equal(info.paletteId, 'sketch12-set'); assert.equal(info.paletteMethod, 'color');
+    assert.equal(element('referenceCopicControls').hidden, false);
+    assert.equal(element('referencePalette').hidden, true); assert.equal(element('referenceCountLabel').hidden, true);
+    assert.equal(doc.querySelector('[data-ref-mode="copic"]').getAttribute('aria-pressed'), 'true');
+    const allowed = new Set(['#000000', '#ffffff', ...win.DrawingPalettes.find(p => p.id === 'sketch12-set').colors]);
+    const mapped = pixels(app.ref.getCanvas());
+    for (let i = 0; i < mapped.length; i += 4) {
+      assert.equal(mapped[i + 3], original[i + 3], 'Reference alpha survives the mapping');
+      if (mapped[i + 3] === 255) assert.ok(allowed.has('#' + mapped.subarray(i, i + 3).toString('hex')), 'Mapped pixels stay inside the selected card plus black/white');
+    }
+    assert.ok(info.palettes.copic.includes('#000000')); assert.ok(info.palettes.copic.includes('#ffffff'));
+    const useColor = Array.from(element('referenceSwatches').querySelectorAll('button')).find(button => !['#000000', '#ffffff'].includes(button.dataset.color));
+    assert.ok(useColor, 'This varied reference should use at least one actual Copic color');
+    useColor.click(); assert.equal(state().ink, useColor.dataset.color); assert.equal(element('inkColor').value, useColor.dataset.color);
+    doc.querySelector('[data-ref-mode="original"]').click(); await settle();
+    assert.equal(hash(pixels(app.ref.getCanvas())), originalHash, 'Returning to original must not show the quantized pixels');
+    doc.querySelector('[data-ref-mode="copic"]').click(); await settle();
+    select('referenceCopicPreset', 'sketch6-set-portrait'); await settle();
+    info = app.ref.getInfo();
+    assert.equal(info.paletteId, 'sketch6-set-portrait'); assert.equal(info.paletteMethod, 'gray');
+    assert.equal(element('palettePreset').value, info.paletteId, 'Choosing on the reference panel updates the painting palette');
+    assert.equal(hash(pixels(active().canvas)), artHash); assert.equal(state().history, artHistory, 'Reference mapping does not edit artwork or undo history');
+    const mappedHash = hash(pixels(app.ref.getCanvas())), internal = await app.serializeProject();
+    assert.equal(internal.reference.selectedMode, 'copic'); assert.equal(internal.reference.paletteId, info.paletteId);
+    assert.deepEqual(Object.keys(internal.reference.views).sort(), ['color', 'gray', 'line']);
+    assert.equal(Object.hasOwn(internal.reference.views, 'copic'), false, 'The derived preview is regenerated instead of saving another full PNG');
+    const json = JSON.parse(await app.exportProject());
+    assert.equal(Object.hasOwn(json.reference.views, 'copic'), false);
+    await fresh(64, 64); await app.loadProject(json); await settle();
+    info = app.ref.getInfo();
+    assert.equal(info.mode, 'copic'); assert.equal(info.paletteId, 'sketch6-set-portrait'); assert.equal(info.paletteMethod, 'gray');
+    assert.equal(element('referenceCopicPreset').value, info.paletteId); assert.equal(element('palettePreset').value, info.paletteId);
+    assert.equal(hash(pixels(app.ref.getCanvas())), mappedHash); assert.equal(hash(pixels(active().canvas)), artHash);
+    assert.ok(info.palettes.copic.includes('#000000')); assert.ok(info.palettes.copic.includes('#ffffff'));
+    doc.querySelector('[data-ref-mode="original"]').click(); await settle();
+    assert.equal(hash(pixels(app.ref.getCanvas())), originalHash);
+  });
+
   await test('Layer image import, reference modes and project round-trip preserve editable state', async () => {
     await fresh(); await stroke([[12, 12], [70, 65]]); const firstId = state().activeId;
     const image = native.createCanvas(40, 30), ctx = image.getContext('2d'); ctx.fillStyle = '#e8c290'; ctx.fillRect(0, 0, 40, 30); ctx.fillStyle = '#324f67'; ctx.fillRect(4, 4, 15, 15);
@@ -996,16 +1110,16 @@ async function main() {
     assert.ok(element('recentSwatches').querySelector('[data-color="#33aa77"]'), 'Committed picker colors join the recent swatches');
     edit('inkColor', '#112233'); assert.equal(field('hex').value.toLowerCase(), '#112233');
     assert.deepEqual(['r', 'g', 'b'].map(name => Number(field(name).value)), [17, 34, 51]);
-    edit('swatchSearch', 'e49');
-    const matched = element('presetSwatches').querySelectorAll('button');
-    assert.equal(matched.length, 1, 'A marker from the portrait palette is searchable from the default palette');
-    const swatch = matched[0]; assert.equal(swatch.textContent, 'E49'); swatch.click();
+    const previousPreset = element('palettePreset').value;
+    select('palettePreset', 'sketch-chart'); await settle();
+    const swatch = Array.from(element('presetSwatches').querySelectorAll('button')).find(button => button.textContent === 'E49');
+    assert.ok(swatch, 'The full card keeps every Copic code available after search is withdrawn'); swatch.click();
     assert.equal(field('hex').value.toLowerCase(), swatch.dataset.color.toLowerCase());
     assert.equal(swatch.getAttribute('aria-pressed'), 'true');
     assert.ok(element('inkReadout').textContent.includes('E49'));
     click('rememberColor'); assert.ok(element('savedSwatches').querySelector('[data-color="' + swatch.dataset.color + '"]'));
     click('rememberColor'); assert.equal(element('savedSwatches').querySelectorAll('button').length, 0);
-    edit('swatchSearch', '');
+    select('palettePreset', previousPreset); await settle();
     check('materialFollowInk', false); edit('materialForeground', '#aa44bb');
     field('hex').value = '#8ac'; field('hex').dispatchEvent(new win.Event('change', { bubbles: true }));
     assert.equal(state().ink, '#88aacc'); assert.equal(element('materialForeground').value, '#aa44bb');
