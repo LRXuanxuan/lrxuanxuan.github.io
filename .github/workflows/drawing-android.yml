@@ -46,8 +46,9 @@ jobs:
 
       - name: Verify JavaScript bridge contracts
         run: |
-          npm install --prefix "$RUNNER_TEMP/lightdraw-tests" --no-save --ignore-scripts --no-audit --no-fund jsdom@26.1.0
+          npm install --prefix "$RUNNER_TEMP/lightdraw-tests" --no-save --ignore-scripts --no-audit --no-fund jsdom@26.1.0 fake-indexeddb@6 @napi-rs/canvas@0.1.80
           NODE_PATH="$RUNNER_TEMP/lightdraw-tests/node_modules" node tools/test_drawing_android.cjs
+          NODE_PATH="$RUNNER_TEMP/lightdraw-tests/node_modules" DRAWING_TEST_FILTER='Pen-only brush' node tools/test_drawing_app.cjs
 
       - name: Verify Android SDK components
         run: |
@@ -71,9 +72,9 @@ jobs:
         run: |
           mkdir -p android/release/licenses android/smoke
           build_tools="$ANDROID_HOME/build-tools/36.0.0"
-          "$build_tools/zipalign" -P 16 -f 4 android/app/build/outputs/apk/release/app-release-unsigned.apk android/release/lightdraw-0.1.0-android-unsigned.apk
-          "$build_tools/zipalign" -c -P 16 4 android/release/lightdraw-0.1.0-android-unsigned.apk
-          "$build_tools/aapt" dump badging android/release/lightdraw-0.1.0-android-unsigned.apk > android/release/apk-badging.txt
+          "$build_tools/zipalign" -P 16 -f 4 android/app/build/outputs/apk/release/app-release-unsigned.apk android/release/lightdraw-0.1.1-android-unsigned.apk
+          "$build_tools/zipalign" -c -P 16 4 android/release/lightdraw-0.1.1-android-unsigned.apk
+          "$build_tools/aapt" dump badging android/release/lightdraw-0.1.1-android-unsigned.apk > android/release/apk-badging.txt
           cp "$build_tools/lib/apksigner.jar" android/release/apksigner.jar
           if test -f "$build_tools/NOTICE.txt"; then cp "$build_tools/NOTICE.txt" android/release/build-tools-NOTICE.txt; fi
           cp android/app/build/outputs/apk/release/output-metadata.json android/release/output-metadata.json
@@ -87,7 +88,7 @@ jobs:
           from pathlib import Path
           import hashlib,json,zipfile
           root=Path('android/release')
-          apk=root/'lightdraw-0.1.0-android-unsigned.apk'
+          apk=root/'lightdraw-0.1.1-android-unsigned.apk'
           with zipfile.ZipFile(apk) as z:
               info=json.loads(z.read('assets/build-info.json'))
               assert info['dependencyLicensesIncluded'] is True
@@ -106,7 +107,7 @@ jobs:
       - name: Keep unsigned build for private release signing
         uses: actions/upload-artifact@v7
         with:
-          name: lightdraw-android-unsigned-0.1.0
+          name: lightdraw-android-unsigned-0.1.1
           path: android/release/
           if-no-files-found: error
           retention-days: 14
@@ -141,7 +142,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v7
         with:
-          name: lightdraw-android-checks-0.1.0
+          name: lightdraw-android-checks-0.1.1
           path: |
             android/smoke/
             android/app/build/reports/lint-results-release.*

@@ -87,6 +87,17 @@ jobs:
         working-directory: desktop
         run: npm ci --ignore-scripts --no-audit --no-fund
 
+      - name: Verify mouse and pen editing tools before release
+        shell: pwsh
+        run: |
+          $deps = Join-Path $env:RUNNER_TEMP 'lightdraw-ui-tests'
+          npm install --prefix $deps --no-save --ignore-scripts --no-audit --no-fund jsdom@26.1.0 fake-indexeddb@6 @napi-rs/canvas@0.1.80
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $env:NODE_PATH = Join-Path $deps 'node_modules'
+          $env:DRAWING_TEST_FILTER = 'Pen-only brush'
+          node tools/test_drawing_app.cjs
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
       - name: Check Rust formatting
         working-directory: desktop/src-tauri
         run: cargo fmt --check
