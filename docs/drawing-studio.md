@@ -32,7 +32,7 @@ Windows 桌面版入口为 `/drawing-desktop.html`，复用当前页面与本机
 | `assets/drawing-studio/paper.js` | 独立合成自选底色、不透明度、纸纹与纹理强度，八款纹理共用预览与导出流程 |
 | `assets/drawing-studio/reference.js` | `DrawingReference`：图片和 PDF、四种参考模式、色卡、参考包保存与恢复 |
 | `assets/drawing-studio/bridge.js` | `DrawingBridge.put / take`：同一浏览器、同源页面间的一次性参考传递 |
-| `assets/drawing-studio/storage.js` | `DrawingStorage`：使用浏览器 IndexedDB 保存一份当前作品，支持旧草稿迁移 |
+| `assets/drawing-studio/storage.js` | `DrawingStorage`：使用 IndexedDB 只保存一份当前作品；升级时自动清理已废弃的旧草稿 |
 | `assets/drawing-studio/vendor/pdfjs/` | 固定版本的同源 PDF 解析资源；仅导入 PDF 时加载 |
 
 不要将各模块复制到其他页面形成多个维护版本。新入口应复用这些模块。
@@ -293,16 +293,17 @@ PDF.js 6.5 的文档释放使用 `pdfDocument.loadingTask.destroy()`；不要沿
 
 画室自动保存一份正在编辑的作品。用同一浏览器重新打开画室，会接回上次的图层、画幅、纸纹和参考页。新建或打开工程会替换当前作品。废纸篓清除整幅作品及参考，笔刷偏好独立保留。清除网站数据或使用无痕窗口会影响本机留存。
 
-自动保存使用 IndexedDB `rc-drawing-studio-v1` 的 `current` 对象存储和固定键 `artwork`。图层以 PNG Blob 保存。迁移时将旧版 `drafts` 的最近一份移入当前作品，其余原有草稿可手动打开。新的编辑只更新当前作品。浏览器空间不足时画面留在内存中，可用「存工程」保存到文件。
+自动保存使用 IndexedDB `rc-drawing-studio-v1`（数据库版本 3）的 `current` 对象存储和固定键 `artwork`。图层以 PNG Blob 保存，新的编辑只更新当前作品。**旧版历史草稿不再作为恢复入口保留**：首次升级数据库时直接删除旧 `drafts` 对象存储及其全部记录，不会将其中某幅草稿迁入 `current`；已有的 `current/artwork`（当前自动续画）保持原样。历史清理与数据库升级在一个 IndexedDB versionchange 事务中完成，失败则不视为清理成功。浏览器空间不足时画面仍在内存中，可用「存工程」保存到文件。
 
 | 方法 | 返回值及用途 |
 | --- | --- |
-| `readCurrent()` | 读取作品、版本标记和保存时间，首次使用可自动迁移旧稿 |
+| `readCurrent()` | 读取当前作品、版本标记和保存时间，不再迁移旧版历史草稿 |
 | `writeCurrent(project, expectedStamp)` | 原子核对版本并写入作品，返回新的版本标记与保存时间 |
 | `writeCurrent(null, expectedStamp)` | 清空本机当前作品并更换版本标记 |
-| `list() / load(id)` | 列出并读取此前版本保存的草稿 |
 
 每次写入先核对上次读取的版本标记。另一个标签已更新或丢弃作品时，旧标签的过期写入会收到 `CURRENT_CONFLICT`。保存冲突或配额失败时，仍可从当前页面导出工程文件。
+
+旧版「旧版草稿」按钮、弹窗与逐份读取 API 已移除；以后不再保留多份自动历史。**本机当前作品自动续画仍然启用**，手动导出的 `.lrxdraw` 工程不会受历史清理影响。需要保留不同作品时请主动「存工程」。
 
 ## 导出与 SVG 的适用范围
 
