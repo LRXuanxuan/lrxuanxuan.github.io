@@ -92,6 +92,13 @@ html[data-theme=dark] #exportOpen { background: #a5c9dc; border-color: #a5c9dc; 
   #hideSettings { width: auto; padding: 4px 9px; font-size: 12px; }
 }
 @media (pointer: coarse) and (max-width: 1440px) {
-  #showReference, #hideReference, #showSettings { min-height: 36px; }
-  #referencePanel, .settings-scroll { overscroll-behavior: contain; }
+  button, input, select, summary { touch-action: manipulation; }
+  .header-actions button, .tool-group button, #hideReference, #hideSettings, #referenceOpen, .canvas-toolbar button,
+  .reference-view-tools button, .pdf-navigation button, #undo, #redo { min-height: 36px; }
+  #hideReference, #showReference, #showSettings, #zoomOut, #zoomIn, #fitCanvas,
+  #undo, #redo, .reference-view-tools button, .pdf-navigation button { min-width: 36px; }
+  .reference-content, .settings-scroll { overscroll-behavior: contain; }
+}
+@media (pointer: coarse) and (max-width: 380px) {
+  .tool-ribbon { column-gap: 3px; }
 }

@@ -159,6 +159,7 @@ h1{letter-spacing:.025em}
   .stage-toolbar .seg-btn{padding:4px 6px}
 }
 @media (pointer: coarse) and (max-width: 1440px) {
-  #studyTogglePanel, #studyChooseImage { min-height: 36px; }
+  #studyTogglePanel, #studyChooseImage, .study-toolbar .btn, .study-zoom .btn { min-height: 36px; }
+  #studyZoomOut, #studyZoomIn, #studyFit { min-width: 36px; }
   #panel { overscroll-behavior: contain; }
 }
