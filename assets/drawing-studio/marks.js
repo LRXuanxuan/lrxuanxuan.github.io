@@ -241,9 +241,10 @@
           ctx.beginPath(); ctx.ellipse(0, 0, rx, ry, angle, 0, tau); ctx.fill();
         });
       } else if (kind === 'sprinkles') {
-        x += (markNoise(index, 5) * 2 - 1) * cell * 0.4;
-        y += (markNoise(index, 6) * 2 - 1) * cell * 0.4;
-        var width = line * scale, length = Math.min(line * 2.6, cell * 0.68) * scale;
+        // Stagger the strata and limit jitter: even coverage without aligned rows.
+        x += ((row % 2 ? 0.16 : -0.16) + (markNoise(index, 5) * 2 - 1) * 0.20) * cell;
+        y += (markNoise(index, 6) * 2 - 1) * cell * 0.22;
+        var width = line * scale, length = Math.min(line * 4, cell * 0.90) * scale;
         length *= 1 + (markNoise(index, 2) * 2 - 1) * 0.35 * shapeVariation;
         var bend = length * (markNoise(index, 3) * 2 - 1) * 0.28 * shapeVariation;
         var turn = tau * markNoise(index, 7);

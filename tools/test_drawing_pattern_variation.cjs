@@ -129,6 +129,28 @@ test('Sugar sprinkles are elongated, rounded short marks with more than one dire
   assert.ok(context, 'Generated pattern is a real Canvas source');
 });
 
+test('Fine and thick sugar sprinkles remain longer with evenly separated visible marks', () => {
+  const mean = values => values.reduce((sum, value) => sum + value, 0) / values.length;
+  for (const [thickness, spacing] of [[2, 14], [6, 22]]) {
+    const canvas = render({ kind: 'sprinkles', thickness, spacing }, spacing * 36, spacing * 36);
+    const shapes = components(canvas).filter(c => c.x > spacing && c.y > spacing && c.x < canvas.width - spacing && c.y < canvas.height - spacing);
+    const isolated = shapes.filter(c => c.aspect > 1.6 && c.area < Math.max(60, thickness * spacing * 2));
+    const lengths = isolated.map(component => {
+      let xx = 0, xy = 0, yy = 0;
+      for (const [x, y] of component.points) { xx += (x - component.x) ** 2; xy += (x - component.x) * (y - component.y); yy += (y - component.y) ** 2; }
+      const angle = Math.atan2(2 * xy, xx - yy) / 2;
+      const projected = component.points.map(([x, y]) => (x - component.x) * Math.cos(angle) + (y - component.y) * Math.sin(angle));
+      return Math.max(...projected) - Math.min(...projected) + 1;
+    }).sort((a, b) => a - b);
+    assert.ok(lengths.length > 100 && lengths[Math.floor(lengths.length / 2)] > thickness * 3.75,
+      thickness + '/' + spacing + ' keeps visibly elongated rods at both tested densities');
+    const nearest = shapes.map((shape, index) => Math.min(...shapes.filter((_, other) => index !== other).map(other => Math.hypot(other.x - shape.x, other.y - shape.y))));
+    const average = mean(nearest), deviation = Math.sqrt(mean(nearest.map(value => (value - average) ** 2)));
+    assert.ok(deviation / average < .18 && Math.min(...nearest) > spacing * .55,
+      thickness + '/' + spacing + ' limits large empty gaps and crowded groups in the visible distribution');
+  }
+});
+
 test('Colour order, array edits and both variation amounts are part of the bounded tile cache', () => {
   const style = { kind: 'dots', colors: COLORS.slice(0, 3), variationSize: .3, variationShape: .2 };
   const first = capture(style), repeated = capture({ ...style, colors: [...style.colors] });
