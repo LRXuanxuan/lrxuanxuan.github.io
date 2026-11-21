@@ -1123,8 +1123,7 @@ async function main() {
     for (const layer of state().layers) assert.equal(hash(pixels(app.getLayer(layer.id).canvas)), expectedLayerHashes.get(layer.id));
     assert.ok(app.getLayer(firstId)); assert.deepEqual(state().tone, expectedState.tone); assert.equal(hash(pixels(display())), expectedDisplay);
     assert.equal(app.ref.getInfo().name, 'test-reference.png'); assert.equal(app.ref.getInfo().mode, 'line');
-    await win.DrawingStorage.save('integration-roundtrip', internal);
-    const stored = await win.DrawingStorage.load('integration-roundtrip'); assert.ok(stored?.project?.layers[0].image instanceof Blob);
+    assert.ok(internal.layers[0].image instanceof Blob, 'Editable layer images stay as real Blobs');
   });
 
   await test('Invalid project dimensions fail without destroying the open artwork', async () => {
@@ -1530,7 +1529,9 @@ async function main() {
     await eventually(() => !state().dirty, 'Finished artwork changes must reach automatic storage');
     const original = state(), expectedBase = hash(pixels(app.getLayer(base).canvas)), expectedOverlay = hash(pixels(app.getLayer(overlay).canvas));
     assert.equal((await win.DrawingStorage.readCurrent()).project.title, original.title);
-    assert.deepEqual(Array.from(await win.DrawingStorage.list(), row => row.id), ['integration-roundtrip'], 'New work must not create extra legacy history');
+    assert.equal(typeof win.DrawingStorage.list, 'undefined', 'Retired legacy draft browser API is unavailable');
+    assert.equal(doc.getElementById('restoreDraft'), null, 'Old draft button is absent');
+    assert.equal(doc.getElementById('draftDialog'), null, 'Old draft dialog is absent');
 
     const opened = [];
     function checkRestored(studio) {
@@ -1580,7 +1581,7 @@ async function main() {
       assert.equal(clean.DrawingStudio.inspect().layers.length, 1); assert.equal(clean.DrawingStudio.ref.getCanvas(), null);
       assert.notEqual(clean.DrawingStudio.inspect().title, original.title);
       assert.equal((await clean.DrawingStorage.readCurrent()).project, null);
-      assert.ok(await clean.DrawingStorage.load('integration-roundtrip'), 'Pre-existing legacy work remains accessible');
+      assert.equal(typeof clean.DrawingStorage.load, 'undefined', 'Discarded legacy work cannot reappear after reload');
 
       const importFile = element('projectFile'), foreign = new File([await clean.DrawingStudio.exportProject()], 'different-work.lrxdraw', {type: 'application/json'});
       Object.defineProperty(importFile, 'files', { configurable: true, value: [foreign] });
