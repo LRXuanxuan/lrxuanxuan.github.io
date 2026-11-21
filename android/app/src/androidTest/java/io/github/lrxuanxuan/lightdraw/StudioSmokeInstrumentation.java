@@ -109,12 +109,13 @@ public final class StudioSmokeInstrumentation extends Instrumentation {
                 + "const pdf=await import(path+'pdf.mjs');"
                 + "pdf.GlobalWorkerOptions.workerSrc=path+'pdf.worker.mjs';"
                 + "const data=Uint8Array.from(atob('" + PDF + "'),c=>c.charCodeAt(0));"
-                + "const document=await pdf.getDocument({data,isEvalSupported:false,enableXfa:false}).promise;"
+                + "const task=pdf.getDocument({data,isEvalSupported:false,enableXfa:false});"
+                + "const document=await task.promise;"
                 + "const page=await document.getPage(1),canvas=window.document.createElement('canvas');"
                 + "canvas.width=100;canvas.height=100;const ctx=canvas.getContext('2d');"
                 + "await page.render({canvasContext:ctx,viewport:page.getViewport({scale:1})}).promise;"
                 + "const pixel=Array.from(ctx.getImageData(50,50,1,1).data);"
-                + "await document.destroy();window.__ldPdfSmoke={done:true,pixel};"
+                + "await task.destroy();window.__ldPdfSmoke={done:true,pixel};"
                 + "}catch(error){window.__ldPdfSmoke={done:true,error:String(error)}}})();true");
         JSONObject pdf = awaitState(view, "window.__ldPdfSmoke", "done", 45000);
         require(!pdf.has("error"), "Offline PDF worker/render failed: " + pdf);
