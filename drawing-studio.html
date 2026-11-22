@@ -32,10 +32,10 @@
   <script src="assets/drawing-studio/bridge.js?v=20261121-9" defer></script>
   <script src="assets/drawing-studio/storage.js?v=20261122-3" defer></script>
   <script src="assets/drawing-studio/reference.js?v=20261121-5" defer></script>
-  <script src="assets/drawing-studio/canvas-presets.js?v=20261121-1" defer></script>
+  <script src="assets/drawing-studio/canvas-presets.js?v=20261123-sketch-paper-1" defer></script>
   <script src="assets/drawing-studio/textures/paper001.js?v=1" defer></script>
   <script src="assets/drawing-studio/paper.js?v=20261121-9" defer></script>
-  <script src="assets/drawing-studio/app.js?v=20261122-texture-zero-1" defer></script>
+  <script src="assets/drawing-studio/app.js?v=20261123-sketch-paper-1" defer></script>
 </head>
 <body>
   <svg class="studio-symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="0" height="0"><defs>
@@ -140,9 +140,9 @@
     </aside>
 
     <section class="drawing-area" aria-label="绘画区域">
-      <div class="canvas-toolbar"><div><button id="showReference" aria-pressed="true" title="显示或隐藏参考面板">参考</button><span id="documentSize">1280 × 960</span><button type="button" id="wastebasket" aria-label="废纸篓，丢掉当前作品" aria-haspopup="dialog" title="废纸篓 · 丢掉整幅作品"><svg class="studio-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M3.5 6.5h17M9 6.2V4h6v2.2M6 7.1l1.1 13h9.8l1.1-13M10.5 10v6.8M13.5 10v6.8"/></svg></button></div><div class="view-controls"><button id="zoomOut" aria-label="缩小画布">−</button><button id="zoomLabel" title="切换到100%">100%</button><button id="zoomIn" aria-label="放大画布">＋</button><button id="fitCanvas">适应</button><button id="showSettings" aria-pressed="true" title="显示或隐藏画笔图层面板">面板</button></div></div>
+      <div class="canvas-toolbar"><div><button id="showReference" aria-pressed="true" title="显示或隐藏参考面板">参考</button><span id="documentSize">800 × 1400</span><button type="button" id="wastebasket" aria-label="废纸篓，丢掉当前作品" aria-haspopup="dialog" title="废纸篓 · 丢掉整幅作品"><svg class="studio-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M3.5 6.5h17M9 6.2V4h6v2.2M6 7.1l1.1 13h9.8l1.1-13M10.5 10v6.8M13.5 10v6.8"/></svg></button></div><div class="view-controls"><button id="zoomOut" aria-label="缩小画布">−</button><button id="zoomLabel" title="切换到100%">100%</button><button id="zoomIn" aria-label="放大画布">＋</button><button id="fitCanvas">适应</button><button id="showSettings" aria-pressed="true" title="显示或隐藏画笔图层面板">面板</button></div></div>
       <div class="canvas-viewport" id="canvasViewport" tabindex="0" aria-label="画布，使用数位板或鼠标绘画">
-        <div class="canvas-surface" id="canvasSurface"><canvas id="drawingCanvas" width="1280" height="960" aria-label="当前画作"></canvas><div id="shapeSelection" class="shape-selection" aria-hidden="true" hidden><svg id="shapeGuide" focusable="false" aria-hidden="true"><polygon id="shapeGuideOutline" fill="none"/></svg><span data-corner="nw"></span><span data-corner="ne"></span><span data-corner="sw"></span><span data-corner="se"></span></div></div>
+        <div class="canvas-surface" id="canvasSurface"><canvas id="drawingCanvas" width="800" height="1400" aria-label="当前画作"></canvas><div id="shapeSelection" class="shape-selection" aria-hidden="true" hidden><svg id="shapeGuide" focusable="false" aria-hidden="true"><polygon id="shapeGuideOutline" fill="none"/></svg><span data-corner="nw"></span><span data-corner="ne"></span><span data-corner="sw"></span><span data-corner="se"></span></div></div>
         <div class="brush-cursor" id="brushCursor" hidden></div>
         <p class="canvas-hint" id="canvasHint">从第一笔开始。<span>空格拖动画布 · Alt 取色 · Tab 专注</span></p>
       </div>
@@ -335,7 +335,7 @@
           <label class="field"><span>纹理强度 <output id="textureStrengthValue">100%</output></span><input id="textureStrength" type="range" min="0" max="100" value="100"></label>
           <div id="paperGallery" class="paper-gallery" role="group" aria-label="纸纹样本"></div>
           <div id="canvasFormatControls"></div>
-          <div class="dimension-fields"><label>宽 / px<input id="canvasWidth" type="number" min="32" max="4096" value="1280"></label><span>×</span><label>高 / px<input id="canvasHeight" type="number" min="32" max="4096" value="960"></label></div>
+          <div class="dimension-fields"><label>宽 / px<input id="canvasWidth" type="number" min="32" max="4096" value="800"></label><span>×</span><label>高 / px<input id="canvasHeight" type="number" min="32" max="4096" value="1400"></label></div>
           <button id="resizeCanvas" class="wide">更改画布尺寸</button><p class="hint">从左上角保留内容，超出边缘的部分裁掉，可撤销。透明背景显示为棋盘格。</p>
         </details>
       </div>
@@ -376,7 +376,7 @@
     <div class="dialog-title"><h2>一张新画布</h2><button type="button" data-close="newDialog" aria-label="关闭">×</button></div>
     <label class="field">作品名称<input id="newTitle" type="text" maxlength="60" value="未命名画作"></label>
     <div id="newFormatControls"></div>
-    <div class="dimension-fields"><label>宽 / px<input id="newWidth" type="number" min="32" max="4096" value="1280" required></label><span>×</span><label>高 / px<input id="newHeight" type="number" min="32" max="4096" value="960" required></label></div>
+    <div class="dimension-fields"><label>宽 / px<input id="newWidth" type="number" min="32" max="4096" value="800" required></label><span>×</span><label>高 / px<input id="newHeight" type="number" min="32" max="4096" value="1400" required></label></div>
     <div id="newPaperSettings">
       <label class="field">底色<input id="newPaperColor" type="color" value="#ffffff"></label>
       <label class="field"><span>底色不透明度 <output id="newPaperOpacityValue">100%</output></span><input id="newPaperOpacity" type="range" min="0" max="100" value="100"></label>

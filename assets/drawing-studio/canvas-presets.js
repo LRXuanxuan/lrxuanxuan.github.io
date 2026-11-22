@@ -10,6 +10,8 @@
     { id: 'letter', name: 'US Letter', mm: [215.9, 279.4] },
     { id: 'postcard', name: '明信片', mm: [148, 100] },
     { id: 'bookmark', name: '书签', mm: [50, 150] },
+    { id: 'figure-sketch', name: '站立人物速写', px: [800, 1400] },
+    { id: 'small-scene', name: '小物与小场景（方形）', px: [1000, 1000] },
     { id: 'classic', name: '练习画布', px: [1280, 960] },
     { id: 'hd', name: '全高清', px: [1920, 1080] },
     { id: 'square', name: '方形', px: [1200, 1200] },
@@ -30,7 +32,7 @@
     const width = byId(prefix + 'Width'), height = byId(prefix + 'Height');
     const selected = () => formats.find(format => format.id === select.value);
 
-    for (const [unit, title] of [['mm', '纸张与文具 · mm'], ['px', '屏幕与练习 · px']]) {
+    for (const [unit, title] of [['px', '屏幕与练习 · px'], ['mm', '纸张与文具 · mm']]) {
       const group = document.createElement('optgroup');
       group.label = title;
       for (const format of formats.filter(format => format[unit])) {
