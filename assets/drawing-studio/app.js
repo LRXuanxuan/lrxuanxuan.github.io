@@ -2155,7 +2155,7 @@
     } else window.addEventListener('resize', () => { fit(); resizeReferenceView(); });
   }
   async function initialize() {
-    if (!Core?.brushPresets || !window.DrawingWatercolor || !window.spectral || !window.DrawingChuishiBrushes || !window.DrawingChuishiData || !window.DrawingHaiguaiData || !window.DrawingDongdongData || !Marks || !Strokes || !window.DrawingPalettes || !window.DrawingPaletteMap || !window.DrawingColorLibrary || !window.DrawingCanvasPresets || !window.DrawingPaper || !window.DrawingColorControls || !window.DrawingReference || !window.DrawingStorage) { notify('画板组件未加载完整，请刷新页面。'); return; }
+    if (!Core?.brushPresets || !window.DrawingExpressiveBrushes || !window.DrawingWatercolor || !window.spectral || !window.DrawingChuishiBrushes || !window.DrawingChuishiData || !window.DrawingHaiguaiData || !window.DrawingDongdongData || !Marks || !Strokes || !window.DrawingPalettes || !window.DrawingPaletteMap || !window.DrawingColorLibrary || !window.DrawingCanvasPresets || !window.DrawingPaper || !window.DrawingColorControls || !window.DrawingReference || !window.DrawingStorage) { notify('画板组件未加载完整，请刷新页面。'); return; }
     const groups = new Map();
     for (const preset of Core.brushPresets) {
       if (!groups.has(preset.group)) {

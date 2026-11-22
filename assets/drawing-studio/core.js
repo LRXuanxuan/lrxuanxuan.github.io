@@ -3,10 +3,11 @@
   'use strict';
   var imported = typeof module === 'object' && module.exports ? require('./brushes-chuishi.js') : root && root.DrawingChuishiBrushes;
   var watercolor = typeof module === 'object' && module.exports ? require('./watercolor.js') : root && root.DrawingWatercolor;
-  var api = factory(imported, watercolor);
+  var expressive = typeof module === 'object' && module.exports ? require('./brushes-expressive.js') : root && root.DrawingExpressiveBrushes;
+  var api = factory(imported, watercolor, expressive);
   if (typeof module === 'object' && module.exports) module.exports = api;
   if (root) root.DrawingCore = api;
-})(typeof window !== 'undefined' ? window : typeof self !== 'undefined' ? self : null, function (Imported, Watercolor) {
+})(typeof window !== 'undefined' ? window : typeof self !== 'undefined' ? self : null, function (Imported, Watercolor, Expressive) {
   'use strict';
 
   function clamp(value, min, max) { return Math.min(max, Math.max(min, value)); }
@@ -50,6 +51,9 @@
   var importedPresets = Imported ? Imported.presets : [];
   brushPresets.push.apply(brushPresets, importedPresets);
   var importedIds = new Set(importedPresets.map(function (preset) { return preset.id; }));
+  var expressivePresets = Expressive ? Expressive.presets : [];
+  brushPresets.push.apply(brushPresets, expressivePresets);
+  var expressiveIds = new Set(expressivePresets.map(function (preset) { return preset.id; }));
   function resolveBrushId(id) {
     return brushPresets.some(function (preset) { return preset.id === id; }) ? id : brushPresets[0].id;
   }
@@ -137,6 +141,8 @@
       return Watercolor.makeStroke(ctx, Object.assign({}, options, { brush: preset.id }));
     if (options.brush !== 'eraser' && importedIds.has(preset.id))
       return Imported.makeStroke(ctx, Object.assign({}, options, { brush: preset.id }));
+    if (options.brush !== 'eraser' && expressiveIds.has(preset.id))
+      return Expressive.makeStroke(ctx, Object.assign({}, options, { brush: preset.id }));
     var brush = options.brush === 'eraser' ? 'eraser' : preset.id;
     var size = clamp(number(options.size, 8), 0.5, 512);
     var stabilized = clamp(number(options.stabilizer, 0), 0, 100);

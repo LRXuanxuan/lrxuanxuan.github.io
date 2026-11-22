@@ -669,7 +669,7 @@ async function main() {
     const brushes = ['gpen', 'fineliner', 'plainSquare', 'fountain', 'wetMix', 'smudge', 'binary', 'pixel',
       'watercolorWet', 'watercolorGlaze', 'watercolorDry',
       ...win.DrawingChuishiData.brushes.map(p => p.id), ...win.DrawingHaiguaiData.brushes.map(p => p.id),
-      ...win.DrawingDongdongData.brushes.map(p => p.id)];
+      ...win.DrawingDongdongData.brushes.map(p => p.id), ...win.DrawingExpressiveBrushes.presets.map(p => p.id)];
     assert.deepEqual(Array.from(element('brushKind').options, option => option.value).sort(), [...brushes].sort());
     for (const brush of brushes) {
       await fresh(); select('brushKind', brush);
