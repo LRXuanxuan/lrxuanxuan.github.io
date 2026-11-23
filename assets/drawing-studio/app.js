@@ -1563,7 +1563,7 @@
   }
 
   function blankArtwork(options) {
-    const dimensions = validSize(options.width || 875, options.height || 1400);
+    const dimensions = validSize(options.width || 1400, options.height || 875);
     const layer = createLayer('图层 1', dimensions);
     return { ...dimensions, title: String(options.title || '未命名画作').slice(0, 60), ...window.DrawingPaper.settings(options), paperPpi: window.DrawingCanvasPresets.paperPpi(options.paperPpi), tone: { hue: 0, saturation: 0, lightness: 0 }, layers: [layer], activeId: layer.id };
   }
