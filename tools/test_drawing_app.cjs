@@ -1527,7 +1527,58 @@ async function main() {
     }
   });
 
-  await test('Current work reopens with the same pixels, reference and paper; discarded work cannot return from a stale tab', async () => {
+  await test('New canvas and wastebasket preserve reference across reload until explicitly removed', async () => {
+    const isolated = await openStudio(new IDBFactory()), w = isolated.window, d = isolated.window.document, studio = w.DrawingStudio;
+    const get = id => d.getElementById(id);
+    const refImage = native.createCanvas(24, 16);
+    refImage.getContext('2d').fillStyle = '#7b9b60';
+    refImage.getContext('2d').fillRect(0, 0, 24, 16);
+    let second, third;
+    try {
+      studio.addLayer();
+      await studio.ref.load(new w.File([refImage.toBuffer('image/png')], 'kept-reference.png', { type: 'image/png' }));
+      studio.ref.setMode('gray');
+      const originalRef = studio.ref;
+      get('newDocument').click();
+      get('newWidth').value = '144'; get('newHeight').value = '90';
+      get('newForm').dispatchEvent(new w.Event('submit', { bubbles: true, cancelable: true }));
+      await eventually(() => !d.body.classList.contains('busy') && studio.inspect().width === 144,
+        'New canvas should finish saving and replacing only the artwork');
+      assert.equal(studio.ref, originalRef, 'New canvas keeps the same reference object (including its PDF state)');
+      assert.equal(studio.ref.getInfo().name, 'kept-reference.png');
+      assert.equal(studio.ref.getInfo().mode, 'gray');
+      assert.equal(studio.inspect().layers.length, 1); assert.equal(inkStats(studio.getLayer(studio.inspect().activeId).canvas).count, 0);
+      let current = await w.DrawingStorage.readCurrent();
+      assert.equal(current.project.reference.name, 'kept-reference.png');
+      assert.equal(current.project.reference.selectedMode, 'gray');
+      assert.equal(current.project.layers.length, 1);
+      second = await openStudio(w.indexedDB);
+      assert.equal(second.window.DrawingStudio.ref.getInfo().name, 'kept-reference.png');
+      assert.equal(second.window.DrawingStudio.ref.getInfo().mode, 'gray', 'New canvas reference survives reopening');
+
+      get('wastebasket').click(); get('discardWork').click();
+      await eventually(() => !d.body.classList.contains('busy') && !get('wastebasketDialog').open,
+        'Wastebasket should finish');
+      assert.equal(studio.ref, originalRef, 'Discard keeps the current reference object');
+      assert.equal(studio.ref.getInfo().name, 'kept-reference.png');
+      assert.equal(studio.inspect().layers.length, 1); assert.equal(inkStats(studio.getLayer(studio.inspect().activeId).canvas).count, 0);
+      current = await w.DrawingStorage.readCurrent();
+      assert.equal(current.project.reference.name, 'kept-reference.png');
+      assert.equal(current.project.layers.length, 1);
+      third = await openStudio(w.indexedDB);
+      assert.equal(third.window.DrawingStudio.ref.getInfo().name, 'kept-reference.png');
+      assert.equal(third.window.DrawingStudio.ref.getInfo().mode, 'gray', 'Discard keeps reference across reload');
+      // Removing reference remains a separate explicit action, and autosave persists the removal.
+      get('referenceRemove').click();
+      await studio.saveDraft();
+      assert.equal((await w.DrawingStorage.readCurrent()).project.reference, null);
+      assert.equal(studio.ref.getCanvas(), null);
+    } finally {
+      third?.window.close(); second?.window.close(); isolated.window.close();
+    }
+  });
+
+  await test('Current work reopens with the same pixels, reference and paper; discarded pixels cannot return from a stale tab', async () => {
     await fresh(106, 78);
     await stroke([[10, 14], [72, 53]]);
     const base = state().activeId, overlay = app.addLayer();
@@ -1580,9 +1631,11 @@ async function main() {
       await eventually(() => !!releaseEncoder, 'Old tab should start serializing its changed layers');
       otherDoc.getElementById('wastebasket').click(); otherDoc.getElementById('discardWork').click();
       await eventually(() => !otherDoc.getElementById('wastebasketDialog').open && current.inspect().layers.length === 1, 'Discard should switch to a fresh work');
-      assert.equal(current.ref.getCanvas(), null); assert.equal(inkStats(current.getLayer(current.inspect().activeId).canvas).count, 0);
+      assert.equal(current.ref.getInfo().name, 'resume-reference.png', 'Discard retains the reference in the running window');
+      assert.equal(inkStats(current.getLayer(current.inspect().activeId).canvas).count, 0);
       const tombstone = await other.DrawingStorage.readCurrent();
-      assert.ok(tombstone.stamp); assert.equal(tombstone.project, null);
+      assert.ok(tombstone.stamp); assert.equal(tombstone.project.layers.length, 1);
+      assert.equal(tombstone.project.reference.name, 'resume-reference.png', 'Discard persists reference with an empty current project');
       releaseEncoder(); releaseEncoder = null;
       baseCanvas.toBlob = encode;
       await pending; win.dispatchEvent(new win.Event('pagehide')); await wait(70);
@@ -1590,9 +1643,10 @@ async function main() {
       assert.equal(state().layers.length, 3, 'Conflict preserves old tab pixels so the user can export them');
       assert.equal(hash(pixels(app.getLayer(base).canvas)), expectedBase);
       const clean = await reopen();
-      assert.equal(clean.DrawingStudio.inspect().layers.length, 1); assert.equal(clean.DrawingStudio.ref.getCanvas(), null);
+      assert.equal(clean.DrawingStudio.inspect().layers.length, 1);
+      assert.equal(clean.DrawingStudio.ref.getInfo().name, 'resume-reference.png', 'Reload after discard retains reference');
       assert.notEqual(clean.DrawingStudio.inspect().title, original.title);
-      assert.equal((await clean.DrawingStorage.readCurrent()).project, null);
+      assert.equal((await clean.DrawingStorage.readCurrent()).project.reference.name, 'resume-reference.png');
       assert.equal(typeof clean.DrawingStorage.load, 'undefined', 'Discarded legacy work cannot reappear after reload');
 
       const importFile = element('projectFile'), foreign = new File([await clean.DrawingStudio.exportProject()], 'different-work.lrxdraw', {type: 'application/json'});
