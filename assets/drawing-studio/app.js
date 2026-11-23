@@ -1682,14 +1682,16 @@
   async function replaceWithBlank(options, discard = false) {
     await replaceCurrent(async () => {
       const next = blankArtwork(options);
-      const project = discard ? null : await serializeProject(next, false);
+      // Reference is a reusable aid, not part of the paper being discarded.
+      // Keep it in the single current-project slot so it also survives a reload.
+      const hasReference = !!ref?.getCanvas();
+      const project = discard && !hasReference ? null : await serializeProject(next, hasReference);
       if (project) { project.settings.recentColors = []; project.settings.marks = { ...MARK_DEFAULTS }; }
       await writeCurrent(project);
-      ref.destroy(); ref = createReference(); referenceCache = null; lastReferenceKey = ''; pendingPDFPage = null;
       recentColors = []; swatches($('recentSwatches'), recentColors); applyMarkSettings(MARK_DEFAULTS);
-      newDocument(options, next); referenceChanged(false);
-      $('saveStatus').textContent = discard ? '自动保留当前作品' : '已保存到本机';
-      if (discard) status('作品已丢弃 · 新画布');
+      newDocument(options, next);
+      $('saveStatus').textContent = project ? '已保存到本机' : '自动保留当前作品';
+      if (discard) status(hasReference ? '作品已丢弃 · 参考已保留' : '作品已丢弃 · 新画布');
     });
   }
   async function encodeValues(value) {
