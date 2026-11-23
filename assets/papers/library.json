@@ -161,7 +161,13 @@
       "report_entry_url": "/papers/reports/2026-11-24/#paper-057ef9087ac53434",
       "paper_url": "/papers/items/057ef9087ac53434/",
       "paper_report_url": "/papers/items/057ef9087ac53434/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-24-bd8fb0c45794e0019b9949c1/#paper-057ef9087ac53434",
+          "scope": "全文中文译文",
+          "title": "Learning Anisotropic Prediction Targets for Flow Models"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2611.17767",
         "https://arxiv.org/abs/2611.17767",
@@ -179,10 +185,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/057ef9087ac53434/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-24-bd8fb0c45794e0019b9949c1/#paper-057ef9087ac53434",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "8f877838416a2946",
@@ -215,7 +221,13 @@
       "report_entry_url": "/papers/reports/2026-11-24/#paper-8f877838416a2946",
       "paper_url": "/papers/items/8f877838416a2946/",
       "paper_report_url": "/papers/items/8f877838416a2946/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-24-2c452844b667436a897dc474/#paper-8f877838416a2946",
+          "scope": "全文中文译文",
+          "title": "Temporal Diffusion Models for Joint Signal-Channel Estimation under Gaussian and $\\alpha$-Stable MIMO Channels"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2611.22548",
         "https://arxiv.org/abs/2611.22548",
@@ -230,10 +242,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/8f877838416a2946/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-24-2c452844b667436a897dc474/#paper-8f877838416a2946",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "2dff9cec781bf1b5",
@@ -266,7 +278,13 @@
       "report_entry_url": "/papers/reports/2026-11-24/#paper-2dff9cec781bf1b5",
       "paper_url": "/papers/items/2dff9cec781bf1b5/",
       "paper_report_url": "/papers/items/2dff9cec781bf1b5/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-24-efc3a08a96e15aceb05246f1/#paper-2dff9cec781bf1b5",
+          "scope": "全文中文译文",
+          "title": "DyTransRM: A Unified Simulation-to-Real Framework for Dynamic Radio Map Prediction"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2611.19430",
         "https://arxiv.org/abs/2611.19430",
@@ -281,10 +299,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/2dff9cec781bf1b5/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-24-efc3a08a96e15aceb05246f1/#paper-2dff9cec781bf1b5",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "aaf62e4eb228c078",
@@ -317,7 +335,13 @@
       "report_entry_url": "/papers/reports/2026-11-24/#paper-aaf62e4eb228c078",
       "paper_url": "/papers/items/aaf62e4eb228c078/",
       "paper_report_url": "/papers/items/aaf62e4eb228c078/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-24-5b58eeae55842527d9428214/#paper-aaf62e4eb228c078",
+          "scope": "全文中文译文",
+          "title": "Synergizing Data-Driven Learning and Physical Rendering for Radio Map Prediction"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2611.16416",
         "https://arxiv.org/abs/2611.16416",
@@ -332,10 +356,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/aaf62e4eb228c078/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-24-5b58eeae55842527d9428214/#paper-aaf62e4eb228c078",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "86f7c4877e651e29",
@@ -368,7 +392,13 @@
       "report_entry_url": "/papers/reports/2026-11-24/#paper-86f7c4877e651e29",
       "paper_url": "/papers/items/86f7c4877e651e29/",
       "paper_report_url": "/papers/items/86f7c4877e651e29/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-24-64263eaa069ffa8fdfca5456/#paper-86f7c4877e651e29",
+          "scope": "全文中文译文",
+          "title": "DMD Prediction of MIMO Channel Using Tucker Decomposition"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2603.15468",
         "https://arxiv.org/abs/2603.15468",
@@ -385,10 +415,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/86f7c4877e651e29/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-24-64263eaa069ffa8fdfca5456/#paper-86f7c4877e651e29",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "4c460f882372ecd9",
@@ -421,7 +451,13 @@
       "report_entry_url": "/papers/reports/2026-11-24/#paper-4c460f882372ecd9",
       "paper_url": "/papers/items/4c460f882372ecd9/",
       "paper_report_url": "/papers/items/4c460f882372ecd9/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-24-485a25ec19e5a11c5fcdfed9/#paper-4c460f882372ecd9",
+          "scope": "全文中文译文",
+          "title": "Efficient Channel Prediction based on Gram-Square-Root Factorization using GMMs"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2607.26959",
         "https://arxiv.org/abs/2607.26959",
@@ -437,10 +473,10 @@
       ],
       "hosted_pdfs": [],
       "status": "已接受待刊",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/4c460f882372ecd9/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-24-485a25ec19e5a11c5fcdfed9/#paper-4c460f882372ecd9",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "e517237fabddd6ac",
@@ -473,7 +509,13 @@
       "report_entry_url": "/papers/reports/2026-11-24/#paper-e517237fabddd6ac",
       "paper_url": "/papers/items/e517237fabddd6ac/",
       "paper_report_url": "/papers/items/e517237fabddd6ac/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-24-4f124cfbc67d749fecfc7265/#paper-e517237fabddd6ac",
+          "scope": "全文中文译文",
+          "title": "MIMO Channel Extrapolation to Unobserved Radiation Modes via Learned Path Refinement"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2611.23904",
         "https://arxiv.org/abs/2611.23904",
@@ -488,10 +530,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/e517237fabddd6ac/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-24-4f124cfbc67d749fecfc7265/#paper-e517237fabddd6ac",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "3086f2be29a39cdb",
@@ -524,7 +566,13 @@
       "report_entry_url": "/papers/reports/2026-11-24/#paper-3086f2be29a39cdb",
       "paper_url": "/papers/items/3086f2be29a39cdb/",
       "paper_report_url": "/papers/items/3086f2be29a39cdb/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-24-0f281e1735998770f90e3e98/#paper-3086f2be29a39cdb",
+          "scope": "全文中文译文",
+          "title": "Joint Channel Estimation, Data Detection, and Phase Noise Tracking in Massive MIMO Systems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2611.18947",
         "https://arxiv.org/abs/2611.18947",
@@ -539,10 +587,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/3086f2be29a39cdb/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-24-0f281e1735998770f90e3e98/#paper-3086f2be29a39cdb",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "0241faaca7addab7",
@@ -575,7 +623,13 @@
       "report_entry_url": "/papers/reports/2026-11-24/#paper-0241faaca7addab7",
       "paper_url": "/papers/items/0241faaca7addab7/",
       "paper_report_url": "/papers/items/0241faaca7addab7/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-24-4a5c9925df74f697a8866625/#paper-0241faaca7addab7",
+          "scope": "全文中文译文",
+          "title": "Multi-Step Underwater Acoustic Channel Prediction via Dual-Domain Structure Preservation and Pretrained Transformer"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2611.14592",
         "https://arxiv.org/abs/2611.14592",
@@ -590,10 +644,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/0241faaca7addab7/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-24-4a5c9925df74f697a8866625/#paper-0241faaca7addab7",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "b86509dd10560a5d",
@@ -626,7 +680,13 @@
       "report_entry_url": "/papers/reports/2026-11-24/#paper-b86509dd10560a5d",
       "paper_url": "/papers/items/b86509dd10560a5d/",
       "paper_report_url": "/papers/items/b86509dd10560a5d/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-24-ea54de73e1bc005447de1257/#paper-b86509dd10560a5d",
+          "scope": "全文中文译文",
+          "title": "Measurement-Calibrated Synthetic Pretraining for Rapid Adaptation of UAV Channel Predictors"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2611.16646",
         "https://arxiv.org/abs/2611.16646",
@@ -641,10 +701,10 @@
       ],
       "hosted_pdfs": [],
       "status": "已接受待刊",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/b86509dd10560a5d/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-24-ea54de73e1bc005447de1257/#paper-b86509dd10560a5d",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "789ea8816b82bfa8",
@@ -42639,6 +42699,116 @@
     }
   ],
   "translations": [
+    {
+      "date": "2026-11-24",
+      "url": "/papers/translations/2026-11-24-efc3a08a96e15aceb05246f1/",
+      "slug": "2026-11-24-efc3a08a96e15aceb05246f1",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "DyTransRM: A Unified Simulation-to-Real Framework for Dynamic Radio Map Prediction",
+      "paper_id": "2611.19430",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-24-efc3a08a96e15aceb05246f1.md"
+    },
+    {
+      "date": "2026-11-24",
+      "url": "/papers/translations/2026-11-24-ea54de73e1bc005447de1257/",
+      "slug": "2026-11-24-ea54de73e1bc005447de1257",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Measurement-Calibrated Synthetic Pretraining for Rapid Adaptation of UAV Channel Predictors",
+      "paper_id": "2611.16646",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-24-ea54de73e1bc005447de1257.md"
+    },
+    {
+      "date": "2026-11-24",
+      "url": "/papers/translations/2026-11-24-bd8fb0c45794e0019b9949c1/",
+      "slug": "2026-11-24-bd8fb0c45794e0019b9949c1",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Learning Anisotropic Prediction Targets for Flow Models",
+      "paper_id": "2611.17767",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-24-bd8fb0c45794e0019b9949c1.md"
+    },
+    {
+      "date": "2026-11-24",
+      "url": "/papers/translations/2026-11-24-64263eaa069ffa8fdfca5456/",
+      "slug": "2026-11-24-64263eaa069ffa8fdfca5456",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "DMD Prediction of MIMO Channel Using Tucker Decomposition",
+      "paper_id": "2603.15468",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-24-64263eaa069ffa8fdfca5456.md"
+    },
+    {
+      "date": "2026-11-24",
+      "url": "/papers/translations/2026-11-24-5b58eeae55842527d9428214/",
+      "slug": "2026-11-24-5b58eeae55842527d9428214",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Synergizing Data-Driven Learning and Physical Rendering for Radio Map Prediction",
+      "paper_id": "2611.16416",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-24-5b58eeae55842527d9428214.md"
+    },
+    {
+      "date": "2026-11-24",
+      "url": "/papers/translations/2026-11-24-4f124cfbc67d749fecfc7265/",
+      "slug": "2026-11-24-4f124cfbc67d749fecfc7265",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "MIMO Channel Extrapolation to Unobserved Radiation Modes via Learned Path Refinement",
+      "paper_id": "2611.23904",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-24-4f124cfbc67d749fecfc7265.md"
+    },
+    {
+      "date": "2026-11-24",
+      "url": "/papers/translations/2026-11-24-4a5c9925df74f697a8866625/",
+      "slug": "2026-11-24-4a5c9925df74f697a8866625",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Multi-Step Underwater Acoustic Channel Prediction via Dual-Domain Structure Preservation and Pretrained Transformer",
+      "paper_id": "2611.14592",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-24-4a5c9925df74f697a8866625.md"
+    },
+    {
+      "date": "2026-11-24",
+      "url": "/papers/translations/2026-11-24-485a25ec19e5a11c5fcdfed9/",
+      "slug": "2026-11-24-485a25ec19e5a11c5fcdfed9",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Efficient Channel Prediction based on Gram-Square-Root Factorization using GMMs",
+      "paper_id": "2607.26959",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-24-485a25ec19e5a11c5fcdfed9.md"
+    },
+    {
+      "date": "2026-11-24",
+      "url": "/papers/translations/2026-11-24-2c452844b667436a897dc474/",
+      "slug": "2026-11-24-2c452844b667436a897dc474",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Temporal Diffusion Models for Joint Signal-Channel Estimation under Gaussian and $\\alpha$-Stable MIMO Channels",
+      "paper_id": "2611.22548",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-24-2c452844b667436a897dc474.md"
+    },
+    {
+      "date": "2026-11-24",
+      "url": "/papers/translations/2026-11-24-0f281e1735998770f90e3e98/",
+      "slug": "2026-11-24-0f281e1735998770f90e3e98",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Joint Channel Estimation, Data Detection, and Phase Noise Tracking in Massive MIMO Systems",
+      "paper_id": "2611.18947",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-24-0f281e1735998770f90e3e98.md"
+    },
     {
       "date": "2026-11-23",
       "url": "/papers/translations/2026-11-23-ef754df89549d39ddcd79bcb/",
