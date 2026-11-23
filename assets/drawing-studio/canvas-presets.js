@@ -10,8 +10,8 @@
     { id: 'letter', name: 'US Letter', mm: [215.9, 279.4] },
     { id: 'postcard', name: '明信片', mm: [148, 100] },
     { id: 'bookmark', name: '书签', mm: [50, 150] },
-    { id: 'figure-sketch', name: '站立人物速写', px: [800, 1400] },
-    { id: 'small-scene', name: '小物与小场景（方形）', px: [1000, 1000] },
+    { id: 'ctl472-portrait', name: 'CTL-472 纵向', px: [875, 1400] },
+    { id: 'ctl472-landscape', name: 'CTL-472 横向', px: [1400, 875] },
     { id: 'classic', name: '练习画布', px: [1280, 960] },
     { id: 'hd', name: '全高清', px: [1920, 1080] },
     { id: 'square', name: '方形', px: [1200, 1200] },
@@ -93,7 +93,8 @@
           width.value = height.value;
           height.value = oldWidth;
         }
-        refresh();
+        if (selected()?.px) sync(width.valueAsNumber, height.valueAsNumber, null);
+        else refresh();
       });
     }
     for (const input of [width, height]) {
@@ -108,15 +109,17 @@
       width.value = w;
       height.value = h;
       select.value = 'custom';
-      for (const format of formats) {
-        if (Boolean(format.mm) !== Boolean(ppi)) continue;
+      const matches = (format, rotated) => {
+        if (Boolean(format.mm) !== Boolean(ppi)) return false;
         const [x, y] = pixels(format, ppi);
-        if ((x === w && y === h) || (x === h && y === w)) {
-          select.value = format.id;
-          if (ppi) density.value = String(ppi);
-          prepareDensity(format);
-          break;
-        }
+        return rotated ? x === h && y === w : x === w && y === h;
+      };
+      // Prefer the named orientation when a format has both portrait and landscape presets.
+      const format = formats.find(format => matches(format, false)) || formats.find(format => matches(format, true));
+      if (format) {
+        select.value = format.id;
+        if (ppi) density.value = String(ppi);
+        prepareDensity(format);
       }
       refresh();
     }

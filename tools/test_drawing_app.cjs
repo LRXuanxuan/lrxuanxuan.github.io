@@ -301,7 +301,7 @@ async function main() {
   }
 
   await test('Initial page loads entirely locally and defers the PDF component', async () => {
-    assert.equal(state().width, 800); assert.equal(state().height, 1400); assert.equal(state().layers.length, 1);
+    assert.equal(state().width, 875); assert.equal(state().height, 1400); assert.equal(state().layers.length, 1);
     assert.ok(requests.includes('/assets/drawing-studio/core.js'));
     assert.ok(!requests.some(url => /pdf(?:\.worker)?\.mjs|vendor\/pdfjs/.test(url)), 'PDF must not load on an empty image-free startup');
     assert.ok(element('palettePreset').options.length >= 6); assert.ok(element('presetSwatches').querySelectorAll('button').length > 0);
