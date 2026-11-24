@@ -1,0 +1,23 @@
+@media (min-width: 651px) {
+  .app-header { min-height: 37px; padding: 3px 12px; gap: 15px; }
+  .brand { gap: 7px; }
+  .brand h1 { font-size: 16px; }
+  .brand-mark { width: 24px; height: 24px; border-radius: 6px; }
+  .brand-mark .studio-icon { width: 18px; height: 18px; }
+  .header-actions button, .tool-group button, .history-actions button {
+    min-height: 27px; padding-block: 2px;
+  }
+  .tool-ribbon { min-height: 35px; gap: 7px; padding: 3px 11px; }
+  .tool-group { gap: 1px; }
+  .tool-group button { gap: 3px; padding-inline: 6px; }
+  .tool-ribbon .brush-select select { min-height: 26px; max-width: clamp(112px, 14vw, 196px); }
+  .tool-ribbon input[type=number], .tool-ribbon input[type=color] { height: 26px; min-height: 24px; }
+}
+@media (min-width: 651px) and (max-width: 1440px) and (pointer: coarse) {
+  .header-actions button, .tool-group button, .history-actions button { min-height: 36px; }
+}
+@media (max-width: 650px) {
+  .app-header { min-height: 0; padding-block: 2px; row-gap: 2px; }
+  .brand-mark { width: 23px; height: 23px; }
+  .tool-ribbon { padding-block: 2px; row-gap: 2px; }
+}
