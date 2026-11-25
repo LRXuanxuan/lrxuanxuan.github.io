@@ -174,10 +174,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
+      "translation_status": "complete",
       "full_translation_public": false,
       "full_translation_url": "/papers/items/7461424f1a5e6a10/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_label": "全文翻译（仅本地）"
     },
     {
       "id": "ed91a9c15377f16f",
@@ -210,7 +210,13 @@
       "report_entry_url": "/papers/reports/2026-11-25/#paper-ed91a9c15377f16f",
       "paper_url": "/papers/items/ed91a9c15377f16f/",
       "paper_report_url": "/papers/items/ed91a9c15377f16f/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-25-b934a98847c2514132266ee0/#paper-ed91a9c15377f16f",
+          "scope": "全文中文译文",
+          "title": "Towards Physics-Constrained Rectified Flow for Climate Downscaling: What Projections Can Certify?"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2611.22283",
         "https://arxiv.org/abs/2611.22283",
@@ -222,10 +228,10 @@
       ],
       "hosted_pdfs": [],
       "status": "已接受待刊",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/ed91a9c15377f16f/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-25-b934a98847c2514132266ee0/#paper-ed91a9c15377f16f",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "c81de538b4ae7a55",
@@ -258,7 +264,13 @@
       "report_entry_url": "/papers/reports/2026-11-25/#paper-c81de538b4ae7a55",
       "paper_url": "/papers/items/c81de538b4ae7a55/",
       "paper_report_url": "/papers/items/c81de538b4ae7a55/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-25-0d4bd370121d324683c63a0c/#paper-c81de538b4ae7a55",
+          "scope": "全文中文译文",
+          "title": "Alternating Channel Estimation and Prediction for Cell-Free mMIMO with Channel Aging: A Deep Learning Based Scheme"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2204.07868",
         "https://arxiv.org/abs/2204.07868",
@@ -271,10 +283,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/c81de538b4ae7a55/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-25-0d4bd370121d324683c63a0c/#paper-c81de538b4ae7a55",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "5289b28bb670a1d7",
@@ -320,10 +332,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
+      "translation_status": "complete",
       "full_translation_public": false,
       "full_translation_url": "/papers/items/5289b28bb670a1d7/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_label": "全文翻译（仅本地）"
     },
     {
       "id": "0763fe846f204edc",
@@ -369,10 +381,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
+      "translation_status": "complete",
       "full_translation_public": false,
       "full_translation_url": "/papers/items/0763fe846f204edc/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_label": "全文翻译（仅本地）"
     },
     {
       "id": "53488ee5978b0094",
@@ -420,10 +432,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
+      "translation_status": "complete",
       "full_translation_public": false,
       "full_translation_url": "/papers/items/53488ee5978b0094/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_label": "全文翻译（仅本地）"
     },
     {
       "id": "e75ceb72b8dbba20",
@@ -471,10 +483,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
+      "translation_status": "complete",
       "full_translation_public": false,
       "full_translation_url": "/papers/items/e75ceb72b8dbba20/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_label": "全文翻译（仅本地）"
     },
     {
       "id": "c94af802a5f7650e",
@@ -520,10 +532,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
+      "translation_status": "complete",
       "full_translation_public": false,
       "full_translation_url": "/papers/items/c94af802a5f7650e/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_label": "全文翻译（仅本地）"
     },
     {
       "id": "3d892f08f3af84a6",
@@ -569,10 +581,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
+      "translation_status": "complete",
       "full_translation_public": false,
       "full_translation_url": "/papers/items/3d892f08f3af84a6/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_label": "全文翻译（仅本地）"
     },
     {
       "id": "d7c056945fe5728a",
@@ -620,10 +632,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
+      "translation_status": "complete",
       "full_translation_public": false,
       "full_translation_url": "/papers/items/d7c056945fe5728a/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_label": "全文翻译（仅本地）"
     },
     {
       "id": "057ef9087ac53434",
@@ -43205,6 +43217,28 @@
     }
   ],
   "translations": [
+    {
+      "date": "2026-11-25",
+      "url": "/papers/translations/2026-11-25-b934a98847c2514132266ee0/",
+      "slug": "2026-11-25-b934a98847c2514132266ee0",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Towards Physics-Constrained Rectified Flow for Climate Downscaling: What Projections Can Certify?",
+      "paper_id": "2611.22283",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-25-b934a98847c2514132266ee0.md"
+    },
+    {
+      "date": "2026-11-25",
+      "url": "/papers/translations/2026-11-25-0d4bd370121d324683c63a0c/",
+      "slug": "2026-11-25-0d4bd370121d324683c63a0c",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Alternating Channel Estimation and Prediction for Cell-Free mMIMO with Channel Aging: A Deep Learning Based Scheme",
+      "paper_id": "2204.07868",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-25-0d4bd370121d324683c63a0c.md"
+    },
     {
       "date": "2026-11-24",
       "url": "/papers/translations/2026-11-24-efc3a08a96e15aceb05246f1/",
