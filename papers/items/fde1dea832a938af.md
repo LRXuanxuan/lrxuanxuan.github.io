@@ -9,7 +9,7 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=fde1dea832a938af)
 
-[本篇日报说明](/papers/items/fde1dea832a938af/#paper-report) · [全文翻译（仅本地）](/papers/items/fde1dea832a938af/#paper-translation)
+[本篇日报说明](/papers/items/fde1dea832a938af/#paper-report) · [阅读全文翻译](/papers/translations/2026-11-26-2245c976d6e4ce4f897fd14e/)
 
 **推荐日期：** 2026-11-26 · **发表状态：** 正式发表
 

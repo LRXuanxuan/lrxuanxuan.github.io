@@ -9,7 +9,7 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=5fed67b1b7de93dc)
 
-[本篇日报说明](/papers/items/5fed67b1b7de93dc/#paper-report) · [全文翻译（仅本地）](/papers/items/5fed67b1b7de93dc/#paper-translation)
+[本篇日报说明](/papers/items/5fed67b1b7de93dc/#paper-report) · [阅读全文翻译](/papers/translations/2026-11-26-b8e30425e6b5c40a65ecd7ff/)
 
 **推荐日期：** 2026-11-26 · **发表状态：** 正式发表
 
