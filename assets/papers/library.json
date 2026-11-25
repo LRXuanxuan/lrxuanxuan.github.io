@@ -260,7 +260,13 @@
       "report_entry_url": "/papers/reports/2026-11-26/#paper-8588484ad28b557b",
       "paper_url": "/papers/items/8588484ad28b557b/",
       "paper_report_url": "/papers/items/8588484ad28b557b/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-26-1d9beca11b364e6f92ebec7b/#paper-8588484ad28b557b",
+          "scope": "全文中文译文",
+          "title": "A Multi-Dimensional Matrix Pencil-Based Channel Prediction Method for Massive MIMO with Mobility"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2208.01935",
         "https://arxiv.org/abs/2208.01935",
@@ -273,10 +279,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/8588484ad28b557b/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-26-1d9beca11b364e6f92ebec7b/#paper-8588484ad28b557b",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "8a8fb072dd9dec5c",
@@ -324,10 +330,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
+      "translation_status": "complete",
       "full_translation_public": false,
       "full_translation_url": "/papers/items/8a8fb072dd9dec5c/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_label": "全文翻译（仅本地）"
     },
     {
       "id": "968d10793a9c4f75",
@@ -360,7 +366,13 @@
       "report_entry_url": "/papers/reports/2026-11-26/#paper-968d10793a9c4f75",
       "paper_url": "/papers/items/968d10793a9c4f75/",
       "paper_report_url": "/papers/items/968d10793a9c4f75/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-26-b2dd084bc4b1de31c46a1657/#paper-968d10793a9c4f75",
+          "scope": "全文中文译文",
+          "title": "Angle-Delay Profile-Based and Timestamp-Aided Dissimilarity Metrics for Channel Charting"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2308.09539",
         "https://arxiv.org/abs/2308.09539",
@@ -373,10 +385,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/968d10793a9c4f75/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-26-b2dd084bc4b1de31c46a1657/#paper-968d10793a9c4f75",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "7bc9cd5da23251df",
@@ -409,7 +421,13 @@
       "report_entry_url": "/papers/reports/2026-11-26/#paper-7bc9cd5da23251df",
       "paper_url": "/papers/items/7bc9cd5da23251df/",
       "paper_report_url": "/papers/items/7bc9cd5da23251df/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-26-33117cab13aebd444e433bb1/#paper-7bc9cd5da23251df",
+          "scope": "全文中文译文",
+          "title": "Learn to Adapt to New Environment from Past Experience and Few Pilot"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2209.02649",
         "https://arxiv.org/abs/2209.02649",
@@ -422,10 +440,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/7bc9cd5da23251df/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-26-33117cab13aebd444e433bb1/#paper-7bc9cd5da23251df",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "fde1dea832a938af",
@@ -473,10 +491,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
+      "translation_status": "complete",
       "full_translation_public": false,
       "full_translation_url": "/papers/items/fde1dea832a938af/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_label": "全文翻译（仅本地）"
     },
     {
       "id": "0dcdb57e35f874ab",
@@ -522,10 +540,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
+      "translation_status": "complete",
       "full_translation_public": false,
       "full_translation_url": "/papers/items/0dcdb57e35f874ab/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_label": "全文翻译（仅本地）"
     },
     {
       "id": "97aeaa90871c0f0e",
@@ -571,10 +589,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
+      "translation_status": "complete",
       "full_translation_public": false,
       "full_translation_url": "/papers/items/97aeaa90871c0f0e/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_label": "全文翻译（仅本地）"
     },
     {
       "id": "5fed67b1b7de93dc",
@@ -620,10 +638,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
+      "translation_status": "complete",
       "full_translation_public": false,
       "full_translation_url": "/papers/items/5fed67b1b7de93dc/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "full_translation_label": "全文翻译（仅本地）"
     },
     {
       "id": "7461424f1a5e6a10",
@@ -43771,6 +43789,39 @@
   ],
   "translations": [
     {
+      "date": "2026-11-26",
+      "url": "/papers/translations/2026-11-26-b2dd084bc4b1de31c46a1657/",
+      "slug": "2026-11-26-b2dd084bc4b1de31c46a1657",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Angle-Delay Profile-Based and Timestamp-Aided Dissimilarity Metrics for Channel Charting",
+      "paper_id": "2308.09539",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-26-b2dd084bc4b1de31c46a1657.md"
+    },
+    {
+      "date": "2026-11-26",
+      "url": "/papers/translations/2026-11-26-33117cab13aebd444e433bb1/",
+      "slug": "2026-11-26-33117cab13aebd444e433bb1",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Learn to Adapt to New Environment from Past Experience and Few Pilot",
+      "paper_id": "2209.02649",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "download": "/assets/papers/translations/2026-11-26-33117cab13aebd444e433bb1.md"
+    },
+    {
+      "date": "2026-11-26",
+      "url": "/papers/translations/2026-11-26-1d9beca11b364e6f92ebec7b/",
+      "slug": "2026-11-26-1d9beca11b364e6f92ebec7b",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "A Multi-Dimensional Matrix Pencil-Based Channel Prediction Method for Massive MIMO with Mobility",
+      "paper_id": "2208.01935",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-26-1d9beca11b364e6f92ebec7b.md"
+    },
+    {
       "date": "2026-11-25",
       "url": "/papers/translations/2026-11-25-f31ef96972232d0e43e4b604/",
       "slug": "2026-11-25-f31ef96972232d0e43e4b604",
@@ -43802,6 +43853,17 @@
       "paper_id": "2312.04514",
       "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
       "download": "/assets/papers/translations/2026-11-25-ec0f43eb332c50da563861c8.md"
+    },
+    {
+      "date": "2026-11-25",
+      "url": "/papers/translations/2026-11-25-b934a98847c2514132266ee0/",
+      "slug": "2026-11-25-b934a98847c2514132266ee0",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Towards Physics-Constrained Rectified Flow for Climate Downscaling: What Projections Can Certify?",
+      "paper_id": "2611.22283",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-25-b934a98847c2514132266ee0.md"
     },
     {
       "date": "2026-11-25",
@@ -43849,28 +43911,6 @@
     },
     {
       "date": "2026-11-25",
-      "url": "/papers/translations/2026-11-25-09fe9fcc450507eeec56f145/",
-      "slug": "2026-11-25-09fe9fcc450507eeec56f145",
-      "source_file": "paper.md",
-      "scope": "全文中文译文",
-      "title": "Addressing the curse of mobility in massive MIMO with Prony-based angular-delay domain channel predictions",
-      "paper_id": "1912.11330",
-      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
-      "download": "/assets/papers/translations/2026-11-25-09fe9fcc450507eeec56f145.md"
-    },
-    {
-      "date": "2026-11-25",
-      "url": "/papers/translations/2026-11-25-b934a98847c2514132266ee0/",
-      "slug": "2026-11-25-b934a98847c2514132266ee0",
-      "source_file": "paper.md",
-      "scope": "全文中文译文",
-      "title": "Towards Physics-Constrained Rectified Flow for Climate Downscaling: What Projections Can Certify?",
-      "paper_id": "2611.22283",
-      "license_url": "https://creativecommons.org/licenses/by/4.0/",
-      "download": "/assets/papers/translations/2026-11-25-b934a98847c2514132266ee0.md"
-    },
-    {
-      "date": "2026-11-25",
       "url": "/papers/translations/2026-11-25-0d4bd370121d324683c63a0c/",
       "slug": "2026-11-25-0d4bd370121d324683c63a0c",
       "source_file": "paper.md",
@@ -43879,6 +43919,17 @@
       "paper_id": "2204.07868",
       "license_url": "https://creativecommons.org/licenses/by/4.0/",
       "download": "/assets/papers/translations/2026-11-25-0d4bd370121d324683c63a0c.md"
+    },
+    {
+      "date": "2026-11-25",
+      "url": "/papers/translations/2026-11-25-09fe9fcc450507eeec56f145/",
+      "slug": "2026-11-25-09fe9fcc450507eeec56f145",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Addressing the curse of mobility in massive MIMO with Prony-based angular-delay domain channel predictions",
+      "paper_id": "1912.11330",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-25-09fe9fcc450507eeec56f145.md"
     },
     {
       "date": "2026-11-24",
@@ -45224,6 +45275,18 @@
     },
     {
       "date": "2026-11-12",
+      "url": "/papers/translations/2026-11-12-50acaf4eb89577080cb71ea4/",
+      "slug": "2026-11-12-50acaf4eb89577080cb71ea4",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Joint Air Corridor and BS Coverage Planning for Large-Scale High-Density Low-Altitude Aerial Networks via Channel Knowledge Maps",
+      "paper_id": "2611.13574",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-12-50acaf4eb89577080cb71ea4.md",
+      "publication_authorization": "用户 2026-11-12 明确要求「五篇全推」；原文许可为 arXiv 非独占分发许可，未授予公开译稿依据；本译稿按用户要求公开发布，原文许可保持不变，权利人如有异议可移除。"
+    },
+    {
+      "date": "2026-11-12",
       "url": "/papers/translations/2026-11-12-391e3f5e126cfafed576fa02/",
       "slug": "2026-11-12-391e3f5e126cfafed576fa02",
       "source_file": "paper.md",
@@ -45245,30 +45308,6 @@
       "download": "/assets/papers/translations/2026-11-12-33db848b803e2259ac0b7a07.md"
     },
     {
-      "date": "2026-11-12",
-      "url": "/papers/translations/2026-11-12-50acaf4eb89577080cb71ea4/",
-      "slug": "2026-11-12-50acaf4eb89577080cb71ea4",
-      "source_file": "paper.md",
-      "scope": "全文中文译文",
-      "title": "Joint Air Corridor and BS Coverage Planning for Large-Scale High-Density Low-Altitude Aerial Networks via Channel Knowledge Maps",
-      "paper_id": "2611.13574",
-      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
-      "download": "/assets/papers/translations/2026-11-12-50acaf4eb89577080cb71ea4.md",
-      "publication_authorization": "用户 2026-11-12 明确要求「五篇全推」；原文许可为 arXiv 非独占分发许可，未授予公开译稿依据；本译稿按用户要求公开发布，原文许可保持不变，权利人如有异议可移除。"
-    },
-    {
-      "date": "2026-11-11",
-      "url": "/papers/translations/2026-11-11-010cb8c1cb85f2aeb340bd98/",
-      "slug": "2026-11-11-010cb8c1cb85f2aeb340bd98",
-      "source_file": "paper.md",
-      "scope": "全文中文译文",
-      "title": "Receiver-Resolution APS-PDP Maps for Wireless Channels: Benchmarking and Coarse-to-Fine Modeling",
-      "paper_id": "2611.10581",
-      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
-      "download": "/assets/papers/translations/2026-11-11-010cb8c1cb85f2aeb340bd98.md",
-      "publication_authorization": "用户 2026-11-11 明确要求「全都发布」；原文许可为 arXiv 非独占分发许可，未授予公开译稿依据；本译稿按用户要求公开发布，原文许可保持不变，权利人如有异议可移除。"
-    },
-    {
       "date": "2026-11-11",
       "url": "/papers/translations/2026-11-11-b446a02250cde55efd903c5e/",
       "slug": "2026-11-11-b446a02250cde55efd903c5e",
@@ -45278,6 +45317,17 @@
       "paper_id": "2611.08923",
       "license_url": "https://creativecommons.org/licenses/by/4.0/",
       "download": "/assets/papers/translations/2026-11-11-b446a02250cde55efd903c5e.md"
+    },
+    {
+      "date": "2026-11-11",
+      "url": "/papers/translations/2026-11-11-1d870e10120267429200c431/",
+      "slug": "2026-11-11-1d870e10120267429200c431",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "CHANNELS4WORLD: An Environment-Scale Dataset for Wireless Foundation Models",
+      "paper_id": "2611.11428",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-11-1d870e10120267429200c431.md"
     },
     {
       "date": "2026-11-11",
@@ -45304,14 +45354,15 @@
     },
     {
       "date": "2026-11-11",
-      "url": "/papers/translations/2026-11-11-1d870e10120267429200c431/",
-      "slug": "2026-11-11-1d870e10120267429200c431",
+      "url": "/papers/translations/2026-11-11-010cb8c1cb85f2aeb340bd98/",
+      "slug": "2026-11-11-010cb8c1cb85f2aeb340bd98",
       "source_file": "paper.md",
       "scope": "全文中文译文",
-      "title": "CHANNELS4WORLD: An Environment-Scale Dataset for Wireless Foundation Models",
-      "paper_id": "2611.11428",
-      "license_url": "https://creativecommons.org/licenses/by/4.0/",
-      "download": "/assets/papers/translations/2026-11-11-1d870e10120267429200c431.md"
+      "title": "Receiver-Resolution APS-PDP Maps for Wireless Channels: Benchmarking and Coarse-to-Fine Modeling",
+      "paper_id": "2611.10581",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-11-010cb8c1cb85f2aeb340bd98.md",
+      "publication_authorization": "用户 2026-11-11 明确要求「全都发布」；原文许可为 arXiv 非独占分发许可，未授予公开译稿依据；本译稿按用户要求公开发布，原文许可保持不变，权利人如有异议可移除。"
     },
     {
       "date": "2026-11-10",
@@ -45393,17 +45444,6 @@
     },
     {
       "date": "2026-11-09",
-      "url": "/papers/translations/2026-11-09-0c4ec2313ba6a3c57c225d08/",
-      "slug": "2026-11-09-0c4ec2313ba6a3c57c225d08",
-      "source_file": "paper.md",
-      "scope": "全文中文译文",
-      "title": "RadioGen3D: 3D Radio Map Generation via Adversarial Learning on Large-Scale Synthetic Data",
-      "paper_id": "2602.18744",
-      "license_url": "",
-      "download": "/assets/papers/translations/2026-11-09-0c4ec2313ba6a3c57c225d08.md"
-    },
-    {
-      "date": "2026-11-09",
       "url": "/papers/translations/2026-11-09-8d79f6caae6f0c2661ee8346/",
       "slug": "2026-11-09-8d79f6caae6f0c2661ee8346",
       "source_file": "paper.md",
@@ -45412,6 +45452,17 @@
       "paper_id": "2610.41580",
       "license_url": "",
       "download": "/assets/papers/translations/2026-11-09-8d79f6caae6f0c2661ee8346.md"
+    },
+    {
+      "date": "2026-11-09",
+      "url": "/papers/translations/2026-11-09-0c4ec2313ba6a3c57c225d08/",
+      "slug": "2026-11-09-0c4ec2313ba6a3c57c225d08",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "RadioGen3D: 3D Radio Map Generation via Adversarial Learning on Large-Scale Synthetic Data",
+      "paper_id": "2602.18744",
+      "license_url": "",
+      "download": "/assets/papers/translations/2026-11-09-0c4ec2313ba6a3c57c225d08.md"
     },
     {
       "date": "2026-11-09",
@@ -45426,17 +45477,6 @@
     },
     {
       "date": "2026-11-08",
-      "url": "/papers/translations/2026-11-08-638ffe83931f859bdd752d44/",
-      "slug": "2026-11-08-638ffe83931f859bdd752d44",
-      "source_file": "paper.md",
-      "scope": "全文中文译文",
-      "title": "Accelerating posterior sampling in Bayesian inverse problems with diffusion models: an online-offline perspective",
-      "paper_id": "2611.01300",
-      "license_url": "",
-      "download": "/assets/papers/translations/2026-11-08-638ffe83931f859bdd752d44.md"
-    },
-    {
-      "date": "2026-11-08",
       "url": "/papers/translations/2026-11-08-d4f93852507d7e32a21c42b9/",
       "slug": "2026-11-08-d4f93852507d7e32a21c42b9",
       "source_file": "paper.md",
@@ -45445,6 +45485,17 @@
       "paper_id": "2611.01114",
       "license_url": "",
       "download": "/assets/papers/translations/2026-11-08-d4f93852507d7e32a21c42b9.md"
+    },
+    {
+      "date": "2026-11-08",
+      "url": "/papers/translations/2026-11-08-638ffe83931f859bdd752d44/",
+      "slug": "2026-11-08-638ffe83931f859bdd752d44",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Accelerating posterior sampling in Bayesian inverse problems with diffusion models: an online-offline perspective",
+      "paper_id": "2611.01300",
+      "license_url": "",
+      "download": "/assets/papers/translations/2026-11-08-638ffe83931f859bdd752d44.md"
     },
     {
       "date": "2026-11-08",
@@ -45459,6 +45510,17 @@
     },
     {
       "date": "2026-11-08",
+      "url": "/papers/translations/2026-11-08-245e5642ffae535ed02e0e76/",
+      "slug": "2026-11-08-245e5642ffae535ed02e0e76",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "RadioDreamer: A World Model for Radio Map Forecasting and Imagination-Based Optimization",
+      "paper_id": "2610.29382",
+      "license_url": "",
+      "download": "/assets/papers/translations/2026-11-08-245e5642ffae535ed02e0e76.md"
+    },
+    {
+      "date": "2026-11-08",
       "url": "/papers/translations/2026-11-08-07061061de4dffab8754ee16/",
       "slug": "2026-11-08-07061061de4dffab8754ee16",
       "source_file": "paper.md",
@@ -45469,15 +45531,15 @@
       "download": "/assets/papers/translations/2026-11-08-07061061de4dffab8754ee16.md"
     },
     {
-      "date": "2026-11-08",
-      "url": "/papers/translations/2026-11-08-245e5642ffae535ed02e0e76/",
-      "slug": "2026-11-08-245e5642ffae535ed02e0e76",
+      "date": "2026-11-07",
+      "url": "/papers/translations/2026-11-07-d721e732ef6cb08edc2b3813/",
+      "slug": "2026-11-07-d721e732ef6cb08edc2b3813",
       "source_file": "paper.md",
       "scope": "全文中文译文",
-      "title": "RadioDreamer: A World Model for Radio Map Forecasting and Imagination-Based Optimization",
-      "paper_id": "2610.29382",
+      "title": "Dual Flow: Joint Image-Measurement Flow for Inverse Problems",
+      "paper_id": "2611.05843",
       "license_url": "",
-      "download": "/assets/papers/translations/2026-11-08-245e5642ffae535ed02e0e76.md"
+      "download": "/assets/papers/translations/2026-11-07-d721e732ef6cb08edc2b3813.md"
     },
     {
       "date": "2026-11-07",
@@ -45492,14 +45554,14 @@
     },
     {
       "date": "2026-11-07",
-      "url": "/papers/translations/2026-11-07-d721e732ef6cb08edc2b3813/",
-      "slug": "2026-11-07-d721e732ef6cb08edc2b3813",
+      "url": "/papers/translations/2026-11-07-536afd81314a5014b30e73cf/",
+      "slug": "2026-11-07-536afd81314a5014b30e73cf",
       "source_file": "paper.md",
       "scope": "全文中文译文",
-      "title": "Dual Flow: Joint Image-Measurement Flow for Inverse Problems",
-      "paper_id": "2611.05843",
+      "title": "RadioTraj3D: Height-Aware Adaptive Sampling for 3D Radio-Map Reconstruction from Ultra-Sparse Trajectories",
+      "paper_id": "2610.41786",
       "license_url": "",
-      "download": "/assets/papers/translations/2026-11-07-d721e732ef6cb08edc2b3813.md"
+      "download": "/assets/papers/translations/2026-11-07-536afd81314a5014b30e73cf.md"
     },
     {
       "date": "2026-11-07",
@@ -45522,17 +45584,6 @@
       "paper_id": "2611.03482",
       "license_url": "",
       "download": "/assets/papers/translations/2026-11-07-211f4c3508538beffbfff717.md"
-    },
-    {
-      "date": "2026-11-07",
-      "url": "/papers/translations/2026-11-07-536afd81314a5014b30e73cf/",
-      "slug": "2026-11-07-536afd81314a5014b30e73cf",
-      "source_file": "paper.md",
-      "scope": "全文中文译文",
-      "title": "RadioTraj3D: Height-Aware Adaptive Sampling for 3D Radio-Map Reconstruction from Ultra-Sparse Trajectories",
-      "paper_id": "2610.41786",
-      "license_url": "",
-      "download": "/assets/papers/translations/2026-11-07-536afd81314a5014b30e73cf.md"
     },
     {
       "date": "2026-11-06",
@@ -45643,6 +45694,61 @@
       "coverage": "full",
       "license": "cc_by",
       "final_proofread_done": false
+    },
+    {
+      "date": "2026-11-05",
+      "url": "/papers/translations/2026-11-05-ef3c77f5e300fc3d2caf30dc/",
+      "slug": "2026-11-05-ef3c77f5e300fc3d2caf30dc",
+      "source_file": "paper.md",
+      "scope": "全文中英文对照",
+      "title": "A Perception vs. Distortion Perspective on Score-Based Generative Channel Estimation",
+      "paper_id": "2606.16815",
+      "license_url": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+      "download": "/assets/papers/translations/2026-11-05-ef3c77f5e300fc3d2caf30dc.md"
+    },
+    {
+      "date": "2026-11-05",
+      "url": "/papers/translations/2026-11-05-ecb492653b84b104527afc06/",
+      "slug": "2026-11-05-ecb492653b84b104527afc06",
+      "source_file": "paper.md",
+      "scope": "全文中英文对照",
+      "title": "GRAM-DIFF: Gram Matrix Guided Diffusion for MIMO Channel Estimation",
+      "paper_id": "2602.15187",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-05-ecb492653b84b104527afc06.md"
+    },
+    {
+      "date": "2026-11-05",
+      "url": "/papers/translations/2026-11-05-b77075cd018e2631d3efd25c/",
+      "slug": "2026-11-05-b77075cd018e2631d3efd25c",
+      "source_file": "paper.md",
+      "scope": "全文中英文对照",
+      "title": "Amortised Inference through One-Step Implicit Sampling",
+      "paper_id": "2610.12679",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-05-b77075cd018e2631d3efd25c.md"
+    },
+    {
+      "date": "2026-11-05",
+      "url": "/papers/translations/2026-11-05-ab1234917ddfb6fcc5443a79/",
+      "slug": "2026-11-05-ab1234917ddfb6fcc5443a79",
+      "source_file": "paper.md",
+      "scope": "全文中英文对照",
+      "title": "MissPath-FM: Flow Matching with Structured Priors for Partially Observed Time Series",
+      "paper_id": "2610.17715",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-05-ab1234917ddfb6fcc5443a79.md"
+    },
+    {
+      "date": "2026-11-05",
+      "url": "/papers/translations/2026-11-05-96904d0e22a1dbaf7c2ecf3a/",
+      "slug": "2026-11-05-96904d0e22a1dbaf7c2ecf3a",
+      "source_file": "paper.md",
+      "scope": "全文中英文对照",
+      "title": "Learning Graph Beliefs for Active Radio Mapping With Decision-Certified Multi-Step Sensing",
+      "paper_id": "2610.37717",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-05-96904d0e22a1dbaf7c2ecf3a.md"
     },
     {
       "date": "2026-11-04",
@@ -46441,6 +46547,18 @@
       "final_proofread_done": false
     },
     {
+      "date": "2026-10-28",
+      "url": "/papers/translations/2026-10-28-equivalent-sampled-delay-doppler-esdd-channel-models-for-oddm-over-hig-ff5a01c5/",
+      "slug": "2026-10-28-equivalent-sampled-delay-doppler-esdd-channel-models-for-oddm-over-hig-ff5a01c5",
+      "title": "高扩展信道 ODDM 的等效采样时延-多普勒信道模型｜中文译稿（许可待核）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "ff5a01c51d2d9c00"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
       "slug": "2026-10-28-deeptelecom-2610-14545",
       "title": "DeepTelecom：动态异构无线环境中用于信道孪生的可微多模态框架｜中文全文译文",
       "scope": "全文覆盖：摘要、正文各节、结论、英文书目 [1]–[51]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
@@ -46621,6 +46739,18 @@
       "final_proofread_done": false
     },
     {
+      "date": "2026-10-26",
+      "url": "/papers/translations/2026-10-26-channel-knowledge-map-enabled-6d-movable-antenna-systems-with-kinemati/",
+      "slug": "2026-10-26-channel-knowledge-map-enabled-6d-movable-antenna-systems-with-kinemati",
+      "title": "信道知识地图赋能的 6D 移动天线系统与运动学｜中文译稿（许可待核）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "f103ab005ecf4e09"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
       "slug": "2026-10-26-afdm-model-order-2610-09970",
       "title": "AFDM 模型阶数自适应信道估计｜中文全文译文",
       "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[34]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
@@ -46679,6 +46809,42 @@
       "coverage": "full",
       "license": "arxiv",
       "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-25",
+      "url": "/papers/translations/2026-10-25-van3twin-sionna-v2x/",
+      "slug": "2026-10-25-van3twin-sionna-v2x",
+      "title": "VaN3Twin：射线追踪闭环下的多技术 V2X 数字孪生｜中文译稿（2026-10-30 补译，未逐句终校）",
+      "scope": "中文全文译文（已登记）",
+      "paper_ids": [
+        "52a9d05cd84ac7c2"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-25",
+      "url": "/papers/translations/2026-10-25-generative-ai-empowered-user-specific-channel-digital-twin-for-efficie-e9968b52/",
+      "slug": "2026-10-25-generative-ai-empowered-user-specific-channel-digital-twin-for-efficie-e9968b52",
+      "title": "生成式 AI 赋能的用户级信道数字孪生｜中文译稿（许可待核）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "e9968b52681439f5"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-25",
+      "url": "/papers/translations/2026-10-25-digital-twin-channel-based-mmwave-spatial-propagation-characteristics-e519698d/",
+      "slug": "2026-10-25-digital-twin-channel-based-mmwave-spatial-propagation-characteristics-e519698d",
+      "title": "基于数字孪生信道的毫米波空间传播特性预测｜中文译稿（许可待核）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "e519698d9bbac949"
+      ],
+      "external": true,
+      "qa_complete": false
     },
     {
       "date": "2026-10-25",
@@ -46755,6 +46921,18 @@
       "coverage": "full",
       "license": "arxiv",
       "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-24",
+      "url": "/papers/translations/2026-10-24-hybrid-beamforming-optimization-for-near-field-terahertz-multi-user-sy-98ee8147/",
+      "slug": "2026-10-24-hybrid-beamforming-optimization-for-near-field-terahertz-multi-user-sy-98ee8147",
+      "title": "近场太赫兹多用户 FTTD 系统的混合波束赋形优化｜中文译稿（许可待核）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "98ee8147d0091bcb"
+      ],
+      "external": true,
+      "qa_complete": false
     },
     {
       "slug": "2026-10-24-bct-bayes-consistent-tempering-2610-27641",
@@ -46875,6 +47053,18 @@
       "final_proofread_done": false
     },
     {
+      "date": "2026-10-22",
+      "url": "/papers/translations/2026-10-22-superimposed-sunscape-pilot-pattern-for-channel-estimation-in-otfs-bas-e5fa7705/",
+      "slug": "2026-10-22-superimposed-sunscape-pilot-pattern-for-channel-estimation-in-otfs-bas-e5fa7705",
+      "title": "OTFS-ISAC 中叠加 Sunscape 导频图案的信道估计｜中文译稿（许可待核）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "e5fa7705f06fee0c"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
       "slug": "2026-10-22-splines-operators-part2-inverse-problems",
       "title": "样条与算子 II：逆问题求解｜中文全文译文",
       "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[43]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
@@ -46933,6 +47123,18 @@
       "coverage": "full",
       "license": "arxiv",
       "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-22",
+      "url": "/papers/translations/2026-10-22-continuous-time-transformer-based-channel-prediction-with-non-uni-0420e0d8/",
+      "slug": "2026-10-22-continuous-time-transformer-based-channel-prediction-with-non-uni-0420e0d8",
+      "title": "非均匀导频图案下的连续时间 Transformer 信道预测｜中文译稿（许可待核）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "0420e0d84fe1b48f"
+      ],
+      "external": true,
+      "qa_complete": false
     },
     {
       "date": "2026-10-21",
@@ -47125,6 +47327,18 @@
       "coverage": "full",
       "license": "arxiv",
       "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-20",
+      "url": "/papers/translations/2026-10-20-channel-estimation-in-cross-frame-otfs-system-with-ultra-high-mobility-65fb4a2e/",
+      "slug": "2026-10-20-channel-estimation-in-cross-frame-otfs-system-with-ultra-high-mobility-65fb4a2e",
+      "title": "超高移动性跨帧 OTFS 系统的信道估计｜中文译稿（许可待核）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "65fb4a2eb96bd703"
+      ],
+      "external": true,
+      "qa_complete": false
     },
     {
       "date": "2026-10-19",
@@ -48675,6 +48889,42 @@
       "download": "/assets/papers/translations/2026-10-11-54a58fdbb99524ce3fd08d88.md"
     },
     {
+      "date": "2026-10-10",
+      "url": "/papers/translations/2026-10-12-pctgs-2606-18734/",
+      "slug": "2026-10-12-pctgs-2606-18734",
+      "title": "PC-TGS：基于切平面高斯泼溅的点云辅助局部统计信道预测——中文全篇译稿",
+      "scope": "中文全文译文（已登记）",
+      "paper_ids": [
+        "f20ef02970b5dae8"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-10",
+      "url": "/papers/translations/2026-10-12-climb-flow-2609-33834/",
+      "slug": "2026-10-12-climb-flow-2609-33834",
+      "title": "CLIMB-Flow：基于多尺度流的耦合线性逆问题后验采样——中文译文",
+      "scope": "中文全文译文（已登记）",
+      "paper_ids": [
+        "e7dcb19b8767dc77"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-09",
+      "url": "/papers/translations/2026-10-12-geometry-gpr-full-zh/",
+      "slug": "2026-10-12-geometry-gpr-full-zh",
+      "title": "新型几何感知 GPR 低能耗、低开销信道估计方案｜完整中文译文",
+      "scope": "中文全文译文（已登记）",
+      "paper_ids": [
+        "f21a0dbb22c712a9"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
       "date": "2026-10-08",
       "slug": "2026-10-08-2610-05921-beyond-transport-cost-routing-differences-between-flow-matching-and-op",
       "title": "超越传输代价：流匹配与最优传输的路由差异｜中文全文译文",
@@ -49035,6 +49285,102 @@
       "final_proofread_done": false
     },
     {
+      "date": "2026-10-08",
+      "url": "/papers/translations/2026-10-08-2025-36477-amp-based-joint-activity-detection-and-channel-estimation-in-irs-aided/",
+      "slug": "2026-10-08-2025-36477-amp-based-joint-activity-detection-and-channel-estimation-in-irs-aided",
+      "title": "基于 AMP 的 IRS 辅助免授权接入联合活跃检测与信道估计：精确信道与稀疏建模｜中文全篇译稿（IEEE 正式版，许可待核验）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "e2d993c9ad616fd4"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-05",
+      "url": "/papers/translations/2026-10-05-practical-and-asymptotically-exact-conditional-sampling-in-diffusion-m/",
+      "slug": "2026-10-05-practical-and-asymptotically-exact-conditional-sampling-in-diffusion-m",
+      "title": "扩散模型中实用且渐近精确的条件采样｜中文译稿（许可待核）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "bb7d33856362d71f"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-05",
+      "url": "/papers/translations/2026-10-05-non-asymptotic-uncertainty-quantification-in-high-dimensional-learning/",
+      "slug": "2026-10-05-non-asymptotic-uncertainty-quantification-in-high-dimensional-learning",
+      "title": "高维学习中的非渐近不确定性量化｜中文译稿（许可待核）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "53d36ad02cf82b3d"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-05",
+      "url": "/papers/translations/2026-10-05-looks-too-good-to-be-true-an-information-theoretic-analysis-of-halluci/",
+      "slug": "2026-10-05-looks-too-good-to-be-true-an-information-theoretic-analysis-of-halluci",
+      "title": "看起来好得不像真的：生成式恢复模型幻觉的信息论分析｜中文译稿（许可待核）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "56dea3a0c21f4696"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-05",
+      "url": "/papers/translations/2026-10-05-learning-image-priors-through-patch-based-diffusion-models-for-solving/",
+      "slug": "2026-10-05-learning-image-priors-through-patch-based-diffusion-models-for-solving",
+      "title": "基于块扩散模型的图像先验学习｜中文译稿（许可待核）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "07d1b455463c9f2c"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-05",
+      "url": "/papers/translations/2026-10-05-diffusionpde-generative-pde-solving-under-partial-observation/",
+      "slug": "2026-10-05-diffusionpde-generative-pde-solving-under-partial-observation",
+      "title": "DiffusionPDE：部分观测下的生成式 PDE 求解｜中文译稿（许可待核）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "ba460c43d2ee064a"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-05",
+      "url": "/papers/translations/2026-10-05-block-coordinate-plug-and-play-methods-for-blind-inverse-problems/",
+      "slug": "2026-10-05-block-coordinate-plug-and-play-methods-for-blind-inverse-problems",
+      "title": "盲逆问题的块坐标即插即用方法｜中文译稿（许可待核）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "b269b52f0eef9fb8"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-05",
+      "url": "/papers/translations/2026-10-05-blind-image-restoration-via-fast-diffusion-inversion/",
+      "slug": "2026-10-05-blind-image-restoration-via-fast-diffusion-inversion",
+      "title": "基于快速扩散反演的盲图像恢复｜中文译稿（许可待核）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "8d6aa431435d5cb5"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
       "date": "2026-10-05",
       "slug": "2026-10-05-2502-10819-sensing-with-communication-signals-from-information-theory-to-signal-p",
       "title": "通感一体：从信息论到信号处理的通信信号感知｜中文全文译文",
@@ -49176,6 +49522,102 @@
     },
     {
       "date": "2026-10-04",
+      "url": "/papers/translations/2026-10-04-system-embedded-diffusion-bridge-models/",
+      "slug": "2026-10-04-system-embedded-diffusion-bridge-models",
+      "title": "系统嵌入扩散桥模型｜中文译稿（许可待核）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "5856c0521ef7a0c4"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-04",
+      "url": "/papers/translations/2026-10-04-learning-diffusion-priors-from-observations-by-expectation-maximizatio/",
+      "slug": "2026-10-04-learning-diffusion-priors-from-observations-by-expectation-maximizatio",
+      "title": "用期望最大化从观测中学习扩散先验｜中文译稿（许可待核）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "6ffe4ab7aea24bbc"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-04",
+      "url": "/papers/translations/2026-10-04-how-much-is-a-noisy-image-worth-data-scaling-laws-for-ambient-diffusio/",
+      "slug": "2026-10-04-how-much-is-a-noisy-image-worth-data-scaling-laws-for-ambient-diffusio",
+      "title": "一张含噪图像值多少？环境扩散的数据标度律｜中文译稿（许可待核）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "c4f5e47ab1c99e1f"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-04",
+      "url": "/papers/translations/2026-10-04-generalizable-radio-frequency-radiance-fields-for-spatial-spectrum-syn/",
+      "slug": "2026-10-04-generalizable-radio-frequency-radiance-fields-for-spatial-spectrum-syn",
+      "title": "面向空间谱合成的可泛化射频辐射场｜中文译稿（许可待核）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "6cecae8cc71b3be3"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-04",
+      "url": "/papers/translations/2026-10-04-flow-priors-for-linear-inverse-problems-via-iterative-corrupted-trajec/",
+      "slug": "2026-10-04-flow-priors-for-linear-inverse-problems-via-iterative-corrupted-trajec",
+      "title": "通过迭代受损轨迹匹配的线性逆问题流先验｜中文译稿（许可待核）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "685f885dafcb782a"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-04",
+      "url": "/papers/translations/2026-10-04-equivariant-splitting-self-supervised-learning-from-incomplete-data/",
+      "slug": "2026-10-04-equivariant-splitting-self-supervised-learning-from-incomplete-data",
+      "title": "等变分裂：从不完整数据自监督学习｜中文译稿（许可待核）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "208eab9d15bedea0"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-04",
+      "url": "/papers/translations/2026-10-04-equivariant-plug-and-play-image-reconstruction/",
+      "slug": "2026-10-04-equivariant-plug-and-play-image-reconstruction",
+      "title": "等变即插即用图像重建｜中文译稿（许可待核）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "9b1a38cae9b994ed"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-04",
+      "url": "/papers/translations/2026-10-04-bayesian-experimental-design-via-contrastive-diffusions/",
+      "slug": "2026-10-04-bayesian-experimental-design-via-contrastive-diffusions",
+      "title": "基于对比扩散的贝叶斯实验设计｜中文译稿（许可待核）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "b35ad01081ff8480"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-04",
       "slug": "2026-10-04-2605-29097-geraf-neural-geometry-reconstruction-from-radio-frequency-signals",
       "title": "GeRaF：从射频信号重建神经几何｜中文全文译文",
       "scope": "全文覆盖：摘要、正文各节、结论、附录、图 1—? 图注与表、参考文献 68 条（英文原条目）；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
@@ -49253,6 +49695,78 @@
       "coverage": "full",
       "license": "arxiv",
       "final_proofread_done": false
+    },
+    {
+      "date": "2026-10-03",
+      "url": "/papers/translations/2026-10-03-solving-inverse-problems-via-diffusion-optimal-control/",
+      "slug": "2026-10-03-solving-inverse-problems-via-diffusion-optimal-control",
+      "title": "通过扩散最优控制求解逆问题｜中文译稿（许可待核）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "95e5fd12e73da284"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-03",
+      "url": "/papers/translations/2026-10-03-provably-robust-score-based-diffusion-posterior-sampling-for-plug-and/",
+      "slug": "2026-10-03-provably-robust-score-based-diffusion-posterior-sampling-for-plug-and",
+      "title": "可证明鲁棒的分数扩散后验采样｜中文译稿（许可待核）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "656199bdc705e407"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-03",
+      "url": "/papers/translations/2026-10-03-principled-probabilistic-imaging-using-diffusion-models-as-plug-and-pl/",
+      "slug": "2026-10-03-principled-probabilistic-imaging-using-diffusion-models-as-plug-and-pl",
+      "title": "以扩散模型作为即插即用先验的原则性概率成像｜中文译稿（许可待核）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "f282c3fff422b44d"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-03",
+      "url": "/papers/translations/2026-10-03-plug-and-play-posterior-sampling-under-mismatched-measurement-and-prio/",
+      "slug": "2026-10-03-plug-and-play-posterior-sampling-under-mismatched-measurement-and-prio",
+      "title": "测量与先验失配下的即插即用后验采样｜中文译稿（许可待核）译文",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "b8628866bf029cba"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-03",
+      "url": "/papers/translations/2026-10-03-gsnr-graph-smooth-null-space-representation-for-inverse-problems/",
+      "slug": "2026-10-03-gsnr-graph-smooth-null-space-representation-for-inverse-problems",
+      "title": "GSNR：逆问题的图平滑零空间表示｜中文译稿（许可待核）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "a44f41c0717082cc"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-03",
+      "url": "/papers/translations/2026-10-03-dual-ascent-diffusion-for-inverse-problems/",
+      "slug": "2026-10-03-dual-ascent-diffusion-for-inverse-problems",
+      "title": "对偶上升扩散：面向逆问题｜中文译稿（许可待核）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "566d3c2e91637469"
+      ],
+      "external": true,
+      "qa_complete": false
     },
     {
       "date": "2026-10-03",
@@ -49436,6 +49950,66 @@
     },
     {
       "date": "2026-10-02",
+      "url": "/papers/translations/2026-10-02-whitened-score-diffusion-a-structured-prior-for-imaging-inverse-proble/",
+      "slug": "2026-10-02-whitened-score-diffusion-a-structured-prior-for-imaging-inverse-proble",
+      "title": "白化分数扩散：成像逆问题的结构化先验｜中文译稿（许可待核）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "09661b8958d1b02a"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-02",
+      "url": "/papers/translations/2026-10-02-solving-inverse-problems-with-flair/",
+      "slug": "2026-10-02-solving-inverse-problems-with-flair",
+      "title": "用 FLAIR 求解逆问题｜中文译稿（许可待核）译文",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "9d095caa2a3f42e6"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-02",
+      "url": "/papers/translations/2026-10-02-latent-refinement-via-flow-matching-for-training-free-linear-inverse-p/",
+      "slug": "2026-10-02-latent-refinement-via-flow-matching-for-training-free-linear-inverse-p",
+      "title": "基于流匹配的潜变量细化：免训练线性逆问题求解｜中文译稿（许可待核）译文",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "1a42f1c028fa33a9"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-02",
+      "url": "/papers/translations/2026-10-02-improving-diffusion-inverse-problem-solving-with-decoupled-noise-annea/",
+      "slug": "2026-10-02-improving-diffusion-inverse-problem-solving-with-decoupled-noise-annea",
+      "title": "解耦噪声退火改进扩散逆问题求解｜中文译稿（许可待核）译文",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "1c41d4564d50ff2f"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-02",
+      "url": "/papers/translations/2026-10-02-fast-samplers-for-inverse-problems-in-iterative-refinement-models/",
+      "slug": "2026-10-02-fast-samplers-for-inverse-problems-in-iterative-refinement-models",
+      "title": "迭代细化模型中逆问题的快速采样器｜中文译稿（许可待核）译文",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "32ccc6fa84c6338f"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-02",
       "url": "/papers/translations/2026-10-02-f69d81ae0d16b949c706baa6/",
       "slug": "2026-10-02-f69d81ae0d16b949c706baa6",
       "source_file": "paper.md",
@@ -49444,6 +50018,30 @@
       "paper_id": "arxiv:2310.06721",
       "license_url": "https://creativecommons.org/licenses/by/4.0/",
       "download": "/assets/papers/translations/2026-10-02-f69d81ae0d16b949c706baa6.md"
+    },
+    {
+      "date": "2026-10-02",
+      "url": "/papers/translations/2026-10-02-can-channel-knowledge-map-help-to-predict-instantaneous-mimo-channel-s/",
+      "slug": "2026-10-02-can-channel-knowledge-map-help-to-predict-instantaneous-mimo-channel-s",
+      "title": "信道知识地图能否预测瞬时 MIMO 信道状态信息？｜中文译稿（许可待核）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "e10348decd7f0866"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-10-02",
+      "url": "/papers/translations/2026-10-02-ambient-diffusion-learning-clean-distributions-from-corrupted-data/",
+      "slug": "2026-10-02-ambient-diffusion-learning-clean-distributions-from-corrupted-data",
+      "title": "环境扩散：从受损数据学习干净分布｜中文译稿（许可待核）译文",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "f1900748d3249be6"
+      ],
+      "external": true,
+      "qa_complete": false
     },
     {
       "date": "2026-10-02",
@@ -49647,6 +50245,18 @@
     },
     {
       "date": "2026-09-29",
+      "url": "/papers/translations/2026-09-29-2609-01449-diffusion-as-a-training-curriculum-for-timestep-free-iterative-reasoni/",
+      "slug": "2026-09-29-2609-01449-diffusion-as-a-training-curriculum-for-timestep-free-iterative-reasoni",
+      "title": "扩散模型作为无时间步迭代推理的训练课程｜中文全篇译稿（Google 版权，许可待核验）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "2f675ea365589cfc"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-09-29",
       "slug": "2026-09-29-2606-13885-learning-graph-topology-with-functional-priors-via-bilevel-optimizatio",
       "title": "基于双层优化的函数先验图拓扑学习｜中文全文译文",
       "scope": "全文覆盖：摘要、正文各节、结论、附录、英文书目 [1]–[66]；许可：arXiv 预印本（公开可读）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
@@ -49806,6 +50416,42 @@
       "final_proofread_done": false
     },
     {
+      "date": "2026-09-29",
+      "url": "/papers/translations/2026-09-29-2026-37017-vmcm-vision-aided-multi-modal-channel-measurement-and-modeling-in-tera/",
+      "slug": "2026-09-29-2026-37017-vmcm-vision-aided-multi-modal-channel-measurement-and-modeling-in-tera",
+      "title": "VMCM：太赫兹城市宏小区视觉辅助多模态信道测量与建模｜中文全篇译稿（IEEE 正式版，许可待核验）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "2c23b61880dd31f8"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-09-29",
+      "url": "/papers/translations/2026-09-29-2026-36849-where-prior-learning-can-and-can-t-work-in-unsupervised-inverse-proble/",
+      "slug": "2026-09-29-2026-36849-where-prior-learning-can-and-can-t-work-in-unsupervised-inverse-proble",
+      "title": "先验学习在无监督逆问题中何时有效、何时失效｜中文全篇译稿（IEEE 正式版，许可待核验）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "cb776d0adb3a7f72"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-09-29",
+      "url": "/papers/translations/2026-09-29-2025-36125-tensor-based-unsourced-random-access-for-leo-satellite-internet-of-thi/",
+      "slug": "2026-09-29-2025-36125-tensor-based-unsourced-random-access-for-leo-satellite-internet-of-thi",
+      "title": "面向 LEO 卫星物联网的基于张量的无源随机接入｜中文全篇译稿（IEEE 正式版，许可待核验）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "387267fdb644e620"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
       "date": "2026-09-28",
       "slug": "2026-09-28-parallelism-critical-windows-and-separations-among-diffusion-language",
       "title": "扩散语言模型之间的并行性、关键窗口与分离｜中文全文译文",
@@ -49824,6 +50470,18 @@
       "coverage": "full",
       "license": "arxiv",
       "final_proofread_done": false
+    },
+    {
+      "date": "2026-09-28",
+      "url": "/papers/translations/2026-09-28-on-nonlinear-channel-estimation-performance/",
+      "slug": "2026-09-28-on-nonlinear-channel-estimation-performance",
+      "title": "关于非线性信道估计性能｜中文译稿（许可待核）",
+      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
+      "paper_ids": [
+        "549bb4536e7ed9b4"
+      ],
+      "external": true,
+      "qa_complete": false
     },
     {
       "date": "2026-09-28",
@@ -51506,6 +52164,30 @@
       "final_proofread_done": false
     },
     {
+      "date": "2026-08-21",
+      "url": "/papers/translations/2026-10-12-tap-a/",
+      "slug": "2026-10-12-tap-a",
+      "title": "TAP 全文翻译（上）：背景、信道模型、OMP 推导与参数估计方法",
+      "scope": "中文全文译文（已登记）",
+      "paper_ids": [
+        "67d6ba71d51870c4"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-07-29",
+      "url": "/papers/translations/2026-07-29-2607-24876/",
+      "slug": "2026-07-29-2607-24876",
+      "title": "RC-BFM：通过信道实现流匹配实现低时延生成式语义通信｜中文全文译稿（校对中）",
+      "scope": "中文全文译文（已登记）",
+      "paper_ids": [
+        "7e60d1f6e3cbae1c"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
       "date": "2026-07-29",
       "slug": "2026-07-29-2607-24872",
       "title": "BRCL：发射端 MIMO CSI 表征的波束响应对比学习｜中文全文译文",
@@ -51527,6 +52209,18 @@
     },
     {
       "date": "2026-07-29",
+      "url": "/papers/translations/2026-07-29-2607-22204/",
+      "slug": "2026-07-29-2607-22204",
+      "title": "跨频段 CSI 重建基础模型｜中文全文译稿（待逐式校对）",
+      "scope": "中文全文译文（已登记）",
+      "paper_ids": [
+        "d1075d0eb3ab3dc2"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-07-29",
       "slug": "2026-07-29-2607-20909",
       "title": "RadioTrace：无需部署时微调的发射机感知扩散无线电地图估计｜中文全文译文",
       "scope": "全文覆盖：正文 I—VI、附录 A、表 I—VIII、图 1—12；许可：arxiv；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。 参考文献以原文书目为入口（页内注明，未重录条目）。",
@@ -51544,6 +52238,54 @@
       "coverage": "full",
       "license": "arxiv",
       "final_proofread_done": false
+    },
+    {
+      "date": "2026-07-22",
+      "url": "/papers/translations/2026-10-12-spatial-ode-main/",
+      "slug": "2026-10-12-spatial-ode-main",
+      "title": "生成式 ODE 的积分误差空间传输：正文中文译稿",
+      "scope": "中文全文译文（已登记）",
+      "paper_ids": [
+        "65907205876c1561"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-07-22",
+      "url": "/papers/translations/2026-10-12-sigmap-full-zh/",
+      "slug": "2026-10-12-sigmap-full-zh",
+      "title": "SigMap：以地图作为提示的跨场景无线定位基础模型——全文中译",
+      "scope": "中文全文译文（已登记）",
+      "paper_ids": [
+        "2e094f4029e01a73"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-07-22",
+      "url": "/papers/translations/2026-10-12-radio-map-online-gp-full-zh/",
+      "slug": "2026-10-12-radio-map-online-gp-full-zh",
+      "title": "基于记忆式在线高斯过程的流式频谱测量无线电地图更新——全文中译",
+      "scope": "中文全文译文（已登记）",
+      "paper_ids": [
+        "ad7c6f680aefcbc8"
+      ],
+      "external": true,
+      "qa_complete": false
+    },
+    {
+      "date": "2026-07-18",
+      "url": "/papers/translations/2026-07-18-2605-22856/",
+      "slug": "2026-07-18-2605-22856",
+      "title": "PilotWiMAE：面向无线信道的原生导频表示学习｜中译",
+      "scope": "中文全文译文（已登记）",
+      "paper_ids": [
+        "fa28f9a68f6d526c"
+      ],
+      "external": true,
+      "qa_complete": false
     },
     {
       "date": "2026-07-16",
@@ -51698,697 +52440,6 @@
       "scope": "摘要与引言 / 历史译文说明",
       "title": "2026-07-11 论文翻译：第 5 篇与跨论文研究路线",
       "download": "/assets/papers/translations/2026-07-11-203f202a.md"
-    },
-    {
-      "date": "2026-10-28",
-      "url": "/papers/translations/2026-10-28-equivalent-sampled-delay-doppler-esdd-channel-models-for-oddm-over-hig-ff5a01c5/",
-      "slug": "2026-10-28-equivalent-sampled-delay-doppler-esdd-channel-models-for-oddm-over-hig-ff5a01c5",
-      "title": "高扩展信道 ODDM 的等效采样时延-多普勒信道模型｜中文译稿（许可待核）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "ff5a01c51d2d9c00"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-26",
-      "url": "/papers/translations/2026-10-26-channel-knowledge-map-enabled-6d-movable-antenna-systems-with-kinemati/",
-      "slug": "2026-10-26-channel-knowledge-map-enabled-6d-movable-antenna-systems-with-kinemati",
-      "title": "信道知识地图赋能的 6D 移动天线系统与运动学｜中文译稿（许可待核）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "f103ab005ecf4e09"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-25",
-      "url": "/papers/translations/2026-10-25-generative-ai-empowered-user-specific-channel-digital-twin-for-efficie-e9968b52/",
-      "slug": "2026-10-25-generative-ai-empowered-user-specific-channel-digital-twin-for-efficie-e9968b52",
-      "title": "生成式 AI 赋能的用户级信道数字孪生｜中文译稿（许可待核）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "e9968b52681439f5"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-25",
-      "url": "/papers/translations/2026-10-25-digital-twin-channel-based-mmwave-spatial-propagation-characteristics-e519698d/",
-      "slug": "2026-10-25-digital-twin-channel-based-mmwave-spatial-propagation-characteristics-e519698d",
-      "title": "基于数字孪生信道的毫米波空间传播特性预测｜中文译稿（许可待核）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "e519698d9bbac949"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-25",
-      "url": "/papers/translations/2026-10-25-van3twin-sionna-v2x/",
-      "slug": "2026-10-25-van3twin-sionna-v2x",
-      "title": "VaN3Twin：射线追踪闭环下的多技术 V2X 数字孪生｜中文译稿（2026-10-30 补译，未逐句终校）",
-      "scope": "中文全文译文（已登记）",
-      "paper_ids": [
-        "52a9d05cd84ac7c2"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-24",
-      "url": "/papers/translations/2026-10-24-hybrid-beamforming-optimization-for-near-field-terahertz-multi-user-sy-98ee8147/",
-      "slug": "2026-10-24-hybrid-beamforming-optimization-for-near-field-terahertz-multi-user-sy-98ee8147",
-      "title": "近场太赫兹多用户 FTTD 系统的混合波束赋形优化｜中文译稿（许可待核）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "98ee8147d0091bcb"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-22",
-      "url": "/papers/translations/2026-10-22-superimposed-sunscape-pilot-pattern-for-channel-estimation-in-otfs-bas-e5fa7705/",
-      "slug": "2026-10-22-superimposed-sunscape-pilot-pattern-for-channel-estimation-in-otfs-bas-e5fa7705",
-      "title": "OTFS-ISAC 中叠加 Sunscape 导频图案的信道估计｜中文译稿（许可待核）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "e5fa7705f06fee0c"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-22",
-      "url": "/papers/translations/2026-10-22-continuous-time-transformer-based-channel-prediction-with-non-uni-0420e0d8/",
-      "slug": "2026-10-22-continuous-time-transformer-based-channel-prediction-with-non-uni-0420e0d8",
-      "title": "非均匀导频图案下的连续时间 Transformer 信道预测｜中文译稿（许可待核）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "0420e0d84fe1b48f"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-20",
-      "url": "/papers/translations/2026-10-20-channel-estimation-in-cross-frame-otfs-system-with-ultra-high-mobility-65fb4a2e/",
-      "slug": "2026-10-20-channel-estimation-in-cross-frame-otfs-system-with-ultra-high-mobility-65fb4a2e",
-      "title": "超高移动性跨帧 OTFS 系统的信道估计｜中文译稿（许可待核）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "65fb4a2eb96bd703"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-10",
-      "url": "/papers/translations/2026-10-12-pctgs-2606-18734/",
-      "slug": "2026-10-12-pctgs-2606-18734",
-      "title": "PC-TGS：基于切平面高斯泼溅的点云辅助局部统计信道预测——中文全篇译稿",
-      "scope": "中文全文译文（已登记）",
-      "paper_ids": [
-        "f20ef02970b5dae8"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-10",
-      "url": "/papers/translations/2026-10-12-climb-flow-2609-33834/",
-      "slug": "2026-10-12-climb-flow-2609-33834",
-      "title": "CLIMB-Flow：基于多尺度流的耦合线性逆问题后验采样——中文译文",
-      "scope": "中文全文译文（已登记）",
-      "paper_ids": [
-        "e7dcb19b8767dc77"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-09",
-      "url": "/papers/translations/2026-10-12-geometry-gpr-full-zh/",
-      "slug": "2026-10-12-geometry-gpr-full-zh",
-      "title": "新型几何感知 GPR 低能耗、低开销信道估计方案｜完整中文译文",
-      "scope": "中文全文译文（已登记）",
-      "paper_ids": [
-        "f21a0dbb22c712a9"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-08",
-      "url": "/papers/translations/2026-10-08-2025-36477-amp-based-joint-activity-detection-and-channel-estimation-in-irs-aided/",
-      "slug": "2026-10-08-2025-36477-amp-based-joint-activity-detection-and-channel-estimation-in-irs-aided",
-      "title": "基于 AMP 的 IRS 辅助免授权接入联合活跃检测与信道估计：精确信道与稀疏建模｜中文全篇译稿（IEEE 正式版，许可待核验）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "e2d993c9ad616fd4"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-05",
-      "url": "/papers/translations/2026-10-05-learning-image-priors-through-patch-based-diffusion-models-for-solving/",
-      "slug": "2026-10-05-learning-image-priors-through-patch-based-diffusion-models-for-solving",
-      "title": "基于块扩散模型的图像先验学习｜中文译稿（许可待核）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "07d1b455463c9f2c"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-05",
-      "url": "/papers/translations/2026-10-05-non-asymptotic-uncertainty-quantification-in-high-dimensional-learning/",
-      "slug": "2026-10-05-non-asymptotic-uncertainty-quantification-in-high-dimensional-learning",
-      "title": "高维学习中的非渐近不确定性量化｜中文译稿（许可待核）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "53d36ad02cf82b3d"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-05",
-      "url": "/papers/translations/2026-10-05-looks-too-good-to-be-true-an-information-theoretic-analysis-of-halluci/",
-      "slug": "2026-10-05-looks-too-good-to-be-true-an-information-theoretic-analysis-of-halluci",
-      "title": "看起来好得不像真的：生成式恢复模型幻觉的信息论分析｜中文译稿（许可待核）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "56dea3a0c21f4696"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-05",
-      "url": "/papers/translations/2026-10-05-practical-and-asymptotically-exact-conditional-sampling-in-diffusion-m/",
-      "slug": "2026-10-05-practical-and-asymptotically-exact-conditional-sampling-in-diffusion-m",
-      "title": "扩散模型中实用且渐近精确的条件采样｜中文译稿（许可待核）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "bb7d33856362d71f"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-05",
-      "url": "/papers/translations/2026-10-05-diffusionpde-generative-pde-solving-under-partial-observation/",
-      "slug": "2026-10-05-diffusionpde-generative-pde-solving-under-partial-observation",
-      "title": "DiffusionPDE：部分观测下的生成式 PDE 求解｜中文译稿（许可待核）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "ba460c43d2ee064a"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-05",
-      "url": "/papers/translations/2026-10-05-blind-image-restoration-via-fast-diffusion-inversion/",
-      "slug": "2026-10-05-blind-image-restoration-via-fast-diffusion-inversion",
-      "title": "基于快速扩散反演的盲图像恢复｜中文译稿（许可待核）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "8d6aa431435d5cb5"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-05",
-      "url": "/papers/translations/2026-10-05-block-coordinate-plug-and-play-methods-for-blind-inverse-problems/",
-      "slug": "2026-10-05-block-coordinate-plug-and-play-methods-for-blind-inverse-problems",
-      "title": "盲逆问题的块坐标即插即用方法｜中文译稿（许可待核）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "b269b52f0eef9fb8"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-04",
-      "url": "/papers/translations/2026-10-04-generalizable-radio-frequency-radiance-fields-for-spatial-spectrum-syn/",
-      "slug": "2026-10-04-generalizable-radio-frequency-radiance-fields-for-spatial-spectrum-syn",
-      "title": "面向空间谱合成的可泛化射频辐射场｜中文译稿（许可待核）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "6cecae8cc71b3be3"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-04",
-      "url": "/papers/translations/2026-10-04-bayesian-experimental-design-via-contrastive-diffusions/",
-      "slug": "2026-10-04-bayesian-experimental-design-via-contrastive-diffusions",
-      "title": "基于对比扩散的贝叶斯实验设计｜中文译稿（许可待核）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "b35ad01081ff8480"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-04",
-      "url": "/papers/translations/2026-10-04-equivariant-plug-and-play-image-reconstruction/",
-      "slug": "2026-10-04-equivariant-plug-and-play-image-reconstruction",
-      "title": "等变即插即用图像重建｜中文译稿（许可待核）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "9b1a38cae9b994ed"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-04",
-      "url": "/papers/translations/2026-10-04-learning-diffusion-priors-from-observations-by-expectation-maximizatio/",
-      "slug": "2026-10-04-learning-diffusion-priors-from-observations-by-expectation-maximizatio",
-      "title": "用期望最大化从观测中学习扩散先验｜中文译稿（许可待核）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "6ffe4ab7aea24bbc"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-04",
-      "url": "/papers/translations/2026-10-04-how-much-is-a-noisy-image-worth-data-scaling-laws-for-ambient-diffusio/",
-      "slug": "2026-10-04-how-much-is-a-noisy-image-worth-data-scaling-laws-for-ambient-diffusio",
-      "title": "一张含噪图像值多少？环境扩散的数据标度律｜中文译稿（许可待核）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "c4f5e47ab1c99e1f"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-04",
-      "url": "/papers/translations/2026-10-04-equivariant-splitting-self-supervised-learning-from-incomplete-data/",
-      "slug": "2026-10-04-equivariant-splitting-self-supervised-learning-from-incomplete-data",
-      "title": "等变分裂：从不完整数据自监督学习｜中文译稿（许可待核）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "208eab9d15bedea0"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-04",
-      "url": "/papers/translations/2026-10-04-flow-priors-for-linear-inverse-problems-via-iterative-corrupted-trajec/",
-      "slug": "2026-10-04-flow-priors-for-linear-inverse-problems-via-iterative-corrupted-trajec",
-      "title": "通过迭代受损轨迹匹配的线性逆问题流先验｜中文译稿（许可待核）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "685f885dafcb782a"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-04",
-      "url": "/papers/translations/2026-10-04-system-embedded-diffusion-bridge-models/",
-      "slug": "2026-10-04-system-embedded-diffusion-bridge-models",
-      "title": "系统嵌入扩散桥模型｜中文译稿（许可待核）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "5856c0521ef7a0c4"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-03",
-      "url": "/papers/translations/2026-10-03-plug-and-play-posterior-sampling-under-mismatched-measurement-and-prio/",
-      "slug": "2026-10-03-plug-and-play-posterior-sampling-under-mismatched-measurement-and-prio",
-      "title": "测量与先验失配下的即插即用后验采样｜中文译稿（许可待核）译文",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "b8628866bf029cba"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-03",
-      "url": "/papers/translations/2026-10-03-dual-ascent-diffusion-for-inverse-problems/",
-      "slug": "2026-10-03-dual-ascent-diffusion-for-inverse-problems",
-      "title": "对偶上升扩散：面向逆问题｜中文译稿（许可待核）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "566d3c2e91637469"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-03",
-      "url": "/papers/translations/2026-10-03-gsnr-graph-smooth-null-space-representation-for-inverse-problems/",
-      "slug": "2026-10-03-gsnr-graph-smooth-null-space-representation-for-inverse-problems",
-      "title": "GSNR：逆问题的图平滑零空间表示｜中文译稿（许可待核）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "a44f41c0717082cc"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-03",
-      "url": "/papers/translations/2026-10-03-principled-probabilistic-imaging-using-diffusion-models-as-plug-and-pl/",
-      "slug": "2026-10-03-principled-probabilistic-imaging-using-diffusion-models-as-plug-and-pl",
-      "title": "以扩散模型作为即插即用先验的原则性概率成像｜中文译稿（许可待核）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "f282c3fff422b44d"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-03",
-      "url": "/papers/translations/2026-10-03-provably-robust-score-based-diffusion-posterior-sampling-for-plug-and/",
-      "slug": "2026-10-03-provably-robust-score-based-diffusion-posterior-sampling-for-plug-and",
-      "title": "可证明鲁棒的分数扩散后验采样｜中文译稿（许可待核）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "656199bdc705e407"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-03",
-      "url": "/papers/translations/2026-10-03-solving-inverse-problems-via-diffusion-optimal-control/",
-      "slug": "2026-10-03-solving-inverse-problems-via-diffusion-optimal-control",
-      "title": "通过扩散最优控制求解逆问题｜中文译稿（许可待核）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "95e5fd12e73da284"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-02",
-      "url": "/papers/translations/2026-10-02-latent-refinement-via-flow-matching-for-training-free-linear-inverse-p/",
-      "slug": "2026-10-02-latent-refinement-via-flow-matching-for-training-free-linear-inverse-p",
-      "title": "基于流匹配的潜变量细化：免训练线性逆问题求解｜中文译稿（许可待核）译文",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "1a42f1c028fa33a9"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-02",
-      "url": "/papers/translations/2026-10-02-solving-inverse-problems-with-flair/",
-      "slug": "2026-10-02-solving-inverse-problems-with-flair",
-      "title": "用 FLAIR 求解逆问题｜中文译稿（许可待核）译文",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "9d095caa2a3f42e6"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-02",
-      "url": "/papers/translations/2026-10-02-improving-diffusion-inverse-problem-solving-with-decoupled-noise-annea/",
-      "slug": "2026-10-02-improving-diffusion-inverse-problem-solving-with-decoupled-noise-annea",
-      "title": "解耦噪声退火改进扩散逆问题求解｜中文译稿（许可待核）译文",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "1c41d4564d50ff2f"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-02",
-      "url": "/papers/translations/2026-10-02-fast-samplers-for-inverse-problems-in-iterative-refinement-models/",
-      "slug": "2026-10-02-fast-samplers-for-inverse-problems-in-iterative-refinement-models",
-      "title": "迭代细化模型中逆问题的快速采样器｜中文译稿（许可待核）译文",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "32ccc6fa84c6338f"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-02",
-      "url": "/papers/translations/2026-10-02-whitened-score-diffusion-a-structured-prior-for-imaging-inverse-proble/",
-      "slug": "2026-10-02-whitened-score-diffusion-a-structured-prior-for-imaging-inverse-proble",
-      "title": "白化分数扩散：成像逆问题的结构化先验｜中文译稿（许可待核）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "09661b8958d1b02a"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-02",
-      "url": "/papers/translations/2026-10-02-ambient-diffusion-learning-clean-distributions-from-corrupted-data/",
-      "slug": "2026-10-02-ambient-diffusion-learning-clean-distributions-from-corrupted-data",
-      "title": "环境扩散：从受损数据学习干净分布｜中文译稿（许可待核）译文",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "f1900748d3249be6"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-10-02",
-      "url": "/papers/translations/2026-10-02-can-channel-knowledge-map-help-to-predict-instantaneous-mimo-channel-s/",
-      "slug": "2026-10-02-can-channel-knowledge-map-help-to-predict-instantaneous-mimo-channel-s",
-      "title": "信道知识地图能否预测瞬时 MIMO 信道状态信息？｜中文译稿（许可待核）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "e10348decd7f0866"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-09-29",
-      "url": "/papers/translations/2026-09-29-2609-01449-diffusion-as-a-training-curriculum-for-timestep-free-iterative-reasoni/",
-      "slug": "2026-09-29-2609-01449-diffusion-as-a-training-curriculum-for-timestep-free-iterative-reasoni",
-      "title": "扩散模型作为无时间步迭代推理的训练课程｜中文全篇译稿（Google 版权，许可待核验）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "2f675ea365589cfc"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-09-29",
-      "url": "/papers/translations/2026-09-29-2026-37017-vmcm-vision-aided-multi-modal-channel-measurement-and-modeling-in-tera/",
-      "slug": "2026-09-29-2026-37017-vmcm-vision-aided-multi-modal-channel-measurement-and-modeling-in-tera",
-      "title": "VMCM：太赫兹城市宏小区视觉辅助多模态信道测量与建模｜中文全篇译稿（IEEE 正式版，许可待核验）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "2c23b61880dd31f8"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-09-29",
-      "url": "/papers/translations/2026-09-29-2025-36125-tensor-based-unsourced-random-access-for-leo-satellite-internet-of-thi/",
-      "slug": "2026-09-29-2025-36125-tensor-based-unsourced-random-access-for-leo-satellite-internet-of-thi",
-      "title": "面向 LEO 卫星物联网的基于张量的无源随机接入｜中文全篇译稿（IEEE 正式版，许可待核验）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "387267fdb644e620"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-09-29",
-      "url": "/papers/translations/2026-09-29-2026-36849-where-prior-learning-can-and-can-t-work-in-unsupervised-inverse-proble/",
-      "slug": "2026-09-29-2026-36849-where-prior-learning-can-and-can-t-work-in-unsupervised-inverse-proble",
-      "title": "先验学习在无监督逆问题中何时有效、何时失效｜中文全篇译稿（IEEE 正式版，许可待核验）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "cb776d0adb3a7f72"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-09-28",
-      "url": "/papers/translations/2026-09-28-on-nonlinear-channel-estimation-performance/",
-      "slug": "2026-09-28-on-nonlinear-channel-estimation-performance",
-      "title": "关于非线性信道估计性能｜中文译稿（许可待核）",
-      "scope": "中文全文译文（学习页；许可待核；未登记可公开全文统计）",
-      "paper_ids": [
-        "549bb4536e7ed9b4"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-08-21",
-      "url": "/papers/translations/2026-10-12-tap-a/",
-      "slug": "2026-10-12-tap-a",
-      "title": "TAP 全文翻译（上）：背景、信道模型、OMP 推导与参数估计方法",
-      "scope": "中文全文译文（已登记）",
-      "paper_ids": [
-        "67d6ba71d51870c4"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-07-29",
-      "url": "/papers/translations/2026-07-29-2607-24876/",
-      "slug": "2026-07-29-2607-24876",
-      "title": "RC-BFM：通过信道实现流匹配实现低时延生成式语义通信｜中文全文译稿（校对中）",
-      "scope": "中文全文译文（已登记）",
-      "paper_ids": [
-        "7e60d1f6e3cbae1c"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-07-29",
-      "url": "/papers/translations/2026-07-29-2607-22204/",
-      "slug": "2026-07-29-2607-22204",
-      "title": "跨频段 CSI 重建基础模型｜中文全文译稿（待逐式校对）",
-      "scope": "中文全文译文（已登记）",
-      "paper_ids": [
-        "d1075d0eb3ab3dc2"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-07-22",
-      "url": "/papers/translations/2026-10-12-spatial-ode-main/",
-      "slug": "2026-10-12-spatial-ode-main",
-      "title": "生成式 ODE 的积分误差空间传输：正文中文译稿",
-      "scope": "中文全文译文（已登记）",
-      "paper_ids": [
-        "65907205876c1561"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-07-22",
-      "url": "/papers/translations/2026-10-12-sigmap-full-zh/",
-      "slug": "2026-10-12-sigmap-full-zh",
-      "title": "SigMap：以地图作为提示的跨场景无线定位基础模型——全文中译",
-      "scope": "中文全文译文（已登记）",
-      "paper_ids": [
-        "2e094f4029e01a73"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-07-22",
-      "url": "/papers/translations/2026-10-12-radio-map-online-gp-full-zh/",
-      "slug": "2026-10-12-radio-map-online-gp-full-zh",
-      "title": "基于记忆式在线高斯过程的流式频谱测量无线电地图更新——全文中译",
-      "scope": "中文全文译文（已登记）",
-      "paper_ids": [
-        "ad7c6f680aefcbc8"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-07-18",
-      "url": "/papers/translations/2026-07-18-2605-22856/",
-      "slug": "2026-07-18-2605-22856",
-      "title": "PilotWiMAE：面向无线信道的原生导频表示学习｜中译",
-      "scope": "中文全文译文（已登记）",
-      "paper_ids": [
-        "fa28f9a68f6d526c"
-      ],
-      "external": true,
-      "qa_complete": false
-    },
-    {
-      "date": "2026-11-05",
-      "url": "/papers/translations/2026-11-05-ecb492653b84b104527afc06/",
-      "slug": "2026-11-05-ecb492653b84b104527afc06",
-      "source_file": "paper.md",
-      "scope": "全文中英文对照",
-      "title": "GRAM-DIFF: Gram Matrix Guided Diffusion for MIMO Channel Estimation",
-      "paper_id": "2602.15187",
-      "license_url": "https://creativecommons.org/licenses/by/4.0/",
-      "download": "/assets/papers/translations/2026-11-05-ecb492653b84b104527afc06.md"
-    },
-    {
-      "date": "2026-11-05",
-      "url": "/papers/translations/2026-11-05-b77075cd018e2631d3efd25c/",
-      "slug": "2026-11-05-b77075cd018e2631d3efd25c",
-      "source_file": "paper.md",
-      "scope": "全文中英文对照",
-      "title": "Amortised Inference through One-Step Implicit Sampling",
-      "paper_id": "2610.12679",
-      "license_url": "https://creativecommons.org/licenses/by/4.0/",
-      "download": "/assets/papers/translations/2026-11-05-b77075cd018e2631d3efd25c.md"
-    },
-    {
-      "date": "2026-11-05",
-      "url": "/papers/translations/2026-11-05-ab1234917ddfb6fcc5443a79/",
-      "slug": "2026-11-05-ab1234917ddfb6fcc5443a79",
-      "source_file": "paper.md",
-      "scope": "全文中英文对照",
-      "title": "MissPath-FM: Flow Matching with Structured Priors for Partially Observed Time Series",
-      "paper_id": "2610.17715",
-      "license_url": "https://creativecommons.org/licenses/by/4.0/",
-      "download": "/assets/papers/translations/2026-11-05-ab1234917ddfb6fcc5443a79.md"
-    },
-    {
-      "date": "2026-11-05",
-      "url": "/papers/translations/2026-11-05-ef3c77f5e300fc3d2caf30dc/",
-      "slug": "2026-11-05-ef3c77f5e300fc3d2caf30dc",
-      "source_file": "paper.md",
-      "scope": "全文中英文对照",
-      "title": "A Perception vs. Distortion Perspective on Score-Based Generative Channel Estimation",
-      "paper_id": "2606.16815",
-      "license_url": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
-      "download": "/assets/papers/translations/2026-11-05-ef3c77f5e300fc3d2caf30dc.md"
-    },
-    {
-      "date": "2026-11-05",
-      "url": "/papers/translations/2026-11-05-96904d0e22a1dbaf7c2ecf3a/",
-      "slug": "2026-11-05-96904d0e22a1dbaf7c2ecf3a",
-      "source_file": "paper.md",
-      "scope": "全文中英文对照",
-      "title": "Learning Graph Beliefs for Active Radio Mapping With Decision-Certified Multi-Step Sensing",
-      "paper_id": "2610.37717",
-      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
-      "download": "/assets/papers/translations/2026-11-05-96904d0e22a1dbaf7c2ecf3a.md"
     }
   ],
   "assets": [],
