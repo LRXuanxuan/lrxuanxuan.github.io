@@ -4262,5 +4262,85 @@
   "full": true,
   "public": true,
   "label": "阅读全文翻译"
+ },
+ "d7c056945fe5728a": {
+  "url": "/papers/translations/2026-11-25-f31ef96972232d0e43e4b604/",
+  "title": "MIMO 通信中的信道协方差矩阵突变检测｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 14 页全节；编号公式 42 式；表格 4 行；参考文献英文原条目；许可：https://arxiv.org/licenses/nonexclusive-distrib/1.0/；本译稿按用户 2026-11-15 常设授权发布，原文许可保持不变，权利人如有异议可移除；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "c94af802a5f7650e": {
+  "url": "/papers/translations/2026-11-25-f216ba6c5e60d6c044d57609/",
+  "title": "毫米波通信中的离栅格感知空间协方差估计｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 5 页全节；编号公式 9 式；无表格；参考文献英文原条目；许可：https://arxiv.org/licenses/nonexclusive-distrib/1.0/；本译稿按用户 2026-11-15 常设授权发布，原文许可保持不变，权利人如有异议可移除；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "53488ee5978b0094": {
+  "url": "/papers/translations/2026-11-25-ec0f43eb332c50da563861c8/",
+  "title": "面向流式 CSI 数据的信道制图｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 6 页全节；编号公式 3 式；表格 17 行；参考文献英文原条目；许可：https://arxiv.org/licenses/nonexclusive-distrib/1.0/；本译稿按用户 2026-11-15 常设授权发布，原文许可保持不变，权利人如有异议可移除；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "5289b28bb670a1d7": {
+  "url": "/papers/translations/2026-11-25-8724df613a585cf14361a305/",
+  "title": "多用户 MIMO-OFDM 下行链路的信道状态预测、反馈与调度｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 5 页全节；编号公式 10 式；表格 19 行；参考文献英文原条目；许可：https://arxiv.org/licenses/nonexclusive-distrib/1.0/；本译稿按用户 2026-11-15 常设授权发布，原文许可保持不变，权利人如有异议可移除；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "3d892f08f3af84a6": {
+  "url": "/papers/translations/2026-11-25-8352cd31d71d7eb22223fc91/",
+  "title": "大规模天线阵列中基于有限样本的结构化信道协方差估计｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 36 页全节；编号公式 48 式；无表格；参考文献英文原条目；许可：https://arxiv.org/licenses/nonexclusive-distrib/1.0/；本译稿按用户 2026-11-15 常设授权发布，原文许可保持不变，权利人如有异议可移除；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "e75ceb72b8dbba20": {
+  "url": "/papers/translations/2026-11-25-64727213f389ede2c2055788/",
+  "title": "采用测地损失的信道制图：感知不确定性的降维｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 8 页全节；编号公式 5 式；表格 14 行；参考文献英文原条目；许可：https://arxiv.org/licenses/nonexclusive-distrib/1.0/；本译稿按用户 2026-11-15 常设授权发布，原文许可保持不变，权利人如有异议可移除；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "7461424f1a5e6a10": {
+  "url": "/papers/translations/2026-11-25-501330abacfb68a7bc9a05d4/",
+  "title": "面向无导频保护符号 AFDM 的基于消息传递的贝叶斯联合信道估计与数据检测｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 13 页全节；编号公式 114 式；表格 35 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "0763fe846f204edc": {
+  "url": "/papers/translations/2026-11-25-09fe9fcc450507eeec56f145/",
+  "title": "基于 Prony 的角度时延域信道预测应对大规模 MIMO 的移动性困境｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 15 页全节；编号公式 121 式；表格 13 行；参考文献英文原条目；许可：https://arxiv.org/licenses/nonexclusive-distrib/1.0/；本译稿按用户 2026-11-15 常设授权发布，原文许可保持不变，权利人如有异议可移除；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "ed91a9c15377f16f": {
+  "url": "/papers/translations/2026-11-25-b934a98847c2514132266ee0/",
+  "title": "面向气候降尺度的物理约束整流流：投影能确证什么？｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 9 页全节；编号公式 ['1', '2', '3', '4', '5'] 式；表格 23 行；参考文献英文原条目；许可：https://creativecommons.org/licenses/by/4.0/（署名 4.0）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "c81de538b4ae7a55": {
+  "url": "/papers/translations/2026-11-25-0d4bd370121d324683c63a0c/",
+  "title": "考虑信道老化的无蜂窝大规模 MIMO 交替信道估计与预测：一种基于深度学习的方案｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 6 页全节；编号公式 ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'] 式；无表格；参考文献英文原条目；许可：https://creativecommons.org/licenses/by/4.0/（署名 4.0）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
  }
 }

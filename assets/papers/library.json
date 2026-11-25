@@ -162,7 +162,13 @@
       "report_entry_url": "/papers/reports/2026-11-25/#paper-7461424f1a5e6a10",
       "paper_url": "/papers/items/7461424f1a5e6a10/",
       "paper_report_url": "/papers/items/7461424f1a5e6a10/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-25-501330abacfb68a7bc9a05d4/#paper-7461424f1a5e6a10",
+          "scope": "全文中文译文",
+          "title": "Message-Passing-Based Bayesian Joint Channel Estimation and Data Detection for Pilot-Guard-Free AFDM"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2611.14877",
         "https://arxiv.org/abs/2611.14877",
@@ -175,9 +181,9 @@
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/7461424f1a5e6a10/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-25-501330abacfb68a7bc9a05d4/#paper-7461424f1a5e6a10",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "ed91a9c15377f16f",
@@ -319,7 +325,13 @@
       "report_entry_url": "/papers/reports/2026-11-25/#paper-5289b28bb670a1d7",
       "paper_url": "/papers/items/5289b28bb670a1d7/",
       "paper_report_url": "/papers/items/5289b28bb670a1d7/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-25-8724df613a585cf14361a305/#paper-5289b28bb670a1d7",
+          "scope": "全文中文译文",
+          "title": "Channel State Prediction, Feedback and Scheduling for a Multiuser MIMO-OFDM Downlink"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/0811.4630",
         "https://arxiv.org/abs/0811.4630",
@@ -333,9 +345,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/5289b28bb670a1d7/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-25-8724df613a585cf14361a305/#paper-5289b28bb670a1d7",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "0763fe846f204edc",
@@ -368,7 +380,13 @@
       "report_entry_url": "/papers/reports/2026-11-25/#paper-0763fe846f204edc",
       "paper_url": "/papers/items/0763fe846f204edc/",
       "paper_report_url": "/papers/items/0763fe846f204edc/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-25-09fe9fcc450507eeec56f145/#paper-0763fe846f204edc",
+          "scope": "全文中文译文",
+          "title": "Addressing the curse of mobility in massive MIMO with Prony-based angular-delay domain channel predictions"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1912.11330",
         "https://arxiv.org/abs/1912.11330",
@@ -382,9 +400,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/0763fe846f204edc/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-25-09fe9fcc450507eeec56f145/#paper-0763fe846f204edc",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "53488ee5978b0094",
@@ -417,7 +435,13 @@
       "report_entry_url": "/papers/reports/2026-11-25/#paper-53488ee5978b0094",
       "paper_url": "/papers/items/53488ee5978b0094/",
       "paper_report_url": "/papers/items/53488ee5978b0094/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-25-ec0f43eb332c50da563861c8/#paper-53488ee5978b0094",
+          "scope": "全文中文译文",
+          "title": "Channel Charting for Streaming CSI Data"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2312.04514",
         "https://arxiv.org/abs/2312.04514",
@@ -433,9 +457,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/53488ee5978b0094/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-25-ec0f43eb332c50da563861c8/#paper-53488ee5978b0094",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "e75ceb72b8dbba20",
@@ -468,7 +492,13 @@
       "report_entry_url": "/papers/reports/2026-11-25/#paper-e75ceb72b8dbba20",
       "paper_url": "/papers/items/e75ceb72b8dbba20/",
       "paper_report_url": "/papers/items/e75ceb72b8dbba20/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-25-64727213f389ede2c2055788/#paper-e75ceb72b8dbba20",
+          "scope": "全文中文译文",
+          "title": "Uncertainty-Aware Dimensionality Reduction for Channel Charting with Geodesic Loss"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2412.01715",
         "https://arxiv.org/abs/2412.01715",
@@ -484,9 +514,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/e75ceb72b8dbba20/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-25-64727213f389ede2c2055788/#paper-e75ceb72b8dbba20",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "c94af802a5f7650e",
@@ -519,7 +549,13 @@
       "report_entry_url": "/papers/reports/2026-11-25/#paper-c94af802a5f7650e",
       "paper_url": "/papers/items/c94af802a5f7650e/",
       "paper_report_url": "/papers/items/c94af802a5f7650e/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-25-f216ba6c5e60d6c044d57609/#paper-c94af802a5f7650e",
+          "scope": "全文中文译文",
+          "title": "Off-Grid Aware Spatial Covariance Estimation in mmWave Communications"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1912.04733",
         "https://arxiv.org/abs/1912.04733",
@@ -533,9 +569,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/c94af802a5f7650e/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-25-f216ba6c5e60d6c044d57609/#paper-c94af802a5f7650e",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "3d892f08f3af84a6",
@@ -568,7 +604,13 @@
       "report_entry_url": "/papers/reports/2026-11-25/#paper-3d892f08f3af84a6",
       "paper_url": "/papers/items/3d892f08f3af84a6/",
       "paper_report_url": "/papers/items/3d892f08f3af84a6/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-25-8352cd31d71d7eb22223fc91/#paper-3d892f08f3af84a6",
+          "scope": "全文中文译文",
+          "title": "Structured Channel Covariance Estimation from Limited Samples for Large Antenna Arrays"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2110.03324",
         "https://arxiv.org/abs/2110.03324",
@@ -582,9 +624,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/3d892f08f3af84a6/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-25-8352cd31d71d7eb22223fc91/#paper-3d892f08f3af84a6",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "d7c056945fe5728a",
@@ -617,7 +659,13 @@
       "report_entry_url": "/papers/reports/2026-11-25/#paper-d7c056945fe5728a",
       "paper_url": "/papers/items/d7c056945fe5728a/",
       "paper_report_url": "/papers/items/d7c056945fe5728a/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-25-f31ef96972232d0e43e4b604/#paper-d7c056945fe5728a",
+          "scope": "全文中文译文",
+          "title": "Detecting Abrupt Changes in Channel Covariance Matrix for MIMO Communication"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2207.01984",
         "https://arxiv.org/abs/2207.01984",
@@ -633,9 +681,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/d7c056945fe5728a/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-25-f31ef96972232d0e43e4b604/#paper-d7c056945fe5728a",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "057ef9087ac53434",
@@ -43217,6 +43265,94 @@
     }
   ],
   "translations": [
+    {
+      "date": "2026-11-25",
+      "url": "/papers/translations/2026-11-25-f31ef96972232d0e43e4b604/",
+      "slug": "2026-11-25-f31ef96972232d0e43e4b604",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Detecting Abrupt Changes in Channel Covariance Matrix for MIMO Communication",
+      "paper_id": "2207.01984",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-25-f31ef96972232d0e43e4b604.md"
+    },
+    {
+      "date": "2026-11-25",
+      "url": "/papers/translations/2026-11-25-f216ba6c5e60d6c044d57609/",
+      "slug": "2026-11-25-f216ba6c5e60d6c044d57609",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Off-Grid Aware Spatial Covariance Estimation in mmWave Communications",
+      "paper_id": "1912.04733",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-25-f216ba6c5e60d6c044d57609.md"
+    },
+    {
+      "date": "2026-11-25",
+      "url": "/papers/translations/2026-11-25-ec0f43eb332c50da563861c8/",
+      "slug": "2026-11-25-ec0f43eb332c50da563861c8",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Channel Charting for Streaming CSI Data",
+      "paper_id": "2312.04514",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-25-ec0f43eb332c50da563861c8.md"
+    },
+    {
+      "date": "2026-11-25",
+      "url": "/papers/translations/2026-11-25-8724df613a585cf14361a305/",
+      "slug": "2026-11-25-8724df613a585cf14361a305",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Channel State Prediction, Feedback and Scheduling for a Multiuser MIMO-OFDM Downlink",
+      "paper_id": "0811.4630",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-25-8724df613a585cf14361a305.md"
+    },
+    {
+      "date": "2026-11-25",
+      "url": "/papers/translations/2026-11-25-8352cd31d71d7eb22223fc91/",
+      "slug": "2026-11-25-8352cd31d71d7eb22223fc91",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Structured Channel Covariance Estimation from Limited Samples for Large Antenna Arrays",
+      "paper_id": "2110.03324",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-25-8352cd31d71d7eb22223fc91.md"
+    },
+    {
+      "date": "2026-11-25",
+      "url": "/papers/translations/2026-11-25-64727213f389ede2c2055788/",
+      "slug": "2026-11-25-64727213f389ede2c2055788",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Uncertainty-Aware Dimensionality Reduction for Channel Charting with Geodesic Loss",
+      "paper_id": "2412.01715",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-25-64727213f389ede2c2055788.md"
+    },
+    {
+      "date": "2026-11-25",
+      "url": "/papers/translations/2026-11-25-501330abacfb68a7bc9a05d4/",
+      "slug": "2026-11-25-501330abacfb68a7bc9a05d4",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Message-Passing-Based Bayesian Joint Channel Estimation and Data Detection for Pilot-Guard-Free AFDM",
+      "paper_id": "2611.14877",
+      "license_url": "",
+      "download": "/assets/papers/translations/2026-11-25-501330abacfb68a7bc9a05d4.md"
+    },
+    {
+      "date": "2026-11-25",
+      "url": "/papers/translations/2026-11-25-09fe9fcc450507eeec56f145/",
+      "slug": "2026-11-25-09fe9fcc450507eeec56f145",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Addressing the curse of mobility in massive MIMO with Prony-based angular-delay domain channel predictions",
+      "paper_id": "1912.11330",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-25-09fe9fcc450507eeec56f145.md"
+    },
     {
       "date": "2026-11-25",
       "url": "/papers/translations/2026-11-25-b934a98847c2514132266ee0/",
