@@ -163,7 +163,13 @@
       "report_entry_url": "/papers/reports/2026-11-26/#paper-9a03c08627445d13",
       "paper_url": "/papers/items/9a03c08627445d13/",
       "paper_report_url": "/papers/items/9a03c08627445d13/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-26-c4658ff9946662d20b97c63c/#paper-9a03c08627445d13",
+          "scope": "全文中文译文",
+          "title": "Physics-Informed Deep Learning for Channel Prediction in Satellite-Mounted Metasurface Reflection Communication Networks"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2611.26068",
         "https://arxiv.org/abs/2611.26068",
@@ -176,9 +182,9 @@
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/9a03c08627445d13/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-26-c4658ff9946662d20b97c63c/#paper-9a03c08627445d13",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "c34a586a79c92bd4",
@@ -321,7 +327,13 @@
       "report_entry_url": "/papers/reports/2026-11-26/#paper-8a8fb072dd9dec5c",
       "paper_url": "/papers/items/8a8fb072dd9dec5c/",
       "paper_report_url": "/papers/items/8a8fb072dd9dec5c/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-26-e38b7ddb623e502f41773b47/#paper-8a8fb072dd9dec5c",
+          "scope": "全文中文译文",
+          "title": "Deep Unfolding-Based Channel Estimation for Wideband TeraHertz Near-Field Massive MIMO Systems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2308.13381",
         "https://arxiv.org/abs/2308.13381",
@@ -337,9 +349,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/8a8fb072dd9dec5c/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-26-e38b7ddb623e502f41773b47/#paper-8a8fb072dd9dec5c",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "968d10793a9c4f75",
@@ -482,7 +494,13 @@
       "report_entry_url": "/papers/reports/2026-11-26/#paper-fde1dea832a938af",
       "paper_url": "/papers/items/fde1dea832a938af/",
       "paper_report_url": "/papers/items/fde1dea832a938af/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-26-2245c976d6e4ce4f897fd14e/#paper-fde1dea832a938af",
+          "scope": "全文中文译文",
+          "title": "Deep Learning based Channel Estimation for Massive MIMO with Hybrid Transceivers"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2202.03220",
         "https://arxiv.org/abs/2202.03220",
@@ -498,9 +516,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/fde1dea832a938af/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-26-2245c976d6e4ce4f897fd14e/#paper-fde1dea832a938af",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "0dcdb57e35f874ab",
@@ -533,7 +551,13 @@
       "report_entry_url": "/papers/reports/2026-11-26/#paper-0dcdb57e35f874ab",
       "paper_url": "/papers/items/0dcdb57e35f874ab/",
       "paper_report_url": "/papers/items/0dcdb57e35f874ab/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-26-6079bd58e3e59776e4b3df81/#paper-0dcdb57e35f874ab",
+          "scope": "全文中文译文",
+          "title": "Covariance Matrix Estimation in Massive MIMO"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1705.02895",
         "https://arxiv.org/abs/1705.02895",
@@ -547,9 +571,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/0dcdb57e35f874ab/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-26-6079bd58e3e59776e4b3df81/#paper-0dcdb57e35f874ab",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "97aeaa90871c0f0e",
@@ -582,7 +606,13 @@
       "report_entry_url": "/papers/reports/2026-11-26/#paper-97aeaa90871c0f0e",
       "paper_url": "/papers/items/97aeaa90871c0f0e/",
       "paper_report_url": "/papers/items/97aeaa90871c0f0e/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-26-db261ec7770ff979d2b96f7d/#paper-97aeaa90871c0f0e",
+          "scope": "全文中文译文",
+          "title": "Multi-Band Covariance Interpolation with Applications in Massive MIMO"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1801.03714",
         "https://arxiv.org/abs/1801.03714",
@@ -596,9 +626,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/97aeaa90871c0f0e/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-26-db261ec7770ff979d2b96f7d/#paper-97aeaa90871c0f0e",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "5fed67b1b7de93dc",
@@ -631,7 +661,13 @@
       "report_entry_url": "/papers/reports/2026-11-26/#paper-5fed67b1b7de93dc",
       "paper_url": "/papers/items/5fed67b1b7de93dc/",
       "paper_report_url": "/papers/items/5fed67b1b7de93dc/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-26-b8e30425e6b5c40a65ecd7ff/#paper-5fed67b1b7de93dc",
+          "scope": "全文中文译文",
+          "title": "Channel Covariance Estimation in Massive MIMO Frequency Division Duplex Systems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1602.05741",
         "https://arxiv.org/abs/1602.05741",
@@ -645,9 +681,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/5fed67b1b7de93dc/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-26-b8e30425e6b5c40a65ecd7ff/#paper-5fed67b1b7de93dc",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "7461424f1a5e6a10",
@@ -43794,6 +43830,72 @@
     }
   ],
   "translations": [
+    {
+      "date": "2026-11-26",
+      "url": "/papers/translations/2026-11-26-e38b7ddb623e502f41773b47/",
+      "slug": "2026-11-26-e38b7ddb623e502f41773b47",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Deep Unfolding-Based Channel Estimation for Wideband TeraHertz Near-Field Massive MIMO Systems",
+      "paper_id": "2308.13381",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-26-e38b7ddb623e502f41773b47.md"
+    },
+    {
+      "date": "2026-11-26",
+      "url": "/papers/translations/2026-11-26-db261ec7770ff979d2b96f7d/",
+      "slug": "2026-11-26-db261ec7770ff979d2b96f7d",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Multi-Band Covariance Interpolation with Applications in Massive MIMO",
+      "paper_id": "1801.03714",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-26-db261ec7770ff979d2b96f7d.md"
+    },
+    {
+      "date": "2026-11-26",
+      "url": "/papers/translations/2026-11-26-c4658ff9946662d20b97c63c/",
+      "slug": "2026-11-26-c4658ff9946662d20b97c63c",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Physics-Informed Deep Learning for Channel Prediction in Satellite-Mounted Metasurface Reflection Communication Networks",
+      "paper_id": "2611.26068",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-26-c4658ff9946662d20b97c63c.md"
+    },
+    {
+      "date": "2026-11-26",
+      "url": "/papers/translations/2026-11-26-b8e30425e6b5c40a65ecd7ff/",
+      "slug": "2026-11-26-b8e30425e6b5c40a65ecd7ff",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Channel Covariance Estimation in Massive MIMO Frequency Division Duplex Systems",
+      "paper_id": "1602.05741",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-26-b8e30425e6b5c40a65ecd7ff.md"
+    },
+    {
+      "date": "2026-11-26",
+      "url": "/papers/translations/2026-11-26-6079bd58e3e59776e4b3df81/",
+      "slug": "2026-11-26-6079bd58e3e59776e4b3df81",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Covariance Matrix Estimation in Massive MIMO",
+      "paper_id": "1705.02895",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-26-6079bd58e3e59776e4b3df81.md"
+    },
+    {
+      "date": "2026-11-26",
+      "url": "/papers/translations/2026-11-26-2245c976d6e4ce4f897fd14e/",
+      "slug": "2026-11-26-2245c976d6e4ce4f897fd14e",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Deep Learning based Channel Estimation for Massive MIMO with Hybrid Transceivers",
+      "paper_id": "2202.03220",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-26-2245c976d6e4ce4f897fd14e.md"
+    },
     {
       "date": "2026-11-26",
       "url": "/papers/translations/2026-11-26-b2dd084bc4b1de31c46a1657/",
