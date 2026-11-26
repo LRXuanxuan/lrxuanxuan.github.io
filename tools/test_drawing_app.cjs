@@ -576,7 +576,7 @@ async function main() {
     assert.equal(hash(pixels(active().canvas)), first); assert.equal(state().redo, 1);
   });
 
-  await test('Brush preferences restore independently and export uses Beijing year-day-month time', async () => {
+  await test('Brush preferences restore independently and export uses Beijing year-month-day time', async () => {
     await fresh(); select('brushKind', 'haiguai-flat'); edit('brushSize', 47); edit('brushOpacity', 38);
     edit('stabilizer', 62); check('penPressure', false);
     select('brushKind', 'haiguai-pencil-hard'); edit('brushSize', 5); edit('brushOpacity', 82);
@@ -585,7 +585,9 @@ async function main() {
     tool('eraser'); edit('brushSize', 18); tool('brush'); assert.equal(state().size,47);
     click('resetBrushProfile'); select('brushKind','haiguai-pencil-hard'); assert.equal(state().size,5);
     assert.equal(state().opacity,.82); click('resetBrushProfile');
-    assert.equal(win.studioExportName(new Date('2026-11-20T16:07:00Z')), '2026年21日11月00时07分');
+    assert.equal(win.studioExportName(new Date('2026-11-20T16:07:00Z')), '2026年11月21日00时07分');
+    assert.equal(win.studioExportName(new Date('2026-12-31T16:00:00Z')), '2027年01月01日00时00分');
+    assert.equal(win.studioExportName(new Date('2026-02-03T06:05:00Z')), '2026年02月03日14时05分');
   });
 
   await test('Saved brush profiles survive new artwork and override older project settings without replacing its ink', async () => {

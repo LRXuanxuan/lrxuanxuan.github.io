@@ -26,7 +26,7 @@ const functions = [
   between(page, '  async function startBatch(', '  function bytesToBase64('),
   between(study, '      async function exportLineOriginal(', '      function fitCanvas(')
 ].join('\n');
-const filename = '2026年21日11月14时05分';
+const filename = '2026年11月21日14时05分';
 function harness() {
   const toasts = [], anchors = [], blob = new Blob(['png fixture'], { type: 'image/png' });
   const control = (value = '') => ({ value, checked: false, disabled: false, hidden: false, textContent: '', style: {} });
