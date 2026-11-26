@@ -175,7 +175,13 @@
       "report_entry_url": "/papers/reports/2026-11-27/#paper-4b10c10acd95fba7",
       "paper_url": "/papers/items/4b10c10acd95fba7/",
       "paper_report_url": "/papers/items/4b10c10acd95fba7/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-27-94be8748aa67882b358f46e2/#paper-4b10c10acd95fba7",
+          "scope": "全文中文译文",
+          "title": "One-to-Many: Diverse and Bidirectional Image-to-Image Translation via Rectified Flow"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2611.26058",
         "https://arxiv.org/abs/2611.26058",
@@ -187,10 +193,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/4b10c10acd95fba7/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-27-94be8748aa67882b358f46e2/#paper-4b10c10acd95fba7",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "9695954a70152463",
@@ -226,7 +232,13 @@
       "report_entry_url": "/papers/reports/2026-11-27/#paper-9695954a70152463",
       "paper_url": "/papers/items/9695954a70152463/",
       "paper_report_url": "/papers/items/9695954a70152463/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-27-485a2cfee202b3dc925955ce/#paper-9695954a70152463",
+          "scope": "全文中文译文",
+          "title": "SEP Analysis of Fluid Antenna GSC Reception under Correlated Nakagami-m Fading and Imperfect Channel Estimation"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2611.26121",
         "https://arxiv.org/abs/2611.26121",
@@ -238,10 +250,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/9695954a70152463/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-27-485a2cfee202b3dc925955ce/#paper-9695954a70152463",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "c337e9e1658defc5",
@@ -277,7 +289,13 @@
       "report_entry_url": "/papers/reports/2026-11-27/#paper-c337e9e1658defc5",
       "paper_url": "/papers/items/c337e9e1658defc5/",
       "paper_report_url": "/papers/items/c337e9e1658defc5/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-27-c8ad0e50d2e31a4803ba4544/#paper-c337e9e1658defc5",
+          "scope": "全文中文译文",
+          "title": "Rate Adaptation in Predictor Antenna Systems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2005.05323",
         "https://arxiv.org/abs/2005.05323",
@@ -290,10 +308,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/c337e9e1658defc5/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-27-c8ad0e50d2e31a4803ba4544/#paper-c337e9e1658defc5",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "af351c38536f169e",
@@ -330,7 +348,13 @@
       "report_entry_url": "/papers/reports/2026-11-27/#paper-af351c38536f169e",
       "paper_url": "/papers/items/af351c38536f169e/",
       "paper_report_url": "/papers/items/af351c38536f169e/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-27-c152093dfc37d02e3ea9300a/#paper-af351c38536f169e",
+          "scope": "全文中文译文",
+          "title": "Predicting Multi-Antenna Frequency-Selective Channels via Meta-Learned Linear Filters based on Long-Short Term Channel Decomposition"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2203.12715",
         "https://arxiv.org/abs/2203.12715",
@@ -345,10 +369,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/af351c38536f169e/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-27-c152093dfc37d02e3ea9300a/#paper-af351c38536f169e",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "674dbddcc4759e26",
@@ -385,7 +409,13 @@
       "report_entry_url": "/papers/reports/2026-11-27/#paper-674dbddcc4759e26",
       "paper_url": "/papers/items/674dbddcc4759e26/",
       "paper_report_url": "/papers/items/674dbddcc4759e26/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-27-ea206cf830de0498815f20ba/#paper-674dbddcc4759e26",
+          "scope": "全文中文译文",
+          "title": "Channel Charting: Locating Users within the Radio Environment using Channel State Information"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1807.05247",
         "https://arxiv.org/abs/1807.05247",
@@ -400,10 +430,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/674dbddcc4759e26/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-27-ea206cf830de0498815f20ba/#paper-674dbddcc4759e26",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "fff1f0eb6600dc1a",
@@ -440,7 +470,13 @@
       "report_entry_url": "/papers/reports/2026-11-27/#paper-fff1f0eb6600dc1a",
       "paper_url": "/papers/items/fff1f0eb6600dc1a/",
       "paper_report_url": "/papers/items/fff1f0eb6600dc1a/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-27-0d8394367d59d7548a42cdc1/#paper-fff1f0eb6600dc1a",
+          "scope": "全文中文译文",
+          "title": "An Attention-Aided Deep Learning Framework for Massive MIMO Channel Estimation"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2108.09430",
         "https://arxiv.org/abs/2108.09430",
@@ -455,10 +491,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/fff1f0eb6600dc1a/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-27-0d8394367d59d7548a42cdc1/#paper-fff1f0eb6600dc1a",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "14fb269e05014b8a",
@@ -494,7 +530,13 @@
       "report_entry_url": "/papers/reports/2026-11-27/#paper-14fb269e05014b8a",
       "paper_url": "/papers/items/14fb269e05014b8a/",
       "paper_report_url": "/papers/items/14fb269e05014b8a/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-27-3190fe92d7839cd7e1612da7/#paper-14fb269e05014b8a",
+          "scope": "全文中文译文",
+          "title": "Enforcing Statistical Orthogonality in Massive MIMO Systems via Covariance Shaping"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2106.07952",
         "https://arxiv.org/abs/2106.07952",
@@ -507,10 +549,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/14fb269e05014b8a/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-27-3190fe92d7839cd7e1612da7/#paper-14fb269e05014b8a",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "b8f616e7846fd7e4",
@@ -546,7 +588,13 @@
       "report_entry_url": "/papers/reports/2026-11-27/#paper-b8f616e7846fd7e4",
       "paper_url": "/papers/items/b8f616e7846fd7e4/",
       "paper_report_url": "/papers/items/b8f616e7846fd7e4/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-27-55d2bfeca6765c8809ac7b95/#paper-b8f616e7846fd7e4",
+          "scope": "全文中文译文",
+          "title": "FDD massive MIMO channel spatial covariance conversion using projection methods"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1804.04850",
         "https://arxiv.org/abs/1804.04850",
@@ -559,10 +607,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/b8f616e7846fd7e4/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-27-55d2bfeca6765c8809ac7b95/#paper-b8f616e7846fd7e4",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "fcf2748fb02ea36c",
@@ -598,7 +646,13 @@
       "report_entry_url": "/papers/reports/2026-11-27/#paper-fcf2748fb02ea36c",
       "paper_url": "/papers/items/fcf2748fb02ea36c/",
       "paper_report_url": "/papers/items/fcf2748fb02ea36c/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-27-e3439b44fcc6c2ea4acad44c/#paper-fcf2748fb02ea36c",
+          "scope": "全文中文译文",
+          "title": "FDD Channel Estimation via Covariance Identification in Wideband Massive MIMO Systems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1812.00848",
         "https://arxiv.org/abs/1812.00848",
@@ -611,10 +665,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/fcf2748fb02ea36c/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-27-e3439b44fcc6c2ea4acad44c/#paper-fcf2748fb02ea36c",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "7adc10089fd34a60",
@@ -650,7 +704,13 @@
       "report_entry_url": "/papers/reports/2026-11-27/#paper-7adc10089fd34a60",
       "paper_url": "/papers/items/7adc10089fd34a60/",
       "paper_report_url": "/papers/items/7adc10089fd34a60/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-27-4c2b838dae3c0073a984040d/#paper-7adc10089fd34a60",
+          "scope": "全文中文译文",
+          "title": "Low-Complexity Massive MIMO Subspace Estimation and Tracking from Low-Dimensional Projections"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1608.02477",
         "https://arxiv.org/abs/1608.02477",
@@ -663,10 +723,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/7adc10089fd34a60/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-27-4c2b838dae3c0073a984040d/#paper-7adc10089fd34a60",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "40a29e61c6b09dcc",
@@ -49056,6 +49116,116 @@
     }
   ],
   "translations": [
+    {
+      "date": "2026-11-27",
+      "url": "/papers/translations/2026-11-27-ea206cf830de0498815f20ba/",
+      "slug": "2026-11-27-ea206cf830de0498815f20ba",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Channel Charting: Locating Users within the Radio Environment using Channel State Information",
+      "paper_id": "1807.05247",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-27-ea206cf830de0498815f20ba.md"
+    },
+    {
+      "date": "2026-11-27",
+      "url": "/papers/translations/2026-11-27-e3439b44fcc6c2ea4acad44c/",
+      "slug": "2026-11-27-e3439b44fcc6c2ea4acad44c",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "FDD Channel Estimation via Covariance Identification in Wideband Massive MIMO Systems",
+      "paper_id": "1812.00848",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-27-e3439b44fcc6c2ea4acad44c.md"
+    },
+    {
+      "date": "2026-11-27",
+      "url": "/papers/translations/2026-11-27-c8ad0e50d2e31a4803ba4544/",
+      "slug": "2026-11-27-c8ad0e50d2e31a4803ba4544",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Rate Adaptation in Predictor Antenna Systems",
+      "paper_id": "2005.05323",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-27-c8ad0e50d2e31a4803ba4544.md"
+    },
+    {
+      "date": "2026-11-27",
+      "url": "/papers/translations/2026-11-27-c152093dfc37d02e3ea9300a/",
+      "slug": "2026-11-27-c152093dfc37d02e3ea9300a",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Predicting Multi-Antenna Frequency-Selective Channels via Meta-Learned Linear Filters based on Long-Short Term Channel Decomposition",
+      "paper_id": "2203.12715",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-27-c152093dfc37d02e3ea9300a.md"
+    },
+    {
+      "date": "2026-11-27",
+      "url": "/papers/translations/2026-11-27-94be8748aa67882b358f46e2/",
+      "slug": "2026-11-27-94be8748aa67882b358f46e2",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "One-to-Many: Diverse and Bidirectional Image-to-Image Translation via Rectified Flow",
+      "paper_id": "2611.26058",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-27-94be8748aa67882b358f46e2.md"
+    },
+    {
+      "date": "2026-11-27",
+      "url": "/papers/translations/2026-11-27-55d2bfeca6765c8809ac7b95/",
+      "slug": "2026-11-27-55d2bfeca6765c8809ac7b95",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "FDD massive MIMO channel spatial covariance conversion using projection methods",
+      "paper_id": "1804.04850",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-27-55d2bfeca6765c8809ac7b95.md"
+    },
+    {
+      "date": "2026-11-27",
+      "url": "/papers/translations/2026-11-27-4c2b838dae3c0073a984040d/",
+      "slug": "2026-11-27-4c2b838dae3c0073a984040d",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Low-Complexity Massive MIMO Subspace Estimation and Tracking from Low-Dimensional Projections",
+      "paper_id": "1608.02477",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-27-4c2b838dae3c0073a984040d.md"
+    },
+    {
+      "date": "2026-11-27",
+      "url": "/papers/translations/2026-11-27-485a2cfee202b3dc925955ce/",
+      "slug": "2026-11-27-485a2cfee202b3dc925955ce",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "SEP Analysis of Fluid Antenna GSC Reception under Correlated Nakagami-m Fading and Imperfect Channel Estimation",
+      "paper_id": "2611.26121",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-27-485a2cfee202b3dc925955ce.md"
+    },
+    {
+      "date": "2026-11-27",
+      "url": "/papers/translations/2026-11-27-3190fe92d7839cd7e1612da7/",
+      "slug": "2026-11-27-3190fe92d7839cd7e1612da7",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Enforcing Statistical Orthogonality in Massive MIMO Systems via Covariance Shaping",
+      "paper_id": "2106.07952",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-27-3190fe92d7839cd7e1612da7.md"
+    },
+    {
+      "date": "2026-11-27",
+      "url": "/papers/translations/2026-11-27-0d8394367d59d7548a42cdc1/",
+      "slug": "2026-11-27-0d8394367d59d7548a42cdc1",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "An Attention-Aided Deep Learning Framework for Massive MIMO Channel Estimation",
+      "paper_id": "2108.09430",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-11-27-0d8394367d59d7548a42cdc1.md"
+    },
     {
       "date": "2026-10-12",
       "url": "/papers/translations/multipathformer/",
