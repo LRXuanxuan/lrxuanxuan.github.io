@@ -6806,5 +6806,31 @@
     "qa_complete": true,
     "coverage": "full",
     "primary_translation": true
+  },
+  {
+    "date": "2026-12-06",
+    "title": "A Distributed Massive MIMO Channel Sounder for \"Big CSI Data\"-driven Machine Learning",
+    "slug": "2026-12-06-bf81e0dab8c6b435c2731d46",
+    "url": "/papers/translations/2026-12-06-bf81e0dab8c6b435c2731d46/",
+    "scope": "全文中文译文",
+    "paper_ids": [
+      "a49e8f697959f74d"
+    ],
+    "qa_complete": true,
+    "coverage": "full",
+    "primary_translation": true
+  },
+  {
+    "date": "2026-12-06",
+    "title": "Ray-Tracing Calibration from Channel Sounding Measurements in a Millimeter-Wave Industrial Scenario",
+    "slug": "2026-12-06-5793b1681182b4867992580a",
+    "url": "/papers/translations/2026-12-06-5793b1681182b4867992580a/",
+    "scope": "全文中文译文",
+    "paper_ids": [
+      "6bcbc05425b7e816"
+    ],
+    "qa_complete": true,
+    "coverage": "full",
+    "primary_translation": true
   }
 ]

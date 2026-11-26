@@ -48380,6 +48380,28 @@
   ],
   "translations": [
     {
+      "date": "2026-12-06",
+      "title": "Ray-Tracing Calibration from Channel Sounding Measurements in a Millimeter-Wave Industrial Scenario",
+      "slug": "2026-12-06-5793b1681182b4867992580a",
+      "url": "/papers/translations/2026-12-06-5793b1681182b4867992580a/",
+      "scope": "全文中文译文",
+      "paper_id": "2404.10590",
+      "source_file": "paper.md",
+      "license_url": "http://creativecommons.org/licenses/by/4.0/",
+      "download": "/assets/papers/translations/2026-12-06-5793b1681182b4867992580a.md"
+    },
+    {
+      "date": "2026-12-06",
+      "title": "A Distributed Massive MIMO Channel Sounder for \"Big CSI Data\"-driven Machine Learning",
+      "slug": "2026-12-06-bf81e0dab8c6b435c2731d46",
+      "url": "/papers/translations/2026-12-06-bf81e0dab8c6b435c2731d46/",
+      "scope": "全文中文译文",
+      "paper_id": "2206.15302",
+      "source_file": "paper.md",
+      "license_url": "http://creativecommons.org/licenses/by-sa/4.0/",
+      "download": "/assets/papers/translations/2026-12-06-bf81e0dab8c6b435c2731d46.md"
+    },
+    {
       "date": "2026-11-26",
       "url": "/papers/translations/2026-11-26-e38b7ddb623e502f41773b47/",
       "slug": "2026-11-26-e38b7ddb623e502f41773b47",
