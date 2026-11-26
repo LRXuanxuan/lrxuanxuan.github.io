@@ -9,7 +9,7 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=46c64deeca52cb8d)
 
-[本篇日报说明](/papers/items/46c64deeca52cb8d/#paper-report) · [全文翻译（待补齐）](/papers/items/46c64deeca52cb8d/#paper-translation)
+[本篇日报说明](/papers/items/46c64deeca52cb8d/#paper-report) · [阅读全文翻译](/papers/translations/2026-12-11-897079a237da787db9f6d8f3/#paper-46c64deeca52cb8d) · [全文中文译文](/papers/translations/2026-12-11-897079a237da787db9f6d8f3/#paper-46c64deeca52cb8d)
 
 **推荐日期：** 2026-12-11 · **发表状态：** 正式发表
 
@@ -17,7 +17,7 @@ toc: true
 
 ## 本篇全文翻译
 
-本篇已列入全文翻译清单，尚未完成。完成并允许公开后，此入口将直达本篇全文译稿。
+全文中文译稿已发布，请使用页首的「阅读全文翻译」入口。
 
 <span id="paper-report"></span>
 

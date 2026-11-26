@@ -4438,5 +4438,189 @@
     "full": true,
     "public": true,
     "label": "阅读全文翻译"
+  },
+  "b0ba05c1ae0b8e98": {
+    "url": "/papers/translations/2026-12-06-e259f1320fad2824e566c94f/#paper-b0ba05c1ae0b8e98",
+    "title": "Geometry-Based Phase and Time Synchronization for Multi-Antenna Channel Measurements",
+    "scope": "全文中文译文",
+    "full": true,
+    "public": true,
+    "label": "阅读全文翻译"
+  },
+  "d79ce83882ca6336": {
+    "url": "/papers/translations/2026-12-07-acebceb254c7acd9356939e9/#paper-d79ce83882ca6336",
+    "title": "Improving Triplet-Based Channel Charting on Distributed Massive MIMO Measurements",
+    "scope": "全文中文译文",
+    "full": true,
+    "public": true,
+    "label": "阅读全文翻译"
+  },
+  "b29e6bf038817fe2": {
+    "url": "/papers/translations/2026-12-07-7881d9f21b36966457de91aa/#paper-b29e6bf038817fe2",
+    "title": "How Much Data is Needed for Channel Knowledge Map Construction?",
+    "scope": "全文中文译文",
+    "full": true,
+    "public": true,
+    "label": "阅读全文翻译"
+  },
+  "f7d9841239fb0243": {
+    "url": "/papers/translations/2026-12-08-a785e3545fd7d7f8e572a7ef/#paper-f7d9841239fb0243",
+    "title": "GEVD-based Low-Rank Channel Covariance Matrix Estimation and MMSE Channel Estimation for Uplink Cellular Massive MIMO Systems",
+    "scope": "全文中文译文",
+    "full": true,
+    "public": true,
+    "label": "阅读全文翻译"
+  },
+  "249808936773b4c7": {
+    "url": "/papers/translations/2026-12-08-d43c4bf152ad9bd25670d240/#paper-249808936773b4c7",
+    "title": "Geometric Machine Learning for Channel Covariance Estimation in Vehicular Networks",
+    "scope": "全文中文译文",
+    "full": true,
+    "public": true,
+    "label": "阅读全文翻译"
+  },
+  "efedf76b4459d353": {
+    "url": "/papers/translations/2026-12-09-578c24a3ba42b5c204b45e52/#paper-efedf76b4459d353",
+    "title": "Channel Estimation based on Gaussian Mixture Models with Structured Covariances",
+    "scope": "全文中文译文",
+    "full": true,
+    "public": true,
+    "label": "阅读全文翻译"
+  },
+  "a38ed0241302f0df": {
+    "url": "/papers/translations/2026-12-09-06af0be4c78a2fa1767221e9/#paper-a38ed0241302f0df",
+    "title": "Low-Rank Structured MMSE Channel Estimation with Mixtures of Factor Analyzers",
+    "scope": "全文中文译文",
+    "full": true,
+    "public": true,
+    "label": "阅读全文翻译"
+  },
+  "986809a959249bf0": {
+    "url": "/papers/translations/2026-12-10-db50c2b776814b5466f9e8f8/#paper-986809a959249bf0",
+    "title": "Comparing Stochastic and Ray-tracing Datasets in Machine Learning for Wireless Applications",
+    "scope": "全文中文译文",
+    "full": true,
+    "public": true,
+    "label": "阅读全文翻译"
+  },
+  "dc009a16c8769926": {
+    "url": "/papers/translations/2026-12-10-974dbfbf82400bfa7457ce9d/#paper-dc009a16c8769926",
+    "title": "SPARC: Sparse Path-Aware Residual Calibrator for Wireless Ray Tracing at Upper Mid-Band",
+    "scope": "全文中文译文",
+    "full": true,
+    "public": true,
+    "label": "阅读全文翻译"
+  },
+  "b747a4454d95e973": {
+    "url": "/papers/translations/2026-12-10-6ba34534f1b374cca322473c/#paper-b747a4454d95e973",
+    "title": "WiSegRT: Dataset for Site-Specific Indoor Radio Propagation Modeling with 3D Segmentation and Differentiable Ray-Tracing",
+    "scope": "全文中文译文",
+    "full": true,
+    "public": true,
+    "label": "阅读全文翻译"
+  },
+  "e243e786fce69724": {
+    "url": "/papers/translations/2026-12-10-299cf4eb9094491874d0e046/#paper-e243e786fce69724",
+    "title": "mmDiff: A Noise-Robust Differentiable Ray-Tracing Framework for mmWave Scene Calibration and Channel Prediction",
+    "scope": "全文中文译文",
+    "full": true,
+    "public": true,
+    "label": "阅读全文翻译"
+  },
+  "619cd06d5da32bfd": {
+    "url": "/papers/translations/2026-12-10-131bc97fd7b6ff71117a93a7/#paper-619cd06d5da32bfd",
+    "title": "Digital Twin Aided Channel Estimation: Zone-Specific Subspace Prediction and Calibration",
+    "scope": "全文中文译文",
+    "full": true,
+    "public": true,
+    "label": "阅读全文翻译"
+  },
+  "6886bb6d25752df8": {
+    "url": "/papers/translations/2026-12-10-7ee5db42fb0abca62fde440e/#paper-6886bb6d25752df8",
+    "title": "Digital Twin Based Beam Prediction: Can we Train in the Digital World and Deploy in Reality?",
+    "scope": "全文中文译文",
+    "full": true,
+    "public": true,
+    "label": "阅读全文翻译"
+  },
+  "616265680df2cb4a": {
+    "url": "/papers/translations/2026-12-10-04f45c8dad968a6af5ffc90a/#paper-616265680df2cb4a",
+    "title": "Calibrating Wireless Ray Tracing for Digital Twinning using Local Phase Error Estimates",
+    "scope": "全文中文译文",
+    "full": true,
+    "public": true,
+    "label": "阅读全文翻译"
+  },
+  "9e15c89c0cd3373f": {
+    "url": "/papers/translations/2026-12-11-a6d9db000a558544db4001de/#paper-9e15c89c0cd3373f",
+    "title": "Spatial Power Estimation via Riemannian Covariance Matching",
+    "scope": "全文中文译文",
+    "full": true,
+    "public": true,
+    "label": "阅读全文翻译"
+  },
+  "46c64deeca52cb8d": {
+    "url": "/papers/translations/2026-12-11-897079a237da787db9f6d8f3/#paper-46c64deeca52cb8d",
+    "title": "Data-Aided Regularization of Direct-Estimate Combiner in Distributed MIMO Systems",
+    "scope": "全文中文译文",
+    "full": true,
+    "public": true,
+    "label": "阅读全文翻译"
+  },
+  "405200fed9c78d9f": {
+    "url": "/papers/translations/2026-12-11-d826df651bbf4510c4e229f9/#paper-405200fed9c78d9f",
+    "title": "Robustness of Covariance Estimators with Application in Activity Detection",
+    "scope": "全文中文译文",
+    "full": true,
+    "public": true,
+    "label": "阅读全文翻译"
+  },
+  "90cb6863e9518198": {
+    "url": "/papers/translations/2026-12-12-ed4598376b0e4a11d1131114/#paper-90cb6863e9518198",
+    "title": "Structured Wavenumber-Domain Channel Estimation for LoS XL-MIMO",
+    "scope": "全文中文译文",
+    "full": true,
+    "public": true,
+    "label": "阅读全文翻译"
+  },
+  "b92ed2c9d1b23691": {
+    "url": "/papers/translations/2026-12-13-d08d288c6bf80cf95705c0d2/#paper-b92ed2c9d1b23691",
+    "title": "Covariance-Free Sparse Bayesian Learning",
+    "scope": "全文中文译文",
+    "full": true,
+    "public": true,
+    "label": "阅读全文翻译"
+  },
+  "878d013c3e5be640": {
+    "url": "/papers/translations/2026-12-13-eae5f604ddc285f4b958e3f9/#paper-878d013c3e5be640",
+    "title": "Variational Bayes for Joint Channel Estimation and Data Detection in Few-Bit Massive MIMO Systems",
+    "scope": "全文中文译文",
+    "full": true,
+    "public": true,
+    "label": "阅读全文翻译"
+  },
+  "b74b3d3237fa0122": {
+    "url": "/papers/translations/2026-12-13-fd4612e3d28118d169cbf46e/#paper-b74b3d3237fa0122",
+    "title": "Diffusion-Based Generative Priors for Efficient Beam Alignment in Directional Networks",
+    "scope": "全文中文译文",
+    "full": true,
+    "public": true,
+    "label": "阅读全文翻译"
+  },
+  "440d8518f40e91e0": {
+    "url": "/papers/translations/2026-12-13-98160e5295a55e0328bedc6e/#paper-440d8518f40e91e0",
+    "title": "Efficient Diffusion Posterior Sampling for Noisy Inverse Problems",
+    "scope": "全文中文译文",
+    "full": true,
+    "public": true,
+    "label": "阅读全文翻译"
+  },
+  "40a29e61c6b09dcc": {
+    "url": "/papers/translations/2026-12-13-e4c08c1756af0e5d64ba9ee5/#paper-40a29e61c6b09dcc",
+    "title": "Observation Matrix Design for Densifying MIMO Channel Estimation via 2D Ice Filling",
+    "scope": "全文中文译文",
+    "full": true,
+    "public": true,
+    "label": "阅读全文翻译"
   }
 }
