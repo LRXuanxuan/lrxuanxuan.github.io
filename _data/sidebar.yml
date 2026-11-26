@@ -1,0 +1,32 @@
+# 左侧栏导航（按这里的顺序显示）。新增/调整栏目只改本文件；不要复制目标页面或改变既有 URL。
+# match_subpages 仅用于目录型路由，使阅读详情页时对应栏目继续高亮。
+- title: "首页"
+  url: "/"
+  icon: "fas fa-home"
+- title: "论文库"
+  url: "/papers/"
+  icon: "fas fa-satellite-dish"
+  match_subpages: true
+- title: "个人译作"
+  url: "/translations/"
+  icon: "fas fa-book-open"
+  match_subpages: true
+- title: "书籍、音乐与游戏"
+  url: "/favorites/"
+  icon: "fas fa-headphones"
+  match_subpages: true
+- title: "豆知识"
+  url: "/tidbits/"
+  icon: "fas fa-lightbulb"
+  match_subpages: true
+- title: "奇怪的小玩意"
+  url: "/playthings/"
+  icon: "fas fa-dice"
+  match_subpages: true
+- title: "轻绘"
+  url: "/drawing-studio.html"
+  icon: "fas fa-paintbrush"
+- title: "照明之咪摇奖机"
+  url: "/fortune/"
+  icon: "fas fa-moon"
+  match_subpages: true
