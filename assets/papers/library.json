@@ -43,31 +43,6 @@
         "反馈匹配",
         "反馈权重说明"
       ]
-    },
-    {
-      "name": "网站端补充（2026-11-03）",
-      "count": 176,
-      "headers": [
-        "日期",
-        "标题",
-        "内容",
-        "契合方向",
-        "推荐理由",
-        "顶刊顶会/机构依据",
-        "发表年份",
-        "论文下载链接",
-        "检索来源",
-        "筛选备注",
-        "是否略读",
-        "是否精读",
-        "备注",
-        "代码链接",
-        "代码/数据状态",
-        "反馈匹配",
-        "反馈权重说明"
-      ],
-      "source": "assets/papers/manual-papers.json",
-      "note": "网站端补充论文，未回写源工作簿；条目页为手动维护"
     }
   ],
   "total": 866,
@@ -57162,9 +57137,7 @@
       "反馈权重说明"
     ],
     "row_height_cm": 2,
-    "order": "workbook_rows",
-    "supplement_count": 176,
-    "display_row_count": 871
+    "order": "workbook_rows"
   },
   "manual_site_additions": [
     {
