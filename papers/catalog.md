@@ -559,6 +559,487 @@ toc: true
 
 ## 推荐论文
 
+
+### 2026-12-13 · [Observation Matrix Design for Densifying MIMO Channel Estimation via 2D Ice Filling](/papers/items/40a29e61c6b09dcc/)
+
+用同导频数和射频链数比较信息驱动设计与固定 DFT；单列离线设计成本和在线恢复代价。
+
+[本篇日报](/papers/reports/2026-12-13/#paper-40a29e61c6b09dcc)
+
+### 2026-12-13 · [Efficient Diffusion Posterior Sampling for Noisy Inverse Problems](/papers/items/440d8518f40e91e0/)
+
+这是通用逆问题参照；迁移到复导频时先固定前向算子与噪声方差，对比每次网络调用的零空间收益。
+
+[本篇日报](/papers/reports/2026-12-13/#paper-440d8518f40e91e0)
+
+### 2026-12-13 · [Diffusion-Based Generative Priors for Efficient Beam Alignment in Directional Networks](/papers/items/b74b3d3237fa0122/)
+
+在同一候选数下比较确定性排序和多次采样，检验生成多样性能否抵消费时。
+
+[本篇日报](/papers/reports/2026-12-13/#paper-b74b3d3237fa0122)
+
+### 2026-12-13 · [Variational Bayes for Joint Channel Estimation and Data Detection in Few-Bit Massive MIMO Systems](/papers/items/878d013c3e5be640/)
+
+可用来设计噪声方差失配对照，已知干净导频功率的标称 SNR 与部署时可估计量要单列。
+
+[本篇日报](/papers/reports/2026-12-13/#paper-878d013c3e5be640)
+
+### 2026-12-13 · [Massive MIMO Channel Estimation with an Untrained Deep Neural Network](/papers/items/13bc6dcdb9cfc6cc/)
+
+无需预训练仍有逐样本优化成本；与已有模型比较时将优化时间计入单帧时延。
+
+[本篇日报](/papers/reports/2026-12-13/#paper-13bc6dcdb9cfc6cc)
+
+### 2026-12-13 · [Fast Channel Estimation in the Transformed Spatial Domain for Analog Millimeter Wave Systems](/papers/items/3b81192c70cc43d5/)
+
+作为低时延方向参数估计器，检验相干路径和非白噪声下的适用范围。
+
+[本篇日报](/papers/reports/2026-12-13/#paper-3b81192c70cc43d5)
+
+### 2026-12-13 · [Pilot Length Optimization with RS-LS Channel Estimation for Extremely Large Aperture Arrays](/papers/items/0f9a1ffc99571876/)
+
+在固定导频长度实验之外，增加含训练开销的性能曲线。不同阵元间距应重新核对子空间维数。
+
+[本篇日报](/papers/reports/2026-12-13/#paper-0f9a1ffc99571876)
+
+### 2026-12-13 · [Covariance-Free Sparse Bayesian Learning](/papers/items/b92ed2c9d1b23691/)
+
+适合作为大阵列的计算基线；记录达到相同残差所需的线性系统迭代数和峰值显存。
+
+[本篇日报](/papers/reports/2026-12-13/#paper-b92ed2c9d1b23691)
+
+### 2026-12-13 · [Deep Plug-and-Play Prior for Multitask Channel Reconstruction in Massive MIMO Systems](/papers/items/462235fa3440406b/)
+
+在同一物理观测下仅换先验，分别核算预训练成本、每次调用时间和调用次数。
+
+[本篇日报](/papers/reports/2026-12-13/#paper-462235fa3440406b)
+
+### 2026-12-13 · [Trainable Proximal Gradient Descent Based Channel Estimation for mmWave Massive MIMO Systems](/papers/items/e88bc58e1181cf44/)
+
+以相同训练数据、层数与算子调用预算比较展开网络和条件流，保留传统 PGD 基线。
+
+[本篇日报](/papers/reports/2026-12-13/#paper-e88bc58e1181cf44)
+
+### 2026-12-12 · [Ray-Tracing-Parameter-Based Lightweight Hybrid Precoding via Cascade XGBoost for Wideband Massive MIMO-OFDM Systems](/papers/items/e2b71ea9b4fae7d2/)
+
+真实射线参数属于额外输入。可作为已知几何的波束性能参照，并与仅依赖导频的接收机区分。
+
+[本篇日报](/papers/reports/2026-12-12/#paper-e2b71ea9b4fae7d2)
+
+### 2026-12-12 · [Super-Resolution mmWave Channel Estimation using Atomic Norm Minimization](/papers/items/0df277477451a660/)
+
+与同预算的格点 OMP 比较，按路径角间隔分组检验分辨率和推断时延。
+
+[本篇日报](/papers/reports/2026-12-12/#paper-0df277477451a660)
+
+### 2026-12-12 · [Multi-User Millimeter Wave Channel Estimation Using Generalized Block OMP Algorithm](/papers/items/0b3342744a6f768e/)
+
+作为稀疏恢复基线，固定字典与停止条件，同时报告 NMSE、选束增益及反馈预算。
+
+[本篇日报](/papers/reports/2026-12-12/#paper-0b3342744a6f768e)
+
+### 2026-12-12 · [Mode-Tensorized Canonical Polyadic Decomposition for MIMO Channel Estimation](/papers/items/4ad64ae7e035d524/)
+
+固定物理样本数比较不同张量化方式，避免把重新排列维度当作新增独立快照。
+
+[本篇日报](/papers/reports/2026-12-12/#paper-4ad64ae7e035d524)
+
+### 2026-12-12 · [Structured Wavenumber-Domain Channel Estimation for LoS XL-MIMO](/papers/items/90cb6863e9518198/)
+
+对 DeepMIMO 的直射与非直射用户分组，检查在主要假设失效时是否仍值得支付优化成本。
+
+[本篇日报](/papers/reports/2026-12-12/#paper-90cb6863e9518198)
+
+### 2026-12-12 · [Low-Rank Tensor Decomposition-Aided Channel Estimation for Millimeter Wave MIMO-OFDM Systems](/papers/items/19fd4859ef47535d/)
+
+先检查角度或时延相近时的因子可分性，再解读宽带子频带误差。
+
+[本篇日报](/papers/reports/2026-12-12/#paper-19fd4859ef47535d)
+
+### 2026-12-12 · [Millimeter Wave Channel Estimation via Exploiting Joint Sparse and Low-Rank Structures](/papers/items/37f05c29124758bc/)
+
+在固定采样预算下分别关掉低秩或稀疏约束，并验证导频采样是否满足补全模型。
+
+[本篇日报](/papers/reports/2026-12-12/#paper-37f05c29124758bc)
+
+### 2026-12-12 · [Tensor-Based Channel Estimation for Dual-Polarized Massive MIMO Systems](/papers/items/0bb894c52158bf65/)
+
+应用前先核对实际极化通道是否存在；固定训练矩阵检验参数辨识和完整信道误差。
+
+[本篇日报](/papers/reports/2026-12-12/#paper-0bb894c52158bf65)
+
+### 2026-12-12 · [Wideband Near-Field Channel Estimation Under Hybrid Compression: Cross-Subcarrier KL Covariance Fitting With OFDM Fresnel Model](/papers/items/ebbbf8fba0633c27/)
+
+可诊断大孔径和带宽共同造成的字典偏差。单径距离界与三城多径信道 NMSE 需分开报告。
+
+[本篇日报](/papers/reports/2026-12-12/#paper-ebbbf8fba0633c27)
+
+### 2026-12-12 · [Robust Wideband Channel Estimation for mmWave Massive MIMO Systems With Beam Squint](/papers/items/a63b25c082c8f368/)
+
+在同一 48 子载波和宽带对照中分别切换频变字典与稳健损失，避免把两个改变合并解释。
+
+[本篇日报](/papers/reports/2026-12-12/#paper-a63b25c082c8f368)
+
+### 2026-12-11 · [Robustness of Covariance Estimators with Application in Activity Detection](/papers/items/405200fed9c78d9f/)
+
+用于区分协方差条件数和弱链路误差放大；多用户活动检测界限不能直接解释单链路 NMSE。
+
+[本篇日报](/papers/reports/2026-12-11/#paper-405200fed9c78d9f)
+
+### 2026-12-11 · [Data-Aided Regularization of Direct-Estimate Combiner in Distributed MIMO Systems](/papers/items/46c64deeca52cb8d/)
+
+作为面向下游错误率的收缩对照；只提供导频的同帧估计任务不能免费使用未知数据符号。
+
+[本篇日报](/papers/reports/2026-12-11/#paper-46c64deeca52cb8d)
+
+### 2026-12-11 · [Matrix Denoising with Partial Noise Statistics: Optimal Singular Value Shrinkage of Spiked F-Matrices](/papers/items/89b98ebc1446e5e2/)
+
+若实际没有独立纯噪声记录，先用已知仿真噪声建立参照，并报告额外信息预算。
+
+[本篇日报](/papers/reports/2026-12-11/#paper-89b98ebc1446e5e2)
+
+### 2026-12-11 · [Spatial Power Estimation via Riemannian Covariance Matching](/papers/items/9e15c89c0cd3373f/)
+
+将幅度归一和矩阵距离作为两个因素，检查弱链路是否在目标函数中被强链路淹没。
+
+[本篇日报](/papers/reports/2026-12-11/#paper-9e15c89c0cd3373f)
+
+### 2026-12-11 · [Plug-in Channel Estimation with Dithered Quantized Signals in Spatially Non-Stationary Massive MIMO Systems](/papers/items/e88208ea0feb0444/)
+
+区分估计协方差误差和观测量化误差；对于当前高精度复观测，先复现不量化的插件基线。
+
+[本篇日报](/papers/reports/2026-12-11/#paper-e88208ea0feb0444)
+
+### 2026-12-11 · [Mean Spatial Frequency Decoupling for Learning-Based Uplink-to-Downlink Covariance Conversion in FDD Massive MIMO](/papers/items/eca634cb82d15f77/)
+
+可测试大阵列的尺度失配是否含可解析去除的相位项。频带转换与弱幅度归一化是两个实验因素。
+
+[本篇日报](/papers/reports/2026-12-11/#paper-eca634cb82d15f77)
+
+### 2026-12-11 · [Fast Cross-Scenario Adaptation of CSI Models via Channel Conditional Parameter Generation](/papers/items/70d43272aa17918b/)
+
+把适配时使用的目标域样本和推理时间单列，比较冻结模型、参数生成和显式微调。
+
+[本篇日报](/papers/reports/2026-12-11/#paper-70d43272aa17918b)
+
+### 2026-12-11 · [Prior-Aware Robust Beam Alignment for Low-SNR Millimeter-Wave Communications](/papers/items/fe0cb421333c7c1c/)
+
+用弱链路分层的波束命中率与增益检查 NMSE 的决策意义；重复探测次数应计入开销。
+
+[本篇日报](/papers/reports/2026-12-11/#paper-fe0cb421333c7c1c)
+
+### 2026-12-11 · [Reproducible Evaluation of Neural Network Based Channel Estimators And Predictors Using A Generic Dataset](/papers/items/4aa71096199d0fa0/)
+
+可检查传统基线究竟使用了何种多普勒与均值假设；将未来预测与同帧估计分别列表。
+
+[本篇日报](/papers/reports/2026-12-11/#paper-4aa71096199d0fa0)
+
+### 2026-12-11 · [Attention-Aided MMSE with Ridge Denoising: How to Train under Noisy Channel Samples](/papers/items/8abf0c405e29cea0/)
+
+把标签去噪和尺度收缩分开消融；源训练噪声与测试弱链路的噪声需按相同单位标定。
+
+[本篇日报](/papers/reports/2026-12-11/#paper-8abf0c405e29cea0)
+
+### 2026-12-10 · [Calibrating Wireless Ray Tracing for Digital Twinning using Local Phase Error Estimates](/papers/items/616265680df2cb4a/)
+
+可诊断射线功率正确而复信道失配的情况。对照功率、相干合成误差和留区域结果。
+
+[本篇日报](/papers/reports/2026-12-10/#paper-616265680df2cb4a)
+
+### 2026-12-10 · [Digital Twin Based Beam Prediction: Can we Train in the Digital World and Deploy in Reality?](/papers/items/6886bb6d25752df8/)
+
+可把纯留一城与允许少量目标样本设为两个独立协议。同一条目标路线不能同时参与适配和测试。
+
+[本篇日报](/papers/reports/2026-12-10/#paper-6886bb6d25752df8)
+
+### 2026-12-10 · [Digital Twin Aided Channel Estimation: Zone-Specific Subspace Prediction and Calibration](/papers/items/619cd06d5da32bfd/)
+
+比较原子空间、仅源域校准与少量目标反馈三种信息预算；目标反馈应计为适配成本。
+
+[本篇日报](/papers/reports/2026-12-10/#paper-619cd06d5da32bfd)
+
+### 2026-12-10 · [mmDiff: A Noise-Robust Differentiable Ray-Tracing Framework for mmWave Scene Calibration and Channel Prediction](/papers/items/e243e786fce69724/)
+
+固定城市路径与测量预算，只扰动几何或材料之一；校准帧与最终测试地块须隔离。
+
+[本篇日报](/papers/reports/2026-12-10/#paper-e243e786fce69724)
+
+### 2026-12-10 · [WiSegRT: Dataset for Site-Specific Indoor Radio Propagation Modeling with 3D Segmentation and Differentiable Ray-Tracing](/papers/items/b747a4454d95e973/)
+
+用于比较同一几何下材料标签的价值；室内覆盖和城市街区的泛化需分别评价。
+
+[本篇日报](/papers/reports/2026-12-10/#paper-b747a4454d95e973)
+
+### 2026-12-10 · [SPARC: Sparse Path-Aware Residual Calibrator for Wireless Ray Tracing at Upper Mid-Band](/papers/items/dc009a16c8769926/)
+
+冻结路径列表只修正路径功率，先比逐径误差，再比复信道 NMSE。相位未校准时两项可能排序不同。
+
+[本篇日报](/papers/reports/2026-12-10/#paper-dc009a16c8769926)
+
+### 2026-12-10 · [WAIR-D: Wireless AI Research Dataset](/papers/items/9721cae4ec177aa8/)
+
+用独立场景增加几何多样性，同时对齐输入标签；另一套射线数据只能检验仿真域迁移。
+
+[本篇日报](/papers/reports/2026-12-10/#paper-9721cae4ec177aa8)
+
+### 2026-12-10 · [Comparing Stochastic and Ray-tracing Datasets in Machine Learning for Wireless Applications](/papers/items/986809a959249bf0/)
+
+把城内随机划分和留一城验证分开，对空间连续性强的任务按独立地块划分。
+
+[本篇日报](/papers/reports/2026-12-10/#paper-986809a959249bf0)
+
+### 2026-12-10 · [BostonTwin: the Boston Digital Twin for Ray-Tracing in 6G Networks](/papers/items/f44f359d8fbc7f9c/)
+
+核对坐标参考系、站点和建筑几何是否一致；同为 Boston 的射线数据不能仅凭名称视作同版。
+
+[本篇日报](/papers/reports/2026-12-10/#paper-f44f359d8fbc7f9c)
+
+### 2026-12-10 · [DeepMIMO: A Generic Deep Learning Dataset for Millimeter Wave and Massive MIMO Applications](/papers/items/ed96cf6315ee5bd4/)
+
+三城实验应归档场景版本、阵列朝向、子载波及用户索引。相同城市名不足以复现同一个信道张量。
+
+[本篇日报](/papers/reports/2026-12-10/#paper-ed96cf6315ee5bd4)
+
+### 2026-12-09 · [Low-Rank Structured MMSE Channel Estimation with Mixtures of Factor Analyzers](/papers/items/a38ed0241302f0df/)
+
+单独与同训练集的 GMM 和局部 LMMSE 比较，检验增益来自分量数还是每个分量的低秩结构。
+
+[本篇日报](/papers/reports/2026-12-09/#paper-a38ed0241302f0df)
+
+### 2026-12-09 · [Low-Complexity Polynomial Channel Estimation in Large-Scale MIMO with Arbitrary Statistics](/papers/items/87157873727aad36/)
+
+在相同阵列、掩码和噪声方差下与缓存分解比较，分别报告一次性系数计算和在线乘法。
+
+[本篇日报](/papers/reports/2026-12-09/#paper-87157873727aad36)
+
+### 2026-12-09 · [Pilot Length Optimization for Spatially Correlated Multi-User MIMO Channel Estimation](/papers/items/ac41a7857280938b/)
+
+检查较低的平均 NMSE 是否掩盖高误差方向；多用户协方差已知是原文的重要条件。
+
+[本篇日报](/papers/reports/2026-12-09/#paper-ac41a7857280938b)
+
+### 2026-12-09 · [Low-Rank Spatial Channel Estimation for Millimeter Wave Cellular Systems](/papers/items/ae1adebe412c202f/)
+
+可作为仅有功率历史时的参照；应区分离线功率观测与在线带相位的复导频。
+
+[本篇日报](/papers/reports/2026-12-09/#paper-ae1adebe412c202f)
+
+### 2026-12-09 · [Channel Estimation based on Gaussian Mixture Models with Structured Covariances](/papers/items/efedf76b4459d353/)
+
+在同一源场地训练单高斯与混合高斯，对新路线锁定模型，检验多模态先验是否改善未测方向。
+
+[本篇日报](/papers/reports/2026-12-09/#paper-efedf76b4459d353)
+
+### 2026-12-09 · [Off-Grid Aware Channel and Covariance Estimation in mmWave Networks](/papers/items/2704d318fe021e27/)
+
+固定初始网格与计算预算，以是否连续细化角度为唯一改动，按角度偏离格点的幅度分组。
+
+[本篇日报](/papers/reports/2026-12-09/#paper-2704d318fe021e27)
+
+### 2026-12-09 · [Low-Rank Covariance-Assisted Downlink Training and Channel Estimation for FDD Massive MIMO Systems](/papers/items/d85827d18788e12c/)
+
+逐路线比较有效秩与导频维数；只有支撑被适当激励时，少导频恢复的理论才有解释力。
+
+[本篇日报](/papers/reports/2026-12-09/#paper-d85827d18788e12c)
+
+### 2026-12-09 · [Channel Covariance Matrix Estimation via Dimension Reduction for Hybrid MIMO MmWave Communication Systems](/papers/items/3cb8fbfb93d44cab/)
+
+对照全协方差与可分解模型的参数数目和估计误差；先检查阵列可分性，再解释速度差。
+
+[本篇日报](/papers/reports/2026-12-09/#paper-3cb8fbfb93d44cab)
+
+### 2026-12-09 · [Spatial Channel Covariance Estimation for Hybrid Architectures Based on Tensor Decompositions](/papers/items/c62166d7fac8fa46/)
+
+只有多频或多快照版本能利用全部模式。单频路线可作为去掉张量维后的负对照。
+
+[本篇日报](/papers/reports/2026-12-09/#paper-c62166d7fac8fa46)
+
+### 2026-12-09 · [Pilot Beam Pattern Design for Channel Estimation in Massive MIMO Systems](/papers/items/61b0b2669536b994/)
+
+把改变导频与改变接收机权重分次比较。固定 DFT 回放不能用自适应导频的结果解释估计器本身的增益。
+
+[本篇日报](/papers/reports/2026-12-09/#paper-61b0b2669536b994)
+
+### 2026-12-08 · [Symmetry-Aware Convex Shrinkage for High-Dimensional Covariance Estimation](/papers/items/d736cf86689a5be9/)
+
+仅用物理上有依据的阵元置换构造目标；必须保留失配群和常规收缩对照。
+
+[本篇日报](/papers/reports/2026-12-08/#paper-d736cf86689a5be9)
+
+### 2026-12-08 · [Linear Shrinkage Estimation of Covariance Matrices Using Low-Complexity Cross-Validation](/papers/items/88c907974b5c77d6/)
+
+可让旧图、局部新图和各向同性目标竞争。沿轨迹相邻帧高度相关，验证应按时间块留出。
+
+[本篇日报](/papers/reports/2026-12-08/#paper-88c907974b5c77d6)
+
+### 2026-12-08 · [Massive MIMO with Imperfect Channel Covariance Information](/papers/items/08a9edb305c03d84/)
+
+除矩阵拟合误差外补报下游估计或波束效用，避免将更接近的协方差自动解释为更好的接收。
+
+[本篇日报](/papers/reports/2026-12-08/#paper-08a9edb305c03d84)
+
+### 2026-12-08 · [A Low-Complexity Antenna-Layout-Aware Spatial Covariance Matrix Estimation Method](/papers/items/25f62796bafc5804/)
+
+利用物理行列映射构造低成本对照；若工厂近场或遮挡破坏平移等价，同类元素之间的离散度会增大。
+
+[本篇日报](/papers/reports/2026-12-08/#paper-25f62796bafc5804)
+
+### 2026-12-08 · [Downlink channel spatial covariance estimation in realistic FDD massive MIMO systems](/papers/items/0c1363f451672e80/)
+
+用于识别阵列模型失配的代价。当前单频、固定端口实验只能迁移其协方差比较思路。
+
+[本篇日报](/papers/reports/2026-12-08/#paper-0c1363f451672e80)
+
+### 2026-12-08 · [Spatial Channel Covariance Estimation for the Hybrid MIMO Architecture: A Compressive Sensing Based Approach](/papers/items/1f0f714f2d770c6a/)
+
+用同一批历史帧改变测量方向的多样性，观察未测方向的统计信息是否足以恢复。
+
+[本篇日报](/papers/reports/2026-12-08/#paper-1f0f714f2d770c6a)
+
+### 2026-12-08 · [Geometric Machine Learning for Channel Covariance Estimation in Vehicular Networks](/papers/items/249808936773b4c7/)
+
+可比较同一邻域内算术均值与对数欧氏聚类；秩亏样本需先记录正则化强度。
+
+[本篇日报](/papers/reports/2026-12-08/#paper-249808936773b4c7)
+
+### 2026-12-08 · [Structured Channel Covariance Estimation from Limited Samples in Massive MIMO](/papers/items/9e731d7e6e84b892/)
+
+历史邻居数小于或接近阵元数时，可与样本矩阵收缩公平对比，按角谱集中程度和换图帧分层。
+
+[本篇日报](/papers/reports/2026-12-08/#paper-9e731d7e6e84b892)
+
+### 2026-12-08 · [GEVD-based Low-Rank Channel Covariance Matrix Estimation and MMSE Channel Estimation for Uplink Cellular Massive MIMO Systems](/papers/items/f7d9841239fb0243/)
+
+固定历史帧数比较谱截断与各向同性收缩；要先说明工厂单用户回放是否具备所需的第二份统计量。
+
+[本篇日报](/papers/reports/2026-12-08/#paper-f7d9841239fb0243)
+
+### 2026-12-08 · [Covariance Matrix Estimation for Massive MIMO](/papers/items/977211e8f4114717/)
+
+适合检验历史协方差由含噪导频获得时的偏差。两组导频有额外开销，不能与单组观测直接比数值。
+
+[本篇日报](/papers/reports/2026-12-08/#paper-977211e8f4114717)
+
+### 2026-12-07 · [Channel Knowledge Map for Environment-Aware Communications: EM Algorithm for Map Construction](/papers/items/203e5bd6ad15b77b/)
+
+固定测绘预算，比较硬半径近邻与软分区。把标量模型推广到协方差时必须维持半正定性。
+
+[本篇日报](/papers/reports/2026-12-07/#paper-203e5bd6ad15b77b)
+
+### 2026-12-07 · [Energy-modified Leverage Sampling for Radio Map Construction via Matrix Completion](/papers/items/305877453a1201b6/)
+
+同时报告全图加权误差和低能量区域覆盖；重采样若只改善强点，对弱链路的价值仍待验证。
+
+[本篇日报](/papers/reports/2026-12-07/#paper-305877453a1201b6)
+
+### 2026-12-07 · [Structured Group Sparsity: A Novel Indoor WLAN Localization, Outlier Detection, and Radio Map Interpolation Scheme](/papers/items/d4bfb0b7896d6b0e/)
+
+测试少数异常测绘点能否支配局部更新。RSS 指纹与相干复 CSI 的误差模型需要分别建立。
+
+[本篇日报](/papers/reports/2026-12-07/#paper-d4bfb0b7896d6b0e)
+
+### 2026-12-07 · [How Much Data is Needed for Channel Knowledge Map Construction?](/papers/items/b29e6bf038817fe2/)
+
+用覆盖度曲线选邻域大小，并单列没有邻居的查询。标量增益图的样本复杂度不能直接套到复矩阵图。
+
+[本篇日报](/papers/reports/2026-12-07/#paper-b29e6bf038817fe2)
+
+### 2026-12-07 · [Detection of Abrupt Change in Channel Covariance Matrix for Multi-Antenna Communication](/papers/items/501ccb22609ddb2f/)
+
+刷新前先检测变化，并同时统计误报和漏报；所有门限只在历史段或源验证段上选定。
+
+[本篇日报](/papers/reports/2026-12-07/#paper-501ccb22609ddb2f)
+
+### 2026-12-07 · [Deep Tensor Learning for Reliable Channel Charting from Incomplete and Noisy Measurements](/papers/items/64b4b1d9d429ea96/)
+
+可研究不完整导频下近邻选择是否稳健；使用课题单频数据时无法获得其跨频结构收益。
+
+[本篇日报](/papers/reports/2026-12-07/#paper-64b4b1d9d429ea96)
+
+### 2026-12-07 · [Improving Triplet-Based Channel Charting on Distributed Massive MIMO Measurements](/papers/items/d79ce83882ca6336/)
+
+适合比较无墙历史到有墙路线时近邻次序是否稳定。以理想位置构造的三元组只能作参照。
+
+[本篇日报](/papers/reports/2026-12-07/#paper-d79ce83882ca6336)
+
+### 2026-12-07 · [Channel Charting in Real-World Coordinates](/papers/items/020cae699ce3c129/)
+
+多接入点几何可作为图表定位的额外信息。单面板实验应单列可用锚点，避免借用不可见坐标。
+
+[本篇日报](/papers/reports/2026-12-07/#paper-020cae699ce3c129)
+
+### 2026-12-07 · [Triplet-Based Wireless Channel Charting: Architecture and Experiments](/papers/items/8fc5f4cded19b70a/)
+
+冻结时间切分，比较时间近邻与空间近邻；重复经过同一坐标时检查运动速度和遮挡造成的混淆。
+
+[本篇日报](/papers/reports/2026-12-07/#paper-8fc5f4cded19b70a)
+
+### 2026-12-07 · [Efficient channel charting via phase-insensitive distance computation](/papers/items/e6753ee503a0c31b/)
+
+把它与欧氏位置近邻比较，固定邻居数。距离可用完整历史 CSI，但在线检索只能使用部署时可获得的信息。
+
+[本篇日报](/papers/reports/2026-12-07/#paper-e6753ee503a0c31b)
+
+### 2026-12-06 · [Interacting Object-Enabled Clustering and Characterization of Distributed MIMO Channels](/papers/items/d723ed325a40a7d8/)
+
+可把墙体引起的变化表达为特定簇的可见性变化。仅有协方差差值时应保留为机制假设。
+
+[本篇日报](/papers/reports/2026-12-06/#paper-d723ed325a40a7d8)
+
+### 2026-12-06 · [Experimental Analysis of Multipath Characteristics in Indoor Distributed Massive MIMO Channels](/papers/items/e3e8575a86333882/)
+
+用于解释相距很近的测绘点为何未必共享同一局部子空间；单频标签不足以独立完成原文的路径归因。
+
+[本篇日报](/papers/reports/2026-12-06/#paper-e3e8575a86333882)
+
+### 2026-12-06 · [Channel Hardening in Massive MIMO: Model Parameters and Experimental Assessment](/papers/items/1d1a8f0e1fd97777/)
+
+按路线和阵元数报告能量波动。不要用强硬化假设抹掉弱信道上少量帧的重建失败。
+
+[本篇日报](/papers/reports/2026-12-06/#paper-1d1a8f0e1fd97777)
+
+### 2026-12-06 · [How Many Antennas Do We Need for Massive MIMO Channel Sounding? - Validating Through Measurement](/papers/items/54487f7ebf59fa88/)
+
+可检验截取 16 端口后丢失哪些可分辨方向；应用时需要几何参考或另外的全阵列对照。
+
+[本篇日报](/papers/reports/2026-12-06/#paper-54487f7ebf59fa88)
+
+### 2026-12-06 · [Spatial separation of closely-spaced users in measured distributed massive MIMO channels](/papers/items/fbd1292ac2630551/)
+
+在同一工厂路线按传播状态分组比较 Gram 谱；容量或用户可分性属于下游指标，不能直接替代单用户 NMSE。
+
+[本篇日报](/papers/reports/2026-12-06/#paper-fbd1292ac2630551)
+
+### 2026-12-06 · [Towards Very Large Aperture Massive MIMO: a measurement based study](/papers/items/3614fee028dfd9f1/)
+
+解释两行八列子阵选取的代价时，分开改变阵元数量与物理孔径，避免把几何变化归为接收机收益。
+
+[本篇日报](/papers/reports/2026-12-06/#paper-3614fee028dfd9f1)
+
+### 2026-12-06 · [Channel Extrapolation for FDD Massive MIMO: Procedure and Experimental Results](/papers/items/771982f77e4ae711/)
+
+比较复信道与波束指标对相位扰动的响应。单频 DICHASUS 包无法直接复跑其跨频外推。
+
+[本篇日报](/papers/reports/2026-12-06/#paper-771982f77e4ae711)
+
+### 2026-12-06 · [Ray-Tracing Calibration from Channel Sounding Measurements in a Millimeter-Wave Industrial Scenario](/papers/items/6bcbc05425b7e816/)
+
+金属反射体变化可以先在角度和时延上定位；统计量吻合还需与瞬时复信道恢复分别验证。
+
+[本篇日报](/papers/reports/2026-12-06/#paper-6bcbc05425b7e816)
+
+### 2026-12-06 · [Geometry-Based Phase and Time Synchronization for Multi-Antenna Channel Measurements](/papers/items/b0ba05c1ae0b8e98/)
+
+分时间段比较校准前后协方差非对角相位；如果偏差随时间漂移，单组常数补偿不足。
+
+[本篇日报](/papers/reports/2026-12-06/#paper-b0ba05c1ae0b8e98)
+
+### 2026-12-06 · [A Distributed Massive MIMO Channel Sounder for "Big CSI Data"-driven Machine Learning](/papers/items/a49e8f697959f74d/)
+
+先追溯各阵元与时间、坐标的标定，再检验同位置历史的可比性。测量系统支持定位并不等于工厂数据采集了本实验的导频。
+
+[本篇日报](/papers/reports/2026-12-06/#paper-a49e8f697959f74d)
+
 ### 2026-11-14 · [Physics-Informed Uncertainty-Aware Beamforming for HAPS Massive MIMO under Imperfect CSI](/papers/items/e0787a8b594c9b22/)
 
 可检验预测不确定性是否带来链路收益。
