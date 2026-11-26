@@ -9,7 +9,7 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=46c64deeca52cb8d)
 
-[本篇日报说明](/papers/items/46c64deeca52cb8d/#paper-report) · [阅读全文翻译](/papers/translations/2026-12-11-897079a237da787db9f6d8f3/#paper-46c64deeca52cb8d) · [全文中文译文](/papers/translations/2026-12-11-897079a237da787db9f6d8f3/#paper-46c64deeca52cb8d)
+[本篇日报说明](/papers/items/46c64deeca52cb8d/#paper-report) · [阅读全文翻译](/papers/translations/2026-12-11-897079a237da787db9f6d8f3/#paper-46c64deeca52cb8d)
 
 **推荐日期：** 2026-12-11 · **发表状态：** 正式发表
 
