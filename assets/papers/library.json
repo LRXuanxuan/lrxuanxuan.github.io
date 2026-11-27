@@ -176,7 +176,13 @@
       "report_entry_url": "/papers/reports/2026-11-28/#paper-ab37c6037b1bc38a",
       "paper_url": "/papers/items/ab37c6037b1bc38a/",
       "paper_report_url": "/papers/items/ab37c6037b1bc38a/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-28-b28d7886dccd9ba4ca99d6db/#paper-ab37c6037b1bc38a",
+          "scope": "全文中文译文",
+          "title": "Sparse Activity Detection in Multi-Cell Massive MIMO Exploiting Channel Large-Scale Fading"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2103.00782",
         "https://arxiv.org/abs/2103.00782",
@@ -189,10 +195,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/ab37c6037b1bc38a/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-28-b28d7886dccd9ba4ca99d6db/#paper-ab37c6037b1bc38a",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "e9a1c22e4bbd7d8a",
@@ -228,7 +234,13 @@
       "report_entry_url": "/papers/reports/2026-11-28/#paper-e9a1c22e4bbd7d8a",
       "paper_url": "/papers/items/e9a1c22e4bbd7d8a/",
       "paper_report_url": "/papers/items/e9a1c22e4bbd7d8a/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-28-35954ccfd4c1432cc1b23537/#paper-e9a1c22e4bbd7d8a",
+          "scope": "全文中文译文",
+          "title": "Predictor Antennas for Moving Relays: Finite Block-length Analysis"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2008.13444",
         "https://arxiv.org/abs/2008.13444",
@@ -241,10 +253,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/e9a1c22e4bbd7d8a/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-28-35954ccfd4c1432cc1b23537/#paper-e9a1c22e4bbd7d8a",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "58201475476da74e",
@@ -280,7 +292,13 @@
       "report_entry_url": "/papers/reports/2026-11-28/#paper-58201475476da74e",
       "paper_url": "/papers/items/58201475476da74e/",
       "paper_report_url": "/papers/items/58201475476da74e/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-28-94633849b3e40e01afe3fa7c/#paper-58201475476da74e",
+          "scope": "全文中文译文",
+          "title": "An Adaptive CSI Feedback Model Based on BiLSTM for Massive MIMO-OFDM Systems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2408.06359",
         "https://arxiv.org/abs/2408.06359",
@@ -293,10 +311,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/58201475476da74e/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-28-94633849b3e40e01afe3fa7c/#paper-58201475476da74e",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "ba6473052a1aab92",
@@ -394,7 +412,13 @@
       "report_entry_url": "/papers/reports/2026-11-28/#paper-910dab3534e97a71",
       "paper_url": "/papers/items/910dab3534e97a71/",
       "paper_report_url": "/papers/items/910dab3534e97a71/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-28-f8640927d8bb4accf6ccb86a/#paper-910dab3534e97a71",
+          "scope": "全文中文译文",
+          "title": "Three-Dimensional Radio Localization: A Channel Charting-Based Approach"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2512.15399",
         "https://arxiv.org/abs/2512.15399",
@@ -409,10 +433,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/910dab3534e97a71/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-28-f8640927d8bb4accf6ccb86a/#paper-910dab3534e97a71",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "26d90bf341d26937",
@@ -449,7 +473,13 @@
       "report_entry_url": "/papers/reports/2026-11-28/#paper-26d90bf341d26937",
       "paper_url": "/papers/items/26d90bf341d26937/",
       "paper_report_url": "/papers/items/26d90bf341d26937/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-28-dea0a5d0734ae1770d8c5cc6/#paper-26d90bf341d26937",
+          "scope": "全文中文译文",
+          "title": "Augmenting Channel Charting with Classical Wireless Source Localization Techniques"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2312.01968",
         "https://arxiv.org/abs/2312.01968",
@@ -464,10 +494,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/26d90bf341d26937/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-28-dea0a5d0734ae1770d8c5cc6/#paper-26d90bf341d26937",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "723037d57600d7ec",
@@ -561,7 +591,13 @@
       "report_entry_url": "/papers/reports/2026-11-28/#paper-d7271d54ca2c2266",
       "paper_url": "/papers/items/d7271d54ca2c2266/",
       "paper_report_url": "/papers/items/d7271d54ca2c2266/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-28-cce48c4c3dc8529560e608b3/#paper-d7271d54ca2c2266",
+          "scope": "全文中文译文",
+          "title": "Beyond Covariance: Generative Spatial Correlation Modeling and Channel Interpolation for Fluid Antenna Systems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2604.16639",
         "https://arxiv.org/abs/2604.16639",
@@ -573,10 +609,10 @@
       ],
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/d7271d54ca2c2266/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-28-cce48c4c3dc8529560e608b3/#paper-d7271d54ca2c2266",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "1024bfd4cc10dcf5",
@@ -613,7 +649,13 @@
       "report_entry_url": "/papers/reports/2026-11-28/#paper-1024bfd4cc10dcf5",
       "paper_url": "/papers/items/1024bfd4cc10dcf5/",
       "paper_report_url": "/papers/items/1024bfd4cc10dcf5/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-11-28-e4006bf2bc6693a22af57bd5/#paper-1024bfd4cc10dcf5",
+          "scope": "全文中文译文",
+          "title": "Structure-Informed Estimation for Pilot-Limited MIMO Channels via Tensor Decomposition"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2602.04083",
         "https://arxiv.org/abs/2602.04083",
@@ -628,10 +670,10 @@
       ],
       "hosted_pdfs": [],
       "status": "正式发表",
-      "translation_status": "pending",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/1024bfd4cc10dcf5/#paper-translation",
-      "full_translation_label": "全文翻译（待补齐）"
+      "translation_status": "complete",
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-11-28-e4006bf2bc6693a22af57bd5/#paper-1024bfd4cc10dcf5",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "cebb987d794d2643",
@@ -50007,6 +50049,83 @@
     }
   ],
   "translations": [
+    {
+      "date": "2026-11-28",
+      "url": "/papers/translations/2026-11-28-f8640927d8bb4accf6ccb86a/",
+      "slug": "2026-11-28-f8640927d8bb4accf6ccb86a",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Three-Dimensional Radio Localization: A Channel Charting-Based Approach",
+      "paper_id": "2512.15399",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-28-f8640927d8bb4accf6ccb86a.md"
+    },
+    {
+      "date": "2026-11-28",
+      "url": "/papers/translations/2026-11-28-e4006bf2bc6693a22af57bd5/",
+      "slug": "2026-11-28-e4006bf2bc6693a22af57bd5",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Structure-Informed Estimation for Pilot-Limited MIMO Channels via Tensor Decomposition",
+      "paper_id": "2602.04083",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-28-e4006bf2bc6693a22af57bd5.md"
+    },
+    {
+      "date": "2026-11-28",
+      "url": "/papers/translations/2026-11-28-dea0a5d0734ae1770d8c5cc6/",
+      "slug": "2026-11-28-dea0a5d0734ae1770d8c5cc6",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Augmenting Channel Charting with Classical Wireless Source Localization Techniques",
+      "paper_id": "2312.01968",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-28-dea0a5d0734ae1770d8c5cc6.md"
+    },
+    {
+      "date": "2026-11-28",
+      "url": "/papers/translations/2026-11-28-cce48c4c3dc8529560e608b3/",
+      "slug": "2026-11-28-cce48c4c3dc8529560e608b3",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Beyond Covariance: Generative Spatial Correlation Modeling and Channel Interpolation for Fluid Antenna Systems",
+      "paper_id": "2604.16639",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-28-cce48c4c3dc8529560e608b3.md"
+    },
+    {
+      "date": "2026-11-28",
+      "url": "/papers/translations/2026-11-28-b28d7886dccd9ba4ca99d6db/",
+      "slug": "2026-11-28-b28d7886dccd9ba4ca99d6db",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Sparse Activity Detection in Multi-Cell Massive MIMO Exploiting Channel Large-Scale Fading",
+      "paper_id": "2103.00782",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-28-b28d7886dccd9ba4ca99d6db.md"
+    },
+    {
+      "date": "2026-11-28",
+      "url": "/papers/translations/2026-11-28-94633849b3e40e01afe3fa7c/",
+      "slug": "2026-11-28-94633849b3e40e01afe3fa7c",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "An Adaptive CSI Feedback Model Based on BiLSTM for Massive MIMO-OFDM Systems",
+      "paper_id": "2408.06359",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-28-94633849b3e40e01afe3fa7c.md"
+    },
+    {
+      "date": "2026-11-28",
+      "url": "/papers/translations/2026-11-28-35954ccfd4c1432cc1b23537/",
+      "slug": "2026-11-28-35954ccfd4c1432cc1b23537",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Predictor Antennas for Moving Relays: Finite Block-length Analysis",
+      "paper_id": "2008.13444",
+      "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-11-28-35954ccfd4c1432cc1b23537.md"
+    },
     {
       "date": "2026-12-13",
       "url": "/papers/translations/2026-12-13-d30e40bb73ae3fa081eadc05/",
