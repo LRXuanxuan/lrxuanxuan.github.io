@@ -4424,201 +4424,201 @@
   "label": "阅读全文翻译"
  },
  "a49e8f697959f74d": {
-  "url": "/papers/translations/2026-12-06-bf81e0dab8c6b435c2731d46/#paper-a49e8f697959f74d",
-  "title": "A Distributed Massive MIMO Channel Sounder for \"Big CSI Data\"-driven Machine Learning",
-  "scope": "全文中文译文",
+  "url": "/papers/translations/2026-12-06-bf81e0dab8c6b435c2731d46/",
+  "title": "面向「大规模 CSI 数据」驱动机器学习的分布式大规模 MIMO 信道探测仪｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 6 页全节；编号公式 7 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
   "full": true,
   "public": true,
   "label": "阅读全文翻译"
  },
  "6bcbc05425b7e816": {
-  "url": "/papers/translations/2026-12-06-5793b1681182b4867992580a/#paper-6bcbc05425b7e816",
-  "title": "Ray-Tracing Calibration from Channel Sounding Measurements in a Millimeter-Wave Industrial Scenario",
-  "scope": "全文中文译文",
+  "url": "/papers/translations/2026-12-06-5793b1681182b4867992580a/",
+  "title": "基于毫米波工业场景信道探测测量的射线追踪校准｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 5 页全节；编号公式 0 式；表格 40 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
   "full": true,
   "public": true,
   "label": "阅读全文翻译"
  },
  "b0ba05c1ae0b8e98": {
-  "url": "/papers/translations/2026-12-06-e259f1320fad2824e566c94f/#paper-b0ba05c1ae0b8e98",
-  "title": "Geometry-Based Phase and Time Synchronization for Multi-Antenna Channel Measurements",
-  "scope": "全文中文译文",
+  "url": "/papers/translations/2026-12-06-e259f1320fad2824e566c94f/",
+  "title": "面向多天线信道测量的基于几何的相位与时间同步｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 6 页全节；编号公式 7 式；表格 8 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
   "full": true,
   "public": true,
   "label": "阅读全文翻译"
  },
  "d79ce83882ca6336": {
-  "url": "/papers/translations/2026-12-07-acebceb254c7acd9356939e9/#paper-d79ce83882ca6336",
-  "title": "Improving Triplet-Based Channel Charting on Distributed Massive MIMO Measurements",
-  "scope": "全文中文译文",
+  "url": "/papers/translations/2026-12-07-acebceb254c7acd9356939e9/",
+  "title": "改进基于分布式大规模 MIMO 实测数据的三元组信道制图｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 5 页全节；编号公式 1 式；表格 3 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
   "full": true,
   "public": true,
   "label": "阅读全文翻译"
  },
  "b29e6bf038817fe2": {
-  "url": "/papers/translations/2026-12-07-7881d9f21b36966457de91aa/#paper-b29e6bf038817fe2",
-  "title": "How Much Data is Needed for Channel Knowledge Map Construction?",
-  "scope": "全文中文译文",
+  "url": "/papers/translations/2026-12-07-7881d9f21b36966457de91aa/",
+  "title": "构建信道知识地图需要多少数据？｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 12 页全节；编号公式 42 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
   "full": true,
   "public": true,
   "label": "阅读全文翻译"
  },
  "f7d9841239fb0243": {
-  "url": "/papers/translations/2026-12-08-a785e3545fd7d7f8e572a7ef/#paper-f7d9841239fb0243",
-  "title": "GEVD-based Low-Rank Channel Covariance Matrix Estimation and MMSE Channel Estimation for Uplink Cellular Massive MIMO Systems",
-  "scope": "全文中文译文",
+  "url": "/papers/translations/2026-12-08-a785e3545fd7d7f8e572a7ef/",
+  "title": "基于 GEVD 的上行蜂窝大规模 MIMO 低秩信道协方差矩阵估计与 MMSE 信道估计｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 5 页全节；编号公式 20 式；表格 6 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
   "full": true,
   "public": true,
   "label": "阅读全文翻译"
  },
  "249808936773b4c7": {
-  "url": "/papers/translations/2026-12-08-d43c4bf152ad9bd25670d240/#paper-249808936773b4c7",
-  "title": "Geometric Machine Learning for Channel Covariance Estimation in Vehicular Networks",
-  "scope": "全文中文译文",
+  "url": "/papers/translations/2026-12-08-d43c4bf152ad9bd25670d240/",
+  "title": "面向车联网信道协方差估计的几何机器学习｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 6 页全节；编号公式 8 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
   "full": true,
   "public": true,
   "label": "阅读全文翻译"
  },
  "efedf76b4459d353": {
-  "url": "/papers/translations/2026-12-09-578c24a3ba42b5c204b45e52/#paper-efedf76b4459d353",
-  "title": "Channel Estimation based on Gaussian Mixture Models with Structured Covariances",
-  "scope": "全文中文译文",
+  "url": "/papers/translations/2026-12-09-578c24a3ba42b5c204b45e52/",
+  "title": "基于结构化协方差高斯混合模型的信道估计｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 6 页全节；编号公式 7 式；表格 7 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
   "full": true,
   "public": true,
   "label": "阅读全文翻译"
  },
  "a38ed0241302f0df": {
-  "url": "/papers/translations/2026-12-09-06af0be4c78a2fa1767221e9/#paper-a38ed0241302f0df",
-  "title": "Low-Rank Structured MMSE Channel Estimation with Mixtures of Factor Analyzers",
-  "scope": "全文中文译文",
+  "url": "/papers/translations/2026-12-09-06af0be4c78a2fa1767221e9/",
+  "title": "基于混合因子分析器的低秩结构 MMSE 信道估计｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 6 页全节；编号公式 15 式；表格 4 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
   "full": true,
   "public": true,
   "label": "阅读全文翻译"
  },
  "986809a959249bf0": {
-  "url": "/papers/translations/2026-12-10-db50c2b776814b5466f9e8f8/#paper-986809a959249bf0",
-  "title": "Comparing Stochastic and Ray-tracing Datasets in Machine Learning for Wireless Applications",
-  "scope": "全文中文译文",
+  "url": "/papers/translations/2026-12-10-db50c2b776814b5466f9e8f8/",
+  "title": "无线机器学习应用中的随机与射线追踪数据集比较｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 8 页全节；编号公式 0 式；表格 65 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
   "full": true,
   "public": true,
   "label": "阅读全文翻译"
  },
  "dc009a16c8769926": {
-  "url": "/papers/translations/2026-12-10-974dbfbf82400bfa7457ce9d/#paper-dc009a16c8769926",
-  "title": "SPARC: Sparse Path-Aware Residual Calibrator for Wireless Ray Tracing at Upper Mid-Band",
-  "scope": "全文中文译文",
+  "url": "/papers/translations/2026-12-10-974dbfbf82400bfa7457ce9d/",
+  "title": "SPARC：面向中高频段无线射线追踪的稀疏路径感知残差校准器｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 6 页全节；编号公式 14 式；表格 18 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
   "full": true,
   "public": true,
   "label": "阅读全文翻译"
  },
  "b747a4454d95e973": {
-  "url": "/papers/translations/2026-12-10-6ba34534f1b374cca322473c/#paper-b747a4454d95e973",
-  "title": "WiSegRT: Dataset for Site-Specific Indoor Radio Propagation Modeling with 3D Segmentation and Differentiable Ray-Tracing",
-  "scope": "全文中文译文",
+  "url": "/papers/translations/2026-12-10-6ba34534f1b374cca322473c/",
+  "title": "WiSegRT：融合三维分割与可微射线追踪的场景特定室内无线电传播数据集｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 5 页全节；编号公式 3 式；表格 7 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
   "full": true,
   "public": true,
   "label": "阅读全文翻译"
  },
  "e243e786fce69724": {
-  "url": "/papers/translations/2026-12-10-299cf4eb9094491874d0e046/#paper-e243e786fce69724",
-  "title": "mmDiff: A Noise-Robust Differentiable Ray-Tracing Framework for mmWave Scene Calibration and Channel Prediction",
-  "scope": "全文中文译文",
+  "url": "/papers/translations/2026-12-10-299cf4eb9094491874d0e046/",
+  "title": "mmDiff：用于毫米波场景校准和信道预测的抗噪可微射线追踪框架｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 26 页全节；编号公式 22 式；表格 49 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
   "full": true,
   "public": true,
   "label": "阅读全文翻译"
  },
  "619cd06d5da32bfd": {
-  "url": "/papers/translations/2026-12-10-131bc97fd7b6ff71117a93a7/#paper-619cd06d5da32bfd",
-  "title": "Digital Twin Aided Channel Estimation: Zone-Specific Subspace Prediction and Calibration",
-  "scope": "全文中文译文",
+  "url": "/papers/translations/2026-12-10-131bc97fd7b6ff71117a93a7/",
+  "title": "数字孪生辅助信道估计：分区子空间预测与校准｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 6 页全节；编号公式 26 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
   "full": true,
   "public": true,
   "label": "阅读全文翻译"
  },
  "6886bb6d25752df8": {
-  "url": "/papers/translations/2026-12-10-7ee5db42fb0abca62fde440e/#paper-6886bb6d25752df8",
-  "title": "Digital Twin Based Beam Prediction: Can we Train in the Digital World and Deploy in Reality?",
-  "scope": "全文中文译文",
+  "url": "/papers/translations/2026-12-10-7ee5db42fb0abca62fde440e/",
+  "title": "基于数字孪生的波束预测：能否在数字世界训练并在现实中部署？｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 6 页全节；编号公式 11 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
   "full": true,
   "public": true,
   "label": "阅读全文翻译"
  },
  "616265680df2cb4a": {
-  "url": "/papers/translations/2026-12-10-04f45c8dad968a6af5ffc90a/#paper-616265680df2cb4a",
-  "title": "Calibrating Wireless Ray Tracing for Digital Twinning using Local Phase Error Estimates",
-  "scope": "全文中文译文",
+  "url": "/papers/translations/2026-12-10-04f45c8dad968a6af5ffc90a/",
+  "title": "利用局部相位误差估计校准面向数字孪生的无线射线追踪｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 47 页全节；编号公式 78 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
   "full": true,
   "public": true,
   "label": "阅读全文翻译"
  },
  "9e15c89c0cd3373f": {
-  "url": "/papers/translations/2026-12-11-a6d9db000a558544db4001de/#paper-9e15c89c0cd3373f",
-  "title": "Spatial Power Estimation via Riemannian Covariance Matching",
-  "scope": "全文中文译文",
+  "url": "/papers/translations/2026-12-11-a6d9db000a558544db4001de/",
+  "title": "基于黎曼协方差匹配的空间功率估计｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 16 页全节；编号公式 50 式；表格 11 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
   "full": true,
   "public": true,
   "label": "阅读全文翻译"
  },
  "46c64deeca52cb8d": {
-  "url": "/papers/translations/2026-12-11-897079a237da787db9f6d8f3/#paper-46c64deeca52cb8d",
-  "title": "Data-Aided Regularization of Direct-Estimate Combiner in Distributed MIMO Systems",
-  "scope": "全文中文译文",
+  "url": "/papers/translations/2026-12-11-897079a237da787db9f6d8f3/",
+  "title": "分布式 MIMO 系统中直接估计合并器的数据辅助正则化｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 5 页全节；编号公式 14 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
   "full": true,
   "public": true,
   "label": "阅读全文翻译"
  },
  "405200fed9c78d9f": {
-  "url": "/papers/translations/2026-12-11-d826df651bbf4510c4e229f9/#paper-405200fed9c78d9f",
-  "title": "Robustness of Covariance Estimators with Application in Activity Detection",
-  "scope": "全文中文译文",
+  "url": "/papers/translations/2026-12-11-d826df651bbf4510c4e229f9/",
+  "title": "协方差估计器的鲁棒性及其在活跃用户检测中的应用｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 27 页全节；编号公式 71 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
   "full": true,
   "public": true,
   "label": "阅读全文翻译"
  },
  "90cb6863e9518198": {
-  "url": "/papers/translations/2026-12-12-ed4598376b0e4a11d1131114/#paper-90cb6863e9518198",
-  "title": "Structured Wavenumber-Domain Channel Estimation for LoS XL-MIMO",
-  "scope": "全文中文译文",
+  "url": "/papers/translations/2026-12-12-ed4598376b0e4a11d1131114/",
+  "title": "面向视距 XL-MIMO 的结构化波数域信道估计｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 5 页全节；编号公式 20 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
   "full": true,
   "public": true,
   "label": "阅读全文翻译"
  },
  "b92ed2c9d1b23691": {
-  "url": "/papers/translations/2026-12-13-d08d288c6bf80cf95705c0d2/#paper-b92ed2c9d1b23691",
-  "title": "Covariance-Free Sparse Bayesian Learning",
-  "scope": "全文中文译文",
+  "url": "/papers/translations/2026-12-13-d08d288c6bf80cf95705c0d2/",
+  "title": "免显式计算协方差的稀疏贝叶斯学习｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 13 页全节；编号公式 43 式；表格 9 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
   "full": true,
   "public": true,
   "label": "阅读全文翻译"
  },
  "878d013c3e5be640": {
-  "url": "/papers/translations/2026-12-13-eae5f604ddc285f4b958e3f9/#paper-878d013c3e5be640",
-  "title": "Variational Bayes for Joint Channel Estimation and Data Detection in Few-Bit Massive MIMO Systems",
-  "scope": "全文中文译文",
+  "url": "/papers/translations/2026-12-13-eae5f604ddc285f4b958e3f9/",
+  "title": "少比特大规模 MIMO 系统中联合信道估计与数据检测的变分贝叶斯方法｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 14 页全节；编号公式 67 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
   "full": true,
   "public": true,
   "label": "阅读全文翻译"
  },
  "b74b3d3237fa0122": {
-  "url": "/papers/translations/2026-12-13-fd4612e3d28118d169cbf46e/#paper-b74b3d3237fa0122",
-  "title": "Diffusion-Based Generative Priors for Efficient Beam Alignment in Directional Networks",
-  "scope": "全文中文译文",
+  "url": "/papers/translations/2026-12-13-fd4612e3d28118d169cbf46e/",
+  "title": "面向定向网络高效波束对准的扩散生成先验｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 6 页全节；编号公式 15 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
   "full": true,
   "public": true,
   "label": "阅读全文翻译"
  },
  "440d8518f40e91e0": {
-  "url": "/papers/translations/2026-12-13-98160e5295a55e0328bedc6e/#paper-440d8518f40e91e0",
-  "title": "Efficient Diffusion Posterior Sampling for Noisy Inverse Problems",
-  "scope": "全文中文译文",
+  "url": "/papers/translations/2026-12-13-98160e5295a55e0328bedc6e/",
+  "title": "面向含噪逆问题的高效扩散后验采样｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 25 页全节；编号公式 44 式；表格 33 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
   "full": true,
   "public": true,
   "label": "阅读全文翻译"
  },
  "40a29e61c6b09dcc": {
-  "url": "/papers/translations/2026-12-13-e4c08c1756af0e5d64ba9ee5/#paper-40a29e61c6b09dcc",
-  "title": "Observation Matrix Design for Densifying MIMO Channel Estimation via 2D Ice Filling",
-  "scope": "全文中文译文",
+  "url": "/papers/translations/2026-12-13-e4c08c1756af0e5d64ba9ee5/",
+  "title": "基于二维填冰的密集化 MIMO 信道估计观测矩阵设计｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 17 页全节；编号公式 68 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
   "full": true,
   "public": true,
   "label": "阅读全文翻译"
@@ -4699,6 +4699,446 @@
   "url": "/papers/translations/2026-11-27-0d8394367d59d7548a42cdc1/",
   "title": "用于大规模 MIMO 信道估计的注意力辅助深度学习框架｜中文全文译文",
   "scope": "全文中文译文：标题、摘要、正文 28 页全节；编号公式 9 式；表格 9 行；参考文献英文原条目；许可：https://creativecommons.org/licenses/by/4.0/（署名 4.0）；逐句逐式终校未做（用户 2026-10-30 口径：覆盖大致完整即可计入可公开全文译文）。",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "771982f77e4ae711": {
+  "url": "/papers/translations/2026-12-06-a3cd22ac85f1e5209e5ec064/",
+  "title": "FDD 大规模 MIMO 的信道外推：流程与实验结果｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 6 页全节；编号公式 3 式；表格 14 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "3614fee028dfd9f1": {
+  "url": "/papers/translations/2026-12-06-32989c264ae38063ef5ec4cc/",
+  "title": "迈向超大孔径大规模 MIMO：基于测量的研究｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 6 页全节；编号公式 3 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "fbd1292ac2630551": {
+  "url": "/papers/translations/2026-12-06-0e5b5dee332aa6c005c2b214/",
+  "title": "实测分布式大规模 MIMO 信道中邻近用户的空间分离｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 5 页全节；编号公式 5 式；表格 12 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "54487f7ebf59fa88": {
+  "url": "/papers/translations/2026-12-06-356d545dd64f15fb0474dc30/",
+  "title": "大规模 MIMO 信道探测需要多少副天线？实测验证｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 2 页全节；编号公式 0 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "1d1a8f0e1fd97777": {
+  "url": "/papers/translations/2026-12-06-c9b5c265082810e3e0cf93f1/",
+  "title": "大规模 MIMO 中的信道硬化：模型参数与实验评估｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 12 页全节；编号公式 8 式；表格 16 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "e3e8575a86333882": {
+  "url": "/papers/translations/2026-12-06-307dbe3d660bcc8c4adfbc81/",
+  "title": "室内分布式大规模 MIMO 信道多径特性的实验分析｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 5 页全节；编号公式 3 式；表格 8 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "d723ed325a40a7d8": {
+  "url": "/papers/translations/2026-12-06-a974ce67ad7f40298a2706f1/",
+  "title": "利用相互作用物体的分布式 MIMO 信道聚簇与表征｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 13 页全节；编号公式 48 式；表格 13 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "e6753ee503a0c31b": {
+  "url": "/papers/translations/2026-12-07-068a912864a8211e1db96f28/",
+  "title": "通过相位不敏感距离计算实现高效信道制图｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 5 页全节；编号公式 11 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "8fc5f4cded19b70a": {
+  "url": "/papers/translations/2026-12-07-247e939c66147215a837d8de/",
+  "title": "基于三元组的无线信道制图：架构与实验｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 28 页全节；编号公式 25 式；表格 46 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "020cae699ce3c129": {
+  "url": "/papers/translations/2026-12-07-7de8112f974df4af4bcf3718/",
+  "title": "实际坐标系中的信道制图｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 7 页全节；编号公式 7 式；表格 17 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "64b4b1d9d429ea96": {
+  "url": "/papers/translations/2026-12-07-6f55388f98151420a43c2619/",
+  "title": "基于深度张量学习的不完整有噪测量可靠信道制图｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 5 页全节；编号公式 17 式；表格 12 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "501ccb22609ddb2f": {
+  "url": "/papers/translations/2026-12-07-62e193b529533fa7869b8c67/",
+  "title": "多天线通信中的信道协方差矩阵突变检测｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 7 页全节；编号公式 39 式；表格 7 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "203e5bd6ad15b77b": {
+  "url": "/papers/translations/2026-12-07-6014a7704d33639f19e270b9/",
+  "title": "面向环境感知通信的信道知识地图：基于 EM 的构建算法｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 7 页全节；编号公式 15 式；表格 5 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "d4bfb0b7896d6b0e": {
+  "url": "/papers/translations/2026-12-07-d657f56344647f78c349fa93/",
+  "title": "结构化组稀疏性：一种新的室内 WLAN 定位、异常值检测与无线电地图插值方案｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 13 页全节；编号公式 26 式；表格 15 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "305877453a1201b6": {
+  "url": "/papers/translations/2026-12-07-440d355425a883fbd80d797a/",
+  "title": "面向矩阵补全式无线电地图构建的能量修正杠杆采样｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 5 页全节；编号公式 10 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "977211e8f4114717": {
+  "url": "/papers/translations/2026-12-08-4b636fd8fe5ac438fd9da4f0/",
+  "title": "大规模 MIMO 的协方差矩阵估计｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 6 页全节；编号公式 37 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "9e731d7e6e84b892": {
+  "url": "/papers/translations/2026-12-08-eaec56a5951e2611598090c3/",
+  "title": "基于有限样本的大规模 MIMO 结构化信道协方差估计｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 27 页全节；编号公式 45 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "1f0f714f2d770c6a": {
+  "url": "/papers/translations/2026-12-08-f712b674ca4083a535685153/",
+  "title": "混合 MIMO 架构下的空间信道协方差估计：一种基于压缩感知的方法｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 31 页全节；编号公式 55 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "0c1363f451672e80": {
+  "url": "/papers/translations/2026-12-08-76af121781ffa7386df35ebd/",
+  "title": "实际 FDD 大规模 MIMO 系统中的下行信道空间协方差估计｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 5 页全节；编号公式 7 式；表格 5 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "25f62796bafc5804": {
+  "url": "/papers/translations/2026-12-08-a1520bd032814185aa2d5845/",
+  "title": "一种低复杂度的天线布局感知空间协方差矩阵估计方法｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 6 页全节；编号公式 20 式；表格 2 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "08a9edb305c03d84": {
+  "url": "/papers/translations/2026-12-08-14071bc6ce7111ed6f0549c5/",
+  "title": "信道协方差信息不完备时的大规模 MIMO｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 5 页全节；编号公式 26 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "88c907974b5c77d6": {
+  "url": "/papers/translations/2026-12-08-bfa44e848b2701e1152bd258/",
+  "title": "利用低复杂度交叉验证的协方差矩阵线性收缩估计｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 12 页全节；编号公式 99 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "d736cf86689a5be9": {
+  "url": "/papers/translations/2026-12-08-a30f81547e9e2ed8233c43ee/",
+  "title": "高维协方差估计中的对称感知凸收缩｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 100 页全节；编号公式 51 式；表格 83 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "61b0b2669536b994": {
+  "url": "/papers/translations/2026-12-09-c7104ad43f34c1645473e92c/",
+  "title": "大规模 MIMO 系统中面向信道估计的导频波束设计｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 15 页全节；编号公式 63 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "c62166d7fac8fa46": {
+  "url": "/papers/translations/2026-12-09-164a8ebb63496685f7b2a64c/",
+  "title": "基于张量分解的混合架构空间信道协方差估计｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 31 页全节；编号公式 76 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "3cb8fbfb93d44cab": {
+  "url": "/papers/translations/2026-12-09-665c7c5f237e94394f3a50d3/",
+  "title": "混合毫米波 MIMO 通信系统中基于降维的信道协方差矩阵估计｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 10 页全节；编号公式 41 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "d85827d18788e12c": {
+  "url": "/papers/translations/2026-12-09-ddf9262970ea37c8733346c2/",
+  "title": "低秩协方差辅助的 FDD 大规模 MIMO 下行训练与信道估计｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 12 页全节；编号公式 47 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "2704d318fe021e27": {
+  "url": "/papers/translations/2026-12-09-8f343117a9d5766e4abc8a77/",
+  "title": "毫米波网络中的离网格感知信道与协方差估计｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 30 页全节；编号公式 19 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "ae1adebe412c202f": {
+  "url": "/papers/translations/2026-12-09-c5b7373b811ad4e2f0eb662c/",
+  "title": "毫米波蜂窝系统的低秩空间信道估计｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 10 页全节；编号公式 42 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "ac41a7857280938b": {
+  "url": "/papers/translations/2026-12-09-6f82b77aaf311c6a7bce0403/",
+  "title": "面向空间相关多用户 MIMO 信道估计的导频长度优化｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 10 页全节；编号公式 25 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "87157873727aad36": {
+  "url": "/papers/translations/2026-12-09-6de293a36c328d7ff29e96fa/",
+  "title": "任意统计条件下大规模 MIMO 的低复杂度多项式信道估计｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 16 页全节；编号公式 48 式；表格 8 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "ed96cf6315ee5bd4": {
+  "url": "/papers/translations/2026-12-10-3cef5c3a26d9357dd9e6f12e/",
+  "title": "DeepMIMO：面向毫米波和大规模 MIMO 应用的通用深度学习数据集｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 8 页全节；编号公式 6 式；表格 9 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "f44f359d8fbc7f9c": {
+  "url": "/papers/translations/2026-12-10-fb318e2ad758fad55d660cb5/",
+  "title": "BostonTwin：用于 6G 网络射线追踪的波士顿数字孪生｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 7 页全节；编号公式 0 式；表格 56 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "9721cae4ec177aa8": {
+  "url": "/papers/translations/2026-12-10-433aebb47fe630a7084c3fb5/",
+  "title": "WAIR-D：无线人工智能研究数据集｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 5 页全节；编号公式 0 式；表格 6 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "e88208ea0feb0444": {
+  "url": "/papers/translations/2026-12-11-b5ad9b17c6b6a16fda4f8f77/",
+  "title": "空间非平稳大规模 MIMO 系统中基于加抖量化信号的代入式信道估计｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 15 页全节；编号公式 61 式；表格 7 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "eca634cb82d15f77": {
+  "url": "/papers/translations/2026-12-11-c6230f2fd08e8c9a43387073/",
+  "title": "面向 FDD 大规模 MIMO 学习型上行到下行协方差转换的平均空间频率解耦｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 6 页全节；编号公式 9 式；表格 16 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "89b98ebc1446e5e2": {
+  "url": "/papers/translations/2026-12-11-0c0401f45e4cc67ecd7c04be/",
+  "title": "利用部分噪声统计量的矩阵去噪：尖峰 F 矩阵的最优奇异值收缩｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 43 页全节；编号公式 100 式；表格 53 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "8abf0c405e29cea0": {
+  "url": "/papers/translations/2026-12-11-32da77e025b452a1216566d3/",
+  "title": "采用岭去噪的注意力辅助 MMSE：如何用带噪信道样本训练｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 6 页全节；编号公式 21 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "4aa71096199d0fa0": {
+  "url": "/papers/translations/2026-12-11-aa31afd2d97908bb48e98829/",
+  "title": "利用通用数据集对神经网络信道估计器与预测器进行可复现评估｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 16 页全节；编号公式 45 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "fe0cb421333c7c1c": {
+  "url": "/papers/translations/2026-12-11-17bbd163ce629a567d1b7711/",
+  "title": "低信噪比毫米波通信的先验感知稳健波束对准｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 13 页全节；编号公式 49 式；表格 21 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "70d43272aa17918b": {
+  "url": "/papers/translations/2026-12-11-106534690fb80680eba0cd39/",
+  "title": "通过信道条件参数生成实现 CSI 模型的快速跨场景适应｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 12 页全节；编号公式 12 式；表格 14 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "ebbbf8fba0633c27": {
+  "url": "/papers/translations/2026-12-12-d88e157bbb16fc913f62f73d/",
+  "title": "混合压缩下的宽带近场信道估计：基于 OFDM Fresnel 模型的跨子载波 KL 协方差拟合｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 13 页全节；编号公式 36 式；表格 24 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "0bb894c52158bf65": {
+  "url": "/papers/translations/2026-12-12-bef4be46036b8adc0096ef8d/",
+  "title": "面向双极化大规模 MIMO 系统的张量信道估计｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 14 页全节；编号公式 60 式；表格 4 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "37f05c29124758bc": {
+  "url": "/papers/translations/2026-12-12-aeeb35086fe16147c06e0931/",
+  "title": "利用联合稀疏与低秩结构的毫米波信道估计｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 10 页全节；编号公式 41 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "19fd4859ef47535d": {
+  "url": "/papers/translations/2026-12-12-07dc247701871c674e5e01e6/",
+  "title": "低秩张量分解辅助的毫米波 MIMO-OFDM 信道估计｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 13 页全节；编号公式 71 式；表格 5 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "4ad64ae7e035d524": {
+  "url": "/papers/translations/2026-12-12-7d210de0e15a78aa0a4785e8/",
+  "title": "用于 MIMO 信道估计的模张量化典范多元分解｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 6 页全节；编号公式 29 式；表格 11 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "0b3342744a6f768e": {
+  "url": "/papers/translations/2026-12-12-16daa942391e2bfb16cd94fb/",
+  "title": "基于广义块 OMP 算法的多用户毫米波信道估计｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 5 页全节；编号公式 13 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "0df277477451a660": {
+  "url": "/papers/translations/2026-12-12-dbc857787738f0b4dd1c3784/",
+  "title": "基于原子范数最小化的毫米波超分辨信道估计｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 26 页全节；编号公式 61 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "e2b71ea9b4fae7d2": {
+  "url": "/papers/translations/2026-12-12-4e781c2edc6cf5af44f34055/",
+  "title": "基于射线追踪参数与级联 XGBoost 的宽带大规模 MIMO-OFDM 轻量混合预编码｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 6 页全节；编号公式 12 式；表格 21 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "a63b25c082c8f368": {
+  "url": "/papers/translations/2026-12-12-597e07acdddfe269dc27ed02/",
+  "title": "存在波束斜视的毫米波大规模 MIMO 系统稳健宽带信道估计｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 7 页全节；编号公式 31 式；表格 3 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "13bc6dcdb9cfc6cc": {
+  "url": "/papers/translations/2026-12-13-0adb65d809224a98ad8ca015/",
+  "title": "基于未经预训练的深度神经网络的大规模 MIMO 信道估计｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 30 页全节；编号公式 40 式；表格 8 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "0f9a1ffc99571876": {
+  "url": "/papers/translations/2026-12-13-c36c8db4825362ac6ec4045b/",
+  "title": "超大孔径阵列中基于 RS-LS 信道估计的导频长度优化｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 6 页全节；编号公式 25 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "3b81192c70cc43d5": {
+  "url": "/papers/translations/2026-12-13-d30e40bb73ae3fa081eadc05/",
+  "title": "模拟毫米波系统的变换空间域快速信道估计｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 15 页全节；编号公式 95 式；表格 1 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "e88bc58e1181cf44": {
+  "url": "/papers/translations/2026-12-13-27a37b28008e4d6e0998da5b/",
+  "title": "基于可训练近端梯度下降的毫米波大规模 MIMO 信道估计｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 5 页全节；编号公式 14 式；无表格；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
+  "full": true,
+  "public": true,
+  "label": "阅读全文翻译"
+ },
+ "462235fa3440406b": {
+  "url": "/papers/translations/2026-12-13-8074d61bfbbdbdccb7b4fc72/",
+  "title": "面向大规模 MIMO 系统多任务信道重建的深度即插即用先验｜中文全文译文",
+  "scope": "全文中文译文：标题、摘要、正文 14 页全节；编号公式 45 式；表格 32 行；参考文献英文原条目；许可：版权未确认（无开源许可；按用户 2026-11-15 常设授权发布，权利人可要求移除）；",
   "full": true,
   "public": true,
   "label": "阅读全文翻译"

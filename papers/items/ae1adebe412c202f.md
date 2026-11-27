@@ -9,7 +9,7 @@ toc: true
 {% raw %}
 [← 返回论文库](/papers/?paper=ae1adebe412c202f)
 
-[本篇日报说明](/papers/items/ae1adebe412c202f/#paper-report) · [全文翻译（仅本地）](/papers/items/ae1adebe412c202f/#paper-translation)
+[本篇日报说明](/papers/items/ae1adebe412c202f/#paper-report) · [阅读全文翻译](/papers/translations/2026-12-09-c5b7373b811ad4e2f0eb662c/)
 
 **推荐日期：** 2026-12-09 · **发表状态：** 正式发表
 
@@ -17,7 +17,7 @@ toc: true
 
 ## 本篇全文翻译
 
-本篇全文译稿已在本地完成，当前未确认允许公开分享的授权，暂不提供公开全文下载；原文入口见下方。
+全文中文译稿已发布，请使用页首的「阅读全文翻译」入口。
 
 <span id="paper-report"></span>
 
