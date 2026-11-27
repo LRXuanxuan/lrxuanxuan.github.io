@@ -7131,5 +7131,44 @@
     "qa_complete": true,
     "coverage": "full",
     "primary_translation": true
+  },
+  {
+    "date": "2026-11-28",
+    "title": "Cross-Predictive Sparse Bayesian Learning with Application to XL-MIMO Channel Estimation",
+    "slug": "2026-11-28-fbd6a32b9aa8fa75b33e8993",
+    "url": "/papers/translations/2026-11-28-fbd6a32b9aa8fa75b33e8993/",
+    "scope": "全文中文译文",
+    "paper_ids": [
+      "cebb987d794d2643"
+    ],
+    "qa_complete": true,
+    "coverage": "full",
+    "primary_translation": true
+  },
+  {
+    "date": "2026-11-28",
+    "title": "Constructing Indoor Region-based Radio Map without Location Labels",
+    "slug": "2026-11-28-9becd04550e44ce1a82a2648",
+    "url": "/papers/translations/2026-11-28-9becd04550e44ce1a82a2648/",
+    "scope": "全文中文译文",
+    "paper_ids": [
+      "723037d57600d7ec"
+    ],
+    "qa_complete": true,
+    "coverage": "full",
+    "primary_translation": true
+  },
+  {
+    "date": "2026-11-28",
+    "title": "Time-Series Forecasting for Out-of-Distribution Generalization Using Invariant Learning",
+    "slug": "2026-11-28-7a0ff4cd02dc58a709d4ea5a",
+    "url": "/papers/translations/2026-11-28-7a0ff4cd02dc58a709d4ea5a/",
+    "scope": "全文中文译文",
+    "paper_ids": [
+      "ba6473052a1aab92"
+    ],
+    "qa_complete": true,
+    "coverage": "full",
+    "primary_translation": true
   }
 ]
