@@ -1008,7 +1008,13 @@
       "report_entry_url": "/papers/reports/2026-12-13/#paper-13bc6dcdb9cfc6cc",
       "paper_url": "/papers/items/13bc6dcdb9cfc6cc/",
       "paper_report_url": "/papers/items/13bc6dcdb9cfc6cc/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-13-0adb65d809224a98ad8ca015/#paper-13bc6dcdb9cfc6cc",
+          "scope": "全文中文译文",
+          "title": "Massive MIMO Channel Estimation with an Untrained Deep Neural Network"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1908.00144v1",
         "https://arxiv.org/abs/1908.00144",
@@ -1027,9 +1033,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/13bc6dcdb9cfc6cc/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-13-0adb65d809224a98ad8ca015/#paper-13bc6dcdb9cfc6cc",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "3b81192c70cc43d5",
@@ -1066,7 +1072,13 @@
       "report_entry_url": "/papers/reports/2026-12-13/#paper-3b81192c70cc43d5",
       "paper_url": "/papers/items/3b81192c70cc43d5/",
       "paper_report_url": "/papers/items/3b81192c70cc43d5/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-13-d30e40bb73ae3fa081eadc05/#paper-3b81192c70cc43d5",
+          "scope": "全文中文译文",
+          "title": "Fast Channel Estimation in the Transformed Spatial Domain for Analog Millimeter Wave Systems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2104.01857v1",
         "https://arxiv.org/abs/2104.01857",
@@ -1085,9 +1097,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/3b81192c70cc43d5/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-13-d30e40bb73ae3fa081eadc05/#paper-3b81192c70cc43d5",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "0f9a1ffc99571876",
@@ -1123,7 +1135,13 @@
       "report_entry_url": "/papers/reports/2026-12-13/#paper-0f9a1ffc99571876",
       "paper_url": "/papers/items/0f9a1ffc99571876/",
       "paper_report_url": "/papers/items/0f9a1ffc99571876/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-13-c36c8db4825362ac6ec4045b/#paper-0f9a1ffc99571876",
+          "scope": "全文中文译文",
+          "title": "Pilot Length Optimization with RS-LS Channel Estimation for Extremely Large Aperture Arrays"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2402.01426v1",
         "https://arxiv.org/abs/2402.01426",
@@ -1140,9 +1158,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/0f9a1ffc99571876/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-13-c36c8db4825362ac6ec4045b/#paper-0f9a1ffc99571876",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "b92ed2c9d1b23691",
@@ -1243,7 +1261,13 @@
       "report_entry_url": "/papers/reports/2026-12-13/#paper-462235fa3440406b",
       "paper_url": "/papers/items/462235fa3440406b/",
       "paper_report_url": "/papers/items/462235fa3440406b/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-13-8074d61bfbbdbdccb7b4fc72/#paper-462235fa3440406b",
+          "scope": "全文中文译文",
+          "title": "Deep Plug-and-Play Prior for Multitask Channel Reconstruction in Massive MIMO Systems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2308.04728v2",
         "https://arxiv.org/abs/2308.04728",
@@ -1262,9 +1286,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/462235fa3440406b/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-13-8074d61bfbbdbdccb7b4fc72/#paper-462235fa3440406b",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "e88bc58e1181cf44",
@@ -1300,7 +1324,13 @@
       "report_entry_url": "/papers/reports/2026-12-13/#paper-e88bc58e1181cf44",
       "paper_url": "/papers/items/e88bc58e1181cf44/",
       "paper_report_url": "/papers/items/e88bc58e1181cf44/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-13-27a37b28008e4d6e0998da5b/#paper-e88bc58e1181cf44",
+          "scope": "全文中文译文",
+          "title": "Trainable Proximal Gradient Descent Based Channel Estimation for mmWave Massive MIMO Systems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2212.12214v2",
         "https://arxiv.org/abs/2212.12214",
@@ -1317,9 +1347,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/e88bc58e1181cf44/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-13-27a37b28008e4d6e0998da5b/#paper-e88bc58e1181cf44",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "e2b71ea9b4fae7d2",
@@ -1355,7 +1385,13 @@
       "report_entry_url": "/papers/reports/2026-12-12/#paper-e2b71ea9b4fae7d2",
       "paper_url": "/papers/items/e2b71ea9b4fae7d2/",
       "paper_report_url": "/papers/items/e2b71ea9b4fae7d2/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-12-4e781c2edc6cf5af44f34055/#paper-e2b71ea9b4fae7d2",
+          "scope": "全文中文译文",
+          "title": "Ray-Tracing-Parameter-Based Lightweight Hybrid Precoding via Cascade XGBoost for Wideband Massive MIMO-OFDM Systems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2611.01880v1",
         "https://arxiv.org/abs/2611.01880",
@@ -1371,9 +1407,9 @@
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/e2b71ea9b4fae7d2/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-12-4e781c2edc6cf5af44f34055/#paper-e2b71ea9b4fae7d2",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "0df277477451a660",
@@ -1409,7 +1445,13 @@
       "report_entry_url": "/papers/reports/2026-12-12/#paper-0df277477451a660",
       "paper_url": "/papers/items/0df277477451a660/",
       "paper_report_url": "/papers/items/0df277477451a660/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-12-dbc857787738f0b4dd1c3784/#paper-0df277477451a660",
+          "scope": "全文中文译文",
+          "title": "Super-Resolution mmWave Channel Estimation using Atomic Norm Minimization"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1801.07400v1",
         "https://arxiv.org/abs/1801.07400",
@@ -1425,9 +1467,9 @@
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/0df277477451a660/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-12-dbc857787738f0b4dd1c3784/#paper-0df277477451a660",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "0b3342744a6f768e",
@@ -1463,7 +1505,13 @@
       "report_entry_url": "/papers/reports/2026-12-12/#paper-0b3342744a6f768e",
       "paper_url": "/papers/items/0b3342744a6f768e/",
       "paper_report_url": "/papers/items/0b3342744a6f768e/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-12-16daa942391e2bfb16cd94fb/#paper-0b3342744a6f768e",
+          "scope": "全文中文译文",
+          "title": "Multi-User Millimeter Wave Channel Estimation Using Generalized Block OMP Algorithm"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1703.05474v1",
         "https://arxiv.org/abs/1703.05474",
@@ -1480,9 +1528,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/0b3342744a6f768e/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-12-16daa942391e2bfb16cd94fb/#paper-0b3342744a6f768e",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "4ad64ae7e035d524",
@@ -1518,7 +1566,13 @@
       "report_entry_url": "/papers/reports/2026-12-12/#paper-4ad64ae7e035d524",
       "paper_url": "/papers/items/4ad64ae7e035d524/",
       "paper_report_url": "/papers/items/4ad64ae7e035d524/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-12-7d210de0e15a78aa0a4785e8/#paper-4ad64ae7e035d524",
+          "scope": "全文中文译文",
+          "title": "Mode-Tensorized Canonical Polyadic Decomposition for MIMO Channel Estimation"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2605.19053v1",
         "https://arxiv.org/abs/2605.19053",
@@ -1534,9 +1588,9 @@
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/4ad64ae7e035d524/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-12-7d210de0e15a78aa0a4785e8/#paper-4ad64ae7e035d524",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "90cb6863e9518198",
@@ -1633,7 +1687,13 @@
       "report_entry_url": "/papers/reports/2026-12-12/#paper-19fd4859ef47535d",
       "paper_url": "/papers/items/19fd4859ef47535d/",
       "paper_report_url": "/papers/items/19fd4859ef47535d/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-12-07dc247701871c674e5e01e6/#paper-19fd4859ef47535d",
+          "scope": "全文中文译文",
+          "title": "Low-Rank Tensor Decomposition-Aided Channel Estimation for Millimeter Wave MIMO-OFDM Systems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1609.03355v2",
         "https://arxiv.org/abs/1609.03355",
@@ -1651,9 +1711,9 @@
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/19fd4859ef47535d/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-12-07dc247701871c674e5e01e6/#paper-19fd4859ef47535d",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "37f05c29124758bc",
@@ -1689,7 +1749,13 @@
       "report_entry_url": "/papers/reports/2026-12-12/#paper-37f05c29124758bc",
       "paper_url": "/papers/items/37f05c29124758bc/",
       "paper_report_url": "/papers/items/37f05c29124758bc/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-12-aeeb35086fe16147c06e0931/#paper-37f05c29124758bc",
+          "scope": "全文中文译文",
+          "title": "Millimeter Wave Channel Estimation via Exploiting Joint Sparse and Low-Rank Structures"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1705.02455v1",
         "https://arxiv.org/abs/1705.02455",
@@ -1706,9 +1772,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/37f05c29124758bc/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-12-aeeb35086fe16147c06e0931/#paper-37f05c29124758bc",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "0bb894c52158bf65",
@@ -1744,7 +1810,13 @@
       "report_entry_url": "/papers/reports/2026-12-12/#paper-0bb894c52158bf65",
       "paper_url": "/papers/items/0bb894c52158bf65/",
       "paper_report_url": "/papers/items/0bb894c52158bf65/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-12-bef4be46036b8adc0096ef8d/#paper-0bb894c52158bf65",
+          "scope": "全文中文译文",
+          "title": "Tensor-Based Channel Estimation for Dual-Polarized Massive MIMO Systems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1805.02223v2",
         "https://arxiv.org/abs/1805.02223",
@@ -1761,9 +1833,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/0bb894c52158bf65/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-12-bef4be46036b8adc0096ef8d/#paper-0bb894c52158bf65",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "ebbbf8fba0633c27",
@@ -1800,7 +1872,13 @@
       "report_entry_url": "/papers/reports/2026-12-12/#paper-ebbbf8fba0633c27",
       "paper_url": "/papers/items/ebbbf8fba0633c27/",
       "paper_report_url": "/papers/items/ebbbf8fba0633c27/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-12-d88e157bbb16fc913f62f73d/#paper-ebbbf8fba0633c27",
+          "scope": "全文中文译文",
+          "title": "Wideband Near-Field Channel Estimation Under Hybrid Compression: Cross-Subcarrier KL Covariance Fitting With OFDM Fresnel Model"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2606.25101v1",
         "https://arxiv.org/abs/2606.25101",
@@ -1818,9 +1896,9 @@
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/ebbbf8fba0633c27/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-12-d88e157bbb16fc913f62f73d/#paper-ebbbf8fba0633c27",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "a63b25c082c8f368",
@@ -1856,7 +1934,13 @@
       "report_entry_url": "/papers/reports/2026-12-12/#paper-a63b25c082c8f368",
       "paper_url": "/papers/items/a63b25c082c8f368/",
       "paper_report_url": "/papers/items/a63b25c082c8f368/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-12-597e07acdddfe269dc27ed02/#paper-a63b25c082c8f368",
+          "scope": "全文中文译文",
+          "title": "Robust Wideband Channel Estimation for mmWave Massive MIMO Systems With Beam Squint"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2209.02196v2",
         "https://arxiv.org/abs/2209.02196",
@@ -1872,9 +1956,9 @@
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/a63b25c082c8f368/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-12-597e07acdddfe269dc27ed02/#paper-a63b25c082c8f368",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "405200fed9c78d9f",
@@ -2032,7 +2116,13 @@
       "report_entry_url": "/papers/reports/2026-12-11/#paper-89b98ebc1446e5e2",
       "paper_url": "/papers/items/89b98ebc1446e5e2/",
       "paper_report_url": "/papers/items/89b98ebc1446e5e2/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-11-0c0401f45e4cc67ecd7c04be/#paper-89b98ebc1446e5e2",
+          "scope": "全文中文译文",
+          "title": "Matrix Denoising with Partial Noise Statistics: Optimal Singular Value Shrinkage of Spiked F-Matrices"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2211.00986v3",
         "https://arxiv.org/abs/2211.00986",
@@ -2051,9 +2141,9 @@
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/89b98ebc1446e5e2/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-11-0c0401f45e4cc67ecd7c04be/#paper-89b98ebc1446e5e2",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "9e15c89c0cd3373f",
@@ -2149,7 +2239,13 @@
       "report_entry_url": "/papers/reports/2026-12-11/#paper-e88208ea0feb0444",
       "paper_url": "/papers/items/e88208ea0feb0444/",
       "paper_report_url": "/papers/items/e88208ea0feb0444/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-11-b5ad9b17c6b6a16fda4f8f77/#paper-e88208ea0feb0444",
+          "scope": "全文中文译文",
+          "title": "Plug-in Channel Estimation with Dithered Quantized Signals in Spatially Non-Stationary Massive MIMO Systems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2301.04641v2",
         "https://arxiv.org/abs/2301.04641",
@@ -2165,9 +2261,9 @@
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/e88208ea0feb0444/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-11-b5ad9b17c6b6a16fda4f8f77/#paper-e88208ea0feb0444",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "eca634cb82d15f77",
@@ -2203,7 +2299,13 @@
       "report_entry_url": "/papers/reports/2026-12-11/#paper-eca634cb82d15f77",
       "paper_url": "/papers/items/eca634cb82d15f77/",
       "paper_report_url": "/papers/items/eca634cb82d15f77/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-11-c6230f2fd08e8c9a43387073/#paper-eca634cb82d15f77",
+          "scope": "全文中文译文",
+          "title": "Mean Spatial Frequency Decoupling for Learning-Based Uplink-to-Downlink Covariance Conversion in FDD Massive MIMO"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2610.00596v1",
         "https://arxiv.org/abs/2610.00596",
@@ -2219,9 +2321,9 @@
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/eca634cb82d15f77/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-11-c6230f2fd08e8c9a43387073/#paper-eca634cb82d15f77",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "70d43272aa17918b",
@@ -2258,7 +2360,13 @@
       "report_entry_url": "/papers/reports/2026-12-11/#paper-70d43272aa17918b",
       "paper_url": "/papers/items/70d43272aa17918b/",
       "paper_report_url": "/papers/items/70d43272aa17918b/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-11-106534690fb80680eba0cd39/#paper-70d43272aa17918b",
+          "scope": "全文中文译文",
+          "title": "Fast Cross-Scenario Adaptation of CSI Models via Channel Conditional Parameter Generation"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2607.22637v1",
         "https://arxiv.org/abs/2607.22637",
@@ -2276,9 +2384,9 @@
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/70d43272aa17918b/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-11-106534690fb80680eba0cd39/#paper-70d43272aa17918b",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "fe0cb421333c7c1c",
@@ -2314,7 +2422,13 @@
       "report_entry_url": "/papers/reports/2026-12-11/#paper-fe0cb421333c7c1c",
       "paper_url": "/papers/items/fe0cb421333c7c1c/",
       "paper_report_url": "/papers/items/fe0cb421333c7c1c/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-11-17bbd163ce629a567d1b7711/#paper-fe0cb421333c7c1c",
+          "scope": "全文中文译文",
+          "title": "Prior-Aware Robust Beam Alignment for Low-SNR Millimeter-Wave Communications"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2312.01100v1",
         "https://arxiv.org/abs/2312.01100",
@@ -2330,9 +2444,9 @@
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/fe0cb421333c7c1c/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-11-17bbd163ce629a567d1b7711/#paper-fe0cb421333c7c1c",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "4aa71096199d0fa0",
@@ -2368,7 +2482,13 @@
       "report_entry_url": "/papers/reports/2026-12-11/#paper-4aa71096199d0fa0",
       "paper_url": "/papers/items/4aa71096199d0fa0/",
       "paper_report_url": "/papers/items/4aa71096199d0fa0/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-11-aa31afd2d97908bb48e98829/#paper-4aa71096199d0fa0",
+          "scope": "全文中文译文",
+          "title": "Reproducible Evaluation of Neural Network Based Channel Estimators And Predictors Using A Generic Dataset"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1912.00005v1",
         "https://arxiv.org/abs/1912.00005",
@@ -2384,9 +2504,9 @@
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/4aa71096199d0fa0/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-11-aa31afd2d97908bb48e98829/#paper-4aa71096199d0fa0",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "8abf0c405e29cea0",
@@ -2423,7 +2543,13 @@
       "report_entry_url": "/papers/reports/2026-12-11/#paper-8abf0c405e29cea0",
       "paper_url": "/papers/items/8abf0c405e29cea0/",
       "paper_report_url": "/papers/items/8abf0c405e29cea0/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-11-32da77e025b452a1216566d3/#paper-8abf0c405e29cea0",
+          "scope": "全文中文译文",
+          "title": "Attention-Aided MMSE with Ridge Denoising: How to Train under Noisy Channel Samples"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2608.15945v1",
         "https://arxiv.org/abs/2608.15945",
@@ -2441,9 +2567,9 @@
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/8abf0c405e29cea0/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-11-32da77e025b452a1216566d3/#paper-8abf0c405e29cea0",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "616265680df2cb4a",
@@ -2857,7 +2983,13 @@
       "report_entry_url": "/papers/reports/2026-12-10/#paper-9721cae4ec177aa8",
       "paper_url": "/papers/items/9721cae4ec177aa8/",
       "paper_report_url": "/papers/items/9721cae4ec177aa8/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-10-433aebb47fe630a7084c3fb5/#paper-9721cae4ec177aa8",
+          "scope": "全文中文译文",
+          "title": "WAIR-D: Wireless AI Research Dataset"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2212.02159v1",
         "https://arxiv.org/abs/2212.02159",
@@ -2873,9 +3005,9 @@
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/9721cae4ec177aa8/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-10-433aebb47fe630a7084c3fb5/#paper-9721cae4ec177aa8",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "986809a959249bf0",
@@ -2975,7 +3107,13 @@
       "report_entry_url": "/papers/reports/2026-12-10/#paper-f44f359d8fbc7f9c",
       "paper_url": "/papers/items/f44f359d8fbc7f9c/",
       "paper_report_url": "/papers/items/f44f359d8fbc7f9c/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-10-fb318e2ad758fad55d660cb5/#paper-f44f359d8fbc7f9c",
+          "scope": "全文中文译文",
+          "title": "BostonTwin: the Boston Digital Twin for Ray-Tracing in 6G Networks"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2403.12289v1",
         "https://arxiv.org/abs/2403.12289",
@@ -2994,9 +3132,9 @@
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/f44f359d8fbc7f9c/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-10-fb318e2ad758fad55d660cb5/#paper-f44f359d8fbc7f9c",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "ed96cf6315ee5bd4",
@@ -3033,7 +3171,13 @@
       "report_entry_url": "/papers/reports/2026-12-10/#paper-ed96cf6315ee5bd4",
       "paper_url": "/papers/items/ed96cf6315ee5bd4/",
       "paper_report_url": "/papers/items/ed96cf6315ee5bd4/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-10-3cef5c3a26d9357dd9e6f12e/#paper-ed96cf6315ee5bd4",
+          "scope": "全文中文译文",
+          "title": "DeepMIMO: A Generic Deep Learning Dataset for Millimeter Wave and Massive MIMO Applications"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1902.06435v1",
         "https://arxiv.org/abs/1902.06435",
@@ -3051,9 +3195,9 @@
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/ed96cf6315ee5bd4/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-10-3cef5c3a26d9357dd9e6f12e/#paper-ed96cf6315ee5bd4",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "a38ed0241302f0df",
@@ -3152,7 +3296,13 @@
       "report_entry_url": "/papers/reports/2026-12-09/#paper-87157873727aad36",
       "paper_url": "/papers/items/87157873727aad36/",
       "paper_report_url": "/papers/items/87157873727aad36/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-09-6de293a36c328d7ff29e96fa/#paper-87157873727aad36",
+          "scope": "全文中文译文",
+          "title": "Low-Complexity Polynomial Channel Estimation in Large-Scale MIMO with Arbitrary Statistics"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1401.5703v2",
         "https://arxiv.org/abs/1401.5703",
@@ -3169,9 +3319,9 @@
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/87157873727aad36/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-09-6de293a36c328d7ff29e96fa/#paper-87157873727aad36",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "ac41a7857280938b",
@@ -3207,7 +3357,13 @@
       "report_entry_url": "/papers/reports/2026-12-09/#paper-ac41a7857280938b",
       "paper_url": "/papers/items/ac41a7857280938b/",
       "paper_report_url": "/papers/items/ac41a7857280938b/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-09-6f82b77aaf311c6a7bce0403/#paper-ac41a7857280938b",
+          "scope": "全文中文译文",
+          "title": "Pilot Length Optimization for Spatially Correlated Multi-User MIMO Channel Estimation"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1602.05480v1",
         "https://arxiv.org/abs/1602.05480",
@@ -3224,9 +3380,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/ac41a7857280938b/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-09-6f82b77aaf311c6a7bce0403/#paper-ac41a7857280938b",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "ae1adebe412c202f",
@@ -3262,7 +3418,13 @@
       "report_entry_url": "/papers/reports/2026-12-09/#paper-ae1adebe412c202f",
       "paper_url": "/papers/items/ae1adebe412c202f/",
       "paper_report_url": "/papers/items/ae1adebe412c202f/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-09-c5b7373b811ad4e2f0eb662c/#paper-ae1adebe412c202f",
+          "scope": "全文中文译文",
+          "title": "Low-Rank Spatial Channel Estimation for Millimeter Wave Cellular Systems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1410.4831v1",
         "https://arxiv.org/abs/1410.4831",
@@ -3279,9 +3441,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/ae1adebe412c202f/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-09-c5b7373b811ad4e2f0eb662c/#paper-ae1adebe412c202f",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "efedf76b4459d353",
@@ -3381,7 +3543,13 @@
       "report_entry_url": "/papers/reports/2026-12-09/#paper-2704d318fe021e27",
       "paper_url": "/papers/items/2704d318fe021e27/",
       "paper_report_url": "/papers/items/2704d318fe021e27/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-09-8f343117a9d5766e4abc8a77/#paper-2704d318fe021e27",
+          "scope": "全文中文译文",
+          "title": "Off-Grid Aware Channel and Covariance Estimation in mmWave Networks"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1907.04423v1",
         "https://arxiv.org/abs/1907.04423",
@@ -3398,9 +3566,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/2704d318fe021e27/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-09-8f343117a9d5766e4abc8a77/#paper-2704d318fe021e27",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "d85827d18788e12c",
@@ -3436,7 +3604,13 @@
       "report_entry_url": "/papers/reports/2026-12-09/#paper-d85827d18788e12c",
       "paper_url": "/papers/items/d85827d18788e12c/",
       "paper_report_url": "/papers/items/d85827d18788e12c/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-09-ddf9262970ea37c8733346c2/#paper-d85827d18788e12c",
+          "scope": "全文中文译文",
+          "title": "Low-Rank Covariance-Assisted Downlink Training and Channel Estimation for FDD Massive MIMO Systems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1607.08841v1",
         "https://arxiv.org/abs/1607.08841",
@@ -3453,9 +3627,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/d85827d18788e12c/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-09-ddf9262970ea37c8733346c2/#paper-d85827d18788e12c",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "3cb8fbfb93d44cab",
@@ -3491,7 +3665,13 @@
       "report_entry_url": "/papers/reports/2026-12-09/#paper-3cb8fbfb93d44cab",
       "paper_url": "/papers/items/3cb8fbfb93d44cab/",
       "paper_report_url": "/papers/items/3cb8fbfb93d44cab/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-09-665c7c5f237e94394f3a50d3/#paper-3cb8fbfb93d44cab",
+          "scope": "全文中文译文",
+          "title": "Channel Covariance Matrix Estimation via Dimension Reduction for Hybrid MIMO MmWave Communication Systems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1905.03916v2",
         "https://arxiv.org/abs/1905.03916",
@@ -3507,9 +3687,9 @@
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/3cb8fbfb93d44cab/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-09-665c7c5f237e94394f3a50d3/#paper-3cb8fbfb93d44cab",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "c62166d7fac8fa46",
@@ -3545,7 +3725,13 @@
       "report_entry_url": "/papers/reports/2026-12-09/#paper-c62166d7fac8fa46",
       "paper_url": "/papers/items/c62166d7fac8fa46/",
       "paper_report_url": "/papers/items/c62166d7fac8fa46/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-09-164a8ebb63496685f7b2a64c/#paper-c62166d7fac8fa46",
+          "scope": "全文中文译文",
+          "title": "Spatial Channel Covariance Estimation for Hybrid Architectures Based on Tensor Decompositions"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1902.06297v1",
         "https://arxiv.org/abs/1902.06297",
@@ -3562,9 +3748,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/c62166d7fac8fa46/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-09-164a8ebb63496685f7b2a64c/#paper-c62166d7fac8fa46",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "61b0b2669536b994",
@@ -3600,7 +3786,13 @@
       "report_entry_url": "/papers/reports/2026-12-09/#paper-61b0b2669536b994",
       "paper_url": "/papers/items/61b0b2669536b994/",
       "paper_report_url": "/papers/items/61b0b2669536b994/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-09-c7104ad43f34c1645473e92c/#paper-61b0b2669536b994",
+          "scope": "全文中文译文",
+          "title": "Pilot Beam Pattern Design for Channel Estimation in Massive MIMO Systems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1309.7430v2",
         "https://arxiv.org/abs/1309.7430",
@@ -3617,9 +3809,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/61b0b2669536b994/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-09-c7104ad43f34c1645473e92c/#paper-61b0b2669536b994",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "d736cf86689a5be9",
@@ -3655,7 +3847,13 @@
       "report_entry_url": "/papers/reports/2026-12-08/#paper-d736cf86689a5be9",
       "paper_url": "/papers/items/d736cf86689a5be9/",
       "paper_report_url": "/papers/items/d736cf86689a5be9/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-08-a30f81547e9e2ed8233c43ee/#paper-d736cf86689a5be9",
+          "scope": "全文中文译文",
+          "title": "Symmetry-Aware Convex Shrinkage for High-Dimensional Covariance Estimation"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2605.17111v2",
         "https://arxiv.org/abs/2605.17111",
@@ -3671,9 +3869,9 @@
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/d736cf86689a5be9/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-08-a30f81547e9e2ed8233c43ee/#paper-d736cf86689a5be9",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "88c907974b5c77d6",
@@ -3709,7 +3907,13 @@
       "report_entry_url": "/papers/reports/2026-12-08/#paper-88c907974b5c77d6",
       "paper_url": "/papers/items/88c907974b5c77d6/",
       "paper_report_url": "/papers/items/88c907974b5c77d6/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-08-bfa44e848b2701e1152bd258/#paper-88c907974b5c77d6",
+          "scope": "全文中文译文",
+          "title": "Linear Shrinkage Estimation of Covariance Matrices Using Low-Complexity Cross-Validation"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1810.08360v1",
         "https://arxiv.org/abs/1810.08360",
@@ -3726,9 +3930,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/88c907974b5c77d6/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-08-bfa44e848b2701e1152bd258/#paper-88c907974b5c77d6",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "08a9edb305c03d84",
@@ -3764,7 +3968,13 @@
       "report_entry_url": "/papers/reports/2026-12-08/#paper-08a9edb305c03d84",
       "paper_url": "/papers/items/08a9edb305c03d84/",
       "paper_report_url": "/papers/items/08a9edb305c03d84/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-08-14071bc6ce7111ed6f0549c5/#paper-08a9edb305c03d84",
+          "scope": "全文中文译文",
+          "title": "Massive MIMO with Imperfect Channel Covariance Information"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1612.04128v3",
         "https://arxiv.org/abs/1612.04128",
@@ -3780,9 +3990,9 @@
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/08a9edb305c03d84/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-08-14071bc6ce7111ed6f0549c5/#paper-08a9edb305c03d84",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "25f62796bafc5804",
@@ -3818,7 +4028,13 @@
       "report_entry_url": "/papers/reports/2026-12-08/#paper-25f62796bafc5804",
       "paper_url": "/papers/items/25f62796bafc5804/",
       "paper_report_url": "/papers/items/25f62796bafc5804/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-08-a1520bd032814185aa2d5845/#paper-25f62796bafc5804",
+          "scope": "全文中文译文",
+          "title": "A Low-Complexity Antenna-Layout-Aware Spatial Covariance Matrix Estimation Method"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1904.13296v1",
         "https://arxiv.org/abs/1904.13296",
@@ -3835,9 +4051,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/25f62796bafc5804/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-08-a1520bd032814185aa2d5845/#paper-25f62796bafc5804",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "0c1363f451672e80",
@@ -3873,7 +4089,13 @@
       "report_entry_url": "/papers/reports/2026-12-08/#paper-0c1363f451672e80",
       "paper_url": "/papers/items/0c1363f451672e80/",
       "paper_report_url": "/papers/items/0c1363f451672e80/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-08-76af121781ffa7386df35ebd/#paper-0c1363f451672e80",
+          "scope": "全文中文译文",
+          "title": "Downlink channel spatial covariance estimation in realistic FDD massive MIMO systems"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1804.04892v2",
         "https://arxiv.org/abs/1804.04892",
@@ -3890,9 +4112,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/0c1363f451672e80/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-08-76af121781ffa7386df35ebd/#paper-0c1363f451672e80",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "1f0f714f2d770c6a",
@@ -3928,7 +4150,13 @@
       "report_entry_url": "/papers/reports/2026-12-08/#paper-1f0f714f2d770c6a",
       "paper_url": "/papers/items/1f0f714f2d770c6a/",
       "paper_report_url": "/papers/items/1f0f714f2d770c6a/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-08-f712b674ca4083a535685153/#paper-1f0f714f2d770c6a",
+          "scope": "全文中文译文",
+          "title": "Spatial Channel Covariance Estimation for the Hybrid MIMO Architecture: A Compressive Sensing Based Approach"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1711.04207v1",
         "https://arxiv.org/abs/1711.04207",
@@ -3945,9 +4173,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/1f0f714f2d770c6a/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-08-f712b674ca4083a535685153/#paper-1f0f714f2d770c6a",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "249808936773b4c7",
@@ -4043,7 +4271,13 @@
       "report_entry_url": "/papers/reports/2026-12-08/#paper-9e731d7e6e84b892",
       "paper_url": "/papers/items/9e731d7e6e84b892/",
       "paper_report_url": "/papers/items/9e731d7e6e84b892/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-08-eaec56a5951e2611598090c3/#paper-9e731d7e6e84b892",
+          "scope": "全文中文译文",
+          "title": "Structured Channel Covariance Estimation from Limited Samples in Massive MIMO"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1910.14467v1",
         "https://arxiv.org/abs/1910.14467",
@@ -4060,9 +4294,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/9e731d7e6e84b892/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-08-eaec56a5951e2611598090c3/#paper-9e731d7e6e84b892",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "f7d9841239fb0243",
@@ -4160,7 +4394,13 @@
       "report_entry_url": "/papers/reports/2026-12-08/#paper-977211e8f4114717",
       "paper_url": "/papers/items/977211e8f4114717/",
       "paper_report_url": "/papers/items/977211e8f4114717/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-08-4b636fd8fe5ac438fd9da4f0/#paper-977211e8f4114717",
+          "scope": "全文中文译文",
+          "title": "Covariance Matrix Estimation for Massive MIMO"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1802.01513v2",
         "https://arxiv.org/abs/1802.01513",
@@ -4179,9 +4419,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/977211e8f4114717/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-08-4b636fd8fe5ac438fd9da4f0/#paper-977211e8f4114717",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "203e5bd6ad15b77b",
@@ -4217,7 +4457,13 @@
       "report_entry_url": "/papers/reports/2026-12-07/#paper-203e5bd6ad15b77b",
       "paper_url": "/papers/items/203e5bd6ad15b77b/",
       "paper_report_url": "/papers/items/203e5bd6ad15b77b/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-07-6014a7704d33639f19e270b9/#paper-203e5bd6ad15b77b",
+          "scope": "全文中文译文",
+          "title": "Channel Knowledge Map for Environment-Aware Communications: EM Algorithm for Map Construction"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2108.06960v1",
         "https://arxiv.org/abs/2108.06960",
@@ -4234,9 +4480,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/203e5bd6ad15b77b/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-07-6014a7704d33639f19e270b9/#paper-203e5bd6ad15b77b",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "305877453a1201b6",
@@ -4272,7 +4518,13 @@
       "report_entry_url": "/papers/reports/2026-12-07/#paper-305877453a1201b6",
       "paper_url": "/papers/items/305877453a1201b6/",
       "paper_report_url": "/papers/items/305877453a1201b6/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-07-440d355425a883fbd80d797a/#paper-305877453a1201b6",
+          "scope": "全文中文译文",
+          "title": "Energy-modified Leverage Sampling for Radio Map Construction via Matrix Completion"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2404.08286v1",
         "https://arxiv.org/abs/2404.08286",
@@ -4289,9 +4541,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/305877453a1201b6/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-07-440d355425a883fbd80d797a/#paper-305877453a1201b6",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "d4bfb0b7896d6b0e",
@@ -4328,7 +4580,13 @@
       "report_entry_url": "/papers/reports/2026-12-07/#paper-d4bfb0b7896d6b0e",
       "paper_url": "/papers/items/d4bfb0b7896d6b0e/",
       "paper_report_url": "/papers/items/d4bfb0b7896d6b0e/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-07-d657f56344647f78c349fa93/#paper-d4bfb0b7896d6b0e",
+          "scope": "全文中文译文",
+          "title": "Structured Group Sparsity: A Novel Indoor WLAN Localization, Outlier Detection, and Radio Map Interpolation Scheme"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1610.05421v1",
         "https://arxiv.org/abs/1610.05421",
@@ -4347,9 +4605,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/d4bfb0b7896d6b0e/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-07-d657f56344647f78c349fa93/#paper-d4bfb0b7896d6b0e",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "b29e6bf038817fe2",
@@ -4447,7 +4705,13 @@
       "report_entry_url": "/papers/reports/2026-12-07/#paper-501ccb22609ddb2f",
       "paper_url": "/papers/items/501ccb22609ddb2f/",
       "paper_report_url": "/papers/items/501ccb22609ddb2f/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-07-62e193b529533fa7869b8c67/#paper-501ccb22609ddb2f",
+          "scope": "全文中文译文",
+          "title": "Detection of Abrupt Change in Channel Covariance Matrix for Multi-Antenna Communication"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2109.04192v1",
         "https://arxiv.org/abs/2109.04192",
@@ -4466,9 +4730,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/501ccb22609ddb2f/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-07-62e193b529533fa7869b8c67/#paper-501ccb22609ddb2f",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "64b4b1d9d429ea96",
@@ -4504,7 +4768,13 @@
       "report_entry_url": "/papers/reports/2026-12-07/#paper-64b4b1d9d429ea96",
       "paper_url": "/papers/items/64b4b1d9d429ea96/",
       "paper_report_url": "/papers/items/64b4b1d9d429ea96/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-07-6f55388f98151420a43c2619/#paper-64b4b1d9d429ea96",
+          "scope": "全文中文译文",
+          "title": "Deep Tensor Learning for Reliable Channel Charting from Incomplete and Noisy Measurements"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2509.13030v1",
         "https://arxiv.org/abs/2509.13030",
@@ -4521,9 +4791,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/64b4b1d9d429ea96/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-07-6f55388f98151420a43c2619/#paper-64b4b1d9d429ea96",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "d79ce83882ca6336",
@@ -4621,7 +4891,13 @@
       "report_entry_url": "/papers/reports/2026-12-07/#paper-020cae699ce3c129",
       "paper_url": "/papers/items/020cae699ce3c129/",
       "paper_report_url": "/papers/items/020cae699ce3c129/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-07-7de8112f974df4af4bcf3718/#paper-020cae699ce3c129",
+          "scope": "全文中文译文",
+          "title": "Channel Charting in Real-World Coordinates"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2308.14498v1",
         "https://arxiv.org/abs/2308.14498",
@@ -4640,9 +4916,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/020cae699ce3c129/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-07-7de8112f974df4af4bcf3718/#paper-020cae699ce3c129",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "8fc5f4cded19b70a",
@@ -4678,7 +4954,13 @@
       "report_entry_url": "/papers/reports/2026-12-07/#paper-8fc5f4cded19b70a",
       "paper_url": "/papers/items/8fc5f4cded19b70a/",
       "paper_report_url": "/papers/items/8fc5f4cded19b70a/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-07-247e939c66147215a837d8de/#paper-8fc5f4cded19b70a",
+          "scope": "全文中文译文",
+          "title": "Triplet-Based Wireless Channel Charting: Architecture and Experiments"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2005.12242v2",
         "https://arxiv.org/abs/2005.12242",
@@ -4695,9 +4977,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/8fc5f4cded19b70a/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-07-247e939c66147215a837d8de/#paper-8fc5f4cded19b70a",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "e6753ee503a0c31b",
@@ -4733,7 +5015,13 @@
       "report_entry_url": "/papers/reports/2026-12-07/#paper-e6753ee503a0c31b",
       "paper_url": "/papers/items/e6753ee503a0c31b/",
       "paper_report_url": "/papers/items/e6753ee503a0c31b/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-07-068a912864a8211e1db96f28/#paper-e6753ee503a0c31b",
+          "scope": "全文中文译文",
+          "title": "Efficient channel charting via phase-insensitive distance computation"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2104.13184v2",
         "https://arxiv.org/abs/2104.13184",
@@ -4749,9 +5037,9 @@
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/e6753ee503a0c31b/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-07-068a912864a8211e1db96f28/#paper-e6753ee503a0c31b",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "d723ed325a40a7d8",
@@ -4787,7 +5075,13 @@
       "report_entry_url": "/papers/reports/2026-12-06/#paper-d723ed325a40a7d8",
       "paper_url": "/papers/items/d723ed325a40a7d8/",
       "paper_report_url": "/papers/items/d723ed325a40a7d8/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-06-a974ce67ad7f40298a2706f1/#paper-d723ed325a40a7d8",
+          "scope": "全文中文译文",
+          "title": "Interacting Object-Enabled Clustering and Characterization of Distributed MIMO Channels"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2504.12220v1",
         "https://arxiv.org/abs/2504.12220",
@@ -4804,9 +5098,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/d723ed325a40a7d8/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-06-a974ce67ad7f40298a2706f1/#paper-d723ed325a40a7d8",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "e3e8575a86333882",
@@ -4842,7 +5136,13 @@
       "report_entry_url": "/papers/reports/2026-12-06/#paper-e3e8575a86333882",
       "paper_url": "/papers/items/e3e8575a86333882/",
       "paper_report_url": "/papers/items/e3e8575a86333882/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-06-307dbe3d660bcc8c4adfbc81/#paper-e3e8575a86333882",
+          "scope": "全文中文译文",
+          "title": "Experimental Analysis of Multipath Characteristics in Indoor Distributed Massive MIMO Channels"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2504.12258v2",
         "https://arxiv.org/abs/2504.12258",
@@ -4859,9 +5159,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/e3e8575a86333882/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-06-307dbe3d660bcc8c4adfbc81/#paper-e3e8575a86333882",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "1d1a8f0e1fd97777",
@@ -4897,7 +5197,13 @@
       "report_entry_url": "/papers/reports/2026-12-06/#paper-1d1a8f0e1fd97777",
       "paper_url": "/papers/items/1d1a8f0e1fd97777/",
       "paper_report_url": "/papers/items/1d1a8f0e1fd97777/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-06-c9b5c265082810e3e0cf93f1/#paper-1d1a8f0e1fd97777",
+          "scope": "全文中文译文",
+          "title": "Channel Hardening in Massive MIMO: Model Parameters and Experimental Assessment"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2004.06772v1",
         "https://arxiv.org/abs/2004.06772",
@@ -4914,9 +5220,9 @@
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/1d1a8f0e1fd97777/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-06-c9b5c265082810e3e0cf93f1/#paper-1d1a8f0e1fd97777",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "54487f7ebf59fa88",
@@ -4952,7 +5258,13 @@
       "report_entry_url": "/papers/reports/2026-12-06/#paper-54487f7ebf59fa88",
       "paper_url": "/papers/items/54487f7ebf59fa88/",
       "paper_report_url": "/papers/items/54487f7ebf59fa88/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-06-356d545dd64f15fb0474dc30/#paper-54487f7ebf59fa88",
+          "scope": "全文中文译文",
+          "title": "How Many Antennas Do We Need for Massive MIMO Channel Sounding? - Validating Through Measurement"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1903.08207v1",
         "https://arxiv.org/abs/1903.08207",
@@ -4968,9 +5280,9 @@
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/54487f7ebf59fa88/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-06-356d545dd64f15fb0474dc30/#paper-54487f7ebf59fa88",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "fbd1292ac2630551",
@@ -5006,7 +5318,13 @@
       "report_entry_url": "/papers/reports/2026-12-06/#paper-fbd1292ac2630551",
       "paper_url": "/papers/items/fbd1292ac2630551/",
       "paper_report_url": "/papers/items/fbd1292ac2630551/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-06-0e5b5dee332aa6c005c2b214/#paper-fbd1292ac2630551",
+          "scope": "全文中文译文",
+          "title": "Spatial separation of closely-spaced users in measured distributed massive MIMO channels"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/2411.18307v1",
         "https://arxiv.org/abs/2411.18307",
@@ -5023,9 +5341,9 @@
       "hosted_pdfs": [],
       "status": "预印本/状态未确认",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/fbd1292ac2630551/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-06-0e5b5dee332aa6c005c2b214/#paper-fbd1292ac2630551",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "3614fee028dfd9f1",
@@ -5061,7 +5379,13 @@
       "report_entry_url": "/papers/reports/2026-12-06/#paper-3614fee028dfd9f1",
       "paper_url": "/papers/items/3614fee028dfd9f1/",
       "paper_report_url": "/papers/items/3614fee028dfd9f1/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-06-32989c264ae38063ef5ec4cc/#paper-3614fee028dfd9f1",
+          "scope": "全文中文译文",
+          "title": "Towards Very Large Aperture Massive MIMO: a measurement based study"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1507.06203v1",
         "https://arxiv.org/abs/1507.06203",
@@ -5078,9 +5402,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/3614fee028dfd9f1/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-06-32989c264ae38063ef5ec4cc/#paper-3614fee028dfd9f1",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "771982f77e4ae711",
@@ -5116,7 +5440,13 @@
       "report_entry_url": "/papers/reports/2026-12-06/#paper-771982f77e4ae711",
       "paper_url": "/papers/items/771982f77e4ae711/",
       "paper_report_url": "/papers/items/771982f77e4ae711/#paper-report",
-      "translations": [],
+      "translations": [
+        {
+          "url": "/papers/translations/2026-12-06-a3cd22ac85f1e5209e5ec064/#paper-771982f77e4ae711",
+          "scope": "全文中文译文",
+          "title": "Channel Extrapolation for FDD Massive MIMO: Procedure and Experimental Results"
+        }
+      ],
       "links": [
         "https://arxiv.org/pdf/1907.11401v1",
         "https://arxiv.org/abs/1907.11401",
@@ -5133,9 +5463,9 @@
       "hosted_pdfs": [],
       "status": "正式发表",
       "translation_status": "complete",
-      "full_translation_public": false,
-      "full_translation_url": "/papers/items/771982f77e4ae711/#paper-translation",
-      "full_translation_label": "全文翻译（仅本地）"
+      "full_translation_public": true,
+      "full_translation_url": "/papers/translations/2026-12-06-a3cd22ac85f1e5209e5ec064/#paper-771982f77e4ae711",
+      "full_translation_label": "阅读全文翻译"
     },
     {
       "id": "6bcbc05425b7e816",
@@ -49116,6 +49446,611 @@
     }
   ],
   "translations": [
+    {
+      "date": "2026-12-13",
+      "url": "/papers/translations/2026-12-13-d30e40bb73ae3fa081eadc05/",
+      "slug": "2026-12-13-d30e40bb73ae3fa081eadc05",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Fast Channel Estimation in the Transformed Spatial Domain for Analog Millimeter Wave Systems",
+      "paper_id": "2104.01857",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-13-d30e40bb73ae3fa081eadc05.md"
+    },
+    {
+      "date": "2026-12-13",
+      "url": "/papers/translations/2026-12-13-c36c8db4825362ac6ec4045b/",
+      "slug": "2026-12-13-c36c8db4825362ac6ec4045b",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Pilot Length Optimization with RS-LS Channel Estimation for Extremely Large Aperture Arrays",
+      "paper_id": "2402.01426",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-13-c36c8db4825362ac6ec4045b.md"
+    },
+    {
+      "date": "2026-12-13",
+      "url": "/papers/translations/2026-12-13-8074d61bfbbdbdccb7b4fc72/",
+      "slug": "2026-12-13-8074d61bfbbdbdccb7b4fc72",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Deep Plug-and-Play Prior for Multitask Channel Reconstruction in Massive MIMO Systems",
+      "paper_id": "2308.04728",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-13-8074d61bfbbdbdccb7b4fc72.md"
+    },
+    {
+      "date": "2026-12-13",
+      "url": "/papers/translations/2026-12-13-27a37b28008e4d6e0998da5b/",
+      "slug": "2026-12-13-27a37b28008e4d6e0998da5b",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Trainable Proximal Gradient Descent Based Channel Estimation for mmWave Massive MIMO Systems",
+      "paper_id": "2212.12214",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-13-27a37b28008e4d6e0998da5b.md"
+    },
+    {
+      "date": "2026-12-13",
+      "url": "/papers/translations/2026-12-13-0adb65d809224a98ad8ca015/",
+      "slug": "2026-12-13-0adb65d809224a98ad8ca015",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Massive MIMO Channel Estimation with an Untrained Deep Neural Network",
+      "paper_id": "1908.00144",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-13-0adb65d809224a98ad8ca015.md"
+    },
+    {
+      "date": "2026-12-12",
+      "url": "/papers/translations/2026-12-12-dbc857787738f0b4dd1c3784/",
+      "slug": "2026-12-12-dbc857787738f0b4dd1c3784",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Super-Resolution mmWave Channel Estimation using Atomic Norm Minimization",
+      "paper_id": "1801.07400",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-12-dbc857787738f0b4dd1c3784.md"
+    },
+    {
+      "date": "2026-12-12",
+      "url": "/papers/translations/2026-12-12-d88e157bbb16fc913f62f73d/",
+      "slug": "2026-12-12-d88e157bbb16fc913f62f73d",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Wideband Near-Field Channel Estimation Under Hybrid Compression: Cross-Subcarrier KL Covariance Fitting With OFDM Fresnel Model",
+      "paper_id": "2606.25101",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-12-d88e157bbb16fc913f62f73d.md"
+    },
+    {
+      "date": "2026-12-12",
+      "url": "/papers/translations/2026-12-12-bef4be46036b8adc0096ef8d/",
+      "slug": "2026-12-12-bef4be46036b8adc0096ef8d",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Tensor-Based Channel Estimation for Dual-Polarized Massive MIMO Systems",
+      "paper_id": "1805.02223",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-12-bef4be46036b8adc0096ef8d.md"
+    },
+    {
+      "date": "2026-12-12",
+      "url": "/papers/translations/2026-12-12-aeeb35086fe16147c06e0931/",
+      "slug": "2026-12-12-aeeb35086fe16147c06e0931",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Millimeter Wave Channel Estimation via Exploiting Joint Sparse and Low-Rank Structures",
+      "paper_id": "1705.02455",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-12-aeeb35086fe16147c06e0931.md"
+    },
+    {
+      "date": "2026-12-12",
+      "url": "/papers/translations/2026-12-12-7d210de0e15a78aa0a4785e8/",
+      "slug": "2026-12-12-7d210de0e15a78aa0a4785e8",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Mode-Tensorized Canonical Polyadic Decomposition for MIMO Channel Estimation",
+      "paper_id": "2605.19053",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-12-7d210de0e15a78aa0a4785e8.md"
+    },
+    {
+      "date": "2026-12-12",
+      "url": "/papers/translations/2026-12-12-597e07acdddfe269dc27ed02/",
+      "slug": "2026-12-12-597e07acdddfe269dc27ed02",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Robust Wideband Channel Estimation for mmWave Massive MIMO Systems With Beam Squint",
+      "paper_id": "2209.02196",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-12-597e07acdddfe269dc27ed02.md"
+    },
+    {
+      "date": "2026-12-12",
+      "url": "/papers/translations/2026-12-12-4e781c2edc6cf5af44f34055/",
+      "slug": "2026-12-12-4e781c2edc6cf5af44f34055",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Ray-Tracing-Parameter-Based Lightweight Hybrid Precoding via Cascade XGBoost for Wideband Massive MIMO-OFDM Systems",
+      "paper_id": "2611.01880",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-12-4e781c2edc6cf5af44f34055.md"
+    },
+    {
+      "date": "2026-12-12",
+      "url": "/papers/translations/2026-12-12-16daa942391e2bfb16cd94fb/",
+      "slug": "2026-12-12-16daa942391e2bfb16cd94fb",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Multi-User Millimeter Wave Channel Estimation Using Generalized Block OMP Algorithm",
+      "paper_id": "1703.05474",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-12-16daa942391e2bfb16cd94fb.md"
+    },
+    {
+      "date": "2026-12-12",
+      "url": "/papers/translations/2026-12-12-07dc247701871c674e5e01e6/",
+      "slug": "2026-12-12-07dc247701871c674e5e01e6",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Low-Rank Tensor Decomposition-Aided Channel Estimation for Millimeter Wave MIMO-OFDM Systems",
+      "paper_id": "1609.03355",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-12-07dc247701871c674e5e01e6.md"
+    },
+    {
+      "date": "2026-12-11",
+      "url": "/papers/translations/2026-12-11-c6230f2fd08e8c9a43387073/",
+      "slug": "2026-12-11-c6230f2fd08e8c9a43387073",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Mean Spatial Frequency Decoupling for Learning-Based Uplink-to-Downlink Covariance Conversion in FDD Massive MIMO",
+      "paper_id": "2610.00596",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-11-c6230f2fd08e8c9a43387073.md"
+    },
+    {
+      "date": "2026-12-11",
+      "url": "/papers/translations/2026-12-11-b5ad9b17c6b6a16fda4f8f77/",
+      "slug": "2026-12-11-b5ad9b17c6b6a16fda4f8f77",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Plug-in Channel Estimation with Dithered Quantized Signals in Spatially Non-Stationary Massive MIMO Systems",
+      "paper_id": "2301.04641",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-11-b5ad9b17c6b6a16fda4f8f77.md"
+    },
+    {
+      "date": "2026-12-11",
+      "url": "/papers/translations/2026-12-11-aa31afd2d97908bb48e98829/",
+      "slug": "2026-12-11-aa31afd2d97908bb48e98829",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Reproducible Evaluation of Neural Network Based Channel Estimators And Predictors Using A Generic Dataset",
+      "paper_id": "1912.00005",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-11-aa31afd2d97908bb48e98829.md"
+    },
+    {
+      "date": "2026-12-11",
+      "url": "/papers/translations/2026-12-11-32da77e025b452a1216566d3/",
+      "slug": "2026-12-11-32da77e025b452a1216566d3",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Attention-Aided MMSE with Ridge Denoising: How to Train under Noisy Channel Samples",
+      "paper_id": "2608.15945",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-11-32da77e025b452a1216566d3.md"
+    },
+    {
+      "date": "2026-12-11",
+      "url": "/papers/translations/2026-12-11-17bbd163ce629a567d1b7711/",
+      "slug": "2026-12-11-17bbd163ce629a567d1b7711",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Prior-Aware Robust Beam Alignment for Low-SNR Millimeter-Wave Communications",
+      "paper_id": "2312.01100",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-11-17bbd163ce629a567d1b7711.md"
+    },
+    {
+      "date": "2026-12-11",
+      "url": "/papers/translations/2026-12-11-106534690fb80680eba0cd39/",
+      "slug": "2026-12-11-106534690fb80680eba0cd39",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Fast Cross-Scenario Adaptation of CSI Models via Channel Conditional Parameter Generation",
+      "paper_id": "2607.22637",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-11-106534690fb80680eba0cd39.md"
+    },
+    {
+      "date": "2026-12-11",
+      "url": "/papers/translations/2026-12-11-0c0401f45e4cc67ecd7c04be/",
+      "slug": "2026-12-11-0c0401f45e4cc67ecd7c04be",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Matrix Denoising with Partial Noise Statistics: Optimal Singular Value Shrinkage of Spiked F-Matrices",
+      "paper_id": "2211.00986",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-11-0c0401f45e4cc67ecd7c04be.md"
+    },
+    {
+      "date": "2026-12-10",
+      "url": "/papers/translations/2026-12-10-fb318e2ad758fad55d660cb5/",
+      "slug": "2026-12-10-fb318e2ad758fad55d660cb5",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "BostonTwin: the Boston Digital Twin for Ray-Tracing in 6G Networks",
+      "paper_id": "2403.12289",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-10-fb318e2ad758fad55d660cb5.md"
+    },
+    {
+      "date": "2026-12-10",
+      "url": "/papers/translations/2026-12-10-433aebb47fe630a7084c3fb5/",
+      "slug": "2026-12-10-433aebb47fe630a7084c3fb5",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "WAIR-D: Wireless AI Research Dataset",
+      "paper_id": "2212.02159",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-10-433aebb47fe630a7084c3fb5.md"
+    },
+    {
+      "date": "2026-12-10",
+      "url": "/papers/translations/2026-12-10-3cef5c3a26d9357dd9e6f12e/",
+      "slug": "2026-12-10-3cef5c3a26d9357dd9e6f12e",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "DeepMIMO: A Generic Deep Learning Dataset for Millimeter Wave and Massive MIMO Applications",
+      "paper_id": "1902.06435",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-10-3cef5c3a26d9357dd9e6f12e.md"
+    },
+    {
+      "date": "2026-12-09",
+      "url": "/papers/translations/2026-12-09-ddf9262970ea37c8733346c2/",
+      "slug": "2026-12-09-ddf9262970ea37c8733346c2",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Low-Rank Covariance-Assisted Downlink Training and Channel Estimation for FDD Massive MIMO Systems",
+      "paper_id": "1607.08841",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-09-ddf9262970ea37c8733346c2.md"
+    },
+    {
+      "date": "2026-12-09",
+      "url": "/papers/translations/2026-12-09-c7104ad43f34c1645473e92c/",
+      "slug": "2026-12-09-c7104ad43f34c1645473e92c",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Pilot Beam Pattern Design for Channel Estimation in Massive MIMO Systems",
+      "paper_id": "1309.7430",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-09-c7104ad43f34c1645473e92c.md"
+    },
+    {
+      "date": "2026-12-09",
+      "url": "/papers/translations/2026-12-09-c5b7373b811ad4e2f0eb662c/",
+      "slug": "2026-12-09-c5b7373b811ad4e2f0eb662c",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Low-Rank Spatial Channel Estimation for Millimeter Wave Cellular Systems",
+      "paper_id": "1410.4831",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-09-c5b7373b811ad4e2f0eb662c.md"
+    },
+    {
+      "date": "2026-12-09",
+      "url": "/papers/translations/2026-12-09-8f343117a9d5766e4abc8a77/",
+      "slug": "2026-12-09-8f343117a9d5766e4abc8a77",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Off-Grid Aware Channel and Covariance Estimation in mmWave Networks",
+      "paper_id": "1907.04423",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-09-8f343117a9d5766e4abc8a77.md"
+    },
+    {
+      "date": "2026-12-09",
+      "url": "/papers/translations/2026-12-09-6f82b77aaf311c6a7bce0403/",
+      "slug": "2026-12-09-6f82b77aaf311c6a7bce0403",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Pilot Length Optimization for Spatially Correlated Multi-User MIMO Channel Estimation",
+      "paper_id": "1602.05480",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-09-6f82b77aaf311c6a7bce0403.md"
+    },
+    {
+      "date": "2026-12-09",
+      "url": "/papers/translations/2026-12-09-6de293a36c328d7ff29e96fa/",
+      "slug": "2026-12-09-6de293a36c328d7ff29e96fa",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Low-Complexity Polynomial Channel Estimation in Large-Scale MIMO with Arbitrary Statistics",
+      "paper_id": "1401.5703",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-09-6de293a36c328d7ff29e96fa.md"
+    },
+    {
+      "date": "2026-12-09",
+      "url": "/papers/translations/2026-12-09-665c7c5f237e94394f3a50d3/",
+      "slug": "2026-12-09-665c7c5f237e94394f3a50d3",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Channel Covariance Matrix Estimation via Dimension Reduction for Hybrid MIMO MmWave Communication Systems",
+      "paper_id": "1905.03916",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-09-665c7c5f237e94394f3a50d3.md"
+    },
+    {
+      "date": "2026-12-09",
+      "url": "/papers/translations/2026-12-09-164a8ebb63496685f7b2a64c/",
+      "slug": "2026-12-09-164a8ebb63496685f7b2a64c",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Spatial Channel Covariance Estimation for Hybrid Architectures Based on Tensor Decompositions",
+      "paper_id": "1902.06297",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-09-164a8ebb63496685f7b2a64c.md"
+    },
+    {
+      "date": "2026-12-08",
+      "url": "/papers/translations/2026-12-08-f712b674ca4083a535685153/",
+      "slug": "2026-12-08-f712b674ca4083a535685153",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Spatial Channel Covariance Estimation for the Hybrid MIMO Architecture: A Compressive Sensing Based Approach",
+      "paper_id": "1711.04207",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-08-f712b674ca4083a535685153.md"
+    },
+    {
+      "date": "2026-12-08",
+      "url": "/papers/translations/2026-12-08-eaec56a5951e2611598090c3/",
+      "slug": "2026-12-08-eaec56a5951e2611598090c3",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Structured Channel Covariance Estimation from Limited Samples in Massive MIMO",
+      "paper_id": "1910.14467",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-08-eaec56a5951e2611598090c3.md"
+    },
+    {
+      "date": "2026-12-08",
+      "url": "/papers/translations/2026-12-08-bfa44e848b2701e1152bd258/",
+      "slug": "2026-12-08-bfa44e848b2701e1152bd258",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Linear Shrinkage Estimation of Covariance Matrices Using Low-Complexity Cross-Validation",
+      "paper_id": "1810.08360",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-08-bfa44e848b2701e1152bd258.md"
+    },
+    {
+      "date": "2026-12-08",
+      "url": "/papers/translations/2026-12-08-a30f81547e9e2ed8233c43ee/",
+      "slug": "2026-12-08-a30f81547e9e2ed8233c43ee",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Symmetry-Aware Convex Shrinkage for High-Dimensional Covariance Estimation",
+      "paper_id": "2605.17111",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-08-a30f81547e9e2ed8233c43ee.md"
+    },
+    {
+      "date": "2026-12-08",
+      "url": "/papers/translations/2026-12-08-a1520bd032814185aa2d5845/",
+      "slug": "2026-12-08-a1520bd032814185aa2d5845",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "A Low-Complexity Antenna-Layout-Aware Spatial Covariance Matrix Estimation Method",
+      "paper_id": "1904.13296",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-08-a1520bd032814185aa2d5845.md"
+    },
+    {
+      "date": "2026-12-08",
+      "url": "/papers/translations/2026-12-08-76af121781ffa7386df35ebd/",
+      "slug": "2026-12-08-76af121781ffa7386df35ebd",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Downlink channel spatial covariance estimation in realistic FDD massive MIMO systems",
+      "paper_id": "1804.04892",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-08-76af121781ffa7386df35ebd.md"
+    },
+    {
+      "date": "2026-12-08",
+      "url": "/papers/translations/2026-12-08-4b636fd8fe5ac438fd9da4f0/",
+      "slug": "2026-12-08-4b636fd8fe5ac438fd9da4f0",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Covariance Matrix Estimation for Massive MIMO",
+      "paper_id": "1802.01513",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-08-4b636fd8fe5ac438fd9da4f0.md"
+    },
+    {
+      "date": "2026-12-08",
+      "url": "/papers/translations/2026-12-08-14071bc6ce7111ed6f0549c5/",
+      "slug": "2026-12-08-14071bc6ce7111ed6f0549c5",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Massive MIMO with Imperfect Channel Covariance Information",
+      "paper_id": "1612.04128",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-08-14071bc6ce7111ed6f0549c5.md"
+    },
+    {
+      "date": "2026-12-07",
+      "url": "/papers/translations/2026-12-07-d657f56344647f78c349fa93/",
+      "slug": "2026-12-07-d657f56344647f78c349fa93",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Structured Group Sparsity: A Novel Indoor WLAN Localization, Outlier Detection, and Radio Map Interpolation Scheme",
+      "paper_id": "1610.05421",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-07-d657f56344647f78c349fa93.md"
+    },
+    {
+      "date": "2026-12-07",
+      "url": "/papers/translations/2026-12-07-7de8112f974df4af4bcf3718/",
+      "slug": "2026-12-07-7de8112f974df4af4bcf3718",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Channel Charting in Real-World Coordinates",
+      "paper_id": "2308.14498",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-07-7de8112f974df4af4bcf3718.md"
+    },
+    {
+      "date": "2026-12-07",
+      "url": "/papers/translations/2026-12-07-6f55388f98151420a43c2619/",
+      "slug": "2026-12-07-6f55388f98151420a43c2619",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Deep Tensor Learning for Reliable Channel Charting from Incomplete and Noisy Measurements",
+      "paper_id": "2509.13030",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-07-6f55388f98151420a43c2619.md"
+    },
+    {
+      "date": "2026-12-07",
+      "url": "/papers/translations/2026-12-07-62e193b529533fa7869b8c67/",
+      "slug": "2026-12-07-62e193b529533fa7869b8c67",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Detection of Abrupt Change in Channel Covariance Matrix for Multi-Antenna Communication",
+      "paper_id": "2109.04192",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-07-62e193b529533fa7869b8c67.md"
+    },
+    {
+      "date": "2026-12-07",
+      "url": "/papers/translations/2026-12-07-6014a7704d33639f19e270b9/",
+      "slug": "2026-12-07-6014a7704d33639f19e270b9",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Channel Knowledge Map for Environment-Aware Communications: EM Algorithm for Map Construction",
+      "paper_id": "2108.06960",
+      "license_url": "http://creativecommons.org/licenses/by-nc-nd/4.0/",
+      "download": "/assets/papers/translations/2026-12-07-6014a7704d33639f19e270b9.md"
+    },
+    {
+      "date": "2026-12-07",
+      "url": "/papers/translations/2026-12-07-440d355425a883fbd80d797a/",
+      "slug": "2026-12-07-440d355425a883fbd80d797a",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Energy-modified Leverage Sampling for Radio Map Construction via Matrix Completion",
+      "paper_id": "2404.08286",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-07-440d355425a883fbd80d797a.md"
+    },
+    {
+      "date": "2026-12-07",
+      "url": "/papers/translations/2026-12-07-247e939c66147215a837d8de/",
+      "slug": "2026-12-07-247e939c66147215a837d8de",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Triplet-Based Wireless Channel Charting: Architecture and Experiments",
+      "paper_id": "2005.12242",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-07-247e939c66147215a837d8de.md"
+    },
+    {
+      "date": "2026-12-07",
+      "url": "/papers/translations/2026-12-07-068a912864a8211e1db96f28/",
+      "slug": "2026-12-07-068a912864a8211e1db96f28",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Efficient channel charting via phase-insensitive distance computation",
+      "paper_id": "2104.13184",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-07-068a912864a8211e1db96f28.md"
+    },
+    {
+      "date": "2026-12-06",
+      "url": "/papers/translations/2026-12-06-c9b5c265082810e3e0cf93f1/",
+      "slug": "2026-12-06-c9b5c265082810e3e0cf93f1",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Channel Hardening in Massive MIMO: Model Parameters and Experimental Assessment",
+      "paper_id": "2004.06772",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-06-c9b5c265082810e3e0cf93f1.md"
+    },
+    {
+      "date": "2026-12-06",
+      "url": "/papers/translations/2026-12-06-a974ce67ad7f40298a2706f1/",
+      "slug": "2026-12-06-a974ce67ad7f40298a2706f1",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Interacting Object-Enabled Clustering and Characterization of Distributed MIMO Channels",
+      "paper_id": "2504.12220",
+      "license_url": "http://creativecommons.org/licenses/by-nc-nd/4.0/",
+      "download": "/assets/papers/translations/2026-12-06-a974ce67ad7f40298a2706f1.md"
+    },
+    {
+      "date": "2026-12-06",
+      "url": "/papers/translations/2026-12-06-a3cd22ac85f1e5209e5ec064/",
+      "slug": "2026-12-06-a3cd22ac85f1e5209e5ec064",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Channel Extrapolation for FDD Massive MIMO: Procedure and Experimental Results",
+      "paper_id": "1907.11401",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-06-a3cd22ac85f1e5209e5ec064.md"
+    },
+    {
+      "date": "2026-12-06",
+      "url": "/papers/translations/2026-12-06-356d545dd64f15fb0474dc30/",
+      "slug": "2026-12-06-356d545dd64f15fb0474dc30",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "How Many Antennas Do We Need for Massive MIMO Channel Sounding? - Validating Through Measurement",
+      "paper_id": "1903.08207",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-06-356d545dd64f15fb0474dc30.md"
+    },
+    {
+      "date": "2026-12-06",
+      "url": "/papers/translations/2026-12-06-32989c264ae38063ef5ec4cc/",
+      "slug": "2026-12-06-32989c264ae38063ef5ec4cc",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Towards Very Large Aperture Massive MIMO: a measurement based study",
+      "paper_id": "1507.06203",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-06-32989c264ae38063ef5ec4cc.md"
+    },
+    {
+      "date": "2026-12-06",
+      "url": "/papers/translations/2026-12-06-307dbe3d660bcc8c4adfbc81/",
+      "slug": "2026-12-06-307dbe3d660bcc8c4adfbc81",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Experimental Analysis of Multipath Characteristics in Indoor Distributed Massive MIMO Channels",
+      "paper_id": "2504.12258",
+      "license_url": "http://creativecommons.org/licenses/by-nc-nd/4.0/",
+      "download": "/assets/papers/translations/2026-12-06-307dbe3d660bcc8c4adfbc81.md"
+    },
+    {
+      "date": "2026-12-06",
+      "url": "/papers/translations/2026-12-06-0e5b5dee332aa6c005c2b214/",
+      "slug": "2026-12-06-0e5b5dee332aa6c005c2b214",
+      "source_file": "paper.md",
+      "scope": "全文中文译文",
+      "title": "Spatial separation of closely-spaced users in measured distributed massive MIMO channels",
+      "paper_id": "2411.18307",
+      "license_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "download": "/assets/papers/translations/2026-12-06-0e5b5dee332aa6c005c2b214.md"
+    },
     {
       "date": "2026-11-27",
       "url": "/papers/translations/2026-11-27-ea206cf830de0498815f20ba/",
