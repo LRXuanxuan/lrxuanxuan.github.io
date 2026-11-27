@@ -1,3 +1,31 @@
+- slug: "hanno-periplus-carthage"
+  added_at: "2026-11-27T17:51:00+08:00"
+  title: "汉诺《航海记》：一份绕道传下来的迦太基故事"
+  english: "The Periplus of Hanno: A Carthaginian Story in a Greek Manuscript"
+  teaser: "阿西莫夫笔下的历史学家想亲眼看看迦太基。现实里，一份署名汉诺的航海记倒是绕了个弯，留在一部希腊文抄本里。"
+  tags:
+    - "古代史"
+    - "迦太基"
+    - "航海史"
+    - "科幻文学"
+  body: |
+    阿西莫夫《过去已死》里，研究迦太基的历史学家想用一台能看见过去的机器，看看迦太基人到底做过什么。读到这里，不妨翻一份现实里的旧记录：**汉诺《航海记》**。
+
+    ### 从神庙到抄本
+
+    《航海记》讲的是一支迦太基船队驶过「赫拉克勒斯之柱」，沿非洲大西洋海岸航行的故事。开头还有一则有趣的交代：**按卷首的说法，汉诺曾把这份记录献在神庙里。** 这是文本自己的说法，并不是神庙里的原件已经被找到。
+
+    海德堡大学图书馆收藏的 **Cod. Pal. graec. 398** 是一部希腊文抄本，《航海记》在 **第 55 叶正面至第 56 叶正面（55r–56r）**。这里的 r 是正面，v 是背面，所以整篇在这本抄本里只占三个页面。
+
+    ### 我们听见的是谁的声音？
+
+    今天读到的是希腊文传本。它究竟在多大程度上保留了更早的迦太基记录，以及船队究竟航行到哪里，都还有争论。这几页不能替迦太基回答小说里那个问题，却让人看到，连一则以迦太基人自述口吻写下的故事，也要经过另一种语言和后世抄本，才到得了我们手里。
+  sources:
+    - label: "海德堡大学图书馆：Cod. Pal. graec. 398 馆藏目录（第 5 项，55r–56r）"
+      url: "https://digi.ub.uni-heidelberg.de/de/bpd/beschreibungen/cpgraec398.html"
+    - label: "P. E. H. Hair：关于汉诺《航海记》及其史料争议的研究"
+      url: "https://www.cambridge.org/core/journals/history-in-africa/article/abs/periplus-of-hanno-in-the-history-and-historiography-of-black-africa/73D2406CDF4F7F9FB8D9060A3DE0C913"
+
 - slug: "liu-jing-zhu-wo"
   added_at: "2026-11-12T10:10:00+08:00"
   title: "六经注我：让经典成为自己思想的注脚"
